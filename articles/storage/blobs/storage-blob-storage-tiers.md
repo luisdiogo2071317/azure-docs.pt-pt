@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d7d7a6d67efd5ed230750be87450760498f9b877
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630967"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576244"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
@@ -73,7 +73,7 @@ Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Também não é possível alterar a camada de um blob de bloco que tem instantâneos.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
-Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece uma política de avançado e baseado em regras que pode ser usado para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do seu ciclo de vida. Ver [gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
+Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece uma política de avançado e baseado em regras que pode ser usado para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do seu ciclo de vida. Ver [gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Faturação da criação de camadas ao nível de blobs
 
@@ -191,7 +191,7 @@ O armazenamento de dados, juntamente com outros limites, é definido ao nível d
 
 [Verificar a disponibilidade das camadas frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
 
-[Gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
+[Gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

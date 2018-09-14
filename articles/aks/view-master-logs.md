@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 50de43fd6f9ca579b501c47514c9f8fca4f53ae8
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442372"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540973"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever o Kubernetes no Azure Kubernetes Service (AKS) de registos de nó principal
 
@@ -75,8 +75,7 @@ Pode demorar alguns minutos para que os registos de diagnóstico para ser ativad
 No lado esquerdo, selecione **pesquisa de registos**. Para ver os *kube apiserver*, introduza a seguinte consulta na caixa de texto:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -84,8 +83,7 @@ search *
 Provavelmente, muitos registos são devolvidos para o servidor de API. Para definir o âmbito para baixo a consulta para ver os registos sobre o pod NGINX criado no passo anterior, adicione um adicionais *em que* instrução para procurar *pods/nginx* conforme mostrado na seguinte consulta de exemplo:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s

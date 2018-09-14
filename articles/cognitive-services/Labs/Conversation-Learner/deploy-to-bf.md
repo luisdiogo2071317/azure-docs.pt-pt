@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 83e1fbfeee75534757dcb3c0275ca881e1eea517
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298000"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578774"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implementar um bot de aprendiz de conversação
 
@@ -94,7 +94,7 @@ O bot está agora em execução localmente.  Pode acessá-lo com o emulador de B
 
 Publica o seu bot de aprendiz de conversação semelhante da mesma forma que pretende publicar quaisquer outros bot. Num alto nível, carregue seu código para um Web site alojado, definir os valores de configuração apropriada e, em seguida, registe o bot com vários canais. Instruções detalhadas são neste vídeo que mostra como publicar o seu bot com o Azure Bot Service.
 
-Depois do bot é implementado e em execução pode ligar-se diferentes canais ao mesmo, como o Facebook, Teams, Skype etc usando um registo de canal de Bot do Azure. Para obter a documentação sobre esse processo, veja: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
+Depois do bot é implementado e em execução pode ligar-se diferentes canais ao mesmo, como o Facebook, Teams, Skype etc usando um registo de canal de Bot do Azure. Para obter a documentação sobre esse processo, veja: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Seguem-se as instruções passo a passo para implementar um Bot de aprendiz de conversação para o Azure.  Estas instruções partem do princípio de que a sua origem de bot está disponível a partir de uma origem com base na cloud, como os serviços do Azure DevOps, GitHub, BitBucket ou o OneDrive e irá configurar o seu bot para a implementação contínua.
 

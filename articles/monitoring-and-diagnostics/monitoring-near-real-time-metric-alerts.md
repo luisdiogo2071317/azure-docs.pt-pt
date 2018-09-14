@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 4d51b099532d3052acc190231ec4be17765a427e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971028"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579094"
 ---
-# <a name="introduction"></a>Introdução
+# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Recursos suportados para alertas de métricas mais recente do Azure Monitor
 Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](monitoring-overview-unified-alerts.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](insights-alerts-portal.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto. 
 
 Também pode utilizar alertas de métricas mais recente em populares registos do Log Analytics extraídos como métricas como parte das métricas de registos (pré-visualização)  
@@ -51,7 +51,7 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 |Microsoft.DBforMySQL/servers     |   N/A      |[DB para MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB para o PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Sim      |[Hubs de Eventos](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
-|Microsoft.KeyVault/vaults| Não | [Cofres](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
+|Microsoft.KeyVault/vaults| Não | [cofres](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Aplicações Lógicas](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Gateways de aplicação](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/expressRouteCircuits | N/A |  [Express Route circuitos](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |

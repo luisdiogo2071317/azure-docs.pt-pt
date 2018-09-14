@@ -8,12 +8,12 @@ ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7b3f403ac479e0a6a8a4ae46c2a5ab448bd8ecc2
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042944"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544135"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
 
@@ -369,7 +369,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Apenas herdadas coleções do DocumentDB do Azure e API de SQL no Azure Cosmos DB são compatíveis. APIs de BD do Cosmos mais recente ainda não são suportadas. Escolha o Azure DocumentDB na lista de origem de dados.</td>
     </tr>
     <tr>
       <td>Tabela ODBC genérica</td>
@@ -534,32 +534,6 @@ Se quiser ver uma origem de dados específicos suportada, sugeri-lo (ou o suport
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035865"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578502"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a sua opção de publicação
 A opção de publicação que escolher para a oferta está relacionada diretamente para os requisitos de elegibilidade e os benefícios GTM do marketplace. Mais importante, a seleção da opção e o tipo de oferta de publicação no Portal de parceiros de nuvem define como os utilizadores irão interagir com a oferta do marketplace.
@@ -80,7 +80,7 @@ Antes de poder criar uma oferta, tem de escolher um tipo de oferta. O tipo de of
 
 Um tipo de oferta único pode ser configurado de forma diferente no Portal de parceiros na Cloud para ativar as diferentes opções de publicação, chamadas de ação, preços ou aprovisionamento. A opção de publicação e a configuração do tipo de oferta também se alinham com os requisitos técnicos e de elegibilidade de oferta. 
 
-Certifique-se de que reveja loja e oferecem os requisitos de elegibilidade de tipo desta [Guia do publicador](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) e a técnica de publicação requisitos antes de criar a sua oferta.
+Certifique-se de que reveja loja e oferecem os requisitos de elegibilidade de tipo desta [Guia do publicador](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e a técnica de publicação requisitos antes de criar a sua oferta.
 
 ## <a name="next-steps"></a>Próximos Passos
 

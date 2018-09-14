@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 50e48200d2e818cc52a1629986c620a3be1eb7b1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841884"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578210"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implementar o fornecedor de recursos do MySQL no Azure Stack
 
@@ -89,7 +89,7 @@ Pode especificar estes parâmetros da linha de comando. Se não o fizer, ou se n
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Utilize as mesmas credenciais que utilizou para a implementação do Azure Stack. | _Necessário_ |
 | **VMLocalCredential** | As credenciais para a conta de administrador local do fornecedor de recursos do MySQL VM. | _Necessário_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto final com privilégios. |  _Necessário_ |
-| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Obrigatório apenas se não é ADFS. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, a utilizar **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Apenas necessário para implementações do Azure AD. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se utilizar uma Azure AD, da China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Para apenas sistemas integrados, o ficheiro. pfx de certificado deve ser colocado neste diretório. Para enviroments desligado, baixe [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) para este diretório. Opcionalmente, pode copiar um pacote de Windows Update MSU aqui. | _Opcional_ (_obrigatório_ para sistemas integrados ou ambientes desconectados) |
 | **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx. | _Necessário_ |
 | **MaxRetryCount** | O número de vezes que pretende repetir a cada operação, se ocorrer uma falha.| 2 |
@@ -111,8 +111,11 @@ Install-Module -Name AzureStack -RequiredVersion 1.4.0
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\MYSQLRP'
@@ -139,6 +142,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert `
     -AcceptLicense

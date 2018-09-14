@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 9bdc0c479e7a620f29bf11d350b8414881be3326
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 003fb667177bbf7f532946d34a06da757646ade3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717935"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578587"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -201,7 +201,7 @@ Para utilizar a autenticação de token de aplicação baseada em MSI do Azure A
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de base de dados do Azure SQL.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de base de dados do Azure SQL.
 
 Para copiar dados de ou para a base de dados do Azure SQL, defina o **tipo** propriedade do conjunto de dados para **AzureSqlTable**. São suportadas as seguintes propriedades:
 

@@ -1,6 +1,6 @@
 ---
-title: Segurança do Azure e conformidade Blueprint - aplicação Web de IaaS para GDPR
-description: Segurança do Azure e conformidade Blueprint - aplicação Web de IaaS para GDPR
+title: Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS para GDPR
+description: Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS para GDPR
 services: security
 author: jomolesk
 ms.assetid: 04d5239c-fff0-4c2d-9379-1fa79ddbec78
@@ -8,58 +8,58 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: c418664fe94ee2801a24df59b9ef3451f3985cdb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: eefbf4686e5bdc9e53f063221104a6af9817fb50
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34162191"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576325"
 ---
-# <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Segurança do Azure e conformidade Blueprint - aplicação Web de IaaS para GDPR
+# <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS para GDPR
 
 ## <a name="overview"></a>Descrição geral
-O Regulamento de proteção de dados (GDPR) geral contém muitos requisitos sobre recolher, armazenar e a utilização de informações pessoais, incluindo como as organizações a identificarem e proteger os dados pessoais, acomodar os requisitos de transparência, detetarem e comunicar falhas de dados pessoais e técnicos de privacidade de formação e outros empregados. O GDPR proporciona indivíduos maior controlo sobre os respetivos dados pessoais e impõe muitos obrigações novo sobre as organizações que recolhem, identificador ou analisam os dados pessoais. O GDPR impõe novas regras sobre as organizações que ofereçam bens e serviços para as pessoas da União Europeia (EU) ou que recolher e analisam dados associados ao residentes de EU. O GDPR aplica-se, independentemente de onde está localizada numa organização.
+O Regulamento de proteção de dados (GDPR) geral contém muitos requisitos sobre a recolher, armazenar e usar informações pessoais, incluindo como as organizações a identificarem e proteger dados pessoais, acomodar os requisitos de transparência, detetar e comunicar violações de dados pessoais e o pessoal de privacidade train e outros funcionários. O GDPR oferece maior controle sobre seus dados pessoais de indivíduos e impõe obrigações de novo vários de organizações que recolhem, processarem ou analisar os dados pessoais. O GDPR impõe as regras de novo em organizações que oferecem bens e serviços a pessoas localizadas na União Europeia (UE), ou que recolha e analisam dados associados a residentes da UE. O GDPR aplica-se, independentemente de onde está localizada a uma organização.
 
-Microsoft concebido do Azure com as políticas de privacidade para salvaguardar os dados na nuvem, incluindo as categorias de dados pessoais identificados pelo GDPR e medidas de segurança líder da indústria. Microsoft [termos contractual](http://aka.ms/Online-Services-Terms) consolidar Microsoft os requisitos de processadores.
+A Microsoft criou o Azure com as políticas de privacidade para salvaguardar os dados na cloud, incluindo as categorias de dados pessoais identificados pelo GDPR e medidas de segurança líderes do setor. Da Microsoft [termos contratuais](http://aka.ms/Online-Services-Terms) consolidar Microsoft para os requisitos de processadores.
 
-Esta segurança do Azure e a conformidade Blueprint fornece orientações para implementar uma infraestrutura como um ambiente de serviço (IaaS) adequado para uma simple aplicação de web para a Internet. Esta solução demonstra formas em que os clientes podem cumpre os requisitos específicos de segurança e conformidade do GDPR e funciona como uma base para os clientes criar e configurar as suas próprias soluções de aplicação de web de IaaS no Azure. Os clientes podem utilizar esta arquitetura de referência e siga da Microsoft [processo quatro passos](https://aka.ms/gdprebook) no respetivo journey a compatibilidade de GDPR:
-1. Detetar: Identifique quais os dados pessoais existem e a respetiva localização.
-2. Gerir: Regulam os dados pessoais como é utilizado e acedido.
-3. Proteger: Estabelece controlos de segurança para evitar, detetar e responder a vulnerabilidades e falhas de dados.
-4. Relatório: Manter a documentação necessária e gerir pedidos de dados e infringir notificações.
+Este Azure no Security and Compliance Blueprint fornece orientações para implementar uma infraestrutura como um ambiente de serviço (IaaS) adequado para um simple aplicativo de web de acesso à Internet. Esta solução demonstra maneiras em que os clientes podem satisfazer os requisitos específicos de segurança e conformidade o gdpr e serve como uma base para os clientes criar e configurar suas próprias soluções de aplicação web IaaS no Azure. Os clientes podem utilizar esta arquitetura de referência e siga da Microsoft [processo de quatro etapas](https://aka.ms/gdprebook) na sua jornada para conformidade com o GDPR:
+1. Detetar: Identifica os dados pessoais que existem e a respetiva localização.
+2. Gerir: Regulam os dados pessoais como são utilizadas e acedidos.
+3. Proteger: Estabelece controlos de segurança para prevenir, detetar e responder a vulnerabilidades e violações de dados.
+4. Relatório: Manter a documentação necessária e gerir pedidos de dados e notificações de violações.
 
-Esta arquitetura de referência, o guia de implementação associados e o modelo de ameaça destinam-se para servir como base para os clientes para se adaptar os seus requisitos específicos e não devem ser utilizados como-é num ambiente de produção. Tenha em atenção o seguinte:
-- A arquitetura fornece uma linha de base para ajudar os clientes implementar cargas de trabalho no Azure de forma GDPR compatíveis.
-- Os clientes são responsáveis para realizar a segurança adequada e avaliações de conformidade de qualquer solução incorporada com esta arquitetura, como os requisitos podem variar com base nas especificações de implementação de cada cliente.
+Esta arquitetura de referência, o guia de implementação associados e o modelo de risco são deve ser usado como uma base para os clientes para se adaptar às suas necessidades específicas e não devem ser utilizados como-está num ambiente de produção. Tenha em atenção o seguinte:
+- A arquitetura fornece uma linha de base para ajudar os clientes a implementar cargas de trabalho para o Azure de forma compatível com o GDPR.
+- Os clientes são responsáveis pela realização de segurança adequados e avaliações de conformidade de qualquer solução criada com esta arquitetura, como os requisitos podem variar com base nas especificidades da implementação de cada cliente.
 
-## <a name="architecture-diagram-and-components"></a>Diagrama da arquitetura e componentes
-Esta solução implementa uma arquitetura de referência para uma aplicação web de IaaS com um back-end do SQL Server. A arquitetura inclui uma camada web, a camada de dados, infraestrutura do Active Directory, Gateway de aplicação e Balanceador de carga. Máquinas virtuais implementadas para os escalões web e os dados estão configuradas num conjunto de disponibilidade e instâncias do SQL Server estão configuradas num grupo de Disponibilidade AlwaysOn para elevada disponibilidade. Máquinas virtuais estão associados a um domínio e as políticas de grupo do Active Directory são utilizadas para impor a segurança e conformidade configurações ao nível do sistema operativo. Um anfitrião de bastion de gestão fornece uma ligação segura para os administradores de recursos de acesso implementado. **Azure recomenda configurar uma ligação VPN ou ExpressRoute para importação de dados e de gestão para a sub-rede de arquitetura de referência.**
+## <a name="architecture-diagram-and-components"></a>Diagrama de arquitetura e componentes
+Esta solução implementa uma arquitetura de referência para um aplicativo da web de IaaS com um back-end do SQL Server. A arquitetura inclui uma camada web, camada de dados, infra-estrutura do Active Directory, Gateway de aplicação e Balanceador de carga. Máquinas virtuais implementadas para os escalões web e os dados são configuradas num conjunto de disponibilidade e instâncias do SQL Server são configuradas num grupo de Disponibilidade AlwaysOn para elevada disponibilidade. As máquinas virtuais estão associados a um domínio e políticas de grupo do Active Directory são utilizadas para impor configurações de segurança e conformidade ao nível do sistema operativo. Anfitrião de bastião de gestão fornece uma ligação segura para os administradores de recursos de acesso implementado. **Azure recomenda configurar uma ligação VPN ou ExpressRoute para importação de dados e de gestão para a sub-rede de arquitetura de referência.**
 
-![IaaS Web Applicaiton para o diagrama de arquitetura de referência GDPR](images/gdpr-iaaswa-architecture.png?raw=true "IaaS Web Applicaiton para o diagrama de arquitetura de referência GDPR")
+![Applicaiton de Web de IaaS para o diagrama de arquitetura de referência do GDPR](images/gdpr-iaaswa-architecture.png?raw=true "Applicaiton de Web de IaaS para o diagrama de arquitetura de referência GDPR")
 
-Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura de implementação estão localizados no [arquitetura de implementação](#deployment-architecture) secção.
+Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura de implementação estão localizadas no [arquitetura de implantação](#deployment-architecture) secção.
 
 - Máquinas Virtuais do Azure
     - (1) gestão/bastion (Windows Server 2016 Datacenter)
-    - (2) controlador de domínio o active Directory (Windows Server 2016 Datacenter)
-    - (2) nó de cluster do SQL Server (SQL Server 2017 no Windows Server 2016)
+    - (2) controlador de domínio do Active Directory (Windows Server 2016 Datacenter)
+    - (2) nó de cluster o SQL Server (SQL Server 2017 no Windows Server 2016)
     - (2) web/IIS (Centro de dados do Windows Server 2016)
 - Conjuntos de Disponibilidade
     - (1) controladores de domínio o active Directory
-    - (1) nós de cluster do SQL Server
+    - (1) nós de cluster do SQL
     - (1) web/IIS
 - Rede Virtual do Azure
-    - redes virtuais /16 (1)
-    - sub-redes /24 (5)
-    - As definições de DNS estão definidas em ambos os controladores de domínio
+    - redes virtuais do /16 (1)
+    - sub-redes de /24 (5)
+    - As definições de DNS estão definidas para os dois controladores de domínio
 - Azure Load Balancer
 - Gateway de Aplicação do Azure
-    - (1) Gateway de aplicação WAF ativada
-        - modo de firewall: prevenção
-        - Conjunto de regras: OWASP 3.0
+    - (1) Gateway de aplicação WAF ativado
+        - Modo de firewall: prevenção
+        - Conjunto de regra: OWASP 3.0
         - serviço de escuta: porta 443
 - Storage do Azure
-    - (7) as contas de armazenamento georredundante
+    - (7) contas de armazenamento com redundância geográfica
 - Testemunho de nuvem
 - Cofre dos Serviços de Recuperação
 - Azure Key Vault
@@ -68,144 +68,144 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 - Operations Management Suite (OMS)
 - Centro de Segurança do Azure
 
-## <a name="deployment-architecture"></a>Arquitetura de implementação
-A secção seguinte descreve em detalhe os elementos de implementação e a implementação.
+## <a name="deployment-architecture"></a>Arquitetura de implantação
+A secção seguinte fornece detalhes sobre os elementos de implantação e a implementação.
 
-**Anfitrião de bastion**: O anfitrião de bastion for o único ponto de entrada que permite aos utilizadores aceder os recursos implementados neste ambiente. O anfitrião de bastion fornece uma ligação segura a recursos implementados, permitindo apenas tráfego remoto de endereços IP públicos numa lista segura. Para permitir o tráfego de (RDP) de ambiente de trabalho remoto, a origem do tráfego tem de ser definido no grupo de segurança de rede (NSG).
+**Anfitrião de bastião**: O anfitrião de bastião é o único ponto de entrada que permite aos utilizadores aceder os recursos implementados neste ambiente. O anfitrião de bastião fornece uma ligação segura a recursos implementados, permitindo apenas tráfego remoto a partir de endereços IP públicos numa lista segura. Para permitir o tráfego de (protocolo RDP) de área de trabalho remoto, a origem do tráfego deve ser definido no grupo de segurança de rede (NSG).
 
-Esta solução cria uma máquina virtual como um anfitrião de bastion associados a um domínio com as seguintes configurações:
+Esta solução cria uma máquina virtual como um anfitrião de bastião associados a um domínio com as seguintes configurações:
 -   [Extensão de antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 -   [Extensão do OMS](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Extensão de diagnóstico do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
--   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) com o Cofre de chaves do Azure
--   Um [política de encerramento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) reduzir o consumo de recursos de máquina virtual quando não está em utilização
--   [Proteção de credenciais do Windows Defender](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) ativado para que as credenciais e outros segredos executadas num ambiente protegido que está isolado do sistema operativo em execução
+-   [O Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) com o Azure Key Vault
+-   Uma [política de encerramento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos de máquina virtual quando não está em utilização
+-   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) ativado para que as credenciais e outros segredos executar num ambiente protegido, que está isolado do sistema operativo em execução
 
 ### <a name="virtual-network"></a>Rede virtual
 A arquitetura define uma rede privada virtual com um espaço de endereços de 10.200.0.0/16.
 
-**Grupos de segurança de rede**: esta solução implementa recursos uma arquitetura com uma sub-rede separada web, uma sub-rede de base de dados, sub-rede do Active Directory e sub-rede de gestão dentro de uma rede virtual. Sub-redes logicamente estão separadas por regras de grupos de segurança de rede aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes de forma a que só é necessário para a funcionalidade de gestão e de sistema.
+**Grupos de segurança de rede**: esta solução implementa recursos numa arquitetura com uma sub-rede de web separado, uma sub-rede de base de dados, sub-rede do Active Directory e a sub-rede de gestão na mesma rede virtual. Sub-redes logicamente são separados por aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes para que apenas necessário para a funcionalidade de gerenciamento do sistema e de regras de grupo de segurança de rede.
 
-Consulte a configuração para [grupos de segurança de rede](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implementado com esta solução. As organizações podem configurar grupos de segurança de rede editando o ficheiro acima utilizando [esta documentação](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) como guia.
+Consulte a configuração para [grupos de segurança de rede](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implementado com esta solução. As organizações podem configurar grupos de segurança de rede ao editar o ficheiro acima usando [esta documentação](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) como guia.
 
-Cada um das sub-redes tem um grupo de segurança de rede dedicado (NSG):
-- 1 NSG para Gateway de aplicação (LBNSG)
-- 1 NSG para o anfitrião de bastion (MGTNSG)
-- 1 NSG principais e cópia de segurança para controladores de domínio (ADNSG)
-- 1 NSG para servidores SQL e de testemunho de nuvem (SQLNSG)
+Cada um das sub-redes tem um grupo de segurança de rede dedicada (NSG):
+- 1 NSG para o Gateway de aplicação (LBNSG)
+- 1 NSG para o anfitrião de bastião (MGTNSG)
+- 1 NSG para controladores de domínio primário e de cópia de segurança (ADNSG)
+- 1 NSG para servidores SQL e o testemunho de nuvem (SQLNSG)
 - 1 NSG para a camada web (WEBNSG)
 
 ### <a name="data-in-transit"></a>Dados em trânsito
-Azure encripta todas as comunicações de e para os datacenters do Azure, por predefinição. Além disso, todas as transações ao Storage do Azure através do portal do Azure ocorrem através de HTTPS.
+Azure encripta todas as comunicações de e para os datacenters do Azure por predefinição. Além disso, todas as transações de armazenamento do Azure através do portal do Azure ocorrem através de HTTPS.
 
 ### <a name="data-at-rest"></a>Dados inativos
-A arquitetura protege os dados Inativos através de várias medidas, incluindo encriptação e auditoria de base de dados.
+A arquitetura protege dados em repouso através de várias medidas, incluindo encriptação e a auditoria de base de dados.
 
-**Armazenamento do Azure**: para satisfazer os dados encriptados em requisitos de rest, todos os [Storage do Azure](https://azure.microsoft.com/services/storage/) utiliza [encriptação do serviço de armazenamento](https://docs.microsoft.com/azure/storage/storage-service-encryption). Isto ajuda a proteger e salvaguardar os dados pessoais para suportar os compromissos de segurança organizacional e requisitos de conformidade definidos pelo GDPR.
+**O armazenamento do Azure**: para atender aos dados criptografados em requisitos de rest, todos os [armazenamento do Azure](https://azure.microsoft.com/services/storage/) utiliza [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Isto ajuda a proteger e salvaguardar os dados pessoais para oferecer suporte a compromissos de segurança organizacional e requisitos de conformidade definidos pelo GDPR.
 
-**Azure Disk Encryption**: Azure Disk Encryption é utilizado para encriptados discos da máquina virtual IaaS do Windows. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aproveita a funcionalidade de BitLocker do Windows para fornecer a encriptação de volume para o SO e discos de dados. A solução é integrada com o Cofre de chaves do Azure para ajudar a controlar e gerir as chaves de encriptação de disco.
+**O Azure Disk Encryption**: encriptação de disco do Azure é utilizada para encriptados discos de máquinas virtuais de IaaS do Windows. [O Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aproveita a funcionalidade BitLocker do Windows para fornecer encriptação de volume para o SO e discos de dados. A solução está integrada no Azure Key Vault para ajudar a controlar e gerir as chaves de encriptação de disco.
 
 **SQL Server**: instância do SQL Server utiliza as seguintes medidas de segurança da base de dados:
--   [Autorização e autenticação AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permite a gestão de identidades de utilizadores de base de dados e outros serviços Microsoft numa localização central.
--   [Auditoria de base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) controla da base de dados eventos e escreve-los para uma auditoria iniciem sessão uma conta de armazenamento do Azure.
--   Base de dados do SQL Server está configurado para utilizar [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), que efetua a encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e os ficheiros de registo de transações para proteger as informações em rest. TDE fornece assurance que armazenava os dados pessoais não foi sujeito acesso não autorizado.
--   [Regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedir o acesso de todos os servidores de base de dados até que são concedidas permissões adequadas. A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
--   [A deteção de ameaças do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permite a deteção e a resposta a potenciais ameaças à medida que ocorrem fornecendo alertas de segurança para acesso de base de dados anómalas, ataques de injeção de SQL, potenciais vulnerabilidades e atividades suspeitas da base de dados padrões.
--   [Encriptados colunas sempre](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) Certifique-se de que os dados pessoais confidenciais nunca é apresentada como texto não encriptado no interior do sistema de base de dados. Depois de ativar a encriptação de dados, apenas as aplicações de cliente ou servidores de aplicações com o acesso às chaves podem aceder aos dados de texto simples.
-- O [propriedades expandidas](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) funcionalidade pode ser utilizada para descontinuar o processamento de assuntos de dados, permite aos utilizadores adicionar propriedades personalizadas para objetos de base de dados e Etiquetar dados como "Discontinued" para suportar a lógica da aplicação para impedir que o processamento dos dados pessoais associados.
-- [Segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite aos utilizadores definir políticas para restringir o acesso aos dados para descontinuar o processamento.
-- [SQL Server da base de dados dinâmico dados máscara (ddm de autor)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados pessoais confidenciais por máscara de dados para aplicações ou utilizadores não privilegiados. Ddm de autor pode automaticamente detetar dados potencialmente sensíveis e sugerir as máscaras de adequado sejam aplicadas. Isto ajuda-o com a identificação dos dados pessoais elegíveis para proteção de GDPR e para reduzir o acesso, se não for fechada a base de dados através de acesso não autorizado. **Nota: Os clientes terão de ajustar as definições de ddm de autor aderir ao respetiva esquema de base de dados.**
+-   [Autenticação e autorização AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permite a gestão de identidades de utilizadores de base de dados e outros serviços da Microsoft num local central.
+-   [A auditoria de base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) faixas de base de dados eventos e escreve-os para uma auditoria registo numa conta de armazenamento do Azure.
+-   Base de dados SQL está configurado para utilizar [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), que realiza a encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transação para proteger as informações em rest. TDE fornece assurance que armazenados dados pessoais não tiver sido sujeita a acesso não autorizado.
+-   [Regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedir o acesso de todos os servidores de base de dados até que sejam concedidas as permissões apropriadas. A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
+-   [Deteção de ameaças SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permite a deteção e resposta a ameaças potenciais à medida que ocorrem ao fornecer alertas de segurança para atividades suspeitas da base de dados, potenciais vulnerabilidades, ataques de injeção de SQL e acesso de base de dados anómalas padrões.
+-   [Sempre as colunas encriptadas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) Certifique-se de que os dados pessoais confidenciais nunca é apresentada como texto não criptografado dentro do sistema de base de dados. Depois de ativar a encriptação de dados, apenas as aplicações de cliente ou servidores de aplicações com acesso às chaves podem aceder aos dados de texto sem formatação.
+- O [Propriedades estendidas](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) funcionalidade pode ser utilizada para descontinuar o processamento de titulares dos dados, já que permite aos utilizadores adicionar propriedades personalizadas para objetos de base de dados e marcar os dados como "Discontinued" para suportar a lógica de aplicação para impedir que o processamento de dados pessoais associados.
+- [Segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite aos utilizadores definir políticas para restringir o acesso aos dados de descontinuar o processamento.
+- [SQL da base de dados dinâmica dados máscara (DDM)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados pessoais confidenciais ao mascará os dados para aplicações ou utilizadores sem privilégios. Ddm de autor pode detetar dados potencialmente confidenciais e sugerir as máscaras de apropriado a ser aplicada automaticamente. Isto ajuda na identificação dos dados pessoais qualificar para proteção com o GDPR e para reduzir o acesso, de modo que ele não for fechada a base de dados por meio do acesso não autorizado. **Nota: Os clientes terão de ajustar as definições de ddm de autor de cumprir para seu esquema de base de dados.**
 
 ### <a name="identity-management"></a>Gestão de identidades
-As seguintes tecnologias de fornecem capacidades para gerir o acesso a dados pessoais no ambiente do Azure:
--   [Azure Active Directory (AAD)](https://azure.microsoft.com/services/active-directory/) é multi-inquilino baseado na nuvem diretório e identidade do serviço de gestão da Microsoft. Todos os utilizadores para esta solução são criados no AAD, incluindo os utilizadores que acedem ao SQL Server.
--   Autenticação para a aplicação é executada com o AAD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Além disso, a encriptação de coluna de base de dados utiliza o AAD para autenticar a aplicação para o SQL Server. Para obter mais informações, consulte como [proteger dados sensíveis na base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permite aos administradores definir as permissões de acesso detalhada para conceder apenas a quantidade de acesso que os utilizadores precisam desempenhar as suas funções. Em vez de fornecer todas as permissões de utilizador sem restrições para recursos do Azure, os administradores podem permitir apenas determinadas ações para aceder a dados pessoais. Acesso de subscrição está limitado ao administrador da subscrição.
-- [AAD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permite que os clientes minimizar o número de utilizadores que tenham acesso aos certos recursos.  Os administradores podem utilizar o AAD Privileged Identity Management para detetar, restringir e monitorizar as identidades privilegiadas e o respetivo acesso aos recursos. Esta funcionalidade também pode ser utilizada para impor o acesso administrativo a pedido, just-in-time quando necessário.
-- [Proteção de identidade AAD](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades que afetam as identidades de uma organização, configura as respostas automatizadas detetadas ações suspeitas relacionada com identidades da organização e investiga suspeita incidentes tome medidas adequadas resolvê-los.
-- Uma instância do Active Directory IaaS implementada fornece gestão de identidades ao nível do SO para as máquinas virtuais do IaaS implementadas.
+As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados pessoais no ambiente do Azure:
+-   [O Azure Active Directory (AAD)](https://azure.microsoft.com/services/active-directory/) é multi-inquilino com base na cloud diretório e identidade do serviço de gestão da Microsoft. Todos os utilizadores para esta solução são criados no AAD, incluindo os utilizadores a aceder ao servidor SQL.
+-   Autenticação para a aplicação é executada através do AAD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Além disso, a encriptação de coluna de base de dados utiliza o AAD para autenticar a aplicação para o SQL Server. Para obter mais informações, consulte como [proteger dados confidenciais na base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Do Azure com base em função de controlo de acesso (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permite aos administradores definir permissões de acesso detalhado para conceder apenas a quantidade de acesso que os utilizadores precisam realizar seus trabalhos. Em vez de dar todas as permissões de utilizador sem restrições para recursos do Azure, os administradores podem permitir apenas certas ações para aceder aos dados pessoais. Acesso à subscrição está limitado ao administrador da subscrição.
+- [AAD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permite que os clientes minimizar o número de utilizadores que têm acesso a determinados recursos.  Os administradores podem utilizar o AAD Privileged Identity Management para detetar, restringir e monitorizar identidades privilegiadas e respetivo acesso a recursos. Esta funcionalidade também pode ser utilizada para impor acesso administrativo a pedido e just-in-time quando necessário.
+- [Proteção de identidade do AAD](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades que afetam as identidades da organização, configura as respostas automáticas para detetado ações suspeitas relacionadas com identidades de uma organização e investiga suspeita incidentes para tomar as medidas adequadas para resolvê-los.
+- Uma instância do Active Directory de IaaS fornece gestão de identidade ao nível do SO para máquinas de virtuais de IaaS implementadas.
 
 ### <a name="security"></a>Segurança
-**Gestão de segredos**: A solução utiliza [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/) para a gestão de chaves e segredos. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. As seguintes capacidades de Cofre de chaves do Azure ajudam a proteger os dados pessoais e de acesso a esses dados de clientes:
+**Gestão de segredos**: A solução utiliza [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. As seguintes capacidades do Azure Key Vault ajudam os clientes a proteger os dados pessoais e de acesso a esses dados:
 - Políticas de acesso avançadas são configuradas de forma necessidade.
-- As políticas de acesso do Cofre de chaves são definidas com permissões mínimas para chaves e segredos.
-- Todas as chaves e segredos no Cofre de chaves tem datas de expiração.
+- Políticas de acesso do Cofre de chaves são definidas com o mínimo permissões necessárias para chaves e segredos.
+- Todas as chaves e segredos no Key Vault tem datas de expiração.
 - Todas as chaves no Cofre de chaves estão protegidas por módulos de hardware especializado de segurança (HSMs). O tipo de chave é uma chave RSA de 2048 protegidas de HSM bits.
-- Todos os utilizadores e identidades são concedidas as permissões necessárias mínimo através do RBAC.
-- Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, a 365 dias.
-- Operações de criptografia permitidas para as chaves estão limitadas às necessárias.
-- A solução é integrada com o Cofre de chaves do Azure para gerir chaves de encriptação de disco de máquina virtual IaaS e segredos.
+- Todos os utilizadores e identidades são concedidas as permissões mínimas necessárias através do RBAC.
+- Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, 365 dias.
+- Operações de criptografia permitidas para as chaves estão limitadas aos obrigatórios.
+- A solução está integrada no Azure Key Vault para gerir chaves de encriptação de disco de máquina virtual IaaS e segredos.
 
-**Aplicar o patch gestão**: implementadas como parte desta arquitetura de referência de máquinas virtuais do Windows estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também inclui o OMS [da automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) serviço através do qual implementações atualizadas podem ser criadas para máquinas virtuais de patch quando necessário.
+**Gerenciamento de patches**: máquinas de virtuais do Windows implementadas como parte desta arquitetura de referência estão configuradas por predefinição para receber atualizações automáticas do serviço de atualização do Windows. Esta solução também inclui o OMS [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) serviço por meio do qual as implementações atualizadas podem ser criadas para máquinas de virtuais de patch quando necessário.
 
-**Proteção contra software maligno**: [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware) para máquinas virtuais fornece a capacidade de proteção em tempo real que ajuda a identifica e remove vírus, spyware e outro software malicioso, com alertas configuráveis ao conhecido software malicioso ou indesejável, tentar instalar ou executar em máquinas virtuais protegidas.
+**Proteção contra software maligno**: [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware) para máquinas virtuais fornece a capacidade de proteção em tempo real que ajuda a identifica e remove vírus, spyware e outro software malicioso, com alertas configuráveis Quando conhecido software malicioso ou indesejável se tentar instalar ou executar nas máquinas virtuais protegidas.
 
-**Alertas de segurança**: [Centro de segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) permite aos clientes monitorizar o tráfego, recolher registos e analisar as origens de dados de ameaças. Além disso, o Centro de segurança do Azure acede a configuração existente dos serviços do Azure para fornecer recomendações de serviço para ajudar a melhorar a postura de segurança e proteger os dados pessoais e de configuração. Centro de segurança do Azure inclui um [ameaça relatório intelligence](https://docs.microsoft.com/en-us/azure/security-center/security-center-threat-report) para cada detetados ameaça para o ajudar a equipas de resposta a incidentes investigar e remedeie ameaças.
+**Alertas de segurança**: [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) permite aos clientes monitorizar o tráfego, recolher registos e analisar as origens de dados relativamente a ameaças. Além disso, o Centro de segurança do Azure acede a configuração existente de serviços do Azure para fornecer recomendações de serviço para ajudar a melhorar a postura de segurança e proteger dados pessoais e de configuração. Centro de segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) para cada detetado contra ameaças para ajudar as equipes de resposta a incidentes investigar e remediar ameaças.
 
-**Gateway de aplicação**: arquitetura reduz o risco de vulnerabilidades de segurança com um Gateway de aplicação de firewall de aplicações web (WAF) e o ruleset OWASP ativado. Capacidades adicionais incluem:
+**Gateway de aplicação**: A arquitetura reduz o risco de vulnerabilidades de segurança com um Gateway de aplicação com firewall de aplicações web (WAF) e o conjunto de regras do OWASP ativado. Capacidades adicionais incluem:
 
 - [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Ativar [descarga de SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
-- Desativar [TLS v 1.0 e v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [Firewall de aplicações Web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modo WAF)
-- [Modo de prevenção](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) com ruleset OWASP 3.0
-- Ativar [registo de diagnóstico](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
-- [Sondas de estado de funcionamento personalizado](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal)
-- [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center) e [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) fornecer proteção adicional e notificações. Centro de segurança do Azure também fornece um sistema de reputação de URLs.
+- Desativar [TLS versões 1.0 e 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [Firewall de aplicações Web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modo de WAF)
+- [Modo de prevenção](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) com o conjunto de regras do OWASP 3.0
+- Ativar [registo de diagnósticos](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+- [Sondas de estado de funcionamento personalizados](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)
+- [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center) e [Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) fornecer proteção adicional e notificações. Centro de segurança do Azure também fornece um sistema de reputação.
 
 ### <a name="business-continuity"></a>Continuidade do negócio
 
-**Elevada disponibilidade**: A solução implementa todas as máquinas virtuais uma [do conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Conjuntos de disponibilidade Certifique-se de que as máquinas virtuais estão distribuídas por vários clusters de hardware isolado para melhorar a disponibilidade. Pelo menos uma máquina virtual está disponível durante um evento de manutenção planeada ou, reunião de 99,95% SLA do Azure.
+**Elevada disponibilidade**: A solução implementa todas as máquinas virtuais num [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Conjuntos de disponibilidade garantem que as máquinas virtuais são distribuídas por vários clusters de hardware isolados para melhorar a disponibilidade. Pelo menos uma máquina virtual está disponível durante um evento de manutenção não planeada ou não planeada, atendendo a 99,95% do SLA do Azure.
 
-**O Cofre de serviços de recuperação**: O [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja dados de cópia de segurança e protege todas as configurações de máquinas virtuais do Azure nesta arquitetura. Com um cofre de serviços de recuperação, os clientes restaurar ficheiros e pastas a partir de uma VM do IaaS sem restaurar toda a VM, permitindo tempos de restauro mais rápidos.
+**Cofre dos serviços de recuperação**: A [cofre dos Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda os dados de cópia de segurança e protege todas as configurações de máquinas virtuais do Azure nesta arquitetura. Com um cofre de serviços de recuperação, os clientes podem restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar a VM inteira, permitindo que os tempos de restauro mais rápidos.
 
-**Nuvem testemunho**: [nuvem testemunho](https://docs.microsoft.com/en-us/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunho de quórum do Cluster de ativação pós-falha no Windows Server 2016, que tira partido do Azure como o ponto de arbitragem. O testemunho de nuvem, tal como outro testemunho de quórum, obtém um voto e pode participar nos cálculos do quórum, mas utiliza o padrão publicamente disponíveis Blob Storage do Azure. Isto elimina os custos de manutenção extra VMs alojada numa nuvem pública.
+**Testemunho de nuvem**: [testemunho de nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunho de quórum do Cluster de ativação pós-falha no Windows Server 2016 que tira partido do Azure como o ponto de arbitragem. O testemunho de nuvem, como outro testemunho de quórum, obtém um voto e pode participar nos cálculos do quórum, mas utiliza o armazenamento de Blobs do Azure disponíveis publicamente padrão. Isso elimina a sobrecarga de manutenção extra de VMs alojadas numa nuvem pública.
 
-### <a name="logging-and-auditing"></a>Registo e auditoria
+### <a name="logging-and-auditing"></a>Registro e auditoria
 
-OMS fornece extenso registo de atividade de utilizador e de sistema, bem como o estado de funcionamento do sistema. O OMS [Log Analytics](https://azure.microsoft.com/services/log-analytics/) solução recolhe e analisa os dados gerados pelos recursos no Azure e ambientes no local.
-- **Registos de atividade**: [registos de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas operações executadas nos recursos numa subscrição. Registos de atividade podem ajudar a determinar o iniciador de uma operação, hora de ocorrência e o estado.
-- **Os registos de diagnóstico**: [registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, os registos de armazenamento do Azure, os registos de auditoria do Cofre de chaves e os registos de acesso e de firewall de Gateway de aplicação.
-- **Registo arquivar**: todos os registos de diagnóstico de escrita para uma conta de armazenamento do Azure centralizada e encriptados para arquivo. O período de retenção é configurável pelo utilizador, cópia de segurança para dias 730, para satisfazer os requisitos de retenção específico da organização. Estes registos ligar ao Log Analytics do Azure para o processamento, armazenamento e relatórios do dashboard.
+OMS fornece extenso registo de atividade do sistema e do usuário, bem como o estado de funcionamento do sistema. O OMS [do Log Analytics](https://azure.microsoft.com/services/log-analytics/) solução recolhe e analisa os dados gerados pelos recursos no Azure e ambientes no local.
+- **Registos de atividades**: [registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
+- **Os registos de diagnóstico**: [registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento do Azure, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação.
+- **Arquivo de log**: todos os registos de diagnóstico escrever para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. O período de retenção é configurável pelo utilizador, cópia de segurança e 730 dias, para atender aos requisitos de retenção de específicas da organização. Estes registos ligar ao Azure Log Analytics para processamento, armazenamento e relatórios do dashboard.
 
-Além disso, as seguintes soluções OMS são incluídas como parte desta arquitetura:
--   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): O Active Directory estado de funcionamento de verificação solução avalia o risco e o estado de funcionamento de ambientes de servidor num intervalo regular e fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
--   [Avaliação de antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): solução Antimalware a relatórios de estado de proteção, software maligno e ameaças.
--   [A automatização do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): solução a automatização do Azure armazena, é executado e gere runbooks.
--   [Auditoria e segurança](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): auditoria e segurança dashboard fornece uma alto nível aprofundadas sobre o estado de segurança de recursos, fornecendo as métricas em domínios de segurança, problemas relevantes, deteções, ameaças e consultas de segurança comuns.
--   [Avaliação do SQL Server](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): O estado de funcionamento de SQL Consulte solução avalia o risco e o estado de funcionamento de ambientes de servidor num intervalo regular e fornece aos clientes com uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
--   [Gestão de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): solução de gestão de atualizações a permite a gestão de cliente de atualizações de segurança do sistema operativo, incluindo o processo de instalação de atualizações necessárias e o estado de atualizações disponíveis.
--   [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): solução do estado de funcionamento do agente comunica quantos agentes implementados e respetiva distribuição geográfica, bem como quantos agentes que estão a responder e o número de agentes que submeter dados operacionais.
--   [Os registos de atividade do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): solução de análise de registos de atividade o auxilia com a análise de registos a atividade do Azure em todas as subscrições do Azure para um cliente.
--   [Registo de alterações](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
+Além disso, as seguintes soluções do OMS são incluídas como parte desta arquitetura:
+-   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): a solução da verificação do Active Directory Health avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular e fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
+-   [Avaliação de antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): solução Antimalware a relatórios de status de malware, ameaças e a proteção.
+-   [A automatização do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): solução a automatização do Azure armazena, executa e gere runbooks.
+-   [Segurança e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): A segurança e auditoria do dashboard fornece uma visão alto nível do Estado de segurança de recursos, fornecendo as métricas em domínios de segurança, problemas relevantes, deteções, informações sobre ameaças e consultas de segurança comuns.
+-   [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): a solução da verificação de integridade de SQL avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular e fornece aos clientes uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
+-   [Gestão de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): solução de gestão de atualizações permite a gestão de cliente de atualizações de segurança do sistema operativo, incluindo o processo de instalação de atualizações necessárias e o estado das atualizações disponíveis.
+-   [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): solução funcionamento de agente a relatórios quantos agentes estão implementados e a distribuição geográfica, como número de agentes que não respondem e o número de agentes que está a enviar dados operacionais.
+-   [Registos de atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): ajuda a solução da análise de registos de atividade com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
+-   [Controlo de alterações](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
 
-## <a name="threat-model"></a>Modelo de ameaça
+## <a name="threat-model"></a>Modelo de risco
 
-O diagrama de fluxo de dados (DFD) para esta arquitetura de referência está disponível para [transferir](https://aka.ms/gdprIaaSdfd) ou podem ser encontrados abaixo. Este modelo pode ajudar os clientes os pontos de risco potencial na infraestrutura do sistema quando efetuar alterações.
+O diagrama de fluxo de dados (DFD) para esta arquitetura de referência está disponível para [transferir](https://aka.ms/gdprIaaSdfd) ou podem ser encontradas abaixo. Esse modelo pode ajudar os clientes a compreender os pontos do potencial risco de na infraestrutura de sistema ao fazer modificações.
 
-![IaaS Web Applicaiton para o modelo de ameaça GDPR](images/gdpr-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton para o modelo de ameaça GDPR")
+![Applicaiton de Web de IaaS para o modelo de risco do GDPR](images/gdpr-iaaswa-threat-model.png?raw=true "Applicaiton de Web de IaaS para o modelo de risco GDPR")
 
 ## <a name="compliance-documentation"></a>Documentação de conformidade
 
-O [segurança do Azure e conformidade Blueprint - GDPR cliente responsabilidade matriz](https://aka.ms/gdprCRM) lista responsabilidades de controlador e do processador para todos os artigos GDPR. Tenha em atenção que, para os serviços do Azure, um cliente é, normalmente, o controlador e Microsoft Age como o processador.
+O [Azure no Security and Compliance Blueprint - matriz de responsabilidade do cliente com o GDPR](https://aka.ms/gdprCRM) apresenta uma lista de responsabilidades de controlador e o processador para todos os artigos GDPR. Tenha em atenção que, para serviços do Azure, um cliente é, normalmente, o controlador e Microsoft atua como o processador.
 
-O [segurança do Azure e conformidade Blueprint - matriz de implementação de aplicação de Web IaaS GDPR](https://aka.ms/gdprIaaSweb) fornece informações sobre qual GDPR artigos são resolvidos pela arquitetura de aplicação Web de IaaS, incluindo descrições detalhadas de forma a implementação satisfaz os requisitos de cada artigo coberto.
+O [Azure no Security and Compliance Blueprint - matriz de implementação de aplicação de Web de IaaS de GDPR](https://aka.ms/gdprIaaSweb) fornece informações sobre qual GDPR artigos são resolvidos pela arquitetura de aplicação Web IaaS, incluindo descrições detalhadas de como a implementação cumpre os requisitos de cada artigo coberto.
 
 ## <a name="guidance-and-recommendations"></a>Orientações e recomendações
-### <a name="vpn-and-expressroute"></a>ExpressRoute e de VPN
-Um túnel VPN seguro ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) tem de ser configurado com segurança estabelecer uma ligação para os recursos implementados como parte da arquitetura de referência aplicação Web de IaaS. Adequadamente a configurar uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção de dados em trânsito.
+### <a name="vpn-and-expressroute"></a>ExpressRoute e VPN
+Um túnel VPN seguro ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) tem de ser configurado com segurança estabelecer uma ligação para os recursos implementados como parte desta arquitetura de referência de aplicação Web IaaS. Configurando adequadamente uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção para dados em trânsito.
 
-Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Esta ligação ocorre através da Internet e permite aos clientes de forma segura as informações de "túnel" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN de Site a site é uma tecnologia de segura, madura que tenha sido implementada por empresas de todos os tamanhos de decades. O [modo de túnel IPsec](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de encriptação.
+Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Essa conexão ocorre através da Internet e permite que os clientes com segurança as informações de "encapsulamento" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN site a Site é uma tecnologia madura e segura que tenha sido implementada por empresas de todos os tamanhos há décadas. O [modo de encapsulamento IPsec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de criptografia.
 
-Porque o tráfego de túnel VPN atravessam a Internet e uma VPN de site a site, a Microsoft oferece a opção de ligação de outro, ainda mais seguros. O ExpressRoute do Azure é uma WAN dedicada ligação entre o Azure e uma localização no local ou um fornecedor de alojamento do Exchange. Como as ligações do ExpressRoute não passam para a Internet, estas ligações oferecem mais fiabilidade, velocidades mais rápidas, latências inferiores e uma maior segurança ligações típicas através da Internet. Além disso, porque se trata de uma ligação direta do fornecedor de telecommunication do cliente, os dados não viajam através da Internet e, por conseguinte, não estão expostos ao mesmo.
+Porque o tráfego de túnel VPN atravessa a Internet com uma VPN de site a site, a Microsoft oferece a opção de ligação de outra, ainda mais seguro. O Azure ExpressRoute é uma WAN dedicada ligação entre o Azure e uma localização no local ou um fornecedor de alojamento do Exchange. Como as ligações ExpressRoute não entram na Internet, estas ligações oferecem mais fiabilidade, velocidades mais rápidas, latências mais baixas e maior segurança do que as ligações normais pela Internet. Além disso, como se trata de uma conexão direta do fornecedor de telecomunicação do cliente, os dados não percorre a Internet e, portanto, não são expostos ao mesmo.
 
-Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponíveis](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponível](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Exclusão de Responsabilidade
 
-- Este documento destina-se apenas a fins informativos. MICROSOFT FAZ COM QUE NÃO OFERECE NENHUMA GARANTIA, EXPRESSAS, IMPLÍCITA OU ESTATUTARIAMENTE AS INFORMAÇÕES NESTE DOCUMENTO. Este documento é fornecido "como-está." As informações e opiniões expressados neste documento, incluindo URLs e outras referências de Web site da Internet, podem ser alteradas sem aviso prévio. Os clientes ler este documento da sua responsabilidade utilizá-la.  
-- Este documento não fornece aos clientes com quaisquer direitos legais a nenhuma propriedade intelectual de qualquer produto da Microsoft ou de soluções.  
-- Os clientes podem copiar e utilizar este documento para efeitos de referência interno.  
-- Algumas recomendações neste documento poderão resultar numa maior dados, a rede ou a utilização de recursos de computação no Azure e podem aumentar os custos de licenciamento ou de subscrição do Azure do cliente.  
-- Esta arquitetura destina-se para servir como base para os clientes ajustar os seus requisitos específicos e não devem ser utilizada como-é num ambiente de produção.
-- Este documento é desenvolvido como uma referência e não deve ser utilizado para definir todas as formas através do qual um cliente pode cumpre os requisitos de conformidade específico e regulamentos. Os clientes devem procurar suporte legal da respetiva organização em implementações de cliente aprovados.
+- Este documento é apenas para fins informativos. A MICROSOFT FAZ NÃO OFERECE QUAISQUER GARANTIAS, EXPRESSAS, IMPLÍCITAS OU ESTATUTÁRIAS QUANTO ÀS INFORMAÇÕES CONTIDAS NESTE DOCUMENTO. Este documento é fornecido "como-está." Informações e opiniões expressados neste documento, incluindo URLs e outras referências de Web site da Internet, podem ser alteradas sem aviso prévio. Os clientes a ler este documento assume o risco de usá-lo.  
+- Este documento não fornece aos clientes quaisquer direitos de propriedade intelectual em qualquer produto da Microsoft ou soluções.  
+- Os clientes podem copiar e utilizar este documento para efeitos de referência interna.  
+- Algumas recomendações neste documento podem resultar em maior de dados, a rede ou a utilização de recursos de computação no Azure e podem aumentar os custos de licenciamento ou de subscrição do Azure num cliente.  
+- Esta arquitetura deve ser usado como uma base para os clientes que se ajustar às suas necessidades específicas e não devem ser utilizada como-está num ambiente de produção.
+- Este documento é desenvolvido como uma referência e não deve ser usado para definir todos os meios pelos quais um cliente pode atender aos requisitos de conformidade e normas. Os clientes procuram legal suporte da sua organização em implementações do cliente aprovadas.

@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056399"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542570"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -216,17 +216,19 @@ Este erro pode dever-se pelos seguintes motivos:
 
 1. Limite de memória. Existem limites indicados na quantidade de memória atribuída a uma área de segurança [limites de serviço de automatização](../../azure-subscription-service-limits.md#automation-limits) para que uma tarefa o poderá falhar se estiver a utilizar mais de 400 MB de memória.
 
-2. Módulo incompatível. Isto pode ocorrer se as dependências do módulo não estão corretas e se não forem, o runbook devolve normalmente um "comando não encontrado" ou "Não é possível vincular o parâmetro" mensagem.
+1. Soquetes de rede. Áreas de segurança do Azure estão limitadas a soquetes de rede em simultâneo de 1000, conforme descrito em [limites de serviço de automatização](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Módulo incompatível. Isto pode ocorrer se as dependências do módulo não estão corretas e se não forem, o runbook devolve normalmente um "comando não encontrado" ou "Não é possível vincular o parâmetro" mensagem.
 
 #### <a name="resolution"></a>Resolução
 
 Qualquer uma das seguintes soluções resolver o problema:
 
-* Os métodos sugeridos para funcionar dentro do limite de memória são para dividir a carga de trabalho entre vários runbooks, não processar a quantidade de dados na memória, não para escrever a saída desnecessária de seus runbooks ou considere quantos pontos de verificação escrever em seu fluxo de trabalho do PowerShell runbooks.  
+* Os métodos sugeridos para funcionar dentro do limite de memória são para dividir a carga de trabalho entre vários runbooks, não processar a quantidade de dados na memória, não para escrever a saída desnecessária de seus runbooks ou considere quantos pontos de verificação escrever em seu fluxo de trabalho do PowerShell runbooks. Pode utilizar o método clear, tal como `$myVar.clear()` para limpar a variável e utilize `[GC]::Collect()` para executar a coleta de lixo imediatamente, isto irá reduzir a superfície de memória do seu runbook durante o tempo de execução.
 
 * Atualizar os módulos do Azure ao seguir os passos [como atualizar módulos do Azure PowerShell na automatização do Azure](../automation-update-azure-modules.md).  
 
-* Outra solução é executar o runbook num [Runbook Worker híbrido](../automation-hrw-run-runbooks.md). Funções de trabalho híbridas não estão limitadas pelos [justa](../automation-runbook-execution.md#fair-share) limita o que são áreas de segurança do Azure.
+* Outra solução é executar o runbook num [Runbook Worker híbrido](../automation-hrw-run-runbooks.md). Funções de trabalho híbridas não estão limitadas pelos limites de memória e rede que são áreas de segurança do Azure.
 
 ### <a name="fails-deserialized-object"></a>Cenário: O Runbook falhar devido ao objeto de serialização anulado
 

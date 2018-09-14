@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 253598373512b1508482235be028b12163a85a9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024963"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580689"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 
@@ -32,9 +32,8 @@ Um conjunto de infraestrutura de VIPs é necessário para publicação do Azure 
 
 Infra-estrutura interna que vips não estão listados como não são necessários para a publicação do Azure Stack.
 
-> [!NOTE]
+> [!Note]  
 > Utilizador VIPs são dinâmicos, definidas pelos próprios usuários com nenhum controle pela operadora de rede do Azure Stack.
-
 
 |Ponto final (VIP)|Um registo de anfitrião de DNS|Protocolo|Portas|
 |---------|---------|---------|---------|
@@ -66,6 +65,8 @@ Infra-estrutura interna que vips não estão listados como não são necessário
 
 O Azure Stack suporta apenas os servidores de proxy transparente. Numa implementação em que um uplinks de proxy transparente para um servidor proxy tradicional, tem de permitir os seguintes portas e URLs para comunicações de saída:
 
+> [!Note]  
+> O Azure Stack não suporta a utilização de Express Route para alcançar os serviços do Azure listados na tabela seguinte.
 
 |Objetivo|do IdP|Protocolo|Portas|
 |---------|---------|---------|---------|

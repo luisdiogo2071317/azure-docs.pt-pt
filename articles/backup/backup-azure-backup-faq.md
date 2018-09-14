@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: aa26106460f305568fcb2dd1b84fbc54370e5f39
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493873"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543582"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a perguntas comuns sobre os componentes de cópia de segurança do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -41,6 +41,9 @@ Não. O Cofre é criado ao nível da subscrição e não pode ser reatribuído p
 
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Pode migrar dados de cópia de segurança para outro Cofre? <br/>
 Não. Não não possível mover dados de cópia de segurança armazenados num cofre num cofre diferente.
+
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>Posso alterar de GRS para LRS depois de uma cópia de segurança? <br/>
+Não. Um cofre dos serviços de recuperação só pode alterar as opções de armazenamento antes de quaisquer cópias de segurança foram armazenadas. 
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Os cofres dos Serviços de Recuperação baseiam-se no Resource Manager. Cofres de cópia de segurança ainda são suportados? <br/>
 Foram convertidos cofres de cópia de segurança para cofres dos serviços de recuperação. Se não tiver convertido o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para. 

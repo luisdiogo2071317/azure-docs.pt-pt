@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 84306d832464249d614942d85a1069ad42dd2eba
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390914"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578128"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o fornecedor de recursos do SQL
 
@@ -38,8 +38,8 @@ Para atualizar o fornecedor de recursos, utilize o *UpdateSQLProvider.ps1* scrip
 
 O *UpdateSQLProvider.ps1* script cria uma nova máquina virtual (VM) com o código do Provedor de recursos mais recentes.
 
->[!NOTE]
->Recomendamos que baixe a imagem do Windows Server 2016 Core mais recente da gestão do Marketplace. Se precisar de instalar uma atualização, pode colocar um **único** pacote MSU no caminho do local de dependência. O script irá falhar se houver mais de um ficheiro MSU nesta localização.
+> [!NOTE]
+> Recomendamos que baixe a imagem do Windows Server 2016 Core mais recente da gestão do Marketplace. Se precisar de instalar uma atualização, pode colocar um **único** pacote MSU no caminho do local de dependência. O script irá falhar se houver mais de um ficheiro MSU nesta localização.
 
 Depois do *UpdateSQLProvider.ps1* script cria uma nova VM, o script migra as seguintes definições do fornecedor de antigo VM:
 
@@ -49,9 +49,9 @@ Depois do *UpdateSQLProvider.ps1* script cria uma nova VM, o script migra as seg
 
 ### <a name="update-script-powershell-example"></a>Atualizar o exemplo de script do PowerShell
 
-<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>Pode editar e execute o seguinte script de uma elevada ISE do PowerShell. 
--  
-- Não se esqueça de alterar as informações de conta e as palavras-passe conforme necessário para o seu ambiente.
+Pode editar e execute o seguinte script de uma elevada ISE do PowerShell. 
+
+Não se esqueça de alterar as informações de conta e as palavras-passe conforme necessário para o seu ambiente.
 
 > [!NOTE]
 > Este processo de atualização só se aplica aos sistemas integrados do Azure Stack.
@@ -66,6 +66,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -92,6 +95,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -107,7 +111,7 @@ Pode especificar os seguintes parâmetros da linha de comando ao executar o scri
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Utilize as mesmas credenciais que utilizou para a implementação do Azure Stack. | _Necessário_ |
 | **VMLocalCredential** | As credenciais para a conta de administrador local do fornecedor de recursos SQL VM. | _Necessário_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto final com privilégios. |  _Necessário_ |
-| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Obrigatório apenas se não é ADFS. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, a utilizar **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Apenas necessário para implementações do Azure AD. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se utilizar uma Azure AD, da China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Também tem de colocar o ficheiro. pfx de certificado neste diretório. | _Opcional para o nó único, mas obrigatório para vários nós_ |
 | **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx. | _Necessário_ |
 | **MaxRetryCount** | O número de vezes que pretende repetir a cada operação, se ocorrer uma falha.| 2 |

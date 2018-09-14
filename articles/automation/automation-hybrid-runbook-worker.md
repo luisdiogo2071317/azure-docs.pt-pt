@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e834a1cfa7eba3c1ff12523982e6704c73ef8078
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488513"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578689"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 
@@ -97,7 +97,7 @@ Para remover um grupo, tem primeiro de remover a função de trabalho de Runbook
 
 Para o trabalho de Runbook híbrida ligar e registar com o Log Analytics, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Este acesso é uma adição à [portas e URLs necessários para o Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) para ligar ao Log Analytics. 
 
-Se utilizar um servidor proxy para comunicação entre o agente e o serviço Log Analytics, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway do OMS como um proxy, certifique-se de que está configurado para funções de trabalho híbridas. Para obter instruções sobre como fazer isso, consulte [configurar o Gateway de OMS para funções de trabalho de híbrida de automatização](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Se utilizar um servidor proxy para comunicação entre o agente e o serviço Log Analytics, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway do OMS como um proxy, certifique-se de que está configurado para funções de trabalho híbridas. Para obter instruções sobre como fazer isso, consulte [configurar o Gateway de OMS para funções de trabalho de híbrida de automatização](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 Os seguintes URLs e portas são necessárias para a função de trabalho de Runbook híbrida comunicar com a automatização:
 

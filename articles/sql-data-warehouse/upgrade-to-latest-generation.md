@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306985"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580553"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
@@ -34,7 +34,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 > [!NOTE]
-> Se o seu armazém de dados de escalão de computação otimizada geração 1 existente não está a ser uma região onde está disponível o escalão de computação otimizada geração 2, pode [georrestauro](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
+> Se o seu armazém de dados de escalão de computação otimizada geração 1 existente não está a ser uma região onde está disponível o escalão de computação otimizada geração 2, pode [georrestauro](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
 > 
 >
 

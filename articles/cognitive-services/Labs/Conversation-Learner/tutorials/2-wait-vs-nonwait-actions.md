@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173089"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540925"
 ---
 # <a name="wait-and-non-wait-actions"></a>Aguarde e não espera ações
 
@@ -33,7 +33,7 @@ Este tutorial requer que o bot tutorial geral está em execução
 ## <a name="details"></a>Detalhes
 
 - Aguarde a ação: depois do sistema demora uma ação "wait", irá realizar ações de parar e aguardar pela intervenção do utilizador.
-- Ação de não-espera: depois do sistema executa uma ação de "não espera", ele irá escolher imediatamente outra ação (sem aguardar pela primeira vez o utilizador inpu).
+- Ação de não-espera: depois do sistema executa uma ação de "não espera", ele irá escolher imediatamente outra ação (sem ter de esperar pela primeira vez a entrada do usuário).
 
 ## <a name="steps"></a>Passos
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre como copiar dados a partir do serviço de armazenamento simples (S3) do Amazon aos arquivos de dados dependente suportados através do Azure Data Factory.
+title: Copiar dados do Amazon Simple Storage Service com o Azure Data Factory | Documentos da Microsoft
+description: Saiba mais sobre como copiar dados do Amazon Simple Storage Service (S3) para os arquivos de dados de sink suportados através do Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,34 +8,37 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 09/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3635e8bf1d9ba4061da5b8f416a3b755f7064000
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045641"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542079"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory
+# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versão atual](connector-amazon-simple-storage-service.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Amazon S3. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Amazon S3. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados Amazon S3 para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados do Amazon S3 para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector Amazon S3 suporta a cópia de ficheiros como-está ou analisar ficheiros com o [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md).
+Especificamente, este conector Amazon S3 oferece suporte a cópia de arquivos como-é ou analisar ficheiros com o [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
+Para copiar dados do Amazon S3, certificar-se de que lhe foram concedidas as permissões seguintes:
 
 - `s3:GetObject` e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
-- `s3:ListBucket` ou `s3:GetBucketLocation` para operações de registo do Amazon S3. Se estiver a utilizar o Assistente de cópia do Data Factory, `s3:ListAllMyBuckets` também é necessário.
+- `s3:ListBucket` ou `s3:GetBucketLocation` para operações de Bucket do Amazon S3. 
+
+>[!NOTE]
+>Ao usar a GUI de fábrica de dados para a criação, `s3:ListAllMyBuckets` permissão também é necessária para operações como ligação de teste e procurar/navegue caminhos de ficheiros. Se não pretender conceder esta permissão, ignore a ligação de teste na página de criação do serviço ligado e speicify o caminho diretamente nas definições do conjunto de dados.
 
 Para obter detalhes sobre a lista completa de permissões do Amazon S3, consulte [especificar permissões numa política](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -43,21 +46,21 @@ Para obter detalhes sobre a lista completa de permissões do Amazon S3, consulte
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o Amazon S3 entidades do Data Factory específicas.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o Amazon S3.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço Amazon S3 ligada:
+As seguintes propriedades são suportadas para o serviço ligado do Amazon S3:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida **AmazonS3**. | Sim |
-| accessKeyId | ID da chave de acesso secreta. |Sim |
-| secretAccessKey | A chave de acesso secreta próprio. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| tipo | A propriedade de tipo deve ser definida como **AmazonS3**. | Sim |
+| accessKeyId | ID da chave de acesso a segredos. |Sim |
+| secretAccessKey | A chave de acesso a segredos em si. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
->Este conector requer chaves de acesso da conta de IAM copiar dados do Amazon S3. [Credencial de segurança temporário](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não é suportada.
+>Este conector requer chaves de acesso para a conta IAM copiar dados do Amazon S3. [Credencial de segurança temporário](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não é suportada.
 >
 
 Segue-se um exemplo:
@@ -84,24 +87,24 @@ Segue-se um exemplo:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados do Amazon S3.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Amazon S3.
 
-Para copiar dados do Amazon S3, defina a propriedade de tipo do conjunto de dados para **AmazonS3Object**. São suportadas as seguintes propriedades:
+Para copiar dados do Amazon S3, defina a propriedade de tipo de conjunto de dados para **AmazonS3Object**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **AmazonS3Object** |Sim |
-| bucketName | O nome do registo de S3. Filtro de caráter universal não é suportado. |Sim |
-| key | O **filtro nome ou o caráter universal** da chave do objeto de S3 sob o registo especificado. Aplica-se apenas quando a propriedade de "prefixo" não está especificada. <br/><br/>O filtro de caráter universal só é suportado para a parte do nome de ficheiro, mas não faz parte de pasta. Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou único caráter).<br/>-Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Utilize `^` para o escape se o nome de ficheiro real tem carateres universais ou este caráter de escape no interior. |Não |
-| prefixo | Prefixo para a chave do objeto de S3. Objetos cujas chaves começar a utilizar este prefixo estão selecionados. Aplica-se apenas quando a propriedade de "chave" não está especificada. |Não |
-| versão | A versão do objeto S3, se o controlo de versões de S3 estiver ativado. |Não |
-| Formato | Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
-| compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **AmazonS3Object** |Sim |
+| bucketName | O nome do registo de S3. Não é suportado o filtro de carateres universais. |Sim |
+| key | O **filtro de nome ou o caráter universal** da chave de objeto de S3 sob o bucket especificado. Aplica-se apenas quando a propriedade de "prefixo" não está especificada. <br/><br/>O filtro de caráter universal só é suportado para a parte do nome de ficheiro, mas não faz parte de pasta. Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape. |Não |
+| prefixo | Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando a propriedade "key" não está especificada. |Não |
+| versão | A versão do objeto, S3, se o controlo de versões de S3 está ativado. |Não |
+| Formato | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de ficheiro são suportados: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
+| Compressão | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
 
 >[!TIP]
->Para copiar todos os ficheiros numa pasta, especifique **bucketName** para o registo e **prefixo** para a parte da pasta.<br>Para copiar um único ficheiro com um nome específico, especifique **bucketName** para o registo e **chave** para nome de parte plus ficheiros da pasta.<br>Para copiar um subconjunto de ficheiros de uma pasta, especifique **bucketName** para o registo e **chave** para o filtro de pasta parte plus com carateres universais.
+>Para copiar todos os ficheiros numa pasta, especifique **bucketName** para o registo e **prefixo** para parte de pasta.<br>Para copiar um único ficheiro com um determinado nome, especifique **bucketName** para o registo e **chave** para o nome de parte e o ficheiro de pasta.<br>Para copiar um subconjunto de ficheiros numa pasta, especifique **bucketName** para o registo e **chave** para o filtro de parte além de caráter universal de pasta.
 
-**Exemplo: utilizar o prefixo**
+**Exemplo: usando o prefixo**
 
 ```json
 {
@@ -129,7 +132,7 @@ Para copiar dados do Amazon S3, defina a propriedade de tipo do conjunto de dado
 }
 ```
 
-**Exemplo: utilizar a chave e versão (opcional)**
+**Exemplo: usando a chave e versão (opcional)**
 
 ```json
 {
@@ -160,7 +163,7 @@ Para copiar dados do Amazon S3, defina a propriedade de tipo do conjunto de dado
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem Amazon S3.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Amazon S3.
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 como origem
 
@@ -168,8 +171,8 @@ Para copiar dados do Amazon S3, defina o tipo de origem na atividade de cópia p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
-| recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. Nota Quando recursiva está definida como VERDADEIRO e o sink é baseado em ficheiros de arquivo, vazia pasta/sub-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção quando recursiva é definida como true e de sink é baseada em ficheiros de arquivo, vazia pasta/subutilização-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **true** (predefinição), **FALSO** | Não |
 
 **Exemplo:**
 
@@ -203,4 +206,4 @@ Para copiar dados do Amazon S3, defina o tipo de origem na atividade de cópia p
 ]
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

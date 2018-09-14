@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: ba305b66d4b7230f2706136587c4183f81c5e9c3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525506"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579501"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos 
 Base de dados SQL do Azure pode emitir métricas e diagnósticos registos para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -70,7 +70,7 @@ Para saber como ativar o registo e compreender as categorias de métricas e regi
 
 2. Criar um novo ou editar as definições de diagnóstico existentes ao selecionar o destino e a telemetria.
 
-   ![Definições de diagnóstico](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+   ![Definições de diagnósticos](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -157,7 +157,7 @@ Pode combinar estes parâmetros para ativar várias opções de saída.
 
 ### <a name="rest-api"></a>API REST
 
-Saiba mais sobre como [alterar as definições de diagnóstico, utilizando a API de REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
+Saiba mais sobre como [alterar as definições de diagnóstico, utilizando a API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Modelo do Resource Manager
 

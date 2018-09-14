@@ -1,41 +1,41 @@
 ---
-title: Como publicar uma base de dados de conhecimento - serviços cognitivos Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como publicar uma base de dados de conhecimento
+title: Publicar uma base de dados de conhecimento - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: A publicação de sua base de dados de conhecimento é o último passo na criação de sua base de dados de conhecimento disponível como um ponto final de responder a pergunta. Quando publica uma base de dados de conhecimento, move o conteúdo de QnA da sua base de dados de conhecimento do índice de teste para um índice de produção no Azure search.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: e9dbeacfb0df98c6b8f084c263690c05fe966cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0a43c54db7af61b72a8e8e6188fd13ad1159271e
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353954"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540938"
 ---
 # <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 
-Publicar a sua base de dados de conhecimento é o último passo tomar a sua base de dados de conhecimento disponível como um ponto final de responder a pergunta. 
+A publicação de sua base de dados de conhecimento é o último passo na criação de sua base de dados de conhecimento disponível como um ponto final de responder a pergunta. 
 
-Quando publica uma base de dados de conhecimento, o conteúdo de QnA da sua base de dados de conhecimento move desde o índice de teste para um índice de produção na pesquisa do Azure.
+Quando publica uma base de dados de conhecimento, move o conteúdo de QnA da sua base de dados de conhecimento do índice de teste para um índice de produção no Azure search.
 
-![Publicar o índice de teste de prod](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+![Publicar o índice de teste de produção](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
 ## <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 
-1. Quando tiver terminado com as alterações no seu artigo KB, selecione **publicar** na barra de navegação superior. Pode publicar até ao número de bases de dados de conhecimento atribuído para a pesquisa do Azure. 
+1. Quando tiver terminado com as alterações no seu artigo BDC, selecione **publicar** na barra de navegação superior. Pode publicar até ao número atribuído de bases de dados de conhecimento para o Azure Search. 
 
     ![Publicar a base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish.png)
 
-2. Selecione **publicar** novamente para ver os detalhes do ponto final que podem ser utilizados no código da aplicação ou bot.
+2. Selecione **publicar** novamente para ver os detalhes de ponto de extremidade que podem ser usados em seu código de aplicação ou bot.
 
     ![Publicar a base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish-success.png)
     
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Obter a análise na sua base de dados de conhecimento](./get-analytics-knowledge-base.md)
+> [Obter análises na sua base de dados de conhecimento](./get-analytics-knowledge-base.md)

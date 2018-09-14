@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128454"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574628"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 **Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
@@ -87,7 +87,7 @@ O valor predefinido de tarefas simultâneas, limite está definido com base no t
 
 Aumentar horizontalmente, aumentando o número de nós. Quando aumenta o número de nós, o limite de tarefas simultâneas é a soma dos valores de limite da tarefa em simultâneo de todos os nós disponíveis.  Por exemplo, se um nó permite-lhe executar um máximo de tarefas simultâneas doze, em seguida, adicionar três nós mais semelhantes permite-lhe executar um máximo de tarefas simultâneas 48 (ou seja, 4 x 12). Recomendamos que aumente o limite de tarefas simultâneas apenas quando o vir baixa utilização de recursos com os valores predefinidos em cada nó.
 
-É possível substituir o valor padrão calculado no portal do Azure. Selecione criar > ligações > Runtimes de integração > Editar > nós > modificar o valor de tarefa em simultâneo por nó. Também pode utilizar o PowerShell [azurermdatafactoryv2integrationruntimenode atualização](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) comando.
+É possível substituir o valor padrão calculado no portal do Azure. Selecione criar > ligações > Runtimes de integração > Editar > nós > modificar o valor de tarefa em simultâneo por nó. Também pode utilizar o PowerShell [azurermdatafactoryv2integrationruntimenode atualização](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) comando.
   
 ### <a name="status-per-node"></a>Estado (por nó)
 A tabela seguinte fornece os Estados possíveis de um nó do runtime de integração autoalojado:

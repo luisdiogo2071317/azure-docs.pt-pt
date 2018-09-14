@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3cf5a32d95b028664f29b82b14e2294d58ae9925
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664449"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580008"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar os seus vídeos  
 
@@ -33,7 +33,7 @@ Ele também discute alguns dos parâmetros que pode definir a API para alterar o
 ## <a name="uploading-considerations"></a>Considerações sobre a carregar
     
 - Quando carregar o vídeo com base na URL (preferida) o ponto final deve ser protegido com TLS 1.2 (ou posterior)
-- A opção de matriz de bytes é limitada a 4GB e expira após 30 minutos
+- A opção de matriz de bytes é limitada a 2GB e expira após 30 minutos
 - O URL fornecido no `videoURL` param tem de ser codificado
 
 ## <a name="configurations-and-params"></a>Configurações e parâmetros

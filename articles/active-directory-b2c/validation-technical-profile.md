@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 07a5c378ddf73f245104f64e1dae945525a1e01a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381440"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543144"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnicas de validação numa política personalizada do Azure Active Directory B2C
 
@@ -53,8 +53,8 @@ O **ValidationTechnicalProfile** elemento contém o atributo seguinte:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | referenceId | Sim | Um identificador de um perfil técnico já definido a política ou a política de principal. |
-|ContinueOnError|Não| Que indica se a validação de todos os perfis técnicas de validação subsequentes deve continuar se este perfil técnico validaiton gera um erro. Valores possíveis: `ture` ou `false` (o padrão, deixará de processamento de ainda mais os perfis de validação e devolvido um erro). 
-|ContinueOnSuccess | Não | Que indica se a validação de todos os perfis de validação subsequentes deve continuar se este perfil de técnicas de validação é bem-sucedida. Valores possíveis: `ture` ou `false`. A predefinição é `true`, que significa que o processamento de ainda mais os perfis de validação irá continuar. |
+|ContinueOnError|Não| Que indica se a validação de todos os perfis técnicas de validação subsequentes deve continuar se este perfil técnico validaiton gera um erro. Valores possíveis: `true` ou `false` (o padrão, deixará de processamento de ainda mais os perfis de validação e devolvido um erro). 
+|ContinueOnSuccess | Não | Que indica se a validação de todos os perfis de validação subsequentes deve continuar se este perfil de técnicas de validação é bem-sucedida. Valores possíveis: `true` ou `false`. A predefinição é `true`, que significa que o processamento de ainda mais os perfis de validação irá continuar. |
 
 O **ValidationTechnicalProfile** elemento contém o seguinte elemento:
 

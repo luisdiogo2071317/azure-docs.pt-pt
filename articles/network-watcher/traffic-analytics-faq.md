@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903752"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578315"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -58,7 +58,7 @@ Para verificar as funções atribuídas a um utilizador para uma subscrição:
 
 3. Para listar todas as funções que são atribuídas a um utilizador especificado, utilize **Get-AzureRmRoleAssignment - SignInName [e-mail do utilizador] - IncludeClassicAdministrators**. 
 
-Se não está a ver quaisquer dados, contacte o administrador de subscrição relevante para obter acesso para executar os comandos. Para obter mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Se não está a ver quaisquer dados, contacte o administrador de subscrição relevante para obter acesso para executar os comandos. Para obter mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Na qual regiões estão a análise de tráfego disponíveis?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Análise de tráfego é medida. A medição baseia-se no processamento de fluxo de dados de registo pelo serviço e armazenar resultante avançadas registos numa área de trabalho do Log Analytics. 
 
-Por exemplo, como pela [plano de preços](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), Considerando a região e.u.a. centro-oeste, se os registos de fluxo de dados armazenados numa conta de armazenamento processada pela análise de tráfego é de 10 GB e aprimorados registos ingeridos na área de trabalho do Log Analytics é de 1 GB, em seguida, o são aplicáveis encargos: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Por exemplo, como pela [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), Considerando a região e.u.a. centro-oeste, se os registos de fluxo de dados armazenados numa conta de armazenamento processada pela análise de tráfego é de 10 GB e aprimorados registos ingeridos na área de trabalho do Log Analytics é de 1 GB, em seguida, o são aplicáveis encargos: 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como navegar usando o teclado na vista de mapa de geográfico
 

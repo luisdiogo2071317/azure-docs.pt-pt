@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414706"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575320"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
 Serviços no Azure Marketplace de consultoria fornece aos parceiros Microsoft o objetivo de ligar clientes com os serviços para suportar e expandir a sua utilização do Azure. O Azure Marketplace suporta a listagem das ofertas de serviço de consultoria de parceiros de integrador de sistema (SI) da Microsoft. 
@@ -73,7 +73,7 @@ Para obter mais informações, consulte [competências através do Microsoft Par
 O lançamento do Azure Marketplace de serviços de consultoria entrarão em direto no geo-região específica. Primeira inicialização será: Estados Unidos, Canadá, Reino Unido e Austrália. Os catálogos para outros países serão em direto após um número significativo e apelativas seleção de ofertas de serviço foram submetidos por parceiros e aprovado pela Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Como registar-se para serviços no Azure Marketplace de consultoria
-Comece por registar os serviços de consultoria com [do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
+Comece por registar os serviços de consultoria com [do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
 
 **O que para esperar após o registo** a equipa de integração irá entrar em contacto em 1 a 3 dias de negócios com um e-mail de boas-vindos que irá incluir as informações de início de sessão do Portal de parceiros da Cloud (CPP). [Portal de parceiros da cloud](https://cloudpartner.azure.com) é o portal de listagem de oferta onde os editores submeter informações de listagem e os envios. 
 
@@ -150,7 +150,7 @@ Ao revisar oferecem descrições e resumos da oferta, a equipe aplicará os segu
 |**Prova de conceito**    |    Articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso     | Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior        |
 |**Workshop**    |   Inclua uma agenda detalhada diária, semanal ou mensal, consoante a duração escolhida da sua oferta. Articular o que as metas de aprendizado ou outros materiais a entregar é de seu workshop     |   Otimizar a sua oferta resumo com suas palavras-chave da otimização de mecanismo de pesquisa superior      |
 
-No Portal de parceiro de Cloud, pode adicionar formatação à sua listagem usando [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Isso é uma linguagem de design simples que o ajudará a adicionar polaco a sua listagem. 
+No Portal de parceiro de Cloud, pode adicionar formatação à sua listagem usando [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Isso é uma linguagem de design simples que o ajudará a adicionar polaco a sua listagem. 
 
 **Notas de Markdown de exemplo**
 *   Adicionar * no início e no fim do bloco de cópia - sem espaço para itálico de criar (Ex: *conteúdo*)

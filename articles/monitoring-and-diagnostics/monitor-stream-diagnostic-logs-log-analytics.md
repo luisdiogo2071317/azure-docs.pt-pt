@@ -1,6 +1,6 @@
 ---
-title: Transmitir os registos de diagnóstico do Azure ao Log Analytics
-description: Saiba como transmitir os registos de diagnóstico do Azure para uma área de trabalho de análise de registos.
+title: Stream registos de diagnóstico do Azure para o Log Analytics
+description: Aprenda a transmitir em fluxo registos de diagnóstico do Azure para uma área de trabalho do Log Analytics.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 134c33ac28c6a094bdc50deb7206db95bf4436fc
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083979"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574536"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir os registos de diagnóstico do Azure ao Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream registos de diagnóstico do Azure para o Log Analytics
 
-**[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para utilizar o portal, os cmdlets do PowerShell ou do Azure CLI 2.0 de Log Analytics do Azure.
+**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em tempo real para o Azure Log Analytics com o portal, cmdlets do PowerShell ou CLI 2.0 do Azure.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>O que pode fazer com o diagnóstico de registos de análise de registos
+## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>O que pode fazer com o diagnóstico de registos no Log Analytics
 
-Análise de registos do Azure é uma ferramenta de pesquisa e a análise de registo flexível que permite-lhe obter conhecimentos aprofundados sobre os dados em bruto de registo gerados a partir de recursos do Azure. Algumas funcionalidades incluem:
+O Azure Log Analytics é uma ferramenta de análise e pesquisa de registo flexível que permite que pode obter informações sobre os dados de registos não processados gerados a partir de recursos do Azure. Alguns recursos incluem:
 
-* **Pesquisa de registo** -escrita avançado consultas através de dados de registo, correlacionar os registos de várias origens e até mesmo geram gráficos podem afixar ao dashboard do Azure.
-* **Alertas** -detetar quando um ou mais eventos correspondem a uma consulta específica e ficarem notificados com uma chamada de e-mail ou o webhook.
-* **Soluções** -utilizar pré-criadas vistas e dashboards dão-lhe informações imediatas sobre os seus dados de registo.
-* **Análise avançada** - aplicar aprendizagem e padrão algoritmos correspondentes para identificar possíveis problemas revelados pelos seus registos.
+* **Pesquisa de registos** -escrita avançadas consultas sobre os seus dados de registo, correlacionar os registos de várias fontes e até mesmo geram gráficos que podem ser afixados ao dashboard do Azure.
+* **Alertas** -detetar quando um ou mais eventos correspondem a uma consulta específica e ser notificados com uma chamada de e-mail ou webhook.
+* **Soluções** -utilizar pré-criados vistas e dashboards que proporcionam a informações imediatas sobre os seus dados de registo.
+* **O Advanced analytics** - aplicam-se de aprendizagem automática e padrão de algoritmos correspondentes para identificar possíveis problemas revelados pelos seus registos.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Ative a transmissão em fluxo de registos de diagnóstico ao Log Analytics
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Ativar a transmissão em fluxo de registos de diagnóstico para o Log Analytics
 
-Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou uma área de trabalho de análise de registos e as categorias de registo e métricas que pretende enviar para essa área de trabalho. Um diagnóstico **categoria de registo** é um tipo de registo que pode fornecer um recurso.
+Pode ativar a transmissão em fluxo de registos de diagnóstico através de programação, através do portal, ou utilizando o [APIs de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, criar uma definição de diagnóstico em que especificar uma área de trabalho do Log Analytics e as categorias de registo e métricas que deseja enviar para área de trabalho. Um diagnóstico **categoria de registo** é um tipo de registo que pode fornecer um recurso.
 
-A área de trabalho de análise de registos não tem de estar na mesma subscrição, como o recurso emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+A área de trabalho do Log Analytics não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
@@ -41,41 +41,41 @@ A área de trabalho de análise de registos não tem de estar na mesma subscriç
 >
 >
 
-## <a name="stream-diagnostic-logs-using-the-portal"></a>Registos de diagnóstico de fluxo através do portal
-1. No portal, navegue para o Monitor do Azure e clique em **definições de diagnóstico**
+## <a name="stream-diagnostic-logs-using-the-portal"></a>Registos de diagnóstico do Stream com o portal
+1. No portal, navegue para o Azure Monitor e clique em **definições de diagnóstico**
 
-    ![Secção de monitorização do Monitor do Azure](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Secção de monitorização do Azure Monitor](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
-2. Opcionalmente filtrar a lista por tipo de recurso ou grupo de recursos, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
+2. Opcionalmente, filtrar a lista por grupo de recursos ou tipo de recurso, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
 
-3. Se não existem definições de existem no recurso que selecionou, são-lhe pedido para criar uma definição. Clique em "Ativar o diagnóstico".
+3. Se não existem definições existem no recurso que selecionou, lhe for pedido para criar uma definição. Clique em "Ativar diagnósticos."
 
    ![Adicionar definição de diagnóstico - sem definições existentes](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
-   Se existirem definições existentes no recurso, irá ver uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
+   Se existirem definições existentes no recurso, verá uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
 
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
-3. Dê a definição de um nome e a caixa de verificação **enviar ao Log Analytics**, em seguida, selecione uma área de trabalho de análise de registos.
+3. Dê a sua definição de um nome e marque a caixa **enviar para o Log Analytics**, em seguida, selecione uma área de trabalho do Log Analytics.
 
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Clique em **Guardar**.
 
-Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso, e os registos de diagnóstico são transmissão em fluxo para essa área de trabalho, assim como novos dados de evento são gerados. Tenha em atenção que podem ser quinze minutos entre quando é emitido um evento e quando for apresentada na análise de registos.
+Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso, e os registos de diagnóstico são transmitidas em fluxo para essa área de trabalho assim que novos dados de evento são gerados. Tenha em atenção que pode haver até quinze minutos entre quando um evento é emitido e quando for apresentada no Log Analytics.
 
-### <a name="via-powershell-cmdlets"></a>Através de Cmdlets do PowerShell
-Para ativar a transmissão em fluxo através de [Cmdlets do PowerShell do Azure](insights-powershell-samples.md), pode utilizar o `Set-AzureRmDiagnosticSetting` cmdlet com os seguintes parâmetros:
+### <a name="via-powershell-cmdlets"></a>Cmdlets do PowerShell
+Para ativar a transmissão em fluxo através do [Cmdlets do Azure PowerShell](insights-powershell-samples.md), pode utilizar o `Set-AzureRmDiagnosticSetting` cmdlet com estes parâmetros:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
-Tenha em atenção que a propriedade workspaceID demora o ID de recurso do Azure completo da área de trabalho, não a área de trabalho ID/chave apresentada no portal da análise de registos.
+Tenha em atenção que a propriedade workspaceID pega a ID de recurso Azure completo da área de trabalho, não a área de trabalho/chave de ID apresentado no portal do Log Analytics.
 
-### <a name="via-azure-cli-20"></a>Através da CLI do Azure 2.0
+### <a name="via-azure-cli-20"></a>Através da CLI 2.0 do Azure
 
-Para ativar a transmissão em fluxo através de [Azure CLI 2.0](insights-cli-samples.md), pode utilizar o [criar definições de diagnóstico do monitor az](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Para ativar a transmissão em fluxo através de [CLI 2.0 do Azure](insights-cli-samples.md), pode utilizar o [az monitor diagnostic-settings criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -90,14 +90,14 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     ]'
 ```
 
-Pode adicionar categorias adicionais no registo de diagnóstico adicionando dicionários para a matriz JSON transmitida como o `--logs` parâmetro.
+Pode adicionar categorias adicionais no registo de diagnóstico através da adição de dicionários para a matriz JSON passada como o `--logs` parâmetro.
 
-O `--resource-group` argumento só é necessário se `--workspace` não é um ID de objeto.
+O `--resource-group` argumento só é necessária se `--workspace` não é um ID de objeto.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Como posso consultar os dados na análise de registos?
+## <a name="how-do-i-query-the-data-in-log-analytics"></a>Como faço para consultar os dados no Log Analytics?
 
-No painel pesquisa de registo no portal ou a experiência de análise avançadas como parte da análise de registos, pode consultar os registos de diagnóstico como parte da solução de gestão do registo em tabela AzureDiagnostics. Também existem [várias soluções para os recursos do Azure](../log-analytics/log-analytics-add-solutions.md) pode instalar para obter informações imediatas sobre os dados de registo está a enviar para análise de registos.
+No painel pesquisa de registos no portal ou na experiência de Advanced Analytics como parte do Log Analytics, pode consultar os registos de diagnóstico como parte da solução de gestão de registos na tabela AzureDiagnostics. Também existem [várias soluções para recursos do Azure](../log-analytics/log-analytics-add-solutions.md) pode instalar para obter informações imediatas sobre os dados de registo estão a enviar para o Log Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
+* [Leia mais sobre os Registos de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)

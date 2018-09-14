@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 1bfc70680ecef2ee4fe162f81aac71430c773740
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005083"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575496"
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>O Azure Active Directory Identity Protection - como desbloquear utilizadores
 Com o Azure Active Directory Identity Protection, pode configurar políticas para impedir que os utilizadores se as condições configuradas são cumpridas. Normalmente, um utilizador bloqueado contactos suporte técnico para se tornar desbloqueado. Este artigo explica os passos que pode efetuar para desbloquear um utilizador bloqueado.
@@ -52,8 +52,8 @@ Para desbloquear um suspeito início de sessão, tem as seguintes opções:
 ## <a name="unblocking-accounts-at-risk"></a>A desbloquear contas em risco
 Para desbloquear uma conta em risco, tem as seguintes opções:
 
-1. **Repor palavra-passe** -pode redefinir a senha do usuário. Para obter mais informações, consulte [reposição de palavra-passe segura manual](overview.md#manual-secure-password-reset).
-2. **Dispensar todos os eventos de risco** - os blocos de política de risco de utilizador um utilizador se o nível de bloqueio de acesso de risco do usuário configurado for atingido. Pode reduzir um utilizador do nível de risco fechando manualmente reportou eventos de risco. Para obter mais informações, consulte [fechar eventos de risco manualmente](overview.md#closing-risk-events-manually).
+1. **Repor palavra-passe** -pode redefinir a senha do usuário. 
+2. **Dispensar todos os eventos de risco** - os blocos de política de risco de utilizador um utilizador se o nível de bloqueio de acesso de risco do usuário configurado for atingido. Pode reduzir um utilizador do nível de risco fechando manualmente reportou eventos de risco. 
 3. **Excluir da política** - se considera que a configuração atual da sua política de início de sessão está a causar problemas para utilizadores específicos, pode excluir os utilizadores do mesmo. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Desativar política** - se considera que a configuração de política está a causar problemas para todos os seus utilizadores, pode desativar a política. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

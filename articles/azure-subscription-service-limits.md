@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: 6a514abf9c34335e1665ca0fd221d2399fddd039
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: d179acae2053b2365c010c33cc061d29559be0cf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390831"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577688"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -52,6 +52,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Base de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Cache de Redis do Azure](#azure-redis-cache-limits)
 * [Cópia de segurança](#backup-limits)
@@ -78,7 +79,6 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Serviços de Multimédia](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços móveis](#mobile-services-limits)
-* [Monitorizar](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Redes](#networking-limits)
 * [Observador de rede](#network-watcher-limits)

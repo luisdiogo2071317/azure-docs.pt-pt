@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 161a47f72a0f8038a515c09f25ec2a8e8a520547
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a713a85a3301b211f922268d6afc4d047bd12023
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390845"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541705"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Crie destaques de vídeos existentes
 
 Este tópico mostra-lhe como criar e publicar informações de vídeo com base em algum outro vídeo.
 
-1. Inicie sessão no seu [Video Indexer](https://api-portal.videoindexer.ai/) conta.
+1. Navegue para o [Video Indexer](https://www.videoindexer.ai/) Web site e o início de sessão.
 2. Encontre um vídeo a partir do qual pretende criar as suas informações de vídeo.
 3. Prima **reproduzir**.
 
@@ -52,8 +52,8 @@ Este tópico mostra-lhe como criar e publicar informações de vídeo com base e
 
 Depois de criar a nova lista de reprodução, pode continuar a processar, conforme descrito em um dos seguintes tópicos: 
 
-- [Processar conteúdo com a API de REST do indexador de vídeo](video-indexer-use-apis.md)
-- [Incorporar visual widgets na sua aplicação](video-indexer-embed-widgets.md)
+- [Processar conteúdo com a API REST do Video Indexer](video-indexer-use-apis.md)
+- [Incorporar widgets visuais na sua aplicação](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Consulte também
 

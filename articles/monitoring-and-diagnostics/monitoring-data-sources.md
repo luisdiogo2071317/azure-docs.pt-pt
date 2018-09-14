@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3820a42e44896f75a2191b0426f2afa5a40461d7
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 55dc43f238b487392be48047b3d608f84e1e3ee2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248038"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579315"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
@@ -28,7 +28,7 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 | Métricas personalizadas ou aplicação | Métricas | Qualquer aplicativo instrumentado com o Application Insights | <ul><li>**REST API:** [REST API do Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Métricas de armazenamento | Métricas | Storage do Azure | <ul><li>**Tabela de armazenamento:** [análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Dados de faturação | Métricas | Todos os serviços do Azure | <ul><li>**REST API:** [utilização de recursos do Azure e RateCard APIs](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Registo de Atividades | Eventos | Todos os serviços do Azure | <ul><li>**REST API:** [eventos de Monitor do Azure API](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Hub de eventos ou blob de armazenamento:** [perfil de registo](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Registo de Atividades | Eventos | Todos os serviços do Azure | <ul><li>**REST API:** [eventos de Monitor do Azure API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Hub de eventos ou blob de armazenamento:** [perfil de registo](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Registos de diagnóstico do Azure Monitor | Eventos | [Ver lista aqui](monitoring-diagnostic-logs-schema.md) | <ul><li>**Hub de eventos ou blob de armazenamento:** [definições de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Computação de registos do SO convidado (ex. IIS, o ETW, syslogs) | Eventos | [Windows](../virtual-machines-dotnet-diagnostics.md) e máquinas virtuais do Linux (v2), [serviços Cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [do Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabela de armazenamento ou um blob:** [diagnóstico do Windows ou Linux do Azure](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Hub de eventos:** [diagnóstico do Windows Azure](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Registos do serviço de aplicações | Eventos | Serviços aplicacionais | <ul><li>**Armazenamento de BLOBs, tabela ou ficheiro:** [de diagnóstico de aplicações da Web](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |

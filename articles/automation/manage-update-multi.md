@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248146"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541978"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -50,7 +50,7 @@ Gestão de atualizações é suportada nos seguintes sistemas operativos:
 
 Os agentes do Linux têm de ter acesso a um repositório de atualização.
 
-Esta solução não suporta um agente do Operations Management Suite (OMS) para Linux que está configurado para reportar a várias áreas de trabalho do Log Analytics do Azure.
+Esta solução não suporta um agente do Log Analytics para Linux que está configurado para reportar a várias áreas de trabalho do Log Analytics do Azure.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Ativar a gestão de atualizações para máquinas virtuais do Azure
 
@@ -127,7 +127,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
 - **Nome**: introduza um nome exclusivo para identificar a implementação de atualização.
 - **Sistema operativo**: selecione **Windows** ou **Linux**.
-- **Computadores a atualizar**: selecione uma pesquisa guardada, grupo importada, ou selecione máquinas, para as máquinas que pretende atualizar. Se escolher **máquinas**, a preparação da máquina é mostrada na **preparação do agente de ATUALIZAÇÃO** coluna. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Computadores a atualizar**: selecione uma pesquisa guardada, grupo importada, ou selecione máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
 

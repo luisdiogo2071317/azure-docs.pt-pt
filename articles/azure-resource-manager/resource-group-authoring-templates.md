@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114617"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542249"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para obter um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
@@ -33,7 +33,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }
@@ -313,4 +313,4 @@ Pode exceder alguns limites de modelo ao utilizar um modelo aninhado. Para obter
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para obter recomendações sobre como criar modelos do Resource Manager que pode utilizar no global Azure, clouds soberanas do Azure e no Azure Stack, veja [modelos de desenvolver o Azure Resource Manager para manter a consistência na cloud](templates-cloud-consistency.md).
+* Para obter recomendações sobre como criar modelos do Resource Manager que pode utilizar no Azure global, em clouds soberanas do Azure e no Azure Stack, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência na cloud](templates-cloud-consistency.md).

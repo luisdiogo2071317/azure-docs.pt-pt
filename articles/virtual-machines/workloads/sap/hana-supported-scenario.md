@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859957"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576498"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados de instâncias grandes do HANA
 Este documento descreve os cenários suportados, juntamente com os detalhes de arquitetura para instâncias grandes HANA (HLI).
@@ -198,7 +198,7 @@ As seguintes mountpoints estão pré-configuradas:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Distribuição de tamanho do volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Distribuição de tamanho do volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 
 ## <a name="3-single-node-with-dr-normal"></a>3. Nó único com DR (Normal)
  
@@ -235,9 +235,9 @@ As seguintes mountpoints estão pré-configuradas:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 - Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes.
+- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes.
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
 
@@ -284,9 +284,9 @@ As seguintes mountpoints estão pré-configuradas:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 - Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
+- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
 - Na DR: os dados, logbackups, log, volumes partilhados para controle de qualidade (marcadas como "Instalação de instância de controle de qualidade") estão configurados para a instalação de instância de controle de qualidade.
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
@@ -335,7 +335,7 @@ As seguintes mountpoints estão pré-configuradas:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 - STONITH: Um SBD está configurado para a configuração STONITH. No entanto, uma utilização STONITH é opcional.
 
 
@@ -391,11 +391,11 @@ As seguintes mountpoints estão pré-configuradas:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 - STONITH: Um SBD está configurado para a configuração STONITH. No entanto, uma utilização STONITH é opcional.
 - Na DR: **dois conjuntos de volumes de armazenamento são necessários** para replicação de nó primário e secundário.
 - Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
+- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
 - Na DR: os dados, logbackups, log, volumes partilhados para controle de qualidade (marcadas como "Instalação de instância de controle de qualidade") estão configurados para a instalação de instância de controle de qualidade.
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
@@ -559,10 +559,10 @@ As seguintes mountpoints estão pré-configuradas:
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
 -  Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
+- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Consultar [infraestrutura e conectividade](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) para HLI
-- Consultar [elevada disponibilidade e recuperação após desastre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para HLI
+- Consultar [infraestrutura e conectividade](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) para HLI
+- Consultar [elevada disponibilidade e recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para HLI

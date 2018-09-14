@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: e0ab3476713b1fc491c7c8f2e02263c283d42440
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43435626"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45570444"
 ---
 | Recurso | Limite Máximo |Notas|
 | --- | --- |---|
@@ -29,6 +29,7 @@ ms.locfileid: "43435626"
 | Número máx. de contas de automatização numa subscrição |Sem Limite ||
 |Número máx. de simultâneas tarefas que ser executados num único Runbook Worker híbrido|50 ||
 | Tamanho de parâmetros da tarefa de Runbook máx.   | 512 kb||
+| Parâmetros do Runbook máx.   | 50|Pode passar uma cadeia de caracteres do JSON ou XML para um parâmetro e analisá-lo com o runbook se atingir o limite de parâmetro de 50|
 | Tamanho máximo payload de webhook |  512 kb|
 
 **<sup>1</sup>**  uma área de segurança é um ambiente compartilhado que pode ser utilizado por várias tarefas, tarefas com a mesma área de segurança são ligadas pelas limitações de recursos da área de segurança.

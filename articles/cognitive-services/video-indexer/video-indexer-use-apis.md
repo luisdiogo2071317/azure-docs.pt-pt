@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd0f9e01257bec2d39ef0c8e13b68c4a7a13637d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449486"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542934"
 ---
 # <a name="use-azure-video-indexer-api"></a>Utilizar a API do indexador de vídeo do Azure
 
@@ -23,23 +23,20 @@ ms.locfileid: "39449486"
 
 O Video Indexer consolida várias tecnologias de áudio e vídeo inteligência artificial (IA) oferecidas pela Microsoft num serviço integrado, tornando o desenvolvimento mais simples. As APIs foram concebidas para ativar alcance de desenvolvedores se concentrem nas tecnologias de ia de suporte de dados de consumo sem se preocupar em escala, global, disponibilidade e fiabilidade de plataforma em nuvem. Pode usar a API para carregar os ficheiros, obter informações detalhadas de vídeo, obter os URLs de widgets de informações e player para incorporá-los a sua aplicação e outras tarefas.
 
-Ao criar uma conta do Video Indexer, pode escolher uma conta de avaliação gratuita (onde pode obter um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que não está limitado pela quota). Com a avaliação gratuita, Video Indexer fornece até 600 minutos de indexação gratuito para os utilizadores do Web site e até 2400 minutos de gratuitos de indexação para os utilizadores de API. Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Paga minutos indexados, bem como a conta de suporte de dados relacionados com custos. 
+Ao criar uma conta do Video Indexer, pode escolher uma conta de avaliação gratuita (onde pode obter um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que não está limitado pela quota). Com a avaliação gratuita, Video Indexer fornece até 600 minutos de indexação gratuito para os utilizadores do Web site e até 2400 minutos de gratuitos de indexação para os utilizadores de API. Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Paga minutos indexados, bem como os serviços de multimédia do Azure conta custos relacionados. 
 
-Este artigo mostra como os desenvolvedores podem aproveitar o [API do Video Indexer](https://api-portal.videoindexer.ai/). Para obter uma descrição mais detalhada do serviço do Video Indexer, consulte a [descrição geral](video-indexer-overview.md) artigo.
+Este artigo mostra como os desenvolvedores podem aproveitar o [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Subscrever a API
 
-1. Inicie sessão.
-
-    Para começar a desenvolver com o indexador de vídeo, tem primeiro de sessão para o [Video Indexer](https://api-portal.videoindexer.ai/) portal. 
+1. Inicie sessão no [Portal de programador do indexador de vídeos](https://api-portal.videoindexer.ai/).
     
-    ![Inscrever-se](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Iniciar sessão](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
     > * Tem de utilizar o mesmo provedor que utilizou quando se inscreveu no Video Indexer.
     > * Google pessoais e da Microsoft (outlook/live) contas só podem ser utilizadas para contas de avaliação. Contas ligadas ao Azure necessitam do Azure AD.
     > * Pode haver apenas uma conta Active Directory por email. Se um utilizador tentar iniciar sessão com user@gmail.com LinkedIn e depois disso com user@gmail.com para o mais tarde, o Google irá apresentar uma página de erro, dizendo que o utilizador já existe.
-
 
 2. Inscreva-se.
 
@@ -91,15 +88,15 @@ Os valores descritos na tabela a seguir se aplicam. O **valor de parâmetro** é
 
 O parâmetro de ID de conta é necessária em todas as chamadas de API operacionais. ID da conta é um GUID que pode ser obtido de uma das seguintes formas:
 
-* Utilize o portal do indexador de vídeo para obter o ID de conta:
+* Utilize o **Web site do Video Indexer** para obter o ID de conta:
 
-    1. Inicie sessão no [videoindexer](https://www.videoindexer.ai/).
+    1. Navegue para o [Video Indexer](https://www.videoindexer.ai/) Web site e o início de sessão.
     2. Navegue para o **definições** página.
     3. Copie o ID de conta.
 
         ![ID da Conta](./media/video-indexer-use-apis/account-id.png)
 
-* Utilizar a API para obter programaticamente o ID de conta.
+* Uso **Portal do Programador de indexador de vídeo** para obter programaticamente o ID de conta.
 
     Utilize o [obter contas](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
     
@@ -225,7 +222,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Examine os detalhes da saída JSON](video-indexer-output-json.md).
-
-## <a name="see-also"></a>Consulte também
 
 [Descrição geral do indexador vídeo](video-indexer-overview.md)

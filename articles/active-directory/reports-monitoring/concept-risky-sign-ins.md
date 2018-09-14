@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4546734cd1b5bf2f4aaddc6477310128c9e62d51
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 3fab0648a2ad0e0a4c193d37875913dd27bf9af4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060195"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574285"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de inícios de sessão de risco no portal do Azure Active Directory
 
@@ -29,9 +29,9 @@ O Azure AD deteta as ações suspeitas relacionadas com as suas contas de utiliz
 
 Os eventos de risco detetados são utilizados para calcular:
 
-- **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. Para obter mais detalhes, veja [Inícios de sessão de risco](../identity-protection/overview.md#risky-sign-ins). 
+- **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. Para obter mais detalhes, consulte [como configurar a política de risco de início de sessão](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Utilizadores sinalizados para risco** – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. Para obter mais detalhes, veja [Utilizadores sinalizados para risco](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Utilizadores sinalizados para risco** – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. Para obter mais detalhes, consulte [como configurar a política de risco do utilizador](../identity-protection/howto-user-risk-policy.md).  
 
 No [portal do Azure](https://portal.azure.com), pode encontrar os relatórios de segurança no painel do **Azure Active Directory**, na secção **Segurança**. 
 
@@ -73,7 +73,7 @@ Com base na sua investigação do início de sessão de risco, pode fornecer com
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/21.png)
 
-Para obter mais detalhes, veja [Fechar eventos de risco manualmente](../identity-protection/overview.md#closing-risk-events-manually).
+
 
 Este relatório disponibiliza uma opção para:
 
@@ -98,13 +98,13 @@ O relatório de inícios de sessão de risco nas edições premium do Azure Acti
 
 Ao selecionar um evento de risco, obtém uma vista de relatório detalhado para este evento de risco que lhe permite:
 
-- Uma opção para configurar uma [política de remediação de risco do utilizador](../identity-protection/overview.md#user-risk-security-policy)  
+- Uma opção para configurar uma [política de remediação de risco do utilizador](../identity-protection/howto-user-risk-policy.md)  
 
 - Reveja a linha cronológica de deteção para o evento de risco  
 
 - Reveja uma lista de utilizadores para os quais foi detetado este evento de risco
 
-- [Feche manualmente eventos de risco](../identity-protection/overview.md#closing-risk-events-manually) ou reative um evento de risco fechado manualmente. 
+- Feche manualmente eventos de risco. 
 
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/457.png)
@@ -124,7 +124,7 @@ Ao selecionar um utilizador, obtém uma vista de relatório detalhado para este 
 
 
 Para investigar um evento de risco, selecione um na lista.  
-Esta ação abre o painel **Detalhes** para este evento de risco. No painel **Detalhes**, tem a opção de [fechar manualmente um evento de risco](../identity-protection/overview.md#closing-risk-events-manually) ou reativar um evento de risco fechado manualmente. 
+Esta ação abre o painel **Detalhes** para este evento de risco. Sobre o **detalhes** painel, tem a opção para manual fechar um evento de risco ou reativar um evento de risco fechado manualmente. 
 
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/325.png)

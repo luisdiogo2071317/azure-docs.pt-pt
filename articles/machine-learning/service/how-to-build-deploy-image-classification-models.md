@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888437"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576396"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Criar e implementar modelos de classificação de imagens com o Azure Machine Learning
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Incrementar imagens
 
-O [ `augmentation` módulo](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) fornece funcionalidades para incrementar um objeto de conjunto de dados usando todas as transformações descritas o [imgaug](https://github.com/aleju/imgaug) biblioteca. Transformações de imagem podem ser agrupadas num único pipeline, caso em que todas as transformações no pipeline são aplicadas em simultâneo cada imagem. 
+O [ `augmentation` módulo](https://docs.microsoft.com/python/api/cvtk.augmentation) fornece funcionalidades para incrementar um objeto de conjunto de dados usando todas as transformações descritas o [imgaug](https://github.com/aleju/imgaug) biblioteca. Transformações de imagem podem ser agrupadas num único pipeline, caso em que todas as transformações no pipeline são aplicadas em simultâneo cada imagem. 
 
 Se gostaria de aplicar os passos do aumento diferentes em separado, ou de forma diferente, pode definir vários pipelines e passá-los para o *augment_dataset* função. Para obter mais informações e exemplos de aumento de imagem, consulte a [imgaug documentação](https://github.com/aleju/imgaug).
 

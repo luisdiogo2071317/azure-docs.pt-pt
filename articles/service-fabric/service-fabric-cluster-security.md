@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056490"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541909"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que é proprietário. É da responsabilidade do cliente para proteger os seus clusters para ajudar a impedir que os utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se o cluster expõe os pontos finais de gestão para a internet pública, usuários anônimos podem ligar à mesma. Sem segurança de clusters não é suportado para cargas de trabalho de produção. 
@@ -92,6 +92,7 @@ Alguns aspetos importantes a considerar:
 * Para criar certificados para os clusters que executem cargas de trabalho de produção, utilize um serviço de certificado de servidor Windows corretamente configurado ou um de um aprovados [autoridade de certificação (AC)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Nunca utilize qualquer temporário ou certificados que criar utilizando ferramentas como MakeCert.exe num ambiente de produção de teste.
 * Pode utilizar um certificado autoassinado, mas somente num cluster de teste. Não utilize um certificado autoassinado na produção.
+* Ao gerar o thumbprint do certificado, certifique-se de que gerar um thumbprint de SHA1. SHA1 é o que é utilizado quando configurar os thumbprints de certificado de cliente e do Cluster.
 
 ### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e servidor (obrigatório)
 Estes certificados (uma primária e, opcionalmente, uma secundária) são necessários para proteger um cluster e evitar acessos não autorizados a ele. Estes certificados de disponibilizar a autenticação do cluster e servidor.

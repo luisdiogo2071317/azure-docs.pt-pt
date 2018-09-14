@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701019"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577825"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -299,7 +299,7 @@ A tabela seguinte resume o suporte de partição e o número de gravadores de sa
 | Azure Data Lake Store | Sim | Utilize {date} e tokens de {time} no padrão do prefixo do caminho. Escolha o formato de data, como aaaa/MM/DD, aaaa/MM/AAAA, DD-MM-AAAA. HH é utilizada para o formato de hora. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). | 
 | Base de Dados SQL do Azure | Não | Nenhuma | Não aplicável. | 
 | Armazenamento de Blobs do Azure | Sim | Utilize {date} e tokens de {time} a partir de seus campos de evento no padrão de caminho. Escolha o formato de data, como aaaa/MM/DD, aaaa/MM/AAAA, DD-MM-AAAA. HH é utilizada para o formato de hora. Como parte do [pré-visualização](https://aka.ms/ASAPreview), a saída de BLOBs pode ser particionada por um atributo único evento personalizado {fieldname} ou {datetime:\<especificador >}. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). | 
-| Hub de Eventos do Azure | Sim | Sim | Varia consoante o alinhamento da partição.</br> Quando a saída de chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de gravadores de Hub de eventos é o mesmo número de saída de partições do Hub de eventos. Cada writer usa do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de gravadores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada writer usa EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
+| Hub de Eventos do Azure | Sim | Sim | Varia consoante o alinhamento da partição.</br> Quando a saída de chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de gravadores de Hub de eventos é o mesmo número de saída de partições do Hub de eventos. Cada writer usa do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de gravadores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada writer usa EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. | 
 | Armazenamento de Tabelas do Azure | Sim | Qualquer coluna de saída.  | Segue-se a criação de partições entrada para [totalmente em paralelo consultas](stream-analytics-scale-jobs.md). | 
 | Tópico de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições se baseia a [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.| Mesmo que o número de partições do tópico de saída.  |

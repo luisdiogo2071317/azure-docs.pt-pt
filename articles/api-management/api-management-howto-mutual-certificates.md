@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2b0db6f9a1e9cd660ce1b1e7af3e7e1c85815c16
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5983e6236d1aee80b2cc5b83b65dd2f7945039a1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045253"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579974"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger os serviços de back-end com o cliente de autenticação de certificado na gestão de API do Azure
 
 Gestão de API permite proteger o acesso para o serviço de back-end de uma API com certificados de cliente. Este guia mostra como gerir certificados na instância de serviço da API Management do Azure no portal do Azure. Também explica como configurar uma API para utilizar um certificado para aceder a um serviço de back-end.
 
-Para obter informações sobre como gerir certificados com a API de REST de gestão de API, consulte <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">entidade do certificado de API do REST de gestão do Azure API</a>.
+Para obter informações sobre como gerir certificados com a API de REST de gestão de API, consulte <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">entidade do certificado de API do REST de gestão do Azure API</a>.
 
 ## <a name="prerequisites"> </a>Pré-requisitos
 

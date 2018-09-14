@@ -1,21 +1,21 @@
 ---
-title: Origens de dados suportadas - serviços cognitivos da Microsoft | Documentos da Microsoft
-titleSuffix: Azure
-description: Origens de dados suportadas
+title: Origens de dados suportadas - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: A ferramenta QnA Maker possível extrair automaticamente pares de perguntas respostas de formatos de conteúdo semiestruturados comuns, como o perguntas frequentes e manuais de produto. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros estruturados.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0436d5015ee4b369aeead7691f87ef313259d391
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697905"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544001"
 ---
 # <a name="data-sources"></a>Origens de dados 
 A ferramenta QnA Maker possível extrair automaticamente pares de perguntas respostas de formatos de conteúdo semiestruturados comuns, como o perguntas frequentes e manuais de produto. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros estruturados.
@@ -75,4 +75,4 @@ Se não tiver conteúdo já existente para preencher a base de dados de conhecim
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral do QnA Maker](../Overview/overview.md)
+[Descrição geral do Criador de FAQ](../Overview/overview.md)

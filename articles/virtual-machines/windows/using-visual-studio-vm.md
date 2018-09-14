@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
-ms.date: 03/02/2018
+ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 47de019b15fd2182c7667f7a99a6ad00a81180a1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 934f9a7eb626c94ed35a17a5b385b850fbbbe537
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716235"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542655"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Com o Visual Studio numa máquina de virtual do Azure (VM) pré-configurada é uma maneira rápida e fácil para ir de nada para um ambiente de desenvolvimento de segurança e execução. Imagens do sistema com configurações diferentes do Visual Studio estão disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).

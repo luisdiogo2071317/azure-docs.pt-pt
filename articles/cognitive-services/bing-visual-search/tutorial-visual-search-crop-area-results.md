@@ -1,6 +1,6 @@
 ---
-title: Área de cortar Bing Visual pesquisa SDK resulta tutorial | Microsoft Docs
-description: Como utilizar o SDK de pesquisa Visual do Bing para obter os URLs de imagens semelhante Recortar área da imagem carregada.
+title: Tutorial de resultados de área de recorte do SDK de pesquisa Visual do Bing | Documentos da Microsoft
+description: Como utilizar o SDK de pesquisa Visual do Bing para obter os URLs de imagens semelhantes para recortar a área da imagem carregada.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -9,48 +9,48 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 9bc3c180f108025f442343d8c5356982a83826a6
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958408"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574494"
 ---
-# <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Tutorial: Área do SDK do Bing Visual Search imagem cortar e resultados
-O SDK de pesquisa Visual inclui uma opção para selecionar uma área de uma imagem e encontre online imagens que são semelhantes a área de cortar da imagem maior.  Este exemplo Especifica área cortar que mostra uma pessoa a partir de uma imagem que contém várias pessoas.  O código envia a área de cortar e o URL da imagem a maior e devolve os resultados que incluem os URLs de pesquisa do Bing e URLs de imagens semelhantes encontrados online.
+# <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Tutorial: Área de recorte de imagem do SDK de pesquisa Visual do Bing e resultados
+O SDK de pesquisa Visual inclui uma opção para selecionar uma área de uma imagem e localizar imagens online que são semelhantes para a área de recorte da imagem maior.  Este exemplo Especifica que mostra uma pessoa a partir de uma imagem que contém várias pessoas de área de recorte.  O código envia a área de recorte e o URL da imagem maior e devolve resultados que incluem URLs de pesquisa do Bing e URLs de imagens semelhantes encontradas online.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows. (A edição da Comunidade gratuito irá funcionar.)
+Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de pesquisa do Bing. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de pesquisa do Bing. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode usar uma chave de subscrição paga do dashboard do Azure.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing Web, navegue para a opção de gerir pacotes NuGet do Explorador de soluções no Visual Studio. Adicione o pacote de Microsoft.Azure.CognitiveServices.Search.VisualSearch.
+Para configurar uma aplicação de consola utilizando o SDK de pesquisa Web Bing, navegue para a opção de gerir pacotes NuGet no Explorador de soluções no Visual Studio. Adicione o pacote de Microsoft.Azure.CognitiveServices.Search.VisualSearch.
 
-Instalar o pacote NuGet Web pesquisa SDK também instala a dependências, incluindo:
+Também instalar o pacote do SDK de pesquisa Web NuGet instala as dependências, incluindo:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft
+* Newtonsoft.Json
 
-## <a name="image-and-crop-area"></a>Área de imagem e cortar
-A imagem seguinte mostra a equipa de liderança Diretores de Microsoft.  Utilizando o SDK de pesquisa Visual, podemos carregar uma área de cortar da imagem e localizar outros imagens e páginas Web que incluem a entidade selecionada área da imagem a maior.  Neste caso, a entidade é uma pessoa.
+## <a name="image-and-crop-area"></a>Área de imagem e de recorte
+A imagem seguinte mostra a equipa de liderança sênior da Microsoft.  Utilizar o SDK de pesquisa Visual, podemos carregar uma área de recorte da imagem e encontre outras imagens e páginas da Web que incluem a entidade na área selecionada da imagem ampliada.  Neste caso, a entidade é uma pessoa.
 
-![Equipa de liderança sénior da Microsoft](./media/MS_SrLeaders.jpg)
+![Equipa de liderança Sênior da Microsoft](./media/MS_SrLeaders.jpg)
 
-## <a name="specify-the-crop-area-as-imageinfo-in-visualsearchrequest"></a>Especifique a área de cortar como ImageInfo no VisualSearchRequest
-Este exemplo utiliza uma área de cortar da imagem anterior que especifica superior esquerda e reduzir coordenadas direita por percentagem da imagem de toda.  O código seguinte cria um `ImageInfo` objeto da área de cortar e carrega o `ImageInfo` de objeto para uma `VisualSearchRequest`.  O `ImageInfo` objeto também inclui o URL da imagem online.
+## <a name="specify-the-crop-area-as-imageinfo-in-visualsearchrequest"></a>Especificar a área de corte como ImageInfo no VisualSearchRequest
+Este exemplo utiliza uma área de recorte da imagem anterior que especifica à esquerda superior e inferior direita coordenadas por percentagem da imagem inteira.  O código seguinte cria um `ImageInfo` objeto a partir da área de recorte e cargas a `ImageInfo` objeto para um `VisualSearchRequest`.  O `ImageInfo` objeto também inclui o URL da imagem online.
 
 ```
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
+string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
 ```
-## <a name="search-for-images-similar-to-crop-area"></a>Pesquisa para imagens semelhantes Recortar área
-O `VisualSearchRequest` contém cortar área informações sobre a imagem e respetivo URL.  O `VisualSearchMethodAsync` método obtém os resultados.
+## <a name="search-for-images-similar-to-crop-area"></a>Procure imagens semelhantes para recortar área
+O `VisualSearchRequest` contém informações de área de recorte sobre a imagem e o URL.  O `VisualSearchMethodAsync` método obtém os resultados.
 ```
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
 var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: visualSearchRequest).Result; 
@@ -58,9 +58,9 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 ```
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>Obter os dados de URL de ImageModuleAction
-Os resultados da pesquisa Visual estão `ImageTag` objetos.  Cada etiqueta contém uma lista de `ImageAction` objetos.  Cada `ImageAction` contém um `Data` campo uma lista de valores que dependem do tipo de ação:
+Resultados da pesquisa Visual estão `ImageTag` objetos.  Cada marca contém uma lista de `ImageAction` objetos.  Cada `ImageAction` contém uma `Data` campo que é uma lista de valores que dependem do tipo de ação:
 
-Pode obter vários tipos com o seguinte código:
+Pode obter os vários tipos com o código a seguir:
 ```
 Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
 
@@ -76,12 +76,12 @@ Devolve a aplicação concluída:
 * ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx, 5382.1
 * ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx, 5384.1
 
-Conforme apresentado na lista anterior, o `Entity` `ActionType` contém uma consulta de pesquisa do Bing devolve informações sobre uma pessoa reconhecível, local ou coisa.  O `TopicResults` e `ImageResults` tipos contém consultas para imagens relacionadas. Os URLs na ligação de lista para resultados de pesquisa do Bing.
+Como mostrado na lista anterior, o `Entity` `ActionType` contém uma consulta de pesquisa do Bing que retorna informações sobre uma pessoa reconhecível, local ou coisa.  O `TopicResults` e `ImageResults` tipos conter consultas para imagens relacionadas. Os URLs na ligação de lista de resultados da pesquisa do Bing.
 
 
-## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>PagesIncluding ActionType URLs de imagens que localizou através da pesquisa Visual
+## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>PagesIncluding ActionType URLs de imagens encontradas por pesquisa Visual
 
-Obter os URLs de imagem real requer uma conversão que lê um `ActionType` como `ImageModuleAction`, que contém um `Data` elemento com uma lista de valores.  Cada valor é o URL de uma imagem.  As seguintes casts o `PagesIncluding` tipo de ação para `ImageModuleAction` e lê os valores.
+Os URLs de imagem real requer uma conversão que lê um `ActionType` como `ImageModuleAction`, que contém um `Data` elemento com uma lista de valores.  Cada valor é o URL de uma imagem.  As conversões de seguir a `PagesIncluding` tipo de ação para `ImageModuleAction` e lê os valores.
 ```
     if (i.ActionType == "PagesIncluding")
     {
@@ -92,9 +92,9 @@ Obter os URLs de imagem real requer uma conversão que lê um `ActionType` como 
     }
 ```
 
-## <a name="complete-code"></a>Código de conclusão
+## <a name="complete-code"></a>Código completo
 
-O seguinte código é executado exemplos anteriores. Envia uma imagem binário no corpo do pedido post, juntamente com um objeto de cropArea e impressões terminar o Bing Procurar URLs para cada ActionType. Se o ActionType PagesIncluding, o código obtém os itens de ImageObject ImageObject dados.  Os dados contêm uma lista de valores, que são os URLs das imagens em páginas Web.  Copie e cole resultante Visual pesquisa URLs do browser para mostrar os resultados. Copiar e colar itens de ContentUrl browser para mostrar as imagens.
+O código a seguir executa exemplos anteriores. Envia uma imagem binária no corpo da solicitação post, juntamente com um objeto de cropArea e mostra o Bing Procurar URLs para cada ActionType. Se o ActionType PagesIncluding, o código obtém os itens de ImageObject ImageObject dados.  Os dados contêm uma lista de valores, o que são os URLs de imagens em páginas da Web.  Copie e cole resultante Visual pesquisa URLs ao navegador para mostrar os resultados. Copiar e colar itens de ContentUrl ao navegador para mostrar imagens.
 
 ```
 using System;
@@ -128,7 +128,7 @@ namespace VisualSearchFeatures
                 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
                 
                 // The ImageInfo struct specifies the crop area in the image and the URL of the larger image. 
-                string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+                string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
                 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
                 
                 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -182,4 +182,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-[Resposta de pesquisa Visual](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Resposta de pesquisa Visual](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

@@ -7,14 +7,14 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14e308f04450999fcec91a7882a22868c8c824ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41988462"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579008"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "41988462"
 
 Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, ocrs, rostos, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 
-Pode também visualmente examinar informações resumidas do vídeo ao premir o **reproduzir** botão do vídeo no portal do Video Indexer. Para obter mais informações, consulte [ver e editar informações de vídeo](video-indexer-view-edit.md).
+Também visualmente pode examinar informações resumidas do vídeo ao premir o **reproduzir** botão no vídeo sobre o [Video Indexer](https://www.videoindexer.ai/) Web site. Para obter mais informações, consulte [ver e editar informações de vídeo](video-indexer-view-edit.md).
 
 ![Informações](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -82,7 +82,7 @@ Esta secção mostra o resumo das informações.
 |privacyMode|Sua análise detalhada pode ter um dos seguintes modos: **privada**, **público**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
-|thumbnailId|ID de miniatura do vídeo. Para obter a chamada de miniatura real Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
+|thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chamar Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
 |rostos|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
@@ -90,6 +90,8 @@ Esta secção mostra o resumo das informações.
 |etiquetas| Pode conter zero ou mais etiquetas. Para obter mais informações, consulte [etiquetas](#labels).|
 |marcas| Pode conter zero ou mais marcas. Para obter mais informações, consulte [marcas](#brands).|
 |Estatísticas | Para obter mais informações, consulte [estatísticas](#statistics).|
+|emoções| Pode conter zero ou mais emoções. Para obter mais informações, consulte [emoções](#emotions).|
+|Tópicos|Pode conter zero ou mais tópicos. O [tópicos](#topics) dimensão.|
 
 ## <a name="videos"></a>vídeos
 
@@ -165,6 +167,8 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista da
 |sentimentos|O [sentimentos](#sentiments) dimensão.|
 |visualContentModeration|O [visualContentModeration](#visualcontentmoderation) dimensão.|
 |textualConentModeration|O [textualConentModeration](#textualconentmoderation) dimensão.|
+|emoções| O [emoções](#emotions) dimensão.|
+|Tópicos|O [tópicos](#topics) dimensão.|
 
 Exemplo:
 
@@ -320,7 +324,6 @@ Exemplo:
     ]
 }
 ] 
-
 ```
 
 #### <a name="faces"></a>rostos
@@ -444,7 +447,7 @@ Exemplo:
           "id": 0,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -453,7 +456,7 @@ Exemplo:
       ],
       "instances": [
         {
-       "thumbnailId": "00000000-0000-0000-0000-000000000000",   
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -466,7 +469,7 @@ Exemplo:
           "id": 1,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",        
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -667,10 +670,144 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 |bannedWordsCount |O número de palavras excluídas.|
 |bannedWordsRatio |O rácio do número total de palavras.|
 
+#### <a name="emotions"></a>emoções
+
+O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emoções identificadas poderiam ser: alegria, tristeza, raiva ou medo.
+
+|Nome|Descrição|
+|---|---|
+|ID|O ID de emoções.|
+|tipo|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções poderiam ser: alegria, tristeza, raiva ou medo.|
+|instâncias|Uma lista de intervalos de tempo em que este emoções apareceram.|
+
+```json
+"emotions": [{
+    "id": 0,
+    "type": "Fear",
+    "instances": [{
+      "adjustedStart": "0:00:39.47",
+      "adjustedEnd": "0:00:45.56",
+      "start": "0:00:39.47",
+      "end": "0:00:45.56"
+    },
+    {
+      "adjustedStart": "0:07:19.57",
+      "adjustedEnd": "0:07:23.25",
+      "start": "0:07:19.57",
+      "end": "0:07:23.25"
+    }]
+  },
+  {
+    "id": 1,
+    "type": "Anger",
+    "instances": [{
+      "adjustedStart": "0:03:55.99",
+      "adjustedEnd": "0:04:05.06",
+      "start": "0:03:55.99",
+      "end": "0:04:05.06"
+    },
+    {
+      "adjustedStart": "0:04:56.5",
+      "adjustedEnd": "0:05:04.35",
+      "start": "0:04:56.5",
+      "end": "0:05:04.35"
+    }]
+  },
+  {
+    "id": 2,
+    "type": "Joy",
+    "instances": [{
+      "adjustedStart": "0:12:23.68",
+      "adjustedEnd": "0:12:34.76",
+      "start": "0:12:23.68",
+      "end": "0:12:34.76"
+    },
+    {
+      "adjustedStart": "0:12:46.73",
+      "adjustedEnd": "0:12:52.8",
+      "start": "0:12:46.73",
+      "end": "0:12:52.8"
+    },
+    {
+      "adjustedStart": "0:30:11.29",
+      "adjustedEnd": "0:30:16.43",
+      "start": "0:30:11.29",
+      "end": "0:30:16.43"
+    },
+    {
+      "adjustedStart": "0:41:37.23",
+      "adjustedEnd": "0:41:39.85",
+      "start": "0:41:37.23",
+      "end": "0:41:39.85"
+    }]
+  },
+  {
+    "id": 3,
+    "type": "Sad",
+    "instances": [{
+      "adjustedStart": "0:13:38.67",
+      "adjustedEnd": "0:13:41.3",
+      "start": "0:13:38.67",
+      "end": "0:13:41.3"
+    },
+    {
+      "adjustedStart": "0:28:08.88",
+      "adjustedEnd": "0:28:18.16",
+      "start": "0:28:08.88",
+      "end": "0:28:18.16"
+    }]
+  }
+],
+```
+
+#### <a name="topics"></a>Tópicos
+
+O Video Indexer torna a inferência de tipos de tópicos principais de transcrições. Sempre que possível, o nível de dia 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomia está incluída. 
+
+|Nome|Descrição|
+|---|---|
+|ID|O ID de tópico.|
+|nome|Nome do tópico, por exemplo: "Farmacêutica".|
+|referenceId|A estrutura de ligações que reflete a hierarquia de tópicos. Por exemplo: "Estado de funcionamento e wellbeing / medicina e saúde / farmacêutica".|
+|confiança|A pontuação de confiança no intervalo [0,1]. Superior é mais confiança.|
+|Idioma|O idioma usado no tópico.|
+|iptcName|O suporte de dados IPTC nome, de código detetada.|
+|instâncias |Atualmente, o indexador de vídeos não indexa um tópico para intervalos de tempo, para que o vídeo inteiro é utilizado como o intervalo.|
+
+```json
+"topics": [{
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}, {
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}]
+. . .
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[API do indexador de vídeo](https://api-portal.videoindexer.ai)
+[Portal de programador do indexador de vídeos](https://api-portal.videoindexer.ai)
 
 Para obter informações sobre como incorporar widgets na sua aplicação, consulte [widgets de incorporar o Video Indexer nas suas aplicações](video-indexer-embed-widgets.md). 
 

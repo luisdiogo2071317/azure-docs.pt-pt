@@ -9,28 +9,20 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 224c8b05027f51fb99c8d58be34c3604032c0f77
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 67bbb7046d71b904dfdcaad0e44024e8f30ac288
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399500"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543714"
 ---
 # <a name="video-indexer-concepts"></a>Conceitos de indexador de vídeo
  
-Este tópico descreve alguns dos conceitos do serviço do Video Indexer.
+Este artigo descreve alguns dos conceitos do serviço do Video Indexer.
     
 ## <a name="summarized-insights"></a>Insights resumidos
 
-Insights resumidos contêm uma exibição agregada dos dados: rostos, palavras-chave, sentimentos. Por exemplo, em vez de passar por cada uma das milhares de intervalos de tempo e verificando quais faces estão no mesmo, as informações resumidas contém todos os rostos e para cada um deles, os intervalos de tempo que aparece no e % do tempo é mostrado.
-
-## <a name="topicskeywords"></a>Tópicos/palavras-chave
-
-Tópicos/palavras-chave são na lista de expressões-chave que extrai do Video Indexer do texto. Por exemplo, um vídeo de Scott Guthrie pode conter as seguintes tópicos/palavras-chave: segurança, Azure, Cloud da Microsoft, receita.
-
-## <a name="sentiments"></a>sentimentos
-
-Quando o indexador de vídeo analisa as transcrições, Deteta sentimentos também. Por exemplo, "Este é um evento muito interessante" é um sentimento positivo.
+Insights resumidos contêm uma exibição agregada dos dados: rostos, tópicos, emoções. Por exemplo, em vez de passar por cada uma das milhares de intervalos de tempo e verificando quais faces estão no mesmo, as informações resumidas contém todos os rostos e para cada um deles, os intervalos de tempo que aparece no e % do tempo é mostrado.
 
 ## <a name="time-range-vs-adjusted-time-range"></a>intervalo de tempo vs. o intervalo de tempo ajustado
 

@@ -1,6 +1,6 @@
 ---
-title: Idiomas suportados no ortográfica verifique API do Bing (cognitivos serviços da Microsoft no Azure) | Microsoft Docs
-description: Lista de geralmente disponível e de idioma de pré-visualização suportam para operações de API de verificação ortográfica do Bing.
+title: Idiomas suportados no Bing API de verificação ortográfica (serviços cognitivos da Microsoft no Azure) | Documentos da Microsoft
+description: Lista de disponibilidade geral e o idioma de pré-visualização de suporte para operações de API de verificação de ortografia do Bing.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -9,18 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a62980f563c8fad525696aca73f8c036382fa820
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050391"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573795"
 ---
 # <a name="supported-language-list-and-status"></a>Lista de idiomas suportados e o Estado
 
-Estes idiomas são suportados pela API de verificação ortográfica do Bing (apenas no `spell` modo). 
+Esses idiomas são suportados pela API de verificação de ortografia do Bing (apenas em `spell` modo). 
 
-Tenha em atenção que para trabalhar com qualquer outro idioma que `en-US`, a `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como tiver sido descrito no [referência da API de verificação ortográfica do v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Tenha em atenção que para funcionar com qualquer outra linguagem que `en-US`, o `mkt` deve ser definida e qualquer um dos `Accept-Language` ou `setLang` deve ser definido como foi descrito na [v7 referência da API de verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Idioma    | Código de idioma |
 |:----------- |:-------------:|
@@ -67,5 +67,5 @@ Tenha em atenção que para trabalhar com qualquer outro idioma que `en-US`, a `
 
 ## <a name="see-also"></a>Consulte também
 
-- [Página de documentação dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/)
-- [Página de produto de serviços cognitivos](https://azure.microsoft.com/services/cognitive-services/)
+- [Página de Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)
+- [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

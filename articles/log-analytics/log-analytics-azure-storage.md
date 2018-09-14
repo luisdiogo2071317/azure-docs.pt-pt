@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7633d00c24a18763d414b1a2595073753d651a50
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452676"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579025"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -45,7 +45,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 | Espaço de nomes do Hub de Eventos     | Microsoft.EventHub/namespaces           | Diagnóstico | Diagnóstico | |
 | Hubs IoT                | Microsoft.Devices/IotHubs               |             | Diagnóstico | |
 | Cofre de Chaves               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [Análise do Cofre de chaves](log-analytics-azure-key-vault.md) |
-| Balanceadores de Carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
+| Balanceador de Carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
 | Aplicações Lógicas              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnóstico | Diagnóstico | |
 | Grupos de Segurança de Rede | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Análise do grupo de segurança de rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [Análise (pré-visualização) de serviços de recuperação do Azure](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
@@ -57,7 +57,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extensão   | Extensão <br> Diagnóstico  | |
 | Conjuntos de dimensionamento de máquinas virtuais | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnóstico | |
 | Farms de servidores Web        | Microsoft.Web/serverfarms               |             | Diagnóstico | |
-| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnóstico | [Análise de aplicações Web do Azure (pré-visualização)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnóstico | [Análise de aplicações Web do Azure (pré-visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
-title: Notas de versão para BizTalk Services do Azure | Microsoft Docs
-description: Lista os problemas conhecidos dos BizTalk Services do Azure
+title: Notas de versão para serviços BizTalk do Azure | Documentos da Microsoft
+description: Lista os problemas conhecidos para serviços BizTalk do Azure
 services: biztalk-services
 documentationcenter: ''
 author: msftman
@@ -14,114 +14,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063547"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576475"
 ---
-# <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão do BizTalk Services do Azure
+# <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão para serviços BizTalk do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
-As notas de versão para o BizTalk Services do Microsoft Azure contêm problemas conhecidos desta versão.
+As notas de versão para os serviços BizTalk do Microsoft Azure contêm os problemas conhecidos nesta versão.
 
-## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Novidades na atualização de Novembro de serviços BizTalk
-* Encriptação de Inativos pode ser ativada no Portal de serviços do BizTalk. Consulte [ativar a encriptação de Inativos no Portal de serviços de BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>O que há de novo na atualização de Novembro dos serviços BizTalk
+* Encriptação em repouso pode ser ativada no Portal de serviços do BizTalk. Ver [ativar a encriptação em inatividade no Portal dos serviços BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
 
-## <a name="update-history"></a>Histórico de atualização
+## <a name="update-history"></a>Atualizar histórico
 ### <a name="october-update"></a>Atualização de Outubro
 * As contas organizacionais são suportadas:  
-  * **Cenário**: registada uma implementação de BizTalk Service utilizando uma conta Microsoft (como user@live.com). Neste cenário, apenas os utilizadores do Microsoft Account podem gerir o BizTalk Service através do portal do BizTalk Services. Não é possível utilizar uma conta organizacional.  
-  * **Cenário**: registada uma implementação de BizTalk Service utilizando uma conta organizacional num Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Neste cenário, apenas os utilizadores do Active Directory do Azure dentro da mesma organização podem gerir o BizTalk Service através do portal do BizTalk Services. Não é possível utilizar uma conta Microsoft.  
-* Quando cria um BizTalk Service, estão registados automaticamente no Portal de serviços do BizTalk.
-  * **Cenário**: A iniciar sessão no Azure, cria um BizTalk Service e, em seguida, selecione **gerir** durante o período de tempo relativo ao primeiro. Quando abre o portal do BizTalk Services, o BizTalk Service regista automaticamente e está pronto para as implementações.  
-    Consulte [registar e atualizar uma implementação de serviço BizTalk o BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+  * **Cenário**: registou uma implementação de serviço BizTalk utilizando uma conta Microsoft (como user@live.com). Neste cenário, apenas os utilizadores do Microsoft Account podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta institucional.  
+  * **Cenário**: registou uma implementação de serviço BizTalk utilizando uma conta organizacional num Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Neste cenário, apenas os utilizadores do Azure Active Directory dentro da mesma organização podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta Microsoft.  
+* Quando cria um BizTalk Service, são automaticamente registrados no Portal de serviços do BizTalk.
+  * **Cenário**: iniciar sessão no Azure, criar um BizTalk Service e, em seguida, selecione **gerir** pela primeira vez. Quando abre o portal dos serviços do BizTalk, o serviço BizTalk registra automaticamente e está pronto para as suas implementações.  
+    Ver [Portal dos serviços de registro e a atualizar uma implementação de serviços do BizTalk do BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
-### <a name="august-14-update"></a>Atualização 14 de Agosto
-* Contrato e bridge desacoplamento – comerciais contratos de parceiros e pontes são agora desacopladas no Portal de serviços do BizTalk. Agora, criar contratos e pontes separadamente e em tempo de execução pontes resolver para um contrato com base nos valores na mensagem EDI. Consulte [criar contratos no BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689908.aspx), [criar uma bridge EDI com o Portal de serviços de BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [criar uma bridge de AS2 utilizando o Portal de serviços de BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx)e [ Como é que pontes resolver contratos no tempo de execução?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+### <a name="august-14-update"></a>Atualização de 14 de Agosto
+* Contrato e bridge desassociar – negociação de contratos de parceiros e pontes agora estão desassociados no Portal de serviços do BizTalk. Agora, criar contratos e pontes separadamente e, em tempo de execução pontes resolver para um contrato com base nos valores na mensagem de EDI. Ver [criar contratos dos serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689908.aspx), [criar uma ponte EDI com o Portal dos serviços BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [criar uma ponte de AS2 utilizando o Portal dos serviços BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx)e [ Como é que pontes de resolver os contratos em tempo de execução?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
 * A opção para criar modelos para contratos foi descontinuada.  
-* Para o contrato de lado de envio, pode agora especificar conjuntos delimitador diferente para cada esquema. Esta configuração especificada nas definições do protocolo de contrato de lado de envio. Para obter mais informações, consulte [criar um X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [criar um contrato de EDIFACT no BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Duas novas entidades são também adicionadas à API do OM do TPM para a mesma finalidade. Consulte [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* Construções XSD padrão, incluindo tipos derivados, são agora suportadas. Consulte [XSD padrão de utilização constrói o Maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [utilize derivada tipos de cenários de mapeamento e exemplos](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 suporta novos algoritmos Dinâmicas para a assinatura de mensagem e novos algoritmos de encriptação. Consulte [criar um contrato de AS2 no BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## <a name="know-issues"></a>Saber problemas
+* Para o contrato de lado de envio, agora é possível especificar conjuntos de delimitador diferentes para cada esquema. Esta configuração é especificada nas definições do protocolo de contrato do lado de envio. Para obter mais informações, consulte [Create X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [criar um contrato EDIFACT no BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Duas novas entidades também são adicionadas à API de OM do TPM para a mesma finalidade. Ver [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
+* Padrão construções XSD, incluindo tipos derivados, agora são suportadas. Ver [XSD de padrão de utilização construções em seus mapas](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [tipos derivados de utilização em cenários de mapeamento e exemplos](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
+* AS2 oferece suporte a novos algoritmos MIC para a assinatura da mensagem e novos algoritmos de criptografia. Ver [criar um contrato de AS2 nos serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+  ## <a name="know-issues"></a>Saiba que esses problemas
 
-### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problemas de conectividade depois da atualização do Portal de serviços BizTalk
-  Se tiver o Portal de serviços de BizTalk abrir enquanto os BizTalk Services é atualizado para implementar num alterações ao serviço, poderá enfrentam os problemas de conectividade com o Portal de serviços do BizTalk.  
-  Como solução, pode reiniciar o browser, eliminar a cache do browser ou iniciar o portal no modo privado.  
+### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problemas de conectividade, após a atualização do Portal dos serviços BizTalk
+  Se tiver o Portal de serviços do BizTalk abrir enquanto os serviços do BizTalk é atualizado para distribuir as alterações para o serviço, poderá enfrentar problemas de conectividade com o Portal de serviços do BizTalk.  
+  Como solução, pode reiniciar o navegador, eliminar a cache do browser ou iniciar o portal no modo privado.  
 
-### <a name="visual-studio-ide-cannot-locate-the-artifact-if-you-click-an-error-or-warning-in-a-biztalk-services-project"></a>Visual Studio IDE não é possível localizar o artefacto se clicar num erro ou aviso num projeto dos BizTalk Services
-Instale o Visual Studio 2012 Update 3 RC 1 para corrigir o problema.  
+### <a name="visual-studio-ide-cannot-locate-the-artifact-if-you-click-an-error-or-warning-in-a-biztalk-services-project"></a>IDE do Visual Studio não é possível localizar o artefacto, se clicar num erro ou aviso num projeto de serviços BizTalk
+Instale o Visual Studio 2012 Update 3 versão Release Candidate 1 para corrigir o problema.  
 
-### <a name="custom-binding-project-reference"></a>Referência de projecto do enlace personalizado
-Considere as seguintes situações com um projeto dos BizTalk Services numa solução Visual Studio:  
+### <a name="custom-binding-project-reference"></a>Referência de projeto de ligação personalizada
+Considere as seguintes situações com um projeto de serviços BizTalk numa solução do Visual Studio:  
 
-* Na mesma solução Visual Studio, há um projeto dos BizTalk Services e um projeto do enlace personalizado. O projeto de serviço BizTalk contém uma referência a este ficheiro de projeto do enlace personalizado.
-* O projeto de serviço BizTalk contém uma referência a um enlace/comportamento personalizado DLL.
+* Na mesma solução do Visual Studio, existe um projeto de serviços do BizTalk e um projeto de ligação personalizada. O projeto de serviço BizTalk possui uma referência a este ficheiro de projeto de ligação personalizada.
+* O projeto de serviço BizTalk possui uma referência a um enlace/comportamento personalizado DLL.
 
-'Criar' a solução no Visual Studio com êxito. Em seguida, 'Reconstruir' ou 'Limpar' a solução. Depois disso, quando reconstruir ou limpar novamente, ocorre o seguinte erro:  
-  Não é possível copiar o ficheiro <Path to DLL> para "bin\Debug\FileName.dll". O processo não é possível aceder ao ficheiro 'bin\Debug\FileName.dll' porque está a ser utilizado por outro processo.  
+"Criar" a solução no Visual Studio com êxito. Em seguida, "Reconstruir" ou "Limpar" a solução. Depois disso, quando reconstruir ou limpa mais uma vez, ocorre o seguinte erro:  
+  Não é possível copiar o ficheiro <Path to DLL> para "bin\Debug\FileName.dll". O processo não é possível aceder ao ficheiro 'bin\Debug\FileName.dll', porque está a ser utilizado por outro processo.  
 
 #### <a name="workaround"></a>Solução
-* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) é instalado, tem duas opções seguintes:
+* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) é instalado, tem duas opções seguintes:
   
   * Reinicie o Visual Studio, ou
   * Reinicie a solução. Em seguida, execute apenas uma compilação na solução.  
-* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) não está instalado, abra o Gestor de tarefas, clique nos processos de separador, clique o processo de MSBuild.exe e, em seguida, clique no botão de processo do fim.  
+* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) não está instalado, abra o Gerenciador de tarefas, clique em processos de separador, clique no processo de MSBuild.exe e, em seguida, clique no botão de todo o processo.  
 
-### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Encaminhamento para pontos finais de BasicHttpRelay não é suportado de pontes e BizTalk Services Portal se carateres não imprimíveis são promovidos como cabeçalhos de HTTP
-Se utilizar carateres não imprimíveis como parte das propriedades promovidas para mensagens, essas mensagens não podem ser encaminhadas para destinos de reencaminhamento que utilizam o enlace BasicHttpRelay. Além disso, as propriedades promovidas que estão disponíveis como parte do controlo com codificação URL para os blobs e anular codificado destinos.  
+### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Encaminhamento para os pontos finais BasicHttpRelay não é suportada de pontes e o Portal dos serviços BizTalk se carateres não imprimíveis são promovidos como cabeçalhos HTTP
+Se utilizar carateres não imprimíveis como parte de propriedades promovidas para mensagens, essas mensagens não podem ser encaminhadas para destinos de reencaminhamento que usar a ligação de BasicHttpRelay. Além disso, as propriedades promovidas que estão disponíveis como parte do controle são codificados de URL para blobs e não codificado para destinos.  
 
-### <a name="mdn-is-sent-asynchronously-even-if-the-send-asynchronous-mdn-option-is-unchecked"></a>MDN é enviada no modo assíncrono, mesmo que esteja marcada a opção de MDN assíncrona de envio
-Considerar este cenário – se selecionou a **enviar MDN assíncrona** caixa de verificação e, especifique um URL para enviar o async MDN para e, em seguida, desmarque a **enviar MDN assíncrona** caixa de verificação novamente, o MDN ainda enviada para o especificar o URL, apesar de não estiver selecionada a opção de enviar async MDNs.  
-Como solução, tem de limpar o URL especificado antes de desmarcando a **enviar MDN assíncrona** caixa de verificação e, em seguida, implementar o contrato de AS2.  
+### <a name="mdn-is-sent-asynchronously-even-if-the-send-asynchronous-mdn-option-is-unchecked"></a>MDN é enviada de forma assíncrona, mesmo se a opção de MDN assíncrona de envio está desmarcada
+Considere este cenário – se selecionou o **enviar MDN assíncrono** caixa de verificação e, especifique um URL para enviar o MDN de assíncrono e, em seguida, desmarque a **enviar MDN assíncrono** caixa de verificação mais uma vez, o MDN é ainda enviado para o especificar o URL, apesar de não está selecionada a opção de enviar async MDNs.  
+Como solução, tem de limpar o URL especificado antes de se desmarcar a **enviar MDN assíncrono** caixa de verificação e, em seguida, implementar o contrato de AS2.  
 
-### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>Os carateres de espaço em branco para além de um intercâmbio válido causam uma mensagem vazia sejam enviados para o ponto final de suspensão
-Se existirem espaços em branco para além de um segmento IEA, o disassembler trata este como fim do intercâmbio atual e analisa o seguinte conjunto de espaços em branco como uma mensagem seguinte. Uma vez que isto não intercâmbio válido, poderá reparar que é enviada uma mensagem com êxito para o destino de rota e um vazio é enviado o ponto final de suspensão.  
+### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>Carateres de espaço em branco para além de um intercâmbio válido fazer com que uma mensagem vazio para serem enviados para o ponto final de suspensão
+Se existirem espaços em branco para além de um segmento IEA, o recurso de desmontagem trata-a como o fim do intercâmbio atual e analisa o próximo conjunto de espaços em branco como uma mensagem seguinte. Uma vez que não se trata de intercâmbio válido, poderá reparar que uma mensagem de êxito é enviada para o destino da rota e uma mensagem vazia é enviada o ponto de extremidade de suspensão.  
 
-### <a name="tracking-in-biztalk-services-portal"></a>Controlo no Portal de serviços BizTalk
-Registo de eventos são capturados até o processamento de mensagens EDI e qualquer correlação. Se uma mensagem falhar fora a fase de protocolo, controlo irá mostrar como concluída com êxito. Nesta situação, consulte a secção de registo no **detalhes** coluna na **controlo** para detalhes do erro.
-O X12 receber e enviar definições ([criar um X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fornecem informações sobre a fase de protocolo.  
+### <a name="tracking-in-biztalk-services-portal"></a>Controlo no Portal dos serviços BizTalk
+Eventos de rastreio são capturados até o processamento de mensagens EDI e qualquer correlação. Se uma mensagem falhar fora o estágio de protocolo, controlo mostrará a conclusão com êxito. Nesta situação, consulte a secção de registo sob o **detalhes** coluna na **controlo** para obter detalhes de erro.
+X12 receber e enviar definições ([Create X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fornecem informações sobre a fase de protocolo.  
 
-### <a name="update-agreement"></a>Contrato de atualização
-O Portal de serviços de BizTalk permite-lhe modificar o qualificador de uma identidade quando está configurado um contrato. Isto pode resultar em Propriedades de inconsistence. Por exemplo, é um contrato com ZZ:1234567 e ZZ:7654321 o qualificador. Nas definições de perfil de Portal de serviços do BizTalk, alterar ZZ:1234567 ser 01:ChangedValue. Abra o contrato e 01:ChangedValue é apresentado em vez de ZZ:1234567.
-Para modificar o qualificador de uma identidade, elimine o contrato, atualizar **identidades** no perfil de parceiro e, em seguida, recrie o contrato.  
+### <a name="update-agreement"></a>Atualizar o contrato
+O Portal de serviços do BizTalk permite-lhe modificar o qualificador de uma identidade quando é configurado um contrato. Isso pode resultar em Propriedades de inconsistence. Por exemplo, há um contrato com ZZ:1234567 e ZZ:7654321 o qualificador. As definições de perfil de Portal dos serviços BizTalk, pode alterar ZZ:1234567 ser 01:ChangedValue. Abrir o contrato e 01:ChangedValue é apresentado em vez de ZZ:1234567.
+Para modificar o qualificador de uma identidade, eliminar o contrato, atualizar **identidades** no perfil de parceiro e, em seguida, recrie o contrato.  
 
-> AZURE. Este comportamento de aviso afeta X12 e AS2.  
+> AZURE. Esse comportamento de aviso afeta X12 e AS2.  
 > 
 > 
 
-### <a name="as2-attachments"></a>AS2 anexos
-Os anexos para AS2 não são suportadas mensagens no enviar ou recebem mensagens. Especificamente, os anexos de forma silenciosa são ignorados e o corpo da mensagem é processado como uma mensagem de AS2 regular.  
+### <a name="as2-attachments"></a>Anexos de AS2
+Anexos para AS2 mensagens não são suportadas no envio ou receção. Especificamente, anexos são silenciosamente ignorados e o corpo da mensagem é processado como uma mensagem AS2 regular.  
 
-### <a name="resources-remembering-path"></a>Recursos: Caminho de recordar
-Ao adicionar **recursos**, a janela de caixa de diálogo não pode Lembre-se o caminho utilizado anteriormente para adicionar um recurso. Lembrar-se o caminho utilizado anteriormente, tente adicionar o web site do Portal de serviços de BizTalk para **Sites fidedignos** no Internet Explorer.  
+### <a name="resources-remembering-path"></a>Recursos: Memorizar o caminho
+Quando adiciona **recursos**, a janela de caixa de diálogo não se lembrar o caminho utilizado anteriormente para adicionar um recurso. Lembre-se o caminho utilizado anteriormente, tente adicionar o web site do Portal dos serviços BizTalk para **Sites confiáveis** no Internet Explorer.  
 
-### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>Se o nome da entidade de uma ponte de mudar o nome e feche o projeto sem a guardar as alterações, abrir a entidade novamente resulta num erro
-Considere um cenário pela seguinte ordem:  
+### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>Se mudar o nome da entidade de uma ponte e feche o projeto sem a guardar as alterações, abrir a entidade novamente resulta num erro
+Considere um cenário na seguinte ordem:  
 
-* Adicionar uma ponte (por exemplo uma Bridge de One-Way de XML) para um projeto dos BizTalk Services  
-* Mudar o nome a bridge especificando um valor para a propriedade de nome da entidade. Isto muda o nome do ficheiro de .bridgeconfig associados com o nome que especificou.  
-* Feche o ficheiro de .bcs (ao fechar o separador no Visual Studio) sem guardar as alterações.  
-* Abra o ficheiro de .bcs novamente a partir do Explorador de soluções.  
-  Vai notar que enquanto o ficheiro de .bridgeconfig associado tem o nome da nova especificado, o nome da entidade na superfície do design ainda é o nome antigo. Se tentar abrir a configuração Bridge fazendo duplo clique no componente de bridge, obterá o erro seguinte:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Para evitar a execução para este cenário, certifique-se a que guardar as alterações, depois de mudar o nome de entidades de um projeto do BizTalk Service.  
+* Adicionar uma ponte (por exemplo uma ponte de One-way de XML) para um projeto de serviço BizTalk  
+* Mudar o nome a ponte, especificando um valor para a propriedade de nome da entidade. Isso muda o nome do ficheiro de .bridgeconfig associado com o nome especificado.  
+* Feche o ficheiro de .bcs (fechando a guia no Visual Studio) sem guardar as alterações.  
+* Abra o ficheiro de .bcs novamente no Explorador de soluções.  
+  Notará que enquanto o ficheiro de .bridgeconfig associado tem o novo nome que especificou, o nome da entidade na superfície de design ainda é o nome antigo. Se tentar abrir a configuração de ponte clicando duas vezes o componente de ponte, receberá o erro seguinte:  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Para evitar este cenário, certifique-se de que guardar as alterações depois de mudar o nome das entidades num projeto do BizTalk Service.  
   
-### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Projeto dos BizTalk Services baseia-se com êxito, mesmo se um artefacto foi excluído de um projeto do Visual Studio
-Considere um cenário onde adiciona um artefacto (por exemplo, um ficheiro XSD) para um projeto do BizTalk Service, incluir essa artefactos na configuração Bridge (por exemplo, especificando-lo como um tipo de mensagem de pedido) e, em seguida, exclui-lo do projeto do Visual Studio. Nesse caso, compilar o projeto não fornecerá qualquer erro, desde que o artefacto eliminado está disponível no disco na mesma localização a partir de onde foi incluída no projeto do Visual Studio.
+### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Projeto dos BizTalk Services baseia-se com êxito, mesmo que um artefato foi excluído de um projeto do Visual Studio
+Considere um cenário onde adiciona um artefacto (por exemplo, um arquivo XSD) para um projeto do BizTalk Service, incluir esse artefato na configuração da Bridge (por exemplo, ao especificá-la como um tipo de mensagem de pedido) e, em seguida, excluí-lo a partir do projeto do Visual Studio. Nesse caso, compilar o projeto não fornecerá nenhum erro, desde que o artefacto eliminado está disponível no disco na mesma localização de onde ele foi incluído no projeto do Visual Studio.
   
 ### <a name="the-biztalk-service-project-does-not-check-for-schema-availability-while-configuring-the-bridges"></a>O projeto de serviço BizTalk não verificar a disponibilidade de esquema, ao configurar os pontes
-Num projeto BizTalk Service, se um esquema que seja adicionado ao projeto importa outra esquema, o projeto dos BizTalk Services não verifica se o esquema importado é adicionado ao projeto. Se tentar criar um projeto deste tipo, não a obter os erros de compilação.
+Num projeto do BizTalk Service, se um esquema que é adicionado ao projeto importa outro esquema, o projeto dos BizTalk Services não verifica se o esquema importado é adicionado ao projeto. Se tentar criar um projeto desse tipo, não obtém os erros de compilação.
   
-### <a name="the-response-message-for-a-xml-request-reply-bridge-is-always-of-charset-utf-8"></a>A mensagem de resposta para uma ponte de pedido-resposta XML é sempre do conjunto de carateres UTF-8
-Nesta versão, o conjunto de carateres da mensagem de resposta de uma Bridge de pedido-resposta XML está sempre definido como UTF-8.
+### <a name="the-response-message-for-a-xml-request-reply-bridge-is-always-of-charset-utf-8"></a>A mensagem de resposta de uma ponte de solicitação-resposta XML é sempre de conjunto de carateres UTF-8
+Nesta versão, o conjunto de caracteres da mensagem de resposta de uma ponte de solicitação-resposta XML está sempre definido como UTF-8.
   
-### <a name="user-defined-datatypes"></a>Tipos de dados definido pelo utilizador
-Os adaptadores de BizTalk Adapter Pack na funcionalidade BizTalk Adapter Service podem utilizar tipos de dados definido pelo utilizador para operações de adaptador.
-Quando utilizar tipos de dados definido pelo utilizador, copie os ficheiros (. dll) para unidade: \Programas\Microsoft BizTalk adaptador Service\BAServiceRuntime\bin\ ou a Global Assembly Cache (GAC) no servidor que aloja o serviço BizTalk Adapter Service. Caso contrário, poderão ocorrer o erro seguinte no cliente:  
+### <a name="user-defined-datatypes"></a>Tipos de dados definidas pelo utilizador
+Os adaptadores do BizTalk Adapter Pack dentro a funcionalidade do BizTalk Adapter Service podem utilizar tipos de dados definidas pelo utilizador para operações de adaptador.
+Ao utilizar tipos de dados definidas pelo utilizador, copie os ficheiros (. dll) para a unidade: \Programas\Microsoft Service\BAServiceRuntime\bin\ de adaptador do BizTalk ou para o Global Assembly Cache (GAC) no servidor que aloja o serviço do serviço adaptador do BizTalk. Caso contrário, o seguinte erro pode ocorrer no cliente:  
 ```
 <s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 <faultcode>s:Client</faultcode>
@@ -135,92 +135,92 @@ Quando utilizar tipos de dados definido pelo utilizador, copie os ficheiros (. d
 ```  
   
 > [!IMPORTANT]
-> É recomendado utilizar GACUtil.exe para instalar um ficheiro para a Cache de assemblagem Global. GACUtil.exe documentos como utilizar esta ferramenta e as opções de linha de comandos do Visual Studio.  
+> É recomendado utilizar GACUtil.exe para instalar um ficheiro para a Cache de Assembly Global. GACUtil.exe documenta como utilizar esta ferramenta e as opções de linha de comando do Visual Studio.  
 > 
 > 
 
 ### <a name="restarting-the-biztalk-adapter-service-web-site"></a>Reiniciar o serviço Web Site da placa de BizTalk
-Instalar o **o tempo de execução do BizTalk adaptador de serviço*** cria o **BizTalk Adapter Service** web site no IIS que contém o **BAService** aplicação. **BAService** internamente aplicação utiliza o enlace de reencaminhamento para expandir o alcance do ponto final de serviço no local para a nuvem. Para um serviço alojado no local, o ponto final de reencaminhamento correspondente será registado no Service Bus apenas quando inicia o serviço no local.  
+Instalar o **Runtime de serviço adaptador do BizTalk*** cria o **BizTalk Adapter Service** web site no IIS, que contém o **BAService** aplicação. **BAService** aplicativo usa internamente a ligação de reencaminhamento para expandir o alcance do ponto final de serviço no local para a cloud. Para um serviço alojado no local, o ponto de extremidade de reencaminhamento correspondente será registado no barramento de serviço apenas quando o serviço no local é iniciado.  
 
-Se parar e iniciar uma aplicação, a configuração de início automático de uma aplicação não é respeitada. Por isso, quando **BAService** está parado, tem sempre de reiniciar o **BizTalk Adapter Service** web em vez disso, o site. Não iniciar ou parar o **BAService** aplicação.
+Se para e inicia um aplicativo, a configuração de inicialização automática de um aplicativo não é honrada. Então, quando **BAService** está parado, tem sempre de reiniciar o **BizTalk Adapter Service** web site em vez disso. Não iniciar ou parar o **BAService** aplicação.
 
-### <a name="special-characters-should-not-be-used-for-address-and-entity-names-of-lob-components"></a>Os carateres especiais não devem ser utilizados para nomes de endereço e a entidade de LOB componentes
-Não deve utilizar carateres especiais para nomes de endereço e a entidade de componentes LOB. Se o fizer, irá receber um erro ao implementar o projeto do BizTalk Service. Determinados caracteres like '%', o Web site do BizTalk Adapter Service poderá ir para um Estado de paragem e terá de iniciar manualmente.
+### <a name="special-characters-should-not-be-used-for-address-and-entity-names-of-lob-components"></a>Carateres especiais não devem ser utilizados para nomes de endereço e a entidade de componentes LOB
+Não deve utilizar carateres especiais para nomes de endereço e a entidade de componentes LOB. Se fizer isso, obterá um erro ao implementar o projeto de serviço BizTalk. Para determinados carateres como "%", o site do serviço adaptador do BizTalk pode ir num Estado de paragem e terá de iniciá-lo manualmente.
 
 ### <a name="test-map-with-get-context-property"></a>Mapa de teste com a propriedade de contexto de Get
-Se uma transformação contém um **obter propriedade de contexto** operação mapa, **mapa de teste** irá falhar. Como solução temporária, substitua o **obter propriedade de contexto** mapa operação com uma cadeia concatenar mapa operação que contêm dados fictícias. Este procedimento irá preencher o esquema de destino e permitir a que testar outras funcionalidades de transformação.
+Se uma transformação contém um **obter propriedade de contexto** operação do Map, **mapa de teste** irá falhar. Como solução temporária, substitua a **obter propriedade de contexto** mapa operação com uma cadeia de caracteres concatenar mapa de operação que contém dados fictícios. Isto irá preencher o esquema de destino e permitir que testar outras funcionalidades de transformação.
 
-### <a name="test-map-property-does-not-display"></a>Propriedade de mapa de teste não apresentar
-O **mapa de teste** propriedades não são apresentados no Visual Studio. Isto pode ocorrer se o **propriedades** janela e a **Explorador de soluções** janela não estiver ancorado em simultâneo. Para resolver este problema, ancorar o **propriedades** e **Explorador de soluções** windows.  
+### <a name="test-map-property-does-not-display"></a>Não é apresentada a propriedade de mapa de teste
+O **mapa de teste** propriedades não são apresentados no Visual Studio. Isto pode ocorrer se o **propriedades** janela e o **Explorador de soluções** janela não são encaixados em simultâneo. Para resolver este problema, encaixar os **propriedades** e o **Explorador de soluções** windows.  
 
-### <a name="datetime-reformat-drop-down-is-grayed-out"></a>Pendente DateTime reformatar fica a cinzento
-Quando uma operação de mapa de reformatar DateTime é adicionada a superfície de desenho e configurada, a formato na lista pendente poderão ser desativada. Isto pode acontecer se a apresentação do computador está definida **médio – 125%** ou **maiores – 150%**. Para resolver, defina a apresentação como **Smaller – 100% (predefinição)** utilizando os passos abaixo:  
+### <a name="datetime-reformat-drop-down-is-grayed-out"></a>DateTime reformatar pendente está a cinzento
+Quando uma operação de mapa de reformatar DateTime é adicionada à superfície de design e configurada, a formato na lista pendente pode estar indisponíveis. Isto pode acontecer se o computador de exibição é definido **médio – 125%** ou **maiores – 150%**. Para resolver, defina a apresentação como **Smaller – 100% (predefinição)** através dos passos abaixo:  
 
-1. Abra o **painel de controlo** e clique em **aspeto e personalização**.
-2. Clique em **apresentar**.
+1. Abra o **painel de controlo** e clique em **aparência e personalização**.
+2. Clique em **exibição**.
 3. Clique em **Smaller – 100% (predefinição)** e clique em **aplicar**.
 
-O **formato** na lista pendente deve agora a funcionar conforme esperado.
+O **formato** na lista pendente agora deve funcionar conforme esperado.
 
-### <a name="duplicate-agreements-in-the-biztalk-services-portal"></a>Contratos duplicados no Portal de serviços BizTalk
+### <a name="duplicate-agreements-in-the-biztalk-services-portal"></a>Contratos de duplicados no Portal de serviços do BizTalk
 Considere o seguinte cenário:
 
-1. Crie um contrato com a API do OM da gestão de parceiros comerciais.
-2. Abra o contrato no Portal de serviços do BizTalk dois separadores diferentes.
+1. Crie um contrato com a API OM da gestão de parceiros comerciais.
+2. Abra o contrato no Portal de serviços do BizTalk em dois separadores diferentes.
 3. Implemente o contrato de ambos os separadores.
-4. Como resultado, ambos os contratos implementados resultavam entradas duplicadas no Portal de serviços BizTalk
+4. Como resultado, os contratos de ambos os implementado resultando em entradas duplicadas no Portal de serviços do BizTalk
 
-**Solução**. Abra qualquer uma dos contratos duplicados no Portal de serviços do BizTalk e undeploy.  
+**Solução**. Abra qualquer um dos contratos de duplicados no Portal de serviços do BizTalk e anular a implementação.  
 
-### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Pontes não utilizar o certificado atualizado, mesmo depois de um certificado foi atualizado no arquivo de artefactos
+### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Pontes não utilize o certificado atualizado, mesmo depois de um certificado foi atualizado no armazenamento de artefactos
 Considere os seguintes cenários:  
 
-**Cenário 1: Utilizar certificados com base em thumbprint para proteger a transferência de mensagens a partir de uma ponte para um ponto final de serviço**  
-Considere um cenário em que utiliza certificados baseados em thumbprint no seu projeto de BizTalk Service. Atualizar o certificado no Portal de serviços do BizTalk com o mesmo nome mas outra impressão digital, mas não de atualizar o projeto de serviço BizTalk em conformidade. Neste cenário, a bridge poderá continuar a processar as mensagens, porque os dados de certificados mais antigos poderão ainda estar na cache de canal. Depois disso, o processamento da mensagem de falha.  
+**Cenário 1: Utilizar certificados com base em thumbprint para proteger a transferência de mensagens a partir de uma ponte para um ponto de extremidade de serviço**  
+Considere um cenário onde utiliza certificados baseados em thumbprint no seu projeto de serviço BizTalk. Atualizar o certificado no Portal de serviços do BizTalk com o mesmo nome, mas outra impressão digital, mas não a atualizar o projeto de serviço BizTalk da mesma forma. Neste cenário, a ponte poderá continuar a processar as mensagens, uma vez que os dados mais antigos do certificado podem ainda ser na cache do canal. Depois disso, o processamento de mensagens falha.  
 
-**Solução**: atualizar o certificado no projeto BizTalk Service e volte a implementar o projeto.  
+**Solução**: atualizar o certificado no projeto do BizTalk Service e voltar a implementar o projeto.  
 
-**Cenário 2: Utilizar baseada no nome comportamentos para identificar os certificados para proteger a transferência de mensagens a partir de uma ponte para um ponto final de serviço**
+**Cenário 2: Utilizar comportamentos com base no nome para identificar certificados para proteger a transferência de mensagens a partir de uma ponte para um ponto de extremidade de serviço**
 
-Considere um cenário onde baseada no nome comportamentos que utiliza para identificar os certificados no seu projeto de BizTalk Service. Atualizar o certificado no Portal de serviços do BizTalk, mas não de atualizar o projeto de serviço BizTalk em conformidade. Neste cenário, a bridge poderá continuar a processar as mensagens, porque os dados de certificados mais antigos poderão ainda estar na cache de canal. Depois disso, o processamento da mensagem de falha.  
+Considere um cenário em que usar comportamentos com base no nome para identificar certificados no seu projeto de serviço BizTalk. Atualizar o certificado no Portal de serviços do BizTalk, mas não a atualizar o projeto de serviço BizTalk da mesma forma. Neste cenário, a ponte poderá continuar a processar as mensagens, uma vez que os dados mais antigos do certificado podem ainda ser na cache do canal. Depois disso, o processamento de mensagens falha.  
 
-**Solução**: atualizar o certificado no projeto BizTalk Service e volte a implementar o projeto.  
+**Solução**: atualizar o certificado no projeto do BizTalk Service e voltar a implementar o projeto.  
 
-### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Pontes continuam a processar mensagens, mesmo quando a base de dados do SQL Server está offline
-Pontes os BizTalk Services continuam a processar mensagens de tempo, mesmo que o Microsoft SQL Database do Azure (que armazena as informações em execução como artefactos implementados e pipelines), está offline. Isto acontece porque os BizTalk Services utiliza a artefactos em cache e a configuração de bridge.
-Se não pretender que o pontes para processar mensagens quando a base de dados do SQL Server está offline, pode utilizar os cmdlets do PowerShell do BizTalk Services para parar ou suspender o BizTalk Service. Consulte [amostra de gestão de serviço do Azure BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329019) para os cmdlets do Windows PowerShell gerir operações.  
+### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Pontes continuam a processar mensagens, mesmo quando a base de dados SQL está offline
+Os pontes de serviços do BizTalk continuam a processar mensagens durante algum tempo, mesmo que o Microsoft Azure SQL Database (que armazena as informações em execução, como os artefactos implementados e pipelines), está offline. Isso ocorre porque os serviços do BizTalk usa os artefactos em cache e a configuração de ponte.
+Se não pretender que o pontes de processar mensagens quando a base de dados SQL está offline, pode utilizar os cmdlets do PowerShell dos serviços BizTalk para parar ou suspender o serviço BizTalk. Ver [amostra de gestão de serviço do Azure BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329019) para os cmdlets do Windows PowerShell gerir as operações.  
 
-### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Ler a mensagem XML no componente de código personalizado uma ponte inclui um caráter de LM adicional
-Considere um cenário em que pretende ler uma mensagem dentro do código personalizado uma ponte de XML. Se utilizar o System.Text.Encoding.UTF8.GetString(bytes) de API .NET um caráter adicional do LM está incluído na saída no início da mensagem. Por isso, se não pretender que o resultado inclui o caráter de LM adicional, tem de utilizar ```System.IO.StreamReader().ReadToEnd()```.
+### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Ler a mensagem XML no componente de código personalizado de uma ponte inclui um caráter BOM extra
+Considere um cenário em que queira ler uma mensagem XML dentro do código personalizado de uma ponte. Se usar o System.Text.Encoding.UTF8.GetString(bytes) de API do .NET um caráter BOM extra está incluído na saída no início da mensagem. Então, se não quiser que a saída inclui o caráter BOM extra, tem de utilizar ```System.IO.StreamReader().ReadToEnd()```.
 
-### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>Envio de mensagens para uma ponte utilizando WCF não se dimensiona
-As mensagens enviadas para uma ponte utilizando WCF não escalar. Em vez disso, deve utilizar HttpWebRequest se pretender que um cliente dimensionável.
+### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>Enviar mensagens para uma ponte usando o WCF não dimensionar
+As mensagens enviadas para uma ponte usando o WCF não dimensionar. Em vez disso, deve usar HttpWebRequest, se pretender que um cliente dimensionável.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ATUALIZAÇÃO: Erro do fornecedor de tokens depois de atualizar do pré-visualização do BizTalk Services para disponibilidade geral (GA)
-Há um EDI ou AS2 um contrato com o Active Directory lotes. Quando o BizTalk Service é atualizado a partir da pré-visualização para DG, pode ocorrer o seguinte:
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ATUALIZAÇÃO: Erro do fornecedor de Token depois de atualizar do pré-visualização do BizTalk Services para disponibilidade geral (GA)
+Existe um EDI ou o contrato de AS2 com lotes Active Directory. Quando o serviço BizTalk é atualizado de pré-visualização para disponibilidade geral, pode ocorrer o seguinte:
 
-* Erro: O fornecedor de tokens não foi possível fornecer um token de segurança. Fornecedor de tokens devolvido a mensagem: não foi possível resolver o nome remoto.
-* Tarefas de lote foram canceladas.
+* Erro: O fornecedor do token não foi possível fornecer um token de segurança. Fornecedor do token devolvido a mensagem: não foi possível resolver o nome remoto.
+* Tarefas do batch são canceladas.
 
-**Solução**: após o BizTalk Service é atualizado para disponibilidade geral (GA), volte a implementar o contrato.  
+**Solução**: depois do BizTalk Service é atualizado para disponibilidade geral (GA), volte a implementar o contrato.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ATUALIZAÇÃO: A caixa de ferramentas mostra os ícones de bridge antigo depois de atualizar o SDK dos BizTalk Services
-Depois de atualizar uma versão anterior do SDK dos BizTalk Services, que tinha antigos ícones que representa os pontes, a caixa de ferramentas continua a mostrar os ícones antigos para os pontes. No entanto, se adicionar uma ponte a superfície do designer projeto BizTalk Service, a superfície de mostra no ícone novo.  
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ATUALIZAÇÃO: A caixa de ferramentas mostra os ícones de ponte antigo depois de atualizar o SDK dos serviços do BizTalk
+Depois de atualizar uma versão anterior do SDK de serviços do BizTalk, que tinha que representa os pontes de ícones antigos, a caixa de ferramentas continua mostrar os ícones antigos de ponte. No entanto, se adicionar uma ponte para a superfície de desenho de projeto do BizTalk Service, a superfície de mostra o ícone de novo.  
 
-**Solução**. Pode contornar este problema, eliminando ficheiros. TBD <system drive>: \Users\<utilizador > \AppData\Local\Microsoft\VisualStudio\11.0.  
+**Solução**. Pode contornar este problema ao eliminar os ficheiros. TBD <system drive>: \Users\<utilizador > \AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>ATUALIZAÇÃO: Atualização BizTalk Portal de pré-visualização GA poderá mostrar um erro que indica que a capacidade EDI não está disponível
-Se tiver sessão iniciada no Portal de serviços do BizTalk enquanto os BizTalk Services é atualizado de pré-visualização para DG, poderá obterá o erro seguinte no portal:  
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>ATUALIZAÇÃO: Atualização do BizTalk Portal de pré-visualização em DG poderá mostrar um erro que indica que a capacidade EDI não está disponível
+Se tiver sessão iniciada no Portal de serviços do BizTalk enquanto os serviços do BizTalk é atualizado a partir da pré-visualização para disponibilidade geral, poderá receber o erro seguinte no portal:  
 
-Esta capacidade não está disponível como parte nesta edição dos BizTalk Services do Microsoft Azure. Utilize estas capacidades de comutador para uma edição adequada.  
+Esta capacidade não está disponível como parte nesta edição dos serviços BizTalk do Microsoft Azure. Para utilizar estas capacidades de mudar para uma edição adequada.  
 
-**Resolução**: fim de sessão do portal, feche e abra o browser e, em seguida, iniciar sessão no portal.  
+**Resolução**: fim de sessão do portal, feche e abra o browser e, em seguida, inicie sessão no portal do.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ATUALIZAÇÃO: Novos dados de controlo não for apresentada depois dos BizTalk Services é atualizado para GA
-Assuma um cenário em que tenha uma bridge XML implementado na subscrição de pré-visualização do BizTalk Services. Enviar mensagens para a bridge e os dados de controlo correspondente está disponível no Portal de serviços do BizTalk. Agora, se os bits de tempo de execução do BizTalk Services Portal e BizTalk Services são atualizados para GA e enviar uma mensagem para o ponto final bridge mesmo implementado anteriormente, os dados de controlo não for apresentada de mensagens enviadas depois da atualização.  
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ATUALIZAÇÃO: Novos dados de controlo não aparecem depois dos serviços BizTalk é atualizado para disponibilidade geral
+Assumir um cenário em que tem uma ponte XML implementada na subscrição de pré-visualização do BizTalk Services. Enviar mensagens para a ponte e o controle de dados correspondente está disponível no Portal de serviços do BizTalk. Agora, se os bits de tempo de execução do Portal dos serviços BizTalk e os serviços BizTalk são atualizados para disponibilidade geral e enviar uma mensagem para o mesmo ponto final ponte implementado anteriormente, os dados de controle não aparecem para mensagens enviadas depois da atualização.  
 
 ### <a name="pipelines-versus-bridges"></a>Pipelines versus pontes
-Ao longo deste documento, o termo 'pipelines' e 'pontes' são utilizados-no alternadamente. Essencialmente, ambos significam a mesma coisa, que é, uma unidade de processamento de mensagens implementada dos BizTalk Services.  
+Em todo este documento, o termo 'pipelines' e "pontes" são utilizados alternadamente. Ambos significam, essencialmente, a mesma coisa, o que é, uma unidade de processamento de mensagem implementada nos serviços BizTalk.  
 
 ### <a name="concepts"></a>Conceitos
 [Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   

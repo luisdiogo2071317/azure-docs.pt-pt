@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054953"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576107"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -45,7 +45,7 @@ A tabela seguinte lista os tipos mais importantes de registos disponíveis no Az
 |[Registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de controlo de recursos do Azure Resource Manager|   Fornece informações sobre as operações executadas nos recursos na sua subscrição.|    REST API, [Monitor do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Dados frequentes sobre o funcionamento de recursos do Azure Resource Manager na subscrição|    Fornece informações sobre operações executadas pelo recurso em si.| O Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Relatórios do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Os registos e relatórios | Relatórios de atividades de início de sessão de usuário e informações de atividade do sistema sobre utilizadores e de gestão de grupo.|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Máquinas virtuais e serviços em nuvem](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Serviço de registo de eventos do Windows e Linux Syslog|    Captura de dados do sistema e dados de registo nas máquinas virtuais e transferências de dados para uma conta de armazenamento à sua escolha.|   Windows (usando o Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] armazenamento) e do Linux no Azure Monitor|
+|[Máquinas virtuais e serviços em nuvem](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Serviço de registo de eventos do Windows e Linux Syslog|  Captura de dados do sistema e dados de registo nas máquinas virtuais e transferências de dados para uma conta de armazenamento à sua escolha.|   Windows (usando o Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] armazenamento) e do Linux no Azure Monitor|
 |[Análise de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registo de armazenamento, fornece dados de métricas para uma conta de armazenamento|Fornece informações sobre os pedidos de rastreio, analisa as tendências de utilização e diagnósticos de problemas com a sua conta de armazenamento.|   REST API ou o [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Registos de fluxo do grupo de segurança de rede (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON, mostra os fluxos de saída e entrados numa base por regras|Mostra informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede.|[Observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Os registos, exceções e diagnósticos personalizados|   Fornece um desempenho de aplicações (APM) de serviço para os desenvolvedores da web em várias plataformas de monitorização.| REST API, [do Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

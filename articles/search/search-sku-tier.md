@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715285"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576125"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
@@ -104,7 +104,7 @@ Partindo do princípio de que a amostra foi de representante e dez por cento da 
 
 Alguns clientes preferem começar com recursos dedicados que podem acomodar amostragem maior e tempos de processamento e, em seguida, desenvolva estimativas realistas de quantidade de índice, o tamanho e volumes de consulta durante o desenvolvimento. Inicialmente, um serviço é aprovisionado com base numa estimativa suposição e, em seguida, como o projeto de desenvolvimento amadurece, as equipes, normalmente, sabem se o serviço existente é sobre ou abaixo da capacidade para cargas de trabalho de produção prevista. 
 
-1. [Reveja os limites do serviço em cada camada](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) para determinar se camadas inferiores podem suportar a quantidade de índices, precisa. Entre as **básica**-**S1**- **S2** escalões, limites de índice são 15-50-200, respectivamente.
+1. [Reveja os limites do serviço em cada camada](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se camadas inferiores podem suportar a quantidade de índices, precisa. Entre as **básica**-**S1**- **S2** escalões, limites de índice são 15-50-200, respectivamente.
 
 1. [Criar um serviço num escalão a cobrar](search-create-service-portal.md):
 

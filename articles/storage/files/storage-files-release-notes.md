@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e818e7ff3b9e312c640e1901d05706b97dbff8d0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344371"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579111"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -51,7 +51,7 @@ Esta versão inclui a correção seguinte:
 As notas de versão seguintes destinam-se a versão 3.1.0.0 do agente do Azure File Sync (disponibilizada a 19 de Julho de 2018).
 
 ### <a name="evaluation-tool"></a>Ferramenta de avaliação
-Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu sistema usando a ferramenta de avaliação do Azure File Sync. Essa ferramenta é um cmdlet do AzureRM PowerShell que verifica a existência de potenciais problemas com o seu sistema de ficheiros e o conjunto de dados, tais como carateres não suportados ou uma versão de SO não suportada. Para instalação e instruções de utilização, consulte [ferramenta de avaliação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool) secção no guia de planejamento. 
+Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu sistema usando a ferramenta de avaliação do Azure File Sync. Essa ferramenta é um cmdlet do AzureRM PowerShell que verifica a existência de potenciais problemas com o seu sistema de ficheiros e o conjunto de dados, tais como carateres não suportados ou uma versão de SO não suportada. Para instalação e instruções de utilização, consulte [ferramenta de avaliação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) secção no guia de planejamento. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Instalação do agente e configuração do servidor
 Para obter mais informações sobre como instalar e configurar o agente de sincronização de ficheiros do Azure com o Windows Server, consulte [planear uma implementação do Azure File Sync](storage-sync-files-planning.md) e [como implementar o Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -94,7 +94,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 
 ### <a name="cloud-endpoint"></a>Ponto final da cloud
 - O Azure File Sync suporta diretamente a efetuar alterações à partilha de ficheiros do Azure. No entanto, todas as alterações feitas na partilha de ficheiros do Azure primeiro tem de ser detetado por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração de início, de um ponto final da cloud, uma vez a cada 24 horas. Além disso, as alterações feitas para uma partilha de ficheiros do Azure através do protocolo REST não atualizará a hora da última modificação de SMB e não irão ser vistas como uma alteração por sincronização.
-- O serviço de sincronização de armazenamento e/ou a conta de armazenamento pode ser movida para um grupo de recursos diferente ou uma subscrição. Se a conta de armazenamento for movida, precisa dar o acesso de serviço de sincronização de ficheiros de híbrida para a conta de armazenamento (veja [Certifique-se o Azure File Sync tem acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- O serviço de sincronização de armazenamento e/ou a conta de armazenamento pode ser movida para um grupo de recursos diferente ou uma subscrição. Se a conta de armazenamento for movida, precisa dar o acesso de serviço de sincronização de ficheiros de híbrida para a conta de armazenamento (veja [Certifique-se o Azure File Sync tem acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.

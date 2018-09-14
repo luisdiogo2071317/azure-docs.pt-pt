@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347006"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542825"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -215,8 +215,8 @@ O vídeo seguinte orienta-o procedimento passo a passo para configurar as etique
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Etiquetas de serviço de armazenamento estão disponíveis apenas nas regiões específicas e estão em pré-visualização. Para obter uma lista de regiões, consulte [etiquetas de serviço para o armazenamento](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> Para obter uma lista de etiquetas de serviço de armazenamento e regiões, consulte [etiquetas de serviço para o armazenamento](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Utilizar um proxy HTTP para cópias de segurança VM
 Quando estiver fazendo uma VM, a extensão de cópia de segurança na VM envia os comandos de gestão do instantâneo ao armazenamento do Azure com uma API de HTTPS. Encaminhe o tráfego de extensão de cópia de segurança através do proxy HTTP, porque é o único componente configurado para acesso à Internet pública.

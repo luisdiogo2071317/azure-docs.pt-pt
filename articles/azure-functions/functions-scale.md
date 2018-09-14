@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b562b10be8add02d0a3c6eb95e8df8eb0711a208
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7168db80593426977e238fa2b8a5f09638cf0fdf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093537"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542164"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
@@ -124,7 +124,7 @@ A unidade de escala é a aplicação de funções. Quando a aplicação de funç
 
 Dimensionamento pode variar em vários fatores e o dimensionamento de forma diferente, consoante o acionador e o idioma selecionado. No entanto, existem alguns aspectos de dimensionamento que existe no sistema hoje:
 
-* Apenas uma aplicação de função única se aumentar verticalmente para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, então não é um conjunto de limite no número de execuções simultâneas.
+* Apenas uma aplicação de função única se aumentar verticalmente para um máximo de 100 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, então não é um conjunto de limite no número de execuções simultâneas.
 * Novas instâncias só serão alocadas no máximo uma vez a cada 10 segundos.
 
 Acionadores diferentes também podem ter diferentes limites de dimensionamento, bem como documentado abaixo:

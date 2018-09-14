@@ -1,56 +1,56 @@
 ---
-title: A chave de gestão - serviços cognitivos Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como gerir as chaves de QnA Maker
+title: Recursos e gestão de chaves - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: O serviço QnA Maker lida com dois tipos de chaves, chaves de subscrição e chaves de ponto final.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: b402187f4949dac34fa476648c81b980ba3efc96
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9134819fc4610daadb617e123d861673e8cbfd32
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354079"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543448"
 ---
 # <a name="key-management"></a>Gestão de Chaves
 
-O serviço de QnA Maker lida com dois tipos de chaves, **chaves de subscrição** e **chaves de ponto final**.
+O serviço QnA Maker lida com dois tipos de chaves, **chaves de subscrição** e **chaves de ponto final**.
 
-![gestão de chaves](../media/qnamaker-how-to-key-management/key-management.png)
+![Gestão de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Chaves de subscrição**: estas chaves são utilizadas para aceder a [APIs do serviço de gestão de QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Estas APIs permitem-lhe desempenhar várias operações CRUD na sua base de dados de conhecimento.  
+1. **Chaves de subscrição**: estas chaves são utilizadas para acesso a [APIs de serviço de gestão do QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Essas APIs permitem-lhe executar várias operações de CRUD em sua base de dados de conhecimento.  
 
-2. **Chaves de ponto final**: estas chaves são utilizadas para aceder ao ponto final de base de dados de conhecimento para obter uma resposta para uma pergunta de utilizador. Normalmente, utilizaria este ponto final no seu código de bot/aplicação de chat que consome o serviço de QnA Maker.
+2. **Chaves de ponto final**: estas chaves são utilizadas para aceder ao ponto final de base de dados de conhecimento para obter uma resposta para uma pergunta do utilizador. Normalmente usaria este ponto final no seu código de aplicação/bot de bate-papo que consome o serviço QnA Maker.
  
 ## <a name="subscription-keys"></a>Chaves de subscrição
-Pode ver e repor as chaves de subscrição do portal do Azure onde criou o recurso de QnA Maker. 
-1. Ir para o recurso de QnA Maker no portal do Azure.
+Pode ver e repor as chaves de subscrição do portal do Azure onde criou o recurso do QnA Maker. 
+1. Vá para o recurso do QnA Maker no portal do Azure.
 
-    ![Lista de recursos de QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+    ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
 2. Aceda a **chaves**.
 
-    ![chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
 ## <a name="endpoint-keys"></a>Chaves de ponto final
 
-Chaves de ponto final podem ser geridas a partir de [portal de QnA Maker](https://qnamaker.ai).
+Chaves de ponto de extremidade podem ser geridas a partir da [portal do QnA Maker](https://qnamaker.ai).
 
-1. Inicie sessão no [portal de QnA Maker](https://qnamaker.ai)e aceda a **gerir chaves**.
+1. Iniciar sessão para o [portal do QnA Maker](https://qnamaker.ai)e aceda a **gerir chaves**.
 
-    ![chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+    ![Chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
 2. Ver ou repor as suas chaves.
 
     ![Gestor de chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Atualize as suas chaves se sentir que possam tem sido comprometidas. Esta operação pode requerer alterações correspondentes ao código de aplicação/Bot.
+    >Atualize as suas chaves se achar que as mesmas foram comprometidas. Isso pode exigir alterações correspondentes ao seu código de aplicação/Bot.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c9b93b5e7877d853a2f27678af61774171c01cb
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722211"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543334"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -65,7 +65,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 - <!-- 2515955   | IS ,ASDK--> *Todos os serviços* substitui *mais serviços* nos portais do administrador e utilizador do Azure Stack. Agora, pode utilizar *todos os serviços* como uma alternativa para navegar nos portais do Azure Stack, da mesma forma que nos portais do Azure.
 
-- <!-- TBD | IS, ASDK --> **+ Criar um recurso** substitui **+ novo** nos portais do administrador e utilizador do Azure Stack.  Agora, pode utilizar *+ criar um recurso* como uma alternativa para navegar nos portais do Azure Stack, da mesma forma que nos portais do Azure. 
+- <!-- TBD | IS, ASDK --> *+ Criar um recurso* substitui *+ novo* nos portais do administrador e utilizador do Azure Stack.  Agora, pode utilizar *+ criar um recurso* como uma alternativa para navegar nos portais do Azure Stack, da mesma forma que nos portais do Azure. 
 
 - <!--  TBD – IS, ASDK --> *Básico A* tamanhos de máquinas virtuais foram extinguidos para [criar conjuntos de dimensionamento de máquinas virtuais](.\.\azure-stack-compute-add-scalesets.md) (VMSS) através do portal. Para criar um VMSS com este tamanho, utilize o PowerShell ou um modelo. 
 

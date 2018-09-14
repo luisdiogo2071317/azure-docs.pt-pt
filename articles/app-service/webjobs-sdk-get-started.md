@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577310"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580445"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -102,7 +102,7 @@ O `JobHost` objeto é o contentor de tempo de execução para as funções: escu
 
 ## <a name="enable-console-logging"></a>Ativar o registo da consola
 
-Existem várias opções para iniciar sessão no projeto do SDK do WebJobs. Um que recomendamos é o [arquitetura de registo que foi desenvolvida para o ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Esta estrutura oferece um desempenho melhor e mais flexibilidade na mídia de armazenamento e na filtragem. 
+Existem várias opções para iniciar sessão no projeto do SDK do WebJobs. Um que recomendamos é o [arquitetura de registo que foi desenvolvida para o ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Esta estrutura oferece um desempenho melhor e mais flexibilidade na mídia de armazenamento e na filtragem. 
 
 Nesta secção, vai configurar o registo de consola que utiliza a nova estrutura.
 

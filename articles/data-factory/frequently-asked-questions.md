@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 37c2c96ad14741fba2733765640f8d6d9ef3fee2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716430"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577137"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ de fábrica de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes sobre o Azure Data Factory.  
@@ -82,7 +82,7 @@ Desde a primeira versão de pré-visualização pública em 2017, o Data Factory
 -   O Azure SQL DB, com pontos finais de serviço de VNet
 -   Instância gerida (MI)
 -   Conjunto elástico
--   Suporte para o Azure Resource Manager rede Virtual (VNet) sobre VNet clássica, que vão ser preteridos no futuro – isso permite que inserir/junção sua do Azure-SSIS Integration Runtime (IR) a uma VNet que está configurada para o Azure SQL DB com pontos finais de serviço de VNet/MI / no local acesso a dados, consulte: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-   Suporte para o Azure Resource Manager rede Virtual (VNet) sobre VNet clássica, que vão ser preteridos no futuro – isso permite que inserir/junção sua do Azure-SSIS Integration Runtime (IR) a uma VNet que está configurada para o Azure SQL DB com pontos finais de serviço de VNet/MI / no local acesso a dados, consulte: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -   Suporte para a autenticação do Azure Active Directory (AAD) em cima de autenticação do SQL para ligar ao seu SSISDB - Isto permite-lhe utilizar autenticação do AAD com o ADF Managed Service Identity (MSI)
 -   Suporte para trazer a sua própria licença do SQL Server no local para obter poupanças de custos substancial da opção de Azure híbrido benefício (AHB)
 -   Suporte para Enterprise Edition de IR Azure-SSIS que lhe permite utilizar as funcionalidades premium/avançadas, configuração personalizada para instalar componentes/extensões adicionais e 3º ecossistema de terceiros, consulte: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 

@@ -1,37 +1,41 @@
 ---
-title: 'Início rápido: Consultas de pesquisa de envio com a API REST para a API de pesquisa de imagens do Bing em Python'
-description: Neste início rápido, envia consultas de pesquisa para a API de pesquisa do Bing para obter uma lista de imagens relevantes com o Python.
+title: 'Início rápido: Enviar consultas de pesquisa com a API de pesquisa de imagens do Bing e Python'
+description: Neste início rápido, envia consultas de pesquisa para a API de pesquisa do Bing para obter uma lista de imagens com o Python.
 services: cognitive-services
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: bc527ba39b580935f113f56aa63f7bdd283ba304
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.date: 8/20/2018
+ms.author: aahi
+ms.openlocfilehash: 42b9af2d6c7223dc3f5d269dd2003f1c99d8c7da
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41994389"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578332"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Início rápido: Consultas de pesquisa de envio utilizar a REST API e Python
 
-A API de pesquisa de imagens do Bing fornece uma experiência semelhante à Bing.com/Images, permitindo-lhe enviar uma consulta de pesquisa de usuário para o Bing e obter uma lista de imagens relevantes.
+Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de imagens do Bing e receber uma resposta JSON. Esta aplicação de Python simple envia uma consulta de pesquisa para a API e exibe os resultados brutos.
 
-Este passo a passo demonstra um exemplo simples de chamar a API de pesquisa de imagens do Bing e pós-processamento o objeto JSON resultante. Para obter mais informações, consulte [documentação de pesquisa de imagens Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Embora esse aplicativo é escrito em Python, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 Pode executar este exemplo como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org) clicando no lançamento associador de destaque: 
 
-[![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
+
+
+Além disso, o código-fonte para este exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-walkthrough"></a>Executar o passo a passo
-Para continuar com o passo a passo, defina `subscription_key` à sua chave de API para o serviço de API do Bing.
+## <a name="running-the-quickstart"></a>Executar o guia de introdução
 
+Para começar a utilizar, defina `subscription_key` para uma chave de subscrição válido para o serviço de API do Bing.
 
 ```python
 subscription_key = None
@@ -72,7 +76,7 @@ O `search_results` objeto contém as imagens reais, juntamente com metadados ava
 thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
 ```
 
-Em seguida, podemos usar o `PIL` biblioteca para transferir imagens em miniatura e o `matplotlib` biblioteca para capturá-los numa grade de $ $4 \times 4.
+Em seguida, utilize o `PIL` biblioteca para transferir imagens em miniatura e o `matplotlib` biblioteca para capturá-los numa grade de $ $4 \times 4.
 
 
 ```python
@@ -89,6 +93,55 @@ for i in range(4):
         image = Image.open(BytesIO(image_data.content))        
         axes[i][j].imshow(image)
         axes[i][j].axis("off")
+plt.show()
+```
+
+## <a name="sample-json-response"></a>Resposta JSON de exemplo
+
+Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
+
+```json
+{
+"_type":"Images",
+"instrumentation":{
+    "_type":"ResponseInstrumentation"
+},
+"readLink":"images\/search?q=tropical ocean",
+"webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+"totalEstimatedMatches":842,
+"nextOffset":47,
+"value":[
+    {
+        "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+        "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+        "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+        "datePublished":"2017-11-03T08:51:00.0000000Z",
+        "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+        "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+        "contentSize":"897388 B",
+        "encodingFormat":"jpeg",
+        "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+        "width":1920,
+        "height":1200,
+        "thumbnail":{
+        "width":474,
+        "height":296
+        },
+        "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+        "insightsMetadata":{
+        "recipeSourcesCount":0,
+        "bestRepresentativeQuery":{
+            "text":"Tropical Beaches Desktop Wallpaper",
+            "displayText":"Tropical Beaches Desktop Wallpaper",
+            "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+        },
+        "pagesIncludingCount":115,
+        "availableSizesCount":44
+        },
+        "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+        "accentColor":"0050B2"
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -98,7 +151,8 @@ for i in range(4):
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de pesquisa de imagens Bing](../overview.md)  
-[Experimente-o](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

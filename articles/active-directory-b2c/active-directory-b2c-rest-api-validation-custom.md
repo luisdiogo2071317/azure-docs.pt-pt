@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440668"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542587"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar trocas de afirmações de REST API no seu percurso do utilizador do Azure AD B2C, como validação na entrada do usuário
 
@@ -118,7 +118,7 @@ Para adicionar a troca de afirmações para o perfil técnico de declaração pr
 
 1. Abra o ficheiro de TrustFrameworkBase.xml e procure `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Reveja a configuração deste perfil técnico. Observe como o exchange com o utilizador é definido como afirmações que serão pedidas do utilizador (afirmações de entrada) e de afirmações que se espera volta do fornecedor de declaração própria (afirmações de saída).
-3. Procure `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`e tenha em atenção que este perfil é invocado como passo de orquestração 4 de `<UserJourney Id="ProfileEdit">`.
+3. Procure `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`e tenha em atenção que este perfil é invocado como passo de orquestração 5 de `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Passo 4: Carregar e testar o ficheiro de política RP de edição de perfil
 

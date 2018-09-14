@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 1c3df6aa8b4080cbd70b53a994f743fb82d896b5
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382572"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542368"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de C para o Azure IoT Edge
 
 Pode transformar sua lógica de negócio em módulos do Azure IoT Edge. Este artigo mostra-lhe como utilizar o Visual Studio Code (código de VS) como a principal ferramenta para desenvolver e depurar os módulos de C.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que utilize um computador ou máquina virtual a executar o Windows ou Linux da máquina de desenvolvimento. E simular o seu dispositivo IoT Edge no computador de desenvolvimento.
+Este artigo pressupõe que utilize um computador ou máquina virtual a executar o Windows ou Linux da máquina de desenvolvimento. E simular o seu dispositivo IoT Edge no computador de desenvolvimento com o daemon de segurança de IoT Edge.
 
 > [!NOTE]
-> Este artigo depuração demonstra como anexar um processo num contêiner de módulo e depurá-lo com o VS Code. Apenas pode depurar módulos de C em Linux amd64 contentores. Se não estiver familiarizado com as capacidades de depuração do Visual Studio Code, ler sobre [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> Este artigo depuração demonstra como anexar um processo num contêiner de módulo e depurá-lo com o VS Code. Apenas pode depurar módulos de C em Linux amd64 contentores. Se não estiver familiarizado com as capacidades de depuração do Visual Studio Code, ler sobre [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
 Uma vez que este artigo usa código do Visual Studio como a ferramenta de desenvolvimento principal, instale o VS Code. Em seguida, adicione as extensões necessárias:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ Para criar um módulo, terá de Docker para criar a imagem do módulo e um regis
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Pode utilizar um registo do Docker local para o protótipo e fins de testes em vez de um registo de cloud. 
 
-Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory com, pelo menos, um dispositivo do IoT Edge. Para utilizar o seu computador como um dispositivo IoT Edge, siga os passos no guia de introdução para [Windows](quickstart.md) ou [Linux](quickstart-linux.md). 
+Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory com, pelo menos, um dispositivo do IoT Edge. Para utilizar o seu computador como um dispositivo IoT Edge, siga os passos no guia de introdução para [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Criar um novo modelo de solução
 
@@ -97,7 +97,7 @@ Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. Na paleta de comandos VS Code, introduza e execute o comando **Edge: solução de IoT Edge criar**.
+2. Na paleta de comandos VS Code, introduza e execute o comando **do Azure IoT Edge: solução de compilação e de Push IoT Edge**.
 3. Selecione o `deployment.template.json` ficheiro para a sua solução da paleta de comandos. 
 4. No Azure IoT Hub Device Explorer, clique com botão direito um ID de dispositivo do IoT Edge. Em seguida, selecione **criar a implementação de único dispositivo**. 
 5. Abra a solução **config** pasta. Em seguida, selecione o `deployment.json` ficheiro. Escolher **selecionar o manifesto de implantação do Edge**. 

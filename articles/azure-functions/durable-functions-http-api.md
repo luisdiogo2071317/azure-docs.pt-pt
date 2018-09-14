@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29fd4e62c13852e23e15f89ab6b4e2976fc42b25
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377145"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575479"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -266,7 +266,7 @@ Eis um exemplo de payloads de resposta, incluindo o estado de orquestração (fo
 ```
 
 > [!NOTE]
-> Esta operação pode ser muito cara em termos de e/s de armazenamento de Azure se existirem muitas linhas da tabela de instâncias. Podem encontrar mais detalhes na tabela de instância na [desempenho e dimensionamento nas funções durável (funções do Azure)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentação.
+> Esta operação pode ser muito cara em termos de e/s de armazenamento de Azure se existirem muitas linhas da tabela de instâncias. Podem encontrar mais detalhes na tabela de instância na [desempenho e dimensionamento nas funções durável (funções do Azure)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentação.
 > 
 
 ### <a name="raise-event"></a>Gerar evento

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 517de578e2a3c6350bbb18d756a8740ceb6f1d23
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189009"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576379"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de Windows IoT Core à sua aplicação do Azure IoT Central
 
@@ -66,7 +66,7 @@ Para implementar a aplicação de cliente do passo anterior para o seu dispositi
 * Na área de trabalho, guarde a cadeia de ligação num arquivo de texto chamado connection.string.iothub.
 * Copie o ficheiro de texto para a pasta de documentos do dispositivo: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-Depois de fazer isso, precisará abrir o [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) ao escrever na http://[device-IP-address]:8080 em qualquer navegador.
+Depois de fazer isso, precisará abrir o [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) ao escrever na http://[device-IP-address]:8080 em qualquer navegador.
 
 Desde há e, como apresentado na if abaixo, poderá ser útil para:
 1. Expanda o nó de "Aplicações" no lado esquerdo.

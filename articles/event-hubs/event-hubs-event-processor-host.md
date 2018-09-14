@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ede76e8161cc15d6a87041ef5ef9525570fec794
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 672e31109b71a8a4238a05851a58a7c83e275b19
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745886"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576322"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Descrição geral de anfitrião do processador de eventos de Hubs de eventos do Azure
 
 Os Hubs de eventos do Azure é um serviço de ingestão de telemetria poderosa que pode ser utilizado para transmissão milhões de eventos um custo reduzido. Este artigo descreve como consumir eventos ingeridos com o *anfitrião do processador de eventos* (EPH); um agente de consumidor inteligente que simplifica a gestão dos pontos de verificação, leasing e os leitores dos eventos paralela.  
 
-A chave ser dimensionada para os Hubs de eventos é a idéia de consumidores particionadas. Em comparação com o [consumidores concorrentes](http://msdn.microsoft.com/en-us/library/dn568101.aspx) padrão, o padrão de consumidor particionado permite criar uma escala elevada, removendo o afunilamento de contenção e promovendo o paralelismo de ponto a ponto.
+A chave ser dimensionada para os Hubs de eventos é a idéia de consumidores particionadas. Em comparação com o [consumidores concorrentes](http://msdn.microsoft.com/library/dn568101.aspx) padrão, o padrão de consumidor particionado permite criar uma escala elevada, removendo o afunilamento de contenção e promovendo o paralelismo de ponto a ponto.
 
 ## <a name="home-security-scenario"></a>Cenário de segurança inicial
 

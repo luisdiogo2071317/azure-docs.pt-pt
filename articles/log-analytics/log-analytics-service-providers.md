@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 7898af1a8d516fa74deef5614b5373f1dbd22f5a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ec35cece8da8eaaa89b11a35b0fc1e55d0cdfee8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378607"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573496"
 ---
 # <a name="log-analytics-for-service-providers"></a>O log Analytics para fornecedores de serviços
 O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -31,16 +31,16 @@ Para parceiros e fornecedores de serviços que fazem parte do [fornecedor de sol
 
 ## <a name="architectures-for-service-providers"></a>Arquiteturas para fornecedores de serviços
 
-Áreas de trabalho do log Analytics fornecem um método para o administrador controlar o fluxo e o isolamento dos registos e criar uma arquitetura de registo que atende suas necessidades empresariais específicas. [Este artigo](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) explica as considerações gerais em torno do gerenciamento de área de trabalho. Fornecedores de serviços tem considerações adicionais.
+Áreas de trabalho do log Analytics fornecem um método para o administrador controlar o fluxo e o isolamento dos registos e criar uma arquitetura de registo que atende suas necessidades empresariais específicas. [Este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) explica as considerações gerais em torno do gerenciamento de área de trabalho. Fornecedores de serviços tem considerações adicionais.
 
 Existem três arquiteturas possíveis para fornecedores de serviços em relação a áreas de trabalho do Log Analytics:
 
 ### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuído - os registos são armazenados em áreas de trabalho localizadas no inquilino do cliente 
 
-Nesta arquitetura, uma área de trabalho é implementada no inquilino do cliente que é utilizado para todos os registos de cliente. Os administradores do fornecedor de serviço são concedidos acesso a esta área de trabalho utilizar [utilizadores do Azure Active Directory convidado (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Os administradores do fornecedor de serviço tem de mudar para o diretório do seu cliente no portal do Azure para poder aceder a estas áreas de trabalho.
+Nesta arquitetura, uma área de trabalho é implementada no inquilino do cliente que é utilizado para todos os registos de cliente. Os administradores do fornecedor de serviço são concedidos acesso a esta área de trabalho utilizar [utilizadores do Azure Active Directory convidado (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Os administradores do fornecedor de serviço tem de mudar para o diretório do seu cliente no portal do Azure para poder aceder a estas áreas de trabalho.
 
 As vantagens desta arquitetura são:
-* O cliente pode gerir o acesso aos logs com os seus próprios [acesso baseado em funções](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* O cliente pode gerir o acesso aos logs com os seus próprios [acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview).
 * Cada cliente pode ter diferentes configurações para a sua área de trabalho, como a retenção e capping de dados.
 * Isolamento entre os clientes de regulamentação e conformidade.
 * A cobrança para cada área de trabalho será revertida para a subscrição do cliente.
@@ -74,7 +74,7 @@ A terceira mistura de arquitetura entre as duas opções. Baseia-se na arquitetu
 
 Existem duas opções para implementar o local central no Log Analytics:
 
-1. Área de trabalho central: O fornecedor de serviços pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](log-analytics-data-collector-api.md) para colocar os dados de vários espaços de trabalho para isso localização central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
+1. Área de trabalho central: O fornecedor de serviços pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](log-analytics-data-collector-api.md) para colocar os dados de vários espaços de trabalho para isso localização central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 2. Power BI como um local central: Power BI pode atuar como o local central quando vários espaços de trabalho exportar dados utilizando a integração entre o Log Analytics e [Power BI](log-analytics-powerbi.md). 
 

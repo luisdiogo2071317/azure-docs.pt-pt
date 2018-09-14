@@ -1,49 +1,50 @@
 ---
-title: Serviços cognitivos do Azure - Maker de QnA - de idiomas suportados pelo | Microsoft Docs
-description: Saiba que idiomas são suportados para Maker de QnA.
+title: Idiomas suportados - QnA Maker
+titlesuffix: Azure Cognitive Services
+description: O idioma de uma base de dados de conhecimento afeta a capacidade de QnA Maker de extração automática perguntas e respostas de fontes, bem como a relevância dos resultados que do QnA Maker oferece em resposta a consultas do utilizador.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: b210f59129a962046787b27d003c2872a54f6c8e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee04733064ec4e3d131b800fe1f18b27e5127fe8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354938"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45572945"
 ---
 # <a name="supported-languages"></a>Linguagens suportadas
 
-O idioma de uma base de dados de conhecimento afeta a capacidade de QnA Maker extrair automaticamente perguntas e respostas de [origens](../Concepts/data-sources-supported.md), bem como a importância dos resultados Maker de QnA fornece em resposta a consultas do utilizador.
+O idioma de uma base de dados de conhecimento afeta a capacidade de QnA Maker de extração automática perguntas e respostas partir [origens](../Concepts/data-sources-supported.md), bem como a relevância dos resultados do QnA Maker oferece em resposta a consultas do utilizador.
 
 ## <a name="auto-extraction"></a>Extração automática
-Maker de QnA suporta extração pergunta/resposta em qualquer página de idioma, mas a eficácia da extração é muito superior para os seguintes idiomas, conforme Maker de QnA utiliza palavras-chave para identificar perguntas.
+A ferramenta QnA Maker suporta a extração de pergunta/resposta em qualquer página de idioma, mas a eficácia da extração é muito superior para os seguintes idiomas, como o QnA Maker utiliza as palavras-chave para identificar a perguntas.
 
 |Idiomas suportados| Região|
 |-----|----|
 |Português|EN-*|
 |Francês|FR-*|
-|Italiano|IT-*|
+|Italiano|isso-*|
 |Alemão|Alemanha-*|
 |Espanhol|es-*|
 
 ## <a name="query-matching-and-relevance"></a>Correspondência de consulta e relevância
-Depende de QnA Maker [analisadores de idioma](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support) na pesquisa do Azure para fornecer os resultados. Funcionalidades de função de classificação novamente especiais estão disponíveis para En-* idiomas que ativam melhor relevância.
+Depende do QnA Maker [analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support) na pesquisa do Azure para fornecer os resultados. A classificação de recursos especiais estão disponíveis para En-* idiomas que permitem a relevância melhor.
 
-Maker de QnA auto-Deteta o idioma de base de dados de conhecimento durante a criação e define o analisador em conformidade. Pode criar bases de dados de conhecimento nos seguintes idiomas. Leitura [isto](../How-To/language-knowledge-base.md) para obter mais detalhes sobre como Maker de QnA processa idiomas.
+A ferramenta QnA Maker Deteta automaticamente de idioma da base de dados de conhecimento durante a criação e define o analisador em conformidade. Pode criar bases de dados de conhecimento nos seguintes idiomas. Leia [isso](../How-To/language-knowledge-base.md) para obter mais detalhes sobre como o QnA Maker processa os idiomas.
 
 
 > [!Tip]
-> Analisadores de idiomas, uma vez definida, não pode ser alterada. Além disso, o analisador de idioma aplica-se a todas as bases de dados de conhecimento num [serviço Maker de QnA](../How-To/set-up-qnamaker-service-azure.md). Se planear ter bases de dados de conhecimento no idioma diferente, deve criá-los em serviços de QnA Maker separados.
+> Analisadores de idiomas, uma vez definido, não pode ser alterado. Além disso, o analisador de idioma aplica-se a todas as bases de dados de conhecimento num [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Se planear ter bases de dados de conhecimento em idiomas diferentes, deve criá-los em serviços separados do QnA Maker.
 
 |Idiomas suportados|
 |-----|
 |Árabe|
-|Arménio|,
+|Arménio|, 
 Bengali|
 |Basco (Basco)|
 |Búlgaro|

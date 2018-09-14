@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/12/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972643"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542842"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tempo de ingestão de dados no Log Analytics
 O Azure Log Analytics é um serviço de dados de grande escala que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para os dados fiquem disponíveis no Log Analytics depois de serem recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
 
 ## <a name="typical-latency"></a>Latência típica
-Latência refere-se para o tempo que dados são criados no sistema monitorizado e a hora em que se trata de disponível para análise no Log Analytics. A latência típica de ingerir dados no Log Analytics é entre 3 e 10 minutos, com 95% dos dados ingeridos em menos de 7 minutos. A latência específica para quaisquer dados específicos irá variar dependendo de vários fatores explicado abaixo.
+Latência refere-se para o tempo que dados são criados no sistema monitorizado e a hora em que se trata de disponível para análise no Log Analytics. A latência típica de ingerir dados no Log Analytics é entre 2 e 5 minutos. A latência específica para quaisquer dados específicos irá variar dependendo de vários fatores explicado abaixo.
 
 ## <a name="sla-for-log-analytics"></a>SLA para o Log Analytics
 O [contrato de nível (SLA) do Log Analytics Service](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) é um contrato de enlace legais que define quando a Microsoft reembolsos clientes quando o serviço não cumpre os seus objetivos. Isso não é baseado no desempenho típico do sistema, mas seu pior das hipóteses, o que totaliza potenciais situações catastróficas.
@@ -60,7 +60,7 @@ Algumas soluções não recolher os dados de um agente e podem utilizar um méto
 Consulte a documentação para cada solução determinar a frequência de recolha.
 
 ### <a name="pipeline-process-time"></a>Tempo do processo de pipeline
-Depois de registros de log são ingeridos no pipeline do Log Analytics, foram escritas para armazenamento temporário para garantir o isolamento de inquilino e certifique-se de que os dados não são perdidos. Este processo adiciona normalmente 5 a 15 segundos. Algumas soluções de gestão implementam algoritmos mais pesados agregar dados e derivam informações como dados de transmissão em fluxo no. Por exemplo, a monitorização de desempenho de rede agrega os dados recebidos em intervalos de 3 minutos, com eficiência, adicionando latência de 3 minutos.
+Depois de registros de log são ingeridos no pipeline do Log Analytics, foram escritas para armazenamento temporário para garantir o isolamento de inquilino e certifique-se de que os dados não são perdidos. Este processo adiciona normalmente 5 a 15 segundos. Algumas soluções de gestão implementam algoritmos mais pesados agregar dados e derivam informações como dados de transmissão em fluxo no. Por exemplo, a monitorização de desempenho de rede agrega os dados recebidos em intervalos de 3 minutos, com eficiência, adicionando latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com registos personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência para registos que são recolhidos a partir de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Novos tipos de dados personalizados de aprovisionamento
 Quando é criado um novo tipo de dados personalizados a partir um [log personalizado](../log-analytics/log-analytics-data-sources-custom-logs.md) ou o [API de Recoletor de dados](../log-analytics/log-analytics-data-collector-api.md), o sistema cria um contentor de armazenamento dedicado. Esta é uma sobrecarga de uso individual que ocorre somente no primeiro aspeto deste tipo de dados.

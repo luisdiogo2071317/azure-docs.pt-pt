@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02c8d5b40315f5612564b6ae11bd9cf1861708a9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 26227e1a6766a80bbcef3cfda3f2faee82396fe3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297882"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577059"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para GDPR
 
@@ -63,9 +63,9 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A secção seguinte fornece detalhes sobre os elementos de implantação e a implementação.
 
-**O Azure Resource Manager**: [do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhar com os recursos da solução como um grupo. Os clientes podem implementar, atualizar ou eliminar todos os recursos para a solução numa operação única e coordenada. Os clientes a utilizar um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager proporciona segurança, auditoria e etiquetagem recursos para ajudar os clientes a gerir os seus recursos após a implementação.
+**O Azure Resource Manager**: [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhar com os recursos da solução como um grupo. Os clientes podem implementar, atualizar ou eliminar todos os recursos para a solução numa operação única e coordenada. Os clientes a utilizar um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager proporciona segurança, auditoria e etiquetagem recursos para ajudar os clientes a gerir os seus recursos após a implementação.
 
-**Ambiente de serviço de aplicações v2**: A [ambiente de serviço de aplicações do Azure](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) é uma funcionalidade do serviço de aplicações que fornece um ambiente totalmente isolado e dedicado para uma execução segura de aplicativos de serviço de aplicações a uma escala elevada.
+**Ambiente de serviço de aplicações v2**: A [ambiente de serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/environment/intro) é uma funcionalidade do serviço de aplicações que fornece um ambiente totalmente isolado e dedicado para uma execução segura de aplicativos de serviço de aplicações a uma escala elevada.
 
 Os ASEs são isolados para apenas executar aplicativos de um único cliente e são sempre implementados numa rede virtual. Os clientes têm um controle refinado sobre o tráfego de rede aplicação de entrada e saída e as aplicações podem estabelecer conexões seguras de alta velocidade nas redes virtuais para recursos da empresa no local.
 
@@ -73,14 +73,14 @@ Utilização dos ASEs para esta arquitetura são permitidas para as seguintes co
 
 - Alojar dentro de uma rede Virtual do Azure seguro e regras de segurança de rede
 - ASE configurado com o certificado autoassinado do ILB para comunicação HTTPS
-- [Modo de balanceamento de carga interno](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modo 3)
-- Desativar [TLS 1.0](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Alteração [cifras TLS](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Controle [portas de N/W de tráfego de entrada](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
-- [WAF – restringir dados](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
-- Permitir [tráfego de base de dados do Azure SQL](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
+- [Modo de balanceamento de carga interno](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modo 3)
+- Desativar [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Alteração [cifras TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Controle [portas de N/W de tráfego de entrada](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
+- [WAF – restringir dados](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
+- Permitir [tráfego de base de dados do Azure SQL](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Aplicação Web do Azure**: [aplicações Web do Azure](https://docs.microsoft.com/en-us/azure/app-service/) permite aos clientes criar e alojar aplicações web na linguagem de programação de sua preferência sem ter de gerir infraestrutura. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, do Azure DevOps ou qualquer repositório de Git.
+**Aplicação Web do Azure**: [aplicações Web do Azure](https://docs.microsoft.com/azure/app-service/) permite aos clientes criar e alojar aplicações web na linguagem de programação de sua preferência sem ter de gerir infraestrutura. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, DevOps do Azure ou de qualquer repositório de Git.
 
 ### <a name="virtual-network"></a>Rede Virtual
 A arquitetura define uma VNet privada com um espaço de endereços de 10.200.0.0/16.
@@ -91,14 +91,14 @@ A arquitetura define uma VNet privada com um espaço de endereços de 10.200.0.0
 - 1 NSG para a base de dados SQL do Azure
 
 Cada um dos NSGs têm portas específicas e protocolos abrir para que a solução pode trabalhar de forma segura e corretamente. Além disso, as seguintes configurações são habilitadas para cada NSG:
-  - [Eventos e registos de diagnóstico](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) forem ativadas e armazenados numa conta de armazenamento
+  - [Eventos e registos de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) forem ativadas e armazenados numa conta de armazenamento
   - Log Analytics do OMS está ligado a [diagnósticos do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Sub-redes**: cada sub-rede está associada ao seu NSG correspondente.
 
-**O DNS do Azure**: O sistema de nomes de domínio ou DNS, é responsável pela tradução (ou resolver) um nome de Web site ou serviço para o endereço IP. [O DNS do Azure](https://docs.microsoft.com/en-us/azure/dns/dns-overview) é um serviço de alojamento dos domínios DNS que fornece resolução de nome, através da infraestrutura do Azure. Ao alojar os domínios no Azure, os utilizadores podem gerir registos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos outros serviços do Azure. O DNS do Azure também suporta domínios DNS privados.
+**O DNS do Azure**: O sistema de nomes de domínio ou DNS, é responsável pela tradução (ou resolver) um nome de Web site ou serviço para o endereço IP. [O DNS do Azure](https://docs.microsoft.com/azure/dns/dns-overview) é um serviço de alojamento dos domínios DNS que fornece resolução de nome, através da infraestrutura do Azure. Ao alojar os domínios no Azure, os utilizadores podem gerir registos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos outros serviços do Azure. O DNS do Azure também suporta domínios DNS privados.
 
-**O Azure Load Balancer**: [Balanceador de carga do Azure](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) permite aos clientes Dimensionar seus aplicativos e criar disponibilidade elevada para serviços. Balanceador de carga dá suporte a cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP.
+**O Azure Load Balancer**: [Balanceador de carga do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) permite aos clientes Dimensionar seus aplicativos e criar disponibilidade elevada para serviços. Balanceador de carga dá suporte a cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP.
 
 ### <a name="data-in-transit"></a>Dados em trânsito
 Azure encripta todas as comunicações de e para os datacenters do Azure por predefinição. A ocorrência de todas as transações para o armazenamento do Azure através do portal do Azure através de HTTPS.
@@ -141,7 +141,7 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados pess
 - Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, 365 dias.
 - Operações de criptografia permitidas para as chaves estão limitadas aos obrigatórios.
 
-**Alertas de segurança**: [Centro de segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) permite aos clientes monitorizar o tráfego, recolher registos e analisar as origens de dados relativamente a ameaças. Além disso, o Centro de segurança do Azure acede a configuração existente de serviços do Azure para fornecer recomendações de serviço para ajudar a melhorar a postura de segurança e proteger dados pessoais e de configuração. Centro de segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/en-us/azure/security-center/security-center-threat-report) para cada detetado contra ameaças para ajudar as equipes de resposta a incidentes investigar e remediar ameaças.
+**Alertas de segurança**: [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) permite aos clientes monitorizar o tráfego, recolher registos e analisar as origens de dados relativamente a ameaças. Além disso, o Centro de segurança do Azure acede a configuração existente de serviços do Azure para fornecer recomendações de serviço para ajudar a melhorar a postura de segurança e proteger dados pessoais e de configuração. Centro de segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) para cada detetado contra ameaças para ajudar as equipes de resposta a incidentes investigar e remediar ameaças.
 
 **Gateway de aplicação** a arquitetura reduz o risco de vulnerabilidades de segurança com um Gateway de aplicação com Firewall de aplicações Web (WAF) e o conjunto de regras do OWASP ativada. Capacidades adicionais incluem:
 
@@ -150,9 +150,9 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados pess
 - Desativar [TLS versões 1.0 e 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Firewall de aplicações Web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modo de WAF)
 - [Modo de prevenção](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) com o conjunto de regras do OWASP 3.0
-- Ativar [registo de diagnósticos](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
-- [Sondas de estado de funcionamento personalizados](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal)
-- [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center) e [Assistente do Azure](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) fornecer proteção adicional e notificações. Centro de segurança do Azure também fornece um sistema de reputação.
+- Ativar [registo de diagnósticos](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+- [Sondas de estado de funcionamento personalizados](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)
+- [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center) e [Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) fornecer proteção adicional e notificações. Centro de segurança do Azure também fornece um sistema de reputação.
 
 ### <a name="logging-and-auditing"></a>Registro e auditoria
 
@@ -170,13 +170,13 @@ Além disso, as seguintes soluções do OMS são incluídas como parte desta arq
 -   [Gestão de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): solução de gestão de atualizações permite a gestão de cliente de atualizações de segurança do sistema operativo, incluindo o processo de instalação de atualizações necessárias e o estado das atualizações disponíveis.
 -   [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): solução funcionamento de agente a relatórios quantos agentes estão implementados e a distribuição geográfica, como número de agentes que não respondem e o número de agentes que está a enviar dados operacionais.
 -   [Registos de atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): ajuda a solução da análise de registos de atividade com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
--   [Controlo de alterações](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
+-   [Controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
 
 **O Azure Monitor**
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo chamadas da API de controlo em recursos do Azure dos clientes.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo chamadas da API de controlo em recursos do Azure dos clientes.
 
 **O Application Insights**
-[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. O Application Insights Deteta anomalias de desempenho e os clientes podem usá-lo para monitorizar a aplicação web em direto. Ele inclui ferramentas de análise poderosas para ajudar os clientes a diagnosticar problemas e para compreender o que os utilizadores efetivamente fazem com a aplicação. Foi concebido para ajudar os clientes a melhorar continuamente o desempenho e a usabilidade.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. O Application Insights Deteta anomalias de desempenho e os clientes podem usá-lo para monitorizar a aplicação web em direto. Ele inclui ferramentas de análise poderosas para ajudar os clientes a diagnosticar problemas e para compreender o que os utilizadores efetivamente fazem com a aplicação. Foi concebido para ajudar os clientes a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="threat-model"></a>Modelo de risco
 
@@ -194,11 +194,11 @@ O [Azure no Security and Compliance Blueprint - matriz de implementação de apl
 ### <a name="vpn-and-expressroute"></a>ExpressRoute e VPN
 Um túnel VPN seguro ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) tem de ser configurado com segurança estabelecer uma ligação para os recursos implementados como parte desta arquitetura de referência de aplicação de web de PaaS. Configurando adequadamente uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção para dados em trânsito.
 
-Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Essa conexão ocorre através da Internet e permite que os clientes com segurança as informações de "encapsulamento" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN site a Site é uma tecnologia madura e segura que tenha sido implementada por empresas de todos os tamanhos há décadas. O [modo de encapsulamento IPsec](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de criptografia.
+Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Essa conexão ocorre através da Internet e permite que os clientes com segurança as informações de "encapsulamento" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN site a Site é uma tecnologia madura e segura que tenha sido implementada por empresas de todos os tamanhos há décadas. O [modo de encapsulamento IPsec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de criptografia.
 
 Porque o tráfego de túnel VPN atravessa a Internet com uma VPN de site a site, a Microsoft oferece a opção de ligação de outra, ainda mais seguro. O Azure ExpressRoute é uma WAN dedicada ligação entre o Azure e uma localização no local ou um fornecedor de alojamento do Exchange. Como as ligações ExpressRoute não entram na Internet, estas ligações oferecem mais fiabilidade, velocidades mais rápidas, latências mais baixas e maior segurança do que as ligações normais pela Internet. Além disso, como se trata de uma conexão direta do fornecedor de telecomunicação do cliente, os dados não percorre a Internet e, portanto, não são expostos ao mesmo.
 
-Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponível](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponível](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Exclusão de Responsabilidade
 

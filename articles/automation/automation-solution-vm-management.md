@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 99329dd812ad47cf98845ba794bc108d26d85352
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399054"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543705"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -53,14 +53,14 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
 
    ![Página Adicionar solução de gestão VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. Sobre o **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho do Log Analytics que está ligada à mesma subscrição do Azure que a conta de automatização faz parte. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. Sobre o **área de trabalho OMS** página, execute os seguintes passos:
-   - Especifique um nome para a **Área de Trabalho do OMS**.
+1. Sobre o **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho do Log Analytics que está ligada à mesma subscrição do Azure que a conta de automatização faz parte. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. Sobre o **área de trabalho do Log Analytics** página, execute os seguintes passos:
+   - Especifique um nome para a nova **área de trabalho do Log Analytics**.
    - Selecione um **subscrição** para ligar ao escolher na lista pendente, se a predefinição selecionada não é apropriada.
    - Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
    - Selecione uma **Localização**. Atualmente, as únicas localizações disponíveis são **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **E.U.A. Leste**, **Leste do Japão**, **Sudeste asiático**, **sul do Reino Unido**, e **Europa Ocidental**.
    - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Atualizou o log Analytics [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
 
-1. Depois de fornecer as informações necessárias sobre o **área de trabalho do OMS** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
+1. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
 1. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho de análise de registo. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
    - No campo **Nome**, introduza o nome da conta de Automatização.
 

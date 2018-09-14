@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2068bcb796b660847d0ea9b1126e64a9003ca871
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719057"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576855"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Perguntas mais frequentes sobre o texto em voz
 
@@ -28,11 +28,11 @@ Se não conseguir encontrar respostas para suas perguntas neste FAQ, confira [ou
 
 **P: por onde começar se eu quiser usar um modelo de voz padrão?**
 
-**A**: mais de 80 modelos de voz padrão em mais de 45 idiomas estão disponíveis por meio de solicitações HTTP. Primeiro, obtenha uma [chave de subscrição](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Para fazer chamadas REST para os modelos de voz predeployed, consulte a [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**A**: mais de 80 modelos de voz padrão em mais de 45 idiomas estão disponíveis por meio de solicitações HTTP. Primeiro, obtenha uma [chave de subscrição](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Para fazer chamadas REST para os modelos de voz predeployed, consulte a [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 **P: se eu quiser usar um modelo de voz personalizadas, é a API igual ao que é utilizado para vozes padrão?**
 
-**A**: quando um modelo de voz personalizada é criado e implementado, receberá um ponto de extremidade exclusivo para seu modelo. Para utilizar a voz para falar nas suas aplicações, tem de especificar o ponto de extremidade nos seus pedidos HTTP. A mesma funcionalidade que está disponível na API REST para o serviço de texto em voz está disponível para o seu ponto final personalizado. Saiba como [criar e utilizar o seu ponto final personalizado](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**A**: quando um modelo de voz personalizada é criado e implementado, receberá um ponto de extremidade exclusivo para seu modelo. Para utilizar a voz para falar nas suas aplicações, tem de especificar o ponto de extremidade nos seus pedidos HTTP. A mesma funcionalidade que está disponível na API REST para o serviço de texto em voz está disponível para o seu ponto final personalizado. Saiba como [criar e utilizar o seu ponto final personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
 **P: é necessário preparar os dados de treinamento para criar modelos de voz personalizada no meu próprio?**
 
@@ -40,7 +40,7 @@ Se não conseguir encontrar respostas para suas perguntas neste FAQ, confira [ou
 
 Uma coleção de dados de voz é necessário para criar um modelo de voz personalizada. Esta coleção é composta por um conjunto de arquivos de áudio de gravações de voz e um arquivo de texto da transcrição de cada arquivo de áudio. O resultado da sua voz a digital depende muito da qualidade dos seus dados de treinamento. Para produzir uma voz de texto para discurso bom, é importante que as gravações sejam feitas num ambiente silencioso com um microfone de pé, de alta qualidade. Um volume consistente, taxa de fala e fala pitch e consistência, mesmo em mannerisms expressivas de voz são essenciais para criar uma voz digital excelente. É altamente recomendável a gravar as vozes num estúdio de gravação.
 
-Atualmente, não fornecem suporte de gravação online nem ter quaisquer recomendações de studio de gravação. Para o requisito de formato, consulte [como preparar as gravações e transcrições](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Atualmente, não fornecem suporte de gravação online nem ter quaisquer recomendações de studio de gravação. Para o requisito de formato, consulte [como preparar as gravações e transcrições](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
 **P: quais scripts deve usar para registrar os dados de voz para a formação de voz personalizada?**
 

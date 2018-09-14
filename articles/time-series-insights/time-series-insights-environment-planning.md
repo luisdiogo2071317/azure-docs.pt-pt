@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 2c06463d95467543a426079addf981aa42d53eb6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630641"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578162"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planejar seu ambiente do Azure Time Series Insights
 
@@ -101,11 +101,11 @@ Como um serviço do Azure, o Time Series Insights fornece elevada disponibilidad
 
 O Time Series Insights não tem recuperação após desastre de negócio internas (BCDR).  No entanto, os clientes que necessitam de BCDR ainda podem implementar uma estratégia de recuperação. Criar um ambiente de Time Series Insights segunda região do Azure backup e enviam eventos para este ambiente secundário da origem de eventos primário, tirando partido de um segundo grupo de consumidores dedicado e diretrizes BCDR essa origem de evento.  
 
-1.  Crie o ambiente na segunda região.  Mais sobre como criar um ambiente do Time Series Insights [aqui](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
-2.  Criar um segundo grupo de consumidores dedicado para a origem do evento e ligar essa origem de evento para o novo ambiente.  Certifique-se de que designar o grupo de consumidores dedicado, segundo.  Pode saber mais sobre isso ao seguir qualquer um [documentação do IoT Hub](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) ou [documentação do hub de eventos](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+1.  Crie o ambiente na segunda região.  Mais sobre como criar um ambiente do Time Series Insights [aqui](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+2.  Criar um segundo grupo de consumidores dedicado para a origem do evento e ligar essa origem de evento para o novo ambiente.  Certifique-se de que designar o grupo de consumidores dedicado, segundo.  Pode saber mais sobre isso ao seguir qualquer um [documentação do IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) ou [documentação do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Se a região primária ficam Inativos durante um incidente de desastres, mude ao longo de operações para o ambiente do Time Series Insights cópia de segurança.  
 
-Para saber mais sobre as políticas BCDR do IoT Hub, aceda [aqui](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Para saber mais sobre as políticas BCDR do hub de eventos, aceda [aqui](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
+Para saber mais sobre as políticas BCDR do IoT Hub, aceda [aqui](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Para saber mais sobre as políticas BCDR do hub de eventos, aceda [aqui](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Como adicionar uma origem de evento do Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md)

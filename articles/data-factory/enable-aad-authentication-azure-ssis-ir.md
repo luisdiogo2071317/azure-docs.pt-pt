@@ -1,6 +1,6 @@
 ---
-title: Ativar a autenticação do Active Directory do Azure para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
-description: Este artigo descreve como configurar o tempo de execução de integração de SSIS do Azure para ativar as ligações que utilizam a autenticação do Azure Active Directory.
+title: Ativar autenticação do Active Directory do Azure para o runtime de integração de SSIS do Azure | Documentos da Microsoft
+description: Este artigo descreve como configurar o runtime de integração Azure-SSIS para ativar as ligações que utilizam a autenticação do Azure Active Directory.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,29 +12,29 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749723"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576634"
 ---
-# <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o tempo de execução de integração do Azure-SSIS
+# <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o runtime de integração Azure-SSIS
 
-Este artigo mostra como criar uma resposta a incidentes SSIS do Azure com a identidade de serviço do Azure Data Factory. A autenticação do Active Directory (Azure AD) do Azure com o geridos serviço de identidade (MSI) para o tempo de execução de integração de SSIS do Azure permite-lhe utilizar o MSI da fábrica de dados em vez de autenticação do SQL Server para criar um tempo de execução de integração de SSIS do Azure.
+Este artigo mostra-lhe como criar um IR Azure-SSIS com a identidade de serviço do Azure Data Factory. Autenticação do Active Directory (Azure AD) do Azure com o Managed Service Identity (MSI) para o runtime de integração Azure-SSIS permite-lhe utilizar o MSI da fábrica de dados em vez da autenticação de SQL para criar um runtime de integração Azure-SSIS.
 
-Para obter mais informações sobre o MSI da fábrica de dados, consulte [identidade de serviço do Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity).
+Para mais informações sobre o MSI da fábrica de dados, veja [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> Se já tiver criado um tempo de execução de integração de SSIS do Azure com a autenticação do SQL Server, não é possível reconfigurar a IR para utilizar autenticação do Azure AD com o PowerShell neste momento.
+> Se já tiver criado um runtime de integração Azure-SSIS com a autenticação de SQL, não é possível reconfigurar o runtime de integração para utilizar autenticação do Azure AD com o PowerShell neste momento.
 
-## <a name="create-a-group-in-azure-ad-and-make-the-data-factory-msi-a-member-of-the-group"></a>Crie um grupo no Azure AD e tornar o MSI da fábrica de dados de um membro do grupo
+## <a name="create-a-group-in-azure-ad-and-make-the-data-factory-msi-a-member-of-the-group"></a>Criar um grupo no Azure AD e tornar o MSI da fábrica de dados de um membro do grupo
 
-Pode utilizar um grupo do Azure AD existente ou crie uma nova com o Azure AD PowerShell.
+Pode utilizar um grupo do Azure AD existente ou criar um novo com o Azure AD PowerShell.
 
-1.  Instalar o [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo.
+1.  Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo.
 
-2.  Inicie sessão com `Connect-AzureAD`, execute o seguinte comando para criar o grupo e guardá-lo numa variável:
+2.  Inicie sessão com `Connect-AzureAD`, execute o seguinte comando para criar o grupo e guarde-o numa variável:
 
     ```powershell
     $Group = New-AzureADGroup -DisplayName "SSISIrGroup" `
@@ -43,7 +43,7 @@ Pode utilizar um grupo do Azure AD existente ou crie uma nova com o Azure AD Pow
                               -MailNickName "NotSet"
     ```
 
-    Procura o resultado semelhante ao seguinte exemplo, o que também examina o valor da variável:
+    A saída é semelhante ao exemplo seguinte, que também examina o valor da variável:
 
     ```powershell
     $Group
@@ -53,7 +53,7 @@ Pode utilizar um grupo do Azure AD existente ou crie uma nova com o Azure AD Pow
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione o MSI da fábrica de dados ao grupo. Pode seguir [identidade de serviço do Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) obter o ID de identidade de serviço principal (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilizar o ID de aplicação do serviço de identidade para esta finalidade).
+3.  Adicione o MSI da fábrica de dados ao grupo. Pode seguir [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de identidade de serviço principal (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilizar o ID de aplicação de identidade de serviço para esta finalidade).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -67,91 +67,91 @@ Pode utilizar um grupo do Azure AD existente ou crie uma nova com o Azure AD Pow
 
 ## <a name="enable-azure-ad-on-azure-sql-database"></a>Ativar o Azure AD na base de dados SQL do Azure
 
-Base de dados SQL do Azure suporta a criação de uma base de dados com um utilizador do Azure AD. Como resultado, pode definir um utilizador do Azure AD como o administrador do Active Directory e, em seguida, inicie sessão no SSMS utilizando o utilizador do Azure AD. Em seguida, pode criar um utilizador contido para o grupo do Azure AD ativar a IR criar o catálogo do SQL Server Integration Services (SSIS) no servidor.
+Base de dados SQL do Azure suporta a criação de uma base de dados com um utilizador do Azure AD. Como resultado, pode definir um utilizador do Azure AD como o administrador do Active Directory e, em seguida, inicie sessão no SSMS, com o utilizador do Azure AD. Em seguida, pode criar um usuário independente para o grupo do Azure AD ativar o runtime de integração criar o catálogo do SQL Server Integration Services (SSIS) no servidor.
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>Ativar a autenticação do Azure AD para a base de dados do SQL do Azure
 
-Pode [configurar a autenticação do Azure AD para a base de dados do SQL Server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) utilizando os seguintes passos:
+Pode [configurar a autenticação do Azure AD para a base de dados do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) através dos seguintes passos:
 
-1.  No portal do Azure, selecione **todos os serviços** -> **servidores SQL** do painel de navegação esquerdo.
+1.  No portal do Azure, selecione **todos os serviços** -> **servidores SQL** no painel de navegação esquerda.
 
-2.  Selecione a base de dados do SQL Server esteja ativado para a autenticação do Azure AD.
+2.  Selecione a base de dados SQL para ser ativada para autenticação do Azure AD.
 
-3.  No **definições** secção do painel, selecione **administrador do Active Directory**.
+3.  Na **configurações** seção do painel, selecione **administrador do Active Directory**.
 
 4.  Na barra de comandos, selecione **definir administrador**.
 
-5.  Selecione uma conta de utilizador do Azure AD para tornar um administrador do servidor e, em seguida, selecione **selecionar.**
+5.  Selecione uma conta de utilizador do Azure AD que se tornarão um administrador do servidor e, em seguida, selecione **selecionar.**
 
 6.  Na barra de comandos, selecione **guardar.**
 
 ### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Criar um utilizador contido na base de dados que representa o grupo do Azure AD
 
-Para este passo seguinte, terá de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 1.  Inicie o SQL Server Management Studio.
 
-2.  No **ligar ao servidor** caixa de diálogo, introduza o nome do servidor SQL no **nome do servidor** campo.
+2.  Na **ligar ao servidor** caixa de diálogo, introduza o nome do servidor SQL no **nome do servidor** campo.
 
-3.  No **autenticação** campo, selecione **do Active Directory - Universal com suporte MFA**. (Também pode utilizar outros dois tipos de autenticação do Active Directory. Consulte [configurar e gerir a autenticação do Azure Active Directory com a base de dados do SQL Server, instância geridos](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure).)
+3.  No campo **Autenticação**, selecione **Active Directory - Universal com suporte de MFA**. (Também pode utilizar outros dois tipos de autenticação do Active Directory. Ver [configurar e gerir a autenticação do Azure Active Directory com a base de dados do SQL, instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).)
 
-4.  No **nome de utilizador** campo, introduza o nome da conta do Azure AD que definir como o administrador do servidor - por exemplo, testuser@xxxonline.com.
+4.  Na **nome de utilizador** campo, introduza o nome da conta do Azure AD que definiu como administrador do servidor - por exemplo, testuser@xxxonline.com.
 
-5.  Selecione **Connect**. Conclua o processo de início de sessão.
+5.  Selecione **ligar**. Conclua o processo de início de sessão.
 
-6.  No **Object Explorer**, expanda o **bases de dados** -> pasta de bases de dados do sistema.
+6.  Na **Object Explorer**, expanda o **bases de dados** -> pasta de bases de dados do sistema.
 
-7.  Direito-selecione no **mestre** da base de dados e selecione **nova consulta**.
+7.  Direito, selecione-ativado **mestre** da base de dados e selecione **nova consulta**.
 
-8.  Na janela da consulta, introduza a seguinte linha e selecione **executar** na barra de ferramentas:
+8.  Na janela da consulta, introduza a seguinte linha e selecione **Execute** na barra de ferramentas:
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
     ```
 
-    O comando deve ser concluído com êxito, criar o utilizador contido para o grupo.
+    O comando deve ser concluído com êxito, criando o utilizador contido para o grupo.
 
-9.  Limpar a janela de consulta, introduza a seguinte linha e selecione **executar** na barra de ferramentas:
+9.  Limpar a janela de consulta, introduza a seguinte linha e selecione **Execute** na barra de ferramentas:
 
     ```sql
     ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
     ```
 
-    O comando deve ser concluído com êxito, conceder ao utilizador contido a capacidade de criar a base de dados.
+    O comando deve ser concluído com êxito, o usuário independente a conceder a capacidade de criar a base de dados.
 
-## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Ativar o Azure AD numa instância gerido de base de dados SQL do Azure
+## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Ativar o Azure AD na instância gerida de base de dados SQL do Azure
 
-Instância de geridos de base de dados de SQL do Azure não suporta a criação de uma base de dados com qualquer utilizador do Azure AD que não seja de administrador do AD. Como resultado, tem de definir o grupo do AD do Azure como o administrador do Active Directory. Não precisa de criar o utilizador nele contidos.
+Instância de gerida de base de dados de SQL do Azure não suporta a criação de uma base de dados com qualquer utilizador do Azure AD que não seja o administrador do AD. Como resultado, é necessário definir o grupo do Azure AD como o administrador do Active Directory. Não precisa de criar o usuário independente.
 
-Pode [configurar a autenticação do Azure AD para o servidor de SQL da base de dados geridos instância](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) utilizando os seguintes passos:
+Pode [configurar a autenticação do Azure AD para o servidor da SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) através dos seguintes passos:
 
-7.  No portal do Azure, selecione **todos os serviços** -> **servidores SQL** do painel de navegação esquerdo.
+7.  No portal do Azure, selecione **todos os serviços** -> **servidores SQL** no painel de navegação esquerda.
 
-8.  Selecione o SQL server esteja ativado para a autenticação do Azure AD.
+8.  Selecione o SQL server para ser ativada para autenticação do Azure AD.
 
-9.  No **definições** secção do painel, selecione **administrador do Active Directory**.
+9.  Na **configurações** seção do painel, selecione **administrador do Active Directory**.
 
 10. Na barra de comandos, selecione **definir administrador**.
 
-11. Procure e selecione o grupo do AD do Azure (por exemplo, SSISIrGroup) e selecione **selecionar.**
+11. Procure e selecione o grupo do Azure AD (por exemplo, SSISIrGroup) e selecione **selecionar.**
 
 12. Na barra de comandos, selecione **guardar.**
 
-## <a name="provision-the-azure-ssis-ir-in-the-portal"></a>Aprovisionar a resposta a incidentes SSIS do Azure no portal
+## <a name="provision-the-azure-ssis-ir-in-the-portal"></a>Aprovisionar o IR Azure-SSIS no portal
 
-Quando aprovisionar o IR SSIS do Azure com o portal do Azure, no **as definições de SQL** página, consulte o "utilização AAD autenticação com o MSI do ADF" opção. (A seguinte captura de ecrã mostra as definições para IR com a SQL Database do Azure. Para a resposta a incidentes com instância geridos, a propriedade "Camada de serviço de base de dados de catálogo" não está disponível; outras definições são os mesmos.)
+Quando aprovisionar o runtime de integração Azure-SSIS com o portal do Azure, no **definições do SQL** página, verifique a "utilização AAD autenticação com o MSI do ADF" opção. (A captura de ecrã seguinte mostra as definições para o runtime de integração com a base de dados do Azure SQL. Para o runtime de integração com a instância gerida, a propriedade de "Camada de serviço de base de dados do catálogo" não está disponível; outras configurações são iguais.)
 
-Para obter mais informações sobre como criar um tempo de execução de integração de SSIS do Azure, consulte [criar um tempo de execução de integração do Azure-SSIS no Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Para mais informações sobre como criar um runtime de integração Azure-SSIS, veja [criar um runtime de integração Azure-SSIS no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
-![Definições para o tempo de execução de integração do Azure-SSIS](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
+![Definições para o runtime de integração Azure-SSIS](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 
-## <a name="provision-the-azure-ssis-ir-with-powershell"></a>Aprovisionar a resposta a incidentes SSIS do Azure com o PowerShell
+## <a name="provision-the-azure-ssis-ir-with-powershell"></a>Aprovisionar o IR Azure-SSIS com o PowerShell
 
-Para aprovisionar a resposta a incidentes SSIS do Azure com o PowerShell, efetue os seguintes procedimentos:
+Para aprovisionar o runtime de integração Azure-SSIS com o PowerShell, efetue os seguintes procedimentos:
 
-1.  Instalar o [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) módulo.
+1.  Instalar o [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) módulo.
 
-2.  No script, não defina a *CatalogAdminCredential* parâmetro. Por exemplo:
+2.  No seu script, não defina a *CatalogAdminCredential* parâmetro. Por exemplo:
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

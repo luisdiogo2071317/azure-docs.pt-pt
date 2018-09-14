@@ -6,20 +6,20 @@ documentationcenter: ''
 author: juliako
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 797c09d72402cfc1ee2524e7792cc1310a53fb1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 11bd61387bfe6fe07cd41806f165eed9575622b4
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399482"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540911"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Ver e editar informações do Video Indexer
 
 Este tópico mostra-lhe como ver e editar as informações do indexador de vídeos de um vídeo.
 
-1. Inicie sessão no seu [Video Indexer](https://api-portal.videoindexer.ai/) conta.
+1. Navegue para o [Video Indexer](https://www.videoindexer.ai/) Web site e o início de sessão.
 2. Encontre um vídeo a partir do qual pretende criar as suas informações do indexador de vídeos. Para obter mais informações, consulte [localizar momentos exatos nos vídeos](video-indexer-search.md).
 3. Prima **reproduzir**.
 

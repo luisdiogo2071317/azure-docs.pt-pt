@@ -1,6 +1,6 @@
 ---
-title: Tabela de auditoria, redirecionamento de TDS e os pontos finais IP para a SQL Database do Azure | Microsoft Docs
-description: Saiba mais sobre a auditoria, redirecionamento de TDS IP e as alterações de ponto final quando implementar a tabela de auditoria na base de dados do Azure SQL.
+title: Tabela de auditoria, redirecionamento de TDS e os pontos finais IP para a base de dados SQL do Azure | Documentos da Microsoft
+description: Saiba mais sobre auditoria, redirecionamento de TDS e IP alterações de ponto final ao implementar a auditoria de tabelas na base de dados do Azure SQL.
 services: sql-database
 author: giladm
 manager: craigg
@@ -9,45 +9,46 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: b615e9ff67788c2f02c2fa0c33e0de3331e77885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645634"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541221"
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Suportem de clientes de nível inferior de base de dados SQL - e ponto final de IP é alterado para auditoria de tabela
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Suportam de clientes de nível inferior de base de dados do SQL - e ponto final de IP é alterado para auditoria de tabelas
 
 > [!IMPORTANT]
-> Este documento só se aplica a auditoria de tabela, que é **agora preteridos**.<br>
-> Utilize a nova [auditoria de Blob](sql-database-auditing.md) método, que **não** requerem modificações de cadeia de ligação de cliente de nível inferior. Podem encontrar informações adicionais sobre a auditoria de Blob [começar com a auditoria de base de dados do SQL Server](sql-database-auditing.md).
+> Este documento aplica-se apenas a auditoria de tabela, que é **preteridas**.<br>
+> Utilize a nova [auditoria de BLOBs](sql-database-auditing.md) método, que **não** necessitam de modificações de cadeia de ligação de cliente de nível inferior. Podem encontrar informações adicionais sobre a auditoria de BLOBs [introdução à auditoria da base de dados SQL](sql-database-auditing.md).
 
-[Base de dados de auditoria](sql-database-auditing.md) funciona automaticamente com os clientes de SQL que suportam redirecionamento de TDS. Tenha em atenção que redirecionamento não se aplica ao utilizar o método de auditoria de Blob.
+[Auditoria de base de dados](sql-database-auditing.md) funciona automaticamente com os clientes de SQL que suportem redirecionamento de TDS. Tenha em atenção que o redirecionamento não se aplica ao usar o método de auditoria de Blobs.
 
 ## <a id="subheading-1"></a>Suporte de clientes de nível inferior
-Qualquer cliente que implementa TDS 7.4 também deve suportar redirecionamento. Exceções a este incluem JDBC 4.0 em que a funcionalidade de redirecionamento não é totalmente suportada e Tedious para Node.JS no qual redirecionamento não foi implementada.
+Qualquer cliente que implementa o TDS 7.4 também deve suportar o redirecionamento. As exceções a isso incluem JDBC 4.0 em que a funcionalidade de redirecionamento não é totalmente suportada e Tedious para node. js no qual o redirecionamento não foi implementado.
 
-"Em clientes de", ou seja, que suporte TDS 7.3 e abaixo - o FQDN do servidor na ligação de cadeia de versão deve ser modificada:
+Para "Clientes de nível inferior", ou seja, que suporte TDS versão 7.3 abaixo - o FQDN do servidor na conexão de cadeia de caracteres e deve ser modificada:
 
 Original FQDN do servidor na cadeia de ligação: <*nome do servidor*>. database.windows.net
 
-Modificação FQDN do servidor na cadeia de ligação: <*nome do servidor*> .database. **segura**. windows.net
+Modificado FQDN do servidor na cadeia de ligação: <*nome do servidor*> .database. **seguro**. windows.net
 
 Uma lista parcial de "Clientes de nível inferior" inclui:
 
-* O .NET 4.0 e abaixo
+* .NET 4.0 e inferior,
 * ODBC 10.0 e abaixo.
-* JDBC (enquanto JDBC suporta TDS 7.4, a funcionalidade de redirecionamento do TDS não é totalmente suportada)
-* Tedious (para Node.JS)
+* JDBC (embora JDBC suporta TDS 7.4, a funcionalidade de redirecionamento de TDS não é totalmente suportada)
+* Entediante (para node. js)
 
-**Remark:** servidor acima modificação FDQN poderá ser útil também aplicar uma política de auditoria de nível de servidor de SQL, sem necessidade de uma configuração passo em cada base de dados (mitigação temporária).
+**Comentário:** o modificação do FDQN de servidor acima pode ser útil também para aplicar uma política de auditoria de ao nível do SQL Server, sem a necessidade de uma configuração passo em cada base de dados (atenuação temporária).
 
-## <a id="subheading-2"></a>Alterações de ponto final IP ao ativar a auditoria
-Tenha em atenção que, quando ativar a auditoria de tabela, o ponto final de IP da base de dados será alterado. Se tiver definições de strict firewall, Atualize as definições de firewall em conformidade.
+## <a id="subheading-2"></a>Ponto final de IP é alterado ao ativar a auditoria
+Tenha em atenção que, quando ativar a auditoria de tabela, o ponto final do IP da base de dados será alterado. Se tiver definições de strict firewall, Atualize as definições de firewall em conformidade.
 
 O novo ponto de final IP de base de dados irá depender da região de base de dados:
 
-| Região de base de dados | Pontos finais IP possíveis |
+| Região de base de dados | Possíveis pontos de extremidade IP |
 | --- | --- |
 | China Norte |139.217.29.176, 139.217.28.254 |
 | Leste da China |42.159.245.65, 42.159.246.245 |
@@ -62,7 +63,7 @@ O novo ponto de final IP de base de dados irá depender da região de base de da
 | E.U.A. Leste EUAP |52.225.190.86, 52.225.191.187 |
 | Índia Central |104.211.98.219, 104.211.103.71 |
 | Sul da Índia |104.211.227.102, 104.211.225.157 |
-| Índia Ocidental |104.211.161.152, 104.211.162.21 |
+| Oeste da Índia |104.211.161.152, 104.211.162.21 |
 | Leste do Japão |104.41.179.1, 40.115.253.81, 23.102.64.207, 40.115.250.196 |
 | Oeste do Japão |104.214.140.140, 104.214.146.31, 191.233.32.34, 104.214.146.198 |
 | EUA Centro-Norte |191.236.155.178, 23.96.192.130, 23.96.177.169, 23.96.193.231 |

@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de sugestões de pesquisa cognitivos na Azure Search | Microsoft Docs
-description: Para configurar cognitivos de resolução de problemas e sugestões de pesquisa pipelines na Azure Search.
+title: Resolução de problemas de sugestões de pesquisa cognitiva no Azure Search | Documentos da Microsoft
+description: Sugestões e resolução de problemas para a configuração cognitivos pesquisar pipelines do Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,36 +10,36 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640970"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575319"
 ---
-# <a name="troubleshooting-tips-for-cognitive-search"></a>Sugestões de resolução de problemas para pesquisa cognitivos
+# <a name="troubleshooting-tips-for-cognitive-search"></a>Sugestões de resolução de problemas para pesquisa cognitiva
 
-Este artigo contém uma lista de sugestões e truques para mantê-lo a mover como começar com capacidades de pesquisa cognitivos na Azure Search. 
+Este artigo contém uma lista de dicas e truques para mantê-lo a mover de como começar a trabalhar com capacidades de pesquisa cognitiva no Azure Search. 
 
-Se ainda não o tiver o feito, siga os passos a [Tutorial: Saiba como chamar a APIs de pesquisa cognitivos](cognitive-search-quickstart-blob.md) com recomendado na aplicação enrichments pesquisa cognitivos a uma origem de dados de Blobs.
+Se ainda não o tiver o feito, siga os passos a [Tutorial: Saiba como chamar a APIs de pesquisa cognitiva](cognitive-search-quickstart-blob.md) para prática na aplicação possível de pesquisa cognitiva a uma origem de dados de Blobs.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Sugestão 1: Iniciar com um pequeno conjunto de dados
-É a melhor forma de determinar os problemas rapidamente para aumentar a velocidade a que pode corrigir problemas. É a melhor forma de reduzir o tempo de indexação, reduzindo o número de documentos ser indexados. 
+É a melhor maneira de encontrar problemas rapidamente aumentar a velocidade a que pode corrigir os problemas. É a melhor maneira de reduzir o tempo de indexação, reduzindo o número de documentos ser indexados. 
 
-Comece por criar uma origem de dados com apenas alguns a documentos/registos. O exemplo de documento deve ser uma boa representação de variedade de documentos que irá ser indexados. 
+Comece por criar uma origem de dados com apenas alguns documentos/registos. Seu exemplo de documento deve ser uma boa representação a variedade de documentos que serão indexados. 
 
-Execute o seu exemplo de documento através do pipeline de ponto a ponto e verifique se os resultados as suas necessidades. Quando estiver satisfeito com os resultados, pode adicionar mais ficheiros para a origem de dados.
+Execute o seu exemplo de documento através do pipeline de ponta a ponta e verificar que os resultados atender às suas necessidades. Quando estiver satisfeito com os resultados, pode adicionar mais ficheiros para a sua origem de dados.
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Sugestão 2: Certifique-se de que as credenciais da origem de dados estão corretas
-A ligação da origem de dados não é validada até definir um indexador que o utiliza. Se vir algum erro mentioning que o indexador não é possível obter os dados, certifique-se de que:
-- A cadeia de ligação está correta. Especialmente quando estiver a criar SAS tokens, certifique-se de que utiliza o formato esperado pela pesquisa do Azure. Consulte [como especificar credenciais secção](
-https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) para saber mais sobre os formatos diferentes suportados.
-- O nome do contentor no indexador está correta.
+A ligação de origem de dados não é validada até que define um indexador que o utiliza. Se vir algum erro mencionar que o indexador não é possível obter os dados, certifique-se de que:
+- A cadeia de ligação está correta. Especialmente quando estiver a criar tokens SAS, certifique-se utilizar o formato esperado pelo Azure Search. Ver [como especificar credenciais secção](
+https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) para saber mais sobre os diferentes formatos com suporte.
+- O nome do contentor no indexador está correto.
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Sugestão 3: Ver o que funciona mesmo se existirem algumas falhas
-Por vezes, uma pequena falha deixa um indexador no respetivo controla. Que é adequado se planear corrigir problemas de um de cada. No entanto, pode querer ignorar um determinado tipo de erro, permitindo que o indexador continuar para que possa ver que fluxos estão realmente a funcionar.
+Por vezes, uma pequena falha deixa de um indexador nos rastos. Não há problema se planeja corrigir problemas de individualmente. No entanto, pode querer ignorar um determinado tipo de erro, permitindo que o indexador continuar, para que pode ver que fluxos são, na verdade, a trabalhar.
 
-Nesse caso, poderá querer saber o indexador para ignorar erros. Fazê-lo definindo *maxFailedItems* e *maxFailedItemsPerBatch* como -1 como parte da definição de indexador.
+Nesse caso, pode querer saber o indexador para ignorar os erros. Faço isso configurando *maxFailedItems* e *maxFailedItemsPerBatch* como -1 como parte da definição de indexador.
 
 ```
 {
@@ -51,14 +51,14 @@ Nesse caso, poderá querer saber o indexador para ignorar erros. Fazê-lo defini
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugestão 4: Observar documentos avançados os bastidores 
-Documentos avançados são estruturas temporárias criados durante sem causa e, em seguida, eliminados quando o processamento estar concluído.
+## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugestão 4: Ver documentos plena nos bastidores 
+Documentos plena são estruturas temporárias criados durante a melhoria e, em seguida, eliminados quando o processamento estar concluído.
 
 Para capturar um instantâneo do documento melhorado criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador captura automaticamente para o campo uma representação da cadeia de todos os melhoramentos desse documento.
 
 O campo ```enriched``` vai conter uma cadeia que é uma representação lógica do documento melhorado na memória no JSON.  Contudo, o valor do campo é um documento JSON válido. As aspas são carateres de escape, por isso, terá de substituir `\"` por `"` para ver o documento como JSON formatado. 
 
-O campo avançado destina-se para fins de depuração só, para ajudar a compreender de forma lógica do conteúdo que estão a ser avaliadas expressões. Não deve depender este campo para fins de indexação.
+O campo plena destina-se para fins de depuração só, para ajudar a compreender a forma de lógica do conteúdo que expressões estão a ser avaliadas em comparação com. Não deve depender este campo para fins de indexação.
 
 Adicionar um ```enriched``` campo como parte da sua definição de índice para fins de depuração:
 
@@ -79,33 +79,33 @@ Adicionar um ```enriched``` campo como parte da sua definição de índice para 
 }
 ```
 
-## <a name="tip-5-expected-content-fails-to-appear"></a>Sugestão 5: Era esperado conteúdo falhar a aparecer
+## <a name="tip-5-expected-content-fails-to-appear"></a>Sugestão 5: Esperada conteúda a falha aparecer
 
-Conteúdo em falta pode ser a consequência de documentos obter ignorados durante a indexação. Escalões gratuitos e básicos têm limites baixos no tamanho do documento. Qualquer ficheiro exceder o limite é removido durante a indexação. Pode verificar a existência de documentos processados no portal do Azure. No dashboard de serviço de pesquisa, faça duplo clique no mosaico de indexadores. Reveja o rácio de documentos com êxito indexada. Se não for 100%, pode clicar em rácio para obter mais detalhes. 
+Conteúdo em falta pode ser o resultado de documentos deixados durante a indexação. Os escalões gratuito e básicos têm limites baixas no tamanho do documento. Qualquer ficheiro que exceda o limite é removido durante a indexação. Pode verificar ignorados documentos no portal do Azure. No dashboard do serviço de pesquisa, faça duplo clique no mosaico de indexadores. Reveja a taxa de êxito documentos indexados. Se não for 100%, pode clicar a proporção para obter mais detalhes. 
 
-Se o problema está relacionado com o tamanho de ficheiro, poderá ver um erro semelhante isto: "Blob < nome de ficheiro >" tem o tamanho de bytes de < tamanho de ficheiro >, o que excede o tamanho máximo de extração de documentos para o escalão de serviço atual. " Para obter mais informações sobre limites de indexador, consulte [os limites de serviço](search-limits-quotas-capacity.md).
+Se o problema está relacionado ao tamanho do ficheiro, poderá ver um erro como este: "O blob < nome de ficheiro >" tem o tamanho de bytes de < tamanho de ficheiro >, que excede o tamanho máximo para extração de documentos do escalão de serviço atual. " Para obter mais informações sobre os limites de indexador, consulte [limites de serviço](search-limits-quotas-capacity.md).
 
-Um segundo motivo para o conteúdo que não são apresentadas poderão erros relacionados mapeamento de entrada/saída. Por exemplo, um nome de destino de saída é "Pessoas", mas o nome do campo de índice é minúsculas "pessoas". O sistema foi devolver 201 êxito mensagens para o pipeline de completa para refletir a indexação foi concluída com êxito, quando na realidade um campo está vazio. 
+Uma segunda razão para o conteúdo que não aparecem poderá ser erros de mapeamento de entrada/saída relacionados. Por exemplo, um nome de destino de saída é "Pessoas", mas o nome do campo de índice é minúsculas "pessoas". O sistema poderia retornar 201 mensagens de sucesso para todo o pipeline, para que acha que a indexação foi concluída com êxito, quando na verdade um campo estiver vazio. 
 
 ## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Sugestão 6: Expandir o processamento além do tempo (janela de 24 horas) de execução máximo
 
-Análise de imagem é viáveis intensivas simples, mesmo nos casos, por isso, quando as imagens são especialmente grande ou complexa, tempos de processamento podem exceder o tempo máximo permitido. 
+A análise de imagem é computacionalmente intensiva para casos simples, portanto, quando as imagens são especialmente grandes ou complexos, tempos de processamento podem exceder o tempo máximo permitido. 
 
-Tempo de execução máximo varia consoante a camada: camada de alguns minutos no gratuito, 24 horas indexação em camadas sujeito a faturação. Se o processamento de mensagens em fila não conseguir concluir durante um período de 24 horas para processar a pedido, mude para uma agenda para que o indexador processará processamento onde parou. 
+Tempo de execução máximo varia consoante o escalão: escalão de vários minutos no gratuito, indexação nos escalões de cobrar 24 horas. Se o processamento de mensagens em fila não conseguir concluir dentro de um período de 24 horas para processamento sob demanda, mude para uma agenda para fazer com que este pegar processamento onde parou. 
 
-Para indexadores agendadas, indexação retoma numa agenda na última documento boa conhecida. Ao utilizar uma agenda periódica, o indexador pode trabalhar a caminho através do registo de segurança de imagem através de uma série de horas ou dias, até que todas as imagens não processadas são processadas. Para obter mais informações sobre a sintaxe de agendamento, consulte [passo 3: criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Para indexadores agendadas, indexação CVS numa agenda em último documento bom conhecido. Ao utilizar uma agenda periódica, o indexador pode trabalhar ao percorrer a lista de pendências de imagem através de uma série de horas ou dias, até que todas as imagens não processadas são processadas. Para obter mais informações sobre a sintaxe de agenda, consulte [passo 3: criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
-Para baseado no portal de indexação (conforme descrito no início rápido), escolher o indexador "executar uma vez" opção limites de processamento para 1 hora (`"maxRunTime": "PT1H"`). Poderá pretender expandir a janela de processamento para algo mais.
+Para baseado no portal de indexação (conforme descrito no guia de introdução), escolhendo o indexador "run once" opção limites de processamento para 1 hora (`"maxRunTime": "PT1H"`). Talvez queira estender a janela de processamento para algo mais.
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Sugestão 7: Aumentar o débito de indexação
 
-Para [indexação paralelas](search-howto-large-index.md), coloque os dados no vários contentores ou várias pastas virtuais no interior do contentor do mesmo. Em seguida, crie vários pares de origem de dados e o indexador. Todos os indexadores podem utilizar o mesmo skillset e de escrita para o mesmo índice de pesquisa de destino, pelo que a aplicação de pesquisa não têm de ter em consideração a criação de partições.
-Para obter mais informações, consulte [indexação grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
+Para [indexação paralela](search-howto-large-index.md), colocar os dados em vários contentores ou várias pastas virtuais dentro do mesmo contêiner. Em seguida, crie vários pares de origem de dados e o indexador. Todos os indexadores podem utilizar o mesmo conjunto de capacidades e escrever para o mesmo índice de pesquisa de destino, para que seu aplicativo de pesquisa não precisa de conhecer esta criação de partições.
+Para obter mais informações, consulte [indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Consulte também
-+ [Início rápido: Criar um pipeline de pesquisa cognitivos no portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Saber pesquisa cognitivos REST APIs](cognitive-search-tutorial-blob.md)
-+ [Especificar as credenciais da origem de dados](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [A indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Como mapear campos avançados para um índice](cognitive-search-output-field-mapping.md)
++ [Início rápido: Criar um pipeline de pesquisa cognitiva no portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Saiba as APIs REST de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
++ [Especificação de credenciais de origem de dados](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Como mapear campos plena para um índice](cognitive-search-output-field-mapping.md)

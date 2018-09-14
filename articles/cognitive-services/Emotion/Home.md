@@ -1,6 +1,6 @@
 ---
-title: Descrição geral de emoções API | Microsoft Docs
-description: Utilize o algoritmo de reconhecimento de emoções inovadores, baseado na nuvem do Microsoft para criar mais aplicações personalizadas, com a API de emoções nos serviços cognitivos.
+title: Descrição geral da API de emoções | Documentos da Microsoft
+description: Utilize o algoritmo de reconhecimento de emoções inovadores, baseados na nuvem do Microsoft para criar aplicações mais personalizadas, com a API de emoções nos serviços cognitivos.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,30 +9,30 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 8383370cba3f78060e809f444f4ad3dab7380f4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 210990b0f436fd75cb36e71ea28928c457a5232e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352562"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573559"
 ---
-# <a name="what-is-emotion-api"></a>O que é emoções API?
+# <a name="what-is-emotion-api"></a>O que é a API de Emoções?
 
 > [!IMPORTANT]
-> Emoções API foi preterida no 30 de Outubro de 2017. A funcionalidade faz agora parte [enfrentam API](https://docs.microsoft.com/en-us/azure/cognitive-services/face/).
+> API de emoções foi preterido no dia 30 de Outubro de 2017. A funcionalidade faz agora parte do [a API Face](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Bem-vindo ao Microsoft emoções API, permite-lhe criar mais personalizadas aplicações com o algoritmo de reconhecimento de emoções baseado na nuvem da Microsoft.
+Bem-vindo à API de emoções do Microsoft, que permite-lhe criar aplicações mais personalizadas com o algoritmo de reconhecimento de emoções com base na cloud da Microsoft.
 
-### <a name="emotion-recognition"></a>Reconhecimento emoções
+### <a name="emotion-recognition"></a>Reconhecimento de emoções
 
-Versão beta emoções API demora uma imagem como entrada e devolve a confiança através de um conjunto de emotions para cada enfrentam reside na imagem, bem como uma caixa delimitadora para o tipo de letra a partir da API de rostos em. Emotions detetados são happiness, sadness, surprise, anger, fear, contempt, disgust ou independente. Estes emotions são comunicados cross-culturally e universalmente através das mesmas expressões facial básicas, onde são identificados pelo emoções API. 
+A versão beta de API de emoções utiliza uma imagem como entrada e devolve a confiança entre um conjunto de emoções para cada rosto na imagem, bem como uma caixa delimitadora para o rosto da Face API. As emoções detetadas são felicidade, tristeza, surpresa, irritação, medo, desdém, repulsa ou neutra. Estas emoções são comunicadas interculturais e universalmente através das mesmo expressões faciais básicas, quando são identificadas pela API de emoções. 
 
 **Interpretar os resultados:** 
 
-No interpretar os resultados a partir da API de emoções, emoções detetada devem ser interpretada como emoções com a classificação mais elevada, como pontuações são normalizadas soma um. Os utilizadores podem optar por definir um limiar mais elevado de confiança na sua aplicação, consoante as suas necessidades. 
+Em interpretar os resultados da API de emoções, as emoções detetadas devem ser interpretada como emoções com a pontuação mais alta, como as pontuações são normalizadas à soma para um. Os utilizadores podem optar por definir um limiar mais elevado de confiança dentro de seu aplicativo, dependendo das suas necessidades. 
 
 Para obter mais informações sobre a deteção de emoções, consulte a referência de API: 
-  * Básico: Se um utilizador já foi chamada da API de letra, podem submeter o retângulo de rostos em como entrada e utilizar o escalão básico. [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
-  * Standard: Se um utilizador não submeter um retângulo de letra, devem utilizar modo padrão.  [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
+  * Básica: Se um utilizador já tiver chamado a API Face, podem submeter o retângulo da face como entrada e utilizar o escalão básico. [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
+  * Standard: Se um utilizador não submeterem um retângulo de rostos, eles devem utilizar o modo padrão.  [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
-Para um exemplo sobre como interpretar as vídeo de transmissão em fluxo com a API de emoções, consulte [como analisar vídeos em Tempo Real](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).
+Para obter um exemplo sobre como interpretar o vídeo de transmissão em fluxo com a API de emoções, veja [como analisar vídeos em Tempo Real](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).

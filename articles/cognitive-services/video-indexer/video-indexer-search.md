@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 1cffa067d8028adab4dbcc82c529f77d980ce6be
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 72f110c0c98e6fb6ee5fca684fdc74c6986e032c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397548"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541411"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar momentos exatos nos vídeos
 
 Este tópico mostra-lhe as opções de pesquisa que lhe permitem localizar momentos exatos nos vídeos.
 
-1. Inicie sessão no seu [Video Indexer](https://api-portal.videoindexer.ai/) conta.
+1. Navegue para o [Video Indexer](https://www.videoindexer.ai/) Web site e o início de sessão.
 2. Pesquise entre todos os vídeos na sua conta.
 
     No exemplo a seguir, vamos pesquisados todos os vídeos criados por Channel 9 com Scott Hanselman.
@@ -49,8 +49,8 @@ Este tópico mostra-lhe as opções de pesquisa que lhe permitem localizar momen
 Depois de localizar o vídeo que pretende trabalhar com, pode continuar a processar o vídeo, conforme descrito em um dos seguintes tópicos: 
 
 - [Criar novas informações de vídeo com base no vídeo existente](video-indexer-create-new.md)
-- [Processar conteúdo com a API de REST do indexador de vídeo](video-indexer-use-apis.md)
-- [Incorporar visual widgets na sua aplicação](video-indexer-embed-widgets.md)
+- [Processar conteúdo com a API REST do Video Indexer](video-indexer-use-apis.md)
+- [Incorporar widgets visuais na sua aplicação](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Consulte também
 

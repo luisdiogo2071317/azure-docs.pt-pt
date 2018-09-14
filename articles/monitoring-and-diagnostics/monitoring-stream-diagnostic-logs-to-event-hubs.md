@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627921"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578375"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
-**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md) ** podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure Cmdlets do PowerShell ou o Azure CLI 2.0.
+**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure Cmdlets do PowerShell ou o Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>O que pode fazer com os registos de diagnóstico e os Hubs de eventos
 Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em fluxo registos de diagnóstico:
@@ -41,7 +41,7 @@ Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Ativar a transmissão em fluxo de registos de diagnóstico
 
-Pode ativar a transmissão em fluxo de registos de diagnóstico através de programação, através do portal, ou utilizando o [APIs de REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). De qualquer forma, criar uma definição de diagnóstico em que especificar um espaço de nomes de Hubs de eventos e as categorias de registo e métricas que deseja enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativa. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
+Pode ativar a transmissão em fluxo de registos de diagnóstico através de programação, através do portal, ou utilizando o [APIs de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, criar uma definição de diagnóstico em que especificar um espaço de nomes de Hubs de eventos e as categorias de registo e métricas que deseja enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativa. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
 
 > [!WARNING]
 > Ativar e transmissão em fluxo registos de diagnóstico a partir dos recursos de computação (por exemplo, VMs ou recursos de infraestrutura do serviço) [requer um conjunto diferente de passos](../event-hubs/event-hubs-streaming-azure-diags-data.md).
@@ -93,7 +93,7 @@ O ID de regra de autorização de Hub de eventos é uma cadeia de caracteres com
 
 ### <a name="via-azure-cli-20"></a>Através da CLI 2.0 do Azure
 
-Para ativar a transmissão em fluxo através de [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), pode utilizar o [az monitor diagnostic-settings criar](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando.
+Para ativar a transmissão em fluxo através de [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), pode utilizar o [az monitor diagnostic-settings criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

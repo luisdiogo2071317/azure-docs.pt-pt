@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991529"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575427"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de cópia de segurança periódica no Azure Service Fabric
 
@@ -182,19 +182,19 @@ Políticas de cópia de segurança podem ser desativadas quando não é necessá
 ## <a name="suspend--resume-backup"></a>Suspender e retomar a cópia de segurança
 Determinados situação pode exigir a suspensão temporária da cópia de segurança periódica de dados. Em tal situação, dependendo do requisito, suspender a cópia de segurança API pode ser utilizada numa _aplicativo_, _Service_, ou _partição_. Suspensão de cópia de segurança periódica é transitivo sobre a subárvore de hierarquia do aplicativo do ponto de que é aplicada. 
 
-* Quando a suspensão é aplicada numa _aplicativo_ usando [suspender a aplicação de cópia de segurança](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, em seguida, todos os serviços e as partições a esta aplicação são suspensas para cópia de segurança periódica de dados.
+* Quando a suspensão é aplicada numa _aplicativo_ usando [suspender a aplicação de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, em seguida, todos os serviços e as partições a esta aplicação são suspensas para cópia de segurança periódica de dados.
 
-* Quando a suspensão é aplicada numa _serviço_ usando [suspender o serviço de cópia de segurança](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, em seguida, todas as partições nesse serviço são suspensas para cópia de segurança periódica de dados.
+* Quando a suspensão é aplicada numa _serviço_ usando [suspender o serviço de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, em seguida, todas as partições nesse serviço são suspensas para cópia de segurança periódica de dados.
 
-* Quando a suspensão é aplicada numa _partição_ usando [suspender o Backup da partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, em seguida, ele suspende as partições nesse serviço são suspensas para cópia de segurança periódica de dados.
+* Quando a suspensão é aplicada numa _partição_ usando [suspender o Backup da partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, em seguida, ele suspende as partições nesse serviço são suspensas para cópia de segurança periódica de dados.
 
 Assim que a necessidade de suspensão terminar, em seguida, a cópia de segurança periódica de dados pode ser restaurada com API de backup do respectivo retomar. Cópia de segurança periódica necessário recomeçar no mesmo _aplicativo_, _service_, ou _partição_ onde foi suspensa.
 
-* Se a suspensão foi aplicada num _aplicativo_, em seguida, deve ser retomada com [retomar cópia de segurança de aplicação](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
+* Se a suspensão foi aplicada num _aplicativo_, em seguida, deve ser retomada com [retomar cópia de segurança de aplicação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
 
-* Se a suspensão foi aplicada num _serviço_, em seguida, deve ser retomada com [retomar cópia de segurança do serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* Se a suspensão foi aplicada num _serviço_, em seguida, deve ser retomada com [retomar cópia de segurança do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* Se a suspensão foi aplicada num _partição_, em seguida, deve ser retomada utilizando [retomar cópia de segurança de partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+* Se a suspensão foi aplicada num _partição_, em seguida, deve ser retomada utilizando [retomar cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ## <a name="auto-restore-on-data-loss"></a>Restauro de automática na perda de dados
 A partição de serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco para duas de três réplicas para uma partição (incluindo a réplica primária) obtém danificado ou eliminado.
@@ -202,7 +202,7 @@ A partição de serviço pode perder dados devido a falhas inesperadas. Por exem
 Quando o Service Fabric detecta que a partição está em perda de dados, ele invoca `OnDataLossAsync` método na partição de interface e espera que a partição que tome as medidas necessárias para sair da perda de dados. Nesta situação, se a política de cópia de segurança efetiva na partição tiver `AutoRestoreOnDataLoss` sinalizador definido como `true` , em seguida, o restauro é ativado automaticamente utilizando a cópia de segurança mais recente disponível para esta partição.
 
 ## <a name="get-backup-configuration"></a>Obter configuração de cópia de segurança
-APIs separadas são tornadas disponíveis para obter informações de configuração de cópia de segurança durante um _aplicativo_, _service_, e _partição_ âmbito. [Obter as informações de configuração de cópia de segurança de aplicativo](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obtenha informações de configuração do serviço de cópia de segurança](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), e [obter informações de configuração de cópia de segurança de partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respetivamente. Principalmente, essas APIs regressar a política de cópia de segurança aplicável, âmbito em que a política de cópia de segurança é aplicada e cópia de segurança de suspensão detalhes. Segue-se uma descrição resumida sobre os resultados devolvidos dessas APIs.
+APIs separadas são tornadas disponíveis para obter informações de configuração de cópia de segurança durante um _aplicativo_, _service_, e _partição_ âmbito. [Obter as informações de configuração de cópia de segurança de aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obtenha informações de configuração do serviço de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), e [obter informações de configuração de cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respetivamente. Principalmente, essas APIs regressar a política de cópia de segurança aplicável, âmbito em que a política de cópia de segurança é aplicada e cópia de segurança de suspensão detalhes. Segue-se uma descrição resumida sobre os resultados devolvidos dessas APIs.
 
 - Informações de configuração de cópia de segurança de aplicação: fornece os detalhes da política de cópia de segurança aplicada ao aplicativo e todas as políticas de excesso ridden em serviços e as partições que pertencem à aplicação. Também inclui as informações de suspensão para a aplicação e serviços e partições.
 
@@ -218,11 +218,11 @@ Essas APIs também suportam a paginação dos resultados, quando _MaxResults_ pa
 
 Segue-se as informações breves sobre variantes suportados.
 
-- [Obter lista de cópia de segurança de aplicativo](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem a determinada aplicação do Service Fabric.
+- [Obter lista de cópia de segurança de aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem a determinada aplicação do Service Fabric.
 
-- [Obter lista de cópia de segurança do serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist): devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem ao fornecido o serviço do Service Fabric.
+- [Obter lista de cópia de segurança do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): devolve uma lista de cópias de segurança disponíveis para cada partição que pertencem ao fornecido o serviço do Service Fabric.
  
-- [Obter lista de cópia de segurança de partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): devolve uma lista de cópias de segurança disponíveis para a partição especificada.
+- [Obter lista de cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): devolve uma lista de cópias de segurança disponíveis para a partição especificada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Referência da REST API de restauro de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

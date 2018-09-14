@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fb9f022f0af821d81e5b61b99ecb52b7f7151b5f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5ea865a6a0f3f671d92d9ef3bf60cd8cfe90bddb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391560"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578898"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Atualizar o fornecedor de recursos do MySQL 
 
@@ -62,6 +62,9 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines 
 $privilegedEndpoint = "AzS-ERCS01" 
 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
+
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
 
@@ -87,6 +90,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
+-AzureEnvironment $AzureEnvironment `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
@@ -101,7 +105,7 @@ Pode especificar estes parâmetros na linha de comandos. Se não o fizer, ou se 
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Utilize as mesmas credenciais que tenha utilizado para implementar o Azure Stack. | _Necessário_ | 
 | **VMLocalCredential** |As credenciais para a conta de administrador local do fornecedor de recursos SQL VM. | _Necessário_ | 
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto final com privilégios. |  _Necessário_ | 
-| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Obrigatório apenas se não é ADFS. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, a utilizar **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Apenas necessário para implementações do Azure AD. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se utilizar uma Azure AD, da China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | O ficheiro. pfx de certificado deve ser colocado neste diretório também. | _Opcional_ (_obrigatório_ para vários nós) | 
 | **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx. | _Necessário_ | 
 | **MaxRetryCount** | O número de vezes que pretende repetir a cada operação, se ocorrer uma falha.| 2 | 

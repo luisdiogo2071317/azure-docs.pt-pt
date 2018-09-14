@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927694"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573911"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -75,7 +75,7 @@ Quando receber um resultado de retorno, pode assumir a reposição do gateway fo
 
 ### <a name="resetclassic"></a>Modelo de implementação clássica
 
-O cmdlet para repor um gateway é **Reset-AzureVNetGateway**. Antes de executar uma reposição, certifique-se de que tem a versão mais recente do [cmdlets do PowerShell de gestão de serviço (SM)](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). O exemplo seguinte repõe o gateway para uma rede virtual denominada "ContosoVNet":
+O cmdlet para repor um gateway é **Reset-AzureVNetGateway**. Antes de executar uma reposição, certifique-se de que tem a versão mais recente do [cmdlets do PowerShell de gestão de serviço (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). O exemplo seguinte repõe o gateway para uma rede virtual denominada "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

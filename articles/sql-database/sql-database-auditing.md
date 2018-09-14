@@ -9,12 +9,13 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: giladm
-ms.openlocfilehash: 918c7e023de8f25975b898fdfb86d541e02879f3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: vanto
+ms.openlocfilehash: 935baf791d9244f2fa4f5be9c02d4778244754de
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721005"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543754"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. Auditoria também:
@@ -175,7 +176,7 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 3. Vá para a página de configuração de auditoria, mude a chave de acesso de armazenamento secundária para primária de e, em seguida, clique em **OK**. Em seguida, clique em **guardar** no topo da página de configuração da auditoria.
 4. Volte para a página de configuração de armazenamento e voltar a gerar a chave de acesso secundária (em preparação para o ciclo de atualização da chave seguinte).
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informações Adicionais
 
 * Para obter detalhes sobre o registo de formatar, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 

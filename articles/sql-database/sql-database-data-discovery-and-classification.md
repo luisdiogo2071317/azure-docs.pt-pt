@@ -8,18 +8,18 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/10/2018
 ms.author: giladm
-ms.openlocfilehash: a69142ebabc4af8b8543dc5dd276b99130620470
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714977"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543967"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados do Azure SQL para **detetar**, **classificar**, **etiquetagem**  &  **proteger** os dados confidenciais em seus bancos de dados.
-A detetar e classificar os dados mais confidenciais (comerciais, financeiros, saúde, PII, etc.) pode desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
+A detetar e classificar os dados mais confidenciais (comerciais, financeiros, cuidados de saúde, dados de identificação pessoal (PII) e assim por diante.) podem desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
 * Ajudar a atender a requisitos de conformidade a normas e de normas de privacidade de dados.
 * Vários cenários de segurança, como monitorização (auditoria) e os alertas no anómalo acesso a dados confidenciais.
 * Controlar o acesso ao e o sistema de proteção de segurança de bases de dados que contém dados altamente confidenciais.
@@ -42,6 +42,17 @@ A secção seguinte descreve os passos para deteção, classificação e etiquet
 A classificação inclui dois atributos de metadados:
 * Etiquetas – os atributos de classificação principal, utilizadas para definir o nível de sensibilidade dos dados armazenados na coluna.  
 * Tipos de informações – proporcionam granularidade adicional para o tipo de dados armazenados na coluna.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>Definir e personalizar a taxonomia de classificação
+
+Deteção de dados SQL e classificação vem com um conjunto interno de etiquetas de sensibilidade e um conjunto interno de tipos de informações e lógica de deteção. Agora tem a capacidade de personalizar este taxonomia e definir um conjunto e classificação das construções de classificação especificamente para seu ambiente.
+
+Definição e personalização da sua taxonomia de classificação é feito num único local central para todo o seu inquilino do Azure. Que a localização está no [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro), como parte da sua política de segurança. Somente alguém com direitos administrativos no grupo de gestão de raiz de inquilino pode executar esta tarefa.
+
+Como parte da gestão de política de Information Protection, pode definir etiquetas personalizadas, classifique-os e associá-las com um conjunto selecionado de tipos de informações. Também pode adicionar seus próprios tipos de informações personalizadas e configurá-las com padrões de cadeia de caracteres, que são adicionados para a lógica de deteção para identificar este tipo de dados em seus bancos de dados.
+Saiba mais sobre como personalizar e gerir a sua política no [guia de procedimentos de política do Information Protection](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+Depois da política ao nível do inquilino tiver sido definida, pode continuar com a classificação de bases de dados individuais com a política personalizada.
 
 ## <a name="classify-your-sql-database"></a>Classificar a base de dados SQL
 

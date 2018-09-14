@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 559859e1f844cae37b0baaf48b0ad7c5cc2d4b0a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717153"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542457"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para a instância gerida de base de dados SQL do Azure
 
@@ -101,7 +101,7 @@ A maneira mais fácil para criar e configurar a rede virtual é usar o modelo de
 
 3. Configure o ambiente de rede. No formulário seguinte, é possível configurar parâmetros do seu ambiente de rede:
 
-![Configurar a rede do azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Configurar a rede do azure](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 Pode alterar os nomes de VNet e sub-redes e ajustar os intervalos IP associados aos recursos da sua rede. Assim que pressionar o botão "Adquirir", esse formulário irá criar e configurar o seu ambiente. Se não precisar de duas sub-redes pode eliminar predefinido. 
 

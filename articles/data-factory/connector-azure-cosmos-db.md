@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720026"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543449"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB com o Azure Data Factory
 
@@ -41,7 +41,7 @@ Especificamente, este conector do Azure Cosmos DB suporta:
 Fábrica de dados se integra [biblioteca de executor do Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para proporcionar o melhor desempenho escrever para o Cosmos DB.
 
 >[!TIP]
->Assista [este vídeo](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) que percorre a copiar dados do armazenamento de Blobs do Azure para o Cosmos DB e descreve considerações para a ingestão de dados para o Cosmos DB em geral de ajuste de desempenho.
+>Assista [este vídeo](https://youtu.be/5-SRNiC_qOU) que percorre a copiar dados do armazenamento de Blobs do Azure para o Cosmos DB e descreve considerações para a ingestão de dados para o Cosmos DB em geral de ajuste de desempenho.
 
 ## <a name="getting-started"></a>Introdução
 

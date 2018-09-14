@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: b6b7f6f51e848223adcf618ebbc47df08e7ea7ef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c9728b63545450fe9160c3e4a79bace254ccc533
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392268"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543850"
 ---
 # <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>Consentimento do utilizador e partilhar dados de ligações de conta do LinkedIn
 
@@ -31,7 +31,7 @@ Para ver informações do LinkedIn nos serviços e aplicações da Microsoft, os
 
 Acesso às informações do LinkedIn dentro de serviços e aplicações da Microsoft torna mais fácil para os seus utilizadores para se ligar, interagir com e criar relações profissionais com colegas, clientes e parceiros dentro e fora da sua organização. Novos utilizadores podem familiarize-se mais rapidamente ao ligar-se com os colegas, aprender mais sobre eles e acesso fácil a obter mais informações. Eis um exemplo de como as informações do LinkedIn aparecem no cartão perfil nas aplicações da Microsoft:
 
-![Ativar ligações de conta do LinkedIn](./media/linkedin-user-consent/display-example-02.png)
+![Ativar ligações de conta do LinkedIn](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-account-connections"></a>Ativar e anunciar ligações de conta do LinkedIn
 

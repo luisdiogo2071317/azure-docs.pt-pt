@@ -12,12 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 667636aac49d2622ba1a6b45d7c8af61b9609c55
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35622218"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579205"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificação de imagens com o Azure Machine Learning Workbench
 
@@ -95,7 +95,7 @@ Executar os passos abaixo cria a estrutura do projeto mostrada abaixo. O diretó
 
 ## <a name="data-description"></a>Descrição de dados
 
-Este tutorial utiliza como executar um conjunto de dados para os textura de vestuário corpo superior, que se consistindo em até 428 imagens de exemplo. Cada imagem está anotada como um dos três texturas diferentes (leopard pontilhada, repartido,). Mantivemos o número de imagens pequenas, para que este tutorial pode ser executado rapidamente. No entanto, o código é bem testado e funciona com dezenas de milhares de imagens ou mais. Todas as imagens foram obtida com a pesquisa de imagens do Bing e mão-anotados conforme é explicado [parte 3](#using-a-custom-dataset). A imagem de URLs com seus respectivos atributos estão listados na */resources/fashionTextureUrls.tsv* ficheiro.
+Este tutorial utiliza como executar um conjunto de dados para os textura de vestuário corpo superior, que se consistindo em até 428 imagens de exemplo. Cada imagem está anotada como um dos três texturas diferentes (leopard pontilhada, repartido,). Mantivemos o número de imagens pequenas, para que este tutorial pode ser executado rapidamente. No entanto, o código é bem testado e funciona com dezenas de milhares de imagens ou mais. Todas as imagens foram mão-anotado conforme é explicado [parte 3](#using-a-custom-dataset). A imagem de URLs com seus respectivos atributos estão listados na */resources/fashionTextureUrls.tsv* ficheiro.
 
 O script `0_downloadData.py` downloads todas as imagens para o *DATA_DIR/imagens/fashionTexture/* diretório. Alguns dos URLs de 428 são provavelmente quebradas. Não é um problema e apenas significa que temos um pouco menos imagens para formação e testar. Todos os scripts fornecidos neste exemplo tem de ser executado localmente e não por exemplo, um ambiente remoto do docker.
 
@@ -263,11 +263,11 @@ Alguns dos meios mais promissoras para melhorias são:
 
 ## <a name="part-3---custom-dataset"></a>Parte 3 - conjunto de dados personalizada
 
-Na parte 1 e 2, treinados e avaliado um modelo de classificação de imagem usando as imagens de texturas de vestuário corpo superior. Agora, vamos mostrar como utilizar um conjunto de dados personalizado de fornecidos pelo usuário em vez disso. Ou, se não está disponível, como gerar e anotar como um conjunto de dados através do Bing imagens de pesquisa.
+Na parte 1 e 2, treinados e avaliado um modelo de classificação de imagem usando as imagens de texturas de vestuário corpo superior. Agora, vamos mostrar como utilizar um conjunto de dados personalizado de fornecidos pelo usuário em vez disso. 
 
 ### <a name="using-a-custom-dataset"></a>Usando um conjunto de dados personalizado
 
-Em primeiro lugar, vamos dar uma olhada na estrutura de pastas para os dados de textura de vestuário. Tenha em atenção como todas as imagens para os atributos diferentes são nas respetivas subpastas *pontilhada*, * leopard, e *repartidos* na *DATA_DIR/imagens/fashionTexture/*. Observe também como o nome da pasta de imagem também ocorre no `PARAMETERS.py` ficheiro:
+Em primeiro lugar, vamos dar uma olhada na estrutura de pastas para os dados de textura de vestuário. Tenha em atenção como todas as imagens para os atributos diferentes são nas respetivas subpastas *pontilhada*, *leopard*, e *repartidos* em *DATA_DIR/imagens / fashionTexture /*. Observe também como o nome da pasta de imagem também ocorre no `PARAMETERS.py` ficheiro:
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +280,23 @@ Usar um conjunto de dados personalizado é tão simples como reproduzir essa est
 
 ### <a name="image-scraping-and-annotation"></a>Captura de imagem e a anotação
 
-Recolher um número grande o suficiente de anotado imagens de formação e teste pode ser difícil. Uma forma de solucionar esse problema é extrair imagens a partir da Internet. Por exemplo, veja abaixo os resultados de pesquisa de imagens Bing, da consulta *camiseta repartidos*. Conforme o esperado, a maioria das imagens, de fato, estão repartidas camisetas. Algumas imagens incorretas ou é ambíguas (por exemplo, coluna 1, linha 1; ou coluna 3, linha 2) podem ser identificadas e removidas facilmente:
+Recolher um número grande o suficiente de anotado imagens de formação e teste pode ser difícil. Uma forma de solucionar esse problema é extrair imagens a partir da Internet.
+
+> [!IMPORTANT] 
+> Para quaisquer imagens a utilizar, certifique-se de que não violar direitos autorais. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 Para gerar um conjunto de dados grandes e diverso, devem ser usadas várias consultas. Por exemplo, 7\*3 = 21 consultas podem ser sintetizadas automaticamente com todas as combinações de itens de vestuário {blouse, hoodie, pullover, sweater, camisola, camiseta, vest} e {leopard repartido, pontilhada,} de atributos. Baixar as imagens de 50 principais por consulta, em seguida, poderia levar a um máximo de 50 * 21 = 1050 imagens.
 
-Em vez de transferir manualmente imagens a partir de pesquisa de imagens Bing, é muito mais fácil usar em vez disso, o [cognitivos API de pesquisa de imagem do serviços Bing](https://www.microsoft.com/cognitive-services/bing-image-search-api) que retorna um conjunto de URLs de imagens, dada uma cadeia de consulta.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 Alguns das imagens baixadas são exatos ou próximo duplicados (por exemplo, diferem apenas por artefactos de resolução ou jpg de imagem). Estes duplicados devem ser removidos para que a divisão de preparação e teste não contêm as imagens do mesmo. Remover duplicadas imagens pode ser obtido usando uma abordagem baseada em hash, que funciona em dois passos: (i) em primeiro lugar, a cadeia de hash é calculada para todas as imagens; (i) numa segunda passagem sobre as imagens, apenas as imagens são mantidas com uma cadeia de hash que ainda não foi encontrada. Todas as outras imagens são eliminadas. Foi encontrado o `dhash` abordagem na biblioteca de Python `imagehash` e descrito neste [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) para executar bem, com o parâmetro `hash_size` definido como 16. Há problema incorretamente remover algumas imagens não duplicado, desde que a maioria dos duplicados real são removidas.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970888"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576702"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -310,7 +310,7 @@ O Azure Backup Server compartilha o código com o Data Protection Manager. Verá
 
 ## <a name="add-backup-storage"></a>Adicionar armazenamento de cópia de segurança
 
-A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre como adicionar discos, consulte [armazenamento de cópia de segurança moderno adicionar](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
+A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre como adicionar discos, consulte [armazenamento de cópia de segurança moderno adicionar](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Tem de adicionar armazenamento de cópia de segurança, mesmo que pretenda enviar dados para o Azure. A arquitetura de servidor de cópia de segurança do Azure, os serviços de recuperação cofre retenções a *segundo* cópia dos dados enquanto o armazenamento local contém a cópia de segurança do primeira (e obrigatória).
@@ -360,10 +360,10 @@ Também pode consultar [FAQs relacionados com a cópia de segurança do Azure](b
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O artigo [preparar o ambiente para o DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contém informações sobre configurações suportadas do servidor de cópia de segurança do Azure.
+O artigo [preparar o ambiente para o DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contém informações sobre configurações suportadas do servidor de cópia de segurança do Azure.
 
 Pode utilizar os seguintes artigos para obter uma compreensão mais aprofundada de proteção de carga de trabalho com o Microsoft Azure Backup Server.
 
-- [Cópia de segurança do SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [Cópia de segurança do SharePoint server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Cópia de segurança do SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [Cópia de segurança do SharePoint server](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Cópia de segurança do servidor alternativo](backup-azure-alternate-dpm-server.md)

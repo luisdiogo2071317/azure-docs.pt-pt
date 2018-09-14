@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622488"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576447"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar os dados no Azure IoT Central
 
@@ -33,7 +33,7 @@ Este artigo descreve como utilizar a funcionalidade de exportação contínua de
 
 ### <a name="measurements"></a>Medições
 
-As medidas que os dispositivos enviam são exportadas para a sua conta de armazenamento, uma vez por minuto. Os dados têm novas mensagens recebidas pelo centro de IoT de todos os dispositivos, durante esse período. Os ficheiros exportados do AVRO utilizam o mesmo formato que os ficheiros de mensagem exportados pelo [roteamento de mensagens do IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para armazenamento de Blobs.
+As medidas que os dispositivos enviam são exportadas para a sua conta de armazenamento, uma vez por minuto. Os dados têm novas mensagens recebidas pelo centro de IoT de todos os dispositivos, durante esse período. Os ficheiros exportados do AVRO utilizam o mesmo formato que os ficheiros de mensagem exportados pelo [roteamento de mensagens do IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para armazenamento de Blobs.
 
 > [!NOTE]
 > Os dispositivos que enviam as medidas são representados por identificações de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos de dispositivo. Correlacionar cada registo de mensagens utilizando o **connectionDeviceId** que corresponda ao ID de dispositivo.

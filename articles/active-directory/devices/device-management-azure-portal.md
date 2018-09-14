@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041430"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542485"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Como gerir dispositivos através do portal do Azure
 
 
-Gestão de dispositivos no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores estão a aceder ao seus recursos de dispositivos que cumprem as normas de segurança e conformidade. 
+Com a gestão de dispositivos no Azure Active Directory (Azure AD), pode assegurar que os seus utilizadores acedem aos seus recursos a partir de dispositivos que cumpram as suas normas de segurança e conformidade. 
 
 Este artigo:
 
@@ -123,7 +123,7 @@ Como administrador, pode gerir os dispositivos registados ou associados. Esta se
 
 ### <a name="manage-an-intune-device"></a>Gerir um dispositivo do Intune
 
-Se for um administrador do Intune, pode gerir dispositivos marcados como **Microsoft Intune**. Um administrador pode ver os dispositivos adicionais 
+Se for um administrador do Intune, pode gerir dispositivos marcados como **Microsoft Intune**. 
 
 ![Gerir um dispositivo do Intune](./media/device-management-azure-portal/31.png)
 
@@ -251,7 +251,7 @@ Além dos filtros, pode procurar entradas específicas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Introdução à gestão de dispositivos no Azure Active Directory](overview.md)
+* [Introduction to device management in Azure Active Directory](overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 
 
 

@@ -1,27 +1,28 @@
 ---
-title: Limites do QnA Maker - serviços cognitivos do Azure | Documentos da Microsoft
-description: Limites do QnA Maker
+title: Limites e limites - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Lista completa dos limites entre a ferramenta QnA Maker.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93471faab9aac94616c770cbee21fb0364f73639
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: da1de0c36033823bd8f615411eed183ffe9701b6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501892"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574553"
 ---
 # <a name="qna-maker-limits"></a>Limites do QnA Maker
 Lista completa dos limites entre a ferramenta QnA Maker.
 
 ## <a name="knowledge-bases"></a>Bases de dados de conhecimento
 
-* Número máximo de bases de dados de conhecimento com base em [limites do escalão de Azure Search](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Número máximo de bases de dados de conhecimento com base em [limites do escalão de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Escalão de pesquisa do Azure** | **Gratuito** | **Básica** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,7 +33,7 @@ Lista completa dos limites entre a ferramenta QnA Maker.
 * Número máximo de ligações profunda que podem ser pesquisados para extração de QnAs de páginas HTML de FAQ: 20
 
 ## <a name="metadata-limits"></a>Limites de metadados
-* Número máximo de campos de metadados por base de dados de conhecimento, com base em [limites do escalão de Azure Search](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Número máximo de campos de metadados por base de dados de conhecimento, com base em [limites do escalão de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Escalão de pesquisa do Azure** | **Gratuito** | **Básica** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|

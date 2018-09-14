@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 52582a6fe3f6c8ccc22c57268e20a94139be9e6f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 669a436293ddf6f13760db5e6802aaae82ddd74b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094863"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577518"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e dimensionamento nas funções durável (funções do Azure)
 
@@ -27,13 +27,13 @@ Para compreender o comportamento de dimensionamento, terá de compreender alguns
 
 O **histórico** é uma tabela de armazenamento do Azure que contém os eventos de histórico de todas as instâncias de orquestração dentro de um hub de tarefa. O nome desta tabela tem o formato *TaskHubName*histórico. Como as instâncias são executadas, novas linhas são adicionadas a esta tabela. O ID de instância da orquestração deriva a chave de partição desta tabela. Um ID de instância é aleatório na maioria dos casos, o que garante a distribuição ideal de partições internas no armazenamento do Azure.
 
-Quando uma instância da orquestração precisa ser executado, as linhas apropriadas da tabela do histórico são carregadas na memória. Estes *eventos de histórico* , em seguida, são reproduzidos no código de função do orchestrator para recuperá-lo novamente para o seu estado anteriormente foi efetuada a verificação. A utilização de histórico de execução para reconstruir o estado dessa maneira é influenciada pela [padrão de origem do evento](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing).
+Quando uma instância da orquestração precisa ser executado, as linhas apropriadas da tabela do histórico são carregadas na memória. Estes *eventos de histórico* , em seguida, são reproduzidos no código de função do orchestrator para recuperá-lo novamente para o seu estado anteriormente foi efetuada a verificação. A utilização de histórico de execução para reconstruir o estado dessa maneira é influenciada pela [padrão de origem do evento](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Tabela de instâncias
 
 O **instâncias** é outra tabela de armazenamento do Azure que contém os Estados de todas as instâncias de orquestração dentro de um hub de tarefa. Como são criadas instâncias, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela é o ID de instância da orquestração e a chave de linha é uma constante fixa. Há uma linha por instância de orquestração.
 
-Esta tabela é usada para satisfazer os pedidos de consulta de instância do [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, bem como a [consultas de estado HTTP API](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-http-api#get-instance-status). Ele é mantido eventualmente consistente com o conteúdo do **histórico** tabela mencionado anteriormente. A utilização de uma tabela de armazenamento do Azure separada para atender com eficiência a operações de consulta de instância dessa maneira é influenciada pela [padrão de comando e segregação de responsabilidade de consulta (CQRS)](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs).
+Esta tabela é usada para satisfazer os pedidos de consulta de instância do [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, bem como a [consultas de estado HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Ele é mantido eventualmente consistente com o conteúdo do **histórico** tabela mencionado anteriormente. A utilização de uma tabela de armazenamento do Azure separada para atender com eficiência a operações de consulta de instância dessa maneira é influenciada pela [padrão de comando e segregação de responsabilidade de consulta (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Acionadores da fila interna
 

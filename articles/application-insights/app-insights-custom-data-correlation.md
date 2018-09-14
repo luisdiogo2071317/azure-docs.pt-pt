@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162141"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577776"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionar dados do Application Insights com origens de dados personalizados
 
@@ -51,7 +51,7 @@ Para começar a enviar dados para o Log Analytics. Existem várias opções:
 
 ## <a name="correlating-data"></a>Correlacionar dados
 
-O Application Insights baseia-se na plataforma de dados do Log Analytics. Pode, por isso, usamos [associações entre recursos](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar dados podemos ingeridos para o Log Analytics com nossos dados do Application Insights.
+O Application Insights baseia-se na plataforma de dados do Log Analytics. Pode, por isso, usamos [associações entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar dados podemos ingeridos para o Log Analytics com nossos dados do Application Insights.
 
 Por exemplo, podemos pode ingerir nosso inventário de laboratório e localizações numa tabela denominada "LabLocations_CL" numa área de trabalho do Log Analytics chamada "myLA". Se quiséssemos, em seguida, reveja os nossos pedidos monitorizados na aplicação do Application Insights chamada "myAI" e correlacionar os nomes das máquinas que serviu os pedidos para as localizações destas máquinas armazenados na tabela personalizada mencionada anteriormente, podemos executar a seguinte consulta do contexto do Application Insights ou o Log Analytics:
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>Próximos Passos
 
 - Veja a [API do Recoletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) referência.
-- Para obter mais informações sobre [associações entre recursos](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- Para obter mais informações sobre [associações entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

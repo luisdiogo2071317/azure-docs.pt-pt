@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b31188eb5618d0ec5ac1f89c590913e4e284d9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1b8b680736c49c0036600bf4337da6952cf38afb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337836"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573644"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Operações de gestão de contas no Azure Data Lake Store com a API REST
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Pode utilizar duas abordagens para autenticar com o Azure Active Directory.
 
 
 ## <a name="create-a-data-lake-store-account"></a>Criar uma conta do Data Lake Store
-Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create).
+Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
 Utilize o seguinte comando cURL. Substitua **\<nomedoarquivo>** pelo nome do Data Lake Store.
 
@@ -59,7 +59,7 @@ No comando acima, substitua \<`REDACTED`\> pelo token de autorização obtido an
     }    
 
 ## <a name="delete-a-data-lake-store-account"></a>Eliminar uma conta do Data Lake Store
-Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete).
+Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
 Utilize o seguinte comando cURL para eliminar uma conta do Data Lake Store. Substitua **\<nomedoarquivo>** pelo nome do Data Lake Store.
 

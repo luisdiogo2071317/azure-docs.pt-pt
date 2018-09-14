@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070439"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580757"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -108,11 +108,11 @@ Se tiver problemas com o registo do Dev Center, em seguida, siga estes passos pa
 > Publicador que está a publicar no Transact listagem Tipo: VM, as aplicações do Azure: modelos de soluções e aplicações geridas.  
 
 *   **Por que é necessária uma conta Dev Center?**
-> Conta do Dev Center é necessário que permitam à Microsoft para o cliente em nome do publicador são faturadas Transact listagem tipo. Conta do Dev Center registo permite que a Microsoft validar o uso legal, fiscais e informações bancárias para a sua empresa. Para saber mais clique [aqui.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+> Conta do Dev Center é necessário que permitam à Microsoft para o cliente em nome do publicador são faturadas Transact listagem tipo. Conta do Dev Center registo permite que a Microsoft validar o uso legal, fiscais e informações bancárias para a sua empresa. Para saber mais clique [aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
 
 *   **Como posso começar a utilizar com o registo de centro de desenvolvimento?**
 > Para evitar a duplicação, certifique-se de que sua empresa ainda não tiver uma conta do Dev Center registrada. Precisa estar conectado com a conta Microsoft que pretende associar à sua conta de desenvolvedor. Se ainda não tiver uma conta Microsoft, pode criar uma nova conta [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) para iniciar sessão e registar, aceda a https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Para obter mais informações sobre o processo de registo clique [aqui.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>Para obter mais informações sobre o processo de registo clique [aqui.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *   **Devo escolher 'Indivíduo' ou "Da empresa" tipo de conta?**
 > Para publicar uma oferta de transact no Marketplace, tem de selecionar a conta de empresa quando efetuar o registo para a sua conta do Dev Center.
@@ -143,7 +143,7 @@ Se tiver problemas com o registo do Dev Center, em seguida, siga estes passos pa
 > Atribuir um nome de empresa temporário, contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e os documentos de registo de negócios de fornecê-los.
 
 *   **Como posso adicionar as minhas informações fiscais e dividendos?**
-> Não será capaz de publicar transact ofertas sem concluir as informações fiscais e bancárias na sua conta do Dev Center.  Para obter mais informações sobre como adicionar informações de conta, visite [como informações bancárias de adicionar e impostos.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Não será capaz de publicar transact ofertas sem concluir as informações fiscais e bancárias na sua conta do Dev Center.  Para obter mais informações sobre como adicionar informações de conta, visite [como informações bancárias de adicionar e impostos.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
 
 *   **Pode alterar a conta de início de sessão da Microsoft do Centro de desenvolvimento?**
 > Não. Depois de criar um centro de desenvolvimento, não é possível alterar a conta do proprietário. Tinha que começar tudo de novo com uma conta do Dev Center totalmente nova com a conta Microsoft pretendida.

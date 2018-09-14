@@ -1,35 +1,35 @@
 ---
-title: A obtenção de análise no seu conhecimento base - serviços cognitivos Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: A obtenção de análise na sua base de dados de conhecimento
+title: Análise na base de conhecimento
+titleSuffix: Azure Cognitive Services
+description: A ferramenta QnA Maker armazena todos os logs de bate-papo e outra telemetria, se tiver ativado o App Insights durante a criação do seu serviço QnA Maker. Execute as consultas de exemplo para obter os registos de chat do App Insights.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 1588d0c5a8eaf4e161b5319c9f33a772dc56b247
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 28dd34cc49d0004dd434a54d53f3f27f7c7d80e7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354001"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542707"
 ---
-# <a name="get-analytics-on-your-knowledge-base"></a>Obter a análise na sua base de dados de conhecimento
+# <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 
-Maker de QnA armazena todos os registos de chat e outra telemetria, se tiver ativado o Insights da aplicação durante o [criação do seu serviço de QnA Maker](./set-up-qnamaker-service-azure.md). Execute as consultas de exemplo para obter os registos de chat do App Insights.
+A ferramenta QnA Maker armazena todos os logs de bate-papo e outra telemetria, se tiver ativado o App Insights durante a [criação do seu serviço QnA Maker](./set-up-qnamaker-service-azure.md). Execute as consultas de exemplo para obter os registos de chat do App Insights.
 
-1. Vá para o recurso do App Insights.
+1. Aceda ao seu recurso do App Insights.
 
-    ![Selecione o recurso do application insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Selecione o seu recurso do application insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selecione **análise**. Uma nova janela abre-se onde pode consultar a telemetria de QnA Maker.
+2. Selecione **Analytics**. Uma nova é apresentada a janela onde pode consultar a telemetria do QnA Maker.
 
     ![Selecione a análise](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
-3. Cole a seguinte consulta e execute-o.
+3. Cole a seguinte consulta e executá-lo.
 
     ```query
         requests
@@ -48,9 +48,9 @@ Maker de QnA armazena todos os registos de chat e outra telemetria, se tiver ati
 
     ![Executar consulta](../media/qnamaker-how-to-analytics-kb/run-query.png)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Executar consultas para outros análise na sua base de dados de conhecimento de QnA Maker
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Executar consultas para outras análises na sua base de dados de conhecimento do QnA Maker
 
-### <a name="total-90-day-traffic"></a>Total de tráfego de 90 dias
+### <a name="total-90-day-traffic"></a>Total de 90 dias tráfego
 
 ```query
     //Total Traffic
@@ -60,7 +60,7 @@ Maker de QnA armazena todos os registos de chat e outra telemetria, se tiver ati
     | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ``` 
 
-### <a name="total-question-traffic-in-a-given-time-period"></a>Tráfego de pergunta total num determinado período de tempo
+### <a name="total-question-traffic-in-a-given-time-period"></a>Tráfego total pergunta num determinado período de tempo
 
 ```query
     //Total Question Traffic in a given time period
@@ -73,7 +73,7 @@ Maker de QnA armazena todos os registos de chat e outra telemetria, se tiver ati
     | summarize ChatCount=count() by KbId
 ```
 
-### <a name="user-traffic"></a>Tráfego do utilizador
+### <a name="user-traffic"></a>Tráfego de utilizador
 
 ```query
     //User Traffic

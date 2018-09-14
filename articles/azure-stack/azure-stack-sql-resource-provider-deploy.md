@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 47d31ac08d2cda59eac6ee5c939894b58d4576a0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390932"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576991"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implementar o fornecedor de recursos do SQL Server no Azure Stack
 
@@ -83,7 +83,7 @@ Pode especificar os seguintes parâmetros da linha de comando. Se não o fizer, 
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Utilize as mesmas credenciais que utilizou para a implementação do Azure Stack. | _Necessário_ |
 | **VMLocalCredential** | As credenciais para a conta de administrador local do fornecedor de recursos SQL VM. | _Necessário_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto final com privilégios. |  _Necessário_ |
-| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Obrigatório apenas se não é ADFS. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, a utilizar **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que utilizou para a implementação do Azure Stack. Apenas necessário para implementações do Azure AD. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, a utilizar **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Para apenas sistemas integrados, o ficheiro. pfx de certificado deve ser colocado neste diretório. Opcionalmente, pode copiar um pacote de Windows Update MSU aqui. | _Opcional_ (_obrigatório_ para os sistemas integrados) |
 | **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx. | _Necessário_ |
 | **MaxRetryCount** | O número de vezes que pretende repetir a cada operação, se ocorrer uma falha.| 2 |
@@ -93,9 +93,9 @@ Pode especificar os seguintes parâmetros da linha de comando. Se não o fizer, 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Implementar o fornecedor de recursos do SQL usando um script personalizado
 
-<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>Para eliminar qualquer configuração manual quando implementar o fornecedor de recursos, pode personalizar o script a seguir.  
--  
-- Altere as informações de conta padrão e palavras-passe, conforme necessário para a sua implementação do Azure Stack.
+Para eliminar qualquer configuração manual quando implementar o fornecedor de recursos, pode personalizar o script a seguir.  
+
+Altere as informações de conta padrão e palavras-passe, conforme necessário para a sua implementação do Azure Stack.
 
 
 ```powershell
@@ -109,6 +109,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -135,6 +138,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
 

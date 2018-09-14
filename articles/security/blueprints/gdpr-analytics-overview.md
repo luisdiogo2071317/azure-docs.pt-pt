@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: a2dadbd0b9e68b07ed098b8ffc338d09531b1e50
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715385"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580706"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure Security and Compliance Blueprint: análise para o GDPR
 
@@ -70,13 +70,13 @@ Esta solução utiliza os seguintes serviços do Azure. Os detalhes a arquitetur
 A secção seguinte fornece detalhes sobre os elementos de implantação e a implementação.
 
 **O Azure Event Grid**
-[Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) permite que os clientes podem criar facilmente aplicações com arquiteturas baseadas em eventos. Os utilizadores selecionam o recurso do Azure que gostariam de subscrever e dar o manipulador de eventos ou um ponto de extremidade para enviar o evento de webhook. Os clientes possam proteger pontos finais de webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. O Azure Event Grid suporta apenas pontos finais do webhook HTTPS. O Azure Event Grid permite aos clientes controlar o nível de acesso que é atribuído aos usuários diferentes para fazer várias operações de gestão, tais como as subscrições de eventos da lista, criar novos e gerar as chaves. Grelha de eventos utiliza o controlo de acesso de controlo (RBAC).
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) permite que os clientes podem criar facilmente aplicações com arquiteturas baseadas em eventos. Os utilizadores selecionam o recurso do Azure que gostariam de subscrever e dar o manipulador de eventos ou um ponto de extremidade para enviar o evento de webhook. Os clientes possam proteger pontos finais de webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. O Azure Event Grid suporta apenas pontos finais do webhook HTTPS. O Azure Event Grid permite aos clientes controlar o nível de acesso que é atribuído aos usuários diferentes para fazer várias operações de gestão, tais como as subscrições de eventos da lista, criar novos e gerar as chaves. Grelha de eventos utiliza o controlo de acesso de controlo (RBAC).
 
 **As funções do Azure**
-[as funções do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que permite aos utilizadores executar código a pedido sem ter de aprovisionar ou gerir a infraestrutura explicitamente. Utilize as Funções do Azure para executar um script ou fragmento de código em resposta a uma variedade de eventos.
+[as funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que permite aos utilizadores executar código a pedido sem ter de aprovisionar ou gerir a infraestrutura explicitamente. Utilize as Funções do Azure para executar um script ou fragmento de código em resposta a uma variedade de eventos.
 
 **O Azure Machine Learning**
-[do Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/) é uma técnica de ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências.
+[do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) é uma técnica de ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências.
 
 **O catálogo de dados do Azure**: [catálogo de dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) torna os dados facilmente Detetáveis e compreensíveis pelos utilizadores que gerem os dados. Origens de dados comuns podem ser registadas, marcadas e está à procura os dados pessoais. Os dados permanecem na localização existente, mas uma cópia dos respetivos metadados é adicionada ao catálogo de dados, juntamente com uma referência para a localização de origem de dados. Os metadados também são indexados para tornar cada origem de dados facilmente detetável através da pesquisa e compreensível para os utilizadores que a detetarem.
 
@@ -88,7 +88,7 @@ Esta arquitetura de referência define uma VNet privada com um espaço de endere
   - Um NSG para a carga de trabalho
 
 Cada um dos NSGs têm portas específicas e protocolos abrir para que a solução pode trabalhar de forma segura e corretamente. Além disso, as seguintes configurações são habilitadas para cada NSG:
-  - [Eventos e registos de diagnóstico](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) forem ativadas e armazenados numa conta de armazenamento
+  - [Eventos e registos de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) forem ativadas e armazenados numa conta de armazenamento
   - Log Analytics do OMS está ligado a [diagnósticos do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Sub-redes**: cada sub-rede está associada ao seu NSG correspondente.
@@ -134,7 +134,7 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados pess
 - Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, 365 dias.
 - Operações de criptografia permitidas para as chaves estão limitadas aos obrigatórios.
 
-**Alertas de segurança**: [Centro de segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) permite aos clientes monitorizar o tráfego, recolher registos e analisar as origens de dados relativamente a ameaças. Além disso, o Centro de segurança do Azure acede a configuração existente de serviços do Azure para fornecer recomendações de serviço para ajudar a melhorar a postura de segurança e proteger dados pessoais e de configuração. Centro de segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/en-us/azure/security-center/security-center-threat-report) para cada detetado contra ameaças para ajudar as equipes de resposta a incidentes investigar e remediar ameaças.
+**Alertas de segurança**: [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) permite aos clientes monitorizar o tráfego, recolher registos e analisar as origens de dados relativamente a ameaças. Além disso, o Centro de segurança do Azure acede a configuração existente de serviços do Azure para fornecer recomendações de serviço para ajudar a melhorar a postura de segurança e proteger dados pessoais e de configuração. Centro de segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) para cada detetado contra ameaças para ajudar as equipes de resposta a incidentes investigar e remediar ameaças.
 
 ### <a name="logging-and-auditing"></a>Registro e auditoria
 
@@ -152,13 +152,13 @@ Além disso, as seguintes soluções do OMS são incluídas como parte desta arq
 -   [Gestão de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): solução de gestão de atualizações permite a gestão de cliente de atualizações de segurança do sistema operativo, incluindo o processo de instalação de atualizações necessárias e o estado das atualizações disponíveis.
 -   [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): solução funcionamento de agente a relatórios quantos agentes estão implementados e a distribuição geográfica, como número de agentes que não respondem e o número de agentes que está a enviar dados operacionais.
 -   [Registos de atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): ajuda a solução da análise de registos de atividade com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
--   [Controlo de alterações](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
+-   [Controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
 
 **O Azure Monitor**
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) ajuda os clientes a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo a API de controlo chama-se nos recursos dos clientes do Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os clientes a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo a API de controlo chama-se nos recursos dos clientes do Azure.
 
 **O Application Insights**
-[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Usá-lo para monitorizar a aplicação web em direto. Ele Deteta anomalias de desempenho e inclui ferramentas de análise poderosas para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a aplicação. Foi concebido para ajudar os usuários a melhorar continuamente o desempenho e a usabilidade.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Usá-lo para monitorizar a aplicação web em direto. Ele Deteta anomalias de desempenho e inclui ferramentas de análise poderosas para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a aplicação. Foi concebido para ajudar os usuários a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="threat-model"></a>Modelo de risco
 
@@ -176,17 +176,17 @@ O [Azure no Security and Compliance Blueprint - matriz de implementação de an�
 ### <a name="vpn-and-expressroute"></a>ExpressRoute e VPN
 Um túnel VPN seguro ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) tem de ser configurado com segurança estabelecer uma ligação para os recursos implementados como parte desses dados análise de arquitetura de referência. Configurando adequadamente uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção para dados em trânsito.
 
-Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Essa conexão ocorre através da Internet e permite que os clientes com segurança as informações de "encapsulamento" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN site a Site é uma tecnologia madura e segura que tenha sido implementada por empresas de todos os tamanhos há décadas. O [modo de encapsulamento IPsec](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de criptografia.
+Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Essa conexão ocorre através da Internet e permite que os clientes com segurança as informações de "encapsulamento" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN site a Site é uma tecnologia madura e segura que tenha sido implementada por empresas de todos os tamanhos há décadas. O [modo de encapsulamento IPsec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de criptografia.
 
 Porque o tráfego de túnel VPN atravessa a Internet com uma VPN de site a site, a Microsoft oferece a opção de ligação de outra, ainda mais seguro. O Azure ExpressRoute é uma WAN dedicada ligação entre o Azure e uma localização no local ou um fornecedor de alojamento do Exchange. Como as ligações ExpressRoute não entram na Internet, estas ligações oferecem mais fiabilidade, velocidades mais rápidas, latências mais baixas e maior segurança do que as ligações normais pela Internet. Além disso, como se trata de uma conexão direta do fornecedor de telecomunicação do cliente, os dados não percorre a Internet e, portanto, não são expostos ao mesmo.
 
-Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponível](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponível](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ### <a name="extract-transform-load-etl-process"></a>Processo de Extract-Transform-Load (ETL)
-[O PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide) pode carregar dados para a base de dados do Azure SQL sem a necessidade de um ETL separado ou importar a ferramenta. O PolyBase permite o acesso aos dados através de consultas de T-SQL. Da Microsoft inteligência comercial e pilha de análise, bem como ferramentas de terceiros compatíveis com o SQL Server, podem ser utilizadas com o PolyBase.
+[O PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) pode carregar dados para a base de dados do Azure SQL sem a necessidade de um ETL separado ou importar a ferramenta. O PolyBase permite o acesso aos dados através de consultas de T-SQL. Da Microsoft inteligência comercial e pilha de análise, bem como ferramentas de terceiros compatíveis com o SQL Server, podem ser utilizadas com o PolyBase.
 
 ### <a name="azure-active-directory-setup"></a>Configuração do Active Directory do Azure
-[O Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) é essencial para a gestão da implementação e aprovisionamento do acesso ao pessoal de interação com o ambiente. Um Windows Server Active Directory existente pode ser integrado com o AAD no [quatro cliques](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes podem associar a infraestrutura de Active Directory implementada (controladores de domínio) para um AAD existente, tornando a infraestrutura de Active Directory implementada um subdomínio de uma floresta do AAD.
+[O Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para a gestão da implementação e aprovisionamento do acesso ao pessoal de interação com o ambiente. Um Windows Server Active Directory existente pode ser integrado com o AAD no [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes podem associar a infraestrutura de Active Directory implementada (controladores de domínio) para um AAD existente, tornando a infraestrutura de Active Directory implementada um subdomínio de uma floresta do AAD.
 
 ## <a name="disclaimer"></a>Exclusão de Responsabilidade
 

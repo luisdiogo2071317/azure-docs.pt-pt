@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
-ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9bdda67f08b9fbee20bdcc11186b97a3d942b778
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070348"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580672"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Criar e implementar modelos de previsão com o Azure Machine Learning
 
@@ -106,7 +106,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Carregar dados e explorar
 
-Este fragmento de código mostra o processo normal de começar com um conjunto de dados não processado, neste caso o [dados de pratos de mais de Dominick](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Também pode utilizar a função de conveniência [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Este fragmento de código mostra o processo normal de começar com um conjunto de dados não processado, neste caso o [dados de pratos de mais de Dominick](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Também pode utilizar a função de conveniência [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -123,7 +123,7 @@ whole_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>armazenar</th>
+      <th>Store</th>
       <th>marca</th>
       <th>semana</th>
       <th>logmove</th>
@@ -279,7 +279,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>armazenar</th>
+      <th>Store</th>
       <th>marca</th>
       <th>WeekLastDay</th>
       <th>Quantidade</th>
@@ -337,7 +337,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Os dados contêm aproximadamente 250 diferentes combinações de loja e marca num quadro de dados. Cada combinação define sua própria série de tempo de vendas. 
 
-Pode utilizar o [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) classe para modelar convenientemente várias séries numa estrutura de dados individual utilizando o _detalhamento_. O intervalo de agregação for especificado o `store` e `brand` colunas.
+Pode utilizar o [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) classe para modelar convenientemente várias séries numa estrutura de dados individual utilizando o _detalhamento_. O intervalo de agregação for especificado o `store` e `brand` colunas.
 
 A diferença entre _intervalo de agregação_ e _grupo_ é que o intervalo de agregação sempre é fisicamente significativo no mundo real, enquanto o grupo não tem de ser. As funções do pacote interno utilizam grupo para criar um modelo único de várias séries de tempo se o usuário acredite que este agrupamento ajuda a melhorar o desempenho do modelo. Por predefinição, o grupo está definido para ser igual ao intervalo de agregação, e um único modelo foi concebido para cada intervalo de agregação. 
 
@@ -369,7 +369,7 @@ whole_tsdf[['Quantity']].head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>armazenar</th>
+      <th>Store</th>
       <th>marca</th>
       <th></th>
     </tr>
@@ -434,7 +434,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>armazenar</th>
+      <th>Store</th>
       <th>marca</th>
       <th></th>
     </tr>
@@ -499,7 +499,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-O [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) função gera um relatório abrangente da estrutura de dados de série de tempo. O relatório inclui tanto uma descrição geral de dados, bem como estatísticas específicas para os dados de séries de tempo. 
+O [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) função gera um relatório abrangente da estrutura de dados de série de tempo. O relatório inclui tanto uma descrição geral de dados, bem como estatísticas específicas para os dados de séries de tempo. 
 
 
 ```python
@@ -731,7 +731,7 @@ whole_tsdf.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>armazenar</th>
+      <th>Store</th>
       <th>marca</th>
       <th></th>
       <th></th>
@@ -886,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Pré-processar dados e impute valores em falta
 
-Comece por divisão dos dados em conjunto de treinamento e um teste definido com o [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) função de utilitário. O conjunto de teste resultante contém as último 40 observações de cada série de tempo. 
+Comece por divisão dos dados em conjunto de treinamento e um teste definido com o [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) função de utilitário. O conjunto de teste resultante contém as último 40 observações de cada série de tempo. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Modelos de série de tempo básicas necessitam de séries de tempo contínuo. Certifique-se a série é regular, o que significa que têm um índice de tempo como amostra em intervalos regulares, utilizando o [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) função.
+Modelos de série de tempo básicas necessitam de séries de tempo contínuo. Certifique-se a série é regular, o que significa que têm um índice de tempo como amostra em intervalos regulares, utilizando o [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) função.
 
 
 ```python
@@ -968,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Pode ver que a maior parte da série (213 de 249) é irregulares. Uma [transformação de imputation](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) é necessário para preencher na ausência de valores de quantidade de vendas. Embora existam muitas opções de imputation, o código de exemplo seguinte utiliza uma interpolação linear.
+Pode ver que a maior parte da série (213 de 249) é irregulares. Uma [transformação de imputation](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) é necessário para preencher na ausência de valores de quantidade de vendas. Embora existam muitas opções de imputation, o código de exemplo seguinte utiliza uma interpolação linear.
 
 
 ```python
@@ -1034,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combinar vários modelos
 
-O [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator permite-lhe combinar vários avaliadores e ajuste/prever neles usando uma linha de código.
+O [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator permite-lhe combinar vários avaliadores e ajuste/prever neles usando uma linha de código.
 
 
 ```python
@@ -1107,7 +1107,7 @@ univariate_model_errors
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ModelName</th>
+      <th>modelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
@@ -1248,7 +1248,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-O [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) função encapsula sklearn avaliadores de regressão, de modo a que pode ser treinados em TimeSeriesDataFrame. O forecaster encapsulada coloca também cada grupo, esse armazenamento caso, o mesmo modelo. O forecaster pode aprender um modelo para um grupo de série que foram considerada semelhantes e pode ser agrupado em conjunto. Um modelo para um grupo de série, muitas vezes, usa os dados da série de mais tempo para melhorar as previsões de série curta. Pode substituir estes modelos para os outros modelos na biblioteca, que oferecem suporte a regressão. 
+O [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) função encapsula sklearn avaliadores de regressão, de modo a que pode ser treinados em TimeSeriesDataFrame. O forecaster encapsulada coloca também cada grupo, esse armazenamento caso, o mesmo modelo. O forecaster pode aprender um modelo para um grupo de série que foram considerada semelhantes e pode ser agrupado em conjunto. Um modelo para um grupo de série, muitas vezes, usa os dados da série de mais tempo para melhorar as previsões de série curta. Pode substituir estes modelos para os outros modelos na biblioteca, que oferecem suporte a regressão. 
 
 
 ```python
@@ -1297,7 +1297,7 @@ all_errors.sort_values('MedianAPE')
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ModelName</th>
+      <th>modelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
@@ -1372,7 +1372,7 @@ A figura abaixo, cada quadrado representa dados de um ponto de tempo. Quadrados 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Varrimento de parâmetro**  
-O [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) classe exaustivamente pesquisa sobre os valores de parâmetro especificado e utiliza `RollingOriginValidator` para avaliar o desempenho de parâmetro para encontrar os melhores parâmetros.
+O [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) classe exaustivamente pesquisa sobre os valores de parâmetro especificado e utiliza `RollingOriginValidator` para avaliar o desempenho de parâmetro para encontrar os melhores parâmetros.
 
 
 ```python
@@ -1424,10 +1424,10 @@ best_of_forecaster_prediction.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>armazenar</th>
+      <th>Store</th>
       <th>marca</th>
       <th>ForecastOriginTime</th>
-      <th>ModelName</th>
+      <th>modelName</th>
       <th></th>
       <th></th>
       <th></th>

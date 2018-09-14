@@ -3,71 +3,58 @@ title: 'Início rápido: Consultas de pesquisa de envio com a API REST para a AP
 description: Neste início rápido, envia consultas de pesquisa para a API de pesquisa do Bing para obter uma lista de imagens relevantes com Ruby.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: bbe154f22557fb357edfb6b981eb1024f0a81d38
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.date: 8/20/2018
+ms.author: aahi
+ms.openlocfilehash: fdc22971a369effbca31e23305ee57739852a50b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41987972"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578806"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Início rápido: Consultas de pesquisa de envio utilizar a REST API e Ruby
 
-A API de pesquisa de imagens do Bing fornece uma experiência semelhante à Bing.com/Images, permitindo-lhe enviar uma consulta de pesquisa de usuário para o Bing e obter uma lista de imagens relevantes.
+Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de imagens do Bing e receber uma resposta JSON. Esta aplicação Ruby simple envia uma consulta de pesquisa para a API e exibe os resultados brutos.
 
-Este artigo inclui uma aplicação de consola simples que executa uma consulta de API de pesquisa de imagens do Bing e exibe os resultados da pesquisa não processados, que estão no formato JSON. Embora este aplicativo é escrito em Ruby, a API é um serviço RESTful Web compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
+Embora este aplicativo é escrito em Ruby, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
+O código-fonte para este exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Ruby 2,4 ou posterior](https://www.ruby-lang.org/en/downloads/) para executar o código de exemplo.
+* [A versão mais recente do Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-application"></a>Executar a aplicação
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-Para executar esta aplicação, siga estes passos.
+1. Importe os seguintes pacotes para o ficheiro de código.
 
-1. Crie um novo projeto de Ruby no seu IDE ou editor favorito.
-2. Adicione o código fornecido.
-3. Substitua o `accessKey` valor com uma chave de acesso válida para a sua subscrição.
-4. Execute o programa.
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
+
+2. Criar variáveis para o ponto final de API, caminho de pesquisa da API de imagem, a chave de subscrição e o termo de pesquisa.
+
+    ```ruby
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/images/search"
+    term = "puppies"
+    ```
+
+## <a name="format-and-make-an-api-request"></a>Formatar e fazer um pedido de API
+
+Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido de API. Em seguida, envie o pedido.
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
-
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/images/search"
-
-term = "puppies"
-
-if accessKey.length != 32 then
-    puts "Invalid Bing Search API subscription key!"
-    puts "Please paste yours into the source code."
-    abort
-end
-
 uri = URI(uri + path + "?q=" + URI.escape(term))
 
-puts "Searching images for: " + term
 
 request = Net::HTTP::Get.new(uri)
 request['Ocp-Apim-Subscription-Key'] = accessKey
@@ -75,106 +62,76 @@ request['Ocp-Apim-Subscription-Key'] = accessKey
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)
 end
+```
 
-puts "\nRelevant Headers:\n\n"
+## <a name="process-and-print-the-json"></a>Processar e imprimir o JSON 
+
+Depois da resposta é recebida, pode analisar o JSON e obter valores do mesmo. Por exemplo, a miniatura URL para o primeiro resultado e o número total de devolvido imagens.
+
+```ruby
 response.each_header do |key, value|
-    # header names are coerced to lowercase
+    # header names are lowercased
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
         puts key + ": " + value
     end
 end
 
-puts "\nJSON Response:\n\n"
-puts JSON::pretty_generate(JSON(response.body))
+parsed_json = JSON.parse(response.body)
+total_returned_images = parsed_json["totalEstimatedMatches"]
+first_result = parsed_json["value"][0]["thumbnailUrl"]
+
+puts "total number of returned matches: #{total_returned_images}"
+puts "Url to the thumbnail of the first returned search result: #{first_result}"
 ```
 
-## <a name="json-response"></a>Resposta JSON
+## <a name="sample-json-response"></a>Resposta JSON de exemplo
 
-Segue-se uma resposta de exemplo. Para limitar o comprimento do JSON, apenas um único resultado é mostrado, e outras partes da resposta foram truncados. 
+Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
 ```json
 {
-  "_type": "Images",
-  "instrumentation": {},
-  "readLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=puppies",
-  "webSearchUrl": "https://www.bing.com/images/search?q=puppies&FORM=OIIARP",
-  "totalEstimatedMatches": 955,
-  "nextOffset": 1,
-  "value": [
+"_type":"Images",
+"instrumentation":{
+    "_type":"ResponseInstrumentation"
+},
+"readLink":"images\/search?q=tropical ocean",
+"webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+"totalEstimatedMatches":842,
+"nextOffset":47,
+"value":[
     {
-      "webSearchUrl": "https://www.bing.com/images/search?view=detailv...",
-      "name": "So cute - Puppies Wallpaper",
-      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t...",
-      "datePublished": "2014-02-01T21:55:00.0000000Z",
-      "contentUrl": "http://images4.contoso.com/image/photos/14700000/So-cute-puppies...",
-      "hostPageUrl": "http://www.contoso.com/clubs/puppies/images/14749028/...",
-      "contentSize": "394455 B",
-      "encodingFormat": "jpeg",
-      "hostPageDisplayUrl": "www.contoso.com/clubs/puppies/images/14749...",
-      "width": 1600,
-      "height": 1200,
-      "thumbnail": {
-        "width": 300,
-        "height": 225
-      },
-      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747AD...",
-      "insightsMetadata": {
-        "recipeSourcesCount": 0
-      },
-      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA36",
-      "accentColor": "8D613E"
+        "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+        "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+        "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+        "datePublished":"2017-11-03T08:51:00.0000000Z",
+        "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+        "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+        "contentSize":"897388 B",
+        "encodingFormat":"jpeg",
+        "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+        "width":1920,
+        "height":1200,
+        "thumbnail":{
+        "width":474,
+        "height":296
+        },
+        "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+        "insightsMetadata":{
+        "recipeSourcesCount":0,
+        "bestRepresentativeQuery":{
+            "text":"Tropical Beaches Desktop Wallpaper",
+            "displayText":"Tropical Beaches Desktop Wallpaper",
+            "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+        },
+        "pagesIncludingCount":115,
+        "availableSizesCount":44
+        },
+        "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+        "accentColor":"0050B2"
     }
-  ],
-  "queryExpansions": [
-    {
-      "text": "Shih Tzu Puppies",
-      "displayText": "Shih Tzu",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies...",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih...",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api..."
-      }
-    }
-  ],
-  "pivotSuggestions": [
-    {
-      "pivot": "puppies",
-      "suggestions": [
-        {
-          "text": "Dog",
-          "displayText": "Dog",
-          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%...",
-          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog...",
-          "thumbnail": {
-            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US..."
-          }
-        }
-      ]
-    }
-  ],
-  "similarTerms": [
-    {
-      "text": "cute",
-      "displayText": "cute",
-      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=...",
-      "thumbnail": {
-        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US..."
-      }
-    }
-  ],
-  "relatedSearches": [
-    {
-      "text": "Cute Puppies",
-      "displayText": "Cute Puppies",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/sear...",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=..."
-      }
-    }
-  ]
 }
 ```
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -183,7 +140,8 @@ Segue-se uma resposta de exemplo. Para limitar o comprimento do JSON, apenas um 
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de pesquisa de imagens Bing](../overview.md)  
-[Experimente-o](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

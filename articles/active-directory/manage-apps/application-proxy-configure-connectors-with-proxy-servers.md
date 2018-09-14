@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2017
+ms.date: 09/12/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7f9d74ce60d2a433f6bb63be4f131ac430452036
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363419"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540849"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores de proxy no local existentes
 
@@ -77,7 +77,7 @@ Como resultado de ter apenas o tráfego de saída, não é necessário para conf
 
 Se WPAD é ativado no ambiente e configurada corretamente, o conector Deteta automaticamente o servidor de proxy de saída e a tentativa de usá-lo. No entanto, pode configurar explicitamente o conector de passar por um proxy de saída.
 
-Para fazê-lo, edite o ficheiro de C:\Program Files\Microsoft AAD aplicação Proxy Connector\ApplicationProxyConnectorService.exe.config e adicione a *system.net* secção mostrada neste exemplo de código. Alteração *proxyserver:8080* para refletir o nome do servidor local proxy ou endereço IP e a porta que está a escutar.
+Para fazê-lo, edite o ficheiro de C:\Program Files\Microsoft AAD aplicação Proxy Connector\ApplicationProxyConnectorService.exe.config e adicione a *system.net* secção mostrada neste exemplo de código. Alteração *proxyserver:8080* para refletir o nome do servidor local proxy ou endereço IP e a porta que está a escutar. O valor tem de ter o prefixo http://, mesmo se estiver a utilizar um endereço IP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

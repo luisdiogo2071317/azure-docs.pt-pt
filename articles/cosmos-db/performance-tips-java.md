@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 0a2bd840c4e93755988cf1638a6c0bdcb6b6207d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d8d05335b62d292bf61dbd3f3d565093b21f9253
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696385"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574849"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugestões de desempenho para o Azure Cosmos DB e Java
 
@@ -36,8 +36,8 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 
     Como um cliente liga-se ao Azure Cosmos DB tem implicações importantes sobre o desempenho, especialmente em termos de latência de lado do cliente observado. Existe uma definição disponível para configurar o cliente de configuração principais [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – o [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  Os dois ConnectionModes disponíveis são:
 
-   1. [Gateway (predefinição)](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
-   2. [DirectHttps](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
+   1. [Gateway (predefinição)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
+   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
 
     Modo de gateway é suportado em todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo é executado dentro de uma rede corporativa com restrições de strict firewall, o Gateway é a melhor opção, porque utiliza a porta HTTPS padrão e um único ponto final. A compensação de desempenho, no entanto, é que o modo de Gateway envolve um salto de rede adicionais sempre que os dados são lidos ou escritos para o Azure Cosmos DB. Por este motivo, o modo de DirectHttps oferece um desempenho melhor devido à menos saltos de rede. 
 

@@ -1,51 +1,51 @@
 ---
-title: Colaborar na sua base de dados de conhecimento - serviços cognitivos Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como podem colaborar na sua base de dados de conhecimento de QnA Maker
+title: Colaborar na base de dados de conhecimento - Qna Maker
+titleSuffix: Azure Cognitive Services
+description: A ferramenta QnA Maker permite que várias pessoas colaborar numa base de dados de conhecimento. Esta funcionalidade é fornecida com o controlo de acesso.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: e18d656236276595fc5186a6656349bf28974ead
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 52cac0d73dd75f400c9777b9cc9c0b3ca101df58
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353953"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579807"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar na sua base de dados de conhecimento
 
-Maker de QnA permite que várias pessoas para colaborar numa base de dados de conhecimento. Esta funcionalidade é fornecida com o Azure [controlo de acesso baseado em funções](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+A ferramenta QnA Maker permite que várias pessoas colaborar numa base de dados de conhecimento. Esta funcionalidade é fornecida com o Azure [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-Execute os seguintes passos para partilhar o seu serviço de QnA Maker com alguém:
+Execute os seguintes passos para partilhar o seu serviço QnA Maker com alguém:
 
-1. Inicie sessão no portal do Azure e aceda ao seu recurso de QnA Maker.
+1. Inicie sessão no portal do Azure e aceda ao seu recurso do QnA Maker.
 
-    ![Lista de recursos de QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
+    ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
 2. Vá para o **controlo de acesso (IAM)** separador.
 
-    ![Maker de QnA IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
+    ![A ferramenta QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
 
 3. Selecione **Adicionar**.
 
-    ![Adicionar de QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
+    ![Adicionar o QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. Selecione o **proprietário** ou **contribuinte** função.
+4. Selecione o **proprietário** ou o **contribuinte** função.
 
-    ![IAM Maker de QnA Adicionar função](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
+    ![QnA Maker IAM Adicionar função](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
-5. Introduza o e-mail que pretende partilhar e prima guardar.
+5. Introduza o e-mail que pretende partilhar com e pressiono salvar.
 
-    ![Adicionar de QnA Maker IAM e-mail](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
+    ![QnA Maker IAM adicionar e-mail](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-Agora quando a pessoa que partilhou o serviço de QnA Maker com, iniciar sessão a [portal de QnA Maker](https://qnamaker.ai) podem ver todas as bases de dados de conhecimento que o serviço.
+Agora quando a pessoa partilhou o serviço QnA Maker com, inicia sessão na [portal do QnA Maker](https://qnamaker.ai) podem ver todas as bases de dados de conhecimento desse serviço.
 
-Lembre-se de que não é possível partilhar uma base de dados de conhecimento específico num serviço Maker de QnA. Se pretender que o controlo de acesso mais granular, considere distribui as bases de dados de conhecimento em diferentes serviços de QnA Maker.
+Lembre-se de que não é possível partilhar uma base de dados de conhecimento específica num serviço QnA Maker. Se pretender que o controlo de acesso mais granular, considere distribuir as suas bases de dados de conhecimento em todos os diferentes serviços do QnA Maker.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
