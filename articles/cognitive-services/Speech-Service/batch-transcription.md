@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 02af95859bcbdc3dd9fdd6d6354cae9cdf99eae8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717952"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605594"
 ---
 # <a name="batch-transcription"></a>Transcrição em lote
 
@@ -59,21 +59,21 @@ Para fluxos de áudio estéreo, transcrição de Batch divide o canal do esquerd
 
 ## <a name="authorization-token"></a>Token de autorização
 
-Com todas as funcionalidades do serviço de voz unificação de mensagens em fila, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com). Siga estas etapas simples 6.
+Com todas as funcionalidades do serviço de voz unificação de mensagens em fila, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com) seguintes nossa [guia de introdução](get-started.md). Se pretender obter transcrições de nossos modelos de linha de base, em seguida, isso é tudo o que precisa fazer. 
 
-1. Criou uma chave de subscrição do Azure seguinte nosso [guia de introdução](get-started.md) 
+Se pretender personalizar e usando um modelo personalizado, em seguida, terá de adicionar esta chave subscritpion para o portal de voz personalizada da seguinte forma:
 
-2. Inicie sessão no [conversão de voz personalizada](https://customspeech.ai).
+1. Inicie sessão no [conversão de voz personalizada](https://customspeech.ai).
 
-3. Selecione **Subscrições**.
+2. Selecione **Subscrições**.
 
-4. Selecione **ligar a subscrição existente**.
+3. Selecione **ligar a subscrição existente**.
 
-5. Adicionar a chave de subscrição e um alias na vista de que é apresentado
+4. Adicionar a chave de subscrição e um alias na vista de que é apresentado
 
     ![Página de captura de ecrã de subscrições de voz personalizada](media/stt/Subscriptions.jpg)
 
-6. Copie e cole essa chave no código do cliente no exemplo a seguir.
+5. Copie e cole essa chave no código do cliente no exemplo a seguir.
 
 > [!NOTE]
 > Se planeia utilizar um modelo personalizado, terá também o ID desse modelo. Tenha em atenção que este não é o ID de ponto final que encontrar na vista de detalhes do ponto final. É o ID de modelo que pode recuperar ao selecionar os detalhes desse modelo.
@@ -101,7 +101,7 @@ Depois de obter o token, tem de especificar o URI de SAS que aponta para o arqui
    static async Task TranscribeAsync()
         { 
             private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client

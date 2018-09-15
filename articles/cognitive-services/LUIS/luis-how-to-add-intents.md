@@ -1,25 +1,26 @@
 ---
-title: Adicionar intenções em aplicativos de LUIS | Documentos da Microsoft
-description: Utilize a compreensão de idiomas (LUIS) para adicionar intenções para ajudar a compreender os pedidos de utilizador e reagir a eles corretamente de aplicações.
+title: Adicionar intenções em aplicativos de LUIS
+titleSuffix: Azure Cognitive Services
+description: Adicione intenções à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 687cbad9d1e493e07fc5f813fdd7c52dee3b97d4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225891"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634630"
 ---
 # <a name="manage-intents"></a>Gerir os objetivos 
 Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções. 
 
-Adicionar e gerir os seus objetivos do **intenções** página, disponível no **intenções** no painel esquerdo do de LUIS. 
+Objetivos são geridos a partir da **criar** secção barra de ferramentas superior. Adicionar e gerir os seus objetivos do **intenções** página, disponíveis no painel esquerdo. 
 
 O procedimento seguinte demonstra como adicionar a intenção de "Bookflight" na aplicação TravelAgent.
 
@@ -28,7 +29,6 @@ O procedimento seguinte demonstra como adicionar a intenção de "Bookflight" na
 1. Abra a sua aplicação (por exemplo, TravelAgent) clicando em seu nome na **as minhas aplicações** página e, em seguida, clique em **intenções** no painel esquerdo. 
 2. Sobre o **intenções** página, clique em **criar intenção de novo**.
 
-    ![Lista de objetivos](./media/luis-how-to-add-intents/IntentsList.png)
 3. Na **criar novo intenção** caixa de diálogo, escreva a intenção nome "BookFlight" e clique em **feito**.
 
     ![Adicionar intenções](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ Para eliminar várias expressões:
 2. Selecione **feito** no **eliminar expressões com?** caixa de diálogo pop-up.
 
 ## <a name="search-in-utterances-on-intent-page"></a>Pesquisar em expressões com na página de intenção
-Uma intenção, pode procurar expressões que contêm texto (palavras ou frases). Por exemplo, pode observar um erro que envolve uma palavra específica e para localizar todos os exemplos incluem essa palavra específica. 
+Pode pesquisar expressões que contêm texto (palavras ou frases) na lista de expressão a intenção. Por exemplo, pode observar um erro que envolve uma palavra específica e para localizar todos os exemplos incluem essa palavra específica. 
 
 1. Selecione o ícone de lupa na barra de ferramentas.
 

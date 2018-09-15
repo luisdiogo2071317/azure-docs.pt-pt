@@ -1,22 +1,23 @@
 ---
-title: Inscrever-se na API de Análise de Texto (Serviços Cognitivos da Microsoft no Azure) | Microsoft Docs
+title: Inscreva-se a API de análise de texto
+titleSuffix: Azure Cognitive Services
 description: Instruções para se inscrever e utilizar a análise de texto e funcionar dentro dos limites.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: HT
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623254"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605539"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>Como se inscrever na API de Análise de Texto
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>Como inscrever-se para a API de análise de texto
 
 Os recursos de análise de texto estão disponíveis permanentemente na cloud. Antes de poder carregar os seus conteúdos para análise, tem de se inscrever para obter uma chave de acesso. Cada chamada à API requer uma chave de acesso no pedido.
 
@@ -56,7 +57,7 @@ Qualquer anotação num documento conta como uma transação. As chamadas de cla
  [Text Analytics Overview](../overview.md) (Descrição Geral da Análise de Texto)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Get an access key](text-analytics-how-to-access-key.md) (Obter uma chave de acesso)

@@ -1,7 +1,16 @@
-Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, ao trocá-lo no canto superior direito do portal do Azure. Selecione as suas informações de subscrição e, em seguida, selecione **Trocar Diretório**. 
+---
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 09/13/2018
+ms.author: davidmu
+ms.openlocfilehash: 76d6d522f6d0bfec04de2ea54d1f42f80d916030
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45636866"
+---
+Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino. 
 
 ![Mudar para o inquilino do Azure AD B2C](./media/active-directory-b2c-switch-b2c-tenant/switch-directories.png)
-
-Escolha o diretório que contém o seu inquilino.
-
-![Selecionar o diretório](./media/active-directory-b2c-switch-b2c-tenant/select-directory.png) 

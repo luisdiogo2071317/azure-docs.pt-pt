@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 562fdc82e0b814fc759bda7b853492b47d073925
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190344"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603678"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Agregações em consultas do Log Analytics
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-analytics-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Este artigo descreve as funções de agregação em consultas do Log Analytics que oferecem formas úteis de analisar os seus dados. Estas funções todos os funcionam com o `summarize` operador que produz uma tabela com os resultados agregados da tabela de entrada.
 
@@ -35,13 +37,13 @@ Este artigo descreve as funções de agregação em consultas do Log Analytics q
 Conte o número de linhas no resultado definida depois de todos os filtros são aplicados. O exemplo seguinte devolve o número total de linhas na _Perf_ tabela dos últimos 30 minutos. O resultado é devolvido numa coluna chamada *count_* a menos que atribua um nome específico:
 
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -49,7 +51,7 @@ Perf
 
 Uma visualização de Pego pode ser útil para ver uma tendência ao longo do tempo:
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -64,7 +66,7 @@ O resultado deste exemplo mostra o trendline de contagem de registos de desempen
 ### <a name="dcount-dcountif"></a>DCount, dcountif
 Uso `dcount` e `dcountif` para contar valores distintos numa coluna específica. A consulta seguinte avalia como quantos computadores distintos enviam heartbeats na última hora:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -72,7 +74,7 @@ Heartbeat
 
 Para contar apenas os computadores Linux que enviam heartbeats, utilize `dcountif`:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -81,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Avaliar subgrupos
 Para executar uma contagem ou outras agregações em subgrupos nos seus dados, utilize o `by` palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviam heartbeats a cada país:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -98,7 +100,7 @@ Heartbeat
 
 Para analisar ainda mais pequenos subgrupos dos seus dados, adicionar nomes de coluna adicional para o `by` secção. Por exemplo, pode querer contar os computadores distintos de cada país por OSType:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -110,7 +112,7 @@ Ao avaliar os valores numéricos, uma prática comum é a média-los usando `sum
 ### <a name="percentile"></a>Percentil
 Para localizar o valor mediano, utilize o `percentile` função com um valor a especificar o percentil:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -119,7 +121,7 @@ Perf
 
 Também pode especificar diferentes percentis para obter um resultado agregado para cada:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -131,7 +133,7 @@ Isto pode mostrar que algum computador CPUs têm valores de mediano semelhante, 
 ### <a name="variance"></a>Variância
 Para avaliar diretamente a variação de um valor, utilize os métodos de variância e o desvio padrão:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -140,7 +142,7 @@ Perf
 
 Uma boa maneira para analisar a estabilidade da utilização da CPU é combinar stdev com o cálculo mediano:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

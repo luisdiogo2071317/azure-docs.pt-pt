@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/07/2018
-ms.openlocfilehash: f209aa201dafb3383ae71dd4ebff3d2ab76a9020
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f337679279f4a3eb6d01808f15a59fee4c8f3cd1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345069"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630595"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versões suportadas base de dados do PostgreSQL
 Microsoft visa dar suporte a versões n-2 do PostgreSQL motor da base de dados do Azure PostgreSQL serviço, que significa que a versão principal lançada atualmente (n) e as dois principais as versões anteriores (-2).
@@ -31,7 +31,7 @@ Consulte a [documentação do PostgreSQL](https://www.postgresql.org/docs/9.6/st
 Consulte a [documentação do PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-13.html) para saber mais sobre as melhorias e correções nesta versão secundária.
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e atualizações
-Base de dados do Azure para PostgreSQL gerencia automaticamente a aplicação de patches para as atualizações de versão secundária. Atualmente, a atualização de versão principal não é suportada. Por exemplo, a atualização do PostgreSQL 9,5 para o PostgreSQL 9.6 não é suportada.
+Base de dados do Azure para PostgreSQL gerencia automaticamente a aplicação de patches para as atualizações de versão secundária. Atualmente, a atualização de versão principal não é suportada. Por exemplo, a atualização do PostgreSQL 9,5 para o PostgreSQL 9.6 não é suportada. Se gostaria de atualizar para a próxima versão principal, dê uma [cópia de segurança e restaurar](./howto-migrate-using-dump-and-restore.md) -lo para um servidor que foi criado com a nova versão do motor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre o suporte de extensões do PostgreSQL diferentes, consulte [extensões do PostgreSQL](concepts-extensions.md).

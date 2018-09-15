@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 8a4b29cf8f2a5a79c68bad3631a54449d3ada09a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69dea0aa3eaa9de3ed94b934e5fa3c6e6a3ec24d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717867"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632845"
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
+# <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
 
 A consola de série de Máquina Virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux. Esta conexão serial é a porta serial COM1 da máquina virtual, fornecendo acesso para a máquina virtual que é independente da rede ou o estado do sistema operativo de uma máquina virtual. Aceder à consola de série para uma máquina virtual pode atualmente apenas ser feito através do portal do Azure e é permitida apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
@@ -29,7 +29,7 @@ A consola de série de Máquina Virtual no Azure fornece acesso a um console bas
 Para obter a documentação da consola de série para VMs do Windows, [clique aqui](../windows/serial-console.md).
 
 > [!Note] 
-> As pré-visualizações são tornadas disponíveis para, a condição de que concorda com os termos de utilização. Para obter mais informações, consulte [Microsoft Azure termos de utilização suplementares para pré-visualizações do Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Atualmente este serviço está em **pré-visualização pública** e acesso à consola de série para máquinas virtuais está disponível para regiões globais do Azure. Neste momento a consola de série não está disponível na cloud do Azure Government, Azure Alemanha e China do Azure.
+> Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível na cloud do Azure Government ou Azure China.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -54,7 +54,7 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
   1. Abra o portal do Azure
   2. No menu da esquerda, selecione as máquinas virtuais.
   3. Clique na VM na lista. Abre a página de descrição geral para a VM.
-  4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção de consola de série (pré-visualização). Um novo painel com a consola de série abrirá e iniciar a ligação.
+  4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção "Consola de série". Um novo painel com a consola de série abrirá e iniciar a ligação.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -62,7 +62,7 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
 > [!NOTE] 
 > Consola de série requer um utilizador local com uma palavra-passe configurada. Neste momento, as VMs configuradas apenas com uma chave pública SSH não terá acesso à consola de série. Para criar um utilizador local com a palavra-passe, utilize o [extensão de acesso de VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (também disponível no portal clicando em "Repor palavra-passe") e criar um utilizador local com uma palavra-passe.
 
-## <a name="access-serial-console-for-linux"></a>Consola de série de acesso para Linux
+## <a name="serial-console-linux-distro-availability"></a>Disponibilidade de distribuição de Linux consola Serial
 Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e gravar mensagens de consola para a porta serial. A maioria dos [distribuições do Linux apoiadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Clicar simplesmente a secção de consola de série no portal do Azure irá fornecer acesso à consola. 
 
 Distro      | Acesso de consola de série
@@ -73,7 +73,7 @@ Ubuntu      | Imagens do Ubuntu disponíveis no Azure têm acesso à consola ati
 CoreOS      | As imagens de CoreOS disponíveis no Azure têm acesso à consola ativado por predefinição.
 SUSE        | Mais recente SLES as imagens disponíveis no Azure têm acesso à consola ativado por predefinição. Se estiver a utilizar as versões mais antigas (10 ou abaixo) de SLES no Azure, siga os [artigo BDC](https://www.novell.com/support/kb/doc.php?id=3456486) para ativar a consola de série. 
 Oracle Linux        | Imagens do Oracle Linux disponíveis no Azure tem acesso à consola ativado por predefinição.
-Imagens do Linux personalizadas     | Para ativar a consola de série para a sua imagem de VM do Linux personalizada, ative o acesso à consola no `/etc/inittab` para executar um terminal em `ttyS0`. Eis um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre como criar adequadamente imagens personalizadas, consulte [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd).
+Imagens do Linux personalizadas     | Para ativar a consola de série para a sua imagem de VM do Linux personalizada, ative o acesso à consola no `/etc/inittab` para executar um terminal em `ttyS0`. Eis um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre como criar adequadamente imagens personalizadas, consulte [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd). Se estiver criando um kernel personalizado, alguns sinalizadores de kernel para considerar a ativação estão `CONFIG_SERIAL_8250=y` e `CONFIG_MAGIC_SYSRQ_SERIAL=y`. O ficheiro de configuração, muitas vezes, está localizado em /boot/ para obter uma exploração.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para aceder à consola de série 
 Cenário          | Ações na consola de série                
@@ -165,20 +165,22 @@ A VM está num estado parado desalocado. Iniciar a VM e repita a ligação da co
 Não tem as permissões necessárias para utilizar esta VM da consola de série. Certifique-se de que tem, pelo menos, permissões de função de Contribuidor de VM.| O acesso de consola de série requer determinada permissão para aceder. Ver [os requisitos de acesso](#prerequisites) para obter detalhes
 Não é possível determinar o grupo de recursos para a conta de armazenamento do diagnóstico de arranque '<STORAGEACCOUNTNAME>'. Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso de consola de série requer determinada permissão para aceder. Ver [os requisitos de acesso](#prerequisites) para obter detalhes
 Web socket foi fechado ou não foi possível abrir. | Poderá ter de lista branca `*.console.azure.com`. Um mais detalhado for mas a abordagem mais é à lista de permissões a [intervalos de IP de Datacenter do Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653), que alterar bastante regularmente.
+Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
+
 ## <a name="known-issues"></a>Problemas conhecidos 
-Como estamos ainda nas fases de pré-visualização para acesso à consola de série, estamos a trabalhar por meio de alguns problemas conhecidos. Segue-se a lista destas com soluções possíveis:
+Estamos cientes de alguns problemas com a consola de série. Aqui está uma lista desses problemas e os passos para a mitigação.
 
 Problema                           |   Mitigação 
 :---------------------------------|:--------------------------------------------|
 Acessando introdução após a faixa de ligação não mostra um registo na linha de comandos | Consulte esta página: [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isto pode acontecer se estiver a executar uma VM personalizada, a aplicação protegida ou a configuração GRUB que faz com que o Linux não sejam corretamente ligar para a porta serial.
-Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
 Texto da consola de série ocupa apenas uma parte do tamanho da tela (muitas vezes, depois de utilizar um editor de texto) | Seriais consolas não suportam a negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não vai haver nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM será não têm conhecimento de tamanho de seu terminal. Recomendamos instaling xterm ou algum outro utilitário semelhante, que lhe dá o comando 'redimensionamento'. Em execução 'redimensionar' irá corrigir este problema.
+Colar muito longas seqüências de caracteres não funciona | Consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres. Isso é para evitar sobrecarregar a largura de banda da porta serial.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 **P. Como posso enviar comentários?**
 
-A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Em alternativa menos (preferencial) envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
+A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
 
 **P. Consola de série suporta copiar/colar?**
 

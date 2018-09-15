@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 238f411ca1a1bb1aa3c89a515edd2091162512a2
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 02a12cc9fc614a642a5dad37e21bd8343c669aad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379764"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631145"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações de SAP
 
@@ -73,7 +73,7 @@ Leia as seguintes notas de SAP e documentos pela primeira vez
 * A nota SAP [1999351] tem informações adicionais de resolução de problemas avançada de monitorização a extensão do Azure para SAP.
 * [WIKI de Comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as necessárias SAP Notes para o Linux.
 * [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure][planning-guide]
-* [Implementação de máquinas virtuais do Azure para SAP no Linux (Este artigo)][deployment-guide]
+* [Implementação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
 * [SUSE SAP HA guias das melhores práticas] [ suse-ha-guide] os guias contêm todas as informações necessárias para configurar a HA do Netweaver e SAP HANA System Replication no local. Utilize estes guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 
@@ -149,7 +149,7 @@ Pode utilizar um dos modelos de início rápido no GitHub para implementar todos
    9. Nome de utilizador administrador e a palavra-passe de administrador  
       Um novo utilizador é criado que pode ser utilizado para iniciar sessão máquina.
    10. ID de sub-rede  
-   O ID de sub-rede à qual as máquinas virtuais deve ser ligadas.  Deixe em branco se pretender criar uma nova rede virtual ou selecione a mesma sub-rede que utilizada ou criada como parte da implementação de servidor NFS. Normalmente, é o ID de /subscriptions/**&lt;ID da subscrição&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;nome da rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
+   Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. Normalmente, é o ID de /subscriptions/**&lt;ID da subscrição&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;nome da rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar manualmente o Linux através do portal do Azure
 

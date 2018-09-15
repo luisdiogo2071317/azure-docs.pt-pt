@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026252"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630159"
 ---
 # <a name="collaborating"></a>Colaborar
 
@@ -30,6 +30,11 @@ Ver [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.
 
 ## <a name="luis-app-owner"></a>Proprietário da aplicação LUIS
 A conta que cria uma aplicação é o proprietário. Cada aplicação tem um único proprietário. O proprietário está listado na aplicação  **[configurações](luis-how-to-collaborate.md)**. Esta é a conta que pode eliminar a aplicação. Isso também é a conta que recebe o e-mail quando a quota de ponto final atinge 75% do limite mensal. 
+
+## <a name="authorization-roles"></a>Funções de autorização
+LUIS não suporta funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode eliminar a aplicação.
+
+Se estiver interessado no controle de acesso ao modelo, considere dividir o modelo em aplicativos menores do LUIS, em que cada aplicação menor tem um conjunto limitado de mais de colaboradores. Uso [expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) para permitir que um elemento principal aplicação LUIS gerir a coordenação entre os aplicativos principais e subordinados.
 
 ## <a name="transfer-ownership"></a>Transferir a propriedade
 LUIS não fornece a transferência de propriedade, no entanto, qualquer funcionário pode exportar a aplicação e, em seguida, crie uma aplicação através da importação é. Lembre-se de que a nova aplicação tem um ID de aplicação diferente. A nova aplicação precisa ser preparado, publicado e o novo ponto final utilizado.

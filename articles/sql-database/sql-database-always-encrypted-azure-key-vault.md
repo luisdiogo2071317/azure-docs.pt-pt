@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vanto
-ms.openlocfilehash: d8f8a823f19ff233d05d09c126cf2524a0aa532e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5149b4cbd1e86bfca3ad7d628d129a08aff60a98
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542198"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604315"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Sempre encriptado: Proteger dados confidenciais na base de dados SQL e armazenar suas chaves de encriptação no Azure Key Vault
 
@@ -595,7 +595,9 @@ Pode ver que colunas criptografadas não contêm quaisquer dados de texto sem fo
 
    ![Nova aplicação de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Para utilizar o SSMS para acessar os dados de texto sem formatação, pode adicionar os *definição de encriptação de coluna = ativada* parâmetro para a ligação.
+Para utilizar o SSMS para acessar os dados de texto sem formatação, tem primeiro de se certificar de que o utilizador tem permissões adequadas para o Azure Key Vault: *Obtenha*, *unwrapKey*, e *verificar*. Para obter informações detalhadas, consulte [criar e Store coluna mestre de chaves (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+
+Em seguida, adicione a *definição de encriptação de coluna = ativada* parâmetro durante a ligação.
 
 1. No SSMS, clique no seu servidor no **Object Explorer** e escolha **desligar**.
 2. Clique em **Connect** > **motor de base de dados** para abrir o **ligar ao servidor** janela e clique em **opções**.

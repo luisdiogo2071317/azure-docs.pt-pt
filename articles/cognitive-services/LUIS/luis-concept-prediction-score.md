@@ -1,5 +1,6 @@
 ---
-title: Compreender a pontuação de predição devolvida pelo LUIS - Azure | Documentos da Microsoft
+title: Compreender a pontuação de predição devolvida pelo LUIS
+titleSuffix: Azure Cognitive Services
 description: Saiba o que significa a pontuação de predição em LUIS
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a7ac747f52ab355c4d611ec3634b19e98f349476
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358108"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632596"
 ---
 # <a name="prediction-score"></a>Classificação da predição
 Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 

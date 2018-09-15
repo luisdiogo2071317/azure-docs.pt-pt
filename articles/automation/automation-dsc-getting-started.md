@@ -4,17 +4,17 @@ description: Explicação e exemplos, das tarefas mais comuns na configuração 
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9a18855d11c0b367b7d58ffb0f4c62e752c05b89
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004237"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634365"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à configuração de estado de automatização do Azure
 
@@ -123,7 +123,7 @@ Depois de iniciar uma compilação, pode vê-la na **tarefas de compilação** m
 
 ## <a name="viewing-node-configurations"></a>Configurações de nó de visualização
 
-A conclusão com êxito de uma tarefa de compilação cria uma ou mais configurações de nó novo. Uma configuração de nó é um documento MOF, que é implementado para o servidor de solicitação e pronta para ser extraídos e aplicada por um ou mais nós. Pode ver as configurações de nó na sua conta de automatização no **State configuration (DSC)** página. Uma configuração de nó tem um nome com o formulário *ConfigurationName*.* NodeName*.
+A conclusão com êxito de uma tarefa de compilação cria uma ou mais configurações de nó novo. Uma configuração de nó é um documento MOF, que é implementado para o servidor de solicitação e pronta para ser extraídos e aplicada por um ou mais nós. Pode ver as configurações de nó na sua conta de automatização no **State configuration (DSC)** página. Uma configuração de nó tem um nome com o formulário *ConfigurationName*. *NodeName*.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No lado esquerdo, clique em **todos os recursos** e, em seguida, o nome da sua conta de automatização.

@@ -1,21 +1,21 @@
 ---
-title: Compreender a estrutura da aplicação iterativo LUIS - compreensão de idiomas
-description: LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final.  As aplicações de LUIS necessitam iterações de design para preparar o LUIS para obter a melhor extração de dados.
+title: Estrutura da aplicação iterativo na compreensão de idiomas (LUIS)
 titleSuffix: Azure Cognitive Services
+description: LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final.  As aplicações de LUIS necessitam iterações de design para preparar o LUIS para obter a melhor extração de dados.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7c267d53c9057ac05427ff14a7e3c25d56ab1f62
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5eba6867bdf6ca6ca362bcd6bb3ab747780d1a5e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025432"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634230"
 ---
 # <a name="authoring-cycle"></a>Ciclo de criação
 LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -33,15 +33,12 @@ O modelo inclui intenção, entidades.
 LUIS tem expressões de exemplo dos objetivos. Os exemplos tem suficiente variação da opção de palavra e ordem das palavras para ser capaz de determinar que objetivo a expressão se destina. Cada ocorrência de pronunciação de exemplo tem de ter todos os dados necessários identificados como entidades. 
 
 Instruir o LUIS para ignorar as expressões que não são relevantes para o domínio da sua aplicação ao atribuir a expressão para o **None** intenção. Quaisquer palavras ou frases que não precisa extraídos fora de uma expressão não é necessário ser rotulados. Não há nenhum rótulo de palavras ou frases para ignorar. 
-<!--
-## Not just yet
-Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
--->
+
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
-Depois de ter expressões com diferentes de 10 a 15 em intenção, cada, com as entidades necessárias o nome, treinar LUIS, em seguida, publique para obter os pontos finais. Certifique-se criar a sua aplicação e publique a sua aplicação para que ele está disponível na [regiões de ponto final](luis-reference-regions.md) que precisa. 
+Depois de ter expressões com diferentes de 10 a 15 em intenção, cada, com as entidades necessárias o nome, formar e publicar. A partir de notificação de êxito de publicar, utilize a ligação para obter os pontos finais. Certifique-se criar a sua aplicação e publique a sua aplicação para que ele está disponível na [regiões de ponto final](luis-reference-regions.md) que precisa. 
 
 ## <a name="https-endpoint-testing"></a>Teste de ponto final HTTPS
-Pode testar a sua aplicação LUIS do ponto de extremidade HTTPS listado os **[Publish](luis-how-to-publish-app.md)** página. Teste a partir do ponto final permite que o LUIS escolher qualquer expressões com confiança de baixo para revisão.  
+Pode testar a aplicação do LUIS partir do ponto final HTTPS. Teste a partir do ponto final permite que o LUIS escolher qualquer expressões com confiança de baixo para revisão.  
 
 ## <a name="recycle"></a>Reciclagem
 Quando tiver terminado com um ciclo de criação, pode começar novamente. Comece por ler as expressões de ponto final que Luis marcado com confiança de baixa. Verifique estas expressões de com para o objetivo e a entidade. Depois de rever expressões com, a lista de revisão deve estar vazia.  

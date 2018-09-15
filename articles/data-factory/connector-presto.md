@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Presto utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de Presto aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados de Presto com o Azure Data Factory (pré-visualização) | Documentos da Microsoft
+description: Saiba como copiar dados de Presto para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,52 +13,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b3e022bd22242bdc246e1dd30aa6cc3e00134e0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 62ca860a69d72e940a56483d3c0dcb2ab5c5dcc1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052628"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633695"
 ---
-# <a name="copy-data-from-presto-using-azure-data-factory"></a>Copiar dados de Presto utilizando o Azure Data Factory
+# <a name="copy-data-from-presto-using-azure-data-factory"></a>Copiar dados de Presto com o Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Presto. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Presto. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]
-> Este conector está atualmente em pré-visualização. Pode experimentar e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
+> Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de Presto para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de Presto para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-O Azure Data Factory fornece um controlador incorporado para ativar a conetividade, pelo que não precisa de instalar manualmente o controlador de utilizar este conector.
+O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o conector Presto entidades do Data Factory específicas.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas ao conector Presto.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As seguintes propriedades são suportadas para o serviço ligado Presto:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **Presto** | Sim |
-| anfitrião | O endereço IP ou anfitrião nome do servidor Presto. (ou seja, 192.168.222.160)  | Sim |
+| tipo | A propriedade de tipo deve ser definida como: **Presto** | Sim |
+| anfitrião | O nome ou endereço IP anfitrião do servidor Presto. (ou seja, 192.168.222.160)  | Sim |
 | serverVersion | A versão do servidor Presto. (ou seja, 0.148-t)  | Sim |
-| catálogo | O contexto de catálogo para todos os pedidos do servidor.  | Sim |
+| catálogo | O contexto de catálogo para todos os pedidos no servidor.  | Sim |
 | porta | A porta TCP que o servidor Presto utiliza para escutar ligações de cliente. O valor predefinido é 8080.  | Não |
 | authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Presto. <br/>Valores permitidos são: **anónimo**, **LDAP** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor Presto.  | Não |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é falso.  | Não |
-| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar através de SSL. Esta propriedade só pode ser definida quando a utilizar SSL no IR. personalizada alojada O valor predefinido é o ficheiro de cacerts.pem instalado com o IR.  | Não |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de AC a partir do arquivo de confiança de sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é falso.  | Não |
-| allowHostNameCNMismatch | Especifica se requer um nome de certificado SSL emitidos pela AC para corresponder ao nome do anfitrião do servidor ao ligar através de SSL. O valor predefinido é falso.  | Não |
-| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é falso.  | Não |
-| timeZoneID | O local fuso horário utilizado pela ligação. Os valores válidos para esta opção estão especificados na base de dados de fuso horário da IANA. O valor predefinido é o fuso horário do sistema.  | Não |
+| palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
+| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar-se através de SSL. Esta propriedade só pode ser definida ao utilizar o SSL em Ir autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| allowHostNameCNMismatch | Especifica se exige um nome de certificado SSL emitidos pela AC para coincidir com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é false.  | Não |
+| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é false.  | Não |
+| timeZoneID | O fuso horário local utilizado pela ligação. Valores válidos para esta opção são especificados na base de dados de fuso horário da IANA. O valor predefinido é o fuso horário do sistema.  | Não |
 
 **Exemplo:**
 
@@ -86,9 +86,9 @@ As seguintes propriedades são suportadas para o serviço ligado Presto:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista de propriedades suportadas por Presto conjunto de dados.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados Presto.
 
-Para copiar dados de Presto, defina a propriedade de tipo do conjunto de dados para **PrestoObject**. Não há nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para copiar dados de Presto, defina a propriedade de tipo de conjunto de dados para **PrestoObject**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
 
 **Exemplo**
 
@@ -107,15 +107,15 @@ Para copiar dados de Presto, defina a propriedade de tipo do conjunto de dados p
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem Presto.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem Presto.
 
 ### <a name="prestosource-as-source"></a>PrestoSource como origem
 
-Para copiar dados de Presto, defina o tipo de origem na atividade de cópia para **PrestoSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados de Presto, definir o tipo de origem na atividade de cópia para **PrestoSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **PrestoSource** | Sim |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PrestoSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
 
 **Exemplo:**
@@ -151,4 +151,4 @@ Para copiar dados de Presto, defina o tipo de origem na atividade de cópia para
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

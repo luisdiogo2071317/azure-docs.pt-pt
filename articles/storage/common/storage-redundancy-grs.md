@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: be3d0d32e60e23b2b2d7d414d2297b86dec62f1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eee9998280f2105fee5144b520bc8000b086f941
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576838"
+ms.locfileid: "45603934"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Armazenamento georredundante (GRS): replicação de inter-regional do armazenamento do Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -41,7 +41,7 @@ Algumas considerações a ter em conta ao utilizar o RA-GRS:
    * O tempo que a Microsoft requer para determinar se os dados podem ser recuperados na localização principal, ou se uma ativação pós-falha é necessária.
    * O tempo para efetuar a ativação pós-falha da conta do storage, alterando as entradas de DNS primárias para apontar para a localização secundária.
 
-   A Microsoft leva a responsabilidade de preservar os seus dados muito a sério. Se houver alguma chance de recuperação de dados na região primária, a Microsoft irá atrasar a ativação pós-falha e se concentrar em recuperar seus dados. Uma versão futura do serviço permitirá que acionar uma ativação pós-falha ao nível da conta para que pode controlar o RTO por conta própria.
+   A Microsoft leva a responsabilidade de preservar os seus dados muito a sério. Se houver alguma chance de recuperação de dados na região primária, a Microsoft irá atrasar a ativação pós-falha e se concentrar em recuperar seus dados. 
 
 ## <a name="paired-regions"></a>Regiões emparelhadas 
 Quando criar uma conta de armazenamento, selecione a região primária para a conta. Região secundária associada é determinado com base na região principal e não pode ser alterado. Para obter informações atualizadas sobre as regiões suportadas pelo Azure, consulte [Business continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md).

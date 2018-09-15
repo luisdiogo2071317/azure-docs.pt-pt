@@ -1,56 +1,57 @@
 ---
-title: Perguntas mais frequentes sobre a análise de texto API - serviços cognitivos do Azure | Microsoft Docs
-description: Obtenha respostas a questões recorrentes sobre API de análise de texto do Microsoft cognitivos serviços no Azure.
+title: Perguntas mais frequentes sobre a API de análise de texto
+titleSuffix: Azure Cognitive Services
+description: Obtenha respostas a perguntas comuns sobre a API de análise de texto.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355172"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603401"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Perguntas mais frequentes (FAQ) sobre a API de análise de texto
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Perguntas mais frequentes (FAQ) sobre o serviço cognitivos de análise de texto
 
- Encontrar respostas a perguntas mais comuns sobre conceitos, código e cenários relacionados com a API de análise de texto cognitivos nos serviços da Microsoft no Azure.
+ Encontre respostas para perguntas freqüentes sobre conceitos, código e cenários relacionados com a API de análise de texto para os serviços cognitivos da Microsoft no Azure.
 
-## <a name="can-text-analytics-identify-sarcasm"></a>Análise de texto pode identificar a sarcasm?
+## <a name="can-text-analytics-identify-sarcasm"></a>Análise de texto pode identificar a sarcasmo?
 
-Analysis Services é para dados de sentimento do positivos negativo em vez de deteção de mood.
+A análise é para sentimento positivo negativo em vez de deteção de comportamento.
 
-É sempre algum grau de imprecision na análise de dados de sentimento, mas o modelo é mais útil quando não existe nenhum significado oculto ou subtext ao conteúdo. Irony, sarcasm, humor e conteúdo da mesma forma nuanced dependem de contexto cultural e norms a transmitir intenção. Este tipo de conteúdo está entre o mais difícil de analisar. Normalmente, a maior discrepância entre uma pontuação determinada produzida pelo analisador e uma avaliação subjective por um humanos é para conteúdo com significado nuanced.
+Há sempre algum grau de imprecision na análise de sentimentos, mas o modelo é mais útil quando não existe significado oculto ou subtexto ao conteúdo. Ironia, sarcasmo, humor e conteúdo da mesma forma sutis baseiam-se no contexto cultural e normas para transmitir a intenção. Este tipo de conteúdo está entre as mais desafiadoras para analisar. Normalmente, a maior discrepância entre uma pontuação de determinado produzida pelo analisador e uma avaliação subjetiva por uma pessoa é para o conteúdo com significado sutis.
 
-## <a name="can-i-add-my-own-training-data-or-models"></a>Posso adicionar o meu próprio dados de preparação ou modelos?
+## <a name="can-i-add-my-own-training-data-or-models"></a>Posso adicionar meus próprios modelos de dados de treinamento ou?
 
-Não, os modelos são pretrained. As operações de apenas disponíveis nos dados carregados estão classificação, extração de expressão de chave e deteção de idioma. Alojamos não modelos personalizados. Se pretender criar e alojar modelos de personalizada de machine learning, considere o [do machine learning capacidades no Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Não, os modelos são pré-preparadas com. As únicas operações disponíveis em dados carregados são de classificação, extração de expressões-chave e deteção de idioma. Nós não hospedam modelos personalizados. Se pretender criar e alojar modelos de aprendizagem automática personalizada, considere a [de machine learning capacidades no Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
 
-## <a name="can-i-request-additional-languages"></a>Pode pedir idiomas adicionais?
+## <a name="can-i-request-additional-languages"></a>Posso pedir idiomas adicionais?
 
-Análise de dados de sentimento e extração frase chave estão disponíveis para um [selecione o número de idiomas](text-analytics-supported-languages.md). Processamento de linguagem natural é complexo e exige substanciais testes antes da nova funcionalidade pode ser libertada. Por este motivo, iremos evitar previamente anunciar suporte para que ninguém demora uma dependência sobre a funcionalidade que necessita de mais tempo para madura. 
+Análise de sentimentos e extração de expressões-chave estão disponíveis para um [selecione o número de idiomas](text-analytics-supported-languages.md). Processamento de linguagem natural é complexo e requer testes substancial antes da nova funcionalidade pode ser lançada. Por esse motivo, podemos evitar previamente Anunciamos o suporte para que ninguém utiliza uma dependência na funcionalidade de que precisa de mais tempo a amadurecer. 
 
-Para ajudar-na priorizar os idiomas para funcionar no seguinte, votar em idiomas específicos em [voz do utilizador](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+Para nos ajudar a priorizar que idiomas para trabalhar em Avançar, vote para idiomas específicos [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Por que motivo extração chave frase devolver algumas palavras mas não a outros utilizadores?
+## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Por que motivo a extração de expressões-chave return algumas palavras, mas não para outros?
 
-Extração de expressão de chave elimina não essencial palavras e adjectives autónomo. Adjective substantivo combinações, tais como "vistas spectacular" ou "Meteorologia foggy" são devolvidas em conjunto.
+Extração de expressões-chave elimina palavras não essencial e os adjetivos de autónomo. Combinações de adjetivo-substantivo, como "vistas espetacular" ou "Meteorologia incerta" são devolvidas em conjunto.
 
-Geralmente, saída consiste substantivos e objetos do frase. Saída é listada por ordem de importância, com o frase primeiro a ser mais importantes. Importância é medida pelo número de vezes que um determinado conceito é mencionado ou a relação de que o elemento outros elementos de texto.
+Em geral, saída consiste substantivos e objetos da sentença. Saída é listada na ordem de importância, com a primeira expressão a ser o mais importante. Importância é medida pelo número de vezes que um determinado conceito é mencionado, ou a relação desse elemento para outros elementos no texto.
 
-## <a name="why-does-output-vary-given-identical-inputs"></a>Por que motivo saída variar, idênticas entradas?
+## <a name="why-does-output-vary-given-identical-inputs"></a>Por que motivo saída variar, devido a entradas idênticas?
 
-Melhoramentos para modelos e algoritmos sejam anunciados se a alteração é principais ou silenciosamente slipstreamed no serviço, se a atualização for secundária. Ao longo do tempo, poderá achar que os mesmos resultados de entrada de texto numa classificação de dados de sentimento diferente ou saída de expressão de chave. Este é um consequence normal e intencional da utilização de recursos de aprendizagem máquina gerido na nuvem.
+Melhorias para modelos e algoritmos são anunciadas se a alteração for grande ou no modo silencioso rápida para o serviço se a atualização for menor. Ao longo do tempo, pode achar que os mesmos resultados de entrada de texto numa classificação de sentimento diferente ou de saída de expressões-chave. Esta é uma conseqüência normal e intencional de utilização de recursos de aprendizado de máquina gerida na cloud.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-É a sua pergunta sobre uma funcionalidade ou funcionalidade em falta? Considere solicitar ou votá-lo nosso [UserVoice web site](https://cognitive.uservoice.com/forums/555922-text-analytics).
+É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para ele em nosso [web site do UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
 ## <a name="see-also"></a>Consulte também
 
- [StackOverflow: Análise de texto API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: API de análise de texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Serviços cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

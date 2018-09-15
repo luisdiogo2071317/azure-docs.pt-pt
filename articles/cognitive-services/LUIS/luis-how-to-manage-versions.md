@@ -1,108 +1,66 @@
 ---
-title: Gerir versões de aplicações de LUIS no Azure | Documentos da Microsoft
-description: Saiba como gerir versões em aplicativos de compreensão de idiomas (LUIS).
+title: Gerir versões de aplicações do LUIS
+titleSuffix: Azure Cognitive Services
+description: Versões permitem-lhe criar e publicar modelos diferentes. É uma boa prática clonar o modelo de Active Directory atual para uma versão diferente da aplicação antes de efetuar alterações ao modelo.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dcb7f47ae7ade4ee0a18801934f36576fc75f4ae
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226599"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629479"
 ---
 # <a name="manage-versions"></a>Gerir versões
 
-Sempre que trabalha no modelo, criar outra [versão](luis-concept-version.md) da aplicação. 
+Versões permitem-lhe criar e publicar modelos diferentes. Uma boa prática é clonar o modelo de Active Directory atual para um diferente [versão](luis-concept-version.md) da aplicação antes de efetuar alterações ao modelo. 
 
-## <a name="set-active-version"></a>Definir versão Active Directory
-Para trabalhar com as versões, abra a sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página e, em seguida, selecione **definições** na barra superior.
+Para trabalhar com as versões, abra a sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página e, em seguida, selecione **gerir** na barra superior, em seguida, selecione **versões** na navegação à esquerda. 
 
-![Página de versões](./media/luis-how-to-manage-versions/settings.png)
+A lista de versões mostram as versões que são publicadas, onde eles são publicados e qual é a versão está atualmente ativa. 
 
-O **definições** página permite-lhe configurar as definições para todo o aplicativo, incluindo versões e colaboradores. 
+[![](./media/luis-how-to-manage-versions/versions-import.png "Gerir a seção, página de versões")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Clonar uma versão
-1. Sobre o **definições** página, após as seções de definições da aplicação e funcionários, localizar a linha com a versão que pretende clonar. Selecione as reticências (***...*** ) botão na extremidade direita. 
 
-    ![Propriedades de linha de versão](./media/luis-how-to-manage-versions/version-section.png)
+1. Selecione a versão que pretende clonar em seguida, selecione **Clone** da barra de ferramentas. 
 
-2. Selecione **Clone** da lista.
-
-    ![Escolha de propriedades de linha de versão](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
-
-3. Na **versão de Clone** caixa de diálogo, escreva um nome para a nova versão, como "0,2".
+2. Na **versão de Clone** caixa de diálogo, escreva um nome para a nova versão, como "0,2".
 
    ![Caixa de diálogo de versão do clone](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
- > [!NOTE]
- > Versão ID pode ser constituído apenas por carateres, dígitos ou "." e não pode ter mais de 10 caracteres.
+     > [!NOTE]
+     > Versão ID pode ser constituído apenas por carateres, dígitos ou "." e não pode ter mais de 10 caracteres.
  
  Uma nova versão com o nome especificado é criada e definida como a versão do Active Directory.
- 
-  ![Versão é criada e adicionada à lista](./media/luis-how-to-manage-versions/new-version.png)
-
- > [!NOTE]
- > Conforme mostrado na imagem anterior, uma versão publicada está associada uma marca de coloridos, que indica o tipo de bloco em que foi publicado: produção (verde), o teste (vermelho) e como ambos (preto). As datas de treinamento e publicação são apresentadas para cada versão publicada.
 
 ## <a name="set-active-version"></a>Definir versão Active Directory
-1. No **definições** página, além do **versões** , selecione as reticências (***...*** ) botão na extremidade direita.
 
-2. Na lista pop-up, selecione **definida como activa**.
+Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra de ferramentas. 
 
-    ![Definir versão Active Directory](./media/luis-how-to-manage-versions/set-active-version.png)
-
-    A versão do Active Directory é realçada por uma cor azul claro, conforme mostrado na captura de ecrã seguinte:
-
-    ![A versão do Active Directory](./media/luis-how-to-manage-versions/set-active-version-done.png) 
-
+[![](./media/luis-how-to-manage-versions/versions-other.png "Gerir a seção, página de versões")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Versão de importação
-Pode importar uma versão de um ficheiro JSON. Depois de importar uma versão, a nova versão torna-se a versão do Active Directory.
 
-**Para importar uma versão:**
+1. Selecione **versão de importação** da barra de ferramentas. 
 
-1. Sobre o **definições** página, selecione **nova versão de importação** botão.
+2. Na **nova versão de importação** janela pop-up, introduza o novo nome de versão de dez caractere. Apenas terá de definir um ID de versão, se a versão no ficheiro JSON já existe na aplicação.
 
-    ![Botão Importar](./media/luis-how-to-manage-versions/import-version.png)
+    ![Gerir a seção, página de versões](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-2. Selecione **procurar** e escolha o ficheiro JSON.
+    Depois de importar uma versão, a nova versão torna-se a versão do Active Directory.
 
-    ![Caixa de diálogo de versão de importação](./media/luis-how-to-manage-versions/import-version-dialog.png)
+<a name = "export-version"></a>
 
-Apenas terá de definir um ID de versão, se a versão no ficheiro JSON já existe na aplicação.
+## <a name="other-actions"></a>Outras ações
 
-## <a name="export-version"></a>Versão de exportação
-Pode exportar uma versão para um ficheiro JSON.
+* Para **elimine** uma versão, selecione uma versão da lista, em seguida, selecione **eliminar** da barra de ferramentas. Selecione **Ok**. 
+* Para **mudar o nome** uma versão, selecione uma versão da lista, em seguida, selecione **mudar o nome** da barra de ferramentas. Introduza o novo nome e selecione **feito**. 
+* Para **exportar** uma versão, selecione uma versão da lista, em seguida, selecione **aplicação de exportação** da barra de ferramentas. O ficheiro é transferido para o computador local. 
 
-**Para exportar uma versão:**
-
-1. No **definições** página, além do **versões** , selecione as reticências (***...*** ) botão na extremidade direita.
-
-2. Selecione **exportar** na lista pop-up de ações e selecione onde pretende guardar o ficheiro.
-
-## <a name="delete-a-version"></a>Eliminar uma versão
-Pode eliminar versões, mas deve manter, pelo menos, uma versão da aplicação. Pode eliminar todas as versões, exceto a versão do Active Directory. 
-
-1. No **definições** página, além do **versões** , selecione as reticências (***...*** ) botão na extremidade direita.
-
-2. Selecione **eliminar** na lista pop-up de ações e selecione onde pretende guardar o ficheiro.
-
-    ![Eliminar confirmação de versão](./media/luis-how-to-manage-versions/delete-menu.png) 
-
-
-## <a name="rename-a-version"></a>Mudar o nome de uma versão
-Pode mudar o nome de versões, desde que o nome da versão não está já em utilização.  
-
-1. No **definições** página, além do **versões** , selecione as reticências (***...*** ) botão na extremidade direita.
-
-2. Selecione **mudar o nome** na lista pop-up de ações.
-
-3. Introduza o nome da nova versão e selecione **feito**.
-
-    ![Mudar o nome de confirmação de versão](./media/luis-how-to-manage-versions/rename-popup.png) 

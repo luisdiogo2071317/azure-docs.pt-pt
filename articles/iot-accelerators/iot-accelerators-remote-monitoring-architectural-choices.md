@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 709886e77819adca961a44f65fe6402dd7d20d53
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716304"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603911"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Escolhas arquitetónicas da monitorização remotas
 
@@ -43,7 +43,7 @@ Para transmissão em fluxo a solução de monitorização remota de processament
 Para armazenamento, o acelerador de solução de monitorização remota utiliza o Azure Time Series Insights e o Azure Cosmos DB. O Azure Time Series Insights armazena as mensagens recebidas pelo IoT Hub dos seus dispositivos ligados. O solution accelerator utiliza o Azure Cosmos DB para todos os outro armazenamento como armazenamento esporádico, definições de regras, alarmes e definições de configuração. O Azure Cosmos DB é a solução de armazenamento de acesso pouco frequente recomendado para fins gerais para aplicações de IoT, embora soluções como o Azure Time Series Insights e o Azure Data Lake são adequadas para muitos casos de utilização. Com o Azure Time Series Insights pode obter informações mais detalhadas sobre os seus dados de séries temporais sensor ao detetar tendências e anomalias, que permite realizar análises de causa raiz e evitar períodos de indisponibilidade dispendiosos. 
 
 > [!NOTE]
-> O Azure Time Series Insights para o acelerador de solução de monitorização remota está atualmente em pré-visualização e só está disponível no [selecionar regiões](https://azure.microsoft.com/global-infrastructure/services/). Se implementar o acelerador de solução monitorização remota fora nestas regiões, o Cosmos DB é a opção de armazenamento predefinida.
+> O Time Series Insights não está atualmente disponível na cloud do Azure China. Novas implementações de acelerador de solução de monitorização remota na cloud do Azure China utilizem Cosmos DB para todo o armazenamento.
 
 ### <a name="business-integration"></a>Integração de negócios
 Integração de negócios na solução de monitorização remota está limitada a geração de alarmes, que são colocadas no armazenamento de acesso pouco frequente. Ainda mais integrações de negócios podem ser executadas ao integrar a solução no Azure Logic Apps.

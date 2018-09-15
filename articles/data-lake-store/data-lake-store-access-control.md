@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0810aff364f8a015e93d7513b13ac7dcb5379556
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544103"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629938"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -40,18 +40,6 @@ Tanto as ACLs de Acesso como as ACLs Predefinidas têm a mesma estrutura.
 > Alterar a ACL Predefinida num componente principal não afeta a ACL de Acesso ou a ACL Predefinida de itens subordinados que já existem.
 >
 >
-
-## <a name="users-and-identities"></a>Utilizadores e identidades
-
-Todos os ficheiros e pastas têm permissões diferentes para estas identidades:
-
-* O utilizador proprietário
-* O grupo proprietário
-* Utilizadores nomeados
-* Grupos nomeados
-* Todos os outros utilizadores
-
-As identidades dos utilizadores e grupos são identidades do Azure Active Directory (Azure AD). Portanto, salvo indicação em contrário, um "utilizador", no contexto de geração 1 de armazenamento do Data Lake, pode significar um utilizador ou um grupo de segurança do Azure AD.
 
 ## <a name="permissions"></a>Permissões
 
@@ -100,7 +88,19 @@ Seguem-se alguns cenários comuns para ajudar a compreender que permissões são
 >
 
 
-## <a name="the-super-user"></a>O superutilizador
+## <a name="users-and-identities"></a>Utilizadores e identidades
+
+Todos os ficheiros e pastas têm permissões diferentes para estas identidades:
+
+* O utilizador proprietário
+* O grupo proprietário
+* Utilizadores nomeados
+* Grupos nomeados
+* Todos os outros utilizadores
+
+As identidades dos utilizadores e grupos são identidades do Azure Active Directory (Azure AD). Portanto, salvo indicação em contrário, um "utilizador", no contexto de geração 1 de armazenamento do Data Lake, pode significar um utilizador ou um grupo de segurança do Azure AD.
+
+### <a name="the-super-user"></a>O superutilizador
 
 Um Superutilizador tem mais direitos entre todos os utilizadores na conta de geração 1 de armazenamento do Data Lake. O superutilizador:
 
@@ -115,7 +115,7 @@ Se quiser criar uma função de controlo de acesso baseado em funções (RBAC) c
 - Microsoft.Authorization/roleAssignments/write
 
 
-## <a name="the-owning-user"></a>O utilizador proprietário
+### <a name="the-owning-user"></a>O utilizador proprietário
 
 O utilizador que criou o item é automaticamente o utilizador proprietário do item. Um utilizador proprietário pode:
 
@@ -127,7 +127,7 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 >
 >
 
-## <a name="the-owning-group"></a>O grupo proprietário
+### <a name="the-owning-group"></a>O grupo proprietário
 
 **em segundo plano**
 
@@ -234,7 +234,7 @@ O pseudocódigo a seguir mostra como é que a umask é aplicada ao criar as ACLs
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))

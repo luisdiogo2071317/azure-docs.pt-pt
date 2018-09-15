@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548288"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Azure Active Directory com o AppDynamics
 
@@ -36,7 +36,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o AppDynamics, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um AppDynamics logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do AppDynamics para o Azure AD, terá de adiciona
 
 **Para adicionar AppDynamics a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -112,7 +112,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.saas.appdynamics.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -189,6 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 ### <a name="creating-an-appdynamics-test-user"></a>Criar um utilizador de teste do AppDynamics
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no AppDynamics. AppDynamics suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder a AppDynamics, se não existir ainda.
+
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente do AppDynamics](https://www.appdynamics.com/support/).
 
@@ -231,7 +232,7 @@ Quando clica no mosaico do AppDynamics no painel de acesso, deve obter automatic
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

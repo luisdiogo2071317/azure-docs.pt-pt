@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 72c151fec0637822411f8cac44f4e13a8df96445
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f7594b7d1eb7d41508be435cdd0a6203433727c1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190368"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603061"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Escrever avançadas consultas do Log Analytics
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-analytics-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 ## <a name="reusing-code-with-let"></a>Reutilização de código com let
 Utilize `let` para atribuir os resultados para uma variável e fazer referência a ele mais tarde na consulta:
 
-```OQL
+```KQL
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -42,7 +44,7 @@ warning_events
 
 Também pode atribuir valores constantes para variáveis. Isso oferece suporte a um método para definir os parâmetros para os campos que precisa alterar toda vez que executar a consulta. Modificar os parâmetros conforme necessário. Por exemplo, para calcular o espaço livre em disco e memória livre (em percentis), numa janela de tempo especificado:
 
-```OQL
+```KQL
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -63,7 +65,7 @@ Isto torna mais fácil alterar o início da hora de fim da próxima vez que exec
 ### <a name="local-functions-and-parameters"></a>Funções locais e parâmetros
 Utilize `let` instruções para criar funções que podem ser utilizadas da mesma consulta. Por exemplo, defina uma função que usa um campo datetime (no formato UTC) e converte-o para um formato padrão dos EUA. 
 
-```OQL
+```KQL
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -78,7 +80,7 @@ Event
 ## <a name="functions"></a>Funções
 Pode salvar uma consulta com um alias de função para que ele pode ser referenciado por outras consultas. Por exemplo, a seguinte consulta padrão retorna todas as atualizações de segurança em falta comunicadas no último dia:
 
-```OQL
+```KQL
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -87,7 +89,7 @@ Update
 
 Pode guardar esta consulta como uma função e conceda-lhe um alias, como _security_updates_last_day_. Em seguida, pode usá-lo na outra consulta para procurar atualizações de segurança necessário relacionados com o SQL:
 
-```OQL
+```KQL
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -100,7 +102,7 @@ Para guardar uma consulta como uma função, selecione o **salvar** botão no po
 ## <a name="print"></a>Imprimir
 `print` Devolve uma tabela com uma única coluna e uma única linha, que mostra o resultado de um cálculo. Isto é frequentemente utilizado em casos em que é necessário um calcuation simple. Por exemplo, para encontrar a hora atual no PST e adicionar uma coluna com EST:
 
-```OQL
+```KQL
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -108,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>DataTable
 `datatable` permite-lhe definir um conjunto de dados. Fornecer um esquema e um conjunto de valores e, em seguida, encaminhar a tabela em todos os outros elementos de consulta. Por exemplo, para criar uma tabela de utilização de RAM e calcular o valor médio por hora:
 
-```OQL
+```KQL
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -125,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 Construções de DataTable também são muito úteis durante a criação de uma tabela de pesquisa. Por exemplo, para mapear dados de tabela, como IDs de evento a _SecurityEvent_ tabela, para tipos de eventos listados em outro lugar, crie uma tabela de pesquisa com os tipos de eventos usando `datatable` e Junte-se a essa datatable com  _SecurityEvent_ dados:
 
-```OQL
+```KQL
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",

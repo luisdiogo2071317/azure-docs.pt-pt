@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2018
+ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6e15a2c940778427c953bd0a3d469ef55f7e3187
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345850"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632063"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
-
-##  <a name="what-is-the-azure-ad-application-gallery"></a>O que é a Galeria de aplicações do Azure AD?
+## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a Galeria de aplicações do Azure AD?
 
 Azure Active Directory (Azure AD) é um serviço de identidade com base na cloud. O [Galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) é na loja de aplicações do Azure Marketplace, onde todos os conectores de aplicações são publicados para início de sessão único e o aprovisionamento de utilizadores. Os clientes que utilizam o Azure AD como fornecedor de identidade encontrar os conectores de aplicações SaaS diferentes publicados aqui. Os administradores de TI adicionar conectores a partir da Galeria de aplicações e, em seguida, configurar e utilizam os conectores para início de sessão único e o aprovisionamento. O Azure AD suporta todos os protocolos de Federação principal para início de sessão único, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed.
 
@@ -57,7 +56,28 @@ Azure Active Directory (Azure AD) é um serviço de identidade com base na cloud
 
 - Para pedidos de aprovisionamento de utilizadores automática, o aplicativo deve listado na galeria com recurso de início de logon único habilitado a utilizar o protocolo de Federação descrito acima. Pode pedir para SSO e aprovisionamento em conjunto no portal, se ainda não estiver na lista de utilizadores.
 
-##  <a name="implementing-sso-using-federation-protocol"></a>A implementação do SSO através do protocolo de Federação
+## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
+
+Depois de o testar que a sua integração de aplicações funciona com o Azure AD, submeter o seu pedido de acesso no nosso [Portal de rede da aplicação](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se tiver uma conta do Office 365, usá-lo para iniciar sessão neste portal. Caso contrário, utilize a sua conta Microsoft (como o Outlook ou Hotmail) para iniciar sessão.
+
+Se for apresentada a seguinte página depois de início de sessão, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e forneça a conta de e-mail que pretende utilizar para submeter o pedido. Em seguida, a equipa do Azure AD adicionará a conta no Portal de rede de aplicação do Microsoft.
+
+![Pedido de acesso no portal do SharePoint](./media/howto-app-gallery-listing/errorimage.png)
+
+Assim que a conta é adicionada, pode iniciar sessão Portal de rede de aplicação do Microsoft.
+
+E se for apresentada a seguinte página depois de início de sessão, forneça uma justificativa comercial para que precisam de acesso na caixa de texto e, em seguida, selecione **pedir acesso**.
+
+  ![Pedido de acesso no portal do SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
+
+Nossa equipe analisa os detalhes e dá-lhe acesso em conformidade. Depois do pedido for aprovado, pode iniciar sessão portal e submeter o pedido ao clicar o **submeter o pedido (ISV)** mosaico a home page do formulário.
+
+![Home page do SharePoint portal](./media/howto-app-gallery-listing/homepage.png)
+
+> [!NOTE]
+> Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-federation-protocol"></a>A implementação do SSO através do protocolo de Federação
 
 Para listar uma aplicação na Galeria de aplicações do Azure AD, tem primeiro de implementar um dos seguintes protocolos de Federação suportados pelo Azure AD e concordo com os termos de Galeria de aplicações do Azure AD e condições. Leia os termos e condições da Galeria de aplicações do Azure AD partir [aqui](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
@@ -69,7 +89,7 @@ Para listar uma aplicação na Galeria de aplicações do Azure AD, tem primeiro
 
     * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** ou **WS-Fed**: se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
+*   **SAML 2.0** ou **WS-Fed**: se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
 
     ![Linha cronológica de listagem aplicação SAML 2.0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
@@ -87,7 +107,7 @@ Criar uma aplicação web que tem uma página de início de sessão do HTML para
 
 * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-##  <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
+## <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
 
 Para atualizar ou remover uma aplicação existente na Galeria de aplicações do Azure AD, primeiro tem de submeter o pedido no [Portal de rede da aplicação](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se tiver uma conta do Office 365, usá-lo para iniciar sessão neste portal. Caso contrário, utilize a sua conta Microsoft (como o Outlook ou Hotmail) para iniciar sessão.
 
@@ -101,18 +121,8 @@ Para atualizar ou remover uma aplicação existente na Galeria de aplicações d
 
     * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
-
-Depois de o testar que a sua integração de aplicações funciona com o Azure AD, submeter o seu pedido de acesso no nosso [Portal de rede da aplicação](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se tiver uma conta do Office 365, usá-lo para iniciar sessão neste portal. Caso contrário, utilize a sua conta Microsoft (como o Outlook ou Hotmail) para iniciar sessão.
-
-Depois de iniciar sessão, é apresentada a página seguinte. Forneça uma justificativa comercial para que precisam de acesso na caixa de texto e, em seguida, selecione **pedir acesso**. Nossa equipe analisa os detalhes e dá-lhe acesso em conformidade. Depois disso, pode iniciar sessão portal e submeter o pedido detalhado para a aplicação.
-
-Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
-
-![Pedido de acesso no portal do SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
-
 ## <a name="timelines"></a>Linhas cronológicas
-    
+
 A linha cronológica para o processo de listagem, uma aplicação de WS-Fed na galeria ou SAML 2.0 é 7-10 dias úteis.
 
    ![Linha cronológica de listagem aplicação de saml numa galeria de](./media/howto-app-gallery-listing/timeline.png)

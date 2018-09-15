@@ -3,7 +3,7 @@ title: Adiciona os inquilinos para utilização e faturação no Azure Stack | D
 description: Os passos necessários adicionar um utilizador final ao Azure Stack, gerido por um fornecedor de serviços Cloud (CSP).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382693"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634001"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar o inquilino para a utilização e faturação no Azure Stack
 

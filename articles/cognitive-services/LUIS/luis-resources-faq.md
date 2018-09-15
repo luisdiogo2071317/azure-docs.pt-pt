@@ -1,20 +1,21 @@
 ---
-title: Compreensão de idiomas (LUIS) no Azure perguntas mais frequentes | Documentos da Microsoft
-description: Obtenha respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS)
+title: Perguntas mais frequentes sobre - compreensão de idiomas (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c338f874f426eef047f29e958877368c61db7e62
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128525"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630262"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -63,7 +64,7 @@ Cortana criados previamente as aplicações foram preteridas em 2017. Já não s
 LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-supported-languages.md#tokenization). O valor original e o valor tokenized estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como criar e atribuir um LUIS chave de ponto final?
-[Criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) sobre o **[publicar](luis-how-to-publish-app.md)** página. Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
+[Criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) sobre o **[chaves e os pontos finais](luis-how-to-manage-keys.md)** página. Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como posso interpretar as pontuações de LUIS? 
 O sistema deve utilizar a intenção de classificação mais elevada, independentemente de seu valor. Por exemplo, uma pontuação inferior a 0,5 (menos de 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a pontuação da maioria provavelmente intenção.
@@ -120,8 +121,13 @@ No Azure, um inquilino representa o cliente ou de uma organização que está as
 ![ID do inquilino no portal do Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
-### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Por que motivo estão lá mais chaves de ponto final no meu aplicativo publicar a página que eu atribuídos à aplicação? 
-Cada aplicação LUIS tem a chave de criação/starter. Chaves de ponto final de LUIS criadas durante o período de tempo de disponibilidade geral são visíveis na sua página de publicação, independentemente se adicionou à aplicação. Isso foi feito para facilitar a migração de disponibilidade geral. Quaisquer novas chaves de ponto final do LUIS não aparecem na página de publicação. 
+<a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+
+
+### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Por que há mais chaves de ponto final atribuídas à minha aplicação que atribuí? 
+Cada aplicação LUIS tem a chave de criação/starter na lista de ponto de extremidade como uma conveniência. Esta chave permite apenas alguns cliques de ponto final para que pode experimentar o LUIS.  
+
+Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as chaves de ponto final do LUIS na sua subscrição são atribuídas automaticamente. Isso foi feito para facilitar a migração de disponibilidade geral. Quaisquer novas chaves de ponto final de LUIS no portal do Azure são _não_ atribuída automaticamente aos LUIS. 
 
 ## <a name="app-management"></a>Gestão de aplicações
 

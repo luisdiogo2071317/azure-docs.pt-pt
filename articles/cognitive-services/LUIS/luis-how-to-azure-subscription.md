@@ -1,5 +1,6 @@
 ---
-title: Gerir a subscrição de ponto final do Azure | Documentos da Microsoft
+title: Gestão de subscrições de ponto final no LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste artigo, vai criar uma chave de ponto final com tráfego limitado para a sua conta do LUIS fornecer o tráfego ilimitado para o ponto final de seguir um plano de pagamento.
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dcee5ce7ce103db734cf4b63c26944945efed0ea
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223284"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630907"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerir chaves de subscrição de ponto final do Azure
 
@@ -24,9 +25,9 @@ Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os s
 > Não utilize o [chave de criação](luis-concept-keys.md#authoring-key) para consultas de ponto final na produção.
 
 <a name="create-luis-service"></a>
-## <a name="create-luis-endpoint-key"></a>Criar chave de ponto final do LUIS
+## <a name="create-luis-endpoint-key"></a>Criar uma chave de ponto final de LUIS
 
-1. Inicie sessão no  **[do Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Inicie sessão no  **[do Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Clique no verde **+** iniciar sessão no painel esquerdo superior e procure "LUIS" no marketplace, em seguida, clique em **compreensão de idiomas** e siga o **criar experiência**  para criar uma conta de subscrição do LUIS. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os s
     ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Inicie sessão na sua região [LUIS](luis-reference-regions.md) Web site e [adicione a nova chave de ponto final do LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * Precisa se lembrar do nome do serviço do Azure que criou para selecioná-lo da região [LUIS](luis-reference-regions.md) publicar página.  
+    > Inicie sessão na sua região [LUIS](luis-reference-regions.md) Web site e [atribuir o LUIS nova chave de ponto final](luis-how-to-manage-keys.md#assign-endpoint-key). É necessário o nome da subscrição do LUIS do passo 3.
 
 ## <a name="change-luis-pricing-tier"></a>Escalão de preço de LUIS de alteração
 

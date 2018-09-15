@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d6d68842b5e519201f7990a9c361710115de7fea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec149b0f100ae3e170f39911eafc399f24509dfa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022955"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630397"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -46,10 +46,10 @@ Se a opção do word ou disposição do word é o mesmo, mas não significa que 
 
 As seguintes expressões, o word `fair` é um homograph. Ele é têm a mesma, mas tem um significado diferente:
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Expressão|
+|--|
+|Que tipo de fairs condado de estão acontecendo na área de Seattle neste Verão?|
+|É a classificação atual para a revisão de Seattle justo?|
 
 Se quisesse uma entidade de eventos para localizar todos os dados de eventos, a palavra da etiqueta `fair` a primeira expressão, mas não na segunda.
 

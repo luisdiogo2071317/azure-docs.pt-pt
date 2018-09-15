@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b90050291a936027f66a76c14458e717b63c7257
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e9e47214ffed94f45a1a44a19234484f13ba452e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090732"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632199"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell (pré-visualização)
 
@@ -61,7 +61,7 @@ Para utilizar o Azure PowerShell para iniciar sessão com uma identidade do Azur
 1. Certifique-se de que tem a versão mais recente do PowerShellGet instalado. Execute o seguinte comando para instalar a versão mais recente:
  
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
+    Install-Module PowerShellGet –Repository PSGallery –Force
     ```
 
 2. Desinstale quaisquer instalações anteriores do Azure PowerShell.
@@ -74,7 +74,7 @@ Para utilizar o Azure PowerShell para iniciar sessão com uma identidade do Azur
 4. Instale o módulo de pré-visualização:
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
+    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview" 
     ```
 
 5. Chamar o [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet para criar um contexto e incluir o `-UseConnectedAccount` parâmetro. 

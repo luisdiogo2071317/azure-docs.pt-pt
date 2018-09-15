@@ -1,80 +1,70 @@
 ---
-title: Tutorial sobre como utilizar funções padrão para melhorar as previsões de LUIS – Azure | Documentos da Microsoft
-titleSuffix: Cognitive Services
-description: Neste tutorial, utilize as funções de padrão para entidades relacionadas contextualmente para melhorar as previsões do LUIS.
+title: 'Tutorial 4: Funções padrão para o contexto de dados relacionados'
+titleSuffix: Azure Cognitive Services
+description: Utilize um padrão para extrair dados de uma expressão de modelo bem formatado. A expressão de modelo utiliza uma entidade e as funções para extrair dados relacionados, tais como a localização de origem e a localização de destino.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f3ddbad350ed42823ca95136ae2a507c46c3c763
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161939"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634545"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: Melhorar a aplicação com funções padrão
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial: 4. Extrair contextualmente relacionados com padrões
 
-Neste tutorial, utilize uma entidade com funções combinadas com padrões para aumentar a predição de intenção e entidade.  Ao usar padrões, expressões de exemplo menos são necessários para a intenção.
+Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatado. A expressão de modelo utiliza uma entidade e as funções para extrair dados relacionados, tais como a localização de origem e a localização de destino.  Ao usar padrões, expressões de exemplo menos são necessários para a intenção.
 
-> [!div class="checklist"]
-* Compreender as funções padrão
-* Utilizar entidade simple com as funções 
-* Criar padrão para expressões com usando entidade simple com as funções
-* Como verificar as melhorias de predição do padrão
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de recursos humanos do [padrão](luis-tutorial-pattern.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) repositório do GitHub.
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `roles`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-## <a name="the-purpose-of-roles"></a>A finalidade das funções
 A finalidade das funções é extrair relacionados com as entidades numa expressão. Na expressão, `Move new employee Robert Williams from Sacramento and San Francisco`, a cidade de origem e destino cidade valores estão relacionados entre si e utilizam uma linguagem comum para indicar cada localização. 
 
-Ao usar padrões, qualquer entidades no padrão devem ser detetadas _antes de_ o padrão corresponde a expressão. 
 
-Quando cria um padrão, a primeira etapa é selecionar a intenção para o padrão. Ao selecionar a intenção, se o padrão corresponder, a intenção correta é sempre devolvida com uma classificação alta (normalmente, 99-100%). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Comparar entidades hierárquicas a entidade simple com as funções
-
-Na [tutorial hierárquica](luis-quickstart-intent-and-hier-entity.md), o **MoveEmployee** intenção detetado quando mover um funcionário existente de um edifício e do office para outro. As expressões de exemplo tinham as localizações de origem e destino, mas não utilizou a funções. Em vez disso, a origem e destino estavam subordinados da entidade hierárquica. 
-
-Neste tutorial, a aplicação de recursos humanos Deteta expressões com sobre mover novos funcionários de uma cidade para outra. Esses dois tipos de expressões são semelhantes, mas resolvido com diferentes capacidades de LUIS.
-
-|Tutorial|Expressão de exemplo|Localizações de origem e destino|
-|--|--|--|
-|[Hierárquica (não existem funções)](luis-quickstart-intent-and-hier-entity.md)|mV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
-|Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** ao **Denver**.|Yuma, Denver|
-
-Não é possível utilizar a entidade hierárquica no padrão de uma vez que apenas os pais hierárquicos são utilizados em padrões. Para retornar as localizações com nome de origem e destino, se pergunta utilize um padrão.
-
-### <a name="simple-entity-for-new-employee-name"></a>Entidade Simple para o novo nome de funcionário
 O nome do novo funcionário, Billy Patterson, não faz parte da entidade lista **funcionário** ainda. O novo nome do funcionário é extraído em primeiro lugar, para enviar o nome para um sistema externo para criar as credenciais da empresa. Depois das credenciais da empresa são criadas, as credenciais de funcionário são adicionadas para a entidade de lista **funcionário**.
 
-O **funcionário** lista foi criada no [tutorial lista](luis-quickstart-intent-and-list-entity.md).
-
-O **NewEmployee** entidade é uma entidade com não existem funções. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Entidade Simple com as funções para cidades reposicionamento
 O novo funcionário e a família tem de ser movido da cidade de atual para uma cidade onde está localizada a empresa fictícia. Uma vez que um novo funcionário pode vir de qualquer cidade, as localizações tem de ser detetados. Uma lista de conjunto, como uma entidade de lista não funciona porque apenas as cidades na lista seriam extraídas.
 
-Os nomes de função associados com as cidades de origem e de destino tem de ser exclusivo em todas as entidades. É uma forma fácil para se certificar de que as funções são exclusivas para associá-las para a entidade contentora por meio de uma estratégia de nomenclatura. O **NewEmployeeRelocation** entidade é uma entidade com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**.
+Os nomes de função associados com as cidades de origem e de destino tem de ser exclusivo em todas as entidades. É uma forma fácil para se certificar de que as funções são exclusivas para associá-las para a entidade contentora por meio de uma estratégia de nomenclatura. O **NewEmployeeRelocation** entidade é uma entidade com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviação de reposicionamento.
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>Entidades simples precisam suficiente exemplos como detetada
 Uma vez que a expressão de exemplo `Move new employee Robert Williams from Sacramento and San Francisco` tem apenas entidades aprendidas por máquina, é importante fornecer suficiente expressões de exemplo para a intenção, para que as entidades são detetadas.  
 
 **Embora os padrões permitem que forneça menos expressões de exemplo, se as entidades não são detetadas, o padrão não corresponde.**
 
 Se tiver dificuldade para com a detecção de entidade simples porque é um nome como uma cidade, considere adicionar uma lista de frase de valores similares. Isto ajuda a detetar o nome de cidade fornecendo o LUIS um sinal adicional sobre esse tipo de palavra ou frase. Listas de frase ajudam apenas o padrão, ajudando com deteção de entidade, o que é necessária para o padrão para corresponder. 
 
+**Neste tutorial, ficará a saber como:**
+
+> [!div class="checklist"]
+> * Utilizar o tutorial de aplicação existente
+> * Criar novas entidades
+> * Criar intenção de novo
+> * Preparar
+> * Publicar
+> * Obter as intenções e entidades do ponto final
+> * Criar padrão com as funções
+> * Criar expressão de lista de cidades
+> * Obter as intenções e entidades do ponto final
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+Continuar com a aplicação criada no tutorial última, com o nome **RecursosHumanos**. 
+
+Se não tiver a aplicação de RecursosHumanos no tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Do **Manage** na secção a **versões** separador, clonar a versão e nomeie- `roles`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter quaisquer carateres que não são válidos num URL.
+
 ## <a name="create-new-entities"></a>Criar novas entidades
-1. Selecione **criar** no menu superior.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **entidades** no painel de navegação esquerda. 
 
@@ -124,15 +114,15 @@ Etiquetagem as entidades nestes passos pode ser mais fácil de se a entidade de 
 
     Se removeu a entidade de keyPhrase, adicioná-lo novamente para a aplicação agora.
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>O ponto de extremidade sem padrão de consulta
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ Etiquetagem as entidades nestes passos pode ser mais fácil de se a entidade de 
 
 A pontuação de predição de intenção é apenas cerca de 50%. Se a aplicação de cliente necessita de um número mais elevado, isso precisa ser corrigido. As entidades não eram previstas qualquer um.
 
+Uma das localizações foi extraída, mas não era a outra localização. 
+
 Padrões ajudará a pontuação de predição, no entanto, as entidades têm de ser previstas corretamente antes do padrão corresponde a expressão. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Adicionar um padrão que utiliza funções
+## <a name="pattern-with-roles"></a>Padrão de funções
+
 1. Selecione **criar** no painel de navegação superior.
 
 2. Selecione **padrões** na navegação à esquerda.
@@ -237,8 +230,8 @@ Padrões ajudará a pontuação de predição, no entanto, as entidades têm de 
 
     Se preparar, publicar e consultar o ponto final, poderá estar Desapontado ver que as entidades não foram encontradas, para que o padrão não corresponder ao, por isso também não melhorou a predição. Esta é uma conseqüência do insuficiente expressões de exemplo com entidades etiquetadas. Em vez de adicionar mais exemplos, adicione uma lista de frase para corrigir este problema.
 
-## <a name="create-a-phrase-list-for-cities"></a>Criar uma lista de frase para cidades
-Cidades, como nomes de pessoas são complicadas que podem ser qualquer combinação de palavras e pontuação. Mas as cidades da região e do mundo são conhecidas, por isso, LUIS tem uma lista de frase de cidades para começar a aprender. 
+## <a name="cities-phrase-list"></a>Lista de frase de cidades
+Cidades, como nomes de pessoas são complicadas que podem ser qualquer combinação de palavras e pontuação. As cidades da região e do mundo são conhecidas, por isso, LUIS tem uma lista de frase de cidades para começar a aprender. 
 
 1. Selecione **lista de frase** partir o **melhorar o desempenho da aplicação** secção do menu à esquerda. 
 
@@ -255,16 +248,13 @@ Cidades, como nomes de pessoas são complicadas que podem ser qualquer combinaç
     |Miami|
     |Dallas|
 
-    Não adicione todas as cidades no mundo ou até mesmo todas as cidades na região. LUIS tem de ser capaz de generalizar que uma localidade é a partir da lista. 
-
-    Certifique-se de manter **estes valores são intercambiáveis** selecionado. Esta definição significa que as palavras na lista no tratados como sinónimos. Isso é exatamente como deve ser tratados no padrão.
-
-    Lembre-se [a última vez](luis-quickstart-primary-and-secondary-data.md) série do tutorial, criado uma lista de frase também foi melhorar a deteção de entidade de uma entidade.  
+    Não adicione todas as cidades no mundo ou até mesmo todas as cidades na região. LUIS tem de ser capaz de generalizar que uma localidade é a partir da lista. Certifique-se de manter **estes valores são intercambiáveis** selecionado. Esta definição significa que as palavras na lista no tratados como sinónimos. 
 
 3. Formar e publicar a aplicação.
 
-## <a name="query-endpoint-for-pattern"></a>Ponto final da consulta para padrão
-1. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e entidades do ponto final
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Vá para o final do URL no endereço e introduza `Move wayne berry from miami to mount vernon`. O último parâmetro querystring é `q`, a expressão **query**. 
 
@@ -380,11 +370,24 @@ Cidades, como nomes de pessoas são complicadas que podem ser qualquer combinaç
 
 A pontuação de intenção agora é muito superior e os nomes de função fazem parte da resposta de entidade.
 
+## <a name="hierarchical-entities-versus-roles"></a>Entidades hierárquicas em comparação com as funções
+
+Na [tutorial hierárquica](luis-quickstart-intent-and-hier-entity.md), o **MoveEmployee** intenção detetado quando mover um funcionário existente de um edifício e do office para outro. As expressões de exemplo tinham as localizações de origem e destino, mas não utilizou a funções. Em vez disso, a origem e destino estavam subordinados da entidade hierárquica. 
+
+Neste tutorial, a aplicação de recursos humanos Deteta expressões com sobre mover novos funcionários de uma cidade para outra. Esses dois tipos de expressões são os mesmos mas resolvido com diferentes capacidades de LUIS.
+
+|Tutorial|Expressão de exemplo|Localizações de origem e destino|
+|--|--|--|
+|[Hierárquica (não existem funções)](luis-quickstart-intent-and-hier-entity.md)|mV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
+|Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** ao **Denver**.|Yuma, Denver|
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Este tutorial adicionado uma entidade com funções e uma intenção com expressões de exemplo. A primeira predição de ponto final com a entidade corretamente prever a intenção mas com uma pontuação de confiança baixa. Apenas uma das duas entidades foi detetada. Em seguida, o tutorial adicionado um padrão que são utilizadas as funções de entidade e uma lista de frase para aumentar o valor dos nomes de cidade nas expressões. A predição de ponto final segundo devolveu uma classificação de confiança elevada e encontrar ambas as funções de entidade. 
 
 > [!div class="nextstepaction"]
 > [Aprenda as melhores práticas para aplicações de LUIS](luis-concept-best-practices.md)

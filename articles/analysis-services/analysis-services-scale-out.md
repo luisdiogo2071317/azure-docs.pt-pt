@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051175"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604243"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -30,6 +30,8 @@ Independentemente do número de réplicas de consulta que ter num conjunto de co
 Ao aumentar horizontalmente, as réplicas de consulta novos são adicionadas ao agrupamento de consulta incrementalmente. Pode demorar até cinco minutos para novos recursos de réplica de consulta a serem incluídos no agrupamento de consulta; pronto para receber ligações de cliente e consultas. Quando todas as réplicas de consulta nova estão operacionais e em execução, novas ligações de cliente são balanceada de carga em todos os recursos de agrupamento de consulta. Ligações de cliente existentes não são alteradas do recurso que estão atualmente ligados.  Quando o dimensionamento no, quaisquer ligações de cliente existentes para um recurso de conjunto de consulta que está a ser removido do conjunto de consultas estão terminadas. Eles são reconectados a um recurso de conjunto de consulta restantes quando a operação de dimensionamento for concluída, o que pode demorar até cinco minutos.
 
 Durante o processamento de modelos, depois das operações de processamento estiverem concluídas, tem de ser efetuada uma sincronização entre o servidor de processamento e as réplicas de consulta. Ao automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento. Sincronização pode ser executada manualmente no portal ou utilizando o PowerShell ou a REST API. 
+
+### <a name="separate-processing-from-query-pool"></a>Separar o processamento a partir do conjunto de consultas
 
 Para um desempenho máximo para processamento e operações de consulta, pode optar por separar o servidor de processamento do conjunto de consultas. Quando separados, existentes e novas ligações de cliente são atribuídas para réplicas de consulta no agrupamento consulta apenas. Se as operações de processamento demorar apenas um curto período de tempo, pode optar por separar o servidor de processamento do conjunto de consultas para apenas a quantidade de tempo que demora a executar operações de processamento e a sincronização e, em seguida, inclua-o para o pool de consulta. 
 
@@ -53,7 +55,7 @@ O número de réplicas de consulta, que pode configurar está limitado por regi�
 
 1. No portal, clique em **horizontal**. Utilize o controlo de deslize para selecionar o número de servidores de réplica de consulta. É o número de réplicas que escolher, além do servidor existente.
 
-2. Na **separar o servidor de processamento do conjunto consulta**, selecione Sim para excluir o seu servidor de processamento de servidores de consulta.
+2. Na **separar o servidor de processamento do conjunto consulta**, selecione Sim para excluir o seu servidor de processamento de servidores de consulta. Ligações de cliente com a cadeia de ligação padrão (sem: rw) são redirecionadas para as réplicas no agrupamento de consulta. 
 
    ![Controlo de deslize de escalamento horizontal](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -99,6 +101,13 @@ Para ligações de cliente do utilizador final, como o Power BI Desktop, Excel e
 Para o SSMS, SSDT e cadeias de ligação no PowerShell, aplicações de função do Azure e o AMO, utilizam **nome do servidor de gestão**. O nome do servidor de gestão inclui um especial `:rw` qualificador (leitura / escrita). Todas as operações de processamento ocorrerem no servidor de gestão.
 
 ![Nomes de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>Resolução de problemas
+
+**Problema:** aos utilizadores receber o erro **não é possível localizar o servidor '\<nome do servidor > "instância no modo de ligação"Só de leitura".**
+
+**Solução:** ao selecionar o **separar o servidor de processamento do conjunto consulta** opção, as ligações de cliente utilizando a cadeia de ligação padrão (sem: rw) são redirecionadas para réplicas de conjunto de consulta. Se as réplicas no agrupamento de consulta são ainda online porque a sincronização não tem ainda não foi concluídas, as ligações de cliente redirecionada podem falhar. Para impedir ligações falhadas, optar por não separar o servidor de processamento do conjunto consulta até que uma operação de aumento horizontal e a sincronização estejam concluídas. Pode utilizar as métricas de memória e QPU para monitorizar o estado de sincronização.
+
 
 ## <a name="related-information"></a>Informações relacionadas
 

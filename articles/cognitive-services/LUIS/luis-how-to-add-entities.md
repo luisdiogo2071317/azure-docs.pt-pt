@@ -1,6 +1,6 @@
 ---
-title: Adicionar entidades nas aplicações de LUIS | Documentos da Microsoft
-titleSuffix: Azure
+title: Adicionar entidades nas aplicações de LUIS
+titleSuffix: Azure Cognitive Services
 description: Adicione entidades (dados de chave no domínio de seu aplicativo) em aplicações de compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3fe76afca2eb8b14641589e4e29fc20b5d3de7fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224131"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632290"
 ---
 # <a name="manage-entities"></a>Gerir entidades
 Depois de identificar seu aplicativo [intenções](luis-concept-intent.md), terá de [expressões de exemplo de etiqueta](luis-concept-utterance.md) com [entidades](luis-concept-entity-types.md). Entidades são partes importantes de um comando ou uma pergunta e podem ser essenciais para a sua aplicação de cliente executar a tarefa. 
@@ -31,9 +31,7 @@ Entidades pré-concebidas são definidas na [reconhecedores texto](https://githu
  
 2. Sobre o **entidades** página, selecione **gerir entidades pré-concebidas**.
 
-    ![Captura de ecrã da adição de entidade pré-criados na página de entidades](./media/add-entities/manage-prebuilt-entities-button.png)
-
-3. Na **adicionar ou remover entidades pré-concebidas** caixa de diálogo, selecione a **número** e **datetimeV2** entidades pré-concebidas. Em seguida, selecione **feito**.
+3. Na **adicionar ou remover entidades pré-concebidas** caixa de diálogo, selecione a **número** e **datetimeV2** entidades pré-concebidas. Em seguida, selecione **Done** (Concluído).
 
     ![Captura de ecrã de adicionar caixa de diálogo de entidade predefinidos](./media/add-entities/list-of-prebuilt-entities.png)
 
@@ -43,8 +41,6 @@ Entidades pré-concebidas são definidas na [reconhecedores texto](https://githu
 Uma entidade é uma entidade genérica que descreve um único conceito. 
 
 1. Na sua aplicação, do **crie** secção e, em seguida, clique em **entidades** no painel esquerdo e, em seguida, selecione **criar nova entidade**.
-
-    ![Página de captura de ecrã de entidades com o botão Criar nova entidade realçado](./media/add-entities/create-new-entity-button.png)
 
 2. Na caixa de diálogo pop-up, escreva `Airline` no **nome da entidade** caixa, selecione **simples** partir a **tipo de entidade** lista e, em seguida, selecione **feito**.
 
@@ -57,7 +53,7 @@ Uma entidade de expressão regular é utilizada para extrair dados de expressão
 
 1. Na sua aplicação, selecione **entidades** na navegação à esquerda e, em seguida, selecione **criar nova entidade**.
 
-2. No pop-up caixa de diálogo, escreva `AirFrance Flight` no **nome da entidade** caixa, selecione **expressão Regular** partir a **tipo de entidade** lista, introduza a expressão regular `AFR[0-9]{3,4}`e, em seguida, selecione **feito**. 
+2. Na caixa de diálogo pop-up, introduza `AirFrance Flight` no **nome da entidade** caixa, selecione **expressão Regular** partir a **tipo de entidade** lista, introduza a expressão regular `AFR[0-9]{3,4}`e, em seguida, selecione **feito**. 
 
     Essa expressão regular de voo AirFrance espera três caracteres, literalmente `AFR`, em seguida, 3 ou 4 dígitos. Os dígitos podem ser qualquer número entre 0 e 9. A expressão regular que corresponde a números de voo AirFrance, tais como: "AFR101", "ARF1302" e "AFR5006". Ver [extração de dados](luis-concept-data-extraction.md) para saber mais sobre a entidade a extração do ponto de extremidade de resposta da consulta JSON.
 

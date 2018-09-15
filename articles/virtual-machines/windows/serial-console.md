@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 785b0137624cc6d940f4944e0357d0a5774561df
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378334"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634715"
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
+# <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
 
 A consola de série de Máquina Virtual no Azure fornece acesso a um console baseado em texto para as máquinas virtuais do Windows. Esta conexão serial é a porta serial COM1 da máquina virtual, fornecendo acesso para a máquina virtual que é independente da rede ou o estado do sistema operativo de uma máquina virtual. Aceder à consola de série para uma máquina virtual pode atualmente apenas ser feito através do portal do Azure e é permitida apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
@@ -29,7 +29,7 @@ A consola de série de Máquina Virtual no Azure fornece acesso a um console bas
 Para obter a documentação da consola de série para VMs do Linux [clique aqui](../linux/serial-console.md).
 
 > [!Note] 
-> As pré-visualizações são tornadas disponíveis para, a condição de que concorda com os termos de utilização. Para obter mais informações, consulte [Microsoft Azure termos de utilização suplementares para pré-visualizações do Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Atualmente este serviço está em **pré-visualização pública** e acesso à consola de série para máquinas virtuais está disponível para regiões globais do Azure. Neste momento a consola de série não está disponível na cloud do Azure Government, Azure Alemanha e China do Azure.
+> Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível na cloud do Azure Government ou Azure China.
 
  
 
@@ -51,7 +51,7 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
   1. Abra o portal do Azure
   2. No menu da esquerda, selecione as máquinas virtuais.
   3. Clique na VM na lista. Abre a página de descrição geral para a VM.
-  4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção de consola de série (pré-visualização). Um novo painel com a consola de série abrirá e iniciar a ligação.
+  4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção "Consola de série". Um novo painel com a consola de série abrirá e iniciar a ligação.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
@@ -187,18 +187,18 @@ Não tem as permissões necessárias para utilizar esta consola de série de VM.
 Não é possível determinar o grupo de recursos para a conta de armazenamento do diagnóstico de arranque '<STORAGEACCOUNTNAME>'. Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso de consola de série requer determinada permissão para aceder. Ver [os requisitos de acesso](#prerequisites) para obter detalhes
 Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
 Web socket foi fechado ou não foi possível abrir. | Poderá ter de lista branca `*.console.azure.com`. Um mais detalhado for mas a abordagem mais é à lista de permissões a [intervalos de IP de Datacenter do Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653), que alterar bastante regularmente.
+Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Isso será apresentada se o Console de administração especial não tenha sido ativado para a sua imagem do Windows. Ver [acesso à consola de série para Windows](#access-serial-console-for-windows) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Obter mais detalhes podem ser encontrados em [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Problemas conhecidos 
-Como estamos ainda nas fases de pré-visualização para acesso à consola de série, vamos trabalhar através de alguns problemas conhecidos, segue-se a lista destas com soluções alternativas possíveis 
+Estamos cientes de alguns problemas com a consola de série. Aqui está uma lista desses problemas e os passos para a mitigação.
 
 Problema                             |   Mitigação 
 :---------------------------------|:--------------------------------------------|
 Acessando introdução após a faixa de ligação não mostra um registo na linha de comandos | Consulte esta página: [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isto pode acontecer se estiver a executar uma VM personalizada, alta da aplicação ou configuração de GRUB esse Windows causers não sejam corretamente ligar para a porta serial.
-Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Isso será apresentada se o Console de administração especial não tenha sido ativado para a sua imagem do Windows. Ver [acesso à consola de série para Windows](#access-serial-console-for-windows) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Obter mais detalhes podem ser encontrados em [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Não é possível digitar em SAC perguntar se a depuração de kernel está ativada | RDP para a VM e execute `bcdedit /debug {current} off` num prompt de comando elevado. Se não for possível RDP em vez disso, pode anexar o disco do SO a outra VM do Azure e modificá-lo enquanto anexado como um disco de dados com `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, em seguida, trocar o disco voltar.
 Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere de repetição | Uma solução alternativa é descarregar o módulo de PSReadLine da sessão atual. Executar `Remove-Module PSReadLine` descarregar o módulo de PSReadLine da sessão atual - isto não irá eliminar ou desinstalar o módulo.
 Algumas entradas de teclado produzem estranha SAC saída (por exemplo, `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) seqüências de escape não são suportadas pela linha de comandos da SAC.
-Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
+Colar muito longas seqüências de caracteres não funciona | Consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres. Isso é para evitar sobrecarregar a largura de banda da porta serial.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 **P. Como posso enviar comentários?**

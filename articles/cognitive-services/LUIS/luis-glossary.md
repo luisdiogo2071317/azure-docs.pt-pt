@@ -1,5 +1,6 @@
 ---
-title: Glossário para o serviço de API de compreensão (LUIS) idioma | Documentos da Microsoft
+title: Glossário para o serviço de API de compreensão (LUIS) de idioma
+titleSuffix: Azure Cognitive Services
 description: O glossário de termos de explica que poderá encontrar ao trabalhar com o serviço de API de LUIS.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a66eb42ac03b96757a0363c9dd442adc5ca75023
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390063"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634372"
 ---
 # <a name="glossary"></a>Glossário
+A compreensão de idiomas (LUIS) explica de glossário de termos que poderá encontrar ao trabalhar com o serviço de API de LUIS.
 
 ## <a name="active-version"></a>Versão do Active Directory
 
@@ -72,7 +74,7 @@ No contexto do LUIS, um **domínio** é uma área de dados de conhecimento. O do
 
 ## <a name="endpoint"></a>Ponto final
 
-O [ponto final de LUIS](https://aka.ms/luis-endpoint-apis) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[publicar](luis-how-to-publish-app.md)** página da sua aplicação, na tabela de recursos e as chaves ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+O [ponto final de LUIS](https://aka.ms/luis-endpoint-apis) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[chaves e os pontos finais](/luis-how-to-manage-keys.md)** página da sua aplicação, ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Um ponto de extremidade de exemplo é semelhante a:
 
@@ -167,7 +169,7 @@ Priming de fala permite que o seu serviço de voz para ser preparados com o seu 
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
-Na página de publicação, ative [corretor ortográfico Bing](luis-how-to-publish-app.md#enable-bing-spell-checker) para corrigir palavras com erros ortográficos nas expressões antes de predição. 
+Ative o corretor ortográfico Bing corrigir palavras com erros ortográficos nas expressões antes de predição. 
 
 ## <a name="starter-key"></a>Chave de arranque
 
@@ -175,7 +177,7 @@ Mesmo que [chave programática](#programmatic-key), nome mudado para a chave de 
 
 ## <a name="subscription-key"></a>Chave de subscrição
 
-A chave de subscrição é o **ponto final** chave associado ao serviço de LUIS [que criou no Azure](luis-how-to-azure-subscription.md). Esta chave não é o [chave de criação](#programmatic-key). Se tiver uma chave de ponto de extremidade, ele deve ser usado para todos os pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual dentro do URL do ponto final na parte inferior [ **publicar aplicação** página](luis-how-to-publish-app.md) na [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** par de nome/valor. 
+A chave de subscrição é o **ponto final** chave associado ao serviço de LUIS [que criou no Azure](luis-how-to-azure-subscription.md). Esta chave não é o [chave de criação](#programmatic-key). Se tiver uma chave de ponto de extremidade, ele deve ser usado para todos os pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual dentro do URL do ponto final na parte inferior [ **as chaves e os pontos finais** página](luis-how-to-manage-keys.md) na [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** par de nome/valor. 
 
 ## <a name="test"></a>Teste
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 08114fc52665eb336844a1072df8bd3f2591dd07
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fc4ea2538ebe5876e8f3572ab8ad76c4b3b44b8c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093469"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: Integração do Azure Active Directory com Huddle
 
@@ -56,6 +56,7 @@ Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de
 2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-huddle-from-the-gallery"></a>Adicionando Huddle da Galeria
+
 Para configurar a integração do Huddle com o Azure AD, terá de adicionar Huddle a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Huddle a partir da galeria, execute os seguintes passos:**
@@ -67,7 +68,7 @@ Para configurar a integração do Huddle com o Azure AD, terá de adicionar Hudd
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
-    
+
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
@@ -80,24 +81,18 @@ Para configurar a integração do Huddle com o Azure AD, terá de adicionar Hudd
 
     ![Criar um utilizador de teste do Azure AD](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
 
 Nesta secção, configure e teste do Azure AD início de sessão único com Huddle com base num utilizador de teste chamado "Eduarda Almeida."
 
 Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Huddle a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Huddle deve ser estabelecido.
 
-Huddle, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
-
 Para configurar e testar o Azure AD início de sessão único com Huddle, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-
 2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-
 3. **[Criar um utilizador de teste Huddle](#creating-a-huddle-test-user)**  - para ter um equivalente da Eduarda Almeida na Huddle que está ligado à representação de utilizador do Azure AD.
-
 4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-
 5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
@@ -111,10 +106,13 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar o início de sessão único][4]
 
 2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
 
 3. Sobre o **Huddle domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+
+    > [!NOTE]
+    > A instância de huddle será automaticamente detetada do domínio, que introduza abaixo.
 
     ![Huddle domínio e URLs únicas início de sessão em informações](./media/huddle-tutorial/tutorial_huddle_url.png)
 
@@ -122,16 +120,16 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com` |
+    | `https://<customsubdomain>.huddle.net`|
+    | `https://my.huddle.net` |
     | |
 
     b. Na **URL de resposta** caixa de texto, escreva qualquer um da URL usando o seguinte padrão:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com/saml/idp-initiated-sso`|
-    | `https://us.huddle.com/saml/idp-initiated-sso`|
+    | `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
+    | `https://my.huddle.net/saml/idp-initiated-sso`|
     | |
 
 4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
@@ -139,15 +137,14 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Huddle domínio e URLs únicas início de sessão em informações](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
     Na **URL de início de sessão** caixa de texto, escreva qualquer um da URL usando o seguinte padrão:
-    
+
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com`|
+    | `https://<customsubdomain>.huddle.net`|
     | |
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real, o URL de resposta e URL de início de sessão. Contacte [equipa de suporte de cliente Huddle](https://huddle.zendesk.com) obter esses valores. 
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o identificador real, o URL de resposta e URL de início de sessão. Contacte [equipa de suporte de cliente Huddle](https://huddle.zendesk.com) obter esses valores.
 
 5. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -157,15 +154,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/huddle-tutorial/tutorial_general_400.png)
 
-7. Sobre o **Huddle configuração** secção, clique em **configurar Huddle** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.** 
+7. Sobre o **Huddle configuração** secção, clique em **configurar Huddle** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-    
+
 8. Para configurar o início de sessão único no lado de Huddle, terá de enviar o transferido **certificado**, **SAML único início de sessão no URL do serviço**, e **ID de entidade de SAML** para [ A equipa de suporte do cliente de huddle](https://huddle.zendesk.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.  
-   
+
     >[!NOTE]
-    > Início de sessão único tem de ser ativado pela equipe de suporte do Huddle. Receba uma notificação quando a configuração foi concluída. 
-    > 
+    > Início de sessão único tem de ser ativado pela equipe de suporte do Huddle. Receba uma notificação quando a configuração foi concluída.
+    >
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

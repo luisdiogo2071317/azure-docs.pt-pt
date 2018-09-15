@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669488"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634443"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -33,13 +33,23 @@ As seguintes versões do sistema operativo Windows são suportadas oficialmente 
 
 As seguintes distribuições de Linux são suportadas oficialmente. No entanto, o agente Linux também pode executar em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias são suportadas para cada versão principal listado.  
 
-* Amazon Linux 2012.09 para 2015.09 (x86/x64)
-* Linux centOS 5, 6 e 7 (x86/x64)  
-* Oracle Linux 5, 6 e 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
-* Debian GNU/Linux 6, 7 e 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
+### <a name="64-bit"></a>64 bits
+
+* CentOS 6 e 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 e 7
+* Red Hat Enterprise Linux Server 6 e 7
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32 bits
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS e 16.04 LTS
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
@@ -93,7 +103,7 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 |Ativado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\*. txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*. *"       |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
@@ -146,6 +156,7 @@ Outras limitações:
 A solução de controlo de alterações está atualmente com os seguintes problemas:
 
 * Atualizações de correção não são recolhidas para máquinas de atualização para criativos do Windows 10 e Windows Server 2016 Core RS3.
+* Para os ficheiros do Windows, controlo de alterações não atualmente detetar quando um novo ficheiro tiver sido adicionado a um caminho de pasta controlada
 
 ## <a name="change-tracking-data-collection-details"></a>Alterar detalhes de recolha de dados de controlo
 

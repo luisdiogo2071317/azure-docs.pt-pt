@@ -1,20 +1,21 @@
 ---
-title: Expressões com nas aplicações de LUIS no Azure | Documentos da Microsoft
-description: Adicione expressões nas aplicações de Language Understanding Intelligent Service (LUIS).
+title: Expressões com nas aplicações de LUIS
+titleSuffix: Azure Cognitive Services
+description: Expressões com são de entrada do usuário que a sua aplicação precisa para interpretar. Recolha as frases que acredita que os utilizadores introduzirem o. Inclua expressões com o que significa que a mesma coisa, mas são construídos de forma diferente de comprimento de palavra e colocação do word.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c455296348e3b4378a2912fa5388098b206b3ea4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224420"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632318"
 ---
 # <a name="utterances-in-luis"></a>Expressões com no LUIS
 
@@ -35,12 +36,14 @@ Ao escolher expressões com, lembre-se de que sua opinião é um termo comum ou 
 Descobrirá que, mesmo se tornar os esforços para criar padrões de sentença variadas, ainda será repetido alguns vocabulário.
 
 Siga estas expressões de exemplo:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Expressões de exemplo|
+|--|
+|como posso obter um computador?|
+|Onde posso obter um computador?|
+|Eu quero chegar um computador, como posso sobre isso?|
+|Quando tiver um computador?| 
+
 O termo principal aqui, o "computador", não é diversificados. Eles poderiam dizer-se ao computador desktop, laptop, estação de trabalho ou até mesmo apenas máquina. LUIS inteligentemente infere sinónimos do contexto, mas ao criar expressões com formação, é ainda melhor variá-los.
 
 ## <a name="example-utterances-in-each-intent"></a>Expressões com de exemplo em cada intenção

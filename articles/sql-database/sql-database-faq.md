@@ -9,12 +9,12 @@ ms.custom: reference
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286337"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604506"
 ---
 # <a name="sql-database-faq"></a>FAQ da Base de Dados SQL
 
@@ -71,7 +71,7 @@ Os clientes da base de dados SQL terão os seguintes direitos associados com o b
 O custo de computação reflete a capacidade de total de computação é aprovisionada para a aplicação. No escalão de serviço crítico para a empresa, podemos atribuir automaticamente, pelo menos, 3 réplicas de Always ON. Para refletir esta adicional a alocação de recursos de computação, o preço de vCore é aproximadamente de 2,7 x de crítico para a empresa num nível superior. Pela mesma razão, o maior preço do armazenamento por GB no escalão crítico para a empresa reflete a e/s elevado e baixa latência de armazenamento SSD. Ao mesmo tempo, o custo de armazenamento de cópia de segurança não é diferente porque em ambos os casos, podemos usar uma classe de armazenamento standard.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Como sou cobrado por armazenamento - com base na qual posso configurar inicialmente ou sobre o que utiliza a base de dados?
-Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. O armazenamento de cópias de segurança é associado às cópias de segurança automáticas da sua instância. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome. O armazenamento de cópias de segurança até 100 por cento do total do armazenamento de servidor aprovisionado não implica custos adicionais. O consumo de armazenamento de cópia de segurança adicional é cobrado em GB por mês. Por exemplo, se tiver um tamanho de armazenamento de base de dados de 100 GBs, obterá 100 GBs de cópia de segurança sem custos adicionais. Mas se a cópia de segurança tiver 110 GBs, pague os 10 GB adicionais.
+Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. Armazenamento de cópia de segurança está associado a cópias de segurança automáticas da sua instância e podem é alocado dinamicamente. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome. O armazenamento de cópias de segurança até 100 por cento do total do armazenamento de servidor aprovisionado não implica custos adicionais. O consumo de armazenamento de cópia de segurança adicional é cobrado em GB por mês. Por exemplo, se tiver um tamanho de armazenamento de base de dados de 100 GBs, obterá 100 GBs de cópia de segurança sem custos adicionais. Mas se a cópia de segurança tiver 110 GBs, pague os 10 GB adicionais. 
 
 Armazenamento de cópias de segurança de uma base de dados, é cobrado numa base rateada para o armazenamento que foi alocado para as cópias de segurança da base de dados menos o tamanho da base de dados. Armazenamento de cópias de segurança de um conjunto elástico, é cobrado numa base rateada para o armazenamento que foi alocado para as cópias de segurança da base de dados de todas as bases de dados no agrupamento de menos o tamanho máximo de dados do conjunto elástico. Qualquer aumento no tamanho da base de dados ou conjunto elástico ou aumento de velocidade de transação, necessita de mais armazenamento e, portanto, aumenta a sua fatura de armazenamento de cópia de segurança.  Quando aumenta o tamanho máximo de dados, este é o novo valor é deduzido do tamanho de armazenamento de cópias de segurança faturadas.
 

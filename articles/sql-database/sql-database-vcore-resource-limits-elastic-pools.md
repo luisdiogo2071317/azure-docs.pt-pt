@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af9d34b0c3b59cbf012d16de27bb4c60a809f619
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495514"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630966"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore
 
@@ -50,8 +50,8 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Máximo de trabalhadores simultâneos (pedidos)|210|420|840|1680|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
-|Densidade de conjunto de máx.|100|200|500|500|500|500|
-|Deixar de clique do conjunto elástico de Mín/Máx|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
+|Número de DBs máximo por conjunto|100|200|500|500|500|500|
+|Opções de vcore de conjuntos elásticos Mín/Máx por base de dados|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/A|
@@ -74,8 +74,8 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Máximo de trabalhadores simultâneos (pedidos)|210|420|840|1680|2520|3360|4200|8400
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
-|Densidade de conjunto de máx.|100|200|500|500|500|500|500|500|
-|Deixar de clique do conjunto elástico de Mín/Máx|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Número de DBs máximo por conjunto|100|200|500|500|500|500|500|500|
+|Opções de vcore de conjuntos elásticos Mín/Máx por base de dados|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/D|N/D|N/A|
@@ -92,7 +92,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Memória (GB)|7|14|28|56|112|168|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1|2|4|8|20|36|
-|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo|307|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|384|
@@ -100,8 +100,8 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Máximo de trabalhadores simultâneos (pedidos)|210|420|840|1680|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
-|Densidade de conjunto de máx.|N/A|50|100|100|100|100|
-|Deixar de clique do conjunto elástico de Mín/Máx|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
+|Número de DBs máximo por conjunto|Não suportado|50|100|100|100|100|
+|Opções de vcore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|3|3|3|3|3|3|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -116,7 +116,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Memória (GB)|11|22|44|88|132|176|220|440|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
-|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Tamanho máximo do registo|307|307|307|307|614|1229|1229|1229|
@@ -124,8 +124,8 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Destino IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Máximo de trabalhadores simultâneos (pedidos)|210|420|840|1680|2520|3360|5040|8400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
-|Densidade de conjunto de máx.|N/A|50|100|100|100|100|100|100|
-|Deixar de clique do conjunto elástico de Mín/Máx|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Número de DBs máximo por conjunto|N/A|50|100|100|100|100|100|100|
+|Opções de vcore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Número de réplicas|3|3|3|3|3|3|3|3|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|

@@ -4,15 +4,15 @@ description: Fornece uma descrição geral da aplicação Recoletora e como conf
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/14/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6822bd149d5542d577fa18db3c9f50007ae48d35
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325537"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605067"
 ---
 # <a name="collector-appliance"></a>Aplicação recoletora
 
@@ -30,12 +30,17 @@ A aplicação Recoletora é um OVF que pode baixar do projeto do Azure Migrate. 
 
 Existem dois métodos em que descobre que o seu ambiente no local:
 
-a. **Deteção única:** o recoletor para esse modelo, se comunica com o vCenter Server para recolher os metadados sobre as VMs. Para a recolha de dados de desempenho das VMs, ele conta com os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Nesse modelo, o Azure Migrate recolhe média de contador (vs. o contador de pico) para cada uma, [Saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre os contadores de desempenho recolhidos pelo Azure Migrate. Uma vez que é uma deteção única, a aplicação neste caso não é continuamente conectada ao projeto. Por conseguinte, as alterações no ambiente no local não são refletidas no Azure Migrate depois de concluída a deteção. Se pretender que as alterações para refletir, que precisa fazer uma redeteção do mesmo ambiente para o mesmo projeto.
+a. **Deteção única:** o recoletor para esse modelo, se comunica com o vCenter Server para recolher os metadados sobre as VMs. Para a recolha de dados de desempenho das VMs, ele conta com os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Nesse modelo, do Azure Migrate recolhe o contador médio (em vez de contador de pico) para cada uma. Uma vez que é uma deteção única, a aplicação neste caso não é continuamente conectada ao projeto. Por conseguinte, as alterações no ambiente no local não são refletidas no Azure Migrate depois de concluída a deteção. Se pretender que as alterações para refletir, que precisa fazer uma redeteção do mesmo ambiente para o mesmo projeto.
+
+> [!NOTE]
+> Este método requer a configurar as definições de estatísticas no vCenter Server para o nível 3 e aguarde, pelo menos, um dia antes de iniciar a deteção para recolher métricas de desempenho obrigatória.
 
 b. **Deteção contínua:** a aplicação recoletora, para este modelo fica continuamente conectada ao projeto do Azure Migrate. Cria perfis continuamente o ambiente no local para recolher dados de utilização em tempo real em cada 20 segundos. A aplicação, em seguida, rolls-up os exemplos de 20 segundos e cria um ponto de dados individual para cada 15 minutos ao escolherem o valor máximo, o que é enviado para o Azure. Este modelo não depende das definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a contínua criação de perfis em qualquer altura da aplicação.
 
 > [!NOTE]
-> A funcionalidade de deteção contínua está em pré-visualização.
+> A funcionalidade de deteção contínua está em pré-visualização. Se não tiver o vCenter estatísticas do servidor as definições configuradas para o nível 3, recomendamos que utilize este método.
+
+[Saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre os contadores de desempenho recolhidos pelo Azure Migrate.
 
 ## <a name="collector-communication-diagram"></a>Diagrama de comunicação do recoletor
 

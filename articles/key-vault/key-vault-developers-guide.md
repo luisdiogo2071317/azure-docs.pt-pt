@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: b8b51ed8cbaaaaaa463dd1ed841e6d5193fec40a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301920"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603996"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
 
@@ -129,7 +129,7 @@ Os artigos e os cenários que se seguem fornecem diretrizes específicas de tare
 - [Como implementar certificados em VMs do Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) – uma aplicação na cloud em execução numa VM nas necessidades do Azure um certificado. Como obtém este certificado para esta VM hoje em dia?
 - [Como configurar o Cofre de chaves com auditoria e rotação de chaves de ponta a ponta](key-vault-key-rotation-log-monitoring.md) – esta mostra-lhe como configurar a rotação de chaves e auditoria com o Azure Key Vault.
 - [Implementar o certificado da aplicação Web do Azure através do Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fornece instruções passo a passo para implementar certificados armazenados no Cofre de chaves, como parte da [certificado do serviço de aplicações](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) oferta.
-- [Conceder permissão para muitos aplicativos para aceder a um cofre de chaves](key-vault-group-permissions-for-apps.md) política de controlo de acesso do Key Vault suporta apenas 16 entradas. No entanto pode criar um grupo de segurança do Azure Active Directory. Adicionar todos os principais de serviço associado a este grupo de segurança e, em seguida, conceder acesso a este grupo de segurança para o Key Vault.
+- [Conceder permissão para muitos aplicativos para aceder a um cofre de chaves](key-vault-group-permissions-for-apps.md) política de controlo de acesso do Key Vault suporta até 1024 entradas. No entanto pode criar um grupo de segurança do Azure Active Directory. Adicionar todos os principais de serviço associado a este grupo de segurança e, em seguida, conceder acesso a este grupo de segurança para o Key Vault.
 - Para obter mais orientações de tarefa específica sobre como integrar e utilizar cofres de chave com o Azure, consulte [exemplos de modelo do Azure Resource Manager Ryan Jones para o Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](key-vault-soft-delete-cli.md) orienta-o através da utilização e o ciclo de vida de um cofre de chaves e vários objetos de Cofre de chaves com eliminação de forma recuperável ativada.
 - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](key-vault-soft-delete-powershell.md) orienta-o através da utilização e o ciclo de vida de um cofre de chaves e vários objetos de Cofre de chaves com eliminação de forma recuperável ativada.

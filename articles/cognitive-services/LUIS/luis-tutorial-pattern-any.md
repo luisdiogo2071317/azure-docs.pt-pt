@@ -1,42 +1,29 @@
 ---
-title: Tutorial sobre como utilizar a entidade de pattern.any para melhorar as previsões de LUIS – Azure | Documentos da Microsoft
-titleSuffix: Cognitive Services
-description: Neste tutorial, utilize a entidade de pattern.any para melhorar as previsões de intenção e a entidade de LUIS.
+title: 'Tutorial 5: Entidade de Pattern.any para texto de forma livre'
+titleSuffix: Azure Cognitive Services
+description: Utilize a entidade de pattern.any para extrair dados de expressões em que as expressões é bem formatada e em que o fim dos dados pode ser facilmente confundido com as palavras da expressão.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157859"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628988"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Melhorar a aplicação com pattern.any entidade
+# <a name="tutorial-5-extract-free-form-data"></a>Tutorial: 5. Extrair dados de forma livre
 
-Neste tutorial, utilize a entidade de pattern.any para aumentar a predição de intenção e entidade.  
+Neste tutorial, utilize a entidade de pattern.any para extrair dados de expressões em que as expressões são bem formatadas e em que o fim dos dados pode ser facilmente confundido com as palavras da expressão. 
 
-> [!div class="checklist"]
-* Saiba quando e como utilizar pattern.any
-* Criar padrão que utiliza pattern.any
-* Como verificar as melhorias de predição
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de recursos humanos do [padrão de funções](luis-tutorial-pattern-roles.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) repositório do GitHub.
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `patt-any`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-## <a name="the-purpose-of-patternany"></a>A finalidade de pattern.any
 A entidade de pattern.any permite-lhe localizar dados de forma livre onde o texto da entidade dificulta a determinar o fim da entidade do restante da expressão. 
 
-Esta aplicação de recursos humanos ajuda os funcionários encontrar formulários de empresa. Formulários foram adicionados no [tutorial de expressão regular](luis-quickstart-intents-regex-entity.md). Os nomes de formulário desse tutorial utilizada uma expressão regular para extrair um nome de formulário que foi bem formatado como os nomes de formulário em negrito na tabela de expressão a seguir:
+Esta aplicação de recursos humanos ajuda os funcionários encontrar formulários de empresa. 
 
 |Expressão|
 |--|
@@ -54,11 +41,38 @@ Expressões com o nome amigável do formulário ter o seguinte aspeto:
 |Quem é o autor **"Pedir reposicionamento de funcionário novo para a versão de empresa 2018 5"**?|
 |**Pedir o reposicionamento de funcionário novo para a versão de empresa 2018 5** está publicada em francês?|
 
-O comprimento variado inclui expressões que podem confundir o LUIS sobre onde termina a entidade. Utilizar uma entidade de Pattern.any num padrão permite-lhe especificar o início e fim do nome do formulário, para que o LUIS corretamente extrai o nome do formulário.
+O comprimento variado inclui palavras que podem confundir o LUIS sobre onde termina a entidade. Utilizar uma entidade de Pattern.any num padrão permite-lhe especificar o início e fim do nome do formulário, para que o LUIS corretamente extrai o nome do formulário.
 
-**Embora os padrões permitem que forneça menos expressões de exemplo, se as entidades não são detetadas, o padrão não corresponde.**
+|Exemplo de expressão de modelo|
+|--|
+|Onde é {FormName} [?]|
+|Quem criados {FormName} [?]|
+|{FormName} está publicada em francês [?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Adicionar expressões de exemplo para a intenção existente FindForm 
+**Neste tutorial, ficará a saber como:**
+
+> [!div class="checklist"]
+> * Utilizar o tutorial de aplicação existente
+> * Adicionar expressões de exemplo para uma entidade existente
+> * Criar entidade Pattern.any
+> * Criar padrão
+> * Preparar
+> * Novo padrão de teste
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+Continuar com a aplicação criada no tutorial última, com o nome **RecursosHumanos**. 
+
+Se não tiver a aplicação de RecursosHumanos no tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Do **Manage** na secção a **versões** separador, clonar a versão e nomeie- `patt-any`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter quaisquer carateres que não são válidos num URL.
+
+## <a name="add-example-utterances"></a>Adicionar expressões de exemplo 
 Se for difícil de criar e etiquetar a entidade de FormName, remova a entidade de keyPhrase pré-criados. 
 
 1. Selecione **crie** no painel de navegação superior, em seguida, selecione **intenções** no painel de navegação esquerda.
@@ -128,6 +142,8 @@ A entidade de Pattern.any extrai entidades de comprimento variável. Ela só fun
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Este tutorial adicionado expressões de exemplo para um objetivo existente, em seguida, criou um novo Pattern.any para o nome do formulário. Em seguida, o tutorial criou um padrão para a intenção existente com as novas expressões de exemplo e uma entidade. O teste interativo mostrou que o padrão e qual a sua intenção foram previstos porque a entidade foi encontrada. 
 
 > [!div class="nextstepaction"]
 > [Saiba como utilizar funções com um padrão](luis-tutorial-pattern-roles.md)

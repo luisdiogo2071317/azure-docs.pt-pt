@@ -1,76 +1,56 @@
 ---
-title: Tutorial sobre como utilizar padrões para melhorar as previsões de LUIS – Azure | Documentos da Microsoft
-titleSuffix: Cognitive Services
-description: Neste tutorial, utilize o padrão para objetivos para melhorar as previsões de intenção e entidade do LUIS.
+title: 'Tutorial 3: Padrões para melhorar as previsões de LUIS'
+titleSuffix: Azure Cognitive Services
+description: Utilize padrões para aumentar a predição de intenção e entidade ao mesmo tempo, menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159577"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634732"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>Tutorial: Melhorar a aplicação com padrões
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial: 3. Adicionar os formatos de expressão comuns
 
-Neste tutorial, utilize padrões para aumentar a predição de intenção e entidade.  
+Neste tutorial, utilize padrões para aumentar a predição de intenção e entidade ao mesmo tempo, menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto. Um padrão é uma combinação de correspondência de expressões e machine learning.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dê uma melhor compreensão de quais expressões com ajustar a intenção de LUIS. 
+
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
-* Como identificar que um padrão ajudaria a sua aplicação
-* Como criar um padrão
-* Como verificar as melhorias de predição do padrão
+> * Utilizar o tutorial de aplicação existente 
+> * Criar intenção
+> * Preparar
+> * Publicar
+> * Obter as intenções e entidades do ponto final
+> * Criar um padrão
+> * Certifique-se de melhorias de predição do padrão
+> * Marcar texto como ignorable e aninhar dentro de padrão
+> * Utilize o painel de teste para verificar o êxito do padrão
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
 
-Se não tiver a aplicação de recursos humanos do [teste de lote](luis-tutorial-batch-testing.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) repositório do GitHub.
+Continuar com a aplicação criada no tutorial última, com o nome **RecursosHumanos**. 
 
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `patterns`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
+Se não tiver a aplicação de RecursosHumanos no tutorial anterior, utilize os seguintes passos:
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Padrões de ensinam LUIS expressões comuns com menos de exemplos
+1.  Transfira e guarde [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
-Devido à natureza do domínio de recursos humanos, existem algumas formas comuns de perguntar sobre relações de funcionário em organizações. Por exemplo:
+2. Importe o JSON para uma nova aplicação.
 
-|Expressões|
-|--|
-|Quem Jill Jones reportar a?|
-|Que reporta a Jill Jones?|
-
-Estas expressões são demasiado fechar para determinar a exclusividade contextual de cada sem fornecer muitos exemplos de expressão. Ao adicionar um padrão para um objetivo, o LUIS aprende os padrões de expressão comuns para um objetivo sem fornecer muitos exemplos de expressão. 
-
-Expressão de modelo de exemplo incluem intenção:
-
-|Expressões com modelo de exemplo|
-|--|
-|Quem faz {funcionário} reportar a?|
-|Que reporta a {funcionário}?|
-
-O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto. Um padrão é uma combinação de correspondência de expressões regulares e de machine learning.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dê uma melhor compreensão de quais expressões com ajustar a intenção de LUIS.
-
-Para um padrão para corresponder a uma expressão, as entidades dentro da expressão tem de acordo com as entidades na expressão de modelo pela primeira vez. No entanto, o modelo não ajuda a prever as entidades, apenas os objetivos. 
-
-**Embora os padrões permitem que forneça menos expressões de exemplo, se as entidades não são detetadas, o padrão não corresponde.**
-
-Lembre-se de que os funcionários foram criados no [tutorial de entidade de lista](luis-quickstart-intent-and-list-entity.md).
+3. Do **Manage** na secção a **versões** separador, clonar a versão e nomeie- `patterns`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter quaisquer carateres que não são válidos num URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Criar novo intenções e suas expressões de com
 
-Adicionar dois intenções novo: `OrgChart-Manager` e `OrgChart-Reports`. Uma vez o LUIS devolve uma predição para a aplicação de cliente, o nome de intenção pode ser utilizada como um nome de função na aplicação cliente e que a entidade Employee poderia ser usada como um parâmetro para essa função.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Na página **Intents** (Intenções), selecione **Create new intent** (Criar nova intenção). 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>Cuidado sobre a quantidade de expressão de exemplo
 
-A quantidade de expressões de exemplo nestes objetivos não é suficiente para preparar o LUIS corretamente. Num aplicativo do mundo real, cada intenção deve ter um mínimo de 15 expressões com uma variedade de comprimento de opção e a expressão do word. Estas expressões com alguns são selecionados especificamente para realçar os padrões. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto final com uma expressão diferente
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ Utilize padrões para tornar significativamente maior de pontuação a intençã
 
 Deixe esta segunda janela do browser aberta. Utilizá-lo novamente mais tarde no tutorial. 
 
-## <a name="add-the-template-utterances"></a>Adicionar as expressões de modelo
+## <a name="template-utterances"></a>Expressão de modelo
+Devido à natureza do domínio de recursos humanos, existem algumas formas comuns de perguntar sobre relações de funcionário em organizações. Por exemplo:
+
+|Expressões|
+|--|
+|Quem Jill Jones reportar a?|
+|Que reporta a Jill Jones?|
+
+Estas expressões são demasiado fechar para determinar a exclusividade contextual de cada sem fornecer muitos exemplos de expressão. Ao adicionar um padrão para um objetivo, o LUIS aprende os padrões de expressão comuns para um objetivo sem fornecer muitos exemplos de expressão. 
+
+Exemplos de expressão de modelo intenção incluem:
+
+|Exemplos de expressões com modelo|significado de sintaxe|
+|--|--|
+|Quem faz {funcionário} reportar a [?]|intercambiável {funcionário}, ignorar [?]}|
+|Que reporta a {funcionário} [?]|intercambiável {funcionário}, ignorar [?]}|
+
+O `{Employee}` sintaxe marca a localização de entidade dentro da expressão de modelo como bem como a entidade é. A sintaxe opcional, `[?]`, marca palavras ou pontuação que são opcionais. LUIS corresponde à expressão, ignorando o texto opcional dentro dos parênteses Retos.
+
+Embora a sintaxe se parece com expressões regulares, não é expressões regulares. Apenas a chaveta, `{}`e o parêntesis Reto de fecho, `[]`, a sintaxe é suportada. Eles podem ser aninhados até dois níveis.
+
+Para um padrão para corresponder a uma expressão, as entidades dentro da expressão tem de acordo com as entidades na expressão de modelo pela primeira vez. No entanto, o modelo não ajuda a prever as entidades, apenas os objetivos. 
+
+**Embora os padrões permitem que forneça menos expressões de exemplo, se as entidades não são detetadas, o padrão não corresponde.**
+
+Neste tutorial, adicione dois objetivos novo: `OrgChart-Manager` e `OrgChart-Reports`. 
+
+|Intenção|Expressão|
+|--|--|
+|OrgChart-Manager|Quem Jill Jones reportar a?|
+|Relatórios de OrgChart|Que reporta a Jill Jones?|
+
+Uma vez o LUIS devolve uma predição para a aplicação de cliente, o nome de intenção pode ser utilizada como um nome de função na aplicação cliente e que a entidade Employee poderia ser usada como um parâmetro para essa função.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Lembre-se de que os funcionários foram criados no [tutorial de entidade de lista](luis-quickstart-intent-and-list-entity.md).
 
 1. Selecione **criar** no menu superior.
 
 2. No painel de navegação esquerdo, sob **melhorar o desempenho da aplicação**, selecione **padrões** no painel de navegação esquerda.
 
-3. Selecione o **OrgChart Manager** intenção, em seguida, introduza as seguintes expressões de modelo, um de cada vez, selecione introduzir após cada ocorrência de pronunciação de modelo:
+3. Selecione o **OrgChart Manager** intenção, em seguida, introduza as seguintes expressões de modelo:
 
     |Expressão de modelo|
     |:--|
@@ -232,17 +252,13 @@ Deixe esta segunda janela do browser aberta. Utilizá-lo novamente mais tarde no
     |Quem é o supervisor de {funcionário} [da] [?]|
     |Quem é o chefe de {funcionário} [?]|
 
-    O `{Employee}` sintaxe marca a localização de entidade dentro da expressão de modelo como bem como a entidade é. 
-
     Entidades com as funções de utilizar a sintaxe que inclui o nome da função e são abordadas num [tutorial separada para funções](luis-tutorial-pattern-roles.md). 
-
-    A sintaxe opcional, `[]`, marca palavras ou pontuação que são opcionais. LUIS corresponde à expressão, ignorando o texto opcional dentro dos parênteses Retos.
 
     Se digitar a expressão de modelo, a ajuda de LUIS preencher a entidade ao introduzir o parênteses Reto de abertura chave, `{`.
 
     [![Captura de ecrã da introdução de expressões de modelo de intenção](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Selecione o **OrgChart relatórios** intenção, em seguida, introduza as seguintes expressões de modelo, um de cada vez, selecione introduzir após cada ocorrência de pronunciação de modelo:
+4. Selecione o **OrgChart relatórios** intenção, em seguida, introduza as seguintes expressões de modelo:
 
     |Expressão de modelo|
     |:--|
@@ -427,6 +443,8 @@ Encontrar todas essas expressões com as entidades dentro dela, portanto corresp
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Este tutorial adiciona dois objetivos para expressões que eram difíceis de previsão com precisão elevada sem ter muitas expressões de exemplo. Padrões de adição para estes LUIS permitidos para melhor preveem a intenção com uma pontuação significativamente superior. Marcar entidades e texto ignorable permitido o LUIS aplicar o padrão para uma maior variedade de expressões.
 
 > [!div class="nextstepaction"]
 > [Saiba como utilizar funções com um padrão](luis-tutorial-pattern-roles.md)

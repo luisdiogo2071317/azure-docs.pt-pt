@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d5831d868bec940c4e38f62e70e456ae84903ada
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236898"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604915"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Saiba como registar uma aplicação no tutorial seguinte.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um inquilino do Azure AD B2C
 
@@ -49,17 +49,13 @@ Para começar a gerir o seu inquilino novo, clique na palavra **aqui** em que se
 
 É preciso associar o seu inquilino do Azure AD B2C à sua subscrição do Azure para ativar todas as funcionalidades e pagar os custos de utilização. Se não ligar o seu inquilino para a sua subscrição, seus aplicativos não funcionará corretamente.
 
-1. Certifique-se de que está a utilizar o diretório que contém a subscrição que pretende associar ao novo inquilino, mudando o diretório no canto superior direito do portal do Azure.
+Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino. 
 
-    ![Trocar diretórios](./media/tutorial-create-tenant/switch-directories.png)
+![Mudar para o inquilino do Azure AD B2C](./media/tutorial-create-tenant/switch-directories.png)
 
-    E, em seguida, selecionar o diretório que contém a sua subscrição.
-
-    ![Selecionar o diretório](./media/tutorial-create-tenant/select-directory.png)
-
-2. Escolher **criar um recurso** no canto superior esquerdo do portal do Azure.
-3. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione **Active Directory B2C**e, em seguida, clique em **criar**.
-4. Escolher **inquilino de ligação do Azure AD B2C existente, a minha subscrição do Azure**, selecione o inquilino que criou, selecione a sua subscrição, introduza *myContosoTenantRG* para o nome do grupo de recursos, aceite o a localização e clique em **criar**.
+1. Escolher **criar um recurso** no canto superior esquerdo do portal do Azure.
+2. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione **Active Directory B2C**e, em seguida, clique em **criar**.
+3. Escolher **inquilino de ligação do Azure AD B2C existente, a minha subscrição do Azure**, selecione o inquilino que criou, selecione a sua subscrição, introduza *myContosoTenantRG* para o nome do grupo de recursos, aceite o a localização e clique em **criar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

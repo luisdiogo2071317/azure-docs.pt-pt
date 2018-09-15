@@ -1,6 +1,6 @@
 ---
 title: Como gerir uma identidade gerida atribuído ao utilizador com o portal do Azure
-description: Instruções passo a passo obter instruções sobre como criar, listar e eliminar um atribuído ao utilizador identidade gerida.
+description: Instruções passo a passo instruções sobre como criar, listar, eliminam e atribuir uma função para uma identidade gerida atribuído ao utilizador.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 6729bee9bfebd8e80ae3b791dc2a8a480ac8b525
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 180d4092a2570b719e77d98319ab9b329f2e48c5
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158727"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45637430"
 ---
-# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, lista ou eliminar uma identidade gerida atribuído ao utilizador com o portal do Azure
+# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida no Azure Active Directory. Pode utilizar esta identidade para autenticar para serviços que suportam a autenticação do Azure AD, sem a necessidade de credenciais no seu código. 
 
-Neste artigo, saiba como criar, listar e eliminar uma identidade gerida atribuído ao utilizador através do Portal do Azure.
+Neste artigo, irá aprender a criar, listar, eliminar ou atribuir uma função para um um atribuído ao utilizador gerido identidade através do Portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade gerida atribuí
     - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade gerida atribuído ao utilizador.
     - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para ler (lista) as propriedades de uma identidade gerida atribuído ao utilizador.
 
-## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuído ao utilizador
+## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) usando uma conta associada à subscrição do Azure para criar a identidade gerida atribuído ao utilizador.
 2. Na caixa de pesquisa, escreva *identidades geridas por*e, em **serviços**, clique em **identidades geridas por**.
@@ -48,7 +48,7 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade gerida atribuí
    - **Localização**: Escolha uma localização para implementar a identidade gerida atribuído ao utilizador, por exemplo **E.U.A. oeste**.
 4. Clique em **Criar**.
 
-![Criar uma identidade gerida atribuído ao utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+![Criar uma identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuído ao utilizador
 
@@ -65,3 +65,19 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade gerida atribuí
 3. Na caixa de confirmação escolha, **Sim**.
 
 ![Eliminar utilizador atribuído a identidade gerida](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
+
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função para uma identidade gerida atribuído ao utilizador 
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure para listar as identidades geridas atribuído ao utilizador.
+2. Na caixa de pesquisa, escreva *identidades geridas por*e em serviços, clique em **identidades geridas por**.
+3. Devolve uma lista de identidades geridas atribuído ao utilizador para a sua subscrição.  Selecione a identidade de gerido atribuído ao utilizador que pretende atribuir uma função.
+4. Selecione **controlo de acesso (IAM)** e, em seguida, selecione **Add**.
+
+   ![Início de atribuído ao utilizador a identidade gerida](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+
+5. No painel adicionar permissões, configure os seguintes valores e, em seguida, clique em **guardar**:
+   - **Função** -a função para atribuir
+   - **Atribuir acesso a** -o recurso para atribuir o atribuído ao utilizador de identidade gerido
+   - **Selecione** -o membro atribuir acesso
+   
+   ![Identidade gerida atribuído ao utilizador IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  

@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: de1ba8b8560e65586ac59f9a04165a93492f3e05
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190353"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604489"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Trabalhar com cadeias de caracteres em consultas do Log Analytics
 
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-analytics-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir este tutorial.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Este artigo descreve como editar, comparar, procurar e realizar uma variedade de outras operações em cadeias de caracteres. 
 
@@ -36,13 +38,13 @@ Cada caractere numa cadeia de caracteres tem um número de índice, de acordo co
 ## <a name="strings-and-escaping-them"></a>Cadeias de caracteres e carateres de escape-los
 Valores de cadeia de caracteres são compactados com qualquer um deles com carateres de aspas simples ou duplas. Barra invertida (\) é utilizado para caracteres de escape para o caráter a seguir, como \t para o separador, \n para a nova linha, e \" o caráter de plica em si.
 
-```OQL
+```KQL
 print "this is a 'string' literal in double \" quotes"
 ```
 
 Para evitar "\\" de atuar como um caráter de escape, adicione "@" como um prefixo para a cadeia de caracteres:
 
-```OQL
+```KQL
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -106,7 +108,7 @@ O número de vezes que a cadeia de pesquisa que possa ter correspondente no cont
 
 #### <a name="plain-string-matches"></a>Correspondências de cadeia de caracteres sem formatação
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -116,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>Correspondências de RegEx
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -129,7 +131,7 @@ Obtém uma correspondência para uma expressão regular de uma determinada seqü
 
 ### <a name="syntax"></a>Sintaxe
 
-```OQL
+```KQL
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -147,7 +149,7 @@ Se não há nenhuma correspondência ou a conversão de tipo falhar, vrátit hod
 ### <a name="examples"></a>Exemplos
 
 O exemplo seguinte extrai o último octeto dos *ComputerIP* de um registo de heartbeat:
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -155,7 +157,7 @@ Heartbeat
 ```
 
 O exemplo seguinte extrai o último octeto, converte-o para um *real* escreva (número) e calcula o seguinte valor IP
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -165,7 +167,7 @@ Heartbeat
 ```
 
 No exemplo abaixo, a cadeia de caracteres *rastreio* é pesquisada para obter uma definição de "Duração". A correspondência é convertida em *reais* e multiplicado por uma constante de tempo (1 s) *que converte a duração para o tipo de período de tempo*.
-```OQL
+```KQL
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -186,7 +188,7 @@ isnotempty(value)
 
 ### <a name="examples"></a>Exemplos
 
-```OQL
+```KQL
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -211,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>Exemplos
 
-```OQL
+```KQL
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -251,7 +253,7 @@ O texto depois de substituir todas as correspondências de regex com avaliaçõe
 
 ### <a name="examples"></a>Exemplos
 
-```OQL
+```KQL
 SecurityEvent
 | take 1
 | project Activity 
@@ -282,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>Exemplos
 
-```OQL
+```KQL
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -301,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>Exemplos
-```OQL
+```KQL
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -316,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>Exemplos
-```OQL
+```KQL
 print strlen("hello")   // result: 5
 ```
 
@@ -337,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length` -Um parâmetro opcional que pode ser utilizado para especificar o tamanho pedido da subseqüência retornado.
 
 ### <a name="examples"></a>Exemplos
-```OQL
+```KQL
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -356,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>Exemplos
-```OQL
+```KQL
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

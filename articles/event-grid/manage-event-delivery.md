@@ -3,33 +3,26 @@ title: Entregues e as políticas de repetição para subscrições do Azure Even
 description: Descreve como personalizar as opções de entrega de eventos do Event Grid. Definir um destino de mensagens não entregues e o tempo que especificar para repetir a entrega.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 09/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a37fadc179157ba590b31a79fcd98f223cb1869
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5db53567b1df9e726fb0c507f0302536ea45b7f4
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501954"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603775"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Entregues e as políticas de repetição
 
-Ao criar uma subscrição de evento, pode personalizar as definições de entrega de eventos. Pode definir o tempo que o Event Grid tenta entregar a mensagem. Pode definir uma conta de armazenamento a utilizar para armazenar eventos que não podem ser entregue a um ponto de extremidade.
+Ao criar uma subscrição de evento, pode personalizar as definições de entrega de eventos. Este artigo mostra-lhe como configurar uma localização entregues e personalizar as definições de repetição. Para obter informações sobre estas funcionalidades, consulte [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-dead-letter-location"></a>Definir localização de mensagens não entregues
 
-Quando o Event Grid não é possível entregar um evento, ele pode enviar o evento não serão entregues para uma conta de armazenamento. Este processo é conhecido como mensagens não entregues. Por predefinição, não ative Event Grid mensagens não entregues. Para ativá-la, tem de especificar uma conta de armazenamento para armazenar eventos não serão entregues ao criar a subscrição de evento. Obter eventos a partir desta conta de armazenamento para resolver entregas.
-
-Grelha de eventos envia um evento para a localização de mensagens não entregues, se ele tiver tentado todas suas tentativas de repetição, ou se for recebida uma mensagem de erro que indica a entrega nunca terá êxito. Por exemplo, se grelha de eventos receber um erro de formato incorrecto ao fornecer um evento, ele envia esse evento para a localização de mensagens não entregues. Existe um atraso de cinco minutos entre a última tentativa de fornecer um evento e quando ela é entregue para a localização de mensagens não entregues. Este atraso destina-se para reduzir o número de operações de armazenamento Blob. Se a localização de mensagens não entregues não está disponível para quatro horas, o evento foi removido.
-
-Antes de definir a localização de mensagens não entregues, tem de ter uma conta de armazenamento com um contentor. Forneça o ponto final para esse contentor ao criar a subscrição de evento. O ponto final está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
-
-O script seguinte obtém o ID de recurso de uma conta de armazenamento existente e cria uma subscrição de evento que utiliza um contentor nessa conta de armazenamento para o ponto final de mensagens não entregues.
+Para definir uma localização entregues, precisa de uma conta de armazenamento para conter eventos que não podem ser entregue a um ponto de extremidade. O script seguinte obtém o ID de recurso de uma conta de armazenamento existente e cria uma subscrição de evento que utiliza um contentor nessa conta de armazenamento para o ponto final de mensagens não entregues.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -48,8 +41,6 @@ az eventgrid event-subscription create \
   --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
-
-Para utilizar o Event Grid para responder a eventos não serão entregues, [criar uma subscrição de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de BLOBs de mensagens não entregues. Sempre que o seu armazenamento de BLOBs de mensagens não entregues recebe um evento não serão entregues, o Event Grid notifica o manipulador. O manipulador responde com as ações que deseja assumir de reconciliar os eventos não serão entregues. 
 
 Para desativar as mensagens não entregues, execute novamente o comando para criar a subscrição de evento, mas não fornecer um valor para `deadletter-endpoint`. Não precisa de eliminar a subscrição de evento.
 

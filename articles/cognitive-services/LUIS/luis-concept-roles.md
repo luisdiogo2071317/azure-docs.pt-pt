@@ -1,20 +1,21 @@
 ---
-title: Compreender como as funções são utilizadas nas entidades baseada em padrões - Azure | Documentos da Microsoft
-description: Saiba como uma função é utilizada numa entidade com base no padrão para dar um nome para um subtipo de entidade contextuais.
+title: Compreender como as funções são usadas com base no padrão de entidades
+titleSuffix: Azure Cognitive Services
+description: As funções são subtipos contextuais, com o nome de uma entidade usado apenas em padrões. Por exemplo, a compra de expressão, um pedido de nova York para Londres, nova York e Londres são cidades mas cada um tem um significado diferente da sentença. Nova Iorque é a cidade de origem e Londres é a cidade de destino.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: aabd3a22498e0e33993d715e7a5882dde7aacf37
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222708"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632488"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Funções de entidade em padrões são subtipos contextuais
 As funções são subtipos contextuais, com o nome de uma entidade utilizada apenas num [padrões](luis-concept-patterns.md).
@@ -31,9 +32,10 @@ As funções oferecem um nome para essas diferenças:
 ## <a name="how-are-roles-used-in-patterns"></a>Como o funções são usadas em padrões?
 Na expressão de modelo de um padrão, as funções são usadas dentro da expressão: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Padrão com funções de entidade|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Sintaxe de função em padrões
 A entidade e a função estão entre parênteses, `{}`. A entidade e a função são separados por vírgula. 

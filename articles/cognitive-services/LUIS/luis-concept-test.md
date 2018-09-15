@@ -1,22 +1,23 @@
 ---
-title: Testar a sua aplicação LUIS – Azure | Documentos da Microsoft
-description: Utilize a compreensão de idiomas (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
+title: Teste a sua aplicação LUIS
+titleSuffix: Azure Cognitive Services
+description: O teste é o processo de fornecimento de expressões de exemplo para LUIS e obter uma resposta de LUIS reconhecidas intenções e entidades. Pode testar interativamente, LUIS uma expressão de cada vez, ou fornecer um lote de expressões. Com os testes, compare o modelo de Active Directory atual para o modelo publicado.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 41ba968eb68f2104a2183917c4ef850b2b6a9edc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224352"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629955"
 ---
-# <a name="testing-in-luis"></a>Teste de LUIS
+# <a name="testing-example-utterances-in-luis"></a>Teste de expressões de exemplo no LUIS
 
 O teste é o processo de fornecimento de expressões de exemplo para LUIS e obter uma resposta de LUIS reconhecidas intenções e entidades. 
 
@@ -25,6 +26,7 @@ Pode [testar](luis-interactive-test.md) LUIS interativamente, uma expressão de 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>O que é uma pontuação no teste?
 Ver [pontuação de predição](luis-concept-prediction-score.md) conceitos para saber mais sobre as pontuações de predição.
 

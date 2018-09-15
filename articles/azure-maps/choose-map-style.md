@@ -8,14 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 160752cd0467ef307f7a45b1e0d703c7ddd5d773
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9122a349fd81cf723e21cd17e09e15d1d9f64503
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720808"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634766"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolha um estilo de mapa do Azure Maps
+
 Mapas do Azure tem quatro estilos de mapas diferentes à sua escolha. Para mais informações sobre os estilos de mapa, consulte [suportado estilos de mapa do Azure Maps](./supported-map-styles.md). Este artigo mostra como utilizar as funcionalidades relacionadas ao estilo para definir um estilo na carga de mapa, definir um novo estilo e utilizar o controlo de Seletor de estilo.
 
 ## <a name="setting-style-on-map-load"></a>A definição de estilo na carga de mapa
@@ -47,14 +48,17 @@ Um Seletor de estilo permite a seleção de estilo para o mapa. O terceiro bloco
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo: 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle)
-    * [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
+Para saber mais sobre as classes e métodos usados neste artigo:
 
-* [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
-    * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-    
-Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes:
-* [Adicionar controles de mapa](./map-add-controls.md)
-* [Adicionar um pin](./map-add-pin.md)
+> [!div class="nextstepaction"]
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Adicione controlo a seus mapas:
+
+> [!div class="nextstepaction"]
+> [Adicionar controles de mapa](./map-add-controls.md)
+
+Adicione um pin de mapa:
+
+> [!div class="nextstepaction"]
+> [Adicionar um pin](./map-add-pin.md)

@@ -3,7 +3,7 @@ title: Utilização de relatórios infraestrutura para fornecedores de serviços
 description: O Azure Stack inclui a infra-estrutura necessária para controlar a utilização dos inquilinos servidos por um fornecedor de serviços Cloud (CSP) conforme ele ocorre e encaminha-o para o Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 5a38f504a881662c19fe881058622392cf1bced0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576360"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633729"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Utilização de infraestrutura de criação de relatórios para fornecedores de serviços Cloud
 

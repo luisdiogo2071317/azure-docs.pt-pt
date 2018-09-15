@@ -1,5 +1,5 @@
 ---
-title: O Azure Active Directory Identity Protection - como desbloquear utilizadores | Documentos da Microsoft
+title: Como desbloquear utilizadores com o Azure Active Directory Identity Protection | Documentos da Microsoft
 description: Saiba como desbloquear utilizadores que foram bloqueados por uma política do Azure Active Directory Identity Protection.
 services: active-directory
 keywords: proteção de identidade do Azure Active Directory, desbloquear utilizador
@@ -13,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 09/13/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.reviewer: raluthra
+ms.openlocfilehash: f8bf983033407bbf597af15f18f28ecf33b7558f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575496"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631689"
 ---
-# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>O Azure Active Directory Identity Protection - como desbloquear utilizadores
+# <a name="how-to-unblock-users"></a>Como: Desbloquear utilizadores
+
 Com o Azure Active Directory Identity Protection, pode configurar políticas para impedir que os utilizadores se as condições configuradas são cumpridas. Normalmente, um utilizador bloqueado contactos suporte técnico para se tornar desbloqueado. Este artigo explica os passos que pode efetuar para desbloquear um utilizador bloqueado.
 
 ## <a name="determine-the-reason-for-blocking"></a>Determinar a razão para bloquear

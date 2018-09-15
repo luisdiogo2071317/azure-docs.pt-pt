@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35fdb391f3ec3f0af3a7c916cb22cb58c90dd64
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051243"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604672"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -267,7 +267,7 @@ Tabelas externas, fazer referência aos arquivos no armazenamento de Blobs do HD
 
 ### <a name="replication"></a>Replicação 
  
-A replicação é suportada na instância gerida. Para obter informações sobre a replicação, consulte [replicação do SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+A replicação está disponível para pré-visualização pública na instância gerida. Para obter informações sobre a replicação, consulte [replicação do SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>RESTAURAR a instrução 
  
@@ -335,23 +335,24 @@ Para obter informações sobre instruções de restauro, veja [restaurar instru�
 - `sp_attach_db`, `sp_attach_single_file_db`, e `sp_detach_db` não são suportadas. Ver [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` Não é suportada. Ver [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>SQL Server Agent 
- 
+### <a name="sql-server-agent"></a>SQL Server Agent
+
 - Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.  
-- Tarefas - apenas os passos de tarefa do T-SQL são atualmente suportados (serão adicionados mais passos durante a pré-visualização pública).
- - SSIS ainda não é suportado. 
- - Replicação ainda não é suportada  
-  - Leitor de Log de transação ainda não é suportado.  
-  - Instantâneo ainda não é suportado.  
-  - Distribuidor ainda não é suportado.  
-  - Não é suportada a intercalação.  
+- Tarefas - passos da tarefa de T-SQL são atualmente suportadas
+- Outros tipos de tarefa passos não são atualmente suportados (passo mais tipos serão adicionados durante a pré-visualização pública).
+  - Tarefas de replicação não suportadas incluindo:
+    - Leitor de log de transações.  
+    - Instantâneo.
+    - Distribuidor.  
+    - Intercalação.  
+  - SSIS ainda não é suportado. 
   - Leitor de fila não é suportada.  
- - Shell de comandos ainda não é suportada. 
+  - Shell de comandos ainda não é suportada. 
   - Instância gerida não é possível aceder a recursos externos (por exemplo, compartilhamentos de rede através do robocopy).  
- - PowerShell ainda não é suportado.
- - Não é suportado do Analysis Services.  
+  - PowerShell ainda não é suportado.
+  - Não é suportado do Analysis Services.  
 - Notificações parcialmente são suportadas.
- - Notificação por correio eletrónico é suportado, necessita de configurar um perfil de correio de base de dados. É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile` em pré-visualização pública (limitação temporária).  
+- Notificação por correio eletrónico é suportado, necessita de configurar um perfil de correio de base de dados. É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile` em pré-visualização pública (limitação temporária).  
  - Não é suportada paginação.  
  - NetSend não é suportada. 
  - Alertas não ainda não são suportados.

@@ -1,44 +1,59 @@
 ---
-title: Tutorial de criação de uma entidade composta para extrair dados complexos - Azure | Documentos da Microsoft
-description: Saiba como criar uma entidade composta na sua aplicação LUIS para extrair os diferentes tipos de dados de entidade.
+title: 'Tutorial 6: Extrair dados compostos com entidade composto do LUIS'
+titleSuffix: Azure Cognitive Services
+description: Adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 17a8110624975d8053ad69c5bf30477e6d715ee8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 192be1561559ac17ae98ae24ee92b292f38313a9
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159831"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629139"
 ---
-# <a name="tutorial-6-add-composite-entity"></a>Tutorial: 6. Adicionar entidade composta 
-Neste tutorial, adicione uma entidade composta para reunir dados extraídos para uma entidade contentora.
+# <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupar e extrair dados relacionados
+Neste tutorial, adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
 
-Neste tutorial, ficará a saber como:
+O objetivo da entidade composto consiste em Agrupar entidades relacionadas numa entidade da categoria principal. As informações existem como entidades separadas antes da criação de uma composição. Ele é semelhante à entidade hierárquica, mas pode conter diferentes tipos de entidades. 
+
+A entidade composta é uma boa opção para este tipo de dados, porque os dados:
+
+* Estão relacionados entre si. 
+* Utilize uma variedade de tipos de entidade.
+* Tem de ser agrupados e processados pela aplicação de cliente como uma unidade de informações.
+
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Compreender as entidades compostas 
-> * Adicionar entidade composta para extrair dados
-> * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
+> * Utilizar o tutorial de aplicação existente
+> * Adicionar entidade composta 
+> * Preparar
+> * Publicar
+> * Obter as intenções e entidades do ponto final
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [entidade hierárquica](luis-quickstart-intent-and-hier-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+Continuar com a aplicação criada no tutorial última, com o nome **RecursosHumanos**. 
 
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `composite`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original.  
+Se não tiver a aplicação de RecursosHumanos no tutorial anterior, utilize os seguintes passos:
 
-## <a name="composite-entity-is-a-logical-grouping"></a>Entidade composta é um agrupamento lógico 
-O objetivo da entidade composto consiste em Agrupar entidades relacionadas numa entidade da categoria principal. As informações existem como entidades separadas antes da criação de uma composição. Ele é semelhante à entidade hierárquica, mas pode conter mais tipos de entidades. 
+1.  Transfira e guarde [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
- Crie uma entidade composta quando as entidades separadas podem ser agrupadas logicamente e este agrupamento lógico é útil para a aplicação cliente. 
+2. Importe o JSON para uma nova aplicação.
+
+3. Do **Manage** na secção a **versões** separador, clonar a versão e nomeie- `composite`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter quaisquer carateres que não são válidos num URL.
+
+
+## <a name="composite-entity"></a>entidade composta
+Crie uma entidade composta quando as entidades separadas podem ser agrupadas logicamente e este agrupamento lógico é útil para a aplicação cliente. 
 
 Nesta aplicação, o nome do funcionário é definido no **funcionário** listar entidade e inclui sinónimos de nome, endereço de e-mail, a extensão de telefone da empresa, número de telemóvel e dos EUA ID do imposto sobre Federal. 
 
@@ -51,12 +66,38 @@ Expressões com de exemplo no **MoveEmployee** intenção incluem:
 |Mova John W. Cardoso a-2345|
 |trocar x12345 para h-1234 amanhã|
  
-O pedido de movimentação deve incluir, pelo menos, o funcionário (usando qualquer sinónimos) e a localização final de criação e o office. O pedido também pode incluir o escritório de origem, bem como uma data que a movimentação deve acontecer. 
+O pedido de movimentação deve incluir o funcionário (usando qualquer sinónimos) e a localização final de criação e o office. O pedido também pode incluir o escritório de origem, bem como uma data que a movimentação deve acontecer. 
 
-Os dados extraídos do ponto de extremidade devem conter essas informações e retorná-lo num `RequestEmployeeMove` entidade composta. 
+Os dados extraídos do ponto de extremidade devem conter essas informações e retorná-lo no `RequestEmployeeMove` composta entidade:
 
-## <a name="create-composite-entity"></a>Criar entidade composta
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+```JSON
+"compositeEntities": [
+  {
+    "parentType": "RequestEmployeeMove",
+    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+    "children": [
+      {
+        "type": "builtin.datetimeV2.datetime",
+        "value": "march 3 2 p.m"
+      },
+      {
+        "type": "Locations::Destination",
+        "value": "z - 2345"
+      },
+      {
+        "type": "Employee",
+        "value": "jill jones"
+      },
+      {
+        "type": "Locations::Origin",
+        "value": "a - 1234"
+      }
+    ]
+  }
+]
+```
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sobre o **intenções** página, selecione **MoveEmployee** intenção. 
 
@@ -75,17 +116,23 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Captura de ecrã do LUIS na intenção 'MoveEmployee', selecionar a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. Em seguida, selecione imediatamente a última entidade `datetimeV2` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `RequestEmployeeMove` , em seguida, selecione **compostos nova de criar** no menu de pop-up. 
+6. Em seguida, selecione imediatamente a última entidade `datetimeV2` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `RequestEmployeeMove` , em seguida, selecione introduzir. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Captura de ecrã do LUIS na intenção \"MoveEmployee\" selecionando a última entidade no compostos e criar entidades realçado")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. Na **o tipo de entidade que pretende criar?**, quase todos os campos necessários estão na lista. Apenas a localização de origem está em falta. Selecione **adicionar entidade subordinada**, selecione **Locations::Origin** da lista de entidades existentes, em seguida, selecione **feito**. 
 
+    Tenha em atenção que a entidade pré-criados, número, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
+
     ![Captura de ecrã do LUIS na intenção "MoveEmployee" adicionar outra entidade na janela de pop-up](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Selecione a Lupa na barra de ferramentas para remover o filtro. 
 
+9. Remover a palavra `tomorrow` do filtro para que possa ver todas as expressões de exemplo novamente. 
+
 ## <a name="label-example-utterances-with-composite-entity"></a>Expressões com de exemplo de etiqueta com a entidade composta
+
+
 1. Em cada ocorrência de pronunciação de exemplo, selecione a entidade de mais à esquerda que deve estar na composição. Em seguida, selecione **encapsular na entidade composta**.
 
     [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Captura de ecrã do LUIS na intenção 'MoveEmployee', selecionar a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
@@ -98,15 +145,15 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Captura de ecrã do LUIS no MoveEmployee com todas as expressões com o nome")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint"></a>Consultar o ponto final 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e entidades do ponto final 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -247,7 +294,7 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
         },
         {
           "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "requestemployeemove",
+          "type": "RequestEmployeeMove",
           "startIndex": 5,
           "endIndex": 54,
           "score": 0.4027723
@@ -255,7 +302,7 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
       ],
       "compositeEntities": [
         {
-          "parentType": "requestemployeemove",
+          "parentType": "RequestEmployeeMove",
           "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
           "children": [
             {
@@ -276,28 +323,19 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
             }
           ]
         }
-      ],
-      "sentimentAnalysis": {
-        "label": "neutral",
-        "score": 0.5
-      }
+      ]
     }
     ```
 
   Esta expressão devolve uma matriz de entidades compostos. Cada entidade é dado um tipo e valor. Para localizar mais de precisão de cada entidade subordinada, utilize a combinação de tipo e o valor do item de matriz compostos para localizar o item correspondente da matriz de entidades.  
-
-## <a name="what-has-this-luis-app-accomplished"></a>O que conseguiu esta aplicação LUIS?
-Esta aplicação identificada uma intenção da consulta de linguagem natural e devolveu os dados extraídos como um grupo nomeado. 
-
-Agora, seu chatbot tem informações suficientes para determinar a ação principal e os detalhes relacionados na expressão. 
-
-## <a name="where-is-this-luis-data-used"></a>Onde são utilizados estes dados do LUIS? 
-O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados da entidade para executar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Neste tutorial, criado uma entidade composta para encapsular entidades existentes. Isso permite que a aplicação de cliente localizar um grupo de dados relacionados em diferentes tipos de dados para continuar a conversa. Uma aplicação de cliente para esta aplicação de recursos humanos pode pedir que dia e hora a movimentação tem de começar e terminar. Também pode perguntar sobre outras logística do movesuch como um telefone físico. 
+
 > [!div class="nextstepaction"] 
 > [Saiba como adicionar uma entidade com uma lista de frase](luis-quickstart-primary-and-secondary-data.md)  

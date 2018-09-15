@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 823e8694b574acdde122f8d5224b04d3872b6820
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190434"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603493"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Ingressa em consultas do Log Analytics
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-analytics-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 As associações permitem-lhe analisar os dados de várias tabelas, da mesma consulta. Eles intercale as linhas de dois conjuntos de dados ao corresponder valores de colunas especificadas.
 
 
-```OQL
+```KQL
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -62,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>Tabelas de pesquisa
 Um uso comum de junções está a utilizar o mapeamento estático de valores usando `datatable` que podem ajudar a transformar os resultados na forma mais apresentável. Por exemplo, para melhorar a segurança dados de eventos com o nome do evento para cada evento ID.
 
-```OQL
+```KQL
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

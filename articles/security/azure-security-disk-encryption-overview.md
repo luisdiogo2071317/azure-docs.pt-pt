@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348944"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633474"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para IaaS VMs 
 O Microsoft Azure é o compromisso de garantir que a privacidade dos dados, soberania de dados e permite-lhe controlo alojados no seu Azure dados através de uma variedade de tecnologias avançadas de encriptar, controlar e gerir chaves de encriptação e controlo e auditoria de acesso de dados. Esse controle fornece aos clientes Azure a flexibilidade de escolher a solução mais adequada às suas necessidades de negócios. Este artigo apresenta uma solução de tecnologia, o "Disco de encriptação para Windows e Linux VMs IaaS do Azure", para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacionais. 
@@ -78,7 +78,10 @@ A solução não suporta os seguintes cenários, recursos e tecnologia:
 * VMs de IaaS que são criadas com o método de criação de VM clássico
 * Ativar a encriptação em imagens personalizadas de cliente de VMs de IaaS Linux
 * Integração com o seu serviço de gestão de chaves no local
-* Ficheiros do Azure (sistema de ficheiros partilhados), o sistema de ficheiros de rede (NFS), volumes dinâmicos e VMs do Windows que estão configurados com sistemas RAID baseados em software
+* Ficheiros do Azure (sistema de ficheiros partilhados)
+* Sistema de ficheiros de rede (NFS)
+* Volumes dinâmicos
+* VMs do Windows que estão configurados com sistemas RAID baseados em software
 
 ## <a name="encryption-features"></a>Recursos de criptografia
 Quando ativa e implementa o Azure Disk Encryption para VMs IaaS do Azure, as seguintes funcionalidades estão ativadas, consoante a configuração fornecida:

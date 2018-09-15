@@ -8,19 +8,19 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 40c7e0744825697779e6bd19a78d8d3512b5d63e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d857767e5d94daa0a32997474722cec608e513b0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023465"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630550"
 ---
 # <a name="data-extraction"></a>Extração de dados
-LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, uma aplicação ou um chatbot para tomar medidas.
+LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON. 
 
-As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON. Os dados mais difícil para extrair são os dados aprendidas por máquina, porque não é uma correspondência exata de texto. Extração de dados do aprendidas de máquina [entidades](luis-concept-entity-types.md) deve fazer parte do [criação ciclo](luis-concept-app-iteration.md) até que tiver a certeza de que recebe os dados esperados. 
+Os dados mais difícil para extrair são os dados aprendidas por máquina, porque não é uma correspondência exata de texto. Extração de dados do aprendidas de máquina [entidades](luis-concept-entity-types.md) deve fazer parte do [criação ciclo](luis-concept-app-iteration.md) até que tiver a certeza de que recebe os dados esperados. 
 
 ## <a name="data-location-and-key-usage"></a>Utilização de localização e a chave de dados
 LUIS fornece os dados a partir do publicados [ponto final](luis-glossary.md#endpoint). O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, como ambientes de teste ou produção. 
@@ -29,7 +29,7 @@ LUIS fornece os dados a partir do publicados [ponto final](luis-glossary.md#endp
 
 O `appID` está disponível na **definições** página da sua aplicação LUIS, assim como parte do URL (após `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Embora seja possível usar a chave de criação gratuita/starter. enquanto está a aprender o LUIS, é importante alterar a chave de ponto final para uma chave que oferece suporte a seus [LUIS utilização esperada](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
 
-O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar com base no modelo publicado atual do ponto final de transição ou produção. O ponto final do URL encontra-se no [LUIS](luis-reference-regions.md) site **Publish** página. 
+O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar com base no modelo publicado atual do ponto final de transição ou produção. O ponto final do URL encontra-se no [LUIS](luis-reference-regions.md) Web site, na **gerir** na secção o **chaves e os pontos finais** página. 
 
 ## <a name="data-from-intents"></a>Dados desde intenções
 Os dados primários são a parte superior de classificação **intenção nome**. Utilizar o `MyStore` [guia de introdução](luis-quickstart-intents-only.md), a resposta do ponto final é:
@@ -568,13 +568,37 @@ Para todas as outras culturas, a resposta é:
 ### <a name="key-phrase-extraction-entity-data"></a>Dados de entidades de extração de expressões-chave
 A entidade de extração de expressões-chave devolve expressões-chave na expressão, fornecida pela [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
-<!-- TBD: verify JSON-->
 ```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
+{
+  "query": "Is there a map of places with beautiful views on a favorite trail?",
+  "topScoringIntent": {
+    "intent": "GetJobInformation",
+    "score": 0.764368951
+  },
+  "intents": [
+    ...
+  ],
+  "entities": [
+    {
+      "entity": "beautiful views",
+      "type": "builtin.keyPhrase",
+      "startIndex": 30,
+      "endIndex": 44
+    },
+    {
+      "entity": "map of places",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 23
+    },
+    {
+      "entity": "favorite trail",
+      "type": "builtin.keyPhrase",
+      "startIndex": 51,
+      "endIndex": 64
+    }
+  ]
+}
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Correspondência de várias entidades de dados

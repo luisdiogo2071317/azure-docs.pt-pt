@@ -2,19 +2,19 @@
 title: Arquitetura de conectividade da base de dados SQL do Azure | Documentos da Microsoft
 description: Este documento explica a arquitetura de conectividade Azure SQLDB de dentro do Azure ou a partir de fora do Azure.
 services: sql-database
-author: CarlRabeler
+author: DhruvMsft
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: 6f160965f11f94c39e823724b192169c3712974d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: dhruv
+ms.openlocfilehash: 8159a9eb8d8829ed01609cebc3ae41713892f6cf
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575387"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630186"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de banco de dados SQL do Azure 
 

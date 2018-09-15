@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 010efdf0fbfabb92b7465e37cb678a64810c8979
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 80d73620d11312a386a406d9a49d9223295b42f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025253"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631383"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias da empresa para uma aplicação LUIS
 Reveja essas estratégias de design para a sua aplicação empresarial.
@@ -51,9 +51,7 @@ Utilize o [expedição] [ dispatch-tool] ferramenta da linha de comandos, encont
 
 ![Imagem conceptual da arquitetura de distribuição](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-O domínio principal é mencionado em LUIS como um **V expedição** aplicação. 
-
-![Lista de aplicações de captura de ecrã do LUIS com a aplicação do LUIS criada pela ferramenta de distribuição](./media/luis-concept-enterprise/dispatch.png)
+O domínio principal é mencionado em LUIS com uma versão com o nome `Dispatch` na lista de aplicações. 
 
 O chatbot recebe a expressão, em seguida, envia para o elemento principal aplicação LUIS para predição. A intenção de prevista superior a partir da aplicação principal determina qual filho aplicação LUIS é chamada em seguida. O chatbot envia a expressão para a aplicação de subordinados para uma previsão mais específica.
 
@@ -67,4 +65,4 @@ Uma aplicação de distribuição tem 500 origens de expedição, equivalentes a
 * Saiba como [um lote de teste](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

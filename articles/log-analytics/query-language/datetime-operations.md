@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 833548a4bfca83a8ee6971f05a4f308cc54d5b5d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190440"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603384"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Trabalhar com valores de hora da data em consultas do Log Analytics
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-analytics-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Este artigo descreve como trabalhar com dados de data e hora em consultas do Log Analytics.
 
@@ -47,33 +49,33 @@ Períodos de tempo são expressos como um valor decimal seguido de uma unidade d
 
 Datetimes podem ser criadas por lançando uma cadeia, utilizando o `todatetime` operador. Por exemplo, para rever os heartbeats VM enviados num período de tempo específico, pode fazer uso do [entre operador](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) que é útil especificar um intervalo de tempo....
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Outro cenário comum é comparar um datetime ao presente. Por exemplo, para ver todos os heartbeats durante os últimos dois minutos, pode usar o `now` operador em conjunto com um intervalo de tempo que representa os dois minutos:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 Um atalho também está disponível para esta função:
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 O método mais curto e mais legível que está a utilizar o `ago` operador:
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Suponha que, em vez de saber o tempo de início e de fim, sabe que a hora de início e a duração. Pode reescrever a consulta da seguinte forma:
 
-```OQL
+```KQL
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -84,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>Conversão de unidades de tempo
 Pode ser útil expressar um datetime ou timespan numa unidade de tempo diferente da predefinição um. Por exemplo, suponha que está revisando eventos de erro dos últimos 30 minutos e precisar de uma coluna calculada que mostra que há quanto tempo o evento ter acontecido:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -93,7 +95,7 @@ Event
 
 Pode ver o _timeAgo_ coluna contém valores, tais como: "00:09:31.5118992", que significa que eles são formatados como hh:mm:ss.fffffff. Se pretender formatar estes valores para o _numver_ de minutos desde a hora de início, basta dividir esse valor por "1 minuto":
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -107,7 +109,7 @@ Outro cenário muito comum é a necessidade de obter as estatísticas sobre um d
 
 Utilize a seguinte consulta para obter o número de eventos que ocorreram durante a última meia hora a cada 5 minutos:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -125,7 +127,7 @@ Isso produz a seguinte tabela:
 
 Outra forma de criar registos de resultados é usar as funções, tais como `startofday`:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -145,7 +147,7 @@ Isso produz os seguintes resultados:
 ## <a name="time-zones"></a>Fusos horários
 Uma vez que todos os valores de datetime são expressos em UTC, muitas vezes é útil para convertê-los para o fuso horário local. Por exemplo, utilize este cálculo para converter UTC PST vezes:
 
-```OQL
+```KQL
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```
@@ -154,7 +156,7 @@ Event
 
 | Categoria | Função |
 |:---|:---|
-| Converter tipos de dados | [ToDateTime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())[totimespan  ](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
+| Converter tipos de dados | [ToDateTime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())[totimespan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
 | Valor arredonda para o tamanho de discretização | [Bin](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/bin()) |
 | Obtenha uma data específica ou a hora | [há](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago()) [agora](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/now())   |
 | Obtenha a parte do valor | [datetime_part](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/datetime_part()) [getmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getmonth()) [monthofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/monthofyear()) [getyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getyear()) [dayofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofmonth()) [dayofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofweek()) [dayofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofyear()) [weekofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/weekofyear()) |

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: a2daf75e5a75a4fb0be06986903a2f4f9be8adf0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715408"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634851"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
   * **Nome de utilizador administrador** e **palavra-passe de administrador**: um nome de utilizador e palavra-passe.
     É criado um novo utilizador, para iniciar sessão para a máquina virtual.
   * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
-  * **ID de sub-rede**: O ID da sub-rede com as máquinas virtuais irão ligar. Selecione a sub-rede da sua rede privada virtual (VPN) ou a rede virtual do Azure ExpressRoute para utilizar para ligar a máquina virtual à sua rede no local. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
+  * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
 
 1. **Termos e condições**:  
     Reveja e aceite os termos legais.
@@ -614,9 +614,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
 
     É criado um novo utilizador, para iniciar sessão para a máquina virtual.
   * **Sub-rede nova ou existente**: determina se é criada uma nova rede virtual e uma sub-rede ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
-  * **ID de sub-rede**: O ID de sub-rede à qual as máquinas virtuais se conectará ao. Selecione a sub-rede de rede virtual VPN ou ExpressRoute para utilizar para ligar a máquina virtual à sua rede no local. O ID normalmente fica assim:
-
-    /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
+  * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
 
 1. **Termos e condições**:  
     Reveja e aceite os termos legais.
@@ -697,9 +695,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
   * **URI de VHD de disco do SO** (apenas modelo de disco não gerido): O URI do disco de SO privado, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **Id do disco gerido disco do SO** (apenas modelo de disco gerido): O Id do disco do SO de discos geridos, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criados, ou se é utilizada uma sub-rede existente. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
-  * **ID de sub-rede**: O ID de sub-rede à qual as máquinas virtuais se conectará ao. Selecione a sub-rede da rede virtual VPN ou ExpressRoute do Azure a utilizar para ligar a máquina virtual à sua rede no local. O ID normalmente fica assim:
-
-    /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
+  * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID é normalmente fica assim: /subscriptions/&lt;id da subscrição > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome da rede virtual > /subnets/&lt;nome da sub-rede >
 
 1. **Termos e condições**:  
     Reveja e aceite os termos legais.
@@ -835,7 +831,7 @@ Os passos que efetuar para configurar o proxy no Windows são diferentes da form
 Definições de proxy devem ser configuradas corretamente para a conta Sistema Local aceder à Internet. Se as definições de proxy não estão definidas pela diretiva de grupo, pode configurar as definições para a conta Sistema Local.
 
 1. Aceda a **começar**, introduza **gpedit. msc**e, em seguida, selecione **Enter**.
-1. Selecione **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >  ** Internet Explorer**. Certifique-se de que a definição **tornar o proxy de definições por computador (em vez de por utilizador)** está desativada ou não configurado.
+1. Selecione **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer**. Certifique-se de que a definição **tornar o proxy de definições por computador (em vez de por utilizador)** está desativada ou não configurado.
 1. Na **painel de controlo**, aceda à **Centro de compartilhamento e rede** > **opções da Internet**.
 1. Sobre o **ligações** separador, selecione a **definições de LAN** botão.
 1. Limpar o **detetar automaticamente as definições** caixa de verificação.

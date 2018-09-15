@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9b04f6bc2158f88b54bb4ed086c2f74b5a28eedd
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346343"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605220"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Os utilizadores de concessão B2B no Azure AD acedem às suas aplicações no local
 
@@ -63,7 +63,7 @@ O diagrama seguinte fornece uma visão geral do Proxy de aplicações como o Azu
 Pode gerenciar os objetos de utilizador B2B no local através de políticas de gestão do ciclo de vida. Por exemplo:
 
 - Pode configurar políticas de autenticação multifator (MFA) para o utilizador convidado para que a MFA é utilizado durante a autenticação de Proxy de aplicações. Para obter mais informações, consulte [acesso condicional para utilizadores de colaboração B2B](conditional-access.md).
-- Qualquer patrocínios, revisões de acesso, verificações de conta, etc., que são executadas na cloud B2B utilizador aplica-se aos utilizadores no local. Por exemplo, se o utilizador de nuvem é eliminado por meio de suas políticas de gestão do ciclo de vida, o utilizador no local também é eliminado por sincronização de MIM ou através do Azure AD Connect. Para obter mais informações, consulte [revisões de acesso de convidado de gerir com o acesso do Azure AD](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Qualquer patrocínios, revisões de acesso, verificações de conta, etc., que são executadas na cloud B2B utilizador aplica-se aos utilizadores no local. Por exemplo, se o utilizador de nuvem é eliminado por meio de suas políticas de gestão do ciclo de vida, o utilizador no local também é eliminado por sincronização de MIM ou através do Azure AD Connect. Para obter mais informações, consulte [revisões de acesso de convidado de gerir com o acesso do Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Criar objetos de utilizador B2B convidado através de MIM (pré-visualização)
 

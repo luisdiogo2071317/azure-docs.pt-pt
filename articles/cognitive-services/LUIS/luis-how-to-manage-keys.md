@@ -1,24 +1,25 @@
 ---
-title: Gerir as chaves de ponto final no LUIS | Documentos da Microsoft
-description: Utilize a compreensão de idiomas (LUIS) para gerir a sua API programática, o ponto final e a chaves externas.
-titleSuffix: Azure
+title: Gerir as chaves de criação e o ponto final de LUIS
+titleSuffix: Azure Cognitive Services
+description: Depois de criar uma chave de ponto final do LUIS no portal do Azure, atribua a chave para a aplicação do LUIS e obter o URL de ponto final correto. Utilize este URL de ponto final para LUIS, recebam previsões.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 127c09a022f5efb95ab6a5ec2db0de633b437a54
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6d3f487fd64744fa390291d7e23d95cd9632cd23
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223043"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634939"
 ---
-# <a name="manage-your-luis-endpoint-keys"></a>Gerir as chaves de ponto final do LUIS
-Uma chave permite-lhe criar e publicar a sua aplicação do LUIS ou consultar o ponto final. 
+# <a name="add-an-azure-luis-resource-to-app"></a>Adicionar um recurso do Azure LUIS à aplicação
+
+Depois de criar um recurso de LUIS no portal do Azure, atribua o recurso para a aplicação do LUIS e obter o URL de ponto final correto. Utilize este URL de ponto final para LUIS, recebam previsões.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -27,48 +28,95 @@ Uma chave permite-lhe criar e publicar a sua aplicação do LUIS ou consultar o 
 <a name="api-usage-of-ocp-apim-subscription-key" ></a>
 <a name="key-limits" ></a>
 <a name="key-limit-errors" ></a>
-## <a name="key-concepts"></a>Conceitos-chave
-Ver [chaves de LUIS](luis-concept-keys.md) para compreender conceitos-chave de criação e o ponto final LUIS.
-
+<a name="key-concepts"></a>
+<a name="authoring-key"></a>
 <a name="create-and-use-an-endpoint-key"></a>
-## <a name="assign-endpoint-key"></a>Atribuir a chave de ponto final
-Sobre o **publicar aplicação** página, já existe uma chave no **recursos e as chaves** tabela. Esta é a chave de criação (iniciante). 
+<a name="assign-endpoint-key"></a>
+
+## <a name="assign-resource"></a>Atribuir recursos
 
 1. Criar uma chave de LUIS sobre o [portal do Azure](https://portal.azure.com). Para obter mais instruções, consulte [criar uma chave de ponto final a utilizar o Azure](luis-how-to-azure-subscription.md).
  
-2. Para adicionar a chave de LUIS criada no passo anterior, clique nas **Adicionar chave** botão para abrir o **atribuir uma chave à sua aplicação** caixa de diálogo. 
+2. Selecione **Manage** no menu superior direito, em seguida, selecione **chaves e os pontos finais**.
 
-    ![Atribuir uma chave à sua aplicação](./media/luis-manage-keys/assign-key.png)
-3. Na caixa de diálogo, selecione um inquilino. 
- 
-    > [!Note]
-    > No Azure, um inquilino representa a ID do Azure Active Directory do cliente ou da organização associada um serviço. Se já tiver uma subscrição do Azure com a sua Account individual da Microsoft, já tem um inquilino! Quando iniciar sessão portal do Azure, é automaticamente sessão iniciada no [inquilino predefinido](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant). Tem liberdade para utilizar este inquilino, mas pode querer criar uma conta de administrador organizacional.
+    [ ![Página de chaves e os pontos finais](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
-4. Escolha a subscrição do Azure associada à chave do Azure LUIS que pretende adicionar.
+3. Para adicionar o LUIS, selecione **atribuir recursos +**.
 
-5. Selecione a conta do Azure LUIS. A região da conta é apresentada em parênteses. 
+    ![Atribuir um recurso à sua aplicação](./media/luis-manage-keys/assign-key.png)
 
-    ![Escolha a chave](./media/luis-manage-keys/assign-key-filled-out.png)
+4. Na caixa de diálogo associado ao endereço de e-mail que inicia sessão com o Web site do LUIS, selecione um inquilino.  
 
-6. Depois de atribuir esta chave de ponto de extremidade, utilizá-lo em todas as consultas de ponto final. 
+5. Escolha o **nome da subscrição** associados com o recurso do Azure que pretende adicionar.
+
+6. Selecione o **nome do recurso de LUIS**. 
+
+7. Selecione **atribuir recursos**. 
+
+8. Localize a nova linha na tabela e copie o URL de ponto final. Ele é corretamente construído para fazer uma solicitação de HTTP GET para o ponto de final do LUIS para uma predição. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
 <a name="publishing-to-europe"></a>
 <a name="publishing-to-australia"></a>
 
+## <a name="unassign-resource"></a>Anular a atribuição de recursos
+Quando anular a atribuição de chave do ponto final, não é eliminado do Azure. Só é desassociado do LUIS. 
+
+Quando uma chave de ponto final é não atribuída, ou não atribuída à aplicação, qualquer pedido para o ponto final do URL retorna um erro: `401 This application cannot be accessed with the current subscription`. 
+
+## <a name="include-all-predicted-intent-scores"></a>Incluir todas as pontuações previstas de intenção
+O **incluir todos os prever a intenção pontuações** caixa de seleção permite que a resposta de consulta de ponto final incluir a pontuação de predição para cada intenção. 
+
+Esta definição permite que seu aplicativo de chamada de LUIS para tomar uma decisão programática com base em classificações dos objetivos retornados ou chatbot. Em geral dos principais dois objetivos são mais interessantes. Se a classificação superior é a intenção, que sua chatbot pode optar por fazer uma pergunta de seguimento que fizer uma escolha definitiva entre a intenção None e a intenção pontuação alta nenhum. 
+
+As intenções e suas pontuações também estão incluídos os registos de ponto final. Pode [exportar](luis-how-to-start-new-app.md#export-app) esses registos e analisar as pontuações. 
+
+```JSON
+{
+  "query": "book a flight to Cairo",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.5223427
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.5223427
+    },
+    {
+      "intent": "BookFlight",
+      "score": 0.372391433
+    }
+  ],
+  "entities": []
+}
+```
+
+## <a name="enable-bing-spell-checker"></a>Ativar o Verificador de ortografia do Bing 
+Na **definições de url de ponto final**, o **corretor ortográfico Bing** alternância permite o LUIS corrigir as palavras incorretas antes de predição. Criar uma  **[chave de verificação ortográfica do Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
+
+Adicionar a **verificação ortográfica = true** parâmetro de cadeia de consulta e o **bing-ortográfica-check-subscription-key = {YOUR_BING_KEY_HERE}** . Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
+
+```JSON
+{
+  "query": "Book a flite to London?",
+  "alteredQuery": "Book a flight to London?",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.780123
+  },
+  "entities": []
+}
+```
+
+
 ## <a name="publishing-regions"></a>Regiões de publicação
-Saiba mais sobre a publicação [regiões](luis-reference-regions.md) incluindo publicação na [Europa](luis-reference-regions.md#publishing-to-europe), e [Austrália](luis-reference-regions.md#publishing-to-australia). Regiões de publicação são diferentes das regiões de criação. Certifique-se de que criar uma aplicação na região criação correspondente para a região de publicação que pretende.
 
-## <a name="unassign-key"></a>Anular a atribuição de chave
-
-* Na **lista de recursos e as chaves**, clique no ícone de reciclagem de caixote do lixo junto a entidade que pretende anular a atribuição. Em seguida, clique em **OK** na mensagem de confirmação para confirmar a eliminação.
- 
-    ![Anular a atribuição de entidade](./media/luis-manage-keys/unassign-key.png)
-
-> [!NOTE]
-> Unassigning a chave de LUIS não o elimina da sua subscrição do Azure.
+Saiba mais sobre a publicação [regiões](luis-reference-regions.md) incluindo publicação na [Europa](luis-reference-regions.md#publishing-to-europe), e [Austrália](luis-reference-regions.md#publishing-to-australia). Regiões de publicação são diferentes das regiões de criação. Crie uma aplicação na região criação correspondente para a região de publicação que pretende para o ponto de extremidade de consulta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Utilize a chave para publicar a sua aplicação no **publicar aplicação** página. Para obter instruções sobre a publicação, consulte [publicar aplicação](luis-how-to-publish-app.md).
+
+Ver [chaves de LUIS](luis-concept-keys.md) para compreender conceitos-chave de criação e o ponto final LUIS.

@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 4f2d49233a6eb92f567d4265210fcab394aa6461
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190347"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45602913"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Agregações avançadas em consultas do Log Analytics
 
 > [!NOTE]
 > Deve efetuar [agregações em consultas do Log Analytics](./aggregations.md) antes de concluir esta lição.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Este artigo descreve algumas das opções mais avançadas de agregação disponíveis para consultas do Log Analytics.
 
 ## <a name="generating-lists-and-sets"></a>Geração de listas e conjuntos
 Pode usar `makelist` aos dados pivot ordem dos valores numa determinada coluna. Por exemplo, pode querer explorar o local de take de eventos de ordem mais comuns nas suas máquinas. Essencialmente, pode dinamizar os dados a ordem dos EventIDs em cada máquina. 
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -48,7 +50,7 @@ Event
 
 Também é útil criar uma lista de valores distintos apenas. Isso é chamado de um _definir_ e pode ser gerada com `makeset`:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -65,7 +67,7 @@ Como `makelist`, `makeset` também funciona com ordenado de dados e irá gerar a
 ## <a name="expanding-lists"></a>Listas de expansão
 O inverso da operação da `makelist` ou `makeset` é `mvexpand`, que expande uma lista de valores para separar linhas. Ele pode aumentar em qualquer número de colunas dinâmicas, JSON e de matriz. Por exemplo, pode verificar o *Heartbeat* tabela para enviar dados de computadores que enviaram um heartbeat na última hora de soluções:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
@@ -95,7 +97,7 @@ Heartbeat | onde TimeGenerated > há (1H) | projeto de computador, divisão (sol
 
 Em seguida, poderia usar `makelist` novamente agrupar itens em conjunto e, desta vez ver a lista de computadores por solução:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -113,7 +115,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Manipulação de discretizações em falta
 Um aplicativo útil de `mvexpand` é a necessidade de preencher valores predefinidos para os contentores em falta. Por exemplo, suponha que estava procurando o tempo de atividade de uma determinada máquina ao explorar o heartbeat. Também queira ver a origem do heartbeat que está a ser o _categoria_ coluna. Normalmente, usaríamos um simples resumir instrução da seguinte forma:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -129,7 +131,7 @@ Heartbeat
 
 Nessa época resulta no entanto o bucket associado "2017-06-06T19:00:00Z" está em falta porque não existem quaisquer dados de heartbeat durante essa hora. Utilize o `make-series` função para atribuir um valor predefinido para registos vazios. Esta ação irá gerar uma linha para cada categoria com duas colunas de matriz extra, um para valores e outro para registos de tempo correspondente:
 
-```OQL
+```KQL
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -141,7 +143,7 @@ Heartbeat
 
 O terceiro elemento do *count_* matriz é 0, conforme o esperado e não existe um carimbo de correspondência de "2017-06-06T19:00:00.0000000Z" no _TimeGenerated_ matriz. Esse formato de matriz é difícil de ler, no entanto. Uso `mvexpand` para expandir as matrizes e produzir o mesmo formato de saída gerados por `summarize`:
 
-```OQL
+```KQL
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -163,7 +165,7 @@ Heartbeat
 Um cenário comum é selecionar os nomes de algumas entidades específicas com base num conjunto de critérios e, em seguida, filtrar um conjunto de dados diferente para baixo para esse conjunto de entidades. Por exemplo pode localizar os computadores que são conhecidos por ter atualizações em falta e identificar IPs que estes computadores destacados para:
 
 
-```OQL
+```KQL
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

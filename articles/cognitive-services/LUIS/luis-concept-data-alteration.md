@@ -1,5 +1,5 @@
 ---
-title: Conceitos de alteração de dados do LUIS - Lanuage compreensão
+title: Conceitos de alteração de dados do LUIS - compreensão de idiomas
 titleSuffix: Azure Cognitive Services
 description: Saiba como os dados podem ser alterados antes de previsões de indisponibilidade na compreensão de idiomas (LUIS)
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2949f7afa5d04d9f7ea738ad6f7b9333bfaf958f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f3caac697bad0bdb1401e85ac032fe167c25e112
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023022"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631264"
 ---
 # <a name="data-alterations"></a>Alterações de dados
-LUIS fornece maneiras de manipular a expressão antes ou durante a predição. 
+LUIS fornece maneiras de manipular a expressão antes ou durante a predição. Isso inclui a correção de ortografia e corrigir problemas de fuso horário para prebuild datetimeV2. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros ortográficos na expressão
 Utiliza o LUIS [Bing ortográfica verificar a API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corrigir erros ortográficos na expressão. LUIS tem a chave associada esse serviço. Criar a chave, em seguida, adicione a chave como um parâmetro de cadeia de consulta no [ponto final](https://aka.ms/luis-endpoint-apis). 
@@ -48,6 +48,9 @@ Quando [Bing ortográfica verificar a API V7](https://azure.microsoft.com/servic
 }
 ```
  
+### <a name="whitelist-words"></a>Palavras de lista de permissões
+A verificação de ortografia do Bing API utilizada no LUIS não suporta uma lista de permissões de palavras a ignorar durante a ortografia verificar as alterações. Se precisar de palavras de lista de permissões ou acrônimos, processe a expressão no aplicativo cliente com uma lista de permissões antes de enviar a expressão para o LUIS para predição de intenção.
+
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Altere o fuso horário da entidade de datetimeV2 pré-criados
 Quando uma aplicação do LUIS utiliza a entidade de datetimeV2 criados previamente, um valor de datetime pode ser devolvido na resposta da previsão. O fuso horário do pedido é utilizado para determinar a datetime correta para retornar. Se a solicitação é proveniente de um bot ou outra aplicação centralizada antes de aceder à LUIS, corrija o fuso horário que utiliza o LUIS. 
 

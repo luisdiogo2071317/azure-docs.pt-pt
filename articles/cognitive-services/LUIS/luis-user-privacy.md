@@ -1,20 +1,21 @@
 ---
-title: A exportação e eliminação de dados de cliente - LUIS - serviços cognitivos do Azure | | Documentos da Microsoft
-description: Referência para a exportação e eliminação de dados do cliente do serviço de compreensão de idiomas (LUIS).
+title: A exportação e eliminação de dados de cliente - compreensão de idiomas - LUIS
+titleSuffix: Azure Cognitive Services
+description: Language Understanding Intelligent Service (LUIS) preserva o conteúdo de cliente para operar o serviço, mas o utilizador de LUIS tem controlo total sobre a exibição, exportar e eliminar os seus dados. Isso pode ser feito através do portal de web do LUIS ou as APIs de programação do LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c6fba28ea3a4b24f02b62b6c3f124569378e5bc8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5b4b7a746a6a5f7e849777dedca9193455e1cc6c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130559"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630822"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e eliminar os dados dos clientes na compreensão de idiomas (LUIS) nos serviços cognitivos
 
