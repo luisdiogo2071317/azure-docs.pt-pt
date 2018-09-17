@@ -3,14 +3,14 @@
 
 # Descrição geral
 ## [Descrição Geral do Armazenamento do Data Lake Ger1](data-lake-store-overview.md)
-## [Comparar o Armazenamento do Data Lake Ger1 com o Armazenamento do Azure](data-lake-store-comparison-with-blob-storage.md)
-## [Armazenamento do Data Lake Ger1 para o processamento de macrodados](data-lake-store-data-scenarios.md)
-## [Abrir aplicações de origem que funcionem com o Armazenamento do Data Lake Ger1](data-lake-store-compatible-oss-other-applications.md)
+## [Comparar com o Armazenamento do Azure](data-lake-store-comparison-with-blob-storage.md)
+## [Processar macrodados](data-lake-store-data-scenarios.md)
+## [Trabalhar com aplicativos open source](data-lake-store-compatible-oss-other-applications.md)
 ## [Melhores práticas](data-lake-store-best-practices.md)
 
 # Introdução
-## [Utilizar o Portal](data-lake-store-get-started-portal.md)
-## [Utilizar o PowerShell](data-lake-store-get-started-powershell.md)
+## [Com o Portal do Azure](data-lake-store-get-started-portal.md)
+## [Utilizar o Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Utilizar a CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 
 

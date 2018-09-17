@@ -1,227 +1,234 @@
+items:
 - name: Documentação das Mensagens do Service Bus
   href: index.yml
 - name: Descrição geral
   items:
-    - name: O que são as Mensagens do Service Bus?
-      href: service-bus-messaging-overview.md
-    - name: Comparar serviços de mensagens
-      href: ../event-grid/compare-messaging-services.md
-      maintainContext: true
+  - name: O que são as Mensagens do Service Bus?
+    href: service-bus-messaging-overview.md
+  - name: Comparar serviços de mensagens
+    href: ../event-grid/compare-messaging-services.md
+    maintainContext: true
 - name: Inícios rápidos
   items:
-    - name: Enviar mensagens - PowerShell
+  - name: Filas do Service Bus
+    items:
+    - name: Enviar e receber mensagens – PowerShell
       href: service-bus-quickstart-powershell.md
-    - name: Enviar mensagens - Portal
+    - name: Enviar e receber mensagens – Portal
       href: service-bus-quickstart-portal.md
-    - name: Enviar mensagens - CLI
+    - name: Enviar e receber mensagens – CLI
       href: service-bus-quickstart-cli.md
+    - name: Enviar e receber mensagens – .NET
+      href: service-bus-dotnet-get-started-with-queues.md
+    - name: Enviar e receber mensagens – Java
+      href: service-bus-java-how-to-use-queues.md
+    - name: Enviar e receber mensagens – Node.js
+      href: service-bus-nodejs-how-to-use-queues.md
+    - name: Enviar e receber mensagens – PHP
+      href: service-bus-php-how-to-use-queues.md
+    - name: Enviar e receber mensagens – Python
+      href: service-bus-python-how-to-use-queues.md
+    - name: Enviar e receber mensagens – Ruby
+      href: service-bus-ruby-how-to-use-queues.md
+    - name: Enviar e receber mensagens – REST
+      href: /rest/api/servicebus/queues
+  - name: Tópicos e subscrições do Service Bus
+    items:
+    - name: Publicar e subscrever para mensagens – .NET
+      href: service-bus-dotnet-how-to-use-topics-subscriptions.md
+    - name: Publicar e subscrever para mensagens – Java
+      href: service-bus-java-how-to-use-topics-subscriptions.md
+    - name: Publicar e subscrever para mensagens – Node.js
+      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+    - name: Publicar e subscrever para mensagens – PHP
+      href: service-bus-php-how-to-use-topics-subscriptions.md
+    - name: Publicar e subscrever para mensagens – Python
+      href: service-bus-python-how-to-use-topics-subscriptions.md
+    - name: Publicar e subscrever para mensagens – Ruby
+      href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutoriais
   items:
-    - name: Atualizar inventário - PowerShell
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: Atualizar inventário - Portal
-      href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: Atualizar inventário - CLI
-      href: service-bus-tutorial-topics-subscriptions-cli.md
+  - name: Atualizar inventário - PowerShell
+    href: service-bus-tutorial-topics-subscriptions-powershell.md
+  - name: Atualizar inventário - Portal
+    href: service-bus-tutorial-topics-subscriptions-portal.md
+  - name: Atualizar inventário - CLI
+    href: service-bus-tutorial-topics-subscriptions-cli.md
 - name: Amostras
   items:
-    - name: Exemplos de Service Bus
-      href: service-bus-samples.md
+  - name: Exemplos de Service Bus
+    href: service-bus-samples.md
 - name: Conceitos
   items:
-    - name: Identidade de Serviço Gerida (pré-visualização)
-      href: service-bus-managed-service-identity.md
-    - name: Controlo de Acesso Baseado em Funções (pré-visualização)
-      href: service-bus-role-based-access-control.md
-    - name: Mensagens premium
-      href: service-bus-premium-messaging.md
-    - name: Comparar Filas do Azure e filas do Service Bus
-      href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: Otimizar o desempenho
-      href: service-bus-performance-improvements.md
-    - name: Recuperação após desastre geográfica e georreplicação
-      href: service-bus-geo-dr.md
-    - name: Mensagens assíncronas e elevada disponibilidade
-      href: service-bus-async-messaging.md
-    - name: Lidar com interrupções e desastres
-      href: service-bus-outages-disasters.md
+  - name: Identidade de Serviço Gerida (pré-visualização)
+    href: service-bus-managed-service-identity.md
+  - name: Controlo de Acesso Baseado em Funções (pré-visualização)
+    href: service-bus-role-based-access-control.md
+  - name: Mensagens premium
+    href: service-bus-premium-messaging.md
+  - name: Comparar Filas do Azure e filas do Service Bus
+    href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+  - name: Otimizar o desempenho
+    href: service-bus-performance-improvements.md
+  - name: Recuperação após desastre geográfica e georreplicação
+    href: service-bus-geo-dr.md
+  - name: Mensagens assíncronas e elevada disponibilidade
+    href: service-bus-async-messaging.md
+  - name: Lidar com interrupções e desastres
+    href: service-bus-outages-disasters.md
 - name: Guias de procedimentos
   items:
-    - name: Criar um espaço de nomes
-      href: service-bus-create-namespace-portal.md
-    - name: Utilizar as filas
+  - name: Criar um espaço de nomes
+    href: service-bus-create-namespace-portal.md
+  - name: Programar
+    items:
+    - name: Processamento de mensagens
       items:
-        - name: .NET
-          href: service-bus-dotnet-get-started-with-queues.md
-        - name: Java
-          href: service-bus-java-how-to-use-queues.md
-        - name: Node.js
-          href: service-bus-nodejs-how-to-use-queues.md
-        - name: PHP
-          href: service-bus-php-how-to-use-queues.md
-        - name: Python
-          href: service-bus-python-how-to-use-queues.md
-        - name: Ruby
-          href: service-bus-ruby-how-to-use-queues.md
-        - name: REST
-          href: /rest/api/servicebus/queues
-    - name: Utilizar tópicos e subscrições
+      - name: Filas, tópicos e subscrições
+        href: service-bus-queues-topics-subscriptions.md
+      - name: Mensagens, payloads e serialização
+        href: service-bus-messages-payloads.md
+      - name: Transferências de mensagens, bloqueios e acordo
+        href: message-transfers-locks-settlement.md
+      - name: Sequência de mensagens e carimbos de data/hora
+        href: message-sequencing.md
+      - name: Expiração de mensagem (TTL)
+        href: message-expiration.md
+      - name: Processamento de mensagens com o Azure Event Grid
+        href: service-bus-to-event-grid-integration-concept.md
+      - name: Exemplos do Azure Event Grid
+        href: service-bus-to-event-grid-integration-example.md
+    - name: Autenticação e autorização
+      href: service-bus-authentication-and-authorization.md
       items:
-        - name: .NET
-          href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-        - name: Java
-          href: service-bus-java-how-to-use-topics-subscriptions.md
-        - name: Node.js
-          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-        - name: PHP
-          href: service-bus-php-how-to-use-topics-subscriptions.md
-        - name: Python
-          href: service-bus-python-how-to-use-topics-subscriptions.md
-        - name: Ruby
-          href: service-bus-ruby-how-to-use-topics-subscriptions.md
-    - name: Programar
+      - name: Migrar do ACS para SAS
+        href: service-bus-migrate-acs-sas.md
+      - name: Autenticação com Assinaturas de Acesso Partilhado
+        href: service-bus-sas.md
+    - name: Filtros de tópico e ações
+      href: topic-filters.md
+    - name: Filas e tópicos particionados
+      href: service-bus-partitioning.md
+    - name: Sessões de mensagens
+      href: message-sessions.md
+    - name: AMQP
       items:
-        - name: Processamento de mensagens
-          items:
-            - name: 'Filas, tópicos e subscrições'
-              href: service-bus-queues-topics-subscriptions.md
-            - name: 'Mensagens, payloads e serialização'
-              href: service-bus-messages-payloads.md
-            - name: 'Transferências de mensagens, bloqueios e acordo'
-              href: message-transfers-locks-settlement.md
-            - name: Sequência de mensagens e carimbos de data/hora
-              href: message-sequencing.md
-            - name: Expiração de mensagem (TTL)
-              href: message-expiration.md
-            - name: Processamento de mensagens com o Azure Event Grid
-              href: service-bus-to-event-grid-integration-concept.md
-            - name: Exemplos do Azure Event Grid
-              href: service-bus-to-event-grid-integration-example.md
-        - name: Autenticação e autorização
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: Migrar do ACS para SAS
-              href: service-bus-migrate-acs-sas.md
-            - name: Autenticação com Assinaturas de Acesso Partilhado
-              href: service-bus-sas.md
-        - name: Filtros de tópico e ações
-          href: topic-filters.md
-        - name: Filas e tópicos particionados
-          href: service-bus-partitioning.md
-        - name: Sessões de mensagens
-          href: message-sessions.md
-        - name: AMQP
-          items:
-            - name: Descrição geral do AMQP
-              href: service-bus-amqp-overview.md
-            - name: .NET
-              href: service-bus-amqp-dotnet.md
-            - name: Java
-              href: service-bus-amqp-java.md
-            - name: Java Message Service e AMQP
-              href: service-bus-java-how-to-use-jms-api-amqp.md
-            - name: Guia do protocolo AMQP
-              href: service-bus-amqp-protocol-guide.md
-            - name: Operações de resposta baseada em pedidos AMQP
-              href: service-bus-amqp-request-response.md
-        - name: Funcionalidades avançadas
-          items:
-            - name: Filtros de ligação do IP
-              href: service-bus-ip-filtering.md
-            - name: Pontos finais de serviço de Rede Virtual
-              href: service-bus-service-endpoints.md
-            - name: Filas de mensagens não entregues
-              href: service-bus-dead-letter-queues.md
-            - name: Obtenção prévia de mensagens
-              href: service-bus-prefetch.md
-            - name: Deteção de mensagens duplicadas
-              href: duplicate-detection.md
-            - name: Contadores de mensagens
-              href: message-counters.md
-            - name: Diferimento de mensagens
-              href: message-deferral.md
-            - name: Navegação de mensagens
-              href: message-browsing.md
-            - name: Encadear entidades com o reencaminhamento automático
-              href: service-bus-auto-forwarding.md
-            - name: Processamento de transações
-              href: service-bus-transactions.md
-            - name: Implementação do espaço de nomes emparelhado
-              href: service-bus-paired-namespaces.md
-        - name: Rastreio e diagnóstico de ponto a ponto
-          href: service-bus-end-to-end-tracing.md
-        - name: Criar uma aplicação do Service Bus de multicamadas
-          href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-    - name: Gerir
+      - name: Descrição geral do AMQP
+        href: service-bus-amqp-overview.md
+      - name: .NET
+        href: service-bus-amqp-dotnet.md
+      - name: Java
+        href: service-bus-amqp-java.md
+      - name: Java Message Service e AMQP
+        href: service-bus-java-how-to-use-jms-api-amqp.md
+      - name: Guia do protocolo AMQP
+        href: service-bus-amqp-protocol-guide.md
+      - name: Operações de resposta baseada em pedidos AMQP
+        href: service-bus-amqp-request-response.md
+    - name: Funcionalidades avançadas
       items:
-        - name: Utilizar o Azure PowerShell para aprovisionar entidades
-          href: service-bus-manage-with-ps.md
-        - name: Monitorizar o Service Bus com o Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
-        - name: Bibliotecas de gestão do Service Bus
-          href: service-bus-management-libraries.md
-        - name: Registos de diagnósticos
-          href: service-bus-diagnostic-logs.md
-        - name: Suspender e reativar as entidades de mensagens
-          href: entity-suspend.md
-        - name: Use Azure Resource Manager templates (Utilizar modelos do Azure Resource Manager)
-          href: service-bus-resource-manager-overview.md
-          items:
-            - name: Criar um espaço de nomes
-              href: service-bus-resource-manager-namespace.md
-            - name: Criar um espaço de nomes e uma fila
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Criar um espaço de nomes com o tópico e uma subscrição
-              href: service-bus-resource-manager-namespace-topic.md
-            - name: Criar uma regra de autorização para o espaço de nomes e para a fila
-              href: service-bus-resource-manager-namespace-auth-rule.md
-            - name: 'Criar um espaço de nomes com o tópico, uma subscrição e regra'
-              href: service-bus-resource-manager-namespace-topic-with-rule.md
+      - name: Filtros de ligação do IP
+        href: service-bus-ip-filtering.md
+      - name: Pontos finais de serviço de Rede Virtual
+        href: service-bus-service-endpoints.md
+      - name: Filas de mensagens não entregues
+        href: service-bus-dead-letter-queues.md
+      - name: Obtenção prévia de mensagens
+        href: service-bus-prefetch.md
+      - name: Deteção de mensagens duplicadas
+        href: duplicate-detection.md
+      - name: Contadores de mensagens
+        href: message-counters.md
+      - name: Diferimento de mensagens
+        href: message-deferral.md
+      - name: Navegação de mensagens
+        href: message-browsing.md
+      - name: Encadear entidades com o reencaminhamento automático
+        href: service-bus-auto-forwarding.md
+      - name: Processamento de transações
+        href: service-bus-transactions.md
+      - name: Implementação do espaço de nomes emparelhado
+        href: service-bus-paired-namespaces.md
+    - name: Rastreio e diagnóstico de ponto a ponto
+      href: service-bus-end-to-end-tracing.md
+    - name: Criar uma aplicação do Service Bus de multicamadas
+      href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+  - name: Gerir
+    items:
+    - name: Utilizar o Azure PowerShell para aprovisionar entidades
+      href: service-bus-manage-with-ps.md
+    - name: Monitorizar o Service Bus com o Azure Monitor
+      href: service-bus-metrics-azure-monitor.md
+    - name: Bibliotecas de gestão do Service Bus
+      href: service-bus-management-libraries.md
+    - name: Registos de diagnósticos
+      href: service-bus-diagnostic-logs.md
+    - name: Suspender e reativar as entidades de mensagens
+      href: entity-suspend.md
+    - name: Use Azure Resource Manager templates (Utilizar modelos do Azure Resource Manager)
+      href: service-bus-resource-manager-overview.md
+      items:
+      - name: Criar um espaço de nomes
+        href: service-bus-resource-manager-namespace.md
+      - name: Criar um espaço de nomes e uma fila
+        href: service-bus-resource-manager-namespace-queue.md
+      - name: Criar um espaço de nomes com o tópico e uma subscrição
+        href: service-bus-resource-manager-namespace-topic.md
+      - name: Criar uma regra de autorização para o espaço de nomes e para a fila
+        href: service-bus-resource-manager-namespace-auth-rule.md
+      - name: Criar um espaço de nomes com o tópico, uma subscrição e regra
+        href: service-bus-resource-manager-namespace-topic-with-rule.md
 - name: Referência
   items:
-    - name: .NET
-      items:
-        - name: Microsoft.ServiceBus.Messaging (.NET Framework)
-          href: /dotnet/api/microsoft.servicebus.messaging
-        - name: Microsoft.Azure.ServiceBus (.NET Standard)
-          href: /dotnet/api/microsoft.azure.servicebus
-    - name: Java
-      href: /java/api/overview/azure/servicebus
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.servicebus
-    - name: REST
-      href: /rest/api/servicebus
-    - name: Exceções
-      href: service-bus-messaging-exceptions.md
-    - name: Quotas
-      href: service-bus-quotas.md
-    - name: Sintaxe de SQLFilter
-      href: service-bus-messaging-sql-filter.md
-    - name: Sintaxe de SQLRuleAction
-      href: service-bus-messaging-sql-rule-action.md
+  - name: .NET
+    items:
+    - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+      href: /dotnet/api/microsoft.servicebus.messaging
+    - name: Microsoft.Azure.ServiceBus (.NET Standard)
+      href: /dotnet/api/microsoft.azure.servicebus
+  - name: Java
+    href: /java/api/overview/azure/servicebus
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.servicebus
+  - name: REST
+    href: /rest/api/servicebus
+  - name: Exceções
+    href: service-bus-messaging-exceptions.md
+  - name: Quotas
+    href: service-bus-quotas.md
+  - name: Sintaxe de SQLFilter
+    href: service-bus-messaging-sql-filter.md
+  - name: Sintaxe de SQLRuleAction
+    href: service-bus-messaging-sql-rule-action.md
 - name: Recursos
   items:
-    - name: FAQ
-      href: service-bus-faq.md
-    - name: Mapa do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
-    - name: Blogue
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
-    - name: Fóruns do MSDN
-      href: 'https://social.msdn.microsoft.com/forums/home?forum=servbus'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
-    - name: Calculadora de preços
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Detalhes dos preços
-      href: service-bus-pricing-billing.md
-    - name: ServiceBus360
-      href: 'https://www.servicebus360.com/'
-    - name: Explorador do Service Bus
-      href: 'https://github.com/paolosalvatori/ServiceBusExplorer'
-    - name: Atualizações de serviço
-      href: 'https://azure.microsoft.com/updates/?product=service-bus'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azureservicebus'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-bus'
+  - name: FAQ
+    href: service-bus-faq.md
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: Blogue
+    href: https://blogs.msdn.microsoft.com/servicebus/
+  - name: Fóruns do MSDN
+    href: https://social.msdn.microsoft.com/forums/home?forum=servbus
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/service-bus/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Detalhes dos preços
+    href: service-bus-pricing-billing.md
+  - name: ServiceBus360
+    href: https://www.servicebus360.com/
+  - name: Explorador do Service Bus
+    href: https://github.com/paolosalvatori/ServiceBusExplorer
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=service-bus
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azureservicebus
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
+ms.openlocfilehash: 752834f195b3f98b4030aa1b17cb724eddbaab16
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574951"

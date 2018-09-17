@@ -54,6 +54,19 @@
 ## [Guia de implementação de SAP IDES em SAP CAL no Windows/SQL Server](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver nas VMs de Linux do Azure](suse-quickstart.md)
 ## [Planear e implementar o SAP NetWeaver no Azure](planning-guide.md)
+## [Guia de implementação do SAP NetWeaver](deployment-guide.md)
+## [Conector de SAP LaMa para o Azure](lama-installation.md)
+## Guias de implementação do DBMS para a carga de trabalho SAP
+### [Implementação geral do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md)
+### [Implementação em SQL Server do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sqlserver.md)
+### [Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_oracle.md)
+### [Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_ibm.md)
+### [Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sapase.md)
+### [Implementação do SAP MaxDB, liveCache e Servidor de Conteúdos no Azure](dbms_guide_maxdb.md)
+### Disponibilidade do SAP HANA nas Máquinas Virtuais do Azure
+### [SAP HANA na descrição geral da Disponibilidade do Azure](sap-hana-availability-overview.md)
+### [SAP HANA na descrição geral da Disponibilidade do Azure numa região do Azure](sap-hana-availability-one-region.md)
+### [SAP HANA na descrição geral da Disponibilidade do Azure pelas regiões do Azure](sap-hana-availability-across-regions.md)
 ## Elevada Disponibilidade (HA) no Windows e Linux
 ### [Descrição geral](sap-high-availability-guide-start.md)
 ### Arquitetura de Elevada Disponibilidade
@@ -74,21 +87,7 @@
 ### Múltiplos SID SAP
 #### [Windows com Disco Partilhado para a Instância (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Guia de implementação do SAP NetWeaver](deployment-guide.md)
-## Guias de implementação do DBMS para a carga de trabalho SAP
-### [Implementação geral do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md)
-### [Implementação em SQL Server do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sqlserver.md)
-### [Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_oracle.md)
-### [Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_ibm.md)
-### [Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sapase.md)
-### [Implementação do SAP MaxDB, liveCache e Servidor de Conteúdos no Azure](dbms_guide_maxdb.md)
-### [Manual de operações do SAP HANA no Azure](hana-vm-operations.md)
-#### Disponibilidade do SAP HANA nas Máquinas Virtuais do Azure
-##### [SAP HANA na descrição geral da Disponibilidade do Azure](sap-hana-availability-overview.md)
-##### [SAP HANA na descrição geral da Disponibilidade do Azure numa região do Azure](sap-hana-availability-one-region.md)
-##### [SAP HANA na descrição geral da Disponibilidade do Azure pelas regiões do Azure](sap-hana-availability-across-regions.md)
-## [Azure Site Recovery para Recuperação após Desastre do SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
-## [Conector de SAP LaMa para o Azure](lama-installation.md)
+##  [Azure Site Recovery para Recuperação após Desastre do SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # Integração de Identidade do AAD SAP e Início de Sessão único
 ## [Integração com o SAP Cloud](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integração do AAD com a Autenticação de Identidade da Plataforma Cloud do SAP](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
@@ -97,5 +96,10 @@
 ## [Integração do AAD com o SAP Business ByDesign](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integração do AAD com o SAP HANA DBMS](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[Início de Sessão Único SAML do SAP Fiori Launchpad com o Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
+# Integração de Serviços do Azure ao SAP
+## [Utilizar o SAP HANA no Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-hana)
+## [DirectQuery e SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)
+## [Utilizar o conector SAP BW no Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector)
+## [O Azure Data Factory oferece integração de dados do SAP HANA e Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Recursos
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/)

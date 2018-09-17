@@ -83,6 +83,7 @@
 
 ## [Gerir grupos e membros](fundamentals/active-directory-manage-groups.md)
 ### [Gerir grupos](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Eliminar um grupo e seus membros](fundamentals/active-directory-groups-delete-group.md)
 ### [Gerir definições do grupo](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Gerir relatórios](reports-monitoring/overview-reports.md)
 ### [Atividade de inícios de sessão](reports-monitoring/concept-sign-ins.md)
@@ -346,6 +347,7 @@
 #### [Experiência de início de sessão](identity-protection/flows.md)
 #### [Simular eventos de risco](identity-protection/playbook.md)
 #### [Desbloquear utilizadores](identity-protection/howto-unblock-user.md)
+#### [Bloquear o acesso quando é detetado um risco de sessão](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [FAQs](identity-protection/faqs.md)
 #### [Glossário](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
