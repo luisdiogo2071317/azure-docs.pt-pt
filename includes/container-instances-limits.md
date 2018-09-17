@@ -1,13 +1,13 @@
 | Recurso | Limite Predefinido |
 | --- | :--- |
-| Grupos de contentores por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) | 20<sup>1</sup> |
+| Grupos de contentores por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Número de contentores por grupo de contentores | 60 |
 | Número de volumes por grupo de contentores | 20 |
 | Portas por IP | 5 |
-| Contentor cria por hora |60<sup>1</sup> |
-| Contentor cria por 5 minutos | 20<sup>1</sup> |
-| Contentor elimina por hora | 150<sup>1</sup> |
-| Contentor elimina por 5 minutos | 50<sup>1</sup> |
+| Contentor cria por hora |300<sup>1</sup> |
+| Contentor cria por 5 minutos | 100<sup>1</sup> |
+| Contentor elimina por hora | 300<sup>1</sup> |
+| Contentor elimina por 5 minutos | 100<sup>1</sup> |
 | Vários contentores por grupo de contentores | Apenas Linux<sup>2</sup> |
 | Volumes dos Ficheiros do Azure | Apenas Linux<sup>2</sup> |
 | Volumes do GitRepo | Apenas Linux<sup>2</sup> |

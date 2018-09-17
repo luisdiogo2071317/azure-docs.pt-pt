@@ -1,6 +1,6 @@
 ---
-title: Configurar a replicação do sistema do SAP HANA em máquinas virtuais do Azure (VMs) | Documentos da Microsoft
-description: Estabelece uma elevada disponibilidade do SAP HANA em máquinas virtuais do Azure (VMs).
+title: Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server | Documentos da Microsoft
+description: Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060265"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634528"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Elevada disponibilidade do SAP HANA em máquinas virtuais do Azure
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -110,7 +110,7 @@ Para implementar o modelo, siga estes passos:
     - **Disponibilidade do sistema**: selecione **HA**.
     - **Nome de utilizador administrador e a palavra-passe de administrador**: um novo utilizador é criado que pode ser utilizado para iniciar sessão máquina.
     - **Novo ou existente na sub-rede**: determina se devem ser criadas uma nova rede virtual e uma sub-rede ou uma sub-rede existente utilizado. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
-    - **ID de sub-rede**: O ID de sub-rede à qual as máquinas virtuais devem estar ligadas. Para ligar a máquina virtual à sua rede no local, selecione a sub-rede da rede virtual VPN ou Azure ExpressRoute. O ID, normalmente, é semelhante **/subscriptions/\<ID da subscrição > /resourceGroups/\<nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual > /subnets/ \<nome da sub-rede >**.
+    - **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID, normalmente, é semelhante **/subscriptions/\<ID da subscrição > /resourceGroups/\<nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual > /subnets/ \<nome da sub-rede >**.
 
 ### <a name="manual-deployment"></a>Implementação manual
 
@@ -969,7 +969,7 @@ Nota: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker detectará a instância HANA parada e marcar o recurso como falhado no nó hn1-db-1. Execute o seguinte comando para limpar o estado de falha. Pacemaker automaticamente deve, em seguida, reinicie a instância do HANA.
+   Pacemaker detectará a instância HANA parada e marcar o recurso como falhado no nó hn1-db-1. Pacemaker automaticamente deve reiniciar a instância do HANA. Execute o seguinte comando para limpar o estado de falha.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
