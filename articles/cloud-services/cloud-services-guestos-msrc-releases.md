@@ -3,8 +3,7 @@ title: Lista de atualizações aplicadas ao SO convidado do Azure | Documentos d
 description: A lista de atualizações aplicadas a versões de SO convidado
 services: cloud-services
 documentationcenter: na
-author: RichardScheel
-manager: timlt
+author: raiye
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/12/2018
-ms.author: RichardScheel
-ms.openlocfilehash: 4ef49fe978db5c9b04bf9c8271e192fa60433d4b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.date: 9/13/2018
+ms.author: raiye
+ms.openlocfilehash: c0eff5054b186ebc701e88d793992c8729408b7d
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722304"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45606002"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.

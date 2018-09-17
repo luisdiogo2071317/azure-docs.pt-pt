@@ -3,8 +3,7 @@ title: Saiba mais sobre as mais recentes versões do SO de convidado do Azure | 
 description: As últimas notícias de lançamento e a compatibilidade SDK para o SO convidado do Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
-author: RichardScheel
-manager: timlt
+author: raiye
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/12/2018
-ms.author: RichardScheel
-ms.openlocfilehash: 8d49742e90e09a8836309db165b07074645df00a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 9/13/2018
+ms.author: raiye
+ms.openlocfilehash: 239482151384ff555d86e3d639bfe1d75b0d0ceb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576175"
+ms.locfileid: "45604897"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
