@@ -323,34 +323,8 @@
 
 ### [Configurar durações de token](active-directory-configurable-token-lifetimes.md)
 
-## Revisões de acesso
-### [Descrição geral da revisão de acesso](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Concluir uma revisão de acesso](active-directory-azure-ad-controls-complete-access-review.md)
-### [Criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md)
-### [Como realizar uma revisão de acesso](active-directory-azure-ad-controls-perform-access-review.md)
-### [Como rever o seu acesso](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Acesso de convidado com revisões de acesso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Gerir o acesso dos utilizadores com revisões](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Gerir programas e controlos](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Obter resultados da revisão do acesso](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Termos de utilização](active-directory-tou.md)
-
 ## Proteger as suas identidades
 
-### Azure AD Identity Protection
-#### [Descrição geral](identity-protection/overview.md)
-#### [Ativar](identity-protection/enable.md)
-#### [Detetar vulnerabilidades](identity-protection/vulnerabilities.md)
-#### [Eventos de risco](active-directory-identity-protection-risk-events.md)
-#### [Notificações](identity-protection/notifications.md)
-#### [Experiência de início de sessão](identity-protection/flows.md)
-#### [Simular eventos de risco](identity-protection/playbook.md)
-#### [Desbloquear utilizadores](identity-protection/howto-unblock-user.md)
-#### [Bloquear o acesso quando é detetado um risco de sessão](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [FAQs](identity-protection/faqs.md)
-#### [Glossário](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Implementar os AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
