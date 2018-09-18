@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348281"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734703"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption 
  Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que precisam de estar em vigor antes de poder utilizar o Azure Disk Encryption. O Azure Disk Encryption está integrado [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ajudar a gerir as chaves de encriptação. Pode usar [do Azure PowerShell](/powershell/azure/overview), [CLI do Azure](/cli/azure/), ou o [portal do Azure](https://portal.azure.com) para configurar a encriptação de disco do Azure.
@@ -127,6 +127,9 @@ Se já estiver familiarizado com os pré-requisitos do Key Vault e o Azure AD pa
 1. Se necessário, crie um grupo de recursos.
 2. Criar um cofre de chaves. 
 3. Cofre de chaves conjunto avançado de políticas de acesso.
+
+>[!WARNING]
+>Antes de eliminar um cofre de chaves, certifique-se de que não a criptografar todas as VMs existentes com o mesmo. Para proteger um cofre de eliminação acidental, [ativar a eliminação de forma recuperável](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) e uma [bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md) no cofre. 
  
 ## <a name="bkmk_KeyVault"></a> Criar um cofre de chaves 
 O Azure Disk Encryption está integrado [do Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para o ajudar a controlar e gerir as chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves. Pode criar um cofre de chaves ou utilize um já existente para a encriptação de disco do Azure. Para obter mais informações sobre os cofres de chaves, consulte [introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md) e [proteger o seu Cofre de chave](../key-vault/key-vault-secure-your-key-vault.md). Pode utilizar um modelo do Resource Manager, o Azure PowerShell ou a CLI do Azure para criar um cofre de chaves. 

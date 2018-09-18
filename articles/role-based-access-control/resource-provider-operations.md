@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc362dba62e8fd41b33e10368483577d8166f300
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ef50e1a027c0109b4e076e5f1dbbb1ba4ce2950
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722338"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737503"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -34,6 +34,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.AAD/domainServices/delete | Eliminar o serviço de domínio |
+> | Ação | Microsoft.AAD/domainServices/oucontainer/delete | Eliminar o contentor de UO |
+> | Ação | Microsoft.AAD/domainServices/oucontainer/read | Leu os contentores de UO |
+> | Ação | Microsoft.AAD/domainServices/oucontainer/write | Escrever o contentor de UO |
 > | Ação | Microsoft.AAD/domainServices/read | Serviços de domínio de leitura |
 > | Ação | Microsoft.AAD/domainServices/write | Escrever o serviço de domínio |
 > | Ação | Microsoft.AAD/locations/operationresults/read |  |
@@ -699,7 +702,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Cache/redis/patchSchedules/read | Obtém a agenda de correções de uma Cache de Redis |
 > | Ação | Microsoft.Cache/redis/patchSchedules/write | Modificar a agenda de correções de uma Cache de Redis |
 > | Ação | Microsoft.Cache/redis/read | Ver as definições e a configuração da Cache de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/recommendations/read | Leia as recomendações de Cache de Redis do Azure |
 > | Ação | Microsoft.Cache/redis/regenerateKey/action | Alterar o valor das chaves de acesso da Cache de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/start/action | Iniciar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/start/action | Iniciar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/stop/action | Parar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/write | Modificar as definições e a configuração da Cache de Redis no portal de gestão |
@@ -825,8 +830,12 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ClassicCompute/domainNames/capabilities/read | Mostra as funções de nome de domínio |
 > | Ação | Microsoft.ClassicCompute/domainNames/delete | Remove os nomes de domínio dos recursos. |
 > | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/read | Mostra os blocos de implementação. |
+> | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | Obter função no bloco de implementação de nome de domínio |
+> | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | Obter instância de função para a função no bloco de implementação de nome de domínio |
 > | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | Obter o estado do bloco de implementação. |
 > | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | Adicionar o estado do bloco de implementação. |
+> | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | Obter o domínio de atualização para o bloco de implementação no nome de domínio |
+> | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | Atualizar o domínio de atualização para o bloco de implementação no nome de domínio |
 > | Ação | Microsoft.ClassicCompute/domainNames/deploymentslots/write | Cria ou atualiza a implementação. |
 > | Ação | Microsoft.ClassicCompute/domainNames/extensions/delete | Remova as extensões do nome de domínio. |
 > | Ação | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | Lê o estado da operação das extensões de nomes de domínio. |
@@ -1173,6 +1182,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Obtém o histórico de atualizações do SO de um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Executa a manutenção planeada nas instâncias do Conjunto de Dimensionamento de Máquina Virtual |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Desliga as instâncias do Conjunto de Dimensionamento da Máquina Virtual |
+> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico para o Conjunto de Dimensionamento de Máquinas Virtuais. |
+> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o Conjunto de Dimensionamento de Máquinas Virtuais. |
+> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para Conjuntos de Dimensionamento de Máquinas Virtuais. |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Lê as Definições de Métricas do Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Obter as propriedade de todos os endereços IP públicos de um Conjunto de Dimensionamento de Máquina Virtual |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/read | Obter as propriedades de um Conjunto de Dimensionamento da Máquina Virtual |
@@ -2164,6 +2176,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Insights/AlertRules/Throttled/Action | Regra de alerta de métrica clássica limitada |
 > | Ação | Microsoft.Insights/AlertRules/Write | Criar ou atualizar um alerta de métrica clássico |
 > | Ação | Microsoft.Insights/AutoscaleSettings/Delete | Eliminar uma definição de dimensionamento automático |
+> | Ação | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Ler uma definição de diagnóstico de recursos |
+> | Ação | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | Criar ou atualizar uma definição de diagnóstico de recurso |
+> | Ação | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Ler definições de registo |
 > | Ação | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Ler definições de métricas |
 > | Ação | Microsoft.Insights/AutoscaleSettings/Read | Ler uma definição de dimensionamento automático |
 > | Ação | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Redução do Dimensionamento Automático iniciada |
@@ -2257,7 +2272,6 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Insights/Logs/ContainerInventory/Read | Ler dados da tabela ContainerInventory |
 > | Ação | Microsoft.Insights/Logs/ContainerLog/Read | Ler dados da tabela ContainerLog |
 > | Ação | Microsoft.Insights/Logs/ContainerServiceLog/Read | Ler dados da tabela ContainerServiceLog |
-> | Ação | Microsoft.Insights/Logs/CustomLogs/Read | A ler dados de registos personalizados |
 > | Ação | Microsoft.Insights/Logs/DeviceAppCrash/Read | Ler dados da tabela DeviceAppCrash |
 > | Ação | Microsoft.Insights/Logs/DeviceAppLaunch/Read | Ler dados da tabela DeviceAppLaunch |
 > | Ação | Microsoft.Insights/Logs/DeviceCalendar/Read | Ler dados da tabela DeviceCalendar |
@@ -2418,30 +2432,30 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.KeyVault/checkNameAvailability/read | Verifica se um nome de Cofre de chaves é válido e não está em utilização |
-> | Ação | Microsoft.KeyVault/deletedVaults/read | Ver as propriedades de forma recuperável cofres de chaves eliminados |
+> | Ação | Microsoft.KeyVault/checkNameAvailability/read | Verifica se um nome de cofre de chaves é válido e se não está em utilização |
+> | Ação | Microsoft.KeyVault/deletedVaults/read | Visualizar as propriedades dos cofres de chaves eliminados de forma recuperável |
 > | Ação | Microsoft.KeyVault/hsmPools/delete | Eliminar um conjunto de HSM |
-> | Ação | Microsoft.KeyVault/hsmPools/joinVault/action | Junte-se a um cofre de chaves para um conjunto de HSM |
-> | Ação | Microsoft.KeyVault/hsmPools/read | Ver as propriedades de um conjunto de HSM |
-> | Ação | Microsoft.KeyVault/hsmPools/write | Criar um novo conjunto HSM de atualização as propriedades de um conjunto HSM existente |
-> | Ação | Microsoft.KeyVault/locations/deletedVaults/purge/action | Remover um cofre de chaves eliminado forma recuperável |
-> | Ação | Microsoft.KeyVault/locations/deletedVaults/read | Ver as propriedades de um cofre de chaves eliminado forma recuperável |
-> | Ação | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Notifica o Microsoft. keyvault de que uma rede virtual ou sub-rede está a ser eliminada |
+> | Ação | Microsoft.KeyVault/hsmPools/joinVault/action | Associar um cofre de chaves a um conjunto de HSM |
+> | Ação | Microsoft.KeyVault/hsmPools/read | Visualizar as propriedades de um conjunto HSM |
+> | Ação | Microsoft.KeyVault/hsmPools/write | Criar um novo conjunto de HSM de atualização das propriedades de um conjunto de HSM existente |
+> | Ação | Microsoft.KeyVault/locations/deletedVaults/purge/action | Remover um cofre de chaves eliminado de forma recuperável |
+> | Ação | Microsoft.KeyVault/locations/deletedVaults/read | Visualizar as propriedades de um cofre de chaves eliminado de forma recuperável |
+> | Ação | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Notifica o Microsoft.KeyVault de que uma rede virtual ou sub-rede está a ser eliminada |
 > | Ação | Microsoft.KeyVault/locations/operationResults/read | Verificar o resultado de uma operação de execução longa |
-> | Ação | Microsoft.KeyVault/operations/read | Lista as operações disponíveis no fornecedor de recursos Microsoft. keyvault |
+> | Ação | Microsoft.KeyVault/operations/read | Lista as operações disponíveis no fornecedor de recursos Microsoft.KeyVault |
 > | Ação | Microsoft.KeyVault/register/action | Regista uma subscrição |
-> | Ação | Microsoft.KeyVault/unregister/action | Anula o registo de uma subscrição |
-> | Ação | Microsoft.KeyVault/vaults/accessPolicies/write | Atualizar uma política de acesso existente através da intercalação ou substituição ou adicionar uma nova política de acesso para um cofre. |
+> | Ação | Microsoft.KeyVault/unregister/action | Cancela o registo de uma subscrição |
+> | Ação | Microsoft.KeyVault/vaults/accessPolicies/write | Atualize uma política de acesso existente através da intercalação ou substituição, ou adicione uma nova política de acesso ao cofre. |
 > | Ação | Microsoft.KeyVault/vaults/delete | Eliminar um cofre de chaves |
-> | Ação | Microsoft.KeyVault/vaults/deploy/action | Permite o acesso a segredos num cofre de chaves durante a implantação de recursos do Azure |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Obtém a definição de diagnóstico para o recurso |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Cria ou atualiza a definição de diagnóstico para o recurso |
+> | Ação | Microsoft.KeyVault/vaults/deploy/action | Permite o acesso a segredos num cofre de chaves ao implementar os recursos do Azure |
+> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Obtém a definição de diagnóstico do recurso |
+> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Cria ou atualiza a definição do diagnóstico para o recurso |
 > | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para um cofre de chaves |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para um cofre de chaves |
+> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis de um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/read | Ver as propriedades de um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/secrets/read | Ver as propriedades de um segredo, mas não o seu valor |
-> | Ação | Microsoft.KeyVault/vaults/secrets/write | Criar um novo segredo ou Atualize o valor de um segredo existente |
-> | Ação | Microsoft.KeyVault/vaults/write | Criar um novo cofre de chaves ou atualizar as propriedades do Cofre de chaves existente |
+> | Ação | Microsoft.KeyVault/vaults/secrets/write | Crie um novo segredo ou atualize o valor de um segredo existente |
+> | Ação | Microsoft.KeyVault/vaults/write | Criar um novo cofre de chaves ou atualizar as propriedades de um cofre de chaves existente |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -2456,7 +2470,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Kusto/Clusters/Databases/write | Escreve um recurso de base de dados. |
 > | Ação | Microsoft.Kusto/Clusters/delete | Elimina um recurso de cluster. |
 > | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtém as definições de diagnóstico para o recurso |
-> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
+> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
 > | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Obtém as definições de métrica do recurso |
 > | Ação | Microsoft.Kusto/Clusters/read | Lê um recurso de cluster. |
 > | Ação | Microsoft.Kusto/Clusters/write | Escreve um recurso de cluster. |
@@ -2496,9 +2510,6 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.LabServices/labAccounts/labs/users/write | Adiciona ou modifica os utilizadores. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/write | Adicionar ou modificar laboratórios. |
 > | Ação | Microsoft.LabServices/labAccounts/read | Leia as contas de laboratório. |
-> | Ação | Microsoft.LabServices/labAccounts/sizes/GetRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho configurada com uma conta de laboratório |
-> | Ação | Microsoft.LabServices/labAccounts/sizes/read | Tamanhos de leitura. |
-> | Ação | Microsoft.LabServices/labAccounts/sizes/ResetOverrides/action | Repõe a configuração de tamanho desta conta de laboratório predefinições |
 > | Ação | Microsoft.LabServices/labAccounts/write | Adiciona ou modifica contas de laboratório. |
 > | Ação | Microsoft.LabServices/locations/operations/read | Operações de leitura. |
 > | Ação | Microsoft.LabServices/register/action | Regista a subscrição |
@@ -3742,6 +3753,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Ler dados da tabela OutboundConnection |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/Perf/read | Ler dados da tabela de Desempenho |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Ler dados da tabela ProtectionStatus |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas através dos dados na área de trabalho |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | Ler dados da tabela ReservedAzureCommonFields |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | Ler dados da tabela ReservedCommonFields |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Ler dados da tabela SCCMAssessmentRecommendation |
@@ -4280,11 +4292,6 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ServiceBus/namespaces/messagingPlan/read | Obtém o plano de mensagens para um espaço de nomes.<br>Esta API foi preterida.<br>As propriedades expostas por intermédio do recurso MessagingPlan são movidas para o recurso de espaço de nomes em versões de API posteriores do (principal)....<br>Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.ServiceBus/namespaces/messagingPlan/write | Atualiza o plano de mensagens para um espaço de nomes.<br>Esta API foi preterida.<br>As propriedades expostas por intermédio do recurso MessagingPlan são movidas para o recurso de espaço de nomes em versões de API posteriores do (principal)....<br>Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.ServiceBus/namespaces/migrate/action | Migrar operação de espaço de nomes |
-> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/delete | Elimina a configuração da Migração. |
-> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/read | Obtém a configuração da Migração, o que indica o estado da migração e as operações de replicação pendentes |
-> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/revert/action | Reverte a migração do espaço de nomes padrão para o premium |
-> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/upgrade/action | Atribui o DNS que está associado ao espaço de nomes padrão ao espaço de nomes premium, o que conclui a migração e para a sincronização de recursos do espaço de nomes padrão para o premium |
-> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/write | Cria ou de configuração de migração de atualizações. Esta ação iniciará a sincronização de recursos do padrão para o espaço de nomes premium |
 > | Ação | Microsoft.ServiceBus/namespaces/operationresults/read | Obter o estado da operação de Espaço de nomes |
 > | Ação | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obter lista de descrições de recursos do espaço de nomes das definições de diagnóstico |
 > | Ação | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obter lista de descrições de recursos do espaço de nomes das definições de diagnóstico |
@@ -4455,7 +4462,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/managedInstances/delete | Elimina uma instância gerida existente. |
 > | Ação | Microsoft.Sql/managedInstances/encryptionProtector/read | Devolve uma lista de protetores de encriptação do servidor ou obtém as propriedades para o servidor especificado protetor de encriptação. |
 > | Ação | Microsoft.Sql/managedInstances/encryptionProtector/write | Atualize as propriedades para o Protetor de encriptação de servidor especificado. |
-> | Ação | Microsoft.Sql/managedInstances/keys/delete | Elimina uma chave de instância gerida da base de dados SQL do Azure existente. |
+> | Ação | Microsoft.Sql/managedInstances/keys/delete | Elimina uma chave de instância gerida do SQL do Azure existente. |
 > | Ação | Microsoft.Sql/managedInstances/keys/read | Devolve a lista de instância gerida de chaves ou obtém as propriedades da chave de instância gerida especificada. |
 > | Ação | Microsoft.Sql/managedInstances/keys/write | Cria uma chave com os parâmetros especificados ou atualiza as propriedades ou etiquetas para a chave de instância gerida especificada. |
 > | Ação | Microsoft.Sql/managedInstances/metricDefinitions/read | Obter definições das métricas de instância gerida |
@@ -4712,7 +4719,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devolve um contentor ou uma lista de contentores |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action | Definir o arquivo legal do contentor de blobs |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/write | Devolve o resultado do contentor de blobs colocados ou de concessão |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Devolve uma chave de delegação de utilizadores para o serviço de blob |
+> | Ação | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Devolve uma chave de delegação de utilizadores para o serviço de blob |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição do diagnóstico para o recurso. |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso. |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/logDefinitions/read | Obtém a definição de registo para o Blob |
@@ -4724,7 +4731,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso. |
 > | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Obtém a definição de registo para o Ficheiro |
 > | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Obter a lista de definições das Métricas de Armazenamento Microsoft. |
-> | Ação | Microsoft.Storage/storageAccounts/lastsynctime/read |  |
+> | Ação | Microsoft.Storage/storageAccounts/lastsynctime/read | Devolve última hora de sincronização da conta de armazenamento |
 > | Ação | Microsoft.Storage/storageAccounts/listAccountSas/action | Devolve o token de SAS de Conta para a conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/storageAccounts/listkeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/storageAccounts/listServiceSas/action | Devolve o token de SAS de Serviço para a conta de armazenamento especificada. |
