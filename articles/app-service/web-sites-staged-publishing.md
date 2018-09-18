@@ -1,6 +1,6 @@
 ---
-title: Configurar ambientes para web apps no App Service do Azure de teste | Microsoft Docs
-description: Saiba como utilizar a publicação de teste para web apps no App Service do Azure.
+title: Configurar ambientes de teste para aplicações web no App Service do Azure | Documentos da Microsoft
+description: Saiba como utilizar a publicação faseada para web apps no App Service do Azure.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -15,182 +15,184 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ecd58779262f6580287e6c72d3aa2aecf237a562
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764711"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983114"
 ---
-# <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes no App Service do Azure de teste
+# <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
 
-Ao implementar a aplicação web, a aplicação web no Linux, back-end móvel e aplicação de API para [do serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), pode implementar para uma ranhura de implementação separadas em vez da ranhura de produção predefinido ao executar o **padrão** ou **Premium** escalão do plano de serviço de aplicações. As ranhuras de implementação são aplicações realmente em direto com os seus próprios nomes de anfitrião. Elementos de conteúdo e as configurações de aplicação podem ser trocados entre duas ranhuras de implementação, incluindo a ranhura de produção. Implementar a aplicação para uma ranhura de implementação tem as seguintes vantagens:
+Ao implementar a aplicação web, aplicação web no Linux, back-end móvel e aplicação de API para [serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), pode implementar num bloco de implementação separados em vez do bloco de produção predefinido ao executar o **padrão** ou **Premium** escalão do plano de serviço de aplicações. Blocos de implementação são aplicações, na verdade, em direto com os seus próprios nomes de anfitrião. Elementos de conteúdo e de configuração da aplicação podem ser trocados entre duas ranhuras de implementação, incluindo o bloco de produção. Implementar a aplicação para um bloco de implementação tem as seguintes vantagens:
 
-* Pode validar alterações de aplicações numa ranhura de implementação de teste antes de troca-lo com a ranhura de produção.
-* Implementar uma aplicação para uma ranhura pela primeira vez e trocar-o em produção assegura que todas as instâncias da ranhura são preparadas antes de a ser alternados em produção. Isto elimina o período de indisponibilidade quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado e não existem pedidos são ignorados devido a operações de comutação. Este fluxo de trabalho completo pode ser automatizado configurando [automática comutação](#Auto-Swap) quando a validação de pré-troca de não é necessária.
-* Depois de uma troca a ranhura de aplicação previamente testada tem agora a aplicação de produção anterior. Se as alterações alternadas para a ranhura de produção não tem o aspeto esperado, pode efetuar a troca mesma imediatamente para obter o seu "último boa site conhecido" novamente.
+* Pode validar alterações da aplicação num bloco de implementação de teste antes de a colocar com o bloco de produção.
+* Implementar uma aplicação para um bloco de primeiro e colocar em produção assegura que todas as instâncias do slot são preparadas antes de serem colocadas em produção. Esta ação elimina o tempo de inatividade, quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado, e não existem pedidos são ignorados como resultado de operações de troca. Este fluxo de trabalho completo pode ser automatizado através da configuração [comutação automática](#Auto-Swap) quando a validação de pré-troca de não é necessária.
+* Após uma alternância de, a ranhura com a aplicação anteriormente faseada tem agora a aplicação de produção anterior. Se as alterações colocadas em bloco de produção não conforme esperado, pode executar a mesma troca imediatamente para obter sua "última boa site conhecido" novamente.
 
-Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Ao dimensionar a sua aplicação a uma camada diferente, a camada de destino tem de suportar o número de ranhuras que já utiliza a sua aplicação. Por exemplo, se a aplicação tiver mais de 5 ranhuras, não pode dimensionar para baixo para **padrão** camada, porque **padrão** camada só suporta 5 ranhuras de implementação.
+Cada escalão de plano de serviço de aplicações suporta um número diferente de blocos de implementação. Para obter informações sobre o número de ranhuras suporta a camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Para dimensionar a sua aplicação para um escalão diferente, a camada de destino tem de suportar o número de ranhuras a que sua aplicação já utiliza. Por exemplo, se a sua aplicação tiver mais de 5 ranhuras, não é possível dimensionar até **padrão** tier, porque **padrão** escalão suporta apenas 5 blocos de implementação.
 
 <a name="Add"></a>
 
-## <a name="add-a-deployment-slot"></a>Adicionar uma ranhura de implementação
-A aplicação deve estar em execução a **padrão** ou **Premium** camada por ordem para que possa ativar várias ranhuras de implementação.
+## <a name="add-a-deployment-slot"></a>Adicionar um bloco de implementação
+A aplicação tem de executar o **padrão** ou **Premium** escalão para que a ativação de vários blocos de implementação.
 
-1. No [Portal do Azure](https://portal.azure.com/), abra a aplicação [painel de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Escolha o **ranhuras de implementação** opção, em seguida, clique em **adicionar ranhura**.
+1. Na [Portal do Azure](https://portal.azure.com/), abra a sua aplicação [painel de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
+2. Escolha o **blocos de implementação** opção, em seguida, clique em **adicionar ranhura**.
    
-    ![Adicionar uma nova ranhura de implementação][QGAddNewDeploymentSlot]
+    ![Adicionar um novo bloco de implementação][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Se a aplicação já está a não ser o **padrão** ou **Premium** camada, receberá uma mensagem a indicar os escalões suportados para ativar a publicação de teste. Neste momento, tem a opção para selecionar **atualizar** e navegue para o **escala** separador da sua aplicação antes de continuar.
+   > Se a aplicação já não está no **padrão** ou **Premium** camada, receberá uma mensagem a indicar as camadas de suporte para ativar a publicação faseada. Neste ponto, tem a opção de selecionar **atualizar** e navegue para o **dimensionamento** separador da sua aplicação antes de continuar.
    > 
    > 
-3. No **adicionar uma ranhura** painel, atribua a ranhura de um nome e optar por clonar a configuração de aplicação a partir de outro bloco de implementação existente. Clique na marca de verificação para continuar.
+3. Na **adicionar uma ranhura** painel, dê um nome de ranhura de e selecione se pretende clonar a configuração de aplicações do outro bloco de implementação existente. Clique na marca de verificação para continuar.
    
     ![Origem da Configuração][ConfigurationSource1]
    
-    Adicionar uma ranhura de pela primeira vez, só tem duas opções: configuração de clone da ranhura de predefinição na produção ou não de todo.
-    Depois de criar várias ranhuras, será possível clonar a configuração a partir de uma ranhura diferente em produção:
+    Na primeira vez, adicionar uma ranhura, só tem duas opções: configuração de clone da ranhura padrão na produção ou nada.
+    Depois de criar várias ranhuras, poderá clonar a configuração a partir de uma ranhura diferente em produção:
    
     ![Origens de configuração][MultipleConfigurationSources]
-4. No painel de recursos da sua aplicação, clique em **ranhuras de implementação**, em seguida, clique numa ranhura de implementação para abrir o painel de recursos nesse bloco, com um conjunto de métricas e a configuração, tal como qualquer outra aplicação. O nome da ranhura de é apresentado na parte superior do painel para relembrá-o de que está a visualizar a ranhura de implementação.
+4. No painel de recursos da sua aplicação, clique em **blocos de implementação**, em seguida, clique num bloco de implementação para abrir o painel de recursos desse bloco, com um conjunto de métricas e configuração assim como qualquer outra aplicação. O nome do slot é mostrado na parte superior do painel para lembrá-lo de que está a ver o bloco de implementação.
    
-    ![Título da ranhura de implementação][StagingTitle]
-5. Clique no URL da aplicação no painel da ranhura. Tenha em atenção que a ranhura de implementação tem o seu próprio nome de anfitrião e também é uma aplicação em direto. Para limitar o acesso público para a ranhura de implementação, consulte [aplicação Web do App Service – bloquear o acesso web para as ranhuras de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+    ![Título do bloco de implementação][StagingTitle]
+5. Clique no URL da aplicação no painel da ranhura. Observe que o bloco de implementação tem seu próprio nome de anfitrião e também é uma aplicação em direto. Para limitar o acesso público a ranhura de implementação, consulte [aplicação Web do App Service – bloquear o acesso web a blocos de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-Não há nenhum conteúdo após a criação da ranhura de implementação. Pode implementar para a ranhura a partir de um ramo do repositório diferente ou um repositório completamente diferente. Também pode alterar a configuração da ranhura. Utilize as credenciais de implementação ou o perfil de publicar associadas a ranhura de implementação para as atualizações de conteúdo.  Por exemplo, pode [publicar esta ranhura com o git](app-service-deploy-local-git.md).
+Não existe conteúdo após a criação de ranhura de implementação. Pode implementar para o bloco de um ramo do repositório diferente ou um repositório completamente diferente. Também pode alterar a configuração da ranhura. Utilize as credenciais de implementação ou perfil de publicar associadas com o bloco de implementação para atualizações de conteúdo.  Por exemplo, pode [publicar esta ranhura com o git](app-service-deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 
-## <a name="which-settings-are-swapped"></a>Quais as definições são trocadas?
-Ao clonar a configuração a partir de outro bloco de implementação, a configuração clonada é editável. Além disso, alguns elementos de configuração irão seguir o conteúdo através de uma troca (não ranhura específica) enquanto outros elementos de configuração e irão permanecer na mesma ranhura após uma troca (específica da ranhura). As listas seguintes mostram as definições que alterar ao trocar ranhuras.
+## <a name="which-settings-are-swapped"></a>As definições que são ativadas?
+Quando clona configuração a partir de outro bloco de implementação, a configuração clonada é editável. Além disso, alguns elementos de configuração irão seguir o conteúdo numa troca (não ranhura específica), enquanto outros elementos de configuração irão permanecer na ranhura de mesmo após uma alternância de (bloco específico). As listas seguintes mostram as definições que alteram quando trocar as ranhuras.
 
-**As definições que são trocadas**:
+**As definições que são ativadas**:
 
-* Sockets de Web de definições gerais - por exemplo, a versão do framework, 32/64 bits,
-* Definições de aplicação (pode ser configurado para stick para uma ranhura)
-* Cadeias de ligação (pode ser configurado para stick para uma ranhura)
+* Definições gerais - como sockets Web do framework versão, 32/64 bits,
+* Definições da aplicação (pode ser configurado para utilizar um bloco de)
+* Cadeias de ligação (pode ser configurado para utilizar um bloco de)
 * Mapeamentos de processador
-* Definições de monitorização e diagnóstico
+* Definições de monitorização e diagnósticos
 * Conteúdo de WebJobs
 
-**As definições que não estão a ser alternadas**:
+**As definições que não são ativadas**:
 
 * Pontos finais de publicação
 * Nomes de domínio personalizados
-* Certificados SSL e os enlaces
+* Certificados SSL e enlaces
 * Definições de dimensionamento
-* Programadores de WebJobs
+* Agendadores de WebJobs
 
-Para configurar uma cadeia de ligação ou definição de aplicação para stick para uma ranhura (não alternada), aceda a **definições da aplicação** painel para uma ranhura específica, em seguida, selecione o **ranhura definição** caixa para a configuração elementos devem stick a ranhura. Marcar um elemento de configuração como ranhura específica tem o efeito de estabelecer que o elemento não swappable como em todas as ranhuras de implementação associadas à aplicação.
+Para configurar uma cadeia de ligação ou definição de aplicação de adotar uma ranhura (não trocada), aceda a **as definições da aplicação** painel para um bloco específico, em seguida, selecione a **definição de ranhura** caixa para a configuração elementos que devem inserir a ranhura. Marcando um elemento de configuração como ranhura específica tem o efeito de estabelecer esse elemento como não-swap em todas as ranhuras de implementação associadas à aplicação.
 
 ![Definições de ranhura][SlotSettings]
 
 <a name="Swap"></a>
 
-## <a name="swap-deployment-slots"></a>Trocar ranhuras de implementação 
-Pode trocar ranhuras de implementação no **descrição geral** ou **ranhuras de implementação** vista do painel de recursos da sua aplicação.
+## <a name="swap-deployment-slots"></a>Trocar as ranhuras de implementação 
+Pode trocar as ranhuras de implementação no **descrição geral** ou **blocos de implementação** vista do painel de recursos da sua aplicação.
 
 > [!IMPORTANT]
-> Antes de trocar uma aplicação de uma ranhura de implementação em produção, certifique-se de que todas as definições específicas do bloco não estão configuradas exatamente como pretende que o destino de comutação.
+> Antes de mudar uma aplicação a partir de um bloco de implementação para produção, certifique-se de que todas as definições específicas do bloco de não estão configuradas exatamente como pretende que o destino de troca.
 > 
 > 
 
-1. Ao trocar ranhuras de implementação, clique em de **troca** botão na barra de comando da aplicação ou na barra de comando de uma ranhura de implementação.
+1. Para trocar as ranhuras de implementação, clique nas **troca** botão na barra de comandos da aplicação ou na barra de comandos de um bloco de implementação.
    
-    ![Botão de comutação][SwapButtonBar]
+    ![Botão de alternância][SwapButtonBar]
 
-2. Certifique-se de que a origem de comutação e o destino de comutação estão definidas corretamente. Normalmente, o destino de comutação é a ranhura de produção. Clique em **OK** para concluir a operação. Quando concluída a operação, tem sido alternadas ranhuras de implementação.
+2. Certifique-se de que a origem de troca e o destino de comutação estão definidas corretamente. Normalmente, o destino de comutação é o bloco de produção. Clique em **OK** para concluir a operação. Quando a operação estiver concluída, os blocos de implementação tiveram sido alternados.
 
     ![Concluir troca](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    Para o **troca com pré-visualização** comutação tipo, consulte [troca com pré-visualização (fase multi swap)](#Multi-Phase).  
+    Para o **troca com pré-visualização** tipo de troca, consulte [troca com pré-visualização (troca de múltiplas fase)](#Multi-Phase).  
 
 <a name="Multi-Phase"></a>
 
-## <a name="swap-with-preview-multi-phase-swap"></a>Troca com pré-visualização (fase multi swap)
+## <a name="swap-with-preview-multi-phase-swap"></a>Troca com pré-visualização (múltiplas fase swap)
 
-Troca com pré-visualização ou fase multi troca, simplificar a validação de elementos de configuração específicos da ranhura, tais como cadeias de ligação.
-Para cargas de trabalho pesadas, que pretende validar que a aplicação se comporta conforme esperado quando a configuração da ranhura de produção é aplicada, e tem de executar essa validação *antes* a aplicação é alternada em produção. Troca com pré-visualização é o que precisa.
+Troca com pré-visualização ou troca de múltiplas fase, simplificar a validação de elementos de configuração específicas de bloco, como cadeias de ligação.
+Para cargas de trabalho de missão crítica, deseja validar que a aplicação se comporta conforme o esperado quando é aplicada a configuração da ranhura de produção, e tem de efetuar essa validação *antes de* a aplicação é colocada em produção. Troca com pré-visualização é o que precisa.
 
 > [!NOTE]
-> Troca com pré-visualização não é suportada nas web apps no Linux.
+> Troca com pré-visualização não é suportada nas aplicações web no Linux.
 
-Quando utiliza o **troca com pré-visualização** opção (consulte [trocar ranhuras de implementação](#Swap)), serviço de aplicações efetua o seguinte procedimento:
+Quando utiliza a **troca com pré-visualização** opção (consulte [trocar as ranhuras de implementação](#Swap)), o serviço de aplicações faz o seguinte:
 
-- Mantém a ranhura de destino inalterada, para a carga de trabalho existente nesse ranhura (como produção) não é afetada.
-- Aplica-se os elementos de configuração da ranhura de destino para a ranhura de origem, incluindo as definições de aplicação e as cadeias de ligação de específicos da ranhura.
-- Reinicia os processos de trabalho a ranhura de origem utilizando estes elementos de configuração acima mencionados.
-- Quando concluir a troca: desloca a ranhura de origem de pré-warmed cópia de segurança para a ranhura de destino. Ranhura de destino é movida para a ranhura de origem como uma troca manual.
-- Se cancelar a troca: volta os elementos de configuração da ranhura de origem para a ranhura de origem.
+- Mantém o bloco de destino inalterado para que a carga de trabalho existente em que a ranhura (por exemplo, produção) não é afetada.
+- Aplica-se os elementos de configuração da ranhura de destino para a ranhura de origem, incluindo as cadeias de caracteres de conexão específica do bloco e as definições da aplicação.
+- Reinicia os processos de trabalho na ranhura de origem com estes elementos de configuração mencionados anteriormente.
+- Quando concluir a troca: move a ranhura de origem do pre-warmed-up para o bloco de destino. A ranhura de destino é movida para a ranhura de origem como numa troca manual.
+- Quando cancelar a troca: volta a aplicar os elementos de configuração da ranhura de origem para a ranhura de origem.
 
-Pode pré-visualizar exatamente como a aplicação irá comportar-se com a configuração da ranhura de destino. Depois de concluir a validação, conclua a troca num passo separado. Este passo tem a vantagem adicional que a ranhura de origem já está preparada com a configuração pretendida e os clientes não sofrem qualquer período de inatividade.  
+Pode visualizar exatamente como a aplicação se irá comportar com a configuração da ranhura de destino. Depois de concluir a validação, concluir a troca num passo separado. Este passo tem a vantagem adicional de que a ranhura de origem já está preparada com a configuração pretendida e os clientes não experienciar qualquer período de inatividade.  
 
-Exemplos de cmdlets PowerShell do Azure disponíveis para comutação multi fase são incluídos nos cmdlets PowerShell do Azure para a secção de ranhuras de implementação.
+Exemplos de cmdlets do Azure PowerShell disponíveis para troca de múltiplas fase são incluídos em cmdlets do Azure PowerShell para a secção de ranhuras de implementação.
 
 <a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Configurar a troca automática
-Troca automática simplifica a cenários de DevOps onde pretende implementar continuamente a sua aplicação com zero frio e períodos de indisponibilidade para os clientes de fim da aplicação. Quando uma ranhura de implementação está configurada para a troca automática em produção, sempre que push a atualização de código para esse ranhura, o serviço de aplicações será automaticamente a trocar a aplicação em produção, depois de já ter preparada na ranhura de.
+Troca automática simplifica cenários DevOps onde pretende implementar continuamente a sua aplicação com zero a frio e nenhum tempo de inatividade para os clientes do fim da aplicação. Quando um bloco de implementação está configurado para troca automática em produção, sempre que a atualização de código para que a ranhura, o serviço de aplicações será automaticamente a mudar a aplicação para produção, depois de já tem aquecido na ranhura de.
 
 > [!IMPORTANT]
-> Quando ativa a comutação automática para uma ranhura, certifique-se a configuração da ranhura exatamente a configuração pretendida para a ranhura de destino (normalmente, a ranhura de produção).
+> Quando ativa a troca automática de mensagens em fila para um bloco, certifique-se de que a configuração da ranhura é exatamente a configuração que se destina a ranhura de destino (normalmente, o bloco de produção).
 > 
 > 
 
 > [!NOTE]
-> Troca automática não é suportada nas web apps no Linux.
+> Troca automática não é suportada nas aplicações web no Linux.
 
-É fácil a configuração automática de comutação para uma ranhura. Siga estes passos.
+Configurar a troca automática de mensagens em fila para um bloco é fácil. Siga estes passos.
 
-1. No **ranhuras de implementação**, selecione uma ranhura de não produção e escolha **definições da aplicação** no painel de recursos que ranhura.  
+1. Na **blocos de implementação**, selecione uma ranhura de não produção e escolha **configurações de aplicativo** no painel de recursos desse bloco.  
    
     ![][Autoswap1]
-2. Selecione **no** para **automática comutação**, selecione a ranhura de destino pretendida no **automática trocar a ranhura**e clique em **guardar** na barra de comando. Certifique-se a configuração para a ranhura exatamente a configuração pretendida para a ranhura de destino.
+2. Selecione **nos** para **comutação automática**, selecione a ranhura de destino pretendida na **ranhura de troca automática**e clique em **guardar** na barra de comandos. Certifique-se de configuração para o bloco é exatamente a configuração que se destina a ranhura de destino.
    
-    O **notificações** separador está intermitente um verde **êxito** depois de concluída a operação.
+    O **notificações** separador pisca um verde **êxito** depois de concluída a operação.
    
     ![][Autoswap2]
    
    > [!NOTE]
-   > Para testar a comutação de automaticamente para a sua aplicação, primeiro selecione uma ranhura de destino de não produção no **automática trocar a ranhura** para se familiarizar com a funcionalidade.  
+   > Para testar a troca automática para a sua aplicação, pode selecionar primeiro uma ranhura de destino de não produção na **ranhura de troca automática** para se familiarizar com a funcionalidade.  
    > 
    > 
-3. Execute um push de código para esse ranhura de implementação. Acontece de troca automática após um curto período de tempo e a atualização é refletida no URL da ranhura de destino.
+3. Execute um push de código para esse bloco de implementação. Acontece de troca automática após um curto período de tempo e a atualização é refletida no URL da ranhura de destino.
 
 <a name="Rollback"></a>
 
 ## <a name="roll-back-a-production-app-after-swap"></a>Reverter uma aplicação de produção após a troca
-Se os erros são identificados em produção após uma troca de ranhura, reverta ranhuras para os respetivos Estados de pré-comutação de ao trocar dois ranhuras mesmas imediatamente.
+Se todos os erros são identificados em produção após uma alternância de bloco, reverta ranhuras para seus Estados de pré-comutação de ao trocar as ranhuras de dois mesmo imediatamente.
 
 <a name="Warm-up"></a>
 
-## <a name="custom-warm-up-before-swap"></a>Warm-up personalizado antes de comutação
-Algumas aplicações podem exigir ações warm-up personalizado. O `applicationInitialization` elemento de configuração em Web. config permite-lhe especificar as ações de inicialização personalizada para ser executada antes de um pedido é recebido. A operação de troca aguarda que este warm-up personalizado concluir. Eis um fragmento de Web. config de exemplo.
+## <a name="custom-warm-up-before-swap"></a>Personalizado aquecimento antes de troca
+Algumas aplicações podem exigir ações de aquecimento personalizado. O `applicationInitialization` elemento de configuração em Web. config permite-lhe especificar ações de inicialização personalizada a ser executada antes de uma solicitação é recebida. A operação de troca aguarda que este aquecimento personalizado concluir. Aqui está um fragmento de Web. config de exemplo.
 
-    <applicationInitialization>
-        <add initializationPage="/" hostName="[app hostname]" />
-        <add initializationPage="/Home/About" hostname="[app hostname]" />
-    </applicationInitialization>
+    <system.webServer>
+        <applicationInitialization>
+            <add initializationPage="/" hostName="[app hostname]" />
+            <add initializationPage="/Home/About" hostname="[app hostname]" />
+        </applicationInitialization>
+    </system.webServer>
 
-## <a name="monitor-swap-progress"></a>Monitorize o progresso de comutação
+## <a name="monitor-swap-progress"></a>Monitorize o progresso de troca
 
-Por vezes, a operação de troca demora algum tempo a concluir, tais como quando a aplicação que está a ser alternada tem um período de tempo warm-up longo. Pode obter mais informações sobre as operações de comutação no [registo de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) no [portal do Azure](https://portal.azure.com).
+Às vezes, a operação de troca demora algum tempo a concluir, tais como quando a aplicação que é trocada tem um tempo de aquecimento longo. Pode obter mais informações sobre as operações de troca no [registo de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) no [portal do Azure](https://portal.azure.com).
 
-Na página da aplicação do portal, no painel de navegação esquerdo, selecione **registo de atividade**.
+Na página da aplicação do portal, no painel de navegação esquerdo, selecione **registo de atividades**.
 
-Uma operação de troca aparece na consulta de registo como `Slotsswap`. Pode expandi-lo e selecione um dos suboperations ou erros para ver os detalhes.
+Uma operação de troca é apresentado na consulta de registo como `Slotsswap`. Pode expandi-lo e selecione um dos suboperations ou erros para ver os detalhes.
 
-![Registo de atividade para a troca de ranhura](media/web-sites-staged-publishing/activity-log.png)
+![Registo de atividades para troca de ranhura](media/web-sites-staged-publishing/activity-log.png)
 
 <a name="Delete"></a>
 
-## <a name="delete-a-deployment-slot"></a>Eliminar uma ranhura de implementação
-No painel de uma ranhura de implementação, abra o painel da ranhura de implementação, clique em **descrição geral** (a página predefinida) e clique em **eliminar** na barra de comando.  
+## <a name="delete-a-deployment-slot"></a>Eliminar um bloco de implementação
+No painel de um bloco de implementação, abra o painel do bloco de implementação, clique em **descrição geral** (a página padrão) e clique em **eliminar** na barra de comandos.  
 
-![Eliminar uma ranhura de implementação][DeleteStagingSiteButton]
+![Eliminar um bloco de implementação][DeleteStagingSiteButton]
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -198,7 +200,7 @@ No painel de uma ranhura de implementação, abra o painel da ranhura de impleme
 
 ## <a name="automate-with-azure-powershell"></a>Automatizar com o Azure PowerShell
 
-O Azure PowerShell é um módulo que fornece cmdlets para gerir o Azure através do Windows PowerShell, incluindo suporte para gerir as ranhuras de implementação no App Service do Azure.
+O Azure PowerShell é um módulo que oferece cmdlets para gerir o Azure através do Windows PowerShell, incluindo suporte para o gerenciamento de blocos de implementação no serviço de aplicações do Azure.
 
 * Para obter informações sobre como instalar e configurar o Azure PowerShell e sobre a autenticação do Azure PowerShell com a sua subscrição do Azure, consulte [como instalar e configurar o Microsoft Azure PowerShell](/powershell/azure/overview).  
 
@@ -209,13 +211,13 @@ New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Loc
 ```
 
 - - -
-### <a name="create-a-deployment-slot"></a>Criar uma ranhura de implementação
+### <a name="create-a-deployment-slot"></a>Criar um bloco de implementação
 ```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Inicie uma troca com pré-visualização (fase multi swap) e aplicar a configuração da ranhura de destino a ranhura de origem
+### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Iniciar uma troca com pré-visualização (troca de múltiplas fase) e aplicar a configuração da ranhura de destino para a ranhura de origem
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -228,19 +230,19 @@ Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceT
 ```
 
 - - -
-### <a name="swap-deployment-slots"></a>Trocar ranhuras de implementação
+### <a name="swap-deployment-slots"></a>Trocar as ranhuras de implementação
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-### <a name="monitor-swap-events-in-the-activity-log"></a>Monitor de comutação eventos no registo de atividade
+### <a name="monitor-swap-events-in-the-activity-log"></a>Eventos de troca de monitor no registo de atividades
 ```PowerShell
 Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
-### <a name="delete-deployment-slot"></a>Elimine o bloco de implementação
+### <a name="delete-deployment-slot"></a>Eliminar o bloco de implementação
 ```
 Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
@@ -252,10 +254,10 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 ## <a name="automate-with-azure-cli"></a>Automatizar com a CLI do Azure
 
-Para [CLI do Azure](https://github.com/Azure/azure-cli) comandos para as ranhuras de implementação, consulte [ranhura de implementação de webapp az](/cli/azure/webapp/deployment/slot).
+Para [CLI do Azure](https://github.com/Azure/azure-cli) comandos para blocos de implementação, consulte [bloco de implementação do az webapp](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Web do App Service do Azure aplicação – bloquear o acesso web para as ranhuras de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[A aplicação – bloquear o acesso web a blocos de implementação de não produção de Web de serviço de aplicações do Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Introdução ao serviço de aplicações no Linux](../app-service/containers/app-service-linux-intro.md)  
 [Versão de avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 

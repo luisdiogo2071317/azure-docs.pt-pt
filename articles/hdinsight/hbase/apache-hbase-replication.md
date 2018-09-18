@@ -3,18 +3,18 @@ title: Configurar a replicação de cluster HBase em redes virtuais do Azure
 description: Saiba como configurar a replicação do HBase de uma versão do HDInsight para outro para balanceamento de carga, elevada disponibilidade, sem período de indisponibilidade migração e as atualizações e recuperação após desastre.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047488"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734763"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase em redes virtuais do Azure
 
@@ -135,7 +135,7 @@ Para instalar o enlace, utilize o seguinte procedimento:
     sudo apt-get install bind9 -y
     ```
 
-3. Para configurar o enlace para reencaminhar pedidos de resolução de nome ao seu servidor DNS no local, utilize o seguinte texto como conteúdo do `/etc/bind/named.conf.options` ficheiro:
+3. Configure o enlace para reencaminhar pedidos de resolução de nome ao seu servidor DNS no local. Para tal, utilize o seguinte texto como conteúdo do `/etc/bind/named.conf.options` ficheiro:
 
     ```
     acl goodclients {
@@ -151,7 +151,7 @@ Para instalar o enlace, utilize o seguinte procedimento:
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;

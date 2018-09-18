@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1684ce28cd52ac1891804ebb490b8b59d6fcccc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301401"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729778"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 IoT Hub dá-lhe a capacidade de invocar métodos diretos em dispositivos a partir da cloud. Os métodos diretos representam uma interação de solicitação-resposta com um dispositivo semelhante a uma chamada HTTP em que forem bem-sucedidos ou falharem imediatamente (após um tempo limite especificado pelo utilizador). Essa abordagem é útil para cenários em que o método de ação imediata é diferente, dependendo se o dispositivo foi capaz de responder.
@@ -112,7 +112,7 @@ Para este efeito, utilize o `ServiceClient.InvokeDeviceMethodAsync()` método e 
 ## <a name="handle-a-direct-method-on-a-device"></a>Lidar com um método direto num dispositivo
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>Invocação de método
-Os dispositivos recebem pedidos de método direto sobre o tópico MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`
+Dispositivos recebem pedidos de método direto sobre o tópico MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`. O número de subscrições por dispositivo está limitado a 5. Recomenda-se, por conseguinte, não a assinar individualmente cada método direto. Em vez disso, considere subscrever `$iothub/methods/POST/#` e, em seguida, filtrar as mensagens entregues com base nos seus nomes de método pretendido.
 
 O corpo que recebe o dispositivo é o seguinte formato:
 

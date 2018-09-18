@@ -1,6 +1,6 @@
 ---
 title: Como repor a palavra-passe de um utilizador no Azure Active Directory | Documentos da Microsoft
-description: Repor palavra-passe de um utilizador com o Azure Active Directory.
+description: Saiba como repor a palavra-passe de um utilizador com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: e6f937063832e6b2a5f301d6d61aec4b3426ea28
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603095"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736102"
 ---
 # <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Como: repor a palavra-passe de um utilizador com o Azure Active Directory
 Pode redefinir a senha de um usuário se a palavra-passe é esquecida, se o utilizador obtém impedido de aceder um dispositivo ou se o usuário nunca recebeu uma palavra-passe.

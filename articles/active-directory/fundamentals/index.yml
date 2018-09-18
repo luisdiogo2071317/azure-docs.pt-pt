@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 4c9f26c36b0cf79c8bd28e57fc7bdec5dda22764
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636330"
+documentType: LandingData
+title: Documentação de noções básicas do Azure Active Directory
+metadata:
+  document_id: 
+  title: Documentação de noções básicas do Azure Active Directory
+  description: Aprenda sobre os conceitos básicos e os processos disponíveis ao utilizar o Azure Active Directory.
+  services: active-directory
+  ms.component: fundamentals
+  author: eross-msft
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/07/2018
+  ms.author: lizross
+abstract:
+  description: Aprenda sobre os conceitos e processos básicos do Azure Active Directory (Azure AD), incluindo como criar utilizadores básicos, grupos e como criar um ambiente básico para começar.
+sections:
+- title: Inícios rápidos de cinco minutos
+  items:
+  - type: paragraph
+    text: Aprenda a utilizar o portal do Azure Active Directory.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_portal.png
+      text: Aceder ao Azure AD para criar um inquilino
+      href: active-directory-access-create-new-tenant.md
+    - image:
+        src: ./media/index/i_tasks.png
+      text: Ver grupos e membros
+      href: active-directory-groups-view-azure-portal.md
+- title: Guias Passo-a-Passo
+  items:
+  - type: paragraph
+    text: Aprenda a realizar tarefas básicas para configurar no ambiente do Azure Active Directory
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Inscreva-se no Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Como adicionar um nome de domínio personalizado</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Como criar um grupo básico e adicionar membros</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Como adicionar proprietários do grupo</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Como adicionar um novo utilizador</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Como atribuir funções a utilizadores</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Como atribuir licenças a utilizadores</a>

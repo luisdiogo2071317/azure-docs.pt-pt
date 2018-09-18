@@ -8,15 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.subservice: elastic-pool
 ms.custom: DBs & servers
-ms.date: 07/27/2018
+ms.date: 09/14/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 39c127569ea3ea5339c90554e1e899212f1b3f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003744"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735517"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -55,7 +55,7 @@ A figura seguinte mostra um exemplo de uma base de dados que está inativa muito
 
    ![uma base de dados individual adequada para um conjunto](./media/sql-database-elastic-pool/one-database.png)
 
-Para o período de cinco minutos ilustrado, DB1 tem um pico até 90 DTUs, mas a utilização média global é inferior a cinco DTUs. Para executar esta carga de trabalho numa base de dados individual, é necessário o nível de desempenho S3, mas tal deixa a maior dos recursos inutilizados durante os períodos de pouca atividade.
+Para o período de cinco minutos ilustrado, DB1 tem um pico até 90 DTUs, mas a utilização média global é inferior a cinco DTUs. Um tamanho de computação de S3 é necessário para executar esta carga de trabalho num único banco de dados, mas tal deixa a maior parte dos recursos inutilizados durante os períodos de pouca atividade.
 
 Um conjunto permite que estas DTUs não utilizadas sejam partilhadas entre várias bases de dados, pelo que reduz as DTUs necessárias e os custos gerais.
 
@@ -65,7 +65,7 @@ Com base no exemplo anterior, imagine que existem bases de dados adicionais com 
 
    ![vinte bases de dados com um padrão de utilização adequado para um conjunto](./media/sql-database-elastic-pool/twenty-databases.png)
 
-A utilização agregada de DTUs nas 20 bases de dados é ilustrada pela linha preta na figura anterior. Mostra que a utilização agregada de DTUs nunca excede as cem e indica que as 20 bases de dados podem partilhar 100 eDTUs ao longo deste período de tempo. Isto resulta numa redução em 20 vezes das DTUs e numa redução de 13 vezes no preço em comparação com colocar cada base de dados nos níveis de desempenho S3 para bases de dados individuais.
+A utilização agregada de DTUs nas 20 bases de dados é ilustrada pela linha preta na figura anterior. Mostra que a utilização agregada de DTUs nunca excede as cem e indica que as 20 bases de dados podem partilhar 100 eDTUs ao longo deste período de tempo. Isso resulta numa redução de 20 x na DTUs e tamanhos de bases de dados individuais de computação de uma redução de 13 vezes preço em comparação com colocar cada base de dados no S3.
 
 Este exemplo é ideal pelos motivos seguintes:
 
@@ -75,21 +75,21 @@ Este exemplo é ideal pelos motivos seguintes:
 
 O preço de um conjunto é uma função das eDTUs do conjunto. Embora o preço unitário de eDTU de um conjunto seja 1,5 vezes superior ao preço unitário de DTU para bases de dados individuais, **as eDTUs de conjuntos podem ser partilhadas por muitas bases de dados e são necessárias menos eDTUs totais**. Estas distinções nos preços e na partilha das eDTUs são as bases do potencial de poupança nos custos que os conjuntos podem proporcionar.
 
-As regras básicas seguintes relacionadas com a contagem e a utilização de bases de dados ajudam a garantir que os conjuntos oferecem custos reduzidos quando comparados com a utilização de níveis de desempenho para bases de dados individuais.
+As regras básicas seguintes relacionadas com a contagem de base de dados e a utilização de base de dados ajudam a garantir que os conjuntos oferecem custos reduzidos em comparação comparado a utilização de tamanhos de computação para bases de dados individuais.
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bases de dados
 
 Se a quantidade de agregado de recursos para bases de dados individuais for superior a 1,5 vezes os recursos necessários para o agrupamento, um conjunto elástico é mais económico.
 
 ***Exemplo de modelo de compra baseado em DTU***<br>
-Para que a relação de custo-eficácia de um conjunto de 100 eDTUs seja superior à utilização de níveis de desempenho para bases de dados individuais, são necessárias, pelo menos, duas bases de dados S3 ou 15 bases de dados S0.
+De um conjunto de 100 Edtus seja mais rentável do que utilizar tamanhos de computação para bases de dados individuais, são necessárias, pelo menos, duas bases de dados S3 ou, pelo menos, 15 bases de dados S0.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de bases de dados com picos simultâneos
 
 Ao partilhar recursos, nem todas as bases de dados num conjunto em simultâneo podem utilizar recursos até ao limite disponível para bases de dados individuais. As bases de dados menos horas de pico simultâneo, menores dos recursos do agrupamento podem ser definidos mais econômica do e. Em geral, não mais do que 2/3 (ou 67) das bases de dados no conjunto devem ter o pico para o respetivo limite de recursos.
 
 ***Exemplo de modelo de compra baseado em DTU***<br>
-Para reduzir os custos de três bases de dados S3 num conjunto de 200 eDTU, duas bases de dados, no máximo, podem ter o pico de utilização ao mesmo tempo. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se o conjunto for redimensionado para mais de 200 eDTUs, será necessário adicionar mais bases de dados S3 ao conjunto, de modo a manter os custos inferiores aos dos níveis de desempenho para bases de dados individuais.
+Para reduzir os custos de três bases de dados S3 num conjunto de 200 eDTU, duas bases de dados, no máximo, podem ter o pico de utilização ao mesmo tempo. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se o conjunto for redimensionado para mais de 200 eDTUs, mais bases de dados S3 seriam necessário ser adicionado ao agrupamento para manter os custos inferior de tamanhos de bases de dados individuais de computação.
 
 Tenha em conta que este exemplo não considera a utilização de outras bases de dados do conjunto. Se todas as bases de dados tiverem alguma utilização num determinado momento, menos de 2/3 (67%) das bases de dados podem ter o pico em simultâneo.
 
@@ -123,7 +123,7 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, têm o maior entre as estimativas de eDTU do passo 1 e 2. Para o modelo de compra baseado em vCore, têm a estimativa de vCore do passo 1.
 4. Consulte a [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/) e localizar o conjunto de menor tamanho que for maior do que a estimativa do passo 3.
-5. Compare o preço do conjunto do Passo 5 com o preço de utilizar os níveis de desempenho adequado para bases de dados individuais.
+5. Compare o preço do conjunto do passo 5 para o preço de utilizar os tamanhos de computação adequados para bases de dados individuais.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Utilizar outras funcionalidades de base de dados SQL com conjuntos elásticos
 
@@ -151,7 +151,7 @@ Existem duas formas de criar um conjunto elástico no portal do Azure.
 > [!NOTE]
 > Pode criar múltiplos conjuntos num servidor, mas não é possível adicionar bases de dados a partir de diferentes servidores ao mesmo conjunto.
 
-Escalão de serviço do conjunto determina as funcionalidades disponíveis para os elásticos no conjunto e a quantidade máxima de recursos disponíveis para cada base de dados. Para obter detalhes, consulte os limites de recursos para conjuntos elásticos na [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Para limites de recursos baseados em vCore para conjuntos elásticos, veja [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+Escalão de serviço do conjunto determina as funcionalidades disponíveis para os elásticos no conjunto e a quantidade máxima de recursos disponíveis para cada base de dados. Para obter detalhes, consulte os limites de recursos para conjuntos elásticos na [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Para limites de recursos baseados em vCore para conjuntos elásticos, veja [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Para configurar os recursos e preços do conjunto, clique em **configurar conjunto**. Em seguida, selecione um escalão de serviço, adicionar bases de dados para o conjunto e configurar os limites de recursos para o agrupamento e respetivas bases de dados.
 

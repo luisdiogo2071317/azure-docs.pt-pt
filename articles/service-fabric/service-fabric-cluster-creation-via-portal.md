@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: e56c60f67dcfe5c11191942a812d2c670055dfd8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092653"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984378"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure com o portal do Azure
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Configure os nós do cluster. Tipos de nó definem os tamanhos VM, o número de 
 7. **Ativar proxy inverso**.  O [proxy inverso do Service Fabric](service-fabric-reverseproxy.md) microsserviços ajuda a executar num cluster do Service Fabric detetar e comunicar com outros serviços que têm pontos finais de http.
 8. Sob **+ Mostrar definições opcionais**, configure o cluster **diagnóstico**. Por predefinição, os diagnósticos estão ativados no seu cluster para ajudar na resolução de problemas. Se pretender desativar a alteração de diagnóstico a **Status** alternar para **desativar**. Desativação do diagnóstico está **não** recomendado. Se já tiver o projeto do Application Insights criado, então dê a sua chave, para que os rastreios de aplicações são encaminhados para o mesmo.
 9. **Incluir serviço DNS**.  O [serviço DNS](service-fabric-dnsservice.md) um serviço opcional que permite-lhe encontrar outros serviços que utilizam o protocolo DNS.
-10. Selecione o **modo de atualização do Fabric** quiser definir o seu cluster como. Selecione **automática**, se pretender que o sistema para escolher a versão mais recente disponível e tente atualizar o seu cluster para o mesmo automaticamente. Definir o modo como **Manual**, se pretender escolher uma versão suportada. Para obter mais detalhes sobre o modo de atualização de recursos de infraestrutura, consulte o [service-fabric-cluster-atualização do documento.] [service-fabric-cluster-atualização]
+10. Selecione o **modo de atualização do Fabric** quiser definir o seu cluster como. Selecione **automática**, se pretender que o sistema para escolher a versão mais recente disponível e tente atualizar o seu cluster para o mesmo automaticamente. Definir o modo como **Manual**, se pretender escolher uma versão suportada. Para obter mais detalhes sobre os recursos de infraestrutura atualizar consulte de modo a [documento service-fabric--atualização do cluster.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > Damos suporte a apenas os clusters que executem versões suportadas do Service Fabric. Ao selecionar o **Manual** modo, que está a efetuar a responsabilidade para atualizar o cluster para uma versão suportada.
@@ -225,7 +225,8 @@ Neste ponto, tem um cluster seguro utilizar certificados para autenticação de 
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-atualização]: service-fabric-cluster-upgrade.mdd
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

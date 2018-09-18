@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206076"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731988"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
@@ -50,7 +50,7 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
 1. Escolha o **Dashboard** separador.
 
-1. Ative **modo de Design**.
+1. Clique em **Editar modelo**.
 
     ![Modo de design no](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
 1. Adicione um mosaico de ligação:
     1. Escolher **Link** no painel direito.
-
-        ![Escolha a ligação](media/howto-use-device-sets/image6.png)
-
     1. Dar a sua ligação de um **Title**.
     1. Escolha um URL para seja aberta quando a ligação é clicada.
     1. Forneça uma descrição que mostra abaixo da ligação a **Title**.
@@ -87,38 +84,26 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
     > [!NOTE]
     > Pode adicionar várias imagens, ligações e grades.
   
-    1. Desativar **modo de Design**.
+    1. Clique em **Concluído**.
 
     ![Modo de design desativado](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard 
-Pode adicionar um mapa de localização para visualizar a localização dos seus dispositivos define num mapa. 
+Pode adicionar um mapa de localização para visualizar a localização dos seus dispositivos define num mapa.
 
 Para adicionar um mapa de localização para o dispositivo define dashboard tem de ter a propriedade de localização configurada no seu modelo de dispositivo, consulte [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md).
 
 
-1. No Dashboard de conjuntos de dispositivo, selecione o mapa da biblioteca. 
+1. No seu Dashboard de conjunto de dispositivos, selecione o mapa da biblioteca.
 
     ![Dispositivo define os mapas de Dashboard](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. Atribua um título e escolha a propriedade de localização que tenha configurado anteriormente como parte de sua propriedade do dispositivo.
-
-    ![Configurar os mapeamentos de Dashboard](media/howto-use-device-sets/LocationMaps2.png)
-
 3. Guardar e verá o mapa de mosaico a apresentar a localização dos seus dispositivos no conjunto de dispositivos.
-
-    ![Guardar Dashboard Maps](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. Agora, quando um operador visualiza o dashboard de conjuntos de dispositivo, ela pode ver todos os mosaicos que configurou incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante! 
-
-    ![Vista de dashboard de operador de mapas](media/howto-use-device-sets/LocationMaps4.png)
-
-    Será capaz de redimensionar o mapa para seu tamanho desejado.
-
-    Clicar num pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode clicar em pop-up para ir para a página de propriedades do dispositivo.  
+4. Agora, quando um operador visualiza o dashboard de conjuntos de dispositivo, ela pode ver todos os mosaicos que configurou incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante! 
+    
+[!NOTE] Será capaz de redimensionar o mapa para seu tamanho desejado. Clicar num pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode clicar em pop-up para ir para a página de propriedades do dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o seu conjunto de dispositivos

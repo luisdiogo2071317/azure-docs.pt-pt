@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3ba1f7a5759f037ce4bcfafcef40d0b247692f58
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 57e83376747b9a3e2d30dec37d4a378a167580e5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577042"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733115"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
 
@@ -89,7 +89,7 @@ Quer seja uma start-up com problemas de liquidez ou uma equipa numa empresa esta
 
 #### <a name="billing-and-licensing-basics"></a>Noções básicas de faturação e licenciamento
 
-Atualmente, **base de dados SQL** é vendido como um serviço e está disponível em vários escalões de serviço com diferentes preços para os recursos, as quais são cobradas à hora a um preço fixo com base no nível de desempenho e a camada de serviço que escolher. Com a instância de gerida de base de dados de SQL, também pode trazer a sua própria licença. Para obter mais informações sobre o modelo «traga a sua própria licença», consulte o artigo [Mobilidade de Licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Pode ajustar dinamicamente escalões de serviço e níveis de desempenho para fazer face às necessidades variadas de débito de seu aplicativo. Para as últimas informações sobre o atual suportado escalões de serviço, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Também pode criar [conjuntos elásticos](sql-database-elastic-pool.md) partilhar recursos entre instâncias da base de dados para reduzir os custos e a utilização de acomodar picos.
+Atualmente, **base de dados SQL** é vendido como um serviço e está disponível em vários escalões de serviço com diferentes preços para os recursos, as quais são cobradas à hora a um preço fixo com base no escalão de serviço e do tamanho de computação que escolher. Com a instância de gerida de base de dados de SQL, também pode trazer a sua própria licença. Para obter mais informações sobre o modelo «traga a sua própria licença», consulte o artigo [Mobilidade de Licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Pode ajustar os escalões de serviço e tamanhos de forma a satisfazer necessidades variadas de débito de seu aplicativo de computação dinamicamente. Para as últimas informações sobre o atual suportado escalões de serviço, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Também pode criar [conjuntos elásticos](sql-database-elastic-pool.md) partilhar recursos entre instâncias da base de dados para reduzir os custos e a utilização de acomodar picos.
 
 Com a **Base de Dados SQL**, o software de base de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, as capacidades de [cópia de segurança incorporada](sql-database-automated-backups.md) permitem-lhe obter uma redução significativa de custos, sobretudo quando tem um número elevado de bases de dados. 
 

@@ -9,16 +9,19 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: cf02946c772ce2dfd04fcd0ae478a560d095c092
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35947878"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734539"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competências predefinidas para melhoria do conteúdo (Azure Search)
 
 Neste artigo, ficará a conhecer as capacidades cognitivas fornecidas com o Azure Search. R *competências cognitivas* é uma operação que transforma o conteúdo de alguma forma. Muitas vezes, é um componente que extrai dados ou infere a estrutura e, portanto, aumenta a nossa compreensão dos dados de entrada. Quase sempre, a saída é baseado em texto. R *conjunto de capacidades* é o conjunto de habilidades que definem o pipeline de melhoria. 
+
+> [!NOTE]
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="predefined-skills"></a>Competências predefinidas
 

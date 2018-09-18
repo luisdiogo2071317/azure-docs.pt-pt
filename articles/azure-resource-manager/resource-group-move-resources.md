@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0b0ddedde49208a85628cdfc226f870a32ff7170
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297762"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985869"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -218,7 +218,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Service Fabric
 * Malha de recursos de infraestrutura do serviço
 * Serviço SignalR
-* Armazenamento
+* Não é possível mover o armazenamento - contas de armazenamento em regiões diferentes na mesma operação. Em vez disso, a utilizar operações separadas para cada região.
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)
 * Estado do Stream Analytics - Analytics Stream tarefas não podem ser movidas quando em execução.
 * Servidor de base de dados SQL - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.

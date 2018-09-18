@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/14/2018
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055009"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730245"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
@@ -27,7 +27,7 @@ Na base de dados SQL do Azure, a maioria das métricas de espaço de armazenamen
 - T-SQL: [resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados.  Isto pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados.  Isto acontece porque o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.  Em tais cenários, o espaço alocado para um banco de dados ou um conjunto pode exceder os limites suportados e evitar o crescimento de dados ou impedir alterações de escalão de desempenho e exigir reduzindo ficheiros de dados para atenuar.
+Existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados.  Isto pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados.  Isto acontece porque o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.  Em tais cenários, o espaço alocado para um banco de dados ou um conjunto pode exceder os limites suportados e evitar o crescimento dos dados ou impedir que a camada de serviços e as alterações do tamanho de computação e exigir reduzindo ficheiros de dados para atenuar.
 
 O serviço de BD SQL não reduzir automaticamente os ficheiros de dados para recuperar espaço alocado não utilizado devido ao impacto potencial para desempenho da base de dados.  No entanto, os clientes podem reduzir os ficheiros de dados por meio de Self-Service num momento à sua escolha, seguindo os passos descritos em [recuperar não utilizada de espaço em atribuído](#reclaim-unused-allocated-space). 
 

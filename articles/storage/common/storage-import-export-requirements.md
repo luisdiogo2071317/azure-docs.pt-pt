@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 10e8fb6ac5bcce278de3924ebd3a0d9f90392217
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18c27e4059ea06fcc52863b2d7671c14167dae75
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528059"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732758"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -32,12 +32,15 @@ Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
 
-O serviço importar/exportar do Azure suporta as seguintes [contas de armazenamento do Azure](storage-account-options.md).
+O serviço importar/exportar do Azure suporta os seguintes tipos de contas de armazenamento:
+
+- Contas de armazenamento da v2 de fins gerais
 - Contas de armazenamento gerais v1 de fins (implementações clássicas ou do Azure Resource Manager)
 - Contas de Armazenamento de blobs
-- Contas de armazenamento da v2 de fins gerais
 
-Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
+Para obter mais informações sobre contas de armazenamento, consulte [descrição geral de contas de armazenamento do Azure](storage-account-overview.md).
+
+Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > O serviço de exportação de importação do Azure não suporta contas de armazenamento onde o [pontos finais de serviço de rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) funcionalidade foi ativada. 

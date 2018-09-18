@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 93b017482006507d616d9125cd17fd2f14389d59
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307277"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983051"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
@@ -26,7 +26,7 @@ modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Ser
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-O modelo de vCore oferece dois escalões de serviço para fins gerais e crítico para a empresa. Escalões de serviço são diferenciados por um intervalo de níveis de desempenho, design de elevada disponibilidade, isolamento de falhas, tipos de armazenamento e o intervalo de e/s. O cliente tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança.
+O modelo de vCore oferece dois escalões de serviço para fins gerais e crítico para a empresa. Escalões de serviço são diferenciados por uma variedade de tamanhos de computação, design de elevada disponibilidade, isolamento de falhas, tipos de armazenamento e o intervalo de e/s. O cliente tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança.
 
 A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalões:
 
@@ -53,10 +53,10 @@ Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a pe
 
 Considere o seguinte:
 - O armazenamento atribuído é utilizado por ficheiros de dados (. MDF) e ficheiros de registo de ficheiros (LDF).
-- Cada nível de desempenho da base de dados individual suporta um tamanho máximo da base de dados, com o tamanho máximo predefinido de 32 GB.
+- Cada base de dados de computação tamanho suporta um tamanho máximo da base de dados, com o tamanho máximo predefinido de 32 GB.
 - Quando configura o tamanho de base de dados necessária (tamanho do MDF), 30% de armazenamento adicional é adicionado automaticamente para suportar LDF
 - Tamanho de armazenamento na instância gerida tem de ser especificado em múltiplos de 32 GB.
-- Pode escolher qualquer tamanho de base de dados singleton entre 10 GB e o máximo suportado
+- Pode escolher qualquer tamanho de base de dados entre 10 GB e o máximo suportado
  - Para o armazenamento Standard, aumentar ou diminuir o tamanho em incrementos de 10 GB
  - Para armazenamento Premium, aumentar ou diminuir o tamanho em incrementos de 250 GB
 - No escalão de serviço para fins gerais, `tempdb` utiliza SSD anexado e este custo de armazenamento está incluído no preço vCore.
@@ -113,13 +113,13 @@ Migração de grupos de ativação pós-falha com várias bases de dados requer 
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Criação de uma secundária de georreplicação
 
-Só pode criar usando o mesmo escalão de serviço como principal geo-secundária. Para a base de dados com a taxa de geração de log elevada, recomenda-se que o elemento secundário é criado com o mesmo nível de desempenho como principal. Se estiver a criar geo-secundária do conjunto elástico para um único banco de dados principal, recomenda-se que o conjunto tem o `maxVCore` definição que corresponde ao nível de desempenho de base de dados primária. Se estiver a criar geo-secundária do conjunto elástico para um site primário em outro conjunto elástico, recomenda-se que os agrupamentos têm a mesma `maxVCore` definições
+Só pode criar usando o mesmo escalão de serviço como principal geo-secundária. Para a base de dados com a taxa de geração de log elevada, recomenda-se que o elemento secundário é criado com o mesmo tamanho de computação como principal. Se estiver a criar geo-secundária do conjunto elástico para um único banco de dados principal, recomenda-se que o conjunto tem o `maxVCore` definição que coincide com o tamanho de computação de base de dados primária. Se estiver a criar geo-secundária do conjunto elástico para um site primário em outro conjunto elástico, recomenda-se que os agrupamentos têm a mesma `maxVCore` definições
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilizando a cópia de base de dados para converter um banco de dados baseado em DTU para uma base de dados baseado em vCore.
 
-Pode copiar qualquer base de dados com um nível de desempenho baseados em DTU para uma base de dados com um desempenho baseado em vCore nível sem restrições ou especial de sequenciamento, desde que o nível de desempenho de destino suporta o tamanho máximo da base de dados da base de dados de origem. Isto acontece porque a cópia da base de dados cria um instantâneo dos dados desde a hora de início da operação de cópia e não efetua a sincronização de dados entre a origem e de destino. 
+Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseada em vCore sem restrições ou sequenciamento especial, desde que o tamanho de computação de destino suporta o tamanho máximo da base de dados da base de dados de origem. Isto acontece porque a cópia da base de dados cria um instantâneo dos dados desde a hora de início da operação de cópia e não efetua a sincronização de dados entre a origem e de destino. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre os níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para a base de dados, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- Para obter detalhes sobre os níveis de desempenho específicos e armazenamento ver opções de tamanho disponíveis para conjuntos elásticos [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para a base de dados, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
+- Para obter detalhes sobre específicos de tamanhos de computação e ver opções de tamanho de armazenamento disponíveis para conjuntos elásticos [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

@@ -1,70 +1,70 @@
 ---
-title: Como adicionar uma subscrição existente do Azure ao diretório do Azure AD | Microsoft Docs
-description: Como adicionar uma subscrição existente ao diretório do Azure AD
+title: Como adicionar uma subscrição do Azure existente com o seu inquilino do Azure Active Directory | Documentos da Microsoft
+description: Saiba como adicionar uma subscrição do Azure existente ao seu inquilino do Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.custom: it-pro
+ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503316"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984091"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory
+# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como: associar ou adicionar uma subscrição do Azure ao Azure Active Directory
+A subscrição do Azure tem uma relação de confiança com o Azure Active Directory (Azure AD), que significa que a subscrição confianças de entidades do Azure AD para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório do Azure AD, mas cada subscrição apenas pode confiar num único diretório.
 
-Este artigo inclui informações sobre a relação entre a subscrição do Azure e o Azure Active Directory (Azure AD) e como adicionar uma subscrição existente ao diretório do Azure AD. A sua subscrição do Azure tem uma relação de confiança com o Azure AD, o que significa que confia no diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas cada subscrição apenas pode confiar num diretório. 
+Se a sua subscrição expirar, perderá o acesso a todos os outros recursos associados à subscrição. No entanto, o diretório do Azure AD permanece no Azure, que lhe permite associar e gerir o diretório a utilizar uma subscrição do Azure diferente.
 
-A relação de confiança entre uma subscrição e um diretório é diferente da relação que ela tem com outros recursos no Azure (sites, bases de dados, e assim sucessivamente). Em caso de expiração de uma subscrição, será também interrompido o acesso aos outros recursos associados à subscrição. No entanto, o diretório do Azure AD permanece no Azure e pode associar uma subscrição diferente a esse diretório e gerir o diretório utilizando a nova subscrição.
+Todos os utilizadores têm um diretório de "raiz" único para autenticação. No entanto, os usuários também podem ser convidados noutros diretórios. Pode ver os dois diretórios raiz e convidados para cada utilizador no Azure AD.
 
-Todos os utilizadores têm um diretório raiz único que os autenticam, embora também possam ser convidados noutros diretórios. No Azure AD, pode ver os diretórios dos quais a conta de utilizador é membro ou convidado.
+>[!Important]
+>Todos os [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) os utilizadores com acesso atribuído, juntamente com todos os administradores da subscrição perdem o acesso após a subscrição alterações no diretório. Além disso, se tiver quaisquer cofres de chaves, será também afetados pela movimentação da subscrição. Para corrigi-lo, terá [alterar o ID de inquilino do Cofre de chaves](../../key-vault/key-vault-subscription-move-fix.md) antes de continuar operações.
+
 
 ## <a name="before-you-begin"></a>Antes de começar
+Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as seguintes tarefas:
 
-* Tem de iniciar sessão com a conta que tenha acesso de Proprietário do RBAC para a subscrição.
-* Tem de iniciar sessão com uma conta que existe no diretório atual que está associado à subscrição e no diretório ao qual pretende adicionar. Para obter mais informações sobre como obter acesso a outro diretório, veja [Como os administradores do Azure Active Directory adicionam utilizadores de colaboração do B2B?](../b2b/add-users-administrator.md)
-* Esta funcionalidade não está disponível para subscrições CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) e Microsoft Imagine (MS-AZR-0144P).
+- Inicie sessão com uma conta que:
+    - Tem **proprietário do RBAC** acesso à subscrição.
 
+    - Existe no diretório atual que está associada a subscrição e no novo diretório em que é onde deseja associar a subscrição no futuro. Para obter mais informações sobre como obter acesso a outro diretório, consulte [como os administradores do Azure Active Directory adicionar utilizadores de colaboração B2B?](../b2b/add-users-administrator.md).
+
+- Certifique-se de que não estiver a utilizar uma subscrição de fornecedores de serviços de Cloud do Azure (CSP) (MS-AZR - 0145p, MS - AZR - 0146p, MS - AZR - 159p), uma subscrição do Microsoft Internal (MS-AZR - 0015P) ou uma subscrição Microsoft Imagine (MS-AZR - 0144p).
+    
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Associar uma subscrição existente ao diretório do Azure AD
+1. Iniciar sessão e selecione a subscrição que pretende utilizar a partir da [página de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-1. Inicie sessão e selecione uma subscrição a partir da [Página de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Clique em **Alterar o diretório**.
+2. Selecione **altere o diretório**.
 
-    ![Captura de ecrã que mostra o botão de Alteração de diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Consulte os avisos. Todos os [Controlo de Acesso baseado em Funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) os utilizadores com acesso atribuído ao e todos os administradores da subscrição perdem o acesso quando o diretório da subscrição é alterado.
-4. Selecionar um diretório.
+    ![Página de subscrições, com a opção de diretório de alteração realçada](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
 
-    ![Captura de ecrã que mostra a UI de alteração de diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
-5. Clique em **Alterar**.
-6. Êxito! Utilize o alternador de diretório para ir para o novo diretório. Poderá demorar até 10 minutos para que tudo seja apresentado corretamente.
+3. Reveja os avisos que aparecem e, em seguida, selecionam **alteração**.
 
-    ![Captura de ecrã que mostra a notificação de êxito de alteração de diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
+    ![Alterar a página do diretório, que mostra o diretório para alterar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    ![Captura de ecrã que mostra o alternador](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
+    O diretório é alterado para a subscrição e obtém uma mensagem de êxito.
 
+    ![Mensagem de êxito](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
 
-Todos os seus cofres de chaves do Azure também serão afetados pela movimentação da subscrição. Por isso, [altere o ID do inquilino do cofre de chaves](../../key-vault/key-vault-subscription-move-fix.md) antes de retomar as operações.
+4. Utilize o alternador de diretório para ir para o seu novo diretório. Poderá demorar até 10 minutos para que tudo seja apresentado corretamente.
 
-Alterar o diretório da subscrição é uma operação ao nível do serviço. Não afeta a propriedade de faturação da subscrição e o Administrador de Conta pode ainda alterar o Admin de Serviço utilizando o [Centro de Contas](https://account.azure.com/subscriptions). Se pretender eliminar o diretório original, tem de transferir a propriedade de faturação da subscrição para um Administrador de Conta novo. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md). 
+    ![Página de alternador de diretório](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+
+Alterar o diretório de subscrição é uma operação de nível de serviço, para que não afeta a propriedade de faturação de subscrição. O administrador de conta pode ainda alterar o administrador de serviço a partir da [Centro de contas](https://account.azure.com/subscriptions). Para eliminar o diretório original, tem de transferir a subscrição de faturação a propriedade para um administrador de conta nova. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre como criar um novo diretório do Azure AD gratuitamente, veja [Como obter um inquilino do Azure Active Directory](../develop/quickstart-create-new-tenant.md)
-* Para obter mais informações sobre como transferir a propriedade da faturação de uma subscrição do Azure, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md)
-* Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para obter mais informações sobre como atribuir funções no Azure AD, consulte [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- Para criar um novo do Azure AD de inquilino, consulte [acesso do Azure Active Directory para criar um novo inquilino](active-directory-access-create-new-tenant.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
-[2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
-[3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
+- Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+
+- Para saber mais sobre como atribuir funções no Azure AD, veja [como atribuir funções de diretório para os utilizadores com o Azure Active Directory](active-directory-users-assign-role-azure-portal.md)

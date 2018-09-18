@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bafd130b2fbd22f85407590ff2e86ecf5c6dfe67
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f2f00b94b50ecf1fc3d1b08a04063dbffa62501e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056710"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736143"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-by-using-azure-monitor-preview"></a>Integrar registos do Azure AD com Splunk com o Azure Monitor (pré-visualização)
 
@@ -55,4 +55,4 @@ Para utilizar esta funcionalidade, precisa de:
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Interpretar o esquema dos registos de auditoria no Azure Monitor)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)
-* [Perguntas mais frequentes e problemas conhecidos](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Perguntas mais frequentes e problemas conhecidos](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)

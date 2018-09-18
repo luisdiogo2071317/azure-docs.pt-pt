@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ee06039242afe5b5e92cf2fecc4c3fa9bff0b78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 10720f42f7a9b10b42ccaaaad81acca369592f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214374"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731216"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI utilizado o Azure para acelerar o seu ciclo de desenvolvimento e para melhorar o serviço ao cliente e o desempenho
 ![Logótipo de Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -59,7 +59,7 @@ Hoje em dia, cerca de 99 por cento dos clientes do Software de CSI estão alojad
 ## <a name="azure-elastic-pools-free-up-it-resources"></a>Conjuntos elásticos do Azure, liberar recursos de TI
 Vários recursos do Azure ajudaram a Software de CSI shift a sua infraestrutura e operações concentra-se para a funcionalidade e o desenvolvimento com foco. Talvez a maior vantagem tem sido a partir de conjuntos elásticos.
 
-Atualmente, o Software de CSI fornece cerca 550 bases de dados para os clientes. Antes de conjuntos elásticos, era difícil de gerenciar que muitos bancos de dados dentro de uma estrutura de camadas. Os gerentes de operações precisavam atribuir os escalões de desempenho com base nas necessidades de rajada de clientes, as quais necessário significativo IT recursos sobrecarga. Com os conjuntos elásticos, gestores podem atribuir os inquilinos um premium ou um conjunto padrão, conforme adequado e, em seguida, mover os clientes com base no tamanho e precisa. Os clientes sentiram os efeitos dos conjuntos elásticos quase imediatamente; antes de conjuntos elásticos, os clientes tinham de tempos limite e outros problemas durante períodos de rajada-utilização, mas com os conjuntos elásticos, os clientes poderão experienciar rajadas de atividade, conforme necessário e podem continuar a utilizar SpectrumNG sem problemas.
+Atualmente, o Software de CSI fornece cerca 550 bases de dados para os clientes. Antes de conjuntos elásticos, era difícil de gerenciar que muitos bancos de dados dentro de uma estrutura de camadas. Os gerentes de operações precisava atribuir escalões de serviço e tamanhos com base nas necessidades dos clientes, que necessária significativo IT recursos sobrecarga rajada de computação. Com os conjuntos elásticos, gestores podem atribuir os inquilinos um premium ou um conjunto padrão, conforme adequado e, em seguida, mover os clientes com base no tamanho e precisa. Os clientes sentiram os efeitos dos conjuntos elásticos quase imediatamente; antes de conjuntos elásticos, os clientes tinham de tempos limite e outros problemas durante períodos de rajada-utilização, mas com os conjuntos elásticos, os clientes poderão experienciar rajadas de atividade, conforme necessário e podem continuar a utilizar SpectrumNG sem problemas.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>Georreplicação ativa do Azure acelera a geração de relatórios
 Vários clientes do Software de CSI também estão a tirar partido da georreplicação ativa do Azure. Com replicação geográfica activa, até quatro legíveis secundárias bases de dados pode ser configurado nas regiões de datacenter idêntica ou diferente. Software de CSI faz uso de georreplicação ativa de duas formas: primeiro, as bases de dados secundárias estão disponíveis no caso de uma falha do datacenter ou a incapacidade de ligar à base de dados primária; e, em segundo lugar, as bases de dados secundárias são legíveis e podem ser utilizados para a descarga de cargas de trabalho de só de leitura como tarefas de relatório. Alguns clientes do Software de CSI utilizarem este benefício para acelerar os fluxos de trabalho de geração de relatórios.

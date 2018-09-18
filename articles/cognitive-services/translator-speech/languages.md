@@ -1,27 +1,28 @@
 ---
-title: Idiomas suportados na API de reconhecimento de voz do Microsoft tradutor | Microsoft Docs
-description: Ver os idiomas suportados pela API de reconhecimento de voz do conversor de Microsoft.
+title: Idiomas suportados - API de voz do tradutor
+titlesuffix: Azure Cognitive Services
+description: Ver os idiomas suportados pela API de voz do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 216a3caf9b4e6f3f512ba13361de9f3933f83b13
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355658"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985150"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Idiomas suportados pela API de reconhecimento de voz do conversor de Microsoft
-Os seguintes idiomas são suportados para tradução de reconhecimento de voz. Se ambos os idiomas são suportados para tradução de reconhecimento de voz, reconhecimento de voz para reconhecimento de voz ou de voz para texto estão disponíveis. Se o idioma de destino não é suportado para tradução de reconhecimento de voz, apenas reconhecimento de voz para a conversão de texto está disponível. 
+# <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas suportados pela API de voz do Translator
+Os seguintes idiomas são suportados para tradução de voz. Se ambos os idiomas são suportados para tradução de voz, conversão de voz para a conversão de voz ou de voz em texto estão disponíveis. Se o idioma de destino não é suportado para a tradução de voz, apenas a voz para tradução de texto está disponível. 
 
-| Idioma de reconhecimento de voz    |
+| Idiomas de voz    |
 |:----------- |
-| Árabe (moderna Standard)      |
+| Árabe (Standard moderno)      |
 | Chinês (Mandarim)      |
 | Português      |
 | Francês      |
@@ -32,7 +33,7 @@ Os seguintes idiomas são suportados para tradução de reconhecimento de voz. S
 | Russo      |
 | Espanhol      | 
 
-A API de reconhecimento de voz do Microsoft tradutor suporta os seguintes idiomas como um idioma de destino para reconhecimento de voz para a conversão de texto. 
+A API de voz do Translator suporta os seguintes idiomas como um idioma de destino para a conversão de voz em tradução de texto. 
 
 | Idioma de texto    | Código de idioma |
 |:----------- |:-------------:|
@@ -72,7 +73,7 @@ A API de reconhecimento de voz do Microsoft tradutor suporta os seguintes idioma
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
-| Malagasy      | `mg`          |
+| Ariary      | `mg`          |
 | Malaio      | `ms`          |
 | Maltês      | `mt`          |
 | Norueguês      | `nb`          |
@@ -100,16 +101,16 @@ A API de reconhecimento de voz do Microsoft tradutor suporta os seguintes idioma
 | Galês      | `cy`          |
 | Yucatec Maya      | `yua`          |
 
-## <a name="access-the-list-programmatically"></a>A lista de acesso através de programação
+## <a name="access-the-list-programmatically"></a>Aceder à lista por meio de programação
 
-Pode aceder a lista de idiomas suportados através da programação com o recurso de idiomas. A lista apresenta o código de idioma, bem como o nome de idiomas em inglês ou qualquer outro idioma suportado. Esta lista é atualizada automaticamente pelo serviço Microsoft Translator à novos idiomas ficam disponíveis.
+Pode acessar a lista de idiomas suportados programaticamente usando o recurso de idiomas. A lista fornece o código de idioma, bem como o nome do idioma em inglês, ou qualquer outro idioma suportado. Esta lista é atualizada automaticamente pelo serviço de voz do Translator à medida que novos idiomas forem disponíveis.
 
-O recurso de idiomas devolve a lista de idiomas suportados para reconhecimento de voz, o texto e o reconhecimento de voz do texto para. O recurso de idiomas não necessita de autenticação.
+O recurso de idiomas devolve a lista de idiomas suportados para conversão de voz, o texto e o texto em voz. O recurso de idiomas não exija autenticação.
 
-[Visite a referência da API para experimentar o método de idiomas](languages-reference.md)
+[Visite a referência de API para experimentar o método de idiomas](languages-reference.md)
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Aceder à lista de no Web site da Microsoft Translator
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>Aceder à lista no site do Microsoft Translator
 
-Para ver rapidamente os idiomas, o Web site Microsoft Translator mostra todos os idiomas suportados pelo tradutor Text e APIs de reconhecimento de voz. Esta lista não incluem informações específicas do programador, tais como os códigos de idioma.
+Para examinar os idiomas, o site do Microsoft Translator mostra todos os idiomas suportados pelo texto de tradutor e APIs de voz. Esta lista não inclui informações específicas de desenvolvedor como códigos de idioma.
 
 [Consulte a lista de idiomas](https://www.microsoft.com/translator/languages.aspx) 

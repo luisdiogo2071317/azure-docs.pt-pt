@@ -1,6 +1,6 @@
 ---
-title: Com o nome skill de pesquisa cognitivos de reconhecimento de entidade (Azure Search) | Microsoft Docs
-description: Extrair entidades nomeadas para a pessoa, a localização e a organização do texto no pipeline de pesquisa cognitivos pesquisa do Azure.
+title: Com o nome habilidade de pesquisa cognitiva de reconhecimento de entidades (Azure Search) | Documentos da Microsoft
+description: Extrair entidades nomeadas para pessoa, a localização e a organização de texto num pipeline do Azure Search pesquisa cognitiva.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,45 +10,48 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 653a4675d546432eea8478ba6203be1df71ec4f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791043"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731398"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>Nomeado skill cognitivos de reconhecimento de entidade
+#    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade de cognitiva reconhecimento de entidades nomeada
 
-O **reconhecimento de entidade com o nome** skill extrai entidades com o nome de texto. Entidades disponíveis incluem os tipos de `person`, `location`, e `organization`.
+O **reconhecimento de entidades com o nome** habilidade extrai entidades nomeadas de texto. Entidades disponíveis incluem os tipos `person`, `location`, e `organization`.
+
+> [!NOTE]
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
-## <a name="skill-parameters"></a>Parâmetros de skill
+## <a name="skill-parameters"></a>Parâmetros de habilidades
 
-Os parâmetros são maiúsculas e minúsculas.
+Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categorias    | Matriz de categorias deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`. Se não for fornecida nenhum categoria, são devolvidos todos os tipos.|
-|defaultLanguageCode |  Código de idioma texto de entrada. São suportados os seguintes idiomas: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
-| minimumPrecision  | Um número entre 0 e 1. Se for inferior a este valor a precisão, a entidade não é devolvida. A predefinição é 0.|
+| categorias    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
+|defaultLanguageCode |  Código de idioma do texto de entrada. São suportados os seguintes idiomas: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
+| minimumPrecision  | Um número entre 0 e 1. Se a precisão é inferior este valor, a entidade não é devolvida. A predefinição é 0.|
 
-## <a name="skill-inputs"></a>Entradas de skill
+## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
-| Texto          | O texto a analisar.          |
+| texto          | O texto a analisar.          |
 
-## <a name="skill-outputs"></a>Saídas skill
+## <a name="skill-outputs"></a>Saídas de habilidades
 
 | Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
-| pessoas      | Uma matriz de cadeias, onde cada cadeia representa o nome de uma pessoa. |
-| localizações  | Uma matriz de cadeias, onde cada cadeia representa uma localização. |
-| Organizações  | Uma matriz de cadeias, onde cada cadeia representa uma organização. |
-| entidades | Uma matriz de tipos complexos. Cada tipo de complexo inclui os seguintes campos: <ul><li>categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (o nome da entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>(um valor entre 0 e 1 que representa essa confiança de que o valor é uma entidade real) de confiança</li></ul> |
+| pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa o nome de uma pessoa. |
+| localizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma localização. |
+| organizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma organização. |
+| entidades | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa essa confiança que o valor é uma entidade real)</li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 
@@ -134,10 +137,10 @@ Os parâmetros são maiúsculas e minúsculas.
 ```
 
 
-## <a name="error-cases"></a>Nos casos de erro
-Se especificar um código de idioma não suportada ou se o conteúdo não corresponde ao idioma especificado, o erro é devolvido e não existem entidades são extraídas.
+## <a name="error-cases"></a>Casos de erro
+Se especificar um código de idioma não suportado ou se o conteúdo não corresponde ao idioma especificado, um erro é devolvido e não existem entidades são extraídas.
 
 ## <a name="see-also"></a>Consulte também
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)

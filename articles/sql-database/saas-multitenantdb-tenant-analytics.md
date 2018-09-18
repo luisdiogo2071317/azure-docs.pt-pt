@@ -1,67 +1,67 @@
 ---
-title: Executar consultas de análise em bases de dados SQL do Azure | Microsoft Docs
-description: Consultas de análises de inquilino entre utilizando os dados extraídos de várias bases de dados do SQL Database do Azure.
-keywords: tutorial do SQL Server
+title: Executar consultas de análise em bases de dados SQL do Azure | Documentos da Microsoft
+description: Consultas de análise de entre inquilinos usando dados extraídos a partir de várias bases de dados da base de dados do Azure SQL.
+keywords: tutorial de SQL
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: anjangsh
 ms.reviewer: billgib, genemi
-ms.openlocfilehash: 8ed444320db641408b69efb19018e41e2170b51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5ffc9ade54ea02f34d25e4b6b7a4c0027b7d7b7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644642"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733938"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de inquilino entre utilizar dados extraídos
+# <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de entre inquilinos com os dados extraídos
 
-Neste tutorial, percorrer um cenário de análise completa. O cenário demonstra como análise pode ativar a empresas tomar decisões inteligentes. Utilizando os dados extraídos da base de dados em partição horizontal, utilize análise para obter informações acerca comportamento de inquilino, incluindo a utilização da aplicação exemplo Wingtip bilhetes SaaS. Este cenário envolve três passos: 
+Neste tutorial, é necessário percorrer um cenário de completas de análise. O cenário demonstra como a análise pode ativar as empresas a tomarem decisões inteligentes. Usando dados extraídos da base de dados em partição horizontal, utilizar análise para obter informações sobre o comportamento de inquilino, incluindo o uso do exemplo de aplicação Wingtip Tickets SaaS. Este cenário envolve três etapas: 
 
 1.  **Extrair dados** de cada base de dados do inquilino para um arquivo de análise.
 2.  **Otimizar os dados extraídos** para processamento de análise.
-3.  Utilize **Business Intelligence** ferramentas para desenhar horizontalmente as informações úteis, podem guia faz de decisão. 
+3.  Uso **Business Intelligence** ferramentas para desenhar as informações úteis, que podem orientar a tomada de decisões. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> - Crie o inquilino análise armazenar para extrair dados no.
+> - Crie o inquilino análise armazenar para extrair os dados.
 > - Utilize as tarefas elásticas para extrair dados de cada base de dados do inquilino para o arquivo de análise.
-> - Otimize os dados extraídos (reorganize para um esquema de estrela).
+> - Otimize os dados extraídos (reorganize num esquema de estrela).
 > - Consulte a base de dados de análise.
-> - Utilize o Power BI para visualização de dados para realçar as tendências em dados de inquilino e efetuar a recomendação para melhoramentos.
+> - Utilize o Power BI para visualização de dados para destacar tendências em dados de inquilino e fazer recomendação para melhorias.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
-## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise offline de inquilino
+## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise de inquilino offline
 
-Aplicações de SaaS que desenvolver têm acesso a uma grande quantidade de dados do inquilino armazenados na nuvem. Os dados fornece uma origem avançada das informações sobre a operação e a utilização da sua aplicação e sobre o comportamento dos inquilinos. Estas informações podem ajudá desenvolvimento da funcionalidade, melhoramentos de Facilidade de utilização e outros investimentos na aplicação e plataforma.
+Aplicações SaaS que desenvolver têm acesso a uma grande quantidade de dados armazenados na cloud do inquilino. Os dados fornecem uma fonte avançada de informações sobre a operação e a utilização da sua aplicação e sobre o comportamento dos inquilinos. Estas informações podem ajudá-desenvolvimento de funcionalidade, usabilidade e a outros investimentos na aplicação e na plataforma.
 
-Acesso aos dados para todos os inquilinos é simple quando todos os dados apenas uma base de dados do multi-inquilino. Mas o acesso é mais complexo quando distribuídos à escala milhares de bases de dados. É uma forma de tame a complexidade para extrair os dados para uma base de dados de análise ou um armazém de dados. Em seguida, consultar o armazém de dados para recolher informações dos dados de pedidos de todos os inquilinos.
+Acesso aos dados para todos os inquilinos é simples quando todos os dados são apenas uma base de dados do multi-inquilino. Mas o acesso é mais complexo quando distribuição à escala através de milhares de bases de dados. Uma forma de controle da complexidade é extrair os dados para uma base de dados de análise ou de um armazém de dados. Em seguida, consultar o armazém de dados para recolher informações a partir dos dados de bilhetes de todos os inquilinos.
 
-Este tutorial apresenta um cenário de análise completa para esta aplicação SaaS. Primeiro, elásticas tarefas são utilizadas para agendar a extração de dados de cada base de dados do inquilino. Os dados são enviados para um arquivo de análise. O arquivo de análise pode ser uma base de dados do SQL Server ou um SQL Data Warehouse. Para extração de dados em grande escala, [do Azure Data Factory](../data-factory/introduction.md) é commended.
+Este tutorial apresenta um cenário de completas de análise para esta aplicação SaaS de exemplo. Primeiro, elásticas as tarefas são utilizadas para agendar a extração de dados de cada base de dados do inquilino. Os dados são enviados para um arquivo de análise. O arquivo de análise pode ser uma base de dados do SQL ou um SQL Data Warehouse. Para extração de dados em grande escala [do Azure Data Factory](../data-factory/introduction.md) é commended.
 
-Em seguida, os dados agregados é shredded para um conjunto de [esquemas de estrela](https://www.wikipedia.org/wiki/Star_schema) tabelas. As tabelas consistem de uma tabela de factos central plus as tabelas de dimensões relacionados:
+Em seguida, os dados agregados é shredded num conjunto de [esquema de estrela](https://www.wikipedia.org/wiki/Star_schema) tabelas. As tabelas são compostas por uma tabela de fatos central mais tabelas de dimensão relacionada:
 
-- A tabela de factos central no esquema de estrela contém dados de pedido de suporte.
-- As tabelas de dimensão contém dados sobre venues, eventos, os clientes e as datas de compra.
+- A tabela de fatos central no esquema de estrela contém dados de pedido de suporte.
+- As tabelas de dimensões contêm dados sobre locais, eventos, os clientes e datas de compra.
 
-Em conjunto os central e tabelas ativar eficiente analíticos processamento de dimensão. O esquema de estrela utilizado neste tutorial, é apresentado na imagem seguinte:
+Em conjunto a dimensão tabelas ativar eficiente processamento analítico e central. O esquema de estrela utilizado neste tutorial, é apresentado na imagem seguinte:
  
 ![StarSchema](media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
-Por fim, as tabelas de esquema de estrela são consultadas. Os resultados da consulta são apresentados visualmente para realçar as informações sobre o comportamento de inquilino e a sua utilização da aplicação. Com este esquema de estrela, pode executar consultas que ajudam a detetar os itens como o seguinte:
+Por fim, as tabelas do esquema de estrela são consultadas. Os resultados da consulta são apresentados visualmente para realçar as informações sobre o comportamento de inquilino e a sua utilização da aplicação. Com este esquema de estrela, pode executar consultas que o ajudam a detetar itens semelhante ao seguinte:
 
-- Quem é comprar permissões e a partir da qual venue.
-- Ocultos padrões e tendências nas seguintes áreas:
-    - Vendas de pedidos de suporte.
-    - A popularidade relativa de cada venue.
+- Quem está comprando ingressos de qual local.
+- Padrões ocultos e tendências nas seguintes áreas:
+    - As vendas de pedidos de suporte.
+    - A popularidade relativa de cada local.
 
-Compreender como consistentemente cada inquilino está a utilizar o serviço fornece uma oportunidade de criar planos de serviço para se adaptar a suas necessidades. Este tutorial fornece exemplos básicos das informações que podem ser obtidas a partir dos dados de inquilino.
+Compreender como consistentemente cada inquilino está a utilizar o serviço fornece a oportunidade de criar planos de serviço para se adaptar às suas necessidades. Este tutorial fornece exemplos básicos de informações que podem ser compiladas a partir dos dados de inquilino.
 
 ## <a name="setup"></a>Configurar
 
@@ -69,46 +69,46 @@ Compreender como consistentemente cada inquilino está a utilizar o serviço for
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-- A aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino for implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino](saas-multitenantdb-get-started-deploy.md)
-- Os scripts de Wingtip SaaS e aplicação [código fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) são transferidos a partir do GitHub. Certifique-se para *desbloquear o ficheiro zip* antes de a extrair o respetivo conteúdo. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
-- Ambiente de trabalho do Power BI está instalado. [Transferir o ambiente de trabalho do Power BI](https://powerbi.microsoft.com/downloads/)
-- O lote de inquilinos adicionais tiver sido aprovisionado, consulte o [ **aprovisionar inquilinos tutorial**](saas-multitenantdb-provision-and-catalog.md).
-- Um agente de tarefa e a base de dados de agente de tarefa foram criados. Consulte os passos adequados de [ **tutorial de gestão de esquema**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- A aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino é implementada. Para implementar em menos de cinco minutos, veja [implementar e explorar a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino](saas-multitenantdb-get-started-deploy.md)
+- Os scripts de Wingtip SaaS e aplicativo [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) são transferidos a partir do GitHub. Não se esqueça *desbloquear o ficheiro zip* antes de extrair o respetivo conteúdo. Veja a [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip Tickets SaaS de desbloqueio.
+- Power BI Desktop está instalado. [Transferir o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+- Provisionamento do lote de inquilinos adicionais, consulte a [ **aprovisionar inquilinos tutorial**](saas-multitenantdb-provision-and-catalog.md).
+- Um agente de tarefa e a base de dados de agente de tarefa tem sido criadas. Consulte as etapas apropriadas no [ **tutorial de gestão de esquema**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
-### <a name="create-data-for-the-demo"></a>Criar dados de demonstração de
+### <a name="create-data-for-the-demo"></a>Criar dados para a demonstração
 
-Neste tutorial, análise é executada nos dados de vendas de permissão. O passo atual, gerar dados de pedido de suporte para todos os inquilinos.  Mais tarde são extraídos estes dados para análise. *Certifique-se de que aprovisionou o lote de inquilinos, tal como descrito anteriormente, para que tenha uma quantidade significativa de dados*. Uma suficientemente grande quantidade de dados pode expor um intervalo de permissão diferentes padrões de compra.
+Neste tutorial, a análise é executada nos dados de vendas de pedido de suporte. O passo atual, vai gerar dados de pedido de suporte para todos os inquilinos.  Mais tarde, estes dados são extraídos para análise. *Certifique-se de ter aprovisionado o lote de inquilinos, tal como descrito anteriormente, para que tenha uma quantidade significativa de dados*. Uma suficientemente grande quantidade de dados pode expor uma variedade de diferentes padrões de compra de bilhetes.
 
-1. No **ISE do PowerShell**, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*e defina o valor seguinte:
-    - **$DemoScenario** = **1** para eventos em venues todos os pedidos de suporte de compra
-2. Prima **F5** para executar o script e criar pedido de compra do histórico para cada evento em cada venue.  O script é executado durante vários minutos gerar dezenas de milhares de pedidos de suporte.
+1. Na **ISE do PowerShell**, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*e defina o valor seguinte:
+    - **$DemoScenario** = **1** comprar bilhetes para eventos em todos os locais
+2. Prima **F5** para executar o script e criar o histórico para cada evento em cada local de compra de bilhetes.  O script é executado durante vários minutos gerar dezenas de milhares de pedidos de suporte.
 
-### <a name="deploy-the-analytics-store"></a>Implementar o arquivo de análise
-Muitas vezes, existem várias transacionais a bases de dados que em conjunto contêm todos os dados de inquilino. Tem agregar os dados de inquilino da base de dados em partição horizontal para o arquivo de uma análise. A agregação permite consulta eficiente dos dados. Neste tutorial, uma base de dados do SQL Database do Azure é utilizado para armazenar os dados agregados.
+### <a name="deploy-the-analytics-store"></a>Implementar o armazenamento de análise
+Muitas vezes, existem inúmeros transacional em partição horizontal bases de dados que em conjunto contêm todos os dados de inquilino. Tem de agregar os dados de inquilino da base de dados em partição horizontal para armazenamento de uma análise. A agregação permite que uma consulta eficiente dos dados. Neste tutorial, uma base de dados do SQL Database do Azure é utilizado para armazenar os dados agregados.
 
-Nos passos seguintes, implementar o arquivo de análise, o que é chamado **tenantanalytics**. Também implementar tabelas predefinidas que são povoadas mais tarde no tutorial:
+Os passos seguintes, vai implementar o armazenamento de análise, o que é chamado **tenantanalytics**. Também implementa tabelas predefinidas que são preenchidas mais tarde no tutorial:
 1. No ISE do PowerShell, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Defina a variável de $DemoScenario no script para corresponder à sua escolha de arquivo de análise. Para efeitos de aprendizagem, recomenda-se sem columnstore de base de dados SQL.
     - Para utilizar a base de dados SQL sem columnstore, defina **$DemoScenario** = **2**
     - Para utilizar a base de dados SQL com columnstore, defina **$DemoScenario** = **3**  
 3. Prima **F5** para executar o script de demonstração (que chama o *implementar TenantAnalytics<XX>. ps1* script) que cria o arquivo de análise de inquilino. 
 
-Agora que implementou a aplicação e preenchido este com dados interessantes do inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ligar **tenants1-mt -\<utilizador\>**  e **catálogo-mt -\<utilizador\>**  servidores utilizando o início de sessão = *programador*, palavra-passe = *P@ssword1*.
+Agora que implementou a aplicação e preenchido com dados interessantes de inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) liguem **tenants1-mt -\<utilizador\>**  e **catálogo-mt -\<usuário\>**  servidores com início de sessão = *desenvolvedor*, palavra-passe = *P@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
 No Object Explorer, execute os seguintes passos:
 
-1. Expanda o *tenants1-mt -\<utilizador\>*  servidor.
-2. Expanda o nó bases de dados e ver *tenants1* base de dados que contém vários inquilinos.
-3. Expanda o *catálogo-mt -\<utilizador\>*  servidor.
-4. Certifique-se de que vê o arquivo de análise e a base de dados jobaccount.
+1. Expanda a *tenants1-mt -\<usuário\>*  server.
+2. Expanda o nó de bases de dados e ver *tenants1* base de dados que contém vários inquilinos.
+3. Expanda a *catálogo-mt -\<usuário\>*  server.
+4. Certifique-se de que vê o armazenamento de análise e a base de dados jobaccount.
 
-Consulte os seguintes itens de base de dados no Explorador de objeto do SSMS, expandindo o nó de arquivo de análise:
+Consulte os seguintes itens de base de dados no Explorador de objeto do SSMS ao expandir o nó do arquivo de análise:
 
-- As tabelas **TicketsRawData** e **EventsRawData** conter dados não processados de extraídos das bases de dados do inquilino.
-- As tabelas de esquema de estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, e **dim_Dates** .
-- O **sp_ShredRawExtractedData** procedimento armazenado é utilizado para preencher as tabelas de esquema de estrela das tabelas de dados não processados.
+- Tabelas **TicketsRawData** e **EventsRawData** manter não processados dados extraídos dos bancos de dados de inquilino.
+- As tabelas do esquema de estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, e **dim_Dates** .
+- O **sp_ShredRawExtractedData** procedimento armazenado é utilizado para preencher as tabelas do esquema de estrela das tabelas de dados não processados.
 
 ![tenantAnalytics](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
@@ -116,47 +116,47 @@ Consulte os seguintes itens de base de dados no Explorador de objeto do SSMS, ex
 
 ### <a name="create-target-groups"></a>Criar grupos de destino 
 
-Antes de continuar, certifique-se de que implementou a base de dados de conta e jobaccount tarefa. O seguinte conjunto de passos, as tarefas elásticas é utilizada para extrair dados da base de dados em partição horizontal inquilinos e para armazenar os dados no arquivo de análise. Em seguida, a segunda tarefa shreds os dados e armazena-os em tabelas do esquema de estrela. Estas duas tarefas executar dois grupos de destino diferente, nomeadamente **TenantGroup** e **AnalyticsGroup**. A tarefa de extração é executada relativamente a TenantGroup, que contém todas as bases de dados do inquilino. A tarefa shredding é executada relativamente a AnalyticsGroup, que contém apenas o arquivo de análise. Crie os grupos de destino utilizando os seguintes passos:
+Antes de continuar, certifique-se de que implementou a base de dados do conta e jobaccount tarefa. O próximo conjunto de passos, as tarefas elásticas é utilizada para extrair dados da base de dados de inquilinos em partição horizontal e para armazenar os dados no arquivo de análise. Em seguida, a segunda tarefa distribui os dados e os armazena em tabelas no esquema de estrela. Estas duas tarefas são executadas em relação a dois grupos de destino diferente, ou seja **TenantGroup** e **AnalyticsGroup**. A tarefa de extração é executada relativamente a TenantGroup, que contém todas as bases de dados de inquilino. A tarefa shredding for executado relativamente a AnalyticsGroup, que contém apenas o arquivo de análise. Crie os grupos de destino, utilize os seguintes passos:
 
 1. No SSMS, ligue para o **jobaccount** base de dados no catálogo-mt -\<utilizador\>.
 2. No SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Modificar o @User variável na parte superior do script, substituindo <User> com o valor de utilizador utilizado quando implementou a aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino.
-4. Prima **F5** para executar o script que cria os grupos de destino de dois.
+3. Modificar a @User variável na parte superior do script, substituindo <User> com o valor de utilizador que usou quando implementou a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino.
+4. Prima **F5** para executar o script que cria os grupos de destino de duas.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extrair dados não processados de todos os inquilinos
 
-Transações poderão ocorrer com mais frequência para *permissão e cliente* dados que para *eventos e venue* dados. Por conseguinte, considere extrair dados de pedido de suporte e cliente em separado e mais frequentemente do que extrair dados de eventos e venue. Nesta secção, defina e agendar duas tarefas separadas:
+Transações podem ocorrer com mais frequência para *pedido de suporte e de clientes* dados do que para *eventos e o foro* dados. Por conseguinte, considere a extração de dados de pedido de suporte e de clientes em separado e com mais frequência do que extrair dados de evento e o local. Nesta seção, define e agenda duas tarefas separadas:
 
-- Extrair dados de pedido de suporte e de cliente.
-- Extrair dados de eventos e venue.
+- Extrair dados de pedido de suporte e de clientes.
+- Extrair dados de evento e o local.
 
-Cada tarefa extrai os respetivos dados e envia-o para o arquivo de análise. Não existe uma tarefa separada shreds os dados extraídos para o esquema de estrela de análise.
+Cada tarefa extrai os respetivos dados e publica-o para o arquivo de análise. Existe uma tarefa separada distribui os dados extraídos para o esquema de estrela de análise.
 
-1. No SSMS, ligue para o **jobaccount** base de dados no catálogo-mt -\<utilizador\> servidor.
+1. No SSMS, ligue para o **jobaccount** base de dados no catálogo-mt -\<utilizador\> server.
 2. No SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modificar @User na parte superior do script e substituir <User> com o nome de utilizador utilizado quando implementou a aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino. 
-4. Prima **F5** para executar o script que cria e executa a tarefa que extrai dados de pedidos de suporte e os clientes de cada base de dados do inquilino. A tarefa guarda os dados para o arquivo de análise.
-5. Consulta a tabela de TicketsRawData na base de dados tenantanalytics, para se certificar de que a tabela é preenchida com as informações de pedidos de todos os inquilinos.
+3. Modificar @User na parte superior do script e substitua <User> com o nome de utilizador que usou quando implementou a aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino. 
+4. Prima **F5** para executar o script que cria e executa a tarefa que extrai dados de pedidos de suporte e os clientes de cada base de dados do inquilino. A tarefa salva os dados para o arquivo de análise.
+5. Consulte a tabela de TicketsRawData na base de dados tenantanalytics, para garantir que a tabela é preenchida com as informações de bilhetes de todos os inquilinos.
 
 ![ticketExtracts](media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
-Repita os passos anteriores, exceto substituir este tempo **\ExtractTickets.sql** com **\ExtractVenuesEvents.sql** no passo 2.
+Repita os passos anteriores, exceto esta substituição de tempo **\ExtractTickets.sql** com **\ExtractVenuesEvents.sql** no passo 2.
 
-Executar com êxito a tarefa preenche a tabela de EventsRawData no arquivo de análise com novos eventos e venues as informações de todos os inquilinos. 
+Executar com êxito a tarefa preenche a tabela de EventsRawData no arquivo de análise com novos eventos e informações de locais de todos os inquilinos. 
 
 ## <a name="data-reorganization"></a>Reorganização de dados
 
-### <a name="shred-extracted-data-to-populate-star-schema-tables"></a>Dados extraídos shred para povoar tabelas de esquema de estrela
+### <a name="shred-extracted-data-to-populate-star-schema-tables"></a>Dados extraídos que piquem preencher tabelas do esquema de estrela
 
-O passo seguinte é shred os dados não processados extraídos para um conjunto de tabelas que estão otimizados para consultas de análise. Um esquema de estrela é utilizado. Uma tabela de factos central contém permissão individuais registos de vendas. As tabelas de dimensões são povoadas com dados sobre venues, eventos, os clientes e as datas de compra. 
+A próxima etapa é que piquem os dados não processados extraídos para um conjunto de tabelas otimizadas para consultas de análise. É utilizado um esquema de estrela. Uma tabela de fatos central contém o pedido de suporte individual registros de vendas. Tabelas de dimensões são preenchidas com dados sobre locais, eventos, os clientes e datas de compra. 
 
-Nesta secção do tutorial, tem de define e executar uma tarefa que une os dados não processados extraídos com os dados nas tabelas de esquema de estrela. Uma vez concluída a tarefa de intercalação, são eliminados os dados não processados, deixando as tabelas prontas para ser preenchido pelos dados de inquilino seguintes extrair a tarefa.
+Nesta secção do tutorial, definir e executar uma tarefa que une os dados não processados extraídos com os dados das tabelas do esquema de estrela. Depois de concluída a tarefa de intercalação, os dados não processados são eliminados, deixando as tabelas prontas para ser preenchido pelos dados de inquilino seguintes extrair a tarefa.
 
 1. No SSMS, ligue para o **jobaccount** base de dados no catálogo-mt -\<utilizador\>.
 2. No SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
-3. Prima **F5** executar o script para definir uma tarefa que chama o sp_ShredRawExtractedData do procedimento armazenado no arquivo de análise.
+3. Prima **F5** executar o script para definir uma tarefa que chama o sp_ShredRawExtractedData procedimento armazenado no arquivo de análise.
 4. Permita tempo suficiente para a tarefa seja executada com êxito.
-    - Verifique o **ciclo de vida** coluna da tabela de jobs.jobs_execution para o estado da tarefa. Certifique-se de que a tarefa **com êxito** antes de continuar. Uma execução bem sucedida apresenta dados semelhantes para o gráfico seguinte:
+    - Verifique os **ciclo de vida** coluna da tabela de jobs.jobs_execution para o estado de tarefa. Certifique-se de que a tarefa **bem-sucedido** antes de continuar. Uma execução com êxito apresenta dados semelhantes para o gráfico a seguir:
 
 ![shreddingJob](media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
@@ -164,13 +164,13 @@ Nesta secção do tutorial, tem de define e executar uma tarefa que une os dados
 
 ### <a name="visualize-tenant-data"></a>Visualizar dados de inquilino
 
-Os dados na tabela de esquema de estrela fornecem todos os permissão vendas dados necessários para a sua análise. Para tornar mais fácil ver as tendências de grandes conjuntos de dados, terá de visualizar-graficamente.  Nesta secção, irá aprender a utilizar **Power BI** para manipular e visualizar os dados de inquilino tiver extraído e organizados.
+Os dados da tabela do esquema de estrela fornecem todos os os pedido de suporte dados de vendas necessários para a sua análise. Para que seja mais fácil ver as tendências em grandes conjuntos de dados, terá de visualizá-la graficamente.  Nesta secção, irá aprender a utilizar **Power BI** para manipular e visualize os dados de inquilino precisa extraídos e organizados.
 
-Utilize os seguintes passos para ligar ao Power BI e, para importar as vistas que criou anteriormente:
+Utilize os seguintes passos para ligar ao Power BI e para importar as vistas que criou anteriormente:
 
-1. Inicie o ambiente de trabalho do Power BI.
-2. A partir do Friso inicial, selecione **obter dados**e selecione **mais...** no menu.
-3. No **obter dados** janela, selecione SQL Database do Azure.
+1. Inicie o Power BI desktop.
+2. No friso base, selecione **obter dados**e selecione **mais...** no menu.
+3. Na **obter dados** janela, selecione Azure SQL Database.
 4. Na janela de início de sessão da base de dados, introduza o nome do servidor (catálogo-mt -\<utilizador\>. database.windows.net). Selecione **importação** para **modo de conectividade de dados**e, em seguida, clique em OK. 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
@@ -179,60 +179,60 @@ Utilize os seguintes passos para ligar ao Power BI e, para importar as vistas qu
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
-6. No **navegador** painel, sob a base de dados de análise, selecione as tabelas de esquema de estrela: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, selecione **carga**. 
+6. Na **navegador** painel, sob a base de dados de análise, selecione as tabelas do esquema de estrela: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, selecione **carga**. 
 
-Parabéns! Carregou com êxito os dados no Power BI. Agora pode começar a explorar visualizações interessantes para o ajudar a obter informações sobre os seus inquilinos. Em seguida guiá como análise pode ativar a fornecer recomendações condicionada por dados para a equipa de negócio Wingtip pedidos de suporte. As recomendações podem ajudar a otimizar a experiência de cliente e modelo de negócio.
+Parabéns! Carregou com êxito os dados para o Power BI. Agora pode começar a explorar visualizações interessantes para o ajudar a obter informações sobre os seus inquilinos. Em seguida, examinar como o analytics podem permitir que fornecer recomendações orientadas por dados para a equipa de empresariais Wingtip Tickets. As recomendações podem ajudar a otimizar a experiência de modelo e o cliente de negócios.
 
-Que comece por analisar os dados de vendas permissão para ver a variação na utilização em toda as venues. Selecione as seguintes opções no Power BI para desenhar um gráfico de barras do número total de pedidos de suporte de artigos vendidos por cada venue. Devido a variação aleatória no gerador de permissão, os resultados podem ser diferentes.
+Comece por analisar dados de vendas de permissão para ver a variação na utilização entre os locais. Selecione as seguintes opções no Power BI para desenhar um gráfico de barras do número total de pedidos de suporte vendido por cada local. Devido a variação aleatória no gerador de pedido de suporte, os resultados podem ser diferentes.
  
 ![TotalTicketsByVenues](media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
-O desenho anterior confirma que o número de pedidos de suporte de artigos vendidos por cada venue varia. Venues propor mais pedidos estão a utilizar o serviço mais fortemente venues propor menos permissões. Pode haver uma oportunidade para personalizar a alocação de recursos de acordo com as necessidades de inquilino diferente.
+O desenho anterior confirma que o número de pedidos de suporte vendido por cada local varia. Locais vendem bilhetes mais estão a utilizar o serviço mais pesada do que locais vendem bilhetes menos. Pode haver uma oportunidade para ajustar a alocação de recursos de acordo com as necessidades de inquilino diferente.
 
-Ainda pode analisar os dados para ver como vendas permissão variam ao longo do tempo. Selecione as seguintes opções no Power BI para desenhar o número total de pedidos de suporte de artigos vendidos por dia durante um período de 60 dias.
+Pode analisar mais aprofundadamente os dados para ver como as vendas de bilhetes variam ao longo do tempo. Selecione as seguintes opções no Power BI para desenhar o número total de pedidos de suporte vendido por dia durante um período de 60 dias.
  
 ![SaleVersusDate](media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
-O gráfico anterior mostra esse pico de pedidos vendas do pedido de suporte para alguns venues. Estes picos de impor a ideia que alguns venues poderão estar a consumir recursos de sistema disproportionately. Até ao momento não é não existe nenhuma padrão óbvios no quando ocorrem os picos de.
+O gráfico anterior mostra esse pico de vendas de pedido de suporte para alguns locais. Esse aumento de reforçar a ideia de que alguns locais poderão estar a consumir recursos do sistema desproporcional. Até agora não há nenhum padrão óbvio quando ocorrem os picos.
 
-Em seguida que pretende continuar a investigar a significância destes dias de venda das horas de ponta. Quando estas picos ocorrer depois de pedidos de suporte, aceda à venda? Para desenhar bilhetes vendidos por dia, selecione as seguintes opções no Power BI.
+Em seguida queira continuar a investigar o significado nos dias de hoje de venda de pico. Quando esses picos ocorrem depois de pedidos de suporte, aceda à venda? Para representar os pedidos de suporte vendidos por dia, selecione as seguintes opções no Power BI.
 
 ![SaleDayDistribution](media/saas-multitenantdb-tenant-analytics/SaleDistributionPerDay.PNG)
 
-O desenho anterior mostra que alguns venues propor uma grande quantidade de pedidos de suporte no primeiro dia de venda. Assim que as permissões aceda à venda nestes venues, parece haver um rush mad. Este rajada de atividade por alguns venues poderá afetar o serviço para os outros inquilinos.
+O desenho anterior mostra que alguns locais vendem muitos pedidos de suporte no primeiro dia de venda. Assim que os pedidos de suporte aceda à venda nesses locais, parece haver apressem. Este fluxo de atividade por alguns locais pode afetar o serviço para os outros inquilinos.
 
-Pode explorar os dados novamente para ver se este rush mad é verdadeiro para todos os eventos hospedados estes venues. No rastreia anterior, observados que Contoso Concert Hall sells muitos pedidos e que Contoso também tem um pico de pedidos na vendas de permissão em determinados dias. Reproduzir em torno com opções do Power BI para desenhar vendas permissão cumulativa para Contoso Concert Hall, concentrar-se em tendências de venda para cada um dos seus eventos. Todos os eventos siga o mesmo padrão de venda?
+Pode explorar os dados novamente para ver se este apressem é verdadeiro para todos os eventos hospedados por esses locais. Em gráficos anteriores, observou que a Contoso Concert Hall vende muitos pedidos de suporte e que Contoso também possui um pico no vendas de bilhetes em determinados dias. Experimente as opções do Power BI para desenhar as vendas de bilhetes cumulativa para Contoso Concert Hall, concentrando-se sobre as tendências de venda para cada um dos seus eventos. Todos os eventos seguem o mesmo padrão de venda?
 
 ![ContosoSales](media/saas-multitenantdb-tenant-analytics/EventSaleTrends.PNG)
 
-O desenho anterior para Contoso Concert Hall mostra que o rush mad não acontecer para todos os eventos. Reproduzir em torno com as opções de filtro para ver as tendências de venda para outros venues.
+O desenho anterior para Contoso Concert Hall mostra que o apressem não acontece para todos os eventos. Experimente as opções de filtro para ver as tendências de venda para outros locais.
 
-As informações para vender padrões de pedido de suporte poderão originar Wingtip permissões para otimizar o seu modelo de negócio. Em vez de charging todos os inquilinos igualmente, talvez Wingtip deve dar origem a escalões de serviço com níveis de desempenho diferentes. Venues maior do que necessita para vender mais pedidos por dia foi oferecidas um escalão superior com um superior contrato de nível serviço (SLA). Esses venues podem ter as bases de dados colocados em conjunto com limites de recursos por base de dados superiores. Cada escalão de serviço pode ter uma alocação de venda por hora, com taxas adicionais cobradas exceder a alocação. Venues maiores que tenham bursts periódicas de vendas seriam beneficiar os escalões superiores e Wingtip permissões pode monetizar seu serviço de forma mais eficiente.
+As informações sobre os padrões de venda de bilhetes podem levar a Wingtip Tickets para otimizar o seu modelo de negócio. Em vez de cobrança todos os inquilinos igualmente, talvez Wingtip deve apresentar o escalões de serviço com diferentes tamanhos de computação. Locais maiores que têm de vender bilhetes mais por dia podem ser oferecidos um escalão superior com um maior contrato de nível serviço (SLA). Esses locais podem ter seus bancos de dados colocados em conjunto com limites de recursos por base de dados mais elevados. Cada escalão de serviço pode ter uma alocação de vendas por hora, com taxas adicionais é cobradas que exceda a alocação. Locais maiores que têm picos periódicos de vendas seriam beneficiar dos escalões superiores e Wingtip Tickets pode monetize de forma mais eficiente seu serviço.
 
-Entretanto, alguns clientes de bilhetes Wingtip queixarem de que estes dificuldade vender suficiente permissões para indicar o custo do serviço. Talvez nestas informações não há uma oportunidade para melhorar vendas de permissão para em execução venues. Vendas superiores seriam aumentar o valor do serviço percetível. Clique com o botão direito do rato em fact_Tickets e selecione **nova medida**. Introduza a seguinte expressão da medida nova denominada **AverageTicketsSold**:
+Enquanto isso, alguns clientes Wingtip Tickets reclamam que eles se para vender suficiente bilhetes para justificar o custo do serviço. Talvez dessas informações há uma oportunidade para aumentar as vendas de bilhetes para em execução locais. Vendas superior aumentará o valor percebido do serviço. Clique com o botão direito do rato em fact_Tickets e selecione **nova medida**. Introduza a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 
-Selecione as seguintes opções de visualização para desenhar os pedidos de suporte de percentagem vendidos por cada venue para determinar os respetivos êxito relativo.
+Selecione as seguintes opções de visualização para desenhar os tíquetes de percentagem vendidos por cada local para determinar seu sucesso relativo.
 
 ![analyticsViews](media/saas-multitenantdb-tenant-analytics/AvgTicketsByVenues.PNG)
 
-O desenho anterior mostra que, apesar da maioria das venues propor mais de 80% dos respetivos bilhetes, alguns são struggling preencher mais de metade de utilizadores individuais. Reproduzir em torno com os valores bem para selecionar a percentagem de máxima ou mínima de permissões vendida para cada venue.
+O desenho anterior mostra que, embora a maioria dos locais vendem mais de 80% dos seus pedidos de suporte, alguns estão com problemas preencher a mais de metade postos de trabalho. Experimente os valores bem para selecionar o máxima ou mínima percentagem de pedidos de suporte vendido para cada local.
 
-Anteriormente deepened a análise para detetar que vendas permissão tendem a seguir padrões previsíveis. Esta deteção pode permitem ajuda Wingtip bilhetes underperforming venues intensificação permissão vendas por Recomendamos preços dinâmico. Esta deteção pode revelar uma oportunidade para utilizar as técnicas de aprendizagem máquina para prever vendas de pedido de suporte para cada evento. Predições também podem ser feitas para o impacto no receitas de oferta descontos vendas de permissão. Power BI Embedded pode ser integrado uma aplicação de gestão de eventos. A integração foi ajudam a visualizar vendas previstas e o efeito de descontos diferentes. A aplicação pode ajudar a devise um desconto a aplicar diretamente a partir do ecrã análise ideal.
+Anteriormente, deepened sua análise para detetar que vendas de bilhetes tendem a seguir padrões previsíveis. Esta deteção pode deixar a ajuda da Wingtip Tickets com um desempenho baixo vendas de bilhetes de aumento de locais ao recomendar preços dinâmico. Esta deteção poderá revelar uma oportunidade de empregam técnicas de aprendizagem de máquina para prever vendas de bilhetes para cada evento. Predições também poderiam ser feitas para o impacto na receita da oferta de descontos em vendas de bilhetes. Power BI Embedded pode ser integrado num aplicativo de gerenciamento de eventos. A integração pode ajudar a visualizar vendas previstas e o efeito de diferentes descontos. O aplicativo poderia ajudar a planejar um desconto ideal a ser aplicadas diretamente a partir da exibição de análise.
 
-Ter observados tendências em dados de inquilino da aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino. Pode contemplate outras formas que a aplicação pode informar decisões de negócio para fornecedores de aplicações SaaS. Os fornecedores podem aparência melhor às necessidades dos respetivos inquilinos. Hopefully neste tutorial tem equipados com as ferramentas necessárias para efetuar a análise nos dados de inquilino para capacitar as empresas para tomar decisões condicionada por dados.
+Observado tendências em dados de inquilino da aplicação Wingtip Tickets SaaS multi-inquilino base de dados. Pode parar outras formas que a aplicação pode informar decisões de negócios SaaS para fornecedores de aplicações. Fornecedores podem atender melhor às necessidades dos seus inquilinos. Espero que este tutorial tem equipado com ferramentas necessárias para realizar análises em dados de inquilino para capacitar as empresas para tomar decisões condicionadas por dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> - Implementar uma base de dados de análise de inquilino com tabelas de esquema em estrela predefinido
-> - Permite que as tarefas elásticas para extrair dados de todos os o inquilino da base de dados
-> - Intercale os dados extraídos a tabelas de um esquema de estrela concebidas para análise
+> - Implementar uma base de dados de análise de inquilinos com tabelas de esquema em estrela predefinido
+> - Utilizado tarefas elásticas para extrair dados de todas as a base de dados de inquilinos
+> - Intercalar os dados extraídos para tabelas num esquema de estrela concebido para análise
 > - Consultar uma base de dados de análise 
 > - Utilizar o Power BI para visualização de dados para observar as tendências em dados de inquilino 
 
@@ -241,4 +241,4 @@ Parabéns!
 ## <a name="additional-resources"></a>Recursos adicionais
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
-- [As tarefas elásticas](sql-database-elastic-jobs-overview.md).
+- [Tarefas elásticas](sql-database-elastic-jobs-overview.md).

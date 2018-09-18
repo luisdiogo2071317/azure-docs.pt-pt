@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5573bd36761fb56f0731f886bd705327625f06fe
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630159"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734510"
 ---
 # <a name="collaborating"></a>Colaborar
 
@@ -34,7 +34,7 @@ A conta que cria uma aplicação é o proprietário. Cada aplicação tem um ún
 ## <a name="authorization-roles"></a>Funções de autorização
 LUIS não suporta funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode eliminar a aplicação.
 
-Se estiver interessado no controle de acesso ao modelo, considere dividir o modelo em aplicativos menores do LUIS, em que cada aplicação menor tem um conjunto limitado de mais de colaboradores. Uso [expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) para permitir que um elemento principal aplicação LUIS gerir a coordenação entre os aplicativos principais e subordinados.
+Se estiver interessado no controle de acesso ao modelo, considere dividir o modelo em aplicativos menores do LUIS, em que cada aplicação menor tem um conjunto limitado de mais de colaboradores. Uso [expedição](https://aka.ms/dispatch-tool) para permitir que um elemento principal aplicação LUIS gerir a coordenação entre os aplicativos principais e subordinados.
 
 ## <a name="transfer-ownership"></a>Transferir a propriedade
 LUIS não fornece a transferência de propriedade, no entanto, qualquer funcionário pode exportar a aplicação e, em seguida, crie uma aplicação através da importação é. Lembre-se de que a nova aplicação tem um ID de aplicação diferente. A nova aplicação precisa ser preparado, publicado e o novo ponto final utilizado.

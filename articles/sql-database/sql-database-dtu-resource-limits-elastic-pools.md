@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a0e0b8e2de3c944698cdbc6b1b11351f70e77276
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058197"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729897"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de recursos para conjuntos elásticos com o modelo de compra baseado em DTU 
 
@@ -25,9 +25,9 @@ Para baseado em DTU compra modelo limites de recursos para bases de dados indivi
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Conjunto elástico: tamanhos de armazenamento e níveis de desempenho
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Conjunto elástico: tamanhos de armazenamento e tamanhos de computação
 
-Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os recursos disponíveis em cada nível de desempenho e a camada de serviço. Pode definir a camada de serviços, nível de desempenho e quantidade de armazenamento utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [da CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), ou o [deAPIdeREST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os recursos disponíveis em cada escalão de serviço e tamanho de computação. Pode definir o escalão de serviço, o tamanho de computação e quantidade de armazenamento utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [da CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), ou o [API de REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > Os limites de recursos de bases de dados individuais em conjuntos elásticos são geralmente as mesmas usadas para bases de dados individuais fora conjuntos com base sobre DTUs e a camada de serviços. Por exemplo, os máximos de trabalhadores simultâneos para uma base de dados S2 é 120 funções de trabalho. Então, os máximos de trabalhadores simultâneos para uma base de dados num conjunto Standard também é 120 funções de trabalho se o máximo de DTUS por base de dados no conjunto é 50 DTUs (que é equivalente para S2).

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: c18faa94f207b98400fece366a23a68c3d7bc58c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633185"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982883"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
@@ -80,9 +80,6 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 
 ### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
 - Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
-
-### <a name="subscription-management"></a>Gestão de subscrições
-- Dinamicamente movendo servidores previamente criadas pela subscrição e grupo de recursos não é atualmente suportada.
 
 ## <a name="current-known-issues"></a>Atuais problemas conhecidos
 - Instância do servidor MySQL apresenta a versão de servidor incorreto depois de ligação é estabelecida. Para obter versão do motor de instância de servidor correto, utilize o `select version();` comando.

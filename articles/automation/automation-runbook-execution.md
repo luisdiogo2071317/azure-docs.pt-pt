@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055571"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982985"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -59,7 +59,7 @@ Pode ver o estado de todas as tarefas de runbook resumido ou pormenorizar os det
 
 No lado direito da sua conta de automatização selecionada, pode ver um resumo de todas as tarefas de runbook para uma conta de automatização sob **estatísticas de tarefas** mosaico.
 
-![Mosaico de estatísticas de tarefas](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Mosaico de estatísticas de tarefas](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Este mosaico apresenta uma contagem e uma representação gráfica do Estado da tarefa para todas as tarefas executadas.
 

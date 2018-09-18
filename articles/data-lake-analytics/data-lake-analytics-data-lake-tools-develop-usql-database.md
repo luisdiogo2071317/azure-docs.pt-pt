@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: c731fd78ed7052697b3a5bd7c4da3a743e5a208d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299618"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734929"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usar um projeto de banco de dados U-SQL para desenvolver uma base de dados U-SQL para o Azure Data Lake
 
@@ -94,7 +94,7 @@ Pode implementar uma base de dados U-SQL através de um projeto de banco de dado
 
 `PackageDeploymentTool.exe` Fornece as interfaces de linha de comandos que ajudam a implementar bases de dados U-SQL e programação. O SDK está incluído nos [pacote Nuget do SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), localizado em `build/runtime/PackageDeploymentTool.exe`.
 
-[Saiba mais sobre o SDK e como configurar o pipeline de CI/CD para a implementação de base de dados U-SQL](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-devops).
+[Saiba mais sobre o SDK e como configurar o pipeline de CI/CD para a implementação de base de dados U-SQL](data-lake-analytics-cicd-overview.md).
 
 ## <a name="reference-a-u-sql-database-project"></a>Referenciar um projeto de banco de dados U-SQL
 

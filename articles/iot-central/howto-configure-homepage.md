@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b4d97c1e8c4360028cb249b7e1a61f9fc26e9f2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300533"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731126"
 ---
 ## <a name="configuring-homepage"></a>Configurar a home page
 
@@ -27,7 +27,7 @@ Selecionando **editar**, abrirá a biblioteca do dashboard num painel à esquerd
 
 ![Biblioteca do dashboard](media\howto-configure-homepage\image2.png)
 
-Por exemplo, pode adicionar um **definições e propriedades** mosaico para mostrar uma seleção dos valores atuais das definições e propriedades. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. Neste caso, selecionámos **ventoinha velocidade**. Clicar **feito** fará com que este mosaico apareça na home page.
+Por exemplo, pode adicionar um **definições e propriedades** mosaico para mostrar uma seleção dos valores atuais das definições e propriedades. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. Neste caso, selecionámos **definir a temperatura**. Clicar **feito** fará com que este mosaico apareça na home page.
 
 ![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media\howto-configure-homepage\image3.png)
 

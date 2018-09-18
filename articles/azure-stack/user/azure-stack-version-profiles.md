@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745804"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982158"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerir perfis de versão de API no Azure Stack
 
@@ -46,7 +46,7 @@ Este tópico ajuda-o:
     Lançado numa cadência biannual, esta versão se concentra na consistência e a estabilidade em várias clouds. Este perfil se destina a compatibilidade do Azure Stack ideal.
     - **aaaa-mm-dd-perfil** encontra-se entre estabilidade ideal e as funcionalidades mais recentes.
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Perfis de API do Azure e a compatibilidade do Azure Stack
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Perfis de API do Azure e a compatibilidade do Azure Stack
 
 Os perfis de API do Azure mais recentes não são compatíveis com o Azure Stack. Pode utilizar as seguintes convenções de nomenclatura para identificar quais perfis a utilizar para as suas soluções do Azure Stack.
 

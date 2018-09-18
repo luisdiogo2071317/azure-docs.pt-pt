@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061530"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985503"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Melhores práticas para configuração do dispositivo dentro de uma solução de IoT
 
@@ -55,7 +55,7 @@ Seguem-se as melhores práticas para fabricantes de hardware e integradores de l
 
 Seguem-se as práticas recomendadas para os desenvolvedores de solução de IoT que estão a criar sistemas com base no Azure:
 
-* **Implemente [dispositivos duplos](iot-hub-devguide-device-twins.md):** dispositivos duplos ativar a sincronização de configuração pretendida a partir da cloud e por comunicarem as propriedades de configuração e o dispositivo atuais. A melhor maneira de implementar dispositivos duplos dentro de aplicações de soluções na cloud é através da [SDKs IoT do Azure](https://github.com/Azure/azure-iot-sdks.) dispositivos duplos são mais adequados para a configuração porque eles:
+* **Implemente [dispositivos duplos](iot-hub-devguide-device-twins.md):** dispositivos duplos ativar a sincronização de configuração pretendida a partir da cloud e por comunicarem as propriedades de configuração e o dispositivo atuais. A melhor maneira de implementar dispositivos duplos dentro de aplicações de soluções na cloud é através da [do Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Os dispositivos duplos são mais adequados para a configuração porque eles:
 
     * Suporta a comunicação bidirecional.
     * Permitir que os dois Estados de dispositivo conectado ou desconectado. 

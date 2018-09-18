@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055995"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737418"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -556,7 +556,7 @@ Serviços ligados ligam os arquivos de dados ou serviços de computação à fá
 
    ![Novo arquivo de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, veja [ver, copiar e voltar a gerar armazenamento de chaves de acesso](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, veja [ver, copiar e voltar a gerar armazenamento de chaves de acesso](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 

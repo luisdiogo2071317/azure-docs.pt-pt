@@ -3,7 +3,7 @@ title: Dimensionar nós de adicionar o Azure Stack | Documentos da Microsoft
 description: Adicione nós para unidades de escala no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718105"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983002"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Adicionar nós de unidade de escala adicionais no Azure Stack
 
@@ -142,4 +142,4 @@ Seguem-se problemas comuns detetados quando adicionar um nó.
 
 
 ## <a name="next-steps"></a>Passos Seguintes 
-Revisão [ações de nó](azure-stack-node-actions.md) 
+[Adicionar endereços IP públicos](azure-stack-add-ips.md) 

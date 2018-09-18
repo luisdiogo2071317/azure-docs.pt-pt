@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058269"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730165"
 ---
-# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de eEvent e configurar notificações na sua aplicação do Azure IoT Central
+# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de evento e configure as notificações na sua aplicação do Azure IoT Central
+
+*Este artigo aplica-se para operadores, criadores e administradores.*
 
 Pode utilizar o Azure IoT Central para monitorizar remotamente os seus dispositivos ligados. Regras de centro de IoT do Azure permitem-lhe monitorizar os seus dispositivos em tempo real e automaticamente invocar ações, tal como enviar um e-mail ou acionar o Microsoft Flow. Em apenas alguns cliques, pode definir a condição para a qual monitorizar os dados de dispositivo e configure a ação correspondente. Este artigo explica como criar regras para monitorar eventos enviados pelo dispositivo.
 
@@ -37,10 +39,10 @@ Para criar uma regra de evento, o modelo do dispositivo tem de ter definida de m
     ![Ainda não existem regras](media\howto-create-event-rules\Rules_Landing_Page.png)
 
 
-1. Sobre o **regras** separador, clique em **+ nova regra** para ver os tipos de regras, pode criar.
+1. Sobre o **regras** separador, clique em **Editar modelo** e, em seguida **+ nova regra de** para ver os tipos de regras, pode criar.
 
 
-1. Clique nas **evento** mosaico para criar uma regra.
+1. Clique nas **evento** mosaico para criar uma regra de monitorização de eventos.
 
     ![Tipos de regra](media\howto-create-event-rules\Rule_Types.png)
 
@@ -92,6 +94,8 @@ Esta secção mostra como configurar as ações a tomar quando a regra é dispar
    ![Configurar ação](media\howto-create-event-rules\Configure_Action.png)
 
 1. Para guardar a regra, escolha **guardar**. A regra for executada dentro de alguns minutos e inicia a monitorização de eventos a ser enviados ao seu aplicativo. Quando a condição especificada na regra corresponde, a regra for acionada a ação de e-mail configurado.
+
+1. Escolher **feito** para sair do **Editar modelo** modo.
 
 Pode adicionar outras ações para a regra, como o Microsoft Flow e webhooks. Pode adicionar até 5 ações por regra.
 

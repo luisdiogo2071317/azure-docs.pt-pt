@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: c1ea223bf00dea32fb150cf141be7b5ea3239215
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055425"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732945"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -26,14 +26,14 @@ Para baseado em DTU limites de modelo compra, veja [limites dos recursos baseado
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
 
-## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de dados: tamanhos de armazenamento e níveis de desempenho
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de dados: tamanhos de armazenamento e tamanhos de computação
 
-Para bases de dados individuais, as tabelas seguintes mostram os recursos disponíveis para uma base de dados em cada nível de desempenho e a camada de serviço. Pode definir a camada de serviços, nível de desempenho e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), o [Da CLI do azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Para bases de dados individuais, as tabelas seguintes mostram os recursos disponíveis para uma base de dados em cada escalão de serviço e tamanho de computação. Pode definir o escalão de serviço, o tamanho de computação e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), o [ CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [API de REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### <a name="general-purpose-service-tier"></a>Escalão de serviço de fins geral
 
 #### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
-|Nível de desempenho|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|Tamanho de computação|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -55,7 +55,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
-|Nível de desempenho|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
+|Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -79,7 +79,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 ### <a name="business-critical-service-tier"></a>Camada de serviços críticos de negócio
 
 #### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
-|Nível de desempenho|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Tamanho de computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -101,7 +101,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
-|Nível de desempenho|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|

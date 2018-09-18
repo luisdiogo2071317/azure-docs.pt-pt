@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 643add4e0e4732734e9ef763a587755bf8700605
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092533"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731007"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: erros de ligação e outros problemas de base de dados
 
@@ -111,7 +111,7 @@ Para criar e utilizar os conjuntos elásticos relacionados com os seguintes erro
 | 40857 |EX_USER |Conjunto elástico não encontrado para o servidor: '%ls', nome do conjunto elástico: "%ls". |nome do servidor; nome do conjunto elástico |Conjunto elástico especificado não existe no servidor especificado. |Forneça um nome de conjunto elástico válido. |
 | 40858 |EX_USER |Conjunto elástico "%ls" já existe no servidor: "%ls" |nome do conjunto elástico, nome do servidor |Conjunto elástico especificado já existe no servidor lógico especificado. |Forneça o nome do novo conjunto elástico. |
 | 40859 |EX_USER |Conjunto elástico não suporta a camada de serviço "%ls". |escalão de serviço do conjunto elástico |Escalão de serviço especificado não é suportado para o aprovisionamento do conjunto elástico. |Forneça a edição correta ou deixe o escalão de serviço em branco para usar a camada de serviço predefinida. |
-| 40860 |EX_USER |Combinação de conjunto elástico "%ls" e o serviço de objetivo "%ls" é inválida. |nome do conjunto elástico; nome de objetivo de nível de serviço |Elástico objetivo de agrupamento e o serviço pode ser especificado em conjunto, apenas se o objetivo de serviço está especificado como 'ElasticPool'. |Especifica a correta combinação de conjunto elástico e o objetivo de serviço. |
+| 40860 |EX_USER |Combinação de conjunto elástico "%ls" e o serviço de objetivo "%ls" é inválida. |nome do conjunto elástico; escalão de serviço |Elástico escalão do conjunto e o serviço pode ser especificado em conjunto, apenas se o tipo de recurso é especificado como 'ElasticPool'. |Especifica a correta combinação de conjunto elástico e o escalão de serviço. |
 | 40861 |EX_USER |A edição de base de dados ' %. *ls não podem ser diferentes do que o escalão de serviço do conjunto elástico que é ' %.* dos ls. |edição de base de dados, o escalão de serviço do conjunto elástico |A edição de base de dados é diferente do que o escalão de serviço do conjunto elástico. |Não especifica uma edição de base de dados que é diferente do que o escalão de serviço do conjunto elástico.  Tenha em atenção que a edição de base de dados não precisa de ser especificado. |
 | 40862 |EX_USER |Nome do conjunto elástico têm de ser especificado se o objetivo de serviço do conjunto elástico é especificado. |Nenhuma |Objetivo de serviço do conjunto elástico não identifica exclusivamente um conjunto elástico. |Especifique o nome do conjunto elástico se utilizar o objetivo de serviço do conjunto elástico. |
 | 40864 |EX_USER |As DTUs do conjunto elástico tem de ser, pelo menos, (%d) DTUs no escalão de serviço "%. * ls'. |DTUs do conjunto elástico; escalão de serviço do conjunto elástico. |A tentar definir as DTUs do conjunto elástico abaixo o limite mínimo. |Repita as DTUs a definição para o elastic pool, pelo menos, o limite mínimo. |

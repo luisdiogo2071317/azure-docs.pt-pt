@@ -4,18 +4,18 @@ description: Adicionar um utilizador convidado a uma função no Azure Active Di
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 47615309d71ac6bf4352e30284f23fbbfdd6d4be
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: a7198683a643d643a76aefee22a3ad08e27c7fc9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646725"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984048"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a utilizadores de organizações de parceiros no seu inquilino do Azure Active Directory
 
@@ -23,7 +23,7 @@ Os utilizadores de colaboração do Azure Active Directory (Azure AD) B2B são a
 
 ## <a name="default-role"></a>Função predefinida
 
-![função predefinida](./media/add-guest-to-role/default-role.png)
+![Função predefinida](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>Função de administrador global
 

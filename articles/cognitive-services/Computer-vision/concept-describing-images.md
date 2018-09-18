@@ -1,25 +1,25 @@
 ---
-title: Imagens de descrição
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Conceitos relacionados a descrever de imagens através de imagem digitalizada nos serviços cognitivos do Azure.
+title: Descrevendo imagens - o de imagem digitalizada
+titleSuffix: Azure Cognitive Services
+description: Conceitos relacionados a descrever as imagens usando a API de imagem digitalizada.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: be59055a2c6cd1366c8c52370fa97158ab8d6c88
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a65e3ea2fb28ca8a2250fb3e39860eb5e08c18f4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725473"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981989"
 ---
-# <a name="describing-images"></a>Imagens de descrição
+# <a name="describing-images"></a>Descrever imagens
 
-Algoritmos do imagem digitalizada analisam o conteúdo numa imagem. Esta análise serve de alicerce para uma 'description' apresentada como uma linguagem legível em sentenças completas. A descrição resume o que for encontrado na imagem. Algoritmos do imagem digitalizada geram vários descrições com base nos recursos visual identificados na imagem. Cada uma das descrições é avaliada e é gerada uma pontuação de confiança. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa.
+Algoritmos do imagem digitalizada analisam o conteúdo numa imagem. Esta análise serve de alicerce para uma 'description' apresentada como uma linguagem legível em sentenças completas. A descrição resume o que for encontrado na imagem. Algoritmos do imagem digitalizada geram vários descrições com base nos recursos visual identificados na imagem. Descrição de cada é avaliada e uma pontuação de confiança gerado. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa.
 
 ## <a name="image-description-example"></a>Exemplo de descrição de imagem
 

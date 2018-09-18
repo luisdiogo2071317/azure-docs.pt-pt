@@ -1,6 +1,6 @@
 ---
-title: Skill de pesquisa cognitivos OCR (Azure Search) | Microsoft Docs
-description: Extraia o texto a partir dos ficheiros de imagem no pipeline de sem causa pesquisa do Azure.
+title: Habilidade de pesquisa cognitiva OCR (Azure Search) | Documentos da Microsoft
+description: Extrair texto de arquivos de imagem num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 234651ad3672982e4de9617561a926712697945a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059193"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734038"
 ---
-# <a name="ocr-cognitive-skill"></a>Skill cognitivos OCR
+# <a name="ocr-cognitive-skill"></a>Habilidade de cognitiva OCR
 
-O **OCR** skill extrai o texto de ficheiros de imagem. Formatos de ficheiro suportados incluem:
+O **OCR** habilidade extrai o texto de arquivos de imagem. Formatos de ficheiro suportados incluem:
 
 + . JPEG
 + . JPG
@@ -28,29 +28,31 @@ O **OCR** skill extrai o texto de ficheiros de imagem. Formatos de ficheiro supo
 + . BMP
 + . GIF
 
+> [!NOTE]
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
-## <a name="skill-parameters"></a>Parâmetros de skill
+## <a name="skill-parameters"></a>Parâmetros de habilidades
 
-Os parâmetros são maiúsculas e minúsculas.
+Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| detectOrientation | Permite autodetection de orientação de imagem. <br/> Os valores válidos: Verdadeiro / Falso.|
-|defaultLanguageCode | <p>  Código de idioma texto de entrada. As linguagens suportadas incluem: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Checo) <br/>da (dinamarquês) <br/>NL (Neerlandês) <br/>en (inglês) <br/>Fi (Finlandês)  <br/>FR (francês) <br/>  Alemanha (alemão) <br/>EL (Grego) <br/> hu (Húngaro) <br/> -lo (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (Norueguês) <br/>   LP (Polaco) <br/> PT (Português) <br/>  RU (Russo) <br/>  es (espanhol) <br/>  SV (Sueco) <br/>  TR (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Eslovaco). <br/>  UNK (desconhecido) <br/><br/> Se o código de idioma não especificado ou é nulo, o idioma é autodetected. </p> |
-| textExtractionAlgorithm | "impressas" ou "handwritten". O algoritmo de OCR de reconhecimento de texto "handwritten" está atualmente em pré-visualização e só é suportado em inglês. |
+| detectOrientation | Permite autodetection de orientação da imagem. <br/> Valores válidos: Verdadeiro / Falso.|
+|defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens suportadas incluem: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Checa) <br/>NaN (dinamarquês) <br/>NL (Holandês) <br/>en (em inglês) <br/>Fi (Finlandês)  <br/>FR (francês) <br/>  Alemanha (alemão) <br/>EL (Grego) <br/> hu (Húngaro) <br/> ele (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (Norueguês) <br/>   PL (Polaco) <br/> Hora do Pacífico (Português) <br/>  RU (Russo) <br/>  es (espanhol) <br/>  SV (Sueco) <br/>  TR (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Eslovaco). <br/>  UNK (desconhecido) <br/><br/> Se o código de idioma não especificado ou for nulo, o idioma é autodetected. </p> |
+| textExtractionAlgorithm | "impresso" ou "manuscritas". O algoritmo de OCR de reconhecimento de texto "manuscritas" está atualmente em pré-visualização e só é suportada em inglês. |
 
-## <a name="skill-inputs"></a>Entradas de skill
+## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complexo. Atualmente, apenas funciona com o campo de "documento/normalized_images", produzido pelo indexador de Blob do Azure quando ```imageAction``` está definido como ```generateNormalizedImages```. Consulte o [exemplo](#sample-output) para obter mais informações.|
+| image         | Tipo complexo. Atualmente, só funciona com o campo de "/ documento/normalized_images", produzido pelo indexador Blob do Azure quando ```imageAction``` está definido como ```generateNormalizedImages```. Consulte a [exemplo](#sample-output) para obter mais informações.|
 
 
-## <a name="skill-outputs"></a>Saídas skill
+## <a name="skill-outputs"></a>Saídas de habilidades
 | Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
-| texto          | Texto simples extraído a partir da imagem.   |
-| layoutText    | Tipo de complexo que descreve o texto extraído, bem como a localização onde o texto foi encontrado.|
+| texto          | Texto sem formatação extraído a partir da imagem.   |
+| layoutText    | Tipo complexo que descreve o texto extraído, bem como a localização onde o texto foi encontrado.|
 
 
 ## <a name="sample-definition"></a>Definição de exemplo
@@ -124,11 +126,11 @@ Os parâmetros são maiúsculas e minúsculas.
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exemplo: Intercalação extraído de imagens incorporadas com o conteúdo do documento de texto.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exemplo: Intercalar os textos extraídos dos imagens incorporadas com o conteúdo do documento.
 
-Um caso de utilização comuns para texto fusão é a capacidade para intercalar a representação textual de imagens (texto de um skill OCR ou a legenda de uma imagem) para o campo de conteúdo de um documento. 
+Um caso de utilização comuns para fusão de texto é a capacidade de mesclar a representação textual de imagens (texto de uma habilidade de OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-Skillset de exemplo seguinte cria um *merged_text* campo para conter o conteúdo textual do seu documento, bem como o texto de OCRed de cada uma das imagens incorporado esse documento. 
+O conjunto de capacidades de exemplo seguinte cria um *merged_text* incorporado de campo para conter o conteúdo textual do seu documento, bem como o texto de OCRed de cada uma das imagens contidas nesse documento. 
 
 #### <a name="request-body-syntax"></a>Sintaxe do Corpo do Pedido
 ```json
@@ -181,7 +183,7 @@ Skillset de exemplo seguinte cria um *merged_text* campo para conter o conteúdo
   ]
 }
 ```
-O exemplo de skillset acima assume que existe um campo de imagens normalizado. Para gerar este campo, defina o *imageAction* configuração na sua definição de indexador *generateNormalizedImages* conforme mostrado abaixo:
+O exemplo de conjunto de capacidades acima parte do princípio de que existe um campo de imagens normalizados. Para gerar este campo, defina o *imageAction* configuração na sua definição de indexador ao *generateNormalizedImages* conforme mostrado abaixo:
 
 ```json
 {  
@@ -197,6 +199,6 @@ O exemplo de skillset acima assume que existe um campo de imagens normalizado. P
 
 ## <a name="see-also"></a>Consulte também
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [TextMerger skill](cognitive-search-skill-textmerger.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Habilidade de TextMerger](cognitive-search-skill-textmerger.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

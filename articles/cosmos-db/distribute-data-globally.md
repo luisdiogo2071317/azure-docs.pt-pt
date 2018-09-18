@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 4defdabde19b2dcf7f9872fd6da1b63b0d244913
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288307"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983823"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir dados globalmente com o Azure Cosmos DB
 O Azure é onipresente – ele tem uma presença global em 50 + regiões geográficas e está continuamente a expandir. Com sua presença global, um dos recursos diferenciados que Azure oferece aos seus desenvolvedores é a capacidade de criar, implementar e gerir facilmente aplicações distribuídas globalmente. 
@@ -28,7 +28,7 @@ O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de bases de dad
 
 À medida que aprendemos durante a criação do Azure Cosmos DB, a adição de distribuição global não pode ser uma reflexão tardia. Não pode ser "bolted em" sobre um sistema de banco de dados de "site único". Os recursos oferecidos por uma base de dados distribuído globalmente ir além do que de desastre geográfico tradicional recuperação (Geo-DR) oferecidos pelas bases de dados de "site único". Bases de dados de site único oferecendo a capacidade Geo-DR são um subconjunto estrito das bases de dados distribuídos globalmente. 
 
-Com a distribuição global chave na mão do Azure Cosmos DB, os desenvolvedores não precisam criar seus próprios estruturais de replicação ao empregar o o padrão de Lambda (por exemplo, [replicação de AWS DynamoDB](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)) sobre o registo de base de dados ou pelo efetuar "operações de escrita duplas" em várias regiões. Fazemos *não* Recomendamos essas abordagens, uma vez que é impossível garantir a correção dessas abordagens e fornecer SLAs de som. 
+Com a distribuição global chave na mão do Azure Cosmos DB, os desenvolvedores não precisam criar seus próprios estruturais de replicação, empregando o padrão de Lambda sobre o registo de base de dados ou ao executar "escritas duplas" em várias regiões. Fazemos *não* Recomendamos essas abordagens, uma vez que é impossível garantir a correção dessas abordagens e fornecer SLAs de som. 
 
 Neste artigo, fornecemos uma visão geral das capacidades de distribuição global do Azure Cosmos DB. Também descreveremos abordagem exclusiva do Azure Cosmos DB ao fornecimento de SLAs abrangentes. 
 

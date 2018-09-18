@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f0f20a4ceac2f0b79d4ae3bbf3cf82eb761bceb8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c20ffcca17f8b0521bac3b6131e963bbecbdc6e1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782676"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736959"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Storage do Azure
 
@@ -159,7 +159,7 @@ Para voltar a gerar a outra chave, utilize `key2` como o nome da chave em vez de
 Regenerar uma das suas chaves e, em seguida, recuperá-lo novamente para ver o novo valor.
 
 > [!NOTE] 
-> Deve executar um planejamento cuidadoso antes de voltar a gerar a chave para uma conta de armazenamento de produção. Regenerar chaves de um ou ambos os irá invalidar o acesso a qualquer aplicação que utilize a chave que foi regenerada. Para obter mais informações, consulte [regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Deve executar um planejamento cuidadoso antes de voltar a gerar a chave para uma conta de armazenamento de produção. Regenerar chaves de um ou ambos os irá invalidar o acesso a qualquer aplicação que utilize a chave que foi regenerada. Para obter mais informações, consulte [chaves de acesso](storage-account-manage.md#access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminar uma conta do Storage 

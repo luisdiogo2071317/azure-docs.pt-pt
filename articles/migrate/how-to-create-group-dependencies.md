@@ -4,28 +4,43 @@ description: Descreve como refinar uma avaliação com o mapeamento de grupo de 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 4f5ab4565191b38c07b2071609a57db2525860e3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622903"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733419"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
-Este artigo descreve como refinar um grupo ao visualizar as dependências de todas as máquinas no grupo. Geralmente usa esse método quando pretender refinar a associação de um grupo existente, por verificação de dependências de grupo, antes de executar uma avaliação. Refinar um grupo através de visualização de dependência pode ajuda a planejar sua migração para Azure.You efetivamente pode detetar todos os sistemas interdependentes que precisam para migrar em conjunto. Ele ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa quando estiver a migrar para o Azure. 
+Este artigo descreve como refinar um grupo ao visualizar as dependências de todas as máquinas no grupo. Geralmente usa esse método quando pretender refinar a associação de um grupo existente, por verificação de dependências de grupo, antes de executar uma avaliação. Refinar um grupo através de visualização de dependência pode ajudar a planear efetivamente a sua migração para o Azure. Pode descobrir todos os sistemas interdependentes que precisam para migrar em conjunto. Ele ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa quando estiver a migrar para o Azure.
 
 
 > [!NOTE]
 > Grupos para o qual pretende visualizar as dependências não devem conter mais de 10 máquinas. Se tiver mais de 10 máquinas no grupo, recomendamos que dividi-lo em grupos mais pequenos para aproveitar a funcionalidade de visualização de dependência.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Preparar o grupo para visualização de dependências
-Para ver as dependências de um grupo, terá de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
+## <a name="prepare-for-dependency-visualization"></a>Preparar para a visualização de dependências
+O Azure Migrate tira partido da solução mapa de serviço do Log Analytics para ativar a visualização de dependências de máquinas.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associar uma área de trabalho do Log Analytics
+Para aproveitar a visualização de dependências, precisa associar área de trabalho do Log Analytics, nova ou existente, com um projeto do Azure Migrate. Só pode criar ou anexar uma área de trabalho na mesma subscrição em que é criado o projeto de migração.
+
+- Para anexar uma área de trabalho do Log Analytics a um projeto, no **descrição geral**, aceda a **Essentials** secção do projeto clique **requer configuração**
+
+    ![Associar área de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada na mesma subscrição que o projeto de migração e, numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
+- O **utilizar existente** opção apresenta uma lista apenas essas áreas de trabalho que são criadas em regiões onde o mapa de serviço está disponível. Se tiver uma área de trabalho numa região em que o mapa de serviço não está disponível, não serão apresentado na lista pendente.
+
+> [!NOTE]
+> Não é possível alterar a área de trabalho associada a um projeto de migração.
 
 ### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes da VM
+Para ver as dependências de um grupo, terá de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
+
 1. Na **descrição geral**, clique em **gerir** > **grupos**, vá para o grupo de necessário.
 2. Na lista de máquinas, no **agente de dependência** coluna, clique em **requer instalação** para ver instruções sobre como transferir e instalar os agentes.
 3. Sobre o **dependências** página, transferir e instalar o Microsoft Monitoring Agent (MMA) e o agente de dependência em cada VM que faz parte do grupo.
@@ -37,8 +52,8 @@ Para instalar o agente num computador Windows:
 
 1. Faça duplo clique no agente transferido.
 2. Na página **Bem-vindo**, clique em **Seguinte**. Na página **Termos de Licenciamento**, clique em **Concordo** para aceitar a licença.
-3. Na **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **próxima**. 
-4. Na **opções de configuração do agente**, selecione **Azure Log Analytics** > **seguinte**. 
+3. Na **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **próxima**.
+4. Na **opções de configuração do agente**, selecione **Azure Log Analytics** > **seguinte**.
 5. Clique em **adicionar** para adicionar uma nova área de trabalho do Log Analytics. Cole o ID de área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
 
 
@@ -66,7 +81,7 @@ Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as de
 3. O mapa de dependência para o grupo mostra os seguintes detalhes:
     - Entrada (clientes) e as ligações de saída (servidores) TCP de/para todas as máquinas que fazem parte do grupo
         - As máquinas dependentes que não têm o agente MMA e de dependência instalado são agrupadas por números de porta
-        - As máquinas de dependenct que têm o MMA e instalado o agente de dependência são apresentadas como caixas separadas 
+        - As máquinas dependentes que têm o MMA e instalado o agente de dependência são apresentadas como caixas separadas
     - Processos em execução no interior da máquina, pode expandir cada caixa de máquina para ver os processos
     - Propriedades como nome de domínio completamente qualificado, sistema operativo, etc. do endereço MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
 

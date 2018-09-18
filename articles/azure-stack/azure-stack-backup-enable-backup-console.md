@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026190"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985801"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Ativar cópia de segurança para o Azure Stack a partir do portal de administração
 Ative o serviço de cópia de segurança de infraestrutura através do portal de administração para que o Azure Stack pode gerar as cópias de segurança. Pode utilizar estas cópias de segurança para restaurar o seu ambiente na cloud de recuperação na eventualidade de a utilizar [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação na cloud é garantir que seus operadores e os utilizadores podem iniciar sessão no portal do após a conclusão da recuperação. Os utilizadores terão suas assinaturas restauradas, incluindo permissões de acesso baseado em funções e funções, originais planos, ofertas e a computação definidos anteriormente, armazenamento e quotas de rede.
@@ -62,7 +62,7 @@ Os administradores e utilizadores são responsáveis por fazer backup e restaura
 ## <a name="start-backup"></a>Iniciar cópia de segurança
 Para iniciar uma cópia de segurança, clique em **agora a cópia de segurança** para iniciar uma cópia de segurança a pedido. Uma cópia de segurança a pedido não irá modificar a hora para o próximo backup agendado. Depois da tarefa estiver concluída, pode confirmar as definições no **Essentials**:
 
-![O Azure Stack - cópia de segurança a pedido](media\azure-stack-backup\scheduled-backup.png).
+![O Azure Stack - cópia de segurança a pedido](media\azure-stack-backup\scheduled-backup.png)
 
 Também pode executar o cmdlet do PowerShell **Start-AzsBackup** no seu computador de administração do Azure Stack. Para obter mais informações, consulte [cópia de segurança do Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 

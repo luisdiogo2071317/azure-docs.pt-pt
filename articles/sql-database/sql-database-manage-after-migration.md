@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983938"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -36,9 +36,9 @@ Este artigo aborda algumas das principais características da BD SQL do Azure co
 Capacidades de recuperação de desastre e continuidade do negócio permitem-lhe continuar a sua empresa, como de costume, em caso de desastre. Após o desastre pode ser um evento de nível de base de dados (por exemplo, alguém por engano ignora uma tabela crucial) ou um evento de nível de centro de dados (catástrofe regional, por exemplo, um tsunami). 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Como criar e gerir cópias de segurança na base de dados SQL?
-Não crie cópias de segurança no Azure SQL DB e isso é porque não precisa. Base de dados SQL cria automaticamente uma cópia das bases de dados para si, para que já não deve se preocupar sobre agendamento, retirando e gerir cópias de segurança. A plataforma demora um backup completo de todas as semanas, cópia de segurança intervalos de poucas horas e um registo de cópia de segurança a cada 5 minutos para garantir a recuperação após desastre é eficiente e o mínimo de perda de dados diferencial. A primeira cópia de segurança completa ocorre quando criar uma base de dados. Estas cópias de segurança estão disponíveis para por um determinado período chamado "Período de retenção" e varia de acordo com o escalão de desempenho que escolher.  Base de dados SQL fornece-lhe a capacidade de restaurar para qualquer ponto anterior no tempo dentro com do período de retenção [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+Não crie cópias de segurança no Azure SQL DB e isso é porque não precisa. Base de dados SQL cria automaticamente uma cópia das bases de dados para si, para que já não deve se preocupar sobre agendamento, retirando e gerir cópias de segurança. A plataforma demora um backup completo de todas as semanas, cópia de segurança intervalos de poucas horas e um registo de cópia de segurança a cada 5 minutos para garantir a recuperação após desastre é eficiente e o mínimo de perda de dados diferencial. A primeira cópia de segurança completa ocorre quando criar uma base de dados. Estas cópias de segurança estão disponíveis para por um determinado período chamado "Período de retenção" e varia de acordo com o escalão de serviço que escolher. Base de dados SQL fornece-lhe a capacidade de restaurar para qualquer ponto anterior no tempo dentro com do período de retenção [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Escalão de desempenho|Período de retenção em dias|
+|Camada de serviços|Período de retenção em dias|
 |---|:---:|
 |Básica|7|
 |Standard|35|
@@ -202,7 +202,7 @@ Na base de dados SQL, pode aproveitar as informações inteligentes da plataform
 
    ![Monitorização gráfico 2](./media/sql-database-manage-after-migration/chart.png)
 
-Este gráfico, também pode configurar alertas por recurso. Estes alertas permitem-lhe responder às condições de recursos com uma mensagem de e-mail, escrever um ponto final HTTPS/HTTP ou executar uma ação. Consulte a [monitorizar o desempenho de base de dados na base de dados SQL](sql-database-single-database-monitor.md) para obter instruções detalhadas.
+Este gráfico, também pode configurar alertas por recurso. Estes alertas permitem-lhe responder às condições de recursos com uma mensagem de e-mail, escrever um ponto final HTTPS/HTTP ou executar uma ação. Para obter mais informações, consulte [criar alertas](sql-database-insights-alerts-portal.md).
 
 - **Vistas de gestão dinâmica**: pode consultar o [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vista de gestão dinâmica para retornar o histórico de estatísticas de consumo de recursos de última hora e o [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista de catálogo de sistema para retornar o histórico dos últimos 14 dias.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md) permite-lhe ver um histórico das consultas de consumo de recursos principais e consultas de execução longa para uma base de dados específico. Pode identificar rapidamente as consultas principais por utilização de recursos, a duração e a frequência de execução. Pode controlar as consultas e detetar regressão. Esta funcionalidade requer [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para ser ativado e Active Directory para a base de dados.
@@ -218,21 +218,21 @@ Sua abordagem para a resolução de problemas de desempenho significativamente p
 
 Resolução de problemas de desempenho, é importante identificar se é apenas o aplicativo ou a base de dados suporta ele, que está a afetar o desempenho da aplicação. Muitas vezes o problema de desempenho está na camada de aplicativo. É possível a arquitetura ou o padrão de acesso de dados. Por exemplo, considere que terá uma aplicação de chatty sensível a latência de rede. Neste caso, a sua aplicação sofre porque poderia haver muitos pedidos curtos vai e volta ("conversadoras") entre o aplicativo e o servidor e numa rede congestionada, adicione estes idas e voltas rapidamente. Para melhorar o desempenho nesse caso, pode usar [consultas em lote](sql-database-performance-guidance.md#batch-queries). Lotes de utilização ajuda-o a enormemente porque agora os pedidos são processados num lote; portanto, ajudando-o a fim de reduzir a latência de ida e volta e melhorar o desempenho da aplicação. 
 
-Além disso, se observar uma degradação no desempenho geral do seu banco de dados, pode monitorizar o [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vistas de gestão dinâmica para compreenda o consumo de CPU, IO e memória. O desempenho da sua afetada, talvez, porque a base de dados é fica sem recursos. É possível que poderá ter de alterar o nível de desempenho e/ou com base na aumentar e reduzir as exigências de carga de trabalho de camada de serviço. 
+Além disso, se observar uma degradação no desempenho geral do seu banco de dados, pode monitorizar o [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vistas de gestão dinâmica para compreenda o consumo de CPU, IO e memória. O desempenho da sua afetada, talvez, porque a base de dados é fica sem recursos. É possível que poderá ter de alterar o tamanho de computação e/ou com base na aumentar e reduzir as exigências de carga de trabalho de camada de serviço. 
 
 Para um conjunto abrangente de recomendações de otimização de problemas de desempenho, consulte: [otimizar a sua base de dados](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Como garantir que estou usando o nível de desempenho e a camada de serviço apropriado?
-Base de dados SQL oferece vários escalões de serviço básico, Standard e Premium. Cada escalão de serviço, obtém um desempenho previsível garantido vinculado a esse nível de serviço. Dependendo da sua carga de trabalho, pode ter picos de atividade onde a utilização de recursos poderá apresentar o teto de nível de desempenho atual, que se encontra. Nesses casos, é útil começar primeiro ao avaliar se qualquer ajuste pode ajudar a (por exemplo, adicionar ou alterar um índice etc.). Se ainda ocorrerem problemas de limite, considere mover para um nível de desempenho superior ou o nível de serviço. 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Como garantir que eu estou usando o escalão de serviço apropriado e tamanho de computação?
+Base de dados SQL oferece vários escalões de serviço básico, Standard e Premium. Cada escalão de serviço, obtém um desempenho previsível garantido vinculado a essa camada de serviço. Dependendo da sua carga de trabalho, pode ter picos de atividade em que a utilização de recursos pode atingir o limite do tamanho de computação atual, que se encontra. Nesses casos, é útil começar primeiro ao avaliar se qualquer ajuste pode ajudar a (por exemplo, adicionar ou alterar um índice etc.). Se ainda ocorrerem problemas de limite, considere mover para um escalão de serviço mais elevado ou tamanho de computação. 
 
-|**Nível de serviço**|**Cenários de casos de utilização comuns**|
+|**Camada de serviços**|**Cenários de casos de utilização comuns**|
 |---|---|
 |**Básica**|Aplicativos com utilizadores de uma mão-cheia e uma base de dados que não tem requisitos elevados de simultaneidade, dimensionamento e desempenho. |
 |**Standard**|Aplicativos com um requisitos de simultaneidade, dimensionamento e desempenho considerável juntamente com baixa a média de e/s de demanda. |
 |**Premium**|Aplicativos com muitos utilizadores em simultâneo, da CPU/memória elevada e alta demanda de e/s. Alta simultaneidade, alto débito e latência às aplicações sensíveis podem aproveitar o nível Premium. |
 |||
 
-Para certificar-se de que está no nível de desempenho certo, pode monitorar o consumo de recursos de consulta e a base de dados por meio de uma das formas mencionados anteriormente em "Como posso monitorizar a utilização de desempenho e de recursos na base de dados SQL". Deve encontrar que suas consultas/bases de dados são consistentemente em execução frequentes em etc. da CPU/memória que pode considerar aumentar verticalmente para um nível de desempenho mais elevado. Da mesma forma, se observar que, mesmo durante as horas de pico, parece que não use os recursos muito; Considere reduzir verticalmente do nível de desempenho atual. 
+Para certificar-se de que está no tamanho de computação certas, pode monitorizar o consumo de recursos de consulta e a base de dados por meio de uma das formas mencionados anteriormente em "Como posso monitorizar a utilização de desempenho e de recursos na base de dados SQL". Deve encontrar que suas consultas/bases de dados são consistentemente em execução frequentes em etc. da CPU/memória que pode considerar aumentar verticalmente para um tamanho de computação mais elevado. Da mesma forma, se observar que, mesmo durante as horas de pico, parece que não use os recursos muito; Considere reduzir o tempo limite de tamanho de computação atual. 
 
 Se tiver um padrão de aplicação SaaS ou de um cenário de consolidação de base de dados, considere utilizar um conjunto elástico para otimização de custos. Conjunto elástico é uma excelente forma de alcançar a consolidação de base de dados e a otimização de custos. Para ler mais sobre como gerir várias bases de dados com o conjunto elástico, consulte: [gerir conjuntos e bases de dados](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 

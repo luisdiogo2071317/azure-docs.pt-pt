@@ -1,6 +1,6 @@
 ---
-title: Glossário de ferramentas de base de dados elástico | Microsoft Docs
-description: Explicação dos termos utilizados para ferramentas de base de dados elástica
+title: Glossário de ferramentas de base de dados elástico | Documentos da Microsoft
+description: Explicação dos termos utilizados para ferramentas de bases de dados elásticas
 services: sql-database
 documentationcenter: ''
 manager: craigg
@@ -8,78 +8,78 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 387f40204c8ab07ba0205fd74b5c6a549efff0ef
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647549"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728851"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas de base de dados elástico
-Os termos seguintes são definidos para o [ferramentas de base de dados elástica](sql-database-elastic-scale-introduction.md), uma funcionalidade da SQL Database do Azure. As ferramentas são utilizadas para gerir [mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md)e incluir o [biblioteca de clientes](sql-database-elastic-database-client-library.md), a [ferramenta de intercalação de divisão](sql-database-elastic-scale-overview-split-and-merge.md), [conjuntos elásticos](sql-database-elastic-pool.md), e [consultas](sql-database-elastic-query-overview.md). 
+Os termos seguintes são definidos para o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md), uma funcionalidade de base de dados do Azure SQL. As ferramentas são utilizadas para gerir [mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md)e incluem o [biblioteca de cliente](sql-database-elastic-database-client-library.md), o [ferramenta de dividir / unir](sql-database-elastic-scale-overview-split-and-merge.md), [conjuntos elásticos](sql-database-elastic-pool.md)e o [consultas](sql-database-elastic-query-overview.md). 
 
-Estes termos utilizados no [adição de uma partição horizontal com as ferramentas de base de dados elástica](sql-database-elastic-scale-add-a-shard.md) e [utilizando a classe de RecoveryManager para corrigir problemas de mapa de partições horizontais](sql-database-elastic-database-recovery-manager.md).
+Esses termos são utilizados no [adicionando uma partição horizontal com as ferramentas de bases de dados elásticas](sql-database-elastic-scale-add-a-shard.md) e [utilizar a classe RecoveryManager para corrigir problemas de mapa de partições horizontais](sql-database-elastic-database-recovery-manager.md).
 
-![Termos de dimensionamento elásticos][1]
+![Termos de escala elásticos][1]
 
 **Base de dados**: uma SQL database do Azure. 
 
-**Dados dependentes encaminhamento**: A funcionalidade que permite uma aplicação ligar a uma partição horizontal dada uma chave de fragmentação específico. Consulte [dados dependentes encaminhamento](sql-database-elastic-scale-data-dependent-routing.md). Comparar a  **[consulta de partições horizontais Multi](sql-database-elastic-scale-multishard-querying.md)**.
+**Encaminhamento dependente de dados**: A funcionalidade que permite que uma aplicação ligar a uma partição horizontal dada uma chave de fragmentação específico. Ver [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Compare com  **[consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md)**.
 
-**Mapa de partições horizontais global**: O mapa entre chaves de fragmentação e os respetivos shards dentro de um **conjunto de partições horizontais**. O mapa de partições horizontais global é armazenado no **Gestor de mapa de partições horizontais**. Comparar a **mapa de partições horizontais local**.
+**Mapa de partições horizontais global**: O mapa entre chaves de fragmentação e seus respectivos shards dentro de um **conjunto de partições horizontais**. O mapa de partições horizontais global é armazenado na **Gestor de mapas de partições horizontais**. Compare com **mapa de partições horizontais local**.
 
-**Mapa de partições horizontais lista**: um mapa de partições horizontais no qual fragmentação chaves estão mapeadas individualmente. Comparar a **intervalo mapa de partições horizontais**.   
+**Mapa de partições horizontais de lista**: um mapa de partições horizontais em que a fragmentação chaves são mapeadas individualmente. Compare com **mapa de partições horizontais de intervalo**.   
 
-**Mapa de partições horizontais local**: armazenado num ID de partição horizontal, o mapa de partições horizontais local contém os mapeamentos de shardlets que residem as partições horizontais.
+**Mapa de partições horizontais local**: armazenada numa partição horizontal, o mapa de partições horizontais local que contém mapeamentos para os shardlets que residem na partição horizontal.
 
-**Consulta de partições horizontais Multi**: A capacidade de emitir uma consulta contra vários shards; conjuntos de resultados são devolvidos utilizando UNION ALL semântica (também conhecido como "consulta da fan-out"). Comparar a **dados dependentes encaminhamento**.
+**Consulta de vários fragmentos**: A capacidade de emitir uma consulta em relação a várias partições horizontais; conjuntos de resultados são devolvidos com semântica UNION ALL (também conhecido como "consulta de fan-out"). Compare com **encaminhamento dependente de dados**.
 
-**Multi-inquilino** e **único inquilino**: mostra uma base de dados de inquilino único e uma base de dados do multi-inquilino:
+**Multi-inquilino** e **inquilino único**: mostra uma base de dados de inquilino único e uma base de dados do multi-inquilino:
 
-![Bases de dados único e multi-inquilinos](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+![Bases de dados únicos e multi-inquilinos](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
 
-Eis uma representação de **em partição horizontal** bases de dados único e multi-inquilinos. 
+Aqui está uma representação de **em partição horizontal** bases de dados únicos e multi-inquilinos. 
 
-![Bases de dados único e multi-inquilinos](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
+![Bases de dados únicos e multi-inquilinos](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
-**Mapa de partições horizontais intervalo**: um mapa de partições horizontais na qual a estratégia de distribuição de partições horizontais baseia-se em vários intervalos de valores contíguos. 
+**Mapa de partições horizontais de intervalo**: um mapa de partições horizontais em que a estratégia de distribuição de partições horizontais se baseia em vários intervalos de valores contíguos. 
 
-**As tabelas de referência**: as tabelas que não estão em partição horizontal, mas são replicadas através de partições horizontais. Por exemplo, códigos de zip podem ser armazenados numa tabela de referência. 
+**Tabelas de referência**: tabelas que não estão em partição horizontal, mas são replicadas entre partições horizontais. Por exemplo, códigos postais podem ser armazenados numa tabela de referência. 
 
-**ID de partição horizontal**: uma SQL database do Azure que armazena dados a partir de um conjunto de dados em partição horizontal. 
+**Partição horizontal**: uma SQL database do Azure que armazena dados a partir de um conjunto de dados em partição horizontal. 
 
-**Elasticidade de partições horizontais**: A capacidade para efetuar ambos **dimensionamento horizontal** e **dimensionamento vertical**.
+**Elasticidade de fragmentos**: A capacidade de executar ambos **dimensionamento horizontal** e **dimensionamento vertical**.
 
-**Tabelas em partição horizontal**: as tabelas que estão em partição horizontal, ou seja, cujos dados são distribuídos por shards com base nos respetivos valores de chave de fragmentação. 
+**Tabelas em partição horizontal**: tabelas que estão em partição horizontal, ou seja, cujos dados são distribuídos por partições horizontais com base nos seus valores de chave de fragmentação. 
 
-**Chave de fragmentação**: um valor de coluna que determina a forma como os dados são distribuídos por shards. O tipo de valor pode ser um dos seguintes: **int**, **bigint**, **varbinary**, ou **uniqueidentifier**. 
+**Chave de fragmentação**: um valor de coluna que determina a forma como os dados são distribuídos por partições horizontais. O tipo de valor pode ser um dos seguintes: **int**, **bigint**, **varbinary**, ou **uniqueidentifier**. 
 
-**Conjunto de partições horizontais**: A coleção de partições horizontais de para o mapa de partições horizontais mesmo no Gestor de mapa de partições horizontais.  
+**Conjunto de partições horizontais**: A coleção de partições horizontais que são atribuídos ao mesmo mapa de partições horizontais no Gestor de mapas de partições horizontais.  
 
-**Shardlet**: todos os dados associados a um valor único de uma chave de fragmentação num ID de partição horizontal. Um shardlet é a unidade mais pequena de movimento de dados possíveis quando redistribuir tabelas em partição horizontal. 
+**Shardlet**: todos os dados associados a um único valor de uma chave de fragmentação numa partição horizontal. Um shardlet é a menor unidade de movimento de dados possível, ao se redistribuir tabelas em partição horizontal. 
 
-**Mapa de partições horizontais**: O conjunto de mapeamentos entre chaves de fragmentação e os respetivos shards.
+**Mapa de partições horizontais**: O conjunto de mapeamentos entre chaves de fragmentação e seus respectivos shards.
 
-**Gestor de mapa de partições horizontais**: um arquivo de dados e de objeto de gestão que contém aos mapas precedentes de partições horizontais, localizações de partições horizontais e mapeamentos para um ou mais conjuntos de partições horizontais.
+**Gestor de mapas de partições horizontais**: um arquivo de dados e objetos de gestão que contém a partição horizontal map(s), localizações de partições horizontais e mapeamentos para um ou mais conjuntos de partição horizontal.
 
 ![Mapeamentos][2]
 
 ## <a name="verbs"></a>Verbos
-**Dimensionamento horizontal**: O ato de dimensionamento de saída (ou em) numa coleção de partições horizontais adicionando ou removendo partições horizontais para um mapa de partições horizontais, conforme mostrado abaixo.
+**Dimensionamento horizontal**: O ato de aumentar horizontalmente (ou em) uma coleção de partições horizontais adicionando ou removendo partições horizontais para um mapa de partições horizontais, conforme mostrado abaixo.
 
 ![Dimensionamento horizontal e vertical][3]
 
-**Intercalar**: O ato de mover shardlets de dois shards para um ID de partição horizontal e atualizar o mapa de partições horizontais em conformidade.
+**Intercalar**: A ação de mover shardlets de partições horizontais de duas numa partição e a atualizar o mapa de partições horizontais em conformidade.
 
-**Mover Shardlet**: O ato de mover um shardlet único para um ID de partição horizontal diferentes. 
+**Mudança de Shardlet**: O ato de mover um shardlet único noutra partição. 
 
-**ID de partição horizontal**: O ato de horizontalmente criação de partições de forma idêntica estruturados dados em várias bases de dados com base numa chave de fragmentação.
+**Partição horizontal**: O ato de criação de partições horizontais homônimo dados estruturados em várias bases de dados com base numa chave de fragmentação.
 
-**Divisão**: O ato de mover vários shardlets de partições um horizontais para outro ID de partição horizontal (normalmente novo). Uma chave de fragmentação é fornecida pelo utilizador como o ponto de divisão.
+**Divisão**: O ato de mover várias shardlets de uma partição para outra (normalmente nova) partição horizontal. Uma chave de fragmentação é fornecida pelo utilizador como o ponto de divisão.
 
-**Dimensionamento vertical**: O ato de dimensionamento (ou reduzir verticalmente) o nível de desempenho de um ID de partição horizontal individuais. Por exemplo, alterar um ID de partição horizontal do padrão para Premium (o que resulta em mais recursos informáticos). 
+**Dimensionamento vertical**: O ato de aumentando (ou reduzindo), o tamanho de computação de uma partição horizontal individual. Por exemplo, alterando uma partição horizontal do Standard para Premium (o que resulta em mais recursos de computação). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

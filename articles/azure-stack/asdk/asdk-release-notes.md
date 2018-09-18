@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: ad596e2f63d3ef5fb82fe52699fef3a79e835274
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634817"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984446"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,6 +46,8 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 - <!-- | IS ASDK--> **Item do marketplace Kubernetes**. Agora, pode implementar clusters Kubernetes com o [item do mercado de Kubernetes](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Os utilizadores podem selecionar o item de Kubernetes e preencher alguns parâmetros para implementar um cluster de Kubernetes no Azure Stack. O objetivo dos modelos é simplificar para os utilizadores para implementações de Kubernetes de programador/teste de configuração em poucos passos.
 
 - <!-- | IS ASDK--> **Modelos de Blockchain**. Agora, pode executar [implementações de consórcio Ethereum](/azure/azure-stack/azure-stack-ethereum) no Azure Stack. Encontrará três novos modelos no [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o utilizador implementar e configurar uma rede Ethereum de consórcio com vários membros com o mínimo de conhecimento do Azure e Ethereum. O objetivo dos modelos é simplificar para os utilizadores para implementações de Blockchain de programador/teste de configuração em poucos passos.
+
+- <!-- | IS ASDK--> **A API versão perfil 2017-03-09-profile foi atualizada para 2018-03-01-híbrido**. Perfis de API especificar o fornecedor de recursos do Azure e a versão de API para pontos finais REST do Azure. Para obter mais informações sobre os perfis, consulte [perfis de versão de API de gerir no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
 
 ### <a name="fixed-issues"></a>Problemas corrigidos

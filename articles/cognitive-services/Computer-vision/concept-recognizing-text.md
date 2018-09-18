@@ -1,23 +1,23 @@
 ---
-title: RECONHECENDO impressos e texto manuscrito
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Conceitos relacionados com o reconhecimento de texto de impresso e manuscritos em imagens com a visão do computador nos serviços cognitivos do Azure.
+title: Reconhecimento de texto manuscrito e impresso - de imagem digitalizada
+titleSuffix: Azure Cognitive Services
+description: Conceitos relacionados com o reconhecimento de manuscrito e impresso texto em imagens usando a API de imagem digitalizada.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: bdfef668eddc712d2637dcf53a01f193a3204880
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725486"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985316"
 ---
-# <a name="recognizing-printed-and-handwritten-text"></a>RECONHECENDO impressos e texto manuscrito
+# <a name="recognizing-printed-and-handwritten-text"></a>Reconhecer impressos e texto manuscrito
 
 Imagem digitalizada pode detetar e extrair texto impresso ou manuscrito de imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, letras e quadros de comunicações.
 

@@ -1,26 +1,25 @@
 ---
-title: Descrição geral de como utilizar um diretório de inquilinos do Azure AD | Microsoft Docs
-description: Explica o que é um inquilino do Azure AD e como gerir o Azure com o Azure Active Directory
+title: Gerir o seu inquilino do Azure Active Directory | Documentos da Microsoft
+description: Saiba como é que um inquilino do Azure AD e como gerir o Azure com o Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767535"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737180"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Gerir o seu diretório do Azure AD
+# <a name="manage-your-azure-active-directory-tenant"></a>Gerir o seu inquilino do Azure Active Directory
 
 ## <a name="what-is-an-azure-ad-tenant"></a>O que é um inquilino do Azure AD?
 No Azure Active Directory (Azure AD), um inquilino é uma instância dedicada de um diretório do Azure AD que a sua organização recebe quando se inscreve num serviço cloud da Microsoft, como o Azure ou o Office 365. Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Tal como um edifício de escritórios empresariais é um recurso seguro específico apenas para a sua organização, um diretório do Azure AD também foi concebido para ser um recurso com utilização segura apenas para a sua organização. A arquitetura do Azure AD isola os dados do cliente e as informações de identidade para que os utilizadores e administradores de um diretório do Azure AD não possa aceder aos dados de outro diretório de forma acidental ou intencional.
@@ -114,7 +113,7 @@ Verificam-se as seguintes condições:
 * Não podem existir subscrições para quaisquer Serviços Online da Microsoft, como o Microsoft Azure, o Office 365 ou o Azure AD Premium, associadas ao diretório. Por exemplo, se tiver criado um diretório predefinido no Azure, não o poderá eliminar se a sua subscrição do Azure ainda depender desse diretório para a autenticação. Do mesmo modo, não pode eliminar um diretório se outro utilizador tiver associado uma subscrição ao mesmo. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Fórum do Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
 * [Fórum do Multi-Factor Authentication do Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
 * [Perguntas do StackOverflow para Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)

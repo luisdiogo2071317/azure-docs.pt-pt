@@ -3,7 +3,7 @@ title: Quais são as zonas de disponibilidade do Azure? | Microsoft Docs
 description: Para criar aplicações de elevada disponibilidade e resilientes no Azure, as zonas de disponibilidade fornecer localizações fisicamente separadas, pode usar para executar seus recursos.
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 488f7fa123692a908c36619e17166cee27d17612
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055574"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735871"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
 As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -40,10 +40,13 @@ Para alcançar a continuidade do negócio abrangente no Azure, crie a sua arquit
 ## <a name="regions-that-support-availability-zones"></a>Regiões que suportam as zonas de disponibilidade
 
 - EUA Central
-- França Central
 - E.U.A. Leste 2 (pré-visualização)
-- Europa Ocidental
+- França Central
+- Europa do Norte
 - Sudeste Asiático (pré-visualização)
+- Europa Ocidental
+- EUA Oeste 2
+
 
 
 ## <a name="services-that-support-availability-zones"></a>Serviços que suportam as zonas de disponibilidade

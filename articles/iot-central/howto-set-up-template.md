@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dafa58c5356c89351ab0eb711e4095b767aee1ae
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298171"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735655"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -74,8 +74,6 @@ Por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 
 Depois de selecionar **feito**, o **temperatura** medição aparece na lista de medidas. Um operador pode ver a visualização dos dados de temperatura que o dispositivo está a recolher.
 
-![Gráfico de medida](./media/howto-set-up-template/measurementsgraph.png)
-
 ### <a name="create-an-event-measurement"></a>Criar uma medida de eventos
 Para adicionar uma nova medida de evento, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **evento** como a medição escreva e introduza os detalhes o **Create Event** formulário.
 
@@ -89,7 +87,7 @@ Depois de selecionar **feito**, o **erro de Motor de ventoinha** medição apare
 
 ![Gráfico de medição de eventos](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Para ver mais detalhes sobre o evento, selecione o ícone de eventos no gráfico:
+Para ver mais detalhes sobre o evento, selecione o ícone de eventos no gráfico.
 
 ![Detalhes do evento de "Erro de Motor de ventoinha"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -108,9 +106,6 @@ Depois de selecionar **feito**, o **modo ventoinha** medição do estado é apre
 ![Gráfico de estado de medida](./media/howto-set-up-template/statemeasurementschart.png)
 
 Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo, a medição de estado é apresentado com um elemento visual diferente, como mostrado na captura de ecrã seguinte. Se clicar no gráfico, todos os pontos de dados dentro desse período de tempo são apresentados numa ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição plotada no gráfico.
-
-![Detalhes para a medição do Estado de "Modo de ventoinha estático"](./media/howto-set-up-template/statemeasurementsdetail.png)
-
 
 ## <a name="settings"></a>Definições
 
@@ -182,11 +177,7 @@ Pode criar uma propriedade de localização como uma propriedade de aplicação 
    - **Localização como um endereço**
    - **Localização como coordenadas** 
 
-4. Selecione **salvar** e **feito**. 
-
-   ![Propriedade de localização com o endereço de instalação adicionado](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Agora, um operador pode atualizar o valor de localização sob a forma de campo de localização. 
+4. Selecione **salvar** e **feito**. Agora, um operador pode atualizar o valor de localização sob a forma de campo de localização. 
 
 #### <a name="add-location-as-a-device-property"></a>Adicionar localização como uma propriedade do dispositivo 
 
@@ -261,11 +252,7 @@ Se tiver configurado uma propriedade de localização anteriormente em [criar um
 
    ![Mosaico do mapa com a localização selecionada](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Pode redimensionar o mapa para seu tamanho desejado.
-
-Agora quando um operador visualiza o dashboard, pode ver todos os mosaicos de dashboard que foram configurados, incluindo um mapa de localização.
-
-![Mosaicos no dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+Pode redimensionar o mapa para seu tamanho desejado. Agora quando um operador visualiza o dashboard, pode ver todos os mosaicos de dashboard que foram configurados, incluindo um mapa de localização.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

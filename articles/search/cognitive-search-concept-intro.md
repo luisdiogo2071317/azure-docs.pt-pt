@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617963"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729057"
 ---
 # <a name="what-is-cognitive-search"></a>O que é a pesquisa cognitiva?
 
@@ -31,7 +31,7 @@ As capacidades cognitivas no Azure Search baseiam-se os mesmos algoritmos de IA 
 Linguagem natural e processamento de imagens é aplicada durante a fase de ingestão de dados, com resultados se tornar parte de composição de um documento num índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação com o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que precisa. A arquitetura é extensível, de modo a se as habilidades internas não forem suficientes, pode criar e anexar [competências personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Exemplos podem ser um classificador de módulo ou o documento de entidade personalizada destinado um domínio específico, como Finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> Pesquisa cognitiva encontra-se em pré-visualização pública e execução do conjunto de capacidades está disponível gratuitamente. Posteriormente, iremos anunciar os preços desta capacidade. 
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitiva
 

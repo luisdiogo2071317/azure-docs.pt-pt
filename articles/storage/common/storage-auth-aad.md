@@ -1,6 +1,6 @@
 ---
-title: Autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização) | Documentos da Microsoft
-description: Autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização).
+title: Autenticar o acesso a blobs do Azure e filas com o Azure Active Directory (pré-visualização) | Documentos da Microsoft
+description: Autenticar o acesso a blobs do Azure e filas com o Azure Active Directory (pré-visualização).
 services: storage
 author: tamram
 ms.service: storage
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 802eefb7ed8191525a8a4a6601b620ca5dfd5faa
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d48eee711e5d43c2113c3a21d87386b350c6b01f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300618"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731905"
 ---
-# <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)
+# <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Autenticar o acesso a blobs do Azure e filas com o Azure Active Directory (pré-visualização)
 
 O armazenamento do Azure suporta a autenticação e autorização com o Azure Active Directory (AD) para os serviços de BLOBs e filas. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder acesso a utilizadores, grupos ou principais de serviço de aplicações. 
 
-Autorizar aplicações aceder ao armazenamento do Azure com o Azure AD proporciona maior segurança e facilidade de utilização sobre outras opções de autorização. Enquanto pode continuar a utilizar a autorização de chave partilhada com as suas aplicações, utilizar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com o seu código. Da mesma forma, pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder um acesso otimizado aos recursos na sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerir os tokens de SAS ou se preocupar sobre revogar uma SAS comprometida.
+Autenticação de utilizadores ou aplicações que utilizam as credenciais do Azure AD fornece segurança superior e a facilidade de utilização ao longo de outros meios de autorização. Enquanto pode continuar a utilizar a autorização de chave partilhada com as suas aplicações, utilizar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com o seu código. Também pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder um acesso otimizado aos recursos na sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerir os tokens de SAS ou se preocupar sobre revogar uma SAS comprometida. A Microsoft recomenda utilizar autenticação do Azure AD para as suas aplicações de armazenamento do Azure, sempre que possível.
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 

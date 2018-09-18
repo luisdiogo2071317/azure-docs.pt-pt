@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 48fd43a315735ec8ba70f1a399462b65930fe069
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fc8233b21ad662c6e595a04408bde75df46f97d6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574118"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982940"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
 
@@ -24,7 +24,7 @@ Este artigo descreve como [validar um ponto final HTTP](security-authentication.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Precisará de uma aplicação de funções com um [função acionada por HTTP](../azure-functions/functions-create-generic-webhook-triggered-function.md)
+Precisa de uma aplicação de função com uma função acionada por HTTP.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 

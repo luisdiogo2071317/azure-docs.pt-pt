@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055364"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734476"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
@@ -61,7 +61,7 @@ As secções seguintes, irá aprender os passos necessários para configurar o d
 2. Na navegação à esquerda, selecione **todos os recursos** e localize a conta do Azure Cosmos DB.  
 3. Pode configurar o débito durante a criação de um débito de base de dados ou a atualização para uma base de dados existente.  
 4. Para atribuir a taxa de transferência durante a criação de uma base de dados, abra a **Data Explorer** painel e selecione **nova base de dados**  
-5. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configurar o valor de débito. Uma base de dados pode ser aprovisionado com o valor de débito mínimos 50 000 RU/s.  
+5. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configurar o valor de débito.  
 
    ![Definir débito com a nova opção de base de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ As secções seguintes, irá aprender os passos necessários para configurar o d
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
 2. Na navegação à esquerda, selecione **todos os recursos** e localize a conta do Azure Cosmos DB.  
 3. Crie uma base de dados e atribua o débito ao mesmo. Abra o **Data Explorer** painel e selecione **nova base de dados**  
-4. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configurar o valor de débito. Uma base de dados pode ser aprovisionado com o valor de débito mínimos 50 000 RU/s.  
+4. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configurar o valor de débito.  
 
    ![Definir débito com a nova opção de base de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Considere o aprovisionamento de débito com um contentor individual nos seguinte
 * Se tiver um número inferior de contentores do Azure Cosmos DB.  
 
 * Se quiser obter a taxa de transferência garantida num contentor especificado apoiado pelo SLA.
-
-## <a name="throughput-ranges"></a>Intervalos de débito
-
-A tabela seguinte apresenta a taxa de transferência disponível para contentores:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Contentor de partição única</strong></p></td>
-            <td valign="top"><p><strong>Contentor particionado</strong></p></td>
-            <td valign="top"><p><strong>Conjunto de contentores</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Débito mínimo</p></td>
-            <td valign="top"><p>400 unidades de pedido por segundo</p></td>
-            <td valign="top"><p>1000 unidades de pedido por segundo</p></td>
-            <td valign="top"><p>50 000 unidades de pedido por segundo</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Débito máximo</p></td>
-            <td valign="top"><p>10 000 unidades de pedido por segundo</p></td>
-            <td valign="top"><p>Ilimitado</p></td>
-            <td valign="top"><p>Ilimitado</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

@@ -7,14 +7,14 @@ services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: aamalvea
-ms.openlocfilehash: aec4ce2e4fb22872673c977816ffbe8616567885
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 43702de9f0da3b5b82c304cf9289768f7a8264fc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718238"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732639"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utilizar o portal do Azure para criar alertas para o Azure SQL Database e o armazém de dados
 
@@ -108,7 +108,7 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 | SQL data warehouse | connection_successful | Ligações com êxito | Total | 10 minutos |
 | SQL data warehouse | connection_failed | Ligações Falhadas | Total | 10 minutos |
 | SQL data warehouse | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
-| SQL data warehouse | service_level_objective | Objetivo de nível de serviço da base de dados | Total | 10 minutos |
+| SQL data warehouse | service_level_objective | Escalão de serviço da base de dados | Total | 10 minutos |
 | SQL data warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
 | SQL data warehouse | dwu_consumption_percent | Percentagem DWU | Média | 10 minutos |
 | SQL data warehouse | dwu_used | DWU utilizado | Média | 10 minutos |

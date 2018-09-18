@@ -1,20 +1,21 @@
 ---
-title: Obter chaves de subscrição para a API de imagem digitalizada | Documentos da Microsoft
-description: Saiba como obter chaves de subscrição para chamadas para a API de imagem digitalizada nos serviços cognitivos.
+title: Obter chaves de subscrição para a API de imagem digitalizada
+titlesuffix: Azure Cognitive Services
+description: Saiba como obter chaves de subscrição para chamadas para a API de imagem digitalizada nos serviços cognitivos do Azure.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: 682266df9e1a1f8209904697358d10bbaa633cf1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35760249"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985427"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Como obter chaves de subscrição
 
@@ -41,4 +42,4 @@ Se se esquecer a região para a sua chave de subscrição depois de obter a chav
 
 ### <a name="related-links"></a>Links relacionados:
 
-* [Opções de preços para APIs cognitivas da Microsoft](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Opções de preços para APIs serviços cognitivos do Azure](https://azure.microsoft.com/pricing/details/cognitive-services/)

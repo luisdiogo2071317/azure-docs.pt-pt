@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 87560f3fb34c281b6802ef5079fd1445caba6db8
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423565"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983636"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -83,7 +83,7 @@ Enquanto a aplicação é implementada, transferir os scripts de gestão e códi
 > Conteúdo executável (scripts e DLLs) poderá ser bloqueado pelo Windows quando os arquivos. zip são transferidos a partir de uma origem externa e extraídos. Siga os passos para desbloquear o ficheiro. zip antes de extrair os scripts. Desbloqueio torna-se de que os scripts podem ser executados.
 
 1. Navegue para o [repositório do GitHub WingtipTicketsSaaS DbPerTenant][github-wingtip-dpt].
-1. Selecione **clonar ou transferir**.
+1. Selecione **Clone or download** (Clonar ou transferir).
 1. Selecione **transferir ZIP**e, em seguida, guarde o ficheiro.
 1. Com o botão direito a **WingtipTicketsSaaS-DbPerTenant-Master** do ficheiro e, em seguida, selecione **propriedades**.
 1. Sobre o **gerais** separador, selecione **desbloqueio** > **aplicar**.
@@ -242,7 +242,7 @@ Navegue para o servidor **tenants1-dpt -&lt;usuário&gt;** e selecione **Pool1**
 - O primeiro gráfico, rotulado **utilização de recursos**, mostra a utilização de eDTU do conjunto.
 - O segundo gráfico mostra a utilização de eDTU das cinco bases de dados mais ativos no conjunto.
 
-Dois gráficos ilustram a que os conjuntos elásticos e base de dados SQL são adequados para cargas de trabalho de aplicação do SaaS imprevisíveis. Os gráficos mostram que quatro bases de dados são cada segurança para o máximo de 40 eDTUs e ainda todas as bases de dados confortavelmente são suportados por um conjunto de 50 Edtus. O conjunto de eDTU de 50 pode suportar cargas de trabalho ainda mais pesadas. Se as bases de dados forem provisionados como bases de dados autónomas, cada um deles tem de ser uma S2 (50 DTUS) para suportar a expansão. O custo de quatro bases de dados de S2 autónomas é quase três vezes o preço do conjunto. Em situações do mundo real, os clientes da base de dados SQL executam até 500 bases de dados em conjuntos de 200 Edtus. Para obter mais informações, consulte a [tutorial de monitorização do desempenho](saas-dbpertenant-performance-monitoring.md).
+Dois gráficos ilustram a que os conjuntos elásticos e base de dados SQL são adequados para cargas de trabalho de aplicação do SaaS imprevisíveis. Os gráficos mostram que quatro bases de dados são cada segurança para o máximo de 40 eDTUs e ainda todas as bases de dados confortavelmente são suportados por um conjunto de 50 Edtus. O conjunto de eDTU de 50 pode suportar cargas de trabalho ainda mais pesadas. Se as bases de dados forem provisionados como bases de dados individuais, cada um deles tem de ser uma S2 (50 DTUS) para suportar a expansão. O custo de quatro bases de dados de S2 autónomas é quase três vezes o preço do conjunto. Em situações do mundo real, os clientes da base de dados SQL executam até 500 bases de dados em conjuntos de 200 Edtus. Para obter mais informações, consulte a [tutorial de monitorização do desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 785b0137624cc6d940f4944e0357d0a5774561df
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1597e850219ddbab1a0714072c47e12016aa2069
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634715"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736893"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -64,9 +64,8 @@ Imagens do Windows Server mais recente no Azure terá [consola administrativa es
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reinicie o sistema para a consola de SAC seja ativado
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-Se necessário SAC pode ser ativado offline 
+Se for necessário, o SAC pode ser ativadas offline também:
 
 1. Anexe o disco do windows que pretende SAC configurado para como um disco de dados para uma VM existente. 
 2. A partir de uma linha de comandos administrativa, execute os seguintes comandos 
@@ -203,27 +202,27 @@ Colar muito longas seqüências de caracteres não funciona | Consola de série 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 **P. Como posso enviar comentários?**
 
-A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Em alternativa menos (preferencial) envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
+R. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Em alternativa menos (preferencial) envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
 
 **P. Consola de série suporta copiar/colar?**
 
-A. Sim faz. Utilize Ctrl + Shift + C e Ctrl + Shift + V para copiar e colar no terminal.
+R. Sim faz. Utilize Ctrl + Shift + C e Ctrl + Shift + V para copiar e colar no terminal.
 
 **P. Quem pode ativar ou desativar a consola de série para a minha subscrição?**
 
-A. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. Funções com permissão de escrita incluem, mas não sejam limitam às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
+R. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. Funções com permissão de escrita incluem, mas não sejam limitam às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 **P. Quem pode aceder a consola de série para a minha VM?**
 
-A. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aceder à consola de série da VM. 
+R. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aceder à consola de série da VM. 
 
 **P. Meu consola de série não está visível qualquer coisa, o que fazer?**
 
-A. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série ativar em imagens personalizadas ou mais antigas](#Enable-Serial-Console-in-custom-or-older-images) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
+R. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série ativar em imagens personalizadas ou mais antigas](#Enable-Serial-Console-in-custom-or-older-images) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
 
 **P. Consola de série está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 
-A. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
+R. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter um guia detalhado sobre a comandos CMD e do PowerShell, pode utilizar o SAC do Windows, clique em [aqui](serial-console-cmd-ps-commands.md).

@@ -1,23 +1,23 @@
 ---
-title: Identificação de imagens
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Conceitos relacionados a marcação de imagens através de imagem digitalizada nos serviços cognitivos do Azure.
+title: Identificação de imagens - o de imagem digitalizada
+titleSuffix: Azure Cognitive Services
+description: Conceitos relacionados a marcação de imagens usando a API de imagem digitalizada.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: b06265bbdd5ba642c5395823e98a6a76171baff4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 159a1b9404f6ce635dcc8bb6007e52b7346ef98d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725535"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982970"
 ---
-# <a name="tagging-images"></a>Identificação de imagens
+# <a name="tagging-images"></a>Identificar imagens
 
 Imagem digitalizada devolve etiquetas com base em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou dados de conhecimento não comuns, a resposta de API fornece "sugestões" para clarificar o significado da etiqueta no contexto de uma configuração conhecida. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança existem. Uma coleção de etiquetas de conteúdos serve de alicerce para uma imagem 'description', apresentado como linguagem legível humana formatada em sentenças completas. Tenha em atenção que neste momento inglês é o único idioma suportado para a descrição da imagem.
 

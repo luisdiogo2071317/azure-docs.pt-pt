@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/16/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095441"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734946"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -152,18 +152,15 @@ A predefinição é "6.5.0".
 |---|------------|
 |WEB SITE\_NÓ\_DEFAULT_VERSION|6.5.0|
 
-## <a name="websiterunfromzip"></a>WEB SITE\_EXECUTE\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEB SITE\_EXECUTE\_FROM\_PACOTE
 
 Permite que a aplicação de funções para execução a partir de um ficheiro de pacote montada.
 
-> [!NOTE]
-> Esta definição destina-se uma funcionalidade de pré-visualização.
-
 |Chave|Valor da amostra|
 |---|------------|
-|WEB SITE\_EXECUTE\_FROM\_ZIP|1|
+|WEB SITE\_EXECUTE\_FROM\_PACOTE|1|
 
-Os valores válidos são de qualquer um URL que é resolvido para a localização de um ficheiro de pacote de implementação, ou `1`. Quando definido como `1`, o pacote tem de constar da `d:\home\data\SitePackages` pasta. Ao utilizar a implementação de zip com esta definição, o pacote é automaticamente carregado para esta localização.  Para obter mais informações, consulte [executar as suas funções a partir de um ficheiro de pacote](run-functions-from-deployment-package.md).
+Os valores válidos são de qualquer um URL que é resolvido para a localização de um ficheiro de pacote de implementação, ou `1`. Quando definido como `1`, o pacote tem de constar da `d:\home\data\SitePackages` pasta. Ao utilizar a implementação de zip com esta definição, o pacote é automaticamente carregado para esta localização. Em pré-visualização, esta definição foi chamada `WEBSITE_RUN_FROM_ZIP`. Para obter mais informações, consulte [executar as suas funções a partir de um ficheiro de pacote](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

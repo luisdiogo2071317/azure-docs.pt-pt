@@ -4,24 +4,39 @@ description: Descreve como criar uma avaliação com as dependências das máqui
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621084"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737103"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
 Este artigo descreve como criar um grupo de máquinas para [do Azure Migrate](migrate-overview.md) avaliação ao visualizar as dependências de máquinas. Geralmente usa esse método quando pretender avaliar a grupos de VMs com níveis mais altos de confiança por verificar as dependências das máquinas, antes de executar uma avaliação. Visualização de dependência pode ajudar a planear efetivamente a migração para o Azure. Ele ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa quando estiver a migrar para o Azure. Pode descobrir todos os sistemas interdependentes que precisam migrar em conjunto e identificar se um sistema em execução ainda está a servir os utilizadores ou é uma candidata para desativar em vez de migração.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Preparar computadores para mapeamento de dependência
-Para ver as dependências de computadores, terá de transferir e instalar agentes em cada máquina no local que pretende avaliar. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
+## <a name="prepare-for-dependency-visualization"></a>Preparar para a visualização de dependências
+O Azure Migrate tira partido da solução mapa de serviço do Log Analytics para ativar a visualização de dependências de máquinas.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associar uma área de trabalho do Log Analytics
+Para aproveitar a visualização de dependências, precisa associar área de trabalho do Log Analytics, nova ou existente, com um projeto do Azure Migrate. Só pode criar ou anexar uma área de trabalho na mesma subscrição em que é criado o projeto de migração.
+
+- Para anexar uma área de trabalho do Log Analytics a um projeto, no **descrição geral**, aceda a **Essentials** secção do projeto clique **requer configuração**
+
+    ![Associar área de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada na mesma subscrição que o projeto de migração e, numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
+- O **utilizar existente** opção apresenta uma lista apenas essas áreas de trabalho que são criadas em regiões onde o mapa de serviço está disponível. Se tiver uma área de trabalho numa região em que o mapa de serviço não está disponível, não serão apresentado na lista pendente.
+
+> [!NOTE]
+> Não é possível alterar a área de trabalho associada a um projeto de migração.
 
 ### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes da VM
+Depois de configurar uma área de trabalho, terá de transferir e instalar agentes em cada máquina no local que pretende avaliar. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
+
 1. Na **descrição geral**, clique em **gerir** > **máquinas**e selecione a máquina necessária.
 2. Na **dependências** coluna, clique em **instalar agentes**.
 3. Sobre o **dependências** página, transferir e instalar o Microsoft Monitoring Agent (MMA) e o agente de dependência em cada VM que pretende avaliar.

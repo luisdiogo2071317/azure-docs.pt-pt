@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 479f7df740e75ae44a5198414036ff0b0c216471
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604506"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730652"
 ---
 # <a name="sql-database-faq"></a>FAQ da Base de Dados SQL
 
@@ -41,7 +41,7 @@ Em muitos casos, aplicativos podem se beneficiar da simplicidade de um pacote pr
 Os modelos baseados em DTU e vCore continuarão a existir lado a lado. Estamos a lançar o modelo baseado em vCore em resposta aos pedidos dos clientes de uma maior transparência em torno de seus recursos de base de dados e a capacidade de dimensionar os seus recursos de computação e armazenamento em separado. O modelo baseado em vCore também permite mais poupanças para os clientes com Software Assurance ativo através do benefício híbrido do Azure para o SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Como devo escolher entre os vs modelo de compra baseado em DTU o modelo de compra baseado em vCore? 
-A Unidade de Transação de Base de Dados (DTU) é baseada numa medida combinada de CPU, memória, leituras e escritas. Os níveis de desempenho baseados em DTU representam pacotes de recursos pré-configurados para impulsionar diferentes níveis de desempenho de aplicações. Os clientes que não pretende se preocupar sobre os recursos subjacentes e preferir a simplicidade de um pacote pré-configurado enquanto paga uma quantia fixa por mês podem encontrar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para os clientes que precisam de mais informações sobre os recursos subjacentes ou precisam de aumentar de forma independente para obter um desempenho ideal, o modelo baseado em vCore será a melhor opção.  Além disso, se um cliente tiver um Active Directory Software Assurance (SA) para o SQL Server, podem tirar partido dos seus investimentos existentes em e poupe até 30% com [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Opções de dentro de cada um dos modelos de compras oferecem os benefícios de um serviço totalmente gerido, como cópias de segurança automáticas, atualizações de software e patches. 
+A Unidade de Transação de Base de Dados (DTU) é baseada numa medida combinada de CPU, memória, leituras e escritas. Os tamanhos de computação baseado em DTU representam pacotes de recursos pré-configurados para impulsionar diferentes níveis de desempenho de aplicações. Os clientes que não pretende se preocupar sobre os recursos subjacentes e preferir a simplicidade de um pacote pré-configurado enquanto paga uma quantia fixa por mês podem encontrar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para os clientes que precisam de mais informações sobre os recursos subjacentes ou precisam de aumentar de forma independente para obter um desempenho ideal, o modelo baseado em vCore será a melhor opção.  Além disso, se um cliente tiver um Active Directory Software Assurance (SA) para o SQL Server, podem tirar partido dos seus investimentos existentes em e poupe até 30% com [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Opções de dentro de cada um dos modelos de compras oferecem os benefícios de um serviço totalmente gerido, como cópias de segurança automáticas, atualizações de software e patches. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>O que é o Benefício Híbrido do Azure para o SQL Server? 
 O [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ajuda-o a maximizar o valor dos seus investimentos de licença atuais e acelerar a sua migração para a cloud. Benefício híbrido do Azure para o SQL Server é um benefício baseado no Azure que permite-lhe utilizar as suas licenças do SQL Server com Software Assurance para pagar uma taxa reduzida ("taxa base") na base de dados SQL. O benefício híbrido do Azure para o SQL Server está disponível em pré-visualização pública do modelo de compra baseado em vCore para conjuntos elásticos e bases de dados individuais de base de dados SQL. Pode aplicar este benefício mesmo se a SKU estiver ativa, mas tenha em atenção de que a taxa base é aplicada a partir do momento em que a selecionar no portal do Azure. Não será emitido crédito retroativamente.
@@ -78,8 +78,8 @@ Armazenamento de cópias de segurança de uma base de dados, é cobrado numa bas
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>Como posso selecionar o SKU direito ao converter de uma base de dados existente para novos escalões de serviço? 
 Para aplicativos existentes da base de dados SQL com o modelo baseado em DTU, a camada de serviços de fins gerais é comparável com o escalão Standard. O escalão de serviço crítico para a empresa é comparável com o escalão Premium. Em ambos os casos, deve alocar, pelo menos, 1 vCore para cada 100 DTU que utiliza o seu aplicativo no modelo baseado em DTU.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>Novos escalões de serviço baseado em vCore oferece os níveis de desempenho, compatíveis com o existente todos os objetivos de nível serviço (SLO)?
-Os novos escalões de serviço baseado em vcore da oferecem de opções de desempenho comparável para todos os dados elásticas e bases de dados com 100 DTUs ou mais.  Vamos continuar a adicionar mais SLOs ao longo do tempo para acomodar cargas de trabalho sub 100 DTUS.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>Os novos escalões de serviço baseado em vCore oferecem que os tamanhos de computação compatíveis com os existentes de todos os tamanhos de computação?
+Os novos escalões de serviço baseado em vcore da oferecem de opções de desempenho comparável para todos os dados elásticas e bases de dados com 100 DTUs ou mais.  Vamos continuar a adicionar que mais computação tamanhos ao longo do tempo para acomodar sub 100 DTU as cargas de trabalho.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>Há qualquer base de dados diferenças de funcionalidade entre os escalões de serviço baseado em DTU e novos baseado em vCore existente? 
 Os novos escalões de serviço suportam um superconjunto de funcionalidades disponíveis com as ofertas de baseado em DTU atuais. As funcionalidades adicionais incluem um conjunto de vistas adicionais de gestão dinâmica (DMVs) e opções de configuração de recursos adicionais. 
@@ -110,7 +110,7 @@ Como o modelo de vCore permite independente controlo sobre a quantidade de armaz
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Com que frequência posso ajustar os recursos por conjunto?
 Sempre que quiser. Ver [gerir conjuntos elásticos](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo demora alterar o nível de desempenho ou de camada de serviço de uma base de dados ou mover uma base de dados dentro e fora de um conjunto elástico?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo demora alterar o escalão de serviço ou a calcular o tamanho de uma base de dados ou a mover uma base de dados dentro e fora de um conjunto elástico?
 Alterar o escalão de serviço de uma base de dados e saem de um agrupamento requerem a base de dados ser copiados na plataforma como uma operação em segundo plano. A alteração da camada de serviço pode demorar entre alguns minutos ou diversas horas, dependendo do tamanho dos bancos de dados. Em ambos os casos, as bases de dados permanecem online e disponíveis durante a mudança. Para obter detalhes sobre como alterar as bases de dados individuais, consulte [alterar o escalão de serviço das bases de dados](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando devo utilizar uma base de dados individual versus bases de dados elásticas?
@@ -120,7 +120,7 @@ Em geral, os conjuntos elásticos foram concebidos para típica [padrão da apli
 Listas de base de dados SQL a uma tarifa por hora previsível com base na [modelo de compra](sql-database-service-tiers-dtu.md). A utilização real é calculada e contabilizada pro rata à hora, para que a sua fatura pode apresentar frações de uma hora. Por exemplo, se uma base de dados existir durante 12 horas num mês, a fatura mostra a utilização de 0,5 dias. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>E se uma base de dados esteve ativa menos de uma hora ou utiliza um escalão de serviço mais elevado por menos de uma hora?
-É cobrada por cada hora, uma base de dados existe ao utilizar o escalão de serviço mais elevado + o nível de desempenho aplicável durante essa hora, independentemente da utilização ou se a base de dados esteve ativo durante menos de uma hora. Por exemplo, se criar uma base de dados e a eliminar passados cinco minutos, a fatura reflete um custo de hora de uma base de dados. 
+Será cobrado por cada hora, que uma base de dados existe ao utilizar o escalão de serviço mais elevado + tamanho aplicado durante essa hora, independentemente da utilização ou se a base de dados esteve ativo durante menos de uma hora de computação. Por exemplo, se criar uma base de dados e a eliminar passados cinco minutos, a fatura reflete um custo de hora de uma base de dados. 
 
 Exemplos:
 
@@ -141,8 +141,8 @@ Baseado em DTU exemplos de modelo compra:
 Conjuntos elásticos são cobrados pelas seguintes características:
 
 * Um conjunto elástico é cobrado durante a criação, mesmo quando não existem não existem bases de dados no conjunto.
-* Um conjunto elástico é cobrado à hora. Esta é a mesma frequência de medição que nos níveis de desempenho de bases de dados individuais.
-* Se um conjunto elástico é redimensionado, em seguida, o conjunto não é faturado, de acordo com a nova quantidade de recursos até que a operação de redimensionamento for concluída. Isso segue o mesmo padrão como alterar o nível de desempenho de bases de dados individuais.
+* Um conjunto elástico é cobrado à hora. Esta é a mesma frequência de medição e para tamanhos de computação de bases de dados individuais.
+* Se um conjunto elástico é redimensionado, em seguida, o conjunto não é faturado, de acordo com a nova quantidade de recursos até que a operação de redimensionamento for concluída. Isso segue o mesmo padrão como alterar o tamanho de computação de bases de dados individuais.
 * O preço de um conjunto elástico baseia-se nos recursos do conjunto. O preço de um conjunto elástico é independente do número e a utilização das bases de dados elásticas dentro da mesma.
 
 Para obter detalhes, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/), [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).

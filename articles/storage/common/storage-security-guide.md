@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522206"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730954"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -142,20 +142,13 @@ Também com o Azure Key Vault adiciona outro nível de segurança para as chaves
 
 Outra vantagem de utilizar o Azure Key Vault é que também pode controlar o acesso para as suas chaves com o Azure Active Directory. Isso significa que pode conceder acesso a muitos dos aplicativos que precisam para obter as chaves do Azure Key Vault e saber que outras aplicações não conseguir aceder às chaves, sem conceder-lhes permissão especificamente.
 
-Nota: recomenda-se para utilizar apenas uma das chaves em todos os seus aplicativos ao mesmo tempo. Se utilizar a chave 1 em alguns locais e a chave 2 em outros, não será capaz de rodar as chaves sem algum aplicativo perder o acesso.
+> [!NOTE]
+> A Microsoft recomenda utilizar apenas uma das chaves em todos os seus aplicativos ao mesmo tempo. Se utilizar a chave 1 em alguns locais e a chave 2 em outros, não será capaz de rodar as chaves sem algum aplicativo perder o acesso.
 
 #### <a name="resources"></a>Recursos
-* [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  Este artigo fornece uma visão geral de contas de armazenamento e discute a ver, copiar e regenerar chaves de acesso de armazenamento.
+* [Gerir definições de conta de armazenamento no portal do Azure](storage-account-manage.md)
 * [Referência de API de REST do fornecedor de recursos do armazenamento do Azure](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  Este artigo contém links para artigos específicos sobre como obter as chaves de conta de armazenamento e regenerar as chaves de conta de armazenamento para uma conta do Azure com a API REST. Nota: Isto é para contas de armazenamento do Resource Manager.
-* [Operações em contas de armazenamento](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Este artigo na referência de API de REST do Gestor do serviço de armazenamento contém links para artigos específicos sobre recuperação e regenerar as chaves de conta de armazenamento com a API REST. Nota: Isto é para as contas de armazenamento clássico.
-
-  Este artigo mostra como utilizar o Active Directory para controlar o acesso para as chaves de armazenamento do Azure no Azure Key Vault. Ele também mostra como utilizar uma tarefa da automatização do Azure para regenerar as chaves à hora.
 
 ## <a name="data-plane-security"></a>Segurança de plano de dados
 Segurança de plano de dados refere-se para os métodos usados para proteger os objetos de dados armazenados no armazenamento do Azure – a blobs, filas, tabelas e ficheiros. Já vimos métodos para encriptar os dados e a segurança durante o trânsito dos dados, mas como fazer para informações sobre como controlar o acesso aos objetos?

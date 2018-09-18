@@ -1,6 +1,6 @@
 ---
-title: Texto dividida skill pesquisa cognitivos (Azure Search) | Microsoft Docs
-description: Quebra texto segmentos ou páginas de texto com base no comprimento no pipeline de sem causa pesquisa do Azure.
+title: Texto dividir a habilidade de pesquisa cognitiva (Azure Search) | Documentos da Microsoft
+description: Divida texto em segmentos ou páginas de texto com base no comprimento num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,43 +10,46 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791029"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730771"
 ---
-#   <a name="text-split-cognitive-skill"></a>Texto dividida skill cognitivos
+#   <a name="text-split-cognitive-skill"></a>Texto a dividir competências cognitivas
 
-O **texto divididos** skill quebras de texto em segmentos de texto. Pode especificar se pretende quebrar o texto num frases ou num páginas com um comprimento específico. Este skill é especialmente útil se não existirem texto máximo requisitos de comprimento nas outras competências downstream. 
+O **divisão de texto** habilidade quebra o texto em segmentos de texto. Pode especificar se pretende dividem o texto em frases ou em páginas de um comprimento específico. Essa habilidade é especialmente útil se existirem texto máximo requisitos de comprimento de outras habilidades downstream. 
+
+> [!NOTE]
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
 
-## <a name="skill-parameters"></a>Parâmetros de skill
+## <a name="skill-parameters"></a>Parâmetros de habilidades
 
-Os parâmetros são maiúsculas e minúsculas.
+Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | textSplitMode      | "Páginas" ou "frases" | 
-| maximumPageLength | Se textSplitMode estiver definido como "páginas", refere-se para o comprimento de máximo de página, medido pela `String.Length`. O valor mínimo é 100. | 
-| defaultLanguageCode   | (opcional) Um dos códigos de idioma seguintes: `da, de, en, es, fi, fr, it, ko, pt`. Predefinição é inglês (en). Alguns aspetos a considerar:<ul><li>Se obtiver um formato de languagecode-indicativo do país, é utilizada apenas a parte languagecode do formato.</li><li>Quando o idioma não estiver na lista anterior, a divisão skill interrompe o texto em limites de caráter.</li><li>Fornecer um código de idioma é útil para evitar cortando uma palavra na metade para idiomas não espaço como chinês, japonês e coreano.</li></ul>  |
+| maximumPageLength | Se textSplitMode estiver definido como "páginas", isso se refere ao comprimento máximo de página, medido pela `String.Length`. O valor mínimo é 100. | 
+| defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. A predefinição é o inglês (en). Alguns aspetos a considerar:<ul><li>Se passar um formato de languagecode-indicativo do país, é utilizada apenas a parte de languagecode no formato.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites dos caracteres.</li><li>Fornecer um código de idioma é útil para evitar cortando uma palavra em metade para não espaço idiomas como chinês, japonês e coreano.</li></ul>  |
 
 
-## <a name="skill-inputs"></a>Entradas de skill
+## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome do parâmetro       | Descrição      |
 |----------------------|------------------|
-| Texto  | O texto a ser dividida em substring. |
+| texto  | O texto a dividir em subcadeia. |
 | languageCode  | (Opcional) Código de idioma para o documento.  |
 
-## <a name="skill-outputs"></a>Saídas skill 
+## <a name="skill-outputs"></a>Saídas de habilidades 
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| textItems | Uma matriz de subcadeias foram extraídos. |
+| textItems | Uma matriz de subcadeias de carateres que foram extraídos. |
 
 
 ##  <a name="sample-definition"></a>Definição de exemplo
@@ -126,10 +129,10 @@ Os parâmetros são maiúsculas e minúsculas.
 }
 ```
 
-## <a name="error-cases"></a>Nos casos de erro
-Se um idioma não for suportado, é gerado um aviso e o texto é dividido em limites de caráter.
+## <a name="error-cases"></a>Casos de erro
+Se um idioma não é suportado, é gerado um aviso e o texto for dividido em limites dos caracteres.
 
 ## <a name="see-also"></a>Consulte também
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)

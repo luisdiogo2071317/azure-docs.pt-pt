@@ -8,14 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 09/14/2018
 ms.author: v-daljep
-ms.openlocfilehash: 100cb939c0d7297b92af3255382745355aa8d271
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722117"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733193"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -283,7 +283,7 @@ Alterações de configuração de âmbito de base de dados podem ser definidas p
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-O diagnóstico de registo alterações de configuração de âmbito de base de saídas, foram feitas recentemente que causou uma degradação do desempenho em comparação comparada o comportamento de carga de trabalho de sete dias anteriores. Pode reverter as alterações de configuração para os valores anteriores. Também pode otimizar valor por valor até que seja atingido o nível de desempenho pretendidos. Pode copiar os valores de configuração de âmbito de base de dados de uma base de dados semelhante com desempenho satisfatório. Se não for possível resolver o desempenho, reverter para os valores predefinidos do padrão de base de dados SQL e tente ajustar a partir desta linha de base.
+O diagnóstico de registo alterações de configuração de âmbito de base de saídas, foram feitas recentemente que causou uma degradação do desempenho em comparação comparada o comportamento de carga de trabalho de sete dias anteriores. Pode reverter as alterações de configuração para os valores anteriores. Também pode otimizar valor por valor até que o tamanho de computação desejada é atingido. Pode copiar os valores de configuração de âmbito de base de dados de uma base de dados semelhante com desempenho satisfatório. Se não for possível resolver o desempenho, reverter para os valores predefinidos do padrão de base de dados SQL e tente ajustar a partir desta linha de base.
 
 Para obter mais informações sobre como otimizar a configuração do âmbito de base de dados e a sintaxe de T-SQL sobre a alteração da configuração, consulte [configuração do âmbito de base de dados Alter (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

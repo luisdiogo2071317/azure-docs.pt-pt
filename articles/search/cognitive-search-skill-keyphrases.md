@@ -10,18 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: b1da16269a1cbe83c6c0c625aba13026b6a462d6
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35955726"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735803"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competências cognitivas de extração de expressões chave
 
 O **extração de expressões chave** habilidade avalia o texto não estruturado e para cada registo, devolve uma lista de expressões-chave.
 
 Esta funcionalidade é útil se precisar de identificar rapidamente os principais pontos de conversa no registo. Por exemplo, texto de entrada especificado "alimentar foi delicious e havia maravilhoso equipe", o serviço devolve "food" e "funcionário maravilhoso".
+
+> [!NOTE]
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 

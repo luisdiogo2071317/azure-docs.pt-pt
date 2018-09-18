@@ -1,27 +1,25 @@
 ---
-title: Compreender a Identidade do Azure | Microsoft Docs
-description: Obtenha noções básicas sobre termos, conceitos e recomendações da solução de identidade do Microsoft Azure para tomar a melhor decisão de governação de identidades para a sua organização.
-keywords: ''
+title: O que é a identidade do Microsoft Azure? | Microsoft Docs
+description: Saiba mais sobre os termos de solução de identidade do Microsoft Azure, conceitos e recomendações para que possa tomar a melhor decisão de governação de identidade para a sua organização.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod: ''
-ms.service: azure-directory
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
-ms.custom: it-pro
-ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
+ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346921"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737248"
 ---
-# <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
+# <a name="what-is-microsoft-azure-identity"></a>O que é a identidade do Microsoft Azure?
 O Microsoft Azure Active Directory (Azure AD) é uma solução na cloud de gestão de acessos e identidades que proporciona serviços de diretório, governação de identidade e gestão de acesso a aplicações. O Azure AD [ativa rapidamente o início de sessão único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) em milhares de aplicações comerciais pré-integradas e personalizadas da [galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Provavelmente, já utiliza muitas dessas aplicações, como o Office 365, o Salesforce.com, o Box, o ServiceNow e o Workday.
 
 Um diretório do Azure AD individual é automaticamente associado a uma subscrição no momento da sua criação. Sendo o serviço de identidade do Azure, o Azure AD proporciona todas as funções de gestão de identidades e controlo de acesso para os recursos baseados na cloud. Esses recursos podem incluir utilizadores, aplicações e grupos de inquilinos individuais (organização), conforme mostrado no diagrama seguir:
@@ -119,7 +117,7 @@ Temos dezenas de excelentes recursos online para o ajudar a saber tudo sobre o A
 * [O que é o licenciamento do Microsoft Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [How can I discover unsanctioned cloud apps that are used within my organization](../manage-apps/cloud-app-discovery.md) (Como posso descobrir aplicações na cloud não sancionadas que são utilizadas na minha organização)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que já sabe os conceitos da identidade do Azure e as opções à sua escolha, pode utilizar os recursos seguintes para começar a implementar a opção que escolheu:
 

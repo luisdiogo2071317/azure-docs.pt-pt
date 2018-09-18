@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521494"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732265"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -256,7 +256,7 @@ Para dar acesso a outras pessoas para os recursos de armazenamento:
 
 -   Utilize um token de assinatura (SAS) de acesso partilhado para fornecer acesso a um recurso. 
 
--   Forneça um utilizador com a chave primária ou secundária para a conta de armazenamento. Para obter mais informações, consulte [gerir a sua conta de armazenamento](storage-create-storage-account.md#manage-your-storage-account).
+-   Forneça um utilizador com a chave primária ou secundária para a conta de armazenamento. Para obter mais informações, consulte [gerir a sua conta de armazenamento](storage-account-manage.md#access-keys).
 
 -   Altere a política de acesso para permitir o acesso anônimo. Para obter mais informações, consulte [conceder permissões de utilizadores anónimos a contentores e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 

@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524394"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735567"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins
 
@@ -48,7 +48,7 @@ Benefícios da utilização do serviço de BLOBs para hospedar seus artefactos d
      
       Embora uma solução típica do Jenkins CI poderia ser configurada para ser executado como um serviço, em execução na guerra Jenkins na linha de comandos será suficiente para este tutorial.
 * Uma conta do Azure. Pode inscrever-se numa conta do Azure em <http://www.azure.com>.
-* Uma conta de armazenamento do Azure. Se ainda não tiver uma conta de armazenamento, pode criar uma com os passos indicados em [criar uma conta de armazenamento](../common/storage-create-storage-account.md#create-a-storage-account).
+* Uma conta de armazenamento do Azure. Se ainda não tiver uma conta de armazenamento, pode criar uma com os passos indicados em [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 * Familiaridade com a solução do Jenkins CI é recomendada, mas não obrigatório, como o seguinte conteúdo irá utilizar um exemplo básico para mostrar as etapas necessárias ao utilizar o serviço de BLOBs como um repositório para o Jenkins CI artefactos de compilação.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Como utilizar o serviço de Blobs com o Jenkins CI

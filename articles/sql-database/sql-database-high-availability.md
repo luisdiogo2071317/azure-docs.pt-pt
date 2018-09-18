@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 1aab8dfd3a4bcc33cddb71dec08157ee7eb68f8d
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: b35eafd8c154b6550104a87bfadce6ec528e911a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324653"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732526"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -23,8 +23,8 @@ Base de dados SQL do Azure é a plataforma como serviço que garante que a sua b
 Plataforma do Azure totalmente gerencia cada base de dados do SQL do Azure e garante sem perda de dados e uma alta porcentagem de disponibilidade de dados. Azure processa automaticamente a aplicação de patches, as cópias de segurança, replicação, deteção de falhas, hardware potencial subjacente, falhas de software ou de rede, correções de erros de implementação, as ativações pós-falha, atualizações de base de dados e outras tarefas de manutenção. Engenheiros do SQL Server tem implementado as práticas mais conhecidas, garantindo que todas as operações de manutenção são concluídas em menos de 0,01% de tempo da sua vida de base de dados. Esta arquitetura foi concebida para garantir que os dados confirmados nunca são perdidos e que as operações de manutenção são efetuadas sem afetar a carga de trabalho. Não são janelas de manutenção ou tempos de inatividade do que devem exigir a parar a carga de trabalho, enquanto a base de dados é atualizado ou mantida. Elevada disponibilidade incorporada na base de dados do Azure SQL garante que essa base de dados nunca serão ponto único de falha em sua arquitetura de software.
 
 Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do SQL Server que é ajustada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Há dois modelos de arquiteturais elevada disponibilidade que são utilizados na base de dados do Azure SQL (ambos garantir a disponibilidade de 99,99%):
-- Modelo de fins gerais/padrão que se baseia numa separação de computação e armazenamento. Este modelo de arquitetura baseia-se na elevada disponibilidade e fiabilidade de camada de armazenamento, mas poderá ter alguma degradação do desempenho potencial durante as atividades de manutenção.
-- Premium/crítico modelo de negócios que se baseia num cluster de processos de motor de base de dados. Este modelo de arquitetura baseia-se no fato de que existe é sempre um quórum de nós de motor de base de dados disponíveis e não tem impacto de desempenho mínimos na carga de trabalho, mesmo durante as atividades de manutenção.
+- Fins gerais/Standard camada modelo de serviço que se baseia numa separação de computação e armazenamento. Este modelo de arquitetura baseia-se na elevada disponibilidade e fiabilidade de camada de armazenamento, mas poderá ter alguma degradação do desempenho potencial durante as atividades de manutenção.
+- Modelo de camada de negócios/Premium críticos de serviço que se baseia num cluster de processos de motor de base de dados. Este modelo de arquitetura baseia-se no fato de que existe é sempre um quórum de nós de motor de base de dados disponíveis e não tem impacto de desempenho mínimos na carga de trabalho, mesmo durante as atividades de manutenção.
 
 O Azure é atualizado e patches do sistema operacional subjacente, drivers e o motor de base de dados do SQL Server transparente com o mínimo de tempo de inatividade para os utilizadores finais. Base de dados SQL do Azure é executado na versão estável mais recente do motor de base de dados do SQL Server e o SO Windows e a maioria dos usuários não percebam que as atualizações são realizadas continuamente.
 
@@ -59,7 +59,7 @@ Além disso, o cluster de crítico para a empresa fornece nó só de leitura inc
 
 Por predefinição, as réplicas de conjunto de quórum para configurações de armazenamento local são criadas no mesmo datacenter. Com a introdução da [zonas de disponibilidade do Azure](../availability-zones/az-overview.md), tem a capacidade de colocar as réplicas diferentes em conjuntos de quórum para zonas de disponibilidade diferente na mesma região. Para eliminar um ponto único de falha, a cadência de controle também está duplicada em várias zonas como três anéis de gateway (GW). O encaminhamento para um anel de gateway específico é controlado pelas [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) (ATM). Uma vez que a configuração com redundância de zona não cria a redundância de base de dados adicionais, o uso de zonas de disponibilidade (pré-visualização) nas camadas de serviços Premium ou críticas para a empresa está disponível nenhuma adicionais custo. Ao selecionar uma base de dados com redundância de zona, pode fazer suas bases de dados Premium ou críticas para a empresa resiliente para um conjunto muito maior de falhas, incluindo falhas de datacenter catastróficos, sem quaisquer alterações da lógica do aplicativo. Também pode converter a quaisquer bases de dados Premium ou críticas para a empresa ou conjuntos existentes para a configuração com redundância de zona.
 
-Uma vez que o quórum com redundância de zona-conjunto tem réplicas em datacenters diferentes com alguma distância entre eles, a latência de rede maior pode aumentar o tempo de consolidação e, portanto, afeta o desempenho de algumas cargas de trabalho OLTP. Pode sempre regressar à configuração de zona única, desativando a definição de redundância de zona. Este processo é um tamanho de operação de dados e é semelhante à atualização de objetivo de nível (SLO) do serviço regular. No final do processo, a base de dados ou conjunto é migrado a partir de um anel com redundância de zona para um anel de zona única ou vice-versa.
+Uma vez que o quórum com redundância de zona-conjunto tem réplicas em datacenters diferentes com alguma distância entre eles, a latência de rede maior pode aumentar o tempo de consolidação e, portanto, afeta o desempenho de algumas cargas de trabalho OLTP. Pode sempre regressar à configuração de zona única, desativando a definição de redundância de zona. Este processo é um tamanho de operação de dados e é semelhante à atualização do escalão de serviço regular. No final do processo, a base de dados ou conjunto é migrado a partir de um anel com redundância de zona para um anel de zona única ou vice-versa.
 
 > [!IMPORTANT]
 > Conjuntos elásticos e bases de dados com redundância de zona são atualmente suportadas apenas no escalão de serviço Premium. Durante a pré-visualização pública, as cópias de segurança e auditoria, registos são armazenados no armazenamento RA-GRS e, portanto, podem não ser automaticamente disponíveis caso ocorra uma interrupção de toda a zona. 
@@ -69,7 +69,7 @@ A versão com redundância de zona da arquitetura de elevada disponibilidade é 
 ![redundância de zona de arquitetura elevada disponibilidade](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Leia o Escalamento horizontal
-Conforme descrito, escalões de serviço Premium e crítico para a empresa tirar partido de conjuntos de quórum e tecnologia Always On para elevada disponibilidade no única zona e configurações com redundância de zona. Uma das vantagens do AlwaysOn é que as réplicas estão sempre no Estado transacionalmente consistente. Uma vez que as réplicas tenham o mesmo nível de desempenho como principal, o aplicativo pode aproveitar essa capacidade extra para a manutenção de cargas de trabalho só de leitura não adicionais Custo (leitura Escalamento horizontal). Desta forma, as consultas só de leitura serão isoladas de carga de trabalho de leitura / escrita principal e não irão afetar o desempenho dele. Leitura destina-se a funcionalidade de escalamento horizontal para as aplicações que incluem logicamente separados só de leitura cargas de trabalho, tais como análise e, portanto, poderia usar essa capacidade adicional sem ligar para o primário. 
+Conforme descrito, escalões de serviço Premium e crítico para a empresa tirar partido de conjuntos de quórum e tecnologia Always On para elevada disponibilidade no única zona e configurações com redundância de zona. Uma das vantagens do AlwaysOn é que as réplicas estão sempre no Estado transacionalmente consistente. Como as réplicas têm o mesmo tamanho de computação como principal, o aplicativo pode aproveitar essa capacidade extra para a manutenção de cargas de trabalho só de leitura não adicionais Custo (leitura Escalamento horizontal). Desta forma, as consultas só de leitura serão isoladas de carga de trabalho de leitura / escrita principal e não irão afetar o desempenho dele. Leitura destina-se a funcionalidade de escalamento horizontal para as aplicações que incluem logicamente separados só de leitura cargas de trabalho, tais como análise e, portanto, poderia usar essa capacidade adicional sem ligar para o primário. 
 
 Para utilizar a funcionalidade de expansão de leitura com um banco de dados específico, deve explicitamente ativá-lo ao criar a base de dados ou, depois, alterando a respetiva configuração com o PowerShell, invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou por meio da API de REST do Azure Resource Manager com o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método.
 

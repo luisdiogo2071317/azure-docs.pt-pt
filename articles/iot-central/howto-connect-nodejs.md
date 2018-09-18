@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206042"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733469"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -49,7 +49,7 @@ Introduza os nomes de campos exatamente como mostrados na tabela no modelo de di
 
 Adicione o seguinte estado no **medidas** página:
 
-| Nome a Apresentar | Nome do Campo  | Valor de 1 | Nome a Apresentar | Valor 2 | Nome a Apresentar |
+| Nome a Apresentar | Nome do Campo  | Valor 1 | Nome a Apresentar | Valor 2 | Nome a Apresentar |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
 
@@ -129,7 +129,11 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Quando adicionou o seu dispositivo real que copiou este valor da página de detalhes de ligação. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
+  > [!NOTE]
+   > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estes instrustions para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#getting-device-connection-string) e continuar com o resto do tutorial.
+
+
+    Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
 
 1. Para enviar medições de telemetria, o estado e o evento para a aplicação Azure IoT Central, adicione a seguinte função para o ficheiro:
 

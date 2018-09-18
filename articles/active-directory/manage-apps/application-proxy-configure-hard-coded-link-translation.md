@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366797"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982277"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -109,7 +109,7 @@ Começar a utilizar com a conversão de link é tão fácil quanto clicar num bo
 2. Aceda a **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações** > selecione a aplicação que pretende gerir >  **Proxy de aplicações**.
 3. Ative **traduzir URLs no corpo do aplicativo** ao **Sim**.
 
-   ![Selecione Sim para traduzir URLs no corpo de aplicação](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Selecione Sim para traduzir URLs no corpo de aplicação](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Selecione **guardar** para aplicar as alterações.
 
 Agora, quando os utilizadores acedem a esta aplicação, o proxy irá analisar automaticamente para URLs internos que foram publicadas através do Proxy de aplicações no seu inquilino.

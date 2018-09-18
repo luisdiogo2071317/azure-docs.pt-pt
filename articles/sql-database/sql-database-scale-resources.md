@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 2378a4d5bb7d7f52ee2e96224db01e5e386b4c46
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 0a1077acf5e436dd5fc49e65876ed65bf4c95b9c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057082"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731769"
 ---
 # <a name="scale-database-resources"></a>Dimensionar os recursos da base de dados
 
@@ -29,7 +29,7 @@ Não precisa se preocupar sobre a compra de hardware e alterar a infraestrutura 
 ![Aumente o desempenho da base de dados](media/sql-database-scalability/scale-performance.svg)
 
 Base de dados SQL do Azure oferece um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). 
--   O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória e recursos de e/s em três escalões de serviço para suportar leves para cargas de trabalho de base de dados de ou pesadas: Basic, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
+-   O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória e recursos de e/s em três escalões de serviço para suportar leves para cargas de trabalho de base de dados de ou pesadas: Basic, Standard e Premium. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
 -   O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento.
 Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
@@ -52,7 +52,7 @@ Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade
 
 ## <a name="alternative-scale-methods"></a>Métodos de dimensionamento alternativo
 Dimensionar os recursos é o mais fácil e a forma mais eficiente para melhorar o desempenho da base de dados sem alterar o código de base de dados ou aplicação.
-Em alguns casos, até mesmo os escalões de desempenho mais elevados e otimizações de desempenho não podem processar a carga de trabalho na forma com êxito e econômica. Em que casos tem outras opções para dimensionar a sua base de dados:
+Em alguns casos, até mesmo os escalões de serviço mais elevados, tamanhos de computação e otimizações de desempenho não podem processar a carga de trabalho na forma com êxito e econômica. Em que casos tem estas opções adicionais para dimensionar a sua base de dados:
 -   [Escalamento leitura](sql-database-read-scale-out.md) é uma funcionalidade disponível em onde está a obter uma réplica só de leitura dos seus dados onde pode executar a exigência de consultas só de leitura, como relatórios. Réplica só de vermelho irá processar a carga de trabalho só de leitura sem afetar a utilização de recursos na sua base de dados primária.
 -   [Fragmentação de base de dados](sql-database-elastic-scale-introduction.md) é um conjunto de técnicas que lhe permite dividir os dados em várias bases de dados e dimensionar de forma independente.
 

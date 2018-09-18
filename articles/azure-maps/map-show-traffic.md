@@ -3,22 +3,22 @@ title: Mostrar o tráfego com o Azure Maps | Documentos da Microsoft
 description: Como exibir dados de tráfego num mapa de Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6d5c721ab84c28bae9415dceeaa09fd12cc05824
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746083"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733027"
 ---
 # <a name="show-traffic-on-the-map"></a>Tráfego de mostrar no mapa
 
-Este artigo mostra-lhe como mostrar informações de tráfego e incidentes no mapa. 
+Este artigo mostra-lhe como mostrar informações de tráfego e incidentes no mapa.
 
 ## <a name="understand-the-code"></a>Compreender o código
 
@@ -31,12 +31,20 @@ O segundo bloco de código utiliza [setTraffic](https://docs.microsoft.com/javas
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo: 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
+Saiba mais sobre as classes e métodos usados neste artigo:
 
-Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes: 
-* [Interagir com o mapa – eventos de mouse](./map-events.md)
-* [Criar um mapa acessível](./map-accessibility.md)
+> [!div class="nextstepaction"]
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Confira nosso [página de exemplo de código](http://aka.ms/AzureMapsSamples) para obter mais cenários de mapeamento.
+Veja os artigos seguintes para exemplos de código completo:
+
+> [!div class="nextstepaction"]
+> [Página de exemplo de código](http://aka.ms/AzureMapsSamples)
+
+Melhore suas experiências de utilizador:
+
+> [!div class="nextstepaction"]
+> [Mapear a interação com eventos de mouse](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Criar um mapa acessível](./map-accessibility.md)

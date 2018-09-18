@@ -10,18 +10,18 @@ ms.custom: saas apps
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1af13857bdde06b70cb8d01db8d9668cc6ce99e6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645798"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983972"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação após desastre para uma aplicação de SaaS de multi-inquilino com georreplicação de base de dados
 
 Neste tutorial, explorar um cenário de recuperação após desastre para uma aplicação SaaS de multi-inquilino implementado usando o modelo de base de dados por inquilino. Para proteger a aplicação a partir de uma falha, utilize [ _georreplicação_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para criar as réplicas das bases de dados do catálogo e de inquilino numa região de recuperação alternativo. Se ocorrer uma falha, rapidamente a ativação pós-falha a estas réplicas para retomar as operações comerciais normais. Na ativação pós-falha, as bases de dados na região original tornam-se as réplicas secundárias das bases de dados na região de recuperação. Depois destas réplicas fique novamente online forem automaticamente recuperados para o estado das bases de dados na região de recuperação. Após a falha for resolvida, reativação pós-falha para as bases de dados na região de produção original.
 
-Este tutorial explora os fluxos de trabalho de ativação pós-falha e reativação pós-falha. Ficará a saber como:
+Este tutorial explora os fluxos de trabalho de ativação pós-falha e reativação pós-falha. Vai aprender a:
 > [!div classs="checklist"]
 
 >* Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
@@ -51,9 +51,9 @@ Plano de DR da com base na replicação geográfica é composto por três partes
 Todas as partes deve ser considerado com cuidado, principalmente se operar à escala. Em geral, o plano deve realizar várias metas:
 
 * Configurar
-    * Estabelecer e manter um ambiente de imagem espelhada na região de recuperação. Criar os conjuntos elásticos e replicar quaisquer bases de dados autónomas neste ambiente de recuperação se a reserva de capacidade na região de recuperação. Manter este ambiente inclui novas bases de dados do inquilino a replicar como terem sido aprovisionados.  
+    * Estabelecer e manter um ambiente de imagem espelhada na região de recuperação. Criar os conjuntos elásticos e replicar quaisquer bases de dados individuais nesse ambiente de recuperação se a reserva de capacidade na região de recuperação. Manter este ambiente inclui novas bases de dados do inquilino a replicar como terem sido aprovisionados.  
 * Recuperação
-    * Sempre que um ambiente de recuperação de diminuída é usado para minimizar os custos de diários, conjuntos e bases de dados autónomas têm ser aumentados para adquirir capacidade operacional completa na região de recuperação
+    * Sempre que um ambiente de recuperação de diminuída é usado para minimizar os custos de diários, conjuntos e bases de dados individuais devem ser aumentados para adquirir capacidade operacional completa na região de recuperação
     * Ativar aprovisionamento logo que possível na região de recuperação do novo inquilino  
     * Otimizado para restaurar os inquilinos na ordem de prioridade
     * Otimizado para obter os inquilinos online mais rápido possível efetuando os passos em paralelo onde prático
@@ -158,7 +158,7 @@ O script de recuperação executa as seguintes tarefas:
 
 1. Marca todos os inquilinos existentes no catálogo de recuperação como offline para impedir o acesso às bases de dados do inquilino antes de eles são a ativação pós-falha.
 
-1. Atualiza a configuração de todos os conjuntos elásticos e bases de dados autónomo replicados na região de recuperação para espelhar a configuração na região original. (Esta tarefa só é necessário se agrupamentos ou bancos de dados replicados no ambiente de recuperação são reduzidos verticalmente durante operações normais para reduzir os custos).
+1. Atualiza a configuração de todos os conjuntos elásticos e bases de dados individuais replicados na região de recuperação para espelhar a configuração na região original. (Esta tarefa só é necessário se agrupamentos ou bancos de dados replicados no ambiente de recuperação são reduzidos verticalmente durante operações normais para reduzir os custos).
 
 1. Permite que o ponto de final do Gestor de tráfego para a aplicação web na região de recuperação. Ativar este ponto final permite que o aplicativo aprovisionar novos inquilinos. Nesta fase, os inquilinos existentes estão ainda offline.
 
@@ -185,7 +185,7 @@ Agora imagine que houver uma falha na região em que a aplicação é implementa
     * A região de recuperação é o _região emparelhada_ associados à região do Azure que implementou a aplicação. Para obter mais informações, consulte [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitorize o estado do processo de recuperação na janela do PowerShell.
-    ![processo de ativação pós-falha](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
+    ![Processo de ativação pós-falha](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
 
 > [!Note]
 > Para explorar o código para as tarefas de recuperação, reveja os scripts do PowerShell na pasta ...\Learning Modules\Business continuidade e desastre Recovery\DR-FailoverToReplica\RecoveryJobs.

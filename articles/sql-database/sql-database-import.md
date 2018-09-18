@@ -6,19 +6,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 09/04/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 6df71f50129ec6901d0b8688b0a6d3619260cf22
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eefffdc425a300a8a4caa358494fbdc4fd84e356
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634240"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983989"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importar um ficheiro BACPAC para uma nova base de dados do Azure SQL
 
-Quando precisa importar uma base de dados de um arquivo ou ao migrar de outra plataforma, pode importar o esquema de base de dados e os dados a partir de um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) ficheiro. Um ficheiro BACPAC é um arquivo ZIP com uma extensão de BACPAC que contém os metadados e dados a partir de uma base de dados do SQL Server. Um ficheiro BACPAC pode ser importado a partir do armazenamento de Blobs do Azure (apenas no armazenamento standard) ou do armazenamento local numa localização no local. Para maximizar a velocidade de importação, recomendamos que especifica um nível mais elevado serviço escalão e o desempenho, tais como um P6 e, em seguida, dimensionar para diminuir conforme apropriado quando a importação for concluída com êxito. Além disso, o nível de compatibilidade de base de dados após a importação baseia-se no nível de compatibilidade da base de dados de origem. 
+Quando precisa importar uma base de dados de um arquivo ou ao migrar de outra plataforma, pode importar o esquema de base de dados e os dados a partir de um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) ficheiro. Um ficheiro BACPAC é um arquivo ZIP com uma extensão de BACPAC que contém os metadados e dados a partir de uma base de dados do SQL Server. Um ficheiro BACPAC pode ser importado a partir do armazenamento de Blobs do Azure (apenas no armazenamento standard) ou do armazenamento local numa localização no local. Para maximizar a velocidade de importação, é recomendável especificar um escalão de serviço mais elevado e tamanho, por exemplo, um P6, computação e, em seguida, dimensionar para diminuir conforme apropriado quando a importação for concluída com êxito. Além disso, o nível de compatibilidade de base de dados após a importação baseia-se no nível de compatibilidade da base de dados de origem. 
 
 > [!IMPORTANT] 
 > Depois de migrar a base de dados para a base de dados do Azure SQL, pode optar por operar a base de dados em seu nível de compatibilidade atual (nível 100 para a base de dados AdventureWorks2008R2) ou num nível superior. Para obter mais informações sobre as implicações e as opções para o funcionamento de uma base de dados a um nível de compatibilidade específico, veja [ALTERAR Nível de Compatibilidade de BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Veja também [ALTERAR CONFIGURAÇÃO DO ÂMBITO DA BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obter informações sobre as definições adicionais do nível da base de dados relacionadas com os níveis de compatibilidade.   >
@@ -104,7 +104,7 @@ $importStatus
 Para obter outro exemplo de script, consulte [importar uma base de dados de um ficheiro BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Limitações
-- Importar uma base de dados no conjunto elástico não é suportada. Pode importar dados para uma base de dados singleton e, em seguida, mover a base de dados para um conjunto.
+- Importar uma base de dados no conjunto elástico não é suportada. Pode importar dados para uma base de dados e, em seguida, mover a base de dados para um conjunto.
 
 ## <a name="import-using-other-methods"></a>Importar com outros métodos
 

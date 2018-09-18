@@ -1,81 +1,59 @@
 ---
-title: Noções básicas da gestão de identidades do Azure | Microsoft Docs
-description: As identidades baseadas na cloud são agora a melhor forma de manter o controlo e saber como e quando é que os utilizadores acedem às aplicações e aos dados da empresa.
-keywords: ''
+title: Quais são os conceitos básicos da gestão de identidades e acessos do Azure? -O azure Active Directory | Documentos da Microsoft
+description: Saiba mais sobre as capacidades de proteção avançada e ferramentas adicionais que estão disponíveis com as edições do Azure Active Directory Premium.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
 ms.author: lizross
-ms.date: 08/07/2018
-ms.topic: overview
-ms.prod: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 09/13/2018
+ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: f7baa29c77ae4af9813bfc755a39cc07288a3ad2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022494"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734680"
 ---
-# <a name="fundamentals-of-azure-identity-management"></a>Noções básicas da gestão de identidades do Azure
-
-À medida que cada vez mais recursos digitais das empresas residem fora das redes empresariais, na cloud e em dispositivos, tornou-se necessário recorrer a soluções de gestão de acesso e identidades baseada na cloud eficientes. As identidades baseadas na cloud são agora a melhor forma de manter o controlo e saber como e quando é que os utilizadores acedem às aplicações e aos dados da empresa.
-
-A Microsoft protege as identidades baseadas na cloud há mais de uma década e, agora, com o [Azure Active Directory (AD)](active-directory-whatis.md), os mesmos sistemas de proteção estão disponíveis para si. Com o Azure AD, os administradores empresariais podem facilmente assegurar a responsabilidade dos utilizadores e administradores com segurança e governação melhores do que nunca.
-
-O Azure AD Premium é uma solução de gestão de acesso e identidades baseada na cloud com capacidades de proteção avançadas e que permite uma identidade segura para todas as aplicações e ativa a proteção de identidade (otimizada pelo [grafo de Segurança Inteligente da Microsoft](https://www.microsoft.com/security/intelligence) e o Privileged Identity Management. Sendo muito mais do que apenas outra ferramenta de monitorização ou criação de relatórios, o Azure AD Premium pode proteger as identidades dos seus utilizadores em tempo real e permite-lhe criar políticas de acesso adaptáveis e baseadas no risco para proteger os dados da sua organização.
+# <a name="what-are-the-fundamentals-of-azure-identity-and-access-management"></a>Quais são os conceitos básicos da gestão de identidades e acessos do Azure?
+O Azure AD Premium é um com base na cloud identidades e acessos solução de gestão, com capacidades de proteção avançada. Estas capacidades avançadas de ajudar a fornecer uma identidade de segura para todas as suas aplicações, proteção de identidade (aprimorada com o [gráfico de segurança do Microsoft inteligência](https://www.microsoft.com/security/intelligence)), e [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). O Azure AD ajuda a proteger as identidades dos seus utilizadores em tempo real, ajudando-o a criar com base no risco e políticas de acesso adaptáveis em todos os dados da sua organização.
 
 Assista este breve vídeo e veja uma descrição geral da gestão e da proteção de identidades do Azure AD.
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
-A Microsoft não só lhe fornece uma identidade com a qual pode aceder a qualquer sítio, mas também um conjunto de ferramentas para automatizar, ajudar a proteger e a gerir as TI na sua organização. Mesmo após o advento da informática na cloud, continua a haver procura para a gestão e controlo de tarefas de TI, como chamadas para o suporte técnico para repor palavras-passe, gestão de grupos de utilizadores e pedidos de aplicações. Para complicar ainda mais as coisas, os colaboradores começaram a trazer os dispositivos pessoais para o trabalho e a utilizar aplicações SaaS prontamente disponíveis, o que faz com que manter o controlo sobre as aplicações deles nos vários datacenters da empresa e em plataforma de cloud pública seja um verdadeiro desafio.
+O Azure AD também fornece um conjunto de ferramentas que podem ajudar a proteger, automatizar e gerir o seu ambiente, incluindo a reposição de palavras-passe, gestão de utilizadores e de grupo e pedidos de aplicação. O Azure AD pode também ajudar a gerir dispositivos pertencentes ao utilizador e o acesso e o controlo de Software como aplicações de serviço (SaaS).
 
-[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
+Para obter mais informações sobre os custos de edições do Azure Active Directory Premium e as ferramentas associadas, consulte [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="connect-on-premises-active-directory-with-azure-ad-and-office-365"></a>Ligar o Active Directory no local ao Azure AD e ao Office 365
-As organizações que tenham feito investimentos avultados no Active Directory no local podem transferi-los para a cloud, mediante a integração dos diretórios no local no Azure AD, criando uma [gestão de identidades híbrida](https://aka.ms/aadframework). Desta forma, os seus utilizadores tornam-se mais produtivos, pois recebem uma identidade comum para aceder aos recursos, independentemente da localização. Depois, os utilizadores e as organizações podem utilizar o início de sessão único (SSO) para aceder a recursos no local e a serviços cloud, como o Office 365.
+Expandir a sua implementação do Active Directory no local para a cloud com a integração dos diretórios no local com o Azure AD através de [gestão de identidade híbrida](https://aka.ms/aadframework). [O Azure AD Connect](../connect/active-directory-aadconnect.md) fornece esta integração, fornecer aos utilizadores uma única identidade e início de sessão único (SSO) acesso a seus recursos no local e seus serviços cloud, como o Office 365.
 
-O [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) é a única ferramenta de que precisa para concluir a integração. Proporciona capacidades que suportam as suas necessidades de sincronização de identidades e substitui as versões mais antigas das ferramentas de integração, como o DirSync e o Azure AD Sync. Com o Azure AD Connect, a gestão e sincronização de identidades entre o local e o Azure AD é feita através de:
+O Azure AD Connect substitui as versões mais antigas ferramentas de integração de identidade, como o DirSync e Azure AD Sync, ajudando a suportar as suas necessidades de sincronização de identidade no local e o Azure AD. Sincronização do Azure AD Connect é ativada através de:
 
-- Sincronização – este componente é responsável pela criação de utilizadores, grupos e outros objetos. Também é responsável por verificar se as informações de identidade dos seus utilizadores e grupos no local têm correspondência na nuvem. Também é possível ativar a repetição de escrita de palavras-passe para manter os diretórios no local em sincronização quando um utilizador atualiza a palavra-passe no Azure AD.
-- Autenticação – tendo o Azure AD como o seu novo plano de controlo, a autenticação é a base do acesso na cloud. Escolher o método de autenticação certo é uma decisão fundamental para a configuração de uma solução de identidade híbrida do Azure AD. Reveja [este guia](https://aka.ms/auth-options) para escolher entre a autenticação na cloud (Sincronização de Hash de Palavras-passe) / Autenticação Pass-through) ou a autenticação federada (AD FS) para a sua organização.
-- Monitorização do Estado de Funcionamento – [o Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) pode proporcionar uma monitorização robusta e uma localização central no portal do Azure para visualizar esta atividade.
+- **Sincronização.** Responsável por criar utilizadores, grupos e outros objetos. Também é responsável por certificar-se de que as informações de identidade para os seus utilizadores no local corresponde ao que está no Azure AD. Ativar a repetição de escrita de palavras-passe também ajuda a manter os seus diretórios no local sincronizado quando os usuários atualizam as palavras-passe no Azure AD.
+
+- Autenticação. Escolher o método de autenticação direita é importante quando configurar a sua solução de identidade híbrida do Azure AD. Pode escolher a autenticação na nuvem (sincronização de Hash de palavra-passe / autenticação pass-through) ou autenticação federada (AD FS) para a sua organização. Para obter mais informações sobre as opções disponíveis, consulte [escolha o método de autenticação correta para sua solução de identidade híbrida do Azure Active Directory](https://aka.ms/auth-options).
+
+- **Monitorização de estado de funcionamento.** O Azure AD Connect Health fornece monitorização e um local central no portal do Azure para visualizar esta atividade. Para obter mais informações, consulte [Monitor your on-premises identity infrastructure and synchronization services in the cloud (Monitorizar os serviços de infraestrutura de identidade no local e sincronização na cloud)](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="increase-productivity-and-reduce-helpdesk-costs-with-self-service-and-single-sign-on-experiences"></a>Aumentar a produtividade e reduzir os custos de suporte técnico com as experiências de self-service e início de sessão único
+Os utilizadores poupar tempo em que é necessário um nome de utilizador único e a palavra-passe, juntamente com uma experiência consistente em todos os dispositivos. Os utilizadores também poupar tempo ao realizar tarefas de Self-serviços, como[repor uma palavra-passe esquecida](../user-help/active-directory-passwords-update-your-own-password.md) ou pedir acesso a uma aplicação sem ter de esperar de assistência do suporte técnico.
 
-Os colaboradores tornam-se mais produtivos se tiverem de memorizar apenas uma combinação de nome de utilizador e palavra-passe e beneficiarem de uma experiência consistente em todos os dispositivos. Também poupam tempo se puderem realizar tarefas self-service, como [repor palavras-passe esquecidas](https://docs.microsoft.com/azure/active-directory/active-directory-passwords), ou pedir acesso a uma aplicação sem terem de esperar por assistência do suporte técnico.
+Promovendo o SSO e uma experiência consistente, do Azure AD [expande o seu Active Directory no local](../connect/active-directory-aadconnect.md) para a cloud, permitindo que os utilizadores utilizam suas contas institucionais primária para os respetivos dispositivos associados a um domínio, recursos da empresa, e todas as aplicações de SaaS e web têm de utilizar para fazer um trabalho. 
 
-O Azure AD [expande o Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) para a cloud, permitindo aos utilizadores utilizar as respetivas contas principais da organização nos dispositivos deles associados ao domínio, no acesso aos recursos da empresa e em todas as aplicações Web e SaaS de que precisam para trabalhar. Para além de não terem de memorizar várias combinações de nomes de utilizador e palavras-passe, o acesso às aplicações dos utilizadores também pode ser aprovisionado automaticamente (ou desaprovisionado) com base nas adesões deles a grupos e de acordo com o estatuto de colaborador na empresa. E também pode controlar esse acesso para aplicações da galeria ou para as suas próprias aplicações no local que tenha desenvolvido e publicado através do [Proxy de Aplicações do AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+Além disso, o acesso de aplicativo pode ser automaticamente aprovisionado (ou desaprovisionado) com base em associações de grupo e o estado de funcionário de um utilizador, ajudando-o controlar o acesso a aplicações de galeria ou as suas aplicações no local que já desenvolveu e publicado por meio de o [Proxy de aplicações do Azure AD](../manage-apps/application-proxy.md).
 
-## <a name="manage-and-control-access-to-corporate-resources"></a>Gerir e controlar o acesso a recursos empresariais
-As soluções de gestão de acesso e identidades da Microsoft ajudam as equipas de TI a proteger o acesso a aplicações e a recursos nos vários datacenters empresariais e na cloud, permitindo mais níveis de validação, como a [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) e as [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança.
+## <a name="manage-and-control-access-to-your-organizational-resources"></a>Gerir e controlar o acesso aos recursos da sua organização
+Soluções de gestão de identidades e acessos do Microsoft ajudá-lo a proteger o acesso a aplicações e recursos entre o datacenter da sua organização e para a cloud. Esta gestão de acesso ajuda a fornecer níveis adicionais de validação como [multi-factor Authentication](../authentication/concept-mfa-howitworks.md) e [políticas de acesso condicional](../conditional-access/overview.md). Atividade suspeita através de monitorização avançada de relatórios de segurança, auditoria, e alertas também podem ajudar a mitigar potenciais problemas de segurança.
 
-As políticas de acesso condicional oferecem-lhe a si, o administrador da empresa, a capacidade de criar regras de acesso baseado em políticas para qualquer aplicação ligada ao Azure AD (aplicações SaaS, aplicações personalizadas em execução na cloud ou aplicações Web no local). O Azure AD avalia essas políticas em tempo real e aplica-as sempre que um utilizador tentar aceder a uma aplicação. Com as políticas de proteção de identidades do Azure, pode tomar medidas automaticamente caso sejam detetadas atividades suspeitas. Essas ações podem incluir o bloqueio do acesso a utilizadores em risco, a aplicação da autenticação multifator e a reposição das palavras-passe dos utilizadores, se houver suspeitas de que as credenciais estejam comprometidas.
-
+Utilizar políticas de acesso condicional no Azure AD Premium permite-lhe criar regras de acesso baseado em políticas para qualquer aplicação do Azure AD-ligado, tais como aplicações de SaaS, aplicações personalizadas em execução na cloud ou no local ou aplicações web). O Azure AD avalia as regras em tempo real, impondo-las sempre que um utilizador tenta aceder a uma aplicação. As políticas de proteção de identidade do Azure permitem-lhe automaticamente tome medidas (por bloquear o acesso, a imposição de multi-factor Authentication ou repor palavras-passe de utilizador) se for detetada atividade suspeita.
 
 ## <a name="azure-active-directory-privileged-identity-management"></a>Gestão de Identidades Privilegiadas do Azure Active Directory
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-getting-started.md), incluído com a edição Azure Active Directory Premium 2, ajuda-o a detetar, restringir e monitorizar as contas administrativas e respetivo acesso a recursos no seu Azure Active Directory e outros Serviços online da Microsoft. PIM também o ajuda a administrar o acesso administrativo a pedido para o período de exato do tempo que achar necessário, o que significa que pode permitir que os administradores solicitem multifator autenticado, elevação temporária de seus privilégios para um período de tempo pré-configurado antes de suas contas de retornam a um Estado de usuário normal.
 
-O [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), incluído na oferta Azure Active Directory Premium P2 offering, permite-lhe detetar, restringir e monitorizar contas administrativas e o acesso das mesmas a recursos no Azure Active Directory e noutros serviços online da Microsoft. Também ajuda a administrar o acesso administrativo a pedido para o período de tempo exato que for necessário.
-
-O Privileged Identity Management pode aplicar direitos de administrador a pedido, para que os administradores possam pedir a elevação com autenticação multifator ativada temporária dos respetivos privilégios para períodos de tempo pré-configurados antes de as contas regressarem ao estado de utilizador normal.
-
-## <a name="benefits-of-azure-identity"></a>Benefícios da Identidade do Azure
-
-Com a gestão de identidades do Azure, pode:
-
--   Criar e gerir uma única identidade para cada utilizador em toda a sua empresa, mantendo os utilizadores, grupos e dispositivos sincronizados com o [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
-
--   Disponibilizar o acesso de início de sessão único às aplicações, incluindo a milhares de aplicações SaaS pré-integradas, ou fornecer acesso remoto seguro a aplicações SaaS no local com o [Proxy de Aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
-
--   Ativar a segurança do acesso a aplicações mediante a aplicação da [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) baseada em regras, tanto nas aplicações no local, como na cloud.
-
--   Melhorar a produtividade dos utilizadores com a [reposição personalizada de palavra-passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) e com os pedidos de acesso a grupos e aplicações através do [portal MyApps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-user-help).
-
--   Tirar partido da [elevada disponibilidade e fiabilidade](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) de uma solução de gestão de acesso e identidades baseada na cloud de nível empresarial e global.
-
-## <a name="next-steps"></a>Passos seguintes
-[Saiba mais sobre as soluções de identidade do Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações sobre a arquitetura do Azure AD, consulte [qual é a arquitetura do Azure AD?](active-directory-architecture.md).

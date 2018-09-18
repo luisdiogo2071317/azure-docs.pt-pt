@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 912d4e1af3e1a4d07efddafa38bda5697b226787
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392277"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985886"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -456,8 +456,8 @@ Segue-se um exemplo de uma agenda cron no/etc/crontab:
 ```
 00 1-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 46
 10 00 * * *  ./azure_hana_backup.pl hana dailyhana 15min 28
-00,05,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-22 12 * * *  ./azure_hana_backup.pl log dailylogback 3min 28
+00,05,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+22 12 * * *  ./azure_hana_backup.pl logs dailylogback 3min 28
 30 00 * * *  ./azure_hana_backup.pl boot TypeI dailyboot 15min 28
 ```
 No exemplo anterior, existe um instantâneo combinado por hora, que abrange os volumes que contêm os dados/hana/e /hana/shared (inclui o sap/usr /) locais. Utilize este tipo de instantâneo para uma recuperação mais rápida do ponto anterior no tempo dentro os últimos dois dias. Além disso, existe um instantâneo diário nesses volumes. Por isso, tem dois dias de cobertura por instantâneos por hora, além de quatro semanas de cobertura por instantâneos diários. Além disso, o volume de cópia de segurança de registo de transação é uma cópia de segurança diária. Estas cópias de segurança são mantidas durante quatro semanas também. Como pode ver na terceira linha da crontab, a cópia de segurança do registo de transação de HANA é agendada para execução a cada 5 minutos. As horas de início das tarefas de cron diferentes que são executadas instantâneos de armazenamento são escalonadas, para que os instantâneos não são executados em simultâneo num certo ponto no tempo. 
@@ -466,8 +466,8 @@ O exemplo seguinte, vai realizar um instantâneo combinado que abrange os volume
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 48
-0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log logback 3min 48
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl logs logback 3min 48
 30 00 * * *  ./azure_hana_backup.pl boot TypeII dailyboot 15min 28
 ```
 

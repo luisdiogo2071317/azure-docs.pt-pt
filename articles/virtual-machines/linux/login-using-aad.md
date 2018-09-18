@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 1ce03c55a346adf846619c50f09eb063e6b6f639
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934557"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734629"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -179,4 +179,4 @@ Partilhe os seus comentários sobre esta pré-visualização funcionalidade ou r
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o Azure Active Directory, consulte [o que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) e [como começar com o Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)
+Para obter mais informações sobre o Azure Active Directory, consulte [o que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

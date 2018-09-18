@@ -1,18 +1,18 @@
 ---
 title: Utilizar o armazenamento do Azure como um back-end do Terraform
-description: Uma introdução ao armazenamento do Estado de Terrafom no armazenamento do Azure.
+description: Uma introdução ao armazenamento do Estado do Terraform no armazenamento do Azure.
 services: terraform
 author: neilpeterson
 ms.service: terraform
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: nepeters
-ms.openlocfilehash: c27c6bc5f2071203c9a9dd5a94e73c0cb4626598
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2bee9f73f430e18fe159eed142b265cc1934860e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45608306"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984984"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Estado do Terraform Store no armazenamento do Azure
 
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=tfstatestorage
 STORAGE_ACCOUNT_NAME=tfstatestorage$RANDOM
 CONTAINER_NAME=tfstatestorage
 
-# Ceeate resoruce group
+# Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 # Create storage account
@@ -49,7 +49,7 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 
 echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 echo "container_name: $CONTAINER_NAME"
-echo "ARM_ACCESS_KEY: $ACCOUNT_KEY"
+echo "access_key: $ACCOUNT_KEY"
 ```
 
 Anote o nome da conta de armazenamento, o nome do contentor e a chave de acesso de armazenamento. Estes valores são necessários quando configurar o estado remoto.
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Para configurar o Terraform para utilizar o back-end, inclua uma *back-end* configuração com um tipo de *azurerm* dentro da configuração do Terraform. Adicionar a *storage_account_name*, *container_name*, e *chave* valores para o bloco de configuração.
 
-O exemplo seguinte configura um back-end de Terraform e cria e grupo de recursos do Azure.
+O exemplo seguinte configura um back-end do Terraform e cria e grupo de recursos do Azure.
 
 ```json
 terraform {
@@ -91,7 +91,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "state-demo-secure" {
-  name     = "state-demoe"
+  name     = "state-demo"
   location = "eastus"
 }
 ```
@@ -102,7 +102,7 @@ Agora, inicializar a configuração com o *Terraform init* e, em seguida, execut
 
 Ao usar um Blob de armazenamento do Azure para armazenamento de estado, o blob é automaticamente bloqueado antes de qualquer operação que escreve o estado. Esta configuração impede que várias operações de estado, que podem causar danos. Para obter mais informações, consulte [estado de bloqueio] [ terraform-state-lock] na documentação do Terraform.
 
-O bloqueio pode ser consulte ao examinar o blob através do portal do Azure ou outras ferramentas de gestão do Azure.
+O bloqueio pode ser visto ao examinar o blob através do portal do Azure ou outras ferramentas de gestão do Azure.
 
 ![BLOBs do Azure com bloqueio](media/terraform-backend/lock.png)
 

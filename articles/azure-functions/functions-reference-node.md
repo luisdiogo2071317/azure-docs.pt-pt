@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298017"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983167"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -94,6 +94,13 @@ context.bindings.myOutput = {
 ```
 
 Tenha em atenção que pode optar por definir através de dados de enlace de saída a `context.done` método em vez do `context.binding` objeto (ver abaixo).
+
+### <a name="contextbindingdata-property"></a>propriedade de context.bindingData
+
+```
+context.bindingData
+```
+Devolve um objeto nomeado que contém dados de invocação de metadados e a função de Acionador (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Para obter um exemplo de metadados de Acionador, ver isso [exemplo de hubs de eventos](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### <a name="contextdone-method"></a>método Context.Done
 ```
@@ -262,8 +269,9 @@ Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e re
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
++ _[Apenas de resposta]_  Chamando `context.res.send(body?: any)`. Uma resposta HTTP é criada com entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
 
-+ [Apenas de resposta] Ao chamar `context.done()`. Um tipo especial de enlace HTTP retorna a resposta que é passada para o `context.done()` método. Enlace de saída HTTP seguinte define uma `$return` parâmetro de saída:
++ _[Apenas de resposta]_  Chamando `context.done()`. Um tipo especial de enlace HTTP retorna a resposta que é passada para o `context.done()` método. Enlace de saída HTTP seguinte define uma `$return` parâmetro de saída:
 
     ```json
     {

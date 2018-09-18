@@ -1,24 +1,24 @@
 ---
 title: Escalões de serviço de base de dados SQL do Azure - DTU | Documentos da Microsoft
-description: Saiba mais sobre escalões de serviço para único e de bases de dados do conjunto para fornecer níveis de desempenho e tamanhos de armazenamento.
+description: Saiba mais sobre escalões de serviço para único e de bases de dados do conjunto para fornecer os tamanhos de computação e tamanhos de armazenamento.
 services: sql-database
 author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 27e6e12efc28bb8ee1cdaa9ec62d7ca8c4c68f38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059621"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729744"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Escolher uma camada de serviço baseado em DTU, nível de desempenho e recursos de armazenamento 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Escolher uma camada de serviço baseado em DTU, computação, o tamanho e recursos de armazenamento 
 
-Escalões de serviço são diferenciados por uma variedade de níveis de desempenho com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Os escalões de serviço oferecem a flexibilidade de alterar os níveis de desempenho sem tempo de inatividade. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no nível de desempenho e a camada de serviço.
+Escalões de serviço são diferenciados por uma variedade de tamanhos de computação com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Os escalões de serviço oferecem a flexibilidade de alterar os tamanhos de computação sem tempo de inatividade. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
 
 > [!IMPORTANT]
 > Instância de gerida de base de dados de SQL, atualmente em pré-visualização pública não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). 
@@ -40,7 +40,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Base de dados DTUS e limites de armazenamento
 
-Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Básica|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +73,7 @@ Os níveis de desempenho são expressos em Unidades de Transação de Base de Da
 Características físicas (CPU, memória, e/s) associadas a cada medida DTU são calibradas usando um parâmetro de comparação que simula a carga de trabalho de base de dados do mundo real.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlacionando os resultados do benchmark do desempenho de base de dados do mundo real
-É importante compreender que todos os benchmarks são representativas e indicativos apenas. As taxas de transação obtidas com a aplicação de parâmetro de comparação não serão iguais aos que pode ser alcançado com outros aplicativos. O parâmetro de comparação é composto por uma coleção de transação diferentes tipos de executam num esquema que contém uma série de tabelas e os tipos de dados. Embora o benchmark exercita as mesmas operações básicas que são comuns a todas as cargas de trabalho OLTP, não representam qualquer classe específica de banco de dados ou aplicação. O objetivo do parâmetro de comparação é fornecer um guia razoável para o desempenho relativo de uma base de dados que pode ser esperado quando aumentando ou reduzindo entre níveis de desempenho. Na realidade, bases de dados são de tamanhos diferentes e a complexidade, encontram mixes diferentes de cargas de trabalho e irão responder de formas diferentes. Por exemplo, um aplicativo de e/s intensiva pode atingir os limites de e/s mais cedo ou um aplicativo de uso intenso da CPU pode atingir os limites de CPU mais cedo. Não é garantido que qualquer banco de dados específico dimensionará da mesma forma como o parâmetro de comparação em aumento de carga.
+É importante compreender que todos os benchmarks são representativas e indicativos apenas. As taxas de transação obtidas com a aplicação de parâmetro de comparação não serão iguais aos que pode ser alcançado com outros aplicativos. O parâmetro de comparação é composto por uma coleção de transação diferentes tipos de executam num esquema que contém uma série de tabelas e os tipos de dados. Embora o benchmark exercita as mesmas operações básicas que são comuns a todas as cargas de trabalho OLTP, não representam qualquer classe específica de banco de dados ou aplicação. O objetivo do parâmetro de comparação é fornecer um guia razoável para o desempenho relativo de uma base de dados que pode ser esperado quando aumentando ou reduzindo entre tamanhos de computação. Na realidade, bases de dados são de tamanhos diferentes e a complexidade, encontram mixes diferentes de cargas de trabalho e irão responder de formas diferentes. Por exemplo, um aplicativo de e/s intensiva pode atingir os limites de e/s mais cedo ou um aplicativo de uso intenso da CPU pode atingir os limites de CPU mais cedo. Não é garantido que qualquer banco de dados específico dimensionará da mesma forma como o parâmetro de comparação em aumento de carga.
 
 O parâmetro de comparação e a sua metodologia são descritas em mais detalhes abaixo.
 
@@ -155,5 +155,5 @@ As métricas chave no benchmark são débito e tempo de resposta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre os níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [limites de recursos baseados em DTU de base de dados SQL para bases de dados individuais](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Para obter detalhes sobre os níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para conjuntos elásticos, veja [limites dos recursos baseados em DTU da base de dados de SQL](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [limites de recursos baseados em DTU de base de dados SQL para bases de dados individuais](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para conjuntos elásticos, veja [limites dos recursos baseados em DTU da base de dados de SQL](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

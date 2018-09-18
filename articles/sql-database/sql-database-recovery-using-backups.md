@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057025"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733588"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 Base de dados SQL fornece estas opções de recuperação de base de dados com [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) e [cópias de segurança em retenção de longo prazo](sql-database-long-term-retention.md). Pode restaurar a partir de uma cópia de segurança da base de dados para:
@@ -32,7 +32,7 @@ Uma base de dados restaurada implica um custo de armazenamento extra nas seguint
 - Restauro de P11-P15 para S4-S12 ou P1 – P6 se o tamanho máximo da base de dados for superior a 500 GB.
 - Restauro de P1 – P6 para S4-S12 se o tamanho máximo da base de dados for superior a 250 GB.
 
-O extra custo é porque o tamanho máximo da base de dados restaurada é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra aprovisionado acima da quantidade incluída é cobrado extra.  Para detalhes de armazenamento extra de preços, consulte a [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço utilizada é inferior à quantidade de armazenamento incluída, em seguida, isso encargos extra pode ser evitado ao reduzir o tamanho máximo da base de dados para o montante incluído.  
+O extra custo é porque o tamanho máximo da base de dados restaurada é maior do que a quantidade de armazenamento incluída para o tamanho de computação, e qualquer armazenamento extra aprovisionado acima da quantidade incluída é cobrado extra.  Para detalhes de armazenamento extra de preços, consulte a [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço utilizada é inferior à quantidade de armazenamento incluída, em seguida, isso encargos extra pode ser evitado ao reduzir o tamanho máximo da base de dados para o montante incluído.  
 
 > [!NOTE]
 > [Cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) são utilizadas quando cria uma [cópia da base de dados](sql-database-copy.md). 
@@ -43,7 +43,7 @@ O extra custo é porque o tamanho máximo da base de dados restaurada é maior d
 O tempo de recuperação para restaurar uma base de dados com cópias de segurança da base de dados automatizada é afetado por diversos fatores: 
 
 * O tamanho da base de dados
-* O nível de desempenho da base de dados
+* O tamanho de computação da base de dados
 * O número de registos de transações envolvidos
 * A quantidade de atividade que tem de ser reproduzido para recuperar para o ponto de restauro
 * A largura de banda de rede se o restauro estiver numa região diferente 
@@ -72,11 +72,11 @@ Pode restaurar uma base de dados existente para um ponto anterior no tempo como 
 > Para um script do PowerShell de exemplo que mostra como executar um restauro de ponto no tempo de uma base de dados, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
 
-Pode ser restaurada a base de dados para qualquer nível de desempenho ou de camada de serviço e como uma base de dados ou para um conjunto elástico. Certifique-se de que tem recursos suficientes no servidor lógico ou do conjunto elástico para o qual está a restaurar a base de dados. Depois de concluído, a base de dados restaurada é uma base de dados online, normal e totalmente acessível. A base de dados restaurada é cobrada às tarifas normais com base em seu nível de desempenho e a camada de serviço. Que não incorra em custos até que o restauro de base de dados esteja concluído.
+A base de dados pode ser restaurada a qualquer camada de serviço ou o tamanho de computação e como uma base de dados ou para um conjunto elástico. Certifique-se de que tem recursos suficientes no servidor lógico ou do conjunto elástico para o qual está a restaurar a base de dados. Depois de concluído, a base de dados restaurada é uma base de dados online, normal e totalmente acessível. A base de dados restaurada é cobrada às tarifas normais com base no respetivo escalão de serviço e o tamanho de computação. Que não incorra em custos até que o restauro de base de dados esteja concluído.
 
 Geralmente, restaurar uma base de dados para um ponto anterior para fins de recuperação. Ao fazê-lo, pode tratar a base de dados restaurada como um substituto para a base de dados original ou utilizá-lo a obter dados a partir e, em seguida, atualizar a base de dados original. 
 
-* ***Substituição de base de dados:*** se a base de dados restaurada destina-se como um substituto para a base de dados original, deve verificar o nível de desempenho e/ou camada de serviços, conforme adequada e dimensionar a base de dados, se necessário. Pode mudar o nome da base de dados original e, em seguida, dar a base de dados restaurada ao nome original utilizando o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando em T-SQL. 
+* ***Substituição de base de dados:*** se a base de dados restaurada destina-se como um substituto para a base de dados original, deve verificar o tamanho de computação e/ou camada de serviços, conforme adequada e dimensionar a base de dados, se necessário. Pode mudar o nome da base de dados original e, em seguida, dar a base de dados restaurada ao nome original utilizando o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando em T-SQL. 
 * ***Recuperação de dados:*** se pretender recuperar dados de base de dados restaurada para recuperar a partir de um erro de utilizador ou aplicação, terá de escrever e executar os scripts de recuperação de dados necessários para extrair dados do banco de dados restaurado para a base de dados original. Embora a operação de restauro pode demorar muito tempo a concluir, a base de dados de restauro está visível na lista de base de dados em todo o processo de restauro. Se eliminar a base de dados durante o restauro, a operação de restauro foi cancelada e não lhe são cobradas da base de dados que não foi possível concluir o restauro. 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -146,7 +146,7 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 |  | |
 
 ## <a name="summary"></a>Resumo
-Cópias de segurança automáticas proteger as bases de dados de utilizador e erros de aplicações, a eliminação acidental de base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os escalões de serviço e níveis de desempenho. 
+Cópias de segurança automáticas proteger as bases de dados de utilizador e erros de aplicações, a eliminação acidental de base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os escalões de serviço e tamanhos de computação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).

@@ -1,6 +1,6 @@
 ---
-title: Obter suporte para o Azure AD | Documentos da Microsoft
-description: Como obter suporte do Azure Active Directory
+title: Como obter suporte do Azure Active Directory | Documentos da Microsoft
+description: Saiba como obter suporte para o Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -14,16 +14,14 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 72212d2d47ff0290ee541c1ffeab6d73dbf3185d
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35955884"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729400"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Como obter suporte do Azure Active Directory
-
-
+# <a name="how-to-get-support-for-azure-active-directory"></a>Como: obter suporte para o Azure Active Directory
 A Microsoft fornece técnico a nível global, pré-vendas, faturação e suporte de subscrição do Azure Active Directory (Azure AD). O suporte está disponível tanto online como por telefone do Microsoft Azure paga e subscrições de avaliação. O suporte por telefone e suporte de faturação online estão disponíveis em idiomas adicionais. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Obter ajuda sem abrir um pedido de suporte

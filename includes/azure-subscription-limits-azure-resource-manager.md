@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 08cd67e86666cdc9c9fc1b0f4ef98cf3ea7a156c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "43435617"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979012"
 ---
 | Recurso | Limite Predefinido | Limite Máximo |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "43435617"
 | Total de núcleos de VM por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por Região | Contactar o suporte |
 | Núcleos de VM por série (Dv2, F, etc.) por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por Região | Contactar o suporte |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por subscrição |Ilimitado |Ilimitado |
-| [Contas de armazenamento](../articles/storage/common/storage-create-storage-account.md) por região por subscrição |200 |200<sup>2</sup> |
+| [Contas de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) por região por subscrição |200 |200<sup>2</sup> |
 | [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por subscrição |980 |980 |
 | [Conjuntos de Disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por subscrição |2000 por Região |2000 por Região |
 | Leituras da API do Resource Manager |15 000 por hora |15 000 por hora |

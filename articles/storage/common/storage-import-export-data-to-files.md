@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6cbaaeed75f160a2281fdce0949397b9a14bf981
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347924"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732452"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilize o serviço importar/exportar do Azure para importar dados para ficheiros do Azure
 
@@ -26,7 +26,7 @@ O suporte do serviço de importação/exportação importa apenas dos ficheiros 
 Antes de criar uma tarefa de importação para transferir dados para ficheiros do Azure, com cuidado reveja e conclua a lista seguinte de pré-requisitos. Tem de:
 
 - Ter uma subscrição do Azure Active Directory para utilizar com o serviço importar/exportar.
-- Ter, pelo menos, uma conta de armazenamento do Azure. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
+- Ter, pelo menos, uma conta de armazenamento do Azure. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-quickstart-create-account.md).
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows em execução uma [versão do SO suportado](storage-import-export-requirements.md#supported-operating-systems).
 - [Baixe o versão 2 do WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) no sistema Windows. Deszipe o para a pasta predefinida `waimportexport`. Por exemplo, `C:\WaImportExport`.

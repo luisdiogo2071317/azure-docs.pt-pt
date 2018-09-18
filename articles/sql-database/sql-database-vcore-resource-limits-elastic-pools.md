@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: af9d34b0c3b59cbf012d16de27bb4c60a809f619
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19693e394b0bd3a589ead25e2ddfa2fa88e92bad
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630966"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730384"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore
 
@@ -25,17 +25,17 @@ Para baseado em DTU limites de modelo compra, veja [limites de recursos baseados
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Conjunto elástico: tamanhos de armazenamento e níveis de desempenho
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Conjunto elástico: tamanhos de armazenamento e tamanhos de computação
 
-Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os recursos disponíveis em cada nível de desempenho e a camada de serviço. Pode definir a camada de serviços, nível de desempenho e quantidade de armazenamento utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [da CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), ou o [deAPIdeREST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os recursos disponíveis em cada escalão de serviço e tamanho de computação. Pode definir o escalão de serviço, o tamanho de computação e quantidade de armazenamento utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [da CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), ou o [API de REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> Os limites de recursos de bases de dados individuais em conjuntos elásticos são geralmente as mesmas usadas para bases de dados individuais fora agrupamentos que tem o mesmo nível de desempenho. Por exemplo, os máximos de trabalhadores simultâneos para uma base de dados GP_Gen4_1 é de 200 funções de trabalho. Então, os máximos de trabalhadores simultâneos para uma base de dados num conjunto GP_Gen4_1 também é de 200 funções de trabalho. Tenha em atenção de que o número total de trabalhadores simultâneos no agrupamento de GP_Gen4_1 é 210.
+> Os limites de recursos de bases de dados individuais em conjuntos elásticos são geralmente as mesmas usadas para bases de dados individuais fora agrupamentos que tem o mesmo tamanho de computação. Por exemplo, os máximos de trabalhadores simultâneos para uma base de dados GP_Gen4_1 é de 200 funções de trabalho. Então, os máximos de trabalhadores simultâneos para uma base de dados num conjunto GP_Gen4_1 também é de 200 funções de trabalho. Tenha em atenção de que o número total de trabalhadores simultâneos no agrupamento de GP_Gen4_1 é 210.
 
 ### <a name="general-purpose-service-tier"></a>Escalão de serviço de fins geral
 
 #### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
-|Nível de desempenho|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|Tamanho de computação|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -59,7 +59,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
-|Nível de desempenho|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -85,7 +85,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 ### <a name="business-critical-service-tier"></a>Camada de serviços críticos de negócio
 
 #### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
-|Nível de desempenho|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Tamanho de computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -100,7 +100,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Máximo de trabalhadores simultâneos (pedidos)|210|420|840|1680|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
-|Número de DBs máximo por conjunto|Não suportado|50|100|100|100|100|
+|Número de DBs máximo por conjunto|Apenas únicos bds são suportadas para este tamanho de computação|50|100|100|100|100|
 |Opções de vcore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|3|3|3|3|3|3|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
@@ -109,7 +109,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
-|Nível de desempenho|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|

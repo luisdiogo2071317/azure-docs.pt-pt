@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: fa7115e651cf1b5c4533675cc2b2194b36d773f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859688"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730182"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
-O SDK de .NET do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
+Os SDKs do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
 
-O ficheiro de configuração é denominado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo da sua aplicação. Este é adicionado automaticamente ao seu projeto quando [instalar a maioria das versões do SDK][start]. Ele também é adicionado a uma aplicação web por [Monitor de estado num servidor IIS][redfield], ou ao selecionar o Application Insights [extensão para um Web site do Azure ou a VM](app-insights-azure-web-apps.md).
+O ficheiro de configuração é denominado `ApplicationInsights.config` (.NET) ou `ApplicationInsights.xml` (Java), dependendo do tipo de seu aplicativo. Este é adicionado automaticamente ao seu projeto quando [instalar a maioria das versões do SDK][start]. Ele também é adicionado a uma aplicação web por [Monitor de estado num servidor IIS][redfield], ou ao selecionar o Application Insights [extensão para um Web site do Azure ou a VM](app-insights-azure-web-apps.md).
 
 Aqui não é um ficheiro equivalente para controlar a [SDK numa página web][client].
 
@@ -173,8 +173,6 @@ Também é uma norma [processador de telemetria de amostragem](app-insights-api-
 
 ```
 
-
-
 ## <a name="channel-parameters-java"></a>Parâmetros de canal (Java)
 Esses parâmetros afetam como o SDK de Java deve armazenar e liberar os dados de telemetria que recolhe.
 
@@ -232,7 +230,20 @@ Determina o tamanho máximo em MB é alocado para o armazenamento persistente no
    </ApplicationInsights>
 ```
 
+#### <a name="local-forwarder"></a>Reencaminhador de local
 
+[Local reencaminhador](https://docs.microsoft.com/azure/application-insights/local-forwarder) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux. 
+
+```Java
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+   <DeveloperMode>false</DeveloperMode>
+   <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
+   <!-- The properties below are optional. The values shown are the defaults for each property -->
+   <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+   <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
 
 ## <a name="instrumentationkey"></a>InstrumentationKey
 Determina o recurso do Application Insights em que os seus dados aparecem. Normalmente, vai criar um recurso separado, com uma chave separada, para cada uma das suas aplicações.

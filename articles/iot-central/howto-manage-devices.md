@@ -1,5 +1,5 @@
 ---
-title: Gerir os dispositivos na sua aplicação do Azure IoT Central | Microsoft Docs
+title: Gerir os dispositivos na sua aplicação do Azure IoT Central | Documentos da Microsoft
 description: Como um operador, saiba como gerir dispositivos na sua aplicação do Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
@@ -8,171 +8,170 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4b4ded86075e49277bca84f5261b6762b0f4fcae
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937623"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737316"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
 Este artigo descreve como, como um operador, para gerir dispositivos na sua aplicação do Microsoft Azure IoT Central. Como um operador, pode:
 
-- Utilize o **Explorer** página para ver, adicionar e eliminar os dispositivos ligados à sua aplicação do Azure IoT Central.
-- Manter um inventário dos seus dispositivos atualizado.
-- Manter os seus metadados do dispositivo atualizados alterando os valores armazenados nas propriedades do dispositivo.
-- Controlar o comportamento dos seus dispositivos através da atualização de uma definição de um dispositivo específico do **definições** página.
+- Utilize o **Explorer** página para visualizar, adicionar e eliminar dispositivos ligados à sua aplicação do Azure IoT Central.
+- Manter um inventário atualizado dos seus dispositivos.
+- Mantenha-se os metadados do dispositivo atualizado, alterando os valores armazenados nas propriedades do dispositivo.
+- Controlar o comportamento dos seus dispositivos ao atualizar uma definição num dispositivo específico a partir da **definições** página.
 
 ## <a name="view-your-devices"></a>Ver os seus dispositivos
 
 Para ver um dispositivo individual:
 
-1. Escolha **Explorer** no menu de navegação esquerdo. Aqui pode ver uma lista das suas [modelos de dispositivo](howto-set-up-template.md).
+1. Escolher **Explorer** no menu de navegação esquerdo. Aqui verá uma lista de sua [modelos de dispositivos](howto-set-up-template.md).
 
-1. Escolha um **modelo de dispositivo** no painel da esquerda.
+1. Escolher uma **modelo de dispositivo** no painel esquerdo.
 
-1. No painel da direita, verá uma lista de dispositivos criada a partir desse modelo do dispositivo. Escolha um dispositivo individual para ver o **detalhes do dispositivo** página desse dispositivo:
+1. No painel da direita, verá uma lista de dispositivos criada a partir desse modelo de dispositivo. Escolha um dispositivo individual para ver os **detalhes do dispositivo** página desse dispositivo:
 
     [![Página de detalhes do dispositivo](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
 ## <a name="add-a-device"></a>Adicionar um dispositivo
 
-Para adicionar um dispositivo à sua aplicação do Azure IoT Central:
+Para adicionar um dispositivo para a sua aplicação do Azure IoT Central:
 
-1. Escolha **Explorer** no menu de navegação esquerdo.
+1. Escolher **Explorer** no menu de navegação esquerdo.
 
 1. Escolha o modelo de dispositivo a partir do qual pretende criar um dispositivo.
 
-1. Escolha + **novo**.
+1. Escolher + **novo**.
 
-1. Escolha **Real** ou **Simulated**. Um dispositivo real é para um dispositivo físico se ligar à sua aplicação do Azure IoT Central. Um dispositivo simulado tem dados de exemplo gerados pelo Azure IoT Central. Este exemplo utiliza um dispositivo real. Escolha **Real** para navegar para o **detalhes do dispositivo** página para o novo dispositivo.
+1. Escolher **reais** ou **Simulated**. Um dispositivo real é para um dispositivo físico que se liga a sua aplicação do Azure IoT Central. Um dispositivo simulado tem dados de exemplo gerados para pelo Azure IoT Central. Este exemplo utiliza um dispositivo real. Escolher **reais** para navegar para o **detalhes do dispositivo** página para o seu dispositivo novo.
 
 
 ## <a name="import-devices"></a>Importar dispositivos
 
-Para ligar o elevado número de dispositivos à sua aplicação do Azure IoT Central ofertas em massa importação dispositivos através de um ficheiro CSV. 
-
-Requisitos do ficheiro CSV:
-1. O ficheiro CSV deve ter apenas uma coluna que contém os IDs do dispositivo.
-
-1. Ficheiro não deve ter qualquer cabeçalho.
+Para ligar o grande número de dispositivos à sua aplicação, o Azure IoT Central ofertas em massa importando dispositivos através de um ficheiro CSV. O ficheiro CSV deve ter as seguintes colunas (e cabeçalhos)
+1.  IOTC_DeviceID  **<span style="color:Red">(deve ser em minúsculas)</span>**
+1.  IOTC_DeviceName (opcional)
 
 
-Para registar de em massa dispositivos na sua aplicação:
+Ao registar de em massa dispositivos na sua aplicação:
 
-1. Escolha **Explorer** no menu de navegação esquerdo.
+1. Escolher **Explorer** no menu de navegação esquerdo.
 
 1. No painel esquerdo, selecione o modelo de dispositivo para o qual pretende em massa criar os dispositivos.
 
  >   [!NOTE] 
-    Se não tiver um modelo de dispositivo, mas, em seguida, pode importar dispositivos em **não associadas dispositivos** e registe-as sem qualquer modelo. Depois de terem sido importados dispositivos, pode, em seguida, associá-los com um modelo como um passo subsequente.
+    Se não tiver um modelo de dispositivo, mas, em seguida, pode importar dispositivos sob **não associados dispositivos** e registá-los sem qualquer modelo. Assim que os dispositivos forem importados, pode, em seguida, associá-las com um modelo como um passo subsequente.
 
 1. Clique em **importar**.
 
     [![Ação de importação](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
-1. Selecione o ficheiro CSV que tem a lista de IDs de dispositivo para ser importado.
+1. Selecione o ficheiro CSV que tem a lista de identificações de dispositivo para ser importado.
 
-1. Importação de dispositivo é iniciado depois do ficheiro foi carregado. Pode controlar o estado de importação no topo da grelha de dispositivo.
+1. Importação de dispositivo é iniciado depois do ficheiro foi carregado. Pode controlar o estado de importação na parte superior da grade de dispositivo.
 
-1. Assim que a importação estiver concluída, é apresentada uma mensagem de êxito na grelha de dispositivo.
+1. Assim que a importação estiver concluída, é apresentada uma mensagem de êxito na grade de dispositivo.
 
     [![Importar com êxito](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Se o dispositivo importar falha da operação, verá uma mensagem de erro na grelha de dispositivo. Um ficheiro de registo capturar todos os erros for gerado, podendo ser transferido clicando a mensagem de erro.
+Se o dispositivo importar falha da operação, verá uma mensagem de erro na grade de dispositivo. Um ficheiro de registo capturar todos os erros é gerado e pode ser baixado clicando a mensagem de erro.
 
 
-**A associação de dispositivos com um modelo**
+**Associação de dispositivos com um modelo**
 
-Se registar dispositivos ao iniciar a importação em **não associadas dispositivos**, em seguida, os dispositivos são criados sem qualquer associação de modelo do dispositivo. Dispositivo tem de estar associado a um modelo para explorar os dados e outros detalhes sobre o dispositivo. Siga estes passos para associar os dispositivos com um modelo:
-1. Escolha **Explorer** no menu de navegação esquerdo.
-1. No painel esquerdo, escolha **não associadas dispositivos**.
+Se registar dispositivos ao iniciar a importação sob **não associados dispositivos**, em seguida, os dispositivos são criados sem qualquer associação de modelo do dispositivo. Dispositivo tem de estar associado a um modelo para explorar os dados e outros detalhes sobre o dispositivo. Siga estes passos para associar os dispositivos com um modelo:
+1. Escolher **Explorer** no menu de navegação esquerdo.
+1. No painel esquerdo, escolha **não associados dispositivos**.
     [![Dispositivos não associados](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
-1. Selecione os dispositivos que pretende associar um modelo.
+1. Selecione os dispositivos que pretende associar com um modelo.
 1. Clique em **associar** opção.
     [![Associar dispositivos](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
 1. Escolha o modelo da lista de modelos disponíveis e clique em **associar** botão.
-1. Os dispositivos selecionados serão movidos sob o modelo do respetivo dispositivo.
+1. Os dispositivos selecionados serão movidos sob o modelo do respectivo dispositivo.
 
  >   [!NOTE] 
-    Depois de um dispositivo foi associado a um modelo não pode ser não associada ou associado a um modelo diferente.
+    Depois de um dispositivo tiver sido associado um modelo não pode ser não associado nem associado a um modelo diferente.
 
-## <a name="export-devices"></a>Dispositivos de exportação
+## <a name="export-devices"></a>Exportar dispositivos
 
-Para aprovisionar dispositivos liguem à IoT Central, terá da cadeia de ligação do dispositivo que é gerado pelo centro de IoT. Pode utilizar a funcionalidade de exportação para obter as cadeias de ligação e outras propriedades dos dispositivos em massa a partir da sua aplicação. Exportar cria um ficheiro CSV com a identidade de dispositivo, o nome do dispositivo e a cadeia de ligação principal para todos os dispositivos selecionados.
+Aprovisionar dispositivos para estabelecer ligação ao IoT Central, terá da cadeia de ligação do dispositivo que é gerado pelo centro de IoT. Pode utilizar a funcionalidade de exportação para obter as cadeias de ligação e outras propriedades dos dispositivos em massa a partir da sua aplicação. Exportar cria um ficheiro CSV com a identidade de dispositivo, o nome do dispositivo e a cadeia de ligação primária para todos os dispositivos selecionados.
 
-Para efetuar em massa de dispositivos de exportação da sua aplicação:
-1. Escolha **Explorer** no menu de navegação esquerdo.
+Em massa dispositivos de exportação da sua aplicação:
+1. Escolher **Explorer** no menu de navegação esquerdo.
 
 1. No painel esquerdo, escolha o modelo de dispositivo para o qual pretende exportar os dispositivos.
 
-1. Selecione os dispositivos que pretende exportar e, em seguida, clique em de **exportar** ação.
+1. Selecione os dispositivos que pretende exportar e, em seguida, clique nas **exportar** ação.
 
     [![Exportar](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
 
-1. Processo de exportação será iniciado e pode controlar o estado na parte superior da grelha. 
+1. Será iniciado o processo de exportação e pode controlar o estado na parte superior da grade. 
 
-1. Uma vez concluída a exportação, é apresentada uma mensagem de êxito, juntamente com uma hiperligação para transferir o ficheiro gerado.
+1. Quando a exportação for concluída, é apresentada uma mensagem de êxito, juntamente com uma ligação para transferir o ficheiro gerado.
 
-1. Clique em de **mensagem de êxito** para transferir o ficheiro para uma pasta no disco local.
+1. Clique nas **mensagem de êxito** para transferir o ficheiro numa pasta local no disco.
 
     [![Sucesso de exportação](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. O ficheiro CSV exportado terá as seguintes informações:
-    1. Nome
-    1. ID do dispositivo
-    1. Cadeia de ligação principal
-
+1. O ficheiro CSV exportado terá as seguintes informações de colunas: **thumbrpints de certificado do Id de dispositivo, nome do dispositivo, as chaves de Priamry/secundária de dispositivo e primária/secundária**
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY 
+    *   IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>Eliminar um dispositivo
 
 Para eliminar a um dispositivo simulado ou real da sua aplicação do Azure IoT Central:
 
-1. Escolha **Explorer** no menu de navegação.
+1. Escolher **Explorer** no menu de navegação.
 
 1. Escolha o modelo de dispositivo do dispositivo que pretende eliminar.
 
 1. Selecione a caixa junto ao dispositivo para eliminar.
 
-1. Escolha **eliminar**.
+1. Escolher **eliminar**.
 
-## <a name="change-a-device-setting"></a>Alterar uma definição de dispositivo
+## <a name="change-a-device-setting"></a>Alterar uma configuração de dispositivo
 
-Definições controlam o comportamento de um dispositivo. Por outras palavras, elas permitem forneça entradas para o seu dispositivo. Pode ver e atualizar as definições do dispositivo no **detalhes do dispositivo** página.
+Definições de controlam o comportamento de um dispositivo. Em outras palavras, eles permitem que forneça entradas para o seu dispositivo. Pode ver e atualizar as definições do dispositivo na **detalhes do dispositivo** página.
 
-1. Escolha **Explorer** no menu de navegação.
+1. Escolher **Explorer** no menu de navegação.
 
 1. Escolha o modelo de dispositivo do dispositivo cujas definições pretende alterar.
 
-1. Escolha o **definições** separador. Aqui pode ver todas as definições de que tem o seu dispositivo e os respetivos valores atuais. Para cada definição, pode ver se o dispositivo ainda está a sincronizar.
+1. Escolha o **definições** separador. Aqui pode ver todas as definições de que tem o seu dispositivo e seus valores atuais. Para cada definição, pode ver se o dispositivo ainda está a sincronizar.
 
-1. Modificar as definições para os valores pretendidos. Pode modificar várias definições de uma só vez e atualizá-las todas ao mesmo tempo.
+1. Modifique as definições para os valores pretendidos. Pode modificar várias definições ao mesmo tempo e atualizá-los todos ao mesmo tempo.
 
-1. Escolha **atualização**. Os valores são enviados para o seu dispositivo. Quando o dispositivo reconhece a alteração da definição, o estado da definição anterior entra em **sincronizado**.
+1. Escolher **atualização**. Os valores são enviados para o seu dispositivo. Quando o dispositivo reconhece a alteração da definição, o estado da definição de retorna ao **sincronizado**.
 
 ## <a name="change-a-property"></a>Alterar uma propriedade
 
-As propriedades são os metadados associados ao dispositivo, por exemplo, cidade e número de série do dispositivo. Pode ver e atualizar as propriedades no **detalhes do dispositivo** página.
+Propriedades são os metadados do dispositivo associado ao dispositivo, como cidade e o número de série. Pode ver e atualizar as propriedades no **detalhes do dispositivo** página.
 
-1. Escolha **Explorer** no menu de navegação.
+1. Escolher **Explorer** no menu de navegação.
 
 1. Escolha o modelo de dispositivo do dispositivo cujas propriedades pretende alterar.
 
-1. Escolha o **propriedades** separador, onde pode ver todas as propriedades.
+1. Escolha o **propriedades** separador, onde se veem todas as propriedades.
 
-1. Modificar as propriedades para os valores pretendidos. Pode modificar várias propriedades de uma só vez e atualizá-las todas ao mesmo tempo.
+1. Modificar as propriedades para os valores pretendidos. Pode modificar várias propriedades de uma só vez e atualizá-los todos ao mesmo tempo.
 
-1. Escolha **atualização**.
+1. Escolher **atualização**.
 
 > [!NOTE]
 > Não é possível alterar o valor de _propriedades do dispositivo_. Propriedades do dispositivo são definidas pelo dispositivo e são só de leitura na aplicação do Azure IoT Central.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como gerir dispositivos na sua aplicação do Azure IoT Central, eis o passo seguinte sugerido:
+Agora que sabe como gerir dispositivos na sua aplicação do Azure IoT Central, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Como utilizar os conjuntos de dispositivo](howto-use-device-sets.md)
+> [Como utilizar conjuntos de dispositivo](howto-use-device-sets.md)
 
 <!-- Next how-tos in the sequence -->

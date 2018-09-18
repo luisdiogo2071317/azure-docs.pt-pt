@@ -7,14 +7,14 @@ author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a57e354651255e2d3ff723e978222d1a5a9fa002
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435779"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733351"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Descrição geral de consulta elástica do Azure SQL Database (pré-visualização)
 
@@ -28,7 +28,7 @@ Consultar entre bases de dados SQL do Azure completamente em T-SQL. Isso permite
 
 ### <a name="available-on-standard-tier"></a>Disponíveis no escalão standard
 
-Consulta elástica é suportada no escalão de desempenho Standard e Premium. Consulte a secção sobre limitações de pré-visualização abaixo sobre limitações de desempenho para os escalões de desempenho inferior.
+Consulta elástica é suportada nos escalões de serviço Standard e Premium. Consulte a secção sobre limitações de pré-visualização abaixo sobre limitações de desempenho para os escalões de serviço mais baixos.
 
 ### <a name="push-parameters-to-remote-databases"></a>Parâmetros de push às bases de dados remotos
 
@@ -101,7 +101,7 @@ Com uma consulta elástica para fazer tarefas de criação de relatórios atrav�
 
 > [!NOTE]
 > Base de dados elástica para a consulta (nó principal) pode ser separado da base de dados, ou pode ser a mesma base de dados que aloja o mapa de partições horizontais.
-> Qualquer configuração que escolheu, certifique-se de que essa camada de serviço e o desempenho dessa base de dados é suficientemente elevada para processar a quantidade esperada de pedidos de início de sessão/consulta.
+> Qualquer configuração que escolha, certificar-se de que essa camada de serviço de computação e o tamanho dessa base de dados é suficientemente elevada para processar a quantidade esperada de pedidos de início de sessão/consulta.
 
 Consultas de bases de dados elásticas para cenários de criação de partições horizontais que exigem acesso a um conjunto de tabelas localizadas em (normalmente) vários remotos bases de dados SQL de configurar os seguintes passos:
 
@@ -133,7 +133,7 @@ Consulta elástica está incluída no custo de bases de dados de base de dados d
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
-* Executar a sua primeira consulta elástica pode demorar alguns minutos sobre o escalão de desempenho padrão. Desta vez, é necessária para carregar a funcionalidade de consulta elástica; a carregar o desempenho é aprimorado com escalões de desempenho superior.
+* Executar a sua primeira consulta elástica pode demorar alguns minutos na camada de serviço Standard. Desta vez, é necessária para carregar a funcionalidade de consulta elástica; a carregar o desempenho é aprimorado com escalões de serviço mais elevados e tamanhos de computação.
 * Ainda, o script de origens de dados externas ou tabelas externas do SSMS ou o SSDT não é suportado.
 * Importar/exportar para o SQL DB ainda não suporta origens de dados externas e tabelas externas. Se precisar de utilizar a importação/exportação, remova estes objetos antes de exportar e, em seguida, voltar a criá-los depois de importar.
 * Atualmente a consulta elástica só suporta acesso só de leitura para tabelas externas. No entanto, pode usar todas as funcionalidades T-SQL na base de dados em que a tabela externa está definida. Isso pode ser útil para, por exemplo, manter os resultados temporários, usando, por exemplo, SELECIONE < column_list > em < local_table >, ou para definir os procedimentos armazenados na base de dados consulta elástica que se referem a tabelas externas.

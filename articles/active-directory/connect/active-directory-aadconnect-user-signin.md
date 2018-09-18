@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1bf20ebec5792fc01c62966a0454c37c3c950182
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 554434e57c5c67809f79aab21054e6ad60fe8491
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35947825"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729397"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador início de sessão
 O Azure Active Directory (Azure AD) Connect permite aos utilizadores iniciar sessão nos recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade ajudar a escolher a identidade que pretende utilizar para iniciar sessão no Azure AD.
@@ -114,7 +114,7 @@ O UPN do utilizador tem o formato username@domain. Por exemplo, para um domínio
 ### <a name="user-principal-name-in-azure-ad"></a>Nome principal de utilizador no Azure AD
 O Assistente do Azure AD Connect utiliza o atributo userPrincipalName ou permite-lhe especificar o atributo (numa instalação personalizada) a ser utilizado no local como o nome principal de utilizador no Azure AD. Este é o valor que é utilizado para iniciar sessão com o Azure AD. Se o valor do atributo userPrincipalName não corresponde a um domínio verificado no Azure AD, em seguida, do Azure AD substitui por um predefinido. onmicrosoft.com valor.
 
-Cada diretório no Azure Active Directory é fornecido com um nome de domínio interno, com o formato de contoso.onmicrosoft.com, que lhe permite começar a utilizar o Azure ou outros serviços Microsoft. Pode melhorar e simplificar a experiência de início de sessão através da utilização de domínios personalizados. Para obter informações sobre nomes de domínio personalizados no Azure AD e como verificar um domínio, consulte [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../fundamentals/add-custom-domain.md#add-the-custom-domain-name-to-your-directory).
+Cada diretório no Azure Active Directory é fornecido com um nome de domínio interno, com o formato de contoso.onmicrosoft.com, que lhe permite começar a utilizar o Azure ou outros serviços Microsoft. Pode melhorar e simplificar a experiência de início de sessão através da utilização de domínios personalizados. Para obter informações sobre nomes de domínio personalizados no Azure AD e como verificar um domínio, consulte [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Configuração do início de sessão do Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Configuração do Azure AD início de sessão com o Azure AD Connect
@@ -126,7 +126,7 @@ Página de início de sessão do Azure AD lista os sufixos do UPN que são defin
 | Estado | Descrição | Ação necessária |
 |:--- |:--- |:--- |
 | Verificado |O Azure AD Connect foi encontrada que uma correspondência de domínio verificado no Azure AD. Todos os utilizadores para este domínio podem iniciar sessão através das respetivas credenciais no local. |É necessária nenhuma ação. |
-| Não verificado |O Azure AD Connect foi encontrado um domínio personalizado correspondente no Azure AD, mas não é verificado. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com após a sincronização, se o domínio não está verificado. | [Verifique se o domínio personalizado no Azure AD.](../fundamentals/add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
+| Não verificado |O Azure AD Connect foi encontrado um domínio personalizado correspondente no Azure AD, mas não é verificado. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com após a sincronização, se o domínio não está verificado. | [Verifique se o domínio personalizado no Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Não adicionado |O Azure AD Connect não foram encontradas num domínio personalizado que correspondessem ao sufixo UPN. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com se o domínio não estiver adicionado e verificado no Azure. | [Adicionar e verificar um domínio personalizado que corresponda ao sufixo de UPN.](../fundamentals/add-custom-domain.md) |
 
 Página de início de sessão do Azure AD lista os sufixos do UPN definidos para o Active Directory no local e o domínio personalizado correspondente no Azure AD com o atual estado de verificação. Numa instalação personalizada, agora, pode selecionar o atributo do nome principal de utilizador sobre o **início de sessão no Azure AD** página.

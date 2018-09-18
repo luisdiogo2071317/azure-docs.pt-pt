@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: c6dfb8ac36f3b5d51cc1d6126449b458f8f4946c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377434"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735889"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
 
@@ -28,7 +28,7 @@ Dê uma olhada [eventos de armazenamento de BLOBs de rota para um personalizado 
 ![Modelo de grade do evento](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Contas do Blob Storage
-Eventos de armazenamento de BLOBs estão disponíveis na [contas de armazenamento de BLOBs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e, na [contas de armazenamento para fins gerais v2](../common/storage-account-options.md#general-purpose-v2-accounts). As contas de **Fins Gerais v2 (GPv2)** são contas de armazenamento que suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs. 
+Eventos de armazenamento de BLOBs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. **Para fins gerais v2** contas de armazenamento suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo Blobs, ficheiros, filas e tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para obter mais informações, consulte [descrição geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Eventos de armazenamento de BLOBs disponíveis
 Grelha de eventos usa [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes.  Subscrições de eventos de armazenamento de BLOBs podem incluir dois tipos de eventos:  

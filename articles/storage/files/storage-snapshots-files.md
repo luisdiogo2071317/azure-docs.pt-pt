@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054147"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983170"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure 
 Os ficheiros do Azure fornece a capacidade para tirar instantâneos de partilha de partilhas de ficheiros. Partilhe instantâneos captura o estado de partilha nesse ponto no tempo. Neste artigo, descrevemos de que fornecem instantâneos de partilha de capacidades e como pode tirar partido dos mesmos no seu caso de utilização personalizado.
@@ -32,7 +32,7 @@ Depois de criar uma partilha de ficheiros, pode criar um instantâneo de partilh
 ## <a name="capabilities"></a>Capacidades
 Um instantâneo de partilha é uma cópia de ponto no tempo, só de leitura dos seus dados. Pode criar, eliminar e gerir instantâneos com a API REST. Mesmas capacidades também estão disponíveis no portal do Azure, CLI do Azure e biblioteca de cliente. 
 
-Pode ver instantâneos de uma partilha com o API do REST e o SMB. Pode obter a lista de versões do diretório ou ficheiro e podem montar uma versão específica diretamente como uma unidade. 
+Pode ver instantâneos de uma partilha com o API do REST e o SMB. Pode obter a lista de versões do diretório ou arquivo, e pode montar uma versão específica diretamente como uma unidade (disponível apenas no Windows - consulte [limites](#limits)). 
 
 Depois de cria um instantâneo de partilha, ele possa ser lido, copiado, ou eliminado, mas não modificado. Não é possível copiar um instantâneo de partilha completa para outra conta de armazenamento. Precisa fazer nesse arquivo por arquivo, com o AzCopy ou de outros mecanismos de cópia.
 
@@ -62,6 +62,8 @@ Os instantâneos não contam para o limite de partilha de 5 TB. Não existe nenh
 O número máximo de instantâneos de partilha de ficheiros do Azure permite que hoje é 200. Depois de instantâneos de partilha de 200, terá de eliminar os instantâneos de partilha mais antigos para criar novos. 
 
 Não existe nenhum limite para as chamadas simultâneas para a criação de instantâneos de partilha. Não existe nenhum limite à quantidade de espaço que a partilha de instantâneos de partilha de ficheiros específica podem consumir. 
+
+Atualmente, não é possível montar os instantâneos de partilha no Linux. Isto acontece porque o cliente Linux SMB não suporta instantâneos de montagem, como o Windows faz.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiar dados para uma partilha de instantâneo de partilha
 Operações de cópia que envolvem ficheiros e instantâneos de partilha, siga estas regras:

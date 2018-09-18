@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3cc38e7ede9882e78e509738351696a64c938c40
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391424"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737197"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparar o Azure Data Lake Storage Gen1 e o armazenamento de Blobs do Azure
 A tabela este artigo resume as diferenças entre a geração 1 de armazenamento do Azure Data Lake e o armazenamento de Blobs do Azure ao longo de alguns aspetos-chave de processamento de macrodados. Armazenamento de Blobs do Azure é uma finalidade geral, o armazenamento de objetos dimensionável que foi concebido para uma grande variedade de cenários de armazenamento. Geração de armazenamento 1 do Azure Data Lake é um repositório de hiperescala que está otimizado para cargas de trabalho de análise de macrodados.
@@ -31,9 +31,9 @@ A tabela este artigo resume as diferenças entre a geração 1 de armazenamento 
 | API |API de REST através de HTTPS |API de REST através de HTTP/HTTPS |
 | API do lado do servidor |[API REST compatíveis com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[REST API do armazenamento de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Cliente de sistema de ficheiro do Hadoop |Sim |Sim |
-| Operações de dados - autenticação |Com base em [identidades do Active Directory do Azure](../active-directory/develop/authentication-scenarios.md) |Com base em segredos compartilhados - [chaves de acesso da conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) e [chaves de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Operações de dados - autenticação |Com base em [identidades do Active Directory do Azure](../active-directory/develop/authentication-scenarios.md) |Com base em segredos compartilhados - [chaves de acesso da conta](../storage/common/storage-account-manage.md#access-keys) e [chaves de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operações de dados - protocolo de autenticação |OAuth 2.0. Chamadas tem de conter um JWT válido (JSON Web Token) emitido pelo Azure Active Directory |Com base em hash Message Authentication Code (HMAC). Chamadas tem de conter um hash SHA-256 codificada em Base64 através de uma parte da solicitação HTTP. |
-| Operações de dados - autorização |Listas de controlo de acesso POSIX (ACLs).  As ACLs com base em identidades do Active Directory do Azure podem ser definidas ao nível do ficheiro e pasta. |Para a autorização ao nível da conta – utilize [chaves de acesso de conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Para a conta, contentor ou blob autorização - utilize [chaves de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Operações de dados - autorização |Listas de controlo de acesso POSIX (ACLs).  As ACLs com base em identidades do Active Directory do Azure podem ser definidas ao nível do ficheiro e pasta. |Para a autorização ao nível da conta – utilize [chaves de acesso de conta](../storage/common/storage-account-manage.md#access-keys)<br>Para a conta, contentor ou blob autorização - utilize [chaves de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operações de dados - auditoria |Está disponível. Ver [aqui](data-lake-store-diagnostic-logs.md) para obter informações. |Disponível |
 | Dados de encriptação em repouso |<ul><li>Transparente, do lado do servidor</li> <ul><li>Com chaves geridas pelo serviço</li><li>Com chaves geridas pelo cliente no Azure KeyVault</li></ul></ul> |<ul><li>Transparente, do lado do servidor</li> <ul><li>Com chaves geridas pelo serviço</li><li>Com chaves geridas pelo cliente no Cofre de chaves do Azure (pré-visualização)</li></ul><li>Encriptação do lado do cliente</li></ul> |
 | Operações de gestão (por exemplo, criar conta) |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecida pelo Azure para a gestão de conta |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecida pelo Azure para a gestão de conta |

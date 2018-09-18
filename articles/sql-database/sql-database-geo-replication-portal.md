@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8faf6713a5fd8287b5f9e30976e80172c2c42f05
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ddd0fa21cebb6a6a25965b6d5e49b04cfdcc0466
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631298"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737010"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar georreplicação ativa para o Azure SQL Database no portal do Azure e iniciar ativação pós-falha
 
@@ -35,7 +35,7 @@ Os passos seguintes criam uma nova base de dados secundário numa parceria de re
 
 Para adicionar uma base de dados secundária, tem de ser o proprietário da subscrição ou coproprietário.
 
-A base de dados secundária tem o mesmo nome que a base de dados primário e tem, por predefinição, o mesmo nível de serviço. A base de dados secundária pode ser uma base de dados ou uma base de dados num conjunto elástico. Para obter mais informações, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+A base de dados secundária tem o mesmo nome que a base de dados primário e tem, por predefinição, o mesmo serviço de camada e tamanho de computação. A base de dados secundária pode ser uma base de dados ou uma base de dados num conjunto elástico. Para obter mais informações, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 Depois do secundário é criado e implantado, dados começa a replicar a partir da base de dados primária para a nova base de dados secundário.
 
 > [!NOTE]

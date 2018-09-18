@@ -1,6 +1,6 @@
 ---
-title: Manutenção preditiva no aeroespacial com o Azure - guia técnico do Cortana Intelligence solução | Microsoft Docs
-description: Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para manutenção preventiva aeroespacial, utilitários e transportes.
+title: Manutenção preditiva no espaço aéreo com o Azure - guia técnico da solução Cortana Intelligence | Documentos da Microsoft
+description: Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para manutenção preditiva no espaço aéreo, utilitários e transportes.
 services: machine-learning
 documentationcenter: ''
 author: fboylu
@@ -14,231 +14,231 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 985010457413c15622f85e8ce8c6955a64ae40e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099671"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985903"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preventiva aeroespacial e outras empresas
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo e outros negócios
 
 >[!Important]
-Este artigo foi preterido. O debate sobre manutenção preditiva no aeroespacial é ainda relevantes, mas para obter informações atualizadas, consulte [descrição geral da solução de negócio audiências](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
+Este artigo foi preterido. A discussão sobre a manutenção preditiva no espaço aéreo é ainda relevantes, mas para obter informações atuais, veja [descrição geral da solução para profissionais de negócios](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
 
-Modelos de solução foram concebidos para acelerar o processo de criação de uma demonstração de E2E por cima do Cortana Intelligence Suite. Um modelo implementado Aprovisiona a sua subscrição com componentes do Cortana Intelligence necessários e, em seguida, cria as relações entre eles. É também implementa o pipeline de dados com dados de exemplo de uma aplicação de gerador de dados que transfere e instala no seu computador local, depois de implementar o modelo de solução. Os dados do gerador de dimensões hydrates o pipeline de dados e iniciar gerar predições de aprendizagem, que podem ser visualizadas no dashboard do Power BI.
+Modelos de soluções foram concebidos para acelerar o processo de criação de uma demonstração de E2E com base no Cortana Intelligence Suite. Um modelo implementado Aprovisiona a sua subscrição com componentes do Cortana Intelligence necessários e, em seguida, cria as relações entre eles. Ele também realiza o seeding do pipeline de dados com dados de exemplo de um aplicativo de gerador de dados, que transfere e instala no seu computador local, depois de implementar o modelo de solução. Os dados do gerador de hydrates o pipeline de dados e começar a gerar as previsões de aprendizagem automática, que podem ser visualizados no dashboard do Power BI.
 
-O processo de implementação descreve vários passos para configurar as credenciais da sua solução. Certifique-se que grave as credenciais, tais como o nome da solução, nome de utilizador e palavra-passe que fornece durante a implementação. 
+O processo de implantação o orienta através de vários passos para configurar as credenciais da sua solução. Certifique-se de que as credenciais, tais como o nome da solução, nome de utilizador e palavra-passe que fornece durante a implementação de registos. 
 
 
 Os objetivos deste artigo são:
 - Descrevem a arquitetura de referência e componentes aprovisionados na sua subscrição.
-- Demonstrar como substituir os dados de exemplo com os seus próprios dados. 
-- Mostra como modificar o modelo de solução.  
+- Demonstre como substituir os dados de exemplo com os seus dados. 
+- Mostre como modificar o modelo de solução.  
 
 > [!TIP]
-> Pode transferir e imprimir um [versão PDF deste artigo](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> Pode transferir e imprimir um [versão em PDF deste artigo](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
 ## <a name="overview"></a>Descrição geral
 ![Arquitetura de manutenção preditiva](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-Quando implementar a solução, ativa serviços do Azure dentro do conjunto de análise Cortana (incluindo o Hub de eventos, o Stream Analytics, o HDInsight, o Data Factory e o Machine Learning). O diagrama de arquitetura mostra como da manutenção preditiva para aeroespacial modelo de solução é construída. Pode investigar estes serviços no portal do Azure, ao clicar no diagrama de modelo de solução criado com a implementação de solução (exceto para o HDInsight, o que é aprovisionado a pedido quando as atividades de pipeline relacionados são necessárias para executar e são eliminar posteriormente).
-Transferir um [versão tamanho completo do diagrama](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Ao implementar a solução, ativa a serviços do Azure no Cortana Analytics Suite (incluindo o Hub de eventos, o Stream Analytics, o HDInsight, o Data Factory e o Machine Learning). O diagrama de arquitetura mostra como a manutenção preditiva para aeronáutica modelo de solução é construída. Pode investigar estes serviços no portal do Azure ao clicar nas mesmas no diagrama de modelo de solução criado com a implementação da solução (exceto para o HDInsight, o que é aprovisionada a pedido quando as atividades do pipeline relacionados são necessárias para executar e são eliminar posteriormente).
+Transferir uma [obter a versão do diagrama](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
-As secções seguintes descrevem as partes de solução.
+As secções seguintes descrevem as partes da solução.
 
-## <a name="data-source-and-ingestion"></a>Origem de dados e ingestão
-### <a name="synthetic-data-source"></a>Origem de dados sintético
-Para este modelo, a origem de dados utilizada é gerada a partir de uma aplicação de ambiente de trabalho que transferir e executar localmente após a implementação com êxito.
+## <a name="data-source-and-ingestion"></a>Origem de dados e de ingestão
+### <a name="synthetic-data-source"></a>Origem de dados sintéticos
+Para este modelo, a origem de dados utilizada é gerada a partir de um aplicativo de desktop que baixar e executar localmente após a implementação com êxito.
 
-Para localizar as instruções para transferir e instalar esta aplicação, selecione o primeiro nó, gerador de dados de manutenção preditiva, no diagrama de modelo de solução. As instruções encontram-se na barra de propriedades. Esta aplicação feeds o [Hub de eventos do Azure](#azure-event-hub) serviço com pontos de dados ou eventos, utilizados no resto do fluxo de solução. Esta origem de dados é derivada de publicamente disponíveis dados do [repositório de dados de NASA](https://c3.nasa.gov/dashlink/resources/139/) utilizando o [conjunto de dados de simulação de degradação motor Turbofan](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Para localizar as instruções para transferir e instalar esta aplicação, selecione o nó primeiro, o gerador de dados de manutenção preditiva, no diagrama de modelo de solução. Pode encontrar as instruções na barra de propriedades. Esta aplicação feeds a [Hub de eventos do Azure](#azure-event-hub) serviço com pontos de dados ou eventos, utilizados no restante fluxo da solução. Esta origem de dados é derivada de dados publicamente disponíveis do [repositório de dados de NASA](https://c3.nasa.gov/dashlink/resources/139/) utilizando o [conjunto de dados de simulação de degradação de motor de Turbofan](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
-A aplicação de geração de eventos preenche o Hub de eventos do Azure apenas enquanto está a executar no seu computador.  
+O aplicativo de geração de evento preenche o Hub de eventos do Azure apenas enquanto ele está em execução no seu computador.  
 
 ### <a name="azure-event-hub"></a>Hub de Eventos do Azure  
 O [Hub de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) serviço é o destinatário da entrada fornecida pela origem de dados sintético.
 
 ## <a name="data-preparation-and-analysis"></a>Preparação de dados e análise  
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Utilize [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer perto de análise em tempo real no fluxo de entrada do [Hub de eventos do Azure](#azure-event-hub) serviço. Publicar, em seguida, os resultados para um [Power BI](https://powerbi.microsoft.com) dashboard, bem como arquivar raw todos os eventos de entrada para o [Storage do Azure](https://azure.microsoft.com/services/storage/) serviço para processamento posterior pelo [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)serviço.
+Uso [do Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análise em tempo real no fluxo de entrada do quase a [Hub de eventos do Azure](#azure-event-hub) serviço. Em seguida, publicar os resultados um [Power BI](https://powerbi.microsoft.com) dashboard, bem como arquivar eventos de entrada de todos os não processados para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/) serviço para processamento posterior pelo [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)serviço.
 
-### <a name="hdinsight-custom-aggregation"></a>HDInsight de agregação personalizada
-Executar [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (orquestradas pelo Azure Data Factory) utilizar o HDInsight para fornecer as agregações nos eventos não processados arquivados utilizando o serviço Azure Stream Analytics.
+### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada do HDInsight
+Execute [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (orquestrados pelo Azure Data Factory) com o HDInsight para fornecer agregações sobre os eventos não processados arquivados usando o serviço Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Fazer predições nos restantes vida útil (RUL) de um motor de aeronave específico utilizando as entradas recebidas com [serviço do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestradas pelo Azure Data Factory). 
+Fazer previsões sobre a vida útil remanescente (RUL) de um motor de aeronave através dos dados recebidos com [serviço do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publicação de dados
 ### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
-Utilize [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar as predições recebidas pelo serviço do Azure Machine Learning, o que são consumidos, em seguida, no [Power BI](https://powerbi.microsoft.com) dashboard.
+Uso [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) para armazenar as previsões recebidas pelo serviço do Azure Machine Learning, que, em seguida, são consumidos no [Power BI](https://powerbi.microsoft.com) dashboard.
 
 ## <a name="data-consumption"></a>Consumo de dados
 ### <a name="power-bi"></a>Power BI
-Utilize [Power BI](https://powerbi.microsoft.com) para mostrar um dashboard que contém as agregações e os alertas fornecidas pelo [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), bem como predições RUL armazenados no [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/) que foram produzidos utilizando [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+Uso [Power BI](https://powerbi.microsoft.com) para mostrar um dashboard que contém as agregações e os alertas fornecidas pelo [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), bem como de previsões de RUL armazenados no [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/) que foram produzidas usando [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
-## <a name="how-to-bring-in-your-own-data"></a>Como colocar os seus próprios dados
-Esta secção descreve como colocar os seus próprios dados para o Azure e que áreas requerem alterações dos dados que trouxer para esta arquitetura.
+## <a name="how-to-bring-in-your-own-data"></a>Como colocar em seus próprios dados
+Esta secção descreve como colocar os seus dados para o Azure e que áreas precisam de fazer alterações para os dados que traz para esta arquitetura.
 
-Não é provável que o conjunto de dados corresponde ao conjunto de dados utilizado pelo [conjunto de dados de simulação de degradação motor Turbofan](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) utilizado para este modelo de solução. Compreender os seus dados e os requisitos são fundamental na forma como modificar este modelo para trabalhar com os seus próprios dados. 
+É improvável que o conjunto de dados corresponde ao conjunto de dados utilizado pelas [conjunto de dados de simulação de degradação de motor de Turbofan](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) utilizado para este modelo de solução. Compreender os seus dados e os requisitos são crucial na maneira como modifica esse modelo funcione com os seus dados. 
 
-As secções seguintes abordam as partes do modelo que requerem modificações quando é apresentado um novo conjunto de dados.
+As secções seguintes abordam as partes do modelo de que necessitam de modificações quando for introduzido um novo conjunto de dados.
 
 ### <a name="azure-event-hub"></a>Hub de Eventos do Azure
-Hub de eventos do Azure é genérico; dados podem ser publicados para o hub no formato CSV ou JSON. Nenhum processamento especial ocorre no Hub de eventos do Azure, mas é importante que compreenda os dados que sejam fornecidos para a mesma.
+Hub de eventos do Azure é genérico; dados poderão ser lançados para o hub no formato JSON ou CSV. Nenhum processamento especial ocorre no Hub de eventos do Azure, mas é importante que compreenda os dados que sejam fornecidos a ele.
 
-Este documento descreve como para a ingestão de dados, mas pode facilmente enviar eventos ou dados para um Hub de eventos do Azure com as APIs de Hub de eventos.
+Este documento não descreve como ingerir os seus dados, mas pode enviar facilmente eventos ou dados para um Hub de eventos do Azure com as APIs do Hub de eventos.
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Utilize o serviço Azure Stream Analytics para fornecer perto de análise em tempo real ao ler a partir de fluxos de dados e exportar dados para qualquer número de origens.
+Utilize o serviço do Azure Stream Analytics para fornecer uma análise em tempo real quase lendo de fluxos de dados e a saída de qualquer número de origens de dados.
 
-Para a manutenção preditiva para o modelo de solução aeroespacial, a Azure Stream Analytics consulta consiste em quatro consultas de sub, cada consulta consumir eventos a partir do serviço do Hub de eventos do Azure, com saídas para quatro localizações distintas. Estes saídas é composto por três conjuntos de dados do Power BI e uma localização de armazenamento do Azure.
+A manutenção preditiva para aeronáutica modelo de solução, a consulta do Azure Stream Analytics é composta por quatro subconsultas, cada consulta consumir eventos do serviço do Hub de eventos do Azure, com saídas para quatro localizações distintas. Essas saídas consistem em três conjuntos de dados do Power BI e um local de armazenamento do Azure.
 
-Pode encontrar a consulta do Azure Stream Analytics por:
+A consulta do Azure Stream Analytics pode ser encontrada ao:
 
-* Ligue ao portal do Azure
-* Localizar as tarefas do Stream Analytics ![ícone do Stream Analytics](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) que foram gerados quando a solução foi implementada (*por exemplo*, **maintenancesa02asapbi** e **maintenancesa02asablob** para a solução de manutenção preditiva)
+* Ligar ao portal do Azure
+* Localização de tarefas do Stream Analytics ![ícone de Stream Analytics](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) que foram gerados quando a solução foi implementada (*por exemplo*, **maintenancesa02asapbi** e **maintenancesa02asablob** para a solução de manutenção preditiva)
 * Selecionar
   
   * ***ENTRADAS*** ver a consulta de entrada
-  * ***CONSULTA*** para ver a consulta próprio
-  * ***PRODUZ*** para ver as saídas diferentes
+  * ***CONSULTA*** para ver a consulta em si
+  * ***PRODUZ*** para ver as diferentes saídas
 
-Podem encontrar informações sobre a construção de consulta do Azure Stream Analytics no [referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) no MSDN.
+Informações sobre a construção de consulta do Azure Stream Analytics podem ser encontradas no [referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) no MSDN.
 
-Nesta solução, as consultas de saída três conjuntos de dados com informações de análise em tempo real sobre o fluxo de dados de entrada a um dashboard do Power BI fornecido como parte deste modelo de solução quase. Porque não há um conhecimento implícito sobre o formato de dados de entrada, estas consultas tem de ser alteradas com base no formato de dados.
+Nesta solução, as consultas de saída três conjuntos de dados com perto de informações de análise em tempo real sobre o fluxo de dados de entrada para um dashboard do Power BI fornecido como parte deste modelo de solução. Como há um conhecimento implícito sobre o formato de dados de entrada, estas consultas tem de ser alteradas com base no seu formato de dados.
 
-A consulta na tarefa de Stream Analytics segundo **maintenancesa02asablob** simplesmente produz todas [Hub de eventos](https://azure.microsoft.com/services/event-hubs/) eventos [Storage do Azure](https://azure.microsoft.com/services/storage/) e, por conseguinte, não necessita de nenhuma alteração independentemente do formato de dados do evento completa informações de transmissão em fluxo para o armazenamento.
+A consulta na segunda tarefa do Stream Analytics **maintenancesa02asablob** simplesmente produz todos [Hub de eventos](https://azure.microsoft.com/services/event-hubs/) eventos [armazenamento do Azure](https://azure.microsoft.com/services/storage/) e, por conseguinte, não requer nenhuma alteração independentemente de seu formato de dados como o evento completo, informações são transmitidas para o armazenamento.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-O [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) serviço orquestra o movimento e processamento de dados. Em manutenção preditiva para o modelo de solução aeroespacial, a fábrica de dados é constituída por três [pipelines](../../data-factory/concepts-pipelines-activities.md) que mova e processar os dados utilizando várias tecnologias.  Aceder a fábrica de dados, abrindo o nó de fábrica de dados na parte inferior do diagrama de modelo de solução criado com a implementação da solução. Erros nos conjuntos de dados são devido a fábrica de dados que está a ser implementados antes do gerador de dados foi iniciado. Esses erros, podem ser ignorados e não impedem a fábrica de dados a funcionar
+O [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) serviço organiza o movimento e processamento de dados. Na manutenção preditiva para aeronáutica modelo de solução, o data factory é constituído por três [pipelines](../../data-factory/concepts-pipelines-activities.md) que mover e processar os dados utilizando várias tecnologias.  Aceda a fábrica de dados, abrindo o nó de fábrica de dados na parte inferior do diagrama de modelo de solução criado com a implementação da solução. Erros em seus conjuntos de dados são devido a fábrica de dados que está a ser implementados antes do gerador de dados foi iniciado. Esses erros podem ser ignorados e não impedem a fábrica de dados a funcionar
 
 ![Erros de conjunto de dados de fábrica de dados](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-Esta secção descreve o necessário [pipelines e atividades](../../data-factory/concepts-pipelines-activities.md) contidas no [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Eis uma vista de diagrama da solução.
+Esta secção descreve as informações necessárias [pipelines e atividades](../../data-factory/concepts-pipelines-activities.md) contidas no [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Eis uma vista de diagrama da solução.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-Dois dos pipelines de dados nesta fábrica contenham [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts utilizados para particionar e agregar os dados. Quando indicado, os scripts localizados no [Storage do Azure](https://azure.microsoft.com/services/storage/) conta criada durante a configuração. A localização é: maintenancesascript\\\\script\\\\hive\\ \\ (ou https://[Your solução name].blob.core.windows.net/maintenancesascript).
+Dois dos pipelines nesta fábrica de contenham [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts utilizados para particionar e agregar os dados. Quando observado, os scripts estão localizados no [armazenamento do Azure](https://azure.microsoft.com/services/storage/) conta criada durante a configuração. É de sua localização: maintenancesascript\\\\script\\\\hive\\ \\ (ou https://[Your solução name].blob.core.windows.net/maintenancesascript).
 
-Semelhante ao [Azure Stream Analytics](#azure-stream-analytics-1) consultas, o [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts têm um conhecimento implícito sobre o formato de dados de entrada e tem de ser alterados com base no formato de dados.
+Semelhante à [do Azure Stream Analytics](#azure-stream-analytics-1) consultas, o [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts têm um conhecimento implícito sobre o formato de dados de entrada e tem de ser alterados com base no seu formato de dados.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Isto [pipeline](../../data-factory/concepts-pipelines-activities.md) contém numa única atividade - um [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) utilizando a atividade um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para os dados de partição colocar em [Storage do Azure](https://azure.microsoft.com/services/storage/) durante o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tarefa.
+Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - um [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) coloca o script para particionar os dados [armazenamento do Azure](https://azure.microsoft.com/services/storage/) durante a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tarefa.
 
 O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
-Isto [pipeline](../../data-factory/concepts-pipelines-activities.md) contém várias atividades cujo resultado final é serão as predições classificadas do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação associada a este modelo de solução.
+Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém várias atividades, cujo resultado final é as previsões com a pontuação da [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação associada com este modelo de solução.
 
-As atividades incluídas são:
+Atividades incluídas são:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade utilizando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [ramo de registo](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para efetuar agregações e funcionalidade engenharia necessária para o [máquina do Azure Learning](https://azure.microsoft.com/services/machine-learning/) experimentação.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa uma [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para efetuar agregações e "feature Engineering" necessário para o [máquina do Azure Aprendizagem](https://azure.microsoft.com/services/machine-learning/) experimentar.
   O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***PrepareMLInput.hql***.
-* [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados do [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade para um único [Storage do Azure](https://azure.microsoft.com/services/storage/) blob acedido pelo [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) atividade.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) chamadas de atividade de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação, com resultados colocar numa única [Storage do Azure](https://azure.microsoft.com/services/storage/) blob.
+* [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados a partir do [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade para um único [armazenamento do Azure](https://azure.microsoft.com/services/storage/) blob acedido pela [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) atividade.
+* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) chamadas de atividade a [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação, com resultados colocar num único [armazenamento do Azure](https://azure.microsoft.com/services/storage/) blob.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Isto [pipeline](../../data-factory/concepts-pipelines-activities.md) contém numa única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados do [Azure Machine Learning](#azure-machine-learning) experimentação do  ***MLScoringPipeline*** para o [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/) aprovisionado como parte da instalação do modelo de solução.
+Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados do [Azure Machine Learning](#azure-machine-learning) experimentação do  ***MLScoringPipeline*** para o [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/) aprovisionada como parte da instalação do modelo de solução.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-O [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação utilizado para este modelo de solução fornece a útil vida remanescente (RUL) de um motor de aeronave. A experimentação é específica para o conjunto de dados consumido e requer a modificação ou substituição específica para os dados colocados.
+O [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentar utilizado para este modelo de solução fornece a útil vida remanescente (RUL) de um motor de aeronave. A experimentação é específica para o conjunto de dados consumido e requer modificação ou substituição específica para os dados colocados.
 
-Para obter informações sobre como foi criada a experimentação do Azure Machine Learning, consulte [manutenção preditiva: passo 1 de 3, preparação de dados e de engenharia da funcionalidade](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Para obter informações sobre a criação da experimentação do Azure Machine Learning, consulte [manutenção preditiva: passo 1 de 3, preparação de dados e de engenharia de funcionalidades](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Monitorize o progresso
-Depois do gerador de dados é iniciado, o pipeline começa a dehydrate e os diferentes componentes da sua solução iniciar kicking para a seguinte ação os comandos emitidos pela fábrica de dados. Existem duas formas de monitorizar o pipeline.
+Assim que o gerador de dados é iniciado, o pipeline começa a dehydrate e os diferentes componentes da sua solução iniciar iniciar no seguinte ação os comandos emitidos pela fábrica de dados. Existem duas formas de monitorizar o pipeline.
 
-1. Uma das tarefas do Stream Analytics escreve os dados de entrada não processados para o blob storage. Se clicar num componente de armazenamento de BLOBs da sua solução a partir do ecrã, com êxito implementadas a solução e, em seguida, clique em abrir no painel correto, que demora ao [portal do Azure](https://portal.azure.com/). Uma vez, clique em Blobs. No painel seguinte, é apresentada uma lista de contentores. Clique em **maintenancesadata**. As próximas painel é o **rawdata** pasta. Para a pasta de rawdata são pastas com nomes como hora = 17 e hora = 18. A presença destas pastas indica dados não processados está a ser gerado no seu computador e armazenados no blob storage. Deverá ver ficheiros csv com tamanhos finito em MB nessas pastas.
-2. É o último passo do pipeline de escrever dados (por exemplo predições do machine learning) na base de dados do SQL Server. Poderá ter de aguardar um máximo de três horas para os dados são apresentados na base de dados do SQL Server. Uma forma para monitorizar a quantidade de dados está disponível na base de dados SQL é através de [portal do Azure](https://portal.azure.com/). No painel esquerdo localizar bases de dados SQL ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) e clique no mesmo. Em seguida, localize a base de dados **pmaintenancedb** e clique na mesma. Na página seguinte na parte inferior, clique em GERIR
+1. Uma das tarefas do Stream Analytics escreve os dados de entrada não processados para armazenamento de Blobs. Se clicar no componente de armazenamento de BLOBs da sua solução a partir do ecrã, com êxito implantado a solução e, em seguida, clique em abrir no painel à direita, ele leva-o para o [portal do Azure](https://portal.azure.com/). Uma vez, clique em Blobs. No painel seguinte, é apresentada uma lista de contentores. Clique em **maintenancesadata**. No próximo painel é o **rawdata** pasta. Dentro da pasta de rawdata são pastas com nomes como hora = 17 e hora = 18. A presença dessas pastas indica os dados não processados estão a ser gerado no seu computador e armazenados no armazenamento de Blobs. Deverá ver ficheiros csv com tamanhos finitos em MB nessas pastas.
+2. A última etapa do pipeline é escrever dados (por exemplo predições do machine learning) na base de dados SQL. Poderá ter de esperar o máximo de três horas para os dados a aparecer na base de dados SQL. Uma forma para monitorizar a quantidade de dados está disponível na base de dados SQL é através da [portal do Azure](https://portal.azure.com/). No painel esquerdo, localize bases de dados SQL ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) e clique no mesmo. Em seguida, localize a base de dados **pmaintenancedb** e clique no mesmo. Na página seguinte na parte inferior, clique em GERIR
    
-    ![Gerir o ícone](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
+    ![Gerir o ícone](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
-    Aqui, pode clicar em nova consulta e a consulta para o número de linhas (por exemplo selecione Count do PMResult). À medida que aumenta a sua base de dados, deve aumentar o número de linhas na tabela.
+    Aqui, pode clicar em nova consulta e a consulta para o número de linhas (por exemplo selecione count(*) de PMResult). À medida que aumenta a sua base de dados, deve aumentar o número de linhas na tabela.
 
 ## <a name="power-bi-dashboard"></a>Dashboard do Power BI
 
-Configure um dashboard do Power BI para visualizar os dados do Azure Stream Analytics (caminho quente) e resultados de predição de lote do Azure machine learning (caminho típico).
+Configure um dashboard do Power BI para visualizar os seus dados do Azure Stream Analytics (caminho instantâneo) e os resultados de predição de batch do Azure machine learning (caminho típico).
 
-### <a name="set-up-the-cold-path-dashboard"></a>Configurar o dashboard de caminho típico
-No pipeline de dados de caminho típico, o objetivo é obter a RUL preditiva (restantes vida útil) de cada motor de aeronave depois de concluir um voo (ciclo). O resultado de predição é atualizado a cada 3 horas para prever os motores de aeronaves terminar um voo durante as últimos 3 horas.
+### <a name="set-up-the-cold-path-dashboard"></a>Configurar o dashboard do caminho típico
+O pipeline de dados do caminho típico, o objetivo é obter a RUL preditiva (vida útil restante) de cada motor de aeronave após a conclusão de um voo (ciclo). O resultado de predição é atualizado em três horas para prever os motores das aeronaves que tem concluído um voo durante as últimas 3 horas.
 
-Power BI liga-se para uma base de dados SQL do Azure como origem de dados, onde estão armazenados os resultados de predição. Nota: 1) na implementar a solução, uma predição irá aparecer na base de dados dentro de 3 horas.
-O ficheiro pbix fornecido com a transferência de gerador contém alguns dados de seed para que pode criar o dashboard do Power BI imediato. 2) neste passo, o pré-requisito é transferir e instalar o software gratuito [ambiente de trabalho do Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+Power BI liga a uma base de dados SQL do Azure como a respetiva origem de dados, onde são armazenados os resultados da predição. Nota: 1) sobre a implementação da sua solução, uma predição aparecerá na base de dados dentro de 3 horas.
+O ficheiro pbix que acompanha o download de gerador contém alguns dados de semente, para que pode criar o dashboard do Power BI imediatamente. 2) neste passo, o pré-requisito é baixar e instalar o software gratuito [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
-Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix na base de dados do SQL Server foi aceleradas no momento da implementação de solução que contém os dados (por exemplo, resultados de predição) para visualização.
+Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix para a base de dados do SQL que era lançado no momento da implantação da solução que contém os dados (por exemplo, resultados de predição) para visualização.
 
 1. Obter as credenciais da base de dados.
    
-   Terá de **base de dados de nome do servidor, nome de base de dados, nome de utilizador e palavra-passe** antes de passar para os passos seguintes. Eis os passos para ajudá-lo como localizá-las.
+   Precisará **nome do servidor, nome de base de dados, nome de utilizador e palavra-passe de base de dados** antes de passar aos passos seguintes. Aqui estão as etapas para orientá-lo como encontrá-los.
    
-   * Uma vez **'SQL Database do Azure'** no seu modelo de solução diagrama fica verde e, em seguida, clique em **'Open'**.
-   * Verá uma novo separador/janela do browser que apresenta a página do portal do Azure. Clique em **'Grupos de recursos'** no painel esquerdo.
-   * Selecione a subscrição que está a utilizar para implementar a solução e, em seguida, selecione **' YourSolutionName\_ResourceGroup'**.
-   * No pop de nova saída painel, clique em de ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ícone para aceder à sua base de dados. O nome de base de dados for junto a este ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de base de dados** está listado na propriedade de nome de servidor e deve ter um aspeto semelhante  **YourSoutionName.database.windows.net**.
-   * A base de dados **username** e **palavra-passe** são o mesmo nome de utilizador e palavra-passe anteriormente registado durante a implementação da solução.
-2. Atualize a origem de dados do ficheiro de relatório caminho típico com o Power BI Desktop.
+   * Uma vez **'Do Azure SQL Database'** no seu modelo de solução diagrama fica verde, clique no mesmo e, em seguida, clique em **"Abrir"**.
+   * Verá uma novo separador/janela do browser que apresenta a página do portal do Azure. Clique em **grupos de recursos** no painel esquerdo.
+   * Selecione a subscrição está a utilizar para implementar a solução e, em seguida, selecione **' YourSolutionName\_ResourceGroup "**.
+   * No pop de novo o painel, clique nas ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ícone para acessar seu banco de dados. O nome da sua base de dados é junto a este ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de base de dados** está listado sob a propriedade de nome de servidor e deve ser semelhante à  **YourSoutionName.database.windows.net**.
+   * A base de dados **nome de utilizador** e **palavra-passe** são o mesmo que o nome de utilizador e palavra-passe gravado anteriormente durante a implementação da solução.
+2. Atualize a origem de dados do ficheiro de relatório do caminho típico com o Power BI Desktop.
    
-   * Na pasta onde transferiu e unzipped o ficheiro de gerador de dimensões, faça duplo clique o **PowerBI\\PredictiveMaintenanceAerospace.pbix** ficheiro. Se vir quaisquer mensagens de aviso quando abrir o ficheiro, ignorá-las. No topo do ficheiro, clique em **'Editar consultas'**.
+   * Na pasta onde transferiu e descompactei o ficheiro de gerador, faça duplo clique o **PowerBI\\PredictiveMaintenanceAerospace.pbix** ficheiro. Se vir quaisquer mensagens de aviso quando abrir o arquivo, ignorá-las. Na parte superior do ficheiro, clique em **'Editar consultas'**.
      
      ![Editar consultas](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
-   * Verá duas tabelas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique em ![ícone de definições de consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) junto a **"Source"** em **'Aplicadas passos'** à direita **definições da consulta** painel. Ignore quaisquer mensagens de aviso que aparecem.
-   * No pop de fora da janela, substitua **'Server'** e **'Database'** com os seus próprios nomes de servidor e base de dados e, em seguida, clique em **'OK'**. Nome de servidor, certifique-se de que especifica a porta 1433 (**YourSoutionName.database.windows.net, 1433**). Deixar o campo de base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
-   * No pop seguinte terminar janela, verá duas opções no painel da esquerda (**Windows** e **base de dados**). Clique em **'Database'**, preencha o **'Username'** e **'Password'** (este é o nome de utilizador e palavra-passe que introduziu quando implementou a solução e criou um Azure pela primeira vez Base de dados SQL). No ***selecione o nível para aplicar estas definições***, verifique a opção de nível de base de dados. Em seguida, clique em **'Connect'**.
-   * Clique na segunda tabela **PMResult** , em seguida, clique em ![ícone de navegação](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a **"Source"** em **'Aplicadas passos'** àdireita**Definições da consulta** painel e atualizar os base de dados de nomes do servidor e como os passos acima e clique em OK.
-   * Assim que estiver a orientado regressar à página anterior, feche a janela. Apresenta uma mensagem, clique **aplicar**. Por último, clique o **guardar** botão para guardar as alterações. O ficheiro do Power BI tem agora estabelecer ligação ao servidor. Se as visualizações estiverem vazios, certifique-se que desmarcar as seleções na visualizações para visualizar todos os dados clicando no ícone de eraser no canto superior direito de legendas. Utilize o botão de atualização para refletir novos dados em visualizações. Inicialmente, vê apenas os dados de seed no seu visualizações como a fábrica de dados está agendada para atualizar todos os 3 horas. Depois de 3 horas, verá uma nova predições serão refletidas na sua visualizações quando atualizar os dados.
-3. (Opcional) Publicar o dashboard de caminho típico para [Power BI online](http://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).
+   * Verá duas tabelas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique em ![ícone de definições de consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) junto a **"Source"** sob **passos aplicados** à direita **definições de consulta** painel. Ignore todas as mensagens de aviso que aparecem.
+   * No pop de fora da janela, substitua **"Server"** e **'Database'** com seus próprios nomes de servidor e base de dados e, em seguida, clique **'OK'**. Nome do servidor, certifique-se de que especifique a porta 1433 (**YourSoutionName.database.windows.net, 1433**). Deixe o campo de base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
+   * No pop seguinte fora da janela, verá duas opções no painel da esquerda (**Windows** e **base de dados**). Clique em **'Database'**, preencha suas **'Username'** e **'Password'** (este é o nome de utilizador e palavra-passe que introduziu quando implementou a solução pela primeira vez e criado do Azure Base de dados SQL). Na ***selecione o nível para aplicar estas definições para***, marque a opção de nível de base de dados. Em seguida, clique em **"Ligar"**.
+   * Clique na segunda tabela **PMResult** , em seguida, clique em ![ícone de navegação](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a **"Source"** sob **passos aplicados** à direita **Definições de consulta** painel e atualizar os nomes de servidor e base de dados, tal como os passos acima e clique em OK.
+   * Assim que estiver orientada para a página anterior, feche a janela. É apresentada uma mensagem - clique **aplicar**. Por último, clique a **guardar** botão para guardar as alterações. O ficheiro do Power BI agora estabeleceu ligação ao servidor. Se as visualizações estiverem vazias, certifique-se de que desmarcar as seleções nas visualizações para visualizar todos os dados ao clicar no ícone de borracha no canto superior direito de legendas. Utilize o botão de atualização para refletir novos dados nas visualizações. Inicialmente, apenas verá os dados de seed nas suas visualizações conforme a fábrica de dados é agendada para atualização em três horas. Depois de 3 horas, verá novas predições refletidas nas suas visualizações, quando atualizar os dados.
+3. (Opcional) Publique o dashboard do caminho típico para [Power BI online](http://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).
    
-   * Clique em **"Publicar"** e uma janela de alguns segundos mais tarde é apresentada a apresentar "A publicação com êxito do Power BI!" com uma marca de verificação verde. Clique na ligação abaixo "Abrir PredictiveMaintenanceAerospace.pbix no Power BI". Para obter instruções detalhadas, consulte [publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Para criar um novo dashboard: clique o **+** junto a assinar o **Dashboards** secção no painel esquerdo. Introduza o nome "Demonstração de manutenção preditiva" para este dashboard novo.
-   * Depois de abrir o relatório, clique em ![ícone de PINO](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) para afixar ao dashboard todas as visualizações. Para obter instruções detalhadas, consulte [afixar um mosaico a um dashboard do Power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
-     Aceda à página do dashboard e ajustar o tamanho e localização do seu visualizações e editar os títulos. Para obter instruções detalhadas sobre como editar os seus mosaicos, consulte [editar um mosaico – redimensionamento, move, mudar o nome, pin, eliminar, adicione hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Eis um dashboard de exemplo com algumas visualizações de caminho típico afixado ao mesmo.  Consoante o período de tempo executar o gerador de dados, os seus números de visualizações poderão ser diferentes.
+   * Clique em **'Publish'** e alguns segundos mais tarde é apresentada uma janela exibindo "Publicação para o Power BI sucesso!". com uma marca de verificação verde. Clique na ligação abaixo de "Open PredictiveMaintenanceAerospace.pbix no Power BI". Para obter instruções detalhadas, consulte [publicar a partir do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+   * Para criar um novo dashboard: clique no **+** inscrever-se junto a **Dashboards** secção no painel da esquerda. Introduza o nome "Demonstração de manutenção preditiva" para este dashboard novo.
+   * Depois de abrir o relatório, clique em ![ícone PIN](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) para afixar a todas as visualizações ao dashboard. Para obter instruções detalhadas, consulte [afixar um mosaico a um dashboard do Power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
+     Vá para a página de dashboard e ajuste o tamanho e localização das visualizações e editar os respetivos títulos. Para obter instruções detalhadas sobre como editar os mosaicos, consulte [editar um mosaico--redimensionar, mover, mudar o nome, afixar, eliminar, Adicionar hiperligação](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Aqui está um dashboard de exemplo com algumas visualizações de caminho típico afixado ao mesmo.  Consoante o tempo que executa seu gerador de dados, os seus números nas visualizações podem ser diferentes.
      <br/>
-     ![Vista final](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
+     ![Exibição final](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * Para agendar a atualização dos dados, Paire o rato sobre o **PredictiveMaintenanceAerospace** conjunto de dados, clique em ![reticências ícone](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e, em seguida, escolha **agendar atualização**.
+   * Para agendar a atualização dos dados, passe o mouse sobre o **PredictiveMaintenanceAerospace** conjunto de dados, clique em ![ícone de reticências](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e, em seguida, escolha **agendar atualização**.
      <br/>
-     **Nota:** se vir um massage aviso, clique em **editar credenciais de** e certifique-se de que as credenciais da sua base de dados são os mesmos que os descrito no passo 1.
+     **Nota:** se vir ajustamos um aviso, clique em **editar credenciais** e certificar-se de que as credenciais da sua base de dados são iguais aos descritos no passo 1.
      <br/>
-     ![Agendar a atualização](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
+     ![Agendar Atualização](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
-   * Expanda o **agendar atualização** secção. Ative "manter os dados atualizados".
+   * Expanda a **agendar atualização** secção. Ative o "manter os dados atualizados".
      <br/>
-   * Agende a atualização com base nas suas necessidades. Para obter mais informações, consulte [de atualização de dados no Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+   * Agende a atualização com base nas suas necessidades. Para obter mais informações, veja [de atualização de dados no Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
-### <a name="setup-hot-path-dashboard"></a>Dashboard de acesso frequente caminho de configuração
-Os seguintes passos guiá-lo como visualizar a saída de dados de tarefas do Stream Analytics que foram geradas no momento da implementação da solução. A [Power BI online](http://www.powerbi.com/) conta é necessária para efetuar os seguintes passos. Se não tiver uma conta, pode [criar um](https://powerbi.microsoft.com/pricing).
+### <a name="setup-hot-path-dashboard"></a>Dashboard de caminho instantâneo da configuração
+Os seguintes passos guiá-lo como visualizar a saída de dados de tarefas do Stream Analytics que foram gerados no momento da implantação da solução. R [Power BI online](http://www.powerbi.com/) conta é necessária para executar os seguintes passos. Se não tiver uma conta, pode [criá-lo](https://powerbi.microsoft.com/pricing).
 
-1. Adicione a saída do Power BI no Azure Stream Analytics (ASA).
+1. Adicione a saída do Power BI do Azure Stream Analytics (ASA).
    
-   * Tem de seguir as instruções em [Azure Stream Analytics & Power BI: um dashboard de análise de visibilidade em tempo real dos dados de transmissão em fluxo](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar o resultado da tarefa do Azure Stream Analytics como seu dashboard do Power BI.
-   * A consulta do ASA tem três saídas que são **aircraftmonitor**, **aircraftalert**, e **flightsbyhour**. Pode ver a consulta, clicando no separador de consulta. Correspondente a cada estas tabelas, terá de adicionar uma saída ASA. Ao adicionar a saída primeiro (**aircraftmonitor**) certifique-se de que o **Alias de saída**, **nome do conjunto de dados** e **nome da tabela** são o mesmo (**aircraftmonitor**). Repita os passos para adicionar as saídas para **aircraftalert**, e **flightsbyhour**. Depois de ter adicionado todas as três tabelas de saída e iniciou a tarefa do ASA, deverá receber uma mensagem de confirmação ("iniciar o Stream Analytics tarefa maintenancesa02asapbi foi concluída com êxito").
-2. Inicie sessão no [Power BI online](http://www.powerbi.com)
+   * Tem de seguir as instruções em [do Azure Stream Analytics e o Power BI: dashboard de análise de visibilidade em tempo real de dados de transmissão em fluxo](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída da tarefa do Azure Stream Analytics como o dashboard do Power BI.
+   * A consulta do ASA tem três saídas que são **aircraftmonitor**, **aircraftalert**, e **flightsbyhour**. Pode ver a consulta ao clicar no separador de consulta. Correspondente a cada uma destas tabelas, terá de adicionar uma saída para ASA. Ao adicionar o primeiro resultado (**aircraftmonitor**) certifique-se a **Alias de saída**, **nome do conjunto de dados** e **nome da tabela** são o mesmo (**aircraftmonitor**). Repita os passos para adicionar as saídas de **aircraftalert**, e **flightsbyhour**. Depois de ter adicionado todas as três tabelas de saída e a tarefa ASA foi iniciada, deverá receber uma mensagem de confirmação ("a iniciar o Stream Analytics tarefa maintenancesa02asapbi foi concluída com êxito").
+2. Inicie sessão no [online do Power BI](http://www.powerbi.com)
    
-   * No painel esquerdo secção de conjuntos de dados na minha área de trabalho, o ***DATASET*** nomes **aircraftmonitor**, **aircraftalert**, e **flightsbyhour** deve aparecer. Estes são os dados de transmissão em fluxo enviado a partir do Azure Stream Analytics no passo anterior. O conjunto de dados **flightsbyhour** não pode aparecer no mesmo tempo que os outros dois conjuntos de dados devido à natureza da consulta SQL por trás dele. No entanto, este deve aparecer depois de uma hora.
-   * Certifique-se de que o ***visualizações*** painel está aberta e é apresentado no lado direito do ecrã.
-3. Assim que tiver dados que fluem para Power BI, pode começar a visualizar os dados de transmissão em fluxo. Abaixo está um dashboard de exemplo com algumas visualizações de caminho frequente afixado ao mesmo. Pode criar outros mosaicos do dashboard com base nos conjuntos de dados adequados. Consoante o período de tempo executar o gerador de dados, os seus números de visualizações poderão ser diferentes.
+   * No painel esquerdo secção de conjuntos de dados na minha área de trabalho, o ***conjunto de dados*** nomes **aircraftmonitor**, **aircraftalert**, e **flightsbyhour** deve aparecer. Esses são os dados de transmissão em fluxo que enviou a partir do Azure Stream Analytics no passo anterior. O conjunto de dados **flightsbyhour** podem não aparecer ao mesmo tempo em que os outros dois conjuntos de dados devido à natureza da consulta SQL por trás dele. No entanto, deve ser apresentado depois de uma hora.
+   * Certifique-se de que o ***visualizações*** painel é aberto e é apresentado no lado direito da tela.
+3. Depois de ter os dados que flui para o Power BI, pode começar a visualizar os dados de transmissão em fluxo. Abaixo está um dashboard de exemplo com algumas visualizações o hot path afixado ao mesmo. Pode criar outros mosaicos de dashboard com base em conjuntos de dados apropriados. Consoante o tempo que executa seu gerador de dados, os seus números nas visualizações podem ser diferentes.
 
-    ![Vista de dashboard](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Vista do Dashboard](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
 
-1. Seguem-se alguns passos para criar um dos mosaicos acima – "vista Fleet do Sensor 11 vs. Limiar 48.26" mosaico:
+1. Eis alguns passos para criar um dos mosaicos acima – "visão frota de Sensor 11 vs. Limiar 48.26" mosaico:
    
-   * Clique em dataset **aircraftmonitor** no painel esquerdo secção de conjuntos de dados.
-   * Clique em de **gráfico de linhas** ícone.
-   * Clique em **processados** no **campos** painel, para que as TI mostra em "Eixo" o **visualizações** painel.
-   * Clique em "s11" e "s11\_alerta", para que ambos são apresentados em "Valores". Clique na seta pequena junto a **s11** e **s11\_alerta**, altere "Sum" para "Médio".
-   * Clique em **guardar** na parte superior e nome do relatório "aircraftmonitor." O relatório com o nome "aircraftmonitor" é apresentado no **relatórios** secção o **navegador** painel à esquerda.
-   * Clique em de **Pin Visual** ícone no canto superior direito neste gráfico de linhas. Pode aparecer uma janela de "Pin ao Dashboard" para que possa escolher um dashboard. Selecione "Demonstração de manutenção preditiva", em seguida, clique em "Pin".
-   * Paire o rato sobre este mosaico no dashboard, clique no ícone "edit" no canto superior direito para alterar o título para a "vista Fleet do Sensor 11 vs. Limiar 48.26" e subtítulo do como"Média em frota ao longo do tempo."
+   * Clique em conjunto de dados **aircraftmonitor** no painel esquerdo secção de conjuntos de dados.
+   * Clique nas **gráfico de linhas** ícone.
+   * Clique em **processados** no **campos** painel, para que mostre em "Eixo" no **visualizações** painel.
+   * Clique em "s11" e "s11\_alerta", para que os dois são apresentados em "Values". Clique na seta pequena junto a **s11** e **s11\_alerta**, altere o "Soma" para "Média".
+   * Clique em **guardar** nas partes superior e o nome do relatório "aircraftmonitor." Mostra o relatório com o nome "aircraftmonitor" a **relatórios** secção a **navegador** painel à esquerda.
+   * Clique nas **afixar Visual** ícone no canto superior direito neste gráfico de linhas. Uma janela de "Afixar ao Dashboard" pode aparecer à sua escolha de um dashboard. Selecione "Demonstração de manutenção preditiva", em seguida, clique em "Pin".
+   * Paire o rato sobre este mosaico no dashboard, clique no ícone de "Editar" no canto superior direito para alterar o título para o "modo de exibição frota de Sensor 11 vs. Limiar 48.26" e o subtítulo para"Média de frota ao longo do tempo."
 
-## <a name="delete-your-solution"></a>Eliminar a sua solução
-Certifique-se de que pare o gerador de dados quando não estiver a utilizar a solução como executar o gerador de dados estará sujeita custos superiores. Elimine a solução se não o estão a utilizar. A eliminar a sua solução elimina todos os componentes aprovisionados na sua subscrição quando implementou a solução. Para eliminar a solução, clique em seu nome de solução no painel da esquerda do modelo de solução e, em seguida, clique em **eliminar**.
+## <a name="delete-your-solution"></a>Eliminar a solução
+Certifique-se de que pare o gerador de dados quando não estiver a utilizar a solução, como executar o gerador de dados implicará custos mais elevados. Elimine a solução se não estiver a utilizá-lo. A eliminar a sua solução elimina todos os componentes aprovisionados na sua subscrição quando implementou a solução. Para eliminar a solução, clique em seu nome de solução no painel do lado esquerdo do modelo de solução e, em seguida, clique em **eliminar**.
 
 ## <a name="cost-estimation-tools"></a>Ferramentas de estimativa de custos
-As ferramentas de dois seguintes estão disponíveis para o ajudar a compreender melhor os custos totais envolvidos na execução da manutenção preditiva para o modelo de solução aeroespacial na sua subscrição:
+As seguintes duas ferramentas estão disponíveis para o ajudar a compreender melhor os custos totais envolvidos em execução a manutenção preditiva para aeronáutica de solução de modelo na sua subscrição:
 
-* [Microsoft Azure custo Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Ferramenta de Estimator de custo do Microsoft Azure (ambiente de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Estimator a ferramenta Cost (online)](https://azure.microsoft.com/pricing/calculator/)
+* [Ferramenta de estimador de custos do Microsoft Azure (ambiente de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 

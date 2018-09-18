@@ -1,6 +1,6 @@
 ---
-title: Skill de pesquisa cognitivos shaper (Azure Search) | Microsoft Docs
-description: Extrair metadados e estruturadas informações de dados não estruturados e formam-lo como um tipo complexo no pipeline de sem causa pesquisa do Azure.
+title: Habilidade de pesquisa cognitiva Modelador (Azure Search) | Documentos da Microsoft
+description: Extrair metadados e informações estruturadas de dados não estruturados e formatá-los como um tipo complexo num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,32 +10,34 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 311f4bd67081de567763783a9d86540eda36d9f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791008"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729006"
 ---
-#   <a name="shaper-cognitive-skill"></a>Skill cognitivos shaper
+#   <a name="shaper-cognitive-skill"></a>Habilidade de cognitiva Modelador
 
-O **Shaper** skill cria um tipo complexo para suportar campos compostos (também conhecido como com várias partes campos). Um campo de tipo complexo tem várias partes, mas é tratado como um único item num índice da Azure Search. Campos consolidados útil em cenários de pesquisa exemplos de combinar um nome próprio e apelido num único campo, cidade e estado para um único campo, ou o nome e a data de nascimento para um único campo para estabelecer a identidade exclusiva.
+O **Modelador** habilidade cria um tipo complexo para oferecer suporte a campos compostos (também conhecido como campos com várias partes). Um campo de tipo complexo tem várias partes, mas é tratado como um único item de um índice da Azure Search. Exemplos de campos consolidados útil em cenários de pesquisa incluem a combinação de um nome próprio e apelido num único campo, cidade e estado num único campo, ou o nome e data de nascimento num único campo para estabelecer a identidade exclusiva.
 
-O skill Shaper permite-lhe criar uma estrutura essencialmente, definir o nome dos membros essa estrutura e atribuir valores para cada membro.
+A habilidade de Modelador permite-lhe criar uma estrutura essencialmente, definir o nome dos membros dessa estrutura e atribuir valores a cada membro.
 
-Por predefinição, esta técnica suporta objetos que estão um nível profundo. Para os objetos mais complexos, pode encadeiam vários passos Shaper.
+Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para obter objetos mais complexos, pode encadear vários passos Modelador.
 
-Na resposta, o nome de saída é sempre "saído". Internamente, o pipeline pode mapear um nome diferente, tal como "analyzedText" nos exemplos abaixo de "saída", mas o Shaper skill próprio devolve "saída" na resposta. Pode ser importante se está a depurar documentos avançados e repare a discrepância de nomenclatura ou se criar um skill personalizado e são structuring a resposta por si.
+Em resposta, o nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos abaixo de "saída", mas o Modelador habilidade em si devolve "output" na resposta. Isso pode ser importante se a depuração plena documentos e observe as discrepâncias de nomenclatura ou se compilar uma habilidade personalizada e é estruturar a resposta por conta própria.
 
+> [!NOTE]
+> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Exemplo 1: tipos complexos
 
-Considere um cenário onde pretende criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimento*, respetivamente. Na Azure Search, um campo pesquisável com várias parte é chamado um *tipo complexo*, e ainda não é suportada a box. Nesta pré-visualização, um skill Shaper pode ser utilizado para gerar os campos de um tipo complexo no seu índice. 
+Considere um cenário onde pretende criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. No Azure Search, é chamado de um campo pesquisável com várias parte um *tipo complexo*, e ainda não é suportado de imediato. Esta pré-visualização, uma habilidade Modelador pode ser utilizada para gerar campos de um tipo complexo no seu índice. 
 
-O exemplo seguinte fornece os nomes de membro como entrada. A estrutura de saída (o campo complexa na Azure Search) é especificada através de *targetName*. 
+O exemplo a seguir fornece o membro nomes como entrada. A estrutura de saída (o campo complexa no Azure Search) é especificada através de *targetName*. 
 
 
 ```json
@@ -62,7 +64,7 @@ O exemplo seguinte fornece os nomes de membro como entrada. A estrutura de saíd
 ```
 
 ### <a name="sample-input"></a>Entrada de exemplo
-Pode ser um documento JSON fornecer utilizável entrada para este skill Shaper:
+Um documento JSON fornecer a entrada de utilizável por essa habilidade Modelador pode ser:
 
 ```json
 {
@@ -80,7 +82,7 @@ Pode ser um documento JSON fornecer utilizável entrada para este skill Shaper:
 
 
 ### <a name="sample-output"></a>Resultado da amostra
-O skill Shaper gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimento*. 
+A habilidade de Modelador gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimentos*. 
 
 ```json
 {
@@ -102,9 +104,9 @@ O skill Shaper gera um novo elemento chamado *analyzedText* com os elementos com
 
 ## <a name="sample-2-input-consolidation"></a>Exemplo 2: consolidação de entrada
 
-Noutro exemplo, imagine que em diferentes fases de processamento de pipeline, a extrair o título de um livro e títulos de capítulo em diferentes páginas no livro. Pode agora criar uma estrutura simples é composta por estas várias entradas.
+Noutro exemplo, imagine que em diferentes fases do processamento de pipeline, ter extraiu o título de um livro e títulos do capítulo em diferentes páginas do livro. Agora pode criar uma estrutura única composta por estas várias entradas.
 
-A definição de skill Shaper para este cenário poderá ter um aspeto semelhante ao seguinte exemplo:
+A definição de habilidades Modelador para este cenário poderá ter um aspeto semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -130,7 +132,7 @@ A definição de skill Shaper para este cenário poderá ter um aspeto semelhant
 ```
 
 ### <a name="sample-output"></a>Resultado da amostra
-Neste caso, o Shaper flattens todos os títulos de capítulo para criar uma matriz única. 
+Neste caso, o Modelador nivela todos os títulos de capítulo para criar uma única matriz. 
 
 ```json
 {
@@ -155,5 +157,5 @@ Neste caso, o Shaper flattens todos os títulos de capítulo para criar uma matr
 ## <a name="see-also"></a>Consulte também
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 

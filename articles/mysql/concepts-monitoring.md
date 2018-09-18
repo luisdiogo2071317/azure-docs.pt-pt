@@ -1,6 +1,6 @@
 ---
 title: Monitorização na base de dados do Azure para MySQL
-description: Este artigo descreve as métricas de monitorização e alertas da base de dados do Azure para MySQL, incluindo as estatísticas de CPU, de armazenamento e de ligação.
+description: Este artigo descreve as métricas de monitorização e alertas para base de dados do Azure para MySQL, incluindo as estatísticas de CPU, armazenamento e conexão.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -8,35 +8,40 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 03/15/2018
-ms.openlocfilehash: af90fb4c89cf552d4c5637db08ef0acd9984b31b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264702"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981945"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
-Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que permitem determinar o comportamento de recursos que suportam o servidor de MySQL. 
+Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que lhe dar informações sobre o comportamento de recursos que suportam o servidor MySQL. 
 
 ## <a name="metrics"></a>Métricas
-Todas as métricas do Azure tem uma frequência de um minuto e cada métrica fornece 30 dias do histórico. Pode configurar alertas nas métricas. Para orientações passo a passo, consulte [como configurar alertas](howto-alert-on-metric.md). Outras tarefas incluem como configurar as ações automatizadas, efetuar análises avançadas e arquivar histórico. Para obter mais informações, consulte o [descrição geral do Azure métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas as métricas do Azure têm uma frequência de um minuto e cada métrica oferece 30 dias do histórico. Pode configurar alertas sobre as métricas. Para obter orientações passo a passo, consulte [como posso configurar alertas](howto-alert-on-metric.md). Outras tarefas incluem definir ações automatizadas, a realização de análises avançadas e o arquivamento de histórico. Para obter mais informações, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
-Estas métricas estão disponíveis para a base de dados do Azure para o MySQL:
+Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 
-|Métrica|Nome a apresentar métrica|Unidade|Descrição|
+|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
 |---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|A percentagem de CPU em utilização.|
 |memory_percent|Percentagem de memória|Percentagem|A percentagem de memória em utilização.|
 |io_consumption_percent|Percentagem de e/s|Percentagem|A percentagem de e/s em utilização.|
 |storage_percent|Percentagem de armazenamento|Percentagem|A percentagem de armazenamento utilizado fora do servidor 's máxima.|
-|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em utilização. O armazenamento utilizado pelo serviço inclui os ficheiros de base de dados, os registos de transações e os registos do servidor.|
-|storage_limit|Limite de armazenamento|Bytes|Armazenamento máximo para este servidor.|
-|active_connections|Totais ligações ativas|Contagem|O número de ligações ativas para o servidor.|
-|connections_failed|Totais de ligações com falhas|Contagem|O número de ligações com falhas ao servidor.|
-
+|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em utilização. O armazenamento utilizado pelo serviço pode incluir os ficheiros de base de dados, registos de transações e os registos do servidor.|
+|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
+|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
+|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
+|storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
+|active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
+|connections_failed|Ligações Falhadas|Contagem|O número de ligações falhadas para o servidor.|
+|seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos que o servidor de réplica é lagging contra o servidor mestre.|
+|network_bytes_egress|Saída de Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
+|network_bytes_ingress|Entrada de Rede|Bytes|Rede no através de ligações de Active Directory.|
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Consulte [como configurar alertas](howto-alert-on-metric.md) para obter orientações sobre a criação de um alerta numa métrica.
-- Para obter mais informações sobre como aceder e exportar com o portal do Azure, a REST API ou a CLI de métricas, consulte o [descrição geral do Azure métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Ver [como posso configurar alertas](howto-alert-on-metric.md) para obter orientações sobre como criar um alerta na métrica.
+- Para obter mais informações sobre como aceder e exportar métricas com o portal do Azure, a REST API ou a CLI, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: edc0cf7c8700e1ab728109bc9cbfda8135a59ee9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6b7a361213a0236d71fe41566ba71c28b2958cd7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574747"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736347"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure (pré-visualização)
 
@@ -30,7 +30,7 @@ Considere um conjunto de dados que são acedidos com frequência durante o está
 
 ## <a name="storage-account-support"></a>Suporte de conta de armazenamento
 
-Política de gestão do ciclo de vida está disponível com ambos os fins gerais v2 (GPv2) conta e a conta de armazenamento de Blobs. Pode converter uma conta de fins gerais (GPv1) existente para uma conta GPv2 através de um processo de um clique simples no portal do Azure. Para saber mais, veja [Azure storage account options](../common/storage-account-options.md) (Opções de contas de armazenamento do Azure).  
+Política de gestão do ciclo de vida está disponível com ambos os fins gerais v2 (GPv2) conta e a conta de armazenamento de Blobs. Pode converter uma conta de fins gerais (GPv1) existente para uma conta GPv2 através de um processo de um clique simples no portal do Azure. Para obter mais informações sobre contas de armazenamento, consulte [descrição geral da conta de armazenamento do Azure](../common/storage-account-overview.md) para saber mais.  
 
 ## <a name="pricing"></a>Preços 
 

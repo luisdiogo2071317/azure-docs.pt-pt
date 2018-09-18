@@ -1,20 +1,21 @@
 ---
-title: Utilize o indexador de vídeo do Azure para localizar momentos exatos nos vídeos | Documentos da Microsoft
-description: Este tópico demonstra como localizar momentos exatos nos vídeos.
+title: Localizar momentos exatos nos vídeos - indexador de vídeo
+titlesuffix: Azure Cognitive Services
+description: Este tópico demonstra como localizar momentos exatos nos vídeos, utilizar o Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 72f110c0c98e6fb6ee5fca684fdc74c6986e032c
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 9806f9c3f22429d61ac765773e4b6971d683a6b1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541411"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984512"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar momentos exatos nos vídeos
 
