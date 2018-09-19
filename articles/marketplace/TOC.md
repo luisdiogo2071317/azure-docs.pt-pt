@@ -20,7 +20,7 @@
 #### [Contentores](./marketplace-containers.md)
 #### [Serviço de Consultoria](./consulting-services.md)  
 #### [Office 365, Dynamics 365 e o guia de publicação do Power BI](./appsource-offer-publishing-guide.md)
-#### [Ativar a sua experiência de versão de avaliação do marketplace ao utilizar o Azure Active Directory](./enable-trial-using-azure-ad.md)
+#### [Ativar uma listagem do Microsoft AppSource e do Azure Marketplace com o Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Desenvolva o seu negócio com o marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Soluções preferenciais](./preferred-solutions.md) 

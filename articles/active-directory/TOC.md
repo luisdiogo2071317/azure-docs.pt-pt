@@ -12,7 +12,6 @@
 
 
 # Introdução
-## [Introdução ao Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Inscreva-se no Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Adicionar um nome de domínio personalizado](fundamentals/add-custom-domain.md)
 ## [Configurar o branding da empresa](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Atribuir licenças a utilizadores](fundamentals/license-users-groups.md)
 ## [Configurar a reposição personalizada de palavra-passe](authentication/quickstart-sspr.md)
 ## [Adicionar informações de privacidade da sua organização no Azure AD](active-directory-properties-area.md)
+## [Aceder ao Azure Active Directory para criar um novo inquilino](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # Procedimento
@@ -91,11 +91,13 @@
 ### [Utilizadores em risco](reports-monitoring/concept-user-at-risk.md)
 ### [Inícios de sessão de risco](reports-monitoring/concept-risky-sign-ins.md)
 ### [Eventos de risco](reports-monitoring/concept-risk-events.md)
-### [A monitorizar os registos com o Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [A monitorizar os registos com o Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tarefas
-#### [Configurar localizações com nome](active-directory-named-locations.md)
+#### [Transferir um relatório de início de sessão](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Transferir um relatório de auditoria](reports-monitoring/quickstart-download-audit-report.md)
+#### [Configurar localizações com nome](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Encontrar relatórios de atividades](reports-monitoring/howto-find-activity-reports.md)
 #### [Utilizar o Pacote de Conteúdos do Power BI para o Azure AD](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Remediar utilizadores sinalizados como em risco](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
