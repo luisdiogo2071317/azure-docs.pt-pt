@@ -1,22 +1,23 @@
 ---
-title: Método de pesquisa de dicionário de API de texto de Microsoft Translator | Documentos da Microsoft
-description: Use o método de pesquisa de dicionário do API de texto do Microsoft Translator.
+title: Método de pesquisa de dicionário de API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Use o método de pesquisa de dicionário de API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868090"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127850"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>API 3.0 de texto: Pesquisa de dicionário
+# <a name="translator-text-api-30-dictionary-lookup"></a>Texto do Translator API 3.0: Pesquisa de dicionário
 
 Fornece traduções alternativas para uma palavra e um pequeno número de frases idiomático. Cada tradução tem uma parte da voz e uma lista de traduções back. As back-traduções permitem que um utilizador compreender a tradução em contexto. O [exemplo de dicionário](.\v3-0-dictionary-examples.md) operação permite desagregações ainda mais a ver exemplo utiliza de cada par de tradução.
 
@@ -55,7 +56,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_cabeçalho_</td>
+    <td>_Uma autorização_<br/>_Cabeçalho_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -139,7 +140,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
 Este exemplo mostra como procurar traduções alternativas em espanhol do termo em inglês `fly` .
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -190,7 +191,7 @@ O corpo de resposta (abreviado para efeitos de clareza) é:
 
 Este exemplo mostra o que acontece quando o termo que está a ser pesquisado não existe para o par de dicionário válido.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

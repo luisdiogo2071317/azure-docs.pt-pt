@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: e0c2ad2385b5c8a54b4d8a743cc4f081e5ff6703
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398033"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127300"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).
 
 Existem três tipos de ponto de extremidade suportada pelo Gestor de tráfego:
 * **Pontos finais do Azure** são utilizados para os serviços alojados no Azure.
-* **Pontos finais externos** são utilizadas para serviços alojados fora do Azure, no local ou num fornecedor de alojamento diferentes.
+* **Pontos finais externos** são utilizados para endereços IPv4/IPv6 ou, para os serviços alojados fora do Azure que pode ser local ou num fornecedor de alojamento diferentes.
 * **Aninhados pontos finais** são utilizados para combinar os perfis do Gestor de tráfego para criar esquemas de encaminhamento de tráfego de mensagens em fila mais flexíveis para suportar as necessidades de Implantações maiores e mais complexas.
 
 Não existe nenhuma restrição como pontos finais de diferentes tipos são combinados num único perfil do Gestor de tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto final.
@@ -47,11 +47,12 @@ Quando utilizar pontos finais do Azure, o Gestor de tráfego Deteta quando uma a
 
 ## <a name="external-endpoints"></a>Pontos finais externos
 
-Pontos finais externos são utilizados para serviços fora do Azure. Por exemplo, um serviço alojado no local ou com um fornecedor diferente. Pontos finais externos podem ser utilizados individualmente ou combinados com pontos finais do Azure no mesmo perfil de Gestor de tráfego. A combinação de pontos finais do Azure com pontos finais externos permite vários cenários:
+Pontos finais externos são utilizados para qualquer um dos endereços IPv4/IPv6 ou, para serviços fora do Azure. Uso de pontos finais do endereço IPv4/IPv6 permite tráfego manager verificar o estado de funcionamento dos pontos finais sem a necessidade de um nome DNS para os mesmos. Como resultado, o Gestor de tráfego pode responder a consultas com registos de A/AAAA ao retornar esse ponto final numa resposta. Serviços fora do Azure podem incluir um serviço alojado no local ou com um fornecedor diferente. Pontos finais externos podem ser utilizados individualmente ou combinados com pontos finais do Azure no perfil do Gestor de tráfego do mesmo, exceto para pontos de extremidade especificado como endereços IPv4 ou IPv6, que só podem ser a pontos finais externos. A combinação de pontos finais do Azure com pontos finais externos permite vários cenários:
 
-* Em qualquer um de um modelo de ativação pós-falha ativa-ativa ou ativa-passiva, utilize o Azure para fornecer uma maior redundância para existente aplicação no local.
-* Para reduzir a latência de aplicação para utilizadores em todo o mundo, estenda uma aplicação no local existente para as localizações geográficas adicionais no Azure. Para obter mais informações, consulte [Gestor de tráfego "Performance" encaminhamento de tráfego](traffic-manager-routing-methods.md#performance).
-* Use Azure para fornecer capacidade adicional para um existente no local aplicativo, continuamente ou como uma solução de "burst-to-cloud" para satisfazer um pico na procura.
+* Fornece redundância de maior para uma aplicação no local existente em qualquer um de um modelo de ativação pós-falha ativa-ativa ou ativa-passiva com o Azure. 
+* Encaminhar o tráfego para pontos de extremidade que não tem um nome DNS associado a eles. Além disso, diminua a latência de pesquisa DNS global, removendo a necessidade de executar uma segunda consulta DNS para obter um endereço IP de um nome DNS devolvido. 
+* Reduzir a latência de aplicação para utilizadores em todo o mundo, expansão de um aplicativo no local existente para as localizações geográficas adicionais no Azure. Para obter mais informações, consulte [Gestor de tráfego "Performance" encaminhamento de tráfego](traffic-manager-routing-methods.md#performance).
+* Fornece capacidade adicional para um existente no local aplicativo, continuamente ou como uma solução de "burst-to-cloud" para satisfazer um pico no pedido com o Azure.
 
 Em certos casos, é útil utilizar pontos finais externos para fazer referência a serviços do Azure (para obter exemplos, consulte a [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)). Neste caso, as verificações de estado de funcionamento são faturadas à tarifa de pontos finais do Azure, não a taxa de pontos finais externos. No entanto, ao contrário dos pontos finais do Azure, se para ou eliminar o serviço subjacente, verificação de integridade faturação continua até que desativa ou elimina o ponto final no Gestor de tráfego.
 
@@ -71,7 +72,7 @@ Algumas considerações adicionais aplicam-se ao configurar aplicações Web com
 
 Desativar um ponto final no Gestor de tráfego pode ser útil para remover temporariamente o tráfego de um ponto final que está no modo de manutenção ou que vai ser implementado. Quando o ponto final está novamente em execução, pode ser ativada novamente.
 
-Pontos de extremidade podem ser ativados e desativados através do portal do Gestor de tráfego, PowerShell, CLI ou API REST, que são suportadas no modelo de implementação clássica e Resource Manager.
+Pontos de extremidade podem ser ativados e desativados através do portal do Gestor de tráfego, PowerShell, CLI ou REST API.
 
 > [!NOTE]
 > Desativar um ponto final do Azure não tem nada a ver com o estado de implementação no Azure. Um serviço do Azure (por exemplo, uma VM ou a aplicação Web permanece em execução e para receber tráfego, mesmo quando desativado no Traffic Manager. É possível resolver o tráfego diretamente para a instância do serviço, em vez de através do nome DNS de perfil do Gestor de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).

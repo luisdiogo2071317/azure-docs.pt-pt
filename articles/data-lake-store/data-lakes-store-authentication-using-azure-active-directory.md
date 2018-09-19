@@ -1,6 +1,6 @@
 ---
-title: Autenticação no Data Lake Store com o Azure Active Directory | Documentos da Microsoft
-description: Saiba como autenticar com o Data Lake Store com o Azure Active Directory
+title: Autenticação na geração 1 de armazenamento do Azure Data Lake com o Azure Active Directory | Documentos da Microsoft
+description: Saiba como autenticar com a geração 1 de armazenamento do Azure Data Lake com o Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: feb35336681376f6f4bd262418146d931f3d1e83
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494182"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294888"
 ---
-# <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação com o Data Lake Store com o Azure Active Directory
+# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação com a geração 1 de armazenamento do Azure Data Lake com o Azure Active Directory
 
-Azure Data Lake Store utiliza o Azure Active Directory para autenticação. Antes de criar um aplicativo que funciona com o Azure Data Lake Store, deve decidir como autenticar a aplicação no Azure Active Directory (Azure AD).
+Geração de armazenamento 1 do Azure Data Lake utiliza o Azure Active Directory para autenticação. Antes de criar um aplicativo que funciona com o Data Lake Storage Gen1, deve decidir como autenticar a aplicação no Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Opções de autenticação
 
-* **Autenticação de utilizador final** -credenciais do Azure de um utilizador final são utilizadas para autenticar com o Store de Lake de dados. Solicita a estas credenciais de utilizador da aplicação criada para funcionar com o Data Lake Store. Como resultado, esse mecanismo de autenticação é *interativo* e a aplicação é executada no contexto do utilizador com sessão iniciada. Para obter mais informações e instruções, consulte [autenticação de utilizador final para o Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Autenticação de utilizador final** -credenciais do Azure de um utilizador final são utilizadas para autenticar com a geração 1 de armazenamento do Data Lake. Solicita a estas credenciais de utilizador da aplicação criada para trabalhar com a geração 1 de armazenamento do Data Lake. Como resultado, esse mecanismo de autenticação é *interativo* e a aplicação é executada no contexto do utilizador com sessão iniciada. Para obter mais informações e instruções, consulte [autenticação de utilizador final para geração 1 de armazenamento do Data Lake](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Autenticação serviço a serviço** -Utilize esta opção se pretender que um aplicativo para se autenticar no Data Lake Store. Nesses casos, criar uma aplicação do Azure Active Directory (AD) e utilize a chave da aplicação do Azure AD para autenticar no Data Lake Store. Como resultado, esse mecanismo de autenticação é *não interativa*. Para obter mais informações e instruções, consulte [autenticação de serviço a serviço para o Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Autenticação serviço a serviço** -Utilize esta opção se pretender que um aplicativo para se autenticar no Data Lake Storage Gen1. Nesses casos, criar uma aplicação do Azure Active Directory (AD) e utilizar a chave da aplicação do Azure AD para autenticar com a geração 1 de armazenamento do Data Lake. Como resultado, esse mecanismo de autenticação é *não interativa*. Para obter mais informações e instruções, consulte [autenticação de serviço a serviço para geração 1 de armazenamento do Data Lake](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-A tabela a seguir ilustra como o utilizador final e mecanismos de autenticação de serviço para serviço são suportados para o Data Lake Store. Aqui está como ler a tabela.
+A tabela a seguir ilustra como o utilizador final e mecanismos de autenticação de serviço para serviço são suportados para geração 1 de armazenamento do Data Lake. Aqui está como ler a tabela.
 
 * O símbolo de ✔ * indica que a opção de autenticação é suportada e liga a um artigo que demonstra como utilizar a opção de autenticação. 
 * O símbolo ✔ indica que a opção de autenticação é suportada. 

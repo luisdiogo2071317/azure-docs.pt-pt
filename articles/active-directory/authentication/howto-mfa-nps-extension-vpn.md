@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160285"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297576"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar a sua infraestrutura VPN com o MFA do Azure ao utilizar a extensão de servidor de políticas de rede para o Azure
 
@@ -122,7 +122,7 @@ Se o módulo de PowerShell de diretório Active Directory do Microsoft Azure já
 
 Para utilizar a extensão NPS, os utilizadores no local tem de ser sincronizados com o Azure Active Directory e ativados para a MFA. Este guia assume que os utilizadores no local são sincronizados com o Azure Active Directory através do Azure AD Connect. Abaixo, são fornecidas instruções para permitir que os utilizadores para a MFA.
 
-Para obter informações sobre o Azure AD Connect, consulte [integrar seus diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Para obter informações sobre o Azure AD Connect, consulte [integrar seus diretórios no local com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>ID de GUID do Azure Active Directory 
 
@@ -393,7 +393,7 @@ Para utilizar o script, forneça a extensão com suas credenciais administrativa
 
 6. Reinicie o servidor.
 
-### <a name="verify-the-configuration"></a>Verifique a configuração
+### <a name="verify-the-configuration"></a>Verificar a configuração
 Para verificar a configuração, tem de estabelecer uma nova ligação de VPN com o servidor VPN. Após introduzir com êxito as suas credenciais para autenticação primária, a ligação VPN aguarda que a autenticação secundária com êxito antes da ligação é estabelecida, conforme mostrado abaixo. 
 
 ![A janela de VPN de definições do Windows](./media/howto-mfa-nps-extension-vpn/image42.png)
@@ -453,5 +453,5 @@ Para obter mais informações, consulte [integrar a infraestrutura NPS existente
 
 [Gateway de Ambiente de Trabalho Remoto e Servidor Multi-Factor Authentication do Azure com o RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrar os diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrar os diretórios no local com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

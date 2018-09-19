@@ -1,27 +1,27 @@
 ---
-title: Inscreva-se da API de texto do Translator | Documentos da Microsoft
-titleSuffix: Microsoft Cognitive Services
+title: Inscreva-se da API de texto do tradutor
+titleSuffix: Azure Cognitive Services
 description: Como inscrever-se para a API de texto do Translator.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 18d2926be9d358b90e5b34754e689604aef85522
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "36265562"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128322"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se para a API de texto do tradutor
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-- Não tem uma conta? Pode criar uma [conta gratuita](https://azure.microsoft.com/free/) experimentar sem encargos.
+- Não tem uma conta? Pode criar uma [conta gratuita](https://azure.microsoft.com/free/) para experimentar sem custos.
 - Já tem uma conta? [Iniciar sessão](https://ms.portal.azure.com/)
 
 ## <a name="create-a-subscription-to-the-translator-text-api"></a>Criar uma subscrição para a API de texto do tradutor

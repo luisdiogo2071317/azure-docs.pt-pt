@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1597e850219ddbab1a0714072c47e12016aa2069
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d46c0382540f33f41c44249cf9464426de265000
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736893"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124251"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -29,7 +29,7 @@ A consola de série de Máquina Virtual no Azure fornece acesso a um console bas
 Para obter a documentação da consola de série para VMs do Linux [clique aqui](../linux/serial-console.md).
 
 > [!Note] 
-> Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível na cloud do Azure Government ou Azure China.
+> Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível em clouds do Azure Government ou Azure China.
 
  
 

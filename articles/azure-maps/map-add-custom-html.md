@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e5cfbc7ddc10edf9b21afce73e3b7f8795fcdac9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382050"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121962"
 ---
 # <a name="add-custom-html-to-the-map"></a>Adicionar HTML personalizado para o mapa
 
-Este artigo mostra-lhe como adicionar um HTML personalizado, como um ficheiro de imagem ao mapa. 
+Este artigo mostra-lhe como adicionar um HTML personalizado, como um ficheiro de imagem ao mapa.
 
 ## <a name="understand-the-code"></a>Compreender o código
 
@@ -33,11 +33,15 @@ O último bloco de código utiliza [addHtml](https://docs.microsoft.com/javascri
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo: 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes: 
-* [Mostrar resultados da pesquisa](./map-search-location.md)
-* [Obtenha informações a partir de uma coordenada](./map-get-information-from-coordinate.md)
+Saiba mais sobre as classes e métodos usados neste artigo:
 
+> [!div class="nextstepaction"]
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes:
+
+> [!div class="nextstepaction"]
+> [Mostrar resultados da pesquisa](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Obtenha informações a partir de uma coordenada](./map-get-information-from-coordinate.md)

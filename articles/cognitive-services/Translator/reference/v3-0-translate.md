@@ -1,25 +1,25 @@
 ---
-title: Método de traduzir texto Microsoft tradutor API | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Utilize o método traduzir de API do Microsoft tradutor texto.
+title: API de texto do Translator traduzir o método
+titleSuffix: Azure Cognitive Services
+description: Use o método API de texto do Translator tradução.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: d8d5e1e2fac747fa733f1d92c08008b7eac2a1bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1841730a39d29c5fe1f3451b7614818e924b339f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355628"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128762"
 ---
-# <a name="text-api-30-translate"></a>Texto API 3.0: traduzir
+# <a name="translator-text-api-30-translate"></a>API 3.0 de texto de tradutor: traduzir
 
-Converte texto.
+Traduz texto.
 
 ## <a name="request-url"></a>URL do pedido
 
@@ -31,54 +31,54 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Os parâmetros requeridos transmitidos a cadeia de consulta são:
+Parâmetros de pedido passados na seqüência de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
     <td>versão de API</td>
-    <td>*Necessário parâmetro*.<br/>Versão da API solicitada pelo cliente. Valor tem de ser `3.0`.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
     <td>de</td>
-    <td>*O parâmetro opcional*.<br/>Especifica a linguagem de texto de entrada. Localizar os idiomas estão disponíveis para traduzir de procurando [idiomas suportados](.\v3-0-languages.md) utilizando o `translation` âmbito. Se o `from` parâmetro não for especificado, a deteção automática de idioma é aplicada ao determinar o idioma de origem.</td>
+    <td>*O parâmetro opcional*.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando [idiomas suportados](.\v3-0-languages.md) usando o `translation` âmbito. Se o `from` parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Necessário parâmetro*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `translation` âmbito. Por exemplo, utilizar `to=de` traduzir para alemão.<br/>É possível converter para vários idiomas em simultâneo, repetindo o parâmetro na cadeia de consulta. Por exemplo, utilizar `to=de&to=it` traduzir alemão e italiano.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `translation` âmbito. Por exemplo, utilizar `to=de` para efetuar a conversão para o alemão.<br/>É possível converter para vários idiomas em simultâneo, repetindo o parâmetro na cadeia de consulta. Por exemplo, utilizar `to=de&to=it` para efetuar a conversão para o alemão e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
-    <td>*O parâmetro opcional*.<br/>Define se o texto a ser traduzido é texto simples ou texto HTML. Qualquer HTML tem de ser um elemento bem formado e completo. Os valores possíveis são: `plain` (predefinição) ou `html`.</td>
+    <td>*O parâmetro opcional*.<br/>Define se o texto a ser traduzido é texto sem formatação ou HTML. Qualquer HTML tem de ser um elemento bem formado e completo. Os valores possíveis são: `plain` (predefinição) ou `html`.</td>
   </tr>
   <tr>
     <td>categoria</td>
-    <td>*O parâmetro opcional*.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter traduções de um sistema personalizado criado com [personalizada tradutor](../customization.md). Valor predefinido é: `general`.</td>
+    <td>*O parâmetro opcional*.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter as traduções de um sistema personalizado criado com [Translator personalizado](../customization.md). Valor predefinido é: `general`.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td>*O parâmetro opcional*.<br/>Especifica a forma como devem ser tratados de profanities no traduções. Os valores possíveis são: `NoAction` (predefinição), `Marked` ou `Deleted`. Para compreender as formas para tratar profanity, consulte [processamento Profanity](#handle-profanity).</td>
+    <td>*O parâmetro opcional*.<br/>Especifica como profanities devem ser tratados de traduções. Os valores possíveis são: `NoAction` (predefinição), `Marked` ou `Deleted`. Para compreender as maneiras de tratar a linguagem inapropriada, veja [processamento de linguagem inapropriada](#handle-profanity).</td>
   </tr>
   <tr>
     <td>ProfanityMarker</td>
-    <td>*O parâmetro opcional*.<br/>Especifica a forma como profanities deve ser marcado como no traduções. Os valores possíveis são: `Asterisk` (predefinição) ou `Tag`. Para compreender as formas para tratar profanity, consulte [processamento Profanity](#handle-profanity).</td>
+    <td>*O parâmetro opcional*.<br/>Especifica como profanities devem ser marcados em traduções. Os valores possíveis são: `Asterisk` (predefinição) ou `Tag`. Para compreender as maneiras de tratar a linguagem inapropriada, veja [processamento de linguagem inapropriada](#handle-profanity).</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
-    <td>*O parâmetro opcional*.<br/>Especifica se pretende incluir projecção de alinhamento do texto de origem para texto traduzida. Os valores possíveis são: `true` ou `false` (predefinição). </td>
+    <td>*O parâmetro opcional*.<br/>Especifica se pretende incluir a projeção de alinhamento do texto de origem para o texto traduzido. Os valores possíveis são: `true` ou `false` (predefinição). </td>
   </tr>
   <tr>
     <td>includeSentenceLength</td>
-    <td>*O parâmetro opcional*.<br/>Especifica se pretende incluir limites de frases para o texto de entrada e o texto traduzido. Os valores possíveis são: `true` ou `false` (predefinição).</td>
+    <td>*O parâmetro opcional*.<br/>Especifica se pretende incluir limites de frase para a introdução de texto e o texto traduzido. Os valores possíveis são: `true` ou `false` (predefinição).</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td>*O parâmetro opcional*.<br/>Especifica uma linguagem de contingência se o idioma de texto de entrada não pode ser identificado. A deteção automática de idioma é aplicada quando o `from` parâmetro for omitido. Se falhar a deteção, o `suggestedFrom` idioma será assumido.</td>
+    <td>*O parâmetro opcional*.<br/>Especifica um idioma de fallback se não é possível identificar o idioma do texto de entrada. Deteção automática de idioma é aplicada quando o `from` parâmetro for omitido. Se a deteção falhar, o `suggestedFrom` idioma será assumido.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*O parâmetro opcional*.<br/>Especifica o script de texto de entrada.</td>
+    <td>*O parâmetro opcional*.<br/>Especifica o script pelo texto de entrada.</td>
   </tr>
   <tr>
     <td>toScript</td>
@@ -93,25 +93,25 @@ Cabeçalhos de pedido incluem:
   <th>Descrição</th>
   <tr>
     <td>_Uma autorização_<br/>_Cabeçalho_</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Consulte [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Especifica o tipo de conteúdo do payload. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>O comprimento do corpo do pedido.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
     <td>X ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerados pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta utilizando um parâmetro de consulta com o nome `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de cadeia denominado `Text`, que representa a cadeia a converter.
+O corpo do pedido é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`, que representa a cadeia a converter.
 
 ```json
 [
@@ -122,51 +122,51 @@ O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON 
 As seguintes limitações aplicam-se:
 
 * A matriz pode ter no máximo de 25 elementos.
-* O texto completo incluído no pedido não pode exceder 5000 carateres, incluindo espaços.
+* Todo o texto incluído no pedido não pode exceder os 5000 carateres, incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `detectedLanguage`: Um objeto que descrevem o idioma detetado através das seguintes propriedades:
+  * `detectedLanguage`: Um objeto que descreve o idioma detetado através das seguintes propriedades:
 
-      * `language`: Uma cadeia representando o código de idioma detetado.
+      * `language`: Uma cadeia de caracteres representando o código do idioma detetado.
 
-      * `score`: Um valor de vírgula flutuante que indica a confiança no resultado. A classificação é entre zero e um e uma pontuação baixa indica uma confiança baixa.
+      * `score`: Um valor de vírgula flutuante que indica a confiança no resultado. A classificação é entre zero e outro e uma pontuação baixa indica uma confiança de baixa.
 
-    O `detectedLanguage` propriedade só está presente no objeto de resultado quando a deteção automática de idioma é solicitada.
+    O `detectedLanguage` propriedade só está presente no objeto de resultado quando é solicitada a deteção automática de idioma.
 
-  * `translations`: Uma matriz de resultados de conversão. O tamanho da matriz corresponde ao número de idiomas de destino especificado através de `to` parâmetro de consulta. Cada elemento na matriz inclui:
+  * `translations`: Uma matriz de resultados de tradução. O tamanho da matriz corresponde ao número de idiomas de destino especificado por meio do `to` parâmetro de consulta. Cada elemento na matriz inclui:
 
-    * `to`: Uma cadeia representando o código de idioma do idioma de destino.
+    * `to`: Uma cadeia de caracteres que representa o código de idioma do idioma de destino.
 
-    * `text`: Uma cadeia de texto traduzido a dar.
+    * `text`: Uma cadeia de caracteres dando o texto traduzido.
 
-    * `transliteration`: Um objeto dar traduzido texto do script especificado pelo `toScript` parâmetro.
+    * `transliteration`: Um objeto dando o texto traduzido no script especificado pelo `toScript` parâmetro.
 
       * `script`: Uma cadeia que especifica o script de destino.   
 
-      * `text`: Uma cadeia de texto traduzido a dar no script de destino.
+      * `text`: Uma cadeia de caracteres dando o texto traduzido no script de destino.
 
-    O `transliteration` objeto não está incluído se transliteration não ocorrer.
+    O `transliteration` objeto não estará incluído se Transliteração não aconteça.
 
-    * `alignment`: Um objeto com uma propriedade de cadeia única chamada `proj`, que é mapeado texto traduzidas em texto de entrada. As informações de alinhamento só são fornecidas quando o parâmetro de pedido `includeAlignment` é `true`. Alinhamento é devolvido como um valor de cadeia do seguinte formato: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Os dois pontos separa o início e índice de fim, o travessão separa os idiomas e espaço separa as palavras. Uma palavra poderão ficar alinhadas com zero, um ou vários palavras no outro idioma e as palavras aligned poderão estar não contíguos. Quando não existem informações de alinhamento estiver disponíveis, o elemento de alinhamento estará vazio. Consulte [obter informações de alinhamento](#obtain-alignment-information) para um exemplo e restrições.
+    * `alignment`: Um objeto com uma propriedade de cadeia única chamada `proj`, que é mapeado entrada de texto para o texto traduzido. As informações de alinhamento só são fornecidas quando o parâmetro de pedido `includeAlignment` é `true`. Alinhamento é retornado como um valor de cadeia de caracteres no seguinte formato: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Início de separa os dois pontos e índice final, o traço separa as linguagens e espaço separa as palavras. Uma palavra pode alinhar com zero, uma ou várias palavras no outro idioma e as palavras alinhadas podem estar não contíguos. Quando não existem informações de alinhamento estiverem disponíveis, o elemento de alinhamento estará vazio. Ver [obter informações de alinhamento](#obtain-alignment-information) para um exemplo e restrições.
 
-    * `sentLen`: Um objeto devolver limites de frases nos textos de entrada e de saída.
+    * `sentLen`: Um objeto retornando limites de sentença em textos de entrada e saídos.
 
-      * `srcSentLen`: Uma matriz de número inteiro que representa os comprimentos das frases no texto de entrada. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frases.
+      * `srcSentLen`: Uma matriz de número inteiro que representa os comprimentos das sentenças no texto introduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada sentença.
 
-      * `transSentLen`: Uma matriz de número inteiro que representa os comprimentos das frases no texto traduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frases.
+      * `transSentLen`: Uma matriz de número inteiro que representa os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada sentença.
 
-    Limites de frases só são incluídos quando o parâmetro de pedido `includeSentenceLength` é `true`.
+    Limites de sentença só estão incluídos quando o parâmetro de pedido `includeSentenceLength` é `true`.
 
-  * `sourceText`: Um objeto com uma propriedade de cadeia única chamada `text`, que fornece o texto de entrada no script de idioma de origem predefinido. `sourceText` a propriedade está presente apenas quando a entrada é expresso num script que não é o habitual script para o idioma. Por exemplo, se a entrada foram Árabe escrito no script latinos, em seguida, `sourceText.text` seria o mesmo texto Arabic convertido em Arab script.
+  * `sourceText`: Um objeto com uma propriedade de cadeia única chamada `text`, que dá a introdução de texto do script padrão do idioma de origem. `sourceText` propriedade está presente apenas quando a entrada é expressa num script que não é o script habitual para o idioma. Por exemplo, se a entrada foram escrito no script Latino, em seguida, de Árabe `sourceText.text` poderia ser o mesmo texto em Árabe convertido em script árabe.
 
-Exemplo de respostas JSON são fornecidos no [exemplos](#examples) secção.
+Exemplo de respostas JSON são fornecidos na [exemplos](#examples) secção.
 
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
-Seguem-se os códigos de estado HTTP possíveis que devolve um pedido. 
+Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
@@ -177,7 +177,7 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros do pedido.</td>
+    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros de pedido antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -185,29 +185,29 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>403</td>
-    <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isto indica frequentemente que foram utilizadas todas as traduções livres fornecidas com uma subscrição de avaliação cópias de segurança.</td>
+    <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isso geralmente indica que foram utilizadas todas as conversões gratuitas fornecidas com uma subscrição de avaliação cópia de segurança.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>O chamador está a enviar demasiados pedidos.</td>
+    <td>O chamador está enviando demasiados pedidos.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Ocorreu um erro inesperado. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita o pedido. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Servidor temporariamente indisponível. Repita o pedido. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="translate-a-single-input"></a>Converte um valor único
+### <a name="translate-a-single-input"></a>Traduzir uma entrada única
 
-Este exemplo mostra como converter uma frase único do inglês, chinês simplificado para.
+Este exemplo mostra como traduzir uma frase única de inglês para chinês simplificado.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -215,7 +215,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ---
 
-O corpo da resposta é:
+O corpo de resposta é:
 
 ```
 [
@@ -227,13 +227,13 @@ O corpo da resposta é:
 ]
 ```
 
-O `translations` matriz inclui um elemento, que fornece a conversão da única informação de texto na entrada.
+O `translations` matriz inclui um elemento, que fornece a tradução da única parte de texto na entrada.
 
-### <a name="translate-a-single-input-with-language-auto-detection"></a>Converte uma única entrada com a deteção automática de idioma
+### <a name="translate-a-single-input-with-language-auto-detection"></a>Traduzir uma entrada única com deteção automática de idioma
 
-Este exemplo mostra como converter uma frase único do inglês, chinês simplificado para. O pedido não especifica a linguagem de entrada. A deteção automática do idioma de origem é utilizada em vez disso.
+Este exemplo mostra como traduzir uma frase única de inglês para chinês simplificado. O pedido não especifica o idioma de entrada. Deteção automática de idioma de origem é utilizada em vez disso.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -241,7 +241,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ---
 
-O corpo da resposta é:
+O corpo de resposta é:
 
 ```
 [
@@ -253,13 +253,13 @@ O corpo da resposta é:
     }
 ]
 ```
-A resposta é semelhante à resposta do exemplo anterior. Uma vez que a deteção automática de idioma foi solicitada, a resposta também inclui informações sobre o idioma detetada para o texto de entrada. 
+A resposta é semelhante à resposta do exemplo anterior. Uma vez que foi solicitada a deteção automática de idioma, a resposta também inclui informações sobre o idioma detetado para a introdução de texto. 
 
-### <a name="translate-with-transliteration"></a>Traduzir com transliteration
+### <a name="translate-with-transliteration"></a>Traduzir com Transliteração
 
-Vamos expandir o anterior exemplo adicionando transliteration. O pedido seguinte pede-lhe uma conversão chinês escrita no script em latim.
+Vamos ampliar o exemplo anterior, adicionando Transliteração. O pedido seguinte solicita uma tradução chinês escrita em scripts latinos.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -267,7 +267,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ---
 
-O corpo da resposta é:
+O corpo de resposta é:
 
 ```
 [
@@ -284,13 +284,13 @@ O corpo da resposta é:
 ]
 ```
 
-O resultado da conversão inclui agora um `transliteration` propriedade, o que lhe dá o texto traduzido utilizando carateres em latim.
+O resultado de tradução agora inclui uma `transliteration` propriedade, que fornece o texto traduzido usando caracteres latinos.
 
-### <a name="translate-multiple-pieces-of-text"></a>Traduzir várias peças de texto
+### <a name="translate-multiple-pieces-of-text"></a>Traduzir várias partes de texto
 
-Traduzir os vários cadeias em simultâneo é simplesmente um fim de especificar uma matriz de cadeias no corpo do pedido.
+A tradução de várias cadeias de caracteres de uma só vez é simplesmente uma questão de especificar uma matriz de cadeias de caracteres no corpo do pedido.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -298,7 +298,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ---
 
-O corpo da resposta é:
+O corpo de resposta é:
 
 ```
 [
@@ -315,11 +315,11 @@ O corpo da resposta é:
 ]
 ```
 
-### <a name="translate-to-multiple-languages"></a>Converter para vários idiomas
+### <a name="translate-to-multiple-languages"></a>Traduzir a vários idiomas
 
-Este exemplo mostra como converter a entrada mesma para vários idiomas num pedido.
+Este exemplo mostra como traduzir a mesma entrada para vários idiomas numa solicitação.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -327,7 +327,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ---
 
-O corpo da resposta é:
+O corpo de resposta é:
 
 ```
 [
@@ -340,44 +340,44 @@ O corpo da resposta é:
 ]
 ```
 
-### <a name="handle-profanity"></a>Processar profanity
+### <a name="handle-profanity"></a>Lidar com linguagem inapropriada
 
-Normalmente, o serviço de tradutor irão manter profanity que está presente na origem na tradução. O grau de profanity e o contexto que torna palavras profanas diferem entre as culturas e como resultado o grau de profanity na linguagem de destino pode ser amplified ou reduzido.
+Normalmente, o serviço Microsoft Translator irá reter linguagem inapropriada que está presente na origem na tradução. O grau de linguagem inapropriada e contexto que torna as palavras impróprias diferem entre culturas, e assim o grau de linguagem inapropriada no idioma de destino pode ser Sim os amplificou ou reduzido.
 
-Se quiser evitar obter profanity na tradução, independentemente da presença de profanity no texto de origem, pode utilizar o profanity filtragem opção. A opção permite-lhe escolher se pretende ver profanity eliminado, se pretende marcar profanities com etiquetas adequadas (dando-lhe a opção para adicionar o seus próprios pós-processamento) ou não se quiser nenhuma ação executada. Os valores aceites de `ProfanityAction` são `Deleted`, `Marked` e `NoAction` (predefinição).
+Se quiser evitar que a linguagem inapropriada na tradução, independentemente da presença de linguagem inapropriada em texto de origem, pode utilizar a linguagem inapropriada filtragem de opção. A opção permite-lhe escolher se pretende ver linguagem inapropriada eliminada, se pretende marcar profanities com as etiquetas adequadas (fornecendo a a opção de adicionar seu próprio pós-processamento) ou não mesmo nenhuma ação executada. Os valores aceites `ProfanityAction` estão `Deleted`, `Marked` e `NoAction` (predefinição).
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
   <th>Ação</th>
   <tr>
     <td>`NoAction`</td>
-    <td>Este é o comportamento predefinido. Profanity passarão a partir da origem de destino.<br/><br/>
+    <td>Este é o comportamento padrão. Linguagem inapropriada passará de origem ao destino.<br/><br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (inglês)**: ele é um jackass.
+    **Tradução de exemplo (em inglês)**: ele é um jackass.
     </td>
   </tr>
   <tr>
     <td>`Deleted`</td>
     <td>Palavras profanas serão removidas da saída sem substituição.<br/><br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (inglês)**: ele é um.
+    **Tradução de exemplo (em inglês)**: ele é um.
     </td>
   </tr>
   <tr>
     <td>`Marked`</td>
-    <td>Palavras profanas são substituídas por um marcador no resultado. O marcador depende o `ProfanityMarker` parâmetro.<br/><br/>
-Para `ProfanityMarker=Asterisk`, profanas palavras são substituídas por `***`:<br/>
+    <td>Palavras profanas são substituídas por um marcador no resultado. Depende de marcador a `ProfanityMarker` parâmetro.<br/><br/>
+Para `ProfanityMarker=Asterisk`, palavras profanas são substituídas por `***`:<br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (inglês)**: ele é um \* \* \*.<br/><br/>
-Para `ProfanityMarker=Tag`, profanas palavras são rodeadas por etiquetas XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
+    **Tradução de exemplo (em inglês)**: ele é um \* \* \*.<br/><br/>
+Para `ProfanityMarker=Tag`, palavras profanas são cercadas por marcas XML &lt;linguagem inapropriada&gt; e &lt;/profanity&gt;:<br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (inglês)**: ele é um &lt;profanity&gt;jackass&lt;/profanity&gt;.
+    **Tradução de exemplo (em inglês)**: ele é um &lt;linguagem inapropriada&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
 Por exemplo:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -399,7 +399,7 @@ Esta ação devolve:
 
 Compare com:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -407,7 +407,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ---
 
-Devolve o último esse pedido:
+Devolve a que a última solicitação:
 
 ```
 [
@@ -419,18 +419,18 @@ Devolve o último esse pedido:
 ]
 ```
 
-### <a name="translate-content-with-markup-and-decide-whats-translated"></a>Converter o conteúdo com o markup e decidir o que está a converter
+### <a name="translate-content-with-markup-and-decide-whats-translated"></a>Traduzir conteúdo com marcação e decidir o que é traduzido
 
-É comum para converter o conteúdo que inclui o markup, tais como o conteúdo a partir de uma página HTML ou conteúdo a partir de um documento XML. Incluir o parâmetro de consulta `textType=html` ao traduzir o conteúdo com etiquetas. Além disso, por vezes, é útil excluir o conteúdo específico da tradução. Pode utilizar o atributo `class=notranslate` para especificar o conteúdo que deve permanecer no respetivo idioma original. No exemplo seguinte, o conteúdo dentro da primeira `div` não será possível converter elemento enquanto o conteúdo no segundo `div` será possível converter o elemento.
+É comum para efetuar a conversão de conteúdo que inclui a marcação, como o conteúdo a partir de uma página HTML ou conteúdo a partir de um documento XML. Incluir o parâmetro de consulta `textType=html` ao traduzir conteúdo com etiquetas. Além disso, às vezes, é útil excluir o conteúdo específico da tradução. Pode usar o atributo `class=notranslate` para especificar o conteúdo que deve permanecer em seu idioma original. No exemplo a seguir, o conteúdo dentro da primeira `div` elemento será não ser convertido, enquanto o conteúdo na segunda `div` elemento será convertido.
 
 ```
 <div class="notranslate">This will not be translated.</div>
 <div>This will be translated. </div>
 ```
 
-Eis um exemplo de pedido para ilustrar.
+Aqui está um pedido de exemplo para ilustrar.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -452,9 +452,9 @@ A resposta é:
 
 ### <a name="obtain-alignment-information"></a>Obter informações de alinhamento
 
-Para receber as informações de alinhamento, especifique `includeAlignment=true` na cadeia de consulta.
+Para receber informações de alinhamento, especifique `includeAlignment=true` na seqüência de consulta.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -478,21 +478,21 @@ A resposta é:
 ]
 ```
 
-As informações de alinhamento começa com `0:2-0:1`, o que significa que os primeiros três carateres no texto de origem (`The`) mapa para os primeiros dois carateres no texto traduzido (`La`).
+As informações de alinhamento começa com `0:2-0:1`, que significa que os três primeiros carateres no texto de origem (`The`) o mapa para os dois primeiros caracteres no texto traduzido (`La`).
 
 Tenha em atenção as seguintes restrições:
 
-* Alinhamento só é devolvido para um subconjunto dos pares de idioma:
-  - do inglês para qualquer idioma;
-  - a partir de qualquer outro idioma inglês, exceto para chinês simplificado, chinês tradicional e Letão inglês;
-  - de japonês, coreano ou de coreano como japonês.
-* Não irá receber alinhamento se o frase for uma tradução encontra. Exemplo de uma tradução encontra é "Este é um teste", "Posso adoram," e outros frases de alta frequência.
+* Alinhamento só é devolvido para um subconjunto de pares de idiomas:
+  - inglês para qualquer outra linguagem;
+  - em qualquer outra linguagem para inglês, exceto o chinês simplificado, chinês tradicional e Letão para inglês;
+  - do japonês de coreano ou coreano para japonês.
+* Não receberá alinhamento se a frase é uma tradução em. Exemplo de uma tradução em é "Este é um teste", "Eu gosto do" e outras frases de elevada frequência.
 
-### <a name="obtain-sentence-boundaries"></a>Obter os limites de frases
+### <a name="obtain-sentence-boundaries"></a>Obter os limites de frase
 
-Para receber informações sobre o comprimento de frases no texto de origem e traduzido texto, especifique `includeSentenceLength=true` na cadeia de consulta.
+Para receber informações sobre o tamanho da sentença no texto de origem e o texto traduzido, especifique `includeSentenceLength=true` na seqüência de consulta.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
@@ -518,7 +518,7 @@ A resposta é:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traduzir com dicionário dinâmico
 
-Se já conhece a tradução de que pretende aplicar a uma palavra ou uma frase de acesso, pode fornecê-lo como markup dentro do pedido. O dicionário dinâmico apenas é seguro para substantivos compostos como nomes de adequado e produto.
+Se já sabe a tradução que pretende aplicar a uma palavra ou frase, pode fornecer como marcação dentro do pedido. O dicionário dinâmico só é seguro para substantivos compostos, como nomes próprios e nomes de produtos.
 
 A marcação para fornecer utiliza a seguinte sintaxe.
 
@@ -526,7 +526,7 @@ A marcação para fornecer utiliza a seguinte sintaxe.
 <mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
 ```
 
-Por exemplo, considere o frase English "é uma entrada de dicionário do wordomatic palavra." Para preservar o word _wordomatic_ a tradução, enviar o pedido:
+Por exemplo, considere a sentença em inglês "wordomatic o word é uma entrada de dicionário." Para preservar a palavra _wordomatic_ na tradução, enviar o pedido:
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
@@ -544,7 +544,7 @@ O resultado é:
 ]
 ```
 
-Esta funcionalidade funciona da mesma forma com `textType=text` ou com `textType=html`. A funcionalidade deve ser utilizada com moderação. A forma adequada e até que ponto melhor da personalização tradução é conversor de personalizada a utilizar. Tradutor personalizado faz com que a utilização total de contexto e análises probabilidades. Se tiver ou pode suportar os dados de formação que mostra o seu trabalho ou frase no contexto de criar, obter muito melhores resultados. [Saiba mais sobre personalizada tradutor](../customization.md).
+Esta funcionalidade funciona da mesma forma com `textType=text` ou com `textType=html`. O recurso deve ser usado com moderação. A forma adequada e muito melhor de personalização de tradução é com o Translator personalizado. Tradutor personalizado utiliza completa de contexto e probabilidades de estatísticas. Se tiver ou pode pagar criar dados de treinamento que mostra a sua empresa ou frase no contexto, obtém resultados muito melhores. [Saiba mais sobre o Translator personalizado](../customization.md).
  
 
 

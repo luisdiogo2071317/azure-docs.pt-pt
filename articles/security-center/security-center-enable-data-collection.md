@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304123"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127096"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
@@ -34,7 +34,8 @@ Este artigo fornece orientações sobre como instalar um agente de monitorizaç�
 > - Recolha de dados para o conjunto de dimensionamento de Máquina Virtual não é atualmente suportada.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Ativar o aprovisionamento automático do Microsoft Monitoring Agent     
+## Ativar o aprovisionamento automático do Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+
 Para recolher os dados das máquinas deve ter o Microsoft Monitoring Agent instalado.  Instalação do agente pode ser automaticamente (recomendado) ou pode optar por instalar o agente manualmente.  
 
 >[!NOTE]
@@ -296,9 +297,9 @@ Pode instalar manualmente o agente de monitorização Microsoft, para que o Cent
 -   Para identificar problemas de instalação de aprovisionamento automático, consulte [problemas de estado de funcionamento do agente de monitorização](security-center-troubleshooting-guide.md#mon-agent).
 
 -  Para identificar os requisitos de rede monitorização do agente, consulte [resolução de problemas requisitos de rede do agente de monitorização](security-center-troubleshooting-guide.md#mon-network-req).
--   Para identificar problemas de integração manual, consulte [como resolver problemas de integração do Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-   Para identificar problemas de integração manual, consulte [como resolver problemas de integração do Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- Para identificar problemas de computadores e de VMs não monitorizadas, veja [computadores e VMs não monitorizadas](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- Para identificar problemas de computadores e de VMs não monitorizadas, veja [computadores e VMs não monitorizadas](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Este artigo mostrou como a recolha de dados e o aprovisionamento automático no Centro de segurança funciona. Para saber mais acerca do Centro de Segurança, consulte o seguinte:

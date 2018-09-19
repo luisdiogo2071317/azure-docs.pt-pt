@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600775"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295942"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou uma propriedade nos modelos do Azure Resource Manager
 
 Este artigo mostra como iterar no modelo do Azure Resource Manager para criar várias instâncias de um recurso. Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-manager-templates-resources.md#condition).
+
+Para obter um tutorial, veja [Tutorial: criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Iteração de recursos
 
@@ -442,6 +444,9 @@ Os exemplos seguintes apresentam cenários comuns para a criação de vários re
 |[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa várias regras de segurança de um grupo de segurança de rede. Ele constrói as regras de segurança de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+* Para seguir um tutorial, veja [Tutorial: criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+
 * Se quiser saber mais sobre as secções de um modelo, veja [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber como implementar o modelo, veja [implementar uma aplicação com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

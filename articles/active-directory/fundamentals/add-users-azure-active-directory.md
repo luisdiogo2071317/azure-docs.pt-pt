@@ -12,12 +12,12 @@ ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 533c02f842918c5c27aaaf421a4f828022de6b8f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604974"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295109"
 ---
 # <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Como: Adicionar ou eliminar os utilizadores que utilizam o Azure Active Directory
 Adicionar novos utilizadores ou eliminar os utilizadores existentes no seu inquilino do Azure Active Directory (Azure AD), com o Azure AD.
@@ -55,7 +55,7 @@ Pode criar um novo utilizador com o Azure Active Directory.
     O utilizador é criado e adicionado ao inquilino do Azure AD.
 
 ## <a name="add-a-new-user-within-a-hybrid-environment"></a>Adicionar um novo utilizador dentro de um ambiente híbrido
-Se tiver um ambiente com o Azure Active Directory (cloud) e o Windows Server Active Directory (no local), pode adicionar novos utilizadores ao sincronizar os dados da conta de utilizador existente. Para obter mais informações sobre ambientes híbridos e utilizadores, consulte [integrar seus diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md).
+Se tiver um ambiente com o Azure Active Directory (cloud) e o Windows Server Active Directory (no local), pode adicionar novos utilizadores ao sincronizar os dados da conta de utilizador existente. Para obter mais informações sobre ambientes híbridos e utilizadores, consulte [integrar seus diretórios no local com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Eliminar um utilizador
 Pode eliminar um utilizador existente com o Azure Active Directory.

@@ -1,43 +1,45 @@
 ---
-title: Perguntas mais frequentes sobre o serviço de API de rostos em | Microsoft Docs
-description: Seguem-se as respostas às perguntas sobre o serviço de API de rostos em mais populares.
+title: Perguntas mais frequentes sobre - Face API
+titlesuffix: Azure Cognitive Services
+description: Seguem-se as respostas às perguntas mais populares sobre o serviço de API de rostos.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: da2f75deef8a8beea3ba23b6a39eb6d2fe104b54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351559"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129561"
 ---
-# <a name="face-api-frequently-asked-questions"></a>Enfrentam API perguntas mais frequentes
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Se não conseguir encontrar respostas às suas perguntas neste FAQ, tente pedir a Comunidade de API de rostos em [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte ajuda e suporte no [UserVoice](https://cognitive.uservoice.com/).
+# <a name="face-api-frequently-asked-questions"></a>Face API perguntas mais frequentes
+
+### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de API de rostos em [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte ajuda e suporte no [UserVoice](https://cognitive.uservoice.com/).
 
 -----
-**Pergunta**: fatores que podem reduzir a precisão da API de letra para reconhecimento, a verificação ou Localizar semelhante?
+**Pergunta**: que fatores podem reduzir a precisão da API de rostos para reconhecimento, verificação ou encontrar semelhante?
 
-**Resposta**: geralmente, é os mesmos casos onde humans ter dificuldade em identificar alguém incluindo;
-* Obstructions bloquear continuará ser de um ou ambos
-* Backlighting Harsh iluminação da, por exemplo, grave
-* Alterações à hair de estilo ou facial hair
-* Alterações devido a idade
-* É necessário ter muito expressões facial (por exemplo, screaming)
+**Resposta**: geralmente é os mesmo casos em que os humanos têm dificuldades em identificar alguém incluindo;
+* Obstructions um ou ambos os olhos de bloqueio
+* Backlighting Harsh iluminação, por exemplo, grave
+* Alterações de cabelo de cabelo estilo ou facial
+* Alterações à idade
+* Expressões faciais Extreme (por exemplo, alegam)
 
-Enfrentam API, muitas vezes, é efetuada com êxito nestes casos um desafio, mas pode ser reduzida precisão. Para tornar o reconhecimento mais robusto e resolver estes desafios, preparar as pessoas com fotografias que incluem um diversity de ângulos e iluminação da.
+Face API, muitas vezes, é efetuada com êxito num desafio casos como esses, mas pode ser reduzida a precisão. Para tornar o reconhecimento mais robusto e enfrentar esses desafios, Treine as pessoas com fotos que incluem uma diversidade de ângulos e de iluminação.
 
 -----
-**Pergunta**: Estou a transmitir os dados binários imagem mas receber um erro de "imagem enfrentam inválido".
+**Pergunta**: Estou passando os dados de imagem binária na mas recebo um erro de "imagem da face inválida".
 
-**Resposta**: Isto implica que o algoritmo tido um problema ao analisar a imagem. Causas incluem:
-* Os formatos de entrada de imagem suportados inclui PNG, JPEG, BMP e GIF (moldura primeiro).
-* Tamanho do ficheiro de imagem deve ser não superior a 4MB
-* O intervalo de tamanho de rostos em detetável é 36 x 36 para 4096 x 4096 pixéis. Não serão detetados faces fora deste intervalo
-* Alguns faces não seja detetados devido a dificuldades técnicas, por exemplo, muito grandes enfrentam os ângulos (head-implicar), occlusion grande. Faces frontal e perto frontal tem obter os melhores resultados
+**Resposta**: isso implica que o algoritmo tinha um problema ao analisar a imagem. As causas incluem:
+* Os formatos de entrada de imagem suportados inclui JPEG, PNG, GIF (o primeiro quadro), BMP.
+* Tamanho do ficheiro de imagem deve ser não maior do que 4MB
+* O intervalo de tamanho de face detetável é 36 x 36 para 4096 x 4096 pixels. Rostos fora deste intervalo não serão detetados
+* Alguns rostos poderão não ser detetados devido a desafios técnicos, por exemplo, muito grandes de face de ângulos (head-representam), oclusão grandes. Rostos frontal e quase frontal tem os melhores resultados
 
 -----

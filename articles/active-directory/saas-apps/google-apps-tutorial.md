@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 8001f2d38ac80bb6c67419faa54bf834531f0332
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9281c5fe04e3f29d1e3425edb4841dfaca1cd9e2
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439407"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com G Suite, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um G Suite logon único habilitado subscrição
 - Uma subscrição do Google Apps ou a subscrição de Google Cloud Platform.
 
@@ -70,7 +70,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 1. **P: se um usuário está conectado por meio do Windows, são autenticam automaticamente ao G Suite sem introdução pedida uma palavra-passe?**
    
-    R: Existem duas opções para ativar este cenário. Em primeiro lugar, os utilizadores podem iniciar sessão em dispositivos Windows 10 através da [Azure Active Directory Join](../device-management-introduction.md). Em alternativa, os utilizadores foi possível iniciar sessão em dispositivos Windows que estão associados a um domínio para um diretório de Active Directory no local que tenha sido ativada para início de sessão único para o Azure AD através de um [serviços de Federação do Active Directory (AD FS)](../connect/active-directory-aadconnect-user-signin.md) implementação. Ambas as opções exigem que execute os passos no tutorial seguinte para ativar o início de sessão único entre o Azure AD e G Suite.
+    R: Existem duas opções para ativar este cenário. Em primeiro lugar, os utilizadores podem iniciar sessão em dispositivos Windows 10 através da [Azure Active Directory Join](../device-management-introduction.md). Em alternativa, os utilizadores foi possível iniciar sessão em dispositivos Windows que estão associados a um domínio para um diretório de Active Directory no local que tenha sido ativada para início de sessão único para o Azure AD através de um [serviços de Federação do Active Directory (AD FS)](../hybrid/plan-connect-user-signin.md) implementação. Ambas as opções exigem que execute os passos no tutorial seguinte para ativar o início de sessão único entre o Azure AD e G Suite.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -83,7 +83,7 @@ Para configurar a integração do G Suite para o Azure AD, terá de adicionar G 
 
 **Para adicionar o G Suite da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -276,7 +276,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

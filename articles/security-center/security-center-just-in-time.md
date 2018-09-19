@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2a079456813a67eb40d5cf42bcdd2c91fbc631d3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297044"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124156"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
@@ -108,6 +108,9 @@ Sob **configuração do acesso JIT da VM**, também pode adicionar e configurar 
 
 3. Selecione **OK**.
 
+> [!NOTE]
+>Quando o acesso JIT da VM está ativado para uma VM, o Centro de segurança do Azure cria negar todas as regras de tráfego de entrada para as portas selecionadas nos grupos de segurança de rede associados a ele. As regras será a prioridade dos seus grupos de segurança de rede ou a prioridade mais baixa do que as regras existentes que já existem. Isso depende de uma análise realizada pelo centro de segurança do Azure que determina se uma regra é segura ou não.
+>
 ## <a name="requesting-access-to-a-vm"></a>Pedir acesso a uma VM
 
 Para pedir acesso a uma VM:
@@ -162,8 +165,6 @@ Pode obter informações sobre atividades VM utilizando a pesquisa de registos. 
 
   **Registo de atividades** fornece uma vista filtrada de operações anteriores para essa VM, juntamente com o tempo, a data e a subscrição.
 
-  ![Ver o registo de atividade][5]
-
 Pode baixar as informações de registo, selecionando **clique aqui para transferir todos os itens como CSV**.
 
 Modificar os filtros e selecione **aplicar** para criar um registo e de pesquisa.
@@ -172,15 +173,62 @@ Modificar os filtros e selecione **aplicar** para criar um registo e de pesquisa
 
 A apenas no acesso à VM de tempo a funcionalidade pode ser utilizada através da API de centro de segurança do Azure. Pode obter informações sobre VMs configuradas, adicionar novos, pedir acesso a uma VM e mais, por meio desta API. Ver [políticas de acesso de rede Jit](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), para saber mais sobre o apenas no tempo de REST API.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurar uma política de tempo para uma VM
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Através do just in time acesso à VM através do PowerShell 
 
-Para configurar uma política de tempo numa VM específica, tem de executar este comando na sua sessão do PowerShell: ASCJITAccessPolicy do conjunto.
-Siga a documentação do cmdlet para obter mais informações.
+Para utilizar o apenas na solução de acesso VM de tempo através do PowerShell, utilize os cmdlets do PowerShell do Centro de segurança do Azure oficiais e, especificamente `Set-AzureRmJitNetworkAccessPolicy`.
+
+O exemplo seguinte define uma VM in-time política numa VM específica de acesso e define o seguinte:
+1.  Feche as portas 22 e a 3389.
+2.  Defina uma janela de tempo máximo de 3 horas para cada, para que o podem ser abertos por pedido aprovado.
+3.  Permite que o utilizador que está a pedir acesso para controlar a origem de endereços IP e permite ao utilizador estabelecer uma sessão com êxito após um aprovados just-in-pedido de acesso de tempo.
+
+Execute o seguinte no PowerShell para fazer isso:
+
+1.  Atribuir uma variável que contém o apenas VM in-time política de acesso para uma VM:
+
+        $JitPolicy = (@{
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+             number=22;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"})})
+
+2.  Insira a VM just-in Política de acesso VM de tempo para uma matriz:
+    
+        $JitPolicyArr=@($JitPolicy)
+
+3.  Configurar o apenas VM in-time de política na VM selecionada de acesso:
+    
+        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="requesting-access-to-a-vm"></a>Pedir acesso a uma VM
 
-Para aceder a uma VM específica que está protegida com a solução de tempo, tem de executar este comando na sua sessão do PowerShell: ASCJITAccess invocar.
-Siga a documentação do cmdlet para obter mais informações.
+No exemplo a seguir, pode ver um apenas no pedido de acesso VM de tempo para uma VM específica na qual porta 22 é solicitada para ser aberto para um endereço IP específico e para um período de tempo específico:
+
+Execute o seguinte no PowerShell:
+1.  Configurar as propriedades de acesso de pedido VM
+
+        $JitPolicyVm1 = (@{
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+           number=22;
+           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.  Insira os parâmetros de pedido de acesso VM numa matriz:
+
+        $JitPolicyArr=@($JitPolicyVm1)
+3.  Enviar o acesso de pedido (utilize o ID de recurso que obteve no passo 1)
+
+        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+
+Para obter mais informações, consulte a documentação de cmdlet do PowerShell.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como just-in-time acesso VM no Centro de segurança ajuda a que controlar o acesso às suas máquinas virtuais do Azure.

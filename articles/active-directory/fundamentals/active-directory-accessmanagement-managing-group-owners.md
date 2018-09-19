@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: 5ca2115e8f5f2e18c31477135aa94bc04d6d9256
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577400"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297780"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Como: Adicionar ou remover os proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory (Azure AD) do Azure são detidos e geridos pelo proprietários do grupo. Os proprietários do grupo são atribuídos para gerir um grupo e seus membros por um proprietário do recurso (administrador). Os proprietários do grupo não têm de ser membros do grupo. Depois que foi atribuído a um proprietário do grupo, apenas um proprietário do recurso pode adicionar ou remover proprietários.
@@ -66,6 +66,6 @@ Remova um proprietário de um grupo com o Azure AD.
 
 - [Utilizar grupos para atribuir acesso a uma aplicação SaaS integrada](../users-groups-roles/groups-saasapps.md)
 
-- [Integrar as identidades no local ao Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
 - [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-v2-cmdlets.md)

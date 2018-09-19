@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 261cb45bd3b7b7f284eff3397aca141917a82502
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 33cbc65ec5971f8bfe0133e5dca181194cd0bbdd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504860"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294004"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de palavras-passe para o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de credenciais necessários para a autenticação NTLM (NT LAN Manager) e Kerberos para sincronizar com os Serviços de Domínio do Azure AD. Assim que a sincronização de credenciais estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -59,7 +59,7 @@ Versão recomendada: **1.1.614.0** - publicada em 5 de setembro de 2017.
 >
 >
 
-Instruções de instalação para o Azure AD Connect estão disponíveis no seguinte artigo - [Introdução ao Azure AD Connect](../active-directory/active-directory-aadconnect.md)
+Instruções de instalação para o Azure AD Connect estão disponíveis no seguinte artigo - [Introdução ao Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)
 
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>Ativar a sincronização de hashes de credencial de NTLM e Kerberos para o Azure AD
 Execute o seguinte script do PowerShell em cada floresta do AD. O script permite que os hashes de palavra-passe NTLM e Kerberos de todos os utilizadores locais sejam sincronizados com o seu inquilino do Azure AD. O script também inicia uma sincronização completa no Azure AD Connect.

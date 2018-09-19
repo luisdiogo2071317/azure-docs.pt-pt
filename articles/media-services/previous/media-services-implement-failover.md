@@ -1,75 +1,69 @@
 ---
-title: Implementar ativação pós-falha de transmissão em fluxo com Media Services do Azure | Microsoft Docs
+title: Implementar ativação pós-falha de transmissão em fluxo com os serviços de multimédia do Azure | Documentos da Microsoft
 description: Este tópico mostra como implementar um cenário de transmissão em fluxo de ativação pós-falha.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788859"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124615"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementar ativação pós-falha de transmissão em fluxo com Media Services do Azure
+# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementar ativação pós-falha de transmissão em fluxo com os serviços de multimédia do Azure
 
-Esta explicação passo a passo demonstra como copiar o conteúdo (blobs) de um recurso a outro para lidar com redundância de transmissão em fluxo a pedido. Este cenário é útil se pretender configurar a rede de entrega de conteúdos do Azure para efetuar a ativação pós-falha entre dois centros de dados, em caso de uma falha no Centro de dados de um. Estas instruções utilizam o SDK de Media Services do Azure, a API de REST de serviços de suporte de dados do Azure e o SDK de armazenamento do Azure para demonstrar as seguintes tarefas:
+Estas instruções demonstram como copiar o conteúdo (blobs) de um recurso em outro modo a lidar com a redundância para a pedido de transmissão em fluxo. Este cenário é útil se desejar configurar a rede de entrega de conteúdos do Azure para efetuar a ativação pós-falha entre dois datacenters, em caso de indisponibilidade num único datacenter. Estas instruções utilizam o SDK de serviços de multimédia do Azure, API de REST de serviços de multimédia do Azure e o SDK de armazenamento do Azure para demonstrar as seguintes tarefas:
 
-1. Configurar uma conta de Media Services em "Centro de dados A."
-2. Carregue um ficheiro mezanino para um elemento de origem.
-3. Codificar o elemento para ficheiros MP4 de velocidade vários minutos. 
-4. Crie um localizador de assinatura de acesso partilhado só de leitura. Este é o elemento de origem ter acesso de leitura para o contentor na conta de armazenamento que estão associada com o elemento de origem.
-5. Obter o nome do contentor do elemento de origem do localizador de assinatura de acesso partilhado só de leitura criado no passo anterior. Isto é necessário para copiar os blobs entre contas de armazenamento (explicados mais tarde no tópico).
+1. Configurar uma conta de Media Services em "Centro de dados a.."
+2. Carregue um ficheiro de mezanino para um elemento de origem.
+3. Codifique o elemento em ficheiros MP4 de velocidade com vários pouco. 
+4. Crie um localizador de assinatura de acesso partilhado só de leitura. Trata-se para o elemento de origem ter acesso de leitura para o contentor na conta de armazenamento que estão associada com o elemento de origem.
+5. Obter o nome do contentor de elemento de origem do localizador de assinatura de acesso partilhado só de leitura criado no passo anterior. Isso é necessário para copiar blobs entre contas de armazenamento (explicadas posteriormente neste tópico).
 6. Crie um localizador de origem para o recurso que foi criado pela tarefa de codificação. 
 
 Em seguida, para lidar com a ativação pós-falha:
 
-1. Configurar uma conta de Media Services em "Data Center B."
-2. Crie um elemento vazio de destino no destino da conta de Media Services.
-3. Crie um localizador de assinatura de acesso de escrita partilhado. Trata-se para o elemento vazio de destino ter acesso de escrita ao contentor na conta de armazenamento de destino que estão associada com o elemento de destino.
-4. Utilize o SDK de armazenamento do Azure para copiar os blobs (ficheiros de recurso) entre a conta de armazenamento de origem "Centro de dados A" e a conta de armazenamento de destino "Data Center B." Estas contas de armazenamento estão associadas a recursos de interesse.
-5. Associe blobs (ficheiros de recurso), que foram copiados para o contentor de blob de destino com o elemento de destino. 
-6. Criar um localizador de origem para o elemento no "B do Centro de dados" e especifique o ID de localizador que foi gerado para o elemento no "Centro de dados A."
+1. Configurar uma conta de Media Services em "Centro de dados B."
+2. Crie um recurso de vazio de destino no destino conta dos Media Services.
+3. Crie um localizador de assinatura de acesso de escrita partilhado. Trata-se para o elemento de destino vazia ter acesso de escrita para o contentor na conta de armazenamento de destino que estão associada com o recurso de destino.
+4. Utilizar o SDK de armazenamento do Azure para copiar blobs (ficheiros de elemento) entre a conta de armazenamento de origem "Centro de dados A" e a conta de armazenamento de destino "Centro de dados B." Estas contas de armazenamento estão associadas com os ativos de interesse.
+5. Associe blobs (ficheiros de recursos) que foram copiados para o contentor de blob de destino com o recurso de destino. 
+6. Crie um localizador de origem para o elemento em "B de centro de dados" e especifique o ID de localizador que foi gerado para o recurso na "Centro de dados a.."
 
-Isto dá-lhe os URLs de transmissão em fluxo em que os caminhos relativos de URLs são os mesmos (apenas a base de URLs forem diferentes). 
+Isto dá-lhe os URLs de transmissão em fluxo em que os caminhos relativos dos URLs são os mesmos (apenas a base de URLs são diferentes). 
 
-Em seguida, para lidar com qualquer falhas, pode criar uma rede de entrega de conteúdos por cima estes localizadores de origem. 
+Em seguida, para lidar com falhas, pode criar uma rede de entrega de conteúdo sobre estes localizadores de origem. 
 
-Aplicam as seguintes considerações:
+As seguintes considerações aplicam-se:
 
-* A versão atual do SDK de Media Services não suporta programaticamente gerar informações de IAssetFile que podem associar um recurso de ficheiros de recurso. Em alternativa, utilize a API de REST de serviços de suporte de dados de CreateFileInfos para efetuar este procedimento. 
-* Recursos de armazenamento encriptado (AssetCreationOptions.StorageEncrypted) não são suportados para a replicação (porque a chave de encriptação é diferente em ambas as contas de serviços de suporte de dados). 
-* Se pretender tirar partido do empacotamento dinâmico, certifique-se o ponto final de transmissão em fluxo partir do qual pretende transmitir o seu conteúdo está a ser o **executar** estado.
-
-> [!NOTE]
-> Considere utilizar os serviços de suporte de dados [replicador ferramenta](http://replicator.codeplex.com/) como alternativa à implementação de uma ativação pós-falha de transmissão em fluxo cenário manualmente. Esta ferramenta permite-lhe replicar ativos em duas contas dos Media Services.
-> 
-> 
+* A versão atual do SDK de Media Services não suporta programaticamente gerar informações de IAssetFile poderiam associar um recurso de ficheiros de elemento. Em alternativa, utilize a API de REST de serviços de multimédia CreateFileInfos para fazer isso. 
+* Recursos de armazenamento encriptado (AssetCreationOptions.StorageEncrypted) não são suportados para a replicação (porque a chave de encriptação é diferente em ambas as contas de serviços de multimédia). 
+* Se quiser tirar partido do empacotamento dinâmico, certifique-se de que o ponto final de transmissão em fluxo do qual pretende transmitir o seu conteúdo está no **em execução** estado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Duas contas dos Media Services numa subscrição Azure nova ou existente. Consulte [como criar um suporte de dados de conta de serviços](media-services-portal-create-account.md).
+* Duas contas de serviços de multimédia numa subscrição do Azure nova ou existente. Ver [conta de serviços de como criar um suporte de dados](media-services-portal-create-account.md).
 * Sistema operativo: Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET framework 4.5 ou o .NET Framework 4.
 * Visual Studio 2010 SP1 ou versão posterior (Professional, Premium, Ultimate ou Express).
 
-## <a name="set-up-your-project"></a>Configurar o projeto
-Nesta secção, pode criar e configurar um projeto de aplicação de consola c#.
+## <a name="set-up-your-project"></a>Configurar seu projeto
+Nesta secção, pode criar e configura um projeto de aplicação de consola c#.
 
-1. Utilize o Visual Studio para criar uma nova solução que contém o projeto de aplicação de consola c#. Introduza **HandleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique em **OK**.
-2. Criar o **SupportFiles** pasta no mesmo nível que o **HandleRedundancyForOnDemandStreaming.csproj** ficheiro de projeto. Sob o **SupportFiles** pasta, crie o **OutputFiles** e **MP4Files** pastas. Copiar um ficheiro mp4 para o **MP4Files** pasta. (Neste exemplo, o **BigBuckBunny.mp4** ficheiros é utilizado.) 
-3. Utilize **Nuget** para adicionar referências para DLLs relacionados com os Media Services. No **Menu de principal do Visual Studio**, selecione **ferramentas** > **Gestor de pacotes de biblioteca** > **consola do Gestor de pacotes**. Na janela da consola, escreva **Install-Package windowsazure.mediaservices**, e prima Enter.
-4. Adicionar outras referências a que são necessárias para este projeto: System, System e System. Web.
-5. Substitua **utilizando** instruções que foram adicionadas para o **Programs.cs** ficheiro por predefinição com os seguintes:
+1. Utilize o Visual Studio para criar uma nova solução que contém o projeto de aplicação de consola c#. Introduza **HandleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique **OK**.
+2. Criar a **SupportFiles** pasta no mesmo nível que o **HandleRedundancyForOnDemandStreaming.csproj** arquivo de projeto. Sob o **SupportFiles** pasta, criar o **OutputFiles** e **MP4Files** pastas. Copiar um ficheiro. mp4 para o **MP4Files** pasta. (Neste exemplo, o **BigBuckBunny.mp4** arquivo é usado.) 
+3. Uso **Nuget** para adicionar referências para DLLs relacionadas com os serviços de multimédia. Na **Menu de principal do Visual Studio**, selecione **ferramentas** > **Library Package Manager** > **Package Manager Console**. Na janela da consola, escreva **Install-Package windowsazure.mediaservices**, e prima Enter.
+4. Adicionar outras referências que são necessárias para este projeto: Configuration, serialization e System. Web.
+5. Substitua **usando** instruções que foram adicionadas para o **Programs.cs** ficheiro por predefinição com os seguintes:
    
         using System;
         using System.Configuration;
@@ -88,7 +82,7 @@ Nesta secção, pode criar e configurar um projeto de aplicação de consola c#.
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Adicionar o **appSettings** secção para o **. config** ficheiros e atualize os valores com base nos serviços de suporte de dados e armazenamento de chaves e valores de nome. 
+6. Adicionar a **appSettings** secção para o **config** ficheiro e os valores com base nos seus serviços de multimédia e o armazenamento de atualização de chaves e valores de nome. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -101,8 +95,8 @@ Nesta secção, pode criar e configurar um projeto de aplicação de consola c#.
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Adicione o código que processa a redundância para transmissão em fluxo a pedido
-Nesta secção, vai criar a capacidade de processar redundância.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Adicione o código que lida com redundância de demanda de transmissão em fluxo
+Nesta secção, vai criar a capacidade de processar a redundância.
 
 1. Adicione os seguintes campos de nível de classe à classe Program.
        
@@ -131,7 +125,7 @@ Nesta secção, vai criar a capacidade de processar redundância.
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
 
-2. Substitua a definição de método de principal de predefinição com o seguinte. Definições de método chamadas a partir de principal são definidas abaixo.
+2. Substitua a definição do método Main predefinido pelo seguinte. Definições do método que são chamadas de principal são definidas abaixo.
         
         static void Main(string[] args)
         {
@@ -209,10 +203,10 @@ Nesta secção, vai criar a capacidade de processar redundância.
                 writeSasLocator.Delete();
         }
 
-3. As seguintes definições de método são denominadas do principal.
+3. As seguintes definições de método são chamadas de principal.
 
     >[!NOTE]
-    >Não há um limite de 1.000.000 políticas para diferentes políticas de serviços de suporte de dados (por exemplo, para a política de localizador ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política, se estiver a utilizar sempre o mesmos dias e as permissões de acesso. Por exemplo, utilize o mesmo ID para políticas para os localizadores destinadas a permanecem no local durante muito tempo (políticas de carregamento não). Para obter mais informações, consulte [neste tópico](media-services-dotnet-manage-entities.md#limit-access-policies).
+    >Existe um limite de 1,000,000 políticas para diferentes políticas de serviços de multimédia (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve usar o mesmo ID de política se estiver a utilizar sempre os mesmos dias e as permissões de acesso. Por exemplo, utilize o mesmo ID para políticas para localizadores que pretendam permanecem em vigor durante muito tempo (políticas de não carregamento). Para obter mais informações, consulte [neste tópico](media-services-dotnet-manage-entities.md#limit-access-policies).
 
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
@@ -941,7 +935,7 @@ Nesta secção, vai criar a capacidade de processar redundância.
         }
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora, pode utilizar um Gestor de tráfego para encaminhar pedidos entre dois centros de dados e, por conseguinte, efetuar a ativação pós-falha em caso de quaisquer falhas.
+Agora, pode utilizar um Gestor de tráfego para encaminhar os pedidos entre dois centros de dados e, portanto, fazer a ativação pós-falha em caso de falhas.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

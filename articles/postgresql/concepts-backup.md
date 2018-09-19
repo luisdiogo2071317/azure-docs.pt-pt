@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aafe474ef23d499f505f0e1dab7623e5d032cc84
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 707803e1f69a3146772e71ff711a48b510d8c9fc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391713"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127572"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Cópia de segurança e restauro na base de dados do Azure para PostgreSQL
 
@@ -66,6 +66,8 @@ Terá de aguardar o próximo backup de log de transação a executar antes de po
 ### <a name="geo-restore"></a>Georrestauro
 
 Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança georredundante. Georrestauro encontra-se a opção de recuperação predefinida quando o servidor está indisponível devido a um incidente na região onde está alojado o servidor. Se um incidente em grande escala nos resultados da região na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor de cópias de segurança georredundante para um servidor em qualquer outra região. Existe um atraso entre quando é feita uma cópia de segurança e quando são replicado para uma região diferente. Este atraso pode demorar até uma hora, por isso, se ocorrer um desastre, pode haver até à perda de dados de uma hora.
+
+Durante o restauro geográfico, as configurações de servidor que podem ser alteradas incluem a geração de computação, vCore, período de retenção de cópia de segurança e opções de redundância da cópia de segurança. Alterar o escalão de preço (básico, fins gerais ou com otimização de memória) ou o tamanho de armazenamento não é suportado.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas de pós-restauro
 

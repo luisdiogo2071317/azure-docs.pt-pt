@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297303"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294582"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -261,7 +261,7 @@ Como desenvolvedores, gostamos de mergulhar no código e tente começar a utiliz
 
 ### <a name="what-is-an-azure-account"></a>O que é uma conta do Azure?
 
-Para poder criar ou trabalhar com uma subscrição do Azure, tem de ter uma conta do Azure. Uma conta do Azure é simplesmente uma identidade no Azure AD ou num diretório, como uma organização escolar ou profissional, que é considerado fidedigno pelo Azure AD. Se não pertence a uma organização desse tipo, pode sempre criar uma subscrição com o seu Microsoft Account, que é considerado fidedigno pelo Azure AD. Para saber mais sobre a integração no local Windows Server Active Directory com o Azure AD, veja [integrar as identidades no local com o Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+Para poder criar ou trabalhar com uma subscrição do Azure, tem de ter uma conta do Azure. Uma conta do Azure é simplesmente uma identidade no Azure AD ou num diretório, como uma organização escolar ou profissional, que é considerado fidedigno pelo Azure AD. Se não pertence a uma organização desse tipo, pode sempre criar uma subscrição com o seu Microsoft Account, que é considerado fidedigno pelo Azure AD. Para saber mais sobre a integração no local Windows Server Active Directory com o Azure AD, veja [integrar as identidades no local com o Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Para obter mais informações, consulte [subscrições do Azure como estão associadas com o Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

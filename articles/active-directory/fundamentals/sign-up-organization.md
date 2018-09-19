@@ -12,12 +12,12 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 77b49a050724cbf4666ca5253cc1fa518c441e62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ac9783d970af96242266a787071ec831ef5c0df8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732537"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296911"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Como: inscrever-se no Azure Active Directory como uma organização
 Inscreva-se para o Azure Active Directory (Azure AD) uma nova subscrição do Microsoft Azure através de um:
@@ -36,5 +36,11 @@ Inscreva-se para o Azure Active Directory (Azure AD) uma nova subscrição do Mi
 
 - [Utilizar a infraestrutura de identidade no local na cloud](../connect/active-directory-aadconnect.md)
 
+<<<<<<< HEAD
+* [Blogue do Microsoft Azure](https://azure.microsoft.com/blog/)
+* [O que é o Azure AD?](active-directory-whatis.md)
+* [Utilizar a infraestrutura de identidade no local na cloud](../hybrid/whatis-hybrid-identity.md)
+=======
 - [Visite o blog do Microsoft Azure](https://azure.microsoft.com/blog/)
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 

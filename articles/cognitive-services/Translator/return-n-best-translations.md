@@ -1,28 +1,29 @@
 ---
-title: Devolver traduções de melhor N com o texto de Microsoft tradutor API | Microsoft Docs
-description: Devolva traduções de melhor N utilizando a API de texto do conversor de Microsoft.
+title: Retornar traduções de melhor N - API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Retornar traduções de múltipla, com a API de texto do Microsoft Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 3eafe50f69ae1a6748342e64a414ecee4467d0d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1d310cecb41de00c1d3e3986fe715d1519ceeff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352598"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123458"
 ---
-# <a name="how-to-return-n-best-translations"></a>Como devolver traduções de melhor N
+# <a name="how-to-return-n-best-translations"></a>Como retornar traduções múltipla
 
 > [!NOTE]
-> Este método foi preterido. Não está disponível no v 3.0 da API de texto tradutor.
+> Tato metoda se zamítá. Não está disponível no V3.0 da API de texto do Translator.
 
-Os métodos GetTranslations() e GetTranslationsArray() da API de tradutor Microsoft incluem um sinalizador booleano opcional "IncludeMultipleMTAlternatives".
-O método regressará até maxTranslations alternativas onde o delta é fornecido na lista de N melhor do motor de conversor.
+Os métodos GetTranslations() e GetTranslationsArray() de API do Microsoft Translator incluem um sinalizador booleano opcional "IncludeMultipleMTAlternatives".
+O método deve retornar até maxTranslations alternativas em que o delta é fornecido a partir da lista de múltipla de mecanismo do Microsoft translator.
 
 A assinatura é:
 
@@ -36,24 +37,24 @@ A assinatura é:
 
 | Parâmetro | Descrição |
 |:---|:---|
-| appId | **Necessário** se for utilizado o cabeçalho de autorização, deixe o campo de appid vazio ou especifique uma cadeia contendo "Portador" + "" + o token de acesso.|
-| texto | **Necessário** uma cadeia que representa o texto a converter. O tamanho do texto não pode exceder 10000 carateres.|
-| de | **Necessário** uma cadeia representando o código de idioma do texto a converter. |
-| para | **Necessário** uma cadeia representando o código de idioma para traduzir texto para. |
-| maxTranslations | **Necessário** um int que representa o número máximo de traduções para devolver. |
-| opções | **Opcional** TranslateOptions de um objeto que contém os valores apresentados abaixo. Estes são todos os opcionais e predefinido para as definições mais comuns.
+| appId | **Necessário** se o cabeçalho de autorização é usado, deixe o campo de appid vazio ou especificar uma cadeia de caracteres que contém "Bearer" + "" + o token de acesso.|
+| texto | **Necessário** uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|
+| de | **Necessário** uma cadeia de caracteres que representa o código de idioma do texto a traduzir. |
+| para | **Necessário** representando o código de idioma para traduzir o texto numa cadeia de caracteres. |
+| maxTranslations | **Necessário** um inteiro que representa o número máximo de traduções para retornar. |
+| opções | **Opcional** TranslateOptions de um objeto que contém os valores apresentados abaixo. Eles são todos opcionais e predefinido para as definições mais comuns.
 
 * Categoria: O único suportado e a predefinição, a opção é "geral".
-* ContentType: O único suportado, não sendo o predefinido, opção "text/plain".
-* Estado: Estado do utilizador ajudar correlacionar pedido e resposta. O conteúdo mesmo será devolvido na resposta.
-* IncludeMultipleMTAlternatives: sinalizador para determinar se deve devolver mais do que um alternativas do motor MT. Predefinição é falsa e inclui apenas 1 alternativo.
+* ContentType: O único suportado e a predefinição, a opção é "text/plain".
+* Estado: Estado do utilizador para ajudar a correlacionar pedido e resposta. O mesmo conteúdo será devolvido na resposta.
+* IncludeMultipleMTAlternatives: sinalizador para determinar se deve devolver mais do que um alternativas do mecanismo de MT. Padrão é false e inclui apenas 1 alternativa.
 
 ## <a name="ratings"></a>Classificações
 As classificações são aplicadas da seguinte forma: A tradução automática melhor tem uma classificação de 5.
-As alternativas de tradução (melhor-N) geradas automaticamente têm uma classificação de 0 e têm um grau de correspondência de 100.
+As alternativas de tradução (múltipla) geradas automaticamente tem uma classificação de 0 e tem um nível de correspondência de 100.
 
 ## <a name="number-of-alternatives"></a>Número de alternativas
-O número de alternativas devolvidos até maxTranslations, mas pode ser menor.
+O número de alternativas retornados é até maxTranslations, mas pode ser inferior.
 
-## <a name="language-pairs"></a>Pares de idioma
-Esta funcionalidade não está disponível para traduções entre simplificado e chinês tradicional, ambas as direções. Está disponível para todos os outros pares de idioma Translator Microsoft suportadas.
+## <a name="language-pairs"></a>Pares de idiomas
+Esta funcionalidade não está disponível para conversões entre simplificado e chinês tradicional, ambas as direções. Está disponível para todos os outros pares de idiomas suportados do Microsoft Translator.

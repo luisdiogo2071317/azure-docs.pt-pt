@@ -1,23 +1,26 @@
 ---
-title: Interface de linha de comandos do serviço de exploração de conhecimento | Documentos da Microsoft
-description: Utilize a interface de linha de comandos KES para criar ficheiros de índice e a gramática de dados estruturados e, em seguida, implementá-las como serviços da web nos serviços cognitivos da Microsoft.
+title: Interface de linha de comandos - API de serviço de exploração de conhecimento
+titlesuffix: Azure Cognitive Services
+description: Utilizar a interface de linha de comandos para criar ficheiros de índice e a gramática de dados estruturados e, em seguida, implementá-las como serviços da web.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136360"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127160"
 ---
 # <a name="command-line-interface"></a>Interface de Linha de Comandos
-A interface de linha de comando KES fornece a capacidade de criar o índice e a gramática arquivos de dados estruturados e implementá-las como serviços da web.  Ele usa a sintaxe geral: `kes.exe <command> <required_args> [<optional_args>]`.  Pode executar `kes.exe` sem argumentos para apresentar uma lista de comandos, ou `kes.exe <command>` para apresentar uma lista de argumentos disponíveis para o comando especificado.  Segue-se uma lista de comandos disponíveis:
+
+A interface de linha de comando do serviço de exploração de conhecimento (KES) fornece a capacidade de criar o índice e a gramática arquivos de dados estruturados e implementá-las como serviços da web.  Ele usa a sintaxe geral: `kes.exe <command> <required_args> [<optional_args>]`.  Pode executar `kes.exe` sem argumentos para apresentar uma lista de comandos, ou `kes.exe <command>` para apresentar uma lista de argumentos disponíveis para o comando especificado.  Segue-se uma lista de comandos disponíveis:
+
 * build_index
 * build_grammar
 * host_service

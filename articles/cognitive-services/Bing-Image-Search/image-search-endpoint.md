@@ -1,53 +1,55 @@
 ---
-title: Pontos finais de pesquisa de imagem | Microsoft Docs
-description: Resumo de ponto final de API do pesquisa a imagem.
+title: Pontos finais pesquisa de imagem - API de pesquisa de imagens do Bing
+titleSuffix: Azure Cognitive Services
+description: Uma lista de pontos finais disponíveis para a API de pesquisa de imagens do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 0d5f28bfdb45b27b04df068f75e8a20d0235d12b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ca38943908bf3eee04c40cf4decf81fd20b08a1f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351398"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295925"
 ---
 # <a name="image-search-endpoints"></a>Pontos finais de pesquisa de imagem
-O **API de pesquisa de imagem** inclui três pontos finais.  Ponto final 1 devolve imagens a partir Web baseada numa consulta. Devolve o ponto final 2 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Ponto final 3 devolve imagens tendências.
+
+O **API de pesquisa de imagens** inclui três pontos de extremidade.  Ponto final 1 devolve imagens da Web com base numa consulta. Ponto final 2 devolve [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Ponto final 3 devolve imagens em destaque.
 ## <a name="endpoints"></a>Pontos Finais
-Para obter resultados de imagem utilizando a API do Bing, envie um pedido para um dos seguintes pontos finais. Utilize os parâmetros de URL e cabeçalhos para definir mais especificações.
+Para obter resultados de imagem usando a API do Bing, envie um pedido para um dos seguintes pontos finais. Utilize os cabeçalhos e os parâmetros de URL para definir ainda mais especificações.
 
 **Ponto final 1:** devolve imagens que são relevantes para a consulta de pesquisa do utilizador definida por `?q=""`.
-``` 
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**Ponto final 2:** devolve informações sobre uma imagem, utilizando o `GET` ou `POST`.
-``` 
+**Ponto final 2:** retorna informações sobre uma imagem, usando `GET` ou `POST`.
+```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Um pedido GET devolve informações sobre uma imagem, tais como páginas Web que inclui a imagem. Incluir o [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parâmetro com um `GET` pedido.
+Um pedido GET devolve informações sobre uma imagem, como páginas da Web que incluem a imagem. Incluir o [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parâmetro com um `GET` pedido.
 
-Em alternativa, pode incluir uma imagem de binária no corpo de um `POST` pedido e defina o [módulos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parâmetro para `RecognizedEntities`. Esta ação irá devolver um [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) para utilizar como um parâmetro num subsequentes `GET` pedido, que devolve informações sobre as pessoas na imagem.  Definir `modules` para `All` para obter todas as informações, exceto `RecognizedEntities` nos resultados do `POST` sem fazer através de chamada de outro o `insightsToken`. 
+Ou, pode incluir uma imagem binária no corpo de um `POST` pedir e defina o [módulos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parâmetro `RecognizedEntities`. Isto irá devolver uma [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) para utilizar como um parâmetro numa subsequentes `GET` solicitação, que retorna informações sobre as pessoas na imagem.  Definir `modules` para `All` para obter informações de todos, exceto `RecognizedEntities` nos resultados da `POST` sem fazer outra chamada que use o `insightsToken`.
 
 
-**Ponto final 3:** imagens devolve que são tendências com base nos pedidos de pesquisa efetuados por outras pessoas. As imagens estão separadas em diferentes categorias, por exemplo, com base nas pessoas noteworthy ou eventos.
+**Ponto final de 3:** imagens devolve que são mais populares com base nos pedidos de pesquisa realizados por terceiros. As imagens são separadas em diferentes categorias, por exemplo, com base em eventos ou pessoas digno de nota.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 ```
 
-Para obter uma lista de mercados suporta imagens tendências, consulte [tendências imagens](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
+Para obter uma lista de mercados que oferecem suporte a imagens em destaque, consulte [tendências imagens](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 
-Para obter mais informações sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte o [v7 de API de pesquisa do Bing imagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) referência.
+Para obter detalhes sobre os cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a [API de pesquisa de imagens do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) referência.
 ## <a name="response-json"></a>Resposta JSON
-A resposta a um pedido de pesquisa de imagem inclui os resultados como objetos JSON. Para obter exemplos de analisar os resultados, consulte o [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) e [código fonte](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
+A resposta a um pedido de pesquisa de imagem inclui resultados como objetos JSON. Para obter exemplos de analisar os resultados, consulte a [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) e [código-fonte](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Passos Seguintes
-O **Bing** ações de pesquisa devolvem resultados de acordo com o respetivo tipo de suporte de APIs. Todos os pontos finais de pesquisa devolvem resultados como objetos de resposta JSON.  Todos os pontos finais suportam consultas que devolvem um idioma específico e/ou a localização por radius de pesquisa, latitude e longitude.
+O **Bing** ações de pesquisa devolvem resultados de acordo com seu tipo de suporte de APIs. Todos os pontos finais de pesquisa devolvem resultados como objetos de resposta JSON.  Todos os pontos finais suportam consultas que devolvem um idioma específico e/ou localizações, longitude, latitude e radius de pesquisa.
 
-Para obter informações completas acerca dos parâmetros suportados por cada ponto final, consulte as páginas de referência para cada tipo.
-Para obter exemplos de pedidos básicos utilizando a API de pesquisa de imagem, consulte [imagem pesquisa rápida-inicia](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).
+Para obter informações completas sobre os parâmetros suportados por cada ponto de extremidade, consulte as páginas de referência para cada tipo.
+Para obter exemplos de solicitações básicas com a API de pesquisa de imagens, consulte [inícios rápidos de pesquisa de imagens](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).

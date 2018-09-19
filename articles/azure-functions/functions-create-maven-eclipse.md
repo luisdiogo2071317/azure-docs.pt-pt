@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7d29cd3801bf997bf5c28ed0845996725aaf1840
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8b0681165fe84dd54f3b81f610c6698998e881de
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093656"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125498"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Criar a primeira função com o Java e Eclipse (pré-visualização)
 
@@ -77,7 +77,7 @@ Selecione o **execute** menu e abra **configurações de depuração**. Escolher
 
 ![Depure funções no Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
-Defina pontos de interrupção e Inspecione os objetos na sua função usando o IDE. Quando terminar, pare o depurador e o anfitrião de função em execução. Anfitrião de apenas uma função pode ser ativa e em execução localmente no momento.
+Defina pontos de interrupção e Inspecione os objetos na sua função usando o IDE. Quando terminar, pare o depurador e o anfitrião de função em execução. Anfitrião de apenas uma função pode ser ativa e em execução localmente ao mesmo tempo.
 
 ## <a name="deploy-the-function-to-azure"></a>Implementar a função no Azure
 

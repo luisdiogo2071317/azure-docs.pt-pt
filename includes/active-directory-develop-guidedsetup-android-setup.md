@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 45e8668ce0a7eb2edd79271096f58b56ca1af5f0
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 2e23a15a6bff81f0b48b703e516de8a1a1820972
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205574"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293693"
 ---
-## <a name="set-up-your-project"></a>Configurar o projeto
+## <a name="set-up-your-project"></a>Configurar seu projeto
 
-Pretende transferir o projeto do Android Studio este exemplo em vez disso? [Transferir um projeto de](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)e avance para o [passo da configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
+Pretende transferir o projeto do Android Studio este exemplo em vez disso? [Transfira um projeto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)e avançar para o [passo de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto 
-1.  Abra o Android Studio e, em seguida, selecione **ficheiro** > **novo** > **novo projeto**.
-2.  Nome da aplicação e, em seguida, selecione **seguinte**.
-3.  Selecione **API 21 ou mais recente (Android 5.0)** e, em seguida, selecione **seguinte**.
-4.  Deixe **atividade vazia** como está, selecione **seguinte**e, em seguida, selecione **concluir**.
+1.  Abra o Android Studio e, em seguida, selecione **arquivo** > **New** > **novo projeto**.
+2.  Nome à aplicação e, em seguida, selecione **seguinte**.
+3.  Selecione **21 de API ou mais recente (Android 5.0)** e, em seguida, selecione **próxima**.
+4.  Deixe **atividade vazia** como é, selecione **próxima**e, em seguida, selecione **concluir**.
 
 
 ### <a name="add-msal-to-your-project"></a>Adicionar MSAL ao seu projeto
-1.  No Android Studio, selecione **Gradle Scripts** > **gradle (módulo: aplicação)**.
-2.  Em **dependências**, cole o seguinte código:
+1.  No Android Studio, selecione **Scripts de Gradle** > **gradle (módulo: aplicação)**.
+2.  Sob **dependências**, cole o seguinte código:
 
-    ```ruby  
+    ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
@@ -47,15 +47,15 @@ Pretende transferir o projeto do Android Studio este exemplo em vez disso? [Tran
 <!--start-collapse-->
 ### <a name="about-this-package"></a>Sobre este pacote
 
-O pacote do código anterior instala a biblioteca de autenticação da Microsoft. MSAL processa a aquisição, colocação em cache e atualizar os tokens de utilizador que são utilizados para aceder o APIs que estão protegidos pelo ponto final do Azure Active Directory v2.
+O pacote no código anterior instala a biblioteca de autenticação da Microsoft. A MSAL processa todas as operações de token, incluindo aquisição, colocação em cache, atualizar e eliminar.  Os tokens são necessárias para aceder às APIs do protegidos por plataforma de identidade da Microsoft.
 <!--end-collapse-->
 
-## <a name="create-the-application-ui"></a>Criar a IU da aplicação
+## <a name="create-the-apps-ui"></a>Criar a IU da aplicação
 
-1. Aceda a **res** > **esquema**e, em seguida, abra **ctivity_main.XML**. 
-2. Alterar o esquema de atividade do `android.support.constraint.ConstraintLayout` ou outros para `LinearLayout`.
-3. Adicionar o `android:orientation="vertical"` propriedade para o `LinearLayout` nós.
-4. Cole o seguinte código para o `LinearLayout` nó, substituindo o conteúdo atual:
+1. Aceda a **res** > **layout**e, em seguida, abra **ctivity_main**. 
+2. Alterar o esquema de atividade de `android.support.constraint.ConstraintLayout` ou outras para `LinearLayout`.
+3. Adicionar a `android:orientation="vertical"` propriedade o `LinearLayout` nó.
+4. Cole o código seguinte para o `LinearLayout` nó, substituindo o conteúdo atual:
 
     ```xml
     <TextView

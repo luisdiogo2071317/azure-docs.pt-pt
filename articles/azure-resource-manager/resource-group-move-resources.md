@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0b0ddedde49208a85628cdfc226f870a32ff7170
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2448b1f799c5253b36a18f108af1ff2de8b6ced3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985869"
+ms.locfileid: "46127453"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -173,6 +173,8 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Automatização
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Base de Dados do Azure para MySQL
+* Base de Dados do Azure para PostgreSQL
 * DevOps do Azure - as organizações de DevOps do Azure com a extensão de não-Microsoft compras obrigatória [cancelar as suas compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder avançar a conta em várias subscrições.
 * Azure Maps
 * Reencaminhamento do Azure
@@ -237,8 +239,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Serviços de domínio do AD
 * Serviço de estado de funcionamento do AD híbrido
 * Gateway de Aplicação
-* Base de Dados do Azure para MySQL
-* Base de Dados do Azure para PostgreSQL
 * Migração de base de dados do Azure
 * Azure Databricks
 * Azure Migrate

@@ -1,6 +1,6 @@
 ---
-title: 'SDK .NET: operações de gestão de contas no Azure Data Lake Store | Microsoft Docs'
-description: Utilizar o SDK .NET do Azure Data Lake Store para efetuar operações de gestão de contas no Data Lake Store
+title: '.NET SDK: Conta operações de gestão no Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
+description: Utilizar o SDK .NET de geração 1 armazenamento do Azure Data Lake para efetuar operações de gestão de contas no Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ee3c528345232090227c413aebaebe7cc265bc76
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648227"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123917"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operações de gestão de contas no Azure Data Lake Store com o SDK .NET
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
 > * [SDK do .NET](data-lake-store-get-started-net-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
@@ -27,9 +27,9 @@ ms.locfileid: "35648227"
 >
 >
 
-Neste artigo, aprenderá a efetuar operações de gestão de contas no Data Lake Store com o SDK .NET. As operações de gestão de contas incluem criar uma conta do Data Lake Store, listar as contas numa subscrição do Azure, eliminar as contas, etc.
+Neste artigo, aprenderá a efetuar operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com o .NET SDK. Operações de gestão de contas incluem criar uma conta de geração 1 de armazenamento do Data Lake, listar as contas numa subscrição do Azure, eliminar as contas, etc.
 
-Para obter instruções sobre como efetuar operações de gestão de dados no Data Lake Store com o SDK .NET, veja [Operações do sistema de ficheiros no Data Lake Store com o SDK .NET](data-lake-store-data-operations-net-sdk.md).
+Para obter instruções sobre como efetuar operações de gestão de dados na geração 1 de armazenamento do Data Lake com o .NET SDK, consulte [operações de sistema de ficheiros no Data Lake Storage Gen1 com o .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Visual Studio 2013, 2015 ou 2017**. As instruções abaixo utilizam o Visual Studio 2017.
@@ -89,7 +89,7 @@ Para obter instruções sobre como efetuar operações de gestão de dados no Da
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
+                    _adlsAccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    
@@ -101,26 +101,26 @@ Nas restantes secções do artigo, pode ver como utilizar os métodos .NET dispo
 
 ## <a name="authentication"></a>Autenticação
 
-* Para a autenticação de utilizador final na sua aplicação, veja [Autenticação de utilizador final com o Data Lake Store com o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md).
-* Para a autenticação serviço a serviço na sua aplicação, veja [Autenticação serviço a serviço com o Data Lake Store com o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
+* Para a autenticação de utilizador final para a sua aplicação, veja [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Para a autenticação de serviço a serviço para a sua aplicação, veja [autenticação de serviço para serviço com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="create-client-object"></a>Criar o objeto de cliente
-O fragmento seguinte cria o objeto de cliente da conta do Data Lake Store, que é utilizado para emitir pedidos de gestão de contas para o serviço, tais como criar a conta, eliminar a conta, etc.
+O fragmento seguinte cria o objeto de cliente de conta de geração 1 de armazenamento do Data Lake, que é utilizado para emitir pedidos de gestão de conta para o serviço, tais como criar a conta, eliminar a conta, entre outras.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
-## <a name="create-a-data-lake-store-account"></a>Criar uma conta do Data Lake Store
-O fragmento seguinte cria uma conta do Data Lake Store na subscrição do Azure fornecida ao criar o objeto de cliente da conta do Data Lake Store.
+## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta de geração 1 de armazenamento do Data Lake
+O fragmento seguinte cria uma conta de geração 1 de armazenamento do Data Lake na subscrição do Azure que forneceu ao criar o objeto de cliente de conta de geração 1 de armazenamento do Data Lake.
 
-    // Create Data Lake Store account
+    // Create Data Lake Storage Gen1 account
     var adlsParameters = new DataLakeStoreAccount(location: _location);
     _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
-## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Listar todas as contas do Data Lake Store numa subscrição
-Adicione o método seguinte à definição da classe. O fragmento seguinte lista todas as contas do Data Lake Store numa determinada subscrição do Azure.
+## <a name="list-all-data-lake-storage-gen1-accounts-within-a-subscription"></a>Listar todas as contas de geração 1 do Data Lake armazenamento numa subscrição
+Adicione o método seguinte à definição da classe. O fragmento seguinte lista todas as contas de geração 1 do Data Lake armazenamento numa determinada subscrição do Azure.
 
-    // List all Data Lake Store accounts within the subscription
+    // List all Data Lake Storage Gen1 accounts within the subscription
     public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
     {
         var response = _adlsClient.Account.List(_adlsAccountName);
@@ -135,15 +135,15 @@ Adicione o método seguinte à definição da classe. O fragmento seguinte lista
         return accounts;
     }
 
-## <a name="delete-a-data-lake-store-account"></a>Eliminar uma conta do Data Lake Store
-O fragmento seguinte elimina a conta do Data Lake Store criada anteriormente.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminar uma conta de geração 1 de armazenamento do Data Lake
+O fragmento seguinte elimina a conta de geração 1 do Data Lake armazenamento que criou anteriormente.
 
-    // Delete Data Lake Store account
+    // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Consulte também
-* [Operações do sistema de ficheiros no Data Lake Store com o SDK .NET](data-lake-store-data-operations-net-sdk.md)
-* [Referência do SDK .NET do Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Operações do sistema de ficheiros na geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Referência do SDK de .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
+* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

@@ -1,42 +1,43 @@
 ---
-title: Transformar texto com o Microsoft tradutor texto API | Microsoft Docs
-description: Transforme texto utilizando a API de texto do conversor de Microsoft.
+title: Transforme textos - API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Transforme textos com a API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 5aa88f471a33a668b8385e46c2105a3139c142cb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352580"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123951"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como utilizar o método TransformText
 
 > [!NOTE]
-> Este método foi preterido. Não está disponível no v 3.0 da API de texto tradutor.
+> Tato metoda se zamítá. Não está disponível no V3.0 da API de texto do Translator.
 
-O método TransformText é uma função de normalização de texto sociais, que devolve um formulário normalizado da entrada. O método pode ser utilizado como um passo preprocessing na tradução ou outras aplicações que esperam limpo texto de entrada que normalmente não se encontra de redes sociais ou conteúdos gerados pelo utilizador. Atualmente, a função funciona apenas com a entrada em inglês. 
+O método TransformText é uma função de normalização do texto para mídia social, que retorna um formato normalizado da entrada. O método pode ser utilizado como um passo de pré-processamento na tradução automática ou outros aplicativos que esperam que o texto de entrada limpo que normalmente não encontrado em mídia social ou conteúdos gerados pelo utilizador. A função atualmente funciona apenas com entrada em inglês. 
 
-O método é um serviço RESTful utilizando GET através de HTTP. Suporta a serialização de XML e JSON simple.
+O método é um serviço RESTful usando GET através de HTTP. Ele oferece suporte a serialização de XML e JSON simple.
 
 ## <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Descrição |
 |:---|:---|
-| Cabeçalho de autorização | **Necessário** cabeçalho HTTP utilizado para identificar a aplicação. Chave de utilização: "Autorização" e valor: "Portador" + "" + o token de acesso. Para obter detalhes, clique aqui.|
-| Idioma | **Necessário** uma cadeia representando o código de idioma. Este parâmetro suporta apenas inglês com **en** como o nome de idioma.|
-| categoria | **Opcional** uma cadeia que contém a categoria ou o domínio da tradução. Este parâmetro suporta apenas a opção predefinida **geral**.|
-| frase | **Necessário** uma frase que pretende corrigir. |
+| Cabeçalho de autorização | **Necessário** cabeçalho HTTP utilizado para identificar a aplicação. Utilizar chave: "Autorização" e valor: "Bearer" + "" + o token de acesso. Para obter detalhes, vá aqui.|
+| Idioma | **Necessário** uma cadeia de caracteres que representa o código de idioma. Este parâmetro suporta apenas em inglês com **en** como o nome do idioma.|
+| categoria | **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro suporta apenas a opção predefinida **gerais**.|
+| frase | **Necessário** uma frase que deseja corrigir. |
 
-## <a name="return-value"></a>Valor devolvido
+## <a name="return-value"></a>Valor de retorno
 
-O valor de retorno fornece o frase transformado.
+O valor de retorno fornece a frase transformada.
 
 > [!div class="tabbedCodeSnippets"]
 ```json

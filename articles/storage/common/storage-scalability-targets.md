@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 248ec73b09c25c162c5bdc77ceb18e610d604b77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 0c7e453be131c46c7df3919d5311e018a57c6148
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052178"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295806"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Alvos de Dimensionamento e Desempenho do Armazenamento do Azure
 ## <a name="overview"></a>Descrição geral
@@ -34,6 +34,10 @@ Se as necessidades da sua aplicação excederem os destinos de escalabilidade de
 
 ## <a name="scalability-targets-for-a-storage-account"></a>Destinos de escalabilidade para uma conta de armazenamento
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+[!INCLUDE [storage-limits-increase-include](../../../includes/storage-limits-increase-include.md)]
+
+### <a name="storage-resource-provider-limits"></a>Limites de fornecedor de recursos de armazenamento 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

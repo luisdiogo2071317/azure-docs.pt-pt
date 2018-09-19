@@ -3,7 +3,7 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -12,49 +12,49 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 24a5baade2168df603f5505baeaaf8e1c3ea2411
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 724166d402f81fa3a2c977d107111f5a0c32571d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205232"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293722"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Configurar o seu servidor web ou o projeto
+## <a name="setting-up-your-web-server-or-project"></a>Como configurar seu servidor web ou projeto
 
-> Prefere transferir o projeto este exemplo em vez disso? 
-> - [Transferir o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> Prefere baixar de projeto este exemplo em vez disso?
+> - [Transfira o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
 > ou
-> - [Transferir os ficheiros de projeto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) para um servidor local web, como o Python
+> - [Transferir os ficheiros de projeto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) para um servidor local web, como o nó
 >
-> E, em seguida, avance para o [passo da configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
+> E, em seguida, avance para o [passo de configuração](#register-your-application) para configurar o exemplo de código antes de executá-la.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Um servidor local web como [Python http.server](https://www.python.org/downloads/), [servidor http](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), ou IIS Express integração com [Visual Studio 2017](https://www.visualstudio.com/downloads/) é necessário para executar este programa de configuração orientado. 
+Um servidor local web, como [node. js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), ou a integração de IIS Express com [Visual Studio 2017](https://www.visualstudio.com/downloads/) é necessário para executar este tutorial.
 
-As instruções neste guia baseiam-se no Python e Visual Studio 2017, mas pode utilizar qualquer outro ambiente de desenvolvimento ou servidor Web.
+As instruções neste guia se baseiam em node. js e o Visual Studio 2017, mas pode utilizar qualquer outro ambiente de desenvolvimento ou servidor Web.
 
-## <a name="create-your-project"></a>Criar o projeto 
+## <a name="create-your-project"></a>Criar o seu projeto
 
-> ### <a name="option-1-visual-studio"></a>Opção 1: Visual Studio 
-> Se estiver a utilizar o Visual Studio e estiver a criar um novo projeto, siga os passos abaixo para criar uma nova solução do Visual Studio:
+> ### <a name="option-1-visual-studio"></a>Opção 1: Visual Studio
+> Se estiver a utilizar o Visual Studio e criar um novo projeto, siga os passos abaixo para criar uma nova solução do Visual Studio:
 > 1.    No Visual Studio:  `File` > `New` > `Project`
 > 2.    Em `Visual C#\Web`, selecione `ASP.NET Web Application (.NET Framework)`
-> 3.    Nome da aplicação e clique em *OK*
+> 3.    Nome da sua aplicação e clique em *OK*
 > 4.    Em `New ASP.NET Web Application`, selecione `Empty`
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Opção 2: Python / outros servidores web
-> Certifique-se de que instalou [Python](https://www.python.org/downloads/), em seguida, siga o passo abaixo:
-> - Crie uma pasta para alojar a aplicação.
+> ### <a name="option-2-node-other-web-servers"></a>Opção 2: Nó / outros servidores web
+> Certifique-se de que instalou [node. js](https://nodejs.org/en/download/), em seguida, siga o passo abaixo:
+> - Crie uma pasta para alojar a sua aplicação.
 
 
-## <a name="create-your-single-page-applications-ui"></a>Criar a IU sua aplicação única página
-1.  Criar um *index.html* ficheiro para o seu SPA JavaScript. Se estiver a utilizar o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito e selecione: `Add`  >  `New Item`  >  `HTML page` e dê-lhe o nome index.html
+## <a name="create-your-single-page-applications-ui"></a>Criar a IU da sua aplicação de página única
+1.  Criar uma *Index* ficheiro para o SPA do JavaScript. Se estiver a utilizar o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com botão direito e selecione: `Add`  >  `New Item`  >  `HTML page` e dê-lhe o nome Index. HTML
 2.  Adicione o seguinte código à sua página:
 ```html
 <!DOCTYPE html>

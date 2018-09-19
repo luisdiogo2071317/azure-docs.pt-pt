@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056525"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294276"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -82,7 +82,7 @@ O serviço de função NPS fornece o servidor RADIUS e o cliente, funcionalidade
 Para obter informações sobre como instalar a função NPS do serviço do Windows Server 2012 ou anterior, consulte [instalar um servidor de políticas de estado de funcionamento de NAP](https://technet.microsoft.com/library/dd296890.aspx). Para obter uma descrição de melhores práticas para o NPS, incluindo a recomendação para instalar NPS num controlador de domínio, consulte [melhores práticas para NPS](https://technet.microsoft.com/library/cc771746).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>O Azure Active Directory sincronizado com o Active Directory no local
-Para utilizar a extensão NPS, os utilizadores no local tem de ser sincronizados com o Azure AD e ativados para a MFA. Esta secção assume que os utilizadores no local estão sincronizados com o Azure AD com o AD Connect. Para obter informações sobre o Azure AD connect, consulte [integrar seus diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Para utilizar a extensão NPS, os utilizadores no local tem de ser sincronizados com o Azure AD e ativados para a MFA. Esta secção assume que os utilizadores no local estão sincronizados com o Azure AD com o AD Connect. Para obter informações sobre o Azure AD connect, consulte [integrar seus diretórios no local com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>ID de GUID do Azure Active Directory
 Para instalar a extensão NPS, precisa saber o GUID do Azure AD. Abaixo, são fornecidas instruções para localizar o GUID do Azure AD.
@@ -374,4 +374,4 @@ A imagem abaixo da Microsoft Message Analyzer mostra o tráfego de rede filtrado
 
 [Gateway de Ambiente de Trabalho Remoto e Servidor Multi-Factor Authentication do Azure com o RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrar os diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrar os diretórios no local com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

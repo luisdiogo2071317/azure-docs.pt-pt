@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c616618df0ef3a7b97a8d90977559889022db232
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718479"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46293978"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Resolver problemas de associações dinâmicas a grupos
 
@@ -44,4 +44,4 @@ Estes artigos fornecem informações adicionais acerca do Azure Active Directory
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Gestão de aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrar as identidades no local ao Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

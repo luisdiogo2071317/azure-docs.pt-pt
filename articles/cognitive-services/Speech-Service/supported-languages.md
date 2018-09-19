@@ -1,5 +1,5 @@
 ---
-title: Serviço de voz de suporte de idiomas - serviços cognitivos da Microsoft
+title: Serviço de voz de suporte de idiomas - serviços cognitivos do Azure
 description: Uma lista dos idiomas suportados pelo serviço de voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,22 +9,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a4307ee0ff210dafee5afe51bd9cb90db9be22e5
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377893"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295433"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas suportados para o serviço de voz
 
-Diferentes idiomas são suportados para diferentes funções de serviços de voz. As tabelas a seguir resumem o suporte de idiomas.
+Diferentes idiomas são suportados para diferentes funções do serviço de voz. As tabelas seguintes resumem o suporte de idiomas.
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
 A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. 
 
-  Código | Idioma | Adaptação Acústica | Adaptação de idioma | Pronúncia de adaptação
+  Código | Idioma | Adaptação acústica | Adaptação de idioma | Adaptação de pronúncia
  ------|----------|---------------------|---------------------|-------------------------
  ar-por exemplo | Árabe (Egito), standard moderna | Não | Sim | Não
  it-IT | Italiano (Itália) | Não | Sim | Não 
@@ -105,24 +105,24 @@ ja-JP | Japonês |Feminino | "Microsoft Server voz texto em voz voz (ja-JP, Ayum
 | | |Masculino | "Microsoft Server voz texto em voz voz (ja-JP, Ichiro, Apollo)"
 | | |Feminino | "Microsoft Server voz texto em voz voz (ja-JP, HarukaRUS)"
 ko-KR | Coreano |Feminino | "Microsoft Server voz texto para voz de voz (ko-KR, HeamiRUS)"
-MS-MY | Malaio|Masculino | "Voz de texto em voz de voz do Microsoft Server (ms-MY, Rizwan)"
-nb-NO | Norueguês|Feminino | "Voz de texto em voz de voz do Microsoft Server (não-nb, HuldaRUS)"
-NL-NL | Neerlandês|Feminino | "Microsoft Server voz texto em voz voz (nl-NL, HannaRUS)"
-pl-PL | Polaco|Feminino | "Microsoft Server voz texto em voz voz (pl-PL, PaulinaRUS)"
-pt-BR | Português (Brasil)|Feminino | "Microsoft Server voz texto em voz voz (pt-BR, HeloisaRUS)"
+MS-MY | Malaio | Masculino | "Voz de texto em voz de voz do Microsoft Server (ms-MY, Rizwan)"
+nb-NO | Norueguês | Feminino | "Voz de texto em voz de voz do Microsoft Server (não-nb, HuldaRUS)"
+NL-NL | Neerlandês | Feminino | "Microsoft Server voz texto em voz voz (nl-NL, HannaRUS)"
+pl-PL | Polaco | Feminino | "Microsoft Server voz texto em voz voz (pl-PL, PaulinaRUS)"
+pt-BR | Português (Brasil) | Feminino | "Microsoft Server voz texto em voz voz (pt-BR, HeloisaRUS)"
 | | |Masculino | "Microsoft Server voz texto em voz voz (pt-BR, Daniel, Apollo)"
-pt-PT | Português (Portugal)|Feminino | "Microsoft Server voz texto em voz voz (pt-PT, HeliaRUS)"
-RO-RO | Romeno|Masculino | "Microsoft Server voz texto para voz de voz (ro-RO, Andrei)"
+pt-PT | Português (Portugal) | Feminino | "Microsoft Server voz texto em voz voz (pt-PT, HeliaRUS)"
+RO-RO | Romeno | Masculino | "Microsoft Server voz texto para voz de voz (ro-RO, Andrei)"
 ru-RU |Russo| Feminino | "Microsoft Server voz texto em voz voz (ru-RU, Irina, Apollo)"
 | | |Masculino | "Microsoft Server voz texto em voz voz (ru-RU, Pavel, Apollo)"
 | | |Feminino | "Microsoft Server voz texto em voz voz (ru-RU, EkaterinaRUS)"
-sk SK | Eslovaco|Masculino | "Microsoft Server voz texto em voz voz (sk-SK, Filip)"
-IS SL | Esloveno|Masculino | "Microsoft Server voz texto em voz voz (sl-SI, Lado)"
-SV-SE | Sueco|Feminino | "Microsoft Server voz texto para voz de voz (sv-SE, HedvigRUS)"
-es-IN | Tamil (Índia) |Masculino | "Microsoft Server voz texto para voz de voz (dados-IN, Valluvar)"
-th-TH | Tailandês|Masculino | "Microsoft Server voz texto em voz voz (th-TH, Pattara)"
-tr-TR |Turco| Feminino | "Microsoft Server voz texto em voz voz (tr-TR, SedaRUS)"
-vi-VN | Vietnamita|Masculino | "Voz de texto em voz de voz do Microsoft Server (vi-VN, um)"
+sk SK | Eslovaco | Masculino | "Microsoft Server voz texto em voz voz (sk-SK, Filip)"
+IS SL | Esloveno | Masculino | "Microsoft Server voz texto em voz voz (sl-SI, Lado)"
+SV-SE | Sueco | Feminino | "Microsoft Server voz texto para voz de voz (sv-SE, HedvigRUS)"
+es-IN | Tamil (Índia) | Masculino | "Microsoft Server voz texto para voz de voz (dados-IN, Valluvar)"
+th-TH | Tailandês | Masculino | "Microsoft Server voz texto em voz voz (th-TH, Pattara)"
+tr-TR |Turco | Feminino | "Microsoft Server voz texto em voz voz (tr-TR, SedaRUS)"
+vi-VN | Vietnamita | Masculino | "Voz de texto em voz de voz do Microsoft Server (vi-VN, um)"
 zh-CN | Chinês (continental)|Feminino | "Microsoft Server voz texto para voz de voz (zh-CN, HuihuiRUS)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (zh-CN, Yaoyao, Apollo)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (zh-CN, Kangkang, Apollo)"
@@ -144,9 +144,9 @@ Personalização de voz está disponível para inglês Americano (em inglês), c
 
 ## <a name="speech-translation"></a>Tradução de Voz
 
-O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem tem de ser sempre da tabela de idiomas de voz abaixo. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto.
+O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem tem de ser sempre partir da seguinte tabela de idiomas de voz. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto.
 
-Pode obter a lista de idiomas programaticamente usando o ponto final de idiomas da API REST. A lista apresenta cada código de idioma, bem como o nome do idioma em inglês – ou em qualquer outro idioma suportado. Esta lista é atualizada pelo serviço do Microsoft Translator, sempre que uma nova linguagem de fica disponível.
+Pode obter a lista de idiomas por meio de programação, utilizando o ponto final de idiomas da API REST. A lista apresenta cada código de idioma, bem como o nome do idioma em inglês, ou em qualquer outro idioma suportado. Esta lista é atualizada pelo serviço do Microsoft Translator, sempre que uma nova linguagem de fica disponível.
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

@@ -1,55 +1,58 @@
 ---
-title: Avaliar o método API do serviço de exploração de dados de conhecimento | Microsoft Docs
-description: Saiba como utilizar o método de Evaluate no conhecimento exploração de serviço (KES) API nos serviços cognitivos.
+title: Avalie o método - API de serviço de exploração de conhecimento
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar o método Evaluate no conhecimento exploração de serviço (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: fc3d73b326b565cfe40d1b82cc419357b28a801a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351662"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128269"
 ---
-# <a name="evaluate-method"></a>avaliar o método
-O *avaliar* método avalia e devolve o resultado de uma expressão de consulta estruturada baseada nos dados de índice.
+# <a name="evaluate-method"></a>Avalie o método
 
-Normalmente, uma expressão será obtida a partir de uma resposta para o método interpret.  Mas, pode também compor expressões de consulta por si (consulte [expressão de consulta estruturada](Expressions.md)).  
+O *avaliar* método avalia e devolve o resultado de uma expressão de consulta estruturadas baseada nos dados de índice.
+
+Normalmente, uma expressão será obtida a partir de uma resposta para o método de interpretação.  Mas também é possível compor expressões de consulta por conta própria (consulte [expressão de consulta estruturadas](Expressions.md)).  
 
 ## <a name="request"></a>Pedir 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
 Nome|Valor|Descrição
 ----|----|----
-expr       | Cadeia de texto | Expressão de consulta estruturada que seleciona um subconjunto de entidades do índice.
-atributos | Cadeia de texto | Lista delimitada por vírgulas de atributos para incluir na resposta.
-count      | Número (predefinição = 10) | Número máximo de resultados para devolver.
+expr       | Cadeia de texto | Expressão de consulta estruturadas que seleciona um subconjunto de entidades de índice.
+Atributos | Cadeia de texto | Lista delimitada por vírgulas de atributos a serem incluídos na resposta.
+count      | Número (predefinição = 10) | Número máximo de resultados a devolver.
 deslocamento     | Número (predefinição = 0) | Índice do primeiro resultado a devolver.
-OrderBy |   Cadeia de texto | Nome do atributo utilizado para ordenar os resultados, seguidos de sequência de ordenação opcional (predefinição = asc): "*attrname*[: (asc&#124;desc)]".  Se não for especificado, os resultados são devolvidos, diminuindo a probabilidade de registo natural.
+OrderBy |   Cadeia de texto | Nome do atributo utilizado para ordenar os resultados, seguidos por ordem de classificação opcional (predefinição = asc): "*attrname*[: (asc&#124;desc)]".  Se não for especificado, os resultados são devolvidos ao reduzir a probabilidade de registo natural.
 tempo limite  | Número (predefinição = 1000) | Tempo limite em milissegundos. Apenas os resultados calculados antes do tempo limite decorreu são devolvidos.
 
-Utilizar o *contagem* e *desvio* parâmetros, um grande número de resultados pode ser obtido a incremental através de vários pedidos.
+Utilizar o *contagem* e *deslocamento* parâmetros, um grande número de resultados pode ser obtido a forma incremental através de várias solicitações.
   
 ## <a name="response-json"></a>Resposta (JSON)
 JSONPath|Descrição
 ----|----
-$.expr | *expr* parâmetro do pedido.
-$.entities | Matriz de 0 ou mais entidades de objeto correspondente a expressão de consulta structured. 
-$.aborted | TRUE se o pedido excedeu o tempo limite.
+$.expr | *expr* parâmetro no pedido.
+$.entities | Matriz de 0 ou mais entidades de objeto que correspondem a expressão de consulta estruturadas. 
+$.aborted | VERDADEIRO se o pedido excedeu o limite de tempo.
 
-Cada entidade contém um *logprob* valor e os valores dos atributos pedidos.
+Cada entidade contém um *logprob* valor e os valores dos atributos solicitados.
 
 ## <a name="example"></a>Exemplo
-No exemplo académico publicações, o seguinte pedido passa uma expressão de consulta estruturada (potencialmente da saída de um *interpretar* pedido) e obtém a alguns atributos para o superior 2 entidades de correspondência:
+No exemplo publicações acadêmicas, da seguinte solicitação passa uma expressão de consulta estruturadas (potencialmente a partir da saída de um *interpretar* pedido) e obtém alguns atributos para os 2 principais entidades de correspondência:
 
 `http://<host>/evaluate?expr=Composite(Author.Name=='jaime teevan')&attributes=Title,Y,Author.Name,Author.Id&count=2`
 
-A resposta contém a parte superior a 2 ("contagem = 2") correspondente provavelmente entidades.  Para cada entidade, são devolvidos o título, ano, nome do autor e atributos de ID do autor.  Tenha em atenção a forma como os valores de atributos a estrutura de compostos corresponde a forma que forem especificadas no ficheiro de dados. 
+A resposta contém os 2 principais ("contagem = 2") é muito provável que a correspondência entidades.  Para cada entidade, são devolvidos o título, ano, nome do autor e atributos de ID do autor.  Observe como a estrutura de composição de valores de atributo corresponde a forma como os que estão especificadas no ficheiro de dados. 
 
 ```json
 {

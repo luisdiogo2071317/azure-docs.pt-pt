@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528634"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295568"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager
 Para um determinado recurso, pode haver outros recursos que tem de existir antes do recurso está implementado. Por exemplo, um SQL server tem de existir antes de tentar implementar uma base de dados SQL. Define esta relação, marcando um recurso como dependente do recurso de outro. Define uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
 
 O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Apenas terá de definir as dependências de recursos que são implementados no mesmo modelo. 
+
+Para obter um tutorial, veja [Tutorial: criar modelos Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 
 ## <a name="dependson"></a>dependsOn
 No seu modelo, o elemento de dependsOn permite-lhe definir um recurso como um dependendo de um ou mais recursos. O valor pode ser uma lista separada por vírgulas de nomes de recursos. 
@@ -164,6 +166,8 @@ Gestor de recursos identifica dependências circulares durante a validação do 
 Para obter informações sobre como avaliar a ordem de implementação e resolução de erros de dependência, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+* Para seguir um tutorial, veja [Tutorial: criar modelos Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 * Para saber mais sobre as dependências de resolução de problemas durante a implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre a criação de modelos Azure Resource Manager, veja [criação de modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](resource-group-template-functions.md).

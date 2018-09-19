@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: ba4d8d46a6423a932eceea7fbe20ae985445c6a3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 08e817b24d4190b6d7f774dd8c812d04e89c1e5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718887"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296758"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory
 Hoje em dia o Azure Active Directory suporta início de sessão único com a maioria das aplicações empresariais, incluindo as duas aplicações pré-integradas na Galeria de aplicações do Azure AD, bem como as aplicações personalizadas. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD através do protocolo SAML 2.0, o Azure AD envia um token para a aplicação (através de um HTTP POST). E, em seguida, o aplicativo valida e utiliza o token para registar o utilizador em vez de solicitar um nome de utilizador e palavra-passe. Estes tokens SAML contêm informações sobre o utilizador conhecido como "afirmações".
@@ -73,7 +73,7 @@ Por exemplo, terá de enviar o departamento de que o utilizador pertence na sua 
 > Se para um determinado usuário, não existe nenhum valor armazenado para um atributo selecionado, essa afirmação não está a ser emitida no token.
 
 > [!TIP]
-> O **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** só são suportadas quando a sincronização de dados de utilizador no local do Active Directory com o [do Azure AD Ligar a ferramenta](../active-directory-aadconnect.md).
+> O **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** só são suportadas quando a sincronização de dados de utilizador no local do Active Directory com o [do Azure AD Ligar a ferramenta](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="restricted-claims"></a>Afirmações restritas
 

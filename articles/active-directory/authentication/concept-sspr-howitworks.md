@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056934"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296401"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
 
@@ -161,8 +161,8 @@ Se instalar, configura e ativar o Azure AD Connect, tem as seguintes opções ad
 Esta página fornece um rápido status do cliente de repetição de escrita no local, uma das duas mensagens seguintes é apresentada com base na configuração atual:
 
 * O cliente de repetição de escrita no local está em execução.
-* Azure AD está online e está ligado ao seu cliente de repetição de escrita no local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [atualizar o Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) para se certificar de que tem as mais recentes funcionalidades de conectividade e correções de erros importantes.
-* Infelizmente, não foi possível verificar o estado de repetição de escrita no local do cliente porque a versão instalada do Azure AD Connect está desatualizada. [Atualizar o Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) para poder verificar o estado da ligação.
+* Azure AD está online e está ligado ao seu cliente de repetição de escrita no local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para se certificar de que tem as mais recentes funcionalidades de conectividade e correções de erros importantes.
+* Infelizmente, não foi possível verificar o estado de repetição de escrita no local do cliente porque a versão instalada do Azure AD Connect está desatualizada. [Atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar o estado da ligação.
 * Infelizmente, parece não é possível ligar ao seu cliente de repetição de escrita no local neste momento. [Resolver problemas do Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restabelecer a ligação.
 * Infelizmente, a foi possível ligar ao seu cliente de repetição de escrita no local porque a repetição de escrita de palavra-passe não foi corretamente configurada. [Configurar a repetição de escrita de palavra-passe](howto-sspr-writeback.md) para restabelecer a ligação.
 * Infelizmente, parece não é possível ligar ao seu cliente de repetição de escrita no local neste momento. Isto pode dever-se a problemas temporários do nosso lado. Se o problema persistir, [resolver problemas relacionados com o Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restabelecer a ligação.

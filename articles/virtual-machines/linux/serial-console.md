@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 69dea0aa3eaa9de3ed94b934e5fa3c6e6a3ec24d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632845"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127725"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -29,7 +29,7 @@ A consola de série de Máquina Virtual no Azure fornece acesso a um console bas
 Para obter a documentação da consola de série para VMs do Windows, [clique aqui](../windows/serial-console.md).
 
 > [!Note] 
-> Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível na cloud do Azure Government ou Azure China.
+> Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível em clouds do Azure Government ou Azure China.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -180,34 +180,34 @@ Colar muito longas seqüências de caracteres não funciona | Consola de série 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 **P. Como posso enviar comentários?**
 
-A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
+R. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
 
 **P. Consola de série suporta copiar/colar?**
 
-A. Sim faz. Utilize Ctrl + Shift + C e Ctrl + Shift + V para copiar e colar no terminal.
+R. Sim faz. Utilize Ctrl + Shift + C e Ctrl + Shift + V para copiar e colar no terminal.
 
 **P. Posso utilizar a consola de série, em vez de uma ligação SSH?**
 
-A. Embora isso possa parecer tecnicamente possível, a consola de série destina-se para ser usado principalmente como uma ferramenta de resolução de problemas em situações em que a conectividade através de SSH não é possível. Recomendamos contra a utilização de consola de série como um substituto de SSH por dois motivos:
+R. Embora isso possa parecer tecnicamente possível, a consola de série destina-se para ser usado principalmente como uma ferramenta de resolução de problemas em situações em que a conectividade através de SSH não é possível. Recomendamos contra a utilização de consola de série como um substituto de SSH por dois motivos:
 
 1. Consola de série não tem muito mais largura de banda como SSH - é uma ligação só de texto, para que as interações de GUI intensiva mais difícil na consola de série.
 1. Acesso à consola de série está atualmente apenas por nome de utilizador e palavra-passe. Chaves SSH são muito mais seguras do que combinações de nome de utilizador/palavra-passe, assim, da perspectiva de segurança de início de sessão Recomendamos SSH através da consola de série.
 
 **P. Quem pode ativar ou desativar a consola de série para a minha subscrição?**
 
-A. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. Funções com permissão de escrita incluem, mas não sejam limitam às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
+R. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. Funções com permissão de escrita incluem, mas não sejam limitam às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 **P. Quem pode aceder a consola de série para a minha VM?**
 
-A. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aceder à consola de série da VM. 
+R. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aceder à consola de série da VM. 
 
 **P. Meu consola de série não está visível qualquer coisa, o que fazer?**
 
-A. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série de acesso para Linux](#Access-Serial-Console-for-Linux) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
+R. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série de acesso para Linux](#Access-Serial-Console-for-Linux) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
 
 **P. Consola de série está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 
-A. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
+R. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilizar a consola de série para [arrancar GRUB e introduza o modo de utilizador único](serial-console-grub-single-user-mode.md)

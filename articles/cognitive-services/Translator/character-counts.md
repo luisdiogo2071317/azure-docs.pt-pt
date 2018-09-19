@@ -1,24 +1,25 @@
 ---
-title: Contagens de caractere de API de texto do Microsoft Translator | Documentos da Microsoft
-description: Como a API de texto do Microsoft Translator contabiliza os carateres.
+title: Contagens de caracteres de API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Como a API de texto do Translator contabiliza os carateres.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: v-jansko
-ms.openlocfilehash: 1b4987509c17e4064d7c54608395e272efa8de3b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c6234a46ae55d73739dcc23110c5e0f6375c3f96
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41988145"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128745"
 ---
-# <a name="how-the-microsoft-translator-text-api-counts-characters"></a>Como a API de texto do Microsoft Translator contabiliza os carateres
+# <a name="how-the-translator-text-api-counts-characters"></a>Como a API de texto do Translator contabiliza os carateres
 
-Microsoft Translator contagens de cada caractere da entrada. Caracteres no sentido de Unicode, não em bytes. Substitutos Unicode contagem como dois caracteres. Espaço em branco e a marcação contam como carateres. O comprimento da resposta não é relevante.
+A API de texto do Translator contagens de cada caractere da entrada. Caracteres no sentido de Unicode, não em bytes. Substitutos Unicode contagem como dois caracteres. Espaço em branco e a marcação contam como carateres. O comprimento da resposta não é relevante.
 
 Chamadas para os métodos de deteção e BreakSentence não são contabilizadas no consumo de caráter. No entanto, esperamos que as chamadas para os métodos de deteção e BreakSentence estão numa proporção razoável para a utilização de outras funções que são contadas. A Microsoft se reserva o direito de iniciar a deteção e BreakSentence de contagem. 
 

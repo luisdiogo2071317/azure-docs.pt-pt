@@ -3,7 +3,7 @@ title: Ficheiro de monitorização da integridade no Centro de segurança do Azu
 description: " Aprenda a ativar a monitorização da integridade de ficheiros no Centro de segurança do Azure. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
-ms.author: terrylan
-ms.openlocfilehash: e8455dddf62c16cb5ebcf20622580fad82d783a7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296238"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124121"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
 Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
@@ -182,6 +182,14 @@ Sob **Editar para controlo de alterações** , pode:
   ![Conjunto ativado como false][19]
 
 6. Selecione **Guardar**.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitorização utilizando carateres universais
+
+Utilize carateres universais para simplificar o rastreamento entre diretórios. As seguintes regras aplicam-se ao configurar a pasta de monitorização utilizando carateres universais:
+-   Carateres universais são necessários para vários ficheiros de controlo.
+-   Carateres universais só podem ser utilizado no último segmento do caminho, como C:\folder\file ou /etc/*.conf
+-   Se uma variável de ambiente inclui um caminho que não é válido, validação será concluída com êxito, mas o caminho irão falhar quando o inventário é executado.
+-   Ao definir o caminho, evitar caminhos gerais como c:\*. * que irá resultar em demasiados pastas a ser percorridas.
 
 ## <a name="disable-fim"></a>Desativar o FIM
 Pode desativar o FIM. FIM utiliza a solução de controlo de alterações do Azure para monitorizar e identificar alterações no seu ambiente. Desabilitando o FIM, é possível remover a solução de controlo de alterações da área de trabalho selecionada.

@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721995"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298239"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -59,11 +59,11 @@ A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os tr�
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
 
-Base de dados SQL efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanalmente, uma vez por hora cópias de segurança de base de dados diferencial e transação backups de log a cada 5 - 10 minutos para proteger a sua empresa contra perda de dados. As cópias de segurança são armazenadas no armazenamento RA-GRS durante 35 dias para todos os escalões de serviço, exceto os escalões de serviço básico DTU onde as cópias de segurança são armazenadas durante sete dias. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md). Pode restaurar um formulário de base de dados existente as cópias de segurança automáticas para um ponto anterior no tempo como uma nova base de dados no mesmo servidor lógico com o portal do Azure, PowerShell ou a API REST. Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore).
+Base de dados SQL efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanalmente, geralmente adotam a cada 12 horas, cópias de segurança da base de dados diferenciais e backups de log a cada 5 a 10 minutos para proteger a sua empresa contra perda de dados de transações. As cópias de segurança são armazenadas no armazenamento RA-GRS durante 35 dias para todos os escalões de serviço, exceto os escalões de serviço básico DTU onde as cópias de segurança são armazenadas durante sete dias. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md). Pode restaurar um formulário de base de dados existente as cópias de segurança automáticas para um ponto anterior no tempo como uma nova base de dados no mesmo servidor lógico com o portal do Azure, PowerShell ou a API REST. Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Se o máximo suportado ponto anterior no tempo restaurar (PITR), o período de retenção não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (LTR) de longo prazo para as bases de dados. Para obter mais informações, consulte [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
 
-Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é normalmente inferior a 12 horas. Pode demorar mais tempo para recuperar uma base de dados muito grande ou Active Directory. Para obter mais informações sobre o tempo de recuperação, consulte [hora da recuperação de base de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora pelo armazenamento georredundante de cópias de segurança de bases de dados diferenciais de hora a hora.
+Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é normalmente inferior a 12 horas. Pode demorar mais tempo para recuperar uma base de dados muito grande ou Active Directory. Para obter mais informações sobre o tempo de recuperação, consulte [hora da recuperação de base de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora, com uma utilização de cópias de segurança georredundante.
 
 Utilizar cópias de segurança automáticas e [restauro de ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) como o mecanismo de recuperação e continuidade de negócio se seu aplicativo:
 
@@ -122,7 +122,7 @@ Se estiver a utilizar grupos de ativação pós-falha automática e de georrepli
 > 
 
 ### <a name="perform-a-geo-restore"></a>Efetuar um georrestauro
-Se estiver a utilizar cópias de segurança automáticas com a replicação de armazenamento georredundante como mecanismo de recuperação, [iniciar uma recuperação de base de dados com restauro geográfico](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação normalmente decorre no prazo de 12 horas - com perda de dados até uma hora, determinada por quando a última cópia de segurança diferencial de hora a hora foi efetuada e replicada. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Embora isto restaura uma base de dados para o último ponto disponível no tempo, restaurar geo-secundária para qualquer ponto anterior no tempo não é atualmente suportado.
+Se estiver a utilizar cópias de segurança automáticas com a replicação de armazenamento georredundante como mecanismo de recuperação, [iniciar uma recuperação de base de dados com restauro geográfico](sql-database-disaster-recovery.md#recover-using-geo-restore). Recuperação têm normalmente decorre no prazo de 12 horas - com perda de dados de até uma hora, determinada pela quando foi efetuada a última cópia de segurança do registo e georreplicado para outra região. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Embora isto restaura uma base de dados para o último ponto disponível no tempo, restaurar geo-secundária para qualquer ponto anterior no tempo não é atualmente suportado.
 
 > [!NOTE]
 > Se o Centro de dados estiver online novamente antes de passar seu aplicativo para a base de dados recuperada, pode cancelar a recuperação.  

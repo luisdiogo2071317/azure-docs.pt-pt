@@ -3,18 +3,18 @@ title: Adicionar um pop-up com o Azure Maps | Documentos da Microsoft
 description: Como adicionar um pop-up para o mapa de Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0f86578e33e5c6a2d6528e2deb1c8068a0c94d01
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 76a7e230491d5e524a1d73437a56d12594cfebe2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747110"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127442"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adicionar um pop-up ao mapa
 
@@ -31,25 +31,26 @@ No código acima, o primeiro bloco de código constrói um objeto de mapa. Pode 
 
 O segundo bloco de código cria um pin e adicioná-lo ao mapa. Pode ver [adicionar um pin ao mapa](./map-add-pin.md) para obter instruções.
 
-O terceiro bloco de código cria o conteúdo a ser exibido dentro de um pop-up. O conteúdo de pop-up é o elemento HTML. 
+O terceiro bloco de código cria o conteúdo a ser exibido dentro de um pop-up. O conteúdo de pop-up é o elemento HTML.
 
 O quarto bloco de código cria um [objeto de pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Propriedades de pop-up, tais como o conteúdo e a posição são parte [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). PopupOptions podem ser definidos no construtor de pop-up ou via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) função da classe pop-up.
 
 O último bloco de código utiliza [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) função da classe map para escutar eventos de mouseover no pins e utiliza [abrir](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) função da classe pop-up para abrir a janela de pop-up, se o evento ocorre.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo: 
+Saiba mais sobre as classes e métodos usados neste artigo:
 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
-* [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
-    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions)
-    * [abrir](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)
-    * [Fechar](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
-    
-Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes: 
-* [Adicionar uma forma](./map-add-shape.md)
-* [Adicionar HTML personalizado](./map-add-custom-html.md)
+> [!div class="nextstepaction"]
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+
+Consulte os seguintes artigos excelentes exemplos de código completo:
+
+> [!div class="nextstepaction"]
+> [Adicionar uma forma](./map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar HTML personalizado](./map-add-custom-html.md)

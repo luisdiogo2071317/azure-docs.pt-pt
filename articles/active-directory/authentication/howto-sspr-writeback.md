@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158952"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295823"
 ---
 # <a name="how-to-configure-password-writeback"></a>Como: Configurar a repetição de escrita de palavra-passe
 
-Recomendamos que utilize a funcionalidade de atualização automática do [do Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) ao utilizar a repetição de escrita de palavra-passe.
+Recomendamos que utilize a funcionalidade de atualização automática do [do Azure AD Connect](../hybrid/how-to-connect-install-express.md) ao utilizar a repetição de escrita de palavra-passe.
 
-Os passos seguintes partem do princípio de já ter configurado o Azure AD Connect no seu ambiente utilizando o [Express](./../connect/active-directory-aadconnect-get-started-express.md) ou [personalizado](./../connect/active-directory-aadconnect-get-started-custom.md) definições.
+Os passos seguintes partem do princípio de já ter configurado o Azure AD Connect no seu ambiente utilizando o [Express](../hybrid/how-to-connect-install-express.md) ou [personalizado](../hybrid/how-to-connect-install-custom.md) definições.
 
-1. Para configurar e ativar a repetição de escrita de palavra-passe, inicie sessão no seu servidor do Azure AD Connect e iniciar o **do Azure AD Connect** Assistente de configuração.
-2. Sobre o **bem-vindo** página, selecione **configurar**.
-3. Sobre o **tarefas adicionais** página, selecione **personalizar as opções de sincronização**e, em seguida, selecione **seguinte**.
-4. Sobre o **ligar para o Azure AD** página, introduza uma credencial de administrador global e, em seguida, selecione **próxima**.
-5. Sobre o **ligar diretórios** e **domínio/UO** filtragem de páginas, selecione **seguinte**.
-6. Sobre o **funcionalidades opcionais** página, selecione a caixa junto a **repetição de escrita de palavra-passe** e selecione **seguinte**.
+1. Para configurar e ativar a repetição de escrita de palavras-passe, inicie sessão no seu servidor do Azure AD Connect e inicie o assistente de configuração **Azure AD Connect**.
+2. Na página de **Boas-vindas**, selecione **Configurar**.
+3. Na página **Tarefas adicionais**, selecione **Personalizar opções de sincronização** e, em seguida, selecione **Seguinte**.
+4. Na página **Ligar ao Azure AD**, introduza uma credencial de administrador global e, em seguida, selecione **Seguinte**.
+5. Nas páginas de filtragem **Ligar diretórios** e **Domínio/UO**, selecione **Seguinte**.
+6. Na página **Funcionalidades opcionais**, selecione a caixa junto a **Repetição de escrita de palavras-passe** e selecione **Seguinte**.
    ![Ativar a repetição de escrita de palavra-passe no Azure AD Connect][Writeback]
-7. Sobre o **pronto para configurar** página, selecione **configurar** e aguarde o conclusão do processo.
-8. Quando vir a configuração concluir, selecione **saída**.
+7. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
+8. Quando vir a configuração a concluir, selecione **Sair**.
 
 Para tarefas de resolução de problemas comuns relacionados com a repetição de escrita de palavra-passe, consulte a secção [resolver problemas de repetição de escrita de palavra-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) no nosso artigo de resolução de problemas.
 

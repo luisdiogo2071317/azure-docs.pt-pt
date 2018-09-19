@@ -1,23 +1,23 @@
 ---
-title: Sugestão automática termos de pesquisa do Bing
-titleSuffix: Microsoft Cognitive Services
-description: Emparelhe a API de pesquisa Web Bing com a API de sugestão automática do Bing para fornecer aos utilizadores uma experiência de pesquisa melhorada.
+title: Termos de pesquisa - API de pesquisa Web Bing de sugestão automática
+titleSuffix: Azure Cognitive Services
+description: Emparelhe a API de pesquisa Web Bing com a API de sugestão automática do Bing para fornecer aos utilizadores uma experiência de pesquisa avançada.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: df8a57b3136abfacce971f4d01ccb2296dfa784c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 475ddfc2bcd9acd1312348a6c85e3d4627e48a3d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889438"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128949"
 ---
-# <a name="autosuggest-bing-search-terms"></a>Sugestão automática termos de pesquisa do Bing
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>Termos de pesquisa do Bing em seu aplicativo de sugestão automática
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 

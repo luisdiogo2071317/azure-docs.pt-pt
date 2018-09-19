@@ -1,56 +1,57 @@
 ---
-title: Tradução de colaboração tradutor Microsoft Reporting Framework (CTF)
-description: Como utilizar os relatórios de colaboração tradução Framework (CTF).
+title: Framework de tradução colaborativa (CTF) relatórios - texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Como utilizar relatórios de estrutura de tradução colaborativa (CTF).
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: cefc630a82a56703ba4942bcad18f6e0a38b1ee5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352604"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126926"
 ---
-# <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios de colaboração tradução Framework (CTF)
+# <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
 > [!NOTE]
-> Este método foi preterido. Não está disponível no v 3.0 da API de texto tradutor.
+> Tato metoda se zamítá. Não está disponível no V3.0 da API de texto do Translator.
 
-> A colaboração traduções Framework (CTF), anteriormente disponíveis para v 2.0 da API de texto tradutor, foi preterido a partir de 1 de Fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitir que os utilizadores ativar correções através do Framework de tradução de colaboração. Após a 31 de Janeiro de 2018, estas duas funções não aceitou novo submissões de frases e os utilizadores recebem uma mensagem de erro. Estas funções foram vai ser reformadas e não serão substituídas. 
+> A colaboração traduções Framework (CTF), anteriormente disponível para a versão 2.0 da API de texto do Translator, foi preterido a partir de 1 de Fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem aos utilizadores ativar correções por meio do Framework de tradução colaborativa. Após 31 de Janeiro de 2018, essas duas funções não aceitou novos envios de sentença e os utilizadores recebem uma mensagem de erro. Essas funções estavam a ser descontinuadas e não serão substituídas. 
 
->Uma funcionalidade semelhante está disponível na API Hub tradutor, permitindo-lhe criar um sistema de tradução personalizadas com a terminologia e estilo, e pode invocar com o ID de categoria na API tradutor texto. Hub de conversor: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). API de Hub de conversor: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
+>Uma funcionalidade semelhante está disponível na API de Hub do Translator, que lhe permite criar um sistema de tradução personalizadas com a sua terminologia e estilo, e pode invocá-lo a utilizar o ID de categoria na API de texto do Translator. Hub de tradutor: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). API do Translator Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
-A API de relatórios de colaboração tradução Framework (CTF) devolve o conteúdo propriamente dito e estatísticas no arquivo de CTF. Esta API é diferente do método GetTranslations() porque-lo:
-* Devolve o conteúdo traduzido e a contagem total apenas a partir da sua conta (appId ou a conta do Azure Marketplace).
-* Devolve o conteúdo traduzido e a contagem total, sem necessidade de uma correspondência do frase de origem.
-* Não devolveu a tradução automática (tradução).
+A API de relatórios de estrutura de tradução colaborativa (CTF) devolve estatísticas e o conteúdo real no arquivo de CTF. Esta API é diferente do método GetTranslations() porque ele:
+* Devolve o conteúdo traduzido e sua contagem total apenas a partir da sua conta (conta do Azure Marketplace ou de appId).
+* Devolve o conteúdo traduzido e sua contagem total sem a necessidade de uma correspondência da sentença de origem.
+* Não devolve a tradução automática (conversão de máquina).
 
 ## <a name="endpoint"></a>Ponto Final
-O ponto final da API de relatórios CTF http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
+É o ponto final da API de relatórios de CTF http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
                         
 
 ## <a name="methods"></a>Métodos
 | Nome |    Descrição|
 |:---|:---|
-| Método de GetUserTranslationCounts | Obtenha contagens de traduções que são criadas pelo utilizador. |
-| Método de GetUserTranslations | Obtém as traduções que são criadas pelo utilizador. |
+| Método GetUserTranslationCounts | Obtenha contagens das traduções que são criadas pelo utilizador. |
+| Método GetUserTranslations | Obtém as traduções que são criadas pelo utilizador. |
 
-Estes métodos permitem-lhe:
-* Obter o conjunto completo de traduções de utilizador e as correções com o ID de conta para transferência.
-* Obter a lista dos contribuintes frequentes. Certifique-se de que o nome de utilizador correto é fornecido em AddTranslation().
-* Crie uma interface de utilizador (IU) que permite aos utilizadores fidedignos ver todos os candidatos disponíveis, se necessário restringidas a uma parte do seu site, com base no prefixo de URI.
+Esses métodos permitem-lhe:
+* Obter o conjunto completo de traduções de utilizador e as correções com o seu ID de conta para download.
+* Obter a lista dos contribuintes frequentes. Certifique-se de que o nome de utilizador correto é fornecido no AddTranslation().
+* Crie uma interface de utilizador (IU) que permite aos utilizadores fidedignos ver todos os candidatos disponíveis, se necessário restritas a uma parte do seu site, com base no prefixo de URI.
 
 > [!NOTE]
-> Ambos os métodos são relativamente lenta e dispendioso. Recomenda-se a utilizá-los com moderação.
+> Ambos os métodos são relativamente lento e caro. Recomenda-se usá-los com moderação.
 
-## <a name="getusertranslationcounts-method"></a>Método de GetUserTranslationCounts
+## <a name="getusertranslationcounts-method"></a>Método GetUserTranslationCounts
 
-Este método obtém a contagem de traduções que são criados pelo utilizador. Fornece a lista de contagens de tradução agrupados por uriPrefix, para os parâmetros do pedido maxRating, minRating e utilizador.
+Este método obtém a contagem de traduções que são criados pelo utilizador. Ele fornece a lista de contagens de tradução, agrupados por uriPrefix, de, para utilizador e parâmetros do pedido maxRating minRating.
 
 **Sintaxe**
 
@@ -75,31 +76,31 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 | Parâmetro | Descrição |
 |:---|:---|
-| appId | **Necessário** se for utilizado o cabeçalho de autorização, deixe o campo de appid vazio ou especifique uma cadeia contendo "Portador" + "" + o token de acesso.|
-| uriPrefix | **Opcional** uma cadeia contendo o prefixo de URI da tradução.|
-| de | **Opcional** uma cadeia representando o código de idioma do texto tradução. |
-| para | **Opcional** uma cadeia representando o código de idioma para traduzir texto para.|
-| minRating| **Opcional** um número inteiro que representa a classificação de qualidade mínima para o texto traduzida. O valor válido é entre -10 e 10. O valor predefinido é 1.|
-| maxRating| **Opcional** um número inteiro que representa a classificação de qualidade máximo para o texto traduzida. O valor válido é entre -10 e 10. O valor predefinido é 1.|
-| Utilizador | **Opcional** uma cadeia que é utilizada para filtrar os resultados com base no originador da submissão. |
-| categoria| **Opcional** uma cadeia que contém a categoria ou o domínio da tradução. Este parâmetro suporta apenas a opção de predefinida geral.|
-| minDateUtc| **Opcional** a data no que se pretende obter as traduções. A data tem de estar no formato UTC. |
-| maxDateUtc| **Opcional** data até quando pretende obter as traduções. A data tem de estar no formato UTC. |
-| Ignorar| **Opcional** o número de resultados que pretende ignorar numa página. Por exemplo, se pretender que a ignorar as linhas primeiro 20 dos resultados e a vista do registo de resultado dia 21, especificar 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
-| tirar | **Opcional** o número de resultados que pretende obter. O número máximo de cada pedido é 100. A predefinição é 100.|
+| appId | **Necessário** se o cabeçalho de autorização é usado, deixe o campo de appid vazio ou especificar uma cadeia de caracteres que contém "Bearer" + "" + o token de acesso.|
+| uriPrefix | **Opcional** uma cadeia de caracteres que contém o prefixo do URI da tradução.|
+| de | **Opcional** uma cadeia de caracteres que representa o código de idioma do texto de tradução. |
+| para | **Opcional** representando o código de idioma para traduzir o texto numa cadeia de caracteres.|
+| minRating| **Opcional** um valor inteiro que representa a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
+| maxRating| **Opcional** um valor inteiro que representa a classificação de qualidade máximo para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
+| Utilizador | **Opcional** uma cadeia de caracteres que é utilizada para filtrar o resultado com base em; o originador de envio. |
+| categoria| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
+| minDateUtc| **Opcional** a data de quando quiser obter as traduções. A data tem de estar no formato UTC. |
+| maxDateUtc| **Opcional** a data até que deseja obter as traduções. A data tem de estar no formato UTC. |
+| ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
+| tirar | **Opcional** o número de resultados que pretende recuperar. O número máximo de cada solicitação é 100. A predefinição é 100.|
 
 > [!NOTE]
-> Os parâmetros de pedido ignorar e tomar ativar a paginação de um grande número de registos de resultado.
+> Os parâmetros de solicitação skip e take ativar paginação para um grande número de registos de resultado.
 
-**Valor devolvido**
+**Valor de retorno**
 
-O conjunto de resultados contém a matriz do **UserTranslationCount**. Cada UserTranslationCount tem os seguintes elementos:
+O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada UserTranslationCount tem os seguintes elementos:
 
 | Campo | Descrição |
 |:---|:---|
 | Contagem| O número de resultados que é obtido|
 | De | O idioma de origem|
-| Classificação| A classificação que é aplicada pelo submissor na chamada de método AddTranslation()|
+| Classificação| A classificação que é aplicada ao emissor na chamada de método AddTranslation()|
 | Para| O idioma de destino|
 | Uri| O URI aplicado na chamada de método AddTranslation()|
 | Utilizador| O nome de utilizador|
@@ -108,20 +109,20 @@ O conjunto de resultados contém a matriz do **UserTranslationCount**. Cada User
 
 | Exceção | Mensagem | Condições |
 |:---|:---|:---|
-| ArgumentOutOfRangeException | O parâmetro '**maxDateUtc**'tem de ser maior que ou igual a'**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é menor que o valor do parâmetro **minDateUtc**.|
-| TranslateApiException | O IP está sobre a quota.| <ul><li>Foi atingido o limite para o número de pedidos por minuto.</li><li>O tamanho do pedido permanece limitado em 10000 carateres.</li><li>Uma hora a hora e uma quota diária limitam o número de carateres que a Microsoft tradutor API aceitará.</li></ul>|
-| TranslateApiException | AppId está sobre a quota.| O ID da aplicação excedeu a quota de hora ou diária.|
+| ArgumentOutOfRangeException | O parâmetro '**maxDateUtc**'tem de ser maior ou igual a'**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é inferior ao valor do parâmetro **minDateUtc**.|
+| TranslateApiException | O IP é sobre a quota.| <ul><li>Foi atingido o limite do número de pedidos por minuto.</li><li>O tamanho do pedido continua a ser limitado em 10000 carateres.</li><li>Uma hora a hora e uma quota diária limitam o número de carateres que a API do Microsoft Translator irá aceitar.</li></ul>|
+| TranslateApiException | AppId está sobre a quota.| O ID da aplicação excedeu a quota por hora ou diariamente.|
 
 > [!NOTE]
-> Irá ajustar a quota para garantir a justiça entre todos os utilizadores do serviço.
+> A quota será ajustado para garantir a honestidade entre todos os utilizadores do serviço.
 
-**Exemplos de código de vista no GitHib**
+**Exemplos de código do modo de exibição no GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
-## <a name="getusertranslations-method"></a>Método de GetUserTranslations
+## <a name="getusertranslations-method"></a>Método GetUserTranslations
 
-Este método obtém as traduções que são criadas pelo utilizador. Fornece que as traduções agrupados por uriPrefix, como, utilizador e minRating e maxRating parâmetros do pedido.
+Este método obtém as traduções que são criadas pelo utilizador. Ele fornece que as traduções agrupados por uriPrefix,, usuário e minRating e maxRating parâmetros do pedido.
 
 **Sintaxe**
 
@@ -146,32 +147,32 @@ UserTranslation[] GetUserTranslations (
 
 | Parâmetro | Descrição |
 |:---|:---|
-| appId | **Necessário** se for utilizado o cabeçalho de autorização, deixe o campo de appid vazio ou especifique uma cadeia contendo "Portador" + "" + o token de acesso.|
-| uriPrefix| **Opcional** uma cadeia contendo o prefixo de URI da tradução.|
-| de| **Opcional** uma cadeia representando o código de idioma do texto tradução.|
-| para| **Opcional** uma cadeia representando o código de idioma para traduzir texto para.|
-| minRating| **Opcional** um número inteiro que representa a classificação de qualidade mínima para o texto traduzida. O valor válido é entre -10 e 10. O valor predefinido é 1.|
-| maxRating| **Opcional** um número inteiro que representa a classificação de qualidade máximo para o texto traduzida. O valor válido é entre -10 e 10. O valor predefinido é 1.|
-| Utilizador| **Opcional. Uma cadeia que é utilizada para filtrar os resultados com base no originador da submissão**|
-| categoria| **Opcional** uma cadeia que contém a categoria ou o domínio da tradução. Este parâmetro suporta apenas a opção de predefinida geral.| 
-| minDateUtc| **Opcional** a data no que se pretende obter as traduções. A data tem de estar no formato UTC.| 
-| maxDateUtc| **Opcional** data até quando pretende obter as traduções. A data tem de estar no formato UTC.|
-| Ignorar| **Opcional** o número de resultados que pretende ignorar numa página. Por exemplo, se pretender que a ignorar as linhas primeiro 20 dos resultados e a vista do registo de resultado dia 21, especificar 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
-| tirar| **Opcional** o número de resultados que pretende obter. O número máximo de cada pedido é 100. A predefinição é 50.|
+| appId | **Necessário** se o cabeçalho de autorização é usado, deixe o campo de appid vazio ou especificar uma cadeia de caracteres que contém "Bearer" + "" + o token de acesso.|
+| uriPrefix| **Opcional** uma cadeia de caracteres que contém o prefixo do URI da tradução.|
+| de| **Opcional** uma cadeia de caracteres que representa o código de idioma do texto de tradução.|
+| para| **Opcional** representando o código de idioma para traduzir o texto numa cadeia de caracteres.|
+| minRating| **Opcional** um valor inteiro que representa a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
+| maxRating| **Opcional** um valor inteiro que representa a classificação de qualidade máximo para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
+| Utilizador| **Opcional. Uma cadeia de caracteres que é utilizada para filtrar o resultado com base em; o originador de envio**|
+| categoria| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.| 
+| minDateUtc| **Opcional** a data de quando quiser obter as traduções. A data tem de estar no formato UTC.| 
+| maxDateUtc| **Opcional** a data até que deseja obter as traduções. A data tem de estar no formato UTC.|
+| ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
+| tirar| **Opcional** o número de resultados que pretende recuperar. O número máximo de cada solicitação é 100. A predefinição é 50.|
 
 > [!NOTE]
-> Os parâmetros de pedido ignorar e tomar ativar a paginação de um grande número de registos de resultado.
+> Os parâmetros de solicitação skip e take ativar paginação para um grande número de registos de resultado.
 
-**Valor devolvido**
+**Valor de retorno**
 
-O conjunto de resultados contém a matriz do **UserTranslation**. Cada UserTranslation tem os seguintes elementos:
+O conjunto de resultados contém uma matriz do **UserTranslation**. Cada UserTranslation tem os seguintes elementos:
 
 | Campo | Descrição |
 |:---|:---|
-| CreatedDateUtc| A data de criação de entrada, usando AddTranslation()|
+| CreatedDateUtc| A data de criação da entrada, usando AddTranslation()|
 | De| O idioma de origem|
-| OriginalText| O texto de origem de idioma que é utilizado quando a submeter o pedido|
-|Classificação |A classificação que é aplicada pelo submissor na chamada de método AddTranslation()|
+| OriginalText| O texto de linguagem de código que é utilizado ao submeter o pedido|
+|Classificação |A classificação que é aplicada ao emissor na chamada de método AddTranslation()|
 |Para|    O idioma de destino|
 |TranslatedText|    A tradução como submetido na chamada de método AddTranslation()|
 |Uri|   O URI aplicado na chamada de método AddTranslation()|
@@ -181,14 +182,14 @@ O conjunto de resultados contém a matriz do **UserTranslation**. Cada UserTrans
 
 | Exceção | Mensagem | Condições |
 |:---|:---|:---|
-| ArgumentOutOfRangeException | O parâmetro '**maxDateUtc**'tem de ser maior que ou igual a'**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é menor que o valor do parâmetro **minDateUtc**.|
-| TranslateApiException | O IP está sobre a quota.| <ul><li>Foi atingido o limite para o número de pedidos por minuto.</li><li>O tamanho do pedido permanece limitado em 10000 carateres.</li><li>Uma hora a hora e uma quota diária limitam o número de carateres que a Microsoft tradutor API aceitará.</li></ul>|
-| TranslateApiException | AppId está sobre a quota.| O ID da aplicação excedeu a quota de hora ou diária.|
+| ArgumentOutOfRangeException | O parâmetro '**maxDateUtc**'tem de ser maior ou igual a'**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é inferior ao valor do parâmetro **minDateUtc**.|
+| TranslateApiException | O IP é sobre a quota.| <ul><li>Foi atingido o limite do número de pedidos por minuto.</li><li>O tamanho do pedido continua a ser limitado em 10000 carateres.</li><li>Uma hora a hora e uma quota diária limitam o número de carateres que a API do Microsoft Translator irá aceitar.</li></ul>|
+| TranslateApiException | AppId está sobre a quota.| O ID da aplicação excedeu a quota por hora ou diariamente.|
 
 > [!NOTE]
-> Irá ajustar a quota para garantir a justiça entre todos os utilizadores do serviço.
+> A quota será ajustado para garantir a honestidade entre todos os utilizadores do serviço.
 
-**Exemplos de código de vista no GitHib**
+**Exemplos de código do modo de exibição no GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
 

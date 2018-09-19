@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e100859a184db2b6298dd02a1bb7bb238de27d51
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096371"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Active Directory com Silverback
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 Para configurar a integração do Azure AD com Silverback, terá dos seguintes itens:
 
 - Uma subscrição do Azure
-- Um Silverback logon único habilitado subscrição
+- Uma subscrição ativa do Silverback
 
 > [!NOTE]
 > Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
@@ -107,11 +107,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Silverback domínio e URLs únicas início de sessão em informações](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>/ssp`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `<YOURSILVERBACKURL>.com`
 
-    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>/sts/authorize/login`
+    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente Silverback](mailto:helpdesk@matrix42.com) obter esses valores. 
@@ -124,7 +124,31 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o botão único início de sessão em Guardar](./media/silverback-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único num **Silverback** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de Silverback](mailto:helpdesk@matrix42.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+6.  Início de sessão ao seu servidor Silverback como administrador e execute os seguintes passos:
+
+    a.  Navegue para **administrador** > **fornecedor de autenticação**.
+
+    b. Sobre o **definições do fornecedor de autenticação** página, execute os seguintes passos:
+
+    ![O administrador ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+
+    c.  Clique em **importação a partir do URL**.
+    
+    d.  Cole o URL de metadados copiado e clique em **OK**.
+    
+    e.  Confirme com **OK** , em seguida, os valores serão preenchidos automaticamente.
+    
+    f.  Ativar **Mostrar na página de início de sessão**.
+    
+    g.  Ativar **criação dinâmica de utilizador** se pretender adicionar automaticamente utilizadores do Azure AD autorizado (opcional).
+    
+    h.  Criar uma **Title** do botão sobre o Portal Self-Service.
+
+    i.  Carregar uma **ícone** clicando em **Escolher ficheiro**.
+    
+    j.  Selecione o plano de fundo **cor** do botão.
+    
+    k.  Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -160,7 +184,34 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-silverback-test-user"></a>Criar um utilizador de teste Silverback
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Silverback. Trabalhar com [equipa de suporte de Silverback](mailto:helpdesk@matrix42.com) para adicionar os utilizadores na plataforma Silverback. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Para ativar a utilizadores do Azure AD iniciar sessão no Silverback, tem de ser aprovisionados em Silverback. Silverback, aprovisionamento é uma tarefa manual.
+
+**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+
+1. Inicie sessão no seu servidor Silverback como administrador.
+
+2. Navegue para **usuários** e **adicionar um novo utilizador do dispositivo**.
+
+3. Sobre o **básica** página, execute os seguintes passos:
+
+    ![O utilizador ](./media/silverback-tutorial/tutorial_silverback_user.png)
+
+    a. Na **nome de utilizador** texto, introduza o nome de utilizador, como **Eduarda**.
+
+    b. Na **nome próprio** texto, introduza o nome de utilizador, como **Eduarda**.
+
+    c. Na **sobrenome** texto, digite o apelido do utilizador, como **Simon**.
+
+    d. Na **endereço de email** texto, introduza o e-mail do utilizador, como **Brittasimon@contoso.com**.
+
+    e. Na **palavra-passe** texto, introduza a palavra-passe.
+    
+    f. Na **Confirmar palavra-passe** caixa de texto, volte a introduzir a palavra-passe e confirme.
+
+    g. Clique em **Guardar**.
+
+>[!NOTE]
+>Se não quiser criar manualmente a cada utilizador ativar a **criação dinâmica de utilizador** caixa de verificação sob **administração** > **fornecedor de autenticação**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

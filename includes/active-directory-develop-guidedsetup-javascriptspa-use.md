@@ -1,7 +1,31 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utilize a biblioteca de autenticação da Microsoft (MSAL) para o utilizador iniciar sessão
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293465"
+---
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utilizar o Microsoft Authentication Library (MSAL) para iniciar a sessão do utilizador
 
-1.  Crie um ficheiro denominado `app.js`. Se estiver a utilizar o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito e selecione: `Add`  >  `New Item`  >  `JavaScript File`:
-2.  Adicione o seguinte código no seu `app.js` ficheiro:
+1.  Crie um ficheiro com o nome `app.js`. Se estiver a utilizar o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com botão direito e selecione: `Add`  >  `New Item`  >  `JavaScript File`:
+2.  Adicione o seguinte código para seu `app.js` ficheiro:
 
 ```javascript
 // Graph API endpoint to show user profile
@@ -113,32 +137,32 @@ function showError(endpoint, error, errorDesc) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais Informações
 
-Depois de um utilizador clica o *'Chamar Microsoft Graph API'* botão pela primeira vez, `callGraphApi` chamadas de método `loginRedirect` a sessão do utilizador. Este método resulta em redirecionar o utilizador a *ponto final do Microsoft Azure Active Directory v2* a linha de comandos e validar as credenciais do utilizador. Como resultado de um bem-sucedida início de sessão, o utilizador é redirecionado para original *index.html* página e um token é recebida, processados pelo `msal.js` e as informações contidas no token é colocado em cache. Este token é conhecido como o *ID token* e contém informações básicas sobre o utilizador, tais como o nome a apresentar do utilizador. Se pretender utilizar os dados fornecidos por este token para quaisquer fins, tem de certificar-se de que este token é validado pelo seu servidor de back-end para garantir que o token foi emitido para um utilizador válido para a sua aplicação.
+Depois de um usuário clica o *'Chamar o Microsoft Graph API'* botão pela primeira vez, `callGraphApi` chamadas de método `loginRedirect` para iniciar a sessão do utilizador. Este método resulta em redirecionar o utilizador para o *ponto final do Microsoft Azure Active Directory v2* para solicitar e validar as credenciais do utilizador. Como resultado de um sessão com êxito-, o utilizador é redirecionado para o original *Index. HTML* página e um token é recebida, processados pelo `msal.js` e as informações contidas no token é colocado em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o usuário, como o nome de exibição do usuário. Se planeia utilizar todos os dados fornecidos por este token para fins, terá de certificar-se de que este token é validado pelo seu servidor de back-end para garantir que o token foi emitido para um utilizador válido para a sua aplicação.
 
-A SPA gerada por este guia não faz utiliza diretamente o token de ID – em vez disso, aquele invoca `acquireTokenSilent` e/ou `acquireTokenRedirect` adquirir um *token de acesso* utilizado para consultar o Microsoft Graph API. Se precisar de uma amostra que valida o token de ID, observe [isto](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "exemplo active-directory-javascript-singlepageapp-dotnet-webapi-v2 Github") aplicação de exemplo no GitHub – o exemplo utiliza um ASP API web do .NET para validação do token.
+O SPA gerado por este guia não faz usar diretamente o token de ID – em vez disso, ele chama `acquireTokenSilent` e/ou `acquireTokenRedirect` adquirir um *token de acesso* usado para consultar o Microsoft Graph API. Se precisar de uma amostra que valida o token de ID, dê uma olhada [isso](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github de exemplo active-directory-javascript-singlepageapp-dotnet-webapi-v2") aplicativo de exemplo no GitHub – o exemplo usa um ASP .NET API da web para validação do token.
 
-#### <a name="getting-a-user-token-interactively"></a>A obter um utilizador token interativamente
+#### <a name="getting-a-user-token-interactively"></a>Obter um utilizador token interativamente
 
-Depois do inicial início de sessão, que não pretende peça aos utilizadores para reautenticação sempre que precisam de pedir um token de acesso, para um recurso – *acquireTokenSilent* deve ser utilizada a maioria do tempo para adquirir tokens. Existem no entanto situações que precisa forçar os utilizadores interajam com o ponto final de v2 do Azure Active Directory – alguns exemplos incluem:
-- Os utilizadores podem ter de reintroduzir as suas credenciais porque a palavra-passe expirou
-- A aplicação está a solicitar acesso a um recurso que o utilizador tem de autorizar
-- Não é necessária autenticação de dois fatores
+Depois do inicial início de sessão, que não pretende peça aos utilizadores para autenticar toda vez que precisam para solicitar um token para aceder a um recurso – então *acquireTokenSilent* deve ser utilizada a maior parte do tempo para adquirir tokens. Há contudo situações que precisa forçar os utilizadores interajam com o ponto de final do Azure Active Directory v2 – alguns exemplos incluem:
+- Os utilizadores podem ter de reintroduzir as respetivas credenciais porque a palavra-passe expirou
+- A aplicação está a solicitar acesso a um recurso que o usuário precisa para dar consentimento para
+- Autenticação de dois fatores é necessário
 
-Chamar o *acquireTokenRedirect(scope)* resultar em redirecionar utilizadores para o ponto final do Azure Active Directory v2 (ou *acquireTokenPopup(scope)* resultado de uma janela de pop-up) onde os utilizadores têm de interagir confirmar as suas credenciais, concedendo o consentimento para o recurso necessário, ou concluir os dois fator de autenticação.
+Chamar o *acquireTokenRedirect(scope)* resultar em redirecionar utilizadores para o ponto de final do Azure Active Directory v2 (ou *acquireTokenPopup(scope)* resultado numa janela de pop-up) em que os utilizadores têm de interagir por confirmar as respetivas credenciais, a dar o consentimento para o recurso necessário ou concluir os dois avaliar autenticação.
 
-#### <a name="getting-a-user-token-silently"></a>A obter um utilizador token automaticamente
-O ` acquireTokenSilent` método processa aquisições token e a renovação sem qualquer interação do utilizador. Depois de `loginRedirect` (ou `loginPopup`) é executado pela primeira vez, `acquireTokenSilent` é o método costuma ser utilizado para obter os tokens utilizados para aceder a recursos protegidos para chamadas subsequentes - como as chamadas para pedir ou renovar tokens são efetuadas automaticamente.
-`acquireTokenSilent` poderá falhar em alguns casos-por exemplo, palavra-passe o utilizador expirou. A aplicação pode processar esta exceção de duas formas:
+#### <a name="getting-a-user-token-silently"></a>Obter um utilizador token silenciosamente
+O ` acquireTokenSilent` método processa a aquisições de token e a renovação sem qualquer interação do utilizador. Após `loginRedirect` (ou `loginPopup`) é executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter os tokens utilizados para aceder a recursos protegidos por chamadas subsequentes - como chamadas para pedir ou renovar os tokens são feitas automaticamente.
+`acquireTokenSilent` pode falhar em alguns casos – por exemplo, a senha do usuário expirou. Seu aplicativo pode manipular essa exceção de duas formas:
 
-1.  Efetuar uma chamada para `acquireTokenRedirect` imediatamente, o que resulta numa pedir ao utilizador para iniciar sessão. Este padrão é normalmente utilizado em aplicações online em que não existe nenhum conteúdo não autenticado na aplicação disponível para o utilizador. O exemplo gerado por esta configuração orientada utiliza este padrão.
+1.  Fazer uma chamada para `acquireTokenRedirect` imediatamente, o que resulta em pedir ao utilizador para iniciar sessão. Este padrão é muito usado em aplicativos online onde não há nenhum conteúdo não autenticado no aplicativo disponível para o utilizador. O exemplo gerado por esta configuração assistida usa esse padrão.
 
-2. Aplicações também podem efetuar uma indicação de visual para o utilizador que um interativa início de sessão é necessário, para que o utilizador pode seleccionar no momento certo para iniciar sessão ou a aplicação pode tentar novamente `acquireTokenSilent` numa altura posterior. Isto é normalmente utilizado quando o utilizador pode utilizar outras funcionalidades da aplicação sem ser interrompidos - por exemplo, não há conteúdo não autenticado na aplicação. Neste caso, o utilizador pode decidir quando iniciar sessão para aceder ao recurso protegido ou para atualizar as informações Desatualizadas.
+2. Aplicativos também podem tornar uma indicação visual para o usuário que um interativo início de sessão é necessário, para que o usuário pode selecionar o momento certo para iniciar sessão ou a aplicação pode repetir `acquireTokenSilent` num momento posterior. Isto é normalmente utilizado quando o utilizador pode utilizar outras funcionalidades da aplicação sem a ser interrompida – por exemplo, não existe conteúdo não autenticado no aplicativo. Neste caso, o usuário pode decidir quando pretende iniciar sessão para aceder ao recurso protegido ou para atualizar as informações Desatualizadas.
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Chamar o Microsoft Graph API utilizando o token obtido apenas
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Chamar o Microsoft Graph API com o token de que obteve apenas
 
-Adicione o seguinte código no seu `app.js` ficheiro:
+Adicione o seguinte código para seu `app.js` ficheiro:
 
 ```javascript
 /**
@@ -192,15 +216,15 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 ```
 <!--start-collapse-->
 
-### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Obter mais informações sobre como efetuar uma chamada REST em relação a uma API protegida
+### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Obter mais informações sobre como fazer uma chamada REST em relação a uma API protegida
 
-A aplicação de exemplo criado por este guia, o `callWebApiWithToken()` método é utilizado para efetuar um HTTP `GET` contra um recurso protegido que necessita de um token de pedido e, em seguida, devolver o conteúdo para o autor da chamada. Este método adiciona o token adquirido no *cabeçalho de autorização de HTTP*. Para a aplicação de exemplo criada por este guia, o recurso é o Microsoft Graph API *-me* ponto final – apresenta informações de perfil do utilizador.
+No aplicativo de exemplo criado por este guia, o `callWebApiWithToken()` método é utilizado para fazer um HTTP `GET` em relação a um recurso protegido que necessita de um token do pedido e, em seguida, devolver o conteúdo para o chamador. Este método adiciona o token obtido no *cabeçalho de autorização de HTTP*. Para o aplicativo de exemplo criado por este guia, o recurso é o Microsoft Graph API *me* ponto de extremidade – que exibe informações de perfil do usuário.
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Adicione um método para terminar sessão de utilizador
+## <a name="add-a-method-to-sign-out-the-user"></a>Adicione um método para terminar sessão do utilizador
 
-Adicione o seguinte código no seu `app.js` ficheiro:
+Adicione o seguinte código para seu `app.js` ficheiro:
 
 ```javascript
 /**

@@ -1,31 +1,55 @@
-## <a name="test-your-code"></a>Testar o seu código
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 7f086c44abf6c9002c47904dc722294e046528f7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293648"
+---
+## <a name="test-your-app"></a>Testar a aplicação
 
-1. Implemente o código para o dispositivo/emulador.
+1. Execute o código para o emulador/dispositivo.
 
-2. Quando estiver pronto para testar a aplicação, utilize uma conta do Azure Active Directory (conta escolar ou profissional) ou uma conta Microsoft (live.com, outlook.com) para iniciar sessão. 
+2. Tente iniciar sessão com uma conta do Azure Active Directory (conta escolar ou profissional) ou uma conta Microsoft (live.com, outlook.com). 
 
-    ![Testar a aplicação](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
+    ![Testar a sua aplicação](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>
     ![Introduza o nome de utilizador e palavra-passe](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 
-### <a name="provide-consent-for-application-access"></a>Fornecer consentimento de acesso à aplicação
-Na primeira vez que iniciar sessão na sua aplicação, está também lhe para fornecer consentimento para permitir que a aplicação para aceder ao seu perfil e inicie sessão no, conforme mostrado aqui: 
+### <a name="consent-to-your-app"></a>Consentimento para a sua aplicação
+Na primeira vez que um utilizador inicia sessão sua aplicação, será solicitado a eles consentimento às permissões necessidades da sua aplicação, como mostrado aqui: 
 
-![Forneça o seu consentimento para acesso de aplicação](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
+![Forneça o seu consentimento para acesso à aplicação](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 
-### <a name="view-application-results"></a>Ver os resultados da aplicação
-Depois de iniciar sessão, deverá ver os resultados que são devolvidos pela chamada para a Microsoft Graph API. A chamada para a Microsoft Graph API **-me** endpoint devolve o [perfil de utilizador](https://graph.microsoft.com/v1.0/me). Para obter uma lista de pontos finais de Microsoft Graph comuns, consulte [documentação de programador do Microsoft Graph API](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
+### <a name="success"></a>Êxito!
+Depois de iniciar sessão e dar consentimento, a aplicação irá apresentar a resposta do Microsoft Graph API. Esta chamada específica é para o **/me** ponto final e devolve o [perfil de utilizador](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_get). Para obter uma lista de outros pontos de extremidade do Microsoft Graph, consulte [documentação de programador do Microsoft Graph API](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e as permissões delegadas
+### <a name="scopes-and-delegated-permissions"></a>Âmbitos e permissões delegadas
 
-Requer o Microsoft Graph API do *user.read* âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todas as aplicações que está registada no Portal de registo de aplicação. Outras APIs para o Microsoft Graph, bem como as APIs personalizadas para o servidor de back-end, poderá necessitar de âmbitos adicionais. Requer o Microsoft Graph API do *Calendars.Read* âmbito lista de calendários do utilizador. 
+O Microsoft Graph API requer a *User.Read* âmbito para ler um perfil de utilizador. Este âmbito é automaticamente em cada aplicação que está registrada no Portal de registo de aplicação. Outras APIs exigirá âmbitos adicionais. Por exemplo, a Microsoft Graph API requer a *Calendars.Read* âmbito para listar calendários do utilizador. 
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione o *Calendars.Read* delegado permissão para as informações de registo de aplicação. Em seguida, adicione o *Calendars.Read* âmbito para o `acquireTokenSilent` chamada. 
+Para aceder aos calendários do utilizador, adicione a *Calendars.Read* delegado permissão para as informações de registo de aplicação. Em seguida, adicione a *Calendars.Read* definir o âmbito para o `acquireTokenSilent` chamar. 
 
 >[!NOTE]
->O utilizador pode ser pedido para consents adicionais como aumentar o número de âmbitos.
+>Os utilizadores poderão ser solicitados consentimento adicionais se alterar o registo de aplicação.
 
 <!--end-collapse-->
 

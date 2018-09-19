@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: d5132cf2414045ca1343354215b2a4564f696190
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044775"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297283"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planear clusters do Hadoop associados a um domínio do Azure no HDInsight
 
@@ -61,7 +61,7 @@ Para obter mais informações, consulte [clusters do HDInsight associados a um d
 
 Se tiver uma instância do Active Directory no local ou configurações mais complexas do Active Directory para o seu domínio, pode sincronizar essas identidades para o Azure AD com o Azure AD Connect. Em seguida, pode ativar o Azure AD DS no inquilino do Active Directory. 
 
-Uma vez que Kerberos se baseia nos hashes de palavra-passe, terá [ativar a sincronização de hash de palavra-passe no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se estiver a utilizar o federação com os serviços de Federação do Active Directory (AD FS), pode, opcionalmente, configurar sincronização de hash de palavra-passe como uma cópia de segurança no caso de falha de infraestrutura do AD FS. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). 
+Uma vez que Kerberos se baseia nos hashes de palavra-passe, terá [ativar a sincronização de hash de palavra-passe no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se estiver a utilizar o federação com os serviços de Federação do Active Directory (AD FS), pode, opcionalmente, configurar sincronização de hash de palavra-passe como uma cópia de segurança no caso de falha de infraestrutura do AD FS. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Utilização no local do Active Directory ou do Active Directory em VMs de IaaS sozinho, sem o Azure AD e o Azure AD DS, não é uma configuração suportada para clusters do HDInsight associados a um domínio.
 

@@ -14,12 +14,12 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 985fd559c0af0306dc5b0868a8d7ccc66ca790f8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349250"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296707"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -119,12 +119,20 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de serviços do SharePoint](#sharepoint-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Skype para empresas / administrador do serviço Lync](#lync-service-administrator)**: os utilizadores com esta função têm permissões globais no Microsoft Skype para empresas, quando o serviço está presente, bem como gerir os atributos de utilizador do Skype específico no Azure Active Diretório. Além disso, esta função concede a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço e para acessar as Equipes e o Skype para empresas do Centro de administração. A conta também têm de estar licenciada para equipas ou não é possível executar cmdlets do PowerShell de Equipes. Mais informações em [sobre o Skype para a função de administrador de negócios](https://support.office.com/en-us/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) e as equipas de informações de licenciamento em [Skype para empresas e o Microsoft Teams suplemento licenciamento](https://docs.microsoft.com/en-us/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[Skype para empresas / administrador do serviço Lync](#lync-service-administrator)**: os utilizadores com esta função têm permissões globais no Microsoft Skype para empresas, quando o serviço está presente, bem como gerir os atributos de utilizador do Skype específico no Azure Active Diretório. Além disso, esta função concede a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço e para acessar as Equipes e o Skype para empresas do Centro de administração. A conta também têm de estar licenciada para equipas ou não é possível executar cmdlets do PowerShell de Equipes. Mais informações em [sobre o Skype para a função de administrador de negócios](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) e as equipas de informações de licenciamento em [Skype para empresas e o Microsoft Teams suplemento licenciamento](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "Administrador do serviço Lync". É "Skype para empresas administrador de serviços" na [portal do Azure](https://portal.azure.com/).
   >
   >
+
+* **[As equipes de administrador de comunicações](#teams-communications-administrator)**: os utilizadores nesta função podem gerir os aspetos da carga de trabalho do Microsoft Teams relacionadas com a voz e telefonia. Isto inclui as ferramentas de gestão para atribuição de número de telefone, diretivas de voz e de reunião e acesso total para o conjunto de ferramentas de análise de chamada.
+
+* **[As equipes de engenheiro de suporte de comunicações](#teams-communications-support-engineer)**: os utilizadores nesta função podem resolver problemas de comunicação dentro do Microsoft Teams e o Skype para empresas com o usuário chamam ferramentas de solução de problemas no Microsoft Teams & Skype para Centro de administração de negócios. Os utilizadores nesta função podem ver informações de registo de chamadas completa para todos os participantes envolvidos.
+
+* **[As equipes especialistas de suporte de comunicações](#teams-communications-support-specialist)**: os utilizadores nesta função podem resolver problemas de comunicação dentro do Microsoft Teams e o Skype para empresas com o usuário chamam ferramentas de solução de problemas no Microsoft Teams & Skype para Centro de administração de negócios. Os utilizadores nesta função apenas podem ver os detalhes de utilizador na chamada para o usuário específico que tem procurado.
+
+* **[As equipes de administrador de serviços](#teams-service-administrator)**: os utilizadores nesta função podem gerir todos os aspetos da carga de trabalho Microsoft Teams através do Skype e Microsoft Teams para o Centro de administração de negócios e os respectivos módulos do PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionados com a telefonia, mensagens, reuniões e as equipes propriamente ditas. Esta função também concede a capacidade para gerir grupos do Office 365.
 
 * **[Administrador de conta de utilizador](#user-account-administrator)**: os utilizadores com esta função podem criar e gerir todos os aspetos de utilizadores e grupos. Além disso, esta função inclui a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Aplicam-se algumas restrições. Por exemplo, esta função não permite a eliminação de um administrador global. Os administradores de conta de utilizador podem alterar as palavras-passe e invalidar os tokens de atualização para os utilizadores, administradores de suporte técnico e outros administradores de conta de utilizador apenas. Invalidar um token de atualização força o utilizador iniciar sessão novamente.
 
@@ -1081,6 +1089,93 @@ Pode gerir todos os aspetos do serviço do SharePoint.
 | Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | Microsoft.office365.SharePoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão no microsoft.office365.sharepoint. |
 | Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+
+### <a name="teams-communications-administrator"></a>Administrador de comunicação de equipas
+Pode gerir a chamar e os recursos de reuniões do serviço do Microsoft Teams.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões de addditonal fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| Microsoft.aad.Directory/Policies/Basic/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+| Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Relatórios de utilização de leitura Office 365. |
+
+### <a name="teams-communications-support-engineer"></a>Engenheiro de suporte de comunicação de equipas
+Pode resolver problemas de comunicação entre as Equipes com ferramentas avançadas.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões de addditonal fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| Microsoft.aad.Directory/Policies/Basic/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+
+### <a name="teams-communications-support-specialist"></a>Especialista de suporte de comunicações de equipes
+Pode resolver problemas de comunicação entre as Equipes com as ferramentas básicas.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões de addditonal fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| Microsoft.aad.Directory/Policies/Basic/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+
+### <a name="teams-service-administrator"></a>Administrador de serviços de equipes
+Pode gerir o serviço do Microsoft Teams.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões de addditonal fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.directory/groups/hiddenMembers/read | Leia a propriedade groups.hiddenMembers no Azure Active Directory. |
+| Microsoft.aad.Directory/Policies/Basic/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+| Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Relatórios de utilização de leitura Office 365. |
 
 ### <a name="user-account-administrator"></a>Administrador de Conta de Utilizador
 Pode gerir todos os aspetos de utilizadores e grupos

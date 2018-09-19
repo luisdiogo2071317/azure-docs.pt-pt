@@ -1,6 +1,7 @@
 ---
-title: Enviar consultas para a API de pesquisa de imagens do Bing | Documentos da Microsoft
-description: Saiba mais sobre o envio e a personalizar as consultas de pesquisa enviadas para a API de pesquisa de imagens do Bing.
+title: Enviar consultas de imagem - API de pesquisa de imagens do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre como personalizar as consultas de pesquisa enviadas para a API de pesquisa de imagens do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: bf0db0b6d2aa54a853ba86b570ca05fba902dbc1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049563"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296520"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Enviar consultas para a API de pesquisa de imagens do Bing
 
@@ -102,7 +103,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Expanda a consulta
 
-Se o Bing puder expandir a consulta para restringir a pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) contém o campo `queryExpansions`. Por exemplo, se a consulta foi *Microsoft Surface*, as consultas expandidas poderão ser: 
+Se o Bing puder expandir a consulta para restringir a pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) contém o campo `queryExpansions`. Por exemplo, se a consulta foi *Microsoft Surface*, as consultas expandidas poderão ser:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.

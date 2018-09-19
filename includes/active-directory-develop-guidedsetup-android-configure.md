@@ -1,36 +1,57 @@
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: f0e584a4a4a54fc04b5539b56d5c901bfaa42bcc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293804"
+---
 ## <a name="register-your-application"></a>Registar a sua aplicação
-Pode registar a aplicação em qualquer uma das duas formas, conforme descrito nas dois secções.
+Pode registar a sua aplicação em qualquer uma das duas formas, conforme descrito nas próximas duas secções.
 
-### <a name="option-1-express-mode"></a>Opção 1: Modo de Express
-Pode registar rapidamente a sua aplicação da seguinte forma:
-1. Vá para o [Portal de registo de aplicações da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.  No **nome da aplicação** caixa, introduza um nome para a sua aplicação.
+### <a name="option-1-express"></a>Opção 1: Express
+1. Vá para o [Portal de registo do Microsoft Application](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+2.  Na **nome da aplicação**, introduza um nome para a sua aplicação.
 
-3. Certifique-se de que o **orientado configuração** caixa de verificação está selecionada e, em seguida, selecione **criar**.
+3. Certifique-se de que o **configuração interativa** caixa de verificação está selecionada e, em seguida, selecione **criar**.
 
-4. Siga as instruções para obter o ID da aplicação e cole-o seu código.
+4. Siga as instruções para obter o ID da aplicação e colá-lo no seu código.
 
-### <a name="option-2-advanced-mode"></a>Opção 2: O modo avançado
-Para registar a sua aplicação e adicione as informações de registo de aplicação à sua solução, efetue o seguinte:
-1. Se ainda não registou a aplicação, vá para o [Portal de registo de aplicações do Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-2. No **nome da aplicação** caixa, introduza um nome para a sua aplicação. 
+### <a name="option-2-advanced"></a>Opção 2: avançada 
+1. Vá para o [Portal de registo do Microsoft Application](https://apps.dev.microsoft.com/portal/register-app).
+2. Na **nome da aplicação** , introduza um nome para a sua aplicação. 
 
-3. Certifique-se de que o **orientado configuração** caixa de verificação está desmarcada e, em seguida, selecione **criar**.
+3. Certifique-se de que o **configuração interativa** caixa de verificação está desmarcada e, em seguida, selecione **criar**.
 
-4. Selecione **adicionar plataforma**, selecione **aplicação nativa**e, em seguida, selecione **guardar**.
+4. Selecione **adicionar plataforma**, selecione **aplicativo nativo**e, em seguida, selecione **guardar**.
 
-5. Em **aplicação** > **java** > **{anfitrião}. { Namespace}**, abra `MainActivity`. 
+5. Sob **app** > **java** > **{anfitrião}. { espaço de nomes}**, abra `MainActivity`. 
 
-6.  Substitua *[Introduza aqui a aplicação Id]* na linha seguinte com o ID da aplicação que acabou de registar:
+6.  Substitua *[Introduza o Id de aplicação aqui]* com a sua aplicação / ID de cliente:
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
 <!-- Workaround for Docs conversion bug -->
-7. Em **aplicação** > **manifestos**, abra o *AndroidManifest.xml* ficheiro.
+7. Sob **app** > **manifestos**, abra o *androidmanifest. XML* ficheiro.
 
-8. No `manifest\application` nó, adicione a seguinte atividade. Se o fizer por isso, regista um `BrowserTabActivity` atividade que permite que o SO retomar a sua aplicação depois de concluir a autenticação:
+8. Na `manifest\application`, adicionar a atividade seguinte. O `BrowserTabActivity` atividade que permite que a Microsoft chamada de retorno para a sua aplicação depois de terminar a autenticação:
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->
@@ -49,4 +70,4 @@ Para registar a sua aplicação e adicione as informações de registo de aplica
     </activity>
     ```
 <!-- Workaround for Docs conversion bug -->
-9. No `BrowserTabActivity` nó, substitua `[Enter the application Id here]` com o ID de aplicação.
+9. Na `BrowserTabActivity`, substitua `[Enter the application Id here]` com a aplicação / ID de cliente.

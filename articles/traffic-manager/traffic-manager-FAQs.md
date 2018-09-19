@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054547"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129544"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -72,7 +72,7 @@ Para contornar este problema, recomendamos que utilize um redirecionamento HTTP 
 Suporte completo para domínios sem "www" no Gestor de tráfego é rastreado no nosso registo de segurança do recurso. Pode registrar o suporte para este pedido de funcionalidade por [voto para o mesmo no nosso site de comentários da Comunidade](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gestor de tráfego considerar o endereço de sub-rede do cliente quando o processamento de consultas DNS? 
-Sim, além do endereço IP de origem da consulta DNS que recebe (que é normalmente o endereço IP do resolvedor de DNS), ao realizar pesquisas para métodos de encaminhamento geográfico e o desempenho, o Gestor de tráfego também considera o endereço de sub-rede do cliente se for incluído na consulta, o resolvedor que efetua o pedido em nome do utilizador final.  
+Sim, além do endereço IP de origem da consulta DNS que recebe (que é normalmente o endereço IP do resolvedor de DNS), ao realizar pesquisas para métodos de encaminhamento geográfico, desempenho e sub-rede, o Gestor de tráfego também considera o endereço de sub-rede do cliente se está incluído na consulta, o resolvedor que efetua o pedido em nome do utilizador final.  
 Especificamente, [RFC 7871 – sub-rede de cliente em consultas de DNS](https://tools.ietf.org/html/rfc7871) que fornece um [mecanismo de extensão para o DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que pode transmitir o endereço de sub-rede de cliente da resoluções de que o suportam.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>O que é o TTL de DNS e como afeta os meus utilizadores?
@@ -133,6 +133,39 @@ Uma região pode ser atribuída a apenas um ponto final de um perfil se sua com 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existem restrições sobre a versão de API que suporta este tipo de encaminhamento?
 
 Sim, apenas a versão de API 2017-03-01 e a mais recente suporta o encaminhamento geográfico escreva. Quaisquer versões mais antigas de API não podem ser utilizado para criar perfis de tipo de encaminhamento geográfico ou atribuir regiões geográficas para pontos de extremidade. Se uma versão de API mais antiga é utilizada para obter os perfis de uma subscrição do Azure, não for devolvida a qualquer perfil de tipo de encaminhamento geográfico. Além disso, ao usar as versões mais antigas de API, a qualquer perfil devolveu que tem pontos finais com uma atribuição de região geográfica, não tem a sua atribuição de região geográfica mostrada.
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Método de encaminhamento de tráfego do Gestor de tráfego de sub-rede
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Quais são alguns casos de utilização em que o encaminhamento de sub-rede é útil?
+Encaminhamento de sub-rede permite-lhe diferenciar a experiência de que entrega para conjuntos específicos de usuários identificados por IP de origem do respetivo endereço IP de pedidos DNS. Um exemplo seria conteúdo diferente do que mostra que os utilizadores estabeleçam ligação a um Web site do seu sede corporativa. Outra seria restringindo os utilizadores de determinados ISPs apenas aceder a pontos finais que suportam ligações apenas de IPv4, se esses ISPs têm um desempenho inferior par, quando o IPv6 é utilizado.
+Outro motivo para usar o método de encaminhamento de sub-rede está em conjunto com outros perfis num perfil aninhado definido. Por exemplo, se desejar usar o método de encaminhamento geográfico de perímetro geográfico os seus utilizadores, mas para um ISP específico que pretende fazer um método de encaminhamento diferente, pode ter um perfil withy sub-rede método de encaminhamento como o perfil de principal e substituir esse ISP para utilizar um filho específico pro ficheiros e ter o perfil geográfico padrão para todos os outros.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Como é que o Gestor de tráfego saber o endereço IP do utilizador final?
+Dispositivos dos utilizadores finais utilizam normalmente um resolvedor DNS para fazer a pesquisa DNS em seu nome. O IP de saída de tais resoluções são o que vê o Gestor de tráfego como o IP de origem. Além disso, método de encaminhamento de sub-rede também verifica se há informações EDNS0 estendido cliente sub-rede (ECS), que foi passadas com o pedido. Se as informações de ECS estiverem presentes, o que é o endereço utilizado para determinar o encaminhamento. Na ausência de informações de ECS, o IP de origem da consulta é utilizado para fins de encaminhamento.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Como posso especificar endereços IP ao utilizar o encaminhamento de sub-rede?
+Os endereços IP para associar um ponto de extremidade podem ser especificados de duas formas. Primeiro, pode usar a notação de octeto de decimal com pontos Quad-com um endereços inicial e final para especificar o intervalo (por exemplo, 1.2.3.4-5.6.7.8 ou 3.4.5.6-3.4.5.6). Em segundo lugar, pode usar a notação CIDR para especificar o intervalo (por exemplo, 1.2.3.0/24). Pode especificar vários intervalos e pode utilizar ambos os tipos de notação num conjunto de intervalo. Algumas restrições aplicam-se.
+-   Não é possível ter sobreposição de intervalos de endereços, uma vez que cada IP tem de ser mapeada para apenas um único ponto final
+-   O endereço de início não pode ser superior ao endereço final
+-   No caso da notação CIDR, o endereço IP antes do '/' deve ser o endereço de início desse intervalo (por exemplo, 1.2.3.0/24 é válido mas 1.2.3.4.4/24 não é válido)
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Como posso especificar um ponto de final de contingência quando utilizar o encaminhamento de sub-rede?
+Num perfil com o encaminhamento de sub-rede, se tiver um ponto de extremidade com não existem sub-redes mapeados para este, qualquer solicitação que não corresponde de outros pontos de extremidade será direcionada para aqui. É altamente recomendável que tenha tal um ponto fallback final no seu perfil, uma vez que o Gestor de tráfego irá devolver uma resposta NXDOMAIN se chegar uma solicitação e não está mapeado para pontos finais ou se está mapeado para um ponto de extremidade, mas que o ponto final está em mau estado de funcionamento.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>O que acontece se um ponto final está desativado num perfil de tipo de encaminhamento de sub-rede?
+Um perfil com o encaminhamento de sub-rede, se tiver um ponto final com que está desabilitado, o Gestor de tráfego irão comportar-se como se o ponto de extremidade e os mapeamentos de sub-rede tem não existe. Se uma consulta que seria já correspondido com seu mapeamento de endereço IP é recebida e o ponto final está desabilitado, o Gestor de tráfego irá devolver um ponto de final de contingência (uma com nenhuma mapeamentos) ou se um ponto final não estiver presente, irá devolver uma resposta NXDOMAIN
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Método de encaminhamento de tráfego do Gestor de tráfego MultiValue
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Quais são alguns casos de utilização em que vários valores de encaminhamento é útil?
+Encaminhamento de valores múltiplos devolve vários pontos de extremidade de bom estado de funcionamento numa resposta de consulta simples. A principal vantagem disso é que, se um ponto final está danificado, o cliente tiver mais opções para tentar novamente sem fazer outra chamada DNS (que pode devolver o mesmo valor de uma cache a montante). Isto é aplicável para aplicações confidenciais de disponibilidade que deseja minimizar o tempo de inatividade.
+Outro uso para o método de encaminhamento de vários valores é se um ponto de extremidade é "dual-que se encontrem" para IPv4 e IPv6 endereços e pretende conceder o chamador ambas as opções de escolha quando é iniciada uma ligação para o ponto final.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Quantos pontos de extremidade são devolvidos quando vários valores de encaminhamento é utilizado?
+Pode especificar o número máximo de endopints a serem retornados e MultiValue retornará nada mais do que muitos pontos de extremidade de bom estado de funcionamento quando é recebida uma consulta. O maior valor possível para esta configuração é 10.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Irá receber o mesmo conjunto de pontos de extremidade que vários valores de encaminhamento é utilizado?
+Não podemos garantir que o mesmo conjunto de pontos finais será retornado em cada consulta. Isso também é afetado pelo fato de que alguns dos pontos finais ficarem danificados, altura em que eles não serão incluídos na resposta
 
 ## <a name="real-user-measurements"></a>Medidas Reais de Utilizadores
 
@@ -257,7 +290,7 @@ Sim. Serviço em nuvem blocos de "teste" pode ser configurado no Traffic Manager
 
 Atualmente, o Gestor de tráfego não fornece IPv6 addressible servidores de nomes. No entanto, o Gestor de tráfego ainda podem ser utilizado pelos clientes de IPv6 ligar pontos finais IPv6. Um cliente não faz a pedidos DNS diretamente para o Gestor de tráfego. Em vez disso, o cliente utiliza um serviço DNS recursivo. Um cliente apenas de IPv6 envia pedidos ao serviço DNS recursivo através de IPv6. Em seguida, o serviço de recursiva deve ser capaz de contactar os servidores de nomes do Gestor de tráfego utilizando IPv4.
 
-O Gestor de tráfego responde com o nome DNS do ponto de extremidade. Para oferecer suporte a um ponto de extremidade do IPv6, tem de existir um registo de DNS AAAA apontar o nome DNS do ponto final para o endereço IPv6. Verificações de estado de funcionamento do Gestor de tráfego suportam apenas endereços IPv4. O serviço precisa expor um ponto de extremidade de IPv4 no mesmo nome DNS.
+O Gestor de tráfego responde com o nome DNS ou endereço IP do ponto de extremidade. Para oferecer suporte a um ponto de extremidade do IPv6, existem duas opções. Pode adicionar o ponto final como um nome de ADN que tem um registo AAAA associado e o Gestor de tráfego irá verificação de estado de funcionamento, esse ponto de extremidade e retorno-o como um registo CNAME escreva na resposta da consulta. Também pode adicionar o ponto de extremidade diretamente com o endereço de IPv6 e o Gestor de tráfego irá devolver um registo de tipo AAAA na resposta da consulta. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Pode utilizar o Gestor de tráfego com mais do que uma aplicação Web na mesma região?
 
@@ -300,6 +333,46 @@ O Gestor de tráfego não pode fornecer qualquer validação de certificado, inc
 * Certificados de servidor SNI não são suportados
 * Certificados de cliente não são suportados
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Utilizar um endereço IP ou um nome DNS ao adicionar um ponto final?
+O Gestor de tráfego suporta a adição de pontos de extremidade usando três formas de encaminhá-lo – como um nome DNS, como um endereço IPv4 e um endereço IPv6. Se o ponto final é adicionado como um endereço IPv4 ou IPv6 a resposta da consulta será do tipo de registo A ou AAAA, respectivamente. Se o ponto final foi adicionado como um nome DNS, a resposta da consulta será do tipo de registo CNAME. . Tenha em atenção que apenas adicionar pontos de extremidade, conforme é permitido o endereço IPv4 ou IPv6 é o ponto final é do tipo 'Externo'.
+Todos os métodos de encaminhamento e definições de monitorização são compatíveis com os três tipos de endereçamento de ponto final.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Que tipos de endereços IP posso utilizar ao adicionar um ponto final?
+O Gestor de tráfego permite-lhe utilizar endereços IPv4 ou IPv6 para especificar pontos finais. Existem algumas restrições que estão listadas abaixo:
+- Endereços que correspondem aos espaços de endereços IP privados reservados não são permitidos. Estes endereços incluem os descritas no RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 e RFC 5771
+- O endereço não pode conter quaisquer números de porta (pode especificar as portas a utilizar nas definições de configuração de perfil) 
+- Não existem dois pontos de extremidade no mesmo perfil podem ter o mesmo endereço IP de destino
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Posso utilizar o ponto final de diferente tipos de um único perfil de endereçamento?
+Não, o Gestor de tráfego não permite a misturar tipos de endereçamento de ponto final de um perfil, exceto para o caso de um perfil com o tipo de encaminhamento vários valores, onde pode misturar IPv4 e tipos de endereçamento IPv6
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>O que acontece quando o tipo de registo de uma consulta recebida é diferente do tipo de registo associado ao tipo de endereçamento dos pontos finais?
+Quando é recebida uma consulta em relação a um, o Gestor de tráfego primeiro localiza o ponto final que tem de ser devolvido de acordo com o método de encaminhamento especificado e o estado de funcionamento dos pontos finais. Ele, em seguida, analisa o tipo de registo solicitada na consulta de entrada e o tipo de registo associadas com o ponto final antes de retornar uma resposta com base na tabela abaixo.
+
+Para perfis com qualquer método de encaminhamento que não seja MultiValue:
+|Pedido recebido da consulta|    Tipo de ponto final|  Resposta fornecida|
+|--|--|--|
+|QUALQUER |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
+|A |    A / CNAME | Ponto de extremidade de destino|
+|A |    AAAA |  NODATA |
+|AAAA | AAAA / CNAME |  Ponto de extremidade de destino|
+|AAAA | A | NODATA |
+|CNAME |    CNAME | Ponto de extremidade de destino|
+|CNAME  |A / AAAA | NODATA |
+|
+Perfis com o método de encaminhamento definida como MultiValue:
+
+|Pedido recebido da consulta|    Tipo de ponto final | Resposta fornecida|
+|--|--|--|
+|QUALQUER |  Combinação da e AAAA | Pontos de extremidade de destino|
+|A |    Combinação da e AAAA | Apenas pontos de extremidade de destino do tipo A|
+|AAAA   |Combinação da e AAAA|     Apenas pontos finais de destino do tipo AAAA|
+|CNAME |    Combinação da e AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Pode utilizar um perfil com IPv4 / IPv6 resolvidos pontos finais num perfil aninhado?
+Sim, é possível com a exceção de que um perfil do tipo MultiValue não pode ser um perfil de principal num perfil aninhado definir.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parado a um serviço cloud do Azure / ponto final da aplicação no meu perfil do Gestor de tráfego da web, mas não estou a receber qualquer tráfego, mesmo depois de eu reiniciado-lo. Como posso corrigir esta situação?
 
 Quando um Azure serviço em nuvem / ponto final da aplicação da web está parada paradas de Gestor de tráfego a verificar o respetivo estado de funcionamento e reinicia as verificações de estado de funcionamento apenas depois de detetar que o ponto final tem de ser reiniciados. Para evitar este atraso, desativar e reativar, em seguida, o ponto de extremidade no perfil do Gestor de tráfego depois de reiniciar o ponto final.   
@@ -326,9 +399,13 @@ Ao utilizar estas definições, o Gestor de tráfego pode fornecer as ativaçõe
 
 Gestor de tráfego, as definições de monitorização estão num por nível de perfil. Se precisar de utilizar uma configuração de monitorização diferente para apenas um ponto final, pode ser feito ao ter o ponto de extremidade como uma [aninhados perfil](traffic-manager-nested-profiles.md) cujas definições de monitorização são diferentes do perfil de principal.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>O estado de funcionamento de ponto final de fazer de cabeçalho do anfitrião verifica utilização?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Como posso atribuir cabeçalhos HTTP para o Gestor de tráfego verificações de estado de funcionamento para meus pontos de extremidade?
+O Gestor de tráfego permite-lhe especificar cabeçalhos personalizados no HTTP (S) é iniciada para os pontos finais de verificações de estado de funcionamento. Se pretender especificar um cabeçalho personalizado, pode fazê-lo ao nível do perfil (aplicável a todos os pontos finais) ou especificá-lo ao nível do ponto final. Se um cabeçalho é definido em ambos os níveis, um serviço especificado no nível do ponto final irá substituir o nível de perfil um.
+Um caso de utilização comuns para isso é especificar cabeçalhos de host para que os pedidos do Gestor de tráfego podem são roteados corretamente para um ponto de extremidade hospedado num ambiente multi-inquilino. Outro caso de uso disso é identificar os pedidos de Gestor de tráfego dos registos de pedidos de HTTP (S) de um ponto de extremidade
 
-O Gestor de tráfego utiliza cabeçalhos de host HTTP e HTTPS verificações de estado de funcionamento. O cabeçalho de anfitrião utilizado pelo Gestor de tráfego é o nome do destino do ponto final configurado no perfil. O valor utilizado no cabeçalho de anfitrião não pode ser especificado em separado da propriedade de destino.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>O estado de funcionamento de ponto final de fazer de cabeçalho do anfitrião verifica utilização?
+Não se for fornecida nenhuma definição de cabeçalho de anfitrião personalizado, o cabeçalho de anfitrião utilizado pelo Gestor de tráfego é o nome DNS do destino do ponto final configurado no perfil, se de que está disponível. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quais são os endereços IP a partir do qual o estado de funcionamento verifica se originam?
 

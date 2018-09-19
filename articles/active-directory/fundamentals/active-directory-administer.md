@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737180"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297933"
 ---
 # <a name="manage-your-azure-active-directory-tenant"></a>Gerir o seu inquilino do Azure Active Directory
 
@@ -42,7 +42,7 @@ Recomendamos que utilize a conta de administrador que utilizou no seu primeiro s
 
 Por exemplo, se se inscrever numa subscrição do Microsoft Intune e, posteriormente, sincronizar o seu Active Directory no local com o seu diretório do Azure Directory, pode inscrever-se noutro serviço Microsoft, como o Office 365, e beneficiar, facilmente, das mesmas vantagens de integração de diretórios que já tem com o Microsoft Intune.
 
-Para obter mais informações acerca da integração do seu diretório no local com o Azure AD, veja [Integração de diretórios com o Azure AD Connect](../connect/active-directory-aadconnect.md).
+Para obter mais informações acerca da integração do seu diretório no local com o Azure AD, veja [Integração de diretórios com o Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Associar um diretório do Azure AD existente a uma nova subscrição do Azure
 Pode associar uma nova subscrição do Azure ao mesmo diretório que autentica o início de sessão de uma subscrição já existente do Office 365 ou do Microsoft Intune. Para obter mais informações sobre este cenário, veja [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md) (Transferir a propriedade de uma subscrição do Azure para outra conta)

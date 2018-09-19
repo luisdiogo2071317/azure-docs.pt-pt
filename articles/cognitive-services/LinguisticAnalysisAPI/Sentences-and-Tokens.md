@@ -1,71 +1,72 @@
 ---
-title: Frases e tokens na API Analysis linguístico | Microsoft Docs
-description: Saiba mais sobre a separação de frases e atomização na API Analysis linguístico em serviços cognitivos.
+title: Frases e tokens - API de análise linguística
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre a separação e atomização na API de análise linguística.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b31ca8f88d1e8d5710c3a6a6cfccbb167fdd762a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084047"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126280"
 ---
-# <a name="sentence-separation-and-tokenization"></a>Separação de frases e atomização
+# <a name="sentence-separation-and-tokenization"></a>Separação e atomização
 
-## <a name="background-and-motivation"></a>Em segundo plano e a motivação
+## <a name="background-and-motivation"></a>Em segundo plano e motivação
 
-Tendo em conta um corpo de texto, o primeiro passo do Analysis Services linguístico é de quebrar frases e tokens.
+Tendo em conta um corpo de texto, a primeira etapa de análise linguística é quebrá-lo em frases e tokens.
 
-### <a name="sentence-separation"></a>Separação de frases
+### <a name="sentence-separation"></a>Separação
 
-No primeiro rápida, parece que interrompendo texto em frases é simple: apenas localizar os marcadores de fim de frases e quebra de frases não existe.
-No entanto, estas marcas são muitas vezes complicado e ambígua.
+Na primeira vista, parece que a divisão de texto em sentenças é simples: basta encontrar os marcadores de final da sentença e quebrar as frases lá.
+No entanto, essas marcas geralmente são complicadas e é ambígua.
 
 Considere o seguinte texto de exemplo:
 
-> O que diga?!? Posso não ouvir sobre "novo licitação." o diretório É importante para Mr. e Santos Sra.
+> O que falou em favor?!? Eu não conhecer "novo proposta." o diretor É importante para o SR. e Sra Smith.
 
 Este texto contém três frases:
 
-- O que diga?!?
-- Posso não ouvir sobre "novo licitação." o diretório
-- É importante para Mr. e Santos Sra.
+- O que falou em favor?!?
+- Eu não conhecer "novo proposta." o diretor
+- É importante para o SR. e Sra Smith.
 
-Tenha em atenção a como as extremidades de frases estão marcadas formas muito diferentes.
-O primeiro termina numa combinação das marcas de pergunta e dos pontos de exclamação (por vezes denominados uma interrobang).
-O segundo terminar com um período ou parar completo, mas as aspas seguintes deve ser solicitados para o frase anterior.
-O frase terceiro, pode ver como esse mesmo caráter período pode ser utilizado para marcar abreviaturas bem.
-Observar apenas pontuação fornece um conjunto de bom candidato, mas o trabalho adicional é necessário para identificar os limites de frases verdadeiro.
+Observe como as extremidades de frases são marcadas como diferentes formas.
+A primeira termina dentro de uma combinação de pontos de interrogação e pontos de exclamação (por vezes denominados um interrobang).
+O segundo termina com um período ou stop completo, mas as aspas de seguintes deve sejam passado para a frase anterior.
+A frase de terceiro, pode ver como esse mesmo caractere de ponto final pode ser usado para marcar abreviaturas também.
+Olhando apenas a pontuação fornece um conjunto de bom candidato, mas é necessário qualquer trabalho adicional para identificar os limites de sentença verdadeiro.
 
 ### <a name="tokenization"></a>Atomização
 
-A próxima tarefa consiste interromper estas frases tokens.
-A maioria das vezes, os tokens inglês são delimitados por espaços em branco.
-(Localizar tokens ou palavras é muito mais fácil em inglês que no chinês, onde os espaços são utilizados principalmente não entre as palavras.
-O frase primeiro pode ser escrito como "Whatdidyousay?")
+A próxima tarefa é dividir essas frases em tokens.
+Na maior parte, em inglês tokens são delimitadas por espaço em branco.
+(Localizar tokens ou palavras é muito mais fácil em inglês do que em chinês, onde os espaços são usados principalmente não entre as palavras.
+A primeira frase pode ser escrita como "Whatdidyousay?")
 
 Existem alguns casos difícil.
-Em primeiro lugar, pontuação frequentemente (mas não sempre) deve ser dividida na direção oposta ao mesmo envolvente contexto.
-Segundo, inglês tem *contrações*, como "não" ou "é", em que as palavras foram comprimidas e abreviadas em partes mais pequenas. O objetivo de atomizador é interromper a sequência de carateres palavras.
+Em primeiro lugar, pontuação normalmente (mas não sempre) deve ser dividida afastado disso em torno de contexto.
+Em segundo lugar, tem o inglês *contrações*, como "não" ou "é", em que as palavras foram comprimidas e abreviadas em partes mais pequenas. O objetivo do atomizador é dividir a seqüência de caracteres em palavras.
 
-Vamos voltar para os frases de exemplo do acima.
-Agora vamos tiver colocado "ponto center" (&middot;) entre cada token distinto.
+Vamos voltar para as frases de exemplo acima.
+Agora, colocamos um ponto"center" (&middot;) entre cada token distinto.
 
-- O que &middot; foi &middot; &middot; diga &middot; ?!?
-- Posso &middot; foi &middot; n't &middot; ouvir &middot; sobre &middot; o &middot; director &middot; do &middot; " &middot; novo &middot; proposta &middot; . &middot; "
-- - &middot; Do &middot; importante &middot; para &middot; Mr. &middot; e &middot; Mrs. &middot; Santos &middot; .
+- O que &middot; fez &middot; &middot; dizer &middot; favor?!?
+- Eu &middot; fez &middot; n't &middot; ouvir &middot; sobre &middot; o &middot; diretor &middot; do &middot; " &middot; novo &middot; proposta &middot; . &middot; "
+- Ele &middot; da &middot; importante &middot; para &middot; SR.&middot; e &middot; Mrs. &middot; Smith &middot; .
 
-Tenha em atenção de que forma a maioria dos tokens são palavras encontrará no dicionário (por exemplo, *importante*, *director*).
-Outras pessoas consistem apenas de pontuação.
-Por fim, existem mais invulgares tokens para representar contrações como *n't* para *não*, como o possessives *do*, etc. Este atomização nos permite lidar palavra *não* e o frase *não* de forma mais consistente, para a instância.
+Observe como a maioria dos tokens são palavras que encontraria no dicionário (por exemplo, *importantes*, *diretor*).
+Outros são compostos por unicamente de pontuação.
+Por fim, existem mais incomuns tokens para representar contrações como *n't* para *não*, como o possessives *do*, etc. Este atomização nos permite lidar com a palavra *não* e a frase *não* de forma mais consistente, por exemplo.
 
-## <a name="specification"></a>especificação
+## <a name="specification"></a>Especificação
 
-É importante tomar decisões consistentes sobre o que é composta por uma frase e um token.
-Precisamos de especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (alguns detalhes adicionais estão disponíveis em ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+É importante tomar decisões consistentes sobre o que é composto por uma sentença e um token.
+Podemos contar com a especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (alguns detalhes adicionais estão disponíveis em ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html a maiúsculas e minúsculas).

@@ -1,25 +1,27 @@
 ---
-title: Interpretação semântica na API do serviço de exploração de dados de conhecimento | Microsoft Docs
-description: Saiba como utilizar interpretação semântica no conhecimento exploração de serviço (KES) API nos serviços cognitivos.
+title: Interpretação semântica - API de serviço de exploração de conhecimento
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar interpretação semântica no conhecimento exploração de serviço (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 022188464eb7269b69f96a058b444167b587387c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351811"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129357"
 ---
 # <a name="semantic-interpretation"></a>Interpretação semântica
-Interpretação semântica associa saída semântica cada caminho interpretado através de gramática.  Em particular, o serviço avalia a sequência de instruções de `tag` elementos atravessadas pela interpretação para calcular o resultado final.  
 
-Uma instrução pode ser uma atribuição de um literal ou uma variável a outra variável.  -Também pode atribuir a saída de uma função com 0 ou mais parâmetros a uma variável.  Cada parâmetro de função pode ser especificado utilizando um literal ou uma variável.  Se a função não devolve quaisquer dados, a atribuição for omitida.
+Interpretação semântica associa saída semântica cada caminho interpretado por meio da gramática.  Em particular, o serviço avalia a seqüência de instruções no `tag` elementos envolvidos pela interpretação para computar a saída final.  
+
+Uma instrução pode ser uma atribuição de um literal ou uma variável a outra variável.  -Lo, também, pode atribuir a saída de uma função com 0 ou mais parâmetros a uma variável.  Cada parâmetro de função pode ser especificado com um literal ou uma variável.  Se a função não devolve quaisquer dados, a atribuição é omitida.
 
 ```xml
 <tag>x = 1; y = x;</tag>
@@ -27,40 +29,43 @@ Uma instrução pode ser uma atribuição de um literal ou uma variável a outra
 <tag>AssertEquals(x, 1);</tag>
 ```
 
-Uma variável for especificada com um identificador de nome que começa com uma letra e apenas composto por letras (A-Z), números (0-9) e o caráter de sublinhado (\_).  O tipo está implicitamente inferido a partir do literal ou função saída valor atribuído à mesma. 
+Uma variável é especificada com um identificador de nome que começa com uma letra e consiste apenas em letras (A-Z), números (0-9) e o caráter de sublinhado (\_).  O tipo implicitamente é inferido do literal ou valor atribuído a ele de saída de função. 
 
 Segue-se uma lista de tipos de dados atualmente suportados:
 
 |Tipo|Descrição|Exemplos|
 |----|----|----|
-|Cadeia|Sequência de 0 ou mais carateres|"Olá mundo!"<br/>""|
+|Cadeia|Sequência de 0 ou mais carateres|"Hello World!"<br/>""|
 |Bool|Valor booleano|true<br/>false|
-|Int32|número de inteiro com sinal de 32 bits.  -2.1e9 para 2.1e9|123<br/>-321|
-|Int64|número de inteiro com sinal de 64 bits. -9.2e18 e 9.2e18|9876543210|
+|Int32|inteiro de 32 bits assinado.  -2.1e9 para 2.1e9|123<br/>-321|
+|Int64|inteiro assinado de 64 bits. -9.2e18 e 9.2e18|9876543210|
 |Valor de duplo|Vírgula flutuante de dupla precisão. 1.7E + /-308 (15 dígitos)|123.456789<br/>1.23456789e2|
 |GUID|Identificador exclusivo global|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Consulta|Expressão de consulta que especifica um subconjunto de objetos de dados no índice|ALL()<br/>E (*q1*, *q2*)|
 
-<a name="semantic-functions"></a>
-## <a name="semantic-functions"></a>Funções semânticos
-Não há um conjunto de funções semânticos incorporado.  Permitir a construção de consultas sofisticadas e permitem controlar context confidencial interpretações de gramática.
+## <a name="semantic-functions"></a>Funções semânticas
 
-### <a name="and-function"></a>As funções e
+Existe um conjunto interno de funções de semânticas.  Eles permitem a construção de consultas avançadas e fornecem controle sensível ao contexto sobre interpretações de gramática.
+
+### <a name="and-function"></a>E a função
+
 `query = And(query1, query2);`
 
-Devolve uma consulta composta pela intersecção de dois consultas de entrada.
+Devolve uma consulta composta a partir da interseção entre duas consultas de entrada.
 
 ### <a name="or-function"></a>Ou uma função
+
 `query = Or(query1, query2);`
 
-Devolve uma consulta composta pela União das duas consultas de entrada.
+Devolve uma consulta composta provenientes da União de duas consultas de entrada.
 
 ### <a name="all-function"></a>Função all
+
 `query = All();`
 
 Devolve uma consulta que inclui todos os objetos de dados.
 
-No exemplo seguinte, utilizamos a função de All() iteratively criar cópias de segurança uma consulta com base na intersecção do 1 ou mais palavras-chave.
+No exemplo a seguir, usamos a função de All() iterativamente acumular uma consulta com base na intersecção de 1 ou mais palavras-chave.
 
 ```
 <tag>query = All();</tag>
@@ -71,11 +76,12 @@ No exemplo seguinte, utilizamos a função de All() iteratively criar cópias de
 ```
 
 ### <a name="none-function"></a>Nenhuma função
+
 `query = None();`
 
 Devolve uma consulta que inclui não existem objetos de dados.
 
-No exemplo seguinte, utilizamos a função de None() iteratively criar cópias de segurança uma consulta com base na União de palavras-chave 1 ou mais.
+No exemplo a seguir, usamos a função de None() iterativamente acumular uma consulta com base na União de 1 ou mais palavras-chave.
 
 ```
 <tag>query = None();</tag>
@@ -86,14 +92,15 @@ No exemplo seguinte, utilizamos a função de None() iteratively criar cópias d
 ```
 
 ### <a name="query-function"></a>Função de consulta
+
 ```
 query = Query(attrName, value)
 query = Query(attrName, value, op)
 ```
 
-Devolve uma consulta que inclui apenas os objetos de dados cujo atributo *attrName* corresponde ao valor *valor* , de acordo com a operação especificada *op*, que está predefinida para "eq".  Normalmente, utiliza um `attrref` elemento para criar uma consulta com base na cadeia de consulta de entrada correspondida.  Se um valor é fornecido ou obtido através de outros meios, a função de Query () pode ser utilizada para criar uma consulta correspondente este valor.
+Devolve uma consulta que inclui apenas os objetos de dados cujo atributo *attrName* corresponde ao valor *valor* , de acordo com a operação especificada *op*, que está predefinido para "eq".  Normalmente, utiliza um `attrref` elemento para criar uma consulta com base na cadeia de consulta de entrada correspondida.  Se um valor é dado ou obtido por meio de outros meios, a função de Query () pode ser utilizada para criar uma consulta que correspondam este valor.
 
-No exemplo seguinte, utilizamos a função de Query () para implementar o suporte para especificar as publicações académicas de um determinado decade.
+No exemplo a seguir, usamos a função de Query () para implementar o suporte para especificar as publicações acadêmicas de uma década específica.
 
 ```xml
 written in the 90s
@@ -104,53 +111,57 @@ written in the 90s
 </tag>
 ```
 
-<a name="composite-function"/>
 ### <a name="composite-function"></a>Função composta
+
 `query = Composite(innerQuery);`
 
-Devolve uma consulta que encapsula uma *innerQuery* composto correspondências contra secundárias atributos de um atributo composto comuns *attr*.  O encapsulamento requer o atributo composto *attr* de qualquer objeto de dados correspondente para ter, pelo menos, um valor que satisfaça individualmente a *innerQuery*.  Tenha em atenção que uma consulta em secundárias atributos de um atributo composto tem de ser encapsulado utilizando a função de Composite() antes de pode ser combinado com outras consultas.
+Devolve uma consulta que encapsula uma *innerQuery* composto por correspondências em relação a atributos de frações de um atributo composto comuns *attr*.  O encapsulamento requer o atributo composto *attr* de qualquer objeto de dados correspondente para ter, pelo menos, um valor que satisfaça individualmente a *innerQuery*.  Tenha em atenção que uma consulta em atributos de frações de um atributo composto tem de ser encapsuladas com a função de Composite() antes de ele pode ser combinado com outras consultas.
 
-Por exemplo, a seguinte consulta devolve publicações académicas por "harry shum" durante a ele na "microsoft":
+Por exemplo, a seguinte consulta devolve publicações acadêmicas por "harry shum" enquanto esteve na "microsoft":
 ```
 Composite(And(Query("academic#Author.Name", "harry shum"), 
               Query("academic#Author.Affiliation", "microsoft")));
 ```
 
-Por outro lado, a seguinte consulta devolve académicas publicações em que é um dos autores "harry shum" e uma das políticas das é "microsoft":
+Por outro lado, a seguinte consulta devolve as publicações acadêmicas em que é um dos autores "harry shum" e uma das afiliações é "microsoft":
 ```
 And(Composite(Query("academic#Author.Name", "harry shum"), 
     Composite(Query("academic#Author.Affiliation", "microsoft")));
 ```
 
-### <a name="getvariable-function"></a>Função GetVariable
+### <a name="getvariable-function"></a>Função de GetVariable
+
 `value = GetVariable(name, scope);`
 
-Devolve o valor da variável *nome* definido em especificado *âmbito*.  *nome* é um identificador que começa com uma letra e apenas composto por letras (A-Z), números (0-9) e caráter de sublinhado (_).  *âmbito* pode ser definido como "pedido" ou "sistema".  Tenha em atenção que as variáveis definidas em diferentes âmbitos são diferentes entre si, incluindo aqueles definido através de saída de funções de semânticos.
+Devolve o valor da variável *name* definidas em especificado *âmbito*.  *nome* é um identificador que começa com uma letra e consiste apenas em letras (A-Z), números (0-9) e o caráter de sublinhado (_).  *âmbito* pode ser definido como "pedido" ou "system".  Tenha em atenção que as variáveis definidas em escopos diferentes são diferentes entre si, incluindo aquelas definidas por meio de saída das funções de semânticas.
 
-As variáveis de âmbito do pedido são partilhadas entre todos os interpretações dentro do pedido de interpret atual.  Podem ser utilizadas para controlar a pesquisa para interpretações através de gramática.
+Variáveis de âmbito do pedido são partilhadas entre todos os interpretações dentro do pedido atual de interpretação.  Eles podem ser utilizados para controlar o âmbito da procura interpretações sobre a gramática.
 
-Variáveis de sistema estão predefinidas pelo serviço e podem ser utilizadas para obter diversas estatísticas sobre o estado atual do sistema.  Segue-se o conjunto de variáveis atualmente suportadas do sistema:
+Variáveis do sistema estão predefinidas pelo serviço e podem ser usadas para recuperar várias estatísticas sobre o estado atual do sistema.  Segue-se o conjunto de variáveis do sistema atualmente suportados:
 
 |Nome|Tipo|Descrição|
 |----|----|----|
-|IsAtEndOfQuery|Bool|VERDADEIRO se a interpretação atual encontrou correspondências todo o texto da consulta de entrada|
-|IsBeyondEndOfQuery|Bool|VERDADEIRO se a interpretação atual tem sugerida conclusões para além do texto da consulta de entrada|
+|IsAtEndOfQuery|Bool|VERDADEIRO se a interpretação atual encontrou correspondências em todo o texto de consulta de entrada|
+|IsBeyondEndOfQuery|Bool|VERDADEIRO se a interpretação atual sugeriu conclusões além do texto de consulta de entrada|
 
-### <a name="setvariable-function"></a>Função SetVariable
+### <a name="setvariable-function"></a>Função de SetVariable
+
 `SetVariable(name, value, scope);`
 
-Atribui *valor* à variável *nome* especificado em *âmbito*.  *nome* é um identificador que começa com uma letra e apenas composto por letras (A-Z), números (0-9) e caráter de sublinhado (_).  Atualmente, o único valor válido para *âmbito* é "Pedir".  Não existem nenhum variáveis do sistema pode ser definida.
+Atribui *valor* a variável *nome* sob especificado *âmbito*.  *nome* é um identificador que começa com uma letra e consiste apenas em letras (A-Z), números (0-9) e o caráter de sublinhado (_).  Atualmente, o único valor válido para *âmbito* é "Pedir".  Não há nenhuma variável do sistema definível.
 
-As variáveis de âmbito do pedido são partilhadas entre todos os interpretações dentro do pedido de interpret atual.  Podem ser utilizadas para controlar a pesquisa para interpretações através de gramática.
+Variáveis de âmbito do pedido são partilhadas entre todos os interpretações dentro do pedido atual de interpretação.  Eles podem ser utilizados para controlar o âmbito da procura interpretações sobre a gramática.
 
-### <a name="assertequals-function"></a>Função AssertEquals
+### <a name="assertequals-function"></a>Função de AssertEquals
+
 `AssertEquals(value1, value2);`
 
-Se *value1* e *value2* são equivalentes, a função tem êxito e não tem efeitos secundários.  Caso contrário, a função falha e rejeita a interpretação.
+Se *value1* e *value2* serão equivalentes, a função tem êxito e não tem efeitos colaterais.  Caso contrário, a função falha e rejeita a interpretação.
 
-### <a name="assertnotequals-function"></a>Função AssertNotEquals
+### <a name="assertnotequals-function"></a>Função de AssertNotEquals
+
 `AssertNotEquals(value1, value2);`
 
-Se *value1* e *value2* tem não equivalente, a função tem êxito e não tem efeitos secundários.  Caso contrário, a função falha e rejeita a interpretação.
+Se *value1* e *value2* serão não equivalentes, a função tem êxito e não tem efeitos colaterais.  Caso contrário, a função falha e rejeita a interpretação.
 
 

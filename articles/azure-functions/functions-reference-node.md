@@ -12,21 +12,53 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 72b93de029af750f55bf53fcc82e22ad91b45f69
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983167"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296350"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
+Este guia contém informações sobre as complicações de escrever as funções do Azure com o JavaScript.
 
-A experiência de JavaScript para as funções do Azure torna mais fácil exportar uma função que é transmitida como um `context` objeto para comunicar com o tempo de execução e para receber e enviar dados através de ligações.
+Uma função de JavaScript é um exportado `function` que será executado quando acionado ([acionadores são configurados na Function](functions-triggers-bindings.md)). Cada função é passada uma `context` objeto que é utilizado para envio e recebimento vinculação de dados, o registo e a comunicação com o tempo de execução.
 
-Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md).
+Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md). Também é recomendável que seguiu um tutorial em "Inícios rápidos" para [criar a primeira função](functions-create-first-function-vs-code.md).
+
+## <a name="folder-structure"></a>estrutura de pastas
+
+A estrutura de pasta necessária para um projeto de JavaScript é semelhante ao seguinte. Tenha em atenção que este padrão pode ser alterado: consulte os [scriptFile](functions-reference-node.md#using-scriptfile) secção abaixo para obter mais detalhes.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+Na raiz do projeto, há um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio arquivo de código (. js) e o ficheiro de configuração de vinculação (Function).
+
+As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 ## <a name="exporting-a-function"></a>Exportar uma função
-Cada função de JavaScript tem de exportar um único `function` via `module.exports` para o tempo de execução localizar a função e executá-lo. Esta função tem de efetuar sempre uma `context` objeto como o primeiro parâmetro.
+
+As funções JavaScript tem de ser exportadas [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (ou [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). Na situação padrão, a função exportada deve ser a exportação única do seu arquivo, a exportação com o nome `run`, ou a exportação com o nome `index`. A localização predefinida da sua função é `index.js`, onde `index.js` compartilha o mesmo diretório do pai correspondente `function.json`. Tenha em atenção que o nome do `function.json`do diretório principal é sempre o nome da sua função. 
+
+Para configurar a localização do ficheiro e exportar o nome da sua função, leia sobre [configurar o ponto de entrada da sua função](functions-reference-node.md#configure-function-entry-point) abaixo.
+
+O ponto de entrada da função exportada deverá tomar um `context` objeto como o primeiro parâmetro.
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -45,7 +77,7 @@ module.exports = function(context) {
 };
 ```
 
-Enlaces de entrada e o acionador (enlaces de `direction === "in"`) pode ser transmitido para a função como parâmetros. Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. Pode lidar com entradas usando o JavaScript dinamicamente [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto. Por exemplo, se tiver `function(context, a, b)` e altere-o para `function(context, a)`, ainda pode obter o valor de `b` no código de função fazendo referência a `arguments[2]`.
+Acionadores e enlaces de entrada (enlaces de `direction === "in"`) pode ser transmitido para a função como parâmetros. Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. Pode lidar com entradas usando o JavaScript também dinamicamente [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto. Por exemplo, se tiver `function(context, a, b)` e altere-o para `function(context, a)`, ainda pode obter o valor de `b` no código de função fazendo referência a `arguments[2]`.
 
 Todos os enlaces, independentemente da direção, também serão transmitidos ao longo da `context` objeto usando o `context.bindings` propriedade.
 
@@ -56,9 +88,9 @@ O `context` objeto é sempre o primeiro parâmetro para uma função e tem de se
 
 ```javascript
 // You must include a context, but other arguments are optional
-module.exports = function(context) {
+module.exports = function(ctx) {
     // function logic goes here :)
-    context.done();
+    ctx.done();
 };
 ```
 
@@ -109,7 +141,7 @@ context.done([err],[propertyBag])
 
 Informa o tempo de execução que terminou a seu código. Se a sua função usa o JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração (disponível através do nó 8 + na versão de funções 2.x), não é necessário utilizar `context.done()`. O `context.done` implicitamente é chamado de retorno de chamada.
 
-Se a sua função não é uma função de async **tem de chamar `context.done`**  para informar o tempo de execução que sua função está concluída. A execução será o tempo limite, se estiver em falta.
+Se a sua função não é uma função de async **tem de chamar** `context.done` para informar o tempo de execução que sua função está concluída. A execução será o tempo limite, se estiver em falta.
 
 O `context.done` método permite que passe tanto um erro definidas pelo usuário de volta para o tempo de execução e um objeto JSON que contém dados de enlace de saída. Propriedades transmitidos para `context.done` irá substituir qualquer item definido no `context.bindings` objeto.
 
@@ -164,7 +196,7 @@ Opções de `dataType` são: `binary`, `stream`, e `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Escrever os resultados de rastreio na consola 
 
-As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. Não pode utilizar as funções v1.x, `console.log` para escrever no console. No v2.x de funções, rastrear ouputs via `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica.
+As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. No v2.x de funções, rastrear ouputs via `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica e, por conseguinte, não são apresentados nos registos de uma função específica. Eles, no entanto, se propagará para o Application Insights. Não pode utilizar as funções v1.x, `console.log` para escrever no console. 
 
 Quando chama `context.log()`, a mensagem é escrita para a consola no nível de rastreio predefinido, que é o _informações_ rastrear nível. Escreve o código a seguir para a consola no nível de rastreio de informações:
 
@@ -295,22 +327,10 @@ A tabela seguinte mostra a versão do node. js utilizada por cada versão princi
 | 1.x | 6.11.2 (bloqueados pelo tempo de execução) |
 | 2.x  | _Active Directory LTS_ e _atual_ versões de node. js (8.11.1 e 10.6.0 recomendado). Definir a versão com o WEBSITE_NODE_DEFAULT_VERSION [definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings).|
 
-Pode ver a versão atual que está a utilizar o tempo de execução imprimindo `process.version` de qualquer função.
+Pode ver a versão atual que está a utilizar o tempo de execução ao verificar a definição de aplicação acima ou imprimindo `process.version` de qualquer função.
 
-## <a name="package-management"></a>Gestão de pacotes
-Os seguintes passos permitem-lhe incluir pacotes na sua aplicação de função: 
-
-1. Aceda a `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Clique em **consola de depuração** > **CMD**.
-
-3. Aceda a `D:\home\site\wwwroot`e, em seguida, arraste o ficheiro Package. JSON para o **wwwroot** pasta na metade superior da página.  
-    Também pode carregar ficheiros para a sua aplicação de função de outras formas. Para obter mais informações, consulte [como atualizar os ficheiros de aplicação de função](functions-reference.md#fileupdate). 
-
-4. Após o carregamento do ficheiro Package JSON, execute o `npm install` comando no **consola de execução remota de Kudu**.  
-    Esta ação transfere os pacotes indicados no ficheiro Package. JSON e reinicia a aplicação de funções.
-
-Após a instalação, os pacotes que terá de importá-los à sua função chamando `require('packagename')`, como no exemplo a seguir:
+## <a name="dependency-management"></a>Gestão de dependências
+Para poder utilizar as bibliotecas de Comunidade no seu código JavaScript, como mostrado no exemplo abaixo, precisa garantir que todas as dependências estão instaladas na sua aplicação de função no Azure.
 
 ```javascript
 // Import the underscore.js library
@@ -323,7 +343,26 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Deve definir um `package.json` ficheiro na raiz da sua aplicação de funções. Definir o ficheiro permite que todas as funções na aplicação, partilhar os mesmos pacotes em cache, que proporciona o melhor desempenho. Se surgir um conflito de versão, pode resolvê-lo ao adicionar um `package.json` ficheiro na pasta de uma função específica.  
+Tenha em atenção que deve definir um `package.json` ficheiro na raiz da sua aplicação de funções. Definir o ficheiro permite que todas as funções na aplicação, partilhar os mesmos pacotes em cache, que proporciona o melhor desempenho. Se surgir um conflito de versão, pode resolvê-lo ao adicionar um `package.json` ficheiro na pasta de uma função específica.  
+
+Existem duas formas de instalar os pacotes em sua aplicação de funções: 
+
+### <a name="deploying-with-dependencies"></a>Implementar com dependências
+1. Instalar todos os pacotes necessários localmente ao executar `npm install`.
+
+2. Implementar o seu código e certifique-se de que o `node_modules` pasta está incluída na implementação. 
+
+
+### <a name="using-kudu"></a>Utilizar o Kudu
+1. Aceda a `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Clique em **consola de depuração** > **CMD**.
+
+3. Aceda a `D:\home\site\wwwroot`e, em seguida, arraste o ficheiro Package. JSON para o **wwwroot** pasta na metade superior da página.  
+    Também pode carregar ficheiros para a sua aplicação de função de outras formas. Para obter mais informações, consulte [como atualizar os ficheiros de aplicação de função](functions-reference.md#fileupdate). 
+
+4. Após o carregamento do ficheiro Package JSON, execute o `npm install` comando no **consola de execução remota de Kudu**.  
+    Esta ação transfere os pacotes indicados no ficheiro Package. JSON e reinicia a aplicação de funções.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 Para obter uma variável de ambiente ou uma aplicação de definir o valor, utilize `process.env`, conforme mostrado aqui no `GetEnvironmentVariable` função:
@@ -344,9 +383,74 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada da função
+
+O `function.json` propriedades `scriptFile` e `entryPoint` pode ser utilizado para configurar a localização e o nome da sua função exportada. Estes podem ser importantes se o JavaScript é transpiled.
+
+### <a name="using-scriptfile"></a>Utilizar o `scriptFile`
+
+Por predefinição, uma função de JavaScript é executada a partir `index.js`, um ficheiro que partilha o mesmo diretório principal de seu correspondente `function.json`.
+
+`scriptFile` pode ser usado para obter uma estrutura de pastas é semelhante a este:
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+O `function.json` para `myNodeFunction` deve incluir um `scriptFile` propriedade apontando para o arquivo com a função exportada para executar.
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### <a name="using-entrypoint"></a>Utilizar o `entryPoint`
+
+Na `scriptFile` (ou `index.js`), uma função tem de ser exportada usando `module.exports` para ser encontrado e executar. Por predefinição, a função que é executado quando acionada está a exportação apenas a partir desse arquivo, a exportação com o nome `run`, ou a exportação com o nome `index`.
+
+Isso pode ser configurado usando `entryPoint` em `function.json`:
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+V2.x de funções, que suporta o `this` parâmetro nas funções de utilizador, o código de função, em seguida, pode ser o seguinte:
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+Neste exemplo, é importante observar que embora um objeto está a ser exportado, não há nenhum garante em torno de preservação de estado entre execuções.
+
 ## <a name="considerations-for-javascript-functions"></a>Considerações para funções de JavaScript
 
-Ao trabalhar com as funções de JavaScript, lembre-se de que as considerações nas duas secções seguintes.
+Ao trabalhar com as funções de JavaScript, lembre-se de que as considerações nas seções a seguir.
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Escolha único vCPU planos de serviço de aplicações
 
@@ -354,6 +458,9 @@ Quando cria uma aplicação de funções que utiliza o plano do serviço de apli
 
 ### <a name="typescript-and-coffeescript-support"></a>Suporte do typeScript e CoffeeScript
 Uma vez que o suporte direto ainda não existe para compilar o automática TypeScript ou CoffeeScript via o tempo de execução, esse suporte deve ser tratado fora o tempo de execução, no momento da implementação. 
+
+### <a name="cold-start"></a>Arranque a frio
+Quando começar a desenvolver funções do Azure no modelo de alojamento sem servidor, cold são uma realidade. "A frio" refere-se ao fato de que quando a aplicação Function App é iniciado pela primeira vez após um período de inatividade, irá demorar mais tempo a iniciar cópia de segurança. Em particular, para as funções de JavaScript com árvores de dependência grandes isso pode causar lentidão principais. Para acelerar o processo, se possível, [executar as suas funções como um ficheiro de pacote](run-functions-from-deployment-package.md). Vários métodos de implementação escolher a esse modelo, por predefinição, mas se estiver a sofrer grandes arranques a frio e não estiver a executar um ficheiro de pacote, isso pode ser uma enorme melhoria.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:

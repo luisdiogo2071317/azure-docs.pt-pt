@@ -1,24 +1,25 @@
 ---
-title: Microsoft tradutor texto API BreakSentence método | Microsoft Docs
-description: Utilize o método BreakSentence de API do Microsoft tradutor texto.
+title: Método de BreakSentence de API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Use o método BreakSentence de API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8ce6644d21b397ea0e7f2e71e3c3a5a96638eec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354980"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124988"
 ---
-# <a name="text-api-30-breaksentence"></a>Texto API 3.0: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>API 3.0 de texto de tradutor: BreakSentence
 
-Identifica o posicionamento de limites de frases num fragmento de texto.
+Identifica o posicionamento dos limites da sentença num pedaço de texto.
 
 ## <a name="request-url"></a>URL do pedido
 
@@ -30,22 +31,22 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Os parâmetros requeridos transmitidos a cadeia de consulta são:
+Parâmetros de pedido passados na seqüência de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
     <td>versão de API</td>
-    <td>*Necessário o parâmetro de consulta*.<br/>Versão da API solicitada pelo cliente. Valor tem de ser `3.0`.</td>
+    <td>*Parâmetro de consulta necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
     <td>Idioma</td>
-    <td>*O parâmetro de consulta opcional*.<br/>Tag de idioma que identifica o idioma de texto de entrada. Se um código não for especificado, a deteção automática do idioma será aplicada.</td>
+    <td>*Parâmetro de consulta opcionais*.<br/>Etiqueta de idioma, identificando o idioma do texto de entrada. Se não for especificado um código, deteção de idioma automática será aplicada.</td>
   </tr>
   <tr>
     <td>script</td>
-    <td>*O parâmetro de consulta opcional*.<br/>Tag de script que identifica o script utilizado pelo texto de entrada. Se não for especificado um script, o script predefinido do idioma será assumido.</td>
+    <td>*Parâmetro de consulta opcionais*.<br/>Marca de script, identificando o script utilizado pelo texto de entrada. Se não for especificado um script, será assumido o script de predefinição da linguagem.</td>
   </tr>
 </table> 
 
@@ -56,25 +57,25 @@ Cabeçalhos de pedido incluem:
   <th>Descrição</th>
   <tr>
     <td>_Uma autorização_<br/>_Cabeçalho_</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Consulte [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Especifica o tipo de conteúdo do payload. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>O comprimento do corpo do pedido.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
     <td>X ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerados pelo cliente para identificar exclusivamente o pedido. Tenha em atenção que pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta utilizando um parâmetro de consulta com o nome `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Tenha em atenção que pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de cadeia denominado `Text`. Limites de frases são calculados para o valor do `Text` propriedade. Um corpo do pedido de exemplo com um fragmento de texto procura assim o desejar que:
+O corpo do pedido é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`. Limites de sentença são calculados para o valor do `Text` propriedade. Um corpo de pedido de exemplo com um elemento de texto terá um aspeto parecido:
 
 ```json
 [
@@ -85,23 +86,23 @@ O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON 
 As seguintes limitações aplicam-se:
 
 * A matriz pode ter no máximo de 100 elementos.
-* O valor de texto de um elemento de matriz não pode exceder a 10.000 carateres, incluindo espaços.
-* O texto completo incluído no pedido de não pode ter mais de 50.000 carateres, incluindo espaços.
+* O valor de texto de um elemento de matriz não pode ter mais de 10.000 carateres, incluindo espaços.
+* Todo o texto incluído no pedido não pode ter mais de 50.000 carateres, incluindo espaços.
 * Se o `language` é especificado o parâmetro de consulta, em seguida, todos os elementos de matriz tem de estar no mesmo idioma. Caso contrário, a deteção automática de idioma é aplicada a cada elemento de matriz independentemente.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `sentLen`: Uma matriz de números inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frases. 
+  * `sentLen`: Uma matriz de inteiros que representam os comprimentos das sentenças do elemento de texto. O comprimento da matriz é o número de frases e os valores são o comprimento de cada sentença. 
 
-  * `detectedLanguage`: Um objeto que descrevem o idioma detetado através das seguintes propriedades:
+  * `detectedLanguage`: Um objeto que descreve o idioma detetado através das seguintes propriedades:
 
-     * `language`: Código de idioma detetado.
+     * `language`: O código do idioma detetado.
 
-     * `score`: Um valor de vírgula flutuante que indica a confiança no resultado. A classificação é entre zero e um e uma pontuação baixa indica uma confiança baixa.
+     * `score`: Um valor de vírgula flutuante que indica a confiança no resultado. A classificação é entre zero e outro e uma pontuação baixa indica uma confiança de baixa.
      
-    Tenha em atenção que o `detectedLanguage` propriedade só está presente no objeto de resultado quando a deteção automática de idioma é solicitada.
+    Tenha em atenção que o `detectedLanguage` propriedade só está presente no objeto de resultado quando é solicitada a deteção automática de idioma.
 
 Um resposta JSON de exemplo é:
 
@@ -130,7 +131,7 @@ Um resposta JSON de exemplo é:
 
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
-Seguem-se os códigos de estado HTTP possíveis que devolve um pedido. 
+Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
@@ -141,7 +142,7 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros do pedido.</td>
+    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros de pedido antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -149,27 +150,27 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>403</td>
-    <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isto indica frequentemente que foram utilizadas todas as traduções livres fornecidas com uma subscrição de avaliação cópias de segurança.</td>
+    <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isso geralmente indica que foram utilizadas todas as conversões gratuitas fornecidas com uma subscrição de avaliação cópia de segurança.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>O chamador está a enviar demasiados pedidos.</td>
+    <td>O chamador está enviando demasiados pedidos.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Ocorreu um erro inesperado. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita o pedido. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Servidor temporariamente indisponível. Repita o pedido. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo seguinte mostra como obter os limites de frases para um único frases. O idioma do frase é detetado automaticamente pelo serviço.
+O exemplo seguinte mostra como obter os limites de frase para uma única frase. O idioma da sentença é detetado automaticamente pelo serviço.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

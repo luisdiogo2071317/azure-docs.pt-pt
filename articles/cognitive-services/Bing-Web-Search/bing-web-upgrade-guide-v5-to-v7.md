@@ -1,54 +1,55 @@
 ---
-title: Atualizar a partir do Bing Web pesquisa API v5 para v7 | Microsoft Docs
-description: Identifica as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
+title: Atualizar do API v5 para v7 - API de pesquisa Web do Bing
+titleSuffix: Azure Cognitive Services
+description: Determine que partes do seu exigirá de aplicação das atualizações ao utilizar APIs de pesquisa Web Bing v7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 155297f230c0ee02d6fa49d6d35eb24d9941f29b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354530"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129748"
 ---
-# <a name="web-search-api-upgrade-guide"></a>Guia de atualização de pesquisa API Web
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Atualização do Bing Web API de pesquisa v5 para v7
 
-Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de pesquisa de Web Bing. Utilize este guia para ajudar a identificar as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
+Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de pesquisa Web do Bing. Utilize este guia para ajudar a identificar as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
 
 ## <a name="breaking-changes"></a>Alterações interruptivas
 
 ### <a name="endpoints"></a>Pontos Finais
 
-- Número de versão do ponto final alterado de v5 para v7. Por exemplo, https:\/\/api.cognitive.microsoft.com/bing/**v 7.0**  /procurar.
+- Número da versão do ponto final foi alterado de v5 para v7. Por exemplo, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**  /de pesquisa.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
 - Todos os pedidos falhados agora devem incluir um `ErrorResponse` objeto no corpo da resposta.
 
-- Adicionar os seguintes campos ao `Error` objeto.  
-  - `subCode`&mdash;Partições o código de erro para registos discretos, se possível
-  - `moreDetails`&mdash;Informações adicionais sobre o erro descrita o `message` campo
-   
+- Adicionados os seguintes campos para o `Error` objeto.  
+  - `subCode`&mdash;O código de erro de partições em grupos discretos, se possível
+  - `moreDetails`&mdash;Informações adicionais sobre o erro descrita a `message` campo
 
-- Substituir os códigos de erro v5 com os seguintes possíveis `code` e `subCode` valores.
+
+- Substituído os códigos de erro v5 com os seguintes possíveis `code` e `subCode` valores.
 
 |Código|SubCode|Descrição
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NãoImplementado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições código secundárias. A resposta irá incluir estes erros se o código de estado HTTP 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não é válido. Por exemplo, um parâmetro necessário está em falta ou um valor de parâmetro não é válido.<br/><br/>Se o erro é ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro é HttpNotAllowed, o código de estado HTTP 410.
-|RateLimitExceeded||Bing devolve RateLimitExceeded sempre que excedem o consultas por segundo (QPS) ou consultas por quota do mês (QPM).<br/><br/>Bing devolve o código de estado HTTP 429 se excedido QPS e 403 se excedido QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing devolve InvalidAuthorization quando Bing não é possível autenticar o autor da chamada. Por exemplo, o `Ocp-Apim-Subscription-Key` cabeçalho está em falta ou a chave de subscrição não é válida.<br/><br/>Redundância ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro é InvalidAuthorization, o código de estado HTTP é 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing devolve InsufficientAuthorization quando o autor da chamada não tem permissões para aceder ao recurso. Este erro pode ocorrer se a chave de subscrição foi desativada ou não expirou. <br/><br/>Se o erro é InsufficientAuthorization, o código de estado HTTP é 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NãoImplementado|O Bing devolve ServerError sempre que qualquer uma das condições código secundárias ocorrer. A resposta irá incluir estes erros se o código de estado HTTP é 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing devolve InvalidRequest sempre que qualquer parte do pedido não é válido. Por exemplo, um parâmetro necessário está em falta ou um valor de parâmetro não é válido.<br/><br/>Se o erro é ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro é HttpNotAllowed, o código de estado HTTP 410.
+|RateLimitExceeded||O Bing devolve RateLimitExceeded sempre que excedem suas consultas por segundo (QPS) ou consultas por quota do mês (QPM).<br/><br/>O Bing devolve o código de estado HTTP 429 se excedido QPS e 403 se excedido QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing devolve InvalidAuthorization ao Bing não é possível autenticar o chamador. Por exemplo, o `Ocp-Apim-Subscription-Key` cabeçalho está em falta ou a chave de subscrição não é válida.<br/><br/>Redundância ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing devolve InsufficientAuthorization quando o chamador não tem permissões para aceder ao recurso. Este erro pode ocorrer se a chave de subscrição foi desativada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de estado HTTP é 403.
 
-- O seguinte mapeia os códigos de erro anterior para os novos códigos de erro. Se tiver criado uma dependência no v5 códigos de erro, atualize o código em conformidade.
+- O seguinte mapeia os códigos de erro anteriores para os códigos de novo. Se obtém uma dependência sobre códigos de erros de v5, atualize o seu código em conformidade.
 
-|Código de versão 5|Versão 7 code.subCode
+|Código da versão 5|Versão 7 code.subCode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
@@ -70,19 +71,18 @@ InsufficientScope|InsufficientAuthorization
 Bloqueado|InvalidRequest.Blocked
 
 
-## <a name="non-breaking-changes"></a>Não-alterações  
+## <a name="non-breaking-changes"></a>Alterações sem interrupções  
 
 ### <a name="headers"></a>Cabeçalhos
 
-- Adicionar o opcional [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) cabeçalho do pedido. Por predefinição, o Bing devolve os conteúdos em cache, se disponível. Para impedir que o Bing devolver o conteúdo em cache, defina o cabeçalho de Pragma para no-cache (por exemplo, Pragma: não cache).
+- Adicionado o opcional [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) cabeçalho do pedido. Por predefinição, o Bing devolve os conteúdos em cache, se disponível. Para impedir que o Bing retornando conteúdo em cache, defina o cabeçalho de Pragma para no cache (por exemplo, Pragma: não-cache).
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Adicionar o [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) parâmetro de consulta. Utilize este parâmetro para especificar o número de respostas pretendidas a resposta a incluir. As respostas são escolhidas com base na classificação. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as respostas de classificados três principais.  
-  
-- Adicionar o [promover](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) parâmetro de consulta. Utilize este parâmetro juntamente com `answerCount` explicitamente incluir um ou mais tipos de resposta, independentemente da respetiva classificação. Por exemplo, para promover vídeos e imagens na resposta, iria definir promover a *vídeos, imagens*. A lista de respostas que pretende promover não contagem contra o `answerCount` limite. Por exemplo, se `answerCount` é 2 e `promote` está definido como *vídeos, imagens*, a resposta pode incluir páginas Web, notícias de última hora, vídeos e imagens.
+- Adicionado o [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) parâmetro de consulta. Utilize este parâmetro para especificar o número de respostas de que pretende que a resposta para incluir. As respostas são escolhidas com base na classificação. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as respostas de classificações três principais.  
+
+- Adicionado o [promover](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) parâmetro de consulta. Utilize este parâmetro juntamente com `answerCount` incluir explicitamente um ou mais tipos de resposta, independentemente da respetiva classificação. Por exemplo, para promover as imagens e vídeos na resposta, definiria promover para *vídeos, imagens*. A lista de respostas de que pretende promover não contam para o `answerCount` limite. Por exemplo, se `answerCount` é 2 e `promote` está definida como *vídeos, imagens*, a resposta pode incluir imagens, vídeos, notícias e páginas da Web.
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Adicionar o `someResultsRemoved` campo para a [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) objeto. O campo contém um valor booleano que indica se a resposta excluídos alguns resultados a resposta da web.  
-
+- Adicionado o `someResultsRemoved` campo para o [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) objeto. O campo contém um valor booleano que indica se a resposta excluídos alguns resultados a resposta do web.  

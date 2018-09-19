@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1fa5451b852a564ef3f0858fdfe0ab0091117508
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717374"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296029"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -171,7 +171,8 @@ Discos geridos Standard | Suportada nas regiões do Azure em que o Azure Site Re
 Discos geridos Premium | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |
 Espaços de armazenamento | Suportadas |         
 Encriptação em repouso (SSE) | Suportadas | O SSE é a predefinição nas contas de armazenamento.   
-Azure Disk Encryption (ADE) | Não suportado |
+Azure Disk Encryption (ADE) para o sistema operacional do Windows | As VMs ativadas para [encryption com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são suportados |
+Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
 Disco de acesso frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
 Excluir o disco | Não suportado|   Disco temporário é excluído por predefinição.
 Espaços de armazenamento direto  | Não suportado|

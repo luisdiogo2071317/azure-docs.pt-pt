@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 437831736d80214ce569b41de7b13c2d051aaf40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3ec8472285ecc7512e2eedc8b9ac850ef8e9cf87
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45572826"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298025"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Saiba mais sobre a gestão de acesso através de grupos do Azure Active Directory
 Azure Active Directory (Azure AD) ajuda-o a gerir as suas aplicações com base na cloud, aplicações no local e seus recursos através de grupos da sua organização. Os recursos podem fazer parte do diretório, tais como permissões para gerir objetos através de funções no diretório ou externo no diretório, como para aplicações de Software como um serviço (SaaS), serviços do Azure, sites do SharePoint e recursos no local.
@@ -58,4 +58,4 @@ Agora que tem um pouco de uma introdução à utilização de grupos de gestão 
 
 - [Utilizar grupos para atribuir acesso a uma aplicação SaaS integrada](../users-groups-roles/groups-saasapps.md)
 
-- [Sincronizar um grupo no local para o Azure com o Azure AD Connect](../connect/active-directory-aadconnect.md)
+- [Sincronizar um grupo no local para o Azure com o Azure AD Connect](../hybrid/whatis-hybrid-identity.md)

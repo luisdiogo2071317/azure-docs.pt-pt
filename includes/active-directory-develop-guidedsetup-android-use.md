@@ -1,7 +1,30 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293565"
+---
+## <a name="use-msal-to-get-a-token"></a>Utilizar a MSAL para obter um token 
 
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar MSAL para obter um token para a Microsoft Graph API
-
-1.  Em **aplicação** > **java** > **{domínio}. { appname}**, abra `MainActivity`. 
+1.  Sob **app** > **java** > **{domain}. { appname}**, abra `MainActivity`. 
 2.  Adicione as seguintes importações:
 
     ```java
@@ -22,7 +45,7 @@
     import com.microsoft.identity.client.*;
     ```
 
-3. Substitua o `MainActivity` classe com o seguinte código:
+3. Substitua o `MainActivity` classe com o código a seguir:
 
     ```java
     public class MainActivity extends AppCompatActivity {
@@ -220,22 +243,20 @@
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 #### <a name="get-a-user-token-interactively"></a>Obter um utilizador token interativamente
-Chamar o `AcquireTokenAsync` método resulta numa janela que solicita aos utilizadores iniciar sessão. As aplicações necessitam normalmente aos utilizadores iniciar sessão interativamente na primeira vez que necessitam para aceder a recursos protegidos. Também poderá ter de iniciar sessão quando uma operação automática para obter um token de falha (por exemplo, quando palavra-passe um utilizador está expirado).
+Chamar o `AcquireTokenAsync` método inicia uma janela que solicita aos usuários para iniciar sessão ou selecionar a conta. Aplicativos em geral, terá de pedir ao usuário uma interação inicial, mas pode operar silenciosamente em partir desse ponto. 
 
-#### <a name="get-a-user-token-silently"></a>Obter um utilizador token automaticamente
-O `AcquireTokenSilentAsync` método processa aquisições token e renovações sem qualquer interação do utilizador. Depois de `AcquireTokenAsync` é executado pela primeira vez, `AcquireTokenSilentAsync` é o habitual método a utilizar para obter os tokens que acedem a recursos protegidos para as chamadas subsequentes, porque as chamadas para pedir ou renovar tokens são efetuadas automaticamente.
+#### <a name="get-a-user-token-silently"></a>Obter um utilizador token silenciosamente
+O `AcquireTokenSilentAsync` método obtém um token sem qualquer interação do utilizador.  `AcquireTokenSilentAsync` pode ser tratada como um pedido de melhor esforço, com uma contingência para `AcquireTokenAsync` quando o utilizador tem de iniciar sessão novamente ou fazer algumas autorização adicional, como autenticação multifator 
 
-Eventualmente, o `AcquireTokenSilentAsync` método irá falhar. Motivos da falha podem ser que o utilizador tem sessão ou alterar a palavra-passe noutro dispositivo. Quando MSAL Deteta que é possível resolver o problema, exigindo que uma ação interativa, é acionado um `MsalUiRequiredException` exceção. A aplicação pode processar esta exceção de duas formas:
+Quando `AcquireTokenSilentAsync` falhar, ele irá gerar um `MsalUiRequiredException`. Seu aplicativo pode manipular essa exceção de duas formas:
 
-* Pode efetuar uma chamada contra `AcquireTokenAsync` imediatamente. Esta chamada resulta numa pedir ao utilizador para iniciar sessão. Este padrão é normalmente utilizado nas aplicações online em que não existe conteúdo disponível offline para o utilizador. O exemplo gerado por esta configuração orientada segue neste padrão, que pode ver no tempo de ação primeiro que executar o exemplo. 
-    * Porque nenhum utilizador tiver utilizado a aplicação, `PublicClientApp.Users.FirstOrDefault()` contém um valor nulo e um `MsalUiRequiredException` exceção é emitida. 
-    * O código no exemplo, em seguida, processa a exceção ao chamar `AcquireTokenAsync`, que resulta numa pedir ao utilizador para iniciar sessão. 
-
-* Em vez disso, pode apresentar uma indicação de visual aos utilizadores um interativa início de sessão é necessário, para que o utilizador podem selecionar no momento certo para iniciar sessão. Ou pode repetir a aplicação `AcquireTokenSilentAsync` mais tarde. Este padrão é frequentemente utilizado quando os utilizadores podem utilizar outras funcionalidades de aplicação sem interrupção – por exemplo, quando o conteúdo offline está disponível na aplicação. Neste caso, os utilizadores podem decidir quando pretendem iniciar sessão para aceder ao recurso protegido ou Atualize as informações Desatualizadas. Em alternativa, a aplicação pode optar por repita `AcquireTokenSilentAsync` quando a rede for restaurada após ter sido temporariamente indisponível. 
+* Chamar `AcquireTokenAsync` imediatamente. Esta chamada resulta em pedir ao utilizador para iniciar sessão. Esse padrão é usado em aplicativos online onde não existe nenhum conteúdo disponível offline para o utilizador. O exemplo gerado por este tutorial segue este padrão, o que pode ver no tempo de ação a primeira que executar o exemplo.
+* Apresenta uma indicação visual aos usuários que um interativo início de sessão é necessário. Chamar `AcquireTokenAsync` quando o usuário estiver pronto.
+* Repita `AcquireTokenSilentAsync` mais tarde. Este padrão é frequentemente utilizado quando os utilizadores podem utilizar outras funcionalidades da aplicação sem interrupção – por exemplo, quando o conteúdo offline está disponível no aplicativo. O aplicativo pode optar por repetir `AcquireTokenSilentAsync` quando a rede é restaurada após ter sido temporariamente indisponível. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Chamar o Microsoft Graph API utilizando o token que apenas obtido
-Adicione os métodos seguintes para o `MainActivity` classe:
+## <a name="call-the-microsoft-graph-api"></a>Chamar o Microsoft Graph API 
+Adicione os seguintes métodos para o `MainActivity` classe:
 
 ```java
 /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
@@ -292,14 +313,14 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre como efetuar uma chamada REST em relação a uma API protegida
+### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Obter mais informações sobre como fazer uma chamada REST em relação a uma API protegida
 
-Nesta aplicação de exemplo, `callGraphAPI` chamadas `getAccessToken` e, em seguida, faz com que um HTTP `GET` pedido contra um recurso que necessita de um token e devolve o conteúdo. Este método adiciona o token adquirido no cabeçalho de autorização de HTTP. Para este exemplo, o recurso é o Microsoft Graph API *-me* ponto final, que apresenta as informações do perfil do utilizador.
+Nesse aplicativo de exemplo, `callGraphAPI()` usa `getAccessToken()` ao obter o token de acesso de novo.  A aplicação utiliza o token num HTTP `GET` pedido com o Microsoft Graph API. 
 <!--end-collapse-->
 
 ## <a name="set-up-sign-out"></a>Configurar a fim de sessão
 
-Adicione os métodos seguintes para o `MainActivity` classe:
+Adicione os seguintes métodos para o `MainActivity` classe:
 
 ```java
 /* Clears a user's tokens from the cache.
@@ -351,9 +372,10 @@ private void updateSignedOutUI() {
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-about-user-sign-out"></a>Mais informações sobre a fim de sessão do utilizador
+### <a name="more-information-about-user-sign-out"></a>Obter mais informações sobre a fim de sessão do utilizador
 
-O `onSignOutClicked` método no código anterior remove os utilizadores da cache de utilizador MSAL, que indica eficazmente MSAL para se esqueça do utilizador atual para que um pedido futuro para adquirir um token apenas terá êxito se é efetuada para ser interativo.
+O `onSignOutClicked()` método Remove os utilizadores a partir da cache MSAL. A MSAL já não terá qualquer Estado para o utilizador com sessão iniciada, e estão conectados fora da aplicação. 
 
-Apesar da aplicação neste exemplo suporta utilizadores único, MSAL suporta cenários em que várias contas podem ter sessão iniciadas ao mesmo tempo. Um exemplo é uma aplicação de e-mail em que um utilizador tem várias contas.
+### <a name="more-information-on-multi-account-scenarios"></a>Obter mais informações sobre cenários de várias contas
+A MSAL também suporta cenários quando várias contas estão conectadas ao mesmo tempo. Por exemplo, muitas aplicações de e-mail permitem que várias contas de ter sessão iniciada ao mesmo tempo. 
 <!--end-collapse-->

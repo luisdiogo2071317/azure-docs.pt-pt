@@ -1,6 +1,6 @@
 ---
-title: 'Autenticação do serviço de serviço: API de REST com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs'
-description: Aprenda a alcançar a autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory utilizando a REST API
+title: 'Autenticação serviço a serviço: API do REST com a geração 1 de armazenamento do Azure Data Lake com o Azure Active Directory | Documentos da Microsoft'
+description: Saiba como conseguir a autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory, com a REST API
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ffa9b7408475820735e35a82edc0b1751abeb08a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd282091d41538b7e3dc08eb0b3d82539fa0bb4f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624854"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295602"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Autenticação de serviço a serviço utilizando a REST API do Data Lake Store
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com a REST API
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Utilizar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,15 +27,15 @@ ms.locfileid: "34624854"
 > 
 > 
 
-Neste artigo, pode saber mais sobre como utilizar a API REST para efetuar a autenticação de serviços do Azure Data Lake Store. Para a autenticação de utilizador final com o Data Lake Store utilizando a REST API, consulte [autenticação de utilizador final com o Data Lake Store utilizando a REST API](data-lake-store-end-user-authenticate-rest-api.md).
+Neste artigo, saiba mais sobre como utilizar a API REST para fazer a autenticação serviço a serviço com a geração 1 de armazenamento do Azure Data Lake. Para autenticação de utilizador final com geração 1 de armazenamento do Data Lake com a REST API, consulte [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com a REST API](data-lake-store-end-user-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Criar uma aplicação de "Web" do Azure Active Directory**. Tem de ter concluído os passos em [autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Criar uma aplicação de "Web" do Azure Active Directory**. Tem de ter concluído os passos em [autenticação do serviço para serviço com a geração 1 de armazenamento do Data Lake com o Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="service-to-service-authentication"></a>Autenticação serviço a serviço
-Neste cenário, a aplicação fornece as suas próprias credenciais para efetuar as operações. Para tal, tem de emitir um pedido POST, como o mostrado no seguinte fragmento: 
+Neste cenário, o aplicativo fornece suas próprias credenciais para efetuar as operações. Para tal, tem de emitir um pedido POST, como o mostrado no seguinte fragmento: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -43,15 +43,15 @@ Neste cenário, a aplicação fornece as suas próprias credenciais para efetuar
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-O resultado do pedido inclui um token de autorização (em falta por que `access-token` no resultado abaixo) que transmitir subsequentemente com as chamadas de REST API. Guardar o token de autenticação num ficheiro de texto; precisará ao efetuar chamadas REST para o Data Lake Store.
+O resultado do pedido inclui um token de autorização (denotado por `access-token` no resultado abaixo) que transmitir subsequentemente com suas chamadas de REST API. Guarde o token de autenticação num arquivo de texto; irá precisar dele quando efetuar chamadas REST para a geração 1 de armazenamento do Data Lake.
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
 Este artigo utiliza a abordagem **não interativa**. Para obter mais informações sobre a abordagem não interativa (chamadas serviço a serviço), veja [Chamadas serviço a serviço utilizando credenciais](https://msdn.microsoft.com/library/azure/dn645543.aspx). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a utilizar a autenticação de serviço a serviço para autenticar com o Azure Data Lake Store utilizando a REST API. Agora pode ver os seguintes artigos falar sobre como utilizar a API REST para trabalhar com o Azure Data Lake Store.
+Neste artigo, aprendeu a utilizar a autenticação de serviço a serviço para autenticar com a geração 1 de armazenamento do Data Lake com a REST API. Agora, pode ver os seguintes artigos que falam sobre como utilizar a API REST para trabalhar com a geração 1 de armazenamento do Data Lake.
 
-* [Operações de gestão de conta no Data Lake Store utilizando a REST API](data-lake-store-get-started-rest-api.md)
-* [Operações de dados no Data Lake Store utilizando a REST API](data-lake-store-data-operations-rest-api.md)
+* [Operações de gestão de conta na geração 1 de armazenamento do Data Lake com a REST API](data-lake-store-get-started-rest-api.md)
+* [Operações de dados no Data Lake Storage Gen1 com a REST API](data-lake-store-data-operations-rest-api.md)
 

@@ -11,51 +11,51 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7984d156c1f8d1c29bda57ae39991876341ea0ac
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003802"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127249"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados para geração 1 de armazenamento do Azure Data Lake ao utilizar o Azure Data Factory
 
-[Geração de armazenamento 1 do Azure Data Lake](../data-lake-store/data-lake-store-overview.md) (anteriormente conhecido como o Azure Data Lake Store) é um repositório de hiperescala de toda a empresa para cargas de trabalho de análise de macrodados. O Azure Data Lake permite-lhe capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados num único local para análises exploratórias e operacionais.
+[Geração de armazenamento 1 do Azure Data Lake](../data-lake-store/data-lake-store-overview.md) (anteriormente conhecido como o Azure Data Lake Store) é um repositório de hiperescala de toda a empresa para cargas de trabalho de análise de macrodados. Geração 1 de armazenamento do Data Lake permite-lhe capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados num único local para análises exploratórias e operacionais.
 
 O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud. Pode utilizar o serviço para preencher o lake com dados do sistema existente e poupar tempo quando criar as suas soluções de análise.
 
-O Azure Data Factory oferece as seguintes vantagens para carregar dados para o Azure Data Lake Store:
+O Azure Data Factory oferece as seguintes vantagens para carregar dados para a geração 1 de armazenamento do Data Lake:
 
 * **Fácil de configurar**: um assistente intuitivo do passo 5 com nenhum script necessário.
 * **Suporte de arquivo de dados avançados**: suporte interno para um conjunto avançado de arquivos de dados com base na cloud e no local. Para obter uma lista detalhada, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Segura e em conformidade**: os dados são transferidos através de HTTPS ou ExpressRoute. A presença de serviço global assegura que seus dados nunca sai do limite geográfico.
-* **Elevado desempenho**: até os dados de 1-GB/s velocidade do carregamento para o Azure Data Lake Store. Para obter detalhes, consulte [copie o desempenho de atividade](copy-activity-performance.md).
+* **Elevado desempenho**: até os dados de 1-GB/s velocidade do carregamento para a geração 1 de armazenamento do Data Lake. Para obter detalhes, consulte [copie o desempenho de atividade](copy-activity-performance.md).
 
-Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory para _carregar dados do Amazon S3 para o Azure Data Lake Store_. Pode seguir passos semelhantes para copiar dados de outros tipos de arquivos de dados.
+Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory para _carregar dados do Amazon S3 para geração 1 de armazenamento do Data Lake_. Pode seguir passos semelhantes para copiar dados de outros tipos de arquivos de dados.
 
 > [!NOTE]
-> Para obter mais informações, consulte [copiar dados de ou para o Azure Data Lake Store com o Azure Data Factory](connector-azure-data-lake-store.md).
+> Para obter mais informações, consulte [copiar dados de ou para a geração 1 de armazenamento do Data Lake com o Azure Data Factory](connector-azure-data-lake-store.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Azure Data Lake Store: Se não tiver uma conta do Data Lake Store, consulte as instruções em [criar uma conta do Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
+* Conta do Data Lake Storage Gen1: Se não tiver uma conta de geração 1 de armazenamento do Data Lake, veja as instruções em [criar uma conta do Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: Este artigo mostra como copiar dados do Amazon S3. Pode utilizar outros arquivos de dados ao seguir passos semelhantes.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu da esquerda, selecione **New** > **dados + análise** > **Data Factory**:
+1. No menu da esquerda, selecione **criar um recurso** > **análise** > **Data Factory**:
    
    ![Criar uma nova fábrica de dados](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
 2. Na **nova fábrica de dados** página, fornecer valores para os campos que são mostrados na imagem seguinte: 
       
    ![Página Nova fábrica de dados](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSG1Demo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versão**: selecione **V2**.
-    * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. Esses arquivos de dados incluem o Azure Data Lake Store, armazenamento do Azure, base de dados do Azure SQL e assim por diante.
+    * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. Esses arquivos de dados incluem Gen1 de armazenamento do Azure Data Lake, o armazenamento do Azure, base de dados do Azure SQL e assim por diante.
 
 3. Selecione **Criar**.
 4. Depois de concluída a criação, vá para a fábrica de dados. Verá o **fábrica de dados** home page do conforme mostrado na imagem seguinte: 
@@ -64,7 +64,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
    Selecione o **criar e monitorizar** mosaico para iniciar o aplicativo de integração de dados num separador à parte.
 
-## <a name="load-data-into-azure-data-lake-store"></a>Carregar dados para o Azure Data Lake Store
+## <a name="load-data-into-data-lake-storage-gen1"></a>Carregar dados para a geração 1 de armazenamento do Data Lake
 
 1. Na **começar** página, selecione a **copiar dados** mosaico para iniciar a ferramenta copiar dados: 
 
@@ -99,20 +99,20 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
     ![Especifique a pasta de saída](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
     
-7. Na **o arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Azure Data Lake Store**e selecione **continuar**:
+7. Na **o arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Gen1 de armazenamento do Azure Data Lake**e selecione **continuar**:
 
     ![Página arquivo de dados de destino](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
-8. Na **ligação especificar Data Lake Store** página, efetue os seguintes passos: 
+8. Na **novo serviço ligado (Azure Data Lake Storage Gen1)** página, efetue os seguintes passos: 
 
-   1. Selecione seu Store de Lake de dados para o **nome da conta do Data Lake Store**.
+   1. Selecione a sua conta de geração 1 de armazenamento do Data Lake para o **nome da conta do Data Lake Store**.
    2. Especifique a **inquilino**e selecione Finish.
    3. Selecione **Seguinte**.
    
    > [!IMPORTANT]
-   > Este passo a passo, vai utilizar um _identidade do serviço gerido_ para autenticar seu Store de Lake de dados. Certifique-se de que conceder o MSI as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Este passo a passo, vai utilizar um _identidade do serviço gerido_ para autenticar a sua conta de geração 1 de armazenamento do Data Lake. Certifique-se de que conceder o MSI as permissões adequadas na geração 1 de armazenamento do Data Lake, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
-   ![Especifique a conta do Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
+   ![Especifique a conta de geração 1 de armazenamento do Data Lake](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 
 
     ![Especifique a pasta de saída](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
@@ -137,13 +137,13 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
     ![Monitorizar a atividade de detalhes da execução](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
 
-16. Certifique-se de que os dados são copiados para o Store do Azure Data Lake: 
+16. Certifique-se de que os dados são copiados para a sua conta de geração 1 de armazenamento do Data Lake: 
 
-    ![Verificar a saída do Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
+    ![Verificar a saída de geração 1 de armazenamento do Data Lake](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Avance para o seguinte artigo para saber mais sobre o suporte do Azure Data Lake Store: 
+Avance para o seguinte artigo para saber mais sobre o suporte de geração 1 de armazenamento do Data Lake: 
 
 > [!div class="nextstepaction"]
->[Conector do Azure Data Lake Store](connector-azure-data-lake-store.md)
+>[Conector de geração 1 do Data Lake Storage do Azure](connector-azure-data-lake-store.md)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604243"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121945"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -27,7 +27,7 @@ Com o aumento horizontal, pode criar um conjunto de consultas com até sete recu
 
 Independentemente do número de réplicas de consulta que ter num conjunto de consultas, o processamento de cargas de trabalho não são distribuídas entre réplicas de consulta. Um único servidor serve como o servidor de processamento. Réplicas de consulta servem apenas de consultas em modelos sincronizados entre cada réplica de consulta no agrupamento de consulta. 
 
-Ao aumentar horizontalmente, as réplicas de consulta novos são adicionadas ao agrupamento de consulta incrementalmente. Pode demorar até cinco minutos para novos recursos de réplica de consulta a serem incluídos no agrupamento de consulta; pronto para receber ligações de cliente e consultas. Quando todas as réplicas de consulta nova estão operacionais e em execução, novas ligações de cliente são balanceada de carga em todos os recursos de agrupamento de consulta. Ligações de cliente existentes não são alteradas do recurso que estão atualmente ligados.  Quando o dimensionamento no, quaisquer ligações de cliente existentes para um recurso de conjunto de consulta que está a ser removido do conjunto de consultas estão terminadas. Eles são reconectados a um recurso de conjunto de consulta restantes quando a operação de dimensionamento for concluída, o que pode demorar até cinco minutos.
+Ao aumentar horizontalmente, as réplicas de consulta novos são adicionadas ao agrupamento de consulta incrementalmente. Pode demorar até cinco minutos para novos recursos de réplica de consulta a serem incluídos no agrupamento de consulta. Quando todas as réplicas de consulta nova estão operacionais e em execução, novas ligações de cliente são balanceada de carga em todos os recursos de agrupamento de consulta. Ligações de cliente existentes não são alteradas do recurso que estão atualmente ligados.  Quando o dimensionamento no, quaisquer ligações de cliente existentes para um recurso de conjunto de consulta que está a ser removido do conjunto de consultas estão terminadas. Eles são reconectados a um recurso de conjunto de consulta restantes quando a operação de dimensionamento for concluída, o que pode demorar até cinco minutos.
 
 Durante o processamento de modelos, depois das operações de processamento estiverem concluídas, tem de ser efetuada uma sincronização entre o servidor de processamento e as réplicas de consulta. Ao automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento. Sincronização pode ser executada manualmente no portal ou utilizando o PowerShell ou a REST API. 
 
@@ -63,7 +63,6 @@ O número de réplicas de consulta, que pode configurar está limitado por regi�
 
 Modelos em tabela no seu servidor primário são sincronizados com os servidores de réplica. Quando a sincronização estiver concluída, o conjunto de consultas começa a distribuir entradas consultas entre os servidores de réplica. 
 
-
 ## <a name="synchronization"></a>Sincronização 
 
 Quando aprovisionar novos réplicas de consulta, o Azure Analysis Services replica automaticamente os seus modelos em todas as réplicas. Também pode efetuar uma sincronização manual com o portal ou a REST API. Quando processar seus modelos, deve efetuar uma sincronização para que as atualizações são sincronizadas entre as réplicas de consulta.
@@ -90,8 +89,6 @@ Para definir o número de réplicas de consulta, utilize [Set-AzureRmAnalysisSer
 
 Para executar a sincronização, utilize [sincronização AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
 ## <a name="connections"></a>Ligações
 
 Na página de descrição geral do seu servidor, existem dois nomes de servidor. Se ainda não tiver configurado Escalamento horizontal para um servidor, ambos os nomes de servidor funcionam da mesma. Depois de configurar o Escalamento horizontal para um servidor, tem de especificar o nome de servidor adequado, consoante o tipo de ligação. 
@@ -107,7 +104,6 @@ Para o SSMS, SSDT e cadeias de ligação no PowerShell, aplicações de função
 **Problema:** aos utilizadores receber o erro **não é possível localizar o servidor '\<nome do servidor > "instância no modo de ligação"Só de leitura".**
 
 **Solução:** ao selecionar o **separar o servidor de processamento do conjunto consulta** opção, as ligações de cliente utilizando a cadeia de ligação padrão (sem: rw) são redirecionadas para réplicas de conjunto de consulta. Se as réplicas no agrupamento de consulta são ainda online porque a sincronização não tem ainda não foi concluídas, as ligações de cliente redirecionada podem falhar. Para impedir ligações falhadas, optar por não separar o servidor de processamento do conjunto consulta até que uma operação de aumento horizontal e a sincronização estejam concluídas. Pode utilizar as métricas de memória e QPU para monitorizar o estado de sincronização.
-
 
 ## <a name="related-information"></a>Informações relacionadas
 

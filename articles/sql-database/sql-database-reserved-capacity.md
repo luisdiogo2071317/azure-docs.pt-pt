@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: carlrab
-ms.openlocfilehash: 84fb916a5620bc7d91f01b9aebfd3eae8346f6bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729440"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295514"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -65,6 +65,10 @@ Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 
 Se precisar de cancelar a sua base de dados de SQL reservadas de reserva de capacidade, pode haver uma taxa de rescisão antecipada de 12%. Reembolsos baseiam-se sobre o preço mais baixo do seu preço de compra ou o preço atual da reserva. Reembolsos estão limitados a 50 000 por ano. O reembolso que receber é o restante saldo pro-rata subtraindo a taxa de rescisão antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
 
 Se precisar de alterar a sua reserva de capacidade de base de dados de SQL reservadas para outra região, tipo de recurso, o escalão de serviço ou termo, podem trocá-lo para outro reserva do valor igual ou superior. A data de início do prazo para a nova reserva não passa da reserva trocada. Começa a partir ao criar a nova reserva de 1 ou o termo de 3 anos. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
+
+## <a name="vcore-size-flexibility"></a>flexibilidade de tamanho de vCore
+
+flexibilidade de tamanho de vCore ajuda a aumentar ou reduzir verticalmente dentro de um escalão de desempenho e a região, sem perder os benefícios de capacidade de reserva. Capacidade de base de dados de SQL reservadas também fornece-lhe a flexibilidade temporariamente mover seus bancos de dados de acesso frequente entre conjuntos e bases de dados individuais como parte das suas operações normais (dentro da mesma camada de região e o desempenho) sem perder a capacidade de reserva benefício. Ao manter uma memória intermédia não aplicada na sua reserva, pode gerenciar com eficiência os picos de desempenho sem exceder seu orçamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

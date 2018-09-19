@@ -1,49 +1,74 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 9817e94ba77c83b8620274ba41f9d862b6a5ce6d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293561"
+---
 ## <a name="test-your-code"></a>Testar o seu código
 
 ### <a name="test-with-visual-studio"></a>Testar com o Visual Studio
-Se estiver a utilizar o Visual Studio, prima **F5** para executar o projeto. O browser abre o http://<span></span>localhost: localização {porta} e ver o **chamar Microsoft Graph API** botão.
+Se estiver a utilizar o Visual Studio, prima **F5** para executar o seu projeto. O browser é aberto o http://<span></span>localhost: localização {porta} e ver o **chamar o Microsoft Graph API** botão.
 
-<p/><!-- --> 
+<p/><!-- -->
 
-### <a name="test-with-python-or-other-web-server"></a>Teste com o Python ou outro servidor web
-Se não estiver a utilizar o Visual Studio, certifique-se de que o servidor web é iniciado. Configurar o servidor para escutar a uma porta TCP com base na localização do seu **index.html** ficheiro. Para o Python, começar a escutar a porta ao executar a terminal da linha de comandos da pasta de aplicação:
- 
+### <a name="test-with-node-or-other-web-server"></a>Teste com o nó ou outro servidor web
+Se não estiver a utilizar o Visual Studio, certifique-se de que o seu servidor web é iniciado. Configurar o servidor para escutar numa porta TCP que baseia-se na localização dos seus **Index** ficheiro. Para o nó, inicie o servidor web para escutar a porta ao executar os seguintes comandos numa linha de comandos a partir da pasta de aplicação:
+
 ```bash
-python -m http.server 8080
+npm install
+node server.js
 ```
-Abra o browser e escreva http://<span></span>localhost:8080 ou http://<span></span>localhost: {porta} onde **porta** é a porta que o servidor web está a escutar. Deverá ver o conteúdo do ficheiro index.html e **chamar Microsoft Graph API** botão.
+Abra o browser e escreva http://<span></span>localhost:30662 ou http://<span></span>localhost: {porta} em que **porta** é a porta que está a escutar ao seu servidor web. Deverá ver o conteúdo do ficheiro Index. HTML e o **chamar o Microsoft Graph API** botão.
 
-## <a name="test-your-application"></a>Testar a aplicação
+## <a name="test-your-application"></a>Testar a sua aplicação
 
-Depois do browser carrega o ficheiro index.html, selecione **chamar Microsoft Graph API**. Na primeira vez que executar a sua aplicação, o browser redireciona-o para o ponto final v 2.0 de Microsoft Azure Active Directory (Azure AD) e é-lhe pedido que inicie sessão no:
+Depois do navegador carrega o ficheiro Index. HTML, selecione **chamar o Microsoft Graph API**. A primeira vez que executar a aplicação, o navegador redireciona-o para o ponto de final de v2.0 do Microsoft Azure Active Directory (Azure AD) e lhe for pedido para iniciar sessão:
+
+![Inicie sessão na sua conta do SPA do JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+
+
+### <a name="provide-consent-for-application-access"></a>Forneça o consentimento para acesso à aplicação
+
+A primeira vez que iniciar sessão na sua aplicação, lhe for pedido para fornecer o seu consentimento para permitir que a aplicação para aceder ao seu perfil e para o início de sessão:
+
+![Forneça o seu consentimento para acesso à aplicação](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+
+### <a name="view-application-results"></a>Ver resultados da aplicação
+Depois de iniciar sessão, deverá ver as informações do perfil de usuário na **resposta de chamada de API do Graph** caixa.
  
-![Inicie sessão na sua conta SPA de JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+![Resultados esperados da chamada de API do Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-
-### <a name="provide-consent-for-application-access"></a>Fornecer consentimento de acesso à aplicação
-
-Na primeira vez que iniciar sessão na sua aplicação, é-lhe pedido que forneça o seu consentimento para permitir que a aplicação para aceder ao seu perfil e iniciar sessão no:
-
-![Forneça o seu consentimento para acesso de aplicação](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
-
-### <a name="view-application-results"></a>Ver os resultados da aplicação
-Depois de iniciar sessão, deverá ver as informações do perfil de utilizador no **resposta de chamada de API do gráfico** caixa.
- 
-![Resultados esperados da chamada de Microsoft Graph API](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
-
-Também deverá ver informações básicas sobre o token que foi adquirido no **Token de acesso** e **afirmações Token ID** caixas.
+Também deverá ver informações básicas sobre o token que foi adquirida no **Token de acesso** e **afirmações de Token de ID** caixas.
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e as permissões delegadas
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Obter mais informações sobre âmbitos e permissões delegadas
 
-Requer o Microsoft Graph API do **user.read** âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todas as aplicações que está registada no portal de registo. Outras APIs para o Microsoft Graph, bem como as APIs personalizadas para o servidor de back-end, poderá necessitar de âmbitos adicionais. Requer o Microsoft Graph API do **Calendars.Read** âmbito lista de calendários do utilizador.
+O Microsoft Graph API requer a **user.read** âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todos os aplicativos que está registado no portal de registo. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor de back-end, pode necessitar de âmbitos adicionais. O Microsoft Graph API requer a **Calendars.Read** âmbito para listar calendários do utilizador.
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione o **Calendars.Read** delegado permissão para as informações de registo de aplicação. Em seguida, adicione o **Calendars.Read** âmbito para o **acquireTokenSilent** chamada. 
+Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a **Calendars.Read** delegado permissão para as informações de registo de aplicação. Em seguida, adicione a **Calendars.Read** definir o âmbito para o **acquireTokenSilent** chamar. 
 
 >[!NOTE]
->O utilizador pode ser pedido para consents adicionais como aumentar o número de âmbitos.
+>O utilizador pode ser pedido para consentimentos adicionais à medida que aumenta o número de âmbitos.
 
-Se uma API de back-end não necessita de um âmbito (não recomendado), pode utilizar o **clientId** como o âmbito no **acquireTokenSilent** e **acquireTokenRedirect** chamadas.
+Se uma API de back-end não requer um âmbito (não recomendado), pode utilizar o **clientId** como o âmbito no **acquireTokenSilent** e **acquireTokenRedirect** chamadas.
 
 <!--end-collapse-->
 

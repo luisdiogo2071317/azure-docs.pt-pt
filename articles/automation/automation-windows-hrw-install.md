@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d98aef3e75130bbab7871733f709bf5e2ffdbcb
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541254"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294919"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -30,7 +30,7 @@ Para instalar e configurar um Runbook Worker híbrido do Windows, pode usar dois
 Os requisitos mínimos para uma função de trabalho de Runbook do Windows híbrida são:
 
 * Windows Server 2012 ou posterior.
-* Windows PowerShell 4.0 ou posterior ([transferir WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)). Recomendamos que o Windows PowerShell 5.1 ([transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) para maior fiabilidade.
+* Windows PowerShell 5.1 ou posterior ([transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET framework 4.6.2 ou posterior.
 * Dois núcleos.
 * 4 GB de RAM.
@@ -63,8 +63,8 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
      > [!NOTE]
      > Atualmente, são as regiões de automatização apenas suportadas para a integração com o Log Analytics **Sudeste da Austrália**, **E.U.A. Leste 2**, **Sudeste asiático**, e  **Europa Ocidental**. Se a sua conta de automatização não estiver em uma dessas regiões, o script cria uma área de trabalho do Log Analytics, mas avisa-o de que ele não é possível vinculá-las em conjunto.
 
-1. No seu computador, abra **Windows PowerShell** partir do **iniciar** ecrã no modo de administrador.
-1. A partir da shell de linha de comandos do PowerShell, navegue até à pasta que contém o script que transferiu. Alterar os valores para os parâmetros *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*. Em seguida, execute o script.
+2. No seu computador, abra **Windows PowerShell** partir do **iniciar** ecrã no modo de administrador.
+3. A partir da shell de linha de comandos do PowerShell, navegue até à pasta que contém o script que transferiu. Alterar os valores para os parâmetros *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*. Em seguida, execute o script.
 
      > [!NOTE]
      > Lhe for pedido para autenticar com o Azure depois de executar o script. *Tem* iniciar sessão com uma conta que seja membro da função administradores da subscrição e coadministrador da subscrição.
@@ -75,9 +75,9 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. Lhe for pedido para aceitar instalar o NuGet, e se lhe for pedido para autenticar com as suas credenciais do Azure.
+4. Lhe for pedido para aceitar instalar o NuGet, e se lhe for pedido para autenticar com as suas credenciais do Azure.
 
-1. Depois do script estiver concluído, o **grupos de trabalho híbrido** página mostra o novo grupo e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na **grupos de trabalho híbrido** página e selecione o **funções de trabalho híbridas** mosaico. Sobre o **funções de trabalho híbridas** página, verá cada membro do grupo listado.
+5. Depois do script estiver concluído, o **grupos de trabalho híbrido** página mostra o novo grupo e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na **grupos de trabalho híbrido** página e selecione o **funções de trabalho híbridas** mosaico. Sobre o **funções de trabalho híbridas** página, verá cada membro do grupo listado.
 
 ### <a name="manual-deployment"></a>Implementação manual
 

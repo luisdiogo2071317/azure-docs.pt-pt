@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094286"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129680"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (. csx)
 
@@ -34,7 +34,30 @@ A experiência de script c# das funções do Azure baseia-se sobre o [SDK de Web
 
 O *. csx* formato permite-lhe escrever menos "automático" e se concentre em escrever apenas uma função c#. Em vez de encapsular tudo num espaço de nomes e uma classe, só tem de definir um `Run` método. Inclua quaisquer referências a assembly e espaços de nomes no início do ficheiro como habitualmente.
 
-Uma aplicação de funções *. csx* arquivos são compilados Quando uma instância é inicializada. Este passo de compilação significa coisas como a frio pode demorar mais tempo para funções de script do c# em comparação comparadas bibliotecas de classes do c#. Este passo de compilação também é por que funções de script do c# são editáveis no Portal do Azure, embora não sejam bibliotecas de classes do c#.
+Uma aplicação de funções *. csx* arquivos são compilados Quando uma instância é inicializada. Este passo de compilação significa coisas como a frio pode demorar mais tempo para funções de script do c# em comparação comparadas bibliotecas de classes do c#. Este passo de compilação também é por que funções de script do c# são editáveis no portal do Azure, embora não sejam bibliotecas de classes do c#.
+
+## <a name="folder-structure"></a>estrutura de pastas
+
+A estrutura de pastas para um projeto de script do c# é semelhante ao seguinte:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Existe um ficheiro partilhado [host. JSON] (funções-host-json.md) que pode ser utilizado para configurar a aplicação de funções. Cada função tem seu próprio arquivo de código (. csx) e o ficheiro de configuração de vinculação (Function).
+
+As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 ## <a name="binding-to-arguments"></a>Vinculando a argumentos
 
@@ -336,8 +359,10 @@ Os assemblies a seguir podem ser referenciados por nome simples (por exemplo, `#
 ## <a name="referencing-custom-assemblies"></a>Referência a assemblies personalizados
 
 Para referenciar um assembly personalizado, pode usar um *partilhada* assembly ou um *privada* assembly:
-- Assemblies compartilhados são partilhados entre todas as funções dentro de uma aplicação de funções. Para referenciar um assembly personalizado, carregar o assembly para uma pasta denominada `bin` no seu [pasta de raiz de aplicação de função](functions-reference.md#folder-structure) (wwwroot). 
-- Assemblies privadas fazem parte do contexto de uma determinada função e suportam sideloading de versões diferentes. Assemblies privadas devem ser carregados num `bin` pasta no diretório de função. Referenciar os assemblies com o nome de ficheiro, tal como `#r "MyAssembly.dll"`. 
+
+* Assemblies compartilhados são partilhados entre todas as funções dentro de uma aplicação de funções. Para referenciar um assembly personalizado, carregar o assembly para uma pasta denominada `bin` no seu [pasta de raiz de aplicação de função](functions-reference.md#folder-structure) (wwwroot).
+
+* Assemblies privadas fazem parte do contexto de uma determinada função e suportam sideloading de versões diferentes. Assemblies privadas devem ser carregados num `bin` pasta no diretório de função. Referenciar os assemblies com o nome de ficheiro, tal como `#r "MyAssembly.dll"`.
 
 Para obter informações sobre como carregar ficheiros para a pasta de função, consulte a secção sobre [gestão de pacotes](#using-nuget-packages).
 

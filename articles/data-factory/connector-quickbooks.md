@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 763e992f10bfad3550a35c1f9cc125b5865cc82f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633134"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127154"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory"></a>Copiar dados de QuickBooks com o Azure Data Factory
+# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Copiar dados de QuickBooks com o Azure Data Factory (pré-visualização)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de QuickBooks. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 

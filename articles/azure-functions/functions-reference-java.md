@@ -9,14 +9,14 @@ keywords: Azure funções, funções, processamento de eventos, webhooks, comput
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f0dc471e8875ad0d738fce10421c3586752148b9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092314"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123492"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -26,7 +26,35 @@ ms.locfileid: "44092314"
 
 A função do Azure deve ser um método de classe sem monitoração de estado que processa as entradas e produz um resultado. Embora possa escrever métodos de instância, sua função deve não depender quaisquer campos de instância da classe. Todos os métodos de função tem de ter um `public` modificador de acesso.
 
-Pode colocar mais do que uma função num projeto. Evite colocar as suas funções em jars separados.
+## <a name="folder-structure"></a>estrutura de pastas
+
+A estrutura de pastas para um projeto de Java é semelhante ao seguinte:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+Existe um ficheiro partilhado [host. JSON] (funções-host-json.md) que pode ser utilizado para configurar a aplicação de funções. Cada função tem seu próprio arquivo de código (Java) e o ficheiro de configuração de vinculação (Function).
+
+Pode colocar mais do que uma função num projeto. Evite colocar as suas funções em jars separados. FunctionApp no diretório de destino é o que é implementado para a aplicação de funções no Azure.
 
 ## <a name="triggers-and-annotations"></a>Acionadores e as anotações
 

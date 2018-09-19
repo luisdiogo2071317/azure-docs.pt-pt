@@ -1,29 +1,30 @@
 ---
-title: Analisar o método na API Analysis linguístico | Microsoft Docs
-description: Como utilizar o método de análise na API de análise linguístico para analisar algumas entradas de linguagem natural.
+title: Analisar método - API de análise linguística
+titlesuffix: Azure Cognitive Services
+description: Como utilizar o método de análise na API de análise linguística para analisar algumas entradas de linguagem natural.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: b17a00f31845bfa05572dff7ca94e9a1ffd69586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8d380a23c1bbfca8258ef533453050c72a3abd0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351734"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129629"
 ---
-# <a name="analyze-method"></a>Analisar o método
+# <a name="analyze-method"></a>Analisar método
 
-O **analisar** REST API é utilizada para analisar um determinado idioma natural de entrada.
-Que poderão envolver apenas ao localizar o [frases e tokens](Sentences-and-Tokens.md) dentro do que a entrada, localizar o [etiquetas de parte de voz](POS-tagging.md), ou ao localizar o [constitutency árvore](Constituency-Parsing.md).
-Pode especificar que pretende por diretriz os relevantes analisadores de resultados.
-Para listar todos os analisadores disponíveis, observe o  **[analisadores](AnalyzersMethod.md)**.
+O **analisar** REST API é usada para analisar a entrada de um determinado idioma natural.
+Que pode envolver a localização a [frases e tokens](Sentences-and-Tokens.md) dentro do que a entrada, localizar o [etiquetas de parte da voz](POS-tagging.md), ou ao localizar o [constitutency árvore](Constituency-Parsing.md).
+Pode especificar quais os resultados que pretende ao escolher os analisadores relevantes.
+Para listar todos os analisadores disponíveis, veja a  **[analisadores](AnalyzersMethod.md)**.
 
-Tenha em atenção que tem de especificar o idioma de cadeia de entrada.
+Tenha em atenção que tem de especificar o idioma da cadeia de entrada.
 
 **Ponto final REST:**
 ```
@@ -35,37 +36,37 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 Nome | Tipo | Necessário | Descrição
 -----|-------|----------|------------
-**Idioma**    | cadeia | Sim | Os dois letra o código de idioma ISO para ser utilizado para análise. Por exemplo, o inglês é "pt".
-**analyzerIds** | lista de cadeias de | Sim | Lista de GUIDs de analisadores a aplicar. Consulte a documentação de analisadores para obter mais informações.
-**text**        | cadeia | Sim | Entrada em bruto para ser analisada. Esta situação pode ser uma cadeia curta, como uma palavra ou frase, uma completa, ou um parágrafo completo ou frases discourse.
+**Idioma**    | cadeia | Sim | As duas letras o código de idioma do ISO a ser utilizado para análise. Por exemplo, o inglês é "en".
+**analyzerIds** | lista de cadeias de caracteres | Sim | Lista de GUIDs de analisadores de aplicar. Consulte a documentação de analisadores para obter mais informações.
+**text**        | cadeia | Sim | Dados brutos para ser analisado. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, uma frase completa, ou um parágrafo inteiro ou discourse.
 
-<br>
 ## <a name="response-json"></a>Resposta (JSON)
+
 Uma matriz de saídas de análise, um para cada atributo especificado no pedido.
 
-Os resultados de ter o seguinte aspeto:
+Os resultados semelhante ao seguinte:
 
 Nome | Tipo | Descrição
 -----|------|--------------
-analyzerId | cadeia | GUID de analisador especificado
-resultado | objeto | resultado de analisador
+analyzerId | cadeia | GUID do analyzer especificado
+Resultado | objeto | resultado de analisador
 
-Tenha em atenção que o tipo de resultado depende do tipo de entrada analisador.
+Tenha em atenção que o tipo de resultado depende do tipo de analisador de entrada.
 
 ### <a name="tokens-response-json"></a>Resposta de tokens (JSON)
 
 Nome | Tipo | Descrição
 -----|------|-------------
-resultado | lista de objetos de frases | limites de frases identificados no texto |
-resultado [x]. Deslocamento | Int | deslocamento de carácter inicial de cada frase |
-resultado [x]. Len | Int | comprimento em carateres de cada frase |
-resultado [x]. Tokens | lista de objetos de token | limites de token identificados no frase |
-resultado [x]. Tokens [s]. Deslocamento | Int | deslocamento de carácter inicial do token |
-resultado [x]. Tokens [s]. Len | Int | comprimento de carateres do token |
-resultado [x]. Tokens [s]. RawToken | cadeia | os carateres dentro esse token, antes de normalização |
-resultado [x]. Tokens [s]. NormalizedToken | cadeia | um formulário normalizado do caráter, seguro para utilização num [analisar árvore](Constituency-Parsing.md); por exemplo, um caráter de parênteses aberto ' (' torna-se - LRB - |
+Resultado | lista de objetos de frase | limites de sentença identificados no texto |
+resultado [x]. Deslocamento | Int | deslocamento inicial do caráter de cada sentença |
+resultado [x]. Len | Int | comprimento em carateres de cada sentença |
+resultado [x]. Tokens | lista de objetos de token | limites de token identificados a frase |
+resultado [x]. Tokens [y]. Deslocamento | Int | deslocamento inicial de caráter do token |
+resultado [x]. Tokens [y]. Len | Int | comprimento em carateres do token |
+resultado [x]. Tokens [y]. RawToken | cadeia | os carateres dentro do token, antes de normalização |
+resultado [x]. Tokens [y]. NormalizedToken | cadeia | um formato normalizado do caráter, seguro para uso num [analisar árvore](Constituency-Parsing.md); por exemplo, um caráter de Parêntese aberto "(" torna-se - LRB - |
 
-Entrada de exemplo: "Este é um teste. Olá.'
+Entrada de exemplo: "Este é um teste. Hello. "
 Resposta JSON de exemplo:
 ```json
 [
@@ -127,18 +128,16 @@ Resposta JSON de exemplo:
 ```
 
 
-### <a name="pos-tags-response-json"></a>Resposta de etiquetas POS (JSON)
+### <a name="pos-tags-response-json"></a>Resposta de etiquetas de POS (JSON)
 
-O resultado é uma lista de listas de cadeias.
-Para cada frase, há uma lista de etiquetas de POS, uma tag de POS para cada token.
-Para obter o token correspondente a cada etiqueta POS, poderá ser útil pedir um objeto de atomização bem.
+O resultado é uma lista de listas de cadeias de caracteres.
+Para cada sentença, existe uma lista de etiquetas de POS, uma marca de POS para cada token.
+Para obter o token correspondente a cada marca de POS, vai querer fazer para um objeto de atomização também.
 
-### <a name="constituency-tree-response-json"></a>Resposta de árvore constituency (JSON)
+### <a name="constituency-tree-response-json"></a>Resposta de árvore de grupos (JSON)
 
-O resultado é uma lista de cadeias, a árvore de uma análise para cada frase encontrado na entrada.
-As árvores de análise são representados num formulário entre parênteses.
-
-<br>
+O resultado é uma lista de cadeias de caracteres, a árvore de análise de um para cada sentença encontrada na entrada.
+As árvores de análise são representadas num formulário escritos entre parênteses.
 
 ## <a name="example"></a>Exemplo
 

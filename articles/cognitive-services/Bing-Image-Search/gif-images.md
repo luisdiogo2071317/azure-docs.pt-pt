@@ -1,22 +1,24 @@
 ---
-title: Obter imagens .gif - serviços cognitivos Microsoft | Microsoft Docs
+title: Obter imagens. gif - API de pesquisa de imagens do Bing
+titleSuffix: Azure Cognitive Services
 description: Como utilizar a API de pesquisa de imagens do Bing para obter mais informações sobre imagens. gif.
 services: cognitive-services
 author: MikeDodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 7f1d02067d2ef31f56eefe40736b6f02b58940b8
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 30a266a1dc0441485b4f6ba70876ac32c3de0e14
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577154"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296481"
 ---
-# <a name="search-for-gif-images"></a>Procure .gif imagens
+# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Pesquisar imagens. gif, usando a API de pesquisa de imagens do Bing
+
 A API de pesquisa do Bing imagem permite-lhe também procurar em toda a Web todo para as imagens de .gif mais relevantes.  Os desenvolvedores podem integrar gifs atraentes em vários cenários de conversação. 
 
 O URL seguinte é uma consulta para imagens. gif animados.
@@ -27,7 +29,7 @@ O [p](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-r
 
 Para ver exemplos de resultados, utilize o seguinte URL para pesquisar bing.com.
 ````
-https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif 
+https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
 ````
 ## <a name="query-parameters"></a>Parâmetros de consulta
@@ -39,7 +41,7 @@ Para obter mais informações sobre parâmetros de consulta e opções, consulte
 - Pode especificar [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) e [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) parâmetros. Recomendamos a definição do maxFileSize = 2000000 como a maioria dos gifs no nosso índice são menos de 2MB.  Isto também ajuda a controlar o tamanho de dados se a largura de banda é uma preocupação, tal como em cenários de celular móveis.
 - Para ajudar a melhorar o desempenho percebido, carregue a miniatura primeiro antes a carregar o url de origem.  
 - Para a experiência de página de destino em que ainda não tem uma consulta de utilizador ou de primeira execução, tente utilizar o nosso pesquisas gif mais populares para o ajudar a partir da [tendências imagens API](trending-images.md).
-- Existem três definições para o [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parâmetro.  O `strict` opção bloqueia o conteúdo para adultos. 
+- Existem três definições para o [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parâmetro.  O `strict` opção bloqueia o conteúdo para adultos.
 - Ver [mkt](supported-countries-markets.md) para obter uma lista completa de idiomas e as localizações suportadas.
 - *AnimatedGifHttps* devolve apenas animados gif imagens que estão a partir de um endereço https. Para segurança, muitos aplicativos exigem que a ligação para ligações web externo através de https. Por exemplo, o Store de aplicação da Apple requer a conexão com web services através de HTTPS, que criptografa dados de usuário seguros em trânsito.
 

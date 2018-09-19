@@ -8,33 +8,218 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 7d5656d6599e1d8d2a3e85b9d41bcce6490e1511
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122108"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124172"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
-As APIs REST do serviço de voz unificado são semelhantes às APIs fornecidas pelos [API de voz](https://docs.microsoft.com/azure/cognitive-services/Speech) (anteriormente conhecido como o serviço de voz do Bing). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz anterior.
+As APIs REST do serviço de voz unificado são semelhantes às APIs fornecidas pelos [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz do Bing. Pontos finais regionais estão disponíveis e tem de utilizar uma chave de subscrição correspondente para o ponto final que está a utilizar.
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-Conversão de voz para a API de texto, apenas os pontos finais utilizados são diferentes do serviço de voz anterior API de reconhecimento de voz. Os novos pontos de extremidade são mostrados na tabela abaixo. Utilize um que corresponde à sua região de subscrição.
+Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela abaixo. Utilize um que corresponde à sua região de subscrição.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-A conversão de voz em texto API caso contrário, é semelhante para o [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de voz anterior.
-
-A conversão de voz em texto REST API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve apenas resultados finais, não resultados parciais ou provisórias.
 
 > [!NOTE]
 > Se personalizou o modelo acústico ou modelo de idioma ou pronúncia, em vez disso, a utilizar o seu ponto final personalizado.
 
+Esta API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve apenas resultados finais, não resultados parciais ou provisórias. O serviço de voz também tem um [transcrição do batch](batch-transcription.md) API que pode transcrição de áudio mais tempo.
+
+### <a name="query-parameters"></a>Parâmetros de consulta
+
+Os seguintes parâmetros podem ser incluídos na cadeia de consulta da solicitação REST.
+
+|Nome do parâmetro|Obrigatório/opcional|Significado|
+|-|-|-|
+|`language`|Necessário|O identificador do idioma a ser reconhecido. Ver [idiomas suportados](supported-languages.md#speech-to-text).|
+|`format`|Opcional<br>predefinição: `simple`|Formato de resultado `simple` ou `detailed`. Os resultados da simples incluem `RecognitionStatus`, `DisplayText`, `Offset`e a duração. Resultados detalhados incluem vários candidatos com valores de confiança e quatro diferentes representações.|
+|`profanity`|Opcional<br>predefinição: `masked`|Como lidar com linguagem inapropriada nos resultados de reconhecimento. Pode ser `masked` (substitui linguagem inapropriada por asteriscos), `removed` (Remove todos os profanidades), ou `raw` (inclui a linguagem inapropriada).
+
+### <a name="request-headers"></a>Cabeçalhos do pedido
+
+Os campos seguintes são enviados no cabeçalho do pedido HTTP.
+
+|Cabeçalho|Significado|
+|------|-------|
+|`Ocp-Apim-Subscription-Key`|A chave de subscrição do serviço de voz. Este cabeçalho de qualquer um dos ou `Authorization` tem de ser fornecido.|
+|`Authorization`|Um token de autorização precedidas pela palavra `Bearer`. Este cabeçalho de qualquer um dos ou `Ocp-Apim-Subscription-Key` tem de ser fornecido. Ver [autenticação](#authentication).|
+|`Content-type`|Descreve o formato e o codec dos dados de áudio. Atualmente, este valor tem de ser `audio/wav; codec=audio/pcm; samplerate=16000`.|
+|`Transfer-Encoding`|Opcional. Se for indicado, tem de ser `chunked` para permitir que os dados de áudio a serem enviados por vários pequenas partes em vez de um único arquivo.|
+|`Expect`|Se utilizar a transferência em partes, enviar `Expect: 100-continue`. O serviço de voz reconhece o pedido inicial e awaits dados adicionais.|
+|`Accept`|Opcional. Se for fornecido, tem de incluir `application/json`, como o serviço de voz fornece resultados no formato JSON. (Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`)|
+
+### <a name="audio-format"></a>Formato de áudio
+
+O áudio é enviado no corpo do HTTP `PUT` pedir e deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz.
+
+### <a name="chunked-transfer"></a>Transferência em partes
+
+A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de voz iniciar o processamento, o arquivo de áudio e está a ser transmitido. A API REST não fornece resultados parciais ou provisórias; Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
+
+O código a seguir ilustra como enviar áudio em blocos. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
+
+```csharp
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
+
+    /*
+    * Open a request stream and write 1024 byte chunks in the stream one at a time.
+    */
+    byte[] buffer = null;
+    int bytesRead = 0;
+    using (Stream requestStream = request.GetRequestStream())
+    {
+        /*
+        * Read 1024 raw bytes from the input audio file.
+        */
+        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+        {
+            requestStream.Write(buffer, 0, bytesRead);
+        }
+
+        // Flush
+        requestStream.Flush();
+    }
+}
+```
+
+### <a name="example-request"></a>Pedido de exemplo
+
+Segue-se uma solicitação típica.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### <a name="http-status"></a>Estado de HTTP
+
+O estado HTTP de resposta indica o êxito ou condições de erro comuns.
+
+Código de HTTP|Significado|Razão possível
+-|-|-|
+100|Continuar|O pedido inicial foi aceite. Continue com a enviar o resto dos dados. (Utilizado com a transferência em partes).
+200|OK|O pedido foi concluída com êxito; o corpo da resposta é um objeto JSON.
+400|Pedido incorreto|Código de idioma fornecido ou não é um idioma suportado; arquivo de áudio inválido.
+401|Não autorizado|Chave de subscrição ou autorização token é inválido na região especificada ou ponto final inválido.
+403|Proibido|Chave de subscrição ou autorização em falta token.
+
+### <a name="json-response"></a>Resposta JSON
+
+Os resultados são devolvidos em formato JSON. O `simple` formato inclui apenas os campos de nível superior seguintes.
+
+|Nome do campo|Conteúdo|
+|-|-|
+|`RecognitionStatus`|Estado, tais como `Success` para reconhecimento bem-sucedido. Consulte a tabela seguinte.|
+|`DisplayText`|O texto reconhecido depois de capitalização, pontuação, normalização do texto inversa (conversão de texto falado forms mais curto, por exemplo, 200 para "duzentos" ou "Dr. Smith"para"doutor smith") e a máscara de linguagem inapropriada. Apresentar apenas com êxito.|
+|`Offset`|O tempo (em unidades de 100 nanossegundos), no qual a voz reconhecido começa no fluxo de áudio.|
+|`Duration`|A duração (em unidades de 100 nanossegundos) do voz reconhecido no fluxo de áudio.|
+
+O `RecognitionStatus` campo pode conter os seguintes valores.
+
+|Valor de estado|Descrição
+|-|-|
+| `Success` | O reconhecimento foi concluída com êxito e o campo de DisplayText está presente. |
+| `NoMatch` | Conversão de voz foi detetada no fluxo de áudio, mas sem palavras do idioma de destino foram correspondidas. Normalmente, significa que o idioma de reconhecimento é um idioma diferente daquele que o utilizador está a falar. |
+| `InitialSilenceTimeout` | O início do fluxo de áudio continha apenas silêncio e o serviço excedeu o tempo aguardar por voz. |
+| `BabbleTimeout` | O início do fluxo de áudio continha apenas ruído e o serviço excedeu o tempo aguardar por voz. |
+| `Error` | O serviço de reconhecimento de obteve um erro interno e não foi possível continuar. Tente novamente se possível. |
+
+> [!NOTE]
+> Se o usuário participa como palestrante apenas linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz, a menos que o modo de reconhecimento é `interactive`. Neste caso, o serviço devolve um resultado de conversão de voz com uma `RecognitionStatus` de `NoMatch`. 
+
+O `detailed` formato inclui os mesmos campos que o `simple` formatar, juntamente com um `NBest` campo. O `NBest` campo é uma lista de alternativas interpretações sobre a mesma conversão de voz, classificados do maior probabilidade de, pelo menos, provavelmente. A primeira entrada é o mesmo, como o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
+
+|Nome do campo|Conteúdo|
+|-|-|
+|`Confidence`|A pontuação de confiança da entrada de 0,0 (sem confiança) para 1,0 (confiança total)
+|`Lexical`|O formulário léxico do texto reconhecido: as palavras reais reconhecidas.
+|`ITN`|O formulário ("canonical") normalizado de texto de inverso do texto reconhecido, com o telefone números, números, abreviaturas ("doutor smith" para "dr smith") e outras transformações aplicadas.
+|`MaskedITN`| O formulário ITN com a máscara de linguagem inapropriada aplicada, se solicitado.
+|`Display`| O formulário de apresentação do texto reconhecido, com a pontuação e capitalização adicionado. Mesmo que `DisplayText` no resultado de nível superior.
+
+### <a name="sample-responses"></a>Respostas de exemplo
+
+Segue-se uma resposta típica para `simple` reconhecimento.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
+}
+```
+
+Segue-se uma resposta típica para `detailed` reconhecimento.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
 ## <a name="text-to-speech"></a>Conversão de Texto em Voz
 
-O novo texto em voz API suporta a saída de áudio de 24 KHz. O `X-Microsoft-OutputFormat` cabeçalho agora pode conter os seguintes valores.
+Seguem-se os pontos de extremidade REST API de voz para o serviço de voz texto. Utilize o ponto final que corresponde à sua região de subscrição.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+> [!NOTE]
+> Se tiver criado um tipo de voz personalizada, use o ponto de extremidade personalizado associado.
+
+O serviço de voz oferece suporte a saída de áudio de 24 KHz, além da saída de 16 Khz suportada por voz do Bing. Quatro formatos de saída de 24 KHz estão disponíveis para utilização no `X-Microsoft-OutputFormat` cabeçalho de HTTP, conforme são dois de 24 KHz vozes `Jessa24kRUS` e `Guy24kRUS`.
+
+Região | Idioma   | Género | Mapeamento de nome de serviço
+-------|------------|--------|------------
+pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" 
+pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)"
+
+Uma lista completa de vozes disponíveis está disponível no [idiomas suportados](supported-languages.md#text-to-speech).
+
+### <a name="request-headers"></a>Cabeçalhos do pedido
+
+Os campos seguintes são enviados no cabeçalho do pedido HTTP.
+
+|Cabeçalho|Significado|
+|------|-------|
+|`Authorization`|Um token de autorização precedidas pela palavra `Bearer`. Necessário. Ver [autenticação](#authentication).|
+|`Content-Type`|O tipo de conteúdo de entrada: `application/ssml+xml`.|
+|`X-Microsoft-OutputFormat`|O formato de áudio de saída. Consulte a tabela seguinte.|
+|`X-Search-AppId`|Só de hex GUID (sem traços) que identifica exclusivamente o aplicativo cliente. Isso pode ser o ID da loja. O FF não é uma aplicação da loja, pode usar qualquer GUID.|
+|`X-Search-ClientId`|Só de hex GUID (sem traços) que identifica exclusivamente uma instância de aplicação para cada instalação.|
+|`User-Agent`|Nome da aplicação. Necessário. tem de conter menos de 255 carateres.|
+
+Formatos de saída de áudio disponível (`X-Microsoft-OutputFormat`) incorporar uma velocidade de transmissão e uma codificação.
 
 |||
 |-|-|
@@ -45,22 +230,48 @@ O novo texto em voz API suporta a saída de áudio de 24 KHz. O `X-Microsoft-Out
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-O serviço de voz fornece agora dois 24 KHz vozes:
+### <a name="request-body"></a>Corpo do pedido
 
-Região | Idioma   | Género | Mapeamento de nome de serviço
--------|------------|--------|------------
-pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" 
-pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)"
+O texto a ser sintetizado em voz é enviado como o corpo de um HTTP `POST` pedido em qualquer texto sem formatação ou [Speech Synthesis Markup Language](speech-synthesis-markup.md) formato (SSML) com a codificação de texto UTF-8. Tem de utilizar SSML se pretender utilizar uma voz que não seja de voz de padrão do serviço.
 
-Seguem-se os pontos de extremidade REST para o unificada serviço texto em voz API. Utilize o ponto final que corresponde à sua região de subscrição.
+### <a name="sample-request"></a>Pedido de exemplo
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+O pedido HTTP seguinte utiliza um corpo SSML para escolher a voz. O corpo não pode ter mais de 1000 carateres.
 
-Manter essas diferenças em mente que consulte a [documentação da REST API](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de voz anterior.
+```xml
+POST /cognitiveservices/v1 HTTP/1.1
+
+X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+Content-Type: application/ssml+xml
+Host: westus.tts.speech.microsoft.com
+Content-Length: 225
+Authorization: Bearer [Base64 access_token]
+
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
+```
+
+### <a name="http-response"></a>Resposta HTTP
+
+O estado HTTP de resposta indica o êxito ou condições de erro comuns.
+
+Código de HTTP|Significado|Razão possível
+-|-|-|
+200|OK|O pedido foi concluída com êxito; o corpo da resposta é um arquivo de áudio.
+400|Pedido incorreto|Campo de cabeçalho necessário em falta, documentos SSML de valor demasiado longo, ou é inválido.
+401|Não autorizado|Chave de subscrição ou autorização token é inválido na região especificada ou ponto final inválido.
+403|Proibido|Chave de subscrição ou autorização em falta token.
+413|Entidade do pedido demasiado grande|O texto de entrada é mais de 1000 carateres.
+
+Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que é transferido ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
 
 ## <a name="authentication"></a>Autenticação
 
-Enviar um pedido para a API de REST do serviço de voz exige um token de acesso. Obter um token ao fornecer a chave de subscrição para um serviço de voz regional `issueToken` ponto final, mostrada na tabela abaixo. Utilize o ponto final que corresponde à sua região de subscrição.
+Enviar um pedido para a API de REST do serviço de voz requer uma chave de subscrição ou um token de acesso. Em geral, é mais fácil enviar a chave de subscrição diretamente; o serviço de voz, em seguida, obtém o token de acesso para si. No entanto, para minimizar o tempo de resposta, pode pretender utilizar um token de acesso em vez disso.
+
+Obter um token ao apresentar a sua chave de subscrição para um serviço de voz regional `issueToken` ponto final, mostrada na tabela abaixo. Utilize o ponto final que corresponde à sua região de subscrição.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
@@ -121,40 +332,40 @@ curl -v -X POST
 A classe c# abaixo ilustra como obter um token de acesso. Passe a chave de subscrição do serviço de voz ao instanciar a classe. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião de `FetchTokenUri` adequadamente.
 
 ```cs
-    /*
-     * This class demonstrates how to get a valid access token.
-     */
-    public class Authentication
+/*
+    * This class demonstrates how to get a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri =
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+
+    public Authentication(string subscriptionKey)
     {
-        public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-        private string subscriptionKey;
-        private string token;
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
+    }
 
-        public Authentication(string subscriptionKey)
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
         {
-            this.subscriptionKey = subscriptionKey;
-            this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
-        }
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
 
-        public string GetAccessToken()
-        {
-            return this.token;
-        }
-
-        private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
-        {
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-                var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-                Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-                return await result.Content.ReadAsStringAsync();
-            }
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
         }
     }
+}
 ```
 
 ### <a name="using-a-token"></a>Através de um token
@@ -182,84 +393,84 @@ O token de autorização expira após 10 minutos. Renovar a sua autorização, o
 O seguinte código c# é uma substituição completa para a classe apresentada anteriormente. O `Authentication` classe obtém automaticamente um novo token de acesso em nove minutos através de um temporizador. Esta abordagem garante que um token válido está sempre disponível enquanto seu programa está em execução.
 
 > [!NOTE]
-> Em vez de usar um timer, pode armazenar um carimbo de quando o token atual foi obtido, em seguida, solicitar um novo, apenas se o token atual for encontra prestes a expirar. Esta abordagem evita solicitar novos tokens desnecessariamente e pode ser mais adequada para programas que efetuam pedidos de voz raros.
+> Em vez de usar um timer, pode armazenar um carimbo de quando o último token foi obtido, em seguida, solicitar um novo, apenas se for encontra prestes a expirar. Esta abordagem evita solicitar novos tokens desnecessariamente e pode ser mais adequada para programas que efetuam pedidos de voz raros.
 
 Como antes, certifique-se de que o `FetchTokenUri` valor corresponde à sua região de subscrição. Passe a chave de subscrição ao instanciar a classe.
 
 ```cs
-    /*
-     * This class demonstrates how to maintain a valid access token.
-     */
-    public class Authentication
+/*
+    * This class demonstrates how to maintain a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri = 
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+    private Timer accessTokenRenewer;
+
+    //Access token expires every 10 minutes. Renew it every 9 minutes.
+    private const int RefreshTokenDuration = 9;
+
+    public Authentication(string subscriptionKey)
     {
-        public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-        private string subscriptionKey;
-        private string token;
-        private Timer accessTokenRenewer;
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
 
-        //Access token expires every 10 minutes. Renew it every 9 minutes.
-        private const int RefreshTokenDuration = 9;
+        // renew the token on set duration.
+        accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
+                                        this,
+                                        TimeSpan.FromMinutes(RefreshTokenDuration),
+                                        TimeSpan.FromMilliseconds(-1));
+    }
 
-        public Authentication(string subscriptionKey)
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private void RenewAccessToken()
+    {
+        this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
+        Console.WriteLine("Renewed token.");
+    }
+
+    private void OnTokenExpiredCallback(object stateInfo)
+    {
+        try
         {
-            this.subscriptionKey = subscriptionKey;
-            this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
-
-            // renew the token on set duration.
-            accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
-                                           this,
-                                           TimeSpan.FromMinutes(RefreshTokenDuration),
-                                           TimeSpan.FromMilliseconds(-1));
+            RenewAccessToken();
         }
-
-        public string GetAccessToken()
+        catch (Exception ex)
         {
-            return this.token;
+            Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
         }
-
-        private void RenewAccessToken()
-        {
-            this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
-            Console.WriteLine("Renewed token.");
-        }
-
-        private void OnTokenExpiredCallback(object stateInfo)
+        finally
         {
             try
             {
-                RenewAccessToken();
+                accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
             }
             catch (Exception ex)
             {
-                Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
-            }
-            finally
-            {
-                try
-                {
-                    accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
-                }
-            }
-        }
-
-        private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
-        {
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-                var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-                Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-                return await result.Content.ReadAsStringAsync();
+                Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
             }
         }
     }
+
+    private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
+
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

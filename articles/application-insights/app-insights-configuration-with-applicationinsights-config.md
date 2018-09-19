@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: fa7115e651cf1b5c4533675cc2b2194b36d773f8
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 76567820a3d0fcd7dbd27cc7bc1afd09da94715c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730182"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129850"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 Os SDKs do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
@@ -228,21 +228,6 @@ Determina o tamanho máximo em MB é alocado para o armazenamento persistente no
       </Channel>
       ...
    </ApplicationInsights>
-```
-
-#### <a name="local-forwarder"></a>Reencaminhador de local
-
-[Local reencaminhador](https://docs.microsoft.com/azure/application-insights/local-forwarder) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux. 
-
-```Java
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-   <DeveloperMode>false</DeveloperMode>
-   <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-   <!-- The properties below are optional. The values shown are the defaults for each property -->
-   <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-   <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
 ```
 
 ## <a name="instrumentationkey"></a>InstrumentationKey

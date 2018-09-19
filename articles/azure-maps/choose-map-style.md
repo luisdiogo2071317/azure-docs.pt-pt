@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9122a349fd81cf723e21cd17e09e15d1d9f64503
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 73ea3c7c3cbb10beedb7ff64c47ebdbd908bd522
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634766"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123509"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolha um estilo de mapa do Azure Maps
 
 Mapas do Azure tem quatro estilos de mapas diferentes à sua escolha. Para mais informações sobre os estilos de mapa, consulte [suportado estilos de mapa do Azure Maps](./supported-map-styles.md). Este artigo mostra como utilizar as funcionalidades relacionadas ao estilo para definir um estilo na carga de mapa, definir um novo estilo e utilizar o controlo de Seletor de estilo.
 
-## <a name="setting-style-on-map-load"></a>A definição de estilo na carga de mapa
+## <a name="set-style-on-map-load"></a>Estilo de conjunto na carga de mapa
 
 <iframe height='500' scrolling='no' title='Definir o estilo na carga de mapa' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>definindo o estilo na carga de mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O código acima cria um objeto de mapa com o estilo definido como em tons de cinzento. Ver [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-## <a name="updating-the-style"></a>A atualizar o estilo
+## <a name="update-the-style"></a>Atualizar o estilo
 
 <iframe height='500' scrolling='no' title='A atualizar o estilo' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>atualizar o estilo</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -35,7 +35,7 @@ O primeiro bloco de código no código anterior cria um objeto de mapa sem previ
 
 O segundo período de código utiliza o mapa [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) método para definir o estilo de mapa de satélite.
 
-## <a name="adding-the-style-picker"></a>Adicionar o Seletor de estilo
+## <a name="add-the-style-picker"></a>Adicionar o Seletor de estilo
 
 <iframe height='500' scrolling='no' title='Adicionar o Seletor de estilo' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>adicionando o Seletor de estilo</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>

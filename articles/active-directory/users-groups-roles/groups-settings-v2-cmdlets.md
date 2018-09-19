@@ -15,12 +15,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2ecd65bab478c37f1d3daa3ff86fdfadc788b301
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d6fb5a97ef573a35f335875beddc7752f580bec1
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450016"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296650"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gestão de grupos
 > [!div class="op_single_selector"]
@@ -268,4 +268,4 @@ Quando é criado um grupo, determinado pontos de extremidade permitem que o util
 Pode encontrar mais documentação do Azure Active Directory PowerShell em [Cmdlets do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Integrar as identidades no local ao Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

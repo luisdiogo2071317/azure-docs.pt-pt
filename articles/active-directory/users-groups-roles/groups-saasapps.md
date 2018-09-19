@@ -14,12 +14,12 @@ ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 45882e4d107ffd9ece2bfa6caac43b3bb2f60add
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5d8e6c0db2ce6c35935c2b00aa40de2a5d5a050f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720247"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297627"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Utilizar um grupo para gerir o acesso a aplicações SaaS
 Utilizar o Azure Active Directory (Azure AD) com uma licença do Azure AD Premium ou do Azure AD básico, pode utilizar grupos para atribuir acesso a uma aplicação SaaS que está integrada com o Azure AD. Por exemplo, se pretender atribuir acesso para o departamento de marketing utilizar cinco aplicações SaaS diferentes, pode criar um grupo que contenha os utilizadores do departamento de marketing e, em seguida, atribua esse grupo para estas cinco aplicativos de SaaS que são necessários para o departamento de marketing. Desta forma, que pode poupar tempo gerenciando a associação do departamento de marketing num único local. Os utilizadores, em seguida, são atribuídos à aplicação quando são adicionados como membros do grupo de marketing, e tem suas atribuições removidas da aplicação quando os mesmos serão removidos do grupo de marketing. Esse recurso pode ser usado com centenas de aplicativos que pode adicionar a partir de Galeria de aplicações do Azure AD.
@@ -43,4 +43,4 @@ Estes artigos fornecem informações adicionais acerca do Azure Active Directory
 * [Gestão de aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md)
 * [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrar as identidades no local ao Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

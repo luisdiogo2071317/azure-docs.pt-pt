@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e065b04083cce958bc42f2efade0038bf137f8a
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: f453afee6bc26c5ddcdb5018405ec69455f8f7e8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145116"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295143"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 Este artigo contém instruções para utilizar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar os grupos. Este conteúdo aplica-se apenas a grupos do Office 365 (por vezes denominados grupos unificados). 
@@ -222,4 +222,4 @@ Pode encontrar mais documentação do Azure Active Directory PowerShell em [Cmdl
 ## <a name="additional-reading"></a>Leitura adicional
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Integrar as identidades no local ao Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

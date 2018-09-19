@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092432"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125379"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores do funções do Azure
 Nas funções do Azure, funções específicas partilham alguns conceitos técnicos de núcleos e componentes, independentemente do idioma ou associação usada. Antes de conhecer em detalhes específicos para um determinado idioma ou enlace de aprendizagem, certifique-se de que leia esta visão geral que se aplica a todos eles.
@@ -62,15 +62,13 @@ O tempo de execução, ou o anfitrião de script, é o anfitrião subjacente do 
 
 Para facilitar a acionadores HTTP, há também um host da web que foi concebido para na frente o host de script em cenários de produção. Ter dois anfitriões ajuda a isolar o host do script da frente termina gerido pelo web host de tráfego.
 
-## <a name="folder-structure"></a>Estrutura de pastas
+## <a name="folder-structure"></a>estrutura de pastas
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Quando configurando um projeto para a implementação de funções para uma aplicação de funções no serviço de aplicações do Azure, pode lidar com essa estrutura de pasta como seu código de site. Pode utilizar as ferramentas existentes, como a integração contínua e implementação, ou scripts de implantação personalizada para fazer implementar a instalação do pacote de tempo ou transpilation de código.
+Quando configurando um projeto para a implementação de funções para uma aplicação de funções no Azure, pode lidar com essa estrutura de pasta como seu código de site. Recomendamos que utilize [implementação do pacote](deployment-zip-push.md) para implementar o projeto para a aplicação de funções no Azure. Também pode utilizar as ferramentas existentes, como [integração e implementação contínuas](functions-continuous-deployment.md) e DevOps do Azure.
 
 > [!NOTE]
-> Certifique-se implementar o seu `host.json` de ficheiros e pastas de função diretamente para o `wwwroot` pasta. Não inclua o `wwwroot` pasta das implementações. Caso contrário, acaba tendo `wwwroot\wwwroot` pastas. 
-> 
-> 
+> Certifique-se implementar o seu `host.json` de ficheiros e pastas de função diretamente para o `wwwroot` pasta. Não inclua o `wwwroot` pasta das implementações. Caso contrário, acaba tendo `wwwroot\wwwroot` pastas.
 
 ## <a id="fileupdate"></a> Como atualizar os ficheiros de aplicação de função
 O editor de função incorporado no portal do Azure permite-lhe atualizar o *Function* arquivo e o arquivo de código para uma função. Para carregar ou atualizar outros ficheiros, tal como *Package. JSON* ou *Project* ou dependências, precisa usar outros métodos de implantação.

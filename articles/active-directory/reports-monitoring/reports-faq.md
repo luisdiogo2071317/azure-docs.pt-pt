@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061711"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294225"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>O Azure Active Directory FAQ de relatórios
 
@@ -169,3 +169,7 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 **P: o nome da política do relatório de todos os início de sessão não corresponde ao nome de política na AC. Porquê?**
 
 **R:** o nome da política do relatório de todos os início de sessão se baseia no nome da política de AC no momento da entrada. Isso pode ser inconsistente com o nome da política na AC se atualizou o nome da política mais tarde, ou seja, após o início de sessão.
+
+**P: o meu início de sessão foi bloqueado devido a uma política de acesso condicional, mas o relatório de atividade de início de sessão mostra que o início de sessão foi concluída com êxito. Porquê?**
+
+**R:** atualmente o relatório de início de sessão poderão não ser apresentados resultados precisos para cenários do Exchange ActiveSync quando o acesso condicional é aplicado. Pode haver casos quando o resultado de início de sessão no relatório mostra um início de sessão-in concluída com êxito, mas o início de sessão, na verdade, falhou devido a uma política de acesso condicional. 

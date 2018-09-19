@@ -1,24 +1,25 @@
 ---
-title: Idiomas suportados na API do Microsoft Translator | Documentos da Microsoft
-description: Ver os idiomas suportados pela API de texto do Microsoft Translator.
+title: Idiomas suportados de API de texto do Translator
+titlesuffix: Azure Cognitive Services
+description: Ver os idiomas suportados pela API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 9318a562fad00f61d50fdce19b8b84b62c294cba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783217"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124853"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Idiomas suportados na API de texto do Microsoft Translator
+# <a name="supported-languages-in-the-translator-text-api"></a>Idiomas suportados na API de texto do Translator
 
-A API de texto do Microsoft Translator suporta os seguintes idiomas para a tradução de texto para texto. Tradução automática neuronal (NMT) é o novo padrão para conversões de máquina de com tecnologia de ia de alta qualidade e está disponível como sendo o padrão usando o V3 da API de texto do Translator quando um sistema neural disponível. Tradução automática neural está disponível no V2, utilizando a categoria "generalnn".
+A API de texto do Translator suporta os seguintes idiomas para a tradução de texto para texto. Tradução automática neuronal (NMT) é o novo padrão para conversões de máquina de com tecnologia de ia de alta qualidade e está disponível como sendo o padrão usando o V3 da API de texto do Translator quando um sistema neural disponível. Tradução automática neural está disponível no V2, utilizando a categoria "generalnn".
 
 [Saiba mais sobre como funciona a tradução automática](https://www.microsoft.com/translator/mt.aspx)
 

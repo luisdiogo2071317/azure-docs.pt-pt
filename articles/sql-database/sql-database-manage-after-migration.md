@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983938"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295789"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -73,12 +73,12 @@ Existem [dois métodos de autenticação](sql-database-control-access.md#authent
 - [Autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 - Autenticação do SQL. 
 
-Não é suportada a autenticação tradicional do windows. O Azure Active Directory (AD) é um serviço centralizado de gestão de identidades e acessos. Com isso muito convenientemente pode fornecer um único início de sessão acesso (SSO) a todas as pessoas na sua organização. Isso significa que as credenciais são partilhadas entre todos os serviços do Azure para a autenticação mais simples. Oferece suporte a AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) e uma com um [alguns cliques](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD pode ser integrado no Windows Server Active Directory. Autenticação do SQL funciona exatamente da mesma forma que utilizado no passado. Fornecer uma nome de utilizador/palavra-passe e pode autenticar os utilizadores a qualquer base de dados num determinado servidor lógico. Isso também permite que a base de dados do SQL e SQL Data Warehouse oferecer autenticação multifator e contas de utilizador convidado dentro de um domínio do Azure AD. Se já tiver um Active Directory no local, pode federar o diretório com o Azure Active Directory para expandir o seu diretório para o Azure.
+Não é suportada a autenticação tradicional do windows. O Azure Active Directory (AD) é um serviço centralizado de gestão de identidades e acessos. Com isso muito convenientemente pode fornecer um único início de sessão acesso (SSO) a todas as pessoas na sua organização. Isso significa que as credenciais são partilhadas entre todos os serviços do Azure para a autenticação mais simples. Oferece suporte a AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) e uma com um [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md) AAD pode ser integrado no Windows Server Active Directory. Autenticação do SQL funciona exatamente da mesma forma que utilizado no passado. Fornecer uma nome de utilizador/palavra-passe e pode autenticar os utilizadores a qualquer base de dados num determinado servidor lógico. Isso também permite que a base de dados do SQL e SQL Data Warehouse oferecer autenticação multifator e contas de utilizador convidado dentro de um domínio do Azure AD. Se já tiver um Active Directory no local, pode federar o diretório com o Azure Active Directory para expandir o seu diretório para o Azure.
 
 |**Se...**|**Base de dados SQL / do SQL Data Warehouse**|
 |---|---|
 |Prefere não utilizar o Azure Active Directory (AD) no Azure|Utilize [autenticação do SQL](sql-database-security-overview.md)|
-|AD utilizados no SQL Server no local|[Federar o AD com o Azure AD](../active-directory/connect/active-directory-aadconnect.md)e utilizar a autenticação do Azure AD. Com isso, pode utilizar o início de sessão único.|
+|AD utilizados no SQL Server no local|[Federar o AD com o Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)e utilizar a autenticação do Azure AD. Com isso, pode utilizar o início de sessão único.|
 |Precisa de impor o multi-factor authentication (MFA)|Exigir a MFA como uma política através de [acesso condicional do Microsoft](sql-database-conditional-access.md)e utilize [autenticação Universal do Azure AD com o suporte MFA](sql-database-ssms-mfa-authentication.md).|
 |Ter contas de convidado de contas Microsoft (live.com, outlook.com) ou de outros domínios (gmail.com)|Uso [autenticação do Azure AD Universal](sql-database-ssms-mfa-authentication.md) no armazém de dados/base de dados SQL, que tira partido [colaboração B2B do Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Sessão iniciada no Windows com as suas credenciais do Azure AD a partir de um domínio federado|Uso [autenticação integrada do Azure AD](sql-database-aad-authentication-configure.md).|

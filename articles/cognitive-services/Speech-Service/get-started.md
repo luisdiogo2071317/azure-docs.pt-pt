@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981842"
+ms.locfileid: "46124517"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -26,7 +26,7 @@ Por fim, o serviço de voz oferece um escalão gratuito de baixo volume que é a
 
 ## <a name="free-trial"></a>Avaliação gratuita
 
-A avaliação gratuita de 30 dias dá-lhe acesso a Standard S0 escalão de preço por um período limitado. 
+A avaliação gratuita de 30 dias dá-lhe acesso ao padrão de escalão de preço por um período limitado.
 
 Para se inscrever numa avaliação gratuita de 30 dias:
 
@@ -44,58 +44,30 @@ Para se inscrever numa avaliação gratuita de 30 dias:
 
    ![Aceitar termos](media/index/try-speech-api-free-trial3.png)
 
-1. Inicie sessão com a sua conta Microsoft, Facebook, LinkedIn ou do GitHub. Em alternativa, pode inscrever-se numa conta gratuita do Microsoft:
+1. Inicie sessão com a sua conta Microsoft, Facebook, LinkedIn ou do GitHub.
 
-    * Vá para o [portal de contas Microsoft](https://account.microsoft.com/account).
-    * Selecione **iniciar sessão com a Microsoft**.
+    Pode inscrever-se numa conta gratuita do Microsoft com o [portal de contas Microsoft](https://account.microsoft.com/account). Para começar a utilizar, clique em **iniciar sessão com a Microsoft** e, em seguida, quando lhe for pedido para iniciar sessão, clique em **criá-lo.** Siga os passos para criar e certifique-se a sua nova conta Microsoft.
 
-    ![Iniciar sessão](media/index/try-speech-api-free-trial4.png)
-
-    * Quando lhe for pedido para iniciar sessão, selecione **criá-lo**.
-
-    ![Criar conta nova](media/index/try-speech-api-free-trial5.png)
-
-    * Nas etapas a seguir, introduza o seu endereço de e-mail ou número de telefone, atribua uma palavra-passe e siga as instruções para verificar a sua nova conta Microsoft.
-
-Depois de iniciar sessão, começa a sua avaliação gratuita. A página Web apresentada apresenta uma lista de todos os serviços de serviços cognitivos do Azure para os quais tem atualmente subscrições de avaliação. Duas chaves de subscrição são apresentadas ao lado **serviços de voz**. Pode usar qualquer uma das chaves nas suas aplicações.
+Depois de iniciar sessão para experimentar os serviços cognitivos, começa a sua avaliação gratuita. A página Web apresentada apresenta uma lista de todos os serviços de serviços cognitivos do Azure para os quais tem atualmente subscrições de avaliação. Duas chaves de subscrição são apresentadas ao lado **serviços de voz**. Pode usar qualquer uma das chaves nas suas aplicações.
 
 > [!NOTE]
-> Todas as subscrições de avaliação gratuitas são na região E.U.A. oeste. Quando efetuar pedidos, certifique-se de que utilize o ponto final que corresponde à sua região.
+> Todas as subscrições de avaliação gratuitas são na região E.U.A. oeste. Quando efetuar pedidos, certifique-se de que usar o `westus` ponto final.
 
 ## <a name="new-azure-account"></a>Nova conta do Azure
 
 Novas contas do Azure recebem um crédito de serviço de US $200 que está disponível até 30 dias. Pode utilizar este crédito para explorar ainda mais o serviço de voz ou para iniciar o desenvolvimento de aplicativos.
 
-Para se inscrever para uma nova conta do Azure:
+Para se inscrever para uma nova conta do Azure, vá para o [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), clique em **começar gratuitamente,** e criar uma nova conta do Azure com a sua conta Microsoft.
 
-1. Vá para o [página de inscrição do Azure](https://azure.microsoft.com/free/ai/). 
+Pode inscrever-se numa conta gratuita do Microsoft com o [portal de contas Microsoft](https://account.microsoft.com/account). Para começar a utilizar, clique em **iniciar sessão com a Microsoft** e, em seguida, quando lhe for pedido para iniciar sessão, clique em **criá-lo.** Siga os passos para criar e certifique-se a sua nova conta Microsoft.
 
-1. Selecione **comece gratuitamente**.
-
-    ![Iniciar gratuitamente](media/index/try-speech-api-new-azure1.png)
-
-1. Inicie sessão com a sua conta Microsoft. Se não tiver um:
-
-    * Vá para o [portal de contas Microsoft](https://account.microsoft.com/account).
-    * Selecione **iniciar sessão com a Microsoft**.
-    * Quando lhe for pedido para iniciar sessão, selecione **criá-lo.**
-    * Nas etapas a seguir, introduza o seu endereço de e-mail ou número de telefone, atribua uma palavra-passe e siga as instruções para verificar a sua nova conta Microsoft.
-
-1. Introduza o restante das informações que solicitou para se inscrever para uma conta. Especifique o seu país e o seu nome e fornecer um endereço de e-mail e número de telefone.
-
-    ![Introduza as informações](media/index/try-speech-api-new-azure2.png)
-
-    Verificar a sua identidade por telefone e ao fornecer um número de cartão de crédito. (Seu cartão de crédito não será cobrado.) uando, aceite o contrato de utilizador do Azure. 
-
-    ![Aceitar o contrato](media/index/try-speech-api-new-azure3.png)
-
-É criada a sua conta gratuita do Azure. Siga os passos na secção seguinte para iniciar uma subscrição para o serviço de voz.
+Depois de criar a sua conta do Azure, siga os passos na secção seguinte para iniciar uma subscrição para o serviço de voz.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Criar um recurso de fala no Azure
 
-Para adicionar um recurso de serviço de voz à sua conta do Azure:
+Para adicionar um recurso de serviço de voz (escalão gratuito ou pago) à sua conta do Azure:
 
-1. Inicie sessão para o [portal do Azure](https://ms.portal.azure.com/) com sua conta Microsoft.
+1. Inicie sessão para o [portal do Azure](https://ms.portal.azure.com/) com a sua conta Microsoft.
 
 1. Selecione **criar um recurso** na parte superior esquerda do portal.
 
@@ -107,7 +79,7 @@ Para adicionar um recurso de serviço de voz à sua conta do Azure:
 
     ![Selecione a conversão de voz (pré-visualização)](media/index/try-speech-api-create-speech2.png)
 
-1. Sob **voz (pré-visualização)**, selecione a **criar** botão.
+1. Sob **voz (pré-visualização)**, clique nas **criar** botão.
 
     ![Selecione o botão Criar](media/index/try-speech-api-create-speech3.png)
 
@@ -116,21 +88,33 @@ Para adicionar um recurso de serviço de voz à sua conta do Azure:
     * Um nome para o novo recurso. O nome auxilia a distinguir entre várias subscrições para o mesmo serviço.
     * Escolha a subscrição do Azure que o novo recurso está associado para determinar como são cobradas as taxas.
     * Selecione a região onde o recurso será utilizado. Atualmente, o serviço de voz está disponível nas regiões E.U.A. oeste, Europa do Norte e Ásia Oriental.
-    * Escolha o escalão de preço, qualquer um dos F0 (limitado a subscrição gratuita) ou S0 (subscrição standard). Selecione **vista de detalhes de preço completos** para obter informações completas sobre as quotas de utilização e de preços para cada camada.
+    * Escolha a um escalão de preço gratuito ou pago. Clique em **vista de detalhes de preço completos** para obter informações completas sobre as quotas de utilização e de preços para cada camada.
     * Criar um novo grupo de recursos para esta subscrição de voz ou o atribuir a subscrição a um grupo de recursos existente. Os grupos de recursos ajudam a que manter suas várias subscrições do Azure, organizadas.
     * Para obter acesso conveniente a sua subscrição no futuro, selecione o **afixar ao dashboard** caixa de verificação.
     * Selecione **criar.**
 
     ![Selecione o botão Criar](media/index/try-speech-api-create-speech4.png)
 
-    Poderá demorar alguns momentos para criar e implementar o novo recurso de voz. Selecione **guia de introdução** para ver informações sobre o novo recurso.
+    Ele demora alguns minutos a criar e implementar o novo recurso de voz. Selecione **guia de introdução** para ver informações sobre o novo recurso.
 
     ![Painel de início rápido](media/index/try-speech-api-create-speech5.png)
 
-1. Sob **início rápido**, selecione a **chaves** link no passo 1 para exibir as chaves de subscrição. Cada subscrição tem duas chaves; Pode utilizar qualquer um dos chave em seu aplicativo. Selecione o botão junto a cada chave para copiá-lo para a área de transferência para colar no seu código.
+1. Sob **início rápido**, clique nas **chaves** link no passo 1 para exibir as chaves de subscrição. Cada subscrição tem duas chaves; Pode utilizar qualquer um dos chave em seu aplicativo. Selecione o botão junto a cada chave para copiá-lo para a área de transferência para colar no seu código.
 
 > [!NOTE]
 > Pode criar um número ilimitado de escalão standard subscrições numa ou em várias regiões. No entanto, pode criar apenas uma subscrição do escalão gratuito. Implementações de modelos no escalão gratuito, que permanecem não utilizadas durante sete dias será automaticamente desativado.
+
+## <a name="switch-to-a-new-subscription"></a>Mudar para uma nova subscrição
+
+Para mudar de uma subscrição para outro, por exemplo, quando a avaliação gratuita expira ou quando publicar a sua aplicação, substitua a chave de subscrição e região no seu código com a chave de subscrição e região do novo recurso do Azure.
+
+> [!NOTE]
+> As chaves de avaliação gratuitas são criadas no Oeste dos E.U.A. (`westus`) região. Uma subscrição criada através do dashboard do Azure pode ser em alguma outra região, se assim o desejar.
+
+* Se o aplicativo usar um [SDK de voz](speech-sdk.md), indique o código de região, como `westus`, ao instanciar `RecognizerFactory`. 
+* Se seu aplicativo usa um do serviço de voz [REST APIs](rest-apis.md), a região é a parte do ponto final do URI a utilizar quando são efetuados pedidos.
+
+Criado para uma região de chaves são válidas apenas nessa região. A tentar usá-los com outras regiões irá resultar em erros de autenticação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

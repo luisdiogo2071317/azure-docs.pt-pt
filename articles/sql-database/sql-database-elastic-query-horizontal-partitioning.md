@@ -1,6 +1,6 @@
 ---
-title: Relatórios em bases de dados de nuvem de escalamento horizontal | Microsoft Docs
-description: como configurar elásticas consultas através de partições horizontais
+title: Relatórios entre bases de dados de cloud aumentadas horizontalmente | Documentos da Microsoft
+description: como configurar a consultas elásticas através de partições horizontais
 services: sql-database
 documentationcenter: ''
 manager: craigg
@@ -10,38 +10,38 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6efc9da60017914eeeb06bdf3309cae79fac36d6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646359"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35649942"
 ---
-# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios em bases de dados de nuvem de escalamento horizontal (pré-visualização)
-![Consultar em partições horizontais][1]
+# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bases de dados de cloud aumentadas horizontalmente (pré-visualização)
+![Consultas em partições horizontais][1]
 
-Bases de dados em partição horizontal distribuam linhas por um dados expandido terminar camada. O esquema é idêntico em todos os participantes bases de dados, também conhecidos como criação de partições horizontais. Utilizando uma consulta elástica, pode criar relatórios que abrangem todas as bases de dados numa base de dados em partição horizontal.
+Bases de dados em partição horizontal distribuam linhas num dados aumentados horizontalmente camadas. O esquema é idêntico em todos os participantes bases de dados, também conhecidos como criação de partições horizontais. Usando uma consulta elástica, pode criar relatórios que abrangem todas as bases de dados numa base de dados em partição horizontal.
 
-Para uma introdução, consulte [Reporting entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-query-getting-started.md).
+Para um início rápido, consulte [relatórios entre bases de dados de cloud aumentadas horizontalmente](sql-database-elastic-query-getting-started.md).
 
-Para bases de dados não-em partição horizontal, consulte [consulta em bases de dados de nuvem com diferentes esquemas](sql-database-elastic-query-vertical-partitioning.md). 
+Para bases de dados não em partição horizontal, consulte [consultas entre bases de dados na cloud com esquemas diferentes](sql-database-elastic-query-vertical-partitioning.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Crie um mapa de partições horizontais utilizando a biblioteca de cliente da base de dados elásticas. consulte [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md). Ou utilize a aplicação de exemplo no [começar a utilizar as ferramentas de base de dados elástica](sql-database-elastic-scale-get-started.md).
-* Em alternativa, consulte [Migrar bases de dados existentes para bases de dados de escalamento horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
-* O utilizador precisa de ter permissão ALTER qualquer origem de dados externa. Esta permissão está incluído com a permissão ALTER DATABASE.
-* São necessárias permissões de ALTER qualquer origem de dados externa para fazer referência à origem de dados subjacente.
+* Crie um mapa de partições horizontais com a biblioteca de cliente de base de dados elástica. ver [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). Ou utilize a aplicação de exemplo na [introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md).
+* Em alternativa, veja [Migrar bases de dados existentes para bases de dados aumentadas horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).
+* O utilizador tem de ter permissão de alterar qualquer origem de dados externa. Esta permissão está incluída com a permissão ALTER DATABASE.
+* São necessárias permissões de alterar qualquer origem de dados externa para fazer referência à origem de dados subjacente.
 
 ## <a name="overview"></a>Descrição geral
-As declarações de criar a representação de metadados da sua camada de dados fragmentados na base de dados elásticas consulta. 
+Essas instruções criar a representação de metadados de sua camada de dados em partição horizontal na base de dados de consulta elástica. 
 
 1. [CRIAR CHAVE MESTRA](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CRIAR UM ÂMBITO DE BASE DE DADOS CREDENCIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CRIAR ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Criar chave mestra de base de dados no âmbito e as credenciais
-A credencial é utilizada pela consulta elástica para estabelecer a ligação para as bases de dados remotas.  
+## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 criar a chave mestra do banco de dados no âmbito e as credenciais
+A credencial é utilizada pela consulta elástica para ligar aos seus bancos de dados remotos.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -49,7 +49,7 @@ A credencial é utilizada pela consulta elástica para estabelecer a ligação p
     [;]
 
 > [!NOTE]
-> Certifique-se de que o *"\<username\>"* não inclui quaisquer *"@servername"* sufixo. 
+> Certifique-se de que o *"\<nome de utilizador\>"* não inclui quaisquer *"\@servername"* sufixo. 
 > 
 > 
 
@@ -80,7 +80,7 @@ Obter a lista de origens de dados externas atual:
 
     select * from sys.external_data_sources; 
 
-A origem de dados externa referencia o mapa de partições horizontais. Uma consulta elástica, em seguida, utiliza a origem de dados externo e o mapa de partições horizontais subjacente para enumerar as bases de dados que participam na camada de dados. As mesmas credenciais são utilizadas para ler o mapa de partições horizontais e aceder aos dados nos shards durante o processamento de uma consulta elástico. 
+A origem de dados externo faz referência a seu mapa de partições horizontais. Uma consulta elástica utiliza, em seguida, a origem de dados externos e o mapa de partições horizontais subjacente para enumerar as bases de dados que participam na camada de dados. As mesmas credenciais são utilizadas para ler o mapa de partições horizontais e acessar os dados em partições horizontais durante o processamento de uma consulta elástica. 
 
 ## <a name="13-create-external-tables"></a>1.3 criar tabelas externas
 Sintaxe:  
@@ -128,25 +128,25 @@ Para remover as tabelas externas:
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
 ### <a name="remarks"></a>Observações
-Os dados\_cláusula origem define a origem de dados externa (um mapa de partições horizontais) que é utilizada para a tabela externa.  
+Os dados\_cláusula de origem define a origem de dados externo (um mapa de partições horizontais) que é utilizada para a tabela externa.  
 
-O esquema\_nome e o OBJETO\_cláusulas nome mapeiam a definição de tabela externa para uma tabela de um esquema diferente. Se for omitido, o esquema do objeto remoto é prestado "dbo" e o respetivo nome é assumido ser idêntico ao nome de tabela externa que está a ser definido. Isto é útil se o nome da sua tabela remota já estiver atribuído na base de dados onde pretende criar a tabela externa. Por exemplo, pretende definir uma tabela externa para obter uma vista de agregação de vistas de catálogo ou camada DMVs nos seus dados expandidos terminar. Uma vez que as vistas de catálogo e DMVs já existem localmente, não é possível utilizar os respetivos nomes para a definição de tabela externa. Em vez disso, utilize um nome diferente e utilizar a vista de catálogo ou o DMV nome no esquema\_nome e/ou OBJETO\_cláusulas de nome. (Consulte o exemplo abaixo). 
+O esquema\_nome e o OBJETO\_cláusulas de nome mapeiam a definição de tabela externa para uma tabela num esquema diferente. Se for omitido, o esquema do objeto remoto é considerado como "dbo" e o respetivo nome é considerado como idêntico ao nome de tabela externa que está a ser definido. Isto é útil se o nome da sua tabela remota já estiver atribuído na base de dados onde pretende criar tabela externa. Por exemplo, pretende definir uma tabela externa para obter uma visualização agregada dos modos de exibição de catálogo ou camada de DMVs nos seus dados aumentados horizontalmente. Uma vez que as exibições de catálogo e DMVs de existir localmente, não é possível utilizar os respetivos nomes para a definição de tabela externa. Em vez disso, utilize um nome diferente e utilizar a vista de catálogo ou a DMV nome no esquema\_nome e/ou OBJETO\_cláusulas de nome. (Consulte o exemplo abaixo.) 
 
 A cláusula de distribuição Especifica a distribuição de dados utilizada para esta tabela. O processador de consultas utiliza as informações fornecidas na cláusula de distribuição para criar os planos de consulta mais eficientes.  
 
-1. **A** significa dados horizontalmente estão particionados em bases de dados. A chave de criação de partições para a distribuição de dados é o **< sharding_column_name >** parâmetro.
-2. **REPLICADO** significa que existem idênticas cópias da tabela em cada base de dados. É da responsabilidade do cliente, certifique-se de que as réplicas são idênticas em bases de dados.
-3. **ARREDONDAR\_Round ROBIN** significa que a tabela horizontalmente está particionada utilizando um método de distribuição de aplicações dependentes. 
+1. **Em partição horizontal** significa que dados são particionados horizontalmente entre bases de dados. A chave de criação de partições para a distribuição de dados é o **< sharding_column_name >** parâmetro.
+2. **REPLICADOS** significa que as cópias idênticas da tabela estão presentes em cada base de dados. É da responsabilidade do cliente, certifique-se de que as réplicas são idênticas entre bases de dados.
+3. **ARREDONDA\_ROBIN** significa que a tabela horizontalmente é particionada usando um método de distribuição de aplicações dependentes. 
 
-**Referência de camada de dados**: da tabela externa DDL refere-se a uma origem de dados externas. A origem de dados externo Especifica um mapa de partições horizontais que fornece a tabela externa com as informações necessárias para localizar todas as bases de dados na camada de dados. 
+**Referência de camada de dados**: A tabela externa DDL refere-se a uma origem de dados externa. A origem de dados externo Especifica um mapa de partições horizontais que fornece a tabela externa com as informações necessárias para localizar todas as bases de dados na camada de dados. 
 
 ### <a name="security-considerations"></a>Considerações de segurança
-Os utilizadores com acesso à tabela externa automaticamente obterem acesso às tabelas remotas subjacentes sob a credencial fornecida na definição de origem de dados externas. Evite indesejada elevação de privilégios através a credencial da origem de dados externas. Utilize GRANT ou REVOKE para uma tabela externa como se fosse uma tabela normal.  
+Os utilizadores com acesso à tabela externa automaticamente obtém acesso às tabelas subjacentes remotos sob a credencial fornecida na definição de origem de dados externa. Evite indesejada de elevação de privilégios através da credencial da origem de dados externo. Utilize GRANT ou REVOKE para uma tabela externa como se fosse uma tabela normal.  
 
-Assim que definiu a sua origem de dados externos e as tabelas externas, agora pode utilizar o T-SQL completo sobre as tabelas externas.
+Depois de definir a origem de dados externos e as tabelas externas, agora pode utilizar o T-SQL completa sobre as tabelas externas.
 
-## <a name="example-querying-horizontal-partitioned-databases"></a>Exemplo: consultar as bases de dados de particionadas horizontais
-A seguinte consulta efetua uma junção de três vias entre armazéns, encomendas pendentes e linhas de ordem e utiliza vários agregados e um filtro seletivo. Parte do pressuposto de criação de partições (1) horizontal (fragmentação) e (2) que armazéns, encomendas pendentes e linhas de ordem estão em partição horizontal pela coluna de id de armazém e que a consulta elástica pode localizar conjuntamente as associações nos shards e processar a parte da consulta no shards em paralelo dispendiosas. 
+## <a name="example-querying-horizontal-partitioned-databases"></a>Exemplo: consultar bases de dados particionadas horizontais
+A seguinte consulta executa uma junção de três vias entre armazéns, orders e linhas da ordem e utiliza várias agregações e um filtro seletivo. Parte do princípio de criação de partições (1) horizontal (fragmentação) e (2) que estão em partição horizontal pela coluna de id de armazém armazéns, pedidos e das linhas da ordem, e que a consulta elástica pode colocalize as junções em partições horizontais e processar o Caro parte da consulta em partições horizontais de paralelo. 
 
     select  
          w_id as warehouse,
@@ -164,14 +164,14 @@ A seguinte consulta efetua uma junção de três vias entre armazéns, encomenda
     group by w_id, o_c_id 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento para execução remota de T-SQL armazenado: sp\_execute_remote
-Consulta elástica também apresenta um procedimento armazenado que fornece acesso direto para os shards. O procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e podem ser utilizados para executar os procedimentos armazenados remotos ou um código de T-SQL nas bases de dados remotas. Demora os seguintes parâmetros: 
+Consulta elástica também introduz um procedimento armazenado que fornece acesso direto às partições horizontais. O procedimento armazenado é chamado [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser usada para executar procedimentos armazenados remotos ou o código T-SQL nas bases de dados remotas. Ele usa os seguintes parâmetros: 
 
-* Nome da origem de dados (nvarchar): O nome da origem de dados externas do tipo RDBMS. 
-* Consulta (nvarchar): consulta o T-SQL para ser executada em cada partição horizontal. 
-* Declaração de parâmetro (nvarchar) - opcional: de cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
-* Lista de valores de parâmetro - opcional: lista de valores separados por vírgulas de valores de parâmetros (por exemplo, sp_executesql).
+* O nome da origem de dados (nvarchar): O nome da origem de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): consulta de T-SQL a ser executado em cada partição horizontal. 
+* Declaração de parâmetro (nvarchar) - opcional: cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
+* Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
-O sp\_executar\_remoto utiliza a origem de dados externa fornecida nos parâmetros de invocação para executar a instrução de T-SQL indicada nas bases de dados remotas. Utiliza a credencial da origem de dados externos a ligar a base de dados do Gestor de shardmap e as bases de dados remotas.  
+O sp\_executar\_remoto usa a origem de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL específica nas bases de dados remotas. Utiliza a credencial da origem de dados externos para ligar a base de dados do Gestor de shardmap e as bases de dados remotas.  
 
 Exemplo: 
 
@@ -180,21 +180,21 @@ Exemplo:
         N'select count(w_id) as foo from warehouse' 
 
 ## <a name="connectivity-for-tools"></a>Conectividade de ferramentas
-Utilizar regulares cadeias de ligação do SQL Server para ligar a sua aplicação, as ferramentas de integração do BI e os dados na base de dados com as definições de tabela externa. Certifique-se de que o SQL Server é suportada como uma origem de dados para a ferramenta. Em seguida, referência a base de dados elásticas consulta como qualquer outra base de dados do SQL Server ligado para a ferramenta e tabelas externas de utilização da sua aplicação ou a ferramenta como se estivessem tabelas locais. 
+Utilizar cadeias de ligação normais do SQL Server para ligar a sua aplicação, as ferramentas de integração BI e os dados na base de dados com as definições de tabela externa. Certifique-se de que o SQL Server é suportado como uma origem de dados para a sua ferramenta. Em seguida, referência da base de dados de consulta elástica, como qualquer outro banco de dados do SQL Server ligado à ferramenta e o uso de tabelas externas sua ferramenta ou aplicativo como se fossem tabelas locais. 
 
 ## <a name="best-practices"></a>Melhores práticas
-* Certifique-se de que a base de dados do ponto final de consulta elástico foi indicado acesso para a base de dados shardmap e todas as partições horizontais através de firewalls de BD do SQL.  
-* Validar ou impor a distribuição de dados definida da tabela externa. Se a distribuição de dados real é diferente de distribuição especificada na definição de tabela, as suas consultas poderão produzir resultados inesperados. 
-* Consulta elástica atualmente não efetuar a eliminação de partições horizontais quando predicados sobre a chave de fragmentação permitiria-lo em segurança excluir determinadas shards de processamento.
-* Consulta elástica funciona melhor para consultas onde é possível efetuar a maioria a computação os shards. Obter, normalmente, o melhor desempenho de consulta com os predicados de filtro seletiva que pode ser avaliado no shards ou associações através de chaves de criação de partições que podem ser executadas de forma a partição alinhada em todas as partições horizontais. Outros padrões de consulta poderão ter de carregar grandes quantidades de dados das shards ao nó principal e podem efetuar mal
+* Certifique-se de que a base de dados do ponto final de consulta elástica tem sido dado acesso para a base de dados shardmap e todas as partições horizontais através de firewalls de BD SQL.  
+* Validar ou impor a distribuição de dados definida pela tabela externa. Se a sua distribuição de dados real é diferente da distribuição especificada na definição da tabela, as suas consultas poderão resultar em resultados inesperados. 
+* Consulta elástica atualmente não efetua a eliminação de partições horizontais quando predicados sobre a chave de fragmentação permitiria a excluir com segurança determinadas as partições horizontais de processamento.
+* Consulta elástica funciona melhor para consultas em que a maioria da computação pode ser feita em partições horizontais. Normalmente, pode obter o melhor desempenho de consulta com predicados de filtro seletiva que pode ser avaliado no partições horizontais ou associações sobre as criação de partições as chaves que podem ser executadas de forma a partição alinhada em todas as partições horizontais. Outros padrões de consulta poderão ter de carregar grandes quantidades de dados das partições horizontais para o nó principal e podem ter um mau desempenho
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter uma descrição geral da consulta elástica, consulte [descrição geral de consulta elástico](sql-database-elastic-query-overview.md).
-* Para um tutorial de criação de partições vertical, consulte [introdução à consulta de base de dados em vários locais (criação de partições vertical)](sql-database-elastic-query-getting-started-vertical.md).
-* Para consultas de sintaxe e exemplos de dados verticalmente particionadas, consulte [consultar verticalmente particionada dados)](sql-database-elastic-query-vertical-partitioning.md)
-* Para um tutorial horizontal criação de partições (fragmentação), consulte [como começar a consultar elástico (fragmentação) de partições horizontais](sql-database-elastic-query-getting-started.md).
-* Consulte [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução de Transact-SQL num único remoto SQL Database do Azure ou um conjunto de bases de dados que servem como shards num esquema de partições horizontal.
+* Para obter uma descrição geral de consulta elástica, veja [descrição geral de consulta elástica](sql-database-elastic-query-overview.md).
+* Para obter um tutorial de criação de partições vertical, consulte [guia de introdução consultas entre bases de dados (criação de partições verticais)](sql-database-elastic-query-getting-started-vertical.md).
+* Para consultas de exemplo de sintaxe e para dados particionados verticalmente, consulte [consultar verticalmente particionada dados)](sql-database-elastic-query-vertical-partitioning.md)
+* Para obter um tutorial de criação de partições horizontais (fragmentação), consulte [guia de introdução consulta elástica para a criação de partições horizontais (fragmentação)](sql-database-elastic-query-getting-started.md).
+* Ver [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução de Transact-SQL num único remoto SQL Database do Azure ou um conjunto de bases de dados que serve como fragmentos num esquema de partições horizontal.
 
 
 <!--Image references-->

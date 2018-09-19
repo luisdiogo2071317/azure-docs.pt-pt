@@ -3,8 +3,8 @@ title: Monitorização de pontos finais Gestor de tráfego do Azure | Documentos
 description: Este artigo pode ajudá-lo a compreender como o Gestor de tráfego utiliza a monitorização do ponto final e ativação pós-falha do ponto de extremidade automática, para ajudar os clientes do Azure, implementar aplicações de elevada disponibilidade
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398840"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123900"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -32,17 +32,19 @@ Para configurar a monitorização do ponto final, tem de especificar as seguinte
 * **Protocolo**. Selecione HTTP, HTTPS ou TCP como protocolo que o Gestor de tráfego utiliza quando o ponto final de pesquisa para verificar o respetivo estado de funcionamento. Monitorização de HTTPS não verifica se o seu certificado SSL não é válido – só verifica que o certificado está presente.
 * **Porta**. Escolha a porta utilizada para o pedido.
 * **Caminho**. Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para que o caminho de especificar a definição é necessária. Fornecer esta definição para o TCP resultados de protocolo num erro de monitorização. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página Web ou o ficheiro que acede a monitorização. Uma barra (/) é uma entrada válida para o caminho relativo. Este valor indica que o ficheiro está no diretório de raiz (predefinição).
+* **Definições de cabeçalho personalizado** esta definição de configuração ajuda-o a adicionar a adicionar cabeçalhos HTTP específicos para o estado de funcionamento verifica que o Gestor de tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil até ser aplicável a todos os pontos finais esse perfil and / or num nível de ponto final aplicável apenas para esse ponto final. Pode usar os cabeçalhos personalizados para ter as verificações do Estado de funcionamento para pontos finais num ambiente multi-inquilino ser roteados corretamente ao especificar um cabeçalho de anfitrião ao seu destino. Também pode utilizar esta definição, adicionando os cabeçalhos exclusivos que podem ser utilizados para identificar o Gestor de tráfego teve origem pedidos de HTTP (S) e processa-os de forma diferente.
+* **Intervalos de código de estado de espera** esta definição permite-lhe especificar vários intervalos de código de êxito no formato 200 299, 301 301. Se estes códigos de estado são recebidos como resposta a partir de um ponto de extremidade quando uma verificação de estado de funcionamento é iniciada, o Gestor de tráfego marca esses pontos de extremidade como bom estado de funcionamento. Pode especificar um máximo de 8 intervalos de código de estado. Esta definição é aplicável apenas para o protocolo HTTP e HTTPS e para todos os pontos finais. Esta definição é no nível de perfil do Gestor de tráfego e por predefinição, o valor de 200 é definido como o código de estado de êxito.
 * **Intervalo de pesquisa**. Este valor Especifica a frequência com que um ponto de extremidade é verificado para seu estado de funcionamento de um agente de pesquisa do Gestor de tráfego. Pode especificar aqui dois valores: 30 segundos (pesquisa normal) e de 10 segundos (pesquisa rápida). Se não forem fornecidos valores, o perfil define como um valor predefinido de 30 segundos. Visite o [preço de Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) página para obter mais informações sobre os preços de pesquisa rápida.
 * **Pela tolerar o número de falhas de**. Este valor Especifica como várias falhas de um agente de pesquisa do Gestor de tráfego tolera antes de os marcar esse ponto final danificada. O valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitorização pode causar o ponto de extremidade seja marcado como mau estado de funcionamento. Se for especificado nenhum valor, ele usa o valor predefinido de 3.
-* **Tempo limite de monitorização**. Esta propriedade especifica o período de tempo que o agente do Gestor de tráfego de pesquisa deve aguardar antes de considerar que verificam a uma falha quando uma sonda de verificação de estado de funcionamento é enviada para o ponto final. Se o intervalo de pesquisa é definido como 30 segundos, em seguida, pode definir o valor de tempo limite entre 5 e 10 segundos. Se for especificado nenhum valor, ele usa um valor predefinido de 10 segundos. Se o intervalo de pesquisa está definido para 10 segundos, em seguida, pode definir o valor de tempo limite entre 5 e 9 segundos. Se for especificado nenhum valor de tempo limite, ele usa um valor padrão de 9 segundos.
+* **Tempo limite da pesquisa**. Esta propriedade especifica o período de tempo que o agente do Gestor de tráfego de pesquisa deve aguardar antes de considerar que verificam a uma falha quando uma sonda de verificação de estado de funcionamento é enviada para o ponto final. Se o intervalo de pesquisa é definido como 30 segundos, em seguida, pode definir o valor de tempo limite entre 5 e 10 segundos. Se for especificado nenhum valor, ele usa um valor predefinido de 10 segundos. Se o intervalo de pesquisa está definido para 10 segundos, em seguida, pode definir o valor de tempo limite entre 5 e 9 segundos. Se for especificado nenhum valor de tempo limite, ele usa um valor padrão de 9 segundos.
 
-![Monitorização de pontos finais do Gestor de tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Monitorização de pontos finais do Gestor de tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Figura 1: Monitorização de pontos finais do Gestor de tráfego**
+    **Figura: Monitorização de pontos finais do Gestor de tráfego**
 
 ## <a name="how-endpoint-monitoring-works"></a>Como funciona a monitorização do ponto final
 
-Se o protocolo de monitorização é definido como HTTP ou HTTPS, o agente do Gestor de tráfego de pesquisa faz um pedido GET para o ponto de extremidade usando o protocolo, porta e caminho relativo, tendo em conta. Se ele recebe de volta uma resposta 200 OK, esse ponto final é considerado em bom estado. Se a resposta é um valor diferente, ou, se for recebida nenhuma resposta dentro do período de tempo limite especificado, em seguida, o Gestor de tráfego de pesquisa agente tenta novamente, de acordo com a definição de pela tolerar número de falhas (sem tenta restabelecer é feita se esta definição é 0). Se o número de falhas consecutivas é maior do que a definição de pela tolerar número de falhas, em seguida, esse ponto final está marcado como mau estado de funcionamento. 
+Se o protocolo de monitorização é definido como HTTP ou HTTPS, o agente do Gestor de tráfego de pesquisa faz um pedido GET para o ponto de extremidade usando o protocolo, porta e caminho relativo, tendo em conta. Se ele recebe de volta uma resposta 200 OK, ou qualquer uma das respostas configuradas no * * esperado o código de estado * * * de intervalos de, em seguida, esse ponto final é considerado em bom estado de funcionamento. Se a resposta é um valor diferente, ou, se for recebida nenhuma resposta dentro do período de tempo limite especificado, em seguida, o Gestor de tráfego de pesquisa agente tenta novamente, de acordo com a definição de pela tolerar número de falhas (sem tenta restabelecer é feita se esta definição é 0). Se o número de falhas consecutivas é maior do que a definição de pela tolerar número de falhas, em seguida, esse ponto final está marcado como mau estado de funcionamento. 
 
 Se o protocolo de monitorização é TCP, o agente de pesquisa do Gestor de tráfego inicia um pedido de ligação de TCP utilizando a porta especificada. Se o ponto final de responder ao pedido com uma resposta para estabelecer a ligação, essa verificação de estado de funcionamento está marcada como um êxito e o agente de pesquisa do Gestor de tráfego repõe a conexão TCP. Se a resposta é um valor diferente, ou se for recebida nenhuma resposta dentro do período de tempo limite especificado, o Gestor de tráfego de pesquisa agente tenta novamente, de acordo com a definição de pela tolerar número de falhas (sem tenta restabelecer é feita se esta definição é 0). Se o número de falhas consecutivas é maior do que a definição de pela tolerar número de falhas, em seguida, esse ponto final é marcado mau estado de funcionamento.
 
@@ -101,7 +103,7 @@ O Gestor de tráfego verifica periodicamente o estado de funcionamento de cada p
 
 Um ponto de extremidade é mau estado de funcionamento quando qualquer um dos seguintes eventos ocorra:
 - Se o protocolo de monitorização é HTTP ou HTTPS:
-    - Uma resposta que não 200 é recebida (incluindo um código de 2xx diferente ou um redirecionamento 301/302).
+    - Uma resposta que não 200 ou uma resposta que não inclua o intervalo de estado especificado no **esperado intervalos de código de estado** definir, é recebida (incluindo um código de 2xx diferente ou um redirecionamento 301/302).
 - Se o protocolo de monitorização é TCP: 
     - É recebida uma resposta que não seja ACK ou SYN-ACK em resposta ao pedido de SINCRONIZAÇÃO enviado pelo Gestor de tráfego para tentar um estabelecimento da conexão.
 - Tempo limite. 
@@ -109,14 +111,14 @@ Um ponto de extremidade é mau estado de funcionamento quando qualquer um dos se
 
 Para obter mais informações sobre as verificações de falha na resolução de problemas, consulte [estado de resolução de problemas degradado no Gestor de tráfego do Azure](traffic-manager-troubleshooting-degraded.md). 
 
-A seguinte linha de tempo na figura 2 é uma descrição detalhada do processo de monitorização do ponto final do Gestor de tráfego que tem as seguintes definições: a monitorização de protocolo é HTTP, o intervalo de pesquisa é de 30 segundos, número de falhas tolerados é 3, valor de tempo limite é de 10 segundos e TTL de DNS é 30 segundos.
+A linha cronológica na figura a seguir é uma descrição detalhada do processo de monitorização do ponto final do Gestor de tráfego que tem as seguintes definições: a monitorização de protocolo é HTTP, o intervalo de pesquisa é de 30 segundos, número de falhas tolerados é 3, valor de tempo limite é de 10 segundos e TTL de DNS é 30 segundos.
 
 ![Sequência de ativação pós-falha e reativação pós-falha de ponto final do Gestor de tráfego](./media/traffic-manager-monitoring/timeline.png)
 
-**Figura 2: Tráfego manager endpoint ativação pós-falha e recuperação sequência**
+**Figura: Tráfego manager endpoint ativação pós-falha e recuperação sequência**
 
 1. **OBTER**. Para cada ponto de extremidade, o sistema de monitoramento do Gestor de tráfego efetua um pedido GET no caminho especificado nas definições de monitorização.
-2. **200 OK**. O sistema de monitorização espera que uma mensagem de HTTP 200 OK a serem retornados dentro de 10 segundos. Ao receber esta resposta, ele reconhece que o serviço está disponível.
+2. **Intervalo de código OK ou personalizadas de 200 especificadas definições de monitorização de perfil do Gestor de tráfego** . O sistema de monitorização espera um HTTP 200 OK ou o ou intervalo de código personalizado especificado a mensagem de definições a serem retornados dentro de 10 segundos da monitorização de perfil do Gestor de tráfego. Ao receber esta resposta, ele reconhece que o serviço está disponível.
 3. **30 segundos entre verificações**. A verificação de estado de funcionamento do ponto final é repetida a cada 30 segundos.
 4. **Serviço indisponível**. O serviço fica indisponível. O Gestor de tráfego não saberá até a próxima verificação de estado de funcionamento.
 5. **Tenta aceder ao caminho de monitorização**. O sistema de monitorização efetua um pedido GET, mas não recebeu uma resposta dentro do período de tempo limite de 10 segundos (em alternativa, que não 200 recebida uma resposta pode ser). Em seguida, tenta três vezes mais, em intervalos de 30 segundos. Se um das tentativas for bem-sucedida, o número de tentativas é reposto.
@@ -137,6 +139,8 @@ Quando um ponto de extremidade tem o estado Degraded, já não é devolvido em r
 * **Ponderada**. Qualquer ponto de extremidade disponível é escolhido aleatoriamente com base nos seus atribuídos pesos e as ponderações de outros disponíveis pontos finais.
 * **Desempenho**. O ponto final mais próximo do utilizador final é devolvido. Se esse ponto final não estiver disponível, o Gestor de tráfego move o tráfego para os pontos de extremidade na região do Azure mais próxima seguinte. Pode configurar planos de ativação pós-falha alternativo para o encaminhamento de tráfego de desempenho, utilizando [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfica**. O ponto final mapeado para servir a localização geográfica baseada no pedido de consulta IP é devolvido. Se esse ponto final não estiver disponível, outro ponto final não será selecionado para ativação pós-falha, uma vez que uma localização geográfica pode ser mapeada apenas para um ponto final num perfil (mais detalhes estão no [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como melhor prática, quando utiliza o encaminhamento geográfico, recomendamos que os clientes para utilizar perfis do Gestor de tráfego aninhados com mais de um ponto de extremidade como os pontos finais do perfil.
+* **MultiValue** pontos finais de múltiplas mapeados para endereços IPv4/IPv6 são devolvidos. Quando uma consulta é recebida para este perfil, os pontos finais de bom estado de funcionamento são devolvidos com base no **contagem de registos de máximo em resposta** valor que especificou. O número predefinido de respostas é dois pontos de extremidade.
+* **Sub-rede** é devolvido o ponto final mapeado para um conjunto de intervalos de endereços IP. Quando é recebido um pedido desse endereço IP, o ponto final devolveu é a que é mapeada para esse endereço IP. 
 
 Para obter mais informações, consulte [métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md).
 

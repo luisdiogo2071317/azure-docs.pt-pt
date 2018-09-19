@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b33f2e809ae5758e41f7a76680347b9487f3f461
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e49e362528f5fcd00a13a9fc1b233e62a569fe5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735342"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297951"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Como: adicionar o seu nome de domínio personalizado com o portal do Azure Active Directory
 Cada novo Azure inquilino AD vem com um nome de domínio inicial *domainname*. onmicrosoft.com. Não é possível alterar ou eliminar o nome de domínio inicial, mas pode adicionar nomes da sua organização para a lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizador que estão familiarizados para seus usuários, como _alain@contoso.com_.
@@ -31,9 +31,14 @@ Em primeiro lugar, tem de adicionar seu nome de domínio personalizado para o in
 ### <a name="to-add-a-custom-domain-name"></a>Para adicionar um nome de domínio personalizado
 1. Inicie sessão para o [portal do Azure AD](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
 
+<<<<<<< HEAD
+> [!TIP]
+> Se pretende federar o seu Windows Server AD no local com o Azure AD, tem de selecionar a caixa de configuração **Pretendo configurar este domínio para o início de sessão único com o meu Active Directory local** ao executar a ferramenta Azure AD Connect para sincronizar os diretórios. Também tem de registar o mesmo nome de domínio que seleciona para a federação com o seu diretório no local no passo **Domínio do Azure AD** no assistente. Pode ver como funciona esse passo no assistente [nestas instruções](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se não tiver a ferramenta Azure AD Connect, pode [transferi-lo aqui](http://go.microsoft.com/fwlink/?LinkId=615771).
+=======
 2. Selecione **do Azure Active Directory**, selecione **nomes de domínio personalizado**e, em seguida, selecione **Adicionar domínio personalizado**.
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
-    ![Fabrikam – painel de nomes de domínio personalizado, com a opção de domínio personalizado de adicionar realçada](media/add-custom-domain/add-custom-domain.png)
+    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
 
 3. Escreva o seu nome de domínio empresarial novo para o **nome de domínio personalizado** caixa (por exemplo, _contoso.com_) e, em seguida, selecione **Adicionar domínio**.
 

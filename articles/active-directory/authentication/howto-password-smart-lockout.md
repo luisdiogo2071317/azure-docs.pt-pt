@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158588"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296164"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Active Directory do Azure
 
@@ -27,7 +27,7 @@ Bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com
 
 Bloqueio inteligente pode ser integrado em implementações híbridas, com a sincronização de hash de palavra-passe ou autenticação pass-through para proteger contas do Active Directory no local de que está a ser bloqueada pelos atacantes. Ao definir políticas de bloqueio inteligente no Azure AD adequadamente, ataques podem ser filtrados antes de atingirem o Active Directory no local.
 
-Ao usar [autenticação pass-through](../connect/active-directory-aadconnect-pass-through-authentication.md), precisa para se certificar de que:
+Ao usar [autenticação pass-through](../hybrid/how-to-connect-pta.md), precisa para se certificar de que:
 
    * O limiar de bloqueio do Azure AD é **menos** que o limiar de bloqueio de conta do Active Directory. Defina os valores para que o limiar de bloqueio de conta do Active Directory é, pelo menos, dois ou três vezes mais do que o limiar de bloqueio do Azure AD. 
    * A duração do bloqueio do Azure AD **em segundos** é **mais** que o Active Directory repor o contador de bloqueio de conta após a duração **minutos**.

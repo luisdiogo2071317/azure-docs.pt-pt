@@ -1,5 +1,5 @@
 ---
-title: Personalizar a política de proteção de informações no Centro de segurança do Azure | Documentos da Microsoft
+title: Personalizar a política de proteção de informações de SQL no Centro de segurança do Azure | Documentos da Microsoft
 description: Saiba como personalizar as políticas de proteção de informações no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4b454f712b8cb65c69b183979a2fe2e97495d12e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724212"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125192"
 ---
-# <a name="customize-the-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações no Centro de segurança do Azure (pré-visualização)
+# <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações de SQL no Centro de segurança do Azure (pré-visualização)
  
-Uma política de proteção de informações pode ser definida e personalizada para o inquilino do Azure completo, no Centro de segurança do Azure.
+Uma política de proteção de informações do SQL pode ser definida e personalizada para o inquilino do Azure completo, no Centro de segurança do Azure.
 
 Proteção de informações é um recurso de segurança avançadas para detetar, classificar, Etiquetar e proteger dados confidenciais em seus recursos de dados do Azure. A detetar e classificar os dados mais confidenciais (comerciais, financeiros, saúde, PII, etc.) pode desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
 - Ajudar a atender a requisitos de conformidade a normas e de normas de privacidade de dados

@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d651a0a9e006e996db44b82eeaf0a1242a4114e0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379575"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296095"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de voz
 
@@ -35,16 +35,17 @@ Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de c
 
 A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e **tradução**:
 
-Região| Valor do parâmetro de região no SDK de voz| Portal
--|-
-EUA Oeste| `westus`| https://westus.cris.ai
-E.U.A. Oeste 2| `westus2`| https://westus2.cris.ai
-EUA Leste| `eastus`| https://eastus.cris.ai
-E.U.A. Leste 2| `eastus2`| https://eastus2.cris.ai
-Ásia Oriental| `eastasia`| https://eastasia.cris.ai
-Sudeste Asiático| `southeastasia`| https://southeastasia.cris.ai
-Europa do Norte| `northeurope`| https://northeurope.cris.ai
-Europa Ocidental|  `westeurope`| https://westeurope.cris.ai
+  Região | Parâmetro do SDK de voz | Portal
+ ------|-------|--------
+ EUA Oeste | `westus` | https://westus.cris.ai
+ E.U.A. Oeste 2 | `westus2` | https://westus2.cris.ai 
+ EUA Leste | `eastus` | https://eastus.cris.ai
+ E.U.A. Leste 2 | `eastus2` | https://eastus2.cris.ai
+ Ásia Oriental | `eastasia` | https://eastasia.cris.ai
+ Sudeste Asiático | `southeastasia` | https://southeastasia.cris.ai
+ Europa do Norte | `northeurope` | https://northeurope.cris.ai
+ Europa Ocidental | `westeurope` | https://westeurope.cris.ai
+
 
 ### <a name="regions-for-intent-recognition"></a>Regiões para o reconhecimento da intenção do
 

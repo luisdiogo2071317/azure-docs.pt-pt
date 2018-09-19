@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502003"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295874"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Serviços de domínio do Azure Active Directory (AD)
 ## <a name="overview"></a>Descrição geral
@@ -65,7 +65,7 @@ Seguem-se alguns aspetos salientes o domínio gerido aprovisionado pelo Azure AD
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Serviços de domínio do Azure AD para organizações híbridas
 As organizações com infraestrutura de TI híbrida consumam uma combinação de recursos de nuvem e recursos no local. Tais organizações sincronizam informações de identidade do seu diretório no local seu inquilino do Azure AD. Conforme organizações híbridas olha para migrar mais das suas aplicações no local para a nuvem, particularmente compatíveis com diretórios aplicativos herdados, o Azure AD Domain Services podem ser úteis aos mesmos.
 
-Litware Corporation implantou [do Azure AD Connect](../active-directory/active-directory-aadconnect.md)para sincronizar informações de identidade do seu diretório no local seu inquilino do Azure AD. As informações de identidade estão sincronizadas incluem contas de utilizador, os hashes de credenciais para autenticação (sincronização de palavra-passe) e as associações de grupo.
+Litware Corporation implantou [do Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)para sincronizar informações de identidade do seu diretório no local seu inquilino do Azure AD. As informações de identidade estão sincronizadas incluem contas de utilizador, os hashes de credenciais para autenticação (sincronização de palavra-passe) e as associações de grupo.
 
 > [!NOTE]
 > **Sincronização de palavra-passe é obrigatória para organizações híbridas utilizar o Azure AD Domain Services**. Este requisito é porque são necessárias credenciais de usuários no domínio gerido fornecido pelos serviços de domínio do Azure AD, para autenticar estes utilizadores através de métodos de autenticação NTLM ou Kerberos.

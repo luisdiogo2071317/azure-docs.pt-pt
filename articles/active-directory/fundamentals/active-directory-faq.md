@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 53c38eee1befe7c83f739deeb0e85711e7313e60
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: eb9eebb4f5fff4a0c3dc7729387cfbc4b13a12f1
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730114"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294916"
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -72,7 +72,7 @@ Além disso, os serviços pagos do Azure AD, como o Enterprise Mobility + Securi
 
 **R:** Pode ligar o diretório no local ao Azure AD com o Azure AD Connect.
 
-Para obter mais informações, consulte [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../connect/active-directory-aadconnect.md).
+Para obter mais informações, consulte [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **P: Como posso configurar o SSO entre o meu diretório no local e as minhas aplicações na nuvem?**
@@ -81,7 +81,7 @@ Para obter mais informações, consulte [Integrating your on-premises identities
 
 A implementação do SSO no local poderá ser feita facilmente com soluções de federação, tais como o Active Directory Federation Services (AD FS) ou ao configurar a sincronização hash de palavras-passe. Pode facilmente implementar ambas as opções utilizando o assistente de configuração do Azure AD Connect.
 
-Para obter mais informações, consulte [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../connect/active-directory-aadconnect.md).
+Para obter mais informações, consulte [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **P: O Azure AD fornece um portal personalizado aos utilizadores da minha organização?**
@@ -95,7 +95,7 @@ Para mais informações, consulte [Introduction to the Access Panel (Introduçã
 
 **R:** Sim. A edição Premium do Azure AD fornece o Azure AD Connect Health. O Azure AD Connect Health ajuda a monitorizar e obter informações sobre a sua infraestrutura de identidade no local, bem como sobre os serviços de sincronização.  
 
-Para obter mais informações, consulte [Monitor your on-premises identity infrastructure and synchronization services in the cloud (Monitorizar os serviços de infraestrutura de identidade no local e sincronização na cloud)](../connect-health/active-directory-aadconnect-health.md).  
+Para obter mais informações, consulte [Monitor your on-premises identity infrastructure and synchronization services in the cloud (Monitorizar os serviços de infraestrutura de identidade no local e sincronização na cloud)](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## <a name="password-management"></a>Gestão de palavras-passe

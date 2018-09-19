@@ -1,40 +1,41 @@
 ---
-title: Utilizar a classificação de mensagens em fila para apresentar as respostas da web | Microsoft Docs
-description: Mostra como utilizar a classificação de mensagens em fila para apresentar as respostas que devolve a API de pesquisa do Bing Web.
+title: Como utilizar as classificações para apresentar os resultados da pesquisa - API de pesquisa Web Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba como utilizar a classificação de mensagens em fila para exibir os resultados da API de pesquisa Web do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 750146f3bb28b94594a71733b68f092880360c5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d362d3aa131ba2ddfec8c7873352c634e7ce099c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354571"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124206"
 ---
-# <a name="using-ranking-to-display-results"></a>Utilizar a classificação de mensagens em fila para apresentar resultados  
+# <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Como utilizar a classificação de mensagens em fila para apresentar os resultados da API de pesquisa Web Bing  
 
-Cada resposta de pesquisa inclui um [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) resposta, que especifica a forma como deve apresentar os resultados da pesquisa. A resposta de classificação agrupa os resultados por mainline conteúdo e conteúdo da barra lateral para a página de resultados de uma pesquisa tradicional. Se não visualizar os resultados num tradicional mainline e o formato da barra lateral, tem de fornecer a visibilidade superior conteúda mainline que o conteúdo da barra lateral.  
-  
-Em cada grupo (mainline ou barra lateral), o [itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matriz identifica a ordem em que o conteúdo tem de aparecer no. Cada item fornece duas formas a seguir para identificar o resultado dentro de uma resposta.  
-  
--   `answerType` e `resultIndex` — o `answerType` campo identifica a resposta (por exemplo, a página Web ou notícias) e `resultIndex` identifica um resultado na resposta (por exemplo, um artigo de notícias de última hora). O índice é baseada zero.  
-  
--   `value` — O `value` campo contém um ID que corresponde ao ID de uma resposta ou um resultado na resposta. A resposta ou os resultados de conter o ID, mas não ambos.  
-  
-Com o ID é mais simples utilizar porque apenas tem de corresponder ao ID de classificação com o ID de uma resposta ou um dos respetivos resultados. Se um objeto de resposta inclui um `id` campo, apresentar os resultados da resposta em conjunto. Por exemplo, se o `News` objeto inclui o `id` campo, apresentar todos os artigos de notícias em conjunto. Se o `News` objeto não inclui o `id` campo, em seguida, cada artigo notícias contém um `id` campo e a resposta de classificação mistura os artigos de notícias de última hora com os resultados de outras respostas.  
-  
-Utilizar o `answerType` e `resultIndex` é ligeiramente mais complicado. Utilizar `answerType` para identificar a resposta que contém os resultados a apresentar. Em seguida, utilize `resultIndex` índice através de resultados a resposta para obter o resultado para apresentar. (O `answerType` valor é o nome do campo no [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objeto.) Se estiver a deveria para apresentar resultados de todos os a resposta em conjunto, a resposta de classificação item não inclui o `resultIndex` campo.  
+Cada resposta de pesquisa inclui um [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) resposta, que especifica a forma como deve exibir os resultados da pesquisa. A resposta de classificação agrupa os resultados por mainline conteúdo e conteúdo da barra lateral para a página de resultados de uma pesquisa tradicional. Se não exibir os resultados num tradicional principal e o formato de barra lateral, tem de fornecer a visibilidade mais elevada do que o conteúdo da barra lateral do conteúdo principal.  
+
+Em cada grupo (mainline ou a barra lateral), o [itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matriz identifica a ordem em que o conteúdo tem de aparecer no. Cada item fornece duas formas seguintes para identificar o resultado numa resposta.  
+
+-   `answerType` e `resultIndex` — o `answerType` campo identifica a resposta (por exemplo, a página Web ou a notícias) e `resultIndex` identifica um resultado na resposta (por exemplo, um artigo de notícias). O índice é baseado em zero.  
+
+-   `value` — O `value` campo contém um ID que corresponde ao ID de uma resposta ou um resultado na resposta. A resposta ou os resultados contêm o ID, mas não ambos.  
+
+Com o ID é mais fácil de utilizar porque só tem de corresponder ao ID de classificação com o ID de uma resposta ou um dos seus resultados. Se um objeto de resposta inclui uma `id` campo, exibir os resultados de todos os a resposta em conjunto. Por exemplo, se o `News` objeto inclui o `id` campo, apresentar todos os artigos de notícias em conjunto. Se o `News` objeto não inclui o `id` campo, em seguida, cada artigo de notícias contém um `id` campo e a resposta de classificação mistura os artigos de notícias com os resultados de outras respostas.  
+
+Utilizar o `answerType` e `resultIndex` é um pouco mais complicado. Utilizar `answerType` para identificar a resposta que contém os resultados para apresentar. Em seguida, utilize `resultIndex` ao índice através de resultados a resposta para obter o resultado para apresentar. (A `answerType` valor é o nome do campo no [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objeto.) Se deverá para exibir resultados de todos os a resposta em conjunto, a resposta de classificação item não inclui o `resultIndex` campo.  
 
 ## <a name="ranking-response-example"></a>Exemplo de resposta de classificação
 
-O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse). Porque a resposta da Web não inclui um `id` campo, deverá apresentar todas as páginas Web individualmente com base na classificação (cada página Web inclui um `id` campo). E porque as imagens, vídeos e respostas de pesquisas relacionados incluem o `id` campo, deverá apresentar os resultados de cada uma dessas respostas em conjunto com base na classificação.
-  
+O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse). Uma vez que a resposta Web não inclui um `id` campo, seria exibida todas as páginas Web individualmente com base na classificação (cada página da Web inclui um `id` campo). E porque as imagens, vídeos e respostas de pesquisas relacionadas incluem a `id` campo, poderia exibir os resultados de cada um desses respostas em conjunto com base na classificação.
+
 ```json
 {  
     "_type" : "SearchResponse",
@@ -203,24 +204,24 @@ O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/a
     }
 }  
 ```  
-  
-Com base nesta resposta de classificação, o mainline deverá apresentar os seguintes resultados de pesquisa:  
-  
--   O primeiro resultado de página Web 
+
+Com base na resposta classificação, a principal seria exibida os seguintes resultados de pesquisa:  
+
+-   O primeiro resultado de página Web
 -   Todas as imagens  
--   Os resultados de página Web segundo e terceiro  
+-   Os resultados da segunda e terceira página da Web  
 -   Todos os vídeos  
--   Os resultados de página Web 4º, 5th e 6th  
-  
-E barra lateral deverá apresentar os resultados da pesquisa seguintes:  
-  
+-   Os resultados de página Web de 4, 5 e a 6ª  
+
+E a barra lateral seria exibida os seguintes resultados de pesquisa:  
+
 -   Todas as pesquisas relacionadas  
-  
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter informações sobre promover unranked resultados, consulte [promover respostas não estão ordenadas](./filter-answers.md#promoting-answers-that-are-not-ranked).
+Para obter informações sobre como promover unranked resultados, consulte [promover as respostas não estão ordenadas](./filter-answers.md#promoting-answers-that-are-not-ranked).
 
-Para obter informações sobre a limitar o número de respostas classificados na resposta, consulte [limitar o número de respostas na resposta](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
+Para obter informações sobre como limitar o número de respostas de classificações na resposta, consulte [limitar o número de respostas na resposta](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
 
-Para obter um c# exemplo que utiliza a classificação de mensagens em fila para apresentar resultados, consulte [c# classificação tutorial](./csharp-ranking-tutorial.md).
+Para um exemplo c# que utiliza a classificação de mensagens em fila para apresentar resultados, consulte [tutorial de classificação do c#](./csharp-ranking-tutorial.md).

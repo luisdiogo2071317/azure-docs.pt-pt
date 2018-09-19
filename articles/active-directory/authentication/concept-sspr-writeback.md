@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816058"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295840"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
-Ter o utilitário de redefinir uma senha de com base na cloud é ótimo, mas a maioria das empresas ainda tem um diretório no local em que existem a seus usuários. Como a manutenção de suporte Microsoft tradicional no local do Active Directory (AD) em sincronia com as alterações de palavra-passe na cloud? Repetição de escrita de palavra-passe é uma funcionalidade ativada com [do Azure AD Connect](./../connect/active-directory-aadconnect.md) que permite que as alterações de palavra-passe na cloud para a repetição de escrita para um diretório no local existente em tempo real.
+Ter o utilitário de redefinir uma senha de com base na cloud é ótimo, mas a maioria das empresas ainda tem um diretório no local em que existem a seus usuários. Como a manutenção de suporte Microsoft tradicional no local do Active Directory (AD) em sincronia com as alterações de palavra-passe na cloud? Repetição de escrita de palavra-passe é uma funcionalidade ativada com [do Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavra-passe na cloud para a repetição de escrita para um diretório no local existente em tempo real.
 
 Repetição de escrita de palavra-passe é suportada em ambientes que usam:
 
-* [Serviços de Federação do Active Directory (AD FS)](../connect/active-directory-aadconnect-federation-management.md)
-* [Sincronização de hash de palavra-passe](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Autenticação pass-through](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Serviços de Federação do Active Directory (AD FS)](../hybrid/how-to-connect-fed-management.md)
+* [Sincronização de hash de palavra-passe](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Autenticação pass-through](../hybrid/how-to-connect-pta.md)
 
 Fornece a repetição de escrita de palavra-passe:
 

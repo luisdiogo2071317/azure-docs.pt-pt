@@ -1,24 +1,25 @@
 ---
-title: Microsoft tradutor texto API Transliterate método | Microsoft Docs
-description: Utilize o método Transliterate de API do Microsoft tradutor texto.
+title: Método de transcrição de API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Use o método de Transliteração de API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4d156d3cfd0afa463cdc18b73ad05d09e4159dae
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354968"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129493"
 ---
-# <a name="text-api-30-transliterate"></a>Texto API 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>API 3.0 de texto de tradutor: Translitere
 
-Converte texto num idioma a partir de um script para outro script.
+Converte texto num idioma de um script para outro script.
 
 ## <a name="request-url"></a>URL do pedido
 
@@ -30,26 +31,26 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Os parâmetros requeridos transmitidos a cadeia de consulta são:
+Parâmetros de pedido passados na seqüência de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
     <td>versão de API</td>
-    <td>*Necessário parâmetro*.<br/>Versão da API solicitada pelo cliente. Valor tem de ser `3.0`.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
     <td>Idioma</td>
-    <td>*Necessário parâmetro*.<br/>Especifica o idioma do texto para converter a partir de um script. Idiomas possíveis estão listados no `transliteration` âmbito obtido ao consultar o serviço para o respetivo [idiomas suportados](.\v3-0-languages.md).</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto para converter a partir de um script para outro. Idiomas possíveis estão listados na `transliteration` âmbito de obteve consultando o serviço para o seu [idiomas suportados](.\v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Necessário parâmetro*.<br/>Especifica o script utilizado pelo texto de entrada. Pesquisa [idiomas suportados](.\v3-0-languages.md) utilizando o `transliteration` âmbito, para localizar a entrada scripts disponíveis para o idioma seleccionado.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script utilizado pelo texto de entrada. Pesquisa [idiomas suportados](.\v3-0-languages.md) usando o `transliteration` escopo, para localizar a entrada scripts disponíveis para o idioma seleccionado.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Necessário parâmetro*.<br/>Especifica o script de saída. Pesquisa [idiomas suportados](.\v3-0-languages.md) utilizando o `transliteration` âmbito, para localizar os scripts de saída disponível para a combinação de idioma selecionada e o script de entrada.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [idiomas suportados](.\v3-0-languages.md) usando o `transliteration` escopo, para encontrar scripts de saída disponíveis para a combinação selecionada de idioma de entrada e de entrada de script.</td>
   </tr>
 </table> 
 
@@ -60,25 +61,25 @@ Cabeçalhos de pedido incluem:
   <th>Descrição</th>
   <tr>
     <td>_Uma autorização_<br/>_Cabeçalho_</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Consulte [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Especifica o tipo de conteúdo do payload. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>O comprimento do corpo do pedido.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
     <td>X ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerados pelo cliente para identificar exclusivamente o pedido. Tenha em atenção que pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta utilizando um parâmetro de consulta com o nome `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Tenha em atenção que pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de cadeia denominado `Text`, que representa a cadeia a converter.
+O corpo do pedido é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`, que representa a cadeia a converter.
 
 ```json
 [
@@ -90,14 +91,14 @@ O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON 
 As seguintes limitações aplicam-se:
 
 * A matriz pode ter no máximo 10 elementos.
-* O valor de texto de um elemento de matriz não pode exceder 1000 caracteres, incluindo espaços.
-* O texto completo incluído no pedido não pode exceder 5000 carateres, incluindo espaços.
+* O valor de texto de um elemento de matriz não pode ter mais de 1000 carateres, incluindo espaços.
+* Todo o texto incluído no pedido não pode exceder os 5000 carateres, incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado de cada elemento da matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada elemento na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `text`: Uma cadeia que é o resultado da conversão de cadeia de entrada para o script de saída.
+  * `text`: Uma cadeia de caracteres que é o resultado da conversão de cadeia de entrada para o script de saída.
   
   * `script`: Uma cadeia que especifica o script utilizado na saída.
 
@@ -123,7 +124,7 @@ Um resposta JSON de exemplo é:
 
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
-Seguem-se os códigos de estado HTTP possíveis que devolve um pedido. 
+Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
@@ -134,7 +135,7 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros do pedido.</td>
+    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros de pedido antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -142,27 +143,27 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>403</td>
-    <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isto indica frequentemente que foram utilizadas todas as traduções livres fornecidas com uma subscrição de avaliação cópias de segurança.</td>
+    <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isso geralmente indica que foram utilizadas todas as conversões gratuitas fornecidas com uma subscrição de avaliação cópia de segurança.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>O chamador está a enviar demasiados pedidos.</td>
+    <td>O chamador está enviando demasiados pedidos.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Ocorreu um erro inesperado. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita o pedido. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Servidor temporariamente indisponível. Repita o pedido. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo seguinte mostra como converter duas cadeias japonês Romanized japonês.
+O exemplo seguinte mostra como converter duas cadeias de caracteres japoneses em Romanized japonês.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 O payload JSON para o pedido neste exemplo:
 
@@ -170,7 +171,7 @@ O payload JSON para o pedido neste exemplo:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Se estiver a utilizar cUrl numa janela da linha de comandos que não suporta carateres Unicode, tome o seguinte payload JSON e guarde-o num ficheiro denominado `request.txt`. Certifique-se guardar o ficheiro com `UTF-8` codificação.
+Se estiver a utilizar o cUrl numa janela da linha de comandos que não suporta carateres Unicode, pegar o payload JSON seguinte e guarde-o para um ficheiro denominado `request.txt`. Certifique-se de que guarde o ficheiro com `UTF-8` codificação.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

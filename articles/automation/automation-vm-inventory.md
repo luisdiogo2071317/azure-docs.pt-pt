@@ -10,11 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35647851"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
@@ -24,7 +25,7 @@ Pode ativar o controlo de inventário para uma máquina virtual do Azure a parti
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
-Este artigo pressupõe que tem uma VM para configurar a solução no. Se não tiver uma máquina virtual do Azure, [crie uma máquina virtual](../virtual-machines/windows/quick-create-portal.md).
+Este artigo pressupõe que tem uma VM para configurar a solução em. Se não tiver uma máquina virtual do Azure, [crie uma máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -34,14 +35,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. No painel esquerdo do portal do Azure, selecione **Máquinas virtuais**.
 2. Na lista de máquinas virtuais, selecione uma máquina virtual.
-3. No **recursos** menu, em **operações**, selecione **inventário**.
+3. Sobre o **Resource** menu, em **operações**, selecione **inventário**.
 4. Selecione uma área de trabalho do Log Analytics para armazenar os registos de dados.
     Se não existir uma área de trabalho disponível para essa região, é-lhe pedido para criar uma área de trabalho predefinida e uma conta de automatização.
 5. Para iniciar a inclusão do seu computador, selecione **Ativar**.
 
    ![Ver opções de inclusão](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Uma barra de estado notifica-o de que a solução está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante este tempo, pode fechar a janela ou, pode mantê-lo aberto e notifica-o quando a solução está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
+    Uma barra de estado notifica-o de que a solução está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante este período, pode fechar a janela, ou podem mantê-la aberta e notifica-o quando a solução está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
 
    ![Ver a solução de inventário imediatamente após a inclusão](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -51,7 +52,7 @@ Quando a implementação estiver concluída, a barra de estado desaparece. O sis
 
 Por predefinição, o software, os serviços do Windows e os daemons Linux estão configurados para a recolha. Para recolher o registo do Windows e o inventário de ficheiros, configure as definições de recolha do inventário.
 
-1. No **inventário** visualizar, selecione o **editar definições de** botão na parte superior da janela.
+1. Na **inventário** visualizar, selecione a **editar definições de** botão na parte superior da janela.
 2. Para adicionar uma nova definição de recolha, navegue para a categoria de definição que quer adicionar através dos separadores **Registo do Windows**, **Ficheiros do Windows** e **Ficheiros do Linux**.
 3. Selecione a categoria adequada e clique em **adicionar** na parte superior da janela.
 
@@ -88,6 +89,24 @@ As tabelas seguintes fornecem informações sobre cada propriedade que pode ser 
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados<br>**Seguir** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados<br>**Gerir** - segue as ligações simbólicas e permite alterar o tratamento do conteúdo devolvido      |
 
+## <a name="manage-machine-groups"></a>Gerir grupos de máquinas
+
+Inventário permite-lhe criar e ver os grupos de máquinas no Log Analytics. Grupos de máquinas são coleções de computadores definidas por uma consulta do Log Analytics.
+
+Para a vista de sua máquina agrupa selecione os **Machine grupos** separador na página de inventário.
+
+![Ver grupos de máquina na página de inventário](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+Selecionar um grupo de máquina da lista abre a página de grupos de máquina. Esta página mostra detalhes sobre o grupo de máquina. Estes detalhes incluem a consulta de análise de registo que é utilizada para definir o grupo. Na parte inferior da página, é uma lista paginada das máquinas que fazem parte desse grupo.
+
+![Ver página do grupo de máquina](./media/automation-vm-inventory/machine-group-page.png)
+
+Clique nas **+ Clone** botão para clonar o grupo de máquina. Aqui tem de dar o grupo de um novo nome e o alias para o grupo. A definição pode ser alterada neste momento. Depois de alterar o press de consulta **consulta para validar** para pré-visualizar as máquinas que seriam selecionadas. Quando estiver satisfeito com o grupo de clique **criar** para criar o grupo de máquina
+
+Se quiser criar um novo grupo de mchine, selecione **+ criar um grupo de máquina**. Este botão abre o **criar uma página do grupo de máquina** onde pode definir seu novo grupo. Clique em **criar** para criar o grupo.
+
+![Criar novo grupo de máquina](./media/automation-vm-inventory/create-new-group.png)
+
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Desligar a máquina virtual da gestão
 
 Para remover a máquina virtual da gestão de inventário:
@@ -102,4 +121,4 @@ Para remover a máquina virtual da gestão de inventário:
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre a gestão de alterações nas definições de ficheiros e do registo nas suas máquinas virtuais, veja [Controlar as alterações de software com a solução Controlo de Alterações](../log-analytics/log-analytics-change-tracking.md).
-* Para saber mais sobre a gestão do Windows e atualizações de pacote em máquinas virtuais, consulte [solução de gestão de atualizações a no Azure](../operations-management-suite/oms-solution-update-management.md).
+* Para saber mais sobre a gestão do Windows e atualizações de pacote em suas máquinas virtuais, veja [solução de gestão de atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).

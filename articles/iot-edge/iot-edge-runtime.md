@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057326"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294174"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura
 
@@ -23,7 +23,7 @@ O runtime do IoT Edge efetua as seguintes funções em dispositivos IoT Edge:
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém as normas de segurança do Azure IoT Edge no dispositivo.
-* Garante que [módulos do IoT Edge] [ lnk-modules] sempre em execução.
+* Garante que [módulos do IoT Edge] [lnk-módulos] estão sempre em execução.
 * Reporta o estado de funcionamento dos módulos à cloud, para monitorização remota.
 * Facilita a comunicação entre os dispositivos de folha a jusante e dispositivos IoT Edge.
 * Facilita a comunicação entre os módulos no dispositivo IoT Edge.
@@ -117,7 +117,7 @@ Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge,
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Compreender os módulos do Azure IoT Edge][lnk-modules]
+[Compreender o Azure IoT Edge certificados][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge,
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

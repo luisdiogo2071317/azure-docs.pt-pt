@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359983"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126348"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança de IoT Edge do Azure
 
@@ -109,7 +109,7 @@ O runtime do IoT Edge controla e reporta a versão do daemon de segurança de Io
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Camada de abstração de plataforma de módulo de segurança do hardware (HSM PAL)
 
-A PAL HSM abstrai todos os raiz de hardware de confiança para isolar o desenvolvedor ou do usuário do IoT Edge de suas complexidades.  Ele é composto por uma combinação de Interface de programador da aplicação (API) e trans procedimentos de comunicações de domínio, por exemplo, comunicação entre um ambiente de execução padrão e um enclave seguro.  A implementação real da HSM PAL depende o hardware de segurança específico em utilização.  Sua existência permite o uso de praticamente qualquer hardware de silicon seguras em todo o ecossistema de IoT.
+A PAL HSM abstrai todos os raiz de hardware de confiança para isolar o desenvolvedor ou do usuário do IoT Edge de suas complexidades.  Ele é composto por uma combinação de Interface de programação de aplicativo (API) e trans procedimentos de comunicações de domínio, por exemplo, comunicação entre um ambiente de execução padrão e um enclave seguro.  A implementação real da HSM PAL depende o hardware de segurança específico em utilização.  Sua existência permite o uso de praticamente qualquer hardware de silicon seguras em todo o ecossistema de IoT.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Raiz de silicon segura de hardware de confiança
 

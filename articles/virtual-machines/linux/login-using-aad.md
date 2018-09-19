@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ce03c55a346adf846619c50f09eb063e6b6f639
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734629"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294657"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -35,7 +35,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para iniciar sessão
   - Ao reduzir a dependência em contas de administrador local, não é necessário se preocupar sobre perda/roubo de credenciais, os utilizadores que configurar credenciais fracas etc.
   - A complexidade de palavra-passe e as políticas de tempo de vida de palavra-passe configuradas para o diretório do Azure AD ajudam a proteger VMs do Linux também.
   - Para o início de sessão mais seguro para máquinas virtuais do Azure, pode configurar a autenticação multifator.
-  - A capacidade de iniciar sessão para VMs do Linux no Azure Active Directory também funciona para os clientes que utilizam [serviços de Federação](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - A capacidade de iniciar sessão para VMs do Linux no Azure Active Directory também funciona para os clientes que utilizam [serviços de Federação](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
 - **Colaboração direta:** controlo de acesso With Role-Based (RBAC), pode especificar quem pode iniciar sessão para uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de sua equipe, é possível atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito simples do que que limpar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a respetiva conta de utilizador é desabilitada ou removida do Azure AD, deixam de ter acesso aos seus recursos.
 

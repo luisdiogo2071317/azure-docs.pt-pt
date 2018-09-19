@@ -12,12 +12,12 @@ ms.date: 7/17/2017
 ms.author: lizross
 ms.reviewer: jsnow
 custom: it-pro
-ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e22f5ced30e30d6f53a1d29c8be2f318161d4fc0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737248"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294854"
 ---
 # <a name="what-is-microsoft-azure-identity"></a>O que é a identidade do Microsoft Azure?
 O Microsoft Azure Active Directory (Azure AD) é uma solução na cloud de gestão de acessos e identidades que proporciona serviços de diretório, governação de identidade e gestão de acesso a aplicações. O Azure AD [ativa rapidamente o início de sessão único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) em milhares de aplicações comerciais pré-integradas e personalizadas da [galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Provavelmente, já utiliza muitas dessas aplicações, como o Office 365, o Salesforce.com, o Box, o ServiceNow e o Workday.
@@ -106,7 +106,7 @@ Eis alguns cenários de identidades e acessos comuns com recomendações sobre q
 ## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
 Temos dezenas de excelentes recursos online para o ajudar a saber tudo sobre o Azure AD. Segue-se uma lista de ótimos artigos por onde começar:
 
-* [Ativar o seu diretório para gestão híbrida com o Azure AD Connect](../connect/active-directory-aadconnect.md)
+* [Ativar o seu diretório para gestão híbrida com o Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 * [Additional security for an ever connected world](../authentication/multi-factor-authentication.md) (Segurança adicional para um mundo cada vez mais ligado)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
 * [Manage your passwords from anywhere](../user-help/active-directory-passwords-update-your-own-password.md) (Gerir as suas palavras-passe em qualquer local)

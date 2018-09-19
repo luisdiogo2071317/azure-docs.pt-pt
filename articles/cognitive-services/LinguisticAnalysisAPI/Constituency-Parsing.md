@@ -1,95 +1,96 @@
 ---
-title: Constituency análise na API Analysis linguístico | Microsoft Docs
-description: Saiba mais sobre como constituency análise, também conhecido como "frase ao analisar a estrutura," identifica expressões no texto.
+title: Análise de constituintes - API de análise linguística
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre a forma como a análise, também conhecido como "frase analisar a estrutura," de grupos identifica frases no texto.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 83ea72e7c5c880ecab7d165e029f948144506271
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082177"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127705"
 ---
-# <a name="constituency-parsing"></a>Constituency análise
+# <a name="constituency-parsing"></a>Análise de grupos
 
-O objetivo de constituency análise (também conhecido como "frase estrutura análise") é identificar os expressões no texto.
-Isto pode ser útil quando extrair informações a partir de texto.
-Os clientes ser útil para localizar os nomes de funcionalidade ou expressões chaves a partir de um grande corpo de texto e para ver os modificadores e ações envolvente cada expressão deste tipo.
+O objetivo da análise (também conhecido como "frase estrutura análise") de grupos é identificar as frases no texto.
+Isso pode ser útil quando a extração de informações de texto.
+Clientes talvez queiram para localizar os nomes das funcionalidades ou expressões-chave a partir de um grande corpo de texto e para ver os modificadores e as ações que envolvem cada frase desse tipo.
 
-## <a name="phrases"></a>Expressões
+## <a name="phrases"></a>Frases
 
-Para um linguist um *frase* é mais do que apenas uma sequência de palavras.
-Para ser uma expressão, um grupo de palavras tem uma combinação de reproduzir uma função específica no frase.
-Que o grupo palavras pode ser movido em conjunto ou substituído como um todo, e o frase deve permanecer fluent e gramáticas.
+Para uma linguísticas, um *frase* é mais do que apenas uma sequência de palavras.
+Para ser uma expressão, um grupo de palavras tem de se reúnem para reproduzir uma função específica da sentença.
+Esse grupo de palavras pode ser movido em conjunto ou substituído como um todo, e a frase deve permanecer fluente e gramatical.
 
-Considere o frase
+Considere a frase
 
-> Pretende localizar um automóvel híbrida nova com o Bluetooth.
+> Quero encontrar um automóvel híbrida novo com Bluetooth.
 
-Esta frase contém o frase substantivo: "um automóvel híbrida nova com Bluetooth".
-Como é que podemos saber que se trata de uma expressão de?
-Iremos possam reescrever o frase (um pouco poetically) movendo o frase que toda para a frente:
+Esta frase contiver a expressão de nome: "um novo automobile de híbrida com Bluetooth".
+Como sabemos que se trata de uma frase?
+Podemos reescrever a sentença (um pouco poetically) ao mover essa frase inteira para a frente:
 
-> Um automóvel híbrida nova com Bluetooth pretendo encontrar.
+> Um novo automóvel híbrida com Bluetooth quero encontrar.
 
-Ou, iremos foi substitua esse frase de acesso uma expressão de função e significado, como "um carro novo fancy" semelhantes:
+Em alternativa, pode substituir essa frase com uma expressão de função e significado, como "um carro novo especial" semelhantes:
 
-> Pretende localizar um carro fancy de novo.
+> Quero encontrar um carro novo especial.
 
-Se em vez disso, é selecionado com outro subconjunto de palavras, estas tarefas de substituição seriam levar para um ou ilegíveis frases.
-Considere o que acontece quando é mover "encontrar uma nova" para a frente:
+Se em vez disso, escolhemos um subconjunto de diferente de palavras, estas tarefas de substituição poderia levar a frases estranhas ou ilegíveis.
+Considere o que acontece quando movemos "encontrar um novo" para a frente:
 
-> Localize um novo que pretender automóvel híbrida com o Bluetooth.
+> Encontre um novo que quero automóvel híbrida com Bluetooth.
 
-É muito difícil leia e compreenda os resultados.
+Os resultados é muito difícil de ler e compreender.
 
-O objetivo de um analisador é localizar todas as expressões deste tipo.
-Interestingly, idioma natural, as expressões tendem a ser aninhada com uma da outra.
-Uma representação natural destas expressões é uma árvore, tais como o seguinte:
+O objetivo de um analisador é encontrar todas essas expressões.
+Curiosamente, em linguagem natural, as frases tendem a ser aninhado dentro das outras.
+Uma representação natural destas expressões é uma árvore, como o seguinte:
 
 ![Árvore](./Images/tree.png)
 
-Esta árvore ramos marcado como "NP" estão expressões substantivo.
-Existem várias essas expressões: *posso*, *um automóvel híbrida nova*, *Bluetooth*, e *um automóvel híbrida nova com Bluetooth*.
+Essa árvore, os ramos marcados como "NP" são frases substantivo.
+Existem vários desses frases: *eu*, *um automóvel híbrida novo*, *Bluetooth*, e *um automóvel híbrida novo com Bluetooth*.
 
 ## <a name="phrase-types"></a>Tipos de expressão
 
 | Etiqueta | Descrição | Exemplo |
 |-------|-------------|---------|
-|ADJP   | Expressão adjective | ", por isso, grosseiro" |
-|ADVP   | Expressão adverb | "Limpar através da Internet" |
+|ADJP   | Frase adjective | "então, rude" |
+|ADVP   | Frase de adverb | "claro por meio de" |
 |CONJP  | Expressão de conjunto | ", bem como" |
 |FRAG   | Fragmento, utilizado para entradas incompletas ou fragmentary | "Altamente recomendado..." |
-|INTJ   | interjection | "Hooray" |
+|INTJ   | Interjection | "Felicidade" |
 |LST    | Marcador de lista, incluindo pontuação | "#4)" |
-|NAC    | Não A constituintes, utilizado para indicar o âmbito de uma expressão não constituent |  "e para um bom grau" em "a dar e para um bom lidar" |
-|NP | Expressão de nome | "um pancake tasty potato" |
-|NX | Utilizado dentro de determinados NPs complexas para marcar o cabeçalho| |
-|PP | Expressão Prepositional| "no conjunto de" |
-|PRN    | Parenthetical| "(denominadas, por isso,)" |
-|PRT    | partícula| "out" em "ripped out" |
-|QP | Quantidade frase (ou seja, complexa medidas/quantidade) dentro de uma expressão de nome| "em torno $75" |
-|RRC    | Cláusula reduzida do caminho relativo.| "ainda não pode estar resolvido" em "muitos problemas ainda não pode estar resolvidos" |
-|S  | Cláusula ou frases. | "Este é uma frase."
-|SBAR   | Cláusula subordinado, muitas vezes, introduzida por um conjunto subordinating | "como posso esquerda" em "Posso comparados em torno como posso deixado."|
-|SBARQ  | Pergunta direta introduzida por uma palavra-q ou - expressão | "O que era o ponto de?" |
-|SINV   | Frase declarativa Inverted | "Em nenhum momento foram estes Conhecimento." (tenha em atenção como o assunto normal "," foi movidos para depois do verbo "foram") |
-|SQ | Inverted Sim/não pergunta ou cláusula de principal de uma pergunta q | "Recebem o automóvel?" |
-|UCP    | Ao contrário do frase coordenada| "pequeno e com erros" (tenha em atenção a como uma adjective e uma expressão de preposition são conjoined com "e")|
-|VP | Expressão de verbo | "Ocorreu as woods" |
-|WHADJP | Frase de acesso q adjective | "como uncomfortable" |
-|WHADVP | Frase de acesso q adverb| "quando" |
-|WHNP   | Frase de acesso q-nome| "que potato", "quanto soup"|
-|WHPP   | Frase de acesso q prepositional| "no qual país/região"|
-|X  | Desconhecido, incerto ou unbracketable.| primeiro "a" em "a... o soup" |
+|NAC    | Não A constituintes, usado para indicar o controlo de âmbito de uma frase de acesso não-constituinte |  "e para uma boa dose" em "fazer as coisas e para uma boa lidar" |
+|NP | Expressão de nome próprio | "um pancake potato pedaços" |
+|NX | Usada dentro de determinados NPs complexos para marcar o cabeçalho| |
+|PP | Frase de Prepositional| "no conjunto" |
+|PRN    | Aninhamentos| "(então, chamada)" |
+|PRT    | Nuvem de partículas| "de saída" em "rasguei out" |
+|QP | Frase de quantidade (ou seja, complexa medida/quantidade) dentro de uma expressão de nome próprio| "em torno de US $75" |
+|RRC    | Cláusula relativo reduzida.| "ainda não resolvidos" em "muitos problemas ainda não resolvidos" |
+|S  | Cláusula ou frase. | "Esta é uma frase."
+|SBAR   | Cláusula de subordinado, muitas vezes, introduzida por um conjunto subordinating | "como eu esquerda" em "Olhei como deixei."|
+|SBARQ  | Pergunta direta introduzida por uma palavra-q ou - expressão | "O que foi o ponto de?" |
+|SINV   | Frase declarativa invertida | "Nenhum momento tinha eles conhecimento." (Observe como o assunto normal "dizem" foi movidas para depois do verbo "foi") |
+|SQ | Invertido Sim/não pergunta ou cláusula de principal de uma pergunta-q | "Eles obteve o carro?" |
+|UCP    | Ao contrário da frase coordenada| "pequeno e com bugs" (tenha em atenção a como um adjetivo e uma frase preposition são conjoined com "e")|
+|VICE-PRESIDENTE | Frase de verbo | "foi executada na floresta" |
+|WHADJP | Q-adjetivo frase | "como desconfortável" |
+|WHADVP | Q-adverb frase| "quando" |
+|WHNP   | Frase de q-nome| "qual potato", "quantidade letrinhas"|
+|WHPP   | Q prepositional frase| "em país no qual"|
+|X  | Desconhecido, incerteza ou unbracketable.| primeiro "a" em "a... a letrinhas" |
 
 
-## <a name="specification"></a>especificação
+## <a name="specification"></a>Especificação
 
-Árvores aqui utilizam expressões de S partir o [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Árvores aqui usam as expressões de S partir do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

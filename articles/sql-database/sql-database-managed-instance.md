@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/14/2018
 ms.author: bonova
-ms.openlocfilehash: 7a2b98f0a78c82b65d7d29181a048ab59f237107
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 113f171f5ad4bcc8ee9abc2935a9741f7c23c3b0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391934"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734223"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância gerida (pré-visualização)?
 
@@ -61,7 +61,7 @@ A tabela seguinte ajuda-o a compreender como selecionar a configuração ideal d
 ||Geração 4|Geração 5|
 |----|------|-----|
 |Hardware|Intel E5-2673 v3 (Haswell) 2,4 GHz, anexado SSD vCore = 1 PP (núcleos físicos)|Intel E5-2673 v4 (Broadwell) rápida de 2,3 GHz, eNVM SSD, vCore = 1 LP (hyper-thread)|
-|Níveis de desempenho|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
+|Tamanhos de computação|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
 |Memória|7 GB por vCore|5,5 GB por vCore|
 ||||
 

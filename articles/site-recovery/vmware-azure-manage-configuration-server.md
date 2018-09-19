@@ -6,53 +6,77 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8877234502ff662954dc6fe0c19d8252db42d7d6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022401"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123561"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerir o servidor de configuração para VMs de VMware
 
 Configurar um servidor de configuração no local quando utiliza [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. O servidor de configuração coordena as comunicações entre VMware e Azure no local e gere a replicação de dados. Este artigo resume as tarefas comuns para gerir o servidor de configuração após a sua implementação.
 
-
-
-## <a name="modify-vmware-settings"></a>Modificar as definições do VMware
+## <a name="access-configuration-server"></a>Servidor de configuração de acesso
 
 Pode acessar o servidor de configuração da seguinte forma:
-    - Iniciar sessão para a VM no qual está implementada e iniciar o Azure Site Recovery Configuration Manager a partir do atalho de desktop.
-    - Em alternativa, pode acessar o servidor de configuração remotamente a partir de **https://*ConfigurationServerName*/:44315 /**. Inicie sessão com credenciais de administrador.
 
-### <a name="modify-vmware-server-settings"></a>Modificar as definições do servidor VMware
+* Entrar para a VM no qual está implementada e inicie **Gestor de configuração do Azure Site Recovery** de atalho de ambiente de trabalho.
+* Em alternativa, pode acessar o servidor de configuração remotamente de https://*ConfigurationServerName*/:44315 /. Inicie sessão com credenciais de administrador.
 
-1. Para associar um servidor diferente do VMware com o servidor de configuração, após o início de sessão, selecione **Adicionar servidor do vCenter Server/vSphere ESXi**.
+## <a name="modify-vmware-server-settings"></a>Modificar as definições do servidor VMware
+
+1. Para associar um servidor diferente do VMware com o servidor de configuração, após [início de sessão](#access-configuration-server), selecione **Adicionar servidor do vCenter Server/vSphere ESXi**.
 2. Introduza os detalhes e, em seguida, selecione **OK**.
 
+## <a name="modify-credentials-for-automatic-discovery"></a>Modificar as credenciais para a deteção automática
 
-### <a name="modify-credentials-for-automatic-discovery"></a>Modificar as credenciais para a deteção automática
-
-1. Para atualizar as credenciais utilizadas para ligar ao servidor do VMware para a deteção automática de VMs de VMware, após o início de sessão, selecione **editar**.
+1. Para atualizar as credenciais utilizadas para ligar ao servidor do VMware para a deteção automática de VMs de VMware, após [início de sessão](#access-configuration-server), selecione a conta e clique em **editar**.
 2. Introduza as credenciais de novo e, em seguida, selecione **OK**.
 
     ![Modificar o VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
+Também pode modificar as credenciais por meio de CSPSConfigtool.exe.
+
+1. Início de sessão para o servidor de configuração e lançamento CSPSConfigtool.exe
+2. Selecione a conta que pretende modificar e clique em **editar**.
+3. Introduza as credenciais modificadas e clique em **Ok**
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Modificar as credenciais para a instalação do serviço de mobilidade
 
 Modificar as credenciais utilizadas para instalar automaticamente o serviço de mobilidade nas VMs de VMware ativar para replicação.
 
-1. Após o início de sessão, selecione **gerir as credenciais da máquina virtual**
-2. Introduza as credenciais de novo e, em seguida, selecione **OK**.
+1. Após [início de sessão](#access-configuration-server), selecione **gerir as credenciais da máquina virtual**
+2. Selecione a conta que pretende modificar e clique em **editar**
+3. Introduza as credenciais de novo e, em seguida, selecione **OK**.
 
     ![Modificar as credenciais do serviço de mobilidade](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+
+Também pode modificar as credenciais através da CSPSConfigtool.exe.
+
+1. Início de sessão para o servidor de configuração e lançamento CSPSConfigtool.exe
+2. Selecione a conta que pretende modificar e clique em **editar**
+3. Introduza as credenciais de novo e clique em **Ok**.
+
+## <a name="add-credentials-for-mobility-service-installation"></a>Adicionar credenciais para a instalação do serviço de mobilidade
+
+Se não adicionar credenciais durante a implementação de OVF do servidor de configuração,
+
+1. Após [início de sessão](#access-configuration-server), selecione **gerir as credenciais da máquina virtual**.
+2. Clique em **adicionar credenciais de máquina virtual**.
+    ![Adicionar-mobilidade-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+3. Introduza as credenciais de novo e clique em **adicionar**.
+
+Também pode adicionar as credenciais através da CSPSConfigtool.exe.
+
+1. Início de sessão para o servidor de configuração e lançamento CSPSConfigtool.exe
+2. Clique em **Add**, introduza as credenciais de novo e clique em **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Modificar as definições de proxy
 
 Modifica as definições de proxy utilizadas pela máquina do servidor de configuração para acesso à internet para o Azure. Se tiver uma máquina do servidor de processo, além do servidor de processos padrão em execução na máquina do servidor de configuração, modifique as definições em ambas as máquinas.
 
-1. Depois de iniciar sessão no servidor de configuração, selecione **gerir conectividade**.
+1. Após [início de sessão](#access-configuration-server) para o servidor de configuração, selecione **gerir conectividade**.
 2. Atualize os valores de proxy. Em seguida, selecione **guardar** para atualizar as definições.
 
 ## <a name="add-a-network-adapter"></a>Adicionar uma placa de rede
@@ -60,7 +84,7 @@ Modifica as definições de proxy utilizadas pela máquina do servidor de config
 O modelo de formato OVF (Open Virtualization) implementa o servidor de configuração de VM com um único adaptador de rede.
 
 - Pode [adicionar outro adaptador à VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas deve adicioná-lo antes de registar o servidor de configuração no cofre.
-- Para adicionar um adaptador depois de registar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Em seguida, terá de voltar a registar o servidor no cofre.
+- Para adicionar um adaptador depois de registar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Em seguida, precisa [voltar a registar](#reregister-a-configuration-server-in-the-same-vault) o servidor no cofre.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Voltar a registar um servidor de configuração no mesmo Cofre
@@ -87,7 +111,8 @@ Pode voltar a registar o servidor de configuração no mesmo cofre se for necess
   ```
           net stop obengine
           net start obengine
-  ```
+   ```
+
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registar um servidor de configuração com outro Cofre
 

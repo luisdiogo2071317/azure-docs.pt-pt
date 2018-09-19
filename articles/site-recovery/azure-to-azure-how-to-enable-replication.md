@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7002e8a63ca0223a38ba099b17955a86034fa057
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916287"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295466"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais do Azure para outra região do Azure
 
@@ -36,6 +36,7 @@ Ative a replicação. Este procedimento assume que a região primária do Azure 
     - **Origem**: O ponto de origem das VMs, que neste caso, é **Azure**.
     - **Localização de origem**: A região do Azure a partir de onde pretende proteger as suas máquinas virtuais. Nesta ilustração, a localização de origem é 'Ásia Oriental'
     - **Modelo de implementação**: modelo de implementação do Azure, máquinas de origem.
+    - **Subscrição de origem**: A subscrição ao qual pertencem a suas máquinas de virtuais de origem. Isto pode ser qualquer subscrição com o mesmo inquilino do Azure Active Directory onde existe o cofre de serviços de recuperação.
     - **Grupo de recursos**: O grupo de recursos ao qual pertencem a suas máquinas de virtuais de origem. Todas as VMs no grupo de recursos selecionada são listadas para proteção no próximo passo.
 
     ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ Ative a replicação. Este procedimento assume que a região primária do Azure 
 4. Na **definições**, opcionalmente, pode configurar as definições de site de destino:
 
     - **Localização de destino**: A localização onde os dados de máquina virtual de origem serão replicados. Consoante a localização de máquinas selecionadas, Site Recovery fornece a lista de regiões de destino adequado. Recomendamos que mantenha a localização de destino a mesma da localização do Cofre de serviços de recuperação.
+    - **Subscrição de destino**: A subscrição de destino utilizada para recuperação após desastre. Por predefinição, a subscrição de destino será igual à subscrição de origem.
     - **Grupo de recursos de destino**: O grupo de recursos para que todos os seus máquinas virtuais replicadas pertence. Por predefinição o Azure Site Recovery cria um novo grupo de recursos na região de destino com um nome que o sufixo "asr". No caso de grupo de recursos criado pelo Azure Site Recovery já existe, este é reutilizado. Também é possível personalizá-lo, conforme mostrado na secção abaixo. A localização do grupo de recursos de destino pode ser qualquer região do Azure, exceto a região na qual as máquinas de virtuais de origem estão alojadas.
     - **Rede Virtual de destino**: por predefinição, Site Recovery cria uma nova rede virtual na região de destino com um nome que o sufixo "asr". Este é mapeado para a sua rede de origem e utilizado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento de rede.
     - **Contas de armazenamento de destino (se a sua origem de VM não utiliza discos geridos)**: por predefinição, o Site Recovery cria uma nova conta de armazenamento de destino imitando a configuração de armazenamento VM de origem. No caso de já existe uma conta de armazenamento, este é reutilizado.
@@ -60,7 +62,9 @@ Ative a replicação. Este procedimento assume que a região primária do Azure 
 
 Pode modificar as predefinições de destino utilizadas pelo Site Recovery.
 
-1. Clique em **personalizar:** para modificar as predefinições:
+1. Clique em **personalizar:** junto a "Subscrição de destino" para modificar a subscrição de destino predefinido. Selecione a subscrição da lista de todas as subscrições disponíveis no mesmo inquilino do Azure Active Directory (AAD).
+
+2. Clique em **personalizar:** para modificar as predefinições:
     - Na **grupo de recursos de destino**, selecione o grupo de recursos na lista de todos os grupos de recursos na localização de destino da subscrição.
     - Na **rede virtual de destino**, selecione a rede de uma lista de todos os a rede virtual na localização de destino.
     - Na **conjunto de disponibilidade**, pode adicionar as definições de conjunto de disponibilidade para a VM, se eles são parte de um conjunto de disponibilidade na região de origem.

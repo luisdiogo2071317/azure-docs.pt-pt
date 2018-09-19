@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450043"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296282"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
 O Azure Analysis Services utiliza o Azure Active Directory (Azure AD) para autenticação de utilizador e gestão de identidade. Qualquer usuário criar, gerir ou ligar a um Azure Analysis Services server tem de ter uma identidade de utilizador válido [inquilino do Azure AD](../active-directory/fundamentals/active-directory-administer.md) na mesma subscrição.
@@ -33,7 +33,7 @@ Consoante a aplicação cliente ou a ferramenta que utilizar, o tipo de autentic
 
 Power BI Desktop, o SSDT e o SSMS suporta a autenticação do Active Directory Universal, um método interativo que também oferece suporte a Azure multi-factor Authentication (MFA). Azure MFA ajuda a salvaguardar o acesso a dados e aplicações, fornecendo um processo de início de sessão simples. Proporciona uma autenticação segura com várias opções de verificação (chamada telefónica, mensagem de texto, smart cards com pin ou notificação de aplicação móvel). MFA interativa com o Azure AD pode resultar numa caixa de diálogo pop-up para validação. **Recomenda-se a autenticação universal**.
 
-Se iniciar sessão no Azure utilizando uma conta do Windows e autenticação Universal não está selecionado ou de disponível (Excel), [serviços de Federação do Active Directory (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md) é necessária. Com a Federação, do Azure AD e utilizadores do Office 365 são autenticados com credenciais no local e podem aceder aos recursos do Azure.
+Se iniciar sessão no Azure utilizando uma conta do Windows e autenticação Universal não está selecionado ou de disponível (Excel), [serviços de Federação do Active Directory (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) é necessária. Com a Federação, do Azure AD e utilizadores do Office 365 são autenticados com credenciais no local e podem aceder aos recursos do Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Servidores do Analysis Services do Azure suportam ligações a partir [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e superior utilizando a autenticação do Windows, autenticação de palavra-passe do Active Directory e Active Directory Universal Authentication. Em geral, recomenda-se que usar o Active Directory Universal Authentication porque:

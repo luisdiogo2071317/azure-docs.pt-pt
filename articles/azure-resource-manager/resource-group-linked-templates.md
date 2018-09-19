@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 8b09170c31691be34cea577eb82c8cce3402be96
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058789"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294670"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -28,6 +28,8 @@ Para implantar sua solução, pode utilizar um modelo único ou um modelo princi
 Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único arquivo. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para os componentes-alvo e reutilizar os modelos.
 
 Ao utilizar o modelo ligado, criar um modelo principal que recebe os valores de parâmetro durante a implementação. O modelo principal contém todos os modelos ligados e transmite valores para esses modelos, conforme necessário.
+
+Para obter um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 
 ## <a name="link-or-nest-a-template"></a>Associar ou aninhar um modelo
 
@@ -491,12 +493,13 @@ Os exemplos seguintes mostram as utilizações comuns dos modelos ligados.
 
 |Modelo principal  |Modelo ligado |Descrição  |
 |---------|---------| ---------|
-|[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devolve a cadeia de modelo ligado. |
-|[Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público a partir de modelo ligado e define esse valor no balanceador de carga. |
-|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
+|[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devolve a cadeia de modelo ligado. |
+|[Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público a partir de modelo ligado e define esse valor no balanceador de carga. |
+|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* Para seguir um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 * Para saber mais sobre o tipo de definir a ordem de implementação para os seus recursos, veja [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md).
 * Para saber como definir um recurso, mas criar várias instâncias do mesmo, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 * Para obter passos sobre como configurar um modelo numa conta de armazenamento e gerar um token SAS, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [implementar recursos com modelos do Resource Manager e CLI do Azure](resource-group-template-deploy-cli.md).

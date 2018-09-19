@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346734"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297814"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -159,7 +159,7 @@ Certifique-se de que todos os utilizadores tem sessão iniciada nas respetivas c
 
 #### <a name="turn-on-password-hash-synchronization"></a>Ativar sincronização de hash de palavra-passe
 
-Sincronização de hash de palavra-passe é uma funcionalidade utilizada para sincronizar os hashes de hashes de palavra-passe de utilizador de uma instância do Active Directory no local para um Azure baseado na nuvem de instância do AD. Mesmo que se decidir usar a Federação com os serviços de Federação do Active Directory (AD FS) ou de outros fornecedores de identidade, opcionalmente, pode configurar a sincronização de hash de palavra-passe como uma cópia de segurança caso sua infraestrutura no local como o AD ou servidores ADFS falhar ou ficar temporariamente indisponível. Isto permite aos utilizadores iniciar sessão serviço ao utilizar a mesma palavra-passe que utiliza para iniciar sessão no local instância do AD. Além disso, ele permite a proteção de identidade detetar credenciais comprometidas, ao comparar os hashes de palavra-passe com palavras-passe conhecidas para ficar comprometida, se um utilizador tirou o mesmo endereço de e-mail e a palavra-passe noutros serviços não ligada ao Azure AD.  Para obter mais informações, consulte [implementar a sincronização de hash de palavra-passe com o Azure AD Connect sync](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Sincronização de hash de palavra-passe é uma funcionalidade utilizada para sincronizar os hashes de hashes de palavra-passe de utilizador de uma instância do Active Directory no local para um Azure baseado na nuvem de instância do AD. Mesmo que se decidir usar a Federação com os serviços de Federação do Active Directory (AD FS) ou de outros fornecedores de identidade, opcionalmente, pode configurar a sincronização de hash de palavra-passe como uma cópia de segurança caso sua infraestrutura no local como o AD ou servidores ADFS falhar ou ficar temporariamente indisponível. Isto permite aos utilizadores iniciar sessão serviço ao utilizar a mesma palavra-passe que utiliza para iniciar sessão no local instância do AD. Além disso, ele permite a proteção de identidade detetar credenciais comprometidas, ao comparar os hashes de palavra-passe com palavras-passe conhecidas para ficar comprometida, se um utilizador tirou o mesmo endereço de e-mail e a palavra-passe noutros serviços não ligada ao Azure AD.  Para obter mais informações, consulte [implementar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exigir autenticação multifator (MFA) para utilizadores nas funções privilegiadas tudo, bem como de utilizadores expostos
 

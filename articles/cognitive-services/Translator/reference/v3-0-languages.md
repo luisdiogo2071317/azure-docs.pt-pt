@@ -1,24 +1,25 @@
 ---
-title: Método de idiomas de texto API do Microsoft tradutor | Microsoft Docs
-description: Utilize o método de idiomas de API do Microsoft tradutor texto.
+title: Método de idiomas de API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Use o método de idiomas de API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 93c06218a560faf439f05903438d021b372ce257
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354157"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129646"
 ---
-# <a name="text-api-30-languages"></a>Texto API 3.0: idiomas
+# <a name="translator-text-api-30-languages"></a>API 3.0 de texto de tradutor: idiomas
 
-Obtém o conjunto de idiomas atualmente suportados por outras operações da API de texto. 
+Obtém o conjunto de idiomas atualmente suportados pelo outras operações de API de texto do Translator. 
 
 ## <a name="request-url"></a>URL do pedido
 
@@ -29,18 +30,18 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Os parâmetros requeridos transmitidos a cadeia de consulta são:
+Parâmetros de pedido passados na seqüência de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
     <td>versão de API</td>
-    <td>*Necessário parâmetro*.<br/>Versão da API solicitada pelo cliente. Valor tem de ser `3.0`.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
     <td>scope</td>
-    <td>*O parâmetro opcional*.<br/>Uma lista separada por vírgulas de nomes de definir o grupo de idiomas para devolver. Permitidos são os nomes de grupo: `translation`, `transliteration` e `dictionary`. Se nenhum âmbito for especificado, em seguida, são devolvidos todos os grupos, que é equivalente a transmissão `scope=translation,transliteration,dictionary`. Para decidir qual o conjunto de idiomas suportados é adequado para o seu cenário, consulte a descrição do [objeto resposta](#response-body).</td>
+    <td>*O parâmetro opcional*.<br/>Uma lista separada por vírgulas de nomes de definir o grupo de idiomas para retornar. Permitidos os nomes de grupos são: `translation`, `transliteration` e `dictionary`. Se nenhum âmbito é fornecido, em seguida, todos os grupos são devolvidos, que é equivalente a passagem `scope=translation,transliteration,dictionary`. Para decidir qual conjunto de idiomas suportados é adequado para o seu cenário, consulte a descrição dos [objeto response](#response-body).</td>
   </tr>
 </table> 
 
@@ -50,31 +51,31 @@ Cabeçalhos de pedido são:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>Idioma aceitar</td>
-    <td>*Cabeçalho de pedido opcional*.<br/>O idioma a utilizar para cadeias de interface de utilizador. Alguns dos campos na resposta são os nomes de idiomas ou os nomes das regiões. Utilize este parâmetro para definir o idioma em que estes nomes são devolvidos. O idioma for especificado, fornecendo uma tag de idioma do BCP 47 corretamente formada. Por exemplo, utilize o valor `fr` para utilizar o valor ou um pedido de nomes em francês `zh-Hant` para nomes de pedido em chinês tradicional.<br/>Nomes são fornecidos no idioma do inglês, se não for especificada uma linguagem de destino ou quando a localização não está disponível.
+    <td>Aceite-Language</td>
+    <td>*Cabeçalho do pedido opcional*.<br/>O idioma a utilizar para cadeias de caracteres de interface de usuário. Alguns dos campos na resposta são nomes de idiomas ou nomes de regiões. Utilize este parâmetro para definir o idioma em que esses nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.<br/>Os nomes são fornecidos em inglês quando não for especificado um idioma de destino ou quando a localização não está disponível.
     </td>
   </tr>
   <tr>
     <td>X ClientTraceId</td>
-    <td>*Cabeçalho de pedido opcional*.<br/>Um GUID gerados pelo cliente para identificar exclusivamente o pedido.</td>
+    <td>*Cabeçalho do pedido opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido.</td>
   </tr>
 </table> 
 
-Não é necessária a autenticação ao obter os recursos do idioma.
+Autenticação não é necessário para obter recursos de idioma.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Um cliente utiliza o `scope` parâmetro definir quais os grupos de idiomas é interessado de consulta.
+Um cliente utiliza o `scope` parâmetro para definir a quais grupos de idiomas está interessada na consulta.
 
-* `scope=translation` Fornece os idiomas suportados para traduzir texto a partir de um idioma para outro idioma;
+* `scope=translation` Fornece os idiomas suportados para traduzir texto de um idioma para outro idioma;
 
-* `scope=transliteration` Fornece capacidades para converter o texto um idioma de um script para outro script;
+* `scope=transliteration` Fornece capacidades para a conversão de texto num idioma para outro script; a partir de um script
 
-* `scope=dictionary` Fornece pares de idioma para o qual `Dictionary` operações devolvem dados.
+* `scope=dictionary` Fornece os pares de idiomas para os quais `Dictionary` operações retornam dados.
 
-Um cliente pode obter vários grupos em simultâneo ao especificar uma lista separada por vírgulas de nomes. Por exemplo, `scope=translation,transliteration,dictionary` devolvam os idiomas suportados para todos os grupos.
+Um cliente pode obter vários grupos em simultâneo ao especificar uma lista separada por vírgulas de nomes. Por exemplo, `scope=translation,transliteration,dictionary` retornaria idiomas suportados para todos os grupos.
 
-Uma resposta com êxito é um objeto JSON com uma propriedade para cada grupo de pedido:
+Uma resposta com êxito é um objeto JSON com uma propriedade para cada grupo pedida:
 
 ```json
 {
@@ -94,13 +95,13 @@ Segue-se o valor para cada propriedade.
 
 * `translation` Propriedade
 
-  O valor da `translation` propriedade é um dicionário de (chave, valor) pares. Cada chave é uma tag de idioma BCP 47. Uma chave identifica um idioma para o qual texto pode ser convertido em ou convertido do. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma:
+  O valor da `translation` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. Uma chave identifica um idioma para o qual texto pode ser convertido para ou convertido do. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma:
 
-  * `name`: Nome a apresentar o idioma no idioma pedido através de `Accept-Language` cabeçalho.
+  * `name`: Nome a apresentar o idioma na localidade solicitada via `Accept-Language` cabeçalho.
 
-  * `nativeName`: Nome do idioma de apresentação no idioma nativo neste idioma.
+  * `nativeName`: Nome a apresentar o idioma no idioma nativo para este idioma.
 
-  * `dir`: Direcionalidade, que é `rtl` para idiomas de direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+  * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
 
   Um exemplo é:
           
@@ -120,23 +121,23 @@ Segue-se o valor para cada propriedade.
 
 * `transliteration` Propriedade
 
-  O valor da `transliteration` propriedade é um dicionário de (chave, valor) pares. Cada chave é uma tag de idioma BCP 47. Uma chave identifica um idioma para o qual texto pode ser convertido a partir de um script para outro script. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma e os respetivos scripts suportados:
+  O valor da `transliteration` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. Uma chave identifica um idioma para o qual pode ser convertido texto a partir de um script para outro script. O valor associado à chave é um objeto JSON com propriedades que descrevem a linguagem e seus scripts com suporte:
 
-  * `name`: Nome a apresentar o idioma no idioma pedido através de `Accept-Language` cabeçalho.
+  * `name`: Nome a apresentar o idioma na localidade solicitada via `Accept-Language` cabeçalho.
 
-  * `nativeName`: Nome do idioma de apresentação no idioma nativo neste idioma.
+  * `nativeName`: Nome a apresentar o idioma no idioma nativo para este idioma.
 
-  * `scripts`: Lista de scripts para converter do. Cada elemento do `scripts` lista tem propriedades:
+  * `scripts`: Lista de scripts para converter. Cada elemento do `scripts` lista tem propriedades:
 
-    * `code`: O código que identifica o script.
+    * `code`: Código de identificar o script.
 
-    * `name`: Nome a apresentar o script no idioma pedido através de `Accept-Language` cabeçalho.
+    * `name`: Nome a apresentar do script na localidade solicitada via `Accept-Language` cabeçalho.
 
-    * `nativeName`: Nome do idioma de apresentação no idioma nativo para o idioma.
+    * `nativeName`: Nome a apresentar o idioma no idioma nativo do idioma.
 
-    * `dir`: Direcionalidade, que é `rtl` para idiomas de direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+    * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
 
-    * `toScripts`: Lista de scripts disponíveis para converter o texto a. Cada elemento do `toScripts` lista tem propriedades `code`, `name`, `nativeName`, e `dir` conforme descrito anteriormente.
+    * `toScripts`: Lista de scripts disponíveis para converter o texto a. Cada elemento dos `toScripts` lista tem propriedades `code`, `name`, `nativeName`, e `dir` conforme descrito anteriormente.
 
   Um exemplo é:
 
@@ -185,21 +186,21 @@ Segue-se o valor para cada propriedade.
 
 * `dictionary` Propriedade
 
-  O valor da `dictionary` propriedade é um dicionário de (chave, valor) pares. Cada chave é uma tag de idioma BCP 47. A chave identifica um idioma para o qual traduções alternativas e back-traduções estão disponíveis. O valor é um objeto JSON que descreve o idioma de origem e os idiomas de destino com traduções disponíveis:
+  O valor da `dictionary` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. A chave identifica um idioma para o qual traduções alternativas e back-traduções estão disponíveis. O valor é um objeto JSON que descreve a linguagem de código e os idiomas de destino com traduções disponíveis:
 
-  * `name`: Nome a apresentar o idioma de origem no idioma pedido através de `Accept-Language` cabeçalho.
+  * `name`: Nome a apresentar o idioma de origem na localidade solicitada via `Accept-Language` cabeçalho.
 
-  * `nativeName`: Nome do idioma de apresentação no idioma nativo neste idioma.
+  * `nativeName`: Nome a apresentar o idioma no idioma nativo para este idioma.
 
-  * `dir`: Direcionalidade, que é `rtl` para idiomas de direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+  * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
 
   * `translations`: Lista de idiomas com traduções alterative e exemplos para a consulta expressado no idioma de origem. Cada elemento do `translations` lista tem propriedades:
 
-    * `name`: Nome a apresentar o idioma de destino no idioma pedido através de `Accept-Language` cabeçalho.
+    * `name`: Nome a apresentar o idioma de destino na localidade solicitada via `Accept-Language` cabeçalho.
 
-    * `nativeName`: O nome de apresentação do idioma de destino no idioma nativo para o idioma de destino.
+    * `nativeName`: Nome a apresentar o idioma de destino no idioma nativo para o idioma de destino.
 
-    * `dir`: Direcionalidade, que é `rtl` para idiomas de direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+    * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
     
     * `code`: O código de idioma identificar o idioma de destino.
 
@@ -221,9 +222,9 @@ Segue-se o valor para cada propriedade.
   },
   ```
 
-A estrutura do objeto de resposta não será alterado sem uma alteração na versão da API. Para a mesma versão da API, a lista de idiomas disponíveis pode alterar ao longo do tempo, porque o Microsoft Translator continuamente expande a lista de idiomas suportados pelo que os respetivos serviços.
+A estrutura do objeto de resposta não será alterado sem uma alteração na versão da API. Para a mesma versão da API, a lista de idiomas de disponíveis pode mudar ao longo do tempo, como Microsoft Translator continuamente estende a lista de idiomas suportados pelo seus serviços.
 
-A lista de idiomas suportados não será alterado frequentemente. Para poupar largura de banda de rede e melhorar a capacidade de resposta, uma aplicação cliente deve considerar a colocação em cache de recursos do idioma e a tag de entidade correspondente (`ETag`). Em seguida, a aplicação cliente pode periodicamente (por exemplo, uma vez a cada 24 horas) consultar o serviço para obter o conjunto de idiomas suportados mais recente. Transmitir atual `ETag` valor um `If-None-Match` campo do cabeçalho irá permitir que o serviço otimizar a resposta. Se o recurso não foi modificado, o serviço será devolveu o código de estado 304 e um corpo de resposta vazia.
+A lista de idiomas suportados não serão alterados com frequência. Para poupar largura de banda de rede e melhorar a capacidade de resposta, um aplicativo cliente deve considerar a colocação em cache recursos de idioma e da etiqueta de entidade correspondente (`ETag`). Em seguida, a aplicação cliente pode periodicamente (por exemplo, uma vez a cada 24 horas) consulta o serviço para obter o mais recente conjunto de idiomas suportados. Passando o atual `ETag` valor numa `If-None-Match` campo de cabeçalho permitirá que o serviço otimizar a resposta. Se o recurso não foi modificado, o serviço irá devolver o código de estado 304 e um corpo de resposta vazia.
 
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
@@ -232,7 +233,7 @@ A lista de idiomas suportados não será alterado frequentemente. Para poupar la
   <th>Descrição</th>
   <tr>
     <td>ETag</td>
-    <td>Valor atual da tag de entidade para os grupos de pedido de idiomas suportados. Para fazer pedidos subsequentes mais eficiente, o cliente pode enviar o `ETag` valor um `If-None-Match` campo do cabeçalho.
+    <td>Valor atual da etiqueta de entidade para os grupos de pedido de idiomas suportados. Para tornar as solicitações subseqüentes mais eficiente, o cliente pode enviar os `ETag` valor numa `If-None-Match` campo de cabeçalho.
     </td>
   </tr>
   <tr>
@@ -243,7 +244,7 @@ A lista de idiomas suportados não será alterado frequentemente. Para poupar la
 
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
-Seguem-se os códigos de estado HTTP possíveis que devolve um pedido. 
+Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
@@ -258,27 +259,27 @@ Seguem-se os códigos de estado HTTP possíveis que devolve um pedido.
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros do pedido.</td>
+    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corrija os parâmetros de pedido antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>O chamador está a enviar demasiados pedidos.</td>
+    <td>O chamador está enviando demasiados pedidos.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Ocorreu um erro inesperado. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita o pedido. Se o erro persistir, comunique com: data e hora da falha, identificador de pedido de cabeçalho de resposta `X-RequestId`e o identificador de cliente de cabeçalho de pedido `X-ClientTraceId`.</td>
+    <td>Servidor temporariamente indisponível. Repita o pedido. Se o o erro persistir, reporte-o com: data e hora da falha, o identificador de pedido do cabeçalho de resposta `X-RequestId`e o identificador de cliente a partir do cabeçalho de pedido `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo seguinte mostra como obter os idiomas suportados para a conversão de texto.
+O exemplo seguinte mostra como obter os idiomas suportados para a tradução de texto.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

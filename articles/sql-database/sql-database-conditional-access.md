@@ -1,51 +1,58 @@
 ---
-title: Acesso condicional - base de dados SQL do Azure e do armazém de dados | Documentação da Microsoft
-description: Saiba como configurar o acesso condicional para o SQL Database do Azure e do armazém de dados.
+title: Acesso condicional - base de dados SQL do Azure e o armazém de dados | Microsoft Docs
+description: Saiba como configurar o acesso condicional para o Azure SQL Database e o armazém de dados.
 services: sql-database
 author: GithubMirek
 manager: johammer
 ms.custom: security
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 702121c18ade244bce5ab3a9c5a57a0245ad80c6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647464"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35948043"
 ---
-# <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acesso condicional (MFA) com base de dados SQL do Azure e do armazém de dados  
+# <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acesso condicional (MFA) com a base de dados SQL do Azure e o armazém de dados  
 
-Base de dados SQL e do armazém de dados do SQL Server suportam o acesso condicional do Microsoft. Os passos seguintes mostram como configurar a base de dados SQL para impor uma política de acesso condicional.  
+Do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suportam o acesso condicional do Microsoft. 
+
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+
+Os passos seguintes mostram como configurar a base de dados SQL para impor uma política de acesso condicional.  
 
 ## <a name="prerequisites"></a>Pré-requisitos  
-- Tem de configurar a base de dados do SQL Server ou do armazém de dados do SQL Server para suportar a autenticação do Azure Active Directory. Para obter passos específicos, consulte [configurar e gerir a autenticação do Azure Active Directory com a base de dados SQL ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
-- Quando a autenticação multifator estiver ativada, tem de ligar com a ferramenta suportada, por exemplo, o SSMS mais recente. Para obter mais informações, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
+- Tem de configurar a base de dados SQL ou o SQL Data Warehouse para suportar a autenticação do Azure Active Directory. Para obter passos específicos, consulte [configurar e gerir a autenticação do Azure Active Directory com a base de dados SQL ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
+- Quando a autenticação multifator estiver ativada, tem de ligar com a ferramenta de suporte, como o SSMS mais recente. Para obter mais informações, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
-## <a name="configure-ca-for-azure-sql-dbdw"></a>Configurar a AC para a base de dados/armazém de dados do SQL do Azure  
+## <a name="configure-ca-for-azure-sql-dbdw"></a>Configurar a AC para o Azure SQL DB/armazém de dados  
 1.  Inicie sessão no Portal, selecione **do Azure Active Directory**e, em seguida, selecione **acesso condicional**. Para obter mais informações, consulte [referência técnica do Azure Active Directory condicional acesso](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![Painel de acesso condicional](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
-2.  No **políticas de acesso condicional** painel, clique em **nova política**, forneça um nome e, em seguida, clique em **configurar regras**.  
-3.  Em **atribuições**, selecione **utilizadores e grupos**, verifique **selecionar utilizadores e grupos**e, em seguida, selecione o utilizador ou grupo de acesso condicional. Clique em **selecione**e, em seguida, clique em **feito** para aceitar a sua seleção.  
+2.  Na **políticas de acesso condicional** painel, clique em **nova política**, forneça um nome e, em seguida, clique em **configurar regras de**.  
+3.  Sob **atribuições**, selecione **utilizadores e grupos**, verifique **selecionar utilizadores e grupos**e, em seguida, selecione o utilizador ou grupo para o acesso condicional. Clique em **selecionar**e, em seguida, clique em **feito** para aceitar a sua seleção.  
   ![Selecionar utilizadores e grupos](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4.  Selecione **aplicações em nuvem**, clique em **selecionar aplicações**. Pode ver todas as aplicações disponíveis para o acesso condicional. Selecione **SQL Database do Azure**, na parte inferior, clique em **selecione**e, em seguida, clique em **feito**.  
+4.  Selecione **aplicações na Cloud**, clique em **selecionar aplicações**. Ver todas as aplicações disponíveis para o acesso condicional. Selecione **Azure SQL Database**, na parte inferior, clique em **selecione**e, em seguida, clique em **feito**.  
   ![Selecione a base de dados SQL](./media/sql-database-conditional-access/select-sql-database.png)  
-  Se não encontrar **SQL Database do Azure** listados na captura de ecrã de terceiro seguinte, conclua os seguintes passos:   
-  - Inicie sessão sua instância do Azure SQL DB/armazém de dados com o SSMS com uma conta de administrador do AAD.  
+  Se não conseguir encontrar **base de dados do Azure SQL** listado no terceiro captura de ecrã seguinte, conclua os seguintes passos:   
+  - Inicie sessão na sua instância do Azure SQL DB/armazém de dados com o SSMS com uma conta de administrador do AAD.  
   - Executar `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-  - Inicie sessão no AAD e certifique-se de que o SQL Database do Azure e do armazém de dados estão listados nas aplicações no seu AAD.  
+  - Inicie sessão no AAD e certifique-se de que a base de dados do Azure SQL e o armazém de dados estão listados nos aplicativos no seu AAD.  
 
-5.  Selecione **controlos de acesso**, selecione **conceder**e, em seguida, verifique a política que pretende aplicar. Neste exemplo, selecione **requer autenticação multifator**.  
-  ![Selecione a conceder acesso](./media/sql-database-conditional-access/grant-access.png)  
+5.  Selecione **controlos de acesso**, selecione **concessão**e, em seguida, verifique a política que pretende aplicar. Neste exemplo, selecionamos **exigir autenticação multifator**.  
+  ![Selecione conceder acesso](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Resumo  
-A aplicação selecionada (SQL Database do Azure), permitindo ligar ao Azure SQL DB/armazém de dados utilizando o Azure AD Premium, agora impõe a política de acesso condicional selecionada, **necessária autenticação multifator.**  
-Para perguntas sobre a SQL Database do Azure e do armazém de dados sobre a autenticação multifator, contacte MFAforSQLDB@microsoft.com.  
+A aplicação selecionada (base de dados do Azure SQL) que permite estabelecer ligação ao Azure SQL DB/armazém de dados com o Azure AD Premium, agora impõe a política de acesso condicional selecionada, **necessária a autenticação multifator.**  
+Para perguntas sobre o Azure SQL Database e o armazém de dados relativamente à autenticação multifator, entre em contato com MFAforSQLDB@microsoft.com.  
 
 ## <a name="next-steps"></a>Passos Seguintes  
 
-Para um tutorial, consulte [proteger a base de dados do SQL do Azure](sql-database-security-tutorial.md).
+Para obter um tutorial, veja [proteger a sua base de dados do SQL Azure](sql-database-security-tutorial.md).
