@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/19/2018
-ms.openlocfilehash: 94d196ceecc0b63b9f0b0fe94f71363dc2086c30
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/22/2018
+ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213655"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465662"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.
@@ -41,7 +41,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.
 > 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restaurar os dados para o base de dados do Azure de destino para PostrgeSQL usando pg_restore
-Depois de criar a base de dados de destino, pode utilizar o comando de pg_restore e -d, parâmetro – dbname para restaurar os dados no banco de dados de destino do ficheiro de informação.
+Depois de criar a base de dados de destino, pode utilizar o comando pg_restore e a -d, o parâmetro – dbname para restaurar os dados no banco de dados de destino do ficheiro de informação.
 ```bash
 pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
@@ -57,6 +57,34 @@ Neste exemplo, restaurar os dados a partir do arquivo de despejo **testdb.dump**
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+
+## <a name="optimizing-the-migration-process"></a>Otimizar o processo de migração
+
+Uma forma de migrar a base de dados existente do PostgreSQL para base de dados do Azure para o serviço PostgreSQL é criar cópias de segurança da base de dados na origem e restaurá-lo no Azure. Para minimizar o tempo necessário para concluir a migração, considere utilizar os seguintes parâmetros com a cópia de segurança e restaurar os comandos.
+
+> [!NOTE]
+> Para informações detalhadas de sintaxe, consulte os artigos [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+>
+
+### <a name="for-the-backup"></a>Para a cópia de segurança
+- Efetuar a cópia de segurança com o comutador -Fc, de forma a que pode efetuar o restauro em paralelo para acelerar. Por exemplo:
+
+    ```
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+### <a name="for-the-restore"></a>Para o restauro
+- Copie os ficheiros de cópia de segurança num blob do Azure/arquivo e fazer a restauração a partir daí. Deve ser mais rápido do que o restauro na Internet. 
+- Ele deve ser feito já por predefinição, mas abrir o ficheiro de informação para verificar que as declarações de índice de criar após a inserção dos dados. Se não for o caso, mova as declarações de índice de criar depois dos dados são inseridos.
+- Restaurar com os comutadores de -Fc e -j *#* para paralelizar o restauro. *#* é o número de núcleos no servidor de destino. Também pode tentar com *#* definido como duas vezes o número de núcleos de servidor de destino para ver o impacto. Por exemplo:
+
+    ```
+    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+- Também pode editar o arquivo de despejo ao adicionar o comando *definir synchronous_commit = desativar;* no início e o comando *definir synchronous_commit = on;* no final. Não ativá-la no final, antes das aplicações, alterar os dados, poderá resultar na perda subsequente de dados.
+
+Lembre-se de testar e validar estes comandos num ambiente de teste antes de usá-los em produção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para migrar uma base de dados do PostgreSQL com exportar e importar, consulte [migrar a sua base de dados do PostgreSQL com exportar e importar](howto-migrate-using-export-and-import.md).

@@ -1,0 +1,278 @@
+---
+title: Copiar dados do Office 365 com o Azure Data Factory (pré-visualização) | Documentos da Microsoft
+description: Saiba como copiar dados do Office 365 para arquivos de dados de sink suportados através da atividade de cópia num pipeline do Azure Data Factory.
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: craigg
+ms.reviewer: douglasl
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 09/19/2018
+ms.author: jingwang
+ms.openlocfilehash: 3783bc6ccda7a559e749a84005f20d860ab56755
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368811"
+---
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
+
+O Azure Data Factory permite-lhe reunir a avançada dados organizacionais no seu Office 365 de inquilino para o Azure de uma forma escalável e criem aplicações de análise e extrair informações com base nestes ativos de dados valiosos. Integração com o Privileged Access Management fornece controlo de acesso protegido para os valiosos dados organizados no Office 365.  Para obter mais informações sobre acesso gerido para o Microsoft Graph em pré-visualização do Microsoft Azure, consulte [esta ligação](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
+
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Office 365. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+
+## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Por agora, dentro de uma atividade de cópia única só é possível **copiar dados do Office 365 numa [armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md), e [(de geração 2 de armazenamento do Azure Data Lake Pré-visualização)](connector-azure-data-lake-storage.md) no formato JSON** (digite setOfObjects). Se pretender carregar do Office 365 para outros tipos de arquivos de dados ou em outros formatos, pode encadear a primeira atividade de cópia com uma atividade de cópia subsequentes para ainda mais carregar dados para qualquer um da [arquivos de destino do ADF suportados](copy-activity-overview.md#supported-data-stores-and-formats) (consulte" suportado como sink"coluna na tabela"Suporte a arquivos de dados e formatos").
+
+>[!IMPORTANT]
+>- A subscrição do Azure que contém a fábrica de dados e o arquivo de dados de sink tem de estar no mesmo inquilino do Azure Active Directory (Azure AD) como inquilino do Office 365.
+>- Certifique-se a região do Runtime de integração do Azure utilizada para atividade de cópia, bem como o destino está na mesma região onde está localizada a caixa de correio dos utilizadores de inquilino do Office 365. Consultar [aqui](concepts-integration-runtime.md#integration-runtime-location) para compreender como é determinada a localização do Runtime de integração do Azure. Consulte a [aqui de tabela](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) para a lista de regiões suportadas do Office e regiões do Azure correspondentes.
+>-  Se estiver a carregar dados do Office 365 em **armazenamento de Blobs do Azure** como destino, certifique-se de que está a utilizar **[autenticação do principal de serviço](connector-azure-blob-storage.md#service-principal-authentication)** ao definir o ligado Serviço para o armazenamento de Blobs do Azure e não a utilizar [chave da conta](connector-azure-blob-storage.md#account-key-authentication), [assinatura de acesso partilhado](connector-azure-blob-storage.md#shared-access-signature-authentication) ou [identidade de serviço gerida ](connector-azure-blob-storage.md#managed-service-identity-authentication) autenticações.
+>-  Se estiver a carregar dados do Office 365 em **Gen1 de armazenamento do Azure Data Lake** como destino, certifique-se de que está a utilizar [ **autenticação do principal de serviço** ](connector-azure-data-lake-store.md#using-service-principal-authentication) ao definir o Serviço ligado para geração 1 de armazenamento do Azure Data Lake e não a utilizar [geridos a autenticação de identidade de serviço](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para copiar dados do Office 365 no Azure, tem de concluir os passos de pré-requisitos seguintes:
+
+- O administrador do inquilino do Office 365 tem de concluir as ações de integração conforme descrito [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
+- Criar e configurar uma aplicação web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [criar uma aplicação do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Tome nota dos seguintes valores, que irá utilizar para definir o serviço ligado para o Office 365:
+    - ID do inquilino.  Para obter instruções, consulte [obter ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+    - Chave de ID da aplicação e a aplicação.  Para obter instruções, consulte [chave de ID e a autenticação da aplicação Get](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+- Adicionar a identidade do utilizador que está a definir o pedido de acesso de dados como o proprietário do aplicativo web do Azure AD (do Azure AD da aplicação web > Definições > proprietários > Adicionar proprietário).
+- _(Recomendado)_  [Políticas de atribuir Azure](../azure-policy/assign-policy-definition.md) para a encriptação de dados para os arquivos de dados. Serão apresentadas informações da política de conformidade para os aprovadores de dados como parte da solicitação de dados. Depois de estabelecida atribuição de política, para cada atividade de cópia executa, irá verificar ADF para se certificar de que a atribuição de política é imposta. Consultar [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) para uma lista completa das políticas de suporte.
+
+## <a name="approving-new-data-access-requests"></a>Aos novos pedidos de acesso de dados
+
+Se esta for a primeira vez que está a solicitar dados para este contexto (uma combinação de quais dados tabela está a ser acesso, o destino conta é os dados a ser carregados para, e que identidade de utilizador está a tornar os dados de pedido de acesso), verá que a atividade de cópia Estado como "Em curso", e somente quando clicar em [link "Detalhes" em ações](copy-activity-overview.md#monitoring) irá ver o estado como "RequestingConsent".  Um membro do grupo de aprovador de acesso de dados tem de aprovar o pedido de Privileged Access Management antes de pode continuar a extração de dados.
+
+Consultar [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) sobre como o aprovador pode aprovar os dados de pedido de acesso e consulte [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) para obter uma explicação sobre a integração geral com o Privileged Access Management, incluindo como configurar os dados grupo de aprovador de acesso.
+
+## <a name="getting-started"></a>Introdução
+
+Pode criar um pipeline com a atividade de cópia com o SDK de .NET, o SDK de Python, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Ver [tutorial da atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Office 365.
+
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+
+As seguintes propriedades são suportadas para o serviço do Office 365 ligado:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo deve ser definida como: **Office 365** | Sim |
+| office365TenantId | ID de inquilino do Azure à qual pertence a conta do Office 365. | Sim |
+| servicePrincipalTenantId | Especifique as informações de inquilino no qual reside o aplicativo de web do Azure AD. | Sim |
+| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação. Marca esse campo como uma SecureString armazena de forma segura no Data Factory. | Sim |
+| connectVia | O Runtime de integração a ser utilizado para ligar ao arquivo de dados.  Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não |
+
+>[!NOTE]
+> A diferença entre **office365TenantId** e **servicePrincipalTenantId** e o valor correspondente para fornecer:
+>- Se for um programador empresarial desenvolver uma aplicação face a dados do Office 365 para a utilização da sua organização, em seguida, deve fornecer o mesmo inquilino ID para ambas as propriedades, que é o inquilino do AAD da sua organização ID.
+>- Se for um desenvolvedor ISV desenvolvendo um aplicativo para os seus clientes office365TenantId será do seu cliente (instalador de aplicativo) o ID de inquilino do AAD e servicePrincipalTenantId serão ID de inquilino do AAD de. da sua empresa
+
+**Exemplo:**
+
+```json
+{
+    "name": "Office365LinkedService",
+    "properties": {
+        "type": "Office365",
+        "typeProperties": {
+            "office365TenantId": "<Office 365 tenant id>",
+            "servicePrincipalTenantId": "<AAD app service principal tenant id>",
+            "servicePrincipalId": "<AAD app service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<AAD app service principal key>"
+            }
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Office 365.
+
+Para copiar dados do Office 365, são suportadas as seguintes propriedades:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **Office365Table** | Sim |
+| tableName | Nome do conjunto de dados para extrair a partir do Office 365. Consulte aqui para obter a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
+| Predicado | Uma expressão de predicado que pode ser utilizada para filtrar as linhas específicas para extrair a partir do Office 365.  Consulte aqui para obter informações sobre as colunas que podem ser utilizadas para a filtragem de predicados para cada tabela e o formato de expressão de filtro. | Não<br>(Não se for fornecido nenhum predicado, a predefinição é extrair dados dos últimos 30 dias) |
+
+**Exemplo**
+
+```json
+{
+    "name": "Office365Table1",
+    "properties": {
+        "type": "Office365Table",
+        "linkedServiceName": {
+            "referenceName": "<Office 365 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "structure": [
+            {
+                "name": "ReceivedDateTime",
+                "type": "datetime"
+            },
+            {
+                "name": "SentDateTime",
+                "type": "datetime"
+            },
+            {
+                "name": "HasAttachments",
+                "type": "boolean"
+            },
+            {
+                "name": "InternetMessageId",
+                "type": "string"
+            },
+            {
+                "name": "Subject",
+                "type": "string"
+            },
+            {
+                "name": "Importance",
+                "type": "string"
+            },
+            {
+                "name": "ParentFolderId",
+                "type": "string"
+            },
+            {
+                "name": "Sender",
+                "type": "string"
+            },
+            {
+                "name": "From",
+                "type": "string"
+            },
+            {
+                "name": "ToRecipients",
+                "type": "string"
+            },
+            {
+                "name": "CcRecipients",
+                "type": "string"
+            },
+            {
+                "name": "BccRecipients",
+                "type": "string"
+            },
+            {
+                "name": "ReplyTo",
+                "type": "string"
+            },
+            {
+                "name": "ConversationId",
+                "type": "string"
+            },
+            {
+                "name": "UniqueBody",
+                "type": "string"
+            },
+            {
+                "name": "IsDeliveryReceiptRequested",
+                "type": "boolean"
+            },
+            {
+                "name": "IsReadReceiptRequested",
+                "type": "boolean"
+            },
+            {
+                "name": "IsRead",
+                "type": "boolean"
+            },
+            {
+                "name": "IsDraft",
+                "type": "boolean"
+            },
+            {
+                "name": "WebLink",
+                "type": "string"
+            },
+            {
+                "name": "CreatedDateTime",
+                "type": "datetime"
+            },
+            {
+                "name": "LastModifiedDateTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ChangeKey",
+                "type": "string"
+            },
+            {
+                "name": "Categories",
+                "type": "string"
+            },
+            {
+                "name": "Id",
+                "type": "string"
+            },
+            {
+                "name": "Attachments",
+                "type": "string"
+            }
+        ],
+        "typeProperties": {
+            "tableName": "BasicDataSet_v0.Contact_v0",
+            "predicate": "CreatedDateTime >= 2018-07-11T16:00:00.000Z AND CreatedDateTime <= 2018-07-18T16:00:00.000Z"
+        }
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
+
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Office 365.
+
+### <a name="office-365-as-source"></a>Office 365 como origem
+
+Para copiar dados do Office 365, defina o tipo de origem na atividade copy na atividade **Office365Source**. Não existem propriedades adicionais são suportadas na atividade de cópia **origem** secção.
+
+**Exemplo:**
+
+```json
+"activities": [
+    {
+        "name": "CopyFromO365ToBlob",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Office 365 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "Office365Source"
+            },
+            "sink": {
+                "type": "BlobSink"
+            }
+        }
+    }
+]
+```
+
+## <a name="next-steps"></a>Passos Seguintes
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

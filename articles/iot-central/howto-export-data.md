@@ -4,18 +4,20 @@ description: Como exportar dados a partir da sua aplicação do Azure IoT Centra
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
+ms.date: 09/18/2018
 ms.topic: article
-ms.prod: azure-iot-central
+ms.service: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a1a7e6a62a88057cc8bc512a0c46de79a55ccd53
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576447"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368142"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar os dados no Azure IoT Central
+
+*Este tópico aplica-se aos administradores.*
 
 Este artigo descreve como utilizar a funcionalidade de exportação contínua de dados no Azure IoT Central para exportar periodicamente os dados à sua conta de armazenamento de Blobs do Azure. Pode exportar **medidas**, **dispositivos**, e **modelos de dispositivos** para ficheiros com o [Apache AVRO](https://avro.apache.org/docs/current/index.html) formato. Os dados exportados podem ser utilizados para análise de caminho típico, como modelos de formação no Azure Machine Learning ou análise de tendências de longo prazo no Microsoft Power BI.
 
@@ -36,7 +38,7 @@ Este artigo descreve como utilizar a funcionalidade de exportação contínua de
 As medidas que os dispositivos enviam são exportadas para a sua conta de armazenamento, uma vez por minuto. Os dados têm novas mensagens recebidas pelo centro de IoT de todos os dispositivos, durante esse período. Os ficheiros exportados do AVRO utilizam o mesmo formato que os ficheiros de mensagem exportados pelo [roteamento de mensagens do IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para armazenamento de Blobs.
 
 > [!NOTE]
-> Os dispositivos que enviam as medidas são representados por identificações de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos de dispositivo. Correlacionar cada registo de mensagens utilizando o **connectionDeviceId** que corresponda ao ID de dispositivo.
+> Os dispositivos que enviam as medidas são representados por identificações de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos de dispositivo. Correlacionar cada registo de mensagens utilizando o **connectionDeviceId** que corresponda à **deviceId** ao registo do dispositivo.
 
 O exemplo seguinte mostra um registo num ficheiro AVRO descodificado:
 
@@ -45,9 +47,9 @@ O exemplo seguinte mostra um registo num ficheiro AVRO descodificado:
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -56,12 +58,13 @@ O exemplo seguinte mostra um registo num ficheiro AVRO descodificado:
 
 ### <a name="devices"></a>Dispositivos
 
-Quando a exportação contínua de dados pela primeira vez é ativada, um instantâneo único com todos os dispositivos é exportado. O instantâneo inclui:
-- Identificações de dispositivo.
-- Nomes de dispositivo.
-- IDs de modelo de dispositivo.
-- Valores de propriedade.
-- Valores de definição.
+Quando a exportação contínua de dados pela primeira vez é ativada, um instantâneo único com todos os dispositivos é exportado. Cada dispositivo inclui:
+- `id` do dispositivo no Centro de IoT
+- `name` do dispositivo
+- `deviceId` de [serviço aprovisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
+- Informações de modelo do dispositivo
+- Valores de propriedade
+- Valores de definição
 
 Um novo instantâneo é escrito uma vez por minuto. O instantâneo inclui:
 
@@ -73,15 +76,16 @@ Um novo instantâneo é escrito uma vez por minuto. O instantâneo inclui:
 >
 > O modelo de dispositivo que cada dispositivo pertence à é representado por um ID de modelo do dispositivo. Para obter o nome do modelo de dispositivo, exporte os instantâneos de modelo do dispositivo.
 
-Cada registo no ficheiro AVRO descodificado é semelhante a:
+Um registo no ficheiro AVRO descodificado pode ser semelhante a:
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -104,8 +108,10 @@ Cada registo no ficheiro AVRO descodificado é semelhante a:
 
 ### <a name="device-templates"></a>Modelos de dispositivos
 
-Quando a exportação contínua de dados pela primeira vez é ativada, um instantâneo único com todos os modelos de dispositivos é exportado. O instantâneo inclui: 
-- IDs de modelo de dispositivo.
+Quando a exportação contínua de dados pela primeira vez é ativada, um instantâneo único com todos os modelos de dispositivos é exportado. Cada modelo de dispositivo inclui:
+- `id` o modelo de dispositivo
+- `name` o modelo de dispositivo
+- `version` o modelo de dispositivo
 - Tipos de dados de medição e valores mínimos/máximos.
 - Tipos de dados de propriedade e os valores predefinidos.
 - Definir tipos de dados e valores predefinidos.
@@ -118,11 +124,11 @@ Um novo instantâneo é escrito uma vez por minuto. O instantâneo inclui:
 > [!NOTE]
 > Modelos de dispositivos eliminados desde o último instantâneo não são exportados. Atualmente, os instantâneos não tem indicadores para modelos de dispositivos eliminada.
 
-Cada registo no ficheiro AVRO descodificado é semelhante a:
+Um registo no ficheiro AVRO descodificado pode ter este aspeto:
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -209,16 +215,16 @@ Cada registo no ficheiro AVRO descodificado é semelhante a:
 
 4. Sob **Administration**, selecione **exportar dados**.
 
-   ![Configurar a exportação contínua de dados](media/howto-export-data/continuousdataexport.PNG)
-
 5. Na **conta de armazenamento** na lista pendente caixa, selecione a sua conta de armazenamento. Na **contentor** na lista pendente caixa, selecione o seu contentor. Sob **dados para exportar**, especifique cada tipo de dados para exportar, definindo o tipo como **no**.
 
 6. Para ativar a exportação contínua de dados, defina **exportar dados** ao **no**. Selecione **Guardar**.
 
+  ![Configurar a exportação contínua de dados](media/howto-export-data/continuousdataexport.PNG)
+
 7. Após alguns minutos, os seus dados é apresentado na sua conta de armazenamento. Navegue para a sua conta de armazenamento. Selecione **procurar blobs** > seu contentor. Verá três pastas para os dados de exportação. Os caminhos predefinidos para os ficheiros AVRO com os dados de exportação são:
-    - Mensagens de: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Dispositivos: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Modelos de dispositivos: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Mensagens de: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Dispositivos: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Modelos de dispositivos: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>Leitura exportados ficheiros AVRO
 
@@ -280,7 +286,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -395,7 +401,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -411,7 +417,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -524,8 +530,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -535,7 +541,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 

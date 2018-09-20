@@ -10,12 +10,12 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631049"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364742"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente do Time Series Insights com o portal do Azure
 
@@ -24,6 +24,12 @@ Este artigo descreve como adicionar um conjunto de dados de referência para o s
 Um conjunto de dados de referência é uma coleção de itens que aumentam os eventos da origem de evento. O mecanismo de entrada do Time Series Insights une cada evento da origem de evento com a linha de dados correspondente no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Esta associação baseia-se as colunas de chave primária definidas no seu conjunto de dados de referência.
 
 Dados de referência não estão associados retroativamente. Isso significa que apenas os dados de entrada atuais e futuras são correspondidos e associados ao conjunto de datas de referência, assim que ele foi configurado e carregado.
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>Neste vídeo, vamos abordar o modelo de dados de referência do Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>Adicionar um conjunto de dados de referência
 
@@ -63,7 +69,7 @@ Dados de referência não estão associados retroativamente. Isso significa que 
 
    ![Adicionar dados de referência](media/add-reference-data-set/parse_data.png)
 
-9. Reveja cada coluna para ver o tipo de dados, pressupõe-se e alterar o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no cabeçalho de coluna: ** # ** para double (numéricos dados), **T | F** para boolean, ou **Abc** para a cadeia de caracteres.
+9. Reveja cada coluna para ver o tipo de dados, pressupõe-se e alterar o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no cabeçalho de coluna: **#** para double (numéricos dados), **T | F** para boolean, ou **Abc** para a cadeia de caracteres.
 
    ![Escolha os tipos de dados os cabeçalhos de coluna.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -71,7 +77,7 @@ Dados de referência não estão associados retroativamente. Isso significa que 
 
 11. Clique em **adicionar uma linha** ou **adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
 
-12. Escreva um valor no **filtrar as linhas... ** campo para rever linhas específicas, conforme necessário. O filtro é útil para analisar dados, mas não se aplica ao carregar os dados.
+12. Escreva um valor no **filtrar as linhas...**  campo para rever linhas específicas, conforme necessário. O filtro é útil para analisar dados, mas não se aplica ao carregar os dados.
  
 13. Nomeie o conjunto de dados, preenchendo os **nome do conjunto de dados** campo acima da grelha de dados.
 
@@ -81,7 +87,7 @@ Dados de referência não estão associados retroativamente. Isso significa que 
 
    ![Selecione as colunas chave.](media/add-reference-data-set/set_primary_key.png)
 
-   Opcionalmente, selecione o ** + ** botão para adicionar uma coluna chave secundária, como uma chave primária composta. Se precisar de anular a seleção, escolha o valor vazio na lista suspensa para remover a chave secundária.
+   Opcionalmente, selecione o **+** botão para adicionar uma coluna chave secundária, como uma chave primária composta. Se precisar de anular a seleção, escolha o valor vazio na lista suspensa para remover a chave secundária.
 
 15.  Para carregar os dados, selecione o **carregue linhas** botão.
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: fccdc4ac40878060b94d495b8895e2a128c9477c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716116"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364300"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurar os controlos de acesso baseado em funções no solution accelerator monitorização remota
 
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu como baseado em funções acesso controles são implementados no acelerador de solução de monitorização remota.
+
+Ver [configurar controlos de acesso para o Explorador do Time Series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre a gestão de acesso para o Explorador do Time Series Insights no solution accelerator monitorização remota.
 
 Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

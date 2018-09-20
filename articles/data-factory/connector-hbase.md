@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701722"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364111"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase com o Azure Data Factory 
 
@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 | tipo | A propriedade de tipo deve ser definida como: **HBase** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Sim |
 | porta | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
-| httpPath | O URL de parcial correspondente para o servidor de HBase. (ou seja, `/hbaserest0`)  | Não |
+| httpPath | O URL parcial correspondente para o servidor de HBase, por exemplo, `/hbaserest0` ao utilizar o cluster do HDInsights. | Não |
 | authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **anónimo**, **básico** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar à instância do HBase.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
->Se o seu cluster não suportar sessões adesivas, como o HDInsight, adicionar explicitamente o índice do nó no final da definição do caminho http, por exemplo, especifique `/hbaserest0` em vez de `/hbaserest`.
+>Se o seu cluster não suportar sessões adesivas por exemplo, o HDInsight, adicionar explicitamente o índice do nó no final da definição do caminho http, por exemplo, especifique `/hbaserest0` em vez de `/hbaserest`.
 
 **Exemplo para o HBase do HDInsights:**
 

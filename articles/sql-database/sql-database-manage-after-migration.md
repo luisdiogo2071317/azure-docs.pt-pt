@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295789"
+ms.locfileid: "46367921"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -98,7 +98,7 @@ Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir
 Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall ao nível do servidor podem criada através do portal ou por meio do SSMS. Para saber mais sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [criar regras de firewall na base de dados SQL](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Pontos finais de serviço
-Por predefinição, a base de dados SQL está configurado para "Permitir que todos os serviços do Azure" – que significa que qualquer máquina Virtual no Azure pode tentar ligar à base de dados. Estas tentativas ainda é necessário obter autenticado. No entanto, se não deseja sua base de dados acessíveis por qualquer IPs do Azure, pode desabilitar "Permitir que todos os serviços do Azure". Além disso, pode configurar [pontos finais de serviço de VNET](sql-database-vnet-service-endpoint-rule-overview.md).
+Por predefinição, a base de dados SQL está configurado para "Permitir que os serviços do Azure ao servidor de acesso" – que significa que qualquer máquina Virtual no Azure pode tentar ligar à base de dados. Estas tentativas ainda é necessário obter autenticado. No entanto, se não deseja sua base de dados acessíveis por qualquer IPs do Azure, pode desabilitar "Permitir que os serviços do Azure ao servidor de acesso". Além disso, pode configurar [pontos finais de serviço de VNET](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Pontos finais de serviço (SE) permitem-lhe expor os seus recursos críticos do Azure apenas para sua própria rede privada virtual no Azure. Ao fazê-lo, eliminar, essencialmente, acesso público aos seus recursos. O tráfego entre a rede virtual para o Azure permanece na rede backbone do Azure. Sem SE obtém o encaminhamento de pacotes de imposição de túnel. A rede virtual força o tráfego de internet para a sua organização e o tráfego de serviço do Azure para go sobre a mesma rota. Com pontos finais de serviço, pode otimizá-lo desde o fluxo de pacotes diretamente a partir da sua rede virtual para o serviço na rede backbone do Azure.
 

@@ -1,6 +1,6 @@
 ---
-title: Encriptação e de segurança dos dados melhores práticas | Microsoft Docs
-description: Este artigo fornece um conjunto de melhores práticas de segurança dos dados e utilizar encriptação incorporada no capacidades do Azure.
+title: Melhores práticas de segurança de dados e de encriptação | Documentos da Microsoft
+description: Este artigo fornece um conjunto de práticas recomendadas para segurança de dados e recursos do Azure através de encriptação internos.
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,155 +12,131 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193585"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465882"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados do Azure e encriptação
+# <a name="azure-data-security-and-encryption-best-practices"></a>Práticas recomendadas de segurança de dados do Azure e encriptação
+Para ajudar a proteger os dados na cloud, precisa levar em conta para os Estados possíveis em que os dados podem ocorrer e quais controles estão disponíveis para esse Estado. Melhores práticas para segurança de dados do Azure e a encriptação se relacionam com os seguintes Estados de dados:
 
-Uma das chaves para proteção de dados na nuvem é contabilidade para os Estados possíveis em que os dados poderão ocorrer e que controlos estão disponíveis para esse Estado. Para efeitos de dados do Azure segurança encriptação melhores práticas e recomendações serão à volta de Estados dos dados seguintes:
+- Inativos: Isto inclui todos os objetos de armazenamento de informações, contentores e tipos existentes estaticamente em mídia física, se magnético ou ótico disco.
+- Em trânsito: quando os dados estão a ser transferidos entre componentes, locais ou programas, se encontram em trânsito. Os exemplos são transferência através da rede, num barramento de serviço (a partir de locais para a cloud e vice-versa, incluindo as ligações híbridas, como o ExpressRoute), ou durante um processo de entrada/saída.
 
-* Em rest: Isto inclui informações de todos os objetos de armazenamento, contentores e tipos de que existem estaticamente no suporte de dados físico, ser-torção ou optical disco.
-* Em trânsito: Quando a dados está a ser transferidos entre componentes, localizações ou programas, tal como através da rede, entre um barramento de serviço (a partir de no local para a nuvem e vice-versa, incluindo as ligações híbridas, tais como o ExpressRoute), ou durante um processo de entrada/saída, é considerar como estando em movimento.
-
-Neste artigo, vamos abordar uma coleção de dados do Azure e encriptação de segurança melhores práticas. Estas melhores práticas são derivadas da nossa experiência com a segurança dos dados do Azure e encriptação e as experiências dos clientes, como por si.
+Neste artigo, abordaremos uma coleção de práticas de melhor segurança e encriptação de dados do Azure. Essas práticas recomendadas são derivadas da nossa experiência com a segurança de dados do Azure e a encriptação e as experiências dos clientes, como.
 
 Para cada melhor prática, vamos explicar:
 
 * O que é a melhor prática
-* Por que motivo que pretende ativar essa recomendado
-* Se falhar ativar a melhor prática, que poderá ser o resultado
-* Possíveis alternativas à melhor prática
-* Como pode saber mais ativar a melhor prática
+* Por que pretende ativar essa prática recomendada
+* Se efetuar a ativação para ativar a melhor prática, o que pode ser o resultado
+* Possíveis alternativas para a prática recomendada
+* Como pode aprender permitir a melhor prática
 
-Este artigo de melhores práticas de encriptação e de segurança dos dados do Azure baseia-se no opinião um consenso e capacidades da plataforma do Azure e conjuntos de funcionalidades, tal como existem no momento que este artigo foi escrito. Opinions e tecnologias alteram ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
+Este artigo de melhores práticas de criptografia e segurança dos dados do Azure baseia-se numa opinião de consenso e capacidades da plataforma Azure e conjuntos de recursos, tal como existem no momento que este artigo foi escrito. Opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
 
-Dados do Azure encriptação melhores práticas de segurança e abordadas neste artigo incluem:
+## <a name="choose-a-key-management-solution"></a>Escolher uma solução de gestão de chaves
+Proteger as suas chaves é essencial para proteger os seus dados na cloud.
 
-* Impor autenticação multifator
-* Controlo de acesso (RBAC) baseado em funções de utilização
-* Encriptar virtual machines do Azure
-* Utilizar modelos de segurança de hardware
-* Gerir com estações de trabalho seguras
-* Ativar a encriptação de dados do SQL Server
-* Proteger dados em trânsito
-* Impor a encriptação de dados ao nível do ficheiro
+[O Azure Key Vault](../key-vault/key-vault-overview.md) ajuda a salvaguardar chaves criptográficas e segredos na cloud a aplicações e serviços utilizam. A chave de cofre simplifica o processo de gestão de chaves e permite-lhe manter o controlo de teclas que acede e encripta os seus dados. Os desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e, em seguida, migrá-los para chaves de produção. Os administradores de segurança podem conceder (e revogar) a permissão para as chaves, conforme necessário.
 
-## <a name="enforce-multi-factor-authentication"></a>Impor autenticação multifator
+Pode utilizar o Key Vault para criar vários contentores seguros, chamados "cofres". Estes cofres são apoiados por HSMs. Os cofres centralizam o armazenamento dos segredos das aplicações, o que ajuda a reduzir as possibilidades de perda acidental de informações de segurança. Cofres de chaves também controlam e iniciar o acesso a tudo armazenados nas mesmas. O Azure Key Vault pode processar pedidos e renovações de certificados Transport Layer Security (TLS). Ele fornece recursos para uma solução robusta para gestão de ciclo de vida de certificados.
 
-O primeiro passo no acesso a dados e controlo no Microsoft Azure estão a autenticar o utilizador. [Azure multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) é um método de verificar a identidade do utilizador utilizando outro método que apenas um nome de utilizador e palavra-passe. Esta autenticação método ajuda a salvaguardar o acesso a dados e aplicações, cumprindo o pedido do utilizador para um processo de início de sessão simple.
+O Azure Key Vault foi concebido para suportar a aplicação de chaves e segredos. Key Vault não se destina a ser um arquivo para palavras-passe do utilizador.
 
-Ao ativar a MFA do Azure para os seus utilizadores, que está a adicionar uma segunda camada de segurança para inícios de sessão de utilizador e de transações. Neste caso, uma transação poderá aceder a um documento localizado num servidor de ficheiros ou o SharePoint Online. Também ajuda-o MFA do Azure que as TI reduzem a probabilidade de que uma credencial comprometida terão acesso aos dados da organização.
+Seguem-se melhores práticas de segurança para utilizar o Key Vault.
 
-Por exemplo: se impor o MFA do Azure para os seus utilizadores e configurá-lo para utilizar uma chamada telefónica ou mensagem de texto como verificação, se a credencial do utilizador for comprometida, o atacante não conseguirá aceder a qualquer recurso uma vez que ele não terá acesso para o telefone do utilizador. As organizações que não adicione esta camada adicional de proteção de identidade sejam mais suscetíveis de ataque de roubo de credenciais, que pode levar ao comprometimento de dados.
+**Melhor prática**: conceder acesso a utilizadores, grupos e aplicações com um âmbito específico.   
+**Detalhe**: RBAC de utilização predefinida funções. Por exemplo, para conceder acesso a um utilizador para gerir cofres de chaves, seria atribuída a função predefinida [contribuinte do Cofre de chave](../role-based-access-control/built-in-roles.md) a este utilizador com um âmbito específico. O âmbito nesse caso seria uma subscrição, um grupo de recursos ou apenas um cofre de chaves específico. Se as funções predefinidas não atender a suas necessidades, pode [definir suas próprias funções](../role-based-access-control/custom-roles.md).
 
-Uma alternativa para as organizações que pretende manter a autenticação controlo no local é utilizar [do servidor multi-factor Authentication Azure](../active-directory/authentication/howto-mfaserver-deploy.md), também denominado MFA no local. Ao utilizar este método irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
+**Melhor prática**: controlar o que os utilizadores têm acesso aos.   
+**Detalhe**: acesso a um cofre de chaves é controlado através de duas interfaces separadas: plano de gestão e plano de dados. Os controlos de acesso do plano de gestão e do plano de dados funcionam de forma independente.
 
-Para obter mais informações sobre o MFA do Azure, leia o artigo [introdução ao Azure multi-factor Authentication na nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
+Utilize o RBAC para controlar o que os utilizadores têm acesso a. Por exemplo, se quiser conceder um acesso de aplicação para utilizar as chaves num cofre de chaves, só tem de conceder permissões de acesso do plano de dados ao utilizar políticas de acesso do Cofre de chaves e nenhum acesso do plano de gestão é necessária para esta aplicação. Por outro lado, se deseja que um usuário seja capaz de ler as propriedades do cofre e marcas, mas não tem acesso a chaves, segredos ou certificados, pode conceder esse acesso de leitura do utilizador utilizando o RBAC e sem acesso ao plano de dados é necessário.
 
-## <a name="use-role-based-access-control-rbac"></a>Controlo de acesso (RBAC) baseado em funções de utilização
+**Melhor prática**: Store certificados no seu Cofre de chaves. Os certificados são de alto valor. Em mãos erradas, a segurança dos seus dados ou de segurança de seu aplicativo pode ficar comprometida.   
+**Detalhe**: o Azure Resource Manager pode implantar com segurança os certificados armazenados no Azure Key Vault para VMs do Azure quando as VMs são implementadas. Ao definir políticas de acesso apropriados para o Cofre de chaves, também controlar que obtém acesso ao certificado. Outra vantagem é que gerencie todos os seus certificados num local no Azure Key Vault. Ver [implementar certificados para VMs de Cofre de chaves geridas pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) para obter mais informações.
 
-Restringir o acesso com base no [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança. Este é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Azure baseada em funções controlo de acesso (RBAC) pode ser utilizado para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. O âmbito de uma atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso.
+**Melhor prática**: Certifique-se de que não é possível recuperar uma exclusão de cofres de chaves ou objetos de Cofre de chaves.   
+**Detalhe**: cofres de eliminação da chave ou objetos de Cofre de chaves podem ser acidental ou maliciosa. Ativar a eliminação de forma recuperável e remover recursos de proteção do Cofre de chaves, especialmente para as chaves que são utilizados para encriptar dados inativos. Eliminação dessas chaves é equivalente a perda de dados, para que possa recuperar cofres eliminados e objetos de cofre, se necessário. Ponha em prática operações de recuperação do Key Vault em intervalos regulares.
 
-Pode tirar partido [funções incorporadas do RBAC](../role-based-access-control/built-in-roles.md) no Azure para atribuir os privilégios aos utilizadores. Considere a utilização de *contribuinte de conta de armazenamento* para os operadores da nuvem que necessitam de gerir as contas do storage e *contribuinte de conta de armazenamento clássico* função para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessita para gerir VMs e conta de armazenamento, considere adicionar-lhes *contribuinte de Máquina Virtual* função.
-
-As organizações que não a impor controlo de acesso de dados ao tirar partido das capacidades, tal como o RBAC podem ser dá ao mais privilégios que necessários para os respetivos utilizadores. Isto pode levar ao comprometimento de dados por ter alguns utilizadores ter acesso aos dados que não deve ter em primeiro lugar.
-
-Pode saber mais sobre o RBAC do Azure ao ler o artigo [controlo de acesso em funções do Azure](../role-based-access-control/role-assignments-portal.md).
-
-## <a name="encrypt-azure-virtual-machines"></a>Encriptar Virtual Machines do Azure
-
-Para muitas organizações, [encriptação de dados Inativos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório para soberania dos dados, conformidade e privacidade de dados. Encriptação de disco do Azure permite aos administradores de TI encriptar discos do Windows e Linux IaaS Máquina Virtual (VM). Tira partido do Azure Disk Encryption a funcionalidade do BitLocker de padrão da indústria do Windows e a funcionalidade de DM-Crypt do Linux para fornecer a encriptação de volume para o SO e os discos de dados.
-
-Pode tirar partido do Azure Disk Encryption para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus requisitos de conformidade e segurança organizacional. As organizações também devem considerar utilizar a encriptação para ajudar a mitigar os riscos acesso a dados relacionados para não autorizado. Também é recomendável que encriptar unidades antes de escrever os dados confidenciais.
-
-Certifique-se encriptar os volumes de dados da VM e o volume de arranque para poder proteger dados Inativos na sua conta do storage do Azure. Salvaguardar as chaves de encriptação e segredos, tirando partido [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md).
-
-Para os servidores do Windows no local, considere a encriptação seguinte melhores práticas:
-
-* Utilize [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) para encriptação de dados
-* Armazenar as informações de recuperação no AD DS.
-* Se não houver qualquer preocupação de que as chaves do BitLocker tem sido comprometidas, recomendamos que optar por formatar a unidade para remover todas as instâncias dos metadados do BitLocker na unidade ou que desencriptar e encriptar a unidade completa novamente.
-
-As organizações que não impor a encriptação de dados estejam mais predispostas a ser exposto a problemas de integridade de dados, como os utilizadores mal intencionados ou não autorizados roubo de dados e comprometido contas obtenham acesso não autorizado aos dados num formato encriptado. Para além destes riscos, as empresas que têm de estar em conformidade com regulamentos da indústria, tem de provar que são diligent e estiver a utilizar os controlos de segurança correto para melhorar a segurança dos dados.
-
-Pode saber mais sobre a Azure Disk Encryption ao ler o artigo [encriptação de disco do Azure para Windows e as VMs de IaaS Linux](azure-security-disk-encryption.md).
-
-## <a name="use-hardware-security-modules"></a>Utilize módulos de segurança de Hardware
-Soluções de encriptação da indústria utilizam chaves secretas para encriptar dados. Por conseguinte, é fundamental que estas chaves são armazenadas em segurança. Gestão de chaves torna-se uma parte integral da proteção de dados, uma vez que irá ser utilizada para armazenar as chaves secretas que são utilizadas para encriptar dados.
-
-A encriptação de disco do Azure utiliza [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/) para ajudar a controlar e gerir chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves, enquanto garantir que todos os dados em discos de máquinas virtuais sejam encriptados Inativos no armazenamento do Azure. Deve utilizar o Cofre de chaves do Azure para as chaves e a utilização da política de auditoria.
-
-Existem muitos riscos inerentes relacionadas com a não ter controlos de segurança adequados para proteger as chaves secretas que foram utilizadas para encriptar os dados. Se os atacantes têm acesso às chaves secretas, poderão desencriptar os dados e poderão ter acesso a informações confidenciais.
-
-Pode saber mais sobre as recomendações gerais para a gestão de certificados no Azure ao ler o artigo [gestão de certificados no Azure: Do's e que não deve fazer](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
-
-Para mais informações sobre o Cofre de chaves do Azure, leia o artigo [introdução ao Cofre de chaves do Azure](../key-vault/key-vault-get-started.md).
+> [!NOTE]
+> Se um utilizador tiver permissões de contribuinte (RBAC) para um plano de gestão do Cofre de chaves, eles podem conceder próprios acesso para o plano de dados ao definir uma política de acesso do Cofre de chaves. Recomendamos que não é totalmente controlar quem tem acesso de contribuinte aos seus cofres de chaves, para garantir que apenas as pessoas autorizadas podem aceder e gerir cofres de chaves, chaves, segredos e certificados.
+>
+>
 
 ## <a name="manage-with-secure-workstations"></a>Gerir com estações de trabalho seguras
-Uma vez que a vasta maioria das ataques de visar o utilizador final, o ponto final torna-se um dos pontos de principais de ataque. Se um atacante compromises o ponto final, ele pode tirar partido as credenciais do utilizador para aceder aos dados da organização. A maioria dos ataques de ponto final são capazes de tirar partido do facto de que os utilizadores finais são administradores nos respetivos estações de trabalho locais.
+> [!NOTE]
+> O administrador da subscrição ou o proprietário deve utilizar uma estação de trabalho de acesso seguro ou uma estação de trabalho de acesso privilegiado.
+>
+>
 
-Pode reduzir estes riscos através da utilização de uma estação de trabalho de gestão segura. Recomendamos que utilize um [estações de trabalho com privilégios de acesso (PAW)](https://technet.microsoft.com/library/mt634654.aspx) para reduzir a superfície de ataque em estações de trabalho. Estas estações de trabalho de gestão protegidos podem ajudar a mitigar alguns deles ataques ajudam a garantir que os seus dados são mais seguro. Certifique-se de que utiliza PAW para proteger e bloquear a estação de trabalho. Este é um passo importante para fornecer elevada segurança oferece garantias ao rendimento para contas confidenciais, tarefas e proteção de dados.
+Uma vez que a grande maioria dos ataques visar o utilizador final, se torna o ponto final de um dos principais pontos de ataque. Um atacante que compromete o ponto final pode utilizar as credenciais do usuário para obter acesso aos dados da organização. A maioria dos ataques de ponto final tirar partido do fato de que os usuários são administradores em suas estações de trabalho locais.
 
-Falta do endpoint protection pode colocar dados em risco, certifique-se para impor políticas de segurança em todos os dispositivos que são utilizados para consumir dados, independentemente da localização de dados (na nuvem ou no local).
+**Melhor prática**: utilizar uma estação de trabalho de gestão segura para proteger contas sensíveis, tarefas e dados.   
+**Detalhe**: Utilize um [estação de trabalho de acesso privilegiado](https://technet.microsoft.com/library/mt634654.aspx) para reduzir a superfície de ataque em estações de trabalho. Estas estações de trabalho de gestão segura podem ajudar a atenuar alguns desses ataques e certifique-se de que os seus dados são mais seguros.
 
-Pode saber mais sobre privileged aceder a estação de trabalho ao ler o artigo [proteger o acesso privilegiado](https://technet.microsoft.com/library/mt631194.aspx).
+**Melhor prática**: Certifique-se de proteção de ponto final.   
+**Detalhe**: aplicar políticas de segurança em todos os dispositivos que são utilizados para consumir dados, independentemente da localização de dados (na cloud ou no local).
 
-## <a name="enable-sql-data-encryption"></a>Ativar a encriptação de dados do SQL Server
-[Encriptação de dados transparente de base de dados SQL do Azure](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) ajuda a proteger contra a ameaça de atividade maliciosa efetuando a encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transações Inativos sem exigir alterações à aplicação.  TDE encripta o armazenamento de uma base de dados completa através de uma chave simétrica chamada a chave de encriptação da base de dados.
+## <a name="protect-data-at-rest"></a>Proteger dados em repouso
+[Encriptação de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório no sentido de soberania de dados, conformidade e privacidade de dados.
 
-Mesmo quando o armazenamento completo é encriptado, é muito importante também encripte a sua própria base de dados. Esta é uma implementação de defesa numa abordagem de profundidade para proteção de dados. Se estiver a utilizar [SQL Database do Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) e pretende proteger os dados confidenciais, tais como o cartão de crédito ou números de segurança social, pode encriptar as bases de dados com FIPS 140-2 validado bits 256 AES encriptação que cumpra os requisitos de muitos normas da indústria (por exemplo, HIPAA, PCI).
+**Melhor prática**: aplicar encriptação de disco para o ajudar a salvaguardar os seus dados.   
+**Detalhe**: Utilize [Azure Disk Encryption](azure-security-disk-encryption.md). Permite que os administradores de TI encriptar discos de VM de IaaS de Linux e Windows. Encriptação de disco combina a funcionalidade do Windows BitLocker de norma da indústria e a funcionalidade de dm-crypt do Linux para fornecer encriptação de volume para o sistema operacional e os discos de dados.
 
-É importante compreender que os ficheiros relacionados com [a memória intermédia de extensão do conjunto](https://msdn.microsoft.com/library/dn133176.aspx) (BPE) não são encriptadas quando uma base de dados é encriptado utilizando TDE. Tem de utilizar ferramentas de encriptação de nível do sistema de ficheiros, como o BitLocker ou o [sistema de encriptação de ficheiros](https://technet.microsoft.com/library/cc700811.aspx) (EFS) para BPE relacionados com os ficheiros.
+Armazenamento do Azure e a base de dados do Azure SQL encriptam dados inativos, por padrão e muitos encriptação de oferta de serviços, como uma opção. Pode utilizar o Azure Key Vault para manter o controlo das chaves que acedem e encriptam os dados. Ver [suporte do modelo de encriptação de fornecedores do recurso do Azure para saber mais](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-Dado que um utilizador autorizado, tais como um administrador de segurança ou um administrador da base de dados pode aceder aos dados, mesmo se a base de dados é encriptado com TDE, também deve seguir as recomendações abaixo:
+**Melhores práticas**: a utilização de encriptação para ajudar a atenuar os riscos relacionados com o acesso de dados não autorizado.   
+**Detalhe**: encriptar as suas unidades antes de escrever dados confidenciais aos mesmos.
 
-* Autenticação do SQL Server ao nível da base de dados
-* Azure AD autenticação utilizando funções do RBAC
-* Utilizadores e aplicações devem utilizar contas separadas para autenticação. Desta forma, pode limitar as permissões concedidas a utilizadores e aplicações e reduzir os riscos de atividade maliciosa
-* Segurança de nível de base de dados de implementar através de funções de base de dados fixa (como db_datareader ou db_datawriter), ou pode criar funções personalizadas para a sua aplicação conceder permissões explícitas para objetos de base de dados selecionada
-
-As organizações que não estão a utilizar encriptação de nível de base de dados podem ser mais suscetíveis a ataques que podem comprometer os dados localizados nas bases de dados SQL.
-
-Pode saber mais sobre a encriptação de SQL TDE ao ler o artigo [encriptação transparente de dados com a SQL Database do Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
+As organizações que não impõem a encriptação de dados são mais expostas a problemas de integridade de dados. Por exemplo, os utilizadores não autorizados ou não autorizados podem roubar dados em contas comprometidas ou obter acesso não autorizado aos dados codificados em formato não encriptado. As empresas também tem de provar que eles são controles de segurança correto diligentes e utilização para melhorar a segurança de dados para cumprir os regulamentos da indústria.
 
 ## <a name="protect-data-in-transit"></a>Proteger dados em trânsito
+Proteger dados em trânsito, deve ser uma parte essencial da sua estratégia de proteção de dados. Como dados é ir e vir a partir de vários locais, geralmente recomendamos que utilize sempre os protocolos SSL/TLS para trocar dados entre diferentes localizações. Em algumas circunstâncias, poderá querer isolar o canal de toda comunicação entre o local e na cloud infraestruturas ao utilizar uma VPN.
 
-Proteger dados em trânsito deve fazer parte essencial da sua estratégia de proteção de dados. Uma vez que os dados irão ser movidos anterior e descritos de diversas localizações, a recomendação geral é que utilize sempre protocolos SSL/TLS para trocar dados entre localizações diferentes. Em algumas circunstâncias, poderá pretender isolar o canal de comunicação completa entre o local e nuvem infraestrutura através da utilização de uma rede privada virtual (VPN).
+Para dados mover entre a infraestrutura no local e o Azure, considere as proteções adequadas como HTTPS ou VPN. Ao enviar tráfego encriptado entre uma rede virtual do Azure e uma localização no local através da internet pública, utilize [Gateway de VPN do Azure](https://docs.microsoft.com/azure/vpn-gateway/).
 
-Para dados mover entre a infraestrutura no local e o Azure, deve considerar as proteções de adequada, tais como HTTPS ou VPN.
+Seguem-se as práticas recomendadas específicas para utilizar HTTPS, SSL/TLS e o Gateway de VPN do Azure.
 
-Para organizações que precisam de proteger o acesso a partir de várias estações de trabalho localizados no local para o Azure, utilize [VPN de site para site do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+**Melhor prática**: acesso seguro a partir de várias estações de trabalho localizados no local a uma rede virtual do Azure.   
+**Detalhe**: Utilize [VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-Para organizações que precisam de proteger o acesso a partir de uma estação de trabalho localizado no local para o Azure, utilize [ponto a Site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
+**Melhor prática**: acesso seguro a partir de uma estação de trabalho individual localizados no local a uma rede virtual do Azure.   
+**Detalhe**: Utilize [VPN point-to-site](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
-Conjuntos de dados maiores podem ser movidos através de uma ligação WAN de alta velocidade dedicada, tais como [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se optar por utilizar o ExpressRoute, também pode encriptar os dados ao nível da aplicação utilizando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para maior proteção.
+**Melhor prática**: mover conjuntos de dados maiores através de um link WAN de alta velocidade dedicado.   
+**Detalhe**: Utilize [ExpressRoute](../expressroute/expressroute-introduction.md). Se optar por utilizar o ExpressRoute, também pode criptografar os dados no nível do aplicativo usando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para maior proteção.
 
-Se interage com o Storage do Azure através do Portal do Azure, todas as transações ocorrem através de HTTPS. [API REST do Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) HTTPS também pode ser utilizado para interagir com a ativação pós-falha [Storage do Azure](https://azure.microsoft.com/services/storage/) e [SQL Database do Azure](https://azure.microsoft.com/services/sql-database/).
+**Melhor prática**: interagir com o armazenamento do Azure através do portal do Azure.   
+**Detalhe**: todas as transações ocorrem através de HTTPS. Também pode utilizar [API do REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) através de HTTPS para interagir com [armazenamento do Azure](https://azure.microsoft.com/services/storage/) e [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/).
 
-As organizações que falham para proteger dados em trânsito sejam mais suscetíveis de [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [escutas](https://technet.microsoft.com/library/gg195641.aspx) e hijacking de sessão. Estes ataques podem ser o primeiro passo na obtendo acesso aos dados confidenciais.
+As organizações que não as protegem os dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [escutas](https://technet.microsoft.com/library/gg195641.aspx)e ao seqüestro de sessão. Esses ataques podem ser o primeiro passo para terem acesso aos dados confidenciais.
 
-Pode saber mais sobre a opção de VPN do Azure ao ler o artigo [planeamento e design para o Gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md).
+## <a name="secure-email-documents-and-sensitive-data"></a>Proteger o e-mail, documentos e dados confidenciais
+Pretende controlar e proteger o e-mail, documentos e dados confidenciais que partilha fora da sua empresa. [O Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) é uma solução com base na cloud que ajuda uma organização a classificar, Etiquetar e proteger os respetivos documentos e e-mails. Isso pode ser feito automaticamente por administradores que definem regras e condições, manualmente pelos utilizadores ou uma combinação em que os utilizadores obtêm recomendações.
 
-## <a name="enforce-file-level-data-encryption"></a>Impor a encriptação de dados ao nível do ficheiro
+Classificação será sempre identificável, independentemente do onde os dados são armazenados ou com quem são partilhados. As etiquetas incluem marcas visuais como um cabeçalho, rodapé ou marca d'água. São adicionados metadados a ficheiros e cabeçalhos de e-mail em texto não encriptado. O texto não encriptado garante que os outros serviços, tais como soluções para evitar a perda de dados, podem identificar a classificação e tomar as medidas adequadas.
 
-Outra camada de proteção que pode aumentar o nível de segurança para os seus dados está a encriptar o próprio ficheiro, independentemente da localização do ficheiro.
+A tecnologia de proteção utiliza o Azure Rights Management (Azure RMS). Esta tecnologia está integrada com outros serviços cloud da Microsoft e aplicações, como o Office 365 e Azure Active Directory. Esta tecnologia de proteção utiliza políticas de encriptação, identidade e autorização. Proteção aplicada através do Azure RMS permanece com os documentos e e-mails, independentemente da localização — dentro ou fora da sua organização, redes, servidores de ficheiros e aplicações.
 
-[O Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os seus ficheiros e e-mail. O Azure RMS funciona em vários dispositivos — telemóveis, tablets e PCs ao proteger dentro da sua organização e fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção permanece com os dados, mesmo quando sai dos limites da organização.
+Esta solução de proteção de informações mantém o utilizador no controlo dos seus dados, mesmo quando são partilhados com outras pessoas. Também pode utilizar o Azure RMS com suas próprias aplicações de linha de negócio e soluções de proteção de informações de fornecedores de software, sejam estas aplicações e soluções no local ou na cloud.
 
-Quando utilizar o Azure RMS para proteger os seus ficheiros, estiver a utilizar a criptografia de norma da indústria com suporte completo de [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Ao tirar partido do Azure RMS para proteção de dados, tem a garantia que a proteção permanece com o ficheiro, mesmo que seja copiado para armazenamento que não se encontra sob o controlo de TI, tal como um serviço de armazenamento em nuvem. O mesmo ocorre para os ficheiros partilhados através de e-mail, o ficheiro está protegido como um anexo a uma mensagem de e-mail, com instruções sobre como abrir o anexo protegido.
+Recomendamos que:
 
-Quando planear a adoção do Azure RMS, recomendamos o seguinte:
+- [Implementar o Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap) para a sua organização.
+- Aplica etiquetas que refletem os seus requisitos empresariais. Por exemplo: aplique uma etiqueta com o nome "altamente confidencial" para todos os documentos e e-mails que contêm dados top-secret, para classificar e proteger esses dados. Em seguida, apenas os utilizadores autorizados podem aceder estes dados, com as restrições que especificar.
+- Configurar [registo de utilização para o Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) para que possa monitorizar a forma como sua organização está a utilizar o serviço de proteção.
 
-* Instalar o [aplicação de partilha RMS](https://technet.microsoft.com/library/dn339006.aspx). Esta aplicação integra-se com o Office aplicações através da instalação de um escritório suplemento para que os utilizadores possam facilmente proteger ficheiros diretamente.
-* Configurar aplicações e serviços suportam o Azure RMS
-* Criar [modelos personalizados](https://technet.microsoft.com/library/dn642472.aspx) que reflete os requisitos de negócio. Por exemplo: um modelo de dados secretos superiores que devem ser aplicados em todos os principal segredo relacionados com mensagens de correio eletrónico.
+As organizações que estão fracas no [classificação de dados](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e proteção de ficheiros pode ser mais suscetível a fuga de dados ou utilização indevida de dados. Com a proteção de arquivos apropriada, pode analisar fluxos de dados para obter informações sobre a sua empresa, detetar comportamentos de risco e tomar medidas corretivas, controlar o acesso a documentos e assim por diante.
 
-As organizações que são fracas no [classificação de dados](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e proteção de ficheiros pode ser mais suscetível a fuga de dados. Sem proteção de ficheiros adequado, as organizações não conseguirão obter informações empresariais, monitorizar abusos e impedir o acesso malicioso a ficheiros.
+## <a name="next-steps"></a>Passos Seguintes
+Ver [padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais melhores práticas de segurança a utilizar quando estiver conceber, implementar e gerir soluções na cloud ao utilizar o Azure.
 
-Pode saber mais sobre o Azure RMS ao ler o artigo [introdução ao Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+Os seguintes recursos estão disponíveis para fornecer informações mais gerais acerca da segurança do Azure e serviços Microsoft relacionados:
+* [Blogue de equipa de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as mais recentes da segurança do Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – onde podem ser comunicadas as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, ou por e-mail para secure@microsoft.com

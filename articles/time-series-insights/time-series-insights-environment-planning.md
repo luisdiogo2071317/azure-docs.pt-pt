@@ -11,16 +11,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 90a01e1b6741d0668a71e612d9c0cf90871b67da
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578162"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366323"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planejar seu ambiente do Azure Time Series Insights
 
 Este artigo descreve como planejar seu ambiente do Azure Time Series Insights com base na sua taxa de entrada esperada e os requisitos de retenção de dados.
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Neste vídeo, vamos abordar a retenção de dados do Time Series Insights e como planejá-la.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -63,8 +69,8 @@ A tabela seguinte resume a capacidade de entrada para cada SKU:
 
 |SKU  |Contagem de eventos por mês, por unidade  |Por mês, por unidade de tamanho de eventos  |Contagem de eventos por minuto, por unidade  | Tamanho por minuto, por unidade   |
 |---------|---------|---------|---------|---------|
-|S1     |   30 milhões     |  30 GB     |  700    |  700 KB   |
-|S2     |   300 milhões    |   300 GB   | 7,000   | 7.000 KB  |
+|S1     |   30 milhões     |  30 GB     |  720    |  720 KB   |
+|S2     |   300 milhões    |   300 GB   | 7200   | 7.200 KB  |
 
 Pode aumentar a capacidade de um S1 ou S2 SKU de 10 unidades num único ambiente. Não é possível migrar de um ambiente de S1 para S2 ou de um ambiente de S2 para um S1. 
 
@@ -72,7 +78,7 @@ Para a capacidade de entrada, deve determinar primeiro a entrada total que exigi
 
 Se tiver um pico na sua entrada de dados em menos de 24 horas de duração, o Time Series Insights pode "catch-up" a uma taxa de entrada de 2 x preços listados acima. 
 
-Por exemplo, se tiver um único S1 SKU e os dados de entrada a uma taxa de 700 eventos por minuto e o pico durante menos de 1 hora a uma taxa de eventos de 1400 ou menos, não haveria nenhuma latência perceptível ao seu ambiente. No entanto, se exceder 1400 eventos por minuto durante mais de uma hora, provavelmente teriam latência para dados que são visualizados e estão disponíveis para consulta no seu ambiente. 
+Por exemplo, se tiver um único S1 SKU e os dados de entrada a uma taxa de 720 eventos por minuto e o pico durante menos de 1 hora a uma taxa de eventos de 1440 ou menos, não haveria nenhuma latência perceptível ao seu ambiente. No entanto, se exceder 1440 eventos por minuto durante mais de uma hora, provavelmente teriam latência para dados que são visualizados e estão disponíveis para consulta no seu ambiente. 
 
 Talvez não saiba com antecedência a quantidade de dados esperado enviar por push. Neste caso, pode encontrar a telemetria de dados para [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) e [Event Hubs do Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) no portal do Azure. Este telemetria pode ajudá-lo a determinar como aprovisionar o seu ambiente. Utilize o **métricas** página no portal do Azure, a respetiva origem do evento ver a respetiva telemetria. Se compreender suas métricas de origem do evento, pode planear com mais eficiência e aprovisionar o seu ambiente do Time Series Insights.
 
@@ -97,15 +103,19 @@ Tenha em atenção que os dados de referência não está associada retroativame
 Para saber mais sobre como criar, carregar e gerir os seus dados de referência no TSI, aceda ao nosso *dados de referência* documentação [documentação](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="business-disaster-recovery"></a>Recuperação após desastre de negócio
-Como um serviço do Azure, o Time Series Insights fornece elevada disponibilidade (HA) com redundâncias ao nível da região do Azure, sem qualquer trabalho adicional necessário para a solução. A plataforma Microsoft Azure também inclui recursos para ajudar a criar soluções com capacidades de recuperação (DR) após desastre ou entre regiões de disponibilidade. Se quiser fornecer global, entre regiões de elevada disponibilidade para dispositivos ou utilizadores, tirar partido destas funcionalidades de DR do Azure. O artigo [orientações técnicas de continuidade do negócio de Azure](../resiliency/resiliency-technical-guidance.md) descreve as funcionalidades incorporadas no Azure para a continuidade do negócio e de DR. [Recuperação após desastre e elevada disponibilidade para aplicações do Azure] [recuperação após desastre e elevada disponibilidade para aplicações do Azure] documento fornece orientações de arquitetura sobre estratégias para aplicações do Azure alcançar a HA e DR.
+Como um serviço do Azure, o Time Series Insights fornece elevada disponibilidade (HA) com redundâncias ao nível da região do Azure, sem qualquer trabalho adicional necessário para a solução. A plataforma Microsoft Azure também inclui recursos para ajudar a criar soluções com capacidades de recuperação (DR) após desastre ou entre regiões de disponibilidade. Se quiser fornecer global, entre regiões de elevada disponibilidade para dispositivos ou utilizadores, tirar partido destas funcionalidades de DR do Azure. O artigo [orientações técnicas de continuidade do negócio de Azure](../resiliency/resiliency-technical-guidance.md) descreve as funcionalidades incorporadas no Azure para a continuidade do negócio e de DR. [Recuperação após desastre e elevada disponibilidade para aplicações do Azure] [https://docs.microsoft.com/en-us/azure/architecture/resiliency/index] documento fornece orientações de arquitetura sobre estratégias para aplicações do Azure alcançar a HA e DR.
 
-O Time Series Insights não tem recuperação após desastre de negócio internas (BCDR).  No entanto, os clientes que necessitam de BCDR ainda podem implementar uma estratégia de recuperação. Criar um ambiente de Time Series Insights segunda região do Azure backup e enviam eventos para este ambiente secundário da origem de eventos primário, tirando partido de um segundo grupo de consumidores dedicado e diretrizes BCDR essa origem de evento.  
+O Azure Time Series Insights não tem recuperação após desastre de negócio internas (BCDR). Os clientes que necessitam de BCDR ainda podem implementar uma estratégia de recuperação usando o seguinte método: 
+
+Criar um ambiente de Time Series Insights segunda região do Azure backup e enviam eventos para este ambiente secundário da origem de eventos primário, tirando partido de um segundo grupo de consumidores dedicado e diretrizes BCDR essa origem de evento.  
 
 1.  Crie o ambiente na segunda região.  Mais sobre como criar um ambiente do Time Series Insights [aqui](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 2.  Criar um segundo grupo de consumidores dedicado para a origem do evento e ligar essa origem de evento para o novo ambiente.  Certifique-se de que designar o grupo de consumidores dedicado, segundo.  Pode saber mais sobre isso ao seguir qualquer um [documentação do IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) ou [documentação do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Se a região primária ficam Inativos durante um incidente de desastres, mude ao longo de operações para o ambiente do Time Series Insights cópia de segurança.  
 
-Para saber mais sobre as políticas BCDR do IoT Hub, aceda [aqui](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Para saber mais sobre as políticas BCDR do hub de eventos, aceda [aqui](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+Por predefinição o Iot Hub do Azure e os Hubs de eventos tem recuperação incorporada. Para saber mais sobre as políticas BCDR do IoT Hub, aceda [aqui](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Para saber mais sobre as políticas BCDR do hub de eventos, aceda [aqui](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+
+É **importante ter em conta** durante qualquer cenário de ativação pós-falha pode haver um atraso antes do TSI pode iniciar o processamento das mensagens novamente. Isso pode causar um pico de processamento de mensagens para obter mais informações, fazer uma olhada no [limitação do Time Series Insights gerir](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Como adicionar uma origem de evento do Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md)

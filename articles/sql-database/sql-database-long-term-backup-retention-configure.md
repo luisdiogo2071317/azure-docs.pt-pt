@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d448a4a75d966dcf2cdc6e3d50da2c94f8e7f5d8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 850467dff0a16cb2ac7cda44537406f0267711b4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163129"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366527"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
@@ -29,7 +29,7 @@ As secções seguintes mostram como utilizar o portal do Azure para configurar a
 
 Pode configurar a base de dados SQL [reter cópias de segurança automáticas](sql-database-long-term-retention.md) durante um período maior do que o período de retenção para a camada de serviço. 
 
-1. No portal do Azure, selecione o seu servidor SQL e, em seguida, clique em **gerir cópias de segurança**. Sobre o **configurar políticas de** separador, selecione a base de dados no qual pretende definir ou modificar as políticas de retenção de cópia de segurança de longo prazo.
+1. No portal do Azure, selecione o seu servidor SQL e, em seguida, clique em **gerir cópias de segurança**. Sobre o **configurar políticas de** separador, selecione a caixa de verificação para a base de dados no qual pretende definir ou modificar as políticas de retenção de cópia de segurança de longo prazo.
 
    ![gerir cópias de segurança de ligação](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

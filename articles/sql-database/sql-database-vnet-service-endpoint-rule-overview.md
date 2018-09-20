@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/18/2018
 ms.reviewer: vanto
 ms.author: dmalik
-ms.openlocfilehash: e1c05b56a1a7cc57b4d85d696df324438d916f11
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 51a9c1e2528833f0931e0bff30a9ec8a78eb99e0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720729"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367343"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 
@@ -62,7 +62,7 @@ Uma regra de rede virtual informa ao seu servidor de base de dados SQL para acei
 
 Até que o faça, as VMs nas suas sub-redes não consegue comunicar com a base de dados SQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A lógica para escolher a abordagem de regra de VNet requer uma discussão de comparação e contraste que envolvem as opções de segurança concorrentes oferecidas pelo firewall.
 
-#### <a name="a-allow-access-to-azure-services"></a>A. Permitir acesso aos serviços do Azure
+#### <a name="a-allow-access-to-azure-services"></a>R. Permitir acesso aos serviços do Azure
 
 O painel de firewall tem um **ON/OFF** botão assinalada como **permitir o acesso aos serviços do Azure**. O **ON** definição permite comunicações a partir de todos os endereços IP do Azure e todas as sub-redes do Azure. Estes IPs do Azure ou a sub-redes não podem ser propriedade por si. Isso **ON** definição é provavelmente mais aberta que pretende que a base de dados do SQL ser. O recurso de regra de rede virtual oferece muito controle mais granular.
 
@@ -125,7 +125,7 @@ Tem a opção de usar [controlo de acesso baseado em funções (RBAC)] [ rbac-wh
 
 Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual tem as seguintes limitações:
 
-- Uma aplicação Web pode ser mapeada para um IP privado na VNet/subrede. Mesmo que os pontos finais de serviço são ativados da VNet/subrede determinado, ligações a partir da aplicação Web para o servidor terá uma origem de IP pública do Azure, não uma origem de VNet/subrede. Para ativar a conectividade de uma aplicação Web para um servidor que tem regras de firewall da VNet, deve **permitir que todos os serviços Azure** no servidor.
+- Uma aplicação Web pode ser mapeada para um IP privado na VNet/subrede. Mesmo que os pontos finais de serviço são ativados da VNet/subrede determinado, ligações a partir da aplicação Web para o servidor terá uma origem de IP pública do Azure, não uma origem de VNet/subrede. Para ativar a conectividade de uma aplicação Web para um servidor que tem regras de firewall da VNet, deve **dos serviços do Azure permitem ao servidor de acesso** no servidor.
 
 - Na firewall da base de dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas tem de estar alojadas na mesma região geográfica que aloja a base de dados SQL.
 
@@ -157,23 +157,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>Impacto da remoção de "Permitir todos os serviços do Azure"
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Impacto da remoção de 'Serviços do Azure permitem que acedam ao servidor'
 
-Número de utilizadores que pretende remover **permitir que todos os serviços Azure** de seus servidores de SQL do Azure e substituí-lo com uma regra de Firewall da VNet.
+Número de utilizadores que pretende remover **dos serviços do Azure permitem ao servidor de acesso** de seus servidores de SQL do Azure e substituí-lo com uma regra de Firewall da VNet.
 No entanto, a remover Isto afeta as seguintes funcionalidades do Azure SQLDB:
 
 #### <a name="import-export-service"></a>Serviço de exportação de importação
-Serviço de exportação de importação de SQLDB do Azure é executado em VMs no Azure. Estas VMs não estão na sua VNet e, por conseguinte, obtém um IP do Azure ao ligar à base de dados. Na remoção **permitir que todos os serviços Azure** estas VMs não será possível aceder aos seus bancos de dados.
+Serviço de exportação de importação de SQLDB do Azure é executado em VMs no Azure. Estas VMs não estão na sua VNet e, por conseguinte, obtém um IP do Azure ao ligar à base de dados. Na remoção **dos serviços do Azure permitem ao servidor de acesso** estas VMs não será possível aceder aos seus bancos de dados.
 Pode contornar o problema. Executar a importação BACPAC ou exportar diretamente em seu código com a API de DACFx. Certifique-se de que isso é implementado numa VM que está na sub-rede de VNet para o qual tem de definir a regra de firewall.
 
 #### <a name="sql-database-query-editor"></a>Editor de consultas de base de dados SQL
-O Editor de consultas de base de dados de SQL do Azure é implementado em VMs no Azure. Estas VMs não estão na sua VNet. Por conseguinte, as VMs obtém um IP do Azure ao ligar à base de dados. Na remoção **permitir que todos os serviços Azure**, essas VMs não será possível aceder aos seus bancos de dados.
+O Editor de consultas de base de dados de SQL do Azure é implementado em VMs no Azure. Estas VMs não estão na sua VNet. Por conseguinte, as VMs obtém um IP do Azure ao ligar à base de dados. Na remoção **dos serviços do Azure permitem ao servidor de acesso**, essas VMs não será possível aceder aos seus bancos de dados.
 
 #### <a name="table-auditing"></a>Auditoria de tabelas
 Neste momento, existem duas formas de ativar a auditoria na base de dados SQL. Auditoria de tabelas falha após ativar pontos finais de serviço no seu servidor SQL do Azure. Mitigação aqui é mover para auditoria de Blobs.
 
 #### <a name="impact-on-data-sync"></a>Impacto na sincronização de dados
-SQLDB do Azure tem a funcionalidade de sincronização de dados que se liga a suas bases de dados utilizam IPs do Azure. Quando utilizar pontos finais de serviço, é provável que irá desativar **permitir que todos os serviços Azure** acesso ao seu servidor lógico. Tal irá interromper a funcionalidade de sincronização de dados.
+SQLDB do Azure tem a funcionalidade de sincronização de dados que se liga a suas bases de dados utilizam IPs do Azure. Quando utilizar pontos finais de serviço, é provável que irá desativar **dos serviços do Azure permitem ao servidor de acesso** acesso ao seu servidor lógico. Tal irá interromper a funcionalidade de sincronização de dados.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto da utilização de pontos finais de serviço de VNet com o armazenamento do Azure
 

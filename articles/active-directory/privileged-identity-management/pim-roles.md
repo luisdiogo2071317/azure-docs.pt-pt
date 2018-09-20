@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300278"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466052"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Funções de diretório do Azure AD que pode gerir no PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -34,20 +34,20 @@ Não existe nenhuma diferença no acesso concedido a qualquer pessoa com uma per
 ## <a name="roles-managed-in-pim"></a>Funções gerenciadas no PIM
 Privileged Identity Management permite-lhe atribuir utilizadores a funções de administrador comuns, incluindo:
 
-* **Administrador global** (também conhecido como administrador de empresa) tem acesso a todas as funcionalidades administrativas. Pode ter mais do que um administrador global na sua organização. A pessoa que se inscreve para comprar o Office 365 automaticamente torna-se um administrador global.
-* **Administrador com função privilegiada** gere o PIM do Azure AD e atualiza as atribuições de funções para outros utilizadores.  
+* **Administrador global** (também conhecido como administrador de empresa) tem acesso a todas as funcionalidades administrativas. Pode ter mais do que um Administrador Global na sua organização. A pessoa que se inscreve para comprar o Office 365 automaticamente torna-se um Administrador Global.
+* **Com privilégios de administrador com função** gere o PIM do Azure AD e atualiza as atribuições de funções para outros utilizadores.  
 * **Administrador de faturação** efetua compras, gere subscrições, gere pedidos de suporte e monitoriza o estado de funcionamento do serviço.
-* **Administrador de palavras-passe** repõe palavras-passe, gere pedidos de serviço e monitoriza o estado de funcionamento do serviço. Os administradores de palavra-passe estão limitados à reposição de palavras-passe para os utilizadores.
+* **Palavra-passe de administrador** repõe palavras-passe, gere pedidos de serviço e monitoriza o estado de funcionamento do serviço. Os administradores de palavra-passe estão limitados à reposição de palavras-passe para os utilizadores.
 * **Administrador de serviços** gere pedidos de serviço e monitoriza o estado de funcionamento do serviço.
   
   > [!NOTE]
-  > Se estiver a utilizar o Office 365, em seguida, antes de atribuir a função de administrador de serviço para um utilizador, primeiro de atribuir o utilizador permissões administrativas para um serviço, como o Exchange Online.
+  > Se estiver a utilizar o Office 365, em seguida, antes de atribuir a função de administrador de serviço para um utilizador, primeiro de atribuir as permissões administrativas de utilizador para um serviço, como o Exchange Online.
   > 
   > 
-* **Administrador de gestão de utilizadores** repõe palavras-passe, monitoriza o estado de funcionamento do serviço e gere contas de utilizador, grupos de utilizadores e pedidos de serviço. O administrador de gestão de utilizadores não é possível eliminar um administrador global, criar outras funções de administrador ou repor palavras-passe para faturação, globais e administradores de serviço.
+* **Utilizador administrador** repõe palavras-passe, monitoriza o estado de funcionamento do serviço e gere contas de utilizador, grupos de utilizadores e pedidos de serviço. O administrador de utilizador não é possível eliminar um Administrador Global, criar outras funções de administrador ou repor palavras-passe para faturação, globais e administradores de serviço.
 * **Administrador do Exchange** tenha acesso administrativo para o Exchange Online através do Centro de administração do Exchange (EAC) e podem executar quase qualquer tarefa no Exchange Online.
-* **Administrador do SharePoint (pré-visualização)** tenha acesso administrativo ao SharePoint Online através do Centro de administração do SharePoint Online e podem executar quase qualquer tarefa no SharePoint Online. Esta função está atualmente em pré-visualização. Os utilizadores elegíveis poderão ocorrem atrasos com esta função dentro do SharePoint após a ativação no PIM.
-* **Skype para o administrador da empresa** tenha acesso administrativo ao Skype para empresas através do Skype para o Centro de administração de negócios e podem executar quase qualquer tarefa no Skype para empresas Online.
+* **Administrador do serviço SharePoint** tenha acesso administrativo ao SharePoint Online através do Centro de administração do SharePoint Online e podem executar quase qualquer tarefa no SharePoint Online. Os utilizadores elegíveis poderão ocorrem atrasos com esta função dentro do SharePoint após a ativação no PIM.
+* **Skype para empresas administrador** tenha acesso administrativo ao Skype para empresas através do Skype para o Centro de administração de negócios e podem executar quase qualquer tarefa no Skype para empresas Online.
 
 Leia os artigos seguintes para obter mais detalhes sobre [atribuir funções de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md) e [atribuir funções de administrador no Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 

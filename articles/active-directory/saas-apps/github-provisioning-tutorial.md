@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346173"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367663"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para o aprovisionamento automático de utilizadores
 
@@ -80,7 +80,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
     ![Caixa de diálogo de autorização](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. No portal do Azure, de entrada **URL de inquilino** e clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação do GitHub. Se a ligação falhar, certifique-se de sua conta do GitHub com permissões de administrador e **URl de inquilino** é introduzido corretamente, em seguida, repita o passo de "Autorizar" (pode constituem **URL de inquilino** através da regra: `https://api.github.com/scim/v2/<Organizations_name>` Pode encontrar suas organizações na sua conta do GitHub: **configurações** > **organizações**).
+7. No portal do Azure, de entrada **URL de inquilino** e clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação do GitHub. Se a ligação falhar, certifique-se de sua conta do GitHub com permissões de administrador e **URl de inquilino** é introduzido corretamente, em seguida, repita o passo de "Autorizar" (pode constituem **URL de inquilino** através da regra: `https://api.github.com/scim/v2/organizations/<Organization_name>` Pode encontrar suas organizações na sua conta do GitHub: **configurações** > **organizações**).
 
     ![Caixa de diálogo de autorização](./media/github-provisioning-tutorial/GitHub3.png)
 

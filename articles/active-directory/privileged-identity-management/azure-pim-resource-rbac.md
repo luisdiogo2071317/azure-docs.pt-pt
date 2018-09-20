@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188973"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465236"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>Ver quem tem funções de recursos do Azure no PIM
 
@@ -38,7 +38,7 @@ Com o Azure Active Directory Privileged Identity Management (PIM), pode gerir, c
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Ativação do modo de exibição e a atividade de recursos do Azure
 
-No caso de precisar de ver as ações realizou de um utilizador específico em vários recursos, pode rever a atividade de recursos do Azure associada a um período de ativação de determinado (para os utilizadores elegíveis). Comece por selecionar um utilizador, da vista de membros ou na lista de membros numa função específica. O resultado mostra uma visão gráfica das ações do usuário nos recursos do Azure por data e as ativações de função recente no mesmo período de tempo.
+No caso de precisar de ver as ações realizou de um utilizador específico em vários recursos, pode rever a atividade de recursos do Azure associada a um período de ativação de determinado (para os utilizadores elegíveis). Comece por selecionar um utilizador, da vista de membros ou na lista de membros numa função específica. O resultado mostra uma visão gráfica das ações do usuário em recursos do Azure por data e as ativações de função recente no mesmo período de tempo.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 

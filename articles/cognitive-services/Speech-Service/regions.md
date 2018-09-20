@@ -8,32 +8,33 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: d651a0a9e006e996db44b82eeaf0a1242a4114e0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d2c40935504f6c2d477eae1830e58bf782d28b11
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296095"
+ms.locfileid: "46366205"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de voz
 
 O serviço de voz está disponível em regiões diferentes.
-Quando cria uma subscrição pode escolher uma região disponível, consoante as suas necessidades.
+Quando cria uma subscrição, pode selecionar uma região disponível com base nas suas necessidades.
 
-Quando utilizar a sua subscrição tem em conta a região que selecionou.
+Quando utilizar a sua subscrição, terá de levar em conta a região que selecionou.
 
 ## <a name="rest-api"></a>API REST
 
-Com a API REST, escolha os pontos de extremidade direita específico da região.
+Utilize a API REST para selecionar os pontos de extremidade específico da região corretos.
 Ver [REST APIs](rest-apis.md) para obter detalhes.
 
 ## <a name="speech-sdk"></a>API de Voz
 
-Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) no SDK de voz para c#).
+Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres.
+Um exemplo é como um parâmetro para [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) no SDK de voz para c#.
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regiões para reconhecimento de fala e tradução
 
-A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e **tradução**:
+A tabela seguinte lista as regiões disponíveis para **reconhecimento de fala** e **tradução**.
 
   Região | Parâmetro do SDK de voz | Portal
  ------|-------|--------
@@ -49,6 +50,6 @@ A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e
 
 ### <a name="regions-for-intent-recognition"></a>Regiões para o reconhecimento da intenção do
 
-Regiões disponíveis para **reconhecimento da intenção** através do SDK de voz estão listados na [página de região do serviço de compreensão de idiomas](/azure/cognitive-services/luis/luis-reference-regions).
+Regiões disponíveis para **reconhecimento da intenção** através do SDK de voz estão listados no [página de região do serviço de compreensão de idiomas](/azure/cognitive-services/luis/luis-reference-regions).
 Para cada região publicação listado, o parâmetro de região do SDK de voz correspondente será determinado como a primeira parte do nome do domínio do ponto de extremidade.
 Por exemplo, utilizar `westus` para especificar a região de publicação de EUA oeste.

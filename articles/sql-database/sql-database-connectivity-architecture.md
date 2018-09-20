@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dhruv
-ms.openlocfilehash: 8159a9eb8d8829ed01609cebc3ae41713892f6cf
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6066462d0a7f31698745275c3c6d65c4e09d9cc5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630186"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364149"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de banco de dados SQL do Azure 
 
@@ -51,13 +51,16 @@ Se estiver a ligar de fora do Azure, as suas ligações têm uma política de li
 ![Descrição geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Quando utilizar pontos finais de serviço com a base de dados do Azure SQL sua política é **Proxy** por predefinição. Para ativar a conectividade na sua Vnet, permita ligações de saída para os endereços de IP de Gateway do Azure SQL da base de dados especificados na lista abaixo. Quando utilizar pontos finais de serviço é altamente recomendável sua política de ligação para a alteração **redirecionar** para permitir um melhor desempenho. Se alterar a sua política de ligação para **redirecionar** não será suficiente permitir a saída em seu NSG ao gateway do Azure SQLDB IPs listados abaixo, tem de permitir saída para todos os IPs de SQLDB do Azure. Isso pode ser feito com a ajuda de etiquetas de serviço do NSG (grupos de segurança de rede). Para obter mais informações, consulte [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> Quando utilizar pontos finais de serviço com a base de dados do Azure SQL sua política é **Proxy** por predefinição. Para ativar a conectividade na sua VNet, tem de permitir ligações de saída para os endereços de IP de Gateway do Azure SQL da base de dados especificados na lista abaixo. Quando utilizar pontos finais de serviço é altamente recomendável sua política de ligação para a alteração **redirecionar** para permitir um melhor desempenho. Se alterar a sua política de ligação para **redirecionar** não será suficiente permitir a saída em seu NSG ao gateway do Azure SQLDB IPs listados abaixo, tem de permitir saída para todos os IPs de SQLDB do Azure. Isso pode ser feito com a ajuda de etiquetas de serviço do NSG (grupos de segurança de rede). Para obter mais informações, consulte [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços de IP do gateway da base de dados SQL do Azure
 
 Para ligar a uma base de dados SQL do Azure a partir de recursos no local, terá de permitir tráfego de rede de saída para o gateway de base de dados do Azure SQL para a sua região do Azure. As suas ligações aceda apenas através do gateway ao ligar-se no modo de Proxy, que é o padrão ao ligar a partir de recursos no local.
 
 A tabela seguinte lista os IPs primário e secundário do gateway para todas as regiões de dados SQL Database do Azure. Para algumas regiões, existem dois endereços IP. Nestas regiões, o endereço IP principal é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de ativação pós-falha. O endereço de ativação pós-falha é o endereço para o qual estamos pode ser movida seu servidor para manter a alta disponibilidade do serviço. Para estas regiões, recomendamos que permite que saída para os endereços IP. O segundo endereço IP pertence à Microsoft e não escutar em quaisquer serviços até que seja ativado pela base de dados do Azure SQL para aceitar ligações.
+
+> [!IMPORTANT]
+> Se estiver a ligar a partir do Azure a sua política de ligação serão **redirecionar** por predefinição (exceto se estiver a utilizar pontos finais de serviço). Não é suficiente para permitir que os seguintes IPs. Tem de permitir todos os IPs de base de dados do SQL Azure. Se estiver a ligar de dentro de uma VNet, pode fazê-lo com a ajuda de etiquetas de serviço do NSG (grupos de segurança de rede). Para obter mais informações, consulte [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nome da Região | Endereço IP primário | Endereço IP secundário |
 | --- | --- |--- |

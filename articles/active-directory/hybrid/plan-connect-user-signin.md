@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 33072732053325f29dc44e4a46b809c1afaa93f4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312649"
+ms.locfileid: "46365847"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador início de sessão
 O Azure Active Directory (Azure AD) Connect permite aos utilizadores iniciar sessão nos recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade ajudar a escolher a identidade que pretende utilizar para iniciar sessão no Azure AD.
@@ -114,7 +114,7 @@ O UPN do utilizador tem o formato username@domain. Por exemplo, para um domínio
 ### <a name="user-principal-name-in-azure-ad"></a>Nome principal de utilizador no Azure AD
 O Assistente do Azure AD Connect utiliza o atributo userPrincipalName ou permite-lhe especificar o atributo (numa instalação personalizada) a ser utilizado no local como o nome principal de utilizador no Azure AD. Este é o valor que é utilizado para iniciar sessão com o Azure AD. Se o valor do atributo userPrincipalName não corresponde a um domínio verificado no Azure AD, em seguida, do Azure AD substitui por um predefinido. onmicrosoft.com valor.
 
-Cada diretório no Azure Active Directory é fornecido com um nome de domínio interno, com o formato de contoso.onmicrosoft.com, que lhe permite começar a utilizar o Azure ou outros serviços Microsoft. Pode melhorar e simplificar a experiência de início de sessão através da utilização de domínios personalizados. Para obter informações sobre nomes de domínio personalizados no Azure AD e como verificar um domínio, consulte [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
+Cada diretório no Azure Active Directory é fornecido com um nome de domínio interno, com o formato de contoso.onmicrosoft.com, que lhe permite começar a utilizar o Azure ou outros serviços Microsoft. Pode melhorar e simplificar a experiência de início de sessão através da utilização de domínios personalizados. Para obter informações sobre nomes de domínio personalizados no Azure AD e como verificar um domínio, consulte [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Configuração do início de sessão do Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Configuração do Azure AD início de sessão com o Azure AD Connect

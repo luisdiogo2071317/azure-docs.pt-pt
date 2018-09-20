@@ -1,26 +1,27 @@
 ---
-title: Introdução à API de reconhecimento de voz Microsoft no Objective-C no iOS | Microsoft Docs
-description: Utilize a API de reconhecimento de voz do Microsoft para desenvolver aplicações iOS que converter áudio ditas em texto.
+title: Comece com a API de reconhecimento de voz do Bing no Objective-C no iOS | Documentos da Microsoft
+titlesuffix: Azure Cognitive Services
+description: Utilize a API de reconhecimento de voz do Bing para desenvolver aplicações de iOS que converta áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af678ab1f63115d202214a754ad7afcb33b2f08a
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352238"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366629"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>Introdução à API de reconhecimento de voz no Objective-C no iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Início rápido: Utilizar a API de reconhecimento de voz do Bing no Objective-C no iOS
 
-Com a API de reconhecimento de voz, pode desenvolver aplicações de iOS que utilizam o serviço baseado na nuvem de reconhecimento de voz para converter áudio ditas para texto. A API suporta a transmissão em fluxo em tempo real, para que a aplicação possa em simultâneo e no modo assíncrono receber os resultados de reconhecimento parcial ao mesmo tempo que está a enviar para o serviço de áudio.
+Com a API de reconhecimento de fala, pode desenvolver aplicações de iOS que utilizam o serviço de voz com base na cloud para converter áudio falado em texto. A API suporta a transmissão em fluxo em tempo real, para que seu aplicativo possa em simultâneo e assincronamente receber resultados de reconhecimento parcial, ao mesmo tempo que seja o envio de áudio para o serviço.
 
-Este artigo utiliza uma aplicação de exemplo para demonstrar as noções básicas sobre como começar a utilizar com a API de reconhecimento de voz para desenvolver uma aplicação iOS. Para uma referência de API completa, consulte o [referência da biblioteca cliente SDK de reconhecimento de voz](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
+Este artigo utiliza um aplicativo de exemplo para demonstrar as noções básicas de como começar com a API de reconhecimento de voz para desenvolver uma aplicação iOS. Para obter uma referência de API completa, consulte a [referência da biblioteca de cliente SDK de voz](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,36 +29,36 @@ Este artigo utiliza uma aplicação de exemplo para demonstrar as noções bási
 
 Certifique-se de que o IDE do XCode Mac está instalado.
 
-### <a name="get-the-client-library-and-examples"></a>Instalar o cliente da biblioteca e exemplos
+### <a name="get-the-client-library-and-examples"></a>Instalar o cliente biblioteca e exemplos
 
-A biblioteca de cliente de reconhecimento de voz e exemplos de iOS estão disponíveis no [voz SDK cliente para iOS](https://github.com/microsoft/cognitive-speech-stt-ios).
+A biblioteca de cliente de voz e exemplos para iOS que estão disponíveis na [SDK de cliente de voz para iOS](https://github.com/microsoft/cognitive-speech-stt-ios).
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Subscrever a API de reconhecimento de voz e obter uma chave de subscrição de avaliação gratuita
 
-A API de reconhecimento de voz faz parte de serviços cognitivos (anteriormente Oxford de projeto). Pode obter as chaves de subscrição de avaliação gratuita do [subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de reconhecimento de voz, selecione **obter chave de API** para obter a chave. Devolve uma chave primária e secundária. Ambas as chaves estão associadas a quota mesmo, pelo que pode utilizar a chave.
+A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford). Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
 
-Se pretender utilizar *reconhecimento com intenção*, terá também de inscrever-se a [idioma compreender inteligente serviço (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+Se quiser usar *reconhecimento com a intenção*, terá também de inscrever-se a [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
-> * Obter uma chave de subscrição. Antes de poder utilizar bibliotecas de cliente de reconhecimento de voz, tem de ter um [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
+> * Obter uma chave de subscrição. Antes de poder utilizar bibliotecas de cliente de voz, tem de ter uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Utilize a sua chave de subscrição. Com a aplicação de exemplo fornecidos iOS, terá de atualizar o ficheiro Samples/SpeechRecognitionServerExample/settings.plist com a sua chave de subscrição. Para obter mais informações, consulte [compilar e executar amostras](#build-and-run-samples).
+> * Utilize a sua chave de subscrição. Com o aplicativo de exemplo fornecido iOS, terá de atualizar o ficheiro Samples/SpeechRecognitionServerExample/settings.plist com a sua chave de subscrição. Para obter mais informações, consulte [compilar e executar exemplos](#build-and-run-samples).
 
-## <a name="use-the-speech-client-library"></a>Utilize a biblioteca de cliente de reconhecimento de voz
+## <a name="use-the-speech-client-library"></a>Utilize a biblioteca de cliente de voz
 
-Para adicionar a biblioteca de clientes para um projeto XCode, siga estes [instruções](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-client-library).
+Para adicionar a biblioteca de cliente num projeto XCode, siga estes [instruções](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-client-library).
 
-Para localizar o cliente referência da biblioteca para iOS, consulte este [página Web](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
+Para encontrar o cliente de referência da biblioteca para iOS, veja este [página Web](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
-## <a name="build-and-run-samples"></a>Compilar e executar as amostras
+## <a name="build-and-run-samples"></a>Criar e executar exemplos
 
-Para obter informações sobre a compilação e execução de exemplos, consulte este [página Leia-me](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-sample).
+Para obter informações sobre como compilação e execução de exemplos, consulte esta [página Leia-me](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-sample).
 
-## <a name="samples-explained"></a>Amostras explicadas
+## <a name="samples-explained"></a>Exemplos de explicado
 
-### <a name="create-recognition-clients"></a>Criar os clientes de reconhecimento
+### <a name="create-recognition-clients"></a>Criar clientes de reconhecimento
 
-O código no exemplo seguinte mostra como criar classes de cliente de reconhecimento com base em cenários de utilizador:
+O código no exemplo a seguir mostra como criar classes de cliente de reconhecimento com base em cenários de usuário:
 
 ```
 {
@@ -108,38 +109,38 @@ O código no exemplo seguinte mostra como criar classes de cliente de reconhecim
 
 ```
 
-A biblioteca de clientes fornece reconhecimento previamente implementado as classes de cliente para cenários típicos de reconhecimento de voz:
+A biblioteca de cliente fornece reconhecimento previamente implementado classes de cliente para cenários típicos de reconhecimento de voz:
 
-* `DataRecognitionClient`: O reconhecimento de voz com dados PCM (por exemplo, a partir de uma origem de ficheiro ou de áudio). Os dados são divididos cópias de segurança em memórias intermédias e cada memória intermédia é enviada para o serviço de reconhecimento de voz. Sem modificações é feita para memórias intermédias, pelo que os utilizadores podem aplicar as seus próprios deteção de silêncio, se assim o desejar. Se os dados de ficheiros WAV, pode enviar dados a partir da direita do ficheiro para o servidor. Se tiver dados não processados, por exemplo, através de Bluetooth, áudio, primeiro enviar um cabeçalho de formato para o servidor seguido os dados.
-* `MicrophoneRecognitionClient`: O reconhecimento de voz com áudio feitos microfone. Certifique-se microfone está ativado e que os dados do microfone são enviados para o serviço de reconhecimento de voz. Um "silêncio Detector" incorporado é aplicada aos dados microfone antes de ser enviada para o serviço de reconhecimento.
-* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: para além do texto de reconhecimento, estes clientes devolvem estruturadas informações sobre a intenção de orador, que as aplicações podem utilizar para implementarem mais ações. Para utilizar "Intenção", precisa de formação de um modelo pela primeira vez utilizando [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClient`: Reconhecimento de voz com dados PCM (por exemplo, a partir de uma origem de ficheiro ou áudio). Os dados são divididos em buffers, e cada buffer é enviado para o serviço de voz. Sem modificação é feita para os buffers, para que os utilizadores podem aplicar a sua própria detecção de silêncio, se assim o desejar. Se não for fornecidos os dados de arquivos WAV, pode enviar dados do ficheiro diretamente para o servidor. Se tiver dados não processados, por exemplo, áudio através de Bluetooth, primeiro enviar um cabeçalho de formato para o servidor seguido pelos dados.
+* `MicrophoneRecognitionClient`: O reconhecimento de fala com áudio proveniente de microfone. Certifique-se de que o microfone está ativado e que os dados do microfone são enviados para o serviço de reconhecimento de fala. Um "silêncio detetor" incorporada é aplicada aos dados microfone antes do envio para o serviço de reconhecimento.
+* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: Além de texto de reconhecimento, estes clientes devolvem informações estruturadas sobre a intenção do falante, que seus aplicativos podem usar para orientar mais ações. Para utilizar o "Objetivo", precisa primeiro preparar um modelo ao utilizar [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Idioma de reconhecimento
 
-Quando utiliza `SpeechRecognitionServiceFactory` para criar o cliente, tem de selecionar um idioma. Para obter a lista completa dos idiomas suportados pelo serviço de reconhecimento de voz, consulte [idiomas suportados](../API-Reference-REST/supportedlanguages.md).
+Quando utiliza `SpeechRecognitionServiceFactory` para criar o cliente, tem de selecionar um idioma. Para obter a lista completa de idiomas suportados pelo serviço de voz, consulte [idiomas suportados](../API-Reference-REST/supportedlanguages.md).
 
 ### <a name="speechrecognitionmode"></a>SpeechRecognitionMode
 
-Também tem de especificar `SpeechRecognitionMode` quando cria o cliente com `SpeechRecognitionServiceFactory`:
+Também tem de especificar `SpeechRecognitionMode` ao criar o cliente com `SpeechRecognitionServiceFactory`:
 
-* `SpeechRecognitionMode_ShortPhrase`: Um utterance até 15 segundos de tempo. Como os dados são enviados para o serviço, o cliente receberá vários resultados parciais e um resultado final com várias opções de n melhor.
-* `SpeechRecognitionMode_LongDictation`: Um utterance até dois minutos longa. Como os dados são enviados para o serviço, o cliente receberá vários resultados parciais e vários resultados finais, com base no onde o servidor identifica o frase pausa.
+* `SpeechRecognitionMode_ShortPhrase`: Uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o serviço, o cliente recebe vários resultados parciais e um resultado final com várias opções de múltipla.
+* `SpeechRecognitionMode_LongDictation`: Uma expressão até dois minutos longa. Enquanto os dados são enviados para o serviço, o cliente recebe vários resultados parciais e finais, com base no qual o servidor identifica as pausas das frases.
 
-### <a name="attach-event-handlers"></a>Anexar processadores de eventos
+### <a name="attach-event-handlers"></a>Anexar manipuladores de eventos
 
-Pode anexar vários processadores de eventos para o cliente que criou:
+Pode anexar vários manipuladores de eventos para o cliente que criou:
 
-* **Eventos de resultados parciais**: Este evento é chamado sempre que o serviço de reconhecimento de voz prevê que poderá ser indicar, mesmo antes de terminar a falando (se utilizar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se utilizar `DataRecognitionClient`).
+* **Eventos de resultados parciais**: Este evento é chamado sempre que esse serviço de voz prevê o que poderá ser dizendo, até mesmo antes de acabar de fala (se usar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se usar `DataRecognitionClient`).
 * **Eventos de erro**: chamado quando o serviço Deteta um erro.
-* **Eventos intenção**: chamado nos clientes "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado para um objetivo JSON structured.
+* **Eventos de intenção**: chamado nos clientes de "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado numa intenção do JSON estruturada.
 * **Resultar eventos**:
-  * No `SpeechRecognitionMode_ShortPhrase` modo, este evento é chamado e devolve n melhores resultados, depois de concluir falando.
-  * No `SpeechRecognitionMode_LongDictation` modo, o processador de eventos é chamado várias vezes, com base na qual o serviço identifica o frase pausa.
-  * **Para cada uma das opções de n melhor**, são devolvidas um valor de confiança e algumas formas diferentes de texto reconhecido. Para obter mais informações, consulte [formato de saída](../Concepts.md#output-format).
+  * No `SpeechRecognitionMode_ShortPhrase` modo, este evento é chamado e devolve resultados de múltipla depois de concluir a falar.
+  * No `SpeechRecognitionMode_LongDictation` modo, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica as pausas das frases.
+  * **Para cada uma das opções múltipla**, são devolvidas um valor de confiança e algumas maneiras diferentes do texto reconhecido. Para obter mais informações, consulte [formato de saída](../Concepts.md#output-format).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
 * [Referência da biblioteca de cliente para iOS](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)
-* [Começar com o reconhecimento de voz da Microsoft e/ou intenção em Java no Android](GetStartedJavaAndroid.md)
-* [Introdução à API de reconhecimento de voz Microsoft em JavaScript](GetStartedJSWebsockets.md)
-* [Introdução à API de reconhecimento de voz Microsoft através de REST](GetStartedREST.md)
+* [Introdução ao reconhecimento de voz da Microsoft e/ou intenção em Java no Android](GetStartedJavaAndroid.md)
+* [Comece com a API de voz da Microsoft em JavaScript](GetStartedJSWebsockets.md)
+* [Comece com a API de voz de Microsoft através de REST](GetStartedREST.md)

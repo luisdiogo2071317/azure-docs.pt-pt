@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/25/2018
+ms.date: 09/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 803dddd13ab3b18b6f161be9c0004d18c8d69f1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298239"
+ms.locfileid: "46364202"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -122,12 +122,10 @@ Se estiver a utilizar grupos de ativação pós-falha automática e de georrepli
 > 
 
 ### <a name="perform-a-geo-restore"></a>Efetuar um georrestauro
-Se estiver a utilizar cópias de segurança automáticas com a replicação de armazenamento georredundante como mecanismo de recuperação, [iniciar uma recuperação de base de dados com restauro geográfico](sql-database-disaster-recovery.md#recover-using-geo-restore). Recuperação têm normalmente decorre no prazo de 12 horas - com perda de dados de até uma hora, determinada pela quando foi efetuada a última cópia de segurança do registo e georreplicado para outra região. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Embora isto restaura uma base de dados para o último ponto disponível no tempo, restaurar geo-secundária para qualquer ponto anterior no tempo não é atualmente suportado.
+Se estiver a utilizar as cópias de segurança automatizadas com o armazenamento georredundante (ativado por predefinição), pode recuperar a base de dados com [georrestauro](sql-database-disaster-recovery.md#recover-using-geo-restore). Recuperação têm normalmente decorre no prazo de 12 horas - com perda de dados de até uma hora, determinada por quando o último backup diferencial de hora a hora foi executado e replicado. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Tenha em atenção de que o restauro geográfico restaura apenas a base de dados para o último ponto disponível no tempo.
 
 > [!NOTE]
 > Se o Centro de dados estiver online novamente antes de passar seu aplicativo para a base de dados recuperada, pode cancelar a recuperação.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Efetuar a ativação pós-falha/tarefas de recuperação
 Após a recuperação a partir de qualquer mecanismo de recuperação, tem de efetuar as seguintes tarefas adicionais antes de os seus utilizadores e aplicações ficarem funcionais:

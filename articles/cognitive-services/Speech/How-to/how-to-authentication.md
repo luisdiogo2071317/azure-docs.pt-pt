@@ -1,39 +1,40 @@
 ---
-title: Autenticar para o serviço de reconhecimento de voz Microsoft | Microsoft Docs
-description: Pedido de autenticação a utilizar a API de reconhecimento de voz da Microsoft
+title: Autenticar a voz do Bing | Documentos da Microsoft
+titlesuffix: Azure Cognitive Services
+description: Pedido de autenticação a utilizar a API de voz do Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 93171dba435172565215560e437dc56c9436baac
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352208"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366459"
 ---
-# <a name="authenticate-to-the-speech-api"></a>Autenticar para o API de reconhecimento de voz
+# <a name="authenticate-to-the-speech-api"></a>Autenticar para a API de voz
 
-Serviço de reconhecimento de voz suporta a autenticação utilizando:
+Voz do Bing suporta autenticação com:
 
 - Uma chave de subscrição.
 - Um token de autorização.
 
 ## <a name="use-a-subscription-key"></a>Utilizar uma chave de subscrição
 
-Para utilizar o serviço de reconhecimento de voz, tem primeiro de subscrever a API de reconhecimento de voz que faz parte de serviços cognitivos (anteriormente Oxford de projeto). Pode obter as chaves de subscrição de avaliação gratuita do [subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de reconhecimento de voz, selecione **obter chave de API** para obter a chave. Devolve uma chave primária e secundária. Ambas as chaves estão associadas a quota mesmo, pelo que pode utilizar a chave.
+Para utilizar o serviço de voz, tem de subscrever primeiro a API de voz que faz parte dos serviços cognitivos (anteriormente o projeto Oxford). Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
 
-Para utilizar longa duração ou um aumento de quota, inscreva-se um [conta do Azure](https://azure.microsoft.com/free/).
+Para utilização a longo prazo ou uma quota maior, inscreva-se para uma [conta do Azure](https://azure.microsoft.com/free/).
 
-Para utilizar a API de REST de reconhecimento de voz, tem de passar a chave de subscrição no `Ocp-Apim-Subscription-Key` campo no cabeçalho do pedido.
+Para utilizar a API de REST de voz, tem de passar a chave de subscrição no `Ocp-Apim-Subscription-Key` campo no cabeçalho do pedido.
 
 Nome| Formato| Descrição
 ----|-------|------------
-OCP Apim-subscrição-chave | ASCII | YOUR_SUBSCRIPTION_KEY
+OCP-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
 Segue-se um exemplo de um cabeçalho de pedido:
 
@@ -48,18 +49,18 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> Se utilizar [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) na sua aplicação, certifique-se de que pode obter o token de autorização com a sua chave de subscrição, conforme descrito na secção seguinte. As bibliotecas de cliente utilizam a chave de subscrição para obter um token de autorização e, em seguida, utilizar o token de autenticação.
+> Se usar [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) na sua aplicação, certifique-se de que pode obter o token de autorização com a sua chave de subscrição, conforme descrito na secção seguinte. As bibliotecas de cliente utilizam a chave de subscrição para obter um token de autorização e, em seguida, utilizar o token para autenticação.
 
 ## <a name="use-an-authorization-token"></a>Utilizar um token de autorização
 
-Em alternativa, pode utilizar um token de autorização para a autenticação como prova de autenticação/autorização. Para obter tokens, primeiro tem de obter uma chave de subscrição a partir da API de reconhecimento de voz, conforme descrito no [anterior a secção](#use-a-subscription-key).
+Em alternativa, pode utilizar um token de autorização para a autenticação como prova de autenticação/autorização. Para obter token, tem primeiro de obter uma chave de assinatura da API de voz, conforme descrito no [secção anterior](#use-a-subscription-key).
 
 ### <a name="get-an-authorization-token"></a>Obter um token de autorização
 
-Depois de ter uma chave de uma subscrição válida, envie um pedido POST para o serviço de token de serviços cognitivos. Na resposta, recebe o token de autorização como um Token Web JSON (JWT).
+Depois de ter uma chave de subscrição válida, envie um pedido POST para o serviço de tokens dos serviços cognitivos. Em resposta, recebe o token de autorização como um JSON Web Token (JWT).
 
 > [!NOTE]
-> O token tem uma expiração de 10 minutos. Para renovar o token, consulte a secção seguinte.
+> O token tem um término do período de 10 minutos. Para renovar o token, consulte a secção seguinte.
 
 O URI do serviço de token está localizado aqui:
 
@@ -67,7 +68,7 @@ O URI do serviço de token está localizado aqui:
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-O exemplo de código seguinte mostra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua própria chave de subscrição:
+O exemplo de código seguinte mostra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com sua própria chave de subscrição:
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -85,9 +86,9 @@ $OAuthToken
 
 ```
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
-O exemplo utiliza o curl no Linux com bash. Se não estiver disponível na sua plataforma, poderá ter de instalar o curl. O exemplo também funciona em Cygwin no Windows, Git Bash, zsh e outros shells.
+O exemplo utiliza o curl no Linux com o bash. Se não estiver disponível na sua plataforma, precisará de instalar o curl. O exemplo também funciona em Cygwin no Windows, do Git Bash, zsh e outros shells.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -134,7 +135,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 
 ---
 
-Segue-se um exemplo de pedido POST:
+Segue-se um pedido POST de exemplo:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
@@ -145,16 +146,16 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
-Se não é possível obter uma autorização token do serviço de token, verifique se a chave de subscrição ainda é válida. Se estiver a utilizar uma chave de avaliação gratuita, vá para o [subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página, clique em "Início de sessão" para iniciar sessão utilizando a conta que utilizou para aplicar a chave de avaliação gratuita e verifique se a chave de subscrição expirou ou excede o quota.
+Se não é possível obter uma autorização token do serviço de token, verifique se a sua chave de subscrição é válida. Se estiver a utilizar uma chave de avaliação gratuita, vá para o [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página, clique em "Início de sessão" para iniciar sessão com a conta que utilizou para aplicar a chave de avaliação gratuita e verificar se a chave de subscrição expirou ou excede o quota.
 
 ### <a name="use-an-authorization-token-in-a-request"></a>Utilizar um token de autorização num pedido
 
-Sempre que chamar a API de reconhecimento de voz, tem de passar o token de autorização no `Authorization` cabeçalho. O `Authorization` cabeçalho tem de conter um token de acesso JWT.
+Sempre que chamar a API de voz, tem de transmitir o token de autorização no `Authorization` cabeçalho. O `Authorization` cabeçalho tem de conter um token de acesso do JWT.
 
-O exemplo seguinte mostra como utilizar um token de autorização ao chamar a API de REST de reconhecimento de voz.
+O exemplo seguinte mostra como utilizar um token de autorização, quando chama a API de REST de voz.
 
 > [!NOTE]
-> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio prerecorded. Substitua `YOUR_ACCESS_TOKEN` com o token de autorização obteve no passo anterior [obter um token de autorização](#get-an-authorization-token).
+> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_ACCESS_TOKEN` com o token de autorização que obteve no passo anterior [obter um token de autorização](#get-an-authorization-token).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -180,7 +181,7 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -229,9 +230,9 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### <a name="renew-an-authorization-token"></a>Renovar um token de autorização
 
-O token de autorização expira após um determinado período de tempo (atualmente 10 minutos). Terá de renovar o token de autorização antes de expirar.
+O token de autorização expira após um determinado período de tempo (atualmente de 10 minutos). Terá de renovar o token de autorização antes de expirar.
 
-O seguinte código é uma implementação de exemplo em c# do como renovar o token de autorização:
+O código a seguir é uma implementação de exemplo em c# de como renovar o token de autorização:
 
 ```cs
     /*

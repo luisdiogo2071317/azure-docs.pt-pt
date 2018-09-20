@@ -1,6 +1,6 @@
 ---
 title: O Azure Site Recovery de resolução de problemas do VMware para o Azure | Documentos da Microsoft
-description: Resolva erros ao replicar máquinas virtuais do Azure.
+description: Resolver problemas de erros de instalação push do serviço de mobilidade ao replicar máquinas virtuais do Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,22 +8,23 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 09/17/2018
-ms.openlocfilehash: d77b252351c15bea13b0fa1fb42fa062d508fbdc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 09/19/2018
+ms.openlocfilehash: 32b579ac680204a909c19e7125711d298b08b26a
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126994"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365490"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação de push do serviço de mobilidade
 
 Instalação do serviço de mobilidade é uma etapa importante durante a ativar a replicação. O sucesso deste passo depende exclusivamente das pré-requisitos de reunião e trabalhar com configurações suportadas. As falhas mais comuns que enfrenta durante a instalação do serviço de mobilidade estão devido a
 
-* Erros de conectividade/credencial
+* Erros de credencial/privilégio
+* Erros de conectividade
 * Sistemas operacionais sem suporte
 
-Quando ativa a replicação, o Azure Site Recovery tenta enviar por push instalar agente do serviço de mobilidade na sua máquina virtual. Como parte desse processo, o servidor de configuração tenta se conectar com a máquina virtual e copie o agente. Para ativar a instalação com êxito, siga as orientações de resolução de problemas passo a passo, indicada abaixo
+Quando ativa a replicação, o Azure Site Recovery tenta enviar por push instalar agente do serviço de mobilidade na sua máquina virtual. Como parte desse processo, o servidor de configuração tenta se conectar com a máquina virtual e copie o agente. Para ativar a instalação com êxito, siga as orientações de resolução de problemas passo a passo, indicada abaixo.
 
 ## <a name="credentials-check-errorid-95107--95108"></a>Verificação de credenciais (ErrorID: 95107 & 95108)
 

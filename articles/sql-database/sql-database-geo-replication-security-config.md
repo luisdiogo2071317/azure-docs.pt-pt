@@ -1,6 +1,6 @@
 ---
-title: Configurar a segurança de SQL Database do Azure para recuperação após desastre | Microsoft Docs
-description: Saiba as considerações de segurança para configurar e gerir a segurança depois de restaurar uma base de dados ou uma ativação pós-falha para um servidor secundário.
+title: Configurar a segurança da base de dados do Azure SQL para recuperação após desastre | Documentos da Microsoft
+description: Conheça as considerações de segurança para configurar e gerir a segurança após um restauro de base de dados ou uma ativação pós-falha para um servidor secundário.
 services: sql-database
 author: anosov1960
 manager: craigg
@@ -9,91 +9,91 @@ ms.custom: business continuity
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sashan
-ms.openlocfilehash: 0796e5900bc67d93e51a0ce377ef5d1144346e2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 03bb4e2e8d202e13edf41c925b9341436515d8a8
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646869"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465627"
 ---
-# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerir a segurança de SQL Database do Azure para georrestauro ou de ativação pós-falha 
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerir a segurança de base de dados do Azure SQL para o restauro geográfico ou de ativação pós-falha 
 
-Este tópico descreve os requisitos de autenticação para configurar e controlar [georreplicação ativa](sql-database-geo-replication-overview.md) e os passos necessários para configurar o acesso de utilizador para a base de dados secundária. Também descreve como ativar o acesso à base de dados recuperada depois de utilizar [georrestauro](sql-database-recovery-using-backups.md#geo-restore). Para obter mais informações sobre as opções de recuperação, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
+Este tópico descreve os requisitos de autenticação para configurar e controlar [georreplicação ativa](sql-database-geo-replication-overview.md) e os passos necessários para configurar o acesso de utilizador para a base de dados secundário. Também descreve como ativar o acesso à base de dados recuperada depois de usar [georrestauro](sql-database-recovery-using-backups.md#geo-restore). Para obter mais informações sobre as opções de recuperação, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).
 
 > [!NOTE]
 > [Replicação geográfica activa](sql-database-geo-replication-overview.md) está agora disponível para todas as bases de dados em todos os escalões de serviço.
 >  
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperação após desastre com utilizadores contidos
-Ao contrário dos utilizadores tradicionais, o que devem ser mapeados para inícios de sessão na base de dados mestra, um utilizador contido é completamente gerido pela base de dados. Isto tem duas vantagens. Num cenário de recuperação após desastre, os utilizadores podem continuar a estabelecer ligação com nova base de dados primária ou a base de dados recuperada utilizando georrestauro sem qualquer configuração adicional, porque a base de dados gere os utilizadores. Também existem potencial escalabilidade e os benefícios de desempenho desta configuração de uma perspetiva de início de sessão. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx). 
+Ao contrário dos utilizadores tradicionais, o que devem ser mapeados para inícios de sessão na base de dados mestra, um usuário independente é totalmente gerido pela base de dados em si. Isso tem dois benefícios. No cenário de recuperação após desastre, os utilizadores podem continuar a ligar à base de dados primária nova ou a base de dados recuperada com restauro geográfico sem qualquer configuração adicional, porque a base de dados gere os utilizadores. Também existem potencial de escalabilidade e os benefícios de desempenho com esta configuração de uma perspectiva de início de sessão. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx). 
 
-O compromisso principal está a gerir o processo de recuperação após desastre em escala mais difícil. Quando tiver várias bases de dados que utilizam o início de sessão mesmo, manter as credenciais através de utilizadores contidos em várias bases de dados poderá negate as vantagens de utilizadores contidos. Por exemplo, a política de rotação de palavra-passe requer que efetuadas alterações a ser consistentemente várias bases de dados em vez de alterar a palavra-passe para início de sessão uma vez na base de dados mestra. Por este motivo, se tiver várias bases de dados que utilizam o mesmo nome de utilizador e palavra-passe, através de utilizadores contidos não é recomendado. 
+A desvantagem principal é gerenciar o processo de recuperação após desastre à escala mais desafiador. Quando tem várias bases de dados que utilizam o mesmo início de sessão, manter as credenciais com utilizadores contidos em várias bases de dados pode negar os benefícios de utilizadores contidos. Por exemplo, a política de rotação da palavra-passe requer que as alterações ser feitas de forma consistente em várias bases de dados em vez de alterar a palavra-passe para início de sessão uma vez na base de dados mestra. Por esse motivo, se tiver várias bases de dados que utilizam o mesmo nome de utilizador e palavra-passe, através de utilizadores contidos não é recomendado. 
 
-## <a name="how-to-configure-logins-and-users"></a>Como configurar utilizadores e os inícios de sessão
-Se estiver a utilizar inícios de sessão e os utilizadores (em vez de utilizadores contidos), tem de efetuar passos adicionais para assegurar que os inícios de sessão mesmos existem na base de dados mestra. As secções seguintes descrevem as considerações de passos envolvidos e adicionais.
+## <a name="how-to-configure-logins-and-users"></a>Como configurar utilizadores e inícios de sessão
+Se estiver a utilizar inícios de sessão e utilizadores (em vez de utilizadores contidos), tem de efetuar passos adicionais para garantir que os inícios de sessão mesmo existem na base de dados mestra. As secções seguintes descrevem as considerações de etapas envolvidas e adicionais.
 
-### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurar o acesso de utilizador para uma base de dados secundária ou recuperado
-Ordem para a base de dados secundária para ser utilizado como uma base de dados secundária só de leitura e para garantir um acesso adequado para a nova base de dados primária ou a base de dados recuperada utilizando georrestauro, base de dados mestra do servidor de destino têm de ter a configuração de segurança adequados antes da recuperação.
+### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurar o acesso de utilizador para uma base de dados secundária ou recuperada
+Por ordem para a base de dados secundária para ser utilizado como uma base de dados secundária só de leitura e para garantir um acesso adequado para a nova base de dados primária ou a base de dados recuperada com restauro geográfico, base de dados mestra do servidor de destino tem de ter a segurança adequada configuração no local antes da recuperação.
 
-As permissões específicas para cada passo são descritas mais à frente neste tópico.
+As permissões específicas para cada passo são descritas posteriormente neste tópico.
 
-Preparar o acesso de utilizador para uma secundária georreplicação deve ser efetuada como parte de configurar a georreplicação. Preparar o acesso de utilizador para as bases de dados de georreplicação-restaurada deve ser efetuada em qualquer altura quando o servidor original estiver online (por exemplo, como parte integrante a simulação).
+Preparar o acesso de utilizador para uma secundária de georreplicação deve ser efetuada como parte de configurar a georreplicação. Preparar o acesso de utilizador para as bases de dados geo-restaurada deve ser efetuado em qualquer altura, quando o servidor original está online (por exemplo, como parte de exploração de DR).
 
 > [!NOTE]
-> Se efetuar a ativação pós-falha ou georrestauro para um servidor que não tenha inícios de sessão está corretamente configurados, acesso ao mesmo será limitado para a conta de administrador do servidor.
+> Se efetuar a ativação pós-falha ou o restauro geográfico para um servidor que não tem inícios de sessão corretamente configurados, acesso ao mesmo será limitado para a conta de administrador do servidor.
 > 
 > 
 
-Configurar os inícios de sessão no servidor de destino envolve três passos descritos abaixo:
+Configuração de inícios de sessão no servidor de destino envolve três passos descritos abaixo:
 
 #### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. Determine os inícios de sessão com acesso à base de dados primária:
-O primeiro passo do processo consiste em determinar os inícios de sessão tem de estar duplicados no servidor de destino. Isto é conseguido com um par de instruções SELECT, na base de dados mestra lógica no servidor de origem e na base de dados primária em si.
+A primeira etapa do processo é determinar quais logons devem ser duplicados no servidor de destino. Isto é conseguido com um par de instruções SELECT, da base de dados mestra lógica no servidor de origem e da base de dados primária em si.
 
-Apenas o administrador de servidor ou membro do **LoginManager** função de servidor pode determinar os inícios de sessão no servidor de origem com a seguinte instrução SELECT. 
+Apenas o administrador do servidor ou membro do **LoginManager** função de servidor pode determinar os inícios de sessão no servidor de origem com a seguinte instrução SELECT. 
 
     SELECT [name], [sid] 
     FROM [sys].[sql_logins] 
     WHERE [type_desc] = 'SQL_Login'
 
-Apenas um membro da função de base de dados db_owner, o dbo de utilizador ou o administrador do servidor, pode determinar todos os principais de utilizador de base de dados na base de dados primária.
+Apenas um membro da função de base de dados db_owner, o utilizador dbo ou administrador de servidor, pode determinar todos os principais de utilizador de base de dados na base de dados primária.
 
     SELECT [name], [sid]
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
 #### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. Localize o SID de inícios de sessão identificados no passo 1:
-Ao comparar o resultado das consultas da secção anterior e o SID de correspondência, pode mapear o início de sessão do utilizador de base de dados. Inícios de sessão com um utilizador de base de dados com um SID correspondente tem acesso de utilizador para a base de dados do utilizador da base de dados principal. 
+Ao comparar o resultado das consultas da secção anterior e os SIDs de correspondência, pode mapear o início de sessão do servidor para o utilizador de base de dados. Inícios de sessão que têm um utilizador de base de dados com um SID correspondente tem acesso de utilizador para essa base de dados como esse principal de utilizador de base de dados. 
 
-A seguinte consulta pode ser utilizada para ver todos os principais de utilizador e os respetivos SIDs numa base de dados. Apenas um membro do administrador de função ou o servidor da base de dados de db_owner pode executar esta consulta.
+A seguinte consulta pode ser utilizada para ver todas as entidades de usuário e seu SID numa base de dados. Apenas um membro do administrador de função ou o servidor de base de dados db_owner pode executar esta consulta.
 
     SELECT [name], [sid]
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
 > [!NOTE]
-> O **INFORMATION_SCHEMA** e **sys** os utilizadores têm *nulo* SIDs e o **convidado** SID é **0x00**. O **dbo** SID pode começar a utilizar *0x01060000000001648000000000048454*, se o criador de base de dados foi o administrador de servidor em vez de um membro do **DbManager**.
+> O **INFORMATION_SCHEMA** e **sys** os utilizadores têm *nulo* SIDs e a **convidado** SID é **0x00**. O **dbo** SID pode começar pelo *0x01060000000001648000000000048454*, se o criador de base de dados foi o administrador do servidor em vez de um membro da **DbManager**.
 > 
 > 
 
-#### <a name="3-create-the-logins-on-the-target-server"></a>3. Crie inícios de sessão no servidor de destino:
-O último passo consiste em Ir para o servidor de destino ou os servidores e gerar os inícios de sessão com os SIDs adequado. Segue-se a sintaxe básica.
+#### <a name="3-create-the-logins-on-the-target-server"></a>3. Crie os inícios de sessão no servidor de destino:
+A última etapa é ir para o servidor de destino ou para servidores e gerar os inícios de sessão com as SIDs apropriado. Segue-se a sintaxe básica.
 
     CREATE LOGIN [<login name>]
     WITH PASSWORD = <login password>,
     SID = <desired login SID>
 
 > [!NOTE]
-> Se pretende conceder acesso de utilizador para o secundário, mas não para o servidor primário, pode fazer isto, modificando o início de sessão do utilizador no servidor primário, utilizando a seguinte sintaxe.
+> Se quiser conceder acesso de utilizador para o secundário, mas não para o primário, pode fazê-lo ao alterar o início de sessão do utilizador no servidor primário, utilizando a seguinte sintaxe.
 > 
-> INÍCIO DE SESSÃO DE ALTER <login name> DESATIVAR
+> ALTERAR INÍCIO DE SESSÃO <login name> DESATIVAR
 > 
-> DESATIVAR não irá alterar a palavra-passe, pelo que pode sempre ativar-se necessário.
+> DESATIVAR não altera a palavra-passe, para que pode sempre ativá-la se for necessário.
 > 
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter mais informações sobre a gestão de acesso de base de dados e inícios de sessão, consulte [segurança da base de dados SQL: Gerir a segurança da base de dados de início de sessão e acesso](sql-database-manage-logins.md).
-* Para obter mais informações sobre os utilizadores de base de dados contida, consulte [contidos base de dados de utilizadores - tornar a base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
-* Para obter informações sobre como utilizar e configurar a replicação geográfica activa, consulte [georreplicação ativa](sql-database-geo-replication-overview.md)
-* Para obter informações sobre como utilizar georrestauro, consulte [georrestauro](sql-database-recovery-using-backups.md#geo-restore)
+* Para obter mais informações sobre a gestão de acesso de base de dados e inícios de sessão, consulte [segurança de base de dados SQL: Gerir a segurança de acesso e o início de sessão da base de dados](sql-database-manage-logins.md).
+* Para obter mais informações sobre os utilizadores de base de dados contida, consulte [contidos utilizadores de base - tornar a base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+* Para obter informações sobre como utilizar e configurar a georreplicação ativa, consulte [georreplicação ativa](sql-database-geo-replication-overview.md)
+* Para obter informações sobre como utilizar o restauro geográfico, consulte [georrestauro](sql-database-recovery-using-backups.md#geo-restore)
 

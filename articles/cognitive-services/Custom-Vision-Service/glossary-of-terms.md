@@ -1,91 +1,92 @@
 ---
-title: Glossário de termos para personalizada de visão de serviço - serviços cognitivos do Azure | Microsoft Docs
+title: Glossário de termos - serviço de visão personalizada
+titlesuffix: Azure Cognitive Services
 description: Glossário de termos de serviço de visão personalizada.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: 871617ce3c1c5a84df746c0c7d87c113b3a6f354
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ae68db3de5d1f7eaacbe355133b9b7b61f145f04
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352886"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363416"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossário de termos de serviço de visão personalizada
 
-Seguem-se alguns termos utilizados no serviço de visão personalizada e os respetivos significado.
+Seguem-se alguns termos utilizados no serviço de visão personalizada e o respetivo significado.
 
 ## <a name="classifier"></a>Classificador
 
-Um classificador é um modelo que cria utilizando o serviço de visão personalizada, utilizando algumas imagens de formação. Assim que tiver concluído a um novo classificador de preparação, receberá um avaliação ponto final (HTTPS) que pode adicionar à sua aplicação. Cada classificador que cria no seu próprio projeto, e pode ver todos os projetos assim que tiver iniciado a sessão.
+Um classificador é um modelo criados com o serviço de visão personalizada, utilizando algumas imagens de formação. Quando tiver concluído a treinar um classificador de novo, receberá um endpoint de avaliação (HTTPS), que pode adicionar à sua aplicação. Cada classificador que é criar é em seu próprio projeto e pode ver todos os projetos assim que tiver iniciado sessão.
 
-## <a name="domain"></a>Domínio
+## <a name="domain"></a>Domain
 
-Quando cria um projeto, selecione "domínio" para esse projeto. O domínio otimiza um classificador de um tipo específico do objeto na suas imagens. Por exemplo, se o seu cenário classificar entre as imagens do setor apple versus imagens de carrot cake, em seguida, selecione o domínio de "Prato". Se não souber de qual para escolher o domínio, em seguida, selecione o domínio "Genérico".
+Quando cria um projeto, selecione um "domínio" para esse projeto. O domínio otimiza um classificador para um tipo específico de objeto em suas imagens. Por exemplo, se o seu cenário é classificar entre as imagens do setor de apple versus imagens de bolo de cenoura, em seguida, selecione o domínio de "Food". Se tiver a certeza de qual escolher o domínio, em seguida, selecione o domínio "Genérico".
 
-- **O domínio prato.** Otimizado para dishes que vir no menu restaurante. -Não foi otimizado para reconhecer acessíveis individuais ou vegetables. Se pretende classificar fotografias de fruta individuais ou vegetables, utiliza o domínio genérico para essa finalidade.
-- **O domínio Landmark.** Otimizado para reconhecível landmarks, naturais e artificial. Este domínio funciona melhor quando o landmark é claramente visível no fotografia, mesmo que o landmark é ligeiramente obstructed por um grupo de pessoas com quem está a representar existentes à frente dele.
-- **O domínio de revenda.** Otimizado para classificar imagens num catálogo compras ou no site de compras. Se pretender precisão elevada quando classificar dresses, pants, shirts, etc., em seguida, utilizar o domínio de revenda.
-- **O domínio para adultos.** Otimizado para definir melhor entre conteúdo para adultos e conteúdo não adulto. Por exemplo, se pretender bloquear as imagens de pessoas bathing de encriptação, este domínio permite-lhe criar um classificador personalizado para o fazer.
-- **O domínio geral.** Também é adequada para uma grande variedade de tarefas de classificação de imagem.
+- **O domínio de alimento.** Otimizado para pratos, que verá um menu do restaurante. Não foi otimizado para reconhecer frutos individuais ou vegetables. Se quiser classificar fotografias de frutas individuais ou vegetables, utilize o domínio genérico para essa finalidade.
+- **O domínio de ponto de referência.** Otimizado para pontos de referência reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o ponto de referência é claramente visível no fotografia, mesmo que o ponto de referência é um pouco obstructed por um grupo de pessoas que está a representar na sua frente.
+- **O domínio de varejo.** Otimizado para classificar imagens num catálogo de compra ou o Web site de compra. Se pretender alta precisão quando classificar dresses, intuição, shirts, etc., em seguida, utilizar o domínio de varejo.
+- **O domínio para adultos.** Otimizado para definir melhor entre o conteúdo para adultos e o conteúdo não adulto. Por exemplo, se deseja bloquear imagens de pessoas em bathing de encriptação, este domínio permite-lhe criar um classificador personalizado para fazer isso.
+- **O domínio geral.** Adequado para uma ampla variedade de tarefas de classificação de imagens.
 
-Os modelos gerados pelo **compactar domínios** podem ser exportados com a funcionalidade de exportação de iteração. São otimizados para as restrições de classificação em tempo real em dispositivos móveis. Classificadores criadas com um domínio de compactação podem ser ligeiramente inferior um domínio padrão com a mesma quantidade de dados de preparação. O compromisso é o que são suficientemente pequenas para ser executada localmente em quase em tempo real. 
+Os modelos gerados pelo **compact domínios** possa ser exportada com a funcionalidade de exportação de iteração. Eles são otimizados para as restrições de classificação em tempo real em dispositivos móveis. Classificadores criadas com um domínio compact poderão ser um pouco menos exatos um domínio padrão com a mesma quantidade de dados de treinamento. A desvantagem é que eles são suficientemente pequenos para serem executados localmente na quase em tempo real. 
 
-## <a name="training-image"></a>Imagem de formação
+## <a name="training-image"></a>Imagem de treinamento
 
-Para criar um classificador de precisão elevada, serviço de visão personalizada tem várias imagens de formação. Uma imagem de formação é uma fotografia da imagem que pretende que o serviço de visão personalizada para classificar. Por exemplo, para classificar laranjas, terá de carregar várias imagens de laranjas para o serviço de visão personalizada para permitir que o serviço criar um classificador que pode reconhecer laranjas. Recomendamos que, pelo menos, 30 imagens por etiqueta.
+Para criar um classificador de alta precisão, o serviço de visão personalizada tem várias imagens de formação. Uma imagem de treinamento é uma fotografia da imagem que pretende que o serviço de visão personalizada para classificar. Por exemplo, para classificar laranjas, precisaria carregar várias imagens de laranjas para o serviço de visão personalizada para permitir que o serviço criar um classificador que possam reconhecer laranjas. Recomendamos, pelo menos, 30 imagens por etiqueta.
 
 ## <a name="iteration"></a>Iteração
 
-Cada vez que a formação ou voltar a preparar o classificador, criar uma nova iteração do modelo. Vamos manter iterações passadas várias para permitem-lhe comparar o seu progresso ao longo do tempo. Pode eliminar qualquer iteração que já não é útil. Lembre-se de que a eliminação uma iteração é permanente e também eliminar quaisquer imagens ou as alterações que foram exclusivas para essa iteração. 
+Cada tempo Train ou treinar novamente o seu classificador, criar uma nova iteração do seu modelo. Mantemos várias iterações anteriores para que possa comparar o seu progresso ao longo do tempo. Pode eliminar uma repetição que já não ser úteis. Lembre-se de que a eliminação de uma iteração é permanente e também eliminar as imagens ou as alterações que foram exclusivas para essa iteração. 
 
 ## <a name="workspace"></a>Área de trabalho
 
-A área de trabalho contém todas as imagens de formação e este reflete todas as alterações do seu iteração mais recente como removidas ou adicionadas imagens. Quando preparar o classificador, crie uma nova iteração do seu classificador, utilizando as imagens presentes na sua área de trabalho.
+A área de trabalho contém todas as imagens de formação e reflete todas as alterações de sua iteração mais recente como removidas ou adicionadas imagens. Quando preparar o seu classificador, vai criar uma nova iteração do seu classificador, utilizando as imagens presentes na sua área de trabalho.
 
 ## <a name="tags"></a>Etiquetas
 
-Utilize etiquetas para etiquetar objetos nas suas imagens de formação. Se estiver a criar um classificador para identificar dogs e ponies, seria colocar uma etiqueta de "preguiçoso" em imagens que contêm dogs, uma etiqueta de "pony" nas imagens que contêm ponies e ambos "preguiçoso" e uma etiqueta de "pony" nas imagens que contêm um preguiçoso e um pony.
+Utilize etiquetas para os objetos em suas imagens de formação da etiqueta. Se estiver a criar um classificador para identificar cães e ponies, poderia colocar uma marca de "cachorro" nas imagens que contenham cães, uma etiqueta de "pony" nas imagens que contenham ponies e tanto "cachorro" e uma etiqueta de "pony" nas imagens que contêm um cachorro e um pony.
 
 ## <a name="evaluation"></a>Avaliação
 
-Depois de ter preparado o classificador, pode submeter qualquer imagem para avaliação utilizando o ponto final de https gerada automaticamente. O classificador devolve um conjunto de etiquetas previstos, por ordem de confiança.
+Depois de ter preparado o seu classificador, pode enviar qualquer imagem de avaliação com o ponto final https gerado automaticamente. Seu classificador devolve um conjunto de marcas previstas, por ordem de confiança.
 
 ## <a name="predictions"></a>Previsões
 
-Como o classificador aceita novas imagens de classificar, armazena as imagens para si. Pode utilizar estas imagens para melhorar a precisão do seu classificador por marcação corretamente as imagens incorrectamente previstas. Em seguida, pode utilizar estas novas imagens para voltar a preparar o classificador.
+Como o seu classificador aceita novas imagens para classificar, armazena as imagens para. Pode utilizar estas imagens para melhorar a precisão do seu classificador ao marcá corretamente as imagens incorrectamente previstas. Em seguida, pode utilizar estas novas imagens para treinar o seu classificador novamente.
 
 ## <a name="precision"></a>Precisão
 
-Quando classifica uma imagem, como provável é o classificador corretamente classificar a imagem? Fora de todas as imagens utilizadas para preparar o classificador (dogs e ponies), que percentagem modelo obtiveram correto? 99 etiquetas corretas fora 100 imagens proporciona uma precisão de 99%.
+Quando classifica uma imagem, o quão provável é o seu classificador para classificar corretamente a imagem? Fora de todas as imagens usadas para treinar o classificador (cães e ponies), que percentagem o modelo de obteve correto? 99 etiquetas corretas fora de 100 imagens dá uma precisão de 99%.
 
 ## <a name="recall"></a>Recuperar
 
-Fora de todas as imagens que devem ter sido corretamente classificadas, quantos o classificador identificar corretamente? Tal significa devolução de chamada de 100%, se existirem 38 imagens de preguiçoso nas imagens do utilizados para preparar o classificador, foram encontrados 38 dogs pelo classificador.
+Fora de todas as imagens que devem ter sido classificadas corretamente, quantos seu classificador identificar corretamente? 38 cães um Recall de 100% significa que, se houvesse 38 imagens de dog nas imagens usadas para treinar o classificador, foram encontrados pelo classificador.
 
 ## <a name="settings"></a>Definições
 
-Existem dois tipos de definições, as definições de nível de projeto e as definições de nível de utilizador.
+Existem dois tipos de definições, definições de nível de projeto e definições de nível de usuário.
 
 - Definições de nível de projeto: 
   
-  Ao nível do projecto definições aplicam-se a um projeto ou classificador. Estas definições incluem:
+  Definições de nível de projeto são aplicadas a um projeto ou o classificador. Eles incluem:
 
-   - Domínio do projeto
+   - Domínio de projeto
    - Nome do Projeto
    - Descrição do Projeto
    - Utilização:
       - Número de imagens de formação
-      - Número de sinalizadores criado
+      - Número de etiquetas criado
       - Número de iterações criado
 
-- Definições de nível de utilizador: 
-   - Chaves de subscrição: uma para formação, um para avaliação/predição.
+- Definições de nível de usuário: 
+   - Chaves de subscrição: uma para formação, um para avaliação predição.
    - Utilização:
-      - Número de projetos criado
-      - Número de chamadas à API de avaliação/predição.
+      - Número de projetos criados
+      - Número de chamadas à API de predição avaliação feitas.

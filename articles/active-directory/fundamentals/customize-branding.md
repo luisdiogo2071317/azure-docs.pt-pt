@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6a817d4e52d602c921cb04f8c40dbad632d41932
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731331"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367565"
 ---
-# <a name="how-to-add-branding-to-your-azure-ad-sign-in-page"></a>Como: Adicionar identidade visual à sua página de início de sessão do Azure AD
+# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Como: Adicionar identidade visual à sua página de início de sessão do Azure Active Directory
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
 
 >[!Note]
@@ -34,23 +34,30 @@ A imagem corporativa personalizadas não aparece imediatamente quando os utiliza
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se especificar um logótipo de faixa com nenhuma imagem de fundo, a página de início de sessão irá mostrar o logótipo com uma imagem de fundo predefinido do site de destino (por exemplo, o Office 365).<br><br>Além disso, imagem corporativa a página de início de sessão não passa para contas Microsoft pessoais. Se os usuários ou convidados empresariais iniciar sessão com uma conta Microsoft pessoal, a página de início de sessão não reflete a imagem corporativa da sua organização.
 
 ### <a name="to-customize-your-branding"></a>Para personalizar a imagem corporativa
-1. Inicie sessão para o [portal do Azure AD](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **imagem corporativa da empresa**e, em seguida, selecione **configurar**.
 
-    ![Contoso - painel de imagem corporativa da empresa, a opção de configurar realçada](media/customize-branding/company-branding-configure-button.png)
+    ![Contoso - página de imagem corporativa da empresa, a opção de configurar realçada](media/customize-branding/company-branding-configure-button.png)
 
-3. Sobre o **configurar imagem corporativa da empresa** painel, forneça uma ou todas as seguintes informações:
+3. Sobre o **configurar imagem corporativa da empresa** , indique uma ou todas as informações seguintes.
+
+    >[!Important]
+    >Todas as imagens personalizadas, adicionar esta página tem o tamanho da imagem (pixels) e ficheiros potencialmente tamanho (KB), restrições. Devido a essas restrições, a maioria provavelmente terá de utilizar um editor de fotografia para criar as imagens de tamanho certo.
 
     - **Definições gerais**
 
-        ![Configurar imagem corporativa painel, com as definições gerais concluídas](media/customize-branding/configure-company-branding-general-settings.png)
+        ![Configurar imagem corporativa página, com as definições gerais concluídas](media/customize-branding/configure-company-branding-general-settings.png)
 
         - **Idioma.** A linguagem é automaticamente definida como padrão e não pode ser alterada.
         
-        - **Imagem de fundo de página de início de sessão.** Selecione um ficheiro de imagem PNG ou. jpg a aparecer como plano de fundo para as páginas de início de sessão. A imagem não pode ser maior do que 1920 x 1080 pixels no tamanho e tem de ter um tamanho de ficheiro de menos de 300 KB.
+        - **Imagem de fundo de página de início de sessão.** Selecione um ficheiro de imagem PNG ou. jpg a aparecer como plano de fundo para as páginas de início de sessão. 
+        
+            A imagem não pode ser maior do que 1920 x 1080 pixels no tamanho e tem de ter um tamanho de ficheiro de menos de 300 KB.
 
-        - **Logótipo de faixa.** Selecione uma versão. png ou. jpg do seu logótipo apareça na página de início de sessão após o utilizador introduzir um nome de utilizador e no **as minhas aplicações** página do portal. A imagem não pode ser aumentasse que 36 pixels ou maior do que 245 pixels. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
+        - **Logótipo de faixa.** Selecione uma versão. png ou. jpg do seu logótipo apareça na página de início de sessão após o utilizador introduzir um nome de utilizador e no **as minhas aplicações** página do portal.
+            
+            A imagem não pode ser aumentasse que 36 pixels ou maior do que 245 pixels. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
 
         - **Sugestão de nome de utilizador.** Escreva o texto de sugestão que aparece aos utilizadores se esquecerem o respetivo nome de utilizador. Este texto deve ser o Unicode, sem ligações ou código e não pode exceder os 64 carateres. Se os convidados iniciarem sessão sua aplicação, sugerimos que não a adicionar desta sugestão.
 
@@ -58,11 +65,13 @@ A imagem corporativa personalizadas não aparece imediatamente quando os utiliza
 
     - **Definições avançadas**
             
-        ![Configurar imagem corporativa painel, com definições avançadas foi concluídas](media/customize-branding/configure-company-branding-advanced-settings.png)   
+        ![Configurar imagem corporativa página, com definições avançadas foi concluídas](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
         - **Cor de fundo de página de início de sessão.** Especificar a cor hexadecimal (por exemplo, branco é #FFFFFF) que irá aparecer em vez de sua imagem de fundo em situações de ligação de largura de banda baixa. Recomendamos que utilize a cor primária do logótipo de faixa ou a cor da organização.
 
-        - **Imagem do logótipo quadrado.** Selecione um formato. PNG (preferidas) ou. jpg imagem do logótipo da sua organização para que sejam apresentadas aos utilizadores durante o processo de instalação para novos dispositivos Windows 10 Enterprise. Esta imagem só é utilizada para a autenticação do Windows e é apresentada apenas nos inquilinos que utilizam [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) experiências de páginas em outros com o Windows 10 para a implementação ou para a entrada de palavra-passe. A imagem não pode ser maior do que os pixels de 240 x 240 no tamanho e tem de ter um tamanho de ficheiro de menos de 10 KB. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
+        - **Imagem do logótipo quadrado.** Selecione um formato. PNG (preferidas) ou. jpg imagem do logótipo da sua organização para que sejam apresentadas aos utilizadores durante o processo de instalação para novos dispositivos Windows 10 Enterprise. Esta imagem só é utilizada para a autenticação do Windows e é apresentada apenas nos inquilinos que utilizam [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) experiências de páginas em outros com o Windows 10 para a implementação ou para a entrada de palavra-passe.
+        
+            A imagem não pode ser maior do que os pixels de 240 x 240 no tamanho e tem de ter um tamanho de ficheiro de menos de 10 KB. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
     
         - **Imagem do logótipo quadrado, tema escuro.** Mesmo que a imagem do logótipo quadrado acima. Esta imagem de logótipo substitui a imagem do logótipo quadrado quando utilizado com um plano de fundo escuro, tal como com Windows 10 do Azure AD associado a um telas durante a experiência de out-of-box (OOBE).  Se o seu logótipo parece bem em fundos branco, escuros azuis e pretas, não precisa de adicionar esta imagem. 
         
@@ -74,22 +83,22 @@ A imagem corporativa personalizadas não aparece imediatamente quando os utiliza
 
 3. Depois de terminar de adicionar a imagem corporativa, selecione **guardar**.
 
-  Uma vez que esta é a primeira configuração de identidade visual, se tornará o padrão para o seu inquilino. Se adicionar mais configurações, terá a opção de escolher a predefinição.
-
-  >[!Important]
-  >Para adicionar mais configurações para o seu inquilino, de corporativa tem de escolher **nova linguagem** sobre o **Contoso - imagem corporativa da empresa** painel. Esta ação abre o **configurar imagem corporativa da empresa** painel, onde pode seguir os mesmos passos conforme apresentado acima.
+    Se este processo cria a configuração de imagem corporativa personalizada primeiro, se tornará o padrão para o seu inquilino. Se tiver configurações adicionais, poderá escolher a sua configuração predefinida.
+    
+    >[!Important]
+    >Para adicionar mais configurações para o seu inquilino, de corporativa tem de escolher **nova linguagem** sobre o **Contoso - imagem corporativa da empresa** página. Esta ação abre o **configurar imagem corporativa da empresa** página, em que pode seguir os mesmos passos conforme apresentado acima.
 
 ## <a name="update-your-custom-branding"></a>Atualizar a imagem corporativa personalizada
 Depois de criar a imagem corporativa personalizada, pode voltar atrás e alterar o que quiser.
 
 ### <a name="to-edit-your-custom-branding"></a>Para editar a sua marca personalizada
-1. Inicie sessão para o [portal do Azure AD](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **imagem corporativa da empresa**e, em seguida, selecione **configurar**.
 
-    ![Contoso - painel imagem corporativa da empresa, com a configuração predefinida apresentada](media/customize-branding/company-branding-default-config.png)
+    ![Contoso - página de imagem corporativa da empresa, com a configuração predefinida apresentada](media/customize-branding/company-branding-default-config.png)
 
-3. Sobre o **configurar imagem corporativa da empresa** painel, adicionar, remover ou alterar qualquer uma das informações, com base nas descrições apresentadas na [personalizar a página de início de sessão do Azure AD](#customize-your-azure-ad-sign-in-page) seção deste artigo.
+3. Sobre o **configurar imagem corporativa da empresa** página, adicionar, remover ou alterar qualquer uma das informações, com base nas descrições apresentadas na [personalizar a página de início de sessão do Azure AD](#customize-your-azure-ad-sign-in-page) seção deste artigo.
 
 4. Selecione **Guardar**.
 
@@ -100,16 +109,29 @@ Não é possível alterar o idioma de sua configuração original do seu idioma 
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Para adicionar uma configuração de imagem corporativa específica do idioma
 
-1. Inicie sessão para o [portal do Azure AD](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **imagem corporativa da empresa**e, em seguida, selecione **nova linguagem**.
 
-    ![Contoso - painel imagem corporativa da empresa, com a nova opção de linguagem realçada](media/customize-branding/company-branding-new-language.png)
+    ![Contoso - página de imagem corporativa da empresa, com a nova opção de linguagem realçada](media/customize-branding/company-branding-new-language.png)
 
-3. Sobre o **configurar imagem corporativa da empresa** painel, selecione o seu idioma (por exemplo, francês) e, em seguida, adicione as suas informações de traduzido, com base nas descrições apresentadas na [personalizar a página de início de sessão do Azure AD](#customize-your-azure-ad-sign-in-page) seção deste artigo.
+3. Sobre o **configurar imagem corporativa da empresa** página, selecione o seu idioma (por exemplo, francês) e, em seguida, adicione as suas informações de traduzido, com base nas descrições apresentadas na [personalizar a página de início de sessão do Azure AD](#customize-your-azure-ad-sign-in-page) seção deste artigo.
 
 4. Selecione **Guardar**.
 
-    O **Contoso – imagem corporativa da empresa** atualizações do painel para mostrar a nova configuração francês.
+    O **Contoso – imagem corporativa da empresa** página atualizações para mostrar a nova configuração francês.
 
-    ![Contoso - painel imagem corporativa da empresa, com a configuração predefinida apresentada](media/customize-branding/company-branding-french-config.png)
+    ![Contoso - página de imagem corporativa da empresa, com a configuração predefinida apresentada](media/customize-branding/company-branding-french-config.png)
+
+## <a name="add-your-custom-branding-to-pages"></a>Adicionar a sua marca personalizada a páginas
+Adicionar a sua marca personalizada a páginas, modificando o final do URL com o texto, `?whr=yourdomainname`. Essa modificação funciona em várias páginas, incluindo a página de configuração de multi-factor Authentication (MFA), a página de configuração de reposição de palavra-passe Self-Service (SSPR) e o início de sessão na página.
+
+**Exemplos:**
+
+**Original URL:** https://aka.ms/MFASetup<br>
+**URL personalizado:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+
+**Original URL:** https://aka.ms/SSPR<br>
+**URL personalizado:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+
+ 

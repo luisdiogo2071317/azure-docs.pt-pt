@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345164"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465814"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorizar grupos de recursos com o Azure Monitor (pré-visualização)
 
@@ -109,6 +109,11 @@ Desempenho oferece sua própria Galeria de pastas de trabalho. Serviço de aplic
 Neste caso, se selecionar edição verá que este conjunto de visualizações utiliza a tecnologia de monitorizar as métricas do Azure.
 
  ![Captura de ecrã da vista de desempenho com a métrica do Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+### <a name="enabling-access-to-alerts"></a>Permitir o acesso aos alertas
+O Azure Monitor para grupos de recursos tem determinadas permissões para acessar o estado do alerta dos recursos no seu grupo de recursos. Se vir uma mensagem de erro ao carregar os alertas, não tem permissões suficientes. Peça ao seu administrador para lhe conceder o **proprietário** ou **contribuinte** função para a subscrição que contém o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

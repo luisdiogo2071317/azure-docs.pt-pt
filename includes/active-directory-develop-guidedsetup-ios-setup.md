@@ -1,28 +1,52 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 4ed4f7e15a21e1565031994bd377c15aebd535bc
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466162"
+---
 ## <a name="setting-up-your-ios-application"></a>Configurar a sua aplicação iOS
 
-Esta secção fornece instruções passo a passo para saber como criar um novo projeto para demonstrar como integrar uma aplicação iOS (Swift) com *início de sessão com a Microsoft* que possa consultar APIs da Web que necessitam de um token.
+Esta secção fornece instruções passo a passo para saber como criar um novo projeto para demonstrar como integrar uma aplicação iOS (Swift) com *início de sessão com a Microsoft* que ele possa consultar as APIs da Web que exigem um token.
 
-> Prefere transferir o projeto do XCode este exemplo em vez disso? [Transferir um projeto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) e avance para o [passo da configuração](#register-your-application) para configurar o exemplo de código antes de executar.
+> Prefere transferir o projeto do XCode este exemplo em vez disso? [Transfira um projeto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) e avance para o [passo de configuração](#register-your-application) para configurar o exemplo de código antes de executar.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>Instalar Carthage para transferir e criar MSAL
-Gestor de pacotes Carthage é utilizado durante o período de pré-visualização de MSAL – é integrado com o XCode mantendo a capacidade para a Microsoft para efetuar alterações à biblioteca.
+Gestor de pacotes de Carthage é utilizada durante o período de pré-visualização da MSAL – ele se integra com o XCode, mantendo a capacidade para a Microsoft fazer alterações à biblioteca.
 
-- Transfira e instale a versão mais recente do Carthage [aqui](https://github.com/Carthage/Carthage/releases "Carthage URL de transferência")
+- Transferir e instalar a versão mais recente do Carthage [aqui](https://github.com/Carthage/Carthage/releases "Carthage URL de transferência")
 
-## <a name="creating-your-application"></a>Criar a sua aplicação
+## <a name="creating-your-application"></a>Criação da sua aplicação
 
 1.  Abra o Xcode e selecione `Create a new Xcode project`
 2.  Selecione `iOS`  >  `Single view Application` e clique em *seguinte*
 3.  Dê um nome de produto e clique em *seguinte*
-4.  Selecione uma pasta para criar a sua aplicação e clique em *criar*
+4.  Selecione uma pasta para criar a sua aplicação e clique em *Create*
 
-## <a name="build-the-msal-framework"></a>Criar o Framework MSAL
+## <a name="build-the-msal-framework"></a>Criar a estrutura MSAL
 
-Siga as instruções abaixo para solicitar e, em seguida, criar a versão mais recente das bibliotecas MSAL Carthage a utilizar:
+Siga as instruções abaixo para extrair e, em seguida, criar a versão mais recente das bibliotecas MSAL usando Carthage:
 
-1.  Abra o terminal bash e aceda à pasta de raiz da aplicação
-2.  Copiar o abaixo e cole no terminal bash para criar um ficheiro de 'Cartfile':
+1.  Abra o bash terminal e aceda à pasta de raiz da aplicação
+2.  Copiar o abaixo e cole no terminal para criar um ficheiro de 'Cartfile' bash:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -38,15 +62,15 @@ Copie e cole o abaixo. Este comando obtém as dependências para uma pasta de Ca
 carthage update
 ```
 
-> O processo acima é utilizado para transferir e criar a biblioteca de autenticação da Microsoft (MSAL). MSAL processa a aquisição, colocação em cache e atualizar os tokens de utilizador utilizados para acesso a APIs protegidas pelo v2 Azure Active Directory.
+> O processo acima é utilizado para transferir e criar a biblioteca de autenticação da Microsoft (MSAL). A MSAL lida com a aquisição, colocação em cache e atualizar os tokens de utilizador utilizados para aceder a APIs protegidas pelo Azure Active Directory v2.
 
-## <a name="add-the-msal-framework-to-your-application"></a>Adicionar o framework MSAL à sua aplicação
+## <a name="add-the-msal-framework-to-your-application"></a>Adicionar a estrutura MSAL à sua aplicação
 1.  No Xcode, abra o `General` separador
 2.  Vá para o `Linked Frameworks and Libraries` secção e clique em `+`
 3.  Selecione `Add other…`
-4.  Selecione: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` e clique em *abra*. Deverá ver `MSAL.framework` adicionado à lista.
+4.  Selecione: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` e clique em *aberto*. Deverá ver `MSAL.framework` adicionado à lista.
 5.  Aceda a `Build Phases` separador e clique em `+` ícone, escolha `New Run Script Phase`
-6.  Adicione o seguinte conteúdo para o *script área*:
+6.  Adicione o seguinte conteúdo para o *área do script*:
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -55,7 +79,7 @@ carthage update
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Adicione o seguinte ao <code>Input Files</code> clicando <code>+</code>:
+Adicione o seguinte ao <code>Input Files</code> ao clicar em <code>+</code>:
 </li>
 </ol>
 
@@ -63,11 +87,11 @@ Adicione o seguinte ao <code>Input Files</code> clicando <code>+</code>:
 $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
-## <a name="creating-your-applications-ui"></a>Criar a IU da aplicação
-Um ficheiro de Main.storyboard automaticamente deverá ser criado como parte do seu modelo de projeto. Siga as instruções abaixo para criar a IU da aplicação:
+## <a name="creating-your-applications-ui"></a>Criar a IU da sua aplicação
+Um ficheiro de Main.storyboard deve ser criado automaticamente como parte do seu modelo de projeto. Siga as instruções abaixo para criar a IU da aplicação:
 
-1.  Controlar + clique `Main.storyboard` trazer o menu de nível contextual das e, em seguida, clique em: `Open As` > `Source Code`
-2.  Substitua o `<scenes>` nó com o código abaixo:
+1.  Controlar + clique `Main.storyboard` para abrir o menu contextual e, em seguida, clique em: `Open As` > `Source Code`
+2.  Substitua o `<scenes>` nó com o código a seguir:
 
 ```xml
  <scenes>

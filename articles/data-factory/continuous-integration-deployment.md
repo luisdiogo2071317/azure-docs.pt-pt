@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300245"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364989"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e implementação no Azure Data Factory
 
@@ -48,7 +48,7 @@ Selecione **carregar ficheiro** para selecionar o modelo do Resource Manager exp
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Cadeias de ligação**. Pode encontrar as informações necessárias para criar cadeias de ligação nos artigos sobre os conectores individuais. Por exemplo, para a base de dados SQL do Azure, consulte [copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de ligação correta - para um serviço ligado, por exemplo, - também pode abrir a vista de código para o recurso na IU do Data Factory. No entanto, na vista de código, é removida a palavra-passe ou conta parte da chave a cadeia de ligação. Para abrir a vista de código, selecione o ícone realçado na captura de ecrã seguinte.
+**Cadeias de ligação**. Pode encontrar as informações necessárias para criar cadeias de ligação nos artigos sobre os conectores individuais. Por exemplo, para a base de dados SQL do Azure, consulte [copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de ligação correta - para um serviço ligado, por exemplo, - também pode abrir a vista de código para o recurso na IU do Data Factory. No entanto, na vista de código, é removida a palavra-passe ou conta parte da chave a cadeia de ligação. Para abrir a vista de código, selecione o ícone de realçado na captura de ecrã seguinte.
 
 ![Vista de código aberto para ver a cadeia de ligação](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
@@ -81,7 +81,7 @@ Eis os passos para configurar uma versão de serviços do Azure DevOps, para que
 
 -   Uma [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
 
-### <a name="set-up-a-azure-devops-services-release"></a>Configurar uma versão de serviços do Azure DevOps
+### <a name="set-up-an-azure-devops-services-release"></a>Configurar uma versão de serviços do Azure DevOps
 
 1.  Aceda à sua página de serviços de DevOps do Azure no mesmo projeto que aquela configurado com a fábrica de dados.
 
@@ -799,9 +799,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utilizar parâmetros personalizados com o modelo do Resource Manager
 
-Pode definir parâmetros personalizados para o modelo do Resource Manager. Simplesmente tem de ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do ficheiro tem de corresponder ao nome mostrado a seguir exatamente.) Fábrica de dados tenta ler o ficheiro a partir de qualquer ramo que atualmente está a trabalhar no, não apenas do ramo a colaboração. Se nenhum arquivo for encontrado, o Data Factory utiliza definições padrão.
+Pode definir parâmetros personalizados para o modelo do Resource Manager. Simplesmente tem de ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do ficheiro tem de corresponder ao nome mostrado a seguir exatamente.) Fábrica de dados tenta ler o ficheiro a partir de qualquer ramo que atualmente está a trabalhar no, não apenas do ramo a colaboração. Se nenhum arquivo for encontrado, o Data Factory utiliza os parâmetros predefinidos e valores.
 
-O exemplo seguinte mostra um ficheiro de parâmetros de exemplo. Utilize este exemplo como uma referência para criar seu próprio ficheiro de parâmetros personalizados. Se o ficheiro que fornecer não estiver no formato JSON correto, o Data Factory gera uma mensagem de erro na consola do browser e reverte para definições padrão mostradas na IU do Data Factory.
+O exemplo seguinte mostra um ficheiro de parâmetros de exemplo. Utilize este exemplo como uma referência para criar seu próprio ficheiro de parâmetros personalizados. Se o ficheiro que fornecer não estiver no formato JSON correto, o Data Factory gera uma mensagem de erro na consola do browser e reverte para os parâmetros de padrão e os valores mostrados na IU do Data Factory.
 
 ```json
 {

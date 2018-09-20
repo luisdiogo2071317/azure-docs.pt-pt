@@ -1,31 +1,32 @@
 ---
-title: Como a sequência de áudio de transferência de partes | Microsoft Docs
-description: Como utilizar trasfer fragmentada para enviar a sequência de áudio para o serviço de reconhecimento de voz
+title: Como Stream de áudio de transferência em partes | Documentos da Microsoft
+titlesuffix: Azure Cognitive Services
+description: Como utilizar trasfer em partes para enviar o fluxo de áudio para o serviço de voz do Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7d02340932dfc547893c4c40cbe08978b7b93756
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1796a82b85182e6d231cb0bf1536cda2406e2c53
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352171"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364912"
 ---
-# <a name="chunked-transfer-encoding"></a>Codificação de transferência de partes
+# <a name="chunked-transfer-encoding"></a>A codificação da transferência
 
-Para transcribe reconhecimento de voz para texto, o reconhecimento de voz Microsoft API permite-lhe para enviar áudio como um segmento de todo ou para chop áudio em pequenos segmentos. Para a transmissão de áudio eficiente e reduzindo a latência de transcription, é recomendado que utilize [codificação de transferência de partes](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) para transmitir áudio ao serviço. Noutras implementações poderão resultar numa maior latência percetível de utilizador. Para obter mais informações, consulte o [fluxos de áudio](../concepts.md#audio-streams) página.
+A transcrição de voz em texto, API de reconhecimento de voz de Microsoft permite-lhe para enviar o áudio como um segmento inteiro ou chop o áudio em pequenos segmentos. Para uma transmissão de áudio eficaz e reduzindo a latência de transcrição, recomenda-se que utilize [codificação de transferência segmentada](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) transmitir áudio para o serviço. Outras implementações podem resultar numa maior latência percebido pelo usuário. Para obter mais informações, consulte a [fluxos de áudio](../concepts.md#audio-streams) página.
 
 > [!NOTE]
-> Não pode carregar mais de 10 segundos de áudio em qualquer um pedido e a duração total do pedido não pode exceder os segundos 14.
+> Não pode carregar mais de 10 segundos de áudio em qualquer uma solicitação e a duração total do pedido não pode exceder os 14 segundos.
 > [!NOTE]
-> Tem de especificar a transferência de partes codificação apenas se utilizar o [REST APIs](../GetStarted/GetStartedREST.md) para chamar o serviço de reconhecimento de voz. As aplicações que utilizam [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) não é necessário configurar a codificação de transferência de partes.
+> Tem de especificar a transferência em partes codificação apenas se utilizar o [REST APIs](../GetStarted/GetStartedREST.md) para chamar o serviço de voz. Aplicativos que usam [bibliotecas de cliente](../GetStarted/GetStartedClientLibraries.md) não é necessário configurar a codificação de transferência em partes.
 
-O código seguinte mostra como definir a codificação de transferência de segmentos e enviar um ficheiro de áudio que está a ser partes em segmentos de 1024 bytes.
+O código a seguir mostra como definir a codificação de transferência segmentada e para enviar um arquivo de áudio que está a ser segmentado em segmentos de 1024 bytes.
 
 ```cs
 

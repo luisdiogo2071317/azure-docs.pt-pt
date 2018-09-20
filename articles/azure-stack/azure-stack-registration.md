@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630448"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364606"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -45,18 +45,18 @@ As informações neste artigo descrevem o registo de integrado do Azure Stack de
 
 Antes de registar o Azure Stack com o Azure, tem de ter:
 
-- O ID de subscrição para uma subscrição do Azure. Para obter o ID, inicie sessão no Azure, clique em **todos os serviços**. Em seguida, no **gerais** categoria, selecione **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID de subscrição.
+- O ID de subscrição para uma subscrição do Azure. Apenas EA, CSP ou CSP partilhado subscrições são suportadas para o registo de serviços. CSPs tem de decidir se pretende [utilizar uma subscrição do CSP ou CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Para obter o ID, inicie sessão no Azure, clique em **todos os serviços**. Em seguida, no **gerais** categoria, selecione **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID de subscrição.
 
   > [!Note]  
   > Subscrições de cloud da Alemanha não são atualmente suportadas.
 
-- O nome de utilizador e palavra-passe para uma conta que seja o proprietário da subscrição (são suportadas contas MSA/2FA).
+- O nome de utilizador e palavra-passe para uma conta que seja o proprietário da subscrição.
 
 - A conta de utilizador tem de ter acesso à subscrição do Azure e ter permissões para criar aplicações de identidades e de principais de serviço no diretório associado a essa subscrição.
 
 - Registado o fornecedor de recursos do Azure Stack (consulte a secção de registar o fornecedor de recursos do Azure Stack abaixo para obter detalhes).
 
-Após o registo, a permissão de administrador global do Azure Active Directory não é necessário. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador de fornecedor de recursos ou um novo recurso que requerem uma permissão para ser concedida. Pode temporariamente instate novamente as permissões de administrador global da conta ou utilizar uma conta de administrador global separado que é proprietária dos *predefinido da subscrição do fornecedor*.
+Após o registo, a permissão de administrador global do Azure Active Directory não é necessário. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador de fornecedor de recursos ou um novo recurso que requerem uma permissão para ser concedida. Pode temporariamente permissões de administrador global da conta de restabelecimento ou utilizar uma conta de administrador global separado que é proprietária dos *predefinido da subscrição do fornecedor*.
 
 Se não tiver uma subscrição do Azure que cumpra estes requisitos, pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registar o Azure Stack, incorre em sem custos na sua subscrição do Azure.
 

@@ -1,20 +1,21 @@
 ---
-title: Criar um classificador com o serviço de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
+title: Criar um classificador - serviço de visão personalizada
+titlesuffix: Azure Cognitive Services
 description: Saiba como utilizar o serviço de visão personalizada para criar um classificador que pode enxergar a objetos em fotografias.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223374"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364252"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -55,7 +56,7 @@ Para criar um novo projeto, utilize os seguintes passos:
 
 3. Introduza um nome e uma descrição para o projeto. Em seguida, selecione um dos domínios disponíveis. Cada domínio otimiza o classificador para tipos específicos de imagens, conforme descrito na tabela a seguir:
 
-    |Domínio|Objetivo|
+    |Domain|Objetivo|
     |---|---|
     |__Genérico__| Otimizado para uma ampla variedade de tarefas de classificação de imagens. Se nenhum dos outros domínios são adequadas ou se tiver a certeza de qual escolher o domínio, selecione o domínio genérico. |
     |__Comida__|Otimizado para fotos de pratos conforme os veria num menu do restaurante. Se quiser classificar fotografias de frutas individuais ou vegetables, utilize o domínio de alimento.|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1ede114f670dc7b1f610dff7cf076329e50f9240
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127725"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367785"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -44,7 +44,7 @@ Para obter a documentação da consola de série para VMs do Windows, [clique aq
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Para configurações específicas de distribuições Linux, consulte [aceder à consola de série para Linux](#access-serial-console-for-linux)
+* Para configurações específicas de distribuições Linux, consulte [aceder à consola de série para Linux](#Serial-Console-Linux-distro-availability)
 
 
 
@@ -52,15 +52,18 @@ Para obter a documentação da consola de série para VMs do Windows, [clique aq
 Consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Abaixo estão os passos para aceder à consola de série para máquinas virtuais através do portal 
 
   1. Abra o portal do Azure
-  2. No menu da esquerda, selecione as máquinas virtuais.
-  3. Clique na VM na lista. Abre a página de descrição geral para a VM.
-  4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção "Consola de série". Um novo painel com a consola de série abrirá e iniciar a ligação.
+  1. (Ignore este se a VM tem um utilizador que utiliza a autenticação de palavra-passe) Adicionar um utilizador com a autenticação de nome de utilizador/palavra-passe ao clicar no painel "Repor palavra-passe"
+  1. No menu da esquerda, selecione as máquinas virtuais.
+  1. Clique na VM na lista. Abre a página de descrição geral para a VM.
+  1. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção "Consola de série". Um novo painel com a consola de série abrirá e iniciar a ligação.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
+### 
 
 > [!NOTE] 
-> Consola de série requer um utilizador local com uma palavra-passe configurada. Neste momento, as VMs configuradas apenas com uma chave pública SSH não terá acesso à consola de série. Para criar um utilizador local com a palavra-passe, utilize o [extensão de acesso de VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (também disponível no portal clicando em "Repor palavra-passe") e criar um utilizador local com uma palavra-passe.
+> Consola de série requer um utilizador local com uma palavra-passe configurada. Neste momento, as VMs configuradas apenas com uma chave pública SSH não poderá iniciar sessão na consola de série. Para criar um utilizador local com a palavra-passe, utilize o [extensão de acesso de VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), disponível no portal clicando em "Repor palavra-passe" no portal e criar um utilizador local com uma palavra-passe.
+> Pode também repor a palavra-passe de administrador na sua conta por [usando o GRUB utilizar o modo de utilizador único](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distro-availability"></a>Disponibilidade de distribuição de Linux consola Serial
 Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e gravar mensagens de consola para a porta serial. A maioria dos [distribuições do Linux apoiadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Clicar simplesmente a secção de consola de série no portal do Azure irá fornecer acesso à consola. 
@@ -208,6 +211,8 @@ R. A imagem é provavelmente mal configurada para acesso à consola de série. V
 **P. Consola de série está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 
 R. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
+
+**P. Posso configurar a minha VM utilizar apenas autenticação por chave SSH, posso continuar a utilizar consola de série para ligar à minha VM?** A. Sim. Consola de série não necessita de chaves SSH, para que tudo o que precisa fazer é configurada uma combinação de nome de utilizador/palavra-passe. Pode fazê-lo ao utilizar o painel de "Repor palavra-passe" no portal e usando essas credenciais para iniciar sessão na consola de série.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilizar a consola de série para [arrancar GRUB e introduza o modo de utilizador único](serial-console-grub-single-user-mode.md)

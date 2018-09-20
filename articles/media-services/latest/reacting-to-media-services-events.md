@@ -1,51 +1,60 @@
 ---
-title: A agir os eventos de Media Services do Azure | Microsoft Docs
-description: Utilize a grelha de eventos do Azure para subscrever a eventos de Media Services.
+title: Reagir a eventos de serviços de multimédia do Azure | Documentos da Microsoft
+description: Utilize o Azure Event Grid para subscrever a eventos de serviços de multimédia.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/19/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788152"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465542"
 ---
-# <a name="reacting-to-media-services-events"></a>A agir os eventos de Media Services
+# <a name="reacting-to-media-services-events"></a>Reagir a eventos de serviços de multimédia
 
-Eventos de Media Services permitir que as aplicações de reagir a diferentes eventos (por exemplo, o estado alteração evento de tarefa) utilizando arquiteturas sem servidor modernas. Isto é feito sem a necessidade de código complicado ou serviços de consulta ineficaz e dispendiosa. Em vez disso, os eventos são enviadas por push através do [grelha de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para processadores de eventos, tal como [das funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até as suas próprias Webhook e apenas pagamento para o utilizar. Para obter informações sobre preços, consulte [preços da grelha de evento](https://azure.microsoft.com/pricing/details/event-grid/).
+Os eventos de serviços de multimédia permitem que os aplicativos reagir a eventos diferentes (por exemplo, o tarefa evento de alteração Estado), usando as modernas arquiteturas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente. Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a manipuladores de eventos, tal como [as funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio Webhook e pagar apenas o que usa. Para obter informações sobre preços, consulte [preços do Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
 
-Disponibilidade para eventos de serviços de suporte de dados está associada à grelha de evento [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como sucede grelha de eventos.  
+Disponibilidade para eventos de serviços de multimédia é associada ao Event Grid [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como o Event Grid.  
 
-## <a name="available-media-services-events"></a>Eventos de Media Services disponíveis
+## <a name="available-media-services-events"></a>Eventos de serviços de multimédia disponíveis
 
-Grelha de evento utiliza [subscrições de evento](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de evento para subscritores.  Atualmente, as subscrições de eventos de Media Services podem incluir o tipo de evento seguinte:  
+Grelha de eventos usa [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes.  Atualmente, as subscrições de eventos dos serviços de multimédia podem incluir os seguintes eventos:  
 
-|Nome do evento|Descrição|
+|Nome do Evento|Descrição|
 |----------|-----------|
-| Microsoft.Media.JobStateChange| É desencadeado quando um Estado das alterações de tarefa. |
+| Microsoft.Media.JobStateChange| Gerado quando um Estado das alterações de tarefa. |
+| Microsoft.Media.LiveEventConnectionRejected | Tentativa de ligação do codificador é rejeitada. |
+| Microsoft.Media.LiveEventEncoderConnected | Codificador estabelece ligação com o evento em direto. |
+| Microsoft.Media.LiveEventEncoderDisconnected | Codificador desliga. |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | Servidor de mídia ignora os segmentos de dados porque este seja muito tarde ou um timestamp sobreposto (timestamp de novos segmentos de dados é inferior à hora de fim do segmento de dados anterior). |
+| Microsoft.Media.LiveEventIncomingStreamReceived | Servidor de suporte de dados recebe o primeiro segmento de dados para cada faixa no stream ou ligação. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Servidor de suporte de dados Deteta áudio e fluxos de vídeo não estão sincronizados. Utilizar como um aviso porque a experiência do usuário não poderá ser afetada. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Servidor de suporte de dados Deteta qualquer um dos dois fluxos de vídeo vindo do codificador externa não estão sincronizadas. Utilizar como um aviso porque a experiência do usuário não poderá ser afetada. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Publicado a cada 20 segundos para cada faixa quando está a executar o evento em direto. Fornece ingestão de resumo de estado de funcionamento. |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | Servidor de suporte de dados Deteta descontinuidade na faixa de entrada. |
 
-## <a name="event-schema"></a>Esquema de eventos
+## <a name="event-schema"></a>Esquema de Eventos
 
-Os eventos de serviços de suporte de dados incluem todas as informações que necessárias para responder a alterações nos seus dados.  Pode identificar um evento de serviços de suporte de dados porque a propriedade eventType começa com "Microsoft.Media.".
+Eventos de serviços de multimédia contêm todas as informações que necessárias para responder a alterações nos seus dados.  É possível identificar um evento de serviços de multimédia, porque a propriedade eventType começa com "Microsoft.Media.".
 
-Para obter mais informações, consulte [esquemas de eventos de Media Services](media-services-event-schemas.md).
+Para obter mais informações, consulte [esquemas de eventos dos serviços de multimédia](media-services-event-schemas.md).
 
-## <a name="practices-for-consuming-events"></a>Práticas de consumo de eventos
+## <a name="practices-for-consuming-events"></a>Práticas recomendadas para o consumo de eventos
 
-As aplicações que processam eventos de Media Services devem seguir alguns práticas recomendadas:
+Aplicações que processam os eventos de serviços de multimédia devem seguir algumas práticas recomendadas:
 
-* Como várias subscrições podem ser configuradas para eventos de rota para o mesmo processador de eventos, é importante para não partem do princípio de eventos são de uma origem específica, mas o tópico da mensagem para se certificar de que são provenientes da conta do storage que está à espera de verificação.
-* Da mesma forma, verifique se o eventType um estão preparados para o processo e não partem do princípio de que todos os eventos recebidos serão os tipos de que espera.
-* Ignore os campos que não compreender.  Esta prática irão ajudá-lo a manter-se resiliente para novas funcionalidades que podem ser adicionadas no futuro.
-* Utilize os prefixo e o sufixo de correspondências "assunto" para limitar os eventos para um determinado evento.
+* Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não partem do princípio de eventos são de uma origem específica, mas para verificar o tópico da mensagem para se certificar de que trata da conta de armazenamento que está esperando.
+* Da mesma forma, verifique se o eventType é um estão preparados para o processo e não partem do princípio de que todos os eventos recebidos serão os tipos esperados.
+* Ignore campos que não compreende.  Essa prática ajuda a manter-se resiliente aos novos recursos que podem ser adicionados no futuro.
+* Utilize as correspondências de prefixo e o sufixo "assunto" para limitar os eventos para um determinado evento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

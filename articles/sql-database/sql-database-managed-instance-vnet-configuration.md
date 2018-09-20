@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 09/18/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 559859e1f844cae37b0baaf48b0ad7c5cc2d4b0a
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c2caa9ebbc3a4e6b9180466950775524986fd244
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542457"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364572"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para a instância gerida de base de dados SQL do Azure
 
@@ -42,7 +42,7 @@ Para criar uma instância gerida, crie uma sub-rede dedicada (sub-rede da instâ
 - **Dedicado sub-rede**: sub-rede a instância gerida não pode conter qualquer outro serviço de cloud associado à mesma, e não tem de ser uma sub-rede de Gateway. Não será possível criar uma instância gerida numa sub-rede que contém os recursos que não seja a instância gerida e, posteriormente, pode não adicionar outros recursos na sub-rede.
 - **Grupo de segurança de rede compatível (NSG)**: um NSG associado a uma sub-rede de instância gerida tem de conter regras mostradas nas tabelas seguintes (regras de segurança de entrada obrigatória e regras de segurança de saída obrigatórios) à frente de quaisquer outras regras. Pode utilizar um NSG para controlar totalmente o acesso para o ponto final de dados de instância gerida ao filtrar o tráfego na porta 1433. 
 - **Tabela de compatíveis rota definida pelo utilizador (UDR)**: sub-rede a instância gerida tem de ter uma tabela de rotas de utilizador com **Internet de salto seguinte 0.0.0.0/0** como o UDR obrigatório atribuído ao mesmo. Além disso, pode adicionar um UDR que encaminha o tráfego que tem intervalos de IP privados no local como um destino através do gateway de rede virtual ou a aplicação de rede virtual (NVA). 
-- **DNS personalizado opcional**: Se não for especificado um DNS personalizado no thevirtual netword, endereço IP de resolução de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista. Para obter mais informações, consulte [configurar o DNS de personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado tem de ser capaz de resolver nomes de anfitriões para os seguintes domínios e os respetivos subdomínios: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *microsoftonline-p.com*. 
+- **DNS personalizado opcional**: Se não for especificado um DNS personalizado no netword virtual, endereço IP de resolução de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista. Para obter mais informações, consulte [configurar o DNS de personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado tem de ser capaz de resolver nomes de anfitriões para os seguintes domínios e os respetivos subdomínios: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *microsoftonline-p.com*. 
 - **Não existem pontos finais de serviço**: sub-rede a instância gerida não pode ter um ponto de extremidade de serviço associado a si. Certifique-se de que a opção de pontos finais de serviço é desativada quando criar a rede virtual.
 - **Endereços IP suficientes**: sub-rede a instância gerida tem de ter o mínimo de 16 endereços IP (recomendado mínimo é de 32 endereços IP). Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias geridas](#determine-the-size-of-subnet-for-managed-instances)
 
