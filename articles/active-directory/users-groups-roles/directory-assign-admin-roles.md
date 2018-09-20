@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de administrador no Azure Active Directory | Documentos da Microsoft
-description: Uma função de administrador pode adicionar utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios. Um utilizador a quem seja atribuído uma função de administrador tem as mesmas permissões em todos os serviços de cloud para o qual a sua organização tiver subscrito.
+title: Referenciam de funções de administrador no Azure Active Directory | Documentos da Microsoft
+description: Uma função de administrador pode adicionar utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/19/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 985fd559c0af0306dc5b0868a8d7ccc66ca790f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04deb1168c8c5c0977d0f20c9307ce10d2d12d35
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296707"
+ms.locfileid: "46466120"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -327,7 +327,8 @@ Acesso total para gerir dispositivos no Azure AD.
 | **Ações** | **Descrição** |
 | --- | --- |
 | Microsoft.aad.Directory/Devices/DELETE | Elimine dispositivos no Azure Active Directory. |
-| Microsoft.aad.Directory/Devices/Update | Atualize a propriedade accountEnabled em dispositivos no Azure Active Directory |
+| Microsoft.aad.Directory/Devices/disable | Desative dispositivos no Azure Active Directory. |
+| Microsoft.aad.Directory/Devices/Enable | Permitir que os dispositivos no Azure Active Directory. |
 | microsoft.aad.reports/allEntities/read | Leia Relatórios do Azure AD. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |

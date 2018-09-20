@@ -34,14 +34,10 @@ items:
       href: image-sdk-java-quickstart.md
 - name: Tutoriais
   items:
-  - name: Aplicação Web de página única
+  - name: Criar uma aplicação Web de pesquisa de imagens
     href: tutorial-bing-image-search-single-page-app.md
-  - name: Aplicação Web de página única (código fonte)
-    href: tutorial-bing-image-search-single-page-app-source.md
-  - name: Carregamento de imagens do Bing para informações
+  - name: Extrair detalhes da imagem
     href: tutorial-image-post.md
-  - name: Carregamento de imagens do Bing para informações (código fonte)
-    href: tutorial-image-post-source.md
 - name: Amostras
   items:
   - name: Exemplos de código
@@ -104,9 +100,9 @@ items:
     href: UseAndDisplayRequirements.md
   - name: Análise da API de Pesquisa de Imagens do Bing
     href: bing-image-stats.md
-ms.openlocfilehash: 452891c553ba69ba30ab74925ddd19289f8dbee6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74cc9f56aa4d559c7e2644fc6866ae3d97f158f6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576719"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296299"

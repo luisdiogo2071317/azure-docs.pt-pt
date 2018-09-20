@@ -9,6 +9,7 @@
 ## [Migrar o SQL Server para a BD SQL do Azure online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrar o SQL Server para a Instância Gerida de BD SQL do Azure](tutorial-sql-server-to-managed-instance.md)
 ## [Migrar o MySQL para a BD do Azure para MySQL online](tutorial-mysql-azure-mysql-online.md)
+## [Migrar o PostgreSQL para o Azure DB para o PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 
 # Guias de procedimentos
 ## [Utilize o PowerShell para migrar o SQL Server para a DB SQL do Azure](howto-sql-server-to-azure-sql-powershell.md)
@@ -18,6 +19,7 @@
 # Recursos
 ## [Problemas Conhecidos - migração online para a BD SQL do Azure](known-issues-azure-sql-online.md)
 ## [Problemas Conhecidos - migração online para a BD do Azure para MySQL](known-issues-azure-mysql-online.md)
+## [Problemas Conhecidos - migração online para a BD do Azure para PosgreSQL](known-issues-azure-postgresql-online.md)
 ## [Comentários da Voz do Utilizador](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/)
 ## [Guia de Migração de Bases de Dados](https://aka.ms/datamigration)

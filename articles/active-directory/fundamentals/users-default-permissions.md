@@ -1,26 +1,25 @@
 ---
-title: Comparar as permissões de utilizador predefinidas no Azure AD | Microsoft Docs
-description: Comparar as permissões de membro, convidado, proprietário da aplicação e proprietário do grupo
+title: Quais são as permissões de usuário padrão no Azure Active Directory? | Microsoft Docs
+description: Saiba mais sobre as permissões de utilizador diferentes disponíveis no Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
+ms.workload: identity
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448157"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730484"
 ---
-# <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de utilizador predefinidas no Azure Active Directory
+# <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas respetivas [associações de funções](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e na respetiva propriedade dos objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado.
 
@@ -52,7 +51,7 @@ Permissão | Explicação da definição
 ---------- | ------------
 Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os Administradores Globais e Administradores de Conta de Utilizador podem, ainda assim, criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Capacidade de criar grupos do Office 365 | Definir esta opção para Não impede que os utilizadores criem grupos do Office 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos do Office 365. Os Administradores Globais e Administradores de Conta de Utilizador conseguirão, ainda assim, criar grupos do Office 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
-Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para Não impede que os utilizadores acedam ao portal do Azure Active Directory.
+Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para não impede os utilizadores de aceder ao Azure Active Directory.
 Capacidade de ler outros utilizadores | Esta definição só está disponível no PowerShell. Definir isto como $false impede todos os utilizadores não administradores de lerem as informações de utilizador do diretório. Isto não impede a leitura das informações de utilizador nos outros serviços Microsoft, como o Exchange Online. Esta definição destina-se a circunstâncias especiais e definir isto para $false não é recomendado.
 
 ## <a name="object-ownership"></a>Propriedade do objeto
@@ -68,9 +67,9 @@ When a user adds a new enterprise application, they are automatically added as a
 
 Quando um utilizador cria um grupo, é adicionado automaticamente como um proprietário desse grupo. Como proprietário, pode gerir propriedades do grupo, como o nome, bem como gerir a associação. Um proprietário também pode adicionar ou remover outros proprietários. Ao contrário dos Administradores Globais e Administradores de Conta de Utilizador, os proprietários só podem gerir os grupos que possuem. Para atribuir um proprietário de grupo, veja [Gerir os proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Para saber mais sobre como atribuir funções de administrador do Azure AD, veja [atribuir um utilizador a funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory está relacionado com a sua subscrição do Azure, veja [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerir utilizadores](add-users-azure-active-directory.md)

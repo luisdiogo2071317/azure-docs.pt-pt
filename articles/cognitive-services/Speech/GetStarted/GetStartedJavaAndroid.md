@@ -1,63 +1,64 @@
 ---
-title: Introdução à API de reconhecimento de voz Microsoft em Java no Android | Microsoft Docs
-description: Utilize a API de reconhecimento de voz da Microsoft para desenvolver aplicações Android que converter áudio ditas em texto.
+title: Comece com a API de reconhecimento de voz de Microsoft em Java no Android | Documentos da Microsoft
+titlesuffix: Azure Cognitive Services
+description: Utilize a API de voz da Microsoft para desenvolver aplicações Android que converta áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d62a1fd3a497ed87deb24fc053ec3315a7aba26b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352249"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367037"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>Começar com o reconhecimento de voz em Java no Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Início rápido: Utilizar o reconhecimento de voz do Bing API em Java no Android
 
-Com a API de reconhecimento de voz, pode desenvolver aplicações Android que utilizam o serviço baseado na nuvem de reconhecimento de voz para converter áudio ditas para texto. A API suporta a transmissão em fluxo em tempo real, para que a aplicação possa em simultâneo e no modo assíncrono receber os resultados de reconhecimento parcial ao mesmo tempo que está a enviar para o serviço de áudio.
+Com a API de reconhecimento de voz do Bing, pode desenvolver aplicações Android que utilizam o serviço de voz do Bing com base na cloud para converter áudio falado em texto. A API suporta a transmissão em fluxo em tempo real, para que seu aplicativo possa em simultâneo e assincronamente receber resultados de reconhecimento parcial, ao mesmo tempo que seja o envio de áudio para o serviço.
 
-Este artigo utiliza uma aplicação de exemplo para demonstrar como utilizar a biblioteca de clientes de reconhecimento de voz para Android para desenvolver aplicações de reconhecimento de voz para texto em Java para dispositivos Android.
+Este artigo utiliza um aplicativo de exemplo para demonstrar como utilizar a biblioteca de cliente de voz para Android para desenvolver aplicativos de voz para texto em Java para dispositivos Android.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-O exemplo é desenvolvido pela [Android Studio](http://developer.android.com/sdk/index.html) para o Windows em Java.
+O exemplo é desenvolvido pela [Android Studio](http://developer.android.com/sdk/index.html) para Windows em Java.
 
-### <a name="get-the-client-library-and-sample-application"></a>Instalar o cliente aplicação de exemplo e biblioteca
+### <a name="get-the-client-library-and-sample-application"></a>Obter aplicação de exemplo e biblioteca de cliente
 
-A biblioteca de clientes de reconhecimento de voz e amostras para Android estão disponíveis no [cliente de reconhecimento de voz SDK para Android](https://github.com/microsoft/cognitive-speech-stt-android). Pode encontrar o exemplo buildable sob o diretório de exemplos/SpeechRecoExample. Pode encontrar duas bibliotecas tem de utilizar as suas próprias aplicações SpeechSDK/libs sob o armeabi e x86 pasta. O tamanho do ficheiro libandroid_platform.so é 22 MB, mas seja reduzido para 4 MB no momento da implementação.
+A biblioteca de cliente de voz e os exemplos para Android estão disponíveis no [o cliente de voz SDK para Android](https://github.com/microsoft/cognitive-speech-stt-android). Pode encontrar o exemplo buildable sob o diretório de exemplos/SpeechRecoExample. Pode encontrar as duas bibliotecas que precisa usar em seus próprios aplicativos no SpeechSDK/bibliotecas sob o armeabi e x86 pasta. O tamanho do ficheiro libandroid_platform.so é de 22 MB, mas será reduzido a 4 MB no momento da implementação.
 
-#### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Subscrever a API de reconhecimento de voz e obter uma chave de subscrição de avaliação gratuita
+#### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Subscrever a API de voz e obter uma chave de subscrição de avaliação gratuita
 
-A API de reconhecimento de voz faz parte de serviços cognitivos (anteriormente Oxford de projeto). Pode obter as chaves de subscrição de avaliação gratuita do [subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de reconhecimento de voz, selecione **obter chave de API** para obter a chave. Devolve uma chave primária e secundária. Ambas as chaves estão associadas a quota mesmo, pelo que pode utilizar a chave.
+A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford). Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
 
-Se pretender utilizar *reconhecimento com intenção*, terá também de inscrever-se a [idioma compreender inteligente serviço (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+Se quiser usar *reconhecimento com a intenção*, terá também de inscrever-se a [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
->* Obter uma chave de subscrição. Antes de poder utilizar bibliotecas de cliente de reconhecimento de voz, tem de ter um [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
+>* Obter uma chave de subscrição. Antes de poder utilizar bibliotecas de cliente de voz, tem de ter uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Utilize a sua chave de subscrição. Com a aplicação Android de exemplo fornecido, atualize o ficheiro samples/SpeechRecoExample/res/values/strings.xml com as chaves de subscrição. Para obter mais informações, consulte [compilar e executar amostras](#build-and-run-samples).
+>* Utilize a sua chave de subscrição. Com o aplicativo de exemplo fornecido do Android, atualize o ficheiro samples/SpeechRecoExample/res/values/strings.xml com as chaves de subscrição. Para obter mais informações, consulte [compilar e executar exemplos](#build-and-run-samples).
 
-## <a name="use-the-speech-client-library"></a>Utilize a biblioteca de cliente de reconhecimento de voz
+## <a name="use-the-speech-client-library"></a>Utilize a biblioteca de cliente de voz
 
-Para utilizar a biblioteca de clientes na sua aplicação, siga o [instruções](https://github.com/microsoft/cognitive-speech-stt-android#the-client-library).
+Para utilizar a biblioteca de cliente na sua aplicação, siga os [instruções](https://github.com/microsoft/cognitive-speech-stt-android#the-client-library).
 
-Pode encontrar o cliente referência da biblioteca para Android na pasta de documentos a [cliente de reconhecimento de voz SDK para Android](https://github.com/microsoft/cognitive-speech-stt-android).
+Pode encontrar o cliente de referência da biblioteca para Android na pasta docs dos [o cliente de voz SDK para Android](https://github.com/microsoft/cognitive-speech-stt-android).
 
-## <a name="build-and-run-samples"></a>Compilar e executar as amostras
+## <a name="build-and-run-samples"></a>Criar e executar exemplos
 
-Para saber como criar e executar exemplos, consulte este [página Leia-me](https://github.com/microsoft/cognitive-speech-stt-android#the-sample).
+Para saber como criar e executar exemplos, veja este [página Leia-me](https://github.com/microsoft/cognitive-speech-stt-android#the-sample).
 
-## <a name="samples-explained"></a>Amostras explicadas
+## <a name="samples-explained"></a>Exemplos de explicado
 
-### <a name="create-recognition-clients"></a>Criar os clientes de reconhecimento
+### <a name="create-recognition-clients"></a>Criar clientes de reconhecimento
 
-O código no exemplo seguinte mostra como criar classes de cliente de reconhecimento com base em cenários de utilizador:
+O código no exemplo a seguir mostra como criar classes de cliente de reconhecimento com base em cenários de usuário:
 
 ```java
 void initializeRecoClient()
@@ -111,39 +112,39 @@ void initializeRecoClient()
 
 ```
 
-A biblioteca de clientes fornece reconhecimento previamente implementado as classes de cliente para cenários típicos de reconhecimento de voz:
+A biblioteca de cliente fornece reconhecimento previamente implementado classes de cliente para cenários típicos de reconhecimento de voz:
 
-* `DataRecognitionClient`: O reconhecimento de voz com dados PCM (por exemplo, a partir de uma origem de ficheiro ou de áudio). Os dados são divididos cópias de segurança em memórias intermédias e cada memória intermédia é enviada para o serviço de reconhecimento de voz. Sem modificações é feita para memórias intermédias, para que o utilizador possa aplicar as suas próprias deteção de silêncio, se assim o desejar. Se os dados de ficheiros WAV, pode enviar dados do direito de ficheiro de serviço de reconhecimento de voz. Se tiver dados não processados, por exemplo, através de Bluetooth, áudio primeiro enviar um cabeçalho de formato ao serviço de reconhecimento de voz seguido os dados.
-* `MicrophoneRecognitionClient`: O reconhecimento de voz com áudio feitos microfone. Certifique-se microfone está ativado e que os dados do microfone são enviados para o serviço de reconhecimento de voz. Um "silêncio Detector" incorporado é aplicada aos dados microfone antes de ser enviada para o serviço de reconhecimento.
-* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: estes clientes devolverem, além de texto de reconhecimento, estruturados informações sobre a intenção de orador, que pode ser utilizado para implementarem o ações pelas suas aplicações. Para utilizar "Intenção", precisa de formação de um modelo pela primeira vez utilizando [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClient`: Reconhecimento de voz com dados PCM (por exemplo, a partir de uma origem de ficheiro ou áudio). Os dados são divididos em buffers, e cada buffer é enviado para o serviço de voz. Sem modificação é feita para os buffers, para que o utilizador pode aplicar a sua própria detecção de silêncio, se assim o desejar. Se não for fornecidos os dados de arquivos WAV, pode enviar dados do ficheiro diretamente para o serviço de voz. Se tiver dados não processados, por exemplo, áudio através de Bluetooth, primeiro enviar um cabeçalho de formato para o serviço de voz, seguido dos dados.
+* `MicrophoneRecognitionClient`: O reconhecimento de fala com áudio proveniente de microfone. Certificar-se de que o microfone está ativado e os dados do microfone são enviados para o serviço de reconhecimento de fala. Um "silêncio detetor" incorporada é aplicada aos dados microfone antes do envio para o serviço de reconhecimento.
+* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: devolverem estes clientes, além de texto de reconhecimento, estruturados informações sobre a intenção do falante, que pode ser usado para orientar mais ações pelas suas aplicações. Para utilizar o "Objetivo", precisa primeiro preparar um modelo ao utilizar [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Idioma de reconhecimento
 
-Quando utiliza `SpeechRecognitionServiceFactory` para criar o cliente, tem de selecionar um idioma. Para obter a lista completa dos idiomas suportados pelo serviço de reconhecimento de voz, consulte [idiomas suportados](../API-Reference-REST/supportedlanguages.md).
+Quando utiliza `SpeechRecognitionServiceFactory` para criar o cliente, tem de selecionar um idioma. Para obter a lista completa de idiomas suportados pelo serviço de voz, consulte [idiomas suportados](../API-Reference-REST/supportedlanguages.md).
 
 ### `SpeechRecognitionMode`
 
-Também tem de especificar `SpeechRecognitionMode` quando cria o cliente com `SpeechRecognitionServiceFactory`:
+Também tem de especificar `SpeechRecognitionMode` ao criar o cliente com `SpeechRecognitionServiceFactory`:
 
-* `ShortPhrase`: Um utterance até 15 segundos de tempo. Como os dados são enviados para o serviço, o cliente receberá vários resultados parciais e um resultado final com várias opções de n melhor.
-* `LongDictation`: Um utterance até dois minutos longa. Como os dados são enviados para o serviço, o cliente receberá vários resultados parciais e vários resultados finais, com base na qual o serviço identifica o frase pausa.
+* `ShortPhrase`: Uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o serviço, o cliente recebe vários resultados parciais e um resultado final com várias opções de múltipla.
+* `LongDictation`: Uma expressão até dois minutos longa. Enquanto os dados são enviados para o serviço, o cliente recebe vários resultados parciais e finais, com base em onde o serviço identifica as pausas das frases.
 
-### <a name="attach-event-handlers"></a>Anexar processadores de eventos
+### <a name="attach-event-handlers"></a>Anexar manipuladores de eventos
 
-Pode anexar vários processadores de eventos para o cliente que criou:
+Pode anexar vários manipuladores de eventos para o cliente que criou:
 
-* **Eventos de resultados parciais**: Este evento é chamado sempre que o serviço de reconhecimento de voz prevê que poderá ser indicar, mesmo antes de terminar a falando (se utilizar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se utilizar `DataRecognitionClient`).
+* **Eventos de resultados parciais**: Este evento é chamado sempre que o serviço de voz prevê o que poderá ser dizendo, até mesmo antes de acabar de fala (se usar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se usar `DataRecognitionClient`).
 * **Eventos de erro**: chamado quando o serviço Deteta um erro.
-* **Eventos intenção**: chamado "WithIntent" clientes (apenas no `ShortPhrase` modo) após o resultado final reconhecimento é analisado para um objetivo JSON structured.
+* **Eventos de intenção**: chamado nos clientes de "WithIntent" (apenas em `ShortPhrase` modo) depois do resultado final de reconhecimento é analisado numa intenção do JSON estruturada.
 * **Resultar eventos**:
-  * No `ShortPhrase` modo, este evento é chamado e devolve n melhores resultados, depois de concluir falando.
-  * No `LongDictation` modo, o processador de eventos é chamado várias vezes, com base na qual o serviço identifica o frase pausa.
-  * **Para cada uma das opções de n melhor**, são devolvidas um valor de confiança e algumas formas diferentes de texto reconhecido. Para obter mais informações, consulte [formato de saída](../Concepts.md#output-format).
+  * No `ShortPhrase` modo, este evento é chamado e devolve resultados de múltipla depois de concluir a falar.
+  * No `LongDictation` modo, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica as pausas das frases.
+  * **Para cada uma das opções múltipla**, são devolvidas um valor de confiança e algumas maneiras diferentes do texto reconhecido. Para obter mais informações, consulte [formato de saída](../Concepts.md#output-format).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
 * [Referência da biblioteca de cliente para Android](https://github.com/Azure-Samples/Cognitive-Speech-STT-Android/tree/master/docs)
-* [Introdução à API de reconhecimento de voz Microsoft em c# para Windows no .NET](GetStartedCSharpDesktop.md)
-* [Introdução à API de reconhecimento de voz Microsoft no Objective-C no iOS](Get-Started-ObjectiveC-iOS.md)
-* [Introdução à API de reconhecimento de voz Microsoft em JavaScript](GetStartedJSWebsockets.md)
-* [Introdução à API de reconhecimento de voz Microsoft através de REST](GetStartedREST.md)
+* [Introdução à API de voz da Microsoft em c# para Windows no .NET](GetStartedCSharpDesktop.md)
+* [Comece com a API de voz de Microsoft no Objective-C no iOS](Get-Started-ObjectiveC-iOS.md)
+* [Comece com a API de voz da Microsoft em JavaScript](GetStartedJSWebsockets.md)
+* [Comece com a API de voz de Microsoft através de REST](GetStartedREST.md)
