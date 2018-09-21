@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541978"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498237"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -127,6 +127,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
 - **Nome**: introduza um nome exclusivo para identificar a implementação de atualização.
 - **Sistema operativo**: selecione **Windows** ou **Linux**.
+- **Grupos de atualização (pré-visualização)**: definir uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 - **Computadores a atualizar**: selecione uma pesquisa guardada, grupo importada, ou selecione máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
@@ -141,13 +142,15 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
   - Ferramentas
   - Atualizações
 
-- **Atualizações a excluir**: a seleção desta opção abre o **excluir** página. Introduza o artigos da KB ou nomes de pacotes a excluir.
+- **Atualizações para incluir/excluir** -esta ação abre o **incluir/excluir** página. As atualizações serem incluídos ou excluídos estão nos separadores separados. Para obter informações adicionais sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
 
 - **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Também pode especificar uma hora diferente.
 
    Também pode especificar se a implementação ocorre uma vez ou de acordo com um agendamento periódico. Para configurar um agendamento periódico, em **periodicidade**, selecione **periódico**.
 
    ![Caixa de diálogo Definições de Agendamento](./media/manage-update-multi/update-set-schedule.png)
+
+- **Pré- scripts de + pós-scripts de**: selecione os scripts sejam executados antes e após a sua implementação. Para obter mais informações, consulte [scripts do anteriores de gerir e Post](pre-post-scripts.md).
 - **Janela de manutenção (minutos)**: Especifique o período de tempo que pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
 - **Controlo de reinício** -esta definição determina a forma como os reinícios são processados para a implementação da atualização.

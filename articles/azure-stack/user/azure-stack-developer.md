@@ -12,22 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a6f89f9a7e5960e4749c14fc9a4adb648f6781f4
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 3be22e7f8e69ded8ccc8956cc7fd7c6d71fe5fa1
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057656"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497741"
 ---
 # <a name="develop-for-azure-stack"></a>Desenvolver para o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pode começar a desenvolver aplicativos de hoje em dia, mesmo que não tenha acesso a um ambiente do Azure Stack. Porque o Azure Stack oferece serviços Microsoft Azure que executar no seu datacenter, pode utilizar ferramentas e processos semelhantes para desenvolver no Azure Stack, tal como faria com o Azure. Com alguma preparação e através da orientação nos tópicos seguintes, pode utilizar o Azure para emular um ambiente do Azure Stack.
+Pode começar a desenvolver aplicativos de hoje em dia, mesmo que não tenha acesso a um ambiente do Azure Stack. Porque o Azure Stack oferece serviços Microsoft Azure que executar no seu datacenter, pode utilizar ferramentas e processos semelhantes para desenvolver no Azure Stack, tal como faria com o Azure. 
+
+## <a name="development-considerations"></a>Considerações sobre programação
+
+Com alguma preparação e através da orientação nos tópicos seguintes, pode utilizar o Azure para emular um ambiente do Azure Stack.
 
 * No Azure, pode criar modelos do Azure Resource Manager implementáveis no Azure Stack. Ver [considerações sobre os modelos](azure-stack-develop-templates.md) para obter orientações sobre como desenvolver modelos para garantir a portabilidade.
 * Existem diferenças na disponibilidade do serviço e o controlo de versões de serviço entre o Azure e o Azure Stack. Pode utilizar o [módulo de política do Azure Stack](azure-stack-policy-module.md) para restringir os tipos de recursos e a disponibilidade do serviço do Azure para o que está disponível no Azure Stack. Restrição de serviços garante que as aplicações dependem de serviços disponíveis para o Azure Stack.
 * O [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) são exemplos comuns de cenário que mostram como desenvolver modelos que podem ser implementados no Azure e o Azure Stack.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para obter mais informações sobre o desenvolvimento do Azure Stack, veja os artigos seguintes:
+
+- [Azure práticas recomendadas de modelo do Resource Manager](azure-stack-develop-templates.md)
+- [Modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates)

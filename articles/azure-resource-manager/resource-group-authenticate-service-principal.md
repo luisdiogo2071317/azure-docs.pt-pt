@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023329"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498611"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Utilizar o Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -29,7 +29,7 @@ Quando tem uma aplicação ou script que precisa de aceder a recursos, pode conf
 * Utilize um certificado para autenticação ao executar um script automático.
 
 > [!IMPORTANT]
-> Em vez de criar um principal de serviço, considere utilizar a Identidade de Serviço Gerida do Azure AD para a identidade da aplicação. O MSI do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o seu código é executado num serviço que suporta o MSI do Azure AD e acede a recursos que suportam a autenticação do Azure Active Directory, o MSI do Azure AD é uma opção melhor para si. Para saber mais sobre o MSI do Azure AD, incluindo os serviços que atualmente o suportam, veja [Identidade de Serviço Gerida para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+> Em vez de criar um principal de serviço, considere a utilização de identidades geridas para recursos do Azure para a sua identidade da aplicação. Se o seu código é executado num serviço que oferece suporte a identidades geridas e os recursos de acessos que suportem a autenticação do Azure Active Directory, identidades geridas são uma opção melhor para. Para saber mais sobre identidades geridas para recursos do Azure, incluindo os serviços atualmente suportam, consulte [o que há de identidades geridas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
 Este artigo mostra como criar um principal de serviço que faz a autenticação com um certificado. Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -207,9 +207,9 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 Pode obter os seguintes erros ao criar um principal de serviço:
 
-* **"Authentication_Unauthorized"** ou **"Nenhuma subscrição encontrada no contexto."** - Este erro é apresentado quando a sua conta não tem as [permissões obrigatórias](#required-permissions) no Azure Active Directory para registar uma aplicação. Normalmente, este erro ocorre quando apenas os utilizadores de administração do seu Azure Active Directory podem registar aplicações e a sua conta não é uma conta de administrador. Peça ao seu administrador para lhe atribuir uma função de administrador ou para permitir que os utilizadores registem aplicações.
+* **"Authentication_Unauthorized"** ou **"Nenhuma subscrição encontrada no contexto."** -Vir este erro quando a sua conta não tem o [permissões obrigatórias](#required-permissions) no Azure Active Directory para registar uma aplicação. Normalmente, se este erro ocorrer quando apenas os utilizadores de administração do Azure Active Directory podem registar aplicações e a sua conta não é um administrador. Peça ao seu administrador para lhe atribuir uma função de administrador ou para permitir que os utilizadores registem aplicações.
 
-* A sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito '/subscriptions/{guid}'."** - Este erro é apresentado quando a sua conta não tem permissões suficientes para atribuir uma função a uma identidade. Peça ao administrador da sua subscrição para adicioná-lo à função Administrador de Acesso dos Utilizadores.
+* Sua conta **"não tem autorização para realizar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito"/ subscrições / {guid}"."**  -Vir este erro quando a sua conta não tem permissões suficientes para atribuir uma função para uma identidade. Peça ao administrador da sua subscrição para adicioná-lo à função Administrador de Acesso dos Utilizadores.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).

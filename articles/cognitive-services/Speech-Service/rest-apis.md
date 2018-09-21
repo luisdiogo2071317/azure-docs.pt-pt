@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7d5656d6599e1d8d2a3e85b9d41bcce6490e1511
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124172"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498118"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
@@ -59,7 +59,7 @@ O áudio é enviado no corpo do HTTP `PUT` pedir e deve estar no formato WAV de 
 
 ### <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de voz iniciar o processamento, o arquivo de áudio e está a ser transmitido. A API REST não fornece resultados parciais ou provisórias; Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
+A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de voz para começar a processar o ficheiro de áudio, enquanto que está a ser transmitido. A API REST não fornece resultados parciais ou provisórias; Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
 
 O código a seguir ilustra como enviar áudio em blocos. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 
@@ -137,7 +137,7 @@ O `RecognitionStatus` campo pode conter os seguintes valores.
 | `Error` | O serviço de reconhecimento de obteve um erro interno e não foi possível continuar. Tente novamente se possível. |
 
 > [!NOTE]
-> Se o usuário participa como palestrante apenas linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz, a menos que o modo de reconhecimento é `interactive`. Neste caso, o serviço devolve um resultado de conversão de voz com uma `RecognitionStatus` de `NoMatch`. 
+> Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz. 
 
 O `detailed` formato inclui os mesmos campos que o `simple` formatar, juntamente com um `NBest` campo. O `NBest` campo é uma lista de alternativas interpretações sobre a mesma conversão de voz, classificados do maior probabilidade de, pelo menos, provavelmente. A primeira entrada é o mesmo, como o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
 
@@ -215,8 +215,6 @@ Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 |`Authorization`|Um token de autorização precedidas pela palavra `Bearer`. Necessário. Ver [autenticação](#authentication).|
 |`Content-Type`|O tipo de conteúdo de entrada: `application/ssml+xml`.|
 |`X-Microsoft-OutputFormat`|O formato de áudio de saída. Consulte a tabela seguinte.|
-|`X-Search-AppId`|Só de hex GUID (sem traços) que identifica exclusivamente o aplicativo cliente. Isso pode ser o ID da loja. O FF não é uma aplicação da loja, pode usar qualquer GUID.|
-|`X-Search-ClientId`|Só de hex GUID (sem traços) que identifica exclusivamente uma instância de aplicação para cada instalação.|
 |`User-Agent`|Nome da aplicação. Necessário. tem de conter menos de 255 carateres.|
 
 Formatos de saída de áudio disponível (`X-Microsoft-OutputFormat`) incorporar uma velocidade de transmissão e uma codificação.
@@ -230,9 +228,12 @@ Formatos de saída de áudio disponível (`X-Microsoft-OutputFormat`) incorporar
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
+> [!NOTE]
+> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, não suportam vozes de 24khz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída. 
+
 ### <a name="request-body"></a>Corpo do pedido
 
-O texto a ser sintetizado em voz é enviado como o corpo de um HTTP `POST` pedido em qualquer texto sem formatação ou [Speech Synthesis Markup Language](speech-synthesis-markup.md) formato (SSML) com a codificação de texto UTF-8. Tem de utilizar SSML se pretender utilizar uma voz que não seja de voz de padrão do serviço.
+O texto a converter a voz é enviado como o corpo de um HTTP `POST` pedido em qualquer texto simples (ASCII ou UTF-8) ou [Speech Synthesis Markup Language](speech-synthesis-markup.md) formato de (SSML) (UTF-8). Pedidos de texto simples de utilizar voz predefinido do serviço e de idioma. Envie SSML para utilizar uma voz diferente.
 
 ### <a name="sample-request"></a>Pedido de exemplo
 
@@ -260,10 +261,10 @@ O estado HTTP de resposta indica o êxito ou condições de erro comuns.
 Código de HTTP|Significado|Razão possível
 -|-|-|
 200|OK|O pedido foi concluída com êxito; o corpo da resposta é um arquivo de áudio.
-400|Pedido incorreto|Campo de cabeçalho necessário em falta, documentos SSML de valor demasiado longo, ou é inválido.
-401|Não autorizado|Chave de subscrição ou autorização token é inválido na região especificada ou ponto final inválido.
-403|Proibido|Chave de subscrição ou autorização em falta token.
-413|Entidade do pedido demasiado grande|O texto de entrada é mais de 1000 carateres.
+400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
+401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto.
+413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
+|502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que é transferido ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
 

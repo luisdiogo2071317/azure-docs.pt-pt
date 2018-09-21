@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
 ms.author: tomsh
-ms.openlocfilehash: 273a464d6ece3f81948b9ebccb1adc3b2b12d730
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b4af979ba23e5ef4d009ce2d808dacdffca2c4ec
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465950"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498101"
 ---
 # <a name="azure-security-technical-overviews"></a>Visões gerais do técnicos segurança do Azure
 
 
 * [Descrição geral da segurança da base de dados do Azure](azure-database-security-overview.md)
 * [Descrição geral da encriptação do Azure](security-azure-encryption-overview.md)
-* [Descrição geral da segurança de gestão de identidade do Azure](security-azure-encryption-overview.md)
+* [Descrição geral da segurança de gestão de identidade do Azure](security-identity-management-overview.md)
 * [Descrição geral da segurança de rede do Azure](security-network-overview.md)
 * [Descrição geral da segurança operacionais do Azure](azure-operational-security-overview.md)
 * [Gestão de segurança do Azure e a descrição geral da monitorização](security-management-and-monitoring-overview.md)

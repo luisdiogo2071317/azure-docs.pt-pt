@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddc27d9f5124000601a57b4ecd72c3d6021c109f
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542638"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498543"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -35,7 +35,7 @@ O diagrama seguinte mostra uma vista conceptual do comportamento e fluxo de dado
 
 ![Atualizar o fluxo do processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino. Para gerir máquinas num inquilino diferente, tem de integrá-los como [máquinas não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino. Para gerir máquinas num inquilino diferente, tem de integrá-los como [máquinas não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
 
 Depois que um computador executa uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é realizada a cada 12 horas por predefinição.
 
@@ -55,6 +55,8 @@ A implementação agendada define que computadores de destino recebem as atualiz
 As atualizações são instaladas por runbooks na Automatização do Azure. Não é possível ver estes runbooks e os runbooks não requerem nenhuma configuração. Quando é criada uma implementação de atualização, a implementação da atualização cria uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. O runbook principal inicia um runbook subordinado em cada agente para efetuar a instalação de atualizações necessárias.
 
 A data e hora especificada na implementação de atualização, os computadores de destino executar a implantação em paralelo. Antes da instalação, é feita uma análise para verificar se as atualizações são ainda necessárias. Para computadores de cliente do WSUS, se as atualizações não aprovadas no WSUS, a implementação de atualização falha.
+
+Ter uma máquina registados para gestão de atualizações em vários Log Analytics áreas de trabalho (multi-homing) não é suportada.
 
 ## <a name="clients"></a>Clientes
 
@@ -190,7 +192,7 @@ Para executar uma pesquisa de registos que devolve informações sobre o computa
 
 Depois das atualizações são avaliadas para todos os computadores Linux e Windows na sua área de trabalho, pode instalar atualizações necessárias ao criar uma *implementação de atualização*. Uma implementação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Especifique a data e hora para a implementação e um computador ou grupo de computadores a incluir no âmbito de uma implementação. Para saber mais sobre grupos de computadores, veja [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Grupos de computadores no Log Analytics).
 
- Ao incluir grupos de computadores na sua implementação de atualização, a associação de grupo é avaliada apenas uma vez, no momento da criação da agenda. As alterações subsequentes a um grupo não são refletidas. Para contornar este problema, elimine a implementação da atualização agendada e recriá-la.
+ Ao incluir grupos de computadores na sua implementação de atualização, a associação de grupo é avaliada apenas uma vez, no momento da criação da agenda. As alterações subsequentes a um grupo não são refletidas. Para contornar esse uso [grupos de quantas](#using-dynamic-groups), estes grupos são resolvidos no momento da implementação e são definidos por uma consulta.
 
 > [!NOTE]
 > Máquinas de virtuais do Windows que são implementadas no Azure Marketplace por predefinição, são definidas para receber atualizações automáticas do serviço de atualização do Windows. Este comportamento não é alterado quando adicionar esta solução ou adicionar as máquinas virtuais do Windows à sua área de trabalho. Se não gerir ativamente atualizações ao utilizar esta solução, aplica-se o comportamento predefinido (para aplicar atualizações automaticamente).
@@ -198,6 +200,23 @@ Depois das atualizações são avaliadas para todos os computadores Linux e Wind
 Para evitar as atualizações sejam aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote Unattended-Upgrade para desativar as atualizações automáticas. Para obter informações sobre como configurar o pacote, consulte [tópico de atualizações automáticas no Guia do Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Máquinas virtuais que foram criadas a partir de imagens de Red Hat Enterprise Linux (RHEL) a pedido que estão disponíveis no Azure Marketplace estão registadas para o acesso a [Red Hat atualização de infra-estrutura (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) que é implementado no Azure. Qualquer outra distribuição de Linux tem de ser atualizada de repositório de ficheiros online a distribuição através dos seguintes métodos com suporte a distribuição.
+
+Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** painel abre-se. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
+
+| Propriedade | Descrição |
+| --- | --- |
+| Nome |O nome exclusivo para identificar a implementação de atualizações. |
+|Sistema Operativo| Linux ou Windows|
+| Grupos de atualização (pré-visualização)|Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
+| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
+|Incluir/excluir atualizações|Esta ação abre o **incluir/excluir** página. As atualizações serem incluídos ou excluídos estão nos separadores separados. Para obter informações adicionais sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior) |
+|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
+| Pré- scripts de + pós-scripts|Selecione os scripts sejam executados antes e após a implementação|
+| Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
+| Controlo de reinício| Determina como devem ser tratadas reinicializações. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
+
+Também é possível criar implementações de atualizações por meio de programação. Para saber como criar uma implementação de atualização com a API REST, veja [as configurações de atualização de Software - criar](/rest/api/automation/softwareupdateconfigurations/create). Também existe um runbook de exemplo que pode ser utilizado para criar uma implementação de atualização semanal. Para saber mais sobre este runbook, consulte [criar uma implementação de atualização semanal para uma ou mais VMs num grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-missing-updates"></a>Ver as atualizações em falta
 
@@ -209,20 +228,7 @@ Selecione o **implementações de atualizações** separador para ver a lista de
 
 ![Descrição geral dos resultados de implementação de atualização](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="create-or-edit-an-update-deployment"></a>Criar ou editar uma implementação de atualização
-
-Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** painel abre-se. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
-
-| Propriedade | Descrição |
-| --- | --- |
-| Nome |O nome exclusivo para identificar a implementação de atualizações. |
-|Sistema Operativo| Linux ou Windows|
-| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
-|Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
-|Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o KB sem o prefixo "KB. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
-|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
-| Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
-| Controlo de reinício| Determina como devem ser tratadas reinicializações. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
+Para ver uma implementação de atualização a partir da API REST, consulte [execuções de configuração de atualização de Software](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
@@ -484,11 +490,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Utilizando os grupos dinâmicos (pré-visualização)
+
+Gestão de atualizações fornece a capacidade para visar um grupo dinâmico de VMs do Azure para implementações de atualizações. Estes grupos são definidos por uma consulta, quando uma implementação de atualização é iniciada, os membros desse grupo são avaliados. Ao definir a sua consulta que os seguintes itens podem ser usados juntos para preencher o grupo dinâmico
+
+* Subscrição
+* Grupos de recursos
+* Localizações
+* Etiquetas
+
+![Selecionar grupos](./media/automation-update-management/select-groups.png)
+
+Para pré-visualizar os resultados de um grupo dinâmico, clique nas **pré-visualização** botão. Esta pré-visualização mostra a associação de grupo nessa altura, neste exemplo, que está a procurar máquinas com a marca **função** é igual a **BackendServer**. Se mais máquinas tiverem esta etiqueta adicionada, estes serão adicionados a todas as implementações futuras em relação a esse grupo.
+
+![grupos de pré-visualização](./media/automation-update-management/preview-groups.png)
+
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrar no System Center Configuration Manager
 
 Os clientes que investiram no System Center Configuration Manager para gerir PCs, servidores e dispositivos móveis também contam com a potência e maturidade do Configuration Manager para os ajudar a gerir atualizações de software. O Configuration Manager faz parte do respetivo ciclo de gestão (soma) de atualização de software.
 
 Para saber como integrar a solução de gestão com o System Center Configuration Manager, veja [integrar o System Center Configuration Manager com a gestão de atualizações](oms-solution-updatemgmt-sccmintegration.md).
+
+## <a name="inclusion-behavior"></a>Comportamento de inclusão
+
+Inclusão de atualização permite-lhe especificar as atualizações específicas a aplicar. Patches ou pacotes que estão definidas para ser incluídas são instaladas, independentemente das classificações selecionadas para a implementação.
+
+Para máquinas Linux se um pacote está incluído, mas tem um pacote de dependentes que foi specifcally excluído, o pacote não está instalado.
 
 ## <a name="patch-linux-machines"></a>Máquinas do Linux de patch
 
@@ -527,3 +554,5 @@ Avance para o tutorial para saber como gerir atualizações para as suas máquin
 
 * Utilizar as pesquisas de registos no [do Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver os dados de atualizações detalhados.
 * [Criar alertas](../log-analytics/log-analytics-alerts.md) quando são detetadas atualizações críticas em falta nos computadores ou se um computador tiver as atualizações automáticas desativadas.
+
+* Para saber como interagir com a gestão de atualizações por meio da API REST, veja [as configurações de atualização de Software](/rest/api/automation/softwareupdateconfigurations)

@@ -1,5 +1,5 @@
 ---
-title: O Azure Site Recovery de resolução de problemas do VMware para o Azure | Documentos da Microsoft
+title: Resolver falhas de instalação de push do serviço de mobilidade durante ativar Replication(VMware to Azure) | Documentos da Microsoft
 description: Resolver problemas de erros de instalação push do serviço de mobilidade ao replicar máquinas virtuais do Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.author: ramamill
 ms.date: 09/19/2018
-ms.openlocfilehash: 32b579ac680204a909c19e7125711d298b08b26a
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 22c01f2bd9c763eeb681bf2d60e0ccffe1154d85
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365490"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497625"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação de push do serviço de mobilidade
 

@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: c8bde99e0247871212766a9915b9d07b7f392201
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465593"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498186"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure
 
@@ -37,9 +37,16 @@ O Azure Key Vaults são recursos controlados, geridos pelo Azure Resource Manage
 
 ### <a name="soft-delete-behavior"></a>Comportamento de eliminação de forma recuperável
 
-Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o objeto do Cofre de chaves é uma eliminação de forma recuperável, com eficiência que contém os recursos durante um período de retenção especificado, dando a aparência que o objeto é eliminado. O serviço ainda mais fornece um mecanismo para recuperar o objeto excluído, desfazendo, essencialmente, a eliminação. 
+Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o objeto do Cofre de chaves é uma eliminação de forma recuperável, com eficiência que contém os recursos para um período de retenção especificado (90 dias), dando a aparência que o objeto é eliminado. O serviço ainda mais fornece um mecanismo para recuperar o objeto excluído, desfazendo, essencialmente, a eliminação. 
 
 É um comportamento opcional do Cofre de chaves de eliminação de forma recuperável sendo **não ativada por predefinição** nesta versão. 
+
+### <a name="do-not-purge-flag"></a>Não remover o sinalizador
+Um usuário que deseja forçar a eliminação de cofre ou o objeto de cofre pode fazê-lo. Isso é se um utilizador que tem permissões para eliminar um cofre ou um objeto dentro do cofre pode forçar a remoção, mesmo se a eliminação de forma recuperável para esse cofre estiver ativada. Mas se o usuário desejar impedir a eliminação de força de cofre ou o objeto do cofre podem definir – enable--proteção contra remoção sinalizador como true. Quando cria um cofre pode ativar o sinalizador ao fazer isso. O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada. É o comando para fazer isso em 2 de CLI do Azure
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
 
 ### <a name="key-vault-recovery"></a>Recuperação de Cofre de chaves
 

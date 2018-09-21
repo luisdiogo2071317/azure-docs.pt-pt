@@ -1,20 +1,20 @@
 ---
 title: Descrição geral de limites de recursos de base de dados SQL do Azure | Documentos da Microsoft
-description: Esta página descreve alguns limites comuns do recurso baseado em DTU para bases de dados individuais na base de dados do Azure SQL.
+description: Este artigo fornece uma descrição geral do recurso de base de dados do Azure SQL limita e fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d070c1d65ea15450589e1b590eaf926c10e749f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: fbb73e46ed3aa41b544e8fea5c6184675140e810
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736194"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498158"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Limites de recursos de base de dados do Azure SQL de descrição geral 
 

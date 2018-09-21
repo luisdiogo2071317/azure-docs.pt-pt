@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 6f72e0cbb4476e9ff22bd1a1ead8dbee24a7edf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649931"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498424"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir conjuntos elásticos de base de dados SQL com o PowerShell (pré-visualização)
 
@@ -213,7 +213,7 @@ Melhores práticas de segurança para as tarefas de bases de dados elásticas in
 * As credenciais devem ter o mínimo de privilégios necessários para executar a tarefa de tarefa.  Obter mais informações podem ser vistas dentro desta [autorização e as permissões](https://msdn.microsoft.com/library/bb669084.aspx) artigo do MSDN do SQL Server.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Para criar uma credencial encriptada para execução de tarefas entre bases de dados
-Para criar uma nova credencial encriptada, o [ **cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) pede-lhe um nome de utilizador e palavra-passe que pode ser passado para o [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Para criar uma nova credencial encriptada, o [ **cmdlet Get-Credential** ](/powershell/module/microsoft.powershell.security/get-credential) pede-lhe um nome de utilizador e palavra-passe que pode ser passado para o [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

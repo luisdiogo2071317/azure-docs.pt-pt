@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9358c7ba72e16ed54514d42c1366420ef2f37324
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bee1c5c48242b69ee33fedd358a83e0580d19942
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304276"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498056"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na automatização do Azure
 
@@ -44,8 +44,10 @@ Uma vez que os módulos são atualizados regularmente pelo grupo de produtos, as
 
     Se os módulos já estão atualizados, em seguida, o processo for concluído dentro de alguns segundos. Quando o processo de atualização estiver concluída, será notificado.<br><br> ![Atualizar o estado de atualização de módulos do Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
+    Os módulos de AzureRm do .NET core (azurerm. *. Núcleos) não são suportados na automatização do Azure e não pode ser importado.
+
 > [!NOTE]
-> A automatização do Azure utiliza os módulos mais recentes na sua conta de automatização quando é executada uma nova tarefa agendada.    
+> A automatização do Azure utiliza os módulos mais recentes na sua conta de automatização quando é executada uma nova tarefa agendada.  
 
 Se utilizar cmdlets destes módulos do PowerShell do Azure nos runbooks, quer para executar este processo de atualização de todos os meses, ou então, para se certificar de que tem os módulos mais recentes. Utilizações de automatização do Azure em que a ligação de AzureRunAsConnection para autenticar ao atualizar os módulos, se o principal de serviço expirou ou já não existe no nível da subscrição, a atualização de módulo irá falhar.
 

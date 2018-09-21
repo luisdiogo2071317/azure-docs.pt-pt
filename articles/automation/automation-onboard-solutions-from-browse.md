@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c326232e0fc8f5f878241186eac8ae5ed23f0958
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 83a768b82172b8736ea06bfed012309ac92734b7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366765"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497965"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -51,9 +51,13 @@ Utilize os controlos de filtro para selecionar máquinas virtuais a partir de di
 
 ![Carregar solução de gestão de atualizações](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Reveja as opções para a área de trabalho do Log analytics e a conta de automatização. Uma nova área de trabalho e a conta de automatização estão selecionadas por predefinição. Se tiver uma conta de automatização e a área de trabalho do Log Analytics existente que pretende utilizar, clique em **alterar** para selecioná-los a partir do **configuração** página. Quando terminar, clique em **Guardar**.
+Reveja as opções para a área de trabalho do Log analytics e a conta de automatização. Uma área de trabalho existente e a conta de automatização estão selecionadas por predefinição. Se pretender utilizar uma área de trabalho do Log Analytics diferente e uma conta de automatização, clique em **personalizada** para selecioná-los a partir do **configuração personalizada** página. Ao escolher uma área de trabalho do Log Analytics, é feita uma verificação para determinar se ele está associado a uma conta de automatização. Se for encontrada uma conta de automatização ligada, verá o ecrã seguinte. Quando terminar, clique em **OK**.
 
 ![Selecione a área de trabalho e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Se a área de trabalho selecionada não está ligada a uma conta de automatização, verá o ecrã seguinte. Selecione uma conta de automatização e clique em **OK** quando terminar.
+
+![Nenhuma área de trabalho](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Desmarque a caixa de verificação junto a qualquer máquina virtual que não pretende ativar. Máquinas virtuais que não é possível ativar já estão a ser desmarcadas.
 

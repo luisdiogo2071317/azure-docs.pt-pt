@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 790d192823867ee858a7fa6bf030721002a6bd94
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296878"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498713"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Aplicações web do Azure em direto de perfil com o Application Insights
 
-Esse recurso do Application Insights do Azure está disponível em geral para a funcionalidade de aplicações Web do serviço de aplicações do Azure e está em pré-visualização para os recursos de computação do Azure. Para obter informações sobre [na utilização de locais de criador de perfil](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+Esse recurso do Application Insights do Azure está geralmente disponível para a funcionalidade de aplicações Web do serviço de aplicações do Azure e os recursos de computação do Azure. Para obter informações sobre [na utilização de locais de criador de perfil](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 Este artigo aborda a quantidade de tempo é gasto em cada método da sua aplicação web em direto, quando usa [Application Insights](app-insights-overview.md). A ferramenta do Application Insights Profiler exibe detalhados de perfis de pedidos em direto que foram fornecidos pela sua aplicação. Profiler destaca os *o hot path* que utiliza mais tempo. Pedidos com vários tempos de resposta, as quais criar perfis são uma forma de amostragem. Ao utilizar uma variedade de técnicas, pode minimizar a sobrecarga associada a aplicação.
 

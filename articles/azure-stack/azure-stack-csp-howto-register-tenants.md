@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634001"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498577"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar o inquilino para a utilização e faturação no Azure Stack
 
@@ -69,9 +69,9 @@ Atualize o registo com a nova subscrição do cliente. Utilização do cliente, 
 ### <a name="new-azurermresource-powershell-parameters"></a>Parâmetros do PowerShell do novo-AzureRmResource
 | Parâmetro | Descrição |
 | --- | --- | 
-|registrationSubscriptionID | A subscrição do Azure que foi utilizada para o registo inicial da pilha do Azure. |
-| customerSubscriptionID | A subscrição do Azure (não o Azure Stack) pertencentes ao cliente sejam registrados. Tem de ser criada na oferta do CSP; na prática, isso significa através do Centro de parceiros. Se um cliente tiver mais do que um inquilino do Azure Active Directory, esta subscrição tem de ser criada no inquilino que será utilizado para iniciar sessão no Azure Stack.
-| resourceGroup | O grupo de recursos no Azure em que o registo é armazenado. 
+|registrationSubscriptionID | A subscrição do Azure que foi utilizada para o registo inicial da pilha do Azure.|
+| customerSubscriptionID | A subscrição do Azure (não o Azure Stack) pertencentes ao cliente sejam registrados. Tem de ser criada na oferta do CSP; na prática, isso significa através do Centro de parceiros. Se um cliente tiver mais do que um inquilino do Azure Active Directory, esta subscrição tem de ser criada no inquilino que será utilizado para iniciar sessão no Azure Stack. O ID de subscrição de cliente tem de utilizar letras minúsculas. |
+| resourceGroup | O grupo de recursos no Azure em que o registo é armazenado. |
 | registrationName | O nome do registo do seu Azure Stack. É um objeto armazenado no Azure. | 
 | Propriedades | Especifica as propriedades do recurso. Utilize este parâmetro para especificar os valores de propriedades que são específicas para o tipo de recurso.
 

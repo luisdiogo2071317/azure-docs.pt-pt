@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2f053f6dd98b9f4e97d69e51bce933a003633277
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025298"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497948"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utilizar o portal para criar uma aplicação do Azure Active Directory e o principal de serviço que pode aceder aos recursos
 
@@ -27,7 +27,7 @@ Quando tiver o código que precisa de aceder ou modificar os recursos, tem de co
 Este artigo mostra-lhe como realizar estes passos através do portal. Ele se concentra num aplicativo de inquilino único onde o aplicativo destina-se para ser executada dentro da organização apenas um. Geralmente usa aplicações de inquilino único para aplicações de linha de negócio que são executados dentro da sua organização.
 
 > [!IMPORTANT]
-> Em vez de criar um principal de serviço, considere utilizar a Identidade de Serviço Gerida do Azure AD para a identidade da aplicação. O MSI do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o seu código é executado num serviço que suporta o MSI do Azure AD e acede a recursos que suportam a autenticação do Azure Active Directory, o MSI do Azure AD é uma opção melhor para si. Para saber mais sobre o MSI do Azure AD, incluindo os serviços que atualmente o suportam, veja [Identidade de Serviço Gerida para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+> Em vez de criar um principal de serviço, considere a utilização de identidades geridas para recursos do Azure para a sua identidade da aplicação. Se o seu código é executado num serviço que oferece suporte a identidades geridas e os recursos de acessos que suportem a autenticação do Azure Active Directory, identidades geridas são uma opção melhor para. Para saber mais sobre identidades geridas para recursos do Azure, incluindo os serviços atualmente suportam, consulte [o que há de identidades geridas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
@@ -84,11 +84,11 @@ Para verificar as permissões de subscrição:
 
    ![adicionar aplicação](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Indique um nome e um URL para a aplicação. Selecione **aplicação / API Web** no tipo de aplicação que quer criar. Não é possível criar as credenciais para uma [aplicativo nativo](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); portanto, que tipo não funciona para um aplicativo automatizado. Depois de definir os valores, selecione **criar**.
+1. Indique um nome e um URL para a aplicação. Selecione **aplicação / API Web** no tipo de aplicação que quer criar. Não é possível criar as credenciais para uma [aplicativo nativo](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); portanto, que o tipo não funciona para um aplicativo automatizado. Depois de definir os valores, selecione **criar**.
 
    ![dar nome à aplicação](./media/resource-group-create-service-principal-portal/create-app.png)
 
-Criou seu aplicativo.
+Acabou de criar seu aplicativo.
 
 ## <a name="get-application-id-and-authentication-key"></a>Obter a chave de ID e a autenticação da aplicação
 
@@ -114,7 +114,7 @@ Ao iniciar sessão programaticamente, precisa do ID da sua aplicação e de uma 
 
    ![guardar chave](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, porque não vai conseguir obter a chave mais tarde. O valor da chave é indicado com o ID da aplicação para iniciar sessão como esta. Armazene o valor da chave num local onde a aplicação o possa obter.
+   Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, porque não é possível obter a chave mais tarde. Forneça o valor da chave com o ID da aplicação para iniciar sessão como o aplicativo. Armazene o valor da chave num local onde a aplicação o possa obter.
 
    ![chave guardada](./media/resource-group-create-service-principal-portal/copy-key.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Executar análises de entre inquilinos usando dados extraídos | Documentos da Microsoft
-description: Consultas de análise de entre inquilinos usando dados extraídos a partir de várias bases de dados da base de dados do Azure SQL.
+description: Consultas de análise de entre inquilinos usando dados extraídos a partir de várias bases de dados de base de dados do Azure SQL num aplicativo de inquilino único.
 keywords: tutorial de base de dados sql
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: b887572e7c2bdf22c8a6cc8ffa1641e402fd6a58
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a838630e3423ca5ec26893597e2bb2b6e36ede2e
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736432"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498064"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de entre inquilinos com os dados extraídos
-
-Neste tutorial, é necessário percorrer um cenário de completas de análise. O cenário demonstra como a análise pode ativar as empresas a tomarem decisões inteligentes. Usando dados extraídos de cada base de dados de inquilinos, utilize o analytics para obter informações sobre o inquilino utilização de comportamento e a aplicação. Este cenário envolve três etapas: 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de entre inquilinos com extraídos dados - aplicação de inquilino único
+ 
+Neste tutorial, é necessário percorrer um cenário de completas de análise para implementatoin um único inquilino. O cenário demonstra como a análise pode ativar as empresas a tomarem decisões inteligentes. Usando dados extraídos de cada base de dados de inquilinos, utilize o analytics para obter informações sobre o comportamento de inquilino, incluindo o uso do exemplo de aplicação Wingtip Tickets SaaS. Este cenário envolve três etapas: 
 
 1.  **Extrair** dados de cada base de dados de inquilinos e **carga** para um arquivo de análise.
 2.  **Transformar os dados extraídos** para processamento de análise.
@@ -241,3 +241,4 @@ Parabéns!
 
 - Adicionais [tutoriais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Tarefas elásticas](sql-database-elastic-jobs-overview.md).
+- [Análise de entre inquilinos com dados extraídos - aplicação multi-inquilino](saas-multitenantdb-tenant-analytics.md)

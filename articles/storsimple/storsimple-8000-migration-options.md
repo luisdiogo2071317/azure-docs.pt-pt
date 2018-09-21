@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818863"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498288"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções de migração de dados do StorSimple 5000-7000 série 
 
@@ -43,24 +43,24 @@ Os clientes utilizam o StorSimple 5000-7000 série têm as seguintes duas opçõ
 
 ### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>P. Ao o StorSimple 5000 e os dispositivos das 7000 séries alcançar final do serviço? 
 
-A. StorSimple 5000-7000 série alcançar [final do serviço](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) em Julho de 2019. O final do serviço implica que Microsoft já não será capaz de fornecer suporte para hardware e software destes dispositivos depois de Julho de 2019. É altamente recomendável que começar a formular um plano para migrar os dados dos seus dispositivos agora.
+R. StorSimple 5000-7000 série alcançar [final do serviço](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) em Julho de 2019. O final do serviço implica que Microsoft já não será capaz de fornecer suporte para hardware e software destes dispositivos depois de Julho de 2019. É altamente recomendável que começar a formular um plano para migrar os dados dos seus dispositivos agora.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>P. O que acontece com os dados que tem armazenados no Azure?  
 
-A. Pode continuar a utilizar os dados no Azure, uma vez que fizer a migração para um serviço mais recente. 
+R. Pode continuar a utilizar os dados no Azure, uma vez que fizer a migração para um serviço mais recente. 
 
 
 ### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>P.  O que acontece com os dados que tem armazenados localmente no meu dispositivo do StorSimple? 
 
-A. Os dados no dispositivo local podem ser copiados para o serviço mais recente, conforme descrito nos documentos de migração.
+R. Os dados no dispositivo local podem ser copiados para o serviço mais recente, conforme descrito nos documentos de migração.
 
 ### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>O que acontece se eu quiser manter a minha aplicação de série StorSimple 5000/7000? 
 
-A. Enquanto os serviços poderão continuar a funcionar, a Microsoft já não será capaz de fornecer suporte de hardware e software. Migração é vivamente recomendada para continuidade do negócio.
+R. Enquanto os serviços poderão continuar a funcionar, a Microsoft já não será capaz de fornecer suporte de hardware e software. Migração é vivamente recomendada para continuidade do negócio.
 
 ### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-5000-7000-series-devices"></a>P. Que opções estão disponíveis para migrar os dados do StorSimple dispositivos das séries 5000 a 7000? 
 
-A. Dependendo do seu cenário, os utilizadores de séries StorSimple 5000 a 7000 tem as seguintes opções de migração. 
+R. Dependendo do seu cenário, os utilizadores de séries StorSimple 5000 a 7000 tem as seguintes opções de migração. 
 
  - **Atualizar para a 8000 série**: Utilize esta opção se pretende continuar na plataforma do StorSimple. 
  - **Migrar para o Azure File Sync**: Utilize esta opção se desejar alternar para o formato nativo do Azure. Pode utilizar o Azure File Sync para o gerenciamento centralizado de partilhas de ficheiros. 
@@ -69,19 +69,28 @@ Pode contactar o Support da Microsoft para discutir as opções de migração n�
 
 ### <a name="q-is-migration-to-other-storage-solutions-supported"></a>P. É a migração para outras soluções de armazenamento suportadas?
 
-A. Sim. Migração para outras soluções de armazenamento através da cópia de anfitrião dos dados é suportada.
+R. Sim. Migração para outras soluções de armazenamento através da cópia de anfitrião dos dados é suportada.
 
 ### <a name="q-is-migration-supported-by-microsoft"></a>P. A migração é suportada pela Microsoft? 
 
-A. Migrar de série de 5000 ou 7000 é uma operação totalmente suportada. Na verdade, a Microsoft recomenda Contatando os de suporte antes de começar a migração. A migração é atualmente uma operação assistida. Se pretende migrar dados do StorSimple de dispositivo da série 5000-7000 [abra um pedido de suporte](storsimple-8000-contact-microsoft-support.md).
+R. Migrar de série de 5000 ou 7000 é uma operação totalmente suportada. Na verdade, a Microsoft recomenda Contatando os de suporte antes de começar a migração. A migração é atualmente uma operação assistida. Se pretende migrar dados do StorSimple de dispositivo da série 5000-7000 [abra um pedido de suporte](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="q-how-does-the-cost-compare-for-the-two-listed-migrations-to-azure-hybrid-services"></a>P. Como o compara o custo para duas migrações diretas para os serviços híbridos do Azure que se listados? 
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>P. O que é o modelo de preços para ambas as opções de migração?
 
-A. Custo de migração varia consoante a opção que escolher. Enquanto a migração em si é gratuita, se optar por atualizar para uma série StorSimple 8000, haverá o custo do dispositivo de hardware. Da mesma forma, ao utilizar o Azure File Sync, podem ser aplicadas taxas de subscrição para o serviço. Em cada caso, os clientes também terão de pagar os custos de armazenamento em curso. Consulte a [Calculadora de preços da Microsoft para os respetivos serviços](https://azure.microsoft.com/pricing/#product-picker) para uma estimativa.  
+R. Custo de migração varia consoante a opção que escolher. Enquanto a migração em si é gratuita, se optar por atualizar para uma série StorSimple 8000, haverá o custo do dispositivo de hardware. 
+
+Da mesma forma, ao utilizar o Azure File Sync, podem ser aplicadas taxas de subscrição para o serviço. Em cada caso, os clientes também terão de pagar os custos de armazenamento em curso. Consulte as seguintes opções para uma estimativa: 
+- [Preços do StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [Preços de AFS]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>P.  Quanto tempo demora a concluir uma migração?
 
-A. O tempo para migrar os dados depende da quantidade de dados e a opção de atualização selecionado. 
+R. O tempo para migrar os dados depende da quantidade de dados e a opção de atualização selecionado. 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>P. O que é a data de fim do suporte para a série 8000 do StorSimple?
+
+R. A data de fim do suporte para a série StorSimple 8000 está publicada [aqui](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
  - [Migrar dados do StorSimple 5000-7000 série para um dispositivo da 8000 série](storsimple-8000-migrate-from-5000-7000.md).

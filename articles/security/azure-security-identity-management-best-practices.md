@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 77bd95f036aec0cdaa351c44c0f1eafe9fc702d9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294361"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498254"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure
 
@@ -50,25 +50,22 @@ Identidade do Azure gestão e acesso controlo melhores práticas de segurança d
 * Controlar as localizações onde se encontram os recursos
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Tratar a identidade como perímetro segurança principal
+
 Muitos consideram a identidade a ser o primário perímetro de segurança. Essa é uma mudança do tradicional foco na segurança de rede. Perímetros de rede continuar a receber mais porosos, e essa defesa do perímetro não pode ser tão eficaz que eram anteriormente a explosão de [BYOD](http://aka.ms/byodcg) dispositivos e aplicações na cloud.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) é a solução do Azure para gestão de identidades e acesso. Azure AD é um multi-inquilino, com base na cloud diretório e identidade do serviço de gestão da Microsoft. Combina serviços de diretório centrais, gestão de acesso de aplicações e proteção de identidade numa única solução.
 
 As secções seguintes listam as práticas recomendadas para segurança de acesso e identidades com o Azure AD.
 
-<<<<<<< HEAD para realizar isso [identidade híbrida](../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) cenário, recomendamos que duas opções: ===
 ## <a name="centralize-identity-management"></a>Centralize a gestão de identidade
+
 Num [identidade híbrida](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) cenário, recomendamos que integre no local e diretórios da cloud. Integração permite que a sua equipa de TI gerir contas de uma localização única, independentemente de onde é criada uma conta. Integração também ajuda os usuários sejam mais produtivos ao fornecer uma identidade comum para acederem a recursos na cloud e no local.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 
 **Melhor prática**: integrar os diretórios no local com o Azure AD.  
 **Detalhe**: Utilize [do Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) para sincronizar o seu diretório no local com o diretório na cloud.
 
-<<<<<<< DIRIJA-se para obter mais informações sobre a sincronização do Azure AD, consulte o artigo [integrar as identidades no local com o Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md).
-=======
 **Melhor prática**: Ativar a sincronização de hash de palavra-passe.  
 **Detalhe**: sincronização de hash de palavra-passe é uma funcionalidade utilizada para sincronizar os hashes de hashes de palavra-passe de utilizador de uma instância do Active Directory no local para um Azure baseado na nuvem de instância do AD.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 Mesmo se decidir usar a Federação com os serviços de Federação do Active Directory (AD FS) ou de outros fornecedores de identidade, pode, opcionalmente, configurar sincronização de hash de palavra-passe como uma cópia de segurança em caso de seus servidores no local falharam ou ficam temporariamente indisponíveis. Isto permite aos utilizadores iniciar sessão serviço ao utilizar a mesma palavra-passe utilizam para iniciar sessão sua instância do Active Directory no local. Ela também permite a proteção de identidade detetar credenciais comprometidas, ao comparar os hashes de palavra-passe com palavras-passe conhecidas para ficar comprometida, se um utilizador tiver utilizado o mesmo endereço de e-mail e palavra-passe noutros serviços não ligada ao Azure AD.
 
@@ -76,12 +73,6 @@ Para obter mais informações, consulte [implementar a sincronização de hash d
 
 As organizações que não integram a sua identidade no local com a respetiva identidade de nuvem podem ter mais sobrecarga no gerenciamento de contas. Essa sobrecarga aumenta a probabilidade de erros e falhas de segurança.
 
-<<<<<<< HEAD
-> [!NOTE]
-> a decisão de usar o SSO terá impacto sobre como integrar o seu diretório no local com o diretório na cloud. Se pretender que o SSO, terá de usar a Federação, porque a sincronização de diretórios só fornecerá [mesma experiência de início de sessão](../active-directory/hybrid/whatis-hybrid-identity.md).
->
->
-=======
 ## <a name="enable-single-sign-on"></a>Ativar o início de sessão único
 
 Num mundo de dispositivos móveis e da cloud, que pretende ativar início de sessão único (SSO) para dispositivos, aplicações e serviços de qualquer lugar para que os utilizadores possam ser produtivos onde quer e sempre que. Quando tiver várias soluções de identidade para gerir, isso se torna um problema administrativo não só para IT, mas também para os utilizadores que têm de se lembrar de várias palavras-passe.
@@ -94,19 +85,18 @@ Ao utilizar a mesma solução de identidade para todas as suas aplicações e re
 Utilizar o SSO para permitir que os utilizadores aceder aos respetivos [aplicações SaaS](../active-directory/active-directory-appssoaccess-whatis.md) com base na respetiva conta profissional ou escolar no Azure AD. Isto é aplicável não só para aplicações SaaS da Microsoft, mas também outras aplicações, tal como [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) e [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Pode configurar a sua aplicação para utilizar o Azure AD como um [identidade baseada no SAML](../active-directory/fundamentals-identity.md) fornecedor. Como um controle de segurança do Azure AD não emite um token que permite aos utilizadores iniciar sessão na aplicação, a menos que tenham sido concedidos acesso através do Azure AD. Pode conceder acesso diretamente ou através de um grupo que os utilizadores são membros.
 
 As organizações que não criam uma identidade comum para estabelecer o SSO para seus usuários e aplicativos são mais expostas a cenários em que os utilizadores têm várias palavras-passe. Estes cenários aumentam a probabilidade dos utilizadores a reutilização de palavras-passe ou utilizar palavras-passe fracas.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 ## <a name="turn-on-conditional-access"></a>Ativar o acesso condicional
+
 Os utilizadores podem aceder a recursos da sua organização ao utilizar uma variedade de dispositivos e aplicações em qualquer lugar. Como um administrador de TI, pretende certificar-se de que estes dispositivos cumpram as normas de segurança e conformidade. Se concentrar apenas na que pode aceder a um recurso não é suficiente mais.
 
-<<<<<<< HEAD pode saber mais sobre o SSO do Azure AD ao ler o artigo [personalização com o Azure AD Connect e de gestão do AD FS](../active-directory/hybrid/how-to-connect-fed-management.md).
-=== Para balancear a segurança e produtividade, precisa pensar como um recurso é acedido antes de poder fazer uma decisão de controlo de acesso. Com o acesso condicional do Azure AD, pode solucionar este requisito. Com acesso condicional, pode tomar decisões de controlo de acesso automatizado para aceder às suas aplicações na cloud que se baseiam em condições.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
+Para balancear a segurança e produtividade, precisa pensar como um recurso é acedido antes de poder fazer uma decisão de controlo de acesso. Com o acesso condicional do Azure AD, pode solucionar este requisito. Com acesso condicional, pode tomar decisões de controlo de acesso automatizado para aceder às suas aplicações na cloud que se baseiam em condições.
 
 **Melhor prática**: gerir e controlar o acesso aos recursos empresariais.  
 **Detalhe**: configurar o Azure AD [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md) com base na sensibilidade das aplicações para aplicações SaaS e aplicações do Azure AD – ligado, a localização e grupo.
 
 ## <a name="enable-password-management"></a>Ativar a gestão de palavras-passe
+
 Se tiver vários inquilinos ou se pretender permitir que os utilizadores [repor a palavra-passe](../active-directory/active-directory-passwords-update-your-own-password.md), é importante que use as políticas de segurança apropriado para evitar abusos.
 
 **Melhor prática**: (SSPR) de reposição de palavra-passe self-service de configuração para os seus utilizadores.  
@@ -116,6 +106,7 @@ Se tiver vários inquilinos ou se pretender permitir que os utilizadores [repor 
 **Detalhe**: monitorizar os utilizadores que estão a registar utilizando o Azure AD [relatório de atividade de registo de reposição de palavra-passe](../active-directory/active-directory-passwords-get-insights.md). A funcionalidade de relatórios que o Azure AD fornece ajuda a responder a perguntas através de relatórios criados previamente. Se está corretamente licenciado, também pode criar consultas personalizadas.
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>Impor verificação multifator para utilizadores
+
 Recomendamos que exigem a verificação de dois passos para todos os seus utilizadores. Isto inclui os administradores e outros utilizadores na sua organização que pode ter um impacto significativo se a conta for comprometida (por exemplo, responsáveis financeiros).
 
 Existem várias opções para exigir a verificação de dois passos. A melhor opção para depende de suas metas, a edição do Azure AD que está a executar e seu programa de licenciamento. Ver [como requerer verificação de dois passos para um utilizador](../active-directory/authentication/howto-mfa-userstates.md) para determinar a melhor opção para. Consulte a [do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) e [multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) páginas para obter mais informações sobre as licenças de preços e preços.
@@ -145,11 +136,13 @@ Este método utiliza a avaliação de risco do Azure AD Identity Protection para
 As organizações que não adicionam camadas adicionais de proteção de identidade, por exemplo, a verificação de dois passos, são mais suscetíveis de ataque de roubo de credenciais. Um ataque de roubo de credenciais pode levar ao comprometimento de dados.
 
 ## <a name="use-role-based-access-control-rbac"></a>Utilizar o controlo de acesso baseado em funções (RBAC)
+
 Restringir o acesso com base na [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é fundamental para as organizações que desejam aplicar políticas de segurança para acesso a dados. Pode usar [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. O âmbito de uma atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso.
 
 Pode usar [incorporada RBAC](../role-based-access-control/built-in-roles.md) funções no Azure para atribuir privilégios a utilizadores. As organizações que não é impor o controlo de acesso de dados ao utilizar as capacidades, como o RBAC podem ser a dar mais privilégios do que o necessário para seus usuários. Isto pode levar ao comprometimento de dados ao permitir acesso de utilizador a determinados tipos de dados (por exemplo, elevado impacto comercial) que eles não devem ter.
 
 ## <a name="lower-exposure-of-privileged-accounts"></a>Exposição inferior de contas com privilégios
+
 Com privilégios de proteção do acesso é um primeiro passo crítico para proteger os ativos empresariais. Minimizar o número de pessoas que têm acesso para proteger informações ou recursos reduz a chance de um utilizador mal intencionado obter acesso, ou um utilizador autorizado inadvertidamente afetar um recurso confidencial.
 
 Contas com privilégios são contas que administram e gerem os sistemas de TI. Os atacantes de Cibersegurança estas contas para obter acesso a dados e sistemas de uma organização de destino. Para proteger o acesso privilegiado, deve isolar as contas e os sistemas do risco de que está a ser exposto a um utilizador mal intencionado.
@@ -209,6 +202,7 @@ Avalie as contas que são atribuídas ou elegíveis para a função de administr
 Se não proteger o acesso privilegiado, pode achar que tem demasiados utilizadores nas funções com privilégios elevados e são mais vulneráveis a ataques. Atores maliciosos, incluindo os atacantes de cibersegurança, muitas vezes, contas de administrador de destino e outros elementos de acesso privilegiado para obter acesso a dados confidenciais e sistemas com o roubo de credenciais.
 
 ## <a name="control-locations-where-resources-are-created"></a>Controlar as localizações onde os recursos são criados
+
 Ativar os operadores da nuvem executar tarefas, enquanto impede-los de danificar as convenções que são necessários para gerir os recursos da sua organização é muito importante. As organizações que desejam controlar os locais onde os recursos são criados devem muito código estas localizações.
 
 Pode usar [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para criar políticas de segurança cujas definições descrevem as ações ou os recursos que são especificamente foi negados. Atribuir as definições de política no âmbito pretendido, como a subscrição, o grupo de recursos ou recurso individual.
@@ -221,6 +215,7 @@ Pode usar [do Azure Resource Manager](../azure-resource-manager/resource-group-o
 As organizações que não a controlar como os recursos são criados são mais suscetíveis a utilizadores que poderão abusar o serviço através da criação de mais recursos do que o necessário. O processo de criação de recursos de sistema de proteção é um passo importante para proteger um cenário de multi-inquilino.
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Monitorizar ativamente para atividades suspeitas
+
 Uma sistema de monitoramento de identidade ativa rapidamente pode detetar um comportamento suspeito e acionar um alerta para uma investigação mais aprofundada. A tabela seguinte apresenta uma lista em duas capacidades do Azure AD que podem ajudar as organizações a monitorizar as suas identidades:
 
 **Melhor prática**: tem um método para identificar:
@@ -239,4 +234,5 @@ Uma sistema de monitoramento de identidade ativa rapidamente pode detetar um com
 As organizações que não Monitore ativamente os seus sistemas de identidade estão em risco de ter credenciais de utilizador comprometidas. Sem o conhecimento que atividades suspeitas ocorrem por meio destas credenciais, as organizações não podem mitigar este tipo de ameaça.
 
 ## <a name="next-step"></a>Passo seguinte
+
 Ver [padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais melhores práticas de segurança a utilizar quando estiver conceber, implementar e gerir soluções na cloud ao utilizar o Azure.

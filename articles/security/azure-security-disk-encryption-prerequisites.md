@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/14/2018
-ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734703"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498594"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption 
  Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que precisam de estar em vigor antes de poder utilizar o Azure Disk Encryption. O Azure Disk Encryption está integrado [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ajudar a gerir as chaves de encriptação. Pode usar [do Azure PowerShell](/powershell/azure/overview), [CLI do Azure](/cli/azure/), ou o [portal do Azure](https://portal.azure.com) para configurar a encriptação de disco do Azure.
@@ -67,7 +67,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
     - [Instalar e configurar o Azure PowerShell para Windows](/powershell/azure/install-azurerm-ps). 
         - Instalar o PowerShellGet, o Azure PowerShell e carregar o módulo AzureRM. 
     - [Instalar e configurar o Azure Powershell no macOS e Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregar o módulo azurerm. Netcore.
+        -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregar o módulo de Az.
 
 2. Verifique se as versões instaladas do módulo AzureRM. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  A versão do módulo AzureRM tem de ser a 6.0.0 ou superior.

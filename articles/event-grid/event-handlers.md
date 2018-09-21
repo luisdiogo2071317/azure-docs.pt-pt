@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08658c42687626779dea0de7dd724d9431a296da
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617146"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498662"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos no Azure Event Grid
 
@@ -50,6 +50,7 @@ Os Hubs de eventos podem agir como uma origem de evento ou de manipulador de eve
 |Cargo  |Descrição  |
 |---------|---------|
 | [Início rápido: encaminhar eventos personalizados para os Hubs de eventos do Azure com a CLI do Azure e o Event Grid](custom-event-to-eventhub.md) | Envia um evento personalizado para um hub de eventos para processamento por um aplicativo. |
+| [Modelo do Resource Manager: um tópico personalizado e um ponto final de Hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Resource Manager que cria uma subscrição para um tópico personalizado. Envia eventos para um Event Hubs do Azure. |
 
 Para obter exemplos de Hubs de eventos como uma origem, consulte [origem dos Hubs de eventos](event-sources.md#event-hubs).
 

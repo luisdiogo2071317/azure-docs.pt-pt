@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667162"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497931"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados do Azure para a replicação de dados MySQL
 
@@ -158,6 +158,9 @@ Os seguintes passos prepararem e configurar o MySQL server alojado no local, uma
    - master_log_pos: posição do registo binário a execução `show master status`
    - master_ssl_ca: o contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
        - Recomenda-se para transmitir este parâmetro no como uma variável. Veja os exemplos seguintes para obter mais informações.
+
+> [!NOTE]
+> Se o servidor mestre está alojado numa VM do Azure, defina a opção "Permitir acesso aos serviços do Azure" como "ON" para permitir que os servidores mestre e de réplica comunicar entre si. Esta definição pode ser alterada do **segurança de ligação** opções. Consulte a [gerir regras de firewall com o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
 
    **Exemplos**
 

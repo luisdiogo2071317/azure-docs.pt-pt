@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d19b71542f032111bbd3d9c7f3fe246110377b5d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127591"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497761"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
-O serviço de voz fornece uma funcionalidade de texto em voz através de um pedido HTTP simples. POSTAR o texto seja falado para o ponto final adequado e o serviço retorna um arquivo de áudio (`.wav`) que contém sintetizadas voz. Seu aplicativo, em seguida, pode utilizar este áudio como gosta.
+O serviço de voz fornece uma funcionalidade de texto em voz através de um pedido HTTP simples. `POST` o texto seja falado para o ponto final adequado e o serviço retorna um arquivo de áudio (`.wav`) que contém sintetizadas voz. Seu aplicativo, em seguida, pode utilizar este áudio como gosta.
 
 O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII ou UTF8) ou uma [SSML](speech-synthesis-markup.md) documento. Pedidos de texto sem formatação são ditas com uma voz de predefinição. Na maioria dos casos, queira usar um corpo SSML. O pedido HTTP tem de incluir uma [autorização](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 

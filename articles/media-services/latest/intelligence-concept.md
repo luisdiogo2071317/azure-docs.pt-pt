@@ -1,6 +1,6 @@
 ---
-title: Intelligence de Media Services do Azure | Microsoft Docs
-description: Quando utilizar os Media Services do Azure, pode analisar o contnet de áudio e vídeo através de AudioAnalyzerPreset e VideoAnalyzerPreset.
+title: Informações de multimédia do Azure | Documentos da Microsoft
+description: Ao utilizar os serviços de multimédia do Azure, pode analisar seu contnet de áudio e vídeo usando AudioAnalyzerPreset e VideoAnalyzerPreset.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,48 +11,48 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331525"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498696"
 ---
 # <a name="media-intelligence"></a>Informações de multimédia
 
-API de v3 de REST de serviços de suporte de dados do Azure permite-lhe analisar o conteúdo de áudio e vídeo. Para analisar o conteúdo, crie um **transformar** e submeter um **tarefa** que utiliza um destas predefinições: **AudioAnalyzerPreset** ou **VideoAnalyzerPreset** . 
+A API de v3 de REST de serviços de multimédia do Azure permite-lhe analisar o conteúdo de áudio e vídeo. Para analisar seu conteúdo, crie uma **transformar** e submeter um **tarefa** que usa um destas predefinições: **AudioAnalyzerPreset** ou **VideoAnalyzerPreset** . 
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
-**AudioAnalyzerPreset** permite-lhe extrair vários insights áudio a partir de um ficheiro de vídeo ou áudio. O resultado inclui um ficheiro JSON (com todas as informações do) e VTT um ficheiro para o transcript áudio. Esta predefinição aceita uma propriedade que especifica o idioma do ficheiro de entrada sob a forma de um [BCP47](https://tools.ietf.org/html/bcp47) cadeia. As informações de áudio incluem:
+**AudioAnalyzerPreset** permite-lhe extrair várias informações de áudio de um arquivo de áudio ou vídeo. A saída inclui um ficheiro JSON (com as informações) e um arquivo VTT para a transcrição de áudio. Esta configuração predefinida aceita uma propriedade que especifica o idioma do ficheiro de entrada na forma de um [BCP47](https://tools.ietf.org/html/bcp47) cadeia de caracteres. As informações de áudio incluem:
 
-* Áudio transcription – um transcript das palavras ditas com carimbos. São suportados vários idiomas
-* Orador indexação – um mapeamento dos speakers e as palavras ditas correspondentes
-* Análise de dados de sentimento de reconhecimento de voz – o resultado da análise de dados de sentimento efetuada em transcription de áudio
-* Palavras-chave – palavras-chave que são extraídas do transcription áudio.
+* Transcrição de áudio – uma transcrição das palavras faladas carimbos de data. São suportados vários idiomas
+* Orador indexação – um mapeamento dos oradores e as palavras faladas correspondentes
+* Análise de sentimentos de voz – a saída de análise de sentimentos efetuada numa transcrição de áudio
+* Palavras-chave – palavras-chave que são extraídas de transcrição de áudio.
 
 ## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** permite-lhe extrair vários insights de áudio e vídeos a partir de um ficheiro de vídeo. O resultado inclui um ficheiro JSON (com todas as informações do), um ficheiro VTT para a vídeo transcript e uma coleção de miniaturas. Esta predefinição também aceita um [BCP47](https://tools.ietf.org/html/bcp47) cadeia (que representa o idioma do vídeo) como uma propriedade. As vídeos informações incluem todas as informações de áudio mencionadas acima e os seguintes itens adicionais:
+**VideoAnalyzerPreset** permite-lhe extrair várias informações de áudio e vídeo de um ficheiro de vídeo. A saída inclui um ficheiro JSON (com as informações), um arquivo VTT para a transcrição de vídeo e uma coleção de miniaturas. Esta configuração predefinida também aceita um [BCP47](https://tools.ietf.org/html/bcp47) cadeia de caracteres (que representa o idioma do vídeo) como uma propriedade. As informações de vídeo incluem todas as informações de áudio mencionadas acima e os seguintes itens adicionais:
 
-* Controlo de rostos em – o tempo durante os quais faces estão presentes no vídeo. Cada enfrentam tem um id de letra e de uma coleção correspondente de miniaturas
-* Texto visual – o texto que é detetado através de reconhecimento de caráter optical. O texto é o tempo de carimbo de data / e também utilizado para extrair as palavras-chave (além de áudio transcript)
-* Keyframes – uma coleção de keyframes que são extraídos de vídeo
-* Visual conteúda moderação interrupção – a parte de vídeos que tenham sido sinalizados para adultos ou racy natureza
-* Anotação – um resultado de anotar os vídeos baseados no modelo de objeto previamente definido
+* Controlo de face – o tempo durante o qual rostos estão presentes no vídeo. Cada rosto tem um id de rostos e um conjunto correspondente de miniaturas
+* Texto visual – o texto que é detetado por meio de reconhecimento ótico de carateres. O texto é tempo carimbadas e também utilizado para extrair as palavras-chave (além de transcrição áudio)
+* Quadros-chave – uma coleção de keyframes que são extraídos do vídeo
+* Moderação de conteúdos Visual – a parte dos vídeos que tenham sido sinalizados como adultos na natureza
+* Anotação – um resultado de anotar os vídeos com base num modelo de objeto predefinidas
 
 ##  <a name="insightsjson-elements"></a>elementos de insights.JSON
 
-O resultado inclui um ficheiro JSON (insights.json) com as informações que foram encontradas no vídeo ou áudio. O json pode conter os seguintes elementos:
+A saída inclui um ficheiro JSON (insights.json) com todas as informações que foram encontradas do vídeo ou áudio. O json pode conter os seguintes elementos:
 
-### <a name="transcript"></a>transcript
+### <a name="transcript"></a>transcrição
 
 |Nome|Descrição|
 |---|---|
 |ID|O ID de linha.|
-|texto|O transcript próprio.|
-|Idioma|O idioma de transcript. Destina-se suportar transcript onde cada linha pode ter um idioma diferente.|
-|instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância for um transcript, terá apenas 1 instância.|
+|texto|A transcrição em si.|
+|Idioma|O idioma de transcrição. A finalidade oferecer suporte a transcrição em que cada linha pode ter um idioma diferente.|
+|instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância de transcrição, ele terá apenas 1 instância.|
 
 Exemplo:
 
@@ -87,11 +87,11 @@ Exemplo:
 
 |Nome|Descrição|
 |---|---|
-|ID|O ID de linha OCR.|
+|ID|O ID de linha de OCR.|
 |texto|O texto de OCR.|
-|Confiança|Confiança de reconhecimento.|
+|confiança|A confiança de reconhecimento.|
 |Idioma|O idioma de OCR.|
-|instâncias|Uma lista de intervalos de tempo em que esta OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
+|instâncias|Uma lista de intervalos de tempo em que este OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 
 ```json
 "ocr": [
@@ -126,69 +126,21 @@ Exemplo:
   ],
 ```
 
-### <a name="keywords"></a>palavras-chave
+### <a name="faces"></a>rostos
 
 |Nome|Descrição|
 |---|---|
-|ID|O ID de palavra-chave.|
-|texto|O texto da palavra-chave.|
-|Confiança|Confiança de reconhecimento da palavra-chave.|
-|Idioma|O idioma de palavra-chave (quando convertidos).|
-|instâncias|Uma lista de intervalos de tempo em que esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
-### <a name="faces"></a>faces
-
-|Nome|Descrição|
-|---|---|
-|ID|O ID de letra.|
-|nome|O nome de letra. Pode ser 'Desconhecido #0', uma celebrity identificado ou uma pessoa treinado do cliente.|
-|Confiança|Confiança de identificação de letra.|
-|descrição|Em caso de um celebrity, a respetiva descrição. |
-|thumbnalId|O id de miniatura desse tipo de letra.|
-|knownPersonId|Em caso de uma pessoa conhecida, um ID interno.|
-|referenceId|Em caso de um celebrity Bing, o ID do Bing.|
+|ID|O ID do rosto.|
+|nome|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
+|confiança|A confiança de identificação de face.|
+|descrição|Uma descrição da celebridade. |
+|thumbnalId|O ID da miniatura do que enfrentam.|
+|knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
+|referenceId|Se for uma celebridade do Bing, o ID do Bing.|
 |referenceType|Atualmente, apenas o Bing.|
-|título|Em caso de um celebrity, o título dele (por exemplo "CEO da Microsoft").|
-|imageUrl|Em caso de um celebrity, o url da imagem.|
-|instâncias|Estes são instâncias de onde o tipo de letra apareceu no intervalo de tempo especificado. Cada instância tem também uma thumbnailsId. |
+|título|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
+|imageUrl|Se for uma celebridade, o seu url da imagem.|
+|instâncias|Estes são instâncias de onde o mostrador apareceu no intervalo de tempo especificado. Cada instância tem também um thumbnailsId. |
 
 ```json
 "faces": [{
@@ -219,13 +171,118 @@ Exemplo:
 }]
 ```
 
+### <a name="shots"></a>capturas de
+
+|Nome|Descrição|
+|---|---|
+|ID|O ID de captura.|
+|quadros-chave|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
+|instâncias|Uma lista de intervalos de tempo desta captura (capturas de tem apenas 1 instância).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>Estatísticas
+
+|Nome|Descrição|
+|---|---|
+|CorrespondenceCount|Número de correspondências no vídeo.|
+|WordCount|O número de palavras por orador.|
+|SpeakerNumberOfFragments|A quantidade de fragmentos o orador tem um vídeo.|
+|SpeakerLongestMonolog|Monolog de mais longo do orador. Se o orador tiver silences dentro o monolog está incluído. Silence, no início e fim do monolog é removido.| 
+|SpeakerTalkToListenRatio|O cálculo baseia-se o tempo gasto em monolog do orador (sem o silence entre) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
+
+
+### <a name="sentiments"></a>sentimentos
+
+Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/negativo). Por exemplo, 0-0.1, 0,1 0,2.
+
+|Nome|Descrição|
+|---|---|
+|ID|O ID de sentimentos.|
+|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
+|instâncias|Uma lista de intervalos de tempo em que esse sentimento apareceu.|
+|sentimentType |O tipo pode ser "Neutral", 'Positivo' ou 'Negativo'.|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
+```
+
 ### <a name="labels"></a>etiquetas
 
 |Nome|Descrição|
 |---|---|
 |ID|O ID da etiqueta.|
-|nome|O nome de etiqueta (por exemplo, 'Computador', 'TV').|
-|Idioma|Idioma de nome etiqueta (quando convertidos). BCP 47|
+|nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
+|Idioma|Idioma de nome etiqueta (quando traduzido). BCP 47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
@@ -278,95 +335,93 @@ Exemplo:
   ] 
 ```
 
-### <a name="shots"></a>capturas de
+### <a name="keywords"></a>palavras-chave
 
 |Nome|Descrição|
 |---|---|
-|ID|O ID de captura.|
-|keyFrames|Uma lista de chaves fotogramas dentro de captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias).|
-|instâncias|Uma lista de intervalos de tempo desta captura (capturas tem apenas 1 instância).|
+|ID|O ID de palavra-chave.|
+|texto|O texto de palavra-chave.|
+|confiança|Confiança de reconhecimento da palavra-chave.|
+|Idioma|O idioma de palavra-chave (quando traduzido).|
+|instâncias|Uma lista de intervalos de tempo em que esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>sentiments
-
-Sentiments são agregados pelo respetivo campo sentimentType (neutras/positivos/negativo). Por exemplo, 0-0.1 0.1 0,2.
-
-|Nome|Descrição|
-|---|---|
-|ID|O ID de dados de sentimento.|
-|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de dados de sentimento - positivos/neutras/negativo|
-|instâncias|Uma lista de intervalos de tempo em que esta sentimento apareceu.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+O bloco de visualContentModeration contém intervalos de tempo que o indexador de vídeo encontrado potencialmente ter conteúdo para adultos. Se visualContentModeration estiver vazio, não há nenhum conteúdo para adultos que foi identificado.
+
+Vídeos que encontram-se para conter o conteúdo de adultos poderão estar disponíveis para ver privada apenas. Os utilizadores têm a opção para submeter um pedido para uma revisão de segurança do conteúdo, em que, caso o atributo IsAdult irá conter o resultado da revisão humana.
+
+|Nome|Descrição|
+|---|---|
+|ID|O ID de moderação de conteúdos visual.|
+|adultScore|Como sendo para adultos (a partir do moderador de conteúdo).|
+|racyScore|O classificado como indecoroso (a partir de moderação de conteúdos).|
+|instâncias|Uma lista de intervalos de tempo em que este moderação de conteúdos visual apareceu.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Analisar vídeos com Media Services do Azure](analyze-videos-tutorial-with-api.md)
+> [Tutorial: Analisar vídeos com os serviços de multimédia do Azure](analyze-videos-tutorial-with-api.md)
