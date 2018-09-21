@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 9512c800a35ad4a819c657b07227d781c63c6399
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163401"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295126"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavras-passe
 
@@ -29,7 +29,7 @@ Neste tutorial, irá ativar a repetição de escrita de palavras-passe para o se
 
 * Aceder a um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação atribuída.
 * Uma conta com privilégios de Administrador Global no inquilino do Azure AD.
-* Um servidor existente configurado com uma versão atual do [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* Um servidor existente configurado com uma versão atual do [Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 * Os tutoriais de reposição personalizada de palavra-passe (SSPR) anteriores foram concluídos.
 
 ## <a name="enable-password-writeback-option-in-azure-ad-connect"></a>Ativar a opção Repetição de escrita de palavras-passe no Azure AD Connect

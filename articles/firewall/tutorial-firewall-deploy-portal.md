@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480888"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576004"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -58,7 +58,7 @@ Neste tutorial, criou uma VNet única com três sub-redes:
 
 ![Tutorial de infraestrutura de rede](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Este tutorial utiliza uma configuração de rede simplificada para facilitar a implementação. Para implementações de produção, é recomendado um [modelo hub-and-spoke](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que a firewall está na sua própria VNet, e os servidores de carga de trabalho estão nas VNets em modo de peering na mesma região, com uma ou mais sub-redes.
+Este tutorial utiliza uma configuração de rede simplificada para facilitar a implementação. Para implementações de produção, é recomendado um [modelo hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que a firewall está na sua própria VNet, e os servidores de carga de trabalho estão nas VNets em modo de peering na mesma região, com uma ou mais sub-redes.
 
 
 

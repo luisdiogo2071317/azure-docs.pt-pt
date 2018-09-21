@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607469"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983085"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -163,7 +163,7 @@ Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os rec
  
 7. Após o item de cópia de segurança ser verificado (aparece uma marca de verificação), o botão **Stop backup** fica ativado. Clique em **Stop Backup** para parar a política e eliminar os pontos de restauro. 
 
-    ![clicar em Stop backup para eliminar o cofre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+    ![clicar em Stop backup para eliminar o cofre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
 8. No menu **myRecoveryServicesVault**, clique em **Delete** (Eliminar).
 

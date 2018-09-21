@@ -1,6 +1,7 @@
 ---
 title: 'Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Java'
-description: Saiba como utilizar o SDK de Pesquisa na Web do Bing para Java.
+titleSuffix: Azure Cognitive Services
+description: O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: erhopf
-ms.openlocfilehash: cc7335b9f8b5596edef895ff5a42a1018b06a381
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8db2f6a67f64216276ccdb0b16bbeb48565f6bc6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186732"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127606"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Java
 
@@ -26,7 +27,7 @@ Quer ver o código imediatamente? Os [exemplos de SDK de Pesquisa na Web do Bing
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão algumas coisas de que precisará antes de executar este início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * O [Apache Maven](https://maven.apache.org/download.cgi) ou a sua ferramenta de automatização de compilação favorita

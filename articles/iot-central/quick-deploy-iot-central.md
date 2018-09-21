@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318318"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465610"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -52,78 +52,6 @@ Para criar uma nova aplicação do Azure IoT Central:
 1. Em seguida, escolha **Criar**.
 
 ![Página da Aplicação do Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
-
-## <a name="navigate-to-the-application"></a>Navegue para a aplicação
-
-Quando a aplicação estiver pronta, a **Homepage** da sua aplicação é apresentada. O _Modo de Design_ no canto superior direito pode ser ativado para editar a Homepage. O URL da aplicação é o URL que especificou no passo anterior:
-
-![Página Application Builder](media/quick-deploy-iot-central/apphome.png)
-
-Utilize o _menu de navegação à esquerda_ para aceder às diferentes áreas da sua nova aplicação do Azure IoT Central:
-
-![Menu de navegação à esquerda](media/quick-deploy-iot-central/navbar.png)
-
-Para ver os modelos de dispositivos e os dispositivos na sua aplicação, escolha **Explorador de Dispositivos** no menu de navegação à esquerda. O exemplo de aplicação inclui o modelo de dispositivo da **Máquina de Venda Refrigerada**. Já existem três dispositivos simulados criados através deste modelo de dispositivo:
-
-![Explorador de dispositivos](media/quick-deploy-iot-central/deviceexplorer.png)
-
-## <a name="view-the-device-template-and-devices"></a>Ver o modelo de dispositivo e dispositivos
-
-Utilize os seguintes passos para ver um dispositivo de refrigerador que foi criado a partir do modelo de dispositivo da **Máquina de Venda Refrigerada**. Um modelo de dispositivo define:
-
-* _Medidas_, como a telemetria de temperatura, enviada a partir de um dispositivo.
-* _Definições_, como a velocidade da ventoinha, que lhe permite controlar o dispositivo.
-* _Propriedades_, como o número de série, que armazenam informações sobre o dispositivo.
-* [Regras](howto-create-telemetry-rules.md) que lhe permitem automatizar ações com base no comportamento do dispositivo.
-* Um _dashboard_ personalizável que apresenta informações sobre o dispositivo.
-
-Pode criar os dispositivos simulados e reais a partir de um modelo de dispositivo.
-
-### <a name="measurements"></a>Medições
-
-A página **Medidas** para o dispositivo do **Refrigerador 1** é apresentada. Pode ver a lista de medidas enviadas do dispositivo simulado. A página também apresenta um gráfico personalizável das medidas visíveis:
-
-![Página de Medições](media/quick-deploy-iot-central/measurements.png)
-
-Pode alternar a visibilidade dos elementos individuais e personalizar o gráfico. O gráfico atual mostra a telemetria de um dispositivo simulado. Pode adicionar novas medidas ao modelo de dispositivo se tiver as permissões adequadas.
-
-> [!NOTE]
-> Poderá ter de aguardar durante um curto período antes dos dados simulados serem apresentados no gráfico.
-
-### <a name="settings"></a>Definições
-
-Escolha **Definições**. Na página **Definições**, pode controlar o dispositivo. Por exemplo, pode atualizar a velocidade da ventoinha no refrigerador:
-
-![Definições](media/quick-deploy-iot-central/settings.png)
-
-É apresentada uma definição como **sincronizada** quando um dispositivo reconhece a alteração.
-
-### <a name="properties"></a>Propriedades
-
-Escolha **Propriedades**. Na página **Propriedades**, pode:
-
-* Manter informações sobre o seu dispositivo, como o nome de cliente.
-* Ver os valores de propriedade comunicados pelo dispositivo, por exemplo, como um alerta de movimento.
-
-![Propriedades](media/quick-deploy-iot-central/properties.png)
-
-### <a name="dashboard"></a>Dashboard
-
-Escolha **Dashboard**. O dashboard é uma vista personalizável de informações sobre o seu dispositivo, como medidas, KPIs e propriedades:
-
-![Dashboard](media/quick-deploy-iot-central/dashboard.png)
-
-## <a name="view-analytics"></a>Ver análise
-
-A secção anterior mostrou como ver informações sobre um dispositivo individual. Pode utilizar [conjuntos de dispositivos](howto-use-device-sets.md) e [análise](howto-create-analytics.md) para ver informações consolidadas a partir de vários dispositivos.
-
-Um conjunto de dispositivos utiliza uma consulta para selecionar dinamicamente um conjunto de dispositivos que correspondem aos critérios. Por exemplo, o conjunto de dispositivos **Máquinas em Seattle** seleciona dispositivos do refrigerador cuja localização é Seattle. Para ver o conjunto de dispositivos **Máquinas em Seattle**, escolha **Conjuntos de Dispositivos** no menu de navegação à esquerda e, em seguida, escolha **Máquinas em Seattle**:
-
-![Conjunto de dispositivos Máquinas em Seattle](media/quick-deploy-iot-central/deviceset.png)
-
-Pode ver os dados de análise para os dispositivos num conjunto de dispositivos na página **Análise**:
-
-![Análise das máquinas em Seattle](media/quick-deploy-iot-central/analytics.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

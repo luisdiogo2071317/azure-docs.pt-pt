@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: b18cfce173da562aa7cffa48f336ff623c868f21
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: dcca63cc86889ad9dc0e56f932dbed96153de7ed
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129331"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44754330"
 ---
 ## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
 Vamos executar o nosso código! Na janela do terminal, execute este comando a partir da **pasta de código raiz**, webfrontend:
@@ -37,7 +37,10 @@ Fique de olho no resultado do comando, vai reparar em várias coisas à medida q
 ### <a name="test-the-web-app"></a>Testar a aplicação Web
 Analise o resultado da consola para obter informações sobre o URL público que foi criado pelo comando `up`. Estará na forma: 
 
-`Service 'webfrontend' port 'http' is available at <url>` 
+```
+(pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+```
 
 Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. À medida que o contentor é executado, os resultados `stdout` e `stderr` são transmitidos para a janela do terminal.
 
