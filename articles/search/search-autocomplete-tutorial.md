@@ -9,16 +9,16 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989691"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578179"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar a conclusão automática à caixa de pesquisa com o Azure Search
 
-Neste tutorial, irá aprender a utilizar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), a [conclusão automática ](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) na [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa poderosa. As *sugestões* fornecem recomendações de resultados reais com base no que o utilizador escreveu até ao momento. A *conclusão automática*, [uma nova funcionalidade de pré-visualização](search-api-preview.md) do Azure Search, fornece termos a partir do índice para concluir o que o utilizador está a escrever atualmente. Vamos comparar várias técnicas para melhorar a produtividade dos utilizadores e encontrar rápida e facilmente aquilo que procuram ao colocar a riqueza da pesquisa diretamente no utilizador à medida que escreve.
+Neste tutorial, irá aprender a utilizar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), a [conclusão automática ](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) na [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa poderosa. As *sugestões* fornecem recomendações de resultados reais com base no que o utilizador escreveu até ao momento. A *conclusão automática*, [uma nova funcionalidade de pré-visualização](search-api-preview.md) do Azure Search, fornece termos a partir do índice para concluir o que o utilizador está a escrever atualmente. Vamos comparar várias técnicas para melhorar a produtividade dos utilizadores e encontrar rápida e facilmente aquilo que procuram ao colocar a riqueza da pesquisa diretamente no utilizador à medida que escreve.
 
 Este tutorial guia-o através de uma aplicação baseada em ASP.NET MVC que utiliza C# para chamar as [bibliotecas de cliente .NET do Azure Search](https://aka.ms/search-sdk) e JavaScript para chamar diretamente a API REST do Azure Search. A aplicação para este tutorial utiliza um índice que preencheu dados de exemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Pode utilizar o índice já configurado na demonstração de Empregos em Nova Iorque ou preencher o seu próprio índice através de um carregador de dados na solução de exemplo NYCJobs. Este exemplo utiliza bibliotecas DE JavaScript [jQuery UI](https://jqueryui.com/autocomplete/) e [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) para criar uma caixa de pesquisa que suporte conclusão automática. Ao utilizar estes componentes, juntamente com o Azure Search, verá vários exemplos de como suportar a conclusão automática com antecipação na sua caixa de pesquisa.
 
@@ -214,7 +214,7 @@ Este tutorial demonstra os passos básicos para a criação de uma caixa de pesq
 Integre sugestões e conclusão automática na sua experiência de pesquisa.  Considere a forma como a utilização direta do SDK do .NET ou da API REST pode ajudar a levar o poder do Azure Search aos seus utilizadores à medida que escrevem para os tornar mais produtivos.
 
 > [!div class="nextstepaction"]
-> [API REST de Conclusão Automática](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [API REST de Sugestões](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Atributo do índice de facetas numa API REST de Criar Índice](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [API REST de Conclusão Automática](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [API REST de Sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Atributo do índice de facetas numa API REST de Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

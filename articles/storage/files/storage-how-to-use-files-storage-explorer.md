@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521199"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574736"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure 
 Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Este artigo orienta-o pelas noções básicas da utilização de partilhas de ficheiros do Azure com o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). O Explorador de Armazenamento é uma ferramenta de cliente popular que está disponível para Windows, macOS e Linux. Pode utilizar o Explorador de Armazenamento para gerir partilhas de ficheiros do Azure e outros recursos de armazenamento.
@@ -91,7 +91,7 @@ O progresso da transferência aparece no painel **Atividades** na parte inferior
 
 ## <a name="create-and-modify-share-snapshots"></a>Criar e modificar instantâneos de partilha
 Os instantâneos preservam uma cópia de ponto no tempo das partilhas de ficheiros do Azure. Os instantâneos de partilhas de ficheiros são semelhantes a outras tecnologias com as quais pode já estar familiarizado:
-- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, como NTFS e ReFS
+- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, como NTFS e ReFS
 - Instantâneos do [Gestor de Volumes Lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
 

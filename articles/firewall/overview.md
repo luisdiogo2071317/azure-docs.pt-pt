@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089826"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574135"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -61,8 +61,8 @@ A pré-visualização pública do Azure Firewall tem os seguintes problemas conh
 |---------|---------|---------|
 |Interoperabilidade com NSGs     |Se um grupo de segurança de rede (NSG) for aplicado à sub-rede da firewall, pode bloquear a conectividade de Internet de saída mesmo que o NSG esteja configurado para permitir o acesso de Internet de saída. As ligações de Internet de saída são marcadas como provenientes de uma VirtualNetwork e o destino é Internet. Por predefinição, um NSG tem *permissão* VirtualNetwork a VirtualNetwork, mas não quando o destino é Internet.|Para mitigar, adicione a seguinte regra de entrada ao NSG aplicado à sub-rede da firewall:<br><br>Origem: portas de origem VirtualNetwork: Qualquer <br><br>Destino: Qualquer Porta de Destino: Qualquer <br><br>Protocolo: Acesso Total: Permitir|
 |Conflito com a funcionalidade Just-in-Time (JIT) do Centro de Segurança do Azure (ASC)|Se uma máquina virtual for acedida por JIT e estiver numa sub-rede com uma rota definida pelo utilizador que aponta para o Azure Firewall como um gateway predefinido, o JIT do ASC não funciona. Isto resulta do encaminhamento assimétrico: um pacote entra através do IP público da máquina virtual (o JIT abriu o acesso), mas o caminho de retorno é através da firewall, o que remove o pacote por não existir nenhuma sessão estabelecida na firewall.|Para contornar este problema, coloque as máquinas virtuais JIT numa sub-rede separada que não tenha uma rota definida pelo utilizador para a firewall.|
-|O hub-and-spoke com peering global não funciona|O modelo de hub-and-spoke, em que o hub e a firewall estão implementados numa região do Azure e os spokes noutra região do Azure, ligado ao hub através de Peering de VNet Global não é suportado.|Para obter mais informações, veja [Criar, alterar ou eliminar um peering de rede virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com SNAT para o seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos a explorar opções para suportar este cenário numa versão futura.
+|O hub-and-spoke com peering global não funciona|O modelo de hub-and-spoke, em que o hub e a firewall estão implementados numa região do Azure e os spokes noutra região do Azure, ligado ao hub através de Peering de VNet Global não é suportado.|Para obter mais informações, veja [Criar, alterar ou eliminar um peering de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com SNAT para o seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos a explorar opções para suportar este cenário numa versão futura.
 
 
 
