@@ -44,6 +44,7 @@
 ### [Criar uma conta de serviço gerida num domínio gerido](active-directory-ds-create-gmsa.md)
 ### [Administrar política de grupo num domínio gerido](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Configurar políticas de palavra-passe num domínio gerido](active-directory-ds-password-policy.md)
+### [Configurar a sincronização de âmbito do Azure AD para um domínio gerido](active-directory-ds-scoped-synchronization.md)
 ## [Selecionar uma rede virtual](active-directory-ds-networking.md)
 ## Implementar aplicações
 ### [Configurar o suporte de sincronização de perfis do SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
