@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 17398a9f74e40a7d513912d654fa609d9837d805
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165413"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996915"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Monitorizar um cluster do Kubernetes com o Log Analytics
 
@@ -153,7 +153,7 @@ No portal do Log Analytics, procure um mosaico de resumo **Contentores** no dash
 
 Da mesma forma, no portal do Azure, aceda ao **Log Analytics** e selecione o nome da sua área de trabalho. Para ver o mosaico de resumo **Contentores**, clique em **Soluções** > **Contentores**. Para ver os detalhes, clique no mosaico.
 
-Veja a [documentação do Azure Log Analytics](../../log-analytics/index.yml) para obter documentação de orientação detalhada sobre a consulta e análise de dados de monitorização.
+Veja a [documentação do Azure Log Analytics](../../log-analytics/log-analytics-queries.md) para obter documentação de orientação detalhada sobre a consulta e análise de dados de monitorização.
 
 ## <a name="next-steps"></a>Passos seguintes
 

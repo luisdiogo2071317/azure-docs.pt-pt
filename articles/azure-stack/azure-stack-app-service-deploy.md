@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995277"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -27,8 +27,8 @@ ms.locfileid: "44717510"
 
 Utilize as orientações neste artigo para implementar o serviço de aplicações no Azure Stack.
 
->[!IMPORTANT]  
->Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.3 de serviço de aplicações do Azure.
+> [!IMPORTANT]  
+> Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.3 de serviço de aplicações do Azure.
 
 Pode dar a capacidade de criar aplicações de API web e os seus utilizadores. Para permitir aos utilizadores criar esses aplicativos, terá de:
 

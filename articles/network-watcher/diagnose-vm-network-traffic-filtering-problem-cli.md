@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990115"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
 
@@ -31,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI, execute `az login` para criar uma ligação com o Azure. Os comandos da CLI neste início rápido estão formatados para serem executados numa shell do Bash.
+Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI, execute `az login` para criar uma ligação com o Azure. Os comandos da CLI neste início rápido estão formatados para serem executados numa shell do Bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -55,7 +56,7 @@ A criação da VM demora alguns minutos. Não continue com os restantes passos a
 
 ## <a name="test-network-communication"></a>Testar a comunicação de rede
 
-Para testar a comunicação de rede com o Observador de Rede, primeiro tem de ativar um observador de rede na região onde se encontra a VM que pretende testar e, em seguida, utilizar a função de verificação do fluxo IP do Observador de Rede para testar a comunicação.
+Para testar a comunicação de rede com o Observador de Rede, tem primeiro ativar um observador de rede na região onde se encontra a VM que pretende testar e, em seguida, utilizar a função de verificação do fluxo IP do Observador de Rede para testar a comunicação.
 
 ### <a name="enable-network-watcher"></a>Ativar o observador de rede
 
@@ -86,7 +87,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-Após alguns segundos, o resultado devolvido informa-o de que o acesso é permitido devido a uma regra de segurança denominada **AllowInternetOutbound**.
+Após alguns segundos, o resultado devolvido informa-o de que é permitido o acesso devido a uma regra de segurança denominada **AllowInternetOutbound**.
 
 Teste a comunicação de saída da VM para 172.31.0.100:
 
@@ -118,7 +119,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-O resultado devolvido informa-o de que o acesso foi recusado devido a uma regra de segurança denominada **DefaultInboundDenyAll**. Agora que sabe que regras de segurança estão a permitir ou a recusar tráfego de ou para uma VM, pode determinar como resolver os problemas.
+O resultado devolvido informa-o de que o acesso foi recusado devido a uma regra de segurança denominada **DefaultInboundDenyAll**. Agora que sabe quais as regras de segurança que estão a permitir ou a recusar tráfego de ou para uma VM, pode determinar como resolver os problemas.
 
 ## <a name="view-details-of-a-security-rule"></a>Ver detalhes de uma regra de segurança
 
@@ -237,7 +238,7 @@ Quando executou o comando `az network watcher test-ip-flow` em [Utilizar a verif
 
 A regra **DenyAllInBound** é aplicada porque, conforme apresentado no resultado, não existe outra regra de prioridade superior no resultado do comando `az network nic list-effective-nsg` que permita a entrada da porta 80 para a VM de 172.131.0.100. Para permitir a comunicação de entrada, pode adicionar uma regra de segurança com uma prioridade superior que permita a entrada da porta 80 de 172.131.0.100.
 
-As verificações neste início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
+As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -249,6 +250,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e de saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Mesmo com os filtros de tráfego de rede adequados ativados, a comunicação para uma VM ainda pode falhar, devido à configuração de encaminhamento. Para saber como diagnosticar problemas de encaminhamento de rede de VM, veja [Diagnosticar problemas de encaminhamento de VM](diagnose-vm-network-routing-problem-cli.md) ou, para diagnosticar problemas de encaminhamento de saída, latência e filtro de tráfego, com uma ferramenta, veja [Resolver problemas de ligação](network-watcher-connectivity-cli.md).
