@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439905"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971710"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Tutorial: Utilizar o Azure Machine Learning Workbench para preparação de dados avançada dados de partilha de bicicletas)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 O Azure Machine Learning (pré-visualização) é uma solução completa e integrada de análise avançada e de ciência de dados para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
 
 Neste tutorial, vai utilizar o Machine Learning (pré-visualização) para aprender a:
@@ -36,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma instalação local do Azure Machine Learning Workbench. Para obter mais informações, siga o [início rápido da instalação](../service/quickstart-installation.md).
+* Uma instalação local do Azure Machine Learning Workbench. Para obter mais informações, siga o [início rápido da instalação](quickstart-installation.md).
 * Se não tiver a CLI do Azure instalada, siga as instruções para [instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Um [cluster do HDInsights Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) criado no Azure.
 * Uma conta de armazenamento do Azure.

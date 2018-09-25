@@ -1,6 +1,6 @@
 ---
 title: Criar uma aplicação Web .NET com a base de dados do Azure Cosmos DB utilizando a API do SQL | Microsoft Docs
-description: Este guia de introdução utiliza a API do SQL da Azure Cosmos DB e o portal do Azure para criar uma aplicação web do .NET
+description: Este manual de início rápido utiliza a API do SQL da Azure Cosmos DB e o portal do Azure para criar uma aplicação web do .NET
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -12,20 +12,19 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 672156d6c301fc26f8e4da5f78523f1fe30bac6f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 36265685b9bc43e95c6d7bc1e7a9ad3c52835b36
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698133"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978000"
 ---
-# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Guia de introdução: criar uma aplicação do Web .NET com a base de dados do Azure Cosmos DB utilizando a API do SQL e o portal do Azure
+# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Início Rápido: Criar uma aplicação do Web .NET com a base de dados do Azure Cosmos DB utilizando a API do SQL e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Node.js – v2](create-sql-api-nodejs-preview.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
@@ -164,7 +163,7 @@ Agora, pode voltar ao Data Explorer e ver, consultar, modificar e trabalhar com 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação Web. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
+Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação Web. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).
