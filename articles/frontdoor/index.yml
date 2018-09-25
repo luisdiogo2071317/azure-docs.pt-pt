@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 6afc5f657e720912f429dbac63297e09074087b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962356"
+documentType: LandingData
+title: Documentação do Azure Front Door Service (Pré-visualização)
+metadata:
+  title: Documentação do Azure Front Door Service (Pré-visualização)
+  meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  services: frontdoor
+  author: dlepow
+  ms.service: frontdoor
+  ms.topic: landing-page
+  ms.date: 9/14/2018
+  ms.author: danlep
+abstract:
+  description: O Azure Front Door Service fornece um ponto de entrada dimensionável e seguro para rápido fornecimento das suas aplicações Web globais. Saiba como utilizar o Front Door com os nossos inícios rápidos, tutoriais e amostras.
+sections:
+- title: Inícios rápidos de cinco minutos
+  items:
+  - type: paragraph
+    text: Crie um Front Doot para uma aplicação web global com elevada disponibilidade.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+      text: Portal do Azure
+      href: quickstart-create-front-door.md
+- title: Tutoriais Passo-a-Passo
+  items:
+  - type: paragraph
+    text: Aprenda a configurar o Azure Front Door Service para as suas necessidades.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="front-door-custom-domain.md">Adicionar um domínio personalizado para o seu Front Door</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de Comandos
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2020937">CLI do Azure</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2020948">API REST</a></p>

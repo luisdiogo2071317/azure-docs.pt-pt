@@ -34,8 +34,8 @@ items:
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: SQL Operations Studio
-      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: Azure Data Studio
+      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Portal do Azure
       href: sql-database-connect-query-portal.md
     - name: Código VS
@@ -93,6 +93,8 @@ items:
       href: sql-database-service-tiers-vcore.md
     - name: Modelo de DTU
       href: sql-database-service-tiers-dtu.md
+    - name: Camada de serviços de hiperescala
+      href: sql-database-hyperscale.md
     - name: Limites de recursos
       href: sql-database-resource-limits.md
     - name: Fazer pré-pagamento para a capacidade de reserva
@@ -309,44 +311,46 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Comparação de funcionalidades do SQL
     href: sql-database-features.md
-  - name: Monitorizar e otimizar
+  - name: Desempenho e otimização
     items:
-    - name: Monitorizar e otimizar
-      href: sql-database-troubleshoot-performance.md
     - name: Desempenho inteligente
       items:
-      - name: Monitorização de desempenho
-        href: sql-database-single-database-monitor.md
-      - name: Processamento de consultas inteligentes
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Processamento de consultas adaptável
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: Ajuste automático
+      - name: A consultar
         items:
-        - name: Ajuste automático
-          href: sql-database-automatic-tuning.md
-        - name: Ativar o ajuste automático
-          href: sql-database-automatic-tuning-enable.md
-        - name: Recomendações de desempenho
+        - name: Processamento de consultas inteligentes
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Processamento de consultas adaptável
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Monitorização e otimização
+        items:
+        - name: Descrição geral da monitorização e da otimização
+          href: sql-database-monitor-tune-overview.md
+        - name: Recomendações de desempenho do assistente da base de dados
           href: sql-database-advisor.md
-        - name: Recomendações de desempenho
+        - name: Ações e recomendações de otimização
           href: sql-database-performance.md
         - name: Aplicar recomendações de desempenho
           href: sql-database-advisor-portal.md
-        - name: Ativar notificações de E-mail
-          href: sql-database-automatic-tuning-email-notifications.md
       - name: Informações Inteligentes
         items:
-        - name: Informações Inteligentes
+        - name: Descrição geral do Intelligent Insights
           href: sql-database-intelligent-insights.md
         - name: Registo de diagnósticos
           href: sql-database-metrics-diag-logging.md
-        - name: Utilizar registo de diagnóstico
+        - name: Utilizar o registo de diagnóstico
           href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Resolução de problemas de desempenho
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Utilizar o Query Performance Insight
+      - name: Query Performance Insight
         href: sql-database-query-performance.md
+      - name: Otimização de desempenho automática
+        items:
+        - name: Descrição geral da otimização automática
+          href: sql-database-automatic-tuning.md
+        - name: Ativar o ajuste automático
+          href: sql-database-automatic-tuning-enable.md
+        - name: Ativar notificações de E-mail
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: Ajuste manual
       items:
       - name: Ajuste manual
@@ -355,16 +359,16 @@ items:
         href: sql-database-monitoring-with-dmvs.md
       - name: Operar arquivo de consultas
         href: sql-database-operate-query-store.md
-    - name: Monitorizar dentro da memória
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Eventos expandidos
-      items:
+      - name: Dentro da memória
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Eventos expandidos
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: Eventos expandidos - ficheiro de evento
-        href: sql-database-xevent-code-event-file.md
-      - name: Eventos expandidos - memória intermédia em anel
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Eventos expandidos
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Eventos expandidos - ficheiro de evento
+          href: sql-database-xevent-code-event-file.md
+        - name: Eventos expandidos - memória intermédia em anel
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Criar alertas
       href: sql-database-insights-alerts-portal.md
     - name: Resolver problemas de conectividade
@@ -551,7 +555,7 @@ items:
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
-  - name: CLI 2.0 do Azure
+  - name: CLI do Azure
     href: /cli/azure/sql
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
@@ -594,6 +598,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Recursos
   items:
+  - name: Desenvolva as suas capacidades com o Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ
@@ -616,9 +622,9 @@ items:
     href: /azure/architecture/
   - name: Histórias dos clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: fe88a6f7559e6c5c44c2bf39e3167dd379f4b006
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b8ef8dec2d79a1eb49372432781a64914a70896
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730097"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985134"

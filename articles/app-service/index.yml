@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5abd2c6246ba04bd5cfa90d1cd549208f4cbf0e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6c8737b353503144094a4e2fb6bc7b5471a377b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989928"
 documentType: LandingData
 title: Documentação sobre as Aplicações Web
 metadata:
@@ -115,6 +115,19 @@ sections:
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente na sua aplicação.</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Vincule um certificado SSL existente à aplicação</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Adicionar uma CDN à sua aplicação</a>
+- title: Desenvolva as suas capacidades com o Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Alojar uma aplicação Web com o serviço Aplicação do Azure
+      href: /learn/modules/host-a-web-app-with-azure-app-service/
+      image:
+        src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
+        href: /learn/modules/host-a-web-app-with-azure-app-service/
+  - type: paragraph
+    text: <a href="/learn/browse/">Mais aprendizagem interativa...</a>
 - title: Vídeo de Formação Gratuita da PluralSight
   items:
   - type: list

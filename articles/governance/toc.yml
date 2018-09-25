@@ -1,0 +1,83 @@
+items:
+- name: Documentação da Governação do Azure
+  href: index.yml
+- name: Descrição geral
+  items:
+  - name: Gestão do Azure
+    href: azure-management.md
+  expanded: true
+- name: Componentes e Serviços
+  items:
+  - name: Grupos de Gestão
+    href: management-groups/overview.md
+    items:
+    - name: Criar
+      href: management-groups/create.md
+    - name: Gerir
+      href: management-groups/manage.md
+  - name: Gráfico de Recursos
+    href: resource-graph/overview.md
+  - name: Política
+    href: policy/overview.md
+  - name: Esquemas
+    href: blueprints/overview.md
+  expanded: true
+- name: Implementações
+  items:
+  - name: Adoção do Enterprise Cloud
+    items:
+    - name: O que é a governação dos recursos da cloud?
+      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+    - name: Governação do acesso aos recursos do Azure
+      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+    - name: Estrutura de governação para uma única equipa
+      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+    - name: Estrutura de governação para várias equipas
+      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+  - name: Estrutura do Azure Enterprise
+    items:
+    - name: Governação de Subscrição Prescritiva
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+    - name: Implementar a Estrutura do Azure Enterprise
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+  expanded: true
+- name: Referências
+  items:
+  - name: Esquemas
+    items:
+    - name: API REST
+      href: /rest/api
+    - name: CLI do Azure
+      href: /cli/azure
+  - name: Política
+    items:
+    - name: API REST
+      href: /rest/api
+    - name: CLI do Azure
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+  - name: Gráfico de Recursos
+    items:
+    - name: CLI do Azure
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+- name: Recursos
+  items:
+  - name: Ligação do Vídeo
+    href: /
+  - name: GitHub
+    href: /
+  - name: Roteiro do Azure
+    href: /
+  - name: Calculadora de preços
+    href: /
+  - name: Artigo do blogue
+    href: /
+ms.openlocfilehash: 4006c484adcdb0cf46646ebace847ba4d45efe26
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982255"

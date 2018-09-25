@@ -1,40 +1,47 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d63ae09bdd9b2423f776335ce625018f03548581
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975195"
 documentType: LandingData
 title: Documentação do Azure Machine Learning
 metadata:
-  title: Documentação do Azure Machine Learning - Tutoriais, Referência da API
-  description: Documentação, vídeos e modelos de exemplo para Machine Learning, um serviço cloud para cientistas de dados e programadores que fazem uso da análise preditiva nas suas aplicações.
+  title: Documentação do Azure Machine Learning - Tutoriais, Referência da API | Microsoft Docs
+  description: Aprenda a criar algoritmos inteligentes em aplicações, websites e bots para que possam ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores através de métodos naturais de comunicação. Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.
   services: machine-learning
-  author: garyericson
-  manager: jhubbard
+  author: j-martens
+  manager: cgronlund
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: garye
-  ms.openlocfilehash: 6bfeb53dccd9d281cd467b8261eff5cd47cb4dfb
-  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/19/2018
-  ms.locfileid: "31598766"
+  ms.date: 9/24/2018
+  ms.author: jmartens
 abstract:
-  description: Saiba como utilizar o Azure Machine Learning, com os seus serviços totalmente geridos para criar, implementar e gerir modelos de aprendizagem automática e de IA na cloud. Tutoriais, inícios rápidos, referências e exemplos mostram-lhe como criar e implementar modelos para as suas aplicações.
+  description: Saiba como criar algoritmos inteligentes para aplicações e sites com estes produtos do Azure Machine Learning.  Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.
 sections:
-- title: 
-  items:
+- items:
   - type: list
     style: cards
-    className: cardsA
+    className: cardsM
+    columns: 2
     items:
-    - html: <a href="/azure/machine-learning/service/"> <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (pré-visualização) <br><b>Serviços do Azure Machine Learning</b></a> <p>Saiba como estes serviços podem conferir aos cientistas de dados a capacidade de desenvolver soluções de IA com bibliotecas e ferramentas do Python com uma variedade de serviços de dados e de computação do Azure.</p>
-    - html: <a href="/azure/machine-learning/studio/"> <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio"> <br><b>Azure Machine Learning Studio</b></a> <p>Saiba como utilizar esta ferramenta de arrastar e largar e de colaboração para criar, testar e implementar soluções de análise preditiva nos seus dados.</p>
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index"> <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine"> <br><b>Máquina Virtual de Ciência de Dados</b></a> <p>Saiba como utilizar as VMs de Ciência de Dados e de Aprendizagem Profunda, que são imagens de VM personalizadas no Azure, com um vasto leque de ferramentas de ciência de dados utilizadas para criar aplicações inteligentes para realizar análises avançadas.</p>
-- title: Inícios rápidos de cinco minutos
+    - href: /azure/machine-learning/service/overview-what-is-azure-ml
+      html: <p>Saiba como este serviço permite aos cientistas de dados desenvolver e gerir soluções de IA<br/> com as ferramentas CLI e Python e bibliotecas com uma variedade de serviços de dados e de computação do Azure. Saiba mais...</p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Serviço Azure Machine Learning (pré-visualização)
+    - href: /azure/machine-learning/studio/
+      html: <p>Saiba como utilizar esta ferramenta de colaboração de arrastar e largar para criar, testar e implementar soluções de análise preditiva nos seus dados. Saiba mais... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      image:
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
+- title: Inícios rápidos e Tutoriais
   items:
   - type: paragraph
-    text: 'Saiba como configurar e utilizar rapidamente os serviços do Azure Machine Learning (pré-visualização), o Studio e as Máquinas Virtuais de Ciência de Dados:'
+    text: 'Saiba como configurar e utilizar rapidamente o serviço Azure Machine Learning (pré-visualização) e o Studio:'
   - type: table
     style: dataMatrix
     columns:
@@ -42,56 +49,65 @@ sections:
         src: media/index/i_machine-learning.svg
     - image:
         src: media/index/machine-learning-studio.svg
-    - image:
-        src: media/index/virtualmachine.svg
     rows:
-    - title: Configurar
+    - title: Introdução ao serviço
       values:
-      - href: /azure/machine-learning/service/quickstart-installation
+      - href: /azure/machine-learning/service/quickstart-get-started
       - href: /azure/machine-learning/studio/create-workspace
-      - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
-    - title: Criar um modelo
+    - title: Preparar dados para modelação
       values:
-      - href: /azure/machine-learning/service/quickstart-installation
-      - href: /azure/machine-learning/studio/create-experiment
-      - href: 
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como criar, implementar e consumir modelos com os serviços do Azure Machine Learning (pré-visualização) e o Studio:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    - image:
-        src: media/index/machine-learning-studio.svg
-    rows:
-    - title: Preparar dados
-      values:
-      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
+      - href: /azure/machine-learning/service/concept-data-preparation
       - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-    - title: Criar um modelo
+    - title: Criar o seu próprio modelo de machine learning
       values:
-      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
+      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
       - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-    - title: Operacionalizar um modelo
+    - title: Gerar e otimizar algoritmos automaticamente
       values:
-      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3
+      - href: /azure/machine-learning/service/tutorial-auto-train-models
+      - href: 
+    - title: Implementar o seu modelo como serviço Web
+      values:
+      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
       - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-    - title: Consumir um modelo
+    - title: Consumir os seus modelos de machine learning
       values:
-      - href: /azure/machine-learning/desktop-workbench/model-management-consumption
+      - href: 
       - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-- title: Mais Tecnologias do Microsoft Machine Learning
+- title: Outras Tecnologias do Microsoft Machine Learning
   items:
   - type: list
     style: cards
-    className: cardsA
+    className: cardsM
+    columns: 2
     items:
-    - html: <a href="/azure/machine-learning/team-data-science-process"> <img src="media/index/tdsp.png" alt="Team Data Science Process" height="32" width="32"> <p><b>Processo de Ciência de Dados de Equipa</b></p> </a> Uma metodologia de ciência de dados colaborativa que ajuda as equipas a fornecer soluções de análise preditiva e aplicações inteligentes com eficiência.
-    - html: <a href="/sql/advanced-analytics/r/r-services"> <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services" height="32" width="32"> <p><b>Serviços de Machine Learning do SQL Server</b></p> </a> Análise na base de dados com suporte para R e Python.
-    - html: <a href="/machine-learning-server/"> <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server" height="32" width="32"> <p><b>Microsoft Machine Learning Server</b></p> </a> Plataforma flexível de aprendizagem automática para empresas que suporta implementações de R e Python nos clusters do Windows, Linux e do HDInsight Spark e Hadoop.
-    - html: <a href="/azure/batch-ai/"> <img src="media/index/batch.png" alt="Batch AI Training" height="32" width="32"> <p><b>Batch AI Training</b></p> </a> Serviço gerido que o ajuda a fazer experimentações em paralelo com os seus modelos de IA através de qualquer arquitetura e, depois, prepara-os em escala em GPUs em clusters.
-    - html: <a href="/azure/#pivot=products&panel=cognitive"> <img src="media/index/cognitive-services.png" alt="Cognitive Services" height="32" width="32"> <p><b>Serviços Cognitivos</b></p> </a> APIs que fornecem algoritmos inteligentes para aplicações, sites e bots.
-    - html: <a href="/cognitive-toolkit/"> <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit" height="32" width="32"> <p><b>Microsoft Cognitive Toolkit</b></p> </a> Um toolkit gratuito de código aberto para preparar os algoritmos de aprendizagem profunda.
+    - href: /azure/cognitive-services/
+      html: <p>APIs que fornecem algoritmos inteligentes para aplicações, sites e bots.</p>
+      image:
+        src: /azure/machine-learning/media/index/cognitive-services.png
+      title: Serviços Cognitivos
+    - href: /azure/batch-ai/
+      html: <p>Serviço gerido que o ajuda a fazer experimentações em paralelo com os seus modelos de IA através de qualquer arquitetura e, depois, prepara-os em escala em GPUs em clusters.</p>
+      image:
+        src: /azure/machine-learning/media/index/batch.png
+      title: Batch AI Training
+    - href: /sql/advanced-analytics/r/r-services
+      html: <p>Análise na base de dados com suporte para R e Python.</p>
+      image:
+        src: /azure/machine-learning/media/index/logo_sql.png
+      title: Serviços de Machine Learning do SQL Server
+    - href: /machine-learning-server/
+      html: <p>Plataforma flexível de aprendizagem automática para empresas que suporta implementações de R e Python nos clusters do Windows, Linux e do HDInsight Spark e Hadoop.</p>
+      image:
+        src: /azure/machine-learning/media/index/ml-server.png
+      title: Microsoft Machine Learning Server
+    - href: /azure/machine-learning/team-data-science-process
+      html: <p>Uma metodologia de ciência de dados colaborativa que ajuda as equipas a fornecer soluções de análise preditiva e aplicações inteligentes com eficiência.</p>
+      image:
+        src: /azure/machine-learning/media/index/tdsp.png
+      title: Processo de Ciência de Dados de Equipa
+    - href: /azure/machine-learning/data-science-virtual-machine/
+      html: <p>Experimente sem ter de se preocupar com a instalação ou a configuração de software com estas máquinas virtuais de Ciência de Dados (DSVM) e de Aprendizagem Profunda (DLVM). Inclui ferramentas populares de análise de dados, aprendizagem automática e de IA pré-instaladas.</p>
+      image:
+        src: /azure/machine-learning/media/index/virtualmachine.svg
+      title: Máquina Virtual de Ciência de Dados
