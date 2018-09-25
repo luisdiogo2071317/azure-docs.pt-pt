@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344305"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954403"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
 Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
@@ -21,17 +21,17 @@ Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
 ## <a name="advanced-message-queueing-protocol"></a>Protocolo de colocação em fila de mensagens avançados
 [Advanced Message colocação em fila Protocol (AMQP)](https://www.amqp.org/) é um do messaging protocolos que [IoT Hub](#iot-hub) oferece suporte para comunicação com dispositivos. Para obter mais informações sobre os protocolos de mensagens que o IoT Hub suporta, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Gestão de dispositivos automática
+## <a name="automatic-device-management"></a>Gestão Automática de Dispositivos
 Gestão automática de dispositivos no IoT Hub do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de frotas de dispositivo grandes sobre a totalidade dos respetivos ciclos de vida. Gestão de dispositivos automático, pode um conjunto de dispositivos com base nas respetivas propriedades de destino, definir uma configuração desejada e permitir que o IoT Hub, atualize os dispositivos sempre que eles vão para o âmbito.  Consiste [configurações de dispositivos automático](iot-hub-auto-device-config.md) e [implementações automáticas do IoT Edge](../iot-edge/how-to-deploy-monitor.md).
 
 ## <a name="automatic-device-configuration"></a>Configuração do dispositivo automática
 Pode utilizar a sua solução de back-end [configurações de dispositivos automático](iot-hub-auto-device-config.md) para atribuir as propriedades pretendidas para um conjunto de [dispositivos duplos](#device-twin) e comunicar o estado com as métricas do sistema e métricas personalizadas. 
 
-## <a name="azure-cli"></a>CLI do Azure
-O [CLI do Azure](../cli-install-nodejs.md) é uma ferramenta de várias plataformas, código-fonte aberto, com base no shell de comando para criar e gerir recursos no Microsoft Azure. Esta versão da CLI é implementada com node. js.
+## <a name="azure-classic-cli"></a>CLI clássica do Azure
+O [CLI clássica do Azure](../cli-install-nodejs.md) é uma ferramenta de várias plataformas, código-fonte aberto, com base no shell de comando para criar e gerir recursos no Microsoft Azure. Esta versão da CLI deve ser utilizada para implementações clássicas apenas.
 
-## <a name="azure-cli-20"></a>CLI 2.0 do Azure
-O [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de várias plataformas, código-fonte aberto, com base no shell de comando para criar e gerir recursos no Microsoft Azure. Esta versão de pré-visualização da CLI é implementada com o Python.
+## <a name="azure-cli"></a>CLI do Azure
+O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de várias plataformas, código-fonte aberto, com base no shell de comando para criar e gerir recursos no Microsoft Azure.
 
 
 ## <a name="azure-iot-device-sdks"></a>SDKs de dispositivo de IoT do Azure
@@ -185,8 +185,8 @@ Pode utilizar o [API do REST de recursos do IoT Hub](https://docs.microsoft.com/
 ## <a name="iot-solution-accelerators"></a>Aceleradores de soluções IoT
 Aceleradores de solução de IoT do Azure reúne, vários serviços do Azure em soluções. Estas soluções permitem que comece a trabalhar rapidamente com implementações de ponto-a-ponto dos cenários de IoT comuns. Para obter mais informações, consulte [quais são os Aceleradores de solução de IoT do Azure?](../iot-accelerators/about-iot-accelerators.md)
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>A extensão de IoT para a CLI 2.0 do Azure
-[A extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando, de várias plataformas. A ferramenta permite-lhe gerir os dispositivos no [registo de identidade](#identity-registry), enviar e receber mensagens e arquivos de seus dispositivos e monitorizar as operações do hub IoT.
+## <a name="the-iot-extension-for-azure-cli"></a>A extensão de IoT para a CLI do Azure 
+[A extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando, de várias plataformas. A ferramenta permite-lhe gerir os dispositivos no [registo de identidade](#identity-registry), enviar e receber mensagens e arquivos de seus dispositivos e monitorizar as operações do hub IoT.
 
 ## <a name="job"></a>Tarefa
 Pode utilizar a sua solução de back-end [tarefas](iot-hub-devguide-jobs.md) para agendar e monitorizar atividades num conjunto de dispositivos registados com o seu hub IoT. As atividades incluem a atualizar o dispositivo duplo [propriedades pretendidas](#desired-properties), a atualização do dispositivo duplo [etiquetas](#tags)e a invocação [métodos diretos](#direct-method). [IoT Hub](#iot-hub) também utiliza para [importar para e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) da [registo de identidade](#identity-registry).
