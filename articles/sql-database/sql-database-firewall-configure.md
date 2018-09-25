@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/20/2018
 ms.author: vanto
-ms.openlocfilehash: 118911687326bfa938c7276337377e3d3cb66bf2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 698014c24d6a3af3fb79980a07e25483554b1007
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715402"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042436"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall de base de dados SQL e SQL Data Warehouse do Azure 
 
@@ -75,7 +75,7 @@ Para permitir que as aplicações do Azure se liguem ao servidor do SQL Azure, a
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Criar e gerir regras de firewall
-A primeira definição de firewall ao nível do servidor pode ser criada com o [portal do Azure](https://portal.azure.com/) ou através de programação utilizando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [da CLI do Azure](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). As regras seguintes podem ser criadas e geridas com estes métodos e com o Transact-SQL. 
+A primeira definição de firewall ao nível do servidor pode ser criada com o [portal do Azure](https://portal.azure.com/) ou através de programação utilizando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [da CLI do Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). As regras seguintes podem ser criadas e geridas com estes métodos e com o Transact-SQL. 
 
 > [!IMPORTANT]
 > Regras de firewall ao nível da base de dados só podem ser criadas e geridos com o Transact-SQL. 
@@ -167,11 +167,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gerir regras de firewall com a CLI do Azure
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-|[Criar AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Servidor|Cria uma regra de firewall do servidor|
-|[lista do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Servidor|Lista as regras de firewall num servidor|
-|[show do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Servidor|Mostra os detalhes de uma regra de firewall|
-|[atualização do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Servidor|Atualiza uma regra de firewall|
-|[eliminação do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Servidor|Elimina uma regra de firewall|
+|[Criar AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall do servidor|
+|[lista do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor|Lista as regras de firewall num servidor|
+|[show do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Servidor|Mostra os detalhes de uma regra de firewall|
+|[atualização do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor|Atualiza uma regra de firewall|
+|[eliminação do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor|Elimina uma regra de firewall|
 
 O exemplo seguinte define uma regra de firewall ao nível do servidor com a CLI do Azure: 
 

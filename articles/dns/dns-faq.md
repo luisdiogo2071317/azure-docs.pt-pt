@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 747b2e2499a9bafcf7a7b03bc2ce144828c55c75
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 66e04e7f0b272f19788e79805ef06d11e2eda572
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948031"
 ---
 # <a name="azure-dns-faq"></a>FAQ sobre DNS do Azure
 
@@ -26,11 +26,11 @@ ms.locfileid: "39172505"
 
 ### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
-O sistema de nomes de domínio ou DNS, é responsável pela tradução (ou resolver) um nome de Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento dos domínios DNS que fornece resolução de nomes usando a infra-estrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
+O sistema de nomes de domínio ou DNS, é responsável pela tradução (ou resolver) um nome de Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento dos domínios DNS que oferece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
-Domínios DNS no DNS do Azure estão alojados numa rede global do Azure de servidores de nomes DNS. Esta opção utiliza Anycast de rede para que cada consulta DNS for atendida pelo servidor DNS disponível mais próximo. O DNS do Azure fornece um desempenho rápido e de elevada disponibilidade para o seu domínio.
+Os domínios DNS no DNS do Azure estão alojados na rede global do Azure de servidores de nomes DNS. Esta opção utiliza Anycast de rede para que cada consulta DNS for atendida pelo servidor DNS disponível mais próximo. O DNS do Azure fornece um desempenho rápido e de elevada disponibilidade para o seu domínio.
 
-O serviço de DNS do Azure baseia-se no Azure Resource Manager. Assim, se beneficia de funcionalidades do Gestor de recursos, tais como o controlo de acesso baseado em funções, registos de auditoria e bloqueios de recursos. Os domínios e registos podem ser geridos através do portal do Azure, cmdlets do PowerShell do Azure e a CLI do Azure de várias plataformas. Aplicações que requerem gestão automática de DNS podem integrar com o serviço através da REST API e SDKs.
+O serviço DNS do Azure baseia-se no Azure Resource Manager. Assim, se beneficia de funcionalidades do Gestor de recursos, tais como o controlo de acesso baseado em funções, registos de auditoria e bloqueios de recursos. Os domínios e registos podem ser geridos através do portal do Azure, cmdlets do PowerShell do Azure e a CLI do Azure de várias plataformas. Aplicações que requerem gestão automática de DNS podem integrar com o serviço através da REST API e SDKs.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Quanto custa o DNS do Azure?
 
@@ -63,6 +63,10 @@ Tem de comprar o nome de domínio, se pretender ligar a zona DNS para a hierarqu
 
 ## <a name="azure-dns-features"></a>Recursos DNS do Azure
 
+### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Existem restrições ao utilizar registos de alias para um vértice de nome de domínio com o Gestor de tráfego?
+
+Sim. Tem de utilizar endereços IP públicos estáticos com o Gestor de tráfego. Configurar o **ponto final externo** utilizando um endereço IP de destino. 
+
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>O DNS do Azure suporta a ativação pós-falha de encaminhamento ou ponto final de tráfego baseado em DNS?
 
 Ativação pós-falha de encaminhamento e o ponto final de tráfego baseado em DNS são fornecidos pelo Gestor de tráfego do Azure. O Gestor de tráfego do Azure é um serviço do Azure separado que pode ser utilizado em conjunto com o DNS do Azure. Para obter mais informações, consulte a [descrição geral do Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).
@@ -71,7 +75,7 @@ O DNS do Azure só suporta o alojamento dos domínios DNS 'static', em que cada 
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>O DNS do Azure suporta o registo de nome de domínio?
 
-Não. O DNS do Azure não suporta atualmente a compra de nomes de domínio. Se quiser comprar domínios, terá de utilizar uma entidade de registo de nome de domínio de terceiros. A entidade de registo, normalmente, os custos de uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para a gestão de registos DNS. Ver [delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
+Não. O DNS do Azure não suporta atualmente a compra de nomes de domínio. Se quiser comprar domínios, terá de utilizar uma entidade de registo de nome de domínio de terceiros. A entidade de registo, normalmente, os custos de uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para a gestão de registos DNS. Veja [Delegar um Domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
 Compra de domínio é um recurso que está a ser controlado no registo de segurança do Azure. Pode utilizar o site de comentários para [registar o suporte para esta funcionalidade](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
@@ -93,13 +97,41 @@ Não. Serviços de redirecionamento de URL não estão, na verdade, um serviço 
 
 Funcionalidade de redirecionamento de URLs está registada no registo de segurança de DNS do Azure. Pode utilizar o site de comentários para [registar o suporte para esta funcionalidade](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
-### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>O DNS do Azure suporta ASCII estendido codificação (8 bits) conjunto para o conjunto de registros TXT?
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset"></a>O DNS do Azure suporta ASCII estendido codificação (8 bits) conjunto para o conjunto de registros TXT?
 
 Sim. O DNS do Azure suporta o conjunto de codificação ASCII estendido para conjuntos de registros TXT, se utilizar a versão mais recente das APIs REST do Azure, SDKs, PowerShell e CLI (versões mais antigas que 2017-10-01 ou fazer SDK 2.1 suporta o conjunto de ASCII estendido). Por exemplo, se o utilizador fornece uma cadeia de caracteres como o valor para um registo TXT com o expandida caráter \128 ASCII (por exemplo: "abcd\128efgh"), DNS do Azure irá utilizar o valor de byte desse caractere (que é 128) na representação interna. No momento da resolução de DNS também este valor de byte será devolvido na resposta. Observe também que "abc" e "\097\098\099" são intercambiáveis como diz respeito a resolução. 
 
 Seguimos [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zona regras de escape de mestre de formato de ficheiro para registos TXT. Por exemplo, "\" agora escapes, na verdade, tudo por de RFC. Se especificar "A\B" como o valor de registo TXT, ele será representado e resolver como apenas "AB". Se realmente deseja o registo TXT ter "A\B" com uma resolução, terá de escape o "\" novamente, ou seja especificar como "A\\B". 
 
-Tenha em atenção que este suporte não está atualmente disponível para registos TXT criados a partir do Portal do Azure. 
+Este suporte não está atualmente disponível para registos TXT criados a partir do portal do Azure. 
+
+## <a name="alias-records"></a>Registos de alias
+
+### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Quais são alguns cenários em que os registos de alias são úteis?
+Consulte a secção os cenários [DNS do Azure registos descrição geral de alias](dns-alias.md).
+
+### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Que tipos de registo são suportados para conjuntos de registos de alias?
+Alias os conjuntos de registos são suportados para os seguintes tipos de registos numa zona de DNS do Azure: A, AAAA e CNAME. 
+
+### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Os recursos que são suportados como destinos para conjuntos de registos de alias?
+- **Apontar para um recurso de IP público a partir de um conjunto de registos de A/AAAA de DNS**. Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso de IP público.
+- **Aponte para um perfil do Gestor de tráfego de um conjunto de registos DNS A/AAAA/CNAME**. Para além da capacidade para apontar para o CNAME de um perfil do Gestor de tráfego (por exemplo: contoso.trafficmanager.net) de um conjunto de registros DNS CNAME, agora também pode apontar para um perfil de Gestor de tráfego que tem pontos finais externos, a partir de um conjunto de registros A ou AAAA no DNS zona.
+- **Aponte para outro conjunto de registros DNS na zona mesmo**. Registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, pode ter um conjunto de registos de DNS CNAME ser um alias para outro conjunto de registros CNAME do mesmo tipo. Isto é útil se quiser ter alguns conjuntos de registos ser aliases e alguns como não aliases em termos de comportamento.
+
+### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Pode criar e atualizar alias registos a partir do portal do Azure?
+Sim. Registos de alias podem ser criados ou geridos no portal do Azure, além de APIs REST do Azure, Azure PowerShell, CLI e SDKs.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Registos de alias ajudará a garantir que meu conjunto de registos de DNS é eliminado quando o IP público subjacente é eliminado?
+Sim. Na verdade, essa é uma das capacidades de núcleo de registos de alias. Eles ajudá-lo a evitar potenciais falhas para os utilizadores finais da sua aplicação.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Alias registos ajudará a garantir que meu conjunto de registos de DNS é atualizado para o endereço IP correto quando o endereço IP público subjacente é alterada?
+Sim. Como na pergunta anterior, isso é um dos principais recursos de registos de alias e ajuda a evitar potenciais falhas ou os riscos de segurança para a sua aplicação.
+
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-an-a-or-aaaa-records-to-point-to-traffic-manager"></a>Existem restrições ao utilizar o registo de alias conjuntos para um registos A ou AAAA apontar para o Gestor de tráfego?
+Sim. Se quiser apontar para um perfil do Traffic Manager como um alias de conjunto de registos de um A ou AAAA, tem de garantir que o perfil do Gestor de tráfego utiliza apenas pontos finais externos. Quando cria os pontos finais externos no Gestor de tráfego, certifique-se de que forneça os endereços IP reais dos pontos finais.
+
+### <a name="is-there-an-additional-charge-for-using-alias-records"></a>Existe um custo adicional para a utilização de registos de alias?
+Os registos de alias são uma qualificação por um conjunto de registros DNS válido e existe uma faturação sem adicional para os registos de alias.
 
 ## <a name="using-azure-dns"></a>Utilizar o DNS do Azure
 
@@ -179,7 +211,7 @@ Não. As zonas privadas do funcionam em conjunto com as redes virtuais e permiti
 Sim. Os clientes podem associar até 10 redes virtuais de resolução com uma única zona privada.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Pode uma rede virtual que pertence a uma subscrição diferente ser adicionada como uma rede virtual de resolução a uma zona privada? 
-Sim, desde que o utilizador tem permissão de operação de escrita na tanto as redes virtuais, bem como a zona DNS privada. Tenha em atenção que a permissão de escrita pode ser atribuída a várias funções do RBAC. Por exemplo, a função RBAC de contribuinte de rede clássica tem permissões de escrita para redes virtuais. Para obter mais informações sobre funções RBAC, veja [controlo de acesso baseado em funções](../role-based-access-control/overview.md)
+Sim, desde que o utilizador tem permissão de operação de escrita na tanto as redes virtuais, bem como a zona DNS privada. A permissão de escrita pode ser atribuída a várias funções do RBAC. Por exemplo, a função RBAC de contribuinte de rede clássica tem permissões de escrita para redes virtuais. Para obter mais informações sobre funções RBAC, veja [controlo de acesso baseado em funções](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Os registos DNS da máquina de virtual automaticamente registado numa zona privada sejam eliminados automaticamente quando as máquinas virtuais são eliminadas pelo cliente?
 Sim. Se eliminar uma máquina virtual dentro de uma rede virtual de registo, podemos irá eliminar automaticamente os registos DNS que foram registados para a zona devido a esta rede virtual de um registo a ser. 
@@ -190,21 +222,21 @@ Não. Neste momento, os registos DNS de máquina virtual que são automaticament
 ### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>O que acontece quando tentar criar manualmente um novo registo DNS para uma zona privada que tem o mesmo nome do anfitrião como uma máquina virtual existente (automaticamente registada) numa rede virtual de registo? 
 Se está tentando criar manualmente um novo registo DNS para uma zona privada que tem o mesmo nome do anfitrião como uma máquina virtual (automaticamente registada) existente numa rede virtual de registo, podemos permitirá que o novo registo DNS substituir automaticamente registado registo de máquina virtual. Além disso, se, em seguida, tentar eliminar este criados manualmente o registo DNS da zona, a eliminação será concluída com êxito e o registo automático irá ocorrer novamente (o registo DNS será recriado automaticamente na zona), desde que a máquina virtual ainda existe e tem um IP privado ligados ao mesmo. 
 
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone--would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>O que acontece quando podemos desassociar a uma rede virtual de registo de uma zona privada? Os registos de máquina de virtual registado automaticamente da rede virtual serão removidos da zona também?
+### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>O que acontece quando podemos desassociar a uma rede virtual de registo de uma zona privada? Os registos de máquina de virtual registado automaticamente da rede virtual serão removidos da zona também?
 Sim. Se desassociar uma rede virtual de registo (atualização a zona DNS para remover a rede virtual de registo associada) a partir de uma zona privada, o Azure remove quaisquer registos de máquina de virtual registado automaticamente da zona. 
 
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone--do-we-have-to-manually-update-the-private-zone-to-un-link-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>O que acontece quando vamos eliminar um registo (ou resolução) da rede virtual que está ligada a uma zona privada? Temos de atualizar manualmente a zona privada para a rede virtual de rede virtual como um registo (ou resolução) de ligação de anulação da zona?
+### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>O que acontece quando vamos eliminar um registo (ou resolução) da rede virtual que está ligada a uma zona privada? Temos de atualizar manualmente a zona privada ao desassociar a rede virtual de rede virtual como um registo (ou resolução) da zona?
 Sim. Quando eliminar uma rede virtual de registo (ou resolução) sem desassociá-lo a partir de uma privada zona em primeiro lugar, Azure permitirá que a operação de eliminação com êxito, mas a rede virtual não é automaticamente desassociada da sua zona privada se houver. Terá de desassociar manualmente a rede virtual a partir da zona privada. Por esse motivo, recomenda-se para desassocie primeiro a rede virtual da sua zona privada antes de o eliminar.
 
 ### <a name="would-dns-resolution-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Seria a resolução de DNS usando o portão FQDN (internal.cloudapp.net) continuarão a funcionar mesmo quando uma zona privada (por exemplo: contoso. local) está ligada a uma rede virtual? 
-Sim. Funcionalidade zonas privadas não substitui as resoluções DNS padrão utilizam a zona de internal.cloudapp.net fornecida pelo Azure e é oferecida como uma capacidade adicional ou um aprimoramento. Para ambos os casos (se a entidade confiadora no internal.cloudapp.net fornecida pelo Azure ou em sua própria zona privada) recomenda-se para utilizar o FQDN da zona que pretende resolver contra. 
+Sim. Funcionalidade zonas privadas não substitui as resoluções DNS padrão utilizam a zona de internal.cloudapp.net fornecida pelo Azure e é oferecida como uma capacidade adicional ou um aprimoramento. Para os dois casos (se a entidade confiadora no internal.cloudapp.net fornecida pelo Azure ou em sua própria zona privada), recomenda-se que utilize o FQDN da zona que pretende resolver contra. 
 
 ### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>O sufixo DNS em máquinas virtuais numa rede virtual ligada deve ser alterado para que a zona privada? 
 Não. Neste momento, o sufixo DNS nas máquinas virtuais na sua rede virtual ligado permanecerá como o sufixo predefinido de fornecida pelo Azure ("*. internal.cloudapp.net"). No entanto manualmente pode alterar este sufixo DNS nas suas máquinas virtuais para que a zona privada. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Existem limitações para zonas privadas do durante esta pré-visualização?
 Sim. Durante a pré-visualização pública, existem as seguintes limitações:
-* 1 registo de redes virtuais por zona privada
+* Um registo de redes virtuais por zona privada
 * Redes virtuais de resolução de 10 até por zona privada
 * Uma determinada rede virtual só pode ser associada a uma zona privada como uma rede virtual de registo
 * Uma determinada rede virtual pode ser associada a até 10 as zonas privadas do que uma rede virtual de resolução

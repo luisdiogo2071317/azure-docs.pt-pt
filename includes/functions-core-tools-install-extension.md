@@ -5,23 +5,29 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 04/06/2018
+ms.date: 09/21/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38941238"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044514"
 ---
-Ao desenvolver funções localmente, pode instalar as extensões que necessita, utilizando as ferramentas de núcleo de funções do Azure a partir do Terminal ou a partir de um prompt de comando. 
+Ao desenvolver funções localmente, pode instalar as extensões que necessita, utilizando as ferramentas de núcleo de funções do Azure a partir do Terminal ou a partir de um prompt de comando.
 
-Depois de atualizar seus *Function* arquivo para incluir todas as ligações que sua função, tem de executar o `func extensions install` comando na pasta de projeto. O comando lê a *Function* arquivo para ver quais os pacotes que precisa e, em seguida, instala-os.
+Depois de atualizar seus *Function* arquivo para incluir todas as ligações que precisa de sua função, execute o seguinte comando na pasta de projeto.
+
+```bash
+func extensions install
+```
+
+O comando lê a *Function* arquivo para ver os pacotes que precisa, instala-os e recria o projeto de extensões. Ele adiciona todos os enlaces novo na versão atual, mas não atualiza "BIND" existente. Utilize o `--force` opção para atualizar "BIND" existente para a versão mais recente ao instalar novas etiquetas.
 
 Se pretender instalar uma versão específica de um pacote ou se quiser instalar pacotes antes de editar a *Function* do ficheiro, utilize o `func extensions install` comando com o nome do pacote, conforme mostrado no exemplo a seguir:
 
-```
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 

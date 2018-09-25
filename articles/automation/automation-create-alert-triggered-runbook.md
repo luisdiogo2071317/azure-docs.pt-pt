@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0df08eaa2de27dbcc1ea93db1e040d81d071bf80
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965284"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utilize um alerta para acionar um runbook da automatização do Azure
 
-Pode usar [do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorizar as métricas de nível de base e registos para a maioria dos serviços do Azure. Pode chamar runbooks de automatização do Azure, utilizando [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) ou através de alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um runbook através de alertas.
+Pode usar [do Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorizar as métricas de nível de base e registos para a maioria dos serviços do Azure. Pode chamar runbooks de automatização do Azure, utilizando [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) ou através de alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um runbook através de alertas.
 
 ## <a name="alert-types"></a>Tipos de alerta
 
@@ -32,8 +32,8 @@ Quando um alerta chama um runbook, a chamada real é um pedido de HTTP POST para
 |Alerta  |Descrição|Esquema do payload  |
 |---------|---------|---------|
 |[Alerta de métrica clássica](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer métrica de nível de plataforma cumpre uma condição específica. Por exemplo, quando o valor para **% de CPU** numa VM é superior **90** durante os últimos 5 minutos.| [Esquema do payload de alerta de métrica de classe](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[Alerta de registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando um `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de estado de funcionamento de serviço de Azure com uma **Active** estado é apresentado.| [Esquema do payload de alerta de registo de atividades](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
-|[Alerta de métrica em tempo real em breve](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas de métricas, quando uma ou mais métricas de nível de plataforma cumprem condições específicas. Por exemplo, quando o valor para **% de CPU** numa VM é superior **90**e o valor de **na rede** for maior do que **500 MB** nas últimas 5 minutos.| [Junto ao esquema do payload de alerta de métricas em tempo real](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Alerta de registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando um `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de estado de funcionamento de serviço de Azure com uma **Active** estado é apresentado.| [Esquema do payload de alerta de registo de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)        |
+|[Alerta de métrica em tempo real em breve](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas de métricas, quando uma ou mais métricas de nível de plataforma cumprem condições específicas. Por exemplo, quando o valor para **% de CPU** numa VM é superior **90**e o valor de **na rede** for maior do que **500 MB** nas últimas 5 minutos.| [Junto ao esquema do payload de alerta de métricas em tempo real](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 Uma vez que os dados que são fornecidos por cada tipo de alerta são diferentes, cada tipo de alerta é processado de forma diferente. Na secção seguinte, irá aprender a criar um runbook para lidar com diferentes tipos de alertas.
 

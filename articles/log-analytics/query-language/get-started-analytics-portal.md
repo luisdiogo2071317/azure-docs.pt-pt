@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2c35d71d127903a67dce2280b2d0ab335079b480
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604472"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978204"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Introdução ao Log Analytics no portal do Azure
 
@@ -47,7 +47,7 @@ A página do Log Analytics é uma ferramenta de web utilizada para criar e execu
 ## <a name="basic-queries"></a>Consultas básicas
 Consultas podem ser usadas para termos de pesquisa, identificar tendências, analisar padrões e fornecem várias outras informações com base nos seus dados. Começar com uma consulta básica:
 
-```KQL
+```Kusto
 Event | search "error"
 ```
 
@@ -57,7 +57,7 @@ Consultas podem começar com o nome de uma tabela ou um **pesquisa** comando. O 
 
 Outra forma de escrever essa mesma consulta deve ser:
 
-```KQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -81,7 +81,7 @@ Em cada tabela, os dados são organizados em colunas com tipos de dados diferent
 ## <a name="filter-the-results"></a>Filtrar os resultados
 Comece por obter tudo _evento_ tabela.
 
-```KQL
+```Kusto
 Event
 ```
 
@@ -135,7 +135,7 @@ Se a consulta contém explicitamente um filtro para _TimeGenerated_, a hora irá
 ## <a name="charts"></a>Gráficos
 Para além de retornar resultados numa tabela, é possível apresentar os resultados da consulta formatos visual. Utilize a consulta seguinte como exemplo:
 
-```KQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

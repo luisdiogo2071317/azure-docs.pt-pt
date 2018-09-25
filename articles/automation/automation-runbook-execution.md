@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982985"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032534"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -145,7 +145,8 @@ Isso serve para proteger o serviço de runbooks em execução indefinidamente se
 
 Se o runbook tiver sem pontos de verificação ou a tarefa não tinha alcançado o primeiro ponto de verificação antes de a ser descarregado, em seguida, reinicia desde o início.
 
-Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). As Funções de Trabalho de Runbook Híbridas não estão limitadas pela fração justa e não têm limites quanto à duração de execução de um runbook.
+Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). As Funções de Trabalho de Runbook Híbridas não estão limitadas pela fração justa e não têm limites quanto à duração de execução de um runbook. A outra tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos.
+
 
 Se estiver a utilizar um runbook de fluxo de trabalho do PowerShell no Azure, ao criar um runbook, deve garantir que o tempo para executar todas as atividades entre dois pontos de verificação não exceda três horas. Poderá ter de adicionar pontos de verificação ao runbook para se certificar de que não atingir este limite de três horas ou divida de longa execução de operações. Por exemplo, o runbook pode executar um reindex num banco de dados SQL. Se esta operação única não for concluída dentro do limite de cota razoável, a tarefa é descarregada e reiniciada desde o início. Neste caso, deve dividir a operação de reindex em várias etapas, como a reindexação uma tabela por vez e, em seguida, inserir um ponto de verificação após cada operação para que a tarefa foi retomada após a última operação seja concluída.
 

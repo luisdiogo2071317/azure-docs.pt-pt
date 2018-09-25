@@ -1,5 +1,5 @@
 ---
-title: 'Pesquisa do Bing personalizada: Procurar uma vista personalizada | Microsoft Docs'
+title: 'A pesquisa personalizada do Bing: Procurar uma exibição personalizada | Documentos da Microsoft'
 description: Descreve como pesquisar uma vista personalizada da web
 services: cognitive-services
 author: brapel
@@ -9,38 +9,51 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 75f6c8d299c7eed901dda0631fca74b040f72e30
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7a2db7881dfe7efedb1a83637a6281f786652958
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352850"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964909"
 ---
-# <a name="call-your-custom-search"></a>Chamar a pesquisa personalizada
-Antes de efetuar a primeira chamada para a API de pesquisa personalizada para obter os resultados da pesquisa para a sua instância, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave de API de pesquisa personalizada, consulte [tente serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+# <a name="call-your-custom-search"></a>Chamar a sua pesquisa personalizada
 
-> [!NOTE]
-> Os clientes de pesquisa do Bing personalizado existentes que tem uma chave de pré-visualização aprovisionada no ou antes do dia 15 de Outubro de 2017 poderá utilizar as respetivas chaves até 30 de Novembro de 2017, ou até que possam tem esgotado o número máximo de consultas permitido. Seguidamente, precisam de migrar para a versão geralmente disponível no Azure.
+Antes de efetuar a primeira chamada para a API de pesquisa personalizada para obter os resultados da pesquisa para a sua instância, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave de API de pesquisa personalizada, consulte [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+
 
 ## <a name="try-it-out"></a>Experimentar
-Depois de configurar a experiência de pesquisa personalizada, pode testar a configuração a partir do portal de pesquisa personalizada. Inicie sessão no [pesquisa personalizada](https://customsearch.ai), clique uma instância de pesquisa personalizada e, no **produção** separador. O **pontos finais** separador é apresentado. A subscrição irá determinar quais os pontos finais estão disponíveis para experimentar, consulte [preços páginas](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/). Para testar um ponto final, selecione-o na lista pendente e definir as opções de configuração associados. 
 
-Seguem-se as opções disponíveis.
+Após configurar a sua experiência de pesquisa personalizada, pode testar a configuração a partir do portal de pesquisa personalizada. 
 
-- **Consulta**: O termo de pesquisa para procurar. Disponível apenas para pontos finais Web, a imagem e Autosuggest.
-- **ID de configuração personalizada**: O ID de configuração da instância de pesquisa personalizada selecionada. Este campo é só de leitura.
-- **Mercado**: mercado onde os resultados provenientes. Disponível apenas para pontos finais Web, a imagem e IU alojado.
-- **Chave de subscrição**: A chave de subscrição para testar com. Pode selecionar uma chave na lista pendente ou introduza um manualmente.
-- **Pesquisa segura**: um filtro utilizado para filtrar as páginas Web de conteúdo para adultos. Disponível apenas para pontos finais Web, a imagem e IU alojado.
-- **Contagem**: O número de resultados de pesquisa devolver na resposta. Disponível apenas para pontos finais Web e de imagem.
-- **O desvio**: O número de resultados de pesquisa devolver na resposta. Disponível apenas para pontos finais Web e de imagem.
+1. Inicie sessão no [pesquisa personalizada](https://customsearch.ai).
+2. Clique numa instância de pesquisa personalizada da sua lista de instâncias.
+3. Clique nas **produção** separador. 
+4. Sob o **pontos de extremidade** separador, selecione um ponto de extremidade (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos (consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para as opções de assinatura). 
+5. Especifique os valores de parâmetro. 
 
-Depois de especificadas todas as opções necessárias para a Web, Image ou Autosuggest, clique em **chamar** para ver a resposta JSON no painel direito. 
+    Seguem-se os possíveis parâmetros que pode definir (a lista real depende do ponto de extremidade selecionado). Para obter mais informações sobre estes parâmetros, consulte [a API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) referência.
 
-Se selecionar o ponto final alojado IU, pode testar a experiência de pesquisa do painel da direita.
+    - **Consulta**: O termo de pesquisa para procurar. Disponível apenas para pontos finais de Web, imagem, vídeo e de sugestão automática.
+    - **ID de configuração personalizada**: O ID de configuração de instância de pesquisa personalizada selecionada. Este campo é só de leitura.
+    - **Mercado**: O mercado de onde vêm os resultados. Disponível apenas para pontos finais de Web, imagem, vídeo e hospedado da interface do Usuário.
+    - **Chave de subscrição**: A chave de subscrição para testar com. Pode selecionar uma chave na lista pendente, ou introduza um manualmente.  
+      
+    Clicar **parâmetros adicionais** revela os seguintes parâmetros:  
+      
+    - **Pesquisa segura**: um filtro utilizado para filtrar as páginas Web para o conteúdo para adultos. Disponível apenas para pontos finais de Web, imagem, vídeo e hospedado da interface do Usuário.
+    - **Idioma da Interface do usuário**: O idioma usado para cadeias de caracteres de interface de utilizador. Por exemplo, se ativar imagens e vídeos na interface do Usuário do hospedado, o **imagem** e **vídeo** separadores utilizam o idioma especificado.
+    - **Contagem de**: O número de resultados de pesquisa para devolver na resposta. Disponível apenas para pontos finais de Web, imagem e vídeo.
+    - **Deslocamento**: O número de resultados de pesquisa a ignorar antes de retornar resultados. Disponível apenas para pontos finais de Web, imagem e vídeo.
+
+6. Depois de especificar todas as opções necessárias, clique em **chamar** para ver a resposta JSON no painel da direita. 
+
+Se selecionar o ponto de extremidade hospedado da interface do Usuário, pode testar a experiência de pesquisa no painel inferior.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Chamar a vista personalizada com c#](./call-endpoint-csharp.md)
-- [Chamar a vista personalizada com o Java](./call-endpoint-java.md)
-- [Chamar a vista personalizada com NodeJs](./call-endpoint-nodejs.md)
-- [Chamar a vista personalizada com o Python](./call-endpoint-python.md)
+
+- [Chamar a sua vista personalizada com c#](./call-endpoint-csharp.md)
+- [Chamar a sua vista personalizada com Java](./call-endpoint-java.md)
+- [Chamar a sua vista personalizada com NodeJs](./call-endpoint-nodejs.md)
+- [Chamar a sua vista personalizada com Python](./call-endpoint-python.md)
+
+- [Chamar a sua vista personalizada com o SDK do c#](./sdk-csharp-quick-start.md)

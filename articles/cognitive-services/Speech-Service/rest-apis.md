@@ -8,31 +8,31 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498118"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032432"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
-As APIs REST do serviço de voz unificado são semelhantes às APIs fornecidas pelos [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz do Bing. Pontos finais regionais estão disponíveis e tem de utilizar uma chave de subscrição correspondente para o ponto final que está a utilizar.
+As APIs REST dos serviços cognitivos do Azure unified voz serviço são semelhantes às APIs fornecidas pelos [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz do Bing. Pontos finais regionais estão disponíveis e tem de utilizar uma chave de assinatura que corresponde ao ponto final que está a utilizar.
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela abaixo. Utilize um que corresponde à sua região de subscrição.
+Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 > [!NOTE]
 > Se personalizou o modelo acústico ou modelo de idioma ou pronúncia, em vez disso, a utilizar o seu ponto final personalizado.
 
-Esta API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve apenas resultados finais, não resultados parciais ou provisórias. O serviço de voz também tem um [transcrição do batch](batch-transcription.md) API que pode transcrição de áudio mais tempo.
+Esta API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve resultados apenas finais, não resultados parciais ou provisórias. O serviço de voz também tem um [transcrição do batch](batch-transcription.md) API que pode transcrição de áudio mais tempo.
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-Os seguintes parâmetros podem ser incluídos na cadeia de consulta da solicitação REST.
+Os seguintes parâmetros podem estar incluídos na cadeia de consulta da solicitação REST.
 
 |Nome do parâmetro|Obrigatório/opcional|Significado|
 |-|-|-|
@@ -51,15 +51,15 @@ Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 |`Content-type`|Descreve o formato e o codec dos dados de áudio. Atualmente, este valor tem de ser `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Opcional. Se for indicado, tem de ser `chunked` para permitir que os dados de áudio a serem enviados por vários pequenas partes em vez de um único arquivo.|
 |`Expect`|Se utilizar a transferência em partes, enviar `Expect: 100-continue`. O serviço de voz reconhece o pedido inicial e awaits dados adicionais.|
-|`Accept`|Opcional. Se for fornecido, tem de incluir `application/json`, como o serviço de voz fornece resultados no formato JSON. (Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`)|
+|`Accept`|Opcional. Se for fornecido, tem de incluir `application/json`, como o serviço de voz fornece resultados no formato JSON. (Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`.)|
 
 ### <a name="audio-format"></a>Formato de áudio
 
-O áudio é enviado no corpo do HTTP `PUT` pedir e deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz.
+O áudio é enviado no corpo do HTTP `PUT` pedido. Deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz.
 
 ### <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de voz para começar a processar o ficheiro de áudio, enquanto que está a ser transmitido. A API REST não fornece resultados parciais ou provisórias; Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
+A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de voz para começar a processar o ficheiro de áudio, enquanto que está a ser transmitido. A API REST não fornece resultados parciais ou provisórias. Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
 
 O código a seguir ilustra como enviar áudio em blocos. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 
@@ -139,6 +139,7 @@ O `RecognitionStatus` campo pode conter os seguintes valores.
 > [!NOTE]
 > Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz. 
 
+
 O `detailed` formato inclui os mesmos campos que o `simple` formatar, juntamente com um `NBest` campo. O `NBest` campo é uma lista de alternativas interpretações sobre a mesma conversão de voz, classificados do maior probabilidade de, pelo menos, provavelmente. A primeira entrada é o mesmo, como o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
 
 |Nome do campo|Conteúdo|
@@ -217,12 +218,12 @@ Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 |`X-Microsoft-OutputFormat`|O formato de áudio de saída. Consulte a tabela seguinte.|
 |`User-Agent`|Nome da aplicação. Necessário. tem de conter menos de 255 carateres.|
 
-Formatos de saída de áudio disponível (`X-Microsoft-OutputFormat`) incorporar uma velocidade de transmissão e uma codificação.
+Formatos de saída de áudio disponível (`X-Microsoft-OutputFormat`) incorporar uma taxa de bits e uma codificação.
 
 |||
 |-|-|
-`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren`
-`riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
+`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
+`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
 `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
 `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
@@ -266,23 +267,23 @@ Código de HTTP|Significado|Razão possível
 413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
 |502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
-Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que é transferido ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
+Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que ele tem transferidos ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
 
 ## <a name="authentication"></a>Autenticação
 
-Enviar um pedido para a API de REST do serviço de voz requer uma chave de subscrição ou um token de acesso. Em geral, é mais fácil enviar a chave de subscrição diretamente; o serviço de voz, em seguida, obtém o token de acesso para si. No entanto, para minimizar o tempo de resposta, pode pretender utilizar um token de acesso em vez disso.
+Enviar um pedido para a API de REST do serviço de voz requer uma chave de subscrição ou um token de acesso. Em geral, é mais fácil enviar a chave de subscrição diretamente. O serviço de voz, em seguida, obtém o token de acesso para si. Para minimizar o tempo de resposta, pode querer utilizar um token de acesso em vez disso.
 
-Obter um token ao apresentar a sua chave de subscrição para um serviço de voz regional `issueToken` ponto final, mostrada na tabela abaixo. Utilize o ponto final que corresponde à sua região de subscrição.
+Para obter um token, apresentar a chave de subscrição para um serviço de voz regional `issueToken` ponto de extremidade, conforme mostrado na seguinte tabela. Utilize o ponto final que corresponde à sua região de subscrição.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Cada token de acesso é válido durante 10 minutos. Para obter um novo token em qualquer altura, se desejar, incluindo, imediatamente antes de cada pedido de API de REST de voz. Para minimizar o tráfego de rede e a latência, no entanto, recomendamos que utilize o mesmo token para nove minutos.
+Cada token de acesso é válido durante 10 minutos. Pode obter um novo token em qualquer altura. Se quiser, pode obter um token apenas antes de cada pedido de API de REST de voz. Para minimizar o tráfego de rede e a latência, recomendamos que utilize o mesmo token para nove minutos.
 
 As secções seguintes mostram como obter um token e como usá-lo num pedido.
 
-### <a name="getting-a-token-http"></a>Obter um token: HTTP
+### <a name="get-a-token-http"></a>Obter um token: HTTP
 
-Segue-se um pedido HTTP de exemplo para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, substitua o `Host` cabeçalho com o nome de anfitrião de sua região.
+O exemplo seguinte é um pedido HTTP de exemplo para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, substitua o `Host` cabeçalho com o nome de anfitrião de sua região.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -294,9 +295,9 @@ Content-Length: 0
 
 O corpo da resposta a essa solicitação é o token de acesso no formato de Java Web Token (JWT).
 
-### <a name="getting-a-token-powershell"></a>Obter um token: PowerShell
+### <a name="get-a-token-powershell"></a>Obter um token: PowerShell
 
-O script do Windows PowerShell abaixo ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do URI determinado em conformidade.
+O seguinte script do Windows PowerShell ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do URI determinado em conformidade.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -313,12 +314,12 @@ $OAuthToken
 
 ```
 
-### <a name="getting-a-token-curl"></a>Obter um token: cURL
+### <a name="get-a-token-curl"></a>Obter um token: cURL
 
-cURL é uma ferramenta da linha de comandos disponível no Linux (e no subsistema Windows para Linux). O comando cURL abaixo ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do URI determinado em conformidade.
+cURL é uma ferramenta da linha de comandos disponível no Linux (e no subsistema Windows para Linux). O comando cURL seguinte ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do URI determinado em conformidade.
 
 > [!NOTE]
-> O comando é mostrado em várias linhas para facilitar a leitura, mas deve ser inserido numa única linha no prompt do shell.
+> O comando é mostrado em várias linhas para facilitar a leitura, mas introduzi-lo numa única linha no prompt do shell.
 
 ```
 curl -v -X POST 
@@ -328,9 +329,9 @@ curl -v -X POST
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="getting-a-token-c"></a>Obter um token: c#
+### <a name="get-a-token-c"></a>Obter um token: c#
 
-A classe c# abaixo ilustra como obter um token de acesso. Passe a chave de subscrição do serviço de voz ao instanciar a classe. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião de `FetchTokenUri` adequadamente.
+A seguinte classe c# ilustra como obter um token de acesso. Passe a chave de subscrição do serviço de voz ao instanciar a classe. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do `FetchTokenUri` adequadamente.
 
 ```cs
 /*
@@ -369,9 +370,9 @@ public class Authentication
 }
 ```
 
-### <a name="using-a-token"></a>Através de um token
+### <a name="use-a-token"></a>Utilizar um token
 
-Para utilizar um token num pedido de REST API, forneça-na `Authorization` cabeçalho, seguindo a palavra `Bearer`. Aqui, por exemplo, é um exemplo de texto para solicitação de REST de voz que contém um token. Substituir o token real para `YOUR_ACCESS_TOKEN` e utilize o nome de anfitrião correto no `Host` cabeçalho.
+Para utilizar um token num pedido de REST API, forneça-na `Authorization` cabeçalho, seguindo a palavra `Bearer`. Eis um exemplo de texto para solicitação de REST de voz que contém um token. Substituir o token real para `YOUR_ACCESS_TOKEN`. Utilize o nome de anfitrião correto no `Host` cabeçalho.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -387,14 +388,14 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renewing-authorization"></a>Renovar autorização
+### <a name="renew-authorization"></a>Renovar autorização
 
-O token de autorização expira após 10 minutos. Renovar a sua autorização, obtendo um novo token antes de expirar — por exemplo, depois de nove minutos. 
+O token de autorização expira após 10 minutos. Renove a sua autorização, obtendo um novo token antes de expirar. Por exemplo, pode obter um novo token após nove minutos.
 
-O seguinte código c# é uma substituição completa para a classe apresentada anteriormente. O `Authentication` classe obtém automaticamente um novo token de acesso em nove minutos através de um temporizador. Esta abordagem garante que um token válido está sempre disponível enquanto seu programa está em execução.
+O seguinte código c# é uma substituição completa para a classe apresentada anteriormente. O `Authentication` classe obtém automaticamente um novo token de acesso em nove minutos, uso um timer. Esta abordagem garante que um token válido está sempre disponível enquanto seu programa está em execução.
 
 > [!NOTE]
-> Em vez de usar um timer, pode armazenar um carimbo de quando o último token foi obtido, em seguida, solicitar um novo, apenas se for encontra prestes a expirar. Esta abordagem evita solicitar novos tokens desnecessariamente e pode ser mais adequada para programas que efetuam pedidos de voz raros.
+> Em vez de usar um timer, pode armazenar um carimbo de quando o último token foi obtido. Em seguida, pode pedir um novo apenas se for encontra prestes a expirar. Esta abordagem evita solicitar novos tokens desnecessariamente e poderá ser mais adequada para programas que efetuam pedidos de voz raros.
 
 Como antes, certifique-se de que o `FetchTokenUri` valor corresponde à sua região de subscrição. Passe a chave de subscrição ao instanciar a classe.
 

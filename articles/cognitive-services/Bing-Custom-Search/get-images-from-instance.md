@@ -1,0 +1,30 @@
+---
+title: Obter imagens de exibição personalizado | Documentos da Microsoft
+titleSuffix: Cognitive Services
+description: Visão geral sobre como utilizar a pesquisa personalizada do Bing para obter imagens de exibição personalizado da Web.
+services: cognitive-services
+author: swhite-msft
+manager: ehansen
+ms.service: cognitive-services
+ms.component: bing-custom-search
+ms.topic: article
+ms.date: 09/10/2018
+ms.author: scottwhi
+ms.openlocfilehash: ba836bbafaf67238664862ee2afce7840a573e44
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953899"
+---
+# <a name="get-images-from-your-custom-view"></a>Obter imagens de exibição personalizado
+
+Pesquisa de imagens personalizada do Bing permite-lhe aprimorar sua experiência de pesquisa personalizada com imagens. É semelhante aos resultados da web, suporta a pesquisa personalizada a procurar imagens na lista de sua instância dos Web sites. Pode obter as imagens usando a API de pesquisa de imagens de personalizada do Bing ou através da IU hospedado de recursos. Utilizar a funcionalidade de hospedado da interface do Usuário é simples de usar e recomendados para colocar sua experiência de pesquisa em funcionamento, em Resumo, ordem.  Para obter informações sobre como configurar a sua interface do Usuário alojados a incluir imagens, consulte [configurar a sua experiência de interface do Usuário alojada](hosted-ui.md).
+
+Se quiser mais controle sobre exibindo os resultados de pesquisa, pode utilizar a API de pesquisa de imagens de personalizada do Bing. Como chamar a API é semelhante a chamar a API de pesquisa de imagens Bing, Check-out [pesquisa de imagens Bing](../Bing-Image-Search/overview.md) para chamar a API de exemplos. Mas antes de o fazer, familiarize-se com o [referência da API de pesquisa de imagens personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) conteúdo. As principais diferenças são os parâmetros de consulta suportados (tem de incluir o parâmetro de consulta customConfig) e envia pedidos para o ponto de extremidade.
+
+<!--
+## Next steps
+
+[Call your custom view](search-your-custom-view.md)
+-->

@@ -5,11 +5,12 @@ Se ainda não tiver instalado a CLI do Azure e não tiver ligado à sua subscri�
 ## <a name="cli-versions-to-complete-the-task"></a>Versões CLI para concluir a tarefa
 Pode concluir a tarefa utilizando uma das seguintes versões CLI:
 
-- CLI 10 do Azure – CLI para os modelos de implementação de gestão clássica e de recursos (este artigo)
-- [CLI 2.0 do Azure](../articles/virtual-machines/linux/cli-manage.md) - CLI de próxima geração para o modelo de implementação de gestão de recursos
+- CLI clássica do Azure – CLI para as clássica e de recursos gestão modelos de implementação (Este artigo)
+- [CLI do Azure](../articles/virtual-machines/linux/cli-manage.md) -CLI de próxima geração para o modelo de implementação de gestão de recursos
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
-Este artigo abrange os comandos básicos que irá utilizar com a CLI do Azure para gerir e interagir com os seus recursos (principalmente, VMs) na sua subscrição do Azure.  Para obter ajuda mais detalhada sobre os parâmetros e opções específicos da linha de comandos, pode utilizar a ajuda e opções de comando online ao escrever `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Comandos básicos do Azure Resource Manager na CLI clássica do Azure
+
+Este artigo abrange os comandos básicos que pretende utilizar com a CLI clássica do Azure para gerir e interagir com os seus recursos (principalmente, VMs) na sua subscrição do Azure.  Para obter ajuda mais detalhada sobre os parâmetros e opções específicos da linha de comandos, pode utilizar a ajuda e opções de comando online ao escrever `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 > [!NOTE]
 > Estes exemplos não incluem operações baseadas em modelos que, geralmente, são recomendadas para implementações de VM no Resource Manager. Para obter mais informações, veja os artigos [Utilizar a CLI do Azure com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) e [Implementar e gerir máquinas virtuais com os modelos do Azure Resource Manager e a CLI do Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -40,5 +41,5 @@ Este artigo abrange os comandos básicos que irá utilizar com a CLI do Azure pa
 | Obter a utilização de recursos de VM |`azure vm list-usage [options] <location>` |
 | Obter todos os tamanhos de VM disponíveis |`azure vm sizes [options]` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter exemplos adicionais dos comandos da CLI, para além dos da gestão básica de VMs, veja o artigo [Utilizar a CLI do Azure com o Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).

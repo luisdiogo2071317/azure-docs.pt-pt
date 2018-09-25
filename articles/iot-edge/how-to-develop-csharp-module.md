@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7fec050f43ed6facef548ea19d1d67030458fbb1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b4e1e01d54f6e0043709e0dadef41d7ea513a9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380255"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963292"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar c# módulos do Azure IoT Edge
 
@@ -48,7 +48,7 @@ Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory 
 
 ## <a name="create-a-new-solution-with-c-module"></a>Criar uma nova solução com o módulo de c#
 
-Siga estes passos para criar um módulo do IoT Edge com base no .NET Core 2.0 usando o Visual Studio Code e a extensão Azure IoT Edge. Em primeiro lugar é criar uma solução e, em seguida, gerar primeiro módulo nessa solução. Cada solução pode conter mais de um módulo. 
+Siga estes passos para criar um módulo do IoT Edge com base no .NET Core 2.1 com o Visual Studio Code e a extensão Azure IoT Edge. Em primeiro lugar é criar uma solução e, em seguida, gerar primeiro módulo nessa solução. Cada solução pode conter mais de um módulo. 
 
 1. No Visual Studio Code, selecione **View** > **Terminal integrado**.
 3. Selecione **View** > **paleta de comandos**. 

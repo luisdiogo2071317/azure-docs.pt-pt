@@ -13,14 +13,17 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07f8a31244acca48a0bbae8ad26b0c5b509f0c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959585"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referência da API de conta do gestão de modelo do Machine Learning do Azure
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Para obter informações sobre como configurar o ambiente de implantação, consulte [configuração da conta de gestão de modelos](deployment-setup-configuration.md).
 
@@ -34,7 +37,7 @@ API de conta de gestão de modelo do Azure Machine Learning implementa as seguin
 Pode utilizar esta imagem para criar um web service seja localmente ou num cluster remoto do Azure Container Service ou outro ambiente do Docker com suporte à sua escolha.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Certifique-se de que seguiu os passos de instalação no [instalar e criar o guia de introdução](../service/quickstart-installation.md) documento.
+Certifique-se de que seguiu os passos de instalação no [instalar e criar o guia de introdução](quickstart-installation.md) documento.
 
 É necessário o seguinte antes de continuar:
 1. Aprovisionamento da conta de gestão de modelos

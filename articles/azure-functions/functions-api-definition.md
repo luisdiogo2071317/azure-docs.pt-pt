@@ -10,15 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 68077e576fe3451627d8a5c8e1ff1b26d06d96b7
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950374"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte de metadados de OpenAPI 2.0 nas funções do Azure (pré-visualização)
 O OpenAPI 2.0 (anteriormente Swagger) suporte a metadados nas funções do Azure é uma funcionalidade de pré-visualização que pode utilizar para escrever uma definição de OpenAPI 2.0 dentro de uma aplicação de funções. Em seguida, pode alojar esse ficheiro com a aplicação de função.
+
+> [!IMPORTANT]
+> A funcionalidade de pré-visualização do OpenAPI só está disponível hoje no 1.x runtime. Informações sobre como criar uma aplicação de funções 1.x [podem ser encontradas aqui](./functions-versions.md#creating-1x-apps).
 
 [Metadados de OpenAPI](http://swagger.io/) permite que uma função que está a alojar uma API REST para serem consumidos por uma grande variedade de outros programas de software. Este software contém as ofertas da Microsoft, como o PowerApps e o [funcionalidade aplicações API do serviço de aplicações do Azure](../app-service/app-service-web-overview.md), como ferramentas de programação de terceiros [Postman](https://www.getpostman.com/docs/importing_swagger), e [muitos mais pacotes](http://swagger.io/tools/).
 

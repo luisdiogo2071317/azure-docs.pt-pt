@@ -9,39 +9,81 @@ ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: e7a62a79bdc2e486fb6bfca34eb4addeba2bde0e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 11d3b1c2d98caa8d6527c52bec1cc65ba22c6c3b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158318"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958752"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurar a sua experiência de sugestão automática personalizada
-Se subscrever a pesquisa personalizada ao nível apropriado (consulte a [páginas de preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), pode personalizar as sugestões de pesquisa feitas na sua experiência de pesquisa personalizada. Sugestão automática personalizada devolve uma lista de consultas sugeridas com base numa cadeia de caracteres de consulta parcial que o utilizador fornece. Com a sugestão automática personalizada, fornecer sugestões de pesquisa personalizada relevantes para a sua experiência de pesquisa. Especifique se pretende devolver sugestões apenas personalizadas ou também incluem sugestões do Bing. Se incluir sugestões do Bing, sugestões personalizadas aparecem antes das sugestões do Bing. Sugestões de Bing estão limitadas ao contexto da sua instância de pesquisa personalizada.
 
-## <a name="configure-custom-autosuggest"></a>Configurar personalizado de sugestão automática
-Utilize as seguintes instruções para configurar a sugestão automática personalizada para a sua instância de pesquisa personalizada.
+Sugestão automática personalizada devolve uma lista de cadeias de consulta de pesquisa sugerida que são relevantes para a sua experiência de pesquisa. As cadeias de caracteres de consulta sugeridos são baseadas numa cadeia de consulta parcial que o utilizador fornece na caixa de pesquisa. A lista irá conter um máximo de 10 sugestões. 
 
-1.  Inicie sessão no [pesquisa personalizada](https://customsearch.ai).
-2.  Clique numa instância de pesquisa personalizada. Para criar uma instância, veja [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).
-3.  Clique nas **sugestão automática** separador.
+Especifique se pretende devolver sugestões apenas personalizadas ou também incluem sugestões do Bing. Se incluir sugestões do Bing, sugestões personalizadas aparecem antes das sugestões do Bing. Se fornecer suficiente sugestões relevantes, é possível que a lista devolvida de sugestões não incluirá sugestões do Bing. Sugestões do Bing são sempre no contexto da sua instância de pesquisa personalizada. 
+
+Para configurar as sugestões de consulta de pesquisa para a sua instância, clique a **sugestão automática** separador.  
+
+> [!NOTE]
+> Para utilizar esta funcionalidade, tem de subscrever a pesquisa personalizada ao nível apropriado (consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).
+
+Pode demorar até 24 horas para sugestões sejam refletidas no ponto de extremidade que serve (API ou alojada da interface do Usuário).
 
 ## <a name="enable-bing-suggestions"></a>Ativar as sugestões do Bing
+
 Para ativar as sugestões de Bing, alternar entre o **sugestões automática Bing** controlo de deslize para a posição no. O controlo de deslize torna-se azul.
 
-## <a name="add-suggestions"></a>Adicionar sugestões
-Para adicionar uma sugestão, introduza-o na caixa de texto. Prima a tecla enter ou clique a **+** ícone. Sugestões personalizadas podem ser em qualquer linguagem e irão aparecer antes de sugestões do Bing.
+## <a name="add-your-own-suggestions"></a>Adicionar suas próprias sugestões
+
+Para adicionar suas próprias sugestões de cadeia de caracteres de consulta, adicioná-los à lista sob **sugestões definidas pelo utilizador**. Depois de adicionar uma sugestão na lista, prima a tecla enter ou clique a **+** ícone. Pode especificar a sugestão em qualquer idioma. Pode adicionar um máximo de 5000 sugestões de cadeia de caracteres de consulta.
 
 ## <a name="upload-suggestions"></a>Carregar sugestões
-Pode carregar uma lista de sugestões de um ficheiro. Coloque cada sugestão numa linha separada. Clique no ícone de carregamento e selecione o seu ficheiro.
+
+Como opção, pode carregar uma lista de sugestões de um ficheiro. O ficheiro tem de conter uma cadeia de consulta de pesquisa por linha. Para carregar o ficheiro, clique no ícone de carregamento e selecione o ficheiro a carregar. O serviço extrai as sugestões a partir do ficheiro e adiciona-os à lista.
 
 ## <a name="remove-suggestions"></a>Remova as sugestões
-Para remover uma sugestão, clique no ícone de remover junto a sugestão de que pretende remover.
 
-[!INCLUDE [publish or revert](./includes/publish-revert.md)]
+Para remover uma sugestão de cadeia de caracteres de consulta, clique no ícone de remover junto a sugestão de que pretende remover.
 
-  >[!NOTE]  
-  >Pode demorar até 24 horas para alterações de configuração de sugestão automática personalizada entrar em vigor.
+## <a name="block-suggestions"></a>Bloquear as sugestões
+
+Se incluir sugestões do Bing, pode adicionar uma lista de cadeias de consulta de pesquisa que não pretende que o Bing a devolver. Para adicionar a cadeias de consulta bloqueado, clique em **Show bloqueado sugestões**. Adicionar a cadeia de consulta à lista e prima a tecla enter ou clique nas **+** ícone. Pode adicionar um máximo de 50 cadeias de caracteres de consulta bloqueado.
+
+
+
+[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+
+>[!NOTE]  
+>Pode demorar até 24 horas para alterações de configuração de sugestão automática personalizada entrar em vigor.
+
+
+## <a name="enabling-autosuggest-in-hosted-ui"></a>Ativar a sugestão automática na interface do Usuário alojado
+
+Para ativar as sugestões de cadeia de caracteres de consulta para a interface do Usuário alojado, clique em **alojada a interface do Usuário**. Desloque para baixo para o **configuração adicional** secção. Sob **pesquisa na Web**, selecione **no** para **Enable de sugestão automática**. Para ativar a sugestão automática, tem de selecionar um esquema que inclui uma caixa de pesquisa.
+
+
+## <a name="calling-the-autosuggest-api"></a>Chamar a API de sugestão automática
+
+Para obter cadeias de caracteres de consulta sugerida com a API de pesquisa personalizada do Bing, enviar um `GET` pedido para o seguinte ponto de extremidade.
+
+```
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions 
+```
+
+A resposta contém uma lista de `SearchAction` objetos que contêm as cadeias de caracteres de consulta sugerida.
+
+```
+        {  
+            "displayText" : "sailing lessons seattle",  
+            "query" : "sailing lessons seattle",  
+            "searchKind" : "CustomSearch"  
+        },  
+```
+
+Cada sugestão inclui um `displayText` e `query` campo. O `displayText` campo contém a cadeia de consulta sugerido que utiliza para preencher a lista suspensa de sua caixa de pesquisa.
+
+Se o usuário seleciona uma cadeia de consulta sugerido na lista pendente, utilize a cadeia de consulta no `query` campo ao chamar o [API de pesquisa personalizada do Bing](overview.md).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

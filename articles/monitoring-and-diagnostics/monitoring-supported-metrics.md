@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b7e18d943bea179cb6163d7f91a0761311ecf38e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985248"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962952"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 O Azure Monitor proporciona várias formas de interagir com métricas, incluindo gráficos-las no portal, o acesso aos mesmos através da API REST ou consultando-os com o PowerShell ou CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis com o pipeline de métrico do Azure Monitor. Outras métricas poderão estar disponíveis no portal ou através de APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis com o pipeline de métrico do Azure Monitor consolidado. Para consultar e aceder a estas métricas, utilize o [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -520,6 +520,24 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |WriteRequests|Pedidos de escrita|Contagem|Total|Contagem de dados de pedidos de escrita para a conta.|Nenhuma dimensão|
 |ReadRequests|Pedidos de leitura|Contagem|Total|Contagem de dados de leitura pedidos para a conta.|Nenhuma dimensão|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
+|memory_percent|Percentagem de memória|Percentagem|Média|Percentagem de memória|Nenhuma dimensão|
+|io_consumption_percent|Percentagem de e/s|Percentagem|Média|Percentagem de e/s|Nenhuma dimensão|
+|storage_percent|Percentagem de armazenamento|Percentagem|Média|Percentagem de armazenamento|Nenhuma dimensão|
+|storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
+|storage_limit|Limite de armazenamento|Bytes|Média|Limite de armazenamento|Nenhuma dimensão|
+|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
+|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
+|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
+|active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
+|connections_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Nenhuma dimensão|
+|network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -748,6 +766,41 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ObservedCapacity|Capacidade observada|Contagem|Média|A capacidade reportada para dimensionamento automático quando este foi executado.|Nenhuma dimensão|
 |ScaleActionsInitiated|Ações de Dimensionamento Iniciadas|Contagem|Total|A direção da operação de dimensionamento.|ScaleDirection|
 
+## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+(Pré-visualização pública)
+
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|availabilityResults/duração|Duração do teste|Milissegundos|Média|Duração do teste|availabilityResult/nome, availabilityResult/localização, availabilityResult/com êxito|
+|billingMeters/telemetryCount|Contagem do ponto de dados|Contagem|Total|O número de pontos de dados enviados para este recurso do Application Insights. Esta métrica é processada com uma latência de até duas horas.|Faturação/telemetryItemType, faturação/telemetryItemSource|
+|billingMeters/telemetrySize|Volume de ponto de dados|Bytes|Total|O volume de dados enviados para este recurso do Application Insights. Esta métrica é processada com uma latência de até duas horas.|Faturação/telemetryItemType, faturação/telemetryItemSource|
+|browserTimings/networkDuration|Tempo de ligação da rede de carregamento de páginas|Milissegundos|Média|Tempo entre a ligação de rede e de pedido do utilizador. Inclui a ligação de transporte e de pesquisa DNS.|Nenhuma dimensão|
+|browserTimings/processingDuration|Tempo de processamento do cliente|Milissegundos|Média|Tempo entre a receção do último byte de um documento, até que o DOM ser carregado. Pedidos assíncronos podem continuar a ser processados.|Nenhuma dimensão|
+|browserTimings/receiveDuration|Tempo de resposta de receção|Milissegundos|Média|Tempo entre o primeiro e último bytes ou até à interrupção da ligação.|Nenhuma dimensão|
+|browserTimings/sendDuration|Tempo de resposta de envio|Milissegundos|Média|Tempo entre a ligação de rede e a receção do primeiro byte.|Nenhuma dimensão|
+|browserTimings/totalDuration|Tempo de carregamento de páginas do browser|Milissegundos|Média|Tempo entre o pedido do utilizador e o carregamento de DOM, de folhas de estilos, de scripts e de imagens.|Nenhuma dimensão|
+|/ Contagem de dependências|Chamadas de dependência|Contagem|Contagem|Número de chamadas efetuadas pela aplicação aos recursos externos.|tipo de dependência /, dependência/performanceBucket, dependência/sucesso, operação/synthetic, na cloud/roleInstance, roleName/na cloud|
+|dependências/duração|Duração da dependência|Milissegundos|Média|Duração das chamadas efetuadas pela aplicação aos recursos externos.|tipo de dependência /, dependência/performanceBucket, dependência/sucesso, operação/synthetic, na cloud/roleInstance, roleName/na cloud|
+|dependências/falha|Falhas de dependência|Contagem|Contagem|Número de chamadas de dependência falhadas efetuadas pela aplicação para os recursos externos.|tipo de dependência /, dependência/performanceBucket, operação/synthetic, na cloud/roleInstance, roleName/na cloud|
+|vistas de página/contagem|Visualizações da página|Contagem|Contagem|Número de vistas de página.|operação/synthetic|
+|vistas de página/duração|Duração de carregamento da visualização de página|Milissegundos|Média|Duração de carregamento da visualização de página|operação/synthetic|
+|performanceCounters/requestExecutionTime|Tempo de execução do pedido HTTP|Milissegundos|Média|Tempo de execução do pedido mais recente.|na cloud/roleInstance|
+|performanceCounters/requestsInQueue|Pedidos HTTP na fila de aplicação|Contagem|Média|Tamanho da fila de pedidos da aplicação.|na cloud/roleInstance|
+|performanceCounters/requestsPerSecond|Taxa de pedido HTTP|CountPerSecond|Média|Classificação de todos os pedidos da aplicação por segundo do ASP.NET.|na cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|Taxa de exceção|CountPerSecond|Média|Contagem de exceções processadas e não processadas comunicadas ao Windows, incluindo exceções .NET e exceções não geridas que foram convertidas em exceções .NET.|na cloud/roleInstance|
+|performanceCounters/processIOBytesPerSecond|Velocidade de E/S do processo|BytesPerSecond|Média|Total de bytes por segundo lidos e escritos em ficheiros, na rede e em dispositivos.|na cloud/roleInstance|
+|performanceCounters/processCpuPercentage|CPU do processo|Percentagem|Média|A percentagem de tempo decorrido que todos os threads de processos utilizados pelo processador para executar instruções. Isso pode variar entre 0 e 100. Esta métrica indica apenas o desempenho do processo w3wp.|na cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Tempo do processador|Percentagem|Média|Percentagem de tempo que o processador despende em threads não inativos.|na cloud/roleInstance|
+|performanceCounters/memoryAvailableBytes|Memória disponível|Bytes|Média|Memória física imediatamente disponível para alocação a um processo ou para utilização do sistema.|na cloud/roleInstance|
+|performanceCounters/processPrivateBytes|Bytes privados do processo|Bytes|Média|Memória atribuída exclusivamente aos processos da aplicação monitorizada.|na cloud/roleInstance|
+|solicitações/duração|Tempo de resposta do servidor|Milissegundos|Média|Tempo entre a receção de um pedido HTTP e a conclusão do envio da resposta.|pedido/performanceBucket, pedido/resultCode, operação/synthetic, na cloud/roleInstance, pedido/sucesso, roleName/na cloud|
+|solicitações/contagem|Pedidos do servidor|Contagem|Contagem|Número de pedidos HTTP concluídos.|pedido/performanceBucket, pedido/resultCode, operação/synthetic, na cloud/roleInstance, pedido/sucesso, roleName/na cloud|
+|solicitações/falha|Pedidos falhados|Contagem|Contagem|Número de pedidos HTTP marcados com falhados. Na maioria dos casos estes são pedidos com um código de resposta > = 400 e não igual a 401.|pedido/performanceBucket, pedido/resultCode, operação/synthetic, na cloud/roleInstance, roleName/na cloud|
+|Contagem de exceções /|Exceções|Contagem|Total|Contagem combinada de todas as exceções não identificadas.|roleName/na cloud, cloud/roleInstance, / tipo de cliente|
+|exceções/browser|Exceções de browser|Contagem|Total|Número de exceções não identificadas emitidas no browser.|Nenhuma dimensão|
+|exceções/servidor|Exceções de servidor|Contagem|Total|Número de exceções não identificadas emitidas na aplicação de servidor.|roleName/na cloud, cloud/roleInstance|
+|rastreios/contagem|Contagem do rastreio|Contagem|Total|Contagem do documento de rastreio|rastreio/severityLevel, operação/synthetic, roleName/na cloud, cloud/roleInstance|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -755,6 +808,20 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ServiceApiHit|Total de Cliques na API do Serviço|Contagem|Contagem|Número total de cliques na API do serviço|ActivityType, ActivityName|
 |ServiceApiLatency|Latência Global da API do Serviço|Milissegundos|Média|Latência global dos pedidos da API do serviço|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Resultados de Api de Serviço Total|Contagem|Contagem|Número total de resultados da API do serviço|ActivityType, ActivityName, StatusCode|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
+
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|ClusterDataCapacityFactor|Utilização da cache|Percentagem|Média|Nível de utilização no âmbito do cluster|Nenhuma dimensão|
+|QueryDuration|Duração de consulta|Milissegundos|Média|Duração dos consultas em segundos|QueryStatus|
+|IngestionsLoadFactor|Utilização de ingestão|Percentagem|Média|Rácio de ranhuras de ingestão utilizado no cluster|Nenhuma dimensão|
+|IsEngineAnsweringQuery|Keep Alive de|Contagem|Média|Verificação da funcionalidade indica o respondes de cluster para consultas|Nenhuma dimensão|
+|IngestCommandOriginalSizeInMb|Volume de ingestão (em MB)|Contagem|Total|Volume global dos dados ingeridos para o cluster (em MB)|Nenhuma dimensão|
+|EventAgeSeconds|Latência de ingestão (em segundos)|Segundos|Média|Tempo de ingestão da origem (por exemplo, mensagem estiver EventHub) para o cluster em segundos|Nenhuma dimensão|
+|EventRecievedFromEventHub|Eventos processados (para os Hubs de eventos)|Contagem|Total|Número de eventos processados pelo cluster, ao ingerir do Hub de eventos|Nenhuma dimensão|
+|IngestionResult|Resultado de ingestão|Contagem|Contagem|Número de operações de ingestão|IngestionResultDetails|
+|EngineCPU|CPU|Percentagem|Média|Nível de utilização da CPU|Nenhuma dimensão|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -963,6 +1030,19 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ProbesFailedPercent|Sondas de % falhou|Percentagem|Média|Falha de % de conectividade de sondas de monitorização|Nenhuma dimensão|
 |AverageRoundtripMs|Média Tempo de ida e volta (ms)|Milissegundos|Média|Tempo de ida e volta da rede de médio (ms) para conectividade sondas enviadas entre a origem e destino de monitorização|Nenhuma dimensão|
 
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|RequestCount|Contagem de pedidos|Contagem|Total|O número de pedidos de cliente atendidos pelo proxy HTTP/S|HttpStatus, ClientCountry HttpStatusGroup, ClientRegion,|
+|RequestSize|Tamanho do pedido|Bytes|Total|O número de bytes enviados como pedidos de clientes para o proxy HTTP/S|HttpStatus, ClientCountry HttpStatusGroup, ClientRegion,|
+|ResponseSize|Tamanho de resposta|Bytes|Total|O número de bytes enviados, como as respostas, do proxy HTTP/S para clientes|HttpStatus, ClientCountry HttpStatusGroup, ClientRegion,|
+|BackendRequestCount|Contagem de pedidos de back-end|Contagem|Total|O número de pedidos enviados a partir do proxy HTTP/S para o back-ends|Back-end de HttpStatus, HttpStatusGroup,|
+|BackendRequestLatency|Latência de pedido de back-end|Milissegundos|Média|O tempo calculado a partir de quando o pedido foi enviado pelo proxy HTTP/S para o back-end até que o proxy HTTP/S recebido o último byte de resposta de back-end|Back-end|
+|TotalLatency|Latência total|Milissegundos|Média|O tempo calculado a partir de quando o pedido de cliente foi recebido pelo proxy HTTP/S até que o cliente confirmados o último byte de resposta do proxy HTTP/S|HttpStatus, ClientCountry HttpStatusGroup, ClientRegion,|
+|BackendHealthPercentage|Percentagem de estado de funcionamento do back-end|Percentagem|Média|A percentagem de estado de funcionamento com êxito as sondas do proxy HTTP/S de back-ends|Back-end, BackendPool|
+|WebApplicationFirewallRequestCount|Contagem de pedidos de Firewall de aplicação Web|Contagem|Total|O número de pedidos de clientes processados pelo Firewall de aplicações Web|Ação de PolicyName, RuleName,|
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -1031,77 +1111,85 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |incoming.all.failedrequests|Todos os Pedidos Falhados Recebidos|Contagem|Total|Total de pedidos falhados recebidos de um hub de notificações|Nenhuma dimensão|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
-(Pré-visualização pública)
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-Average_ % de Inodes livres|% De Inodes livres|Contagem|Média|Average_ % de Inodes livres|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de espaço livre|% De espaço livre|Contagem|Média|Average_ % de espaço livre|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de Inodes utilizados|% De Inodes utilizados|Contagem|Média|Average_ % de Inodes utilizados|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de espaço utilizado|% De espaço utilizado|Contagem|Média|Average_ % de espaço utilizado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Bytes lidos/seg|Bytes Lidos de Disco/seg|Contagem|Média|Average_Disk Bytes lidos/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk leituras/seg|Leituras de disco/seg|Contagem|Média|Average_Disk leituras/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk transferências/seg|As transferências de disco/seg|Contagem|Média|Average_Disk transferências/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Zapsané Bajty/s|Bytes Escritos em Disco/seg|Contagem|Média|Average_Disk Zapsané Bajty/s|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk escritas/seg|Escritas de disco/seg|Contagem|Média|Average_Disk escritas/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Megabytes|Megabytes livres|Contagem|Média|Average_Free Megabytes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Logical Bytes de disco/seg|Bytes de disco lógico/seg|Contagem|Média|Average_Logical Bytes de disco/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de memória disponível|% De memória disponível|Contagem|Média|Average_ % de memória disponível|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de espaço de comutação disponível|% De espaço de comutação disponível|Contagem|Média|Average_ % de espaço de comutação disponível|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de memória utilizada|% De memória utilizada|Contagem|Média|Average_ % de memória utilizada|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de espaço de comutação utilizado|% De espaço de comutação utilizado|Contagem|Média|Average_ % de espaço de comutação utilizado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-MBytes de memória Average_Available|MBytes de memória disponíveis|Contagem|Média|MBytes de memória Average_Available|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-MBytes de comutação Average_Available|Comutação em MBytes disponíveis|Contagem|Média|MBytes de comutação Average_Available|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Page leituras/seg|Leituras de paginações/seg|Contagem|Média|Average_Page leituras/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Page escritas/seg|Páginas escritas/seg|Contagem|Média|Average_Page escritas/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pages/seg|Páginas/seg|Contagem|Média|Average_Pages/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Espaço de comutação em MBytes Average_Used|MBytes de memória disponíveis|Contagem|Média|Espaço de comutação em MBytes Average_Used|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-MBytes de memória Average_Used|Comutação em MBytes disponíveis|Contagem|Média|MBytes de memória Average_Used|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Bytes de Average_Total transmitidos|Total de Bytes transmitidos|Contagem|Média|Bytes de Average_Total transmitidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Bytes de Average_Total recebidos|Total de Bytes recebidos|Contagem|Média|Bytes de Average_Total recebidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Bytes de Average_Total|Total de Bytes|Contagem|Média|Bytes de Average_Total|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Pacotes de Average_Total transmitidos|Total de pacotes transmitidos|Contagem|Média|Pacotes de Average_Total transmitidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Pacotes de Average_Total recebidos|Total de pacotes recebidos|Contagem|Média|Pacotes de Average_Total recebidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Rx erros|Total Rx de erros|Contagem|Média|Average_Total Rx erros|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Tx erros|Erros de total Tx|Contagem|Média|Average_Total Tx erros|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total colisões|Colisões total|Contagem|Média|Average_Total colisões|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disco seg/leitura|Média Disco seg/leitura|Contagem|Média|Average_Avg. Disco seg/leitura|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disco seg/transferência|Média Disco seg/transferência|Contagem|Média|Average_Avg. Disco seg/transferência|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disco seg/escritas|Média Disco seg/escritas|Contagem|Média|Average_Avg. Disco seg/escritas|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Physical Bytes de disco/seg|Bytes de disco físico/seg|Contagem|Média|Average_Physical Bytes de disco/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pct de tempo privilegiado|Tempo de PCT privilegiado|Contagem|Média|Average_Pct de tempo privilegiado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Tempo de utilizador Average_Pct|Tempo de utilizador de PCT|Contagem|Média|Tempo de utilizador Average_Pct|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Memória de Average_Used kBytes|KBytes de memória utilizada|Contagem|Média|Memória de Average_Used kBytes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Virtual de memória compartilhada|Memória compartilhada virtual|Contagem|Média|Average_Virtual de memória compartilhada|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de tempo de DPC|% De tempo DPC|Contagem|Média|Average_ % de tempo de DPC|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de tempo inativo|% De tempo inativo|Contagem|Média|Average_ % de tempo inativo|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de tempo de interrupção|% De tempo de interrupção|Contagem|Média|Average_ % de tempo de interrupção|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Tempo de espera de e/s de % de Average_|% De tempo de espera de e/s|Contagem|Média|Tempo de espera de e/s de % de Average_|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de tempo Nice|% De tempo nice|Contagem|Média|Average_ % de tempo Nice|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % de tempo privilegiado|% De tempo privilegiado|Contagem|Média|Average_ % de tempo privilegiado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % tempo do processador|% Tempo do processador|Contagem|Média|Average_ % tempo do processador|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % tempo de utilizador|% Tempo de utilizador|Contagem|Média|Average_ % tempo de utilizador|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Memória física de Average_Free|Memória física livre|Contagem|Média|Memória física de Average_Free|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free espaço nos ficheiros de paginação|Espaço livre em ficheiros de paginação|Contagem|Média|Average_Free espaço nos ficheiros de paginação|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Memória Virtual de Average_Free|Memória Virtual livre|Contagem|Média|Memória Virtual de Average_Free|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Processes|Processos|Contagem|Média|Average_Processes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Size armazenados em ficheiros de paginação|Tamanho armazenado em ficheiros de paginação|Contagem|Média|Average_Size armazenados em ficheiros de paginação|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Uptime|Tempo de atividade|Contagem|Média|Average_Uptime|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Users|Utilizadores|Contagem|Média|Average_Users|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Comprimento da fila de disco Average_Current|Comprimento de fila de disco atual|Contagem|Média|Comprimento da fila de disco Average_Current|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-MBytes de Average_Available|MBytes disponíveis|Contagem|Média|MBytes de Average_Available|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_ % comprometida Bytes em utilização|% Bytes dedicados em utilização|Contagem|Média|Average_ % comprometida Bytes em utilização|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes recebidos/seg|Bytes recebidos/seg|Contagem|Média|Average_Bytes recebidos/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes enviados/seg|Bytes enviados/seg|Contagem|Média|Average_Bytes enviados/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Total de Average_Bytes/seg|Bytes totais/seg|Contagem|Média|Total de Average_Bytes/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
-Heartbeat|Heartbeat|Contagem|Média|Heartbeat|Versão do computador, OSType, SourceComputerId|
-Atualizar|Atualizar|Contagem|Média|Atualizar|Computador, produto, classificação, UpdateState, opcional, aprovado|
-Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, se nos, EventLevel, EventLevelName, EventID|
+|Average_ % de Inodes livres|% De Inodes livres|Contagem|Média|Average_ % de Inodes livres|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de espaço livre|% De espaço livre|Contagem|Média|Average_ % de espaço livre|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de Inodes utilizados|% De Inodes utilizados|Contagem|Média|Average_ % de Inodes utilizados|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de espaço utilizado|% De espaço utilizado|Contagem|Média|Average_ % de espaço utilizado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Bytes lidos/seg|Bytes Lidos de Disco/seg|Contagem|Média|Average_Disk Bytes lidos/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk leituras/seg|Leituras de disco/seg|Contagem|Média|Average_Disk leituras/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk transferências/seg|As transferências de disco/seg|Contagem|Média|Average_Disk transferências/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Zapsané Bajty/s|Bytes Escritos em Disco/seg|Contagem|Média|Average_Disk Zapsané Bajty/s|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk escritas/seg|Escritas de disco/seg|Contagem|Média|Average_Disk escritas/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Megabytes livres|Contagem|Média|Average_Free Megabytes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Logical Bytes de disco/seg|Bytes de disco lógico/seg|Contagem|Média|Average_Logical Bytes de disco/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de memória disponível|% De memória disponível|Contagem|Média|Average_ % de memória disponível|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de espaço de comutação disponível|% De espaço de comutação disponível|Contagem|Média|Average_ % de espaço de comutação disponível|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de memória utilizada|% De memória utilizada|Contagem|Média|Average_ % de memória utilizada|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de espaço de comutação utilizado|% De espaço de comutação utilizado|Contagem|Média|Average_ % de espaço de comutação utilizado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|MBytes de memória Average_Available|MBytes de memória disponíveis|Contagem|Média|MBytes de memória Average_Available|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|MBytes de comutação Average_Available|Comutação em MBytes disponíveis|Contagem|Média|MBytes de comutação Average_Available|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page leituras/seg|Leituras de paginações/seg|Contagem|Média|Average_Page leituras/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page escritas/seg|Páginas escritas/seg|Contagem|Média|Average_Page escritas/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pages/seg|Páginas/seg|Contagem|Média|Average_Pages/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Espaço de comutação em MBytes Average_Used|Espaço de comutação \ MBytes disponíveis|Contagem|Média|Espaço de comutação em MBytes Average_Used|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|MBytes de memória Average_Used|Memória utilizada em MBytes|Contagem|Média|MBytes de memória Average_Used|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Bytes de Average_Total transmitidos|Total de Bytes transmitidos|Contagem|Média|Bytes de Average_Total transmitidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Bytes de Average_Total recebidos|Total de Bytes recebidos|Contagem|Média|Bytes de Average_Total recebidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Bytes de Average_Total|Total de Bytes|Contagem|Média|Bytes de Average_Total|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Pacotes de Average_Total transmitidos|Total de pacotes transmitidos|Contagem|Média|Pacotes de Average_Total transmitidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Pacotes de Average_Total recebidos|Total de pacotes recebidos|Contagem|Média|Pacotes de Average_Total recebidos|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx erros|Total Rx de erros|Contagem|Média|Average_Total Rx erros|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Tx erros|Erros de total Tx|Contagem|Média|Average_Total Tx erros|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total colisões|Colisões total|Contagem|Média|Average_Total colisões|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disco seg/leitura|Média Disco seg/leitura|Contagem|Média|Average_Avg. Disco seg/leitura|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disco seg/transferência|Média Disco seg/transferência|Contagem|Média|Average_Avg. Disco seg/transferência|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disco seg/escritas|Média Disco seg/escritas|Contagem|Média|Average_Avg. Disco seg/escritas|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Physical Bytes de disco/seg|Bytes de disco físico/seg|Contagem|Média|Average_Physical Bytes de disco/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct de tempo privilegiado|Tempo de PCT privilegiado|Contagem|Média|Average_Pct de tempo privilegiado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Tempo de utilizador Average_Pct|Tempo de utilizador de PCT|Contagem|Média|Tempo de utilizador Average_Pct|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Memória de Average_Used kBytes|KBytes de memória utilizada|Contagem|Média|Memória de Average_Used kBytes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Virtual de memória compartilhada|Memória compartilhada virtual|Contagem|Média|Average_Virtual de memória compartilhada|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de tempo de DPC|% De tempo DPC|Contagem|Média|Average_ % de tempo de DPC|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de tempo inativo|% De tempo inativo|Contagem|Média|Average_ % de tempo inativo|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de tempo de interrupção|% De tempo de interrupção|Contagem|Média|Average_ % de tempo de interrupção|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Tempo de espera de e/s de % de Average_|% De tempo de espera de e/s|Contagem|Média|Tempo de espera de e/s de % de Average_|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de tempo Nice|% De tempo nice|Contagem|Média|Average_ % de tempo Nice|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de tempo privilegiado|% De tempo privilegiado|Contagem|Média|Average_ % de tempo privilegiado|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % tempo do processador|% Tempo do processador|Contagem|Média|Average_ % tempo do processador|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % tempo de utilizador|% Tempo de utilizador|Contagem|Média|Average_ % tempo de utilizador|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Memória física de Average_Free|Memória física livre|Contagem|Média|Memória física de Average_Free|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free espaço nos ficheiros de paginação|Espaço livre em ficheiros de paginação|Contagem|Média|Average_Free espaço nos ficheiros de paginação|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Memória Virtual de Average_Free|Memória Virtual livre|Contagem|Média|Memória Virtual de Average_Free|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processes|Processos|Contagem|Média|Average_Processes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Size armazenados em ficheiros de paginação|Tamanho armazenado em ficheiros de paginação|Contagem|Média|Average_Size armazenados em ficheiros de paginação|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Tempo de atividade|Contagem|Média|Average_Uptime|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Users|Utilizadores|Contagem|Média|Average_Users|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disco seg/leitura|Média Disco seg/leitura|Contagem|Média|Average_Avg. Disco seg/leitura|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disco seg/escritas|Média Disco seg/escritas|Contagem|Média|Average_Avg. Disco seg/escritas|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Comprimento da fila de disco Average_Current|Comprimento de fila de disco atual|Contagem|Média|Comprimento da fila de disco Average_Current|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk leituras/seg|Leituras de disco/seg|Contagem|Média|Average_Disk leituras/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk transferências/seg|As transferências de disco/seg|Contagem|Média|Average_Disk transferências/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk escritas/seg|Escritas de disco/seg|Contagem|Média|Average_Disk escritas/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Megabytes livres|Contagem|Média|Average_Free Megabytes|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % de espaço livre|% De espaço livre|Contagem|Média|Average_ % de espaço livre|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|MBytes de Average_Available|MBytes disponíveis|Contagem|Média|MBytes de Average_Available|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % comprometida Bytes em utilização|% Bytes dedicados em utilização|Contagem|Média|Average_ % comprometida Bytes em utilização|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes recebidos/seg|Bytes recebidos/seg|Contagem|Média|Average_Bytes recebidos/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes enviados/seg|Bytes enviados/seg|Contagem|Média|Average_Bytes enviados/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Total de Average_Bytes/seg|Bytes totais/seg|Contagem|Média|Total de Average_Bytes/seg|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ % tempo do processador|% Tempo do processador|Contagem|Média|Average_ % tempo do processador|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Comprimento da fila Average_Processor|Comprimento da fila de processador|Contagem|Média|Comprimento da fila Average_Processor|Computador, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Heartbeat|Heartbeat|Contagem|Total|Heartbeat|Versão do computador, OSType, SourceComputerId|
+|Atualizar|Atualizar|Contagem|Média|Atualizar|Computador, produto, classificação, UpdateState, opcional, aprovado|
+|Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, se nos, EventLevel, EventLevelName, EventID|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |QueryDuration|Duração de consulta|Milissegundos|Média|Duração de consulta de DAX no último intervalo|Nenhuma dimensão|
 |QueryPoolJobQueueLength|Threads: Comprimento de fila de tarefa do conjunto de consultas|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|Nenhuma dimensão|
@@ -1111,54 +1199,54 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ListenerConnections-Success|ListenerConnections-Success|Contagem|Total|ListenerConnections com êxito do Microsoft.Relay.|EntityName|
-|ListenerConnections-ClientError|ListenerConnections-ClientError|Contagem|Total|ClientError em ListenerConnections do Microsoft.Relay.|EntityName|
-|ListenerConnections-ServerError|ListenerConnections-ServerError|Contagem|Total|ServerError em ListenerConnections do Microsoft.Relay.|EntityName|
-|SenderConnections-Success|SenderConnections-Success|Contagem|Total|SenderConnections com êxito do Microsoft.Relay.|EntityName|
-|SenderConnections-ClientError|SenderConnections-ClientError|Contagem|Total|ClientError em SenderConnections do Microsoft.Relay.|EntityName|
-|SenderConnections-ServerError|SenderConnections-ServerError|Contagem|Total|ServerError em SenderConnections do Microsoft.Relay.|EntityName|
-|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Contagem|Total|ListenerConnections totais do Microsoft.Relay.|EntityName|
-|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Contagem|Total|Pedidos de SenderConnections totais do Microsoft.Relay.|EntityName|
-|ActiveConnections|ActiveConnections|Contagem|Total|ActiveConnections totais do Microsoft.Relay.|EntityName|
-|ActiveListeners|ActiveListeners|Contagem|Total|ActiveListeners totais do Microsoft.Relay.|EntityName|
-|BytesTransferred|BytesTransferred|Contagem|Total|BytesTransferred totais do Microsoft.Relay.|EntityName|
-|ListenerDisconnects|ListenerDisconnects|Contagem|Total|ListenerDisconnects totais do Microsoft.Relay.|EntityName|
-|SenderDisconnects|SenderDisconnects|Contagem|Total|SenderDisconnects totais do Microsoft.Relay.|EntityName|
+|ListenerConnections-êxito|ListenerConnections-êxito|Contagem|Total|ListenerConnections com êxito do Relay.|EntityName|
+|ListenerConnections ClientError|ListenerConnections ClientError|Contagem|Total|ClientError em ListenerConnections. Relay.|EntityName|
+|ListenerConnections ServerError|ListenerConnections ServerError|Contagem|Total|ServerError em ListenerConnections. Relay.|EntityName|
+|SenderConnections-êxito|SenderConnections-êxito|Contagem|Total|SenderConnections com êxito do Relay.|EntityName|
+|SenderConnections ClientError|SenderConnections ClientError|Contagem|Total|ClientError em SenderConnections do Relay.|EntityName|
+|SenderConnections ServerError|SenderConnections ServerError|Contagem|Total|ServerError em SenderConnections do Relay.|EntityName|
+|ListenerConnections TotalRequests|ListenerConnections TotalRequests|Contagem|Total|ListenerConnections totais do Relay.|EntityName|
+|SenderConnections TotalRequests|SenderConnections TotalRequests|Contagem|Total|Total de pedidos de SenderConnections Relay.|EntityName|
+|ActiveConnections|ActiveConnections|Contagem|Total|ActiveConnections totais do Relay.|EntityName|
+|ActiveListeners|ActiveListeners|Contagem|Total|ActiveListeners totais do Relay.|EntityName|
+|BytesTransferred|BytesTransferred|Contagem|Total|BytesTransferred totais do Relay.|EntityName|
+|ListenerDisconnects|ListenerDisconnects|Contagem|Total|ListenerDisconnects totais do Relay.|EntityName|
+|SenderDisconnects|SenderDisconnects|Contagem|Total|SenderDisconnects totais do Relay.|EntityName|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |SearchLatency|Latência de pesquisa|Segundos|Média|Latência média de pesquisa para o serviço de pesquisa|Nenhuma dimensão|
 |SearchQueriesPerSecond|Pesquisar consultas por segundo|CountPerSecond|Média|Pesquisar consultas por segundo para o serviço de pesquisa|Nenhuma dimensão|
-|ThrottledSearchQueriesPercentage|Percentagem de pesquisas de consultas otimizadas|Percentagem|Média|Percentagem de consultas de pesquisa que foram otimizados para o serviço de pesquisa|Nenhuma dimensão|
+|ThrottledSearchQueriesPercentage|Percentagem de consultas de pesquisa limitados|Percentagem|Média|Percentagem de consultas de pesquisa que foram otimizados para o serviço de pesquisa|Nenhuma dimensão|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Pedidos com êxito (pré-visualização)|Contagem|Total|Total de pedidos com êxito para um espaço de nomes (pré-visualização)|EntityName|
-|ServerErrors|Erros de Servidor. (Pré-visualização)|Contagem|Total|Erros de Servidor do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|UserErrors|Erros do Utilizador. (Pré-visualização)|Contagem|Total|Erros de Utilizador do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|ThrottledRequests|Pedidos Limitados. (Pré-visualização)|Contagem|Total|Pedidos Limitados do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|IncomingRequests|Pedidos de entrada (pré-visualização)|Contagem|Total|Pedidos Recebidos do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|IncomingMessages|Mensagens de entrada (pré-visualização)|Contagem|Total|Mensagens Recebidas do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|OutgoingMessages|Mensagens de saída (pré-visualização)|Contagem|Total|Mensagens Enviadas do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|ActiveConnections|ActiveConnections (pré-visualização)|Contagem|Total|Total de Ligações Ativas do Microsoft.ServiceBus. (Pré-visualização)|Nenhuma dimensão|
-|Tamanho|Tamanho (pré-visualização)|Bytes|Média|Tamanho de um(a) Fila/Tópico em Bytes. (Pré-visualização)|EntityName|
-|Mensagens|Contagem de mensagens num(a) Fila/Tópico. (Pré-visualização)|Contagem|Média|Contagem de mensagens num(a) Fila/Tópico. (Pré-visualização)|EntityName|
-|ActiveMessages|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|Contagem|Média|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|EntityName|
-|CPUXNS|Utilização da CPU por espaço de nomes|Percentagem|Máximo|Métrica de utilização do espaço de nomes da CPU do service bus premium|Nenhuma dimensão|
-|WSXNS|Utilização do tamanho da memória por espaço de nomes|Percentagem|Máximo|Métrica de utilização de memória do espaço de nomes do service bus premium|Nenhuma dimensão|
+|ServerErrors|Erros de servidor. (Pré-visualização)|Contagem|Total|Erros de servidor do servicebus. (Pré-visualização)|EntityName|
+|UserErrors|Erros de utilizador. (Pré-visualização)|Contagem|Total|Erros de utilizador do servicebus. (Pré-visualização)|EntityName|
+|ThrottledRequests|Pedidos limitados. (Pré-visualização)|Contagem|Total|Pedidos limitados do servicebus. (Pré-visualização)|EntityName|
+|IncomingRequests|Pedidos de entrada (pré-visualização)|Contagem|Total|Pedidos recebidos do servicebus. (Pré-visualização)|EntityName|
+|IncomingMessages|Mensagens de entrada (pré-visualização)|Contagem|Total|Mensagens recebidas do servicebus. (Pré-visualização)|EntityName|
+|OutgoingMessages|Mensagens de saída (pré-visualização)|Contagem|Total|Mensagens enviadas do servicebus. (Pré-visualização)|EntityName|
+|ActiveConnections|ActiveConnections (pré-visualização)|Contagem|Total|Total de ligações ativas do servicebus. (Pré-visualização)|Nenhuma dimensão|
+|Tamanho|Tamanho (pré-visualização)|Bytes|Média|Tamanho de um fila/tópico em Bytes. (Pré-visualização)|EntityName|
+|Mensagens|Contagem de mensagens em fila/tópico. (Pré-visualização)|Contagem|Média|Contagem de mensagens em fila/tópico. (Pré-visualização)|EntityName|
+|ActiveMessages|Contagem de mensagens ativas numa fila/tópico. (Pré-visualização)|Contagem|Média|Contagem de mensagens ativas numa fila/tópico. (Pré-visualização)|EntityName|
+|CPUXNS|Utilização da CPU por espaço de nomes|Percentagem|Máximo|Métrica de utilização do espaço de nomes da CPU do Service bus premium|Nenhuma dimensão|
+|WSXNS|Utilização de tamanho de memória por espaço de nomes|Percentagem|Máximo|Métrica de utilização do memória de espaço de nomes do Service bus premium|Nenhuma dimensão|
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |ConnectionCount|Total de ligações|Contagem|Máximo|A quantidade de ligação do utilizador.|Ponto Final|
-|MessageCount|Contagem de Mensagens|Contagem|Total|A quantidade total de mensagens.|Nenhuma dimensão|
+|MessageCount|Contagem de mensagens|Contagem|Total|A quantidade total de mensagens.|Nenhuma dimensão|
 |InboundTraffic|Tráfego de entrada|Bytes|Total|O tráfego de entrada do serviço|Nenhuma dimensão|
 |OutboundTraffic|Tráfego de saída|Bytes|Total|O tráfego de saída do serviço|Nenhuma dimensão|
 |UserErrors|Erros de utilizador|Percentagem|Máximo|A percentagem de erros de utilizador|Nenhuma dimensão|
@@ -1166,7 +1254,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
 |physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Nenhuma dimensão|
@@ -1174,9 +1262,9 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 |dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Nenhuma dimensão|
 |armazenamento|Tamanho total da base de dados|Bytes|Máximo|Tamanho total da base de dados|Nenhuma dimensão|
 |connection_successful|Ligações com êxito|Contagem|Total|Ligações com êxito|Nenhuma dimensão|
-|connection_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Nenhuma dimensão|
+|connection_failed|Ligações falhadas|Contagem|Total|Ligações falhadas|Nenhuma dimensão|
 |blocked_by_firewall|Bloqueado pela Firewall|Contagem|Total|Bloqueado pela Firewall|Nenhuma dimensão|
-|Deadlock|Impasses|Contagem|Total|Impasses|Nenhuma dimensão|
+|Deadlock|Deadlocks|Contagem|Total|Deadlocks|Nenhuma dimensão|
 |storage_percent|Percentagem de tamanho da Base de Dados|Percentagem|Máximo|Percentagem de tamanho da Base de Dados|Nenhuma dimensão|
 |xtp_storage_percent|Percentagem de armazenamento OLTP dentro da memória|Percentagem|Média|Percentagem de armazenamento OLTP dentro da memória|Nenhuma dimensão|
 |workers_percent|Percentagem de funções de trabalho|Percentagem|Média|Percentagem de funções de trabalho|Nenhuma dimensão|
@@ -1191,7 +1279,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
 |physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Nenhuma dimensão|
@@ -1206,77 +1294,89 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
 |xtp_storage_percent|Percentagem de armazenamento OLTP dentro da memória|Percentagem|Média|Percentagem de armazenamento OLTP dentro da memória|Nenhuma dimensão|
 
+## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
+
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|virtual_core_count|Número de núcleos virtuais|Contagem|Média|Número de núcleos virtuais|Nenhuma dimensão|
+|avg_cpu_percent|Percentagem de CPU média|Percentagem|Média|Percentagem de CPU média|Nenhuma dimensão|
+|reserved_storage_mb|Espaço de armazenamento reservado|Contagem|Média|Espaço de armazenamento reservado|Nenhuma dimensão|
+|storage_space_used_mb|Espaço de armazenamento utilizado|Contagem|Média|Espaço de armazenamento utilizado|Nenhuma dimensão|
+|io_requests|Contagem de pedidos de e/s|Contagem|Média|Contagem de pedidos de e/s|Nenhuma dimensão|
+|io_bytes_read|Bytes de e/s de leitura|Bytes|Média|Bytes de e/s de leitura|Nenhuma dimensão|
+|io_bytes_written|Bytes de e/s escritos|Bytes|Média|Bytes de e/s escritos|Nenhuma dimensão|
+
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |UsedCapacity|Capacidade utilizada|Bytes|Total|Capacidade da conta utilizada|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de servidor com êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessE2ELatency|Latência de E2E com êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BlobCapacity|Capacidade do Blob|Bytes|Total|A quantidade de armazenamento utilizada pelo serviço Blob a conta de armazenamento, em bytes.|BlobType|
-|BlobCount|Contagem de Blobs|Contagem|Total|O número de blobs no serviço Blob da conta de armazenamento.|BlobType|
-|ContainerCount|Contagem do Contentor de Blobs|Contagem|Média|O número de contentores no serviço Blob da conta de armazenamento.|Nenhuma dimensão|
+|BlobCapacity|Capacidade de blob|Bytes|Total|A quantidade de armazenamento utilizada pelo serviço de Blob da conta de armazenamento em bytes.|BlobType|
+|BlobCount|Contagem de BLOBs|Contagem|Total|O número de BLOBs no serviço de Blob da conta de armazenamento.|BlobType|
+|ContainerCount|Contagem do contentor de BLOBs|Contagem|Média|O número de contentores no serviço de Blob da conta de armazenamento.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de servidor com êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessE2ELatency|Latência de E2E com êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|FileCapacity|Capacidade de Ficheiros|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Ficheiro a conta de armazenamento, em bytes.|Nenhuma dimensão|
-|FileCount|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço Ficheiro da conta de armazenamento.|Nenhuma dimensão|
-|FileShareCount|Contagem de Partilha de Ficheiros|Contagem|Média|O número de partilhas de ficheiros no serviço Ficheiro da conta de armazenamento.|Nenhuma dimensão|
+|FileCapacity|Capacidade de ficheiros|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de ficheiro da conta de armazenamento em bytes.|Nenhuma dimensão|
+|FileCount|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiro da conta de armazenamento.|Nenhuma dimensão|
+|FileShareCount|Contagem de partilha de ficheiros|Contagem|Média|O número de ficheiros são partilhas no serviço de ficheiro da conta de armazenamento.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de servidor com êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessE2ELatency|Latência de E2E com êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|QueueCapacity|Capacidade de Fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Fila a conta de armazenamento, em bytes.|Nenhuma dimensão|
-|QueueCount|Contagem de Filas|Contagem|Média|O número de filas no serviço Fila da conta de armazenamento.|Nenhuma dimensão|
-|QueueMessageCount|Contagem de Mensagens em Fila|Contagem|Média|O número aproximado de mensagens em fila no serviço Fila da conta de armazenamento.|Nenhuma dimensão|
+|QueueCapacity|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhuma dimensão|
+|QueueCount|Contagem de fila|Contagem|Média|O número de filas no serviço de fila da conta de armazenamento.|Nenhuma dimensão|
+|QueueMessageCount|Contagem de mensagens de fila|Contagem|Média|O número aproximado de mensagens em fila no serviço de fila da conta de armazenamento.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de servidor com êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessE2ELatency|Latência de E2E com êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TableCapacity|Capacidade de Tabelas|Bytes|Média|A quantidade de armazenamento utilizado pelo serviço Tabela da conta de armazenamento, em bytes.|Nenhuma dimensão|
-|TableCount|Contagem de Tabelas|Contagem|Média|O número de tabelas no serviço Tabela da conta de armazenamento.|Nenhuma dimensão|
-|TableEntityCount|Contagem de Entidade de Tabelas|Contagem|Média|O número de entidades de tabelas no serviço Tabela da conta de armazenamento.|Nenhuma dimensão|
+|TableCapacity|Capacidade de tabelas|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de tabela da conta de armazenamento em bytes.|Nenhuma dimensão|
+|TableCount|Contagem de tabelas|Contagem|Média|O número de tabela no serviço de tabela da conta de armazenamento.|Nenhuma dimensão|
+|TableEntityCount|Contagem de entidade de tabelas|Contagem|Média|O número de entidades da tabela no serviço de tabela da conta de armazenamento.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de servidor com êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessE2ELatency|Latência de E2E com êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |ResourceUtilization|% de utilização SU|Percentagem|Máximo|% de utilização SU|Nenhuma dimensão|
 |InputEvents|Eventos de Entrada|Contagem|Total|Eventos de Entrada|Nenhuma dimensão|
@@ -1295,7 +1395,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Entrada recebeu mensagens|Contagem|Total|Contagem de mensagens de leitura do hub de eventos ou do IoT hub todas as origens de eventos|Nenhuma dimensão|
 |IngressReceivedInvalidMessages|Entrada recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas ler a partir do hub de eventos de todos os ou o hub IoT origens de eventos|Nenhuma dimensão|
@@ -1307,7 +1407,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Entrada recebeu mensagens|Contagem|Total|Contagem de mensagens ler a partir da origem de evento|Nenhuma dimensão|
 |IngressReceivedInvalidMessages|Entrada recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas, ler a partir da origem de evento|Nenhuma dimensão|
@@ -1319,58 +1419,58 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|MemoryPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
-|DiskQueueLength|Comprimento da Fila de Discos|Contagem|Média|Comprimento da Fila de Discos|Instância|
-|HttpQueueLength|Comprimento da Fila de http|Contagem|Média|Comprimento da Fila de http|Instância|
-|BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
-|BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
+|MemoryPercentage|Percentagem de memória|Percentagem|Média|Percentagem de memória|Instância|
+|DiskQueueLength|Comprimento da fila de disco|Contagem|Média|Comprimento da fila de disco|Instância|
+|HttpQueueLength|Comprimento da fila de HTTP|Contagem|Média|Comprimento da fila de HTTP|Instância|
+|BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
+|BytesSent|Saída de dados|Bytes|Total|Saída de dados|Instância|
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (excluindo as funções)
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |CpuTime|Tempo de CPU|Segundos|Total|Tempo de CPU|Instância|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
-|BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
-|BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
-|Http101|Http 101|Contagem|Total|Http 101|Instância|
-|Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
+|BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
+|BytesSent|Saída de dados|Bytes|Total|Saída de dados|Instância|
+|Http101|HTTP 101|Contagem|Total|HTTP 101|Instância|
+|Http2xx|2xx de HTTP|Contagem|Total|2xx de HTTP|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
-|Http401|Http 401|Contagem|Total|Http 401|Instância|
-|Http403|Http 403|Contagem|Total|Http 403|Instância|
-|Http404|Http 404|Contagem|Total|Http 404|Instância|
-|Http406|Http 406|Contagem|Total|Http 406|Instância|
+|Http401|HTTP 401|Contagem|Total|HTTP 401|Instância|
+|Http403|HTTP 403|Contagem|Total|HTTP 403|Instância|
+|Http404|HTTP 404|Contagem|Total|HTTP 404|Instância|
+|Http406|HTTP 406|Contagem|Total|HTTP 406|Instância|
 |Http4xx|Http 4xx|Contagem|Total|Http 4xx|Instância|
-|Http5xx|Erros de Servidor http|Contagem|Total|Erros de Servidor http|Instância|
+|Http5xx|Erros de servidor HTTP|Contagem|Total|Erros de servidor HTTP|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
-|AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
-|AverageResponseTime|Tempo de Resposta Médio|Segundos|Média|Tempo de Resposta Médio|Instância|
+|AverageMemoryWorkingSet|Conjunto de trabalho de memória média|Bytes|Média|Conjunto de trabalho de memória média|Instância|
+|AverageResponseTime|Tempo médio de resposta|Segundos|Média|Tempo médio de resposta|Instância|
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
-|Identificadores|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
-|Threads|Número de Threads|Contagem|Média|Número de Threads|Instância|
-|PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
-|IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|
-|IoWriteBytesPerSecond|Bytes de Escrita Por Segundo de E/S|BytesPerSecond|Total|Bytes de Escrita Por Segundo de E/S|Instância|
-|IoOtherBytesPerSecond|Outros Bytes Por Segundo de E/S|BytesPerSecond|Total|Outros Bytes Por Segundo de E/S|Instância|
-|IoReadOperationsPerSecond|Bytes de Leitura Por Segundo de E/S|BytesPerSecond|Total|Bytes de Leitura Por Segundo de E/S|Instância|
-|IoWriteOperationsPerSecond|Operações de Escrita Por Segundo de E/S|BytesPerSecond|Total|Operações de Escrita Por Segundo de E/S|Instância|
-|IoOtherOperationsPerSecond|Outras Operações Por Segundo de E/S|BytesPerSecond|Total|Outras Operações Por Segundo de E/S|Instância|
-|RequestsInApplicationQueue|Pedidos na Fila de Aplicação|Contagem|Média|Pedidos na Fila de Aplicação|Instância|
-|CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
-|TotalAppDomains|Domínios de Aplicação Totais|Contagem|Média|Domínios de Aplicação Totais|Instância|
-|TotalAppDomainsUnloaded|Domínios de Aplicação Totais Descarregados|Contagem|Média|Domínios de Aplicação Totais Descarregados|Instância|
-|Gen0Collections|Libertações de Memória da Ger 0|Contagem|Total|Libertações de Memória da Ger 0|Instância|
-|Gen1Collections|Libertações de Memória da Ger 1|Contagem|Total|Libertações de Memória da Ger 1|Instância|
-|Gen2Collections|Libertações de Memória da Ger 2|Contagem|Total|Libertações de Memória da Ger 2|Instância|
+|Identificadores|Contagem de identificadores|Contagem|Média|Contagem de identificadores|Instância|
+|Threads|Contagem de threads|Contagem|Média|Contagem de threads|Instância|
+|PrivateBytes|Bytes privados|Bytes|Média|Bytes privados|Instância|
+|IoReadBytesPerSecond|Bytes de leitura de e/s por segundo|BytesPerSecond|Total|Bytes de leitura de e/s por segundo|Instância|
+|IoWriteBytesPerSecond|Bytes por segundo de escrita de e/s|BytesPerSecond|Total|Bytes por segundo de escrita de e/s|Instância|
+|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
+|IoReadOperationsPerSecond|Operações de leitura de e/s por segundo|BytesPerSecond|Total|Operações de leitura de e/s por segundo|Instância|
+|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
+|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
+|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|CurrentAssemblies|Assemblagens actuais|Contagem|Média|Assemblagens actuais|Instância|
+|TotalAppDomains|Domínios de aplicação totais|Contagem|Média|Domínios de aplicação totais|Instância|
+|TotalAppDomainsUnloaded|Domínios de aplicação totais descarregados|Contagem|Média|Domínios de aplicação totais descarregados|Instância|
+|Gen0Collections|Coletas de Gen 0|Contagem|Total|Coletas de Gen 0|Instância|
+|Gen1Collections|Coletas de lixo da geração 1|Contagem|Total|Coletas de lixo da geração 1|Instância|
+|Gen2Collections|Coletas de lixo da geração 2|Contagem|Total|Coletas de lixo da geração 2|Instância|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
+|BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
 |BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
 |Http5xx|Erros de Servidor http|Contagem|Total|Erros de Servidor http|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
@@ -1394,7 +1494,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |CpuTime|Tempo de CPU|Segundos|Total|Tempo de CPU|Instância|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
@@ -1434,7 +1534,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
@@ -1461,7 +1561,7 @@ Evento|Evento|Contagem|Média|Evento|Origem de registo de eventos, computador, s
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |WorkersTotal|Trabalhadores Totais|Contagem|Média|Trabalhadores Totais|Nenhuma dimensão|
 |WorkersAvailable|Trabalhadores Disponíveis|Contagem|Média|Trabalhadores Disponíveis|Nenhuma dimensão|

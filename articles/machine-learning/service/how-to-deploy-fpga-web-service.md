@@ -1,5 +1,5 @@
 ---
-title: Como implementar um modelo como um serviço web num FPGA com o Azure Machine Learning
+title: Implementar um modelo como um serviço web num FPGA com o Azure Machine Learning
 description: Saiba como implementar um serviço web com um modelo em execução num FPGA com o Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -8,134 +8,180 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/07/2018
-ms.openlocfilehash: f3237980a1ad1969b5cf8d42d547ddf96608dd97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 09/24/2018
+ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971489"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Implementar um modelo como um serviço web num FPGA com o Azure Machine Learning
 
-Neste documento, irá aprender a configurar o ambiente de estação de trabalho e implementar um modelo como um serviço web em [campo matrizes de porta programável (FPGA)](concept-accelerate-with-fpgas.md). O serviço web utiliza Brainwave de projeto para executar o modelo no FPGA.
+Pode implementar um modelo como um serviço web no [campo matrizes de porta programável por (FPGAs)](concept-accelerate-with-fpgas.md).  A utilização de FPGAs fornece a inferência de latência Ultra baixas, mesmo com um tamanho de lote única.   
 
-Se utilizar FPGAs fornece inferencing ultra-baixa latência, mesmo com um tamanho de lote única.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="create-an-azure-machine-learning-model-management-account"></a>Criar uma conta de gestão de modelo do Azure Machine Learning
+- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-1. Avance para a página de criação de conta de gestão de modelo de [Portal do Azure](https://aka.ms/aml-create-mma).
+- Uma área de trabalho do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
+ 
+  - Deverá estar na sua área de trabalho do *E.U.A. Leste 2* região.
 
-2. No portal, crie uma conta de gestão de modelo no **EUA Leste 2** região.
+  - Instale os extras contrib:
 
-   ![Imagem do ecrã criar conta de gestão de modelo](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+    ```shell
+    pip install --upgrade azureml-sdk[contrib]
+    ```  
 
-3. Dê um nome a sua conta de gestão de modelo, escolha uma subscrição e escolha um grupo de recursos.
+## <a name="create-and-deploy-your-model"></a>Criar e implementar o seu modelo
+Criar um pipeline para pré-processar a imagem de entrada, caracterização usando 50 de utilizar o ResNet num FPGA e, em seguida, execute os recursos através de um classifer com base em com o conjunto de dados ImageNet.
 
-   >[!IMPORTANT]
-   >Para a localização, tem de escolher **EUA Leste 2** como a região.  Não existem outras regiões estão atualmente disponíveis.
+Siga as instruções para:
 
-4. Escolha um escalão de preço (S1 é suficiente, mas também funcionam S2 e S3).  O escalão de DevTest não é suportado.  
-
-5. Clique em **selecione** para confirmar o escalão de preço.
-
-6. Clique em **criar** na gestão de modelo de ML à esquerda.
-
-## <a name="get-model-management-account-information"></a>Obter informações de conta de gestão de modelo
-
-Para obter informações sobre a sua conta de gestão de modelo (MMA), clique em de __conta de gestão de modelo__ no portal do Azure.
-
-Copie os valores dos seguintes itens:
-
-+ Nome da conta de gestão de modelo (no canto superior esquerdo)
-+ Nome do grupo de recursos
-+ ID da subscrição
-+ Localização (utilize "eastus2")
-
-![Informações da conta de gestão modelo](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
-
-## <a name="set-up-your-machine"></a>Configurar o seu computador
-
-Para configurar a estação de trabalho para a implementação de FPGA, utilize estes passos:
-
-1. Transfira e instale a versão mais recente do [Git](https://git-scm.com/downloads).
-
-2. Instalar [Anaconda (Python 3.6)](https://conda.io/miniconda.html).
-
-3. Para transferir o ambiente de Anaconda, utilize o comando seguinte a partir de uma linha de comandos de Git:
-
-    ```
-    git clone https://aka.ms/aml-real-time-ai
-    ```
-
-4. Para criar o ambiente, abra uma **Anaconda linha** (e não uma linha do Workbench do Azure Machine Learning) e execute o seguinte comando:
-
-    > [!IMPORTANT]
-    > O `environment.yml` ficheiro está no repositório de git clonado no passo anterior. Altere o caminho conforme necessário para apontar para o ficheiro na sua estação de trabalho.
-
-    ```
-    conda env create -f environment.yml
-    ```
-
-5. Para ativar o ambiente, utilize o seguinte comando:
-
-    ```
-    conda activate amlrealtimeai
-    ```
-
-6. Para iniciar o servidor de notas do Jupyter, utilize o seguinte comando:
-
-    ```
-    jupyter notebook
-    ```
-
-    O resultado deste comando é semelhante ao seguinte texto:
-
-    ```text
-    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
-        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
-    ```
-
-    > [!TIP]
-    > Irá obter um token diferente sempre que executar o comando.
-
-    Se o seu browser não abrir automaticamente para o bloco de notas do Jupyter, utilize o URL de HTTP devolvido pelo comando anterior para abrir a página.
-
-    ![Imagem da página web de notas do Jupyter](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
-
-## <a name="deploy-your-model"></a>Implementar o seu modelo
-
-A partir do bloco de notas do Jupyter, abra o `00_QuickStart.ipynb` bloco de notas do `notebooks/resnet50` diretório. Siga as instruções no bloco de notas para:
-
-* Definir o serviço
+* Definir o pipeline de modelo
 * Implementar o modelo
-* Consumir o modelo de implementada
-* Eliminar os serviços implementados
+* Consumir o modelo implementado
+* Eliminar serviços implementados
 
 > [!IMPORTANT]
-> Para otimizar a latência e débito, a estação de trabalho deve estar na mesma região do Azure como o ponto final.  Atualmente, as APIs são criadas na região do Azure do Leste-nos.
+> Para otimizar o débito e latência, o cliente deve ser na mesma região do Azure como o ponto final.  Atualmente as APIs são criadas na região do Azure do Leste-nos.
 
-## <a name="ssltls-and-authentication"></a>SSL/TLS e autenticação
+### <a name="get-the-notebook"></a>Obter o bloco de notas
 
-O Azure Machine Learning fornece suporte SSL e autenticação baseada em chave. Isto permite-lhe restringir o acesso ao seu serviço e proteger os dados submetidos por clientes.
+Para sua comodidade, neste tutorial está disponível como um bloco de notas do Jupyter. Utilizar um dos seguintes métodos para executar o `project-brainwave/project-brainwave-quickstart.ipynb` bloco de notas:
 
-> [!NOTE]
-> Os passos nesta secção aplicam-se apenas a modelos de acelerados de Hardware do Azure Machine Learning. Para serviços padrão do Azure Machine Learning, consulte o [como configurar o SSL no Azure Machine Learning computação](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) documento.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+### <a name="preprocess-image"></a>Pré-processar a imagem
+O primeiro estágio do pipeline é pré-processar as imagens.
+
+```python
+import os
+import tensorflow as tf
+
+# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+import azureml.contrib.brainwave.models.utils as utils
+in_images = tf.placeholder(tf.string)
+image_tensors = utils.preprocess_array(in_images)
+print(image_tensors.shape)
+```
+### <a name="add-featurizer"></a>Adicionar Featurizer
+Inicializar o modelo e transfira um ponto de verificação do TensorFlow da versão quantificada do ResNet50 para ser utilizado como um featurizer.
+
+```python
+from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+model_path = os.path.expanduser('~/models')
+model = QuantizedResnet50(model_path, is_frozen = True)
+feature_tensor = model.import_graph_def(image_tensors)
+print(model.version)
+print(feature_tensor.name)
+print(feature_tensor.shape)
+```
+
+### <a name="add-classifier"></a>Adicionar o classificador
+Este classificador foi treinado no conjunto de dados ImageNet.
+
+```python
+classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+```
+
+### <a name="create-service-definition"></a>Criar definição de serviço
+Agora que tem definidas, o processamento prévio de imagem, featurizer e classificador que executa o serviço, pode criar uma definição de serviço. A definição de serviço é um conjunto de arquivos gerados a partir do modelo que é implementado para o serviço FPGA. A definição de serviço é constituído por um pipeline. O pipeline é uma série de fases que são executados na ordem.  Fases do TensorFlow, Keras fases e fases BrainWave são suportadas.  As fases são executadas na ordem no serviço, com a saída de cada entrada de fase para a fase subsequente.
+
+Para criar um estágio de TensorFlow, especifique uma sessão que contém o gráfico (neste caso é usado gráfico do padrão) e a entrada e saída tensors para esta fase.  Estas informações são utilizadas para guardar o gráfico para que ele pode ser executado no serviço.
+
+```python
+from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+
+save_path = os.path.expanduser('~/models/save')
+model_def_path = os.path.join(save_path, 'service_def.zip')
+
+model_def = ModelDefinition()
+with tf.Session() as sess:
+    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
+    model_def.pipeline.append(BrainWaveStage(sess, model))
+    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.save(model_def_path)
+    print(model_def_path)
+```
+
+### <a name="deploy-model"></a>Implementar modelo
+Crie um serviço da definição de serviço.  A área de trabalho tem de estar na localização E.U.A. Leste 2.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+
+from azureml.core.model import Model
+model_name = "resnet-50-rtai"
+registered_model = Model.register(ws, model_def_path, model_name)
+
+from azureml.core.webservice import Webservice
+from azureml.exceptions import WebserviceException
+from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
+service_name = "imagenet-infer"
+service = None
+try:
+    service = Webservice(ws, service_name)
+except WebserviceException:
+    image_config = BrainwaveImage.image_configuration()
+    deployment_config = BrainwaveWebservice.deploy_configuration()
+    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
+    service.wait_for_deployment(true)
+```
+
+### <a name="test-the-service"></a>Testar o serviço
+Para enviar uma imagem para a API e testar a resposta, adicione um mapeamento de ID de classe de saída para o nome da classe ImageNet.
+
+```python
+import requests
+classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+```
+
+Chamar o seu serviço e substitua o nome do ficheiro de "your jpg" abaixo de uma imagem a partir do seu computador. 
+
+```python
+with open('your-image.jpg') as f:
+    results = service.run(f)
+# map results [class_id] => [confidence]
+results = enumerate(results)
+# sort results by confidence
+sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
+# print top 5 results
+for top in sorted_results[:5]:
+    print(classes_entries[top[0]], 'confidence:', top[1])
+``` 
+
+### <a name="clean-up-service"></a>Limpar o serviço
+Elimine o serviço.
+
+```python
+service.delete()
+    
+registered_model.delete()
+```
+
+## <a name="secure-fpga-web-services"></a>Proteger serviços da web FPGA
+
+Modelos de Machine Learning do Azure em execução no FPGAs fornecem suporte SSL e autenticação baseada em chave. Isto permite-lhe restringir o acesso ao seu serviço e a proteger os dados submetidos por clientes.
 
 > [!IMPORTANT]
-> Autenticação só é ativada para os serviços que forneceram um certificado SSL e a chave. 
+> Autenticação apenas está ativada para os serviços que forneceram um certificado SSL e a chave. 
 >
-> Se não ativar o SSL, qualquer utilizador na internet conseguirá efetuar chamadas para o serviço.
+> Se não ativar SSL, qualquer utilizador na internet será capaz de fazer chamadas para o serviço.
 >
-> Se ativar o SSL e chave de autenticação é necessária quando o acesso ao serviço.
+> Se ativar o SSL e a chave de autenticação é necessária ao acessar o serviço.
 
-SSL encripta os dados enviados entre o cliente e o serviço. Se também utilizado pelo cliente para verificar a identidade do servidor.
+O SSL criptografa dados enviados entre o cliente e o serviço. Ele é também utilizado pelo cliente para verificar a identidade do servidor.
 
 Pode implementar um serviço com SSL ativado, ou atualizar um serviço já implementado para ativá-la. Os passos são os mesmos:
 
-1. Adquirir um nome de domínio.
+1. Adquira um nome de domínio.
 
-2. Adquirir um certificado SSL.
+2. Adquira um certificado SSL.
 
 3. Implementar ou atualizar o serviço com SSL ativado.
 
@@ -143,31 +189,31 @@ Pode implementar um serviço com SSL ativado, ou atualizar um serviço já imple
 
 ### <a name="acquire-a-domain-name"></a>Adquirir um nome de domínio
 
-Se já não possui um nome de domínio, pode comprar um um __entidade de registo de nome de domínio__. O processo é diferente entre registrars, como sucede o custo. A entidade de registo também fornece ferramentas para gerir o nome de domínio. Estas ferramentas são utilizadas para mapear um nome de domínio completamente qualificado (tal como www.contoso.com) para o endereço IP que o serviço está alojado no.
+Se já não possui um nome de domínio, pode comprar um de uma __entidade de registo de nome de domínio__. O processo é diferente entre entidades de registo, como faz o custo. A entidade de registo também fornece ferramentas para gerenciar o nome de domínio. Essas ferramentas são utilizadas para mapear um nome de domínio completamente qualificado (como www.contoso.com) para o endereço IP que está alojado o serviço em.
 
 ### <a name="acquire-an-ssl-certificate"></a>Adquirir um certificado SSL
 
-Existem várias formas de obter um certificado SSL. As mais comuns é a adquirir um um __autoridade de certificação__ (AC). Independentemente de onde obter o certificado, terá dos seguintes ficheiros:
+Existem várias formas de obter um certificado SSL. A mais comum é comprar um de uma __autoridade de certificação__ (AC). Independentemente de onde obter o certificado, terá dos seguintes ficheiros:
 
-* A __certificado__. O certificado tem de conter a cadeia de certificados completa e tem de ser codificados PEM.
-* A __chave__. A chave tem de ser codificados PEM.
+* R __certificado__. O certificado tem de conter a cadeia de certificados completa e tem de ser PEM codificado.
+* R __chave__. A chave tem de ser PEM codificado.
 
 > [!TIP]
-> Se a autoridade de certificação não é possível fornecer o certificado e a chave, como os ficheiros com codificação PEM, pode utilizar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.
+> Se a autoridade de certificação não é possível fornecer o certificado e chave, como ficheiros PEM codificado, pode utilizar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.
 
 > [!IMPORTANT]
-> Certificados autoassinados devem ser utilizados apenas para o desenvolvimento. Não deve ser utilizadas na produção.
+> Certificados autoassinados devem ser usados apenas para desenvolvimento. Eles não devem ser usados na produção.
 >
-> Se utilizar um certificado autoassinado, consulte o [consumir os serviços de certificados autoassinados](#self-signed) secção para obter instruções específicas.
+> Se utilizar um certificado autoassinado, consulte a [uso de serviços com certificados autoassinados](#self-signed) secção para obter instruções específicas.
 
 > [!WARNING]
-> Quando solicitar um certificado, tem de fornecer o nome de domínio completamente qualificado (FQDN) do endereço que pretende utilizar para o serviço. Por exemplo, www.contoso.com. O endereço de carimbo de data / para o certificado e o endereço utilizado pelos clientes são comparadas ao validar a identidade do serviço.
+> Quando pedir um certificado, tem de fornecer o nome de domínio completamente qualificado (FQDN) do endereço que pretende utilizar para o serviço. Por exemplo, www.contoso.com. O endereço marcados para o certificado e o endereço utilizado pelos clientes são comparados ao validar a identidade do serviço.
 >
 > Se os endereços não corresponderem, os clientes irão receber um erro. 
 
 ### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Implementar ou atualizar o serviço com SSL ativado
 
-Para implementar o serviço com SSL ativado, defina o `ssl_enabled` parâmetro `True`. Definir o `ssl_certificate` parâmetro para o valor da __certificado__ ficheiros e o `ssl_key` para o valor da __chave__ ficheiro. O exemplo seguinte mostra como implementar um serviço com SSL ativado:
+Para implementar o serviço com SSL ativado, defina o `ssl_enabled` parâmetro `True`. Definir o `ssl_certificate` parâmetro para o valor da __certificado__ ficheiro e o `ssl_key` para o valor da __chave__ ficheiro. O exemplo seguinte demonstra a implementar um serviço com SSL ativado:
 
 ```python
 from amlrealtimeai import DeploymentClient
@@ -189,7 +235,7 @@ with open('cert.pem','r') as cert_file:
         service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
 ```
 
-A resposta do `create_service` operação contém o endereço IP do serviço. O endereço IP é utilizado ao mapear o nome DNS para o endereço IP do serviço.
+A resposta do `create_service` operação contém o endereço IP do serviço. O endereço IP é utilizado quando for mapear o nome DNS para o endereço IP do serviço.
 
 A resposta também contém um __chave primária__ e __chave secundária__ que são utilizados para consumir o serviço.
 
@@ -198,11 +244,11 @@ A resposta também contém um __chave primária__ e __chave secundária__ que s�
 Utilize as ferramentas fornecidas pelo sua entidade de registo de nome de domínio para atualizar o registo DNS para o seu nome de domínio. O registo tem de apontar para o endereço IP do serviço.
 
 > [!NOTE]
-> Consoante a entidade de registo e o tempo TTL (TTL) configurada para o nome de domínio, pode demorar vários minutos a várias horas antes dos clientes podem resolver o nome de domínio.
+> Consoante a entidade de registo e a hora para live (TTL) configurada para o nome de domínio, pode demorar vários minutos a várias horas para que os clientes podem resolver o nome de domínio.
 
-### <a name="consuming-authenticated-services"></a>Consumir serviços autenticados
+### <a name="consume-authenticated-services"></a>Consumir serviços autenticados
 
-Os exemplos seguintes demonstram como consumir um serviço autenticado utilizando Python e c#:
+Os exemplos seguintes demonstram como consumir um serviço autenticado com Python e c#:
 
 > [!NOTE]
 > Substitua `authkey` com a chave primária ou secundária devolvido ao criar o serviço.
@@ -224,9 +270,9 @@ using (var content = File.OpenRead(image))
     }
 ```
 
-Outros clientes gRPC podem autenticar pedidos, definindo um cabeçalho de autorização. A abordagem geral consiste em criar um `ChannelCredentials` objeto que combina `SslCredentials` com `CallCredentials`. Isto é adicionado ao cabeçalho de autorização do pedido. Para mais informações sobre como implementar o suporte para os cabeçalhos específicos, consulte [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
+Outros clientes gRPC podem autenticar pedidos ao definir um cabeçalho de autorização. A abordagem geral é criar um `ChannelCredentials` objeto que combina `SslCredentials` com `CallCredentials`. Isso é adicionado ao cabeçalho de autorização do pedido. Para obter mais informações sobre como implementar o suporte para os cabeçalhos de específicos, consulte [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
 
-Os exemplos seguintes demonstram como definir o cabeçalho em c# e aceda:
+Os exemplos seguintes demonstram como definir o cabeçalho em c# e Go:
 
 ```csharp
 creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
@@ -259,15 +305,15 @@ func (c *authCreds) RequireTransportSecurity() bool {
 }
 ```
 
-### <a id="self-signed"></a>Consumir os serviços de certificados autoassinados
+### <a id="self-signed"></a>Uso de serviços com certificados autoassinados
 
-Existem duas formas de ativar o cliente autenticar para um servidor protegido com um certificado autoassinado:
+Existem duas formas de ativar o cliente para autenticação num servidor protegido por um certificado autoassinado:
 
 * No sistema cliente, defina o `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` variável de ambiente no sistema de cliente para apontar para o ficheiro de certificado.
 
-* Quando construir um `SslCredentials` objeto, transmitir o conteúdo do ficheiro de certificado para o construtor.
+* Ao construir um `SslCredentials` de objeto, transmita os conteúdos do ficheiro de certificado para o construtor.
 
-Utilizando um dos métodos faz com que gRPC utilizar o certificado como o certificado de raiz.
+Utilizando um dos métodos faz com que o gRPC utilizar o certificado como o certificado de raiz.
 
 > [!IMPORTANT]
-> gRPC não aceitará certificados não fidedignos. Utilizar um certificado não fidedigno irá falhar com um `Unavailable` código de estado. Os detalhes da falha contêm `Connection Failed`.
+> gRPC não aceita certificados não fidedignos. Utilizando um certificado não fidedigno irá falhar com um `Unavailable` código de estado. Os detalhes da falha contêm `Connection Failed`.

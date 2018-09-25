@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 58ea0859af42f7614e69d1693bbd9f8e3a17ccb8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042487"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração de Contoso: reconstrua uma aplicação no local para o Azure
 
@@ -55,7 +55,7 @@ A equipe de cloud de Contoso tiver afixado para baixo de requisitos de aplicaç�
  - A aplicação não deve utilizar componentes de IaaS. Tudo o que deve ser criado para utilizar o PaaS ou dos serviços sem servidor.
  - As compilações de aplicação devem ser executados nos serviços cloud e contentores devem residir num registo de contentor de toda a empresa privada na cloud.
  - O serviço de API utilizado para fotos pet deve ser precisos e confiáveis no mundo real, uma vez que as decisões tomadas pela aplicação tem cumpridas seus hotéis. Qualquer animal de estimação concedido o acesso é permitido para se manter nos hotéis.
- - Para cumprir os requisitos para um pipeline do DevOps, Contoso usará Visual Studio Team Services (VSTS) para a origem de código de gestão (SCM), com repositórios Git.  Compilações automatizadas e versões serão utilizadas para criar código e implementação-la para as aplicações Web do Azure, as funções do Azure e AKS.
+ - Para cumprir os requisitos para um pipeline do DevOps, Contoso usará DevOps do Azure para a origem de código de gestão (SCM), com repositórios Git.  Compilações automatizadas e versões serão utilizadas para criar código e implementação-la para as aplicações Web do Azure, as funções do Azure e AKS.
  - Pipelines de CI/CD diferentes são necessários para microsserviços no back-end e para o web site no front-end.
  - Os serviços de back-end têm uma versão diferente ciclo a partir da aplicação web de front-end.  Para cumprir este requisito, eles irão implementar dois pipelines de DevOps diferentes.
  - A Contoso precisa de aprovação de gestão para a implementação de Web site do todos os front-end e o pipeline de CI/CD tem de fornecer isso.
@@ -81,7 +81,7 @@ Depois de fixar-se para baixo de objetivos e requisitos, a Contoso projeta e rev
 - A função pet photo tira partido da API de imagem digitalizada dos serviços cognitivos e cosmos DB.
 - O back-end do site é criado com microsserviços. Estas serão implementadas para os contentores geridos no Azure Kubernetes service (AKS).
 - Contentores serão criados através do Azure DevOps e enviados por push para o Azure Container Registry (ACR).
-- Por enquanto, o Contoso irá implementar manualmente o código de aplicação e a função de Web com o Visual Studio.
+- Por enquanto, Contoso irá implementar manualmente o código de aplicação e a função de Web com o Visual Studio
 - Microsserviços serão implementados utilizar um script do PowerShell que chama as ferramentas de linha de comandos do Kubernetes.
 
     ![Arquitetura do cenário](./media/contoso-migration-rebuild/architecture.png) 
@@ -224,15 +224,15 @@ Contoso cria um projeto de DevOps do Azure e configura uma compilação CI para 
     ![DevOps do Azure](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. Eles importam o repositório do GitHub.
+3. Importam as [repositório do GitHub](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
 
     ![DevOps do Azure](./media/contoso-migration-rebuild/vsts2.png)
     
-4. Na **criar e lançar**, eles criam um novo pipeline com o Azure repositórios Git como uma origem, o importados do **smarthotel** repositório. 
+4. Na **Pipelines**, pode clicar em **criar**e criar um novo pipeline com o Git de repositórios do Azure como uma origem, a partir do repositório. 
 
     ![DevOps do Azure](./media/contoso-migration-rebuild/vsts3.png)
 
-6. Devem selecionar para iniciar com um pipeline vazio.
+6. Devem selecionar para iniciar com uma tarefa está vazia.
 
     ![DevOps do Azure](./media/contoso-migration-rebuild/vsts4.png)  
 
@@ -252,7 +252,7 @@ Contoso cria um projeto de DevOps do Azure e configura uma compilação CI para 
 
     ![DevOps do Azure](./media/contoso-migration-rebuild/vsts8.png)
 
-9. Especifica o caminho da **docket yaml** , além de ficheiros a **src** pasta do repositório. Eles selecionam para criar imagens de serviço e incluem a marca mais recente. Quando a ação é alterado para **criar imagens de serviço**, o nome da tarefa do Azure DevOps é alterado para **criar serviços automaticamente**
+9. Especifica o caminho da **docker-yaml** , além de ficheiros a **src** pasta do repositório. Eles selecionam para criar imagens de serviço e incluir a etiqueta mais recente. Quando a ação é alterado para **criar imagens de serviço**, o nome da tarefa do Azure DevOps é alterado para **criar serviços automaticamente**
 
     ![DevOps do Azure](./media/contoso-migration-rebuild/vsts9.png)
 
@@ -303,7 +303,7 @@ Agora, os administradores da Contoso faça o seguinte:
 
 - Implemente o controlador de entrada do NGINX para permitir tráfego de entrada para os serviços.
 - Implemente os microsserviços no cluster do AKS.
-- Como primeiro passo eles Atualize as cadeias de ligação para os microsserviços com o VSTS. Em seguida, configurar um novo pipeline de lançamento do VSTS para implementar os microsserviços.
+- Como primeiro passo eles Atualize as cadeias de ligação para os microsserviços que utilizam o Azure DevOps. Em seguida, configurar um novo pipeline de lançamento de DevOps do Azure para implementar os microsserviços.
 - As instruções nesta secção utilizam o [SmartHotel360-Azure-back-end](https://github.com/Microsoft/SmartHotel360-Azure-backend) repositório.
 - Tenha em atenção que algumas das definições de configuração (por exemplo Active Directory B2C) não são abordadas neste artigo. Leia mais informações sobre estas definições no repositório.
 
@@ -313,17 +313,14 @@ Eles criaram o pipeline:
 
     ![Ligações de DB](./media/contoso-migration-rebuild/back-pipe1.png)
 
-2. São abertos VSTS e na SmartHotel360 do projeto, na **versões**, pode clicar em **+ novo Pipeline**.
+2. São abertos de DevOps do Azure e na SmartHotel360 do projeto, na **versões**, pode clicar em **+ novo Pipeline**.
 
     ![Novo pipeline](./media/contoso-migration-rebuild/back-pipe2.png)
 
 3. Clicarem **tarefa vazia** para iniciar o pipeline sem um modelo.
+4. Eles fornecem os nomes de fase e o pipeline.
 
-    ![Tarefa vazia](./media/contoso-migration-rebuild/back-pipe3.png)
-
-4. Eles fornecem os nomes de ambiente e o pipeline.
-
-      ![Nome do ambiente](./media/contoso-migration-rebuild/back-pipe4.png)
+      ![Nome da fase](./media/contoso-migration-rebuild/back-pipe4.png)
 
       ![Nome do pipeline](./media/contoso-migration-rebuild/back-pipe5.png)
 
@@ -455,7 +452,7 @@ No portal do Azure, os administradores da Contoso aprovisionar a aplicação de 
 
 2. Eles fornecem um nome de aplicação (**smarthotelpetchecker**). Eles colocam a aplicação no grupo de recursos de produção **ContosoRG**. Eles definir o local de hospedagem **plano de consumo**e colocar a aplicação na região E.U.A. Leste 2. É criada uma nova conta de armazenamento, juntamente com uma instância do Application Insights para monitorização.
 
-    ![Definições da aplicação de funções](./media/contoso-migration-rebuild/function-app2.png)
+    ![Definições da Aplicação de funções](./media/contoso-migration-rebuild/function-app2.png)
 
 
 3. Depois da aplicação é implementada, eles navegam para o endereço de aplicação para verificar a que ser criado com êxito.
@@ -465,18 +462,18 @@ No portal do Azure, os administradores da Contoso aprovisionar a aplicação de 
 
 Os administradores da Contoso criar dois projetos diferentes para o site de front-end. 
 
-1. No VSTS, ser criar um projeto **SmartHotelFrontend**.
+1. No Azure DevOps, criam um projeto **SmartHotelFrontend**.
 
     ![Projeto de front-end](./media/contoso-migration-rebuild/function-app1.png)
 
 2. Importam as [SmartHotel360 front-end](https://github.com/Microsoft/SmartHotel360-public-web.git) repositório de Git para o novo projeto.
-3. Para a aplicação de funções, eles criar outro projeto VSTS (SmartHotelPetChecker) e importar os [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) repositório de Git para este projeto.
+3. Para a aplicação de funções, eles criar outro projeto de DevOps do Azure (SmartHotelPetChecker) e importar os [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) repositório de Git para este projeto.
 
 ### <a name="configure-the-web-app"></a>Configurar a aplicação Web
 
 Agora, os administradores de Contoso configurar a aplicação Web para utilizar recursos da Contoso.
 
-1. Ligar ao projeto VSTS e clone o repositório localmente para o computador de desenvolvimento.
+1. Ligar para o projeto de DevOps do Azure e clone o repositório localmente para o computador de desenvolvimento.
 2. No Visual Studio, abrir a pasta para mostrar todos os ficheiros no repositório.
 
     ![Ficheiros do repositório](./media/contoso-migration-rebuild/configure-webapp1.png)
@@ -513,52 +510,45 @@ Agora, os administradores de Contoso configurar a aplicação Web para utilizar 
 Os administradores da Contoso agora podem publicar o Web site.
 
 
-1. Que abrem o VSTS e, no **SmartHotelFrontend** , além do projeto **compilações e lançamentos**, clicarem **+ novo Pipeline**.
-2. Eles selecionam **Git do VSTS** como uma origem.
-
-    ![Novo pipeline](./media/contoso-migration-rebuild/vsts-publishfront1.png)
-
+1. Abrem DevOps do Azure e, no **SmartHotelFrontend** , além do projeto **compilações e lançamentos**, clicarem **+ novo Pipeline**.
+2. Eles selecionam **Git de DevOps do Azure** como uma origem.
 3. Eles selecionam os **ASP.NET Core** modelo.
 4. Reveja o pipeline e verifique se **publicar projetos da Web** e **Zip projetos publicados** estão selecionadas.
 
     ![Definições do pipeline](./media/contoso-migration-rebuild/vsts-publishfront2.png)
 
-5. Na **Acionadores**, ative a integração contínua e adicionar o ramo principal. Isto garante que cada tim a solução tem o novo código consolidado para o ramo principal, o pipeline de compilação seja iniciada.
+5. Na **Acionadores**, ative a integração contínua e adicionar o ramo principal. Isto garante que sempre que a solução tem o novo código consolidado para o ramo principal, o pipeline de compilação seja iniciada.
 
     ![Integração contínua](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
 6. Clicarem **guardar e colocar em fila** para iniciar uma compilação.
 7. Após a compilação for concluída, configure um pipeline de versões com o **implementação de serviço de aplicações do Azure**.
-8. Eles fornecem um nome de ambiente **teste**.
+8. Eles fornecem um nome de fase **teste**.
 
     ![Nome do ambiente](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
-9. Adicionar um artefato e selecione a compilação que acabou de configurar.
+9. Se adicionar um artefato e selecione a compilação que acabou de configurar.
 
      ![Adicionar artefacto](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
-6. Clique no ícone de relâmpago bolt no artifcat e ativar a implementação contínua.
+10. Clique no ícone de bolt relâmpago no artefacto e ativar a implementação contínua.
 
     ![Implementação contínua](./media/contoso-migration-rebuild/vsts-publishfront6.png)
-
-7. Na **ambiente**, pode clicar em **1 fase, 1 tarefa** sob **teste**.
-8. Depois de selecionar a subscrição e o nome da aplicação, abra a **implementar serviço de aplicações do Azure** tarefas. A implementação está configurada para utilizar o **teste** bloco de implementação. Isso cria automaticamente o código para revisão e aprovação neste espaço.
+11. No **ambiente**, pode clicar em **1 tarefa, 1 tarefa** sob **teste**.
+12. Depois de selecionar a subscrição e o nome da aplicação, abra a **implementar serviço de aplicações do Azure** tarefas. A implementação está configurada para utilizar o **teste** bloco de implementação. Isso cria automaticamente o código para revisão e aprovação neste espaço.
 
      ![Bloco](./media/contoso-migration-rebuild/vsts-publishfront7.png)
 
-9. Na **novo pipeline de versões**, adicionam um novo ambiente.
+13. Na **Pipeline**, adicionam uma fase de novo.
 
     ![Novo ambiente](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-10. Eles selecionam **implementação de serviço de aplicações do Azure com a ranhura**e dê o nome do ambiente **Prod**.
-
-    ![Nome do ambiente](./media/contoso-migration-rebuild/vsts-publishfront9.png)
-
-11. Clicarem na **1 fase, 2 tarefas**e selecione a subscrição, o nome do serviço de aplicações, e **teste** ranhura.
+14. Eles selecionam **implementação de serviço de aplicações do Azure com a ranhura**e dê o nome do ambiente **Prod**.
+15. Clicarem na **1 e 2 tarefas**e selecione a subscrição, o nome do serviço de aplicações e o **teste** ranhura.
 
     ![Nome do ambiente](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
-12. Remova os **implementar serviço de aplicações do Azure para o bloco de** do pipeline. Foi colocada lá pelos passos anteriores.
+16. Remova os **implementar serviço de aplicações do Azure para o bloco de** do pipeline. Foi colocada lá pelos passos anteriores.
 
     ![Remover do pipeline](./media/contoso-migration-rebuild/vsts-publishfront11.png)
 
@@ -571,8 +561,8 @@ Os administradores da Contoso agora podem publicar o Web site.
     ![Aprovação de pós-implementação](./media/contoso-migration-rebuild/vsts-publishfront13.png)
 
 15. No pipeline de compilação, eles manualmente iniciar uma compilação. Isto aciona o pipeline de lançamento novo, que implementa o site para o bloco de teste. Para a Contoso, é o URL para o bloco **https://smarthotelcontoso-staging.azurewebsites.net/**.
-16. Após a conclusão da compilação e a versão implementa para o bloco, o VSTS e-mails o líder de desenvolvimento para aprovação.
-17. Cliques de liderança dev **ver aprovação**e pode aprovar ou rejeitar o pedido no portal do VSTS.
+16. Após a conclusão da compilação e a versão implementa para o bloco, o Azure DevOps e-mails o líder de desenvolvimento para aprovação.
+17. Cliques de liderança dev **ver aprovação**e pode aprovar ou rejeitar o pedido no portal do Azure DevOps.
 
     ![E-mail de aprovação](./media/contoso-migration-rebuild/vsts-publishfront14.png)
 
@@ -591,19 +581,19 @@ Os administradores da Contoso agora podem publicar o Web site.
 
 Os administradores da Contoso implementar a aplicação da seguinte forma.
 
-1. Eles clonagem o repositório localmente para o computador de desenvolvimento ao ligar ao projeto VSTS.
+1. Eles clonagem o repositório localmente para o computador de desenvolvimento ao ligar-se para o projeto de DevOps do Azure.
 2. No Visual Studio, abrir a pasta para mostrar todos os ficheiros no repositório.
 3. Abrir o **src/PetCheckerFunction/local.settings.json** de ficheiros e adicionar as definições da aplicação para armazenamento, a base de dados do Cosmos e a API de imagem digitalizada.
 
     ![Implementar a função](./media/contoso-migration-rebuild/function5.png)
 
-4. Consolidar o código e sincronizá-la novamente com o VSTS, enviar por push as alterações.
-5. Adicionar um novo pipeline de compilação e selecione **Git do VSTS** para a origem.
+4. Consolidar o código e sincronizá-la novamente com o Azure DevOps, enviar por push as alterações.
+5. Adicionar um novo pipeline de compilação e selecione **Git de DevOps do Azure** para a origem.
 6. Eles selecionam os **ASP.NET Core (.NET Framework)** modelo.
 7. Eles aceitem as predefinições para o modelo.
 8. Na **Acionadores**, em seguida, selecione a **ativar a integração contínua**e clique em **guardar e colocar em fila** para iniciar uma compilação.
 9. Após a compilação for concluída com êxito, o que eles criam um pipeline de lançamento, adicionando a **implementação de serviço de aplicações do Azure com a ranhura**.
-10. Nome de ambiente **Prod**e selecione a subscrição. Configuram o **tipo de aplicação** ao **Ap de função**e o nome do serviço de aplicações como **smarthotelpetchecker**.
+10. Nome de ambiente **Prod**e selecione a subscrição. Configuram o **tipo de aplicação** ao **Function App**e o nome do serviço de aplicações como **smarthotelpetchecker**.
 
     ![Function app](./media/contoso-migration-rebuild/petchecker2.png)
 

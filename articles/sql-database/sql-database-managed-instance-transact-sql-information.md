@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 73e046c153af5c69ab343a90d1f9027b84b4deb1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: c23fbf0af7d1a15b0efee8af123150feb42c708e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498458"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966914"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
-O Azure SQL Database Managed Instance (pré-visualização) fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida. Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças.
+Instância de gerida de base de dados de SQL do Azure fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida. Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças.
  - [Diferenças do T-SQL e funcionalidades não suportadas](#Differences)
  - [Recursos que têm um comportamento diferente na instância gerida](#Changes)
  - [Limitações temporárias e problemas conhecidos](#Issues)
@@ -89,7 +89,7 @@ Instância gerida não é possível aceder a partilhas de ficheiros e pastas do 
  
 ### <a name="certificates"></a>Certificados 
 
-Instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que as seguintes restrições aplicam-se: 
+A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Windows, pelo que são aplicadas as seguintes restrições: 
 - `CREATE FROM`/`BACKUP TO` ficheiro não é suportado para certificados
 - `CREATE`/`BACKUP` certificado do `FILE` / `ASSEMBLY` não é suportada. Não não possível utilizar os ficheiros de chave privados.  
  
@@ -106,7 +106,7 @@ WITH PRIVATE KEY ( <private_key_options> )
  
 ### <a name="clr"></a>CLR 
 
-Instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que as seguintes restrições aplicam-se: 
+A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Windows, pelo que são aplicadas as seguintes restrições: 
 - Apenas `CREATE ASSEMBLY FROM BINARY` é suportada. Ver [CREATE ASSEMBLY de binário](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` Não é suportada. Ver [CREATE ASSEMBLY de ficheiro](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` não pode referenciar arquivos. Ver [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
@@ -415,15 +415,58 @@ Certifique-se de que remova líderes `?` da chave de SAS gerado através do port
 
 SQL Server Management Studio e SQL Server Data Tools podem ter alguns problemas ao aceder à instância gerida. Todos os problemas de ferramentas serão resolvidos antes da disponibilidade geral.
 
-### <a name="incorrect-database-names"></a>Nomes de base de dados incorreto
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomes de base de dados incorreto no algumas vistas, registos e as mensagens
 
-Instância gerida poderá mostrar o valor de guid em vez do nome de base de dados durante o restauro ou em algumas mensagens de erro. Estes problemas serão ser corrigidos antes da disponibilidade geral.
+Várias vistas de sistema, contadores de desempenho, mensagens de erro, XEvents e entradas de registo de erro ao apresentam identificadores de base de dados GUID, em vez dos nomes de banco de dados real. Não confie nestes identificadores GUID porque eles teriam de ser substituídos com nomes de banco de dados real no futuro.
 
 ### <a name="database-mail-profile"></a>Perfil de correio de base de dados
 É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile`. Esta é uma limitação temporária que será removida em breve.
+
+### <a name="error-logs-are-not-persisted"></a>Registos de erros não são persistente
+Registos de erros que estão disponíveis na instância gerida não são mantidos e seu tamanho não está incluído no limite de armazenamento máximo. Registos de erros podem ser apagados automaticamente em caso de ativação pós-falha.
+
+### <a name="error-logs-are-verbose"></a>Registos de erros são detalhados
+Instância gerida coloca informações verbosas em registos de erros e muitos deles não são relevantes. A quantidade de informações nos registos de erro é reduzida no futuro.
+
+**Solução**: utilizar um procedimento personalizado para a leitura de registos de erros que algumas entradas não relevantes de filtro-out. Para obter detalhes, consulte [SQL DB instância gerida do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Âmbito de transação nas duas bases de dados dentro da instância do mesmo não é suportado
+`TransactionScope` classe no .net não funciona se duas consultas são enviadas para duas bases de dados dentro da mesma instância sob o mesmo escopo de transação:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Embora esse código funciona com os dados dentro da instância do mesmo é necessária MSDTC.
+
+**Solução**: Utilize [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outro banco de dados no contexto de ligação em vez de usar duas conexões.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Módulos CLR e algum tempo a servidores ligados não é possível referenciar o endereço IP local
+Módulos CLR colocados na instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este é o erro transitório.
+
+**Solução**: utilizar ligações de contexto no módulo CLR, se possível.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter detalhes sobre a instância gerida, veja [o que é uma instância gerida?](sql-database-managed-instance.md)
 - Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
-- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).
+- Para um início rápido mostra-lhe como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).

@@ -1,70 +1,77 @@
 ---
-title: Preços e faturação - Azure Logic Apps | Microsoft Docs
-description: Saiba como funciona o preços e faturação para o Azure Logic Apps
+title: Preços e faturação - Azure Logic Apps | Documentos da Microsoft
+description: Saiba como funciona o preços e faturação no Azure Logic Apps
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
-ms.openlocfilehash: e1702de42be8510412a6479b594a198a84d15ae2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299261"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974311"
 ---
-# <a name="logic-apps-pricing-model"></a>Modelo de preços de Aplicações Lógicas
+# <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços do Azure Logic Apps
 
-Pode criar e executar fluxos de trabalho de integração dimensionável automatizados na nuvem com Azure Logic Apps. Seguem-se os detalhes sobre como funcionam os sobre faturação e preços para as Logic Apps. 
+Pode criar e executar fluxos de trabalho de integração dimensionável automatizada na nuvem com o Azure Logic Apps. Aqui estão os detalhes sobre como funcionam de faturação e preços para o Logic Apps. 
+
+<a name="consumption-pricing"></a>
 
 ## <a name="consumption-pricing-model"></a>Modelo de preços de consumo
 
-Com aplicações lógicas criado recentemente, paga apenas o que utiliza. Novas aplicações lógicas utilizam um plano de consumo e o modelo de preços, o que significa que todas as execuções de ação efetuadas por uma instância da aplicação lógica são limitadas. Cada passo numa definição de aplicação lógica é uma ação, o que inclui acionadores, os passos de fluxo de controlo, as chamadas para as ações incorporadas e chamadas para os conectores. Para obter mais informações, consulte [Logic Apps preços](https://azure.microsoft.com/pricing/details/logic-apps).
+Para o novo logic apps que criar com o serviço de aplicações lógicas "global" ou público, paga apenas aquilo que utiliza. Estas aplicações de lógica utilizam um plano com base no consumo e o modelo de preços, o que significa que todas as execuções de ações realizadas por uma aplicação lógica são limitadas. Cada passo numa definição de aplicação lógica é uma ação, o que inclui acionadores, passos de fluxo de controle, chamadas para ações internas e chamadas de conectores. Para obter mais informações, consulte [preços de aplicações lógicas](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="fixed-pricing"></a>
+
+## <a name="fixed-pricing-model"></a>Modelo de preços fixo
+
+> [!NOTE]
+> O ambiente de serviço de integração está em *pré-visualização privada*. Para pedir acesso [criar o pedido de associação aqui](https://aka.ms/iseprivatepreview).
+
+Para o novo logic apps que criar com um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que é privada isolada a instância de Logic Apps que utiliza recursos dedicados, paga um preço mensal fixo para ações incorporadas e conectores padrão com etiqueta ISE. O ISE inclui um conector empresarial sem custos, embora os conectores de empresa adicionais são cobrados com base no preço de consumo Enterprise. Para obter mais informações, consulte [preços de aplicações lógicas](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Acionadores
 
-Acionadores são ações especiais que criar uma instância da aplicação lógica, quando ocorre um evento específico. Acionadores agirem de diversas formas, que afetam a forma como a aplicação lógica está limitada.
+Os acionadores são ações especiais que criar uma instância da aplicação lógica quando ocorre um evento específico. Acionadores agirem de diversas formas, que afetam a como a aplicação lógica é limitada.
 
-* **Acionador da consulta** – este acionador continuamente verifica um ponto final para as mensagens que satisfaçam os critérios para criar uma instância da aplicação lógica e iniciar o fluxo de trabalho. Cada pedido de consulta contagens como uma execução e está limitado, mesmo quando não é criada nenhuma instância de aplicação lógica. Para especificar o intervalo de consulta, configure o acionador através do Designer de aplicação lógica.
+* **Acionador de consulta** – este acionador verifica continuamente um ponto final para mensagens que satisfazem os critérios para criar uma instância da aplicação lógica e iniciar o fluxo de trabalho. Cada solicitação de consulta é contabilizado como uma execução, limitada, mesmo quando nenhuma instância da aplicação lógica é criada. Para especificar o intervalo de consulta, configure o acionador através do Estruturador da aplicação lógica.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook acionador** – este acionador aguarda que um cliente para enviar um pedido para um ponto final específico. Cada pedido enviado ao ponto final do webhook conta como uma execução de ação. Por exemplo, o acionador pedido e de HTTP Webhook são ambos os acionadores de webhook.
+* **Acionador de Webhook** – este acionador aguarda que um cliente para enviar um pedido para um ponto de extremidade específico. Cada pedido enviado para o ponto final do webhook é contabilizado como uma execução da ação. Por exemplo, o acionador de pedido e Webhook de HTTP são ambos os acionadores de webhook.
 
-* **Acionador de recorrência** – este acionador cria uma instância da aplicação lógica com base no intervalo de periodicidade que configurou no acionador. Por exemplo, pode definir um acionador de recorrência que é executado a cada três dias ou com base numa agenda mais complexa.
+* **Acionador de periodicidade** – este acionador cria uma instância da aplicação lógica com base no intervalo de periodicidade que configurou no acionador. Por exemplo, pode definir um acionador de periodicidade, que é executado a cada três dias ou com base numa agenda mais complexa.
 
-Pode encontrar execuções de Acionador no painel de descrição geral da sua aplicação lógica na secção de histórico de Acionador.
+Pode encontrar as execuções de Acionador no painel de descrição geral da sua aplicação lógica na secção de histórico de Acionadores.
 
 ## <a name="actions"></a>Ações
 
-Ações incorporadas, como as ações que chamam HTTP, as funções do Azure ou API Management e também controlam os passos de fluxo são limitadas como ações nativas, que tem os respetivos tipos. Ações que chamam [conectores](https://docs.microsoft.com/connectors) têm o tipo de "ApiConnection". Estes conectores estão classificados como standard ou enterprise conectores, que são limitados com base na respetiva respetivos [preços][pricing]. 
+Ações incorporadas, tais como ações que chamam HTTP, as funções do Azure ou gestão de API e também controlam os passos de fluxo são medidas como ações nativas, que têm os respetivos tipos. Ações que chamam [conectores](https://docs.microsoft.com/connectors) tem o tipo "ApiConnection". Estes conectores são classificados como standard ou enterprise de conectores, que são medidas com base em seus respectivos [preços][pricing]. 
 
-Todas as ações com êxito e êxito tenta executar são contadas e limitadas como execuções de ação. No entanto, as ações que são ignoradas, devido a unmet condições ou ações não executadas, porque a aplicação lógica terminado antes da conclusão, não contam como execuções de ação. Aplicações lógicas desativado não é possível instanciar novas instâncias de, pelo que não são cobrados enquanto estão desativadas.
+Todas as ações com êxito e sem êxito execução são contadas e medidas como execuções de ação. No entanto, as ações que são ignoradas, devido a condições por cumprir ou ações que não são executados, uma vez que a aplicação lógica terminada antes da conclusão, não contam como execuções de ação. Aplicações lógicas desativado não é possível instanciar a novas instâncias, portanto, eles não são cobrados enquanto eles estão desativados.
 
 > [!NOTE]
-> Depois de desativar uma aplicação lógica, quaisquer instâncias em execução podem demorar algum tempo antes de serem totalmente parar.
+> Depois de desativar uma aplicação lógica, quaisquer instâncias em execução podem demorar algum tempo antes que eles parem completamente.
 
-As ações que executam no interior de ciclos são contadas por cada ciclo em ciclo. Por exemplo, uma única ação num ciclo "para cada" que processa uma lista de item de 10 é contabilizada multiplicando o número de itens de lista (10) pelo número de ações no ciclo (1) juntamente com um para iniciar o ciclo. Por isso, neste exemplo, o cálculo é (10 * 1) + 1, o que resulta em 11 execuções de ação.
+Ações que executam dentro de ciclos são contabilizadas por cada ciclo no loop. Por exemplo, uma única ação num loop "for each" que processa uma lista de itens de 10 é contada ao multiplicar o número de itens de lista (10) pelo número de ações no loop (1) mais um para iniciar o loop. Então, neste exemplo, o cálculo é (10 * 1) + 1, o que resulta em 11 execuções de ação.
 
 ## <a name="integration-account-usage"></a>Utilização da conta de integração
 
-Com base no consumo de utilização inclui um [conta integração](logic-apps-enterprise-integration-create-integration-account.md) onde pode explorar, desenvolver e testar o [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e [processar XML](logic-apps-enterprise-integration-xml.md) funcionalidades em Logic Apps não custo adicional. Pode ter uma conta de integração por região e arquivo até específicos [números de artefactos](../logic-apps/logic-apps-limits-and-config.md), tais como parceiros comerciais EDI e contratos, mapas, esquemas, assemblagens, certificados e configurações de batch.
+Utilização baseado no consumo inclui uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) onde pode explorar, desenvolver e testar o [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e [processamento XML](logic-apps-enterprise-integration-xml.md) funcionalidades nas aplicações lógicas ao não custos adicionais. Pode ter uma conta de integração por região e o arquivo até específicas [números dos artefactos](../logic-apps/logic-apps-limits-and-config.md), tais como parceiros comerciais EDI e contratos, mapas, esquemas, assemblies, certificados e configurações de lote.
 
-As Logic Apps também oferece contas de automatização básico e padrão com suportados SLA de aplicações lógicas. Pode utilizar contas de automatização básica quando pretender utilizar apenas as mensagens de processamento, ou atuar como um parceiro de pequenas empresas que tenha uma relação de parceiro comercial com uma entidade de negócio maior. Contas de automatização padrão suportam relações de B2B mais complexas e aumentam o número de entidades que pode gerir. Para obter mais informações, consulte [preços do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
+O Logic Apps também oferece a contas de integração de básico e standard com um SLA de aplicações lógicas suportados. Pode utilizar contas de integração básica quando quiser usar apenas manipulação de mensagens, ou agir como um parceiro de pequenas empresas que possua uma relação de parceiro comercial com uma entidade de negócio maior. As contas de integração Standard suportam relações de B2B mais complexas e aumentam o número de entidades que pode gerir. Para obter mais informações, consulte [os preços do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre Logic Apps][whatis]
+* [Saiba mais sobre o Logic Apps][whatis]
 * [Criar a sua primeira aplicação lógica][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/

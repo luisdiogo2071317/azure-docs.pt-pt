@@ -12,40 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c312658750c1e9ef024a837ccc16e5cd5be8a5ef
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35949776"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038022"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de inquilino do Azure Stack no Azure Active Directory
+
 Após [implementar o Development Kit do Azure Stack](azure-stack-run-powershell-script.md), terá de uma conta de utilizador do inquilino para que possa explorar o portal de inquilinos e suas ofertas e planos de teste. Pode criar uma conta de inquilino por [com o portal do Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou pelo [com o PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Criar uma conta de inquilino do Azure Stack com o portal do Azure
+
 Tem de ter uma subscrição do Azure para utilizar o portal do Azure.
 
 1. Inicie sessão no [Azure](https://portal.azure.com).
-2. Na barra de navegação à esquerda do Microsoft Azure, clique em **do Active Directory**.
-3. Na lista de diretório, clique no diretório que pretende utilizar para o Azure Stack ou criar um novo.
-4. Nesta página do diretório, clique em **utilizadores**.
-5. Clique em **Adicionar utilizador**.
-6. Na **adicionar utilizador** assistente, na **tipo de utilizador** lista, escolha **novo utilizador na sua organização**.
-7. Na **nome de utilizador** , escreva um nome para o utilizador.
-8. Na **@** caixa, escolha a entrada apropriada.
-9. Clique na seta seguinte.
-10. Na **perfil de utilizador** página do assistente, escreva um **FirstName**, **Apelido**, e **nome a apresentar**.
-11. Na **função** lista, escolha **utilizador**.
-12. Clique na seta seguinte.
-13. Sobre o **palavra-passe temporária de Get** página, clique em **criar**.
-14. Copiar o **nova palavra-passe**.
-15. Inicie sessão no Microsoft Azure com a nova conta. Altere a palavra-passe quando lhe for pedido.
-16. Inicie sessão no `https://portal.local.azurestack.external` com a nova conta para ver o portal de inquilinos.
+2. Na barra de navegação esquerdo, selecione **do Active Directory** e mude para o diretório que pretende utilizar para o Azure Stack ou criar um novo.
+3. Selecione **do Azure Active Directory** > **utilizadores** > **novo utilizador**.
+
+    ![Utilizadores - página de todos os utilizadores com o novo utilizador realçado](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+
+4. Sobre o **utilizador** página, preencha as informações necessárias.
+
+    ![Adicionar novo utilizador, a página de utilizador com informações do utilizador](media/azure-stack-add-new-user-aad/new-user-user.png)
+
+    - **Nome (obrigatório).** O nome próprio e apelido do utilizador novo. Por exemplo, Mary Parker.
+    - **Nome de utilizador (obrigatório).** O nome de utilizador do utilizador novo. Por exemplo, mary@contoso.com.
+        A parte do domínio do nome do utilizador tem de utilizar qualquer um do predefinido inicial nome de domínio <_NomeDominio_>. onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [como adicionar um nome de domínio personalizado ao Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+    - **Perfil.** Opcionalmente, pode adicionar mais informações sobre o utilizador. Também pode adicionar informações de utilizador num momento posterior. Para obter mais informações sobre como adicionar informações do utilizador, consulte [como adicionar ou alterar as informações de perfil do usuário](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    - **Função de diretório.**  escolher **utilizador**.
+
+5. Verifique **mostrar palavra-passe** e copie o gerado automaticamente palavra-passe fornecida no **palavra-passe** caixa. Precisará esta palavra-passe para o processo de início de sessão inicial.
+
+6. Selecione **Criar**.
+
+    O utilizador é criado e adicionado ao inquilino do Azure AD.
+
+7. Inicie sessão no portal do Microsoft Azure com a nova conta. Altere a palavra-passe quando lhe for pedido.
+8. Inicie sessão no `https://portal.local.azurestack.external` com a nova conta para ver o portal de inquilinos.
 
 ## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Criar uma conta de inquilino do Azure Stack com o PowerShell
+
 Se não tiver uma subscrição do Azure, não é possível utilizar o portal do Azure para adicionar uma conta de utilizador do inquilino. Neste caso, pode utilizar em vez disso, o módulo Azure Active Directory para Windows PowerShell.
 
 > [!NOTE]

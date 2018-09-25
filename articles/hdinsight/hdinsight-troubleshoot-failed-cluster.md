@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047030"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950720"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Resolver problemas de um cluster do HDInsight lento ou a falhar
 
@@ -57,12 +57,13 @@ O portal do Azure pode fornecer estas informações:
 
 ![Portal do HDInsight Azure informações](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Também pode utilizar a CLI do Azure:
+Também pode utilizar a CLI clássica do Azure:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Outra opção é usar o PowerShell. Para obter mais informações, consulte [Hadoop gerir clusters no HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Compare a versão do cluster com a versão mais recente do HDInsight. Cada vers�
 
 #### <a name="restart-your-cluster-services"></a>Reinicie os serviços de cluster
 
-Se estiver a sofrer abrandamentos no seu cluster, considere reiniciar seus serviços através da IU do Ambari ou a CLI do Azure. O cluster pode estar com erros transitórios e reiniciar é a forma mais rápida para estabilizar o seu ambiente e, possivelmente, melhorar o desempenho.
+Se estiver a sofrer abrandamentos no seu cluster, considere reiniciar seus serviços através da IU do Ambari ou a CLI clássica do Azure. O cluster pode estar com erros transitórios e reiniciar é a forma mais rápida para estabilizar o seu ambiente e, possivelmente, melhorar o desempenho.
 
 ## <a name="step-3-view-your-clusters-health"></a>Passo 3: Ver o estado de funcionamento do seu cluster
 

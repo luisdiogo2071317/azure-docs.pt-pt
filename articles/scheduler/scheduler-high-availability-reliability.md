@@ -1,82 +1,78 @@
 ---
-title: Programador de elevada disponibilidade e fiabilidade
-description: Programador de elevada disponibilidade e fiabilidade
+title: Elevada disponibilidade e fiabilidade - Azure Scheduler
+description: Saiba mais sobre a alta disponibilidade e confiabilidade no agendador do Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
-ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866094"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947929"
 ---
-# <a name="scheduler-high-availability-and-reliability"></a>Programador de elevada disponibilidade e fiabilidade
-## <a name="azure-scheduler-high-availability"></a>O agendador do Azure de elevada disponibilidade
-Como um núcleo de serviço de plataforma do Azure, o agendador do Azure está altamente disponível e as funcionalidades de implementação de serviço com redundância geográfica e o tarefa regionais georreplicação da replicação.
+# <a name="high-availability-and-reliability-for-azure-scheduler"></a>Elevada disponibilidade e fiabilidade do Scheduler do Azure
+
+> [!IMPORTANT]
+> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [Experimente o Azure Logic Apps antes](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+O Azure Scheduler fornece [elevada disponibilidade](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) e fiabilidade para os trabalhos. Para obter mais informações, consulte [SLA do Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+
+## <a name="high-availability"></a>Elevada disponibilidade
+
+O Azure Scheduler é [altamente disponível] e utiliza a implementação do serviço georredundante e replicação de tarefa, de região geo.
 
 ### <a name="geo-redundant-service-deployment"></a>Implementação de serviço com redundância geográfica
-O agendador do Azure está disponível através da IU em quase todas as região geográfica que está atualmente no Azure. A lista de regiões agendador do Azure está disponível no está [listados aqui](https://azure.microsoft.com/regions/#services). Se um centro de dados numa região alojada é composto indisponível, as capacidades de ativação pós-falha do agendador do Azure são, de modo a que o serviço está disponível a partir do Centro de dados de outro.
 
-### <a name="geo-regional-job-replication"></a>Replicação de tarefa Georreplicação regionais
-Não só o agendador do Azure é front-end disponível para pedidos de gestão, mas o seu próprio trabalho também é georreplicação. Quando houver uma falha na região de um, o agendador do Azure a ativação pós-falha e assegura que a tarefa é executada a partir de outro centro de dados na região geográfica emparelhado.
+O Azure Scheduler está disponível no portal do Azure em quase [cada região geográfica atualmente suportada pelo Azure](https://azure.microsoft.com/global-infrastructure/regions/#services). Portanto, se um datacenter do Azure numa região alojada ficar indisponível, pode continuar a utilizar a Azure Scheduler porque capacidades de ativação pós-falha do serviço disponibilizar agendador de outro datacenter.
 
-Por exemplo, se criou uma tarefa no Sul Central dos EUA, o agendador do Azure replica automaticamente essa tarefa no Norte Central-nos. Quando existe uma falha no Sul Central dos EUA, o agendador do Azure garante que a tarefa é executada a partir do Norte Central-nos. 
+### <a name="geo-regional-job-replication"></a>Replicação de tarefa geo-regional
 
-![][1]
+Suas próprias tarefas no agendador do Azure são replicadas entre regiões do Azure. Então, se uma região ficar indisponível, o agendador do Azure efetua a ativação pós-falha e certifica-se de que seu trabalho é executado a partir de outro datacenter na região geográfica associada.
 
-Como resultado, o agendador do Azure garante que os seus dados permanecem na mesma região geográfica mais ampla em caso de uma falha do Azure. Como resultado, não precisa de duplicar a tarefa apenas para adicionar a elevada disponibilidade – agendador do Azure fornece automaticamente capacidades de elevada disponibilidade para os trabalhos.
+Por exemplo, se criar uma tarefa no centro-Sul, o agendador do Azure replica automaticamente essa tarefa no e.u.a. Centro-Norte. Se ocorrer uma falha num centro-Sul, o Azure Scheduler é executada a tarefa no e.u.a. Centro-Norte. 
 
-## <a name="azure-scheduler-reliability"></a>Fiabilidade do agendador do Azure
-O agendador do Azure garante que as suas próprias elevada disponibilidade e assume uma abordagem diferentes tarefas criados pelo utilizador. Por exemplo, a tarefa pode invocar um ponto final de HTTP que não está disponível. O agendador do Azure nonetheless tenta executar a tarefa com êxito, pelo que lhe confere alternativas opções para lidar com falha. O agendador do Azure efetua este procedimento de duas formas:
+![Replicação de tarefa geo-regional](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
-### <a name="configurable-retry-policy-via-retrypolicy"></a>Política Repita configurável através de "retryPolicy"
-O agendador do Azure permite-lhe configurar uma política de repetição. Por predefinição, se uma tarefa falhar, programador tenta a tarefa novamente quatro vezes mais, intervalos de 30 segundo. Pode reconfigurar esta política de repetição para ser mais agressiva (por exemplo, dez vezes, em intervalos de 30 segundo) ou looser (por exemplo, duas vezes em intervalos diários.)
+O Azure Scheduler também torna-se de que seus dados permanecem na região geográfica mais amplo mas mesmo, caso de ocorrer uma falha no Azure. Portanto, não tem de duplicar as tarefas quando quiser apenas de elevada disponibilidade. O Azure Scheduler automaticamente fornece elevada disponibilidade a seus trabalhos.
 
-Como um exemplo de quando isto pode ajudar a, pode criar uma tarefa que é executada uma vez por semana e invoca um ponto final de HTTP. Se o ponto final de HTTP está inativo para algumas horas, quando a tarefa é executada, poderá não querer Aguarde uma semana mais para a tarefa para ser executada novamente, uma vez que irão falhar até a política de repetição de predefinição. Nestes casos, poderá reconfigurar a política de repetição padrão para repetir a cada três horas (por exemplo) em vez de cada 30 segundos.
+## <a name="reliability"></a>Fiabilidade
 
-Para saber como configurar uma política de repetição, consulte [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+O Azure Scheduler garante sua própria elevada disponibilidade, mas utiliza uma abordagem diferente para trabalhos criados pelo utilizador. Por exemplo, suponha que sua tarefa invoca um ponto final HTTP que não está disponível. O Azure Scheduler ainda tenta executar o seu trabalho com êxito ao fornecer-lhe maneiras alternativas para processamento de falhas: 
 
-### <a name="alternate-endpoint-configurability-via-erroraction"></a>Capacidade de ponto final alternativo através de "errorAction"
-Se o ponto final de destino para a tarefa do agendador do Azure permanece inacessível, agendador do Azure retrocede para o ponto final de processamento de erros alternativo depois de seguir a política de repetição. Se estiver configurado um ponto de final alternativo do processamento de erros, o agendador do Azure invoca-lo. Com um ponto final alternativo, os seus próprios trabalhos são de elevada disponibilidade face a falhas.
+* Configure as políticas de repetição.
+* Configure pontos finais alternativos.
 
-Por exemplo, no diagrama abaixo, o agendador do Azure segue a política de repetição para aceder um serviço web de Nova Iorque. Depois das repetições falharem, verifica se há alternativa. Em seguida, passa diretamente e começa a efetuar pedidos alternativo com a mesma política de repetição.
+<a name="retry-policies"></a>
 
-![][2]
+### <a name="retry-policies"></a>Políticas de repetição
 
-Tenha em atenção que se aplica a mesma política de repetição para a ação original e a ação de erro alternativo. Também é possível ter o tipo de ação da ação de erro alternativo ser diferente do tipo de ação da ação principal. Por exemplo, enquanto a ação principal pode ser invocar um ponto final de HTTP, a ação de erro em vez disso, pode ser uma fila de armazenamento, a fila de barramento de serviço ou a ação de tópico de barramento de serviço que suporta o registo de erros.
+O Azure Scheduler permite-lhe configurar as políticas de repetição. Se uma tarefa falhar, em seguida, por predefinição, o Scheduler tentará novamente a tarefa de quatro vezes mais em intervalos de 30 segundos. Pode fazer esta política de repetição intervalos mais agressivos, por exemplo, 10 vezes em intervalos de 30 segundos ou menos agressivos, por exemplo, duas vezes no diário.
 
-Para saber como configurar um ponto final alternativo, consulte [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Por exemplo, suponha que criar uma tarefa semanal que chama um ponto final HTTP. Se o ponto de extremidade HTTP ficar indisponível por algumas horas, quando a tarefa é executada, pode não querer esperar outro semana para a tarefa executar novamente, o que acontece porque a política de repetição predefinida não funcionará neste caso. Portanto, convém alterar a política de repetição padrão para que as repetições ocorrem, por exemplo, a cada três horas, em vez a cada 30 segundos. 
 
-## <a name="see-also"></a>Veja Também
- [O que é o Scheduler?](scheduler-intro.md)
+Para saber como configurar uma política de repetição, veja [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
- [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
+### <a name="alternate-endpoints"></a>Pontos finais alternativos
 
- [Começar a utilizar o Scheduler no portal do Azure](scheduler-get-started-portal.md)
+Se a tarefa do agendador do Azure chama um ponto final que está inacessível, mesmo depois de seguir a política de repetição, o agendador retrocede para um ponto de final alternativo que pode lidar com esses erros. Então, se configurou a este ponto final, o agendador chama esse ponto de extremidade, o que torna as suas próprias tarefas altamente disponíveis quando ocorrem falhas.
 
- [Planos e faturação no Azure Scheduler](scheduler-plans-billing.md)
+Por exemplo, este diagrama mostra como o agendador segue a política de repetição ao chamar um serviço da web em nova York. Se as repetições falharem, o agendador verifica a existência de um ponto final alternativo. Se o ponto final de existir, o Scheduler inicia a enviar pedidos para o ponto final alternativo. A mesma política de repetição aplica-se para a ação original e a ação alternativa.
 
- [Como criar agendas complexas e periodicidade avançada com o Azure Scheduler](scheduler-advanced-complexity.md)
+![Comportamento de Scheduler com a política de repetição e o ponto final alternativo](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
 
- [Referência da API REST do Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+O tipo de ação para a ação alternativo pode ser diferente da ação de original. Por exemplo, embora a ação original chama um ponto final HTTP, a ação alternativa poderá registar erros ao utilizar uma fila de armazenamento, a fila do Service Bus ou a ação de tópico de barramento de serviço.
 
- [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
+Para saber como configurar um ponto final alternativo, consulte [errorAction](scheduler-concepts-terms.md#error-action).
 
- [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)
+## <a name="see-also"></a>Consulte também
 
- [Autenticação de saída do Azure Scheduler](scheduler-outbound-authentication.md)
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
-
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+* [O que é o agendador do Azure?](scheduler-intro.md)
+* [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
+* [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
+* [Limites, quotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)

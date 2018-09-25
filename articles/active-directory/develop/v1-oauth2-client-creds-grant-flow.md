@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f7c6c2bef747d00188cac2c3601fdad739b92a8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: eb43589b04be8b2b9c3be45d33c94592e97d308e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948269"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Chamadas serviço a serviço com as credenciais de cliente (segredo partilhado ou certificado)
 O OAuth 2.0 cliente credenciais de fluxo de concessão de permite um serviço web (*cliente confidencial*) para utilizar as suas próprias credenciais em vez de representar um utilizador, para autenticação ao chamar outro serviço web. Neste cenário, o cliente é normalmente um serviço web de camada intermediária, um serviço de daemon ou o web site. Para um nível mais elevado de garantia, do Azure AD também permite que o serviço de chamada utilizar um certificado (em vez de um segredo partilhado) como uma credencial.
@@ -61,7 +61,7 @@ Ao usar um segredo partilhado, um pedido de token de acesso de serviço para ser
 | Recurso |obrigatório |Introduza o URI de ID de aplicação do serviço web do recetor. Para encontrar o URI de ID de aplicação, no portal do Azure, clique em **do Azure Active Directory**, clique em **registos das aplicações**, clique na aplicação de serviço e, em seguida, clique em **definições** e  **Propriedades**. |
 
 #### <a name="example"></a>Exemplo
-A seguinte mensagem de HTTP solicita um token de acesso para o https://service.contoso.com/ serviço web. O `client_id` identifica o serviço web que solicita o token de acesso.
+Os seguintes pedidos de HTTP POST uma [token de acesso](access-tokens.md) para o https://service.contoso.com/ serviço web. O `client_id` identifica o serviço web que solicita o token de acesso.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1

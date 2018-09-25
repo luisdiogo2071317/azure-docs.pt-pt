@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 639eff5806ef84c526ae8d0d0ed55ca790bdac08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 67624e7ad21e6c3526b3ca47ff4b8e2df3b6ae54
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498033"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962271"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo, acessível para o browser para o gerenciamento de recursos do Azure.
@@ -48,7 +48,7 @@ Os utilizadores de Linux podem utilizar Bash no Cloud Shell, enquanto os usuári
 ![PowerShell no Cloud Shell (pré-visualização)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Autenticado e configurada estação de trabalho do Azure
-Cloud Shell é gerida pela Microsoft para que ele vem com ferramentas de linha de comandos populares e suporte de idiomas. Cloud Shell segura é autenticado automaticamente para acesso imediato a seus recursos através dos cmdlets de CLI 2.0 do Azure ou do Azure PowerShell.
+Cloud Shell é gerida pela Microsoft para que ele vem com ferramentas de linha de comandos populares e suporte de idiomas. Cloud Shell segura é autenticado automaticamente para acesso imediato a seus recursos através dos cmdlets de CLI do Azure ou do Azure PowerShell.
 
 Ver toda a [lista de ferramentas instaladas no Cloud Shell.](features.md#tools)
 
@@ -61,7 +61,7 @@ Cloud Shell oferece um editor de texto gráfica integrada com base no Editor de 
 O cloud Shell é uma ferramenta flexível que pode ser usada em:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentação de "Experimente" de CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Documentação de "Experimente" de CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Aplicação móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão da conta do Azure de código de VS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

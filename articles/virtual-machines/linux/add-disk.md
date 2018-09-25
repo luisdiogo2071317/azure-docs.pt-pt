@@ -1,6 +1,6 @@
 ---
-title: Adicionar um disco de dados para a VM com Linux utilizando a CLI do Azure | Microsoft Docs
-description: Saiba como adicionar um disco de dados persistente na VM com Linux com o Azure
+title: Adicionar um disco de dados à VM do Linux com a CLI do Azure | Documentos da Microsoft
+description: Saiba como adicionar um disco de dados persistente a sua VM do Linux com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,20 +15,20 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949218"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
-Este artigo mostra como ligar um disco persistente à sua VM, de modo a que pode manter os dados -, mesmo se a VM é reaprovisionada devido a manutenção ou redimensionar. 
+Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar. 
 
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
 
-Se pretender adicionar um disco de dados vazio novo na sua VM, utilize o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando com o `--new` parâmetro. Se a VM está a ser uma zona de disponibilidade, o disco é criado automaticamente no mesmo horário da VM. Para obter mais informações, consulte [zonas de descrição geral da disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* que é 50 Gb:
+Se pretender adicionar um disco de dados novo e vazio na sua VM, utilize o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando com o `--new` parâmetro. Se a VM numa zona de disponibilidade, o disco é automaticamente criado na mesma zona da VM. Para obter mais informações, consulte [descrição geral das zonas de disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* ou seja, 50 Gb de tamanho:
 
 ```azurecli
 az vm disk attach \
@@ -41,7 +41,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Anexar um disco existente 
 
-Para anexar um disco existente, localize o ID de disco e passar o ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* no *myResourceGroup*, em seguida, liga-lo para a VM com o nome *myVM*:
+Para anexar um disco existente, localizar o ID do disco e passar a ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* na *myResourceGroup*, em seguida, liga-a VM com o nome *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -51,13 +51,13 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ligar à VM do Linux para montar o disco novo
-A partição, formatar e montar o disco novo para a VM com Linux pode utilizá-lo, SSH para a VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte estabelece ligação a uma VM com a entrada DNS pública do *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*: 
+Para particionar e formatar para montar o disco novo, para que a sua VM do Linux pode utilizá-lo, SSH à VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte liga a uma VM com a entrada DNS pública dos *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Assim que estiver ligado à VM, está pronto para anexar um disco. Em primeiro lugar, localize a utilização de disco `dmesg` (pode variar o método utilizado para detetar o disco novo). O exemplo seguinte utiliza dmesg para filtrar *SCSI* discos:
+Assim que estiver ligado à sua VM, está pronto para anexar um disco. Em primeiro lugar, localizar o disco com `dmesg` (o método utilizado para detetar o disco novo pode variar). O exemplo seguinte utiliza dmesg para filtrar os *SCSI* discos:
 
 ```bash
 dmesg | grep SCSI
@@ -73,13 +73,13 @@ O resultado é semelhante ao seguinte exemplo:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Aqui, *sdc* é o disco que queremos. Particionar o disco com `fdisk`, certifique-se um disco principal na partição 1 e aceitar as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */dev/sdc*:
+Aqui, *sdc* é o disco que Desejamos. Particionar o disco com `fdisk`, torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */desenvolvimento/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o resto dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:
+Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o restante dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -101,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-A tabela de partições de impressão, escrevendo `p` e, em seguida, utilizar `w` ao escrever a tabela para o disco e sair. A saída deve ter um aspeto semelhante ao seguinte exemplo:
+A tabela de partições de impressão, escrevendo `p` e, em seguida, utilizar `w` escrever a tabela para o disco e de saída. O resultado deverá ter um aspeto semelhante ao seguinte exemplo:
 
 ```bash
 Command (m for help): p
@@ -123,7 +123,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Agora, escrever um sistema de ficheiros para a partição com o `mkfs` comando. Especifique o tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um *ext4* no sistema de ficheiros a */dev/sdc1* partição que foi criada nos passos anteriores:
+Agora, escrever um sistema de ficheiros para a partição com o `mkfs` comando. Especifique o tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um *ext4* no sistema de ficheiros a */desenvolvimento/sdc1* partição que foi criada nos passos anteriores:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -154,25 +154,25 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Agora, crie um diretório de montagem de sistema de ficheiros com `mkdir`. O exemplo seguinte cria um diretório em */datadrive*:
+Agora, crie um diretório para montar o sistema de ficheiros com `mkdir`. O exemplo seguinte cria um diretório em */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Utilize `mount` para montar, em seguida, o sistema de ficheiros. O exemplo seguinte monta o */dev/sdc1* de partição para a */datadrive* ponto de montagem:
+Utilize `mount` , em seguida, montar o sistema de ficheiros. Monta o exemplo a seguir a */desenvolvimento/sdc1* de partição para o */datadrive* ponto de montagem:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Para garantir que a unidade é remontadas da automaticamente após um reinício, tem de ser adicionado para o *etc/fstab* ficheiro. Também recomendamos vivamente que o UUID (universalmente Unique IDentifier) é utilizado numa *etc/fstab* referir-se a unidade em vez de apenas o nome de dispositivo (como, por exemplo */dev/sdc1*). Se o sistema operativo Deteta um erro de disco durante o arranque, utilizar o UUID evita a ser montado numa localização especificada de disco incorreta. Restante discos de dados iria, em seguida, ser atribuído os mesmos IDs de dispositivo. Para localizar o UUID da nova unidade, utilize o `blkid` utilitário:
+Para garantir que a unidade é a remontadas automaticamente após um reinício, tem de ser adicionado para o *etc/fstab* ficheiro. Também recomendamos que o UUID (Identificador exclusivo universalmente) é utilizado numa *etc/fstab* referir-se para a unidade em vez de apenas o nome do dispositivo (como, por exemplo */desenvolvimento/sdc1*). Se o sistema operacional detetar um erro de disco durante o arranque, utilizar o UUID evita o que está a ser montado para uma determinada localização de disco incorreta. Restantes discos de dados poderiam então ser atribuído esses mesmos IDs de dispositivo. Para localizar o UUID da unidade de novo, utilize o `blkid` utilitário:
 
 ```bash
 sudo -i blkid
 ```
 
-O resultado semelhante ao seguinte exemplo:
+O resultado será semelhante ao seguinte exemplo:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -181,36 +181,36 @@ O resultado semelhante ao seguinte exemplo:
 ```
 
 > [!NOTE]
-> Editar incorretamente o **etc/fstab** ficheiros poderia resultar num sistema de arranque. Se não souber, consulte a documentação de distribuição para obter informações sobre como editar corretamente este ficheiro. Também é recomendável que uma cópia de segurança do ficheiro /etc/fstab foi criada antes de editar.
+> Editar incorretamente o **etc/fstab** ficheiros poderiam resultar num sistema não inicializável. Se não souber, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que uma cópia de segurança do ficheiro /etc/fstab. é criada antes de editar.
 
-Em seguida, abra o *etc/fstab* ficheiro num editor de texto da seguinte forma:
+Em seguida, abra a *etc/fstab* ficheiro num editor de texto da seguinte forma:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-Neste exemplo, utilize o valor UUID para o */dev/sdc1* dispositivo que foi criado nos passos anteriores e pontodemontagem de */datadrive*. Adicione a seguinte linha ao final do *etc/fstab* ficheiro:
+Neste exemplo, utilize o valor UUID para o */desenvolvimento/sdc1* dispositivo que foi criado nos passos anteriores e o ponto de montagem de */datadrive*. Adicione a seguinte linha ao final dos *etc/fstab* ficheiro:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> Mais tarde a remover um disco de dados sem necessitar de editar fstab pode fazer com que a VM falhar efetuar o arranque. A maioria das distribuições de fornecer um o *nofail* e/ou *nobootwait* fstab opções. Estas opções permitir que um sistema de arranque, mesmo se o disco não consegue montar no momento do arranque. Consulte a documentação de sua distribuição para obter mais informações sobre estes parâmetros.
+> A remover um disco de dados mais tarde sem editar fstab pode fazer com que a VM falhe efetuar o arranque. A maioria das distribuições fornecem nenhuma a *nofail* e/ou *nobootwait* fstab opções. Estas opções que o sistema de arranque, mesmo se o disco não consegue montar no momento da inicialização. Para obter mais informações sobre estes parâmetros, consulte a documentação de sua distribuição.
 > 
-> O *nofail* opção garante que a VM entrar, mesmo se o sistema de ficheiros está danificado ou o disco não existe no momento do arranque. Sem esta opção, pode encontrar o comportamento, conforme descrito em [não é possível SSH para a VM com Linux devido a erros FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> O *nofail* opção garante que a VM é iniciado, mesmo que o sistema de ficheiros está danificado ou o disco não existe no momento da inicialização. Sem esta opção, pode encontrar o comportamento, conforme descrito em [não é possível SSH à VM do Linux devido a erros FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte de cortar/UNMAP para Linux no Azure
-Alguns kernels Linux suportam operações de cortar/UNMAP para eliminar os blocos no disco. Esta funcionalidade é útil principalmente no armazenamento standard para informar o Azure eliminado páginas já não são válido e pode ser eliminada e pode poupar dinheiro se criar ficheiros grandes e, em seguida, elimine-os.
+Alguns kernels de Linux suportam operações de cortar/UNMAP descartar blocos não utilizados no disco. Esta funcionalidade é útil principalmente no armazenamento standard para informar o Azure eliminado páginas já não são válido e podem ser descartados e pode economizar dinheiro, se cria arquivos grandes e, em seguida, eliminá-los.
 
-Existem duas formas de ativar a limitação suportam na sua VM com Linux. Normalmente, consulte a distribuição para a abordagem recomendada:
+Existem duas formas de ativar a limitação de suporte na sua VM do Linux. Como sempre, consulte sua distribuição para a abordagem recomendada:
 
 * Utilize o `discard` montar opção na *etc/fstab*, por exemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Em alguns casos, o `discard` opção pode ter implicações de desempenho. Em alternativa, pode executar o `fstrim` manualmente de comando na linha de comandos ou adicioná-lo à sua crontab regularmente a executar:
+* Em alguns casos, o `discard` opção pode ter implicações de desempenho. Em alternativa, pode executar o `fstrim` comando manualmente a partir da linha de comandos, ou adicione-o para seu crontab para executar regularmente:
   
     **Ubuntu**
   
@@ -230,6 +230,6 @@ Existem duas formas de ativar a limitação suportam na sua VM com Linux. Normal
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para garantir a VM com Linux está configurada corretamente, consulte o [otimizar o desempenho do computador Linux](optimization.md) recomendações.
-* Expandir a capacidade de armazenamento através da adição de discos adicionais e [configurar RAID](configure-raid.md) para um desempenho adicional.
+* Para garantir a sua VM do Linux está configurada corretamente, reveja os [otimizar o desempenho da máquina Linux](optimization.md) recomendações.
+* Expandir a sua capacidade de armazenamento através da adição de discos adicionais e [configurar o RAID](configure-raid.md) para desempenho adicionais.
 

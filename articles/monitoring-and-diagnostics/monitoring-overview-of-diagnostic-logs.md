@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983124"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -45,7 +45,7 @@ Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
 Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de eventos que não esteja na mesma subscrição que emite os registos. O utilizador que configura a definição tem de ter o acesso RBAC adequado para ambas as subscrições.
 
 > [!NOTE]
->  Atualmente não pode arquivar dados a um armazenamento de conta que, por trás de uma rede virtual protegida.
+>  Atualmente não pode arquivar registos de fluxo de rede a um armazenamento de conta que, por trás de uma rede virtual protegida.
 
 > [!WARNING]
 > O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Pode combinar estes parâmetros para ativar várias opções de saída.
 
 Atualmente, não é possível configurar as definições de diagnóstico de inquilino com o Azure PowerShell.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Ativar a recolha de registos de diagnóstico de recursos através da CLI 2.0 do Azure
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Ativar a recolha de registos de diagnóstico de recursos através da CLI do Azure
 
-Para ativar a recolha de registos de diagnóstico de recursos através da CLI 2.0 do Azure, utilize o [az monitor diagnostic-settings criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Para ativar a recolha de registos de diagnóstico de recursos através da CLI do Azure, utilize o [az monitor diagnostic-settings criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 Para ativar o armazenamento de registos de diagnóstico numa conta de armazenamento:
 

@@ -1,6 +1,6 @@
 ---
-title: Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - CLI 2.0 do Azure | Documentos da Microsoft
-description: Este artigo descreve como utilizar o Azure CLI 2.0 para analisar uma segurança de máquinas virtuais com a vista de grupo de segurança.
+title: Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - CLI do Azure | Documentos da Microsoft
+description: Este artigo descreve como utilizar a CLI do Azure para analisar uma segurança de máquinas virtuais com a vista de grupo de segurança.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090568"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962900"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com a CLI 2.0 do Azure
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com a CLI do Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
@@ -30,10 +30,7 @@ ms.locfileid: "39090568"
 
 Vista de grupo de segurança devolve as regras de segurança de rede configurado e eficaz que são aplicadas a uma máquina virtual. Esta funcionalidade é útil para auditar e diagnosticar os grupos de segurança de rede e regras que estão configuradas numa VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como obter as regras de segurança configurado e eficaz para uma máquina virtual utilizando a CLI do Azure
 
-
-Este artigo utiliza o CLI de próxima geração para o modelo de implementação de gestão de recursos, Azure CLI 2.0, que está disponível para Windows, Mac e Linux.
-
-Para efetuar os passos neste artigo, precisa [instale a Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Para efetuar os passos neste artigo, precisa [instale a interface de linha de comandos do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

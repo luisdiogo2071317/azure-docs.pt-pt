@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 89f222d28a284abff50e60b12c691be2f8691255
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966848"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -530,9 +530,9 @@ Mesmo que o **Monitor** separador mostra dados do Application Insights, pode ver
 
 ### <a name="real-time-monitoring"></a>Monitorização em tempo real
 
-Pode transmitir ficheiros de registo para uma sessão de linha de comandos numa estação de trabalho local, utilizando o [Interface de linha de comandos (CLI do Azure) 2.0](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).  
+Pode transmitir ficheiros de registo para uma sessão de linha de comandos numa estação de trabalho local, utilizando o [Interface de linha de comandos (CLI do Azure)](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).  
 
-Para a CLI 2.0 do Azure, utilize os seguintes comandos para iniciar sessão, escolha a sua subscrição e os ficheiros de registo do fluxo:
+Para a CLI do Azure, utilize os seguintes comandos para iniciar sessão, escolha a sua subscrição e os ficheiros de registo do fluxo:
 
 ```
 az login

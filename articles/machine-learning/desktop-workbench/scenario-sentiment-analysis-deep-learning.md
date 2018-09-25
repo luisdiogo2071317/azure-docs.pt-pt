@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650285"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947776"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de sentimentos com aprendizagem profunda com o Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Análise de sentimentos é uma tarefa bem conhecida no território de processamento de linguagem natural. Devido um conjunto de textos, o objetivo é determinar o sentimento desse texto. O objetivo dessa solução é usar a aprendizagem profunda para prever o sentimento de análises de filmes.
 
@@ -45,7 +50,7 @@ Para obter o valor da análise de sentimentos, as empresas tem de ter a capacida
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [guia de início rápido de instalação](../service/quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [guia de início rápido de instalação](quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
 
 * Para operacionalização, é melhor se tiver o motor do Docker instalado e em execução localmente. Caso contrário, pode utilizar a opção de cluster. No entanto, a execução de um Azure Container Service (ACS) pode ser caro.
 

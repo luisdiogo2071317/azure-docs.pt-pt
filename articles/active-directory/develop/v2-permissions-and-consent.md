@@ -12,48 +12,68 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960333"
 ---
-# <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Âmbitos, permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
+# <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
 
-Aplicações que se integram com o Azure Active Directory (Azure AD), siga um modelo de autorização que proporciona aos utilizadores controlo sobre como uma aplicação pode aceder aos respetivos dados. A implementação da versão 2.0 do modelo de autorização foi atualizada e ele altera a forma como uma aplicação tem de interagir com o Azure AD. Este artigo abrange os conceitos básicos deste modelo de autorização, incluindo âmbitos, permissões e consentimento.
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Aplicativos que se integram com plataforma de identidade do Microsoft seguem um modelo de autorização que oferece controle de utilizadores e administradores sobre como os dados podem ser acedidos. A implementação do modelo de autorização foi atualizada no ponto final v2.0, e ele altera a forma como uma aplicação tem de interagir com a plataforma de identidade do Microsoft. Este artigo abrange os conceitos básicos deste modelo de autorização, incluindo âmbitos, permissões e consentimento.
 
 > [!NOTE]
-> O ponto final v2.0 não suporta todos os cenários do Azure Active Directory e funcionalidades. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
+> O ponto final v2.0 não suporta todos os cenários e funcionalidades. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Âmbitos e permissões
 
-Azure AD implementa a [OAuth 2.0](active-directory-v2-protocols.md) protocolo de autorização. OAuth 2.0 é um método por meio do qual uma aplicação de terceiros pode acessar recursos hospedados na web em nome de um utilizador. Qualquer recurso hospedado na web que se integra com o Azure AD tem um identificador de recurso, ou *URI de ID de aplicação*. Por exemplo, alguns dos recursos de hospedado na web da Microsoft incluem:
+A implementa de plataforma de identidade do Microsoft da [OAuth 2.0](active-directory-v2-protocols.md) protocolo de autorização. OAuth 2.0 é um método por meio do qual uma aplicação de terceiros pode acessar recursos hospedados na web em nome de um utilizador. Qualquer recurso hospedado na web que integra-se com a plataforma de identidade da Microsoft tem um identificador de recurso, ou *URI de ID de aplicação*. Por exemplo, alguns dos recursos de hospedado na web da Microsoft incluem:
 
-* O Office 365 Unified correio API: `https://outlook.office.com`
-* A API do Graph do Azure AD: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
+* API de correio do Office 365: `https://outlook.office.com`
+* O Azure AD Graph: `https://graph.windows.net`
 
-O mesmo acontece com todos os recursos de terceiros que tem integrado com o Azure AD. Qualquer um desses recursos também pode definir um conjunto de permissões que pode ser utilizado para dividir a funcionalidade desse recurso em segmentos mais pequenos. Por exemplo, [Microsoft Graph](https://graph.microsoft.io) definiu permissões para efetuar as seguintes tarefas, entre outras:
+> [!NOTE]
+> Recomendamos vivamente que utilize o Microsoft Graph em vez do Azure AD Graph, API de correio do Office 365, etc.
+
+O mesmo acontece com todos os recursos de terceiros que integraram com a plataforma de identidade da Microsoft. Qualquer um desses recursos também pode definir um conjunto de permissões que pode ser utilizado para dividir a funcionalidade desse recurso em segmentos mais pequenos. Por exemplo, [Microsoft Graph](https://graph.microsoft.com) definiu permissões para efetuar as seguintes tarefas, entre outras:
 
 * Leia o calendário de um utilizador
 * Escrever para o calendário de um utilizador
 * Enviar e-mails como se fosse um utilizador
 
-Ao definir esses tipos de permissões, o recurso tem um controle refinado sobre os seus dados e como os dados são expostos. Uma aplicação de terceiros pode pedir estas permissões de um utilizador de aplicação. O utilizador de aplicação têm de aprovar as permissões para a aplicação pode agir em nome do usuário. Por segmentar a funcionalidade do recurso em conjuntos menores de permissão, aplicações de terceiros podem ser criadas para solicitar apenas as permissões específicas que precisam para executar a respetiva função. Os utilizadores da aplicação podem saber exatamente como uma aplicação utilizará os seus dados e pode ser mais seguro de que a aplicação não está se comportando com más intenções.
+Ao definir esses tipos de permissões, o recurso tem um controle refinado sobre os seus dados e como as funcionalidades de API é exposta. Uma aplicação de terceiros pode pedir estas permissões de utilizadores e administradores, que têm de aprovar o pedido antes da aplicação pode aceder a dados ou agir em nome de um utilizador. Por segmentar a funcionalidade do recurso em conjuntos menores de permissão, aplicações de terceiros podem ser criadas para solicitar apenas as permissões específicas que precisam para executar a respetiva função. Utilizadores e administradores podem saber exatamente os dados que a aplicação tem acesso aos e podem ser mais seguro de que ele está não se comportando com más intenções. Os desenvolvedores sempre devem concordar com o conceito de privilégio mínimo, pedindo apenas as permissões necessárias para as aplicações a funcionar.
 
-No Azure AD e são chamados de OAuth, esses tipos de permissões *âmbitos*. Eles também, por vezes, são denominados *oAuth2Permissions*. Um âmbito é representado no Azure AD como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph, o valor de âmbito para cada permissão é:
+No OAuth, esses tipos de permissões são chamados *âmbitos*. Eles também, muitas vezes, simplesmente denominados *permissões*. Uma permissão é representada na plataforma de identidades da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph, o valor de cadeia de caracteres para cada permissão é:
 
 * Leia o calendário de um utilizador através da utilização `Calendars.Read`
 * Escrever para o calendário de um utilizador ao utilizar `Calendars.ReadWrite`
 * Envie e-mails como um utilizador a utilizar por `Mail.Send`
 
-Uma aplicação pode pedir estas permissões, especificando os âmbitos em pedidos para o ponto final v2.0.
+Uma aplicação mais frequentemente pedidos de ponto final de autorizar estas permissões, especificando os âmbitos em pedidos para a versão 2.0. No entanto, determinadas permissões de privilégio alto só podem ser concedidas através de consentimento de administrador e geralmente solicitado/concedido a utilizar o [ponto final de consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Continue a ler para obter mais informações.
+
+## <a name="permission-types"></a>Tipos de permissão
+
+Plataforma de identidade da Microsoft suporta dois tipos de permissões: **permissões delegadas** e **permissões de aplicação**.
+
+- **Permissões delegadas** são utilizados por aplicações que têm um utilizador com sessão iniciada presente. Para estas aplicações o utilizador ou administrador autorizar as permissões que os pedidos de aplicação e a aplicação é uma permissão delegada para atuar como o utilizador com sessão iniciada ao efetuar chamadas para o recurso de destino. Algumas permissões delegadas podem ser permitidas por utilizadores não administrativos, mas exigem algumas permissões com mais privilégios [consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-scopes).  
+
+- **Permissões de aplicação** são utilizados por aplicações que executam o sem um utilizador com sessão iniciada presente; por exemplo, aplicativos que são executados como serviços em segundo plano ou daemons.  Permissões de aplicação só é possível [deu consentimento por um administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+
+_Permissões efetivas_ são as permissões que a aplicação terá quando são efetuados pedidos para o recurso de destino. É importante compreender a diferença entre o delegado e as permissões de aplicação que é concedida a sua aplicação e as respetivas permissões em vigor quando fazer chamadas para o recurso de destino.
+
+- Para obter permissões delegadas, o _permissões efetivas_ da sua aplicação será a interseção com menos privilégios das permissões delegadas a aplicação recebeu (através de consentimento) e os privilégios do utilizador atualmente com sessão iniciada. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para obter mais informações sobre as funções de administrador, consulte [atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+  Por exemplo, suponha a sua aplicação tenha sido concedida a _User.ReadWrite.All_ delegado permissão. Esta permissão concede nominalmente permissão à aplicação para ler e atualizar o perfil de todos os utilizadores de uma organização. Se o utilizador com sessão iniciada for administrador global, a aplicação poderá atualizar o perfil de todos os utilizadores da organização. No entanto, se o utilizador com sessão iniciada não tiver uma função de administrador, a aplicação só poderá atualizar o perfil desse utilizador. Não poderá atualizar os perfis dos outros utilizadores da organização porque o utilizador em cujo nome tem permissão para agir não tem esses privilégios.
+  
+- Para obter permissões de aplicação, o _permissões efetivas_ da sua aplicação será o nível completo de privilégios implícitas pela permissão. Por exemplo, uma aplicação com o _User.ReadWrite.All_ permissão da aplicação pode atualizar o perfil de cada utilizador na organização. 
 
 ## <a name="openid-connect-scopes"></a>Âmbitos de OpenID Connect
 
@@ -69,7 +89,7 @@ O `email` âmbito pode ser utilizado com o `openid` escopo e dos outros. Fornece
 
 ### <a name="profile"></a>perfil
 
-O `profile` âmbito pode ser utilizado com o `openid` escopo e dos outros. Possibilita o acesso de aplicação a uma quantidade substancial de informações sobre o utilizador. As informações que ele pode acessar incluem, mas não está limitadas a, o nome de utilizador nome próprio, apelido, preferencial e ID de objeto. Para obter uma lista completa das afirmações de perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte a [v2.0 tokens referência](v2-id-and-access-tokens.md).
+O `profile` âmbito pode ser utilizado com o `openid` escopo e dos outros. Possibilita o acesso de aplicação a uma quantidade substancial de informações sobre o utilizador. As informações que ele pode acessar incluem, mas não está limitadas a, o nome de utilizador nome próprio, apelido, preferencial e ID de objeto. Para obter uma lista completa das afirmações de perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte a [ `id_tokens` referência](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
@@ -78,19 +98,6 @@ O [ `offline_access` âmbito](http://openid.net/specs/openid-connect-core-1_0.ht
 Se a sua aplicação não solicita a `offline_access` escopo, ele não irão receber tokens de atualização. Isso significa que, quando resgatar um código de autorização no [fluxo de código de autorização de OAuth 2.0](active-directory-v2-protocols.md), irá receber um token de acesso do `/token` ponto final. O token de acesso é válido para um curto período de tempo. O token de acesso, normalmente, expira dentro de uma hora. AT que ponto, o aplicativo precisa redirecionar o usuário de volta para o `/authorize` ponto final para obter um novo código de autorização. Durante este redirecionamento, dependendo do tipo de aplicação, o utilizador poderá ter de introduzir as respetivas credenciais novamente ou novamente o consentimento a permissões.
 
 Para obter mais informações sobre como obter e utilizar tokens de atualização, consulte a [referência do protocolo v2.0](active-directory-v2-protocols.md).
-
-## <a name="accessing-v10-resources"></a>Aceder a recursos da versão 1.0
-aplicativos v2.0 podem pedir tokens e consentimento para aplicativos de v1.0 (por exemplo, a API do Power BI `https://analysis.windows.net/powerbi/api` ou a API do Sharepoint `https://{tenant}.sharepoint.com`).  Para fazer isso, pode fazer referência a cadeia URI e o âmbito de aplicação no `scope` parâmetro.  Por exemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` poderia solicitar o Power BI `View all Datasets` permissão para a sua aplicação. 
-
-Para solicitar permissões vários, acrescente o URI completo com um espaço ou `+`, por exemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Isso solicita ambos os `View all Datasets` e `View all Reports` permissões.  Tenha em atenção que tal como acontece com todos os âmbitos de acesso do Azure AD e as permissões, aplicativos podem apenas fazer um pedido a um recurso ao mesmo tempo - pelo que a solicitação `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita que tanto o Power BI `View all Datasets` permissão e o Skype para empresas `Initiate conversations` permissão, será rejeitada devido a pedidas permissões em dois recursos diferentes.  
-
-### <a name="v10-resources-and-tenancy"></a>recursos de versões 1.0 e inquilinos
-O v1.0 e v2.0 protocolos do Azure AD utilizam um `{tenant}` parâmetro incorporadas no URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Ao utilizar o ponto final v2.0 para aceder a um recurso de v1.0 organizacional, o `common` e `consumers` inquilinos não podem ser utilizados, como esses recursos são apenas acessíveis com organizacional (Azure AD) contas.  Portanto, ao aceder a estes recursos, apenas o GUID de inquilino ou `organizations` pode ser utilizado como o `{tenant}` parâmetro.  
-
-Se um aplicativo tentar acessar um recurso de v1.0 organizacional com um inquilino incorreto, será devolvido um erro semelhante ao seguinte. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
 
 ## <a name="requesting-individual-user-consent"></a>Pedir consentimento do utilizador individuais
 
@@ -108,40 +115,51 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-O `scope` parâmetro é uma lista separada por espaço dos âmbitos que a aplicação está a pedir. Cada âmbito é indicado ao acrescentar o valor de âmbito para o identificador do recurso (o URI de ID de aplicação). O exemplo de pedido, a aplicação tem permissão para ler o calendário do usuário e enviar correio como o utilizador.
+O `scope` parâmetro é uma lista separada de espaço de permissões delegadas que a aplicação está a pedir. Cada permissão é indicada ao acrescentar o valor de permissão ao identificador do recurso (o URI de ID de aplicação). O exemplo de pedido, a aplicação tem permissão para ler o calendário do usuário e enviar correio como o utilizador.
 
-Depois do utilizador introduz as respetivas credenciais, o ponto final v2.0 verifica a existência de um registo correspondente *consentimento do utilizador*. Se o utilizador não consentiu para qualquer um das permissões pedidas no passado, o ponto final v2.0 pede ao utilizador para conceder as permissões pedidas.
+Depois do utilizador introduz as respetivas credenciais, o ponto final v2.0 verifica a existência de um registo correspondente *consentimento do utilizador*. Se o utilizador não consentiu para qualquer um das permissões pedidas no passado, nem um administrador já autorizou para estas permissões em nome de toda a organização, o ponto final v2.0 pede ao utilizador para conceder as permissões pedidas.
 
 ![Consentimento de conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
 
-A permissão aprovada pelo usuário, o consentimento é registado para que o utilizador não tem consentimento novamente em inícios de sessão subsequentes de conta.
+Quando o usuário aprova a solicitação de permissão, consentimento é registrado e o utilizador não tem consentimento novamente em inícios de sessão subsequentes para o aplicativo.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Pedir consentimento para um inquilino completo
 
-Muitas vezes, quando uma organização compra uma subscrição para uma aplicação ou de licença, a organização pretende aprovisionar completamente o aplicativo para seus funcionários. Como parte deste processo, um administrador pode conceder o consentimento para a aplicação para agir em nome de qualquer funcionário. Se o administrador conceder consentimento para todo o inquilino, os funcionários da organização não verão uma página de consentimento para a aplicação.
+Muitas vezes, quando uma organização compra uma subscrição para uma aplicação ou de licença, a organização pretende proativamente configurar a aplicação para utilização por todos os membros da organização. Como parte deste processo, um administrador pode conceder o consentimento para a aplicação para agir em nome de qualquer utilizador no inquilino. Se o administrador conceder consentimento para todo o inquilino, os utilizadores da organização não verão uma página de consentimento para a aplicação.
 
-Para pedir consentimento para todos os utilizadores num inquilino, a sua aplicação pode utilizar o ponto final de consentimento de administrador.
+Para pedir consentimento para permissões delegadas para todos os utilizadores num inquilino, a sua aplicação pode utilizar o ponto final de consentimento de administrador.
 
-## <a name="admin-restricted-scopes"></a>Âmbitos de administração restrito
+Além disso, aplicativos tem de utilizar o ponto final de consentimento de administrador para solicitar permissões de aplicação.
 
-Algumas permissões de privilégio elevado no ecossistema da Microsoft podem ser definidos como *restritas por administrador*. Exemplos desses tipos de âmbitos incluem as seguintes permissões:
+## <a name="admin-restricted-permissions"></a>Permissões de administrador restrito
 
-* Ler dados do diretório da organização ao utilizar `Directory.Read`
-* Escrever dados para o diretório da organização através da utilização `Directory.ReadWrite`
-* Grupos de segurança de leitura no diretório da organização através da utilização `Groups.Read.All`
+Algumas permissões de privilégio elevado no ecossistema da Microsoft podem ser definidos como *restritas por administrador*. Seguem-se exemplos desses tipos de permissões:
+
+* Ler perfis completos de todos os utilizadores ao utilizar `User.Read.All`
+* Escrever dados para o diretório da organização através da utilização `Directory.ReadWrite.All`
+* Ler todos os grupos no diretório da organização ao utilizar `Groups.Read.All`
 
 Embora um utilizador de consumidor pode conceder uma aplicação de acesso para este tipo de dados, os utilizadores organizacionais são impedidos de conceder acesso para o mesmo conjunto de dados confidenciais da empresa. Se a aplicação solicite o acesso a uma destas permissões de um utilizador organizacional, o utilizador recebe uma mensagem de erro que diz que não tem autorização para dar consentimento a permissões da sua aplicação.
 
 Se a sua aplicação necessita de acesso a âmbitos de administração restrito de mensagens em fila para as organizações, deve pedi-los também diretamente a partir de um administrador de empresa, utilizando o consentimento do ponto final de administração, descrito a seguir.
 
-Quando um administrador concede estas permissões por meio do ponto final de consentimento de administrador, o consentimento é concedido para todos os utilizadores no inquilino.
+Se a aplicação está a pedir permissões delegadas de privilégio alto e um administrador conceder estas permissões por meio do ponto final de consentimento de administrador, o consentimento é concedido para todos os utilizadores no inquilino.
+
+Se a aplicação está a solicitar permissões de aplicação e um administrador conceder que estas permissões por meio do administrador de consentimento de ponto final, esta concessão não é feita em nome de qualquer utilizador específico. Em vez disso, a aplicação de cliente é concedida permissões *diretamente*. Em geral, esses tipos de permissões só são utilizados por serviços de daemon e outras aplicações não interativas que são executados em segundo plano.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Utilizar o ponto final de consentimento de administrador
 
-Se seguir estes passos, a aplicação pode recolher as permissões para todos os utilizadores num inquilino, incluindo os âmbitos de administração restrito. Para ver um exemplo de código que implementa os passos, consulte a [exemplo de âmbitos de administração restrito](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Quando um administrador de empresa utiliza o seu aplicativo e é direcionado para o ponto final de autorização, plataforma de identidade do Microsoft detectará a função do utilizador e peça-lhe se eles gostariam de consentir em nome de todo o inquilino para as permissões pedidas. No entanto, também é um ponto de consentimento de administrador dedicada final que pode utilizar, se gostaria de forma proativa solicitar que um administrador conceda a permissão em nome de todo o inquilino. Também é necessário para pedir permissões de aplicativo (que não é possível pedir a utilizar o ponto final de autorização) utilizar este ponto final.
+
+Se seguir estes passos, seu aplicativo pode solicitar permissões para todos os utilizadores num inquilino, incluindo os âmbitos de administração restrito. Esta é uma operação de alto privilégio e deve ser feita apenas se for necessário para o seu cenário.
+
+Para ver um exemplo de código que implementa os passos, consulte a [exemplo de âmbitos de administração restrito](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registo de aplicação
 
+O consentimento de administrador não aceita um parâmetro de âmbito, para que todas as permissões que está a ser solicitada é necessário definir estaticamente no registo da aplicação. Em geral é melhor prática para garantir que as permissões definidas estaticamente para um determinado aplicativo são um conjunto mais amplo das permissões que irá solicitar dinamicamente/forma incremental.
+
+Para configurar a lista de permissões estaticamente pedidas para um aplicativo: 
 1. Aceda ao seu aplicativo no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou [criar uma aplicação](quickstart-v2-register-an-app.md) se ainda não o fez.
 2. Localize a **permissões do Microsoft Graph** secção e, em seguida, adicione as permissões que a sua aplicação necessita.
 3. **Guardar** o registo de aplicações.
@@ -233,3 +251,7 @@ Content-Type: application/json
 Pode usar o token de acesso resultante em pedidos de HTTP para o recurso. Ele fiável indica ao recurso que a aplicação tem as permissões adequadas para executar uma tarefa específica. 
 
 Para obter mais informações sobre o protocolo OAuth 2.0 e como obter os tokens de acesso, consulte a [referência de protocolo do ponto final v2.0](active-directory-v2-protocols.md).
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se ou os utilizadores da sua aplicação estão a ver erros inesperados durante o processo de consentimento, consulte este artigo para passos de resolução de problemas: [erro inesperado ao consentir uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

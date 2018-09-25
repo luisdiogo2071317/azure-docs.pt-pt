@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 395080409b06ef868b28550a21dc177e9dd28a05
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580536"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033928"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se ocorrer uma falha do Armazenamento do Azure
 Na Microsoft, trabalhamos arduamente para se certificar de que os nossos serviços estão sempre disponíveis. Às vezes, força além do nosso impacto de controle-nos de forma a provocar interrupções de serviço não planeada num ou mais regiões. Para ajudar a lidar com essas ocorrências raras, fornecemos as seguintes orientações de alto nível dos serviços de armazenamento do Azure.
@@ -43,18 +43,16 @@ Se escolheu [armazenamento georredundante com acesso de leitura (RA-GRS)](storag
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que esperar se ocorre uma ativação pós-falha de armazenamento
 Se escolheu [armazenamento georredundante (GRS)](storage-redundancy-grs.md) ou [armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado), armazenamento do Azure irá manter os seus dados duráveis em duas regiões (primário e secundário). Em ambas as regiões, o armazenamento do Azure mantém constantemente várias réplicas dos seus dados.
 
-Quando um desastre regional afeta a região primária, tentaremos primeiro restaurar o serviço nessa região para fornece a melhor combinação das RTO e RPO. Depende da natureza do desastre e impacto, em algumas ocasiões raras, poderá não conseguir restaurar a região primária. Nesse ponto, iremos efetuar uma ativação pós-falha geográfica. Replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não tem sido replicadas para a região secundária podem ser perdidas. Pode consultar o ["Hora da última sincronização" da conta de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obter detalhes sobre o estado de replicação.
+Quando um desastre regional afeta a região primária, tentaremos primeiro restaurar o serviço nessa região para fornece a melhor combinação das RTO e RPO. Depende da natureza do desastre e impacto, em algumas ocasiões raras, poderá não conseguir restaurar a região primária. Nesse ponto, iremos efetuar uma ativação pós-falha geográfica. Replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não tem sido replicadas para a região secundária podem ser perdidas.
 
 Alguns pontos sobre a experiência de ativação pós-falha geográfica de armazenamento:
 
 * Armazenamento geo-ativação pós-falha será acionada apenas pela equipa do armazenamento do Azure – não é necessária nenhuma ação do cliente. A ativação pós-falha é acionada quando a equipe de armazenamento do Azure esgotou todas as opções de restauração de dados na mesma região, que fornece a melhor combinação das RTO e RPO.
 * Sua existente armazenamento pontos finais de serviço para blobs, tabelas, filas e ficheiros permanecem inalterados após a ativação pós-falha; a entrada DNS fornecida pelo Microsoft terá de ser atualizado para mudar da região primária para a região secundária. A Microsoft realiza essa atualização automaticamente como parte do processo de ativação pós-falha geográfica.
 * Antes e durante a ativação pós-falha geográfica, não terá acesso de escrita para a sua conta de armazenamento devido ao impacto do desastre, mas pode continuar a ler da secundária se a sua conta de armazenamento tenha sido configurada como RA-GRS.
-* Quando a ativação pós-falha geográfica foi concluída e as alterações DNS propagadas, acesso de escrita para a sua conta de armazenamento de leitura e vão ser retomadas; aponta para o que costumava ser seu ponto final secundário. 
-* Tenha em atenção de que terão acesso de escrita se tiver o GRS ou RA-GRS configuradas para a conta de armazenamento. 
-* Pode consultar ["Última hora de ativação pós-falha Geo" de sua conta de armazenamento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obter mais detalhes.
+* Quando a ativação pós-falha geográfica foi concluída e as alterações DNS propagadas, leitura e de acesso de escrita para a sua conta de armazenamento são restaurados se tiver o GRS ou RA-GRS. O ponto final que tinha anteriormente o ponto final secundário se torna o ponto final primário. 
+* Pode verificar o estado da localização primária e consulta a última hora de ativação pós-falha geográfica para a sua conta de armazenamento. Para obter mais informações, consulte [contas de armazenamento - obter propriedades](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
 * Após a ativação pós-falha, a conta de armazenamento será totalmente esteja a funcionar, mas num estado "degradado", como ele está hospedada numa região autónoma não possível de georreplicação. Para mitigar este risco, iremos restaurar a região primária original e, em seguida, fazer uma reativação pós-falha geo para restaurar o estado original. Se a região primária original é irrecuperável, podemos irá alocar noutra região secundária.
-  Para obter mais detalhes sobre a infraestrutura de georreplicação de armazenamento do Azure, consulte o artigo no blog da equipe de armazenamento sobre [opções de redundância e RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Melhores práticas para proteger os dados
 Há algumas abordagens recomendadas para fazer backup dos dados de armazenamento em intervalos regulares.

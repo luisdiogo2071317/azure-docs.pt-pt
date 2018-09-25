@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric programático dimensionamento | Microsoft Docs
-description: Um cluster do Azure Service Fabric entrada ou saída de escala através de programação, de acordo com os acionadores personalizados
+title: Azure Service Fabric programática dimensionamento | Documentos da Microsoft
+description: Dimensionar um cluster do Azure Service Fabric dentro ou para fora por meio de programação, de acordo com os acionadores personalizados
 services: service-fabric
 documentationcenter: .net
 author: mjrousos
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: dcf4721012fb8ec39bcd1de02c294747357b3539
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213066"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949624"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric através de programação 
 
-Clusters de Service Fabric em execução no Azure assentes em conjuntos de dimensionamento de máquina virtual.  [O dimensionamento de clusters](./service-fabric-cluster-scale-up-down.md) descreve como podem ser escalados para clusters de Service Fabric manualmente ou com regras de dimensionamento automático. Este artigo descreve como gerir as credenciais e dimensionar um cluster na ou utilizando o Azure fluent computação SDK, que é o cenário mais avançado. Para obter uma descrição geral, leia o artigo [programáticos métodos para coordenar as operações de dimensionamento de Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Clusters do Service Fabric em execução no Azure são criados sobre conjuntos de dimensionamento de máquina virtual.  [Dimensionamento de clusters](./service-fabric-cluster-scale-up-down.md) descreve como clusters do Service Fabric podem ser dimensionados manualmente ou com regras de dimensionamento automático. Este artigo descreve como gerir as credenciais e dimensionar um cluster no ou horizontalmente com o Azure fluent SDK, que é um cenário mais avançado de computação. Para uma descrição geral, leia [métodos programáticos de coordenação de operações de dimensionamento do Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 ## <a name="manage-credentials"></a>Gerir credenciais
-Um desafio de escrever um serviço para processar o dimensionamento é que o serviço tem de ser capaz de aceder a recursos de conjunto de dimensionamento de máquina virtual sem um início de sessão interativo. Aceder ao cluster do Service Fabric é fácil se o serviço de dimensionamento é modificar as suas próprias aplicações de Service Fabric, mas as credenciais são necessárias para aceder ao conjunto de dimensionamento. Para iniciar sessão, pode utilizar um [principal de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criado com o [Azure CLI 2.0](https://github.com/azure/azure-cli).
+Um desafio de escrever um serviço para processar o dimensionamento é que o serviço tem de ser capaz de aceder aos recursos de conjunto de dimensionamento de máquina virtual sem um início de sessão interativo. Aceder ao cluster do Service Fabric é fácil se o serviço de dimensionamento é modificar a sua própria aplicação do Service Fabric, mas são necessárias credenciais para aceder ao conjunto de dimensionamento. Para iniciar sessão, pode utilizar um [principal de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criados com o [CLI do Azure](https://github.com/azure/azure-cli).
 
 Um principal de serviço pode ser criado com os seguintes passos:
 
-1. Inicie sessão na CLI do Azure (`az login`) como um utilizador com acesso para o dimensionamento da máquina virtual definido
-2. Criar o serviço principal com o `az ad sp create-for-rbac`
-    1. Anote o appId (denominado 'ID de cliente' noutro local), o nome, a palavra-passe e o tenant para utilização posterior.
-    2. Também terá do ID de subscrição, que pode ser visualizado com `az account list`
+1. Inicie sessão na CLI do Azure (`az login`) como um utilizador com acesso ao dimensionamento da máquina virtual definido
+2. Criar principal com o tipo de serviço `az ad sp create-for-rbac`
+    1. Anote o appId (chamado de "ID de cliente" em outro lugar), o nome, a palavra-passe e o inquilino para utilização posterior.
+    2. Também precisará de ID da subscrição, que pode ser vista com `az account list`
 
-A biblioteca de computação fluent pode iniciar sessão utilizando estas credenciais da seguinte forma (tenha em atenção que, como tipos de Azure fluent core `IAzure` estão a [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pacote):
+A biblioteca de computação Fluente pode iniciar sessão com estas credenciais da seguinte forma (Observe que como principais tipos de Azure fluent `IAzure` estão no [Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pacote):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -54,10 +54,10 @@ else
 }
 ```
 
-Assim que a sessão iniciada, a contagem de instâncias do conjunto de dimensionamento pode ser consultada através de `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity`.
+Depois de iniciar sessão, a contagem de instâncias de conjunto de dimensionamento pode ser consultada por meio de `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity`.
 
 ## <a name="scaling-out"></a>Aumentar horizontalmente
-Utilizar o Azure fluent computação SDK, podem ser adicionadas a instâncias para o conjunto com as chamadas alguns - de dimensionamento de máquina virtual
+Utilizar o Azure fluent de computação SDK, instâncias podem ser adicionadas ao conjunto com apenas algumas chamadas - de dimensionamento de máquina virtual
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -65,15 +65,15 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Em alternativa, o tamanho do conjunto de dimensionamento de máquina virtual também pode ser gerido com os cmdlets do PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) Pode obter o objeto de conjunto de dimensionamento de máquina virtual. A capacidade atual está disponível através de `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, o conjunto no Azure de dimensionamento de máquina virtual pode ser atualizado com o [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) comando.
+Em alternativa, o tamanho do conjunto de dimensionamento de máquina virtual também pode ser gerido com cmdlets do PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) Pode obter o objeto de conjunto de dimensionamento de máquina virtual. A capacidade atual está disponível através do `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, o conjunto de dimensionamento no Azure pode ser atualizado com o [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) comando.
 
-Como adicionar uma escala definir instância deve ser quando adicionar um nó manualmente, tudo o que precisa para iniciar um novo nó de Service Fabric, uma vez que a escala definir modelo inclui extensões para associar automaticamente novas instâncias para o cluster do Service Fabric. 
+Como adicionar um conjunto de dimensionamento instância deve ser ao adicionar manualmente um nó, tudo o que é necessário para iniciar um novo nó do Service Fabric, uma vez que o conjunto de dimensionamento modelo inclui extensões para associar automaticamente novas instâncias ao cluster do Service Fabric. 
 
-## <a name="scaling-in"></a>Dimensionamento no
+## <a name="scaling-in"></a>Reduzir horizontalmente
 
-Dimensionamento no é semelhante ao aumentar horizontalmente. O máquina de virtual real do conjunto de dimensionamento alterações são praticamente os mesmos. No entanto, tal como foi mencionado anteriormente, Service Fabric só limpa automaticamente removidas nós com uma durabilidade de ouro ou Silver. Por isso, as características de durabilidade Bronze escala em maiúsculas e minúsculas, é necessário interagir com o cluster do Service Fabric para encerrar o nó a remover e, em seguida, para remover o seu estado.
+Reduzir horizontalmente é semelhante ao aumentar horizontalmente. O real das máquinas virtuais do conjunto de dimensionamento alterações são praticamente os mesmos. No entanto, como foi discutido anteriormente, o Service Fabric apenas limpa automaticamente removidos nós com uma durabilidade de Gold ou Silver. Por isso, a durabilidade de Bronze redução horizontal caso, é necessário interagir com o cluster do Service Fabric para encerrar o nó ser removido e, em seguida, para remover o seu estado.
 
-Preparar o nó de encerramento envolve ao localizar o nó ser removido (a mais recentemente adicionada escala conjunto instância de máquina virtual) e desativá-lo. Instâncias de conjunto de dimensionamento de máquina virtual estão numeradas pela ordem que forem adicionadas, pelo que podem ser encontrados nós mais recentes ao comparar o sufixo numérico nos nomes de nós (que correspondem a escala de máquina virtual subjacente definido nomes de instância). 
+Preparar o nó para encerramento envolve localizar o nó ser removido (a adicionadas recentemente dimensionamento conjunto instância da máquina virtual) e desativar o-lo. Instâncias do conjunto de dimensionamento de máquina virtual são numeradas na ordem em que são adicionadas, para que nós mais recente podem ser encontrados ao comparar o sufixo de número nos nomes de nós (correspondência de que o dimensionamento de máquinas virtuais subjacentes definido nomes de instância). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -90,7 +90,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Assim que for encontrado o nó ser removido, podem ser desativado e removida com o mesmo `FabricClient` instância e o `IAzure` instância de versões anteriores.
+Assim que o nó ser removido for encontrado, ele pode ser desativado e removido com o mesmo `FabricClient` instância e o `IAzure` instância anteriores.
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -115,7 +115,7 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Como aumentar horizontalmente, cmdlets do PowerShell para modificar o dimensionamento da máquina virtual com o conjunto de capacidade também pode ser utilizada aqui se uma abordagem de script é preferível. Assim que a instância de máquina virtual é removida, pode remover o estado de nó de Service Fabric.
+Como com aumentar horizontalmente, cmdlets do PowerShell para modificar o dimensionamento de máquinas virtuais capacidade do conjunto pode também ser aqui utilizada se uma abordagem de criação de scripts é preferível. Assim que a instância de máquina virtual for removida, o estado de nó do Service Fabric pode ser removido.
 
 ```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
@@ -123,8 +123,8 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para começar a implementar a sua própria lógica de dimensionamento automático, familiarize-se com os seguintes conceitos e APIs úteis:
+Para começar a implementar a sua própria lógica de dimensionamento automático, familiarize-se com os seguintes conceitos e as APIs úteis:
 
-- [Dimensionar manualmente ou com regras de dimensionamento automático](./service-fabric-cluster-scale-up-down.md)
-- [Fluent bibliotecas de gestão do Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com conjuntos de dimensionamento de máquina virtual do cluster do Service Fabric subjacente)
+- [Dimensionamento manualmente ou com regras de dimensionamento automático](./service-fabric-cluster-scale-up-down.md)
+- [Fluent bibliotecas de gestão do Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com conjuntos de dimensionamento de máquinas virtuais subjacentes do cluster do Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster do Service Fabric e os respetivos nós)

@@ -1,6 +1,6 @@
 ---
-title: Modificar os prefixos de endereço IP de gateway de rede local e o endereço IP do VPN Gateway | Azure | CLI | Microsoft Docs
-description: Este artigo explica como alterar os prefixos de endereço IP para o gateway de rede local utilizando a CLI do Azure.
+title: Modificar os prefixos de endereço IP de gateway de rede local e o endereço IP do Gateway de VPN | Azure | CLI | Documentos da Microsoft
+description: Este artigo orienta-o por meio de alterar os prefixos de endereços IP para o gateway de rede local com a CLI do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: d62fa14ea24a9b62e793ef7022a761897984df32
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a8f0c95acf872431fe7538acbd4ff1023c1496c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "25990627"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961234"
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as definições do gateway de rede local, utilizando a CLI do Azure
+# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as definições de gateway de rede local com a CLI do Azure
 
-Por vezes, altere as definições para o seu prefixo de endereço de gateway de rede local ou o endereço IP do Gateway. Este artigo mostra como modificar as definições do gateway de rede local. Também pode modificar estas definições utilizando um método diferente selecionando uma opção diferente na lista seguinte:
+Por vezes, alterar as definições para o seu prefixo de endereço de gateway de rede local ou o endereço IP do Gateway. Este artigo mostra como modificar as definições do gateway de rede local. Também pode modificar essas configurações usando um método diferente ao selecionar uma opção diferente na lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -35,11 +35,11 @@ Por vezes, altere as definições para o seu prefixo de endereço de gateway de 
 
 ## <a name="before"></a>Antes de começar
 
-Instale a versão mais recente dos comandos da CLI (2.0 ou posteriores). Para obter informações sobre como instalar os comandos da CLI, veja [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Instalar a CLI 2.0 do Azure).
+Instale a versão mais recente dos comandos da CLI (2.0 ou posteriores). Para obter informações sobre como instalar os comandos da CLI, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="ipaddprefix"></a>Modificar os prefixos de endereço IP
+## <a name="ipaddprefix"></a>Modificar prefixos de endereços IP
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
@@ -49,5 +49,5 @@ Instale a versão mais recente dos comandos da CLI (2.0 ou posteriores). Para ob
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode verificar a ligação de gateway. Consulte [verificar uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).
+Pode verificar a ligação de gateway. Ver [Certifique-se de uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).
 

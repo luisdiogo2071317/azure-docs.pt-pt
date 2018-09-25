@@ -3,19 +3,19 @@ title: Origens de dados suportadas - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A ferramenta QnA Maker possível extrair automaticamente pares de perguntas respostas de formatos de conteúdo semiestruturados comuns, como o perguntas frequentes e manuais de produto. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros estruturados.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: 0436d5015ee4b369aeead7691f87ef313259d391
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.date: 09/24/2018
+ms.author: tulasim
+ms.openlocfilehash: b9214d44061edad967212a1f904c2cdb6687dba2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039059"
 ---
 # <a name="data-sources"></a>Origens de dados 
 A ferramenta QnA Maker possível extrair automaticamente pares de perguntas respostas de formatos de conteúdo semiestruturados comuns, como o perguntas frequentes e manuais de produto. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros estruturados.
@@ -71,7 +71,7 @@ Se não tiver conteúdo já existente para preencher a base de dados de conhecim
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Configurar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
+> [Adicionar personalidade para respostas com pessoas chit-bate-papo](../How-To/chit-chat-knowledge-base.md)
 
 ## <a name="see-also"></a>Consulte também 
 

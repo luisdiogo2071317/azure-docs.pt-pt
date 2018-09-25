@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918486"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948970"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -43,11 +43,12 @@ Ver o vídeo seguinte, apresentando o registo de atividades.
 O registo de atividade contém várias categorias de dados. Para obter detalhes completos sobre esquemas uma destas categorias [veja este artigo](monitoring-activity-log-schema.md). Estas incluem:
 * **Administrativas** -nesta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
 * **Estado de funcionamento do serviço** -nesta categoria contém o registo de qualquer incidentes de estado de funcionamento do serviço que ocorreram no Azure. Um exemplo do tipo de evento, que veria nesta categoria é "do SQL Azure na região E.U.A. Leste está a sofrer um período de indisponibilidade." Eventos de estado de funcionamento do serviço são fornecidos em cinco variedades: é necessária qualquer ação de recuperação assistido, incidente, manutenção ou segurança e só serão apresentadas se tiver um recurso na subscrição que seria afetada pelo evento.
+* **Estado de funcionamento do recurso** -nesta categoria contém o registo de quaisquer eventos de estado de funcionamento do recurso que ocorreram aos recursos do Azure. Um exemplo do tipo de evento, que veria nesta categoria é o "Estado de funcionamento estado da Máquina Virtual foi alterado para indisponível." Eventos de estado de funcionamento de recursos podem representar um dos quatro Estados de estado de funcionamento: disponível, indisponível, Degraded e desconhecido. Além disso, os eventos de estado de funcionamento de recursos podem ser categorizados como sendo iniciado de plataforma ou utilizador.
 * **Alerta** -nesta categoria contém o registo de todas as ativações de alertas do Azure. Um exemplo do tipo de evento, que veria nesta categoria é "% da CPU no myVM foi mais de 80 durante os últimos 5 minutos." Uma variedade de sistemas do Azure tem um conceito de alerta – pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem essa regra. Sempre que um tipo de alerta do Azure suportado 'ativa,' ou as condições são cumpridas para gerar uma notificação, um registo da ativação também é emitidos via push para esta categoria de registo de atividades.
 * **Dimensionamento automático** -nesta categoria contém o registo de quaisquer eventos relacionados com a operação do mecanismo de dimensionamento automático com base em quaisquer definições de dimensionamento automático que definiu na sua subscrição. Um exemplo do tipo de evento, que veria nesta categoria é "Aumento do dimensionamento automático a ação falhou." Utilizo o dimensionamento automático, pode automaticamente aumentar ou reduzir horizontalmente o número de instâncias num tipo de recurso suportados com base na hora do dia e/ou carga dados (métricas) através de uma definição de dimensionamento automático. Quando as condições são cumpridas para aumento ou redução vertical, o início e de eventos com êxito ou falhados são registrados nesta categoria.
 * **Recomendação** -nesta categoria contém eventos de recomendação do Assistente do Azure.
 * **Segurança** -nesta categoria contém o registo de todos os alertas gerados pelo centro de segurança do Azure. Um exemplo do tipo de evento, que veria nesta categoria é "ficheiro de extensão dupla suspeito executado".
-* **Política e o estado de funcionamento do recurso** -essas categorias não contêm quaisquer eventos; estão reservados para utilização futura.
+* **Política** -esta categoria não contém quaisquer eventos; está reservado para utilização futura. 
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
 [Consulte este artigo para compreender o esquema de eventos de registo de atividades por categoria.](monitoring-activity-log-schema.md)
@@ -106,7 +107,7 @@ Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja n
 >  Atualmente não pode arquivar dados a um armazenamento de conta que, por trás de uma rede virtual protegida.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterados para linhas de JSON de 1 de Novembro de 2018. [Veja este artigo para obter uma descrição do impacto e como atualizar a sua ferramenta para lidar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -158,7 +159,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Configurar perfis de registo com a CLI 2.0 do Azure
+### <a name="configure-log-profiles-using-the-azure-cli"></a>Configurar perfis de registo com a CLI do Azure
 
 #### <a name="get-existing-log-profile"></a>Obter perfil de registo existente
 

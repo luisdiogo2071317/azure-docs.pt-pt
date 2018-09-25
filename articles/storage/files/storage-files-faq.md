@@ -4,15 +4,15 @@ description: Encontre respostas para perguntas mais frequentes sobre os ficheiro
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 07/19/2018
+ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057106"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949847"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -196,44 +196,97 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 **Posso mover o serviço de sincronização de armazenamento e/ou a conta de armazenamento para um grupo de recursos diferente ou uma subscrição?**  
    Sim, o serviço de sincronização de armazenamento e/ou a conta de armazenamento pode ser movida para um grupo de recursos diferente ou uma subscrição. Se a conta de armazenamento for movida, precisa dar o acesso de serviço de sincronização de ficheiros de híbrida para a conta de armazenamento (veja [Certifique-se o Azure File Sync tem acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+* <a id="afs-ntfs-acls"></a>
+**Azure File Sync preservar o nível de diretório/ficheiro ACLs do NTFS, juntamente com dados armazenados nos ficheiros do Azure?**
+
+    ACLs do NTFS executada a partir do ficheiro no local, servidores são mantidos pelo Azure File Sync como metadados. Os ficheiros do Azure não suporta a autenticação com credenciais do Azure AD para aceder a partilhas de ficheiros geridas pelo serviço de sincronização de ficheiros do Azure.
+    
 ## <a name="security-authentication-and-access-control"></a>Segurança, a autenticação e controlo de acesso
 * <a id="ad-support"></a>
 **É a autenticação baseada no Active Directory e controlo de acesso suportadas pelo serviço ficheiros do Azure?**  
-    Os ficheiros do Azure oferece duas maneiras para gerir o controlo de acesso:
+    
+    Sim, ficheiros do Azure suporta o controlo com base na identidade de autenticação e acesso no Azure Active Directory (Azure AD) (pré-visualização). Autenticação do Azure do AD através de SMB para ficheiros do Azure tira partido do Azure Active Directory Domain Services para ativar VMs associados a um domínio aceder a partilhas, diretórios e arquivos usando credenciais do Azure AD. Para obter mais detalhes, consulte [autenticação de descrição geral do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)](storage-files-active-directory-overview.md). 
+
+    Os ficheiros do Azure oferece duas maneiras adicionais para gerir o controlo de acesso:
 
     - Pode utilizar assinaturas de acesso partilhado (SAS) para gerar tokens que tenham permissões específicas e que são válido durante um intervalo de tempo especificado. Por exemplo, pode gerar um token de acesso só de leitura para um ficheiro específico que tenha uma expiração de 10 minutos. Qualquer pessoa que tiver o token, enquanto o token for válido tem acesso só de leitura a esse ficheiro para esses 10 minutos. Atualmente, as chaves de assinatura de acesso partilhado são suportadas apenas através da API REST ou nas bibliotecas de cliente. Tem de montar a partilha de ficheiros do Azure através de SMB com as chaves de conta de armazenamento.
 
     - O Azure File Sync preserva e replica todas as ACLs discricionárias ou DACLs, (seja baseada no Active Directory ou local) para todos os pontos de extremidade do servidor que ele sincroniza para. Porque o Windows Server já pode autenticar com o Active Directory, Azure File Sync é uma opção de preventiva em vigor até que o suporte completo para a autenticação baseada no Active Directory e suporte ACL é recebido.
 
-    Atualmente, o ficheiros do Azure não suporta diretamente do Active Directory.
+* <a id="ad-support-regions"></a>
+**É a pré-visualização do Azure AD através de SMB para ficheiros do Azure disponível em todas as regiões do Azure?**
+
+    A pré-visualização está disponível em todas as regiões públicas, exceto para: E.U.A. oeste, E.U.A. oeste 2, Centro-Sul, E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, e.u.a. Centro-Norte, leste da Austrália, Europa Ocidental, Europa do Norte.
+
+* <a id="ad-support-on-premises"></a>
+**Autenticação do Azure AD através de SMB para ficheiros do Azure (pré-visualização) suporta a autenticação com o Azure AD a partir de máquinas no local?**
+
+    Não, ficheiros do Azure não suporta a autenticação com o Azure AD a partir de máquinas no local na versão de pré-visualização.
+
+* <a id="ad-support-devices"></a>
+**Autenticação faz do Azure AD através de SMB para acesso SMB de suporte de ficheiros do Azure (pré-visualização) com as credenciais do Azure AD a partir de dispositivos associados ao ou registado com o Azure AD?**
+
+    Não, este cenário não é suportado.
+
+* <a id="ad-support-rest-apis"></a>
+**Existem APIs REST para suportar Get/Set/copiar diretório/ficheiro ACLs do NTFS?**
+
+    A versão de pré-visualização não suporta as APIs REST para obter, definir ou copiar ACLs do NTFS para os ficheiros ou diretórios.
+
+* <a id="ad-vm-subscription"></a>
+**Posso aceder a ficheiros do Azure com credenciais do Azure AD a partir de uma VM numa subscrição diferente?**
+
+    Se a subscrição sob a qual a partilha de ficheiros é implementada está associada com o mesmo inquilino do Azure AD como o recurso do Azure AD Domain Services para que a VM está associado a um domínio, em seguida, em seguida, pode aceder a ficheiros do Azure com as mesmas credenciais do Azure AD. A limitação é imposta não na subscrição, mas no Azure AD associado de inquilino.    
+    
+* <a id="ad-support-subscription"></a>
+**Posso ativar a autenticação do Azure AD através de SMB para ficheiros do Azure com um inquilino do Azure AD que é diferente do inquilino principal, com a qual a partilha de ficheiros é assoicated?**
+
+    Não, ficheiros do Azure só suporta a integração do Azure AD com um inquilino do Azure AD que residem na mesma subscrição que a partilha de ficheiros. Apenas uma subscrição pode ser associada um inquilino do Azure AD.
+
+* <a id="ad-linux-vms"></a>
+**Autenticação do Azure AD através de SMB para ficheiros do Azure (pré-visualização) suporta VMs do Linux?**
+
+    Não, a autenticação a partir de VMs do Linux não é suportada na versão de pré-visualização.
+
+* <a id="ad-aad-smb-afs"></a>
+**Pode aproveitar autenticação do Azure AD através de capacidades SMB em partilhas de ficheiros gerenciadas pelo Azure File Sync?**
+
+    Não, o ficheiros do Azure não suporta a preservação de ACLs do NTFS em partilhas de ficheiros gerenciadas pelo Azure File Sync. O arquivo ACLs executadas a partir de locais servidores de ficheiros são mantidos pelo Azure File Sync. Qualquer ACLs do NTFS configurado de forma nativa em relação a ficheiros do Azure serão substituídas pelo serviço Azure File Sync. Além disso, ficheiros do Azure não suporta a autenticação com credenciais do Azure AD para aceder a partilhas de ficheiros geridas pelo serviço de sincronização de ficheiros do Azure.
 
 * <a id="encryption-at-rest"></a>
 **Como garantir que a minha partilha de ficheiros do Azure é encriptada em descanso?**  
+
     Encriptação do serviço de armazenamento do Azure está no processo de que está a ser ativado por predefinição em todas as regiões. Para estas regiões, não precisa realizar quaisquer ações para ativar a encriptação. Para outras regiões, consulte [encriptação do lado do servidor](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Como pode fornecer acesso a um ficheiro específico usando um navegador da web?**  
+
     Pode utilizar assinaturas de acesso partilhado para gerar tokens que tenham permissões específicas e que são válido durante um intervalo de tempo especificado. Por exemplo, pode gerar um token que fornece acesso só de leitura para um ficheiro específico, para um determinado período de tempo. Qualquer pessoa que tiver o URL pode aceder ao ficheiro diretamente a partir de qualquer browser enquanto o token é válido. Pode facilmente gerar uma chave de assinatura de acesso partilhado a partir de uma interface do Usuário, como o Explorador de armazenamento.
 
 * <a id="file-level-permissions"></a>
 **É possível especificar só de leitura ou permissões só de escrita em pastas dentro da partilha?**  
+
     Se montar a partilha de ficheiros com o SMB, não tem controlo ao nível da pasta sobre as permissões. No entanto, se criar uma assinatura de acesso partilhado com a REST API ou bibliotecas de cliente, pode especificar permissões só de leitura ou só de escrita em pastas dentro da partilha.
 
 * <a id="ip-restrictions"></a>
 **Pode implementar restrições de IP para uma partilha de ficheiros do Azure?**  
+
     Sim. Acesso à partilha de ficheiros do Azure pode ser restringido ao nível da conta de armazenamento. Para obter mais informações, consulte [configurar Firewalls de armazenamento do Azure e redes virtuais](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="data-compliance-policies"></a>
 **Que políticas de conformidade de dados suporta ficheiros do Azure?**  
+
    Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acesso no local
 * <a id="expressroute-not-required"></a>
 **Tenho de utilizar o Azure ExpressRoute para ligar a ficheiros do Azure ou para utilizar o Azure File Sync no local?**  
+
     Não. ExpressRoute não é necessário para aceder a uma partilha de ficheiros do Azure. Se montar um arquivo do Azure partilhar diretamente no local, tudo isso é necessário é fazer com que a porta 445 (saída de TCP) abra para acesso à internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída de TCP) para acesso HTTPS (não necessário SMB). No entanto, *pode* utilizar o ExpressRoute com uma destas opções de acesso.
 
 * <a id="mount-locally"></a>
 **Como posso montar uma partilha de ficheiros do Azure no meu computador local?**  
+
     Pode montar a partilha de ficheiros utilizando o protocolo SMB, se a porta 445 (saída de TCP) esteja aberta e o cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar o Azure File Sync para aceder a partilha de ficheiros do Azure.
 
 ## <a name="backup"></a>Cópia de segurança
@@ -242,6 +295,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     Pode usar periódica [instantâneos de partilha](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar o AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer backup de uma partilha de ficheiros instalado. Cópia de segurança do Azure oferece a cópia de segurança de ficheiros do Azure. Saiba mais sobre [cópia de segurança do Azure partilhas pelo Azure Backup de ficheiros](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantâneos de partilha
+
 ### <a name="share-snapshots-general"></a>Instantâneos de partilha: geral
 * <a id="what-are-snaphots"></a>
 **Quais são os instantâneos de partilha de ficheiros?**  
@@ -262,10 +316,14 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="snapshot-limits"></a>
 **Existem limites no número de instantâneos de partilha, que posso usar?**  
     Sim. Os ficheiros do Azure podem reter um máximo de instantâneos de partilha de 200. Instantâneos de partilha não contam para a quota de partilha, portanto, não há nenhum limite por partilha no total de espaço utilizado por todos os instantâneos de partilha. Limites de conta de armazenamento ainda se aplicam. Depois de instantâneos de partilha de 200, tem de eliminar instantâneos anteriores para criar instantâneos de partilha de novo.
+
 * <a id="snapshot-cost"></a>
-**Quanto partilha o custo de instantâneo?**  
+**Quanto deve partilhar instantâneos de custo?**  
     Padrão transação e o custo de armazenamento standard serão aplicada a instantâneo. Os instantâneos são incrementais por natureza. O instantâneo de base é a partilha em si. Todos os instantâneos subsequentes são incrementais e apenas irão armazenar diff partir do instantâneo anterior. Isso significa que as alterações que serão vistas na fatura será mínimas se o volume de alterações de carga de trabalho é mínimo. Ver [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para ficheiros do Azure padrão, informações sobre preços. Hoje, a forma de examinar o tamanho consumido por instantâneo de partilha é ao comparar a capacidade faturada com utilizado capacidade. Estamos a trabalhar em ferramentas para melhorar a geração de relatórios.
 
+* <a id="ntfs-acls-snaphsots"></a>
+**São ACLs do NTFS em diretórios e arquivos que permanecem no instantâneos de partilha?**
+    ACLs do NTFS em diretórios e arquivos são mantidas no instantâneos de partilha.
 
 ### <a name="create-share-snapshots"></a>Criar instantâneos de partilha
 * <a id="file-snaphsots"></a>
@@ -285,7 +343,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 ### <a name="manage-share-snapshots"></a>Gerir instantâneos de partilha
 * <a id="browse-snapshots-linux"></a>
 **Posso navegar pelos meus instantâneos de partilha do Linux?**  
-    Pode utilizar a CLI 2.0 do Azure para criar, listar, procurar e restaurar instantâneos de partilha no Linux.
+    Pode utilizar a CLI do Azure para criar, listar, procurar e restaurar instantâneos de partilha no Linux.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
 **Pode copiar os instantâneos de partilha para uma conta de armazenamento diferente?**  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005322"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955372"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 | Parceiros |  |  |
@@ -21,8 +21,8 @@ ms.locfileid: "40005322"
 | [**AlertLogic**<br/>![logótipo de parceiros][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![logótipo de parceiros][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![logótipo de parceiros][atlassian-logo]][atlassian-anchor] 
 | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![logótipo de parceiros][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![logótipo de parceiros][cloudhealth-logo]][cloudhealth-anchor] 
 | [**CloudMonix** <br/> ![logótipo de parceiros][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![logótipo de parceiros][cloudyn-logo]][cloudyn-anchor] | [**O Datadog**<br/>![logótipo de parceiros][datadog-logo]][datadog-anchor] 
-| [**A Dynatrace** <br/> ![logótipo de parceiros][dynatrace-logo]][dynatrace-anchor] | [**O Grafana**<br/>![logótipo de parceiros][grafana-logo]][grafana-anchor] | [**Monitor de lógica**<br/>![logótipo de parceiros][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft**<br/>![logótipo de parceiros][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![logótipo de parceiros][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![logótipo de parceiros][opsgenie-logo]][opsgenie-anchor] 
+| [**A Dynatrace** <br/> ![logótipo de parceiros][dynatrace-logo]][dynatrace-anchor] | [**O Grafana**<br/>![logótipo de parceiros][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![logótipo de parceiros][influxdata-logo]][influxdata-anchor]
+| [**Monitor de lógica**<br/>![logótipo de parceiros][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![logótipo de parceiros][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![logótipo de parceiros][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![logótipo de parceiros][opsgenie-logo]][opsgenie-anchor] 
 | [**PagerDuty**<br/>![logótipo de parceiros][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![logótipo de parceiros][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![logótipo de parceiros][sciencelogic-logo]][sciencelogic-anchor] 
 | [**SignalFx**<br/>![logótipo de parceiros][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![logótipo de parceiros][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
 | [**Splunk** <br/> ![logótipo de parceiros][splunk-logo]][splunk-anchor] | [**Lógica de sumo**<br/>![logótipo de parceiros][sumologic-logo]][sumologic-anchor] | [**O Turbonomic**<br/>![logótipo de parceiros][turbonomic-logo]][turbonomic-anchor] 
@@ -82,6 +82,12 @@ O Grafana é um aplicativo de código-fonte aberto que permite-lhe visualizar da
 
 [Ir para a documentação.][grafana-doc]
 
+## <a name="influxdata"></a>InfluxData
+InfluxData, o criador do InfluxDB, oferece uma plataforma de origem de Open modernos, concebido de raiz tendo em vista a análise de métricas e eventos (dados de séries de tempo) para aplicações de IoT e de DevOps. Se os dados provêm de pessoas, sensores ou em máquinas, o InfluxData capacita os desenvolvedores para monitorização de próxima geração de compilação, análise e aplicações de IoT mais rápidas, simples e dimensionar rapidamente a fornecer o valor de empresas reais. Com base em são Francisco, InfluxData 420 mais do que sua carteira inclui clientes Cisco, no eBay, IBM e Siemens.
+
+[Ir para a documentação.][influxdata-doc]
+
+
 ## <a name="logic-monitor"></a>Monitor de lógica
 LogicMonitor® é o líder baseados em SaaS, monitorização do desempenho de plataforma para a infra-estrutura complexa de TI. Com a cobertura para milhares de tecnologias, LogicMonitor fornece visibilidade granular para desempenho da infraestrutura e a aplicação. LM na Cloud abrangente a monitorização do Azure permite aos utilizadores correlacionar o desempenho da cloud do Azure, no local e recursos da cloud híbrida, tudo a partir de uma única plataforma. Deteção de recursos automatizados, criada nos modelos, de monitorização pré-configuradas limiares de alertas e dashboards personalizáveis são combinadas para fornecer IT a velocidade, a flexibilidade e a visibilidade necessários para ter êxito.
 
@@ -94,7 +100,10 @@ Ferramentas de automatização do Microsoft Azure e o controle fornecem uma jane
 
 Moogsoft AIOps automatiza o evento para o fluxo de trabalho de remediação sem alterar os processos existentes e estrutura organizacional. 
 
-Moogsoft é executado no seu estado real do Azure com a integração de ferramentas de monitoramento e Automação em recursos de infraestrutura híbrida. Ele ativamente Deteta incidentes que podem afetar de aplicativo anteriormente, dinamicamente orquestra os recursos apropriados para torná-los situação com suporte para e reduz o tempo médio de remediar e impacto negativo sobre a experiência do cliente. 
+Moogsoft é executado no seu estado real do Azure com a integração de ferramentas de monitoramento e Automação em recursos de infraestrutura híbrida. Moogsoft 
+ - ativamente Deteta incidentes que podem afetar de aplicativo anteriormente 
+ - Orquestra dinamicamente os recursos apropriados para torná-los situação com suporte para 
+ - reduz o tempo médio de remediar e impacto negativo sobre a experiência do cliente. 
 
 [Ir para a documentação.][moogsoft-doc]
 
@@ -107,7 +116,7 @@ OpsGenie atua como um dispatcher para os alertas gerados pelo Azure. OpsGenie de
 [Ir para a documentação.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, solução de gestão de incidentes líder do setor, forneceu suporte de primeira classe para alertas do Azure em métricas. PagerDuty suporta notificações no Azure Monitor de alertas, notificações de dimensionamento automático, eventos de registo de auditoria e métricas de nível de plataforma para serviços do Azure. Estes oferecem melhorias mais visibilidade para a principal plataforma Azure. Pode tirar partido das capacidades de gestão de incidentes do PagerDuty para resposta em tempo real. A integração do Azure expandida se tornou possível através de webhooks. Os Webhooks permitem-lhe configurar e personalizar a solução rápida e facilmente.
+PagerDuty, solução de gestão de incidentes líder do setor, forneceu suporte de primeira classe para alertas do Azure em métricas. PagerDuty suporta notificações de alertas, notificações de dimensionamento automático, eventos de registo de atividade e métricas de nível de plataforma para serviços do Azure do Azure Monitor. Estes oferecem melhorias mais visibilidade para a principal plataforma Azure. Pode tirar partido das capacidades de gestão de incidentes do PagerDuty para resposta em tempo real. A integração do Azure expandida se tornou possível através de webhooks. Os Webhooks permitem-lhe configurar e personalizar a solução rápida e facilmente.
 
 [Ir para a documentação.][pagerduty-doc]
 
@@ -144,7 +153,7 @@ Sumo lógica é um serviço de análise de dados segura e nativas da cloud, máq
 [Saiba mais.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas ao otimizar em simultâneo o desempenho, custo e conformidade em tempo real. O Turbonomic ajuda-a na sua solução do Azure, as organizações ser flexível ao otimizar continuamente o estado para garantir que aplicativos constantemente obtém os recursos necessários para fornecer seu SLA e nada mais em computação, armazenamento e de rede para o IaaS e PaaS camada. As organizações podem simular as migrações, corretamente dimensione cargas de trabalho e descontinuar recursos de datacenter para migrar com responsabilidade para o Azure de forma atempada, dentro do orçamento planeado, garantindo ainda um desempenho e conformidade. O Turbonomic é orientado por API e executa como uma VM sem agente no Azure e local.
+O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas ao otimizar em simultâneo o desempenho, custo e conformidade em tempo real. O Turbonomic ajuda as organizações a ser flexível no respetivo estado do Azure ao otimizar continuamente o estado para garantir que aplicativos constantemente obtém os recursos necessários para fornecer seu SLA e nada mais em computação, armazenamento e rede para o IaaS e PaaS camada. As organizações podem simular as migrações, corretamente dimensione cargas de trabalho e descontinuar recursos de datacenter para migrar com responsabilidade para o Azure de forma atempada, dentro do orçamento planeado, garantindo ainda um desempenho e conformidade. O Turbonomic é orientado por API e executa como uma VM sem agente no Azure e local.
 
 [Saiba mais.][turbonomic-doc]
 
@@ -168,6 +177,7 @@ O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas 
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
+[influxdata-anchor]: #Influxdata "Influxdata"
 [logicmonitor-anchor]: #logic-monitor "Monitor de lógica"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -193,6 +203,7 @@ O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas 
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
+[influxdata-logo]: ./media/partner-logos/influxdata.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
@@ -217,6 +228,7 @@ O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas 
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentação de Datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "A Dynatrace documentação."
 [grafana-doc]: ./monitor-send-to-grafana.md "Integração de Grafana de Monitor do Azure."
+[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Integração de Monitor Influxdata Telegraf do Azure."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentação do Monitor de lógica."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentação de Moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Documentação da NewRelic."

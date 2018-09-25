@@ -1,31 +1,33 @@
 ---
-title: Gira orçamentos no Azure Cost Management | Documentos da Microsoft
-description: Este artigo ajuda-o a criar e gerir orçamentos no Cost Management.
+title: Gira orçamentos de Cloudyn no Azure | Documentos da Microsoft
+description: Este artigo ajuda-o a criar e gerir orçamentos no Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963442"
 ---
 # <a name="manage-budgets"></a>Gerir orçamentos
 
-Definição de segurança orçamentos e com base no orçamento alerta ajuda a melhorar a governação de cloud e a responsabilidade. Este artigo ajuda-o a criar os orçamentos e começar a geri-los no Cost Management.
+Definição de segurança orçamentos e com base no orçamento alerta ajuda a melhorar a governação de cloud e a responsabilidade. Este artigo ajuda-o a criar rapidamente os orçamentos e começar a geri-los no Cloudyn.
 
 Quando tiver uma conta de empresa ou MSP, pode utilizar a sua estrutura de entidades de custo hierárquica para atribuir as quotas mensais de orçamento para diferentes unidades de negócios, departamentos ou qualquer outra entidade de custo. Quando tiver uma conta de Premium, pode utilizar a funcionalidade de gestão do orçamento, que, em seguida, é aplicada a suas atribuições de despesas de integralmente na nuvem. Todos os orçamentos manualmente são atribuídos.
 
 Com base nos orçamentos atribuídos, pode definir alertas de limiar com base na percentagem de seu orçamento de que é consumido e definir a gravidade de cada limite.
 
 Os relatórios de orçamento mostram o orçamento atribuído. Os utilizadores podem ver quando seus gastos é através de, em ou semelhante com o respetivo consumo ao longo do tempo. Quando seleciona **Mostrar/ocultar campos** na parte superior de um relatório de orçamento, pode ver o custo, o orçamento, o custo acumulado ou o orçamento total.
+
+O Azure Cost Management oferece uma funcionalidade semelhante ao Cloudyn. O Azure Cost Management é uma solução de gestão de custos do Azure nativo. Ele ajuda a analisar os custos, crie e gira orçamentos, exportar dados e reveja e atuar em recomendações de otimização para poupar dinheiro. Para obter mais informações sobre os orçamentos no Cost Management, consulte [criar e gerir orçamentos](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Criar orçamentos
 
@@ -83,5 +85,5 @@ No vs custo. Orçamento ao longo do relatório do tempo, clique em **ações** e
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se ainda não tiver concluído o primeiro tutorial do Cost Management, leia-a em [rever a utilização e custos](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
-- Saiba mais sobre o [relatórios disponíveis no Cost Management](use-reports.md).
+- Se ainda não tiver concluído o primeiro tutorial da Cloudyn, leia-a em [rever a utilização e custos](tutorial-review-usage.md).
+- Saiba mais sobre o [relatórios disponíveis no Cloudyn](use-reports.md).

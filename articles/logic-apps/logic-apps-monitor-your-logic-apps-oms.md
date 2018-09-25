@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123295"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956665"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorizar e obter conhecimentos sobre execuções de aplicação lógica com o Log Analytics
 
@@ -135,7 +135,7 @@ Se já ativou o Log Analytics quando criou a sua aplicação lógica, ignore est
      ![Ver ações e os detalhes de uma execução da aplicação lógica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
      Aqui, na página do Log Analytics do Azure, pode atualizar consultas e ver os resultados da tabela. 
-     Esta consulta utiliza [linguagem de consulta de Kusto](https://docs.loganalytics.io/docs/Language-Reference), que pode editar se desejar exibir resultados diferentes. 
+     Esta consulta utiliza [linguagem de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que pode editar se desejar exibir resultados diferentes. 
 
      ![O Azure Log Analytics - vista de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

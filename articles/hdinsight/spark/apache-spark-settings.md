@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: 5678cc17cde833c02c21090a7b5f7b70c01eec9e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045318"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956494"
 ---
 # <a name="configure-spark-settings"></a>Configurar as definições do Spark
 
@@ -37,7 +37,7 @@ Quando cria um novo cluster, aqui estão as versões atuais do Spark à sua esco
 Spark 2.x pode ser executado muito melhor do que o Spark 1.x. Spark 2.x tem várias otimizações de desempenho, como Tungsten, otimização de consultas Catalyst e muito mais.  
 
 > [!NOTE]
-> A versão predefinida do Apache Spark no HDInsight serviço podem ser alteradas sem aviso prévio. Se tiver uma dependência de versão, a Microsoft recomenda que especifica que a versão específica ao criar clusters com o .NET SDK/Azure PowerShell e CLI do Azure.
+> A versão predefinida do Apache Spark no HDInsight serviço podem ser alteradas sem aviso prévio. Se tiver uma dependência de versão, a Microsoft recomenda que especifica que a versão específica ao criar clusters com o .NET SDK do Azure PowerShell e CLI clássica do Azure.
 
 Apache Spark tem três locais de configuração de sistema:
 

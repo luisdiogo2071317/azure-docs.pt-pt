@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3e2648bc019612835baa172210984d8fc1c6d801
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304092"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950170"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -347,3 +347,11 @@ O circuito existente continuará a anunciar os prefixos do Office 365 e Dynamics
 * Peering da Microsoft dos circuitos do ExpressRoute que foram configurados antes de 1 de Agosto de 2017, terá todos os serviço prefixos anunciados através de peering, da Microsoft, mesmo se os filtros de rota não estão definidos.
 
 * Peering da Microsoft dos circuitos do ExpressRoute que estão configurados em ou depois de 1 de Agosto de 2017 não terão qualquer prefixos anunciados até que um filtro de rota é anexado ao circuito. Verá que não existem prefixos por predefinição.
+
+## <a name="globalreach"></a>ExpressRoute Direct (pré-visualização)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Alcance global (pré-visualização)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 70ec0f1acc54aae7de5f815d62a876ce3d033193
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090491"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966916"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gerir capturas de pacotes com o observador de rede do Azure com a CLI do Azure
 
@@ -31,15 +31,13 @@ ms.locfileid: "39090491"
 
 Captura de pacotes do observador de rede permite-lhe criar sessões de captura para controlar o tráfego de e para uma máquina virtual. Filtros são fornecidos para a sessão de captura garantir que capturar apenas o tráfego que pretende. Captura de pacotes ajuda a diagnosticar anomalias de rede, de forma reativa e de forma pró-ativa. Outras utilizações incluem a recolha de estatísticas de rede, obter informações sobre a invasões de rede, para depurar as comunicações cliente-servidor e muito mais. Por poder para acionar remotamente capturas de pacotes, esta capacidade alivie o trabalho de executar uma captura de pacotes manualmente e a máquina desejado, que economiza um valioso tempo.
 
-Este artigo utiliza o CLI de próxima geração para o modelo de implementação de gestão de recursos, Azure CLI 2.0, que está disponível para Windows, Mac e Linux.
-
-Para efetuar os passos neste artigo, precisa [instale a Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Para efetuar os passos neste artigo, precisa [instale a Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)](/cli/azure/install-azure-cli).
 
 Este artigo orienta-o por tarefas de gestão diferentes que estão atualmente disponíveis para captura de pacotes.
 
 - [**Iniciar uma captura de pacotes**](#start-a-packet-capture)
 - [**Parar uma captura de pacotes**](#stop-a-packet-capture)
-- [**Eliminar uma captura de pacotes**](#delete-a-packet-capture)
+- [**eliminar uma captura de pacotes**](#delete-a-packet-capture)
 - [**Transferir uma captura de pacotes**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -217,7 +215,7 @@ az network watcher packet-capture stop --name packetCaptureName --location westc
 > [!NOTE]
 > O cmdlet devolve sem resposta quando foi executado numa sessão de captura atualmente em execução ou de uma sessão existente que já foi parado.
 
-## <a name="delete-a-packet-capture"></a>Eliminar uma captura de pacotes
+## <a name="delete-a-packet-capture"></a>eliminar uma captura de pacotes
 
 ```azurecli
 az network watcher packet-capture delete --name packetCaptureName --location westcentralus

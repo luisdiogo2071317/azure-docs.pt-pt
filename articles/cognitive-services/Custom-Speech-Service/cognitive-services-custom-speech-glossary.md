@@ -1,6 +1,6 @@
 ---
-title: Glossário de termos de licenciamento para o serviço de reconhecimento de voz personalizadas no Azure | Microsoft Docs
-description: Terminologia no glossário define os termos que encontrar à medida que trabalha com o serviço de reconhecimento de voz personalizadas.
+title: Glossário de termos de serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Terminologia no glossário define os termos que encontrará ao trabalhar com o serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,34 +9,35 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2b6c54f023eccfa813817256bdcc1cbde83d49a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f57809fee463213cbb427146325666656b022e41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351668"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956749"
 ---
 # <a name="glossary"></a>Glossário
 
 ## <a name="a"></a>A
 
-### <a name="acoustic-model"></a>Modelo acústica
+### <a name="acoustic-model"></a>Modelo acústico
 
-O modelo acústica for um classificador que etiquetas curtos fragmentos de áudio numa de um número de fonemas ou unidades de som, por um determinado idioma. Por exemplo, a palavra “speech” é constituída por quatro fonemas “s p iy ch”. Estas classificações são efetuadas em modo de 100 vezes por segundo
+O modelo acústico é um classificador que rotula fragmentos curtos de áudio num de vários fonemas, ou unidades de som, num determinado idioma. Por exemplo, a palavra “speech” é constituída por quatro fonemas “s p iy ch”. Estas classificações são feitas na ordem dos 100 vezes por segundo
 
 ## <a name="b"></a>B
 
 ## <a name="c"></a>C
 
-### <a name="conversational-model"></a>Modelo Conversational
+### <a name="conversational-model"></a>Modelo de conversação
 
-Um modelo apropriado para reconhecer o reconhecimento de voz ditas um estilo conversational. O Conversational Microsoft AM é adaptada para reconhecimento de voz normalmente direcionado na outra pessoa.
+Um modelo adequado para reconhecimento de Voz falada num estilo de conversação. O Conversational Microsoft AM é adaptada para a conversão de voz, normalmente, é direcionado à outra pessoa.
 
 ## <a name="d"></a>D
 
 ### <a name="deployment"></a>Implementação
 
-O processo através do qual o modelo personalizado adaptado torna-se de um serviço e expõe um URI
+O processo por meio do qual o modelo personalizado adaptado torna-se um serviço e expõe um URI
 
 ## <a name="e"></a>E
 
@@ -48,9 +49,9 @@ O processo através do qual o modelo personalizado adaptado torna-se de um servi
 
 ## <a name="i"></a>I
 
-### <a name="inverse-text-normalization"></a>Normalização de texto inverso
+### <a name="inverse-text-normalization"></a>Normalização do texto inversa
 
-O processo de conversão de texto não formatado "não processado" para texto formatado, ou seja, com maiúsculas/minúsculas e pontuação, chama-se a normalização de texto inverso (ITN).
+O processo de conversão de texto formatado "bruto" voltar ao texto formatado, ou seja, com o uso e a pontuação, é chamado de normalização do texto inversa (ITN).
 
 ## <a name="j"></a>D
 
@@ -60,7 +61,7 @@ O processo de conversão de texto não formatado "não processado" para texto fo
 
 ### <a name="language-model"></a>Modelo de Idioma
 
-O modelo de idioma é uma distribuição de probabilidade sobre sequências de palavras. O modelo de linguagem ajuda-o o decidir entre as sequências de palavras de som semelhantes, com base na probabilidade das sequências de word próprios de sistema
+O modelo de idioma é uma distribuição de probabilidade sobre sequências de palavras. O modelo de idioma ajuda o sistema a decidir entre sequências de palavras que soam de forma semelhantes, com base na probabilidade das próprias sequências de palavras
 
 ## <a name="m"></a>M
 
@@ -68,31 +69,31 @@ O modelo de idioma é uma distribuição de probabilidade sobre sequências de p
 
 ### <a name="normalization"></a>Normalização
 
-Normalização (texto): Transformação de texto resultante (ou seja, transcription) num formulário padrão, inequívoca legível pelo sistema.
+Normalização (texto): A transformação de texto resultante (ou seja, transcrição) num formato padrão, inequívoca legível pelo sistema.
 
 ## <a name="o"></a>O
 
 ## <a name="p"></a>P
 
-## <a name="q"></a>Q
+## <a name="q"></a>P
 
 ## <a name="r"></a>R
 
 ## <a name="s"></a>S
 
-### <a name="search-and-dictate-model"></a>Procurar e da sua organização ditarem modelo
+### <a name="search-and-dictate-model"></a>Pesquisar e ditar o modelo
 
-Um modelo acústica adequado para o processamento de comandos. A Microsoft Search e ditado AM é adequado para reconhecimento de voz direcionadas para uma aplicação ou dispositivo, tal como como comandos
+Um modelo acústico apropriado para processamento de comandos. O Microsoft Search e ditado AM é adequado para direcionado num aplicativo ou dispositivo, como, tais como comandos de voz
 
 ### <a name="subscription-key"></a>Chave de subscrição
 
-Chave de subscrição é uma cadeia que tem de especificar como um parâmetro de cadeia de consulta para invocar qualquer modelo de serviço de reconhecimento de voz personalizadas. Uma chave de subscrição é obtida a partir [Portal do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) e uma vez obtidas podem ser encontrados em "As minhas subscrições" no portal do serviço de reconhecimento de voz personalizadas.
+Chave de subscrição é uma cadeia de caracteres que tem de especificar como um parâmetro de cadeia de caracteres de consulta para invocar qualquer modelo de serviço de voz personalizada. Uma chave de subscrição é obtida a partir [Portal do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) e uma vez obtidas podem ser encontrados na "As minhas subscrições" no portal do serviço de voz personalizada.
 
 ## <a name="t"></a>T
 
-### <a name="transcription"></a>Transcription
+### <a name="transcription"></a>Transcrição
 
-Transcription: A informação de texto resultante do processo de um conjunto de ficheiros wav de áudio
+Transcrição: O elemento de texto resultante do processo de uma parte do arquivo. wav de áudio
 
 ## <a name="u"></a>U
 

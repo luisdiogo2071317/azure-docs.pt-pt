@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6b4ee3425f6a490f33f998cab4f33734b23df22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125781"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982108"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais do IoT Hub
 
@@ -61,7 +61,7 @@ Todos os pontos de extremidade do IoT Hub utilizam o [TLS] [ lnk-tls] protocolo 
 
 ## <a name="custom-endpoints"></a>Pontos finais personalizados
 
-Pode ligar os serviços do Azure existentes na sua subscrição ao seu hub IoT para atuar como pontos finais para encaminhamento de mensagens. Estes pontos finais funcionam como pontos finais de serviço e são utilizados como sinks para rotas de mensagens. Dispositivos não é possível escrever diretamente para os pontos finais adicionais. Para saber mais sobre rotas de mensagens, consulte a entrada de guia para programadores sobre [enviar e receber mensagens com o IoT hub][lnk-devguide-messaging].
+Pode ligar os serviços do Azure existentes na sua subscrição ao seu hub IoT para atuar como pontos finais para encaminhamento de mensagens. Estes pontos finais funcionam como pontos finais de serviço e são utilizados como sinks para rotas de mensagens. Dispositivos não é possível escrever diretamente para os pontos finais adicionais. Saiba mais sobre [roteamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 Atualmente, o IoT Hub suporta os seguintes serviços do Azure como pontos finais adicionais:
 
@@ -70,32 +70,7 @@ Atualmente, o IoT Hub suporta os seguintes serviços do Azure como pontos finais
 * Filas de Service Bus
 * Tópicos de Service Bus
 
-IoT Hub precisa de acesso de escrita para estes pontos finais de serviço para encaminhamento de mensagens funcione. Se configurar os pontos finais através do portal do Azure, são adicionadas as permissões necessárias para. Certifique-se de que configura seus serviços para suportar o débito esperado. Ao configurar a sua solução de IoT em primeiro lugar, terá de monitorizar os pontos finais adicionais e faça qualquer ajuste necessário para a carga real.
-
-Se uma mensagem correspondências várias rotas que apontem para o mesmo ponto final, IoT Hub entregar mensagens para esse ponto final apenas uma vez. Por conseguinte, não é necessário configurar a eliminação de duplicados em sua fila do Service Bus ou tópico. Em filas particionadas, a afinidade de partição garante a ordenação de mensagens.
-
 Para os limites no número de pontos de extremidade pode adicionar, ver [Quotas e limitação][lnk-devguide-quotas].
-
-### <a name="when-using-azure-storage-containers"></a>Quando utilizar contentores de armazenamento do Azure
-
-IoT Hub suporta apenas a escrita de dados para os contentores de armazenamento do Azure como blobs no [Apache Avro](http://avro.apache.org/) formato. IoT Hub mensagens dos lotes e escreve dados para um blob sempre que:
-
-* O batch atinge um certo tamanho.
-* Ou um determinado período de tempo decorrido.
-
-IoT Hub irá escrever para um blob vazio se não houver dados escrever.
-
-IoT Hub é predefinido para a seguinte convenção de nomenclatura de ficheiro:
-
-```
-{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
-```
-
-Pode usar qualquer arquivo que gostaria de convenção de nomenclatura, no entanto tem de utilizar tokens de todas as listadas.
-
-### <a name="when-using-service-bus-queues-and-topics"></a>Ao utilizar tópicos e filas do Service Bus
-
-Filas do Service Bus e tópicos usados como pontos finais do IoT Hub não tem de ter **sessões** ou **duplicar deteção** ativada. Se qualquer uma dessas opções estiverem ativada, o ponto final é apresentado como **inacessível** no portal do Azure.
 
 ## <a name="field-gateways"></a>Gateways de campo
 

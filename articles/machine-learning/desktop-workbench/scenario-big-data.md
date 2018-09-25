@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460248"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964706"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Este artigo aborda como os cientistas de dados podem utilizar o Azure Machine Learning Workbench permite desenvolver soluções que requerem a utilização de grandes volumes de dados. Pode começar a partir de um exemplo de um conjunto de dados grandes, iterar por meio de preparação de dados, engenharia de funcionalidades e machine learning e, em seguida, expandir o processo para o conjunto completo de dados grandes. 
 
@@ -49,11 +52,11 @@ Neste cenário, se concentrar na previsão da carga de trabalho para cada máqui
 As pré-requisitos para executar este exemplo são os seguintes:
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar uma área de trabalho, consulte a [guia de início rápido de instalação](../service/quickstart-installation.md). Se tiver várias subscrições, pode [definir a subscrição pretendida para a subscrição de Active Directory atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar uma área de trabalho, consulte a [guia de início rápido de instalação](quickstart-installation.md). Se tiver várias subscrições, pode [definir a subscrição pretendida para a subscrição de Active Directory atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (as instruções neste exemplo são geralmente as mesmas para sistemas de macOS).
 * Uma ciência de dados Máquina Virtual (DSVM) para Linux (Ubuntu), preferencialmente na região E.U.A. leste, onde os dados localiza. Pode aprovisionar uma DSVM do Ubuntu seguindo [estas instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Também pode ver [este guia de introdução](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos que utilize uma máquina virtual com, pelo menos, 8 núcleos e 32 GB de memória. 
 
-Siga os [instrução](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para ativar o acesso de sudoer sem palavra-passe na VM para AML Bancada de trabalho.  Pode optar por utilizar [autenticação baseada em chave SSH para criar e utilizar a VM na bancada de trabalho de AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, podemos utilizar palavra-passe para aceder à VM.  Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
+Siga os [instrução](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para ativar o acesso de sudoer sem palavra-passe na VM para AML Bancada de trabalho.  Pode optar por utilizar [autenticação baseada em chave SSH para criar e utilizar a VM na bancada de trabalho de AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, podemos utilizar palavra-passe para aceder à VM.  Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
 
  Nome do campo| Valor |  
  |------------|------|

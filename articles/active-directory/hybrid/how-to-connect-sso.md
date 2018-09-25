@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: be46933ee77b261107a6d22d26ba81538f0fd9d1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314525"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054189"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
@@ -62,16 +62,19 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim\*|Não|Sim|Sim\*\*|N/A
-|Windows 8.1|Sim\*|N/A|Sim|Sim\*\*|N/A
-|Windows 8|Sim\*|N/A|Sim|Sim\*\*|N/A
-|Windows 7|Sim\*|N/A|Sim|Sim\*\*|N/A
-|Mac OS X|N/A|N/A|Sim\*\*|Sim\*\*|Sim\*
+|Windows 10|Sim\*|Não|Sim|Sim\*\*\*|N/A
+|Windows 8.1|Sim\*|N/A|Sim|Sim\*\*\*|N/A
+|Windows 8|Sim\*|N/A|Sim|Sim\*\*\*|N/A
+|Windows 7|Sim\*|N/A|Sim|Sim\*\*\*|N/A
+|Windows Server 2012 R2 ou superior|Sim\*\*|N/A|Sim|Sim\*\*\*|N/A
+|Mac OS X|N/A|N/A|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
 \*Necessita de versões do Internet Explorer 10 ou superior
 
-\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*Necessita de versões do Internet Explorer 10 ou superior. Modo protegido do desativar avançada
+
+\*\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Para Windows 10, a recomendação é usar [associação do Azure AD](../active-directory-azureadjoin-overview.md) para a única início de sessão numa experiência ideal com o Azure AD.

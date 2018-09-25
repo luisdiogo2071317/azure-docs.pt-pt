@@ -1,5 +1,5 @@
 
-1. Siga os passos listados em [Connect to Azure from the Azure CLI 1.0 (Ligar ao Azure a partir do CLI do Azure 1.0)](/cli/azure/authenticate-azure-cli) para iniciar sessão na sua subscrição do Azure.
+1. Inicie sessão na sua subscrição do Azure, siga os passos listados na [ligar ao Azure a partir da CLI clássica do Azure](/cli/azure/authenticate-azure-cli).
 
 2. Confirme que está no modo de implementação Clássica, da seguinte forma:
 
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter detalhes sobre todos estes comandos de máquinas virtuais do CLI do Azure 1.0, leia [Using the Azure CLI 1.0 with the Classic deployment API (Utilizar o CLI do Azure 1.0 com a API de implementação Clássica)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+Para obter detalhes sobre todos do Azure clássicos comandos da CLI máquina virtual, leia os [com a CLI clássica do Azure com a API de implementação clássica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

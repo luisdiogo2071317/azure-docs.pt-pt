@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 46789f5f3449baead12133522997936c8a992d3b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732945"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964774"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -84,7 +84,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memória (GB)|7|14|28|56|112|168|
-|Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento em OLTP na memória (GB)|1|2|4|8|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
@@ -122,8 +122,52 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 |||
 
+### <a name="hyperscale-service-tier-preview"></a>Camada de serviços de Hiperescala (pré-visualização)
+
+#### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
+|Nível de desempenho|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|Geração de H/W|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memória (GB)|7|14|28|56|112|168|
+|Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento em OLTP na memória (GB)|N/A|N/D|N/D|N/D|N/D|N/A|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |
+|Tamanho máximo do registo (TB)|1 |1 |1 |1 |1 |1 |
+|TempDB tamanho (GB)|32|64|128|256|384|384|
+|Destino IOPS (64 KB)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
+|Latência de e/s (aproximada)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
+|Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|3200|4800|
+|Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|2|2|2|2|2|2|
+|Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
+|Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento de cópia de segurança incluído|7|7|7|7|7|7|
+|||
+### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
+|Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|Geração de H/W|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|40|80|
+|Memória (GB)|11|22|44|88|132|176|220|440|
+|Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento em OLTP na memória (GB)|N/A|N/D|N/D|N/D|N/D|N/D|N/D|N/A|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Tamanho máximo do registo (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB tamanho (GB)|64|128|256|384|384|384|384|384|
+|Destino IOPS (64 KB)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
+|Latência de e/s (aproximada)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
+|Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|
+|Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|2|2|2|2|2|2|2|2|
+|Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/D|N/A|
+|Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento de cópia de segurança incluído (limite de pré-visualização)|7|7|7|7|7|7|7|7|
+|||
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
-- Ver [limites de recursos de visão geral do Azure SQL Database](sql-database-resource-limits.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).

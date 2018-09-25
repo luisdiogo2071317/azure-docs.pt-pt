@@ -1,6 +1,6 @@
 ---
-title: Criar um ponto final de reconhecimento de voz personalizadas com o serviço de reconhecimento de voz personalizadas no Azure | Microsoft Docs
-description: Saiba como criar um ponto final de reconhecimento de voz para texto personalizado com o serviço de reconhecimento de voz personalizadas nos serviços cognitivos.
+title: Criar um ponto de final de voz personalizada com o serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Saiba como criar um ponto de final de voz em texto personalizado com o serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,26 +9,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: 99bc275db1f0c1b45b3db440d2e03d0db9ab5cf6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: ed93afa8e10fdfbb0d45f4500b4a648716e25e00
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952227"
 ---
-# <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto final de reconhecimento de voz para texto personalizado
-Depois de criar modelos acústica personalizados ou modelos de idioma, pode implementá-las num ponto final reconhecimento de voz para texto personalizado. 
+# <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto final de conversão de voz em texto personalizado
+Depois de criar modelos acústicos personalizados ou modelos de linguagem, pode implementá-las num ponto de final de voz em texto personalizado. 
 
 ## <a name="create-an-endpoint"></a>Criar um ponto final
-Para criar um novo ponto de final personalizado, selecione **implementações** no **reconhecimento de voz personalizadas** menu na parte superior da página. Esta ação demora ao **implementações** página, que contém uma tabela de pontos finais personalizados atuais. Se ainda não tiver criado quaisquer pontos finais, a tabela estiver vazia. A região atual é refletida no título de tabela. 
+Para criar um novo ponto final personalizado, selecione **implementações** sobre o **voz personalizada** menu na parte superior da página. Esta ação leva-o para o **implementações** página, que contém uma tabela de pontos finais personalizados atuais. Se ainda não criou quaisquer pontos de extremidade, a tabela estiver vazia. A região atual está refletida no título da tabela. 
 
-Para criar uma implementação de um idioma diferente, selecione **alteração região**. Para obter mais informações sobre os idiomas suportados, consulte [suportado regiões no serviço de reconhecimento de voz personalizadas](cognitive-services-custom-speech-change-locale.md).
+Para criar uma implementação para um idioma diferente, selecione **localidade de alteração**. Para obter mais informações sobre os idiomas suportados, consulte [localidades com suporte no serviço de voz personalizada](cognitive-services-custom-speech-change-locale.md).
 
-Para criar um novo ponto final, selecione **criar novo**. No **criar implementação** painel, introduza informações no **nome** e **Descrição** caixas da sua implementação personalizada.
+Para criar um novo ponto final, selecione **criar novo**. Na **criar implementação** painel, introduza as informações no **nome** e **Descrição** caixas de implantação personalizada.
 
-No **subscrição** combinação caixa, selecione a subscrição que pretende utilizar. Se se tratar de uma subscrição de S2, pode selecionar unidades de escala e o registo de conteúdo. Para obter mais informações sobre unidades de escala e o registo, consulte [medidores do serviço de reconhecimento de voz personalizadas e quotas](../cognitive-services-custom-speech-meters.md).
+Na **subscrição** combinação caixa, selecione a subscrição que pretende utilizar. Se for uma subscrição de S2, pode selecionar unidades de escala e de registo de conteúdo. Para obter mais informações sobre unidades de escala e de registo, consulte [medidores do serviço de voz personalizada e quotas](../cognitive-services-custom-speech-meters.md).
 
-A tabela seguinte mostra como unidades de escala mapeiam pedidos simultâneos disponíveis:
+A tabela seguinte mostra como o mapeamento de unidades de escala, para pedidos em simultâneo disponíveis:
 
 | Unidade de escala | Número de pedidos simultâneos |
 | ------ | ----- |
@@ -38,38 +39,38 @@ A tabela seguinte mostra como unidades de escala mapeiam pedidos simultâneos di
 | 3 | 15 |
 | N | 5 * n |
 
-Também pode selecionar se o registo de conteúdo é mudado ou desativar. Ou seja, está a selecionar se o tráfego de ponto final está armazenado para utilização interna da Microsoft. Se não estiver selecionada, armazenar o tráfego irão ser suprimido. A supressão dos resultados de registo de conteúdo em custos adicionais. Consulte o [página de informações de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) para obter mais detalhes.
+Também pode selecionar se o registo de conteúdo é mudado ou desativar. Ou seja, que está selecionando se o tráfego de ponto final é armazenado para uso interno da Microsoft. Se não estiver selecionada, armazenar o tráfego será suprimido. A supressão dos resultados de registo de conteúdo em custos adicionais. Consulte a [página de informações de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) para obter detalhes.
 
 > [!NOTE]
-> Registo de conteúdo é chamado "Não Trace" na página de preços.
+> Registo de conteúdo é chamado de "Sem rastreio" na página de preços.
 >
 
 
-Além disso, a Microsoft disponibiliza uma estimativa aproximada dos custos de modo a que tem conhecimento do impacto nos custos de unidades de escala e o registo de conteúdo. Esta estimativa é uma estimativa aproximada e poderá ser diferente dos custos reais.
+Além disso, a Microsoft fornece uma estimativa dos custos, para que esteja ciente do impacto sobre os custos de unidades de escala e de registo de conteúdo. Esta estimativa é uma estimativa aproximada e pode diferir dos custos reais.
 
 > [!NOTE]
-> Estas definições não estão disponíveis com as subscrições do F0 (escalão gratuito).
+> Estas definições não estão disponíveis com as assinaturas do F0 (escalão gratuito).
 >
 
-No **modelo acústica** lista, selecione o modelo acústica que pretende, e, no **idioma modelo** lista, selecione o modelo de idioma que pretende. As opções para modelos de idioma e acústica incluem sempre os modelos base do Microsoft. A seleção do modelo de base limita as combinações. Não é possível misturar conversational modelos base com a pesquisa e modelos de base da sua organização ditarem.
+Na **modelo acústico** , selecione o modelo acústico que pretende, e, no **modelo de idioma** , selecione o modelo de idioma que pretende. As opções para modelos de acústica e idioma incluem sempre os modelos bases do Microsoft. A seleção do modelo de base limita as combinações. Não é possível misturar os modelos bases conversacionais com pesquisa e estabelecer modelos de bases.
 
-![A página de criar a implementação](../../../media/cognitive-services/custom-speech-service/custom-speech-deployment-create2.png)
+![A página Criar implementação](../../../media/cognitive-services/custom-speech-service/custom-speech-deployment-create2.png)
 
 > [!NOTE]
-> Lembre-se de que aceite os termos de utilização e obter informações sobre preços, selecionando a caixa de verificação.
+> Certifique-se de que aceite os termos de utilização e obter informações sobre preços, selecionando a caixa de verificação.
 >
 
-Depois de selecionar os modelos acústica e de idioma, selecione **criar**. Esta ação devolve ao **implementações** página. A tabela inclui agora uma entrada que corresponde ao seu novo ponto final. Estado do ponto final reflete o estado atual enquanto está a ser criada. Pode demorar até 30 minutos para instanciar um novo ponto final com os seus modelos personalizados. Quando o estado da implementação é *concluída*, o ponto final está pronto a utilizar.
+Depois de selecionar os modelos de acústica e idioma, selecione **criar**. Esta ação devolve-lhe a **implementações** página. A tabela inclui agora uma entrada que corresponde ao seu novo ponto de extremidade. Estado do ponto de extremidade reflete o estado atual enquanto ele está a ser criado. Pode demorar até 30 minutos para instanciar um novo ponto final com os seus modelos personalizados. Quando o estado da implementação estiver *Complete*, o ponto final está pronto para ser utilizado.
 
-![A página de implementações](../../../media/cognitive-services/custom-speech-service/custom-speech-deployment-ready.png)
+![A página implementações](../../../media/cognitive-services/custom-speech-service/custom-speech-deployment-ready.png)
 
-Quando a implementação estiver pronta, o nome da implementação torna-se uma ligação. Ao selecionar a hiperligação apresenta o **informações de implementação** página, que apresenta os URLs do seu ponto final personalizado para utilizar com o pedido de HTTP ou o Microsoft cognitivos serviços voz biblioteca de clientes, que utiliza os sockets web.
+Quando a implementação estiver pronta, o nome da implementação torna-se uma ligação. Selecionar a ligação apresenta os **informações de implementação** página, que apresenta os URLs do seu ponto final personalizado para utilizar com a um pedido de HTTP ou a Microsoft cognitivos serviços de voz biblioteca de cliente, que utiliza web sockets.
 
 ![A página de informações de implementação](../../../media/cognitive-services/custom-speech-service/custom-speech-deployment-info2.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para tutoriais mais, consulte:
-* [Utilizar um ponto final de reconhecimento de voz para texto personalizado](cognitive-services-custom-speech-use-endpoint.md)
-* [Criar um modelo personalizado acústica](cognitive-services-custom-speech-create-acoustic-model.md)
+Para mais tutoriais, consulte:
+* [Utilizar um ponto de final de voz em texto personalizado](cognitive-services-custom-speech-use-endpoint.md)
+* [Criar um modelo acústico personalizado](cognitive-services-custom-speech-create-acoustic-model.md)
 * [Criar um modelo de idioma personalizado](cognitive-services-custom-speech-create-language-model.md)

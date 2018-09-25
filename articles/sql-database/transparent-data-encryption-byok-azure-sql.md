@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: b4ed1c8b5079ad0984879db6f84138bfdb579d49
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: d87747e60c375f844681ed6cfd40dba84f46a9b2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542604"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963616"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL e o armazém de dados
 
@@ -57,17 +57,17 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
 
 ### <a name="general-guidelines"></a>Diretrizes gerais
 - Certifique-se de que o Cofre de chaves do Azure e base de dados do Azure SQL vai estar no mesmo inquilino.  Interações de cofre e o servidor de chaves entre inquilinos **não são suportadas**.
-- Decidir quais as subscrições que vão ser utilizados para os recursos necessários – uma nova configuração do TDE com BYOKs necessita de mover o servidor entre subscrições mais tarde. Saiba mais sobre [mover recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-move-resources)
-- Ao configurar o TDE com o BYOK, é importante levar em consideração a carga colocada no Cofre de chaves por repetidas moldar/anular moldagem de operações. Por exemplo, uma vez que todos os bancos de dados associados a um servidor lógico usam o mesmo protetor de TDE, irá acionar uma ativação pós-falha desse servidor como muitas operações-chave em relação a quantos do cofre são bases de dados no servidor. Com base em nossa experiência e documentadas [limites de serviço do Cofre de chaves](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-service-limits), recomendamos que a associação de no máximo, 500 Standard / fins gerais ou 200 Premium / bases de dados críticas para a empresa com um Azure Key Vault numa única subscrição para garantir consistentemente elevada disponibilidade ao acessar o protetor de TDE no cofre. 
-- Recomendado: Manter uma cópia do protetor de TDE no local.  Isso exige um dispositivo HSM para criar um Protetor de TDE localmente e um sistema de caução de chaves para armazenar uma cópia local do Protetor de TDE.  Saiba mais [como transferir uma chave de um HSM local ao Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys).
+- Decidir quais as subscrições que vão ser utilizados para os recursos necessários – uma nova configuração do TDE com BYOKs necessita de mover o servidor entre subscrições mais tarde. Saiba mais sobre [mover recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- Ao configurar o TDE com o BYOK, é importante levar em consideração a carga colocada no Cofre de chaves por repetidas moldar/anular moldagem de operações. Por exemplo, uma vez que todos os bancos de dados associados a um servidor lógico usam o mesmo protetor de TDE, irá acionar uma ativação pós-falha desse servidor como muitas operações-chave em relação a quantos do cofre são bases de dados no servidor. Com base em nossa experiência e documentadas [limites de serviço do Cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), recomendamos que a associação de no máximo, 500 Standard / fins gerais ou 200 Premium / bases de dados críticas para a empresa com um Azure Key Vault numa única subscrição para garantir consistentemente elevada disponibilidade ao acessar o protetor de TDE no cofre. 
+- Recomendado: Manter uma cópia do protetor de TDE no local.  Isso exige um dispositivo HSM para criar um Protetor de TDE localmente e um sistema de caução de chaves para armazenar uma cópia local do Protetor de TDE.  Saiba mais [como transferir uma chave de um HSM local ao Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Diretrizes para configurar o Azure Key Vault
 
-- Criar um cofre de chaves com [recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ativada para proteger contra eliminação de perda em caso de chave acidental – ou o Cofre de chaves – de dados.  Tem de utilizar [PowerShell para ativar a propriedade de "eliminação de forma recuperável"](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell) no Cofre de chaves (esta opção não está disponível no AKV Portal ainda –, mas é necessário pelo SQL):  
+- Criar um cofre de chaves com [recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ativada para proteger contra eliminação de perda em caso de chave acidental – ou o Cofre de chaves – de dados.  Tem de utilizar [PowerShell para ativar a propriedade de "eliminação de forma recuperável"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) no Cofre de chaves (esta opção não está disponível no AKV Portal ainda –, mas é necessário pelo SQL):  
   - Recursos de eliminado de forma recuperável são retidos durante um determinado período de tempo, 90 dias, a menos que eles são recuperados ou removidos.
   - O **recuperar** e **remover** ações têm suas próprias permissões associadas a uma política de acesso do Cofre de chaves. 
-- Defina um bloqueio de recursos no Cofre de chaves para controlar quem pode eliminar este recurso crítico e ajudar a impedir a eliminação acidental ou não autorizada.  [Saiba mais sobre bloqueios de recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
+- Defina um bloqueio de recursos no Cofre de chaves para controlar quem pode eliminar este recurso crítico e ajudar a impedir a eliminação acidental ou não autorizada.  [Saiba mais sobre bloqueios de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
 - Conceda o acesso do servidor lógico para o Cofre de chaves utilizando a respetiva identidade do Azure Active Directory (Azure AD).  Ao utilizar a IU do Portal, a identidade do Azure AD é criada automaticamente e as permissões de acesso do Cofre de chaves são concedidas para o servidor.  Utilizar o PowerShell para configurar o TDE com o BYOK, a identidade do Azure AD tem de ser criada e a conclusão deve ser verificada. Ver [TDE configurar com o BYOK](transparent-data-encryption-byok-azure-sql-configure.md) para obter instruções passo a passo detalhadas ao utilizar o PowerShell.
 
@@ -93,11 +93,11 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
     
 - Utilizar uma chave sem data de expiração – e nunca definir uma data de expiração de uma chave já em utilização: **assim que a chave expira, as bases de dados encriptados perder o acesso ao respetivo Protetor de TDE e são removidas dentro de 24 horas**.
 - Certifique-se de que a chave está ativada e tem permissões para efetuar *Obtenha*, *moldar chave*, e *anular a moldagem de chave* operações.
-- Crie uma cópia de segurança de chave do Azure Key Vault antes de utilizar a chave no Cofre de chaves do Azure pela primeira vez. Saiba mais sobre o [Backup-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) comando.
+- Crie uma cópia de segurança de chave do Azure Key Vault antes de utilizar a chave no Cofre de chaves do Azure pela primeira vez. Saiba mais sobre o [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) comando.
 - Criar uma nova cópia de segurança, sempre que são efetuadas quaisquer alterações à chave (por exemplo, adicionar ACLs, adicionar etiquetas, adicionar atributos principais).
 - **Manter versões anteriores** da chave no Cofre de chaves quando alternar chaves, portanto, mais antigos backups de banco de dados podem ser restauradas. Quando o Protetor de TDE for alterado para uma base de dados, cópias de segurança antigas da base de dados **não são atualizadas** para utilizar o Protetor de TDE mais recente.  Cada cópia de segurança tem do Protetor de TDE foi criado com durante o restauro. Rotações de chave podem ser efetuadas a seguir as instruções em [girar o Protetor de encriptação de dados usando o PowerShell transparente](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Mantenha todas as chaves utilizadas anteriormente no Azure Key Vault após a alteração novamente para chaves geridas pelo serviço.  Isto garante que cópias de segurança da base de dados podem ser restauradas com os protetores de TDE armazenados no Azure Key Vault.  Protetores de TDE criados com o Azure Key Vault tem de ser mantidos até que todas as cópias de segurança armazenadas foram criadas com chaves geridas pelo serviço.  
-- Fazer cópias de segurança recuperáveis destas chaves utilizando [Backup-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Fazer cópias de segurança recuperáveis destas chaves utilizando [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
 - Para remover uma chave potencialmente comprometida durante um incidente de segurança sem o risco de perda de dados, siga os passos indicados em [remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 
@@ -123,14 +123,14 @@ A secção seguinte irá abordar os passos de instalação e configuração mais
 
 ### <a name="azure-key-vault-configuration-steps"></a>Passos de configuração do Cofre de chaves do Azure
 
-- Instalar [PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0) 
-- Criar cofres de chaves do Azure duas em duas regiões diferentes usando [PowerShell para ativar a propriedade de "eliminação de forma recuperável"](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell) em cofres de chaves (esta opção não está disponível no AKV Portal ainda –, mas é necessário pelo SQL).
-- Ambos os cofres de chaves do Azure têm de estar localizados em duas regiões disponíveis da mesma geo do Azure na ordem de backup e restauração das chaves para trabalhar.  Se precisar de cofres de chaves dois estejam localizadas nas áreas geográficas diferentes para atender aos requisitos de SQL Geo-DR, siga os [BYOK processo](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys) que permite que as chaves para ser importados a partir de um HSM no local.
+- Instalar [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0) 
+- Criar cofres de chaves do Azure duas em duas regiões diferentes usando [PowerShell para ativar a propriedade de "eliminação de forma recuperável"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) em cofres de chaves (esta opção não está disponível no AKV Portal ainda –, mas é necessário pelo SQL).
+- Ambos os cofres de chaves do Azure têm de estar localizados em duas regiões disponíveis da mesma geo do Azure na ordem de backup e restauração das chaves para trabalhar.  Se precisar de cofres de chaves dois estejam localizadas nas áreas geográficas diferentes para atender aos requisitos de SQL Geo-DR, siga os [BYOK processo](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) que permite que as chaves para ser importados a partir de um HSM no local.
 - Crie uma nova chave no Cofre de chaves primeiro:  
   - Chave de 2048 RSA/RSA-HSA 
   - Sem data de validade 
   - Chave está ativada e tem permissões para executar o get, moldar chave e anular a moldagem de operações de chave 
-- Criar cópias de segurança a chave primária e restaurar a chave para o Cofre de chaves segundo.  Ver [BackupAzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) e [restauro-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0). 
+- Criar cópias de segurança a chave primária e restaurar a chave para o Cofre de chaves segundo.  Ver [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) e [restauro-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0). 
 
 ### <a name="azure-sql-database-configuration-steps"></a>Passos de configuração de base de dados SQL do Azure
 
@@ -141,9 +141,9 @@ Passos de uma nova implementação:
 - Selecione o painel TDE do servidor lógico e para cada servidor SQL lógico:  
    - Selecione o AKV na mesma região 
    - Selecione a chave a utilizar como o Protetor de TDE – cada servidor irá utilizar a cópia local do Protetor de TDE. 
-   - Fazer isso no Portal do irá criar uma [AppID](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) para o servidor SQL lógico, que é utilizado para atribuir as permissões de SQL Server lógicas para aceder ao Cofre de chaves – não eliminar esta identidade. Acesso pode ser revogado, removendo as permissões no Cofre de chaves do Azure em vez disso, para o servidor SQL lógico, que é utilizado para atribuir as permissões de SQL Server lógicas para aceder ao Cofre de chaves.
+   - Fazer isso no Portal do irá criar uma [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) para o servidor SQL lógico, que é utilizado para atribuir as permissões de SQL Server lógicas para aceder ao Cofre de chaves – não eliminar esta identidade. Acesso pode ser revogado, removendo as permissões no Cofre de chaves do Azure em vez disso, para o servidor SQL lógico, que é utilizado para atribuir as permissões de SQL Server lógicas para aceder ao Cofre de chaves.
 - Crie base de dados primária. 
-- Siga os [orientações de georreplicação ativa](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) para concluir o cenário, este passo irá criar a base de dados secundário.
+- Siga os [orientações de georreplicação ativa](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para concluir o cenário, este passo irá criar a base de dados secundário.
 
 ![Grupos de ativação pós-falha e geo-dr](./media/transparent-data-encryption-byok-azure-sql/Geo_DR_Config.PNG)
 

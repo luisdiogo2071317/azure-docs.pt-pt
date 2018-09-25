@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235085"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060987"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>SSD Managed Disks Standard para cargas de trabalho de Máquina Virtual do Azure
 
@@ -39,9 +39,12 @@ A tabela seguinte contém os tamanhos de disco, que são oferecidos atualmente p
 |E10     |128 GiB         |Até 500         |MiB até 60 por segundo         |
 |E15     |256 GiB         |Até 500         |MiB até 60 por segundo         |
 |E20     |512 GiB         |Até 500         |MiB até 60 por segundo         |
-|E30     |1024 giB         |Até 500         |MiB até 60 por segundo         |
-|E40     |2048 giB         |Até 500         |MiB até 60 por segundo         |
-|E50     |4095 giB         |Até 500         |MiB até 60 por segundo         |
+|E30     |1.024 giB       |Até 500         |MiB até 60 por segundo         |
+|E40     |2048 giB       |Até 500         |MiB até 60 por segundo         |
+|E50     |4095 giB       |Até 500         |MiB até 60 por segundo         |
+|E60     |8.192 giB       |Até 1.300       |Até 300 MiB por segundo        |
+|E70     |16.384 giB      |Até 2000       |Até 500 MiB por segundo        |
+|E80     |32.767 giB      |Até 2000       |Até 500 MiB por segundo        |
 
 SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s e para disponibilizar o IOPS e débito até aos limites descrito na tabela acima. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
 

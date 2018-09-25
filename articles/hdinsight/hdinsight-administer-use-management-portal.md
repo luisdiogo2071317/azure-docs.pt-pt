@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b39724c3d382637a048dc4fb9a3436ac1dbeae8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108029"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970282"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gira clusters Hadoop de baseados em Windows no HDInsight com o portal do Azure
 
@@ -207,7 +207,7 @@ Existem várias formas, pode programar o processo:
 
 * Utilizador do Azure Data Factory. Ver [serviço ligado do Azure HDInsight](../data-factory/compute-linked-services.md) e [transformar e analisar com o Azure Data Factory](../data-factory/transform-data.md) para HDInsight a pedido e Self-definido serviços ligados.
 * Utilize o Azure PowerShell.  Ver [analisar dados de atraso de voo](hdinsight-analyze-flight-delay-data.md).
-* Utilize a CLI do Azure. Ver [clusters do HDInsight gerir com o CLI do Azure](hdinsight-administer-use-command-line.md).
+* Utilize a CLI clássica do Azure. Ver [clusters do HDInsight gerir com o CLI clássica do Azure](hdinsight-administer-use-command-line.md).
 * Utilize o HDInsight .NET SDK. Ver [tarefas do Hadoop submeter](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Para obter informações sobre preços, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para eliminar um cluster a partir do Portal, veja [eliminar clusters](#delete-clusters)
@@ -364,7 +364,7 @@ Captura de ecrã anterior, o nome da pasta tem o número de versão do Hadoop in
 Neste artigo, aprendeu como criar um cluster do HDInsight com o Portal e como abrir a ferramenta de linha de comandos do Hadoop. Para obter mais informações, consulte os artigos seguintes:
 
 * [Administrar o HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administrar o HDInsight com a CLI do Azure](hdinsight-administer-use-command-line.md)
+* [Administrar o HDInsight com a CLI clássica do Azure](hdinsight-administer-use-command-line.md)
 * [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Submeter tarefas do Hadoop de forma programática](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

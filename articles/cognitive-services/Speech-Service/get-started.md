@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124517"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950844"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -36,7 +36,7 @@ Para se inscrever numa avaliação gratuita de 30 dias:
 
    ![Separador de serviços de voz](media/index/try-speech-api-free-trial1.png)
    
-1. Sob **serviços de voz <sup>pré-visualização</sup>**, selecione o **obter chave de API** botão.
+1. Sob **serviços de voz**, selecione a **obter chave de API** botão.
 
    ![Chave de API](media/index/try-speech-api-free-trial2.png)
 
@@ -75,11 +75,11 @@ Para adicionar um recurso de serviço de voz (escalão gratuito ou pago) à sua 
 
 1. Na **New** janela, procure **voz**.
 
-1. Nos resultados da pesquisa, selecione **voz (pré-visualização)**.
+1. Nos resultados da pesquisa, selecione **voz**.
 
-    ![Selecione a conversão de voz (pré-visualização)](media/index/try-speech-api-create-speech2.png)
+    ![Selecione a conversão de voz](media/index/try-speech-api-create-speech2.png)
 
-1. Sob **voz (pré-visualização)**, clique nas **criar** botão.
+1. Sob **voz**, selecione a **criar** botão.
 
     ![Selecione o botão Criar](media/index/try-speech-api-create-speech3.png)
 

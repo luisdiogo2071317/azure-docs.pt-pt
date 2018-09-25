@@ -1,0 +1,2 @@
+>[!Note]
+>**Este artigo foi preterido.** Suporte para versões anteriores deste serviço irá terminar a forma incremental. [Ver a linha cronológica de suporte](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Começar a utilizar a versão mais recente com isso [guia de introdução](../articles/machine-learning/service/index.yml).

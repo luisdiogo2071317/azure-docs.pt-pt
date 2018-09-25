@@ -9,14 +9,15 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 4fa8341b4d1953e3c59d345f45853f4c9a4a2941
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954488"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows do Azure
+
 Assim como qualquer outro computador, o máquinas virtuais do Azure utilizam discos como um local para armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm, pelo menos, dois discos – um disco de sistema operativo do Windows e um disco temporário. O disco do sistema operativo é criado a partir de uma imagem e o disco do sistema operativo e a imagem são discos rígidos virtuais (VHDs) armazenados numa conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados, que também são armazenados como VHDs. 
 
 Neste artigo, iremos falar sobre as utilizações diferentes para os discos e, em seguida, discutir os diferentes tipos de discos, pode criar e utilizar. Este artigo também está disponível para [máquinas virtuais do Linux](../linux/about-disks-and-vhds.md).
@@ -28,22 +29,23 @@ Neste artigo, iremos falar sobre as utilizações diferentes para os discos e, e
 Vamos dar uma olhada em como os discos são utilizados pelas VMs.
 
 ### <a name="operating-system-disk"></a>Disco do sistema operativo
-Cada máquina virtual possui um disco de sistema de operativo anexado. É registado como uma unidade SATA e identificado como a unidade c: por predefinição. Este disco tem a capacidade máxima de 2048 gigabytes (GB). 
+
+Cada máquina virtual possui um disco de sistema de operativo anexado. É registado como uma unidade SATA e identificado como a unidade c: por predefinição. Este disco tem a capacidade máxima de 2048 gigabytes (GB).
 
 ### <a name="temporary-disk"></a>Disco temporário
+
 Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando [Reimplementar uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante uma reinicialização bem sucedida padrão da VM, irão manter os dados na unidade temporária. 
 
 O disco temporário é identificado como a unidade d: por predefinição e ele utilizado para armazenar Pagefile. sys. Para remapear este disco para uma letra de unidade diferente, veja [alterar a letra de unidade do disco temporário Windows](change-drive-letter.md). O tamanho do disco temporário varia, com base no tamanho da máquina virtual. Para obter mais informações, consulte [máquinas de virtuais de tamanhos para Windows](sizes.md).
 
 Para obter mais informações sobre como o Azure utiliza o disco temporário, consulte [Noções básicas sobre a unidade temporária em máquinas virtuais do Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-
 ### <a name="data-disk"></a>Disco de dados
-Um disco de dados é um VHD que está ligado a uma máquina virtual para armazenar dados de aplicação ou outros dados que precisa para manter. Discos de dados estão registados como unidades SCSI e são rotulados com uma letra que escolher. Cada disco de dados tem a capacidade máxima de 4095 GB. O tamanho da máquina virtual determina quantos discos de dados, pode anexar a ele e o tipo de armazenamento pode utilizar para alojar os discos.
+
+Um disco de dados é um VHD que está ligado a uma máquina virtual para armazenar dados de aplicação ou outros dados que precisa para manter. Discos de dados estão registados como unidades SCSI e são rotulados com uma letra que escolher. Cada disco de dados tem a capacidade máxima de 4095 GB, os discos geridos têm a capacidade máxima de TiB 32.767. O tamanho da máquina virtual determina quantos discos de dados, pode anexar a ele e o tipo de armazenamento pode utilizar para alojar os discos.
 
 > [!NOTE]
 > Para obter mais informações sobre as capacidades de máquinas virtuais, consulte [máquinas de virtuais de tamanhos para Windows](sizes.md).
-> 
 
 Quando cria uma máquina virtual a partir de uma imagem, o Azure cria um disco do sistema operativo. Se utilizar uma imagem que inclua discos de dados, o Azure também cria os discos de dados ao criar a máquina virtual. Caso contrário, adicione discos de dados depois de criar a máquina virtual.
 
@@ -52,12 +54,11 @@ Pode adicionar discos de dados a uma máquina virtual em qualquer altura, ao **a
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Uma última Recomendação: utilização TRIM com discos standard não geridos 
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Uma última Recomendação: utilização TRIM com discos standard não geridos
 
-Se utilizar discos não geridos-standard (HDD), deverá ativar a limitação. TRIM descartará blocos não utilizados no disco, portanto, é-lhe cobrada apenas para o armazenamento de que, na verdade, está a utilizar. Isso pode poupar nos custos se cria arquivos grandes e, em seguida, eliminá-los. 
+Se utilizar discos não geridos-standard (HDD), deverá ativar a limitação. TRIM descartará blocos não utilizados no disco, portanto, é-lhe cobrada apenas para o armazenamento de que, na verdade, está a utilizar. Isso pode poupar nos custos se cria arquivos grandes e, em seguida, eliminá-los.
 
 Pode executar este comando para verificar a definição de COMPACTAÇÃO. Abra um prompt de comando na sua VM do Windows e o tipo:
-
 
 ```
 fsutil behavior query DisableDeleteNotify

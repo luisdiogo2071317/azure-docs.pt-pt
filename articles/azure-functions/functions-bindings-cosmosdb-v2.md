@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB enlaces para as funções 2.x (pré-visualização)
+title: Azure Cosmos DB enlaces para as funções 2.x
 description: Compreenda como utilizar o Azure Cosmos DB acionadores e enlaces nas funções do Azure.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953485"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB enlaces das funções do Azure 2.x (pré-visualização)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB enlaces das funções do Azure 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versão 1 - GA](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093435"
 Este artigo explica como trabalhar com [do Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) enlaces no funções do Azure 2.x. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
 
 > [!NOTE]
-> Este artigo destina-se [versão das funções do Azure 2.x](functions-versions.md), que está em pré-visualização.  Para obter informações sobre como utilizar essas ligações nas funções 1.x, consulte [do Azure Cosmos DB enlaces das funções do Azure 1.x](functions-bindings-cosmosdb.md).
+> Este artigo destina-se [versão das funções do Azure 2.x](functions-versions.md).  Para obter informações sobre como utilizar essas ligações nas funções 1.x, consulte [do Azure Cosmos DB enlaces das funções do Azure 1.x](functions-bindings-cosmosdb.md).
 >
 > Este enlace foi originalmente denominado DocumentDB. Na versão de funções 2.x, o acionador, enlaces e pacote são todos com o nome do Cosmos DB.
 

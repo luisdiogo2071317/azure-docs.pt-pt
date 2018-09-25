@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525472"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954556"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
@@ -34,9 +34,12 @@ Inscrições individuais aplicam-se a um dispositivo individual e podem utilizar
 2. Na lista de recursos, selecione a lista de bloqueio do dispositivo no serviço de aprovisionamento.
 3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **inscrições individuais** separador.
 4. Selecione a entrada de inscrição para o dispositivo que pretende criar uma lista de bloqueio. 
-5. Desloque para baixo e selecione **desativar** sobre o **ativar entrada** mudar e, em seguida, selecione **guardar**.  
 
-   [![Desativar a entrada de inscrição individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Selecione a sua inscrição individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Na sua página de inscrição, desloque para baixo e selecione **desativar** para o **ativar entrada** mudar e, em seguida, selecione **guardar**.  
+
+   ![Desativar a entrada de inscrição individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 À permanentemente lista de bloqueio do dispositivo ao eliminar a entrada de inscrição:
 
@@ -47,7 +50,8 @@ Inscrições individuais aplicam-se a um dispositivo individual e podem utilizar
 5. Selecione **elimine** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover a inscrição. 
 
    ![Eliminar a entrada de inscrição individual no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Depois de concluir o procedimento, verá sua participação removida da lista de inscrições individuais.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista de proibições um certificado de AC de raiz ou intermediário X.509 ao utilizar um grupo de inscrição
@@ -91,14 +95,18 @@ Na lista de proibições um dispositivo individual num grupo de inscrição, sig
 1. Inicie sessão no portal do Azure e selecione **todos os recursos** no menu à esquerda.
 2. Na lista de recursos, selecione o serviço de aprovisionamento que contém o grupo de inscrição para o dispositivo que pretende criar uma lista de bloqueio.
 3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **inscrições individuais** separador.
-4. Selecione o **adicionar** botão na parte superior. 
-5. Selecione **X.509** como o mecanismo de atestado para o dispositivo e carregue o certificado do dispositivo. Este é o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza-o para gerar certificados para autenticação.
-6. Para **ID de dispositivo do IoT Hub**, introduza o ID do dispositivo. 
-7. Selecione **desativar** sobre o **ativar entrada** mudar e, em seguida, selecione **guardar**. 
+4. Selecione o **adicionar inscrição individual** botão na parte superior. 
+5. Sobre o **adicionar inscrição** página, selecione **X.509** como o atestado **mecanismo** para o dispositivo.
+
+    Carregar o certificado do dispositivo e introduza o ID de dispositivo do dispositivo a ser bloqueado. Para o certificado, utilize o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza o certificado de entidade final assinado para autenticação.
+
+    ![Definir as propriedades do dispositivo para o dispositivo bloqueada](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Desloque-se para a parte inferior dos **adicionar inscrição** página e selecione **desativar** no **permitir entrada** mudar e, em seguida, selecione **guardar**. 
 
     [![Utilização desativada a entrada de inscrição individual para desativar do dispositivo de inscrição de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Ao criar a sua inscrição com êxito, deverá ver o seu dispositivo são apresentadas na **inscrições individuais** separador.
+Ao criar a sua inscrição com êxito, deverá ver a sua inscrição de dispositivo desativado listada no **inscrições individuais** separador. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

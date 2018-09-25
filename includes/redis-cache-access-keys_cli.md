@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 0289604cce7f956406d65743d5b058ec92111724
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0ae24deca1cce14a475c59046be71b3b17ca5505
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182662"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957685"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Obtenha o nome do anfitrião, as portas e as chaves de acesso através da CLI do Azure
-Para obter o nome do anfitrião e as portas através da CLI 2.0 do Azure, pode chamar para [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) e para obter as chaves pode chamar para [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). O script seguinte chama estes dois comandos e ecoa o nome de anfitrião, as portas e as chaves para a consola.
+
+Para obter o nome de anfitrião e as portas com a CLI do Azure, pode chamar [show do az redis](https://docs.microsoft.com/cli/azure/redis#az_redis_show)e para obter as chaves pode chamar [az redis lista as chaves](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). O script seguinte chama estes dois comandos e ecoa o nome de anfitrião, as portas e as chaves para a consola.
 
 ```azurecli
 #/bin/bash
@@ -38,4 +39,4 @@ echo "Primary Key:" ${keys[0]}
 echo "Secondary Key:" ${keys[1]}
 ```
 
-Para mais informações sobre este script, consulte [Get the hostname, ports, and keys for Azure Redis Cache (Obter o nome de anfitrião, as portas e as chaves para a Cache de Redis do Azure)](../articles/redis-cache/scripts/cache-keys-ports.md). Para obter mais informações sobre a CLI 2.0 do Azure, consulte [Install Azure CLI 2.0 (Instalar a CLI 2.0 do Azure)](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Get started with Azure CLI 2.0 (Introdução à CLI 2.0 do Azure)](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Para mais informações sobre este script, consulte [Get the hostname, ports, and keys for Azure Redis Cache (Obter o nome de anfitrião, as portas e as chaves para a Cache de Redis do Azure)](../articles/redis-cache/scripts/cache-keys-ports.md). Para obter mais informações sobre a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

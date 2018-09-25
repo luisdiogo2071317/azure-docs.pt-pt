@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 3fc9ab0505fda84464ead01b4937756707993cf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 21cd1b171f25d5abdaa89f631ac5bab8e4a351af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649150"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968881"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerir bases de dados de cloud escaladas horizontalmente
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Tarefas de base de dados elásticas** é um hospedado pelo cliente do Azure serviço Cloud que permite a execução do ad-hoc e agendadas tarefas administrativas, que são chamadas **tarefas**. Com tarefas, pode facilmente e gerir com fiabilidade grandes grupos de bases de dados do Azure SQL através da execução de scripts do Transact-SQL para realizar operações administrativas. 
+**Tarefas de base de dados elásticas** é um hospedado pelo cliente do Azure serviço Cloud que permite a execução do ad-hoc e agendadas tarefas administrativas, que são chamadas **tarefas**. Com tarefas, pode facilmente e gerir com fiabilidade grandes grupos de bases de dados SQL do Azure através da execução de scripts do Transact-SQL para realizar operações administrativas. 
 
 Para gerir bases de dados em partição horizontal de escalamento horizontal, o **tarefas de bases de dados elásticas** funcionalidade (pré-visualização) permite-lhe uma forma fiável, executar um script de Transact-SQL (T-SQL) num grupo de bases de dados, incluindo:
 
@@ -33,7 +33,7 @@ Para gerir bases de dados em partição horizontal de escalamento horizontal, o 
 * [Instalar os componentes de trabalho de bases de dados elásticas](sql-database-elastic-jobs-service-installation.md). 
 * [Introdução às tarefas de bases de dados elásticas](sql-database-elastic-jobs-getting-started.md).
 * [Criar e gerir tarefas através do PowerShell](sql-database-elastic-jobs-powershell.md).
-* [Criar e gerir aumentados horizontalmente de bases de dados do Azure SQL](sql-database-elastic-jobs-getting-started.md)
+* [Criar e gerir aumentados horizontalmente de bases de dados SQL do Azure](sql-database-elastic-jobs-getting-started.md)
 
 
 
@@ -46,11 +46,11 @@ Facilmente fazer alterações de esquema, gestão de credenciais, atualizações
 
 **Relatórios**
 
-Dados agregados de uma coleção de bases de dados do Azure SQL para uma tabela de destino único.
+Agregue dados a partir de uma coleção de bases de dados SQL do Azure numa tabela de destino única.
 
 **Reduzir a sobrecarga**
 
-Normalmente, tem de ligar a cada base de dados de forma independente para executar instruções Transact-SQL ou para realizar outras tarefas administrativas. Uma tarefa processa a tarefa de início de sessão em cada base de dados no grupo de destino. Também define, manter e manter scripts do Transact-SQL a ser executado num grupo de bases de dados do Azure SQL.
+Normalmente, tem de ligar a cada base de dados de forma independente para executar instruções Transact-SQL ou para realizar outras tarefas administrativas. Uma tarefa processa a tarefa de início de sessão em cada base de dados no grupo de destino. Também pode definir, manter e persistir os scripts Transact-SQL para serem executados num grupo de bases de dados SQL do Azure.
 
 **Gestão de contas**
 
@@ -58,7 +58,7 @@ Tarefas de executam o script e registar o estado de execução para cada base de
 
 **Flexibilidade**
 
-Definir grupos personalizados de bancos de dados do Azure SQL e definir agendas para executar uma tarefa.
+Defina grupos personalizados de bases de dados SQL do Azure e defina agendamentos para executar uma tarefa.
 
 > [!NOTE]
 > No portal do Azure, apenas um conjunto reduzido de funções limitadas para conjuntos elásticos do SQL Azure está disponível. Utilize as APIs do PowerShell para aceder ao conjunto completo de funcionalidade atual.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090868"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952856"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das funções do Azure
 
@@ -73,6 +73,10 @@ Tire partido das medidas defensiva já fornecida para os componentes que utiliza
 ## <a name="scalability-best-practices"></a>Melhores práticas de escalabilidade
 
 Existem vários fatores que afetam como dimensionar instâncias da sua aplicação de função. Os detalhes são fornecidos na documentação de [função dimensionamento](functions-scale.md).  Seguem-se algumas melhores práticas para garantir escalabilidade ideal de uma aplicação de funções.
+
+### <a name="share-and-manage-connections"></a>Partilhar e gerir ligações
+
+Voltar a utilizar ligações para recursos externos, sempre que possível.  Ver [como gerir ligações nas funções do Azure](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Não misturar código de teste e produção na mesma function app
 

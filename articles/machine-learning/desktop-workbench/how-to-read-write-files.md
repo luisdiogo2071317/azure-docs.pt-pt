@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908239"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971506"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Manter as alterações e trabalhar com ficheiros grandes
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Com o serviço de experimentação do Azure Machine Learning, pode configurar uma variedade de destinos de execução. Alguns destinos são locais, como um computador local ou um contentor do Docker num computador local. Outros recursos são remotos, como o contentor do Docker num computador remoto ou um cluster do HDInsight. Para obter mais informações, consulte [descrição geral do Azure Machine Learning experimentar o serviço de execução](experimentation-service-configuration.md). 
 
 Pode executar num destino, tem de copiar a pasta do projeto para o destino de computação. Deve fazer por isso, mesmo com uma execução local que usa uma pasta temporária do local para esse fim. 
@@ -48,6 +52,9 @@ Os casos de utilização comuns são:
 * Preparar um modelo
 * Criar um conjunto de dados
 * Desenhar um gráfico como um ficheiro de imagem como parte da sua execução de preparação de modelos 
+
+>[!Note]
+> Tamanho máx. de ficheiro controlado na pasta de saídas após uma execução é 512 MB. Isso significa que se o seu script produz um ficheiro mais de 512 MB na pasta saídas, ele não é coletado lá. 
 
 Além disso, deseja comparar as saídas nas execuções, selecionadas um ficheiro de saída (por exemplo, um modelo) que foi produzido pelas anterior executar e, em seguida, utilizá-lo para uma tarefa subseqüente (por exemplo, classificação).
 

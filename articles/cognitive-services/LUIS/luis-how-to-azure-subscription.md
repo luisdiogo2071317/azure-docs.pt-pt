@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste artigo, vai criar uma chave de ponto final com tráfego limitado para a sua conta do LUIS fornecer o tráfego ilimitado para o ponto final de seguir um plano de pagamento.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: dcee5ce7ce103db734cf4b63c26944945efed0ea
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040385"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerir chaves de subscrição de ponto final do Azure
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 677c40932a557b8a15a51b947794b4281801f65a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637654"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Azure Active Directory com dmarcian
 
@@ -111,15 +111,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian.com-eu/sso/saml/<ACCOUNT_ID>/sp.xml ` |
-    | `https://dmarcian.com-ap/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian.com-eu/login/<ACCOUNT_ID>/handle/ `|
-    | `https://dmarcian.com-ap/login/<ACCOUNT_ID>/handle/`|
+    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
+    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
 4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
@@ -129,8 +129,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-    | `https://dmarcian.com-eu/login/<ACCOUNT_ID>` |
-    | `https://dmarcian.com-ap/login/<ACCOUNT_ID>` |
+    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
+    | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
      
     > [!NOTE] 
     > Estes valores não são reais. Atualizar estes valores com o identificador real, o URL de resposta e URL de início de sessão que é explicado mais tarde no tutorial. 

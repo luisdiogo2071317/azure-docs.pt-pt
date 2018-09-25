@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c54bcc1239c2d8b8a88d5e30b06f8856b73b47ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412605"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960690"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões de máquina virtual do Azure e funcionalidades
 As extensões de máquina virtual do Azure (VM) são aplicativos pequenos que fornecem as tarefas de automatização e configuração de pós-implementação em VMs do Azure, pode utilizar imagens existentes e, em seguida, personalize-os como parte das suas implementações, saindo do a empresa de personalizado criação de imagem.
@@ -41,7 +41,7 @@ As extensões podem ser agrupadas com uma nova implementação de VM. Por exempl
 Pode ver as extensões disponíveis no painel da VM no Portal, em extensões, isso representa apenas uma pequena quantidade, para a lista completa, pode utilizar as ferramentas da CLI, veja [descoberta de extensões de VM para Linux](features-linux.md) e [ Descoberta de extensões de VM para Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Como posso instalar uma extensão?
-Extensões VM do Azure podem ser geridas com a CLI 2.0 do Azure, Azure PowerShell, modelos Azure Resource Manager e o portal do Azure. Para experimentar uma extensão, pode ir para o portal do Azure, selecione a extensão de Script personalizado, em seguida, passar um comando / script e executar as extensões.
+Extensões VM do Azure podem ser geridas com a CLI do Azure, Azure PowerShell, modelos Azure Resource Manager e o portal do Azure. Para experimentar uma extensão, pode ir para o portal do Azure, selecione a extensão de Script personalizado, em seguida, passar um comando / script e executar as extensões.
 
 Se pretender que a mesma extensão que adicionou no portal pelo modelo CLI ou do Resource Manager, consulte a documentação de extensão diferentes, tal como [extensão de Script do Windows personalizado](custom-script-windows.md) e [extensão de Script personalizado de Linux](custom-script-linux.md).
 

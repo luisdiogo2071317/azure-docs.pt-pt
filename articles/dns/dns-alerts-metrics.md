@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 17541cdc0fd017cf762c4af55e0a6be25dead9f1
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171869"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965032"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas DNS do Azure e alertas
 O DNS do Azure é um serviço de alojamento dos domínios DNS que fornece resolução de nomes através da infraestrutura do Microsoft Azure. Este artigo descreve as métricas e alertas para o serviço de DNS do Azure.
 
 ## <a name="azure-dns-metrics"></a>Métricas DNS do Azure
 
-O DNS do Azure fornece métricas para os clientes para ativá-las monitorizar aspetos específicos das suas aplicações alojadas no serviço DNS. Além disso, com a métrica de DNS do Azure, pode configurar e receber alertas com base nas condições de interesse. As métricas são fornecidas através da [serviço do Azure Monitor](../monitoring-and-diagnostics/index.yml). O DNS do Azure fornece as métricas seguintes através do Azure Monitor para suas zonas DNS:
+O DNS do Azure fornece métricas para os clientes para ativá-las monitorizar aspetos específicos das suas aplicações alojadas no serviço DNS. Além disso, com a métrica de DNS do Azure, pode configurar e receber alertas com base nas condições de interesse. As métricas são fornecidas através da [serviço do Azure Monitor](../azure-monitor/index.yml). O DNS do Azure fornece as métricas seguintes através do Azure Monitor para suas zonas DNS:
 
 -   QueryVolume
 -   RecordSetCount

@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 6cf01bfe0b88150f7d2b200031c96ffb703ade0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d3f34ac3d284d61caf79cbd4929689106fdf7999
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980649"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticação do Azure Active Directory
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593048"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974787"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para clientes do Azure Active Directory Authentication Library (ADAL)
 
@@ -182,7 +182,7 @@ O sistema operacional também pode gerar um conjunto de erros, que requerem trat
 
 - Aplicações de cliente nativo (iOS, Android, ambiente de trabalho do .NET ou Xamarin)
 - Aplicações Web que chamam um recurso de API (.NET)
-- Aplicações de página única (JavaScript)
+- Aplicativos de página única (JavaScript)
 - Aplicativos de serviços (.NET, Java)
   - Todos os cenários, incluindo em-nome-de
   - Em-nome-de cenários específicos
@@ -365,7 +365,7 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e passos acionáveis: aplicativos de página única (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e passos acionáveis: aplicativos de única página (adal.js)
 
 Se estiver criando um aplicativo de página única com adal.js AcquireToken, o código de tratamento de erro é semelhante de uma chamada típica de silenciosa. Especificamente adal.js, AcquireToken nunca mostra uma interface do Usuário. 
 

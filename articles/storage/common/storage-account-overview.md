@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c0d028b2e6f5e759b46293bc3e1cbef6902ea8ea
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740853"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972322"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -94,8 +94,8 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 
 Contas de armazenamento para fins gerais podem ser configuradas para qualquer um dos seguintes escalões de desempenho:
 
-* Um escalão de desempenho de armazenamento standard para armazenar blobs, ficheiros, tabelas, filas e discos de máquina virtual do Azure.
-* Escalão de desempenho de armazenamento premium para armazenar apenas os discos de máquina virtual do Azure. Veja [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../../virtual-machines/windows/premium-storage.md) para obter uma descrição geral aprofundada do armazenamento Premium.
+* Um escalão de desempenho standard para armazenar blobs, ficheiros, tabelas, filas e discos de máquina virtual do Azure.
+* Um escalão de desempenho premium para armazenar apenas os discos de máquina virtual do Azure. Veja [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../../virtual-machines/windows/premium-storage.md) para obter uma descrição geral aprofundada do armazenamento Premium.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Escalões de acesso para os dados de BLOBs de bloco
 
@@ -107,12 +107,15 @@ Os escalões de acesso disponíveis são:
 * O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.
 * O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados nos escalões de acesso frequentes ou esporádico. 
 
+> [!NOTE]
+> O [escalão de acesso de Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em pré-visualização limitada, como uma conta de armazenamento localmente redundante (LRS) nas regiões Europa do Norte, E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste. Para saber como se registar na pré-visualização, veja [introdução ao armazenamento de Blobs do Azure Premium](http://aka.ms/premiumblob).
+
 Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. 
 
 > [!IMPORTANT]
 > A alteração da camada de acesso para uma conta de armazenamento existente ou um blob poderá resultar em encargos adicionais.
 
-Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
+Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
 
 ## <a name="replication"></a>Replicação
 

@@ -1,121 +1,122 @@
 ---
-title: Descrição geral de dimensionamento automático em máquinas virtuais, Cloud Services e as aplicações Web
-description: Dimensionamento automático no Microsoft Azure. Aplica-se às máquinas virtuais, conjuntos de dimensionamento de máquinas de virtuais, Cloud Services e as aplicações Web.
+title: Descrição geral do dimensionamento automático em máquinas virtuais, serviços Cloud e aplicações Web
+description: Dimensionamento automático no Microsoft Azure. Aplica-se às máquinas virtuais, os conjuntos de dimensionamento de máquina de Virtual, serviços Cloud e aplicações Web.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2016
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264675"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946991"
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral de dimensionamento automático no Microsoft Azure Virtual Machines, Cloud Services e as aplicações Web
-Este artigo descreve o dimensionamento automático de Microsoft Azure está, suas vantagens e como começar a utilizá-la.  
+# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em máquinas virtuais do Microsoft Azure, serviços Cloud e aplicações Web
+Este artigo descreve o dimensionamento automático do Microsoft Azure é, seus benefícios e como começar a usá-lo.  
 
-Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços em nuvem](https://azure.microsoft.com/services/cloud-services/), e [Web Apps do App Service -](https://azure.microsoft.com/services/app-service/web/).
+Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 > [!NOTE]
-> O Azure tem dois métodos de dimensionamento automático. Uma versão antiga do dimensionamento automático se aplica a máquinas virtuais (conjuntos de disponibilidade). Esta funcionalidade tem suporte limitado e recomendamos-lhe migrar para conjuntos de dimensionamento de máquina virtual para o suporte de dimensionamento automático mais rápido e mais fiável. Uma ligação sobre como utilizar a tecnologia anterior está incluída neste artigo.  
+> O Azure tem dois métodos de dimensionamento automático. Uma versão mais antiga do dimensionamento automático aplica-se às máquinas virtuais (conjuntos de disponibilidade). Esta funcionalidade tem suporte limitado e recomendamos que migre para conjuntos de dimensionamento de máquinas virtuais para o suporte de dimensionamento automático mais rápida e confiável. Este artigo inclui uma ligação sobre como utilizar a tecnologia mais antiga.  
 >
 >
 
 ## <a name="what-is-autoscale"></a>O que é o dimensionamento automático?
-Dimensionamento automático permite-lhe ter a quantidade certa de recursos em execução para processar a carga na sua aplicação. Permite-lhe adicionar recursos para processar os aumentos de carga e também poupar dinheiro removendo recursos que são junto inativo. Especifique um número mínimo e máximo de instâncias para executar e adicionar ou remover automaticamente com base num conjunto de regras de VMs. Ter um mínimo de torna se a aplicação está sempre em execução, mesmo em nenhuma carga. Ter um máximo limita o total possível custo de hora a hora. Dimensionar automaticamente entre estas duas extremes através de regras que cria.
+Dimensionamento automático permite que tenha a quantidade certa de recursos em execução para processar a carga na sua aplicação. Ele permite que adicionar recursos para processar os aumentos de carga e também poupar dinheiro ao remover os recursos que estão parados inativo. Especifique um número mínimo e máximo de instâncias para executar e adicionar ou remover VMs automaticamente com base num conjunto de regras. Ter um mínimo de torna-se de que seu aplicativo está sempre em execução mesmo sob nenhuma carga. Ter um máximo limita o seu total possível de custo por hora. Dimensionar automaticamente entre esses dois extremos usando regras criadas.
 
- ![Explicado de dimensionamento automático. Adicionar e remover VMs](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
+ ![Dimensionamento automático explicado. Adicionar e remover VMs](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
 
-Quando forem cumpridas condições da regra, um ou mais ações de dimensionamento automático são acionadas. Pode adicionar e remover VMs ou efetuar outras ações. O diagrama conceptual seguinte mostra esse processo.  
+Quando forem cumpridas condições de regra, uma ou mais ações de dimensionamento automático são acionadas. Pode adicionar e remover VMs ou executar outras ações. O diagrama conceptual seguinte mostra esse processo.  
 
  ![Diagrama de fluxo de dimensionamento automático](./media/monitoring-overview-autoscale/Autoscale_Overview_v4.png)
 
-A explicação seguinte aplica-se para as peças do diagrama anterior.   
+A explicação seguinte aplica-se às partes do diagrama anterior.   
 
 ## <a name="resource-metrics"></a>Métricas de recurso
-Métricas de emissão de recursos, estas métricas mais tarde são processadas pelas regras. As métricas são fornecidos através de métodos diferentes.
-Conjuntos de dimensionamento de máquina virtual utilizam dados de telemetria dos agentes de diagnóstico do Azure, enquanto que as aplicações Web e serviços em nuvem a telemetria provém diretamente a partir da infraestrutura do Azure. Algumas estatísticas frequentemente utilizadas incluem a utilização da CPU, utilização de memória, as contagens de threads, comprimento da fila e a utilização de disco. Para obter uma lista dos dados de telemetria que pode utilizar, consulte [métricas comuns de dimensionamento automático](insights-autoscale-common-metrics.md).
+Recursos emitem métricas, estas métricas são processadas mais tarde. As métricas são fornecidos através de métodos diferentes.
+Conjuntos de dimensionamento de máquina virtual utilizam dados de telemetria dos agentes de diagnóstico do Azure, ao passo que vem de telemetria para aplicações Web e serviços Cloud diretamente a partir de infraestrutura do Azure. Algumas estatísticas usadas incluem a utilização da CPU, utilização da memória, contagens de thread, comprimento da fila e utilização do disco. Para obter uma lista dos dados de telemetria que pode utilizar, consulte [métricas comuns do dimensionamento automático](insights-autoscale-common-metrics.md).
 
 ## <a name="custom-metrics"></a>Métricas Personalizadas
-Também pode tirar partido do seus próprio métricas personalizadas que pode ser emitir a sua aplicação (ões). Se tiver configurado a sua aplicação (ões) para enviar as métricas para o Application Insights pode tirar partido dessas métricas para tomar decisões se dimensionar ou não. 
+Também pode aproveitar suas próprias métricas personalizadas que podem ser emitindo a suas aplicações. Se tiver configurado as aplicações para enviar métricas para o Application Insights, pode aproveitar essas métricas para tomar decisões sobre o dimensionamento ou não.
 
 ## <a name="time"></a>Hora
-Regras baseadas na agenda são baseadas em UTC. Tem de definir o fuso horário corretamente quando configurar as regras.  
+Regras com base na agenda são baseadas em UTC. Tem de definir seu fuso horário corretamente quando configurar as regras.  
 
 ## <a name="rules"></a>Regras
-O diagrama mostra apenas uma regra de dimensionamento automático, mas pode ter muitos dos mesmos. Pode criar regras sobrepostas complexas conforme necessário para a sua situação.  Tipos de regras incluem  
+O diagrama mostra apenas uma regra de dimensionamento automático, mas pode ter muitos deles. Pode criar regras complexas de sobreposição, conforme necessário para a sua situação.  Incluem tipos de regra  
 
-* **Com base em métrica** -por exemplo, execute esta ação quando a utilização da CPU é superior a 50%.
-* **Baseados no tempo** - por exemplo, o acionador um webhook am cada 8 no Sábado num fuso horário especificado.
+* **Com base na métrica** -por exemplo, execute esta ação quando a utilização de CPU é superior a 50%.
+* **Com base no tempo** – por exemplo, acionar um webhook am cada 8 no Sábado num determinado fuso de horário.
 
-Regras baseadas em métrica medem a carga da aplicação e adicionar ou remover as VMs com base em que a carga. Regras baseadas na agenda permitem-lhe dimensionar quando Consulte padrões de tempo na sua carga e pretende dimensionar antes de um aumento de carga possível ou diminuir.  
+Regras com base na métrica medem a carga da aplicação e adicionar ou remover VMs com base nessa carga. Regras com base na agenda permitem-lhe dimensionar quando ver padrões de tempo na sua carga e dimensionamento antes de um aumento de carga possível ou diminuição ocorre.  
 
 ## <a name="actions-and-automation"></a>Ações e automatização
-As regras podem acionar um ou mais tipos de ações.
+Regras podem acionar um ou mais tipos de ações.
 
-* **Escala** -dimensionamento de VMs ou reduzir
-* **E-mail** -enviar e-mail para os administradores da subscrição, coadministradores e/ou endereço de e-mail adicionais que especificar
-* **Automatizar através de webhooks** -chamar webhooks, que podem acionar várias ações complexas dentro ou fora do Azure. Dentro do Azure, pode iniciar um runbook da automatização do Azure, a função do Azure ou o Azure Logic App. URL de terceiros de exemplo fora do Azure incluem serviços como o Slack e Twilio.
+* **Dimensionamento** -dimensionamento de VMs dentro ou para fora
+* **E-mail** -enviar e-mail para os administradores de subscrições, coadministradores e/ou endereço de e-mail adicionais que especificar
+* **Automatizar através de webhooks** -chamar webhooks, que pode acionar várias ações complexas dentro ou fora do Azure. Dentro do Azure, pode iniciar um runbook da automatização do Azure, uma função do Azure ou uma aplicação lógica do Azure. Exemplo de terceiros URL fora do Azure incluem serviços como o Slack e Twilio.
 
-## <a name="autoscale-settings"></a>Definições de dimensionamento automático
+## <a name="autoscale-settings"></a>Definições do Dimensionamento Automático
 Dimensionamento automático utilize a seguinte terminologia e estrutura.
 
-- Um **definição de dimensionamento automático** é lido pelo motor de dimensionamento automático para determinar se deve aumentar ou reduzir verticalmente. Contém um ou mais perfis, informações sobre o recurso de destino e as definições de notificação.
+- Uma **definição de dimensionamento automático** são lidos pelo mecanismo de dimensionamento automático para determinar se deve aumentar ou reduzir verticalmente. Ele contém um ou mais perfis, informações sobre o recurso de destino e as definições de notificação.
 
-    - Um **perfil de dimensionamento automático** é uma combinação de r:
+    - Uma **perfil de dimensionamento automático** é uma combinação de r:
 
-        - **definição de capacidade**, que indica o número mínimo, máximo e valores predefinidos para o número de instâncias.
-        - **conjunto de regras**, cada um dos quais inclui um acionador (tempo ou métrica) e uma ação de dimensionamento (ou reduzir verticalmente).
+        - **definição de capacidade**, que indica que o mínimo, máximo e valores predefinidos para o número de instâncias.
+        - **conjunto de regras**, cada um deles inclui um acionador (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
         - **periodicidade**, que indica quando o dimensionamento automático deve colocar este perfil em vigor.
 
-        Pode ter vários perfis permitem-lhe asseguramos diferentes requisitos sobrepostos. Pode fazer com perfis de dimensionamento automático diferente para diferentes horas do dia ou dias da semana, por exemplo.
+        Pode ter vários perfis permitem-lhe lidar com diferentes requisitos sobrepostos. Pode ter perfis de dimensionamento automático diferentes para diferentes horas do dia ou dias da semana, por exemplo.
 
-    - A **definição de notificação** define que notificações devem ocorrer quando ocorre um evento de dimensionamento automático com base no que satisfaçam os critérios de um dos perfis de definição de dimensionamento automático. Dimensionamento automático pode notificar um ou mais endereços de e-mail ou efetuar chamadas para um ou mais webhooks.
+    - R **definição de notificação** define que notificações devem ocorrer quando um evento de dimensionamento automático ocorre com base no que satisfaça os critérios de um dos perfis de definição de dimensionamento automático. Dimensionamento automático pode notificar um ou mais endereços de e-mail ou fazer chamadas para um ou mais webhooks.
 
 
-![Definição de dimensionamento automático do Azure, o perfil e estrutura de regra](./media/monitoring-overview-autoscale/AzureResourceManagerRuleStructure3.png)
+![Definição de dimensionamento automático do Azure, perfil e estrutura de regra](./media/monitoring-overview-autoscale/AzureResourceManagerRuleStructure3.png)
 
-A lista completa dos campos configuráveis e descrições está disponível no [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931928.aspx).
+A lista completa de campos configuráveis e descrições está disponível na [API do REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931928.aspx).
 
 Para obter exemplos de código, consulte
 
-* [Configuração avançada de dimensionamento automático utilizando modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Dimensionamento vertical do vs horizontais
-Dimensionamento automático só dimensiona horizontalmente, que é um aumento ("out") ou diminuir ("em") no número de instâncias de VM.  É mais flexível numa situação de nuvem como permite-lhe executar potencialmente milhares de VMs para processar carga horizontal.
+Dimensionamento automático só pode ser dimensionada horizontalmente, que é um aumento ("de saída") ou diminuição ("") no número de instâncias de VM.  Horizontal é mais flexível numa situação de nuvem, pois permite a execução de potencialmente milhares de VMs para processar carga.
 
-Em contrapartida, dimensionamento vertical é diferente. Mantém o mesmo número de VMs, mas faz com que as VMs mais ("cópia de segurança") ou menos ("desativado") poderosas. Energia é medida em memória, velocidade da CPU, espaço em disco, etc.  Dimensionamento vertical tem limitações mais. É dependente a disponibilidade de hardware maior, que chega a um limite superior e pode variar consoante a região rapidamente. Também normalmente vertical dimensionamento necessita de uma VM para parar e reiniciar.
+Por outro lado, dimensionamento vertical é diferente. Ele mantém o mesmo número de VMs, mas torna as VMs mais ("up") ou menos ("down") poderoso. Power é medido em memória, velocidade da CPU, espaço em disco, etc.  Dimensionamento vertical tem limitações mais. É dependente da disponibilidade de hardware de maior, que rapidamente atinge um limite superior e pode variar consoante a região. Normalmente, também dimensionamento vertical requer uma VM parar e reiniciar.
 
 Para obter mais informações, consulte [aumentar verticalmente a máquina virtual do Azure com a automatização do Azure](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="methods-of-access"></a>Métodos de acesso
-Pode configurar através de dimensionamento automático
+Pode configurar o dimensionamento automático através de
 
 * [Portal do Azure](insights-how-to-scale.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
-* [Interface de linha de comandos de várias plataformas (CLI)](insights-cli-samples.md#autoscale)
-* [API de REST de Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Interface de Linha de Comandos (CLI) de várias plataformas](insights-cli-samples.md#autoscale)
+* [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>Serviços suportados para o dimensionamento automático
-| Serviço | Esquema & Docs |
+## <a name="supported-services-for-autoscale"></a>Serviços suportados do dimensionamento automático
+| Serviço | Esquema e documentos |
 | --- | --- |
-| Aplicações Web |[Dimensionamento de aplicações Web](insights-how-to-scale.md) |
-| Serviços Cloud |[O dimensionamento automático num serviço em nuvem](../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Máquinas virtuais: clássico |[Conjuntos de disponibilidade do dimensionamento clássico Máquina Virtual](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Máquinas virtuais: Conjuntos de dimensionamento de Windows |[Define o dimensionamento de dimensionamento da máquina virtual no Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Máquinas virtuais: Conjuntos de dimensionamento de Linux |[Dimensionamento de dimensionamento da máquina virtual define no Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Máquinas virtuais: Exemplo de Windows |[Configuração avançada de dimensionamento automático utilizando modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Aplicações Web |[Dimensionar aplicações Web](insights-how-to-scale.md) |
+| Serviços Cloud |[Dimensionamento automático um serviço em nuvem](../cloud-services/cloud-services-how-to-scale-portal.md) |
+| Máquinas virtuais: clássico |[Dimensionar conjuntos de disponibilidade de Máquina Virtual clássica](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Máquinas virtuais: Conjuntos de dimensionamento do Windows |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Máquinas virtuais: Conjuntos de dimensionamento do Linux |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Máquinas virtuais: Exemplo do Windows |[Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Serviço da Gestão de API|[Dimensionar automaticamente uma instância de gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o dimensionamento automático, utilize as instruções de dimensionamento automático listadas anteriormente ou consulte os seguintes recursos:
+Para saber mais sobre dimensionamento automático, utilize as instruções do dimensionamento automático listadas anteriormente, ou consulte os seguintes recursos:
 
-* [Azure métricas comuns para o Monitor de dimensionamento automático](insights-autoscale-common-metrics.md)
-* [Melhores práticas para o dimensionamento automático de Monitor do Azure](insights-autoscale-best-practices.md)
-* [Utilize ações de dimensionamento automático para enviar correio eletrónico e webhook notificações de alerta](insights-autoscale-to-webhook-email.md)
+* [Métricas comuns do Azure Monitor dimensionamento automático](insights-autoscale-common-metrics.md)
+* [Melhores práticas do dimensionamento automático do Azure Monitor](insights-autoscale-best-practices.md)
+* [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](insights-autoscale-to-webhook-email.md)
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
-* [Resolução de problemas dimensionamento automático do conjuntos de dimensionamento Máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+* [Resolução de problemas Autoscale de conjuntos de dimensionamento de Máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

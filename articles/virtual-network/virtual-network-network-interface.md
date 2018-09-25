@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904225"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956801"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -35,7 +35,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
 A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações adequadas listadas na [permissões ](#permissions).
 
@@ -164,7 +164,7 @@ Pode alterar a sub-rede, mas não a rede virtual, atribuída a uma interface de 
 Apenas pode adicionar uma interface de rede, ou remover uma interface de rede de um grupo de segurança de aplicação com o portal se a interface de rede está ligada a uma máquina virtual. Pode utilizar o PowerShell ou a CLI do Azure para uma interface de rede para adicionar ou remover uma interface de rede de um grupo de segurança de aplicações, se a interface de rede está ligada a uma máquina virtual ou não. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [crie um grupo de segurança de aplicações](manage-network-security-group.md#create-an-application-security-group).
 
 1. Na *procurar recursos, serviços e documentos* caixa na parte superior do portal, comece a escrever o nome de uma máquina virtual que tenha uma interface de rede que pretende adicionar ou remover de um grupo de segurança de aplicações. Quando o nome da sua VM for apresentada nos resultados da pesquisa, selecione-o.
-2. Sob **configurações**, selecione **Networking**.  Selecione **configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicação que pretende adicionar a interface de rede ou anule a seleção de grupos de segurança de aplicações que pretende remover a interface de rede, e, em seguida, selecione **guardar**. Apenas as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança do aplicativo. O grupo de segurança de aplicações têm de existir na mesma localização que a interface de rede.
+2. Em **DEFINIÇÕES**, selecione **Redes**.  Selecione **configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicação que pretende adicionar a interface de rede ou anule a seleção de grupos de segurança de aplicações que pretende remover a interface de rede, e, em seguida, selecione **guardar**. Apenas as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança do aplicativo. O grupo de segurança de aplicações têm de existir na mesma localização que a interface de rede.
 
 **Comandos**
 

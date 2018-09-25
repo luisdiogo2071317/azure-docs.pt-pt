@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007010"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974396"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo 
 
@@ -26,7 +26,7 @@ Tire um instantâneo de um disco de SO ou dados para cópia de segurança ou par
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure 
 
-O exemplo seguinte é necessário utilizar [Cloud Shell](https://shell.azure.com/bash) ou tem o Azure CLI 2.0 instalada. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
+O exemplo seguinte é necessário utilizar [Cloud Shell](https://shell.azure.com/bash) ou a CLI do Azure.
 
 Os passos seguintes mostram como tirar um instantâneo com o **criar instantâneo de az** comando com o **– disco de origem** parâmetro. O exemplo seguinte parte do princípio de que existe uma VM chamada *myVM* no *myResourceGroup* grupo de recursos.
 

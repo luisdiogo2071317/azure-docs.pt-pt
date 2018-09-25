@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4e40a731530e9423c7be6f2e2449aad970bb327c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734946"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040249"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
 Definições da aplicação na aplicação de função contém opções de configuração globais que afetam todas as funções para essa aplicação de função. Ao executar localmente, estas definições estão em variáveis de ambiente. Este artigo lista as definições da aplicação que estão disponíveis em aplicações de funções.
 
-[! INCLUIR [definições de função de aplicações] (... /.. /includes/Functions-App-Settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Existem outras opções de configuração global na [Host. JSON](functions-host-json.md) ficheiro e, no [Settings](functions-run-local.md#local-settings-file) ficheiro.
 
@@ -40,6 +40,9 @@ A cadeia de ligação de conta de armazenamento opcional para armazenar os regis
 |Chave|Valor da amostra|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [nome]; AccountKey = [a chave]|
+
+> [!TIP]
+> Para o desempenho e experiência, é recomendado utilizar APPINSIGHTS_INSTRUMENTATIONKEY e das App Insights para monitorização, em vez de AzureWebJobsDashboard
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ Valores válidos são "readwrite" e "só de leitura".
 
 ## <a name="functionsextensionversion"></a>AS FUNÇÕES\_EXTENSÃO\_VERSÃO
 
-A versão do runtime das funções do Azure para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 1"). Quando as novas versões para a versão principal estão disponíveis, serão automaticamente instaladas na function app. Para afixar a aplicação para uma versão específica, utilize o número da versão completo (por exemplo, "1.0.12345"). A predefinição é "~ 1".
+A versão do runtime das funções do Azure para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 2"). Quando as novas versões para a versão principal estão disponíveis, serão automaticamente instaladas na function app. Para afixar a aplicação para uma versão específica, utilize o número da versão completo (por exemplo, "2.0.12345"). A predefinição é "~ 2".
 
 |Chave|Valor da amostra|
 |---|------------|
-|AS FUNÇÕES\_EXTENSÃO\_VERSÃO|~1|
+|AS FUNÇÕES\_EXTENSÃO\_VERSÃO|~ 2|
+
+## <a name="functionsworkerruntime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
+
+O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet`, `node`, e `java`.
+
+|Chave|Valor da amostra|
+|---|------------|
+|AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO|DotNet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,19 +149,19 @@ Para apenas os planos de consumo. O caminho de ficheiro para o código de aplica
 O número máximo de instâncias de que a aplicação de função pode aumentar horizontalmente para. A predefinição não é nenhum limite.
 
 > [!NOTE]
-> Esta definição destina-se uma funcionalidade de pré-visualização.
+> Esta definição é uma pré-visualização recurso - e só será confiável se definido como um valor < = 5
 
 |Chave|Valor da amostra|
 |---|------------|
-|WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE|10|
+|WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE|5|
 
 ## <a name="websitenodedefaultversion"></a>WEB SITE\_NÓ\_DEFAULT_VERSION
 
-A predefinição é "6.5.0".
+A predefinição é "8.11.1".
 
 |Chave|Valor da amostra|
 |---|------------|
-|WEB SITE\_NÓ\_DEFAULT_VERSION|6.5.0|
+|WEB SITE\_NÓ\_DEFAULT_VERSION|8.11.1|
 
 ## <a name="websiterunfrompackage"></a>WEB SITE\_EXECUTE\_FROM\_PACOTE
 

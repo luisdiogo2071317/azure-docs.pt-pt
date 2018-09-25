@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b262f42fffdbfd00f0c57c987e36346957f0f25c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648821"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963599"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de cloud na plataforma do Azure
 
@@ -47,7 +47,7 @@ Ver [gerir a disponibilidade das máquinas de virtuais do Windows](virtual-machi
 Uma de duas [modelos de implementação](resource-manager-deployment-model.md) utilizados para implementar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns serviços do Azure suportam apenas o modelo de implementação do Resource Manager, alguns suportam apenas o modelo de implementação clássica e alguns de suportar. A documentação para cada serviço do Azure Especifica qual modelo (s) que suportam.
 
 ## <a name="cli"></a>Interface de linha de comandos (CLI) do Azure
-Uma interface de linha de comandos que pode ser utilizada para gerir serviços do Azure a partir do Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI. Consulte [CLI 2.0 do Azure](/cli/azure)
+Uma interface de linha de comandos que pode ser utilizada para gerir serviços do Azure a partir do Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI. Consulte [da CLI do Azure](/cli/azure)
 
 ## <a name="powershell"></a>O Azure PowerShell
 Uma interface de linha de comandos para gerir serviços do Azure através de uma linha de comandos a partir de Windows PCs. Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI.

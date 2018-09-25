@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056748"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965460"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -39,7 +39,7 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 
 2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para poder implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir responder através de programação com o código de validação. Por conseguinte, a partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com o SDK/ferramentas que utilizam este novo EventGrid envia do API versão (2018-05-01-pré-visualização), um `validationUrl` propriedade (além do `validationCode` propriedade) como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de repita a tentativa de criação de subscrição de evento antes de tentar fazer a validação manual novamente.
 
-Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [AZ CLI 2.0](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, verifique se está a utilizar `api-version=2018-05-01-preview`.
+Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, verifique se está a utilizar `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalhes da validação
 

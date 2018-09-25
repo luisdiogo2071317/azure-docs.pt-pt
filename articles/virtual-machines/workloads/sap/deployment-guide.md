@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: a2daf75e5a75a4fb0be06986903a2f4f9be8adf0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6d7b4515546ea51264b094316c5da52dbb321c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957028"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -919,9 +919,7 @@ Saída do script inclui as seguintes informações:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI do Azure para VMs do Linux
 Para instalar a extensão do Azure melhorada de monitorização para SAP com CLI do Azure:
 
-1. Instalar com a CLI 1.0 do Azure
-
-   1. Instalar a CLI 1.0 do Azure, conforme descrito em [instalar a CLI 1.0 do Azure][azure-cli].
+   1. Instalar a CLI clássica do Azure, conforme descrito em [instalar o Azure CLI clássica][azure-cli].
    1. Inicie sessão com a sua conta do Azure:
 
       ```

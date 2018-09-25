@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122500"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955950"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>Arquitetura de integração empresarial simples
 
@@ -162,7 +162,7 @@ Gestão de API gere segredos com objetos de chamada *valores nomeados* ou *propr
 
 ## <a name="diagnostics-and-monitoring"></a>Diagnóstico e monitorização
 
-Pode usar [do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) para a monitorização operacional em ambos [gestão de API](../api-management/api-management-howto-use-azure-monitor.md) e [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). O Azure Monitor fornece informações com base em métricas configuradas para cada serviço e está ativado por predefinição.
+Pode usar [do Azure Monitor](../azure-monitor/overview.md) para a monitorização operacional em ambos [gestão de API](../api-management/api-management-howto-use-azure-monitor.md) e [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). O Azure Monitor fornece informações com base em métricas configuradas para cada serviço e está ativado por predefinição.
 
 Cada serviço também tem estas opções:
 

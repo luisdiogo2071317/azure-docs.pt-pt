@@ -1,22 +1,23 @@
 ---
 title: Execute o relatório de consultas em várias bases de dados SQL do Azure | Documentos da Microsoft
 description: Relatórios de utilização entre inquilinos distribuído consultas.
-keywords: tutorial de base de dados sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewers: billgib,AyoOlubeko
+manager: craigg
 ms.date: 04/01/2018
-ms.author: billgib
-ms.reviewer: sstein; AyoOlubeko
-ms.openlocfilehash: 2b8cc66909fc4f066670424fd9127c311cf618e0
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 3bba0eb552338f1b436ea25306a84029d352f1f3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378052"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055293"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Consultas de distribuídas de relatórios usando entre inquilinos
 

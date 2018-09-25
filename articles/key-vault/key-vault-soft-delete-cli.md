@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303009"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951785"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
@@ -25,9 +25,9 @@ Funcionalidade de eliminação de forma recuperável do Azure do Key Vault permi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- CLI do Azure 2.0 - se não tiver esta configuração para o seu ambiente, consulte [gerir Key Vault com a CLI 2.0](key-vault-manage-with-cli2.md).
+- CLI do Azure - se não tiver esta configuração para o seu ambiente, consulte [gerir com a CLI do Azure Key Vault](key-vault-manage-with-cli2.md).
 
-Para informações de referência específica do Key Vault para a CLI, veja [referência do Cofre de chaves do Azure CLI 2.0](https://docs.microsoft.com/cli/azure/keyvault).
+Para informações de referência específica do Key Vault para a CLI, veja [referência da CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 

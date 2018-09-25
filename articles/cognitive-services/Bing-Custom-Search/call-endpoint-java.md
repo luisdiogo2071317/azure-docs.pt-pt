@@ -1,6 +1,6 @@
 ---
-title: Ponto final da chamada utilizando Java - pesquisa de personalizados do Bing - Microsoft os serviços cognitivos
-description: Este guia de introdução mostra como pedir os resultados da pesquisa da sua instância de pesquisa personalizada utilizando Java para chamar o ponto final de pesquisa personalizados do Bing.
+title: Chamar o ponto final através de Java - pesquisa personalizada do Bing - serviços cognitivos da Microsoft
+description: Este início rápido mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o Java para chamar o ponto final de pesquisa personalizada do Bing.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,34 +9,34 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355741"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951819"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Chamada de pesquisa do Bing personalizada ponto final (Java)
+# <a name="call-bing-custom-search-endpoint-java"></a>Chamar o ponto final de pesquisa personalizada do Bing (Java)
 
-Este guia de introdução mostra como pedir os resultados da pesquisa da sua instância de pesquisa personalizada utilizando Java para chamar o ponto final de pesquisa personalizados do Bing. 
+Este guia de introdução mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o Java para chamar o ponto final de pesquisa personalizada do Bing. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este guia de início rápido, necessita de:
-- Uma instância de pesquisa personalizada. Consulte [criar a primeira instância de pesquisa do Bing personalizada](quick-start.md).
 
+- Uma instância de pesquisa personalizada do prontos a utilizar. Ver [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).
 - [Java](https://www.java.com) instalado.
-
-- A [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar o seu [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou pode utilizar uma chave de subscrição paga do dashboard do Azure (consulte [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Executar o código
 
-Para chamar o ponto final de pesquisa do Bing personalizada, siga estes passos:
+Para executar este exemplo, siga estes passos:
 
-1. Utilizar o IDE Java escolhidas criar um pacote.
-2. Criar o ficheiro CustomSrchJava.java e copie o seguinte código ao mesmo.
-3. Substitua **sua-SUBSCRIPTION-KEY** e **sua-personalizada-CONFIG-ID** com o ID de chave e a configuração.
-
-    ``` Java
+1. Usando o IDE Java à escolha, crie um pacote.  
+  
+2. Crie um ficheiro denominado CustomSrchJava.java no pacote e copie o seguinte código para o mesmo. Substitua **seu-SUBSCRIPTION-KEY** e **seu-personalizada-CONFIG-ID** com sua chave de subscrição e a configuração de ID.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +58,9 @@ Para chamar o ponto final de pesquisa do Bing personalizada, siga estes passos:
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +96,15 @@ Para chamar o ponto final de pesquisa do Bing personalizada, siga estes passos:
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -130,11 +130,11 @@ Para chamar o ponto final de pesquisa do Bing personalizada, siga estes passos:
         }
     
     }
-    
-    ```
+    ```  
+  
 4. Execute o programa.
     
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decoration para realçar texto](./hit-highlighting.md)
-- [Páginas de página Web](./page-webpages.md)
+- [Configurar a sua experiência de interface do Usuário alojada](./hosted-ui.md)
+- [Utilizar marcadores decoration para realçar o texto](./hit-highlighting.md)
+- [Páginas Web de página](./page-webpages.md)

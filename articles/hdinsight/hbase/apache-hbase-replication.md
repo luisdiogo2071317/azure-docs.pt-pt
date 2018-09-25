@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734763"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978544"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase em redes virtuais do Azure
 
@@ -277,7 +277,7 @@ Para criar uma **contactos** da tabela e inserir alguns dados na tabela, siga as
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
-Os passos seguintes descrevem como chamar o script de ação de script a partir do portal do Azure. Para obter informações sobre como executar uma ação de script com o Azure PowerShell e a ferramenta de linha de comandos do Azure (CLI) do Azure, consulte [HDInsight personalizar clusters com ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
+Os passos seguintes descrevem como chamar o script de ação de script a partir do portal do Azure. Para obter informações sobre como executar uma ação de script com o Azure PowerShell e CLI clássica do Azure, consulte [HDInsight personalizar clusters com ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **Para ativar a replicação do HBase do portal do Azure**
 

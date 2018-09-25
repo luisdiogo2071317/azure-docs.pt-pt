@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: e6b016d437011f8e9ebe3e2d3a6f3c9f737f6ecc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129578"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961982"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store dados críticos da empresa no armazenamento de Blobs do Azure
 
@@ -95,7 +95,7 @@ Não é sem custos adicionais para utilizar esta funcionalidade. Dados imutávei
 
 ## <a name="getting-started"></a>Introdução
 
-As versões mais recentes dos [portal do Azure](http://portal.azure.com) e [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , bem como a versão de pré-visualização [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) suporta armazenamento imutável para armazenamento de Blobs do Azure.
+As versões mais recentes dos [portal do Azure](http://portal.azure.com) e [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , bem como a versão de pré-visualização [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) suporta armazenamento imutável para armazenamento de Blobs do Azure.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -131,7 +131,7 @@ As versões mais recentes dos [portal do Azure](http://portal.azure.com) e [CLI 
 
 8. Para limpar uma retenção legal, basta remova a marca.
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+### <a name="azure-cli"></a>CLI do Azure
 
 A funcionalidade está incluída nos seguintes grupos de comandos: `az storage container immutability-policy` e `az storage container legal-hold`. Executar `-h` nos mesmos para ver os comandos.
 

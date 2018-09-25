@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de ligações - CLI 2.0 do Azure e do Gateway de rede Virtual do Azure | Documentos da Microsoft
-description: Esta página explica como utilizar o observador de rede do Azure CLI 2.0 do Azure de resolução de problemas
+title: Resolver problemas de ligações - CLI do Azure e do Gateway de rede Virtual do Azure | Documentos da Microsoft
+description: Esta página explica como utilizar o observador de rede do Azure CLI do Azure de resolução de problemas
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5f843b42a108968e2fbefacddcd22f331a04691e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091106"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970996"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Resolver problemas de Gateway de rede Virtual e ligações com o Azure CLI 2.0 do Azure rede observador
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Resolver problemas de Gateway de rede Virtual e ligações através da CLI do Azure do observador de rede do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -31,9 +31,7 @@ ms.locfileid: "39091106"
 
 Observador de rede oferece muitos recursos que diz respeito à Noções básicas sobre os recursos de rede no Azure. Um desses recursos é o recurso de resolução de problemas. Resolução de problemas de recursos pode ser chamada através do portal, o PowerShell, a CLI ou a REST API. Quando chamado, o observador de rede inspeciona o estado de funcionamento de um Gateway de rede Virtual ou uma ligação e devolve conclusões.
 
-Este artigo utiliza o CLI de próxima geração para o modelo de implementação de gestão de recursos, Azure CLI 2.0, que está disponível para Windows, Mac e Linux.
-
-Para efetuar os passos neste artigo, precisa [instale a Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Para efetuar os passos neste artigo, precisa [instale a interface de linha de comandos do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

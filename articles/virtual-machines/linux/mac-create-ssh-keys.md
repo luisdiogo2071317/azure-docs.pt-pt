@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b86749f8a2e68dd5bae11ae440db4d6524e3a91
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 63a7602deee402bed056937c8465fd87c8256cd8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713770"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962851"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Passos rápidos: criar e utilizar um par de chaves públicas-privadas SSH para VMs do Linux no Azure
 
@@ -45,7 +45,7 @@ O comando seguinte cria um par de chaves SSH com a criptografia RSA e um comprim
 ssh-keygen -t rsa -b 2048
 ```
 
-Se utilizar o [CLI 2.0 do Azure](/cli/azure) para criar a sua VM com o [criar az vm](/cli/azure/vm#az-vm-create) comando, pode gerar opcionalmente públicos e privados ficheiros de chaves SSH com o `--generate-ssh-keys` opção. Os ficheiros de chave são armazenados no diretório ~/.ssh, a menos que especificado, caso contrário, com o `--ssh-dest-key-path` opção. O `--generate-ssh-keys` opção não irá substituir ficheiros de chaves existentes, em vez disso, devolver um erro. No comando seguinte, substitua *VMname* e *RGname* pelos seus próprios valores:
+Se utilizar o [CLI do Azure](/cli/azure) para criar a sua VM com o [criar az vm](/cli/azure/vm#az-vm-create) comando, pode gerar opcionalmente públicos e privados ficheiros de chaves SSH com o `--generate-ssh-keys` opção. Os ficheiros de chave são armazenados no diretório ~/.ssh, a menos que especificado, caso contrário, com o `--ssh-dest-key-path` opção. O `--generate-ssh-keys` opção não irá substituir ficheiros de chaves existentes, em vez disso, devolver um erro. No comando seguinte, substitua *VMname* e *RGname* pelos seus próprios valores:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --generate-ssh-keys 
