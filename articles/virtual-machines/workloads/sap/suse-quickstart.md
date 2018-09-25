@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950051"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Executar o SAP NetWeaver em VMs SUSE Linux do Microsoft Azure
 Este artigo descreve vários aspetos a considerar quando estiver a executar o SAP NetWeaver em máquinas virtuais do Microsoft Azure SUSE Linux (VMs). A partir de 19 de Maio de 2016 é oficialmente suportado SAP NetWeaver em VMs do SUSE Linux no Azure. Todos os detalhes sobre as versões de Linux, versões de kernel do SAP e outros pré-requisitos podem ser encontrados no SAP 1928533 de nota "SAP Applications no Azure: produtos suportados e tipos VM do Azure".
@@ -70,7 +70,7 @@ Embora seja possível utilizar as imagens standard do SLES para instalações do
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Instalar WALinuxAgent numa VM de SUSE
 O agente chamado WALinuxAgent faz parte das imagens SLES no Azure Marketplace. Para obter informações sobre a instalá-lo manualmente (por exemplo, ao carregar um disco de rígido virtual SLES SO (VHD) no local), consulte:
 
-* [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
+* [openSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Azure](../../linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
@@ -119,7 +119,7 @@ Deve criar novas VMs SUSE usando arquivos de modelo JSON no novo modelo do Azure
    ```
 Para obter mais informações sobre arquivos de modelo JSON, veja [modelos Authoring Azure Resource Manager](../../../resource-group-authoring-templates.md) e [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-Para obter mais informações sobre a CLI e o Azure Resource Manager, consulte [utilizar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+Para obter mais informações sobre a CLI clássica do Azure e Azure Resource Manager, consulte [utilizar a CLI clássica do Azure para Mac, Linux e Windows com o Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Chave de licenciamento e hardware SAP
 Para obter uma certificação de SAP para o Azure oficial, um novo mecanismo foi introduzido para calcular a chave de hardware SAP que é utilizada para a licença do SAP. O kernel SAP tinha que ser adaptados para fazer uso do novo algoritmo. Versões anteriores do kernel SAP para o Linux não incluía essa alteração de código. Por conseguinte, em determinadas situações (por exemplo, a VM do Azure de redimensionamento), alterar a chave de hardware SAP e a licença do SAP foi já não é válido. Uma solução é fornecida com kernels de Linux do SAP mais recentes.  Os patches de kernel SAP detalhados estão documentados na nota SAP 1928533.

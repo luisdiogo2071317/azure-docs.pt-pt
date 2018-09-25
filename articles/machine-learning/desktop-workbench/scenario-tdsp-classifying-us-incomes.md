@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057108"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948854"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificação de receitas com o projeto do Team Data Science Process (TDSP)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>Introdução
 
@@ -55,7 +60,7 @@ Consulte [da Equipe do ciclo de vida de processo (TDSP) de ciência de dados](ht
 1. Do Azure [subscrição](https://azure.microsoft.com). Pode obter um [assinatura gratuita da](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) para executar este exemplo também.
 2. Uma [Máquina Virtual de ciência de dados (DSVM) do Azure Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (tamanho da VM: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), com 4 CPUs virtuais e 14 Gb de RAM). Embora testado numa DSVM do Azure, é muito provável que funcione em qualquer computador Windows 10.
 3. Reveja a documentação sobre o Azure Machine Learning e o respetivo relacionadas a serviços (veja abaixo para obter ligações).
-4. Certifique-se de que instalou corretamente do Azure Machine Learning, o [guia de início rápido de instalação](../service/quickstart-installation.md).
+4. Certifique-se de que instalou corretamente do Azure Machine Learning, o [guia de início rápido de instalação](quickstart-installation.md).
 
 O conjunto de dados para este exemplo é a partir do repositório de ML UCI [[link]](https://archive.ics.uci.edu/ml/datasets/adult). Ele é retirado da base de dados de censo nos 1994 e contém informações de censo e receitas para cerca de 50 000 indivíduos. Este é o conjunto de dados estruturado ter numéricos e categóricos recursos e um destino categórico consiste em duas categorias de renda ("> 50k ' ou ' < = 50 mil '). 
 
@@ -65,7 +70,7 @@ Se gostaria de guardar e versão do seu projeto e o respetivo conteúdo, tem de 
 ### <a name="informational-about-azure-machine-learning"></a>Informativo: Sobre o Azure Machine Learning
 * [FAQ - como começar](frequently-asked-questions.md)
 * [Descrição geral](../service/overview-what-is-azure-ml.md)
-* [Instalação](../service/quickstart-installation.md)
+* [Instalação](quickstart-installation.md)
 * [Execução](experimentation-service-configuration.md)
 * [Utilizar o TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Ler e escrever ficheiros](how-to-read-write-files.md)

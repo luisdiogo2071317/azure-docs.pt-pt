@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 39c40482017ae0c0dedcfb1b65ff3767c4e45169
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058186"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999193"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar o PHP em aplicações Web do serviço de aplicações do Azure
 
@@ -58,9 +58,9 @@ Versões do PHP 7.0 e PHP 7.2 também estão disponíveis, mas não ativado por 
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli-20-linux-mac-windows"></a>CLI do Azure 2.0 (Linux, Mac, Windows)
+### <a name="azure-cli"></a>CLI do Azure 
 
-Para utilizar a Interface de linha de comandos do Azure, terá [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no seu computador.
+Para utilizar a Interface de linha de comandos do Azure, terá [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no seu computador.
 
 1. Abrir Terminal e inicie sessão na sua conta.
 

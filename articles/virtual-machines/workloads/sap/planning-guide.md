@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 274f9d89113f583cc7b65ae01f3132d35b82b920
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6257f1f9c237422174d695489b8ed39c7c37ebe2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380425"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969160"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -823,9 +823,9 @@ A CLI do Azure fornece um conjunto de código-fonte aberto, comandos de várias 
 
 Para obter informações sobre instalação, configuração e como utilizar a CLI Consulte comandos para executar tarefas do Azure
 
-* [Instalar a CLI do Azure][xplat-cli]
+* [Instalar a CLI clássica do Azure][xplat-cli]
 * [Implementar e gerir máquinas virtuais utilizando modelos Azure Resource Manager e a CLI do Azure] [./../linux/create-ssh-secured-vm-from-template.md]
-* [Utilizar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager][xplat-cli-azure-resource-manager]
+* [Utilizar a CLI clássica do Azure para Mac, Linux e Windows com o Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Leia também o capítulo [CLI do Azure para VMs do Linux] [ deployment-guide-4.5.2] no [guia de implementação] [ planning-guide] sobre como utilizar a CLI do Azure para implementar a monitorização do Azure Extensão para SAP.
 
@@ -959,7 +959,7 @@ Neste caso, queremos carregar um VHD, com ou sem um sistema operacional e montá
 * Criar uma nova VM a partir da configuração VM com *New-AzureRmVM* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * Adicionar um disco de dados a uma VM nova com *Add-AzureRmVMDataDisk* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
-**CLI 2.0 do Azure**
+**CLI do Azure**
 
 * Inicie sessão na sua subscrição com *início de sessão az*
 * Selecione a sua subscrição com *set de conta de az--subscrição `<subscription name or id`>*
@@ -987,7 +987,7 @@ Para carregar uma VM existente ou VHD a partir da rede no local, para usá-lo co
   * Geridos a imagem de disco *Set-AzureRmVMSourceImage* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
 * Criar uma nova VM a partir da configuração VM com *New-AzureRmVM* -veja <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
-**CLI 2.0 do Azure**
+**CLI do Azure**
 
 * Uso *sysprep* no Windows ou *waagent-desaprovisionamento* no Linux para generalizar a VM - veja [referência técnica de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar um Máquina virtual do Linux para utilizar como um modelo do Resource Manager] [ capture-image-linux-step-2-create-vm-image] para Linux
 * Inicie sessão na sua subscrição com *início de sessão az*
@@ -1036,7 +1036,7 @@ Durante o período de tempo da transferência os VHDs ou os discos geridos não 
 
   Para obter mais detalhes sobre o cmdlet Save-AzureRmVhd, verifique aqui <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
-#### <a name="cli-20"></a>CLI 2.0
+#### <a name="azure-cli"></a>CLI do Azure
   * Transferir um disco gerido  
   Tem primeiro de obter acesso ao blob subjacente do disco gerido. Em seguida, pode copiar o blob subjacente para uma nova conta de armazenamento e transferir o blob a partir desta conta de armazenamento.
   ```
@@ -1074,7 +1074,7 @@ $config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<s
 New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>CLI do Azure
 Pode utilizar a CLI do Azure para copiar um VHD, conforme mostrado na [este artigo][storage-azure-cli-copy-blobs]. Para criar um novo disco gerido, utilize *criar disco de az* conforme mostrado no exemplo a seguir.
 
 ```
@@ -1115,7 +1115,7 @@ $disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupNa
 $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzureRmVM
 ```
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>CLI do Azure
 ```
 
 # attach a vhd to a vm
@@ -1158,7 +1158,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 Para exemplos, consulte [este artigo][storage-powershell-guide-full-copy-vhd].
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>CLI do Azure
 * Iniciar a cópia com
 
 ```
