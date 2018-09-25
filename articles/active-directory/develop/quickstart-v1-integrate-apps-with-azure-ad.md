@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b799cde0a696b4a764893c545a8d55d363a4800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989027"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 Os desenvolvedores corporativos e fornecedores de software-como-serviço (SaaS) podem desenvolver serviços cloud comerciais ou aplicações de linha de negócio, que podem ser integradas no Azure Active Directory (Azure AD) para fornecer o início de sessão seguro e autorização para seus serviços. Para integrar uma aplicação ou serviço com o Azure AD, o desenvolvedor deve primeiro registar a aplicação com o Azure AD.
 
@@ -33,9 +34,11 @@ Este artigo mostra-lhe como adicionar, atualizar ou remover o registo de uma apl
 Para saber mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre elas, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md); para saber mais sobre as diretrizes de imagem corporativa, deve utilizar o desenvolvimento de aplicativos com o Azure Active Directory, veja [diretrizes de imagem corporativa para aplicações integradas](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Adicionar uma aplicação
+
 Qualquer aplicativo que deseja usar os recursos do Azure AD em primeiro lugar tem de estar registado no inquilino do Azure AD. Este processo de registro envolve a fornecer os detalhes do Azure AD sobre a sua aplicação, como a URL onde este se encontra, o URL para enviar respostas após um utilizador é autenticado, o URI que identifica a aplicação e assim por diante.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Para registar uma nova aplicação com o portal do Azure
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se sua dá conta de acesso a mais do que um, clique na sua conta no canto superior direito e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
 3. No painel de navegação do lado esquerdo, clique nas **do Azure Active Directory** do serviço, clique em **registos das aplicações**e clique em **novo registo de aplicação**.
@@ -59,10 +62,9 @@ Qualquer aplicativo que deseja usar os recursos do Azure AD em primeiro lugar te
 
   > [!NOTE]
   > Por predefinição, uma aplicação web recentemente registada é configurada para permitir **apenas** que os utilizadores ao mesmo inquilino para iniciar sessão na sua aplicação.
-  > 
-  > 
 
 ## <a name="updating-an-application"></a>Atualização de aplicativos
+
 Assim que a sua aplicação foi registrada com o Azure AD, ele poderá ter de ser atualizado para fornecer acesso a web APIs, disponibilizada no outras organizações e muito mais. Esta secção descreve várias formas na qual pode configurar ainda mais a sua aplicação. Primeiro vamos começar com uma visão geral da estrutura do consentimento, o que é importante compreender ao criar aplicativos que precisam de ser utilizado por outros utilizadores ou aplicações.
 
 ### <a name="overview-of-the-consent-framework"></a>Descrição geral da estrutura do consentimento
@@ -93,7 +95,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
    
   ![Experiência de consentimento do utilizador](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. Depois do utilizador concede consentimento, é devolvido um código de autorização para seu aplicativo, que é resgatado para adquirir um token de acesso e atualizar o token. Para obter mais informações sobre este fluxo, consulte a [aplicação a secção de API em cenários de autenticação da web para o Azure AD web](authentication-scenarios.md#web-application-to-web-api).
+5. Depois do utilizador concede consentimento, é devolvido um código de autorização para seu aplicativo, que é resgatado para adquirir um token de acesso e atualizar o token. Para obter mais informações sobre este fluxo, veja [API]](web-api.md) na Web.
 
 6. Como administrador, pode também autorizar permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede que a caixa de diálogo de consentimento que aparece para cada utilizador no inquilino e pode ser feito no [portal do Azure](https://portal.azure.com) por usuários com a função de administrador. Do **definições** para a sua aplicação, clique em **permissões obrigatórias** e clique nas **conceder permissões** botão. 
 
@@ -103,6 +105,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
   > Conceder explícita consentir utilizar o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurar uma aplicação de cliente para aceder a APIs web
+
 Ordem de uma aplicação web/confidencial de cliente poder participar de um fluxo de concessão de autorização que requer autenticação (e obter um token de acesso), tem de estabelecer credenciais seguras. O método de autenticação padrão suportado pelo portal do Azure é o ID de cliente + chave secreta. Esta secção abrange os passos de configuração necessários para fornecer a chave secreta com credenciais de seu cliente.
 
 Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplicação de recurso (por exemplo, a Microsoft Graph API), a estrutura do consentimento garante que o cliente obtém a concessão de permissão necessária, com base nas permissões solicitadas. Por predefinição, todos os aplicativos podem escolher as permissões de "Windows Azure Active Directory" (Graph API) e "Windows API de gestão de serviço do Azure." O [permissão da Graph API de "início de sessão e ler perfil de utilizador"](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o cliente está a ser registado num inquilino com contas de subscrever o Office 365, web APIs e permissões para o Exchange Online e SharePoint estão disponíveis para seleção. Pode selecionar a partir [dois tipos de permissões](developer-glossary.md#permissions) para cada web API de pretendido:
@@ -115,6 +118,7 @@ Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplic
   > Adicionando uma permissão delegada a um aplicativo não concede automaticamente consentimento para os utilizadores no inquilino. Os utilizadores tem manualmente de dar consentimento para as permissões de delegado foi adicionadas no tempo de execução, a menos que o administrador conceder consentimento em nome de todos os utilizadores.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Para adicionar credenciais de aplicativo ou permissões para aceder a APIs web
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se sua dá conta de acesso a mais do que um, clique na sua conta no canto superior direito e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
 3. No painel de navegação do lado esquerdo, clique a **do Azure Active Directory** de serviço, clique em **registos das aplicações**, em seguida, localizar/clique a aplicação que pretende configurar.
@@ -213,8 +217,6 @@ Para uma discussão completa sobre âmbitos expostas pela API do Microsoft Graph
 
 > [!NOTE]
 > Devido a uma limitação atual, aplicativos de cliente nativo apenas podem chamar para o Azure AD Graph API se utilizarem a permissão "Aceder ao diretório da sua organização". Esta restrição não se aplica para aplicativos web.
-> 
-> 
 
 ### <a name="configuring-multi-tenant-applications"></a>Configurar aplicações de multi-inquilinos
 
@@ -262,7 +264,7 @@ Para obter mais informações sobre as alterações de aplicação necessários 
 
 ### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Ativar o OAuth 2.0 implícita é garantir para aplicações de página única
 
-Aplicativo de página única (SPAs), normalmente, é estruturado com um forte JavaScript front-end que executa no navegador, que chama API web a aplicação back-end para realizar sua lógica de negócios. Para SPAs alojados no Azure AD, utilize concessão implícita OAuth 2.0 para autenticar o utilizador com o Azure AD e obter um token que pode utilizar para proteger as chamadas de cliente de JavaScript do aplicativo, a sua API da web de back-end. 
+Página única (SPAs aplicativos) normalmente são estruturados com um forte JavaScript front-end que executa no navegador, que chama API web a aplicação back-end para realizar sua lógica de negócios. Para SPAs alojados no Azure AD, utilize concessão implícita OAuth 2.0 para autenticar o utilizador com o Azure AD e obter um token que pode utilizar para proteger as chamadas de cliente de JavaScript do aplicativo, a sua API da web de back-end. 
 
 Depois do utilizador tenha concedido consentimento, esse mesmo protocolo de autenticação pode servir-se para obter os tokens para proteger as chamadas entre o cliente e outras web configurados para a aplicação de recursos de API. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
@@ -272,7 +274,6 @@ Por predefinição, a concessão implícita OAuth 2.0 está desativado para as a
 
 > [!NOTE]
 > Para obter detalhes sobre como editar o manifesto do aplicativo, certifique-se de que reveja a secção anterior, primeiro [configurar uma aplicação de recurso para expor APIs web](#configuring-a-resource-application-to-expose-web-apis).
->
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se sua dá conta de acesso a mais do que um, clique na sua conta no canto superior direito e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
@@ -285,12 +286,15 @@ Por predefinição, a concessão implícita OAuth 2.0 está desativado para as a
 5. Guarde o manifesto atualizado. Depois de guardado, a API web está agora configurada para utilizar a concessão implícita OAuth 2.0 para autenticar os utilizadores.
 
 ## <a name="removing-an-application"></a>Remoção de um aplicativo
+
 Esta secção descreve como remover o registo de uma aplicação de inquilino do Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Remoção de um aplicativo criado pela sua organização
+
 Aplicativos que sua organização tiver registado aparecem sob o filtro de "As minhas aplicações" na página do seu inquilino principal "registos de aplicações". Esses aplicativos são aqueles que registou manualmente através do portal do Azure ou através de programação através do PowerShell ou a Graph API. Mais especificamente, eles são representados por ambas as um objeto Principal de serviço e aplicações no seu inquilino. Para obter mais informações, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Para remover uma aplicação de inquilino único do diretório
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se sua dá conta de acesso a mais do que um, clique na sua conta no canto superior direito e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
 3. No painel de navegação do lado esquerdo, clique a **do Azure Active Directory** de serviço, clique em **registos das aplicações**, em seguida, localizar/clique a aplicação que pretende configurar. É direcionado para página de registo principal do aplicativo, o qual abre o **definições** página para a aplicação.
@@ -298,6 +302,7 @@ Aplicativos que sua organização tiver registado aparecem sob o filtro de "As m
 5. Clique em **Sim** na mensagem de confirmação.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Para remover uma aplicação multi-inquilino do respetivo diretório raiz
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se sua dá conta de acesso a mais do que um, clique na sua conta no canto superior direito e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
 3. No painel de navegação do lado esquerdo, clique a **do Azure Active Directory** de serviço, clique em **registos das aplicações**, em seguida, localizar/clique a aplicação que pretende configurar. É direcionado para página de registo principal do aplicativo, o qual abre o **definições** página para a aplicação.
@@ -306,15 +311,16 @@ Aplicativos que sua organização tiver registado aparecem sob o filtro de "As m
 6. Clique em **Sim** na mensagem de confirmação.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Remover uma aplicação multi-inquilino autorizada por outra organização
+
 Um subconjunto dos aplicativos que são apresentados o filtro de "Todas as aplicações" (excluindo os registos de "As minhas aplicações") na página de "Registos de aplicações" principal do seu inquilino, são aplicações multi-inquilino. Em termos técnicos, estas aplicações de multi-inquilinos são de outro inquilino e foram registadas no seu inquilino durante o processo de consentimento. Mais especificamente, são representados por apenas um objeto principal do serviço no seu inquilino, com nenhum objeto de aplicativo correspondente. Para obter mais informações sobre as diferenças entre aplicativos e objetos de principal de serviço, consulte [aplicativos e objetos de principal de serviço no Azure AD](app-objects-and-service-principals.md).
 
 Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (depois de ter autoriza), o administrador da empresa tem de remover o seu principal de serviço. O administrador tem de ter acesso de administrador global e pode removê-lo através do portal do Azure ou utilizar o [Cmdlets do Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](authentication-scenarios.md).
 - Consulte a [diretrizes de imagem corporativa para aplicações integradas](howto-add-branding-in-azure-ad-apps.md) para obter dicas sobre visual orientações para a sua aplicação.
 - Para obter mais informações sobre a relação entre objetos de Principal de serviço e aplicações de uma aplicação, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md).
 - Para saber mais sobre a função desempenhada de manifesto da aplicação, veja [compreender o manifesto da aplicação do Azure Active Directory](reference-app-manifest.md)
 - Consulte a [Glossário do programador do Azure AD](developer-glossary.md) para obter definições de alguns dos conceitos de Programador de núcleos do Azure AD.
 - Visite o [Guia do programador do Active Directory](azure-ad-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados ao desenvolvedor.
-
