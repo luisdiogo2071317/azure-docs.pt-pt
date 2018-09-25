@@ -8,14 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591886"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972186"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Saiba como utilizar o HDInsight com um [rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Utilizar uma rede Virtual do Azure permite que os seguintes cenários:
 
@@ -70,7 +72,7 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
 
     HDInsight hospeda vários serviços, utilizam uma variedade de portas. Bloqueia o tráfego para estas portas. Para obter uma lista de portas para permitir que através de firewalls de aplicação virtual, consulte a [segurança](#security) secção.
 
-    Para localizar a sua configuração de segurança existente, utilize os seguintes comandos do Azure PowerShell ou a CLI do Azure:
+    Para localizar a sua configuração de segurança existente, utilize os seguintes comandos do Azure PowerShell ou CLI clássica do Azure:
 
     * Grupos de segurança de rede
 
@@ -107,7 +109,7 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
 
     * [Create HDInsight using the Azure portal (Criar o HDInsight com o portal do Azure)](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell (Criar o HDInsight com o Azure PowerShell)](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Criar o HDInsight com a CLI 1.0 do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Criar o HDInsight com a CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Criar o HDInsight com um modelo Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
@@ -441,7 +443,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
 Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego de entrada, mas permite que o tráfego dos endereços IP necessários pelo HDInsight.
 
@@ -510,7 +512,7 @@ Este exemplo faz as seguintes suposições:
 
 No servidor DNS personalizado na rede virtual:
 
-1. Utilize o Azure PowerShell ou a CLI do Azure para encontrar o sufixo DNS da rede virtual:
+1. Utilize o Azure PowerShell ou CLI clássica do Azure para encontrar o sufixo DNS da rede virtual:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
@@ -592,7 +594,7 @@ Este exemplo faz as seguintes suposições:
 
 * [Vincular](https://www.isc.org/downloads/bind/) está instalado nos servidores DNS personalizados.
 
-1. Utilize o Azure PowerShell ou a CLI do Azure para encontrar o sufixo DNS de ambas as redes virtuais:
+1. Utilize o Azure PowerShell ou CLI clássica do Azure para encontrar o sufixo DNS de ambas as redes virtuais:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"

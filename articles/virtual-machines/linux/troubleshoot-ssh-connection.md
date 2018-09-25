@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b170a675482f69f8188894f8503703c235497503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932692"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982618"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de ligações SSH para uma VM do Linux do Azure que falhar, erros de saída, ou for recusada
 Existem vários motivos que encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou o SSH é recusado ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a encontrar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure, ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -50,7 +50,7 @@ Continue a ler para obter passos de resolução de problemas mais detalhados e e
 Pode repor as credenciais ou de configuração de SSH utilizando um dos seguintes métodos:
 
 * [Portal do Azure](#use-the-azure-portal) - excelente se precisar de repor rapidamente a configuração de SSH ou a chave SSH e não tem as ferramentas do Azure instaladas.
-* [CLI 2.0 do Azure](#use-the-azure-cli-20) – se já estiver na linha de comando, rapidamente repor a configuração de SSH ou as credenciais. Também pode utilizar o [CLI 1.0 do Azure](#use-the-azure-cli-10)
+* [CLI do Azure](#use-the-azure-cli-20) – se já estiver na linha de comando, rapidamente repor a configuração de SSH ou as credenciais. Também pode utilizar o [CLI clássica do Azure](#use-the-azure-cli-10)
 * [Extensão de VMAccessForLinux Azure](#use-the-vmaccess-extension) - criar e reutilizar os arquivos de definição de json para repor as credenciais de utilizador ou de configuração de SSH.
 
 Após cada passo de resolução de problemas, tente ligar-se novamente à sua VM. Se ainda não conseguir ligar, experimente a próxima etapa.
@@ -78,8 +78,8 @@ Uso [fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-por
 
 Utilizar o observador de rede [do próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de utilizar rotas efetivas para resolver problemas da VM](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-cli-20"></a>Utilizar CLI 2.0 do Azure
-Se ainda não o fez, instale a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
+## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
+Se ainda não o fez, instale a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
 
 Se criou e carregou uma imagem de disco personalizada do Linux, certifique-se de que o [o agente Linux do Microsoft Azure](../extensions/agent-windows.md) versão 2.0.5 ou posterior está instalado. Para as VMs criadas com imagens da galeria, esta extensão de acesso já está instalado e configurado para si.
 
@@ -149,8 +149,8 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
     --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
-## <a name="use-the-azure-cli-10"></a>Utilizar a CLI 1.0 do Azure
-Se ainda não o fez, [instalar a CLI 1.0 do Azure e ligar à sua subscrição do Azure](../../cli-install-nodejs.md). Certifique-se de que está a utilizar modo Resource Manager da seguinte forma:
+## <a name="use-the-azure-classic-cli"></a>Utilizar a CLI clássica do Azure
+Se ainda não o fez, [instalar a CLI clássica do Azure e ligar à sua subscrição do Azure](../../cli-install-nodejs.md). Certifique-se de que está a utilizar modo Resource Manager da seguinte forma:
 
 ```azurecli
 azure config mode arm
@@ -192,14 +192,14 @@ Para reiniciar uma VM com o portal do Azure, selecione a sua VM e clique nas **r
 
 ![Reiniciar uma VM no portal do Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>CLI do Azure 1.0
+### <a name="azure-classic-cli"></a>CLI clássica do Azure
 O seguinte exemplo reinicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+### <a name="azure-cli"></a>CLI do Azure
 O exemplo seguinte utiliza [reinício da vm az](/cli/azure/vm#az_vm_restart) para reiniciar a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
@@ -220,14 +220,14 @@ Para Reimplementar uma VM com o portal do Azure, selecione a sua VM e desloque p
 
 ![Reimplementar uma VM no portal do Azure](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>CLI do Azure 1.0
+### <a name="azure-classic-cli"></a>CLI clássica do Azure
 O exemplo seguinte reimplementa a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+### <a name="azure-cli"></a>CLI do Azure
 A utilização de exemplo seguintes [reimplementação da vm de az](/cli/azure/vm#az_vm_redeploy) para voltar a implementar a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli

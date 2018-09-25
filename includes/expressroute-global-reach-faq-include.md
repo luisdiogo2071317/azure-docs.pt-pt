@@ -1,0 +1,60 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 09/24/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 343bd2bc4f0e875c84ddb69ea064e30f3f7671c4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060968"
+---
+### <a name="what-is-expressroute-global-reach"></a>O que é o alcance Global do ExpressRoute?
+
+Alcance Global do ExpressRoute é um serviço do Azure que estabelece ligação as redes no local através do serviço de ExpressRoute através da rede global da Microsoft. Por exemplo, se tiver um centro de dados privados na Califórnia ligada ao ExpressRoute no vale do silício e outro Datacenter privada em Texas ligado ao ExpressRoute em Dallas, com o ExpressRoute alcance Global, pode ligar os centros de dados privados em conjunto por meio de ambas as ligações ExpressRoute e suas várias tráfego de centro de dados irá percorrer a backbone de rede da Microsoft.
+
+### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Como ativar ou desativar o alcance Global do ExpressRoute?
+
+Ativar o alcance Global do ExpressRoute conectando seus circuitos do ExpressRoute. Desativar a funcionalidade ao desligar o circuitos. Ver a configuração.
+
+### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>É necessário ExpressRoute Premium para alcance Global do ExpressRoute?
+
+Se os circuitos do ExpressRoute estiverem na mesma região geopolítica, não precisa ExpressRoute Premium para ligá-los. Se dois circuitos do ExpressRoute estão em diferentes regiões geopolíticas, terá de ExpressRoute Premium para ambos os circuitos para habilitar a conectividade entre eles. 
+
+### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>Como vou ser cobrado para alcance Global do ExpressRoute?
+
+O ExpressRoute permite-conectividade da rede no local para serviços cloud da Microsoft. Alcance Global do ExpressRoute permite a conectividade entre suas próprias redes no local através de seus circuitos do ExpressRoute existentes, tirar partido da rede global da Microsoft. Alcance Global do ExpressRoute é cobrado separadamente do serviço de ExpressRoute existente. Existe uma taxa de suplemento para ativar esta funcionalidade em cada circuito ExpressRoute. Para uma taxa de saída na origem e para uma taxa de entrada no destino, será cobrado o tráfego entre as redes no local ativada por alcance Global do ExpressRoute. As tarifas baseiam-se na zona em que estão localizados os circuitos. Consulte <pricing page>
+
+### <a name="where-is-expressroute-global-reach-supported"></a>Onde é alcance Global do ExpressRoute suportada?
+
+Alcance Global do ExpressRoute é suportado nos seguintes países. Os circuitos ExpressRoute têm de ser criados nas localizações peering nestes países.
+
+* Estados Unidos
+* Reino Unido
+* RAE de Hong Kong
+* Irlanda
+* Países Baixos
+* Japão
+
+
+### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Posso ter mais de duas redes de locais, cada uma ligada a um circuito do ExpressRoute. Posso habilitar ExpressRoute alcance Global interligar todas as minhas redes no local?
+
+Sim, pode, enquanto os circuitos estão em países/regiões suportados. Tem de se ligar dois circuitos do ExpressRoute por vez. Para criar uma rede de malha completa, terá de enumerar todos os pares de circuito e repita a configuração. 
+
+### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Posso habilitar alcance Global do ExpressRoute entre dois circuitos do ExpressRoute na mesma localização de peering?
+
+Não. Os dois circuitos do tem de ser de diferentes localizações de peering. Se um metro num país suportado tiver mais de uma localização de peering do ExpressRoute, pode ligar em conjunto os circuitos do ExpressRoute criados em diferentes localizações de peering nesse metro. 
+
+### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Se o alcance Global do ExpressRoute estiver ativado entre o circuito X e Y do circuito e entre o circuito Y e Z do circuito, será minhas redes no local ligado ao circuito X e Z do circuito conversar entre si através de rede da Microsoft?
+
+Não. Para ativar a conectividade entre quaisquer dois das suas redes no local, tem de ligar explicitamente os circuitos do ExpressRoute correspondentes. No exemplo acima, tem de ligar o circuito X e Z do circuito. 
+
+### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>O que é o débito de rede que pode esperar entre meu redes no local, depois, posso ativar o alcance Global do ExpressRoute?
+
+O débito de rede entre as redes no local, ativada por ExpressRoute alcance Global, é colocado por mais pequeno de dois circuitos do ExpressRoute.

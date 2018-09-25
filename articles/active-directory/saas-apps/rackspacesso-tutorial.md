@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e7a4dd57c7da3350e610b5f005aa59ea9d51dd56
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607788"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Active Directory com o Rackspace SSO
 
@@ -49,12 +49,14 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
+
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Rackspace SSO da Galeria
 2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-rackspace-sso-from-the-gallery"></a>Adicionando Rackspace SSO da Galeria
+
 Para configurar a integração do Rackspace SSO para o Azure AD, terá de adicionar Rackspace SSO partir da galeria, à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Rackspace SSO a partir da galeria, execute os seguintes passos:**
@@ -66,7 +68,7 @@ Para configurar a integração do Rackspace SSO para o Azure AD, terá de adicio
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
-    
+
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
@@ -100,7 +102,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar a ligação de início de sessão única][4]
 
 2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/rackspacesso-tutorial/tutorial_rackspacesso_samlbase.png)
 
 3. Sobre o **Rackspace SSO domínio e URLs** secção, execute os seguintes passos:
@@ -111,7 +113,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![O link de download de certificado](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png) 
+    ![O link de download de certificado](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png)
 
 5. Clique em **guardar** botão.
 
@@ -150,16 +152,16 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-rackspace-sso-test-user"></a>Criar um utilizador de teste Rackspace SSO
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na Rackspace SSO. Trabalhar com [equipa de suporte de Rackspace SSO](https://support.rackspace.com/) para adicionar os utilizadores na plataforma do SSO de Rackspace. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, irá trabalhar com [equipa de suporte de Rackspace SSO](https://support.rackspace.com/) para carregar sua conta na plataforma do SSO de Rackspace.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Rackspace SSO.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir a Eduarda Almeida a Rackspace SSO, execute os seguintes passos:**
 
@@ -184,7 +186,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
@@ -196,8 +198,6 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-
 
 <!--Image references-->
 
@@ -212,4 +212,3 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 [201]: ./media/rackspacesso-tutorial/tutorial_general_201.png
 [202]: ./media/rackspacesso-tutorial/tutorial_general_202.png
 [203]: ./media/rackspacesso-tutorial/tutorial_general_203.png
-

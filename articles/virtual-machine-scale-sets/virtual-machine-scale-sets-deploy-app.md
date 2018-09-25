@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 25773124fcd479489f5d2d544cc5b6e3b11e325a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301145"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979448"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta as formas de criar uma imagem VM personalizada para as instâncias numa escala definido ou executar automaticamente scripts de instalação nas instâncias VM existentes. Também irá aprender a gerir aplicações ou atualizações de sistema operacional num conjunto de dimensionamento.
@@ -31,14 +31,14 @@ Quando utilizar uma das imagens da plataforma do Azure para criar as instâncias
 
 Para reduzir a gestão de configuração e a hora para Aprovisionar uma VM, pode criar uma imagem VM personalizada que está pronta para executar a sua aplicação, assim como uma instância é aprovisionada no conjunto de dimensionamento. Para obter mais informações sobre como criar e utilizar uma imagem VM personalizada com uma escala definido, veja os tutoriais seguintes:
 
-- [CLI 2.0 do Azure](tutorial-use-custom-image-cli.md)
+- [CLI do Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Instalar uma aplicação com a extensão de Script personalizado
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão. Para obter mais informações sobre como criar e utilizar uma imagem VM personalizada com uma escala definido, veja os tutoriais seguintes:
 
-- [CLI 2.0 do Azure](tutorial-install-apps-cli.md)
+- [CLI do Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Modelo do Azure Resource Manager](tutorial-install-apps-template.md)
 

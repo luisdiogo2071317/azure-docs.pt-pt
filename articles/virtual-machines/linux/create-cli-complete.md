@@ -1,6 +1,6 @@
 ---
-title: Criar um ambiente Linux com a CLI 2.0 do Azure | Documentos da Microsoft
-description: Crie armazenamento, uma VM do Linux, uma rede virtual e sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo a partir do zero ao utilizar a CLI 2.0 do Azure.
+title: Criar um ambiente do Linux com a CLI do Azure | Documentos da Microsoft
+description: Crie armazenamento, uma VM do Linux, uma rede virtual e sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo a partir do zero com a CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: c566c747d393dbfa3225faf6f8ad78fa8abfa3ac
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e618bce78a3a3ce080b6c24cc34a27c2f5fb39e9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929710"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977558"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.
 
-Certifique-se de que instalou a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e uma conta do Azure com a sessão iniciada [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que instalou a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e uma conta do Azure com a sessão iniciada [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem *myResourceGroup*, *myVnet*, e *myVM*.
 

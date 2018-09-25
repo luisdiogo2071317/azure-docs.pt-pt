@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8bd5a6012ef13d4cd63d4e5e63b510e55e75ab63
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987276"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter os Azure managed armazenamento de discos de standard para premium e vice-versa
 
 Discos geridos oferece três opções de armazenamento: [Premium SSD](../windows/premium-storage.md), SSD(Preview) padrão, e [Standard HDD](../windows/standard-storage.md). Permite-lhe alternar facilmente entre as opções com o tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Isto não é suportado para discos não geridos. Mas pode facilmente [converter para discos geridos](convert-unmanaged-to-managed-disks.md) alternar facilmente entre os tipos de disco.
 
-Este artigo mostra-lhe como converter discos geridos de standard para premium e vice-versa, utilizando a CLI do Azure. Se precisar de instalar ou atualizá-lo, veja [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Este artigo mostra-lhe como converter discos geridos de standard para premium e vice-versa, utilizando a CLI do Azure. Se precisar de instalar ou atualizá-lo, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli.md). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 93b017482006507d616d9125cd17fd2f14389d59
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 6c8790110b0ecb8ea7d38756661774b3526f7a7c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983400"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
 O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite-lhe escolher a geração de hardware:
 - Gen 4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
-- Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. GB por núcleo, o rápido eNVM SSD
+- Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, o rápido eNVM SSD
 
 modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) para obter poupanças de custos.
 
@@ -30,19 +30,19 @@ O modelo de vCore oferece dois escalões de serviço para fins gerais e crítico
 
 A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalões:
 
-||**Fins gerais**|**Crítico para a empresa**|
-|---|---|---|
-|Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|
-|Computação|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo | Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo |
-|Armazenamento|[O armazenamento remoto Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB-8 TB |Armazenamento SSD local,<br/>Base de dados: 5 GB-1 TB<br/>Instância gerida: 32 GB-4 TB |
-|Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com IOPS máximos 200000|
-|Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|
-|Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|
-|Dentro da memória|N/A|Suportadas|
+||**Fins gerais**|**Crítico para a empresa**|**Hiperescala (pré-visualização)**|
+|---|---|---|---|
+|Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
+|Computação|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo|
+|Armazenamento|[O armazenamento remoto Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB-8 TB |Armazenamento SSD local,<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB-4 TB |Flexível, o aumento automático de armazenamento conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
+|Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
+|Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
+|Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápida e não do tamanho das operações de dados (em minutos não horas/dias).|
+|Dentro da memória|Não suportado|Suportadas|Não suportado|
 |||
 
-Para obter mais informações, consulte [limites de recursos de vCore na base de dados de Singelton](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos de vCore na instância gerida](sql-database-managed-instance.md#vcore-based-purchasing-model). 
+Para obter mais informações, consulte [limites de recursos de vCore na base de dados única](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos de vCore na instância gerida](sql-database-managed-instance.md#vcore-based-purchasing-model). 
 
 > [!IMPORTANT]
 > Se precisar de menos de um vCore de capacidade de computação, utilize o modelo de compra baseado em DTU.
@@ -51,6 +51,7 @@ Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a pe
 
 ## <a name="storage-considerations"></a>Considerações sobre armazenamento
 
+### <a name="general-purpose-and-business-critical-service-tiers"></a>Escalões de serviço crítico para a empresa e de finalidade gerais
 Considere o seguinte:
 - O armazenamento atribuído é utilizado por ficheiros de dados (. MDF) e ficheiros de registo de ficheiros (LDF).
 - Cada base de dados de computação tamanho suporta um tamanho máximo da base de dados, com o tamanho máximo predefinido de 32 GB.
@@ -70,12 +71,22 @@ Para monitorizar o tamanho total atual do MDF e LDF, utilize [sp_spaceused](http
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
+### <a name="hyperscale-service-tier-preview"></a>Camada de serviços de Hiperescala (pré-visualização)
+
+O armazenamento é gerida automaticamente da base de dados de grande escala. Armazenamento aumenta conforme necessário. Armazenamento de "Infinito Log" no armazenamento de rápida do Azure premium SSD com nenhuma truncagem de registos frequentes necessário.
+
 ## <a name="backups-and-storage"></a>Cópias de segurança e armazenamento
+
+### <a name="general-purpose-and-business-critical-service-tiers"></a>Escalões de serviço crítico para a empresa e de finalidade gerais
 
 Armazenamento para cópias de segurança da base de dados é alocado para suportar o ponto no tempo de restauro (PITR) e [longo período de retenção (LTR)](sql-database-long-term-retention.md) capacidades de base de dados SQL. Este armazenamento é alocado em separado para cada base de dados e faturado como duas Cobranças separado por base de dados. 
 
 - **PITR**: cópias de segurança da base de dados individuais são copiadas para [armazenamento RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md) são automaticamente. O tamanho de armazenamento aumenta dinamicamente à medida que novas cópias de segurança são criadas.  O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações copiadas a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração da base de dados e o período de retenção. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. Uma quantidade mínima de armazenamento igual a 1 x do tamanho dos dados é fornecida sem custos adicionais. A maioria das bases de dados, este é o valor é o suficiente para armazenar a 7 dias de cópias de segurança.
 - **LTR**: base de dados SQL oferece a opção de configurar a retenção de longa duração das cópias de segurança completas para até 10 anos. Se a política LTR estiver ativada, as cópias de segurança theses são armazenadas no armazenamento RA-GRS automaticamente, mas pode controlar a frequência com que as cópias de segurança são copiadas. Para cumprir o requisito de conformidade diferentes, pode selecionar os períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. Esta configuração irá definir a quantidade de armazenamento será utilizada para as cópias de segurança LTR. Pode utilizar a Calculadora de preços de LTR para estimar os custos de armazenamento de LTR. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
+
+### <a name="hyperscale-service-tier-preview"></a>Camada de serviços de Hiperescala (pré-visualização)
+
+com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápida e não do tamanho das operações de dados (em minutos não horas/dias).
 
 ## <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
 

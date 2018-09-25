@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 5237be9fd75edc8abf5c5fa043574e8c2deb79e9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 768fd4a715d4c0df154f823d159fd63898c9715b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740713"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981336"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gerir definições de conta de armazenamento no portal do Azure
 
@@ -26,6 +26,14 @@ O **controlo de acesso** definições no portal do Azure oferecem uma forma simp
 
 > [!NOTE]
 > Autenticação de utilizadores ou aplicações que utilizam as credenciais do Azure AD fornece segurança superior e a facilidade de utilização ao longo de outros meios de autorização. Enquanto pode continuar a utilizar a autorização de chave partilhada com as suas aplicações, utilizar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com o seu código. Também pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder um acesso otimizado aos recursos na sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerir os tokens de SAS ou se preocupar sobre revogar uma SAS comprometida. 
+
+## <a name="tags"></a>Etiquetas
+
+O armazenamento do Azure suporta etiquetas do Azure Resource Manager para organizar recursos do Azure com uma taxonomia personalizado. Pode aplicar etiquetas a suas contas de armazenamento, de modo a que pode agrupá-los na sua subscrição de maneira lógica. 
+
+Para contas de armazenamento, um nome de etiqueta está limitado a 128 carateres e um valor de etiqueta está limitado a 256 carateres.
+
+Para obter mais informações, consulte [utilizar etiquetas para organizar os recursos do Azure](../../azure-resource-manager/resource-group-using-tags.md).
 
 ## <a name="access-keys"></a>Chaves de acesso
 

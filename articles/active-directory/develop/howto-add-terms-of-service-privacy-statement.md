@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581737"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990506"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Termos de serviço e declaração de privacidade de aplicações do Azure Active Directory registadas
 
@@ -54,12 +54,14 @@ Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-stat
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Adicionar ligações para os termos de serviço e declaração de privacidade
 
 Quando os termos de serviço e declaração de privacidade encontram prontos, pode adicionar ligações a estes documentos na sua aplicação com um dos seguintes métodos:
+
 * [Através do portal do Azure](#registered-in-azure-portal)
 * [No Portal de registo de aplicação ou centro de desenvolvimento](#registered-in-app-reg-portal)
 * [Usando o objeto de aplicação JSON](#app-object-json)
 * [Usando a versão beta de MSGraph REST API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se tiver registado a sua aplicação no portal do Azure
+
 Se tiver registado a sua aplicação no portal do Azure, siga estes passos.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Se tiver registado a sua aplicação no portal do Azure, siga estes passos.
 4. Preencha os **URL de termos de serviço** e **URL da declaração de privacidade** campos.
 5. Guarde as alterações.
 
-![Secção de propriedades de aplicação com os termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Secção de propriedades de aplicação com os termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Se tiver registado a sua aplicação no Portal de registo de aplicação
+
 Siga estes passos, se tiver registado a sua aplicação no Portal de registo de aplicação ou no Dev Center.
 
 1. Inicie sessão para o [Portal de registo de aplicação](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Siga estes passos, se tiver registado a sua aplicação no Portal de registo de 
 3. Preencha os **URL de termos de serviço** e **URL da declaração de privacidade** campos.
 4. Guarde as alterações.
 
-![Seção de perfil de aplicação com os termos de URLs de declaração de serviço e de privacidade](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Seção de perfil de aplicação com os termos de URLs de declaração de serviço e de privacidade](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Usando o objeto de aplicação JSON
+
 Se preferir modificar diretamente o objeto de aplicação JSON, pode utilizar o editor de manifesto no portal do Azure ou o Portal de registo de aplicação para incluir ligações para os termos da sua aplicação de serviço e declaração de privacidade.
 
 ```json
@@ -91,6 +95,7 @@ Se preferir modificar diretamente o objeto de aplicação JSON, pode utilizar o 
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>Usando a versão beta de MSGraph REST API
+
 Para atualizar programaticamente todas as suas aplicações, pode utilizar a versão beta de MSGraph REST API para atualizar todas as suas aplicações para incluir ligações aos termos de serviço e a privacidade documentos de instrução.
 
 ```

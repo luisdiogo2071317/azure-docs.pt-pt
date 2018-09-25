@@ -1,6 +1,6 @@
 ---
-title: 'Do Azure Cosmos DB: API de Python do SQL Server, SDK & recursos | Microsoft Docs'
-description: Saiba tudo sobre a API de Python do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Python SDK.
+title: 'Azure Cosmos DB: SQL Python API, SDK e recursos | Documentos da Microsoft'
+description: Saiba tudo sobre o SQL Python API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Python do Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -9,20 +9,20 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
+ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a79c1951fb8cfbfc208942835ee87b91b763c44
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037937"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python do Cosmos DB do Azure para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -36,62 +36,68 @@ ms.locfileid: "34798190"
 
 <table>
 
-<tr><td>**Transferir o SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Transferir SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API de Python](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
 
-<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do Python SDK](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do Python SDK](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Introdução**</td><td>[Introdução ao Python SDK](sql-api-python-application.md)</td></tr>
+<tr><td>**Introdução**</td><td>[Começar com o SDK de Python](sql-api-python-application.md)</td></tr>
 
 <tr><td>**Plataforma suportada atual**</td><td>[Python 2.7](https://www.python.org/downloads/) e [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
+* Suporte para gravações de várias regiões.
+* Espaço de nomes foi alterada para azure.cosmos.
+* Conceitos de coleção e documento mudados para o contentor e item, document_client mudado para cosmos_client. 
+
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
-* Suporte adicionado para repetições de predefinição em problemas de ligação.
+* Foi adicionado suporte para predefinida é repetida em problemas de ligação.
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
-* Documentação atualizada a referência de base de dados do Azure Cosmos em vez do Azure DocumentDB.
+* Documentação atualizada a referência do Azure Cosmos DB em vez do Azure DocumentDB.
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
-* Esta versão do SDK requer a versão mais recente do Azure Cosmos DB emulador disponível para transferência a partir do https://aka.ms/cosmosdb-emulator.
+* Esta versão do SDK requer a versão mais recente do emulador do Cosmos DB disponível para download em https://aka.ms/cosmosdb-emulator.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
-* Correção de erros para agregação dicionário.
-* Correção de erros para corte barras na hiperligação do recurso.
+* Correção de erros para o dicionário de agregação.
+* Correção de erros para remoção de barras diagonais na ligação de recurso.
 * Foram adicionados testes para codificação Unicode.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Suporte adicionado para um novo nível de consistência chamado ConsistentPrefix.
+* Foi adicionado suporte para um novo nível de consistência chamado ConsistentPrefix.
 
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
-* Suporte adicionado para consultas de agregação (CONTAGEM, MIN, MAX, soma e média).
-* Adicionar uma opção para desativar a verificação de SSL quando em execução contra o emulador de BD do Cosmos.
-* Remover a restrição do módulo de pedidos dependentes ser exatamente 2.10.0.
-* Lowered débito mínimo em coleções particionadas de 10,100 RU/s ao 2500 RU/s.
-* Suporte adicionado para ativar o registo de script durante a execução do procedimento armazenado.
-* Versão de REST API bumped para ' 2017-01-19' com esta versão.
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média).
+* Adicionar uma opção para desativar a verificação de SSL na execução no emulador do Cosmos DB.
+* Remover a restrição do módulo de pedidos dependentes para ser 2.10.0 exatamente.
+* Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
+* Foi adicionado suporte para ativar o registo de script durante a execução do procedimento armazenado.
+* Para ' 2017 diminuí a versão de REST API-01-19' com esta versão.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* Efetuou alterações editoriais a comentários de documentação.
+* Feitas as alterações editoriais comentários na documentação.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Suporte adicionado para o Python 3.5.
-* Suporte adicionado para utilizar um módulo de pedidos de agrupamento de ligações.
-* Adicionado suporte para a consistência de sessão.
-* Suporte adicionado para consultas de parte superior/ORDERBY para coleções particionadas.
+* Foi adicionado suporte para Python 3.5.
+* Foi adicionado suporte para o pool de conexões usando um módulo de pedidos.
+* Foi adicionado suporte para consistência da sessão.
+* Foi adicionado suporte para consultas de parte superior/ORDERBY para coleções particionadas.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Suporte de política de repetição adicionado para pedidos otimizados. (Pedidos otimizados recebem uma pedido taxa demasiado grande exceção, o código de erro 429.) Por predefinição, base de dados do Azure Cosmos repete nove vezes para cada pedido quando for detetado o código de erro 429, para respeitar o tempo de retryAfter no cabeçalho de resposta. Um período de tempo do intervalo de repetição fixo pode agora ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy se pretender ignorar a hora de retryAfter devolvida pelo servidor entre as repetições. BD do Azure do Cosmos aguarda agora um máximo de 30 segundos para cada pedido que está a ser limitado (independentemente da contagem de repetições) e devolve a resposta com o código de erro 429. Neste momento também pode ser substituído na propriedade RetryOptions ConnectionPolicy objeto.
-* BD do cosmos devolve agora x-ms-limitação--contagem de repetições e x-ms-throttle-retry-wait-time-ms como cabeçalhos de resposta de cada pedido para indicar a limitação de Repetir contagem e a hora cumulativa aguardaram o pedido entre as repetições.
-* Remover a classe de RetryPolicy e a propriedade correspondente (retry_policy) exposta na classe document_client e introduzidas em vez disso, uma classe de RetryOptions exposição a propriedade RetryOptions na classe ConnectionPolicy que pode ser utilizada para substituir o algumas das opções predefinidas de repetição.
+* Suporte de política de repetição foi adicionado para pedidos limitados. (Pedidos limitados do Microsoft recebem uma pedido taxa demasiado grande exceção, o código de erro 429.) Por predefinição, do Azure Cosmos DB repete nove vezes para cada solicitação quando o código de erro 429 for encontrado, respeitar o tempo de retryAfter no cabeçalho de resposta. O tempo de um intervalo de repetição fixo pode agora ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy se pretender ignorar a hora de retryAfter devolvida pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda até um máximo de 30 segundos para cada solicitação que está a ser limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Neste momento também pode ser substituído na propriedade RetryOptions no objeto ConnectionPolicy.
+* Cosmos DB agora retorna x-ms-limitação--contagem de repetições e x-ms-throttle-retry-wait-time-ms conforme os cabeçalhos de resposta em cada solicitação para indicar a limitação Repetir contagem e a hora de cumulativa o pedido de espera entre as repetições.
+* Removida a classe de RetryPolicy e a propriedade correspondente (retry_policy) exposto na classe document_client e em vez disso, introduziu uma classe de RetryOptions expor a propriedade de RetryOptions na classe de ConnectionPolicy que pode ser utilizado para substituir algumas do Opções de repetição predefinida.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
-* O suporte adicionado para contas de multirregião base de dados.
+* Foi adicionado o suporte para contas de base de dados de várias regiões.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Foi adicionado o suporte para a funcionalidade de tempo para Live(TTL) para documentos.
@@ -100,49 +106,49 @@ ms.locfileid: "34798190"
 * Correções de erros relacionados com a criação de partições do lado do servidor para permitir carateres especiais no caminho da chave de partição.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
-* Implementado [particionada coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md). 
+* Implementado [particionados coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md). 
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* Adicionar Hash & intervalo de partição resoluções para ajudá-lo com aplicações de fragmentação entre várias partições.
+* Adicionar Inte & rvalo de Hash de partição resoluções para ajudá-lo em aplicativos de fragmentação em várias partições.
 
 ### <a name="a-name142142"></a><a name="1.4.2"/>1.4.2
 * Implemente Upsert. Novos métodos de UpsertXXX adicionados para suportar a funcionalidade de Upsert.
-* ID de implementar baseado Routing. Sem alterações de API públicas, todas as alterações internas.
+* Implemente o encaminhamento baseado na identificação. Sem alterações de API públicas, todas as alterações internas.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Índice de Geoespacial suporta.
-* Valida a propriedade id de todos os recursos. Os IDs de recursos não podem conter?, /, #, \, carateres nem terminar com um espaço.
-* Adiciona ResourceResponse novo cabeçalho "índice transformação curso".
+* Valida a propriedade de id para todos os recursos. IDs de recursos não podem conter?, /, #, \, carateres ou terminar com um espaço.
+* Adiciona o novo cabeçalho "índice transformação progress" ao ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Implementa a política de indexação V2.
+* Implementa a política de indexação da V2.
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Suporta a ligação de proxy.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK.
+* SDK DE DISPONIBILIDADE GERAL.
 
-## <a name="release--retirement-dates"></a>Versão & extinção datas
-A Microsoft disponibiliza notificação, pelo menos, **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
+## <a name="release--retirement-dates"></a>Datas de lançamento & retirada
+A Microsoft fornece notificação, pelo menos, **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
-Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomendamos que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível. 
+Novos recursos e funcionalidade e otimizações, apenas são adicionadas ao SDK atual, como tal, é recomendável que sempre atualiza para a versão mais recente SDK mais cedo possível. 
 
-Qualquer pedido de BD do Cosmos utilizando um SDK extinto são rejeitados pelo serviço.
+Qualquer pedido ao Cosmos DB com um SDK extinto são rejeitados pelo serviço.
 
 > [!WARNING]
-> Todas as versões do SQL Azure SDK para Python anteriores à versão **1.0.0** foram descontinuados no **29 de Fevereiro de 2016**. 
+> Todas as versões do SQL Azure SDK para Python anteriores à versão **1.0.0** foram extinguidas **29 de Fevereiro de 2016**. 
 > 
 > 
 
 <br/>
 
-| Versão | Data da versão | Data de retirada |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [2.3.2](#2.3.2) |08 de Maio de 2018 |--- |
 | [2.3.1](#2.3.1) |21 de Dezembro de 2017 |--- |
 | [2.3.0](#2.3.0) |10 de Novembro de 2017 |--- |
-| [2.2.1](#2.2.1) |Sep 29, 2017 |--- |
+| [2.2.1](#2.2.1) |29 de Setembro, 2017 |--- |
 | [2.2.0](#2.2.0) |10 de maio de 2017 |--- |
 | [2.1.0](#2.1.0) |01 de Maio de 2017 |--- |
 | [2.0.1](#2.0.1) |30 de Outubro de 2016 |--- |
@@ -169,5 +175,5 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto são rejeitados pelo s
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504520"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989673"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como ativar aplicações de cliente nativo interagir com aplicativos de proxy
 
@@ -30,7 +30,7 @@ Proxy de aplicações suporta aplicações de cliente nativo ao aceitar do Azure
 
 ![Relação entre os utilizadores finais, o Azure Active Directory e aplicações publicadas](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Utilize a biblioteca de autenticação do AD do Azure, que se encarrega de autenticação e oferece suporte a vários ambientes de cliente, para publicar aplicativos nativos. Proxy de aplicações se adapta a [aplicativo nativo para o cenário de Web API](../develop/authentication-scenarios.md#native-application-to-web-api). 
+Utilize a biblioteca de autenticação do AD do Azure, que se encarrega de autenticação e oferece suporte a vários ambientes de cliente, para publicar aplicativos nativos. Proxy de aplicações se adapta a [aplicativo nativo para o cenário de Web API](../develop/native-app.md). 
 
 Este artigo descreve os quatro passos para publicar um aplicativo nativo com o Proxy de aplicações e a biblioteca de autenticação do Azure AD. 
 
@@ -96,6 +96,6 @@ Depois da ADAL é editada com estes parâmetros, os usuários devem ser capazes 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o fluxo da aplicação nativa, consulte [aplicativo nativo para a web API](../develop/authentication-scenarios.md#native-application-to-web-api)
+Para obter mais informações sobre o fluxo da aplicação nativa, consulte [aplicativo nativo para a web API](../develop/native-app.md)
 
 Saiba mais sobre como configurar [início de sessão único para o Proxy de aplicações](application-proxy-single-sign-on.md)

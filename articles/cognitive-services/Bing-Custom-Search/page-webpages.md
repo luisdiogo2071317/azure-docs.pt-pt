@@ -1,6 +1,6 @@
 ---
-title: 'Pesquisa do Bing personalizada: Página através de páginas Web disponíveis | Microsoft Docs'
-description: Mostra como percorrer todas as páginas Web que pode devolver Bing.
+title: 'A pesquisa personalizada do Bing: Página por meio de páginas da Web disponíveis | Documentos da Microsoft'
+description: Mostra como página por meio de todas as páginas de Web Bing pode devolver.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -10,18 +10,18 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: f2f545a5a9195fc65515ea716f277723600cbb78
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5692776736090c55547c2fe934e2c0aaf840d3c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982363"
 ---
 # <a name="paging-webpages"></a>Páginas Web de paginação 
 
-Quando chamar a API de pesquisa personalizada, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número estimado de total de resultados disponíveis, aceder ao objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#totalestimatedmatches) campo.  
+Quando chama a API de pesquisa personalizada, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#totalestimatedmatches) campo.  
   
-O seguinte exemplo mostra o `totalEstimatedMatches` campo que inclui uma resposta de Web.  
+A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma resposta de Web.  
   
 ```  
 {
@@ -34,26 +34,26 @@ O seguinte exemplo mostra o `totalEstimatedMatches` campo que inclui uma respost
 }  
 ```  
   
-A página através de páginas Web disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#count) e [desvio](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#offset) parâmetros de consulta.  
+Para a página por meio de páginas da Web disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#offset) parâmetros de consulta.  
   
-O `count` parâmetro especifica o número de resultados para devolver na resposta. O número máximo de resultados pode solicitar na resposta é 50. A predefinição é 10. O número real entregar pode ser inferior a pedido.
+O `count` parâmetro especifica o número de resultados a devolver na resposta. O número máximo de resultados que pode solicitar na resposta é 50. A predefinição é 10. O número real entregue pode ser menor do que o pedido.
 
-O `offset` parâmetro especifica o número de resultados para ignorar. O `offset` é baseado em zero e deve ser inferior a (`totalEstimatedMatches` - `count`).  
+O `offset` parâmetro especifica o número de resultados a ignorar. O `offset` é baseado em zero e deve ser inferior a (`totalEstimatedMatches` - `count`).  
   
-Se pretender apresentar as páginas 15 Web por página, iria definir `count` para 15 e `offset` como 0 para obter a primeira página de resultados. Para todas as páginas subsequentes, seria incrementar `offset` por 15 (por exemplo, 15, 30).  
+Se deseja exibir 15 páginas da Web por página, definiria `count` 15 e `offset` como 0 para obter a primeira página de resultados. Para cada página subsequente, teria de incrementar `offset` por 15 (por exemplo, 15, 30).  
   
-O seguinte mostra um exemplo que os pedidos de páginas 15 Web começando no desvio 45.  
+O código a seguir mostra um exemplo que solicite 15 páginas Web começando no desvio 45.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
 Ocp-Apim-Subscription-Key: <subscription ID>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Se a predefinição `count` valor funciona para a implementação, apenas tem de especificar o `offset` parâmetro de consulta.  
+Se a predefinição `count` valor funciona para a sua implementação, só precisa de especificar o `offset` parâmetro de consulta.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
 Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  

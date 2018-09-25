@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294657"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993566"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -59,7 +59,7 @@ As seguintes regiões do Azure atualmente são suportadas durante a pré-visuali
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > Se o seu domínio do AAD e o domínio do nome de utilizador de início de sessão não corresponderem, tem de especificar o ID de objeto da sua conta de utilizador com o *– o id de objeto detentor*, não apenas o nome de utilizador para *– detentor*. Pode obter o ID de objeto para a sua conta de utilizador com [lista de utilizadores do ad az](/cli/azure/ad/user#az-ad-user-list).
 
-Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos recursos da sua subscrição do Azure, veja a utilizar o [CLI do Azure 2.0](../../role-based-access-control/role-assignments-cli.md), [portal do Azure](../../role-based-access-control/role-assignments-portal.md), ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos recursos da sua subscrição do Azure, veja a utilizar o [CLI do Azure](../../role-based-access-control/role-assignments-cli.md), [portal do Azure](../../role-based-access-control/role-assignments-portal.md), ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Também pode configurar o Azure AD para exigir autenticação multifator para um utilizador específico iniciar sessão na máquina virtual do Linux. Para obter mais informações, consulte [introdução à Azure multi-factor Authentication na cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 

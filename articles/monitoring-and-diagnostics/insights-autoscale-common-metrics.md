@@ -1,6 +1,6 @@
 ---
-title: Métrica de dimensionamento automático comuns
-description: Saiba quais métricas são frequentemente utilizadas para efetuar o dimensionamento automático a serviços em nuvem, as máquinas virtuais e aplicações Web.
+title: Métricas comuns do dimensionamento automático
+description: Saiba as métricas são frequentemente utilizadas para o dimensionamento automático seus serviços Cloud, máquinas virtuais e aplicações Web.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 7b6f454a8d4c8794b8c56494fd9ed573f8b79852
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262244"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970707"
 ---
-# <a name="azure-monitor-autoscaling-common-metrics"></a>Azure métricas comuns de dimensionamento automático Monitor
-Dimensionamento automático de Monitor do Azure permite-lhe aumentar o número de instâncias em execução ou descendente, com base nos dados de telemetria (métricas). Este documento descreve as métricas comuns que poderá querer utilizar. No portal do Azure para serviços em nuvem e de Farms de servidores, pode escolher a métrica do recurso para dimensionar por. No entanto, também pode escolher qualquer métrica de um recurso Dimensionar por diferentes.
+# <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns do Azure Monitor dimensionamento automático
+Dimensionamento automático de Monitor do Azure permite-lhe dimensionar o número de instâncias em execução ou reduzir verticalmente, com base nos dados de telemetria (Métrica). Este documento descreve as métricas comuns que pode querer utilizar. No portal do Azure, pode escolher a métrica do recurso para reduzir horizontalmente para. No entanto, também pode escolher qualquer métrica entre um recurso diferente para reduzir horizontalmente para.
 
-Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços em nuvem](https://azure.microsoft.com/services/cloud-services/), e [Web Apps do App Service -](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure utilizam diferentes métodos de dimensionamento.
+Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Outros serviços do Azure utilizam diferentes métodos de dimensionamento.
 
-## <a name="compute-metrics-for-resource-manager-based-vms"></a>Métricas de computação para as VMs baseadas no Resource Manager
-Por predefinição, as máquinas virtuais baseadas no Resource Manager e os conjuntos de dimensionamento de Máquina Virtual emitir básicas métricas de (ao nível do anfitrião). Além disso, quando configurar a recolha de dados de diagnóstico para uma VM do Azure e VMSS, a extensão de diagnóstico do Azure emite também os contadores de desempenho de SO convidado (geralmente conhecidos como "Métricas de SO convidado").  Todas estas métricas, utilizar nas regras de dimensionamento automático.
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Métricas de computação para VMs baseadas no Resource Manager
+Por predefinição, as máquinas virtuais baseadas no Resource Manager e conjuntos de dimensionamento de máquinas virtuais emitem métricas básicas de (ao nível do anfitrião). Além disso, quando configurar a recolha de dados de diagnóstico para uma VM do Azure e o VMSS, a extensão de diagnóstico do Azure emite também contadores de desempenho de SO convidado (conhecidos como "Métricas de SO convidado").  Utilize todas estas métricas de regras de dimensionamento automático.
 
 Pode utilizar o `Get MetricDefinitions` PoSH/API/CLI para ver as métricas disponíveis para o seu recurso VMSS.
 
-Se estiver a utilizar conjuntos de dimensionamento VM e não vir uma métrica específica listada, em seguida, é provável *desativada* na sua extensão de diagnóstico.
+Se estiver a utilizar conjuntos de dimensionamento VM e não vir uma métrica em particular listada, então é provável *desativada* na sua extensão de diagnóstico.
 
-Se um determinado métrica não está a ser amostragem ou ser transferidos com a frequência quiser, pode atualizar a configuração de diagnóstico.
+Se uma métrica em particular não está a ser objeto de amostragem ou transferidos com a frequência que quiser, pode atualizar a configuração de diagnósticos.
 
-Se ambos os casos anterior for VERDADEIRO, em seguida, revê [utilize o PowerShell para ativar o diagnóstico do Azure numa máquina virtual com o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre o PowerShell para configurar e atualizar a sua extensão de diagnósticos de VM do Azure para ativar a métrica. Este artigo também inclui um ficheiro de configuração de diagnósticos de exemplo.
+Se ambos os casos anterior for VERDADEIRO, em seguida, reveja [utilize o PowerShell para ativar o diagnóstico do Azure numa máquina virtual a executar o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre o PowerShell para configurar e atualizar a extensão de diagnóstico de VM do Azure para ativar a métrica. Esse artigo também inclui um ficheiro de configuração de diagnósticos de exemplo.
 
-### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de anfitrião para o Windows baseado no Resource Manager e VMs com Linux
-As métricas de nível do anfitrião seguintes são emitidas por predefinição para a VM do Azure e VMSS em instâncias de Windows e Linux. Estas métricas descrevem a VM do Azure, mas são recolhidas a partir do anfitrião de VM do Azure em vez de através do agente instaladas na VM do convidado. Pode utilizar estas métricas nas regras de dimensionamento automático.
+### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de anfitrião para o Windows baseados no Resource Manager e VMs do Linux
+As seguintes métricas ao nível do anfitrião são emitidas por padrão para VM do Azure e o VMSS em instâncias do Windows e Linux. Estas métricas descrevem a sua VM do Azure, mas são recolhidas a partir do anfitrião de VM do Azure, em vez de através do agente instalado na VM do convidado. Pode utilizar estas métricas nas regras de dimensionamento automático.
 
-- [Métricas de anfitrião para o Windows baseado no Resource Manager e VMs com Linux](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
-- [Métricas de anfitrião para o Windows baseado no Resource Manager e conjuntos de dimensionamento de VM do Linux](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
+- [Métricas de anfitrião para o Windows baseados no Resource Manager e VMs do Linux](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
+- [Métricas de anfitrião para o Windows baseados no Resource Manager e os conjuntos de dimensionamento de VM do Linux](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas de SO convidado VMs do Windows baseados no Resource Manager
-Quando cria uma VM no Azure, diagnóstico é ativado ao utilizar a extensão de diagnóstico. A extensão de diagnóstico emite um conjunto de métricas retirados do dentro da VM. Isto significa que pode o dimensionamento automático retire métricas que não são emitidos por predefinição.
+### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas de SO convidado baseado no Resource Manager VMs do Windows
+Quando cria uma VM no Azure, o diagnóstico está ativado ao utilizar a extensão de diagnóstico. A extensão de diagnóstico emite um conjunto de métricas obtidas a partir de dentro da VM. Isso significa que pode o dimensionamento automático do métricas que não são emitidos por predefinição.
 
-Pode gerar uma lista das métricas utilizando o seguinte comando do PowerShell.
+Pode gerar uma lista das métricas com o seguinte comando no PowerShell.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -57,31 +57,31 @@ Pode criar um alerta para as métricas seguintes:
 | \System\Processes |Contagem |
 | Contagem de \Thread \Process ( total) |Contagem |
 | Contagem de \Handle \Process ( total) |Contagem |
-| \Memory\% dos Bytes consolidados em utilização |Percentagem |
+| \Memory\% Bytes dedicados em utilização |Percentagem |
 | \Memory\Available Bytes |Bytes |
 | Bytes de \Memory\Committed |Bytes |
 | Limite de \Memory\Commit |Bytes |
 | Bytes de \Memory\Pool bloco paginado |Bytes |
-| \Memory\Pool Bytes na memória não paginável |Bytes |
-| \PhysicalDisk(_Total)\% tempo do disco |Percentagem |
-| \PhysicalDisk(_Total)\% tempo de leitura de discos |Percentagem |
-| \PhysicalDisk(_Total)\% tempo escrita em disco |Percentagem |
-| \PhysicalDisk ( total) \Disk transferências/seg |CountPerSecond |
-| \PhysicalDisk ( total) \Disk leituras/seg |CountPerSecond |
-| \PhysicalDisk ( total) \Disk escritas/seg |CountPerSecond |
-| \PhysicalDisk ( total) \Disk bytes/seg |BytesPerSecond |
+| \Memory\Pool memória não paginável |Bytes |
+| \PhysicalDisk(_Total)\% tempo de disco |Percentagem |
+| \PhysicalDisk(_Total)\% tempo de leitura do disco |Percentagem |
+| \PhysicalDisk(_Total)\% hora de gravação em disco |Percentagem |
+| \PhysicalDisk ( total) \Disk transferências/seg. |CountPerSecond |
+| \PhysicalDisk ( total) \Disk leituras/seg. |CountPerSecond |
+| \PhysicalDisk ( total) \Disk escritas/seg. |CountPerSecond |
+| \PhysicalDisk ( total) \Disk bytes/seg. |BytesPerSecond |
 | \Disk \PhysicalDisk ( total) Bytes lidos/seg |BytesPerSecond |
 | Escrita de \Disk \PhysicalDisk ( total) Bytes/seg |BytesPerSecond |
 | \Avg \PhysicalDisk ( total). Comprimento da Fila de Discos |Contagem |
 | \Avg \PhysicalDisk ( total). Comprimento de fila de leitura do disco |Contagem |
 | \Avg \PhysicalDisk ( total). Comprimento de fila de escrita de disco |Contagem |
 | \LogicalDisk(_Total)\% espaço livre |Percentagem |
-| \LogicalDisk ( total) \Free megabytes |Contagem |
+| Megabytes de \Free \LogicalDisk ( total) |Contagem |
 
-### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidado VMs com Linux
-Quando cria uma VM no Azure, diagnostics está ativada por predefinição, utilizando a extensão de diagnóstico.
+### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidado VMs do Linux
+Quando cria uma VM no Azure, o diagnóstico está ativado por predefinição, utilizando a extensão de diagnóstico.
 
-Pode gerar uma lista das métricas utilizando o seguinte comando do PowerShell.
+Pode gerar uma lista das métricas com o seguinte comando no PowerShell.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -130,17 +130,17 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \NetworkInterface\TotalTxErrors |Contagem |
 | \NetworkInterface\TotalCollisions |Contagem |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Métricas frequentemente utilizadas de Web (Farm de servidores)
-Também pode efetuar o dimensionamento automático com base nas métricas do servidor web comuns, tais como o comprimento da fila Http. Nome métrico está **HttpQueueLength**.  A secção seguinte apresenta uma lista de métricas de farm (aplicações Web) do servidor disponível.
+## <a name="commonly-used-web-server-farm-metrics"></a>Métricas frequentemente utilizadas da Web (Serverová Farma)
+Também pode efetuar o dimensionamento automático com base nas métricas de servidor web comuns, como o comprimento da fila de Http. Nome métrico está **HttpQueueLength**.  A secção seguinte apresenta uma lista de métricas de farm (aplicações Web) do servidor disponíveis.
 
 ### <a name="web-apps-metrics"></a>Métricas de aplicações Web
-Pode gerar uma lista das métricas de aplicações Web utilizando o seguinte comando do PowerShell.
+Pode gerar uma lista das métricas de aplicações Web com o seguinte comando no PowerShell.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Pode alerta sobre ou dimensionar por estas métricas.
+Pode alertar ou dimensionar por estas métricas.
 
 | Nome da Métrica | Unidade |
 | --- | --- |
@@ -151,12 +151,12 @@ Pode alerta sobre ou dimensionar por estas métricas.
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 
-## <a name="commonly-used-storage-metrics"></a>Métricas frequentemente utilizadas de armazenamento
-Pode dimensionar ao comprimento da fila de armazenamento, que é o número de mensagens na fila de armazenamento. Comprimento da fila de armazenamento é uma métrica especial e o limiar é o número de mensagens em fila por instância. Por exemplo, se existirem duas instâncias, e se o limiar é definido para 100, dimensionamento ocorre quando o número total de mensagens na fila 200. Que pode ser 100 mensagens por instância, 120 e 80 ou qualquer combinação que adiciona até 200 ou mais.
+## <a name="commonly-used-storage-metrics"></a>Métricas de armazenamento frequentemente utilizadas
+Pode aumentar ao comprimento da fila de armazenamento, que é o número de mensagens na fila de armazenamento. Comprimento da fila de armazenamento é uma métrica especial e o limite é o número de mensagens por instância. Por exemplo, se existirem duas instâncias, e se o limiar é definido para 100, dimensionamento ocorre quando o número total de mensagens na fila é 200. Isso pode ser 100 mensagens por instância, 120 e 80 ou qualquer combinação que adiciona até 200 ou mais.
 
-Configurar esta definição no portal do Azure no **definições** painel. Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensionamento automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e transmita o ID da fila de armazenamento como  *metricResourceUri*.
+Configurar esta definição no portal do Azure no **definições** painel. Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensionamento automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e transmitir o identificador da fila de armazenamento como  *metricResourceUri*.
 
-Por exemplo, com uma conta de armazenamento clássico metricTrigger de definição de dimensionamento automático incluem:
+Por exemplo, com uma conta de armazenamento clássica metricTrigger de definição de dimensionamento automático incluem:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -173,9 +173,9 @@ Para uma conta de armazenamento (não clássica), o metricTrigger incluem:
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métricas frequentemente utilizadas do Service Bus
-Pode dimensionar ao comprimento da fila de barramento de serviço, que é o número de mensagens na fila de barramento de serviço. Comprimento da fila de barramento de serviço é uma métrica especial e o limiar é o número de mensagens em fila por instância. Por exemplo, se existirem duas instâncias, e se o limiar é definido para 100, dimensionamento ocorre quando o número total de mensagens na fila 200. Que pode ser 100 mensagens por instância, 120 e 80 ou qualquer combinação que adiciona até 200 ou mais.
+Pode aumentar ao comprimento da fila do Service Bus, que é o número de mensagens em fila do Service Bus. Comprimento da fila do Service Bus é uma métrica especial e o limite é o número de mensagens por instância. Por exemplo, se existirem duas instâncias, e se o limiar é definido para 100, dimensionamento ocorre quando o número total de mensagens na fila é 200. Isso pode ser 100 mensagens por instância, 120 e 80 ou qualquer combinação que adiciona até 200 ou mais.
 
-Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensionamento automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e transmita o ID da fila de armazenamento como  *metricResourceUri*.
+Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensionamento automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e transmitir o identificador da fila de armazenamento como  *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -184,6 +184,6 @@ Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensiona
 ```
 
 > [!NOTE]
-> Para o Service Bus, o conceito de grupo de recursos existe mas o Gestor de recursos do Azure cria um grupo de recursos predefinidos por região. O grupo de recursos é normalmente no formato 'Default - ServiceBus-[Região]'. Por exemplo, 'Predefinição-ServiceBus-EastUS', 'Predefinição-ServiceBus-WestUS', 'Predefinição-ServiceBus-AustraliaEast' etc.
+> Para o Service Bus, o conceito de grupo de recursos não existe mas do Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos é normalmente no formato 'Default - ServiceBus-[Região]'. Por exemplo, "Predefinição-ServiceBus-EastUS", 'Predefinição-ServiceBus-WestUS', 'predefinido-ServiceBus-AustraliaEast"etc.
 >
 >

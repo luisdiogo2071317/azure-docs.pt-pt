@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238296"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060339"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -101,7 +101,7 @@ Os clientes podem tirar um instantâneo de seus discos geridos e, em seguida, ut
 
 Sim, os discos geridos e não são suportados. Recomendamos que utilize discos geridos para novas cargas de trabalho e migrar cargas de trabalho atuais para discos geridos.
 
-**Se eu criar um disco de 128 GB e, em seguida, aumente o tamanho para 130 GB, vou ser cobrado para o próximo tamanho de disco (256 GB)?**
+**Se eu criar um disco de 128 GB e, em seguida, aumente o tamanho para 130 GiB, vou ser cobrado para o próximo tamanho de disco (256gib)?**
 
 Sim.
 
@@ -137,10 +137,10 @@ Não, quando é criado o novo disco é uma cópia autônoma completa desse blob 
 
 Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o nome de um disco não gerido, desde que não está atualmente ligado a um VHD ou VM.
 
-## <a name="standard-ssd-disks-preview"></a>Discos SSD Standard (pré-visualização)
+## <a name="standard-ssd-disks"></a>Discos SSD Standard
 
 **Quais são os discos de SSD Standard do Azure?**
-Os discos SSD Standard são apoiados por suporte de dados de estado sólido, com a otimização de armazenamento económico para cargas de trabalho que necessitam de um desempenho consistente em níveis inferiores de IOPS de discos standard. Em pré-visualização, eles estão disponíveis num número limitado de regiões, com capacidade de gestão limitada (disponível por meio de modelos do Resource Manager).
+Os discos SSD Standard são apoiados por suporte de dados de estado sólido, com a otimização de armazenamento económico para cargas de trabalho que necessitam de um desempenho consistente em níveis inferiores de IOPS de discos standard.
 
 <a id="standard-ssds-azure-regions"></a>**Quais são as regiões atualmente suportadas para discos de Standard SSD?**
 Todas as regiões do Azure suportam agora os discos Standard SSD.
@@ -275,7 +275,7 @@ Existe um custo fixo para cada tamanho de disco, o que vem aprovisionado limites
 
 **Quais são os limites de IOPS e débito que eu consegue a partir da cache de disco?**
 
-Os limites combinados para a cache e SSD local para uma série de DS são 4000 IOPS por núcleo e 33 MB por segundo por núcleo. A série GS oferece 5000 IOPS por núcleo e 50 MB por segundo por núcleo.
+Os limites combinados para a cache e SSD local para uma série de DS são 4000 IOPS por núcleo e MiB 33 por segundo por núcleo. A série GS oferece 5000 IOPS por núcleo e 50 MiB por segundo por núcleo.
 
 **Local SSD é suportado para uma VM dos Managed Disks?**
 
@@ -287,38 +287,60 @@ Não há nenhuma desvantagem para a utilização de cortar nos discos do Azure n
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: geridos e não geridos
 
-**O que é o maior tamanho de disco suportado para o sistema operativo e discos de dados?**
+**O que é o maior tamanho de disco gerido suportado para o sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure suporta para o disco de sistema operativo é o registo de arranque principal (MBR). O suporte de formato MBR um disco de tamanho máximo de 2 TB. O maior tamanho que suporte o Azure para um disco do sistema operativo é 2 TB. O Azure suporta até 4 TB para discos de dados. 
+O tipo de partição que o Azure suporta para o disco de sistema operativo é o registo de arranque principal (MBR). O formato do MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que suporte o Azure para um disco do sistema operativo é 2 TiB. O Azure suporta até 32 TiB para discos de dados geridos. Tamanhos de disco geridos, maiores do que 4 TiB estão em pré-visualização. Para obter mais informações sobre as mesmas, consulte nosso [mensagem de blogue](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**O que é o maior tamanho de disco não gerido suportado para o sistema operativo e discos de dados?**
+
+O tipo de partição que o Azure suporta para o disco de sistema operativo é o registo de arranque principal (MBR). O formato do MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que suporte o Azure para um disco não gerido do sistema operativo é 2 TiB. O Azure suporta até 4 TiB para discos não geridos de dados.
 
 **O que é o maior tamanho de blob de página que é suportado?**
 
-O maior tamanho de blob de página suportados pelo Azure é de 8 TB (8,191 GB). O tamanho do blog de páginas máxima quando anexado a uma VM, como dados ou discos do sistema operativo é 4 TB (4095 GB).
+O maior tamanho de blob de página suportados pelo Azure é 8 TiB (8,191 GiB). O tamanho do blog de páginas máxima quando anexado a uma VM, como dados ou discos do sistema operativo é 4 TiB (4095 GiB).
 
-**É necessário utilizar uma nova versão das ferramentas do Azure para criar, anexar, redimensionar e carregar discos superiores a 1 TB?**
+**É necessário utilizar uma nova versão das ferramentas do Azure para criar, anexar, redimensionar e carregar discos maiores do que 1 TiB?**
 
-Não precisa de atualizar as ferramentas do Azure existentes para criar, anexar ou redimensionar discos superiores a 1 TB. Para carregar o ficheiro VHD no local diretamente para o Azure como um blob de página ou o disco não gerido, tem de utilizar os conjuntos de ferramentas mais recentes:
+Não precisa de ferramentas do Azure existentes para criar, anexar ou redimensionar discos maiores do que 1 TiB de atualização. Para carregar o ficheiro VHD no local diretamente para o Azure como um blob de página ou o disco não gerido, tem de utilizar os conjuntos de ferramentas mais recentes listados abaixo. Suportamos apenas carregamentos VHD de até 8 TiB.
 
 |Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Número de versão 4.1.0: versão de Junho de 2017 ou posterior|
 |CLI do Azure v1     | Número de versão 0.10.13: versão de Maio de 2017 ou posterior|
+|CLI do Azure v2     | Número da versão 2.0.12: versão de Julho de 2017 ou posterior|
 |AzCopy           | Número de versão 6.1.0: versão de Junho de 2017 ou posterior|
-
-O suporte para v2 de CLI do Azure e o Explorador de armazenamento do Azure estará disponível brevemente. 
 
 **Tamanhos de disco do P4 e P6 há suporte para discos não geridos ou blobs de páginas?**
 
-Não. P4 (32 GB) e P6 (64 GB) tamanhos de disco são suportados apenas para os discos geridos. Suporte para discos não geridos e blobs de páginas estará disponível brevemente.
+P4 (32 GiB) e P6 (64 GiB) tamanhos de disco não são suportados como os escalões de disco predefinido para discos não geridos e blobs de páginas. Precisa explicitamente [definir a camada de Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) P4 e P6 ter seu disco mapeado para estas camadas. Se implementar um blob de página ou de disco não gerido com menos do que 32 GiB ou entre 32 GiB para 64 GiB sem definir a camada de Blob o tamanho do disco ou o comprimento do conteúdo, irá continuar firmar com base no P10 com 500 IOPS e 100 MiB/s e o escalão de preço mapeado.
 
-**Se meu premium existente gerido disco menor do que 64 GB foi criado antes do pequeno disco foi ativado (cerca de 15 de Junho de 2017), como é cobrada?**
+**Se meu premium existente gerido disco menor do que 64 GiB foi criado antes do pequeno disco foi ativado (cerca de 15 de Junho de 2017), como é cobrada?**
 
-Premium pequenas existente discos menor do que 64 GB continua a ser faturado de acordo com o escalão de preço P10. 
+Premium pequenas existente discos menor do que 64 GiB continua a ser faturado de acordo com o escalão de preço P10.
 
-**Como posso alterar a camada de disco dos discos premium pequeno inferior a 64 GB de P10 P4 ou P6?**
+**Como posso alterar a camada de disco dos discos premium pequeno inferior a 64 GiB de P10 P4 ou P6?**
 
-Pode tirar um instantâneo dos seus discos pequenos e, em seguida, criar um disco mude automaticamente o escalão de preço para P4 ou P6 com base no tamanho aprovisionado. 
+Pode tirar um instantâneo dos seus discos pequenos e, em seguida, criar um disco mude automaticamente o escalão de preço para P4 ou P6 com base no tamanho aprovisionado.
 
+**Pode redimensionar discos geridos existentes de tamanhos de menos de 4 TiB para novos tamanhos de disco recém-lançado até 32 TiB?**
+
+Novos tamanhos de disco gerido 8 TiB TiB de 16 e 32 TiB estão atualmente em pré-visualização. Ainda não suportamos redimensionamento de tamanhos de disco existente para os novos tamanhos de disco.
+
+**O que é o tamanho maior de disco suportado pelo serviço de cópia de segurança do Azure e o Azure Site Recovery?**
+
+O maior tamanho de disco suportado pelo Azure Backup e o serviço Azure Site Recovery é 4 TiB.
+
+**O que são VM recomendado tamanhos para tamanhos de discos grandes (> 4TiB) para discos Standard HDD e Standard SSD para alcançar otimizado de disco IOPS e largura de banda?**
+
+Para alcançar o débito de disco de tamanhos de disco grande padrão SSD e HDD padrão (> 4TB) para além dos 500 IOPS e 60 MiB/s, deve usar um dos seguintes tamanhos de VM para otimizar o desempenho: série B, série DSv2, série Dsv3, série ESv3, série Fs, Série Fsv2, série M, série GS, série NCv2, série NCv3 ou VMs da série Ls.
+
+**Que regiões são os tamanhos de disco gerido maiores do que 4 TiB suportados no?**
+
+Neste momento na pré-visualização, os tamanhos de disco gerido são suportados no Oeste E.u. a centro-apenas.
+
+**Suportamos ativar a colocação em cache do anfitrião sobre os tamanhos de disco mais recente?**
+
+Suportamos o anfitrião de colocação em cache de só de leitura e de leitura/gravação em tamanhos de disco menor do que 4TiB. Para tamanhos de disco mais do que 4 TiB, não é suportado definir a opção que não seja None a colocação em cache. Recomendamos a tirar partido da colocação em cache para tamanhos de disco mais pequenos, onde pode esperar para observar o aumento do desempenho melhor com dados armazenados em cache para a VM.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não respondida aqui?
 

@@ -1,6 +1,6 @@
 ---
-title: Bash no guia de introdução de Shell de nuvem do Azure | Microsoft Docs
-description: Início rápido para Bash na Shell de nuvem
+title: Guia de introdução do Azure Cloud Shell de bash | Documentos da Microsoft
+description: Início rápido para o Bash no Cloud Shell
 services: ''
 documentationcenter: ''
 author: jluk
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970670"
 ---
-# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para Bash na Shell de nuvem do Azure
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para o Bash no Azure Cloud Shell
 
-Este documento fornece detalhes sobre como utilizar Bash na Shell de nuvem do Azure no [portal do Azure](https://ms.portal.azure.com/).
+Este documento fornece detalhes sobre como utilizar o Bash no Azure Cloud Shell no [portal do Azure](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> A [PowerShell na Shell de nuvem do Azure](quickstart-powershell.md) início rápido também está disponível.
+> R [PowerShell no Azure Cloud Shell](quickstart-powershell.md) início rápido também está disponível.
 
-## <a name="start-cloud-shell"></a>Iniciar a Shell de nuvem
-1. Iniciar **nuvem Shell** da parte superior da navegação do portal do Azure. <br>
+## <a name="start-cloud-shell"></a>Iniciar Cloud Shell
+1. Inicie **Cloud Shell** no painel de navegação superior do portal do Azure. <br>
 ![](media/quickstart/shell-icon.png)
 
 2. Selecione uma subscrição para criar uma conta de armazenamento e partilha de ficheiros do Microsoft Azure.
-3. Selecione "Armazenamento criar"
+3. Selecione "Criar armazenamento"
 
 > [!TIP]
-> São automaticamente autenticado para Azure CLI 2.0 em cada sessão.
+> São autenticados automaticamente para a CLI do Azure em cada sessão.
 
 ### <a name="select-the-bash-environment"></a>Selecione o ambiente de Bash
-Verifique se o ambiente de lista pendente do lado esquerdo da janela de shell indica `Bash`. <br>
+Verifique se o ambiente de baixo no lado esquerdo da janela do shell diz `Bash`. <br>
 ![](media/quickstart/env-selector.png)
 
-### <a name="set-your-subscription"></a>Definir a sua subscrição
-1. Subscrições da lista que tem acesso.
+### <a name="set-your-subscription"></a>Definir a subscrição
+1. Subscrições de lista que tem acesso.
 ```azurecli-interactive
 az account list
 ```
@@ -54,7 +54,7 @@ az account set --subscription my-subscription-name`
 ```
 
 > [!TIP]
-> A subscrição irá ser memorizada para futuras sessões utilizando `/home/<user>/.azure/azureProfile.json`.
+> A sua subscrição vai ser memorizada para futuras sessões usando `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um novo grupo de recursos no WestUS com o nome "MyRG".
@@ -63,28 +63,28 @@ az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Criar uma VM do Linux
-Crie uma VM com Ubuntu no seu novo grupo de recursos. O 2.0 CLI do Azure irá criar chaves SSH e configurar a VM com os mesmos. <br>
+Crie uma VM do Ubuntu no seu novo grupo de recursos. A CLI do Azure irá criar chaves SSH e configurar uma VM com eles. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Utilizar `--generate-ssh-keys` dá instruções ao 2.0 do CLI do Azure para criar e configurar as chaves públicas e privadas na VM e `$Home` diretório. Por predefinição, as chaves são colocadas na Shell de nuvem no `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. O `.ssh` pasta é mantida na imagem de 5 GB a partilha de ficheiros anexados utilizada para manter `$Home`.
+> Usando `--generate-ssh-keys` instrui a CLI do Azure para criar e configurar as chaves públicas e privadas na VM e `$Home` diretório. Por predefinição, as chaves são colocadas no Cloud Shell no `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. Sua `.ssh` pasta é mantida na imagem de 5 GB de seu compartilhamento de arquivo anexo usada para manter `$Home`.
 
-O nome de utilizador nesta VM será o seu nome de utilizador utilizada na Shell de nuvem ($User@Azure:).
+O nome de utilizador nesta VM é o nome de utilizador utilizado no Cloud Shell ($User@Azure:).
 
-### <a name="ssh-into-your-linux-vm"></a>SSH para a VM com Linux
+### <a name="ssh-into-your-linux-vm"></a>SSH à VM do Linux
 1. Procure o nome da VM na barra de pesquisa de portal do Azure.
 2. Clique em "Ligar" para obter o nome da VM e o endereço IP público. <br>
 ![](media/quickstart/sshcmd-copy.png)
 
-3. SSH para a VM com o `ssh` cmd.
+3. SSH à VM com o `ssh` cmd.
 ```
 ssh username@ipaddress
 ```
 
-Depois de estabelecer a ligação SSH, deverá ver a linha de comandos de boas-vindas da Ubuntu. <br>
+Após estabelecer a ligação de SSH, deverá ver a linha de comandos de boas-vindas da Ubuntu. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Limpeza 
@@ -93,12 +93,12 @@ Depois de estabelecer a ligação SSH, deverá ver a linha de comandos de boas-v
 exit
 ```
 
-2. Elimine o grupo de recursos e quaisquer recursos dentro da mesma.
+2. Elimine o grupo de recursos e todos os recursos dentro da mesma.
 ```azurecli-interactive
 az group delete -n MyRG
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre ficheiros persistentes para Bash na Shell de nuvem](persisting-shell-storage.md) <br>
-[Saiba mais sobre a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre ficheiros persistentes para Bash no Cloud Shell](persisting-shell-storage.md) <br>
+[Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre armazenamento de ficheiros do Azure](../storage/files/storage-files-introduction.md) <br>

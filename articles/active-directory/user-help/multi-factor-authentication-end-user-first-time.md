@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343734"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041960"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar a minha conta para verificação de dois passos
 Verificação de dois passos é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na. Se estiver lendo este artigo, provavelmente recebeu uma mensagem de e-mail do seu administrador escolar ou profissionais sobre o multi-factor Authentication. Ou talvez tentou iniciar sessão e recebeu uma mensagem a pedir-lhe configurar a verificação de segurança adicional. Se for esse o caso **não pode iniciar sessão até ter concluído o processo de inscrição automática**.
@@ -47,6 +47,9 @@ A primeira pergunta no processo de inscrição é como deseja-nos contactá-lo. 
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Utilizar uma aplicação móvel como método de contacto
 Ao utilizar este método requer que instale uma aplicação de autenticador no seu telemóvel ou tablet. Os passos neste artigo baseiam-se a aplicação Microsoft Authenticator, que está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>Não tem de utilizar a aplicação Microsoft Authenticator. Se já estiver a utilizar outra aplicação de autenticação, pode continuar a utilizá-lo.
 
 1. Selecione **aplicação móvel** na lista pendente.
 2. Selecione **receber notificações de verificação** ou **utilizar código de verificação**, em seguida, selecione **configurar**.

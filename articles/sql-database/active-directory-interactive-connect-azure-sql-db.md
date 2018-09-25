@@ -2,20 +2,22 @@
 title: ActiveDirectoryInteractive se conecta ao SQL | Documentos da Microsoft
 description: Exemplo de código c#, com explicações, para ligar à base de dados do Azure SQL com o modo de SqlAuthenticationMethod.ActiveDirectoryInteractive.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238273"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055531"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Utilizar o modo de ActiveDirectoryInteractive para ligar à base de dados do Azure SQL
 
@@ -58,7 +60,7 @@ Para capturas de ecrã dessas caixas de diálogo, consulte [configurar a autenti
 Partimos do princípio que já tem um [servidor de base de dados do Azure SQL criada](sql-database-get-started-portal.md) e está disponível.
 
 
-### <a name="a-create-an-app-registration"></a>A. Criar um registo de aplicações
+### <a name="a-create-an-app-registration"></a>R. Criar um registo de aplicações
 
 Para utilizar autenticação do Azure AD, seu programa de cliente do c# tem de fornecer um GUID como um *clientId* quando seu programa tenta se conectar. Concluir o registo de uma aplicação gera e apresenta o GUID no portal do Azure, como o nome **ID da aplicação**. Os passos de navegação são os seguintes:
 
@@ -122,13 +124,13 @@ O programa c# baseia-se no espaço de nomes **ActiveDirectory**. As classes para
 
 É um espaços de nomes que depende de exemplo de c# **SqlClient**. De especial interesse é o enum **SqlAuthenticationMethod**. Essa enumeração possui os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory*Interactive ***:&nbsp; utilizá-lo com um nome de utilizador do Azure AD para alcançar a autenticação multifator MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * Interactive ***:&nbsp; utilizá-lo com um nome de utilizador do Azure AD para alcançar a autenticação multifator MFA.
     - Este valor é o foco deste artigo presente. Produz uma experiência interativa ao apresentar caixas de diálogo para a palavra-passe de utilizador e, em seguida, para a validação de MFA, se a MFA é imposta este utilizador.
     - Este valor está disponível a partir do .NET Framework versão 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory*integrado ***:&nbsp; utilizá-lo para um *federado* conta. Para uma conta federada, o nome de utilizador é conhecido para o domínio do Windows. Este método não suporta a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * integrado ***:&nbsp; utilizá-lo para um *federado* conta. Para uma conta federada, o nome de utilizador é conhecido para o domínio do Windows. Este método não suporta a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory*palavra-passe ***:&nbsp; utilizá-lo para a autenticação que requer um utilizador e palavra-passe do utilizador. Base de dados SQL do Azure realiza a autenticação. Este método não suporta a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * palavra-passe ***:&nbsp; utilizá-lo para a autenticação que requer um utilizador e palavra-passe do utilizador. Base de dados SQL do Azure realiza a autenticação. Este método não suporta a MFA.
 
 
 

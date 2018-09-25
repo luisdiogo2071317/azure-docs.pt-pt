@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 4ab574f99f678683497b0f00b36abcda89991f88
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "43435610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006532"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -60,6 +60,8 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Tabelas da rota definida pelo utilizador |200 |
 | Rotas definidas pelo utilizador por tabela de rota |400 |
 | Certificados de Raiz do Ponto-a-Site por Gateway de VPN |20 |
+| Toca de rede virtual |100 |
+| Configurações de TOQUE de interface de rede por TOQUE de rede virtual |100 |
 
 #### <a name="publicip-address"></a>Limites de endereço IP públicos
 

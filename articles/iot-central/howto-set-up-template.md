@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034282"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -74,6 +74,9 @@ Por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 
 Depois de selecionar **feito**, o **temperatura** medição aparece na lista de medidas. Um operador pode ver a visualização dos dados de temperatura que o dispositivo está a recolher.
 
+> [!NOTE]
+  O tipo de dados da medição de telemetria é duplo.
+
 ### <a name="create-an-event-measurement"></a>Criar uma medida de eventos
 Para adicionar uma nova medida de evento, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **evento** como a medição escreva e introduza os detalhes o **Create Event** formulário.
 
@@ -91,6 +94,8 @@ Para ver mais detalhes sobre o evento, selecione o ícone de eventos no gráfico
 
 ![Detalhes do evento de "Erro de Motor de ventoinha"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  O tipo de dados da medição de eventos é a cadeia de caracteres.
 
 ### <a name="create-a-state-measurement"></a>Criar uma medida de estado
 Para adicionar uma nova medida de estado, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **estado** como a medição escreva e introduza os detalhes o **estado de criar** formulário.
@@ -106,6 +111,9 @@ Depois de selecionar **feito**, o **modo ventoinha** medição do estado é apre
 ![Gráfico de estado de medida](./media/howto-set-up-template/statemeasurementschart.png)
 
 Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo, a medição de estado é apresentado com um elemento visual diferente, como mostrado na captura de ecrã seguinte. Se clicar no gráfico, todos os pontos de dados dentro desse período de tempo são apresentados numa ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição plotada no gráfico.
+
+> [!NOTE]
+  O tipo de dados da medição de estado é a cadeia de caracteres.
 
 ## <a name="settings"></a>Definições
 

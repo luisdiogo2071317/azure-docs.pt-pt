@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 07b9ac8389a2bf06e0356f65d816d75d49cc0cf5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9168ac1d26432ca3eee5a59b63aa0cec3ae72856
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650393"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989061"
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz suportada nesta versão 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Quando seu código carrega os dados ao utilizar origens de dados do Azure Machine Learning ou do Azure Machine Learning preparações de dados, obter qualquer um de um Pandas ou localizações de dados e ambientes de computação Spark dataframe, seguintes combinações de experimentação são suportados:
 
 |     |Ficheiros locais  |Armazenamento de Blobs do Azure  |Base de dados do SQL Server ***  |

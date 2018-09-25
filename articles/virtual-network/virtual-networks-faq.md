@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056216"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999873"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -259,3 +259,24 @@ Não. Peering transitivo não é suportada. Deve configurar o peering também e 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Existem limitações de largura de banda para ligações de peering?
 Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições de largura de banda. Largura de banda é apenas limites pelo recurso VM ou de computação.
 
+## <a name="virtual-network-tap"></a>TESTE de rede virtual
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Que regiões do Azure estão disponíveis para teste de rede virtual?
+Durante a pré-visualização de programador, a capacidade está disponível na região e.u.a. Centro-Oeste. As interfaces de rede monitorizado, o recurso TAP da rede virtual e a solução de recoletor ou análise tem de ser implementados na mesma região.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>O TAP da rede Virtual suporta qualquer capacidades de filtragem nos pacotes espelhados?
+Recursos de filtragem não são suportados com a pré-visualização TAP da rede virtual. Quando uma configuração de TOQUE é adicionada a uma interface de rede uma cópia em profundidade de todos os a entrada e o tráfego de saída na interface de rede é transmitido para o destino de TOQUE.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>Várias configurações de TOQUE podem ser adicionadas a uma interface de rede monitorizado?
+Uma interface de rede monitorizada pode ter apenas uma configuração de TOQUE. Verifique com o indivíduo [soluções de parceiros](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) para a capacidade de transmitir várias cópias do tráfego de TOQUE para as ferramentas de análise da sua preferência.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>O mesmo recurso TAP da rede virtual pode agregar o tráfego de interfaces de rede monitorizados em mais de uma rede virtual?
+Sim. Da mesma rede virtual recursos de TOQUE pode ser utilizada para agregar tráfego de espelho de interfaces de rede monitorizados em redes virtuais em modo de peering na mesma subscrição ou numa subscrição diferente. O recurso de TOQUE de rede virtual e o destino de Balanceador de carga ou interface de rede de destino tem de estar na mesma subscrição. Todas as subscrições têm de estar no mesmo inquilino do Azure Active Directory.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Existem quaisquer considerações de desempenho no tráfego de produção se ativar a uma configuração de TAP da rede virtual numa interface de rede?
+
+Rede virtual TOQUE está em developer preview. Durante a pré-visualização, não existe nenhum contrato de nível de serviço. O recurso não deve ser utilizado para cargas de trabalho de produção. Quando uma interface de rede de máquina virtual é ativada com uma configuração de TOQUE, os mesmos recursos no anfitrião do azure atribuída à máquina virtual para enviar o tráfego de produção é utilizado para executar a função de espelhamento e enviar os pacotes espelhados. Selecione o correto [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tamanho da máquina virtual para se certificar de que recursos suficientes disponíveis para a máquina virtual enviar o tráfego de produção e o tráfego de espelho.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>É accelerated networking para [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) suportado com o teste de rede virtual?
+
+Poderá adicionar uma configuração de TOQUE numa interface de rede ligada a uma máquina virtual que está ativada com redes aceleradas. Mas o desempenho e a latência na máquina virtual serão afetados pela adição de configuração de TOQUE, uma vez que a descarga de tráfego de espelhamento de não é atualmente suportada pelo Azure accelerated networking.

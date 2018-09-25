@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Descrever a aplicação relevante intenções e entidades e, em seguida, criar seus planos de aplicativo no Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 971d5ed47c5778315e2b7c75997c945e8489b1ce
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a7e137c864d216b6b936181c3482358bd10f175a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052246"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037274"
 ---
 # <a name="plan-your-luis-app"></a>Planear a sua aplicação LUIS
 
@@ -56,7 +56,7 @@ Uma entidade hierárquica é um tipo especial de um **simples** entidade; a defi
 
 Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente isto [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
 
-### <a name="composite-entity"></a>Entidade composta
+### <a name="composite-entity"></a>entidade composta
 Uma entidade composta é constituída por outras entidades que formam as partes de um todo. Uma entidade composta contém uma variedade de tipos de entidade.
 
 ![Entidade composta](./media/luis-plan-your-app/composite-entity.png)

@@ -1,6 +1,6 @@
 ---
-title: Suportado regiões e idiomas no serviço de reconhecimento de voz personalizadas no Azure | Microsoft Docs
-description: Descrição geral dos idiomas suportados do serviço de reconhecimento de voz personalizadas nos serviços cognitivos.
+title: Suporte a localidades e idiomas no serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Descrição geral dos idiomas suportados do serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,26 +9,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: c378fd951f9cd04884f44fbec5accb5d9a886bfe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351404"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987531"
 ---
-# <a name="supported-locales-in-custom-speech-service"></a>Regiões suportadas no serviço de reconhecimento de voz personalizadas
-O serviço de reconhecimento de voz personalizadas suporta atualmente personalização dos modelos nas seguintes regiões:
+# <a name="supported-locales-in-custom-speech-service"></a>Regiões suportadas no serviço de voz personalizada
+O serviço de voz personalizada atualmente suporta a personalização dos modelos nas seguintes regiões:
 
 | Tipo de modelo | Suporte de idiomas |
 |----|-----|
-| Modelos acústica | Inglês dos Estados Unidos (en-US) |
-| Modelos de idioma | E.u. a inglês (en-US), chinês (zh-CN) |
+| Modelos acústicos | Inglês dos Estados Unidos (en-US) |
+| Modelos de linguagem | Inglês dos Estados Unidos (en-US), chinês (zh-CN) |
 
-Apesar de personalização de modelo acústica só é suportada em inglês, importar dados acústica chinês é suportada para efeitos de teste offline dos modelos de idioma chinês personalizado.
+Embora a personalização do modelo acústico só é suportada no inglês Americano, importar dados acústicos chinês é suportada para efeitos de teste offline dos modelos de idioma chinês personalizado.
 
-Tem de selecionar a região adequada antes de efetuar qualquer ação. A região atual é indicada no título de tabela em todos os dados, o modelo e páginas de implementação. Para alterar a região, clique no botão "Alterar região", localizado sob o título da tabela. Isto leva-o para uma página de confirmação da região. Clique em "OK" para regressar à tabela.
+Tem de selecionar a região apropriada antes de realizar qualquer ação. A região atual é indicada no título da tabela em todas as páginas de dados, modelo e implementação. Para alterar a Localidade, clique no botão "Alterar a Localidade" localizado sob o título da tabela. Isto leva-o para uma página de confirmação de localidade. Clique em "OK" para regressar à tabela.
 
-Deve seguir a cópia de segurança com os passos seguintes
-* Saiba [como criar um modelo personalizado acústica](cognitive-services-custom-speech-create-acoustic-model.md) para melhorar a precisão do reconhecimento
-* Saiba [como criar um modelo de idioma personalizado](cognitive-services-custom-speech-create-language-model.md) para melhorar a taxa de reconhecimento
-* Siga o [diretrizes transcription](cognitive-services-custom-speech-transcription-guidelines.md) para preparar os dados
+Deve seguir com os passos seguintes
+* Saiba mais [como criar um modelo acústico personalizado](cognitive-services-custom-speech-create-acoustic-model.md) para melhorar a precisão de reconhecimento
+* Saiba mais [como criar um modelo de idioma personalizado](cognitive-services-custom-speech-create-language-model.md) para melhorar a taxa de reconhecimento
+* Siga os [diretrizes de transcrição](cognitive-services-custom-speech-transcription-guidelines.md) para preparar seus dados

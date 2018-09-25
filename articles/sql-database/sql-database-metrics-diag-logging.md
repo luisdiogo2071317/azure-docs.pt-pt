@@ -8,28 +8,29 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2c848ba87d7f42f6329e7b3166a4410cadbd63a0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579501"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037954"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos 
-Base de dados SQL do Azure pode emitir métricas e diagnósticos registos para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
-* **O armazenamento do Azure**: utilizado para arquivar grandes quantidades de telemetria a um preço baixo.
+Base de dados SQL do Azure e bases de dados de instância gerida pode emitir os registos de diagnóstico e métricas para monitorizar o desempenho mais fácil. Pode configurar uma base de dados para utilização de recursos de fluxo, os operadores de sessões e conectividade a um dos recursos do Azure seguintes:
+
+* **Análise de SQL do Azure**: utilizada como a solução com relatórios, alertas e mitigação de monitorização do desempenho inteligente integrada da base de dados do Azure.
 * **Os Hubs de eventos do Azure**: utilizado para integrar a telemetria de base de dados SQL na sua solução personalizada monitorizção ou em pipelines.
-* **O Azure Log Analytics**: utilizado para uma solução de monitorização de out-of-the-box com relatórios, alertas e mitigação. Esta é uma funcionalidade do [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **O armazenamento do Azure**: utilizado para arquivar grandes quantidades de telemetria a um preço baixo.
 
     ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="enable-logging"></a>Ativar registo
+## <a name="enable-logging-for-a-database"></a>Ativar o registo de uma base de dados
 
-Métricas e diagnósticos de registo não está ativada por predefinição. Pode ativar e gerir métricas e diagnósticos de registo utilizando um dos seguintes métodos:
+Métricas e diagnósticos de registo na base de dados SQL ou base de dados de instância gerida não está ativada por predefinição. Pode ativar e gerir a telemetria de métricas e diagnósticos fazendo logon num banco de dados utilizando um dos seguintes métodos:
 
 - Portal do Azure
 - PowerShell
@@ -37,40 +38,56 @@ Métricas e diagnósticos de registo não está ativada por predefinição. Pode
 - API de REST do Azure Monitor 
 - Modelo Azure Resource Manager
 
-Quando ativar as métricas e registo de diagnósticos, tem de especificar o recurso do Azure em que são recolhidos os dados selecionados. As opções disponíveis incluem:
+Quando ativar as métricas e registo de diagnósticos, tem de especificar o recurso do Azure, onde serão recolhidos os dados selecionados. As opções disponíveis incluem:
 
-- Log Analytics
+- Análise de SQL
 - Hubs de Eventos
 - Armazenamento 
 
-Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. Depois de selecionar o recurso de armazenamento, tem de especificar os dados a recolher. As opções disponíveis incluem:
+Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. Depois de selecionar um recurso, usando a opção de definições de diagnóstico, uma base de dados tem de especificar os dados a recolher. As opções disponíveis, com suporte para a base de dados do Azure SQL e a instância gerida da base de dados incluem:
 
-- [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics): percentagem de DTU contém, limite DTU, percentagem de CPU, percentagem de leitura de dados físicos, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e a percentagem de armazenamento do XTP.
-- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução de consulta, por exemplo, a duração de consulta e de utilização da CPU.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contém informações sobre as estatísticas de espera de consulta, que indica o que as suas consultas aguardado, tais como CPU, o registo e o bloqueio.
-- [Erros](sql-database-metrics-diag-logging.md#errors-dataset): contém informações sobre erros do SQL que tenham acontecido nesta base de dados.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contém informações sobre quanto um banco de dados de tempo gasto aguardando tipos diferentes de espera.
-- [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): contém informações sobre tempos limite que ocorreu numa base de dados.
-- [Blocos](sql-database-metrics-diag-logging.md#blockings-dataset): contém informações sobre o bloqueio de eventos que ocorreram numa base de dados.
-- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contém informações inteligentes. [Saiba mais sobre informações inteligentes](sql-database-intelligent-insights.md).
-- **Auditoria** / **SQLSecurityAuditEvents**: não está disponível.
+| Monitorização de telemetria | Suporte de base de dados SQL do Azure | Base de dados no suporte de instância gerida |
+| :------------------- | ------------------- | ------------------- |
+| [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics): limitar a percentagem DTU contém/da CPU, DTU/CPU, percentagem, percentagem de escrita de registo, de leitura de dados físicos com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, e Percentagem de armazenamento do XTP. | Sim | Não |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução de consulta, como, por exemplo são a utilização da CPU e estatísticas de duração de consulta. | Sim | Sim |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contém informações sobre as estatísticas de espera de consulta, que indica o que as suas consultas aguardado, tais como CPU, o registo e o bloqueio. | Sim | Sim |
+| [Erros](sql-database-metrics-diag-logging.md#errors-dataset): contém informações sobre erros do SQL que tenham acontecido nesta base de dados. | Sim | Não |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contém informações sobre quanto um banco de dados de tempo gasto aguardando tipos diferentes de espera. | Sim | Não |
+| [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): contém informações sobre tempos limite que ocorreu numa base de dados. | Sim | Não |
+| [Blocos](sql-database-metrics-diag-logging.md#blockings-dataset): contém informações sobre o bloqueio de eventos que ocorreram numa base de dados. | Sim | Não |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contém informações inteligentes sobre o desempenho. [Saiba mais sobre informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
+
+**Tenha em atenção**: para utilizar registos de auditoria e SQLSecurityAuditEvents, apesar destas opções estão disponíveis dentro das definições de diagnóstico de base de dados, estes registos devem ser ativados apenas através de **auditoria de SQL** solução para configurar transmissão em fluxo de telemetria para o Log Analytics, Hub de eventos ou armazenamento.
 
 Se selecionar os Hubs de eventos ou uma conta de armazenamento, pode especificar uma política de retenção. Esta política elimina os dados que é mais antigos que um período de tempo selecionado. Se especificar o Log Analytics, a política de retenção depende do escalão de preço selecionado. Para obter mais informações, consulte [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Para saber como ativar o registo e compreender as categorias de métricas e registos que são suportadas por vários serviços do Azure, recomendamos que leia: 
+## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>Ativar o registo para conjuntos elásticos ou à instância gerida
+
+Métricas e de conjuntos elásticos de registo de diagnóstico ou de instância gerida não está ativada por predefinição. Pode ativar e gerir as métricas e registos de telemetria de diagnóstico para o conjunto elástico ou à instância gerida. Os seguintes dados estão disponíveis para coleção:
+
+| Monitorização de telemetria | Suporte de conjunto elástico | Suporte a instância gerenciados |
+| :------------------- | ------------------- | ------------------- |
+| [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics) (conjuntos elásticos): contém a percentagem de eDTU/CPU, limite de eDTU/da CPU, físico dados lidos percentagem, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento e a percentagem de armazenamento do XTP . | Sim | N/A |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (instância gerida): contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, bytes lidos/escritos, reservado espaço de armazenamento, o espaço de armazenamento utilizado. | N/A | Sim |
+
+Compreender as métricas e registo categorias que são suportadas por vários serviços do Azure, recomendamos que leia:
 
 * [Descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Descrição geral dos registos de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Para ativar a recolha de registos de métricas e diagnósticos no portal, aceda à sua base de dados SQL ou a página do conjunto elástico e, em seguida, selecione **as definições de diagnóstico**.
+- Para ativar as métricas e diagnósticos preencha de coleção de registos bases de dados SQL ou bases de dados de instância gerida, vá para a base de dados e, em seguida, selecione **as definições de diagnóstico**. Selecione **+ Adicionar definição de diagnóstico** para configurar uma nova definição, ou **Editar definição** para editar uma definição existente.
 
    ![Ativar no portal do Azure](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. Criar um novo ou editar as definições de diagnóstico existentes ao selecionar o destino e a telemetria.
+- Para **base de dados do Azure SQL** criar um novo ou editar as definições de diagnóstico existentes ao selecionar o destino e a telemetria.
 
    ![Definições de diagnósticos](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+
+- Para **base de dados de instância gerida** criar um novo ou editar as definições de diagnóstico existentes ao selecionar o destino e a telemetria.
+
+   ![Definições de diagnósticos](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -174,7 +191,7 @@ A monitorização de uma frota de base de dados SQL é simples com o Log Analyti
 
 2. Configure bases de dados aos registos de diagnóstico e métricas de registo para o recurso do Log Analytics que criou.
 
-3. Instalar o **a análise de SQL do Azure** solução a partir da galeria no Log Analytics.
+3. Instalar o **a análise de SQL do Azure** solução no Azure Marketplace.
 
 ### <a name="create-a-log-analytics-resource"></a>Criar um recurso do Log Analytics
 
@@ -259,15 +276,52 @@ Saiba como [transferir registos de diagnóstico e métricas do armazenamento](..
 
 ## <a name="metrics-and-logs-available"></a>Métricas e registos disponíveis
 
-### <a name="all-metrics"></a>Todas as métricas
+Localize conteúdo de telemetria de monitoramento detalhado de métricas e registos disponíveis para a base de dados do Azure SQL, os conjuntos elásticos, instância gerida e bases de dados na instância gerida.
+
+## <a name="all-metrics"></a>Todas as métricas
+
+### <a name="all-metrics-for-elastic-pools"></a>Todas as métricas para conjuntos elásticos
 
 |**Recurso**|**Métricas**|
 |---|---|
-|Base de Dados|Percentagem de DTU, DTU utilizado, o limite DTU, percentagem de CPU, percentagem de leitura de dados físicos, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, percentagem de armazenamento do XTP, e deadlocks |
 |Conjunto elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento do XTP |
-|||
 
-### <a name="logs"></a>Registos
+### <a name="all-metrics-for-azure-sql-database"></a>Todas as métricas para a base de dados do Azure SQL
+
+|**Recurso**|**Métricas**|
+|---|---|
+|Base de Dados SQL do Azure|Percentagem de DTU, DTU utilizado, o limite DTU, percentagem de CPU, percentagem de leitura de dados físicos, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, percentagem de armazenamento do XTP, e deadlocks |
+
+## <a name="logs"></a>Registos
+
+### <a name="logs-for-managed-instance"></a>Registos para a instância gerida
+
+### <a name="resource-usage-stats"></a>Estatísticas de utilização de recursos
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|O ID de inquilino.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: ResourceUsageStats|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES|
+|SubscriptionId|GUID que pertence a base de dados de subscrição.|
+|ResourceGroup|Nome do grupo de recursos que a base de dados pertence.|
+|LogicalServerName_s|Nome da instância gerida.|
+|ResourceId|URI do recurso.|
+|SKU_s|Produto de instância SKU gerido|
+|virtual_core_count_s|Numver de vCores disponíveis|
+|avg_cpu_percent_s|Percentagem de CPU média|
+|reserved_storage_mb_s|Capacidade de armazenamento reservada na instância gerida|
+|storage_space_used_mb_s|Armazenamento utilizado na instância gerida|
+|io_requests_s|Contagem IOPS|
+|io_bytes_read_s|Bytes IOPS de leitura|
+|io_bytes_written_s|Bytes IOPS escritos|
+
+### <a name="logs-for-azure-sql-database-and-managed-instance-database"></a>Registos para a base de dados do Azure SQL e a instância gerida da base de dados
 
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução de consulta Store
 

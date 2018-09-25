@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033996"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerir o acesso através do RBAC e portal do Azure
 
@@ -207,7 +207,7 @@ Para tornar um utilizador administrador de uma subscrição do Azure, atribuí-l
 
 1. Na **função** na lista pendente, selecione uma função, como **contribuinte do grupo de gestão**.
 
-    Para obter informações sobre as ações suportadas em grupos de gestão para várias funções, consulte [organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Para obter informações sobre as ações suportadas em grupos de gestão para várias funções, consulte [organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md#management-group-access).
 
 1. Na lista **Selecionar**, selecione um utilizador, grupo ou aplicação. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 

@@ -3,19 +3,19 @@ title: Publicar uma base de dados de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A publicação de sua base de dados de conhecimento é o último passo na criação de sua base de dados de conhecimento disponível como um ponto final de responder a pergunta. Quando publica uma base de dados de conhecimento, move o conteúdo de QnA da sua base de dados de conhecimento do índice de teste para um índice de produção no Azure search.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: 0a43c54db7af61b72a8e8e6188fd13ad1159271e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.author: tulasim
+ms.openlocfilehash: eceb0554d35935f1aee77c4c054cb7e65b327845
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540938"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033420"
 ---
 # <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 

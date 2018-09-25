@@ -2,19 +2,22 @@
 title: Arquitetura de conectividade da base de dados SQL do Azure | Documentos da Microsoft
 description: Este documento explica a arquitetura de conectividade Azure SQLDB de dentro do Azure ou a partir de fora do Azure.
 services: sql-database
-author: DhruvMsft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/24/2018
+author: DhruvMsft
 ms.author: dhruv
-ms.openlocfilehash: 6066462d0a7f31698745275c3c6d65c4e09d9cc5
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 01/24/2018
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364149"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064151"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de banco de dados SQL do Azure 
 
@@ -163,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para alterar as definições de ligação através da CLI 2.0 do Azure
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script para alterar as definições de ligação através da CLI do Azure
 
 > [!IMPORTANT]
-> Este script requer os [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Este script requer os [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 O script CLI seguinte mostra como alterar a diretiva de conexão.

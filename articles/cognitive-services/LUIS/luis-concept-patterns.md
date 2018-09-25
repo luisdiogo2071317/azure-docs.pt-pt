@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes. Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0a61ec4407a23e8cc515c2343a92bd77460d424b
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031548"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 

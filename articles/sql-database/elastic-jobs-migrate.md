@@ -2,18 +2,22 @@
 title: Migrar para as novas tarefas de base de dados elásticas | Documentos da Microsoft
 description: Migre para as novas tarefas de base de dados elásticas.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: johnpaulkee
 ms.author: johnpaulkee
-ms.openlocfilehash: 7b6dd7d3724f486670b07709d317739d01e9fd21
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: cf9520c257b2d3aa133fa4861face02b378af26f
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035311"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055435"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para as novas tarefas de bases de dados elásticas
 
@@ -30,7 +34,7 @@ A versão atualizada das tarefas de bases de dados elásticas tem um novo conjun
 
 Se ainda não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instalar o **azurerm. SQL** módulo 4.8.1-preview para obter os cmdlets de tarefa elástica mais recente. Execute os seguintes comandos no PowerShell com acesso administrativo.
+Instalar o módulo **AzureRM.Sql** 4.8.1-preview para obter os cmdlets de Tarefa Elástica mais recente. Execute os seguintes comandos no PowerShell com acesso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on

@@ -9,31 +9,28 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: ced4b6846d291bfbb718c3346ea588ca9e961d07
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 889a5a40409238462ee81d3bbd51ac6b77d28173
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093707"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947493"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como as versões de tempo de execução de funções do Azure de destino
 
 Uma aplicação de funções é executado numa versão específica do runtime das funções do Azure. Existem duas versões principais: [1.x e 2.x](functions-versions.md). Este artigo explica como configurar uma aplicação de funções no Azure para executar a versão que escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [codificar e testar as funções do Azure localmente](functions-run-local.md).
 
->[!IMPORTANT]   
-> O runtime das funções do Azure 2.0 está em pré-visualização e são suportadas atualmente nem todas as funcionalidades das funções do Azure. Para obter mais informações, consulte [descrição geral de versões de runtime das funções do Azure](functions-versions.md).
-
 ## <a name="automatic-and-manual-version-updates"></a>Versão automática e manual de atualizações
 
 As funções permitem uma versão específica do runtime de destino utilizando o `FUNCTIONS_EXTENSION_VERSION` definição da aplicação na aplicação de funções. A aplicação de funções é mantida na versão principal especificada até explicitamente optar por mover para uma nova versão.
 
-Se especificar apenas a versão principal ("~ 1" para a versão 1.x) ou "beta" para 2.x, a aplicação de funções é atualizada automaticamente para novas versões secundárias do runtime logo que ficarem disponíveis. Novas versões secundárias não introduz alterações significativas. Se especificar uma versão secundária (por exemplo, "1.0.11360"), a aplicação de funções encontram-se no que a versão até que altere explicitamente. 
+Se especificar apenas a versão principal ("~ 2" para 2.x ou "~ 1" para a versão 1.x), a aplicação de funções é atualizada automaticamente para novas versões secundárias do runtime logo que ficarem disponíveis. Novas versões secundárias não introduz alterações significativas. Se especificar uma versão secundária (por exemplo, "2.0.12345"), a aplicação de funções encontram-se no que a versão até que altere explicitamente. 
 
 Quando uma nova versão estiver disponível ao público, uma linha de comandos no portal do dá-lhe a oportunidade de se mover para cima para essa versão. Depois de mover para uma nova versão, pode sempre utilizar o `FUNCTIONS_EXTENSION_VERSION` definição de aplicação para mover de volta para uma versão anterior.
 
 Uma alteração para a versão de tempo de execução faz com que uma aplicação de funções reiniciar.
 
-Os valores podem ser definidos no `FUNCTIONS_EXTENSION_VERSION` definição para ativar as atualizações automáticas de aplicação está, atualmente, "~ 1" para o 1.x runtime e o "beta" para 2.x.
+Os valores podem ser definidos no `FUNCTIONS_EXTENSION_VERSION` definição para ativar as atualizações automáticas de aplicação atualmente é "~ 1" para o runtime 1.x e "~ 2" para 2.x.
 
 ## <a name="view-the-current-runtime-version"></a>Ver a versão atual do tempo de execução
 
@@ -55,7 +52,7 @@ Quando precisar de uma versão que não seja a versão principal atual ou a vers
 
     ![Selecione as definições de aplicação de função](./media/functions-versions/add-update-app-setting1a.png)
 
-2. Na **as configurações do aplicativo** separador, encontre o `FUNCTIONS_EXTENSION_VERSION` e altere o valor para uma versão válida do 1.x runtime ou `beta` para a versão 2.0. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 1"). 
+2. Na **as configurações do aplicativo** separador, encontre o `FUNCTIONS_EXTENSION_VERSION` e altere o valor para uma versão válida do 1.x runtime ou `~2` para a versão 2.0. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 1"). 
 
     ![Definir a definição de aplicação de função](./media/functions-versions/add-update-app-setting2.png)
 
@@ -70,7 +67,7 @@ az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
-Nesse código, substitua `<function_app>` com o nome da sua aplicação de função. Substitua, também `<my_resource_group>` com o nome do grupo de recursos para a sua aplicação de função. Substitua `<version>` com uma versão válida do 1.x runtime ou `beta` para a versão 2.0. 
+Nesse código, substitua `<function_app>` com o nome da sua aplicação de função. Substitua, também `<my_resource_group>` com o nome do grupo de recursos para a sua aplicação de função. Substitua `<version>` com uma versão válida do 1.x runtime ou `~2` para a versão 2.x. 
 
 Pode executar este comando a partir do [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo **experimente** no exemplo de código anterior. Também pode utilizar o [localmente a CLI do Azure](/cli/azure/install-azure-cli) para executar este comando após a execução [início de sessão az](/cli/azure/reference-index#az-login) para iniciar sessão.
 

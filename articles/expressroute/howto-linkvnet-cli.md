@@ -1,6 +1,6 @@
 ---
-title: 'Ligar uma rede virtual a um circuito de ExpressRoute: CLI: Azure | Microsoft Docs'
-description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação do Resource Manager e a CLI.
+title: 'Ligar uma rede virtual a um circuito do ExpressRoute: CLI: Azure | Documentos da Microsoft'
+description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute com o modelo de implementação do Resource Manager e a CLI.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8e896b70d0da143151d57b45e62a5c14d4d4e3b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29875407"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969608"
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligar uma rede virtual para um circuito ExpressRoute com o CLI
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligar uma rede virtual a um circuito do ExpressRoute com a CLI
 
-Este artigo ajuda-o a ligar redes virtuais (VNets) para circuitos ExpressRoute do Azure com a CLI. Para ligar utilizando a CLI do Azure, as redes virtuais devem ser criadas utilizando o modelo de implementação Resource Manager. Estes podem ser na mesma subscrição, ou parte de outra subscrição. Se pretender utilizar um método diferente para ligar a VNet a um circuito ExpressRoute, pode selecionar um artigo na lista seguinte:
+Este artigo ajuda-o a ligar redes virtuais (VNets) para circuitos do ExpressRoute do Azure com a CLI. Para ligar a CLI do Azure, as redes virtuais devem ser criadas com o modelo de implementação do Resource Manager. Eles podem estar na mesma subscrição ou parte de outra subscrição. Se pretender utilizar um método diferente para ligar a VNet a um circuito do ExpressRoute, pode selecionar um artigo da lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -36,25 +36,25 @@ Este artigo ajuda-o a ligar redes virtuais (VNets) para circuitos ExpressRoute d
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
-* Tem a versão mais recente da interface de linha de comandos (CLI). Para obter mais informações, consulte [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Tem a versão mais recente da interface de linha de comandos (CLI). Para obter mais informações, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * Tem de rever o [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 
 * Deve ter um circuito ExpressRoute ativo. 
-  * Siga as instruções para [criar um circuito ExpressRoute](howto-circuit-cli.md) e ter o circuito ativado pelo seu fornecedor de conectividade. 
-  * Certifique-se de que tem o peering privado do Azure configurada para o seu circuito. Consulte o [configurar o encaminhamento](howto-routing-cli.md) artigo para obter instruções de encaminhamento. 
-  * Certifique-se de que o peering privado do Azure está configurado. O BGP peering entre a rede e a Microsoft tem de ser cópias de segurança para que pode ativar a conetividade de ponto a ponto.
-  * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para [configurar um gateway de rede virtual para o ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Certifique-se de utilizar `--gateway-type ExpressRoute`.
+  * Siga as instruções para [criar um circuito do ExpressRoute](howto-circuit-cli.md) e ter o circuito ativado pelo seu fornecedor de conectividade. 
+  * Certifique-se de que tem o peering privado do Azure configurado para o seu circuito. Consulte a [configurar o encaminhamento](howto-routing-cli.md) artigo para obter instruções de encaminhamento. 
+  * Certifique-se de que o peering privado do Azure está configurado. O peering BGP entre a rede e a Microsoft tem de ser cópia de segurança para que pode habilitar a conectividade de ponto-a-ponto.
+  * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para [configurar um gateway de rede virtual para o ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Certifique-se de que utilize `--gateway-type ExpressRoute`.
 
-* Pode ligar até 10 redes virtuais para um circuito do ExpressRoute standard. Todas as redes virtuais tem de ser na mesma região geopolítica quando utilizar um circuito do ExpressRoute standard. 
+* Pode ligar até 10 redes virtuais a um circuito do ExpressRoute standard. Todas as redes virtuais tem de ser na mesma região geopolítica quando utilizar um circuito de ExpressRoute standard. 
 
-* Pode ser associada uma única VNet para até quatro circuitos do ExpressRoute. Utilize o procedimento abaixo indicado para criar um novo objeto de ligação para cada circuito de ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
+* Pode ser associada uma VNet única para até quatro circuitos do ExpressRoute. Utilize o processo abaixo para criar um novo objeto de ligação para cada circuito de ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
 
-* Se ativar o suplemento ExpressRoute premium, pode ligar uma rede virtual fora da região geopolítica do circuito ExpressRoute ou ligar um grande número de redes virtuais para o circuito do ExpressRoute. Para mais informações sobre o suplemento premium, consulte o [FAQ](expressroute-faqs.md).
+* Se ativar o suplemento ExpressRoute premium, pode ligar uma rede virtual fora da região geopolítica do circuito ExpressRoute ou ligar um grande número de redes virtuais para o seu circuito do ExpressRoute. Para obter mais informações sobre o suplemento premium, consulte a [FAQ](expressroute-faqs.md).
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Ligar uma rede virtual na mesma subscrição a um circuito
 
-Pode ligar um gateway de rede virtual para um circuito do ExpressRoute, utilizando o exemplo. Certifique-se de que o gateway de rede virtual é criado e estiver pronto para ligar antes de executar o comando.
+Pode ligar um gateway de rede virtual a um circuito do ExpressRoute, utilizando o exemplo. Certifique-se de que o gateway de rede virtual é criado e está pronto para a ligação antes de executar o comando.
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
@@ -62,28 +62,28 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Ligar uma rede virtual de uma subscrição diferente a um circuito
 
-Pode partilhar um circuito ExpressRoute entre várias subscrições. A figura abaixo mostra uma simples schematic de funciona como partilha para circuitos do ExpressRoute entre várias subscrições.
+Pode partilhar um circuito do ExpressRoute em várias subscrições. A figura abaixo mostra um simples esquemática funciona como a partilha dos circuitos do ExpressRoute em várias subscrições.
 
-Cada uma das nuvens inferior na nuvem grande é utilizada para representar subscrições que pertencem aos diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode utilizar as seus próprios subscrição para implementar os seus serviços-, mas pode partilhar um único circuito de ExpressRoute para ligar a sua rede no local. Um único departamento (neste exemplo: IT) pode ter o circuito ExpressRoute. Outras subscrições dentro da organização podem utilizar o circuito ExpressRoute.
+Cada uma das nuvens menores na cloud da grande é utilizada para representar as subscrições que pertencem a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode utilizar a sua própria subscrição para a implementação de seus serviços, mas eles podem partilhar um único circuito de ExpressRoute para ligar a voltar à sua rede no local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do ExpressRoute. Outras subscrições dentro da organização podem utilizar o circuito do ExpressRoute.
 
 > [!NOTE]
-> Custos de largura de banda e de conectividade para o circuito dedicado serão aplicados ao proprietário do circuito ExpressRoute. Todas as redes virtuais partilham a mesma largura de banda.
+> Custos de largura de banda e de conectividade para o circuito dedicado serão aplicados para o proprietário do circuito ExpressRoute. Todas as redes virtuais partilham a mesma largura de banda.
 > 
 > 
 
 ![Conectividade entre subscrições](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
-### <a name="administration---circuit-owners-and-circuit-users"></a>Administração - circuito proprietários e utilizadores de circuito
+### <a name="administration---circuit-owners-and-circuit-users"></a>Administração - circuito proprietários e os utilizadores do circuito
 
-'Proprietário do circuito' é um utilizador autorizado de energia do recurso de circuito ExpressRoute. O proprietário do circuito pode criar autorizações que podem ser resgatadas por 'Circuito utilizadores'. Utilizadores de circuito são proprietários dos gateways de rede virtual que não estão na mesma subscrição que o circuito ExpressRoute. Utilizadores de circuito podem resgatar autorizações (uma autorização por rede virtual).
+O "proprietário do circuito' é um utilizador autorizado de energia do recurso de circuito do ExpressRoute. O proprietário do circuito pode criar autorizações que podem ser resgatadas por "Utilizadores do circuito". Os utilizadores do circuito são proprietários de gateways de rede virtual que não estão na mesma subscrição que o circuito do ExpressRoute. Os utilizadores do circuito podem resgatar autorizações (uma autorização por rede virtual).
 
-O proprietário do circuito tem a capacidade de modificar e revogar autorizações em qualquer altura. Quando uma autorização é revogada, todas as ligações de ligação são eliminadas da subscrição cujo acesso foi revogado.
+O proprietário do circuito tem o poder para modificar e revogar autorizações em qualquer altura. Quando uma autorização é revogada, todas as ligações de ligação são eliminadas da subscrição cujo acesso foi revogado.
 
 ### <a name="circuit-owner-operations"></a>Operações de proprietário do circuito
 
 **Para criar uma autorização**
 
-O proprietário do circuito cria uma autorização, que cria uma chave de autorização que pode ser utilizada por um utilizador do circuito para ligar os gateways de rede virtual para o circuito do ExpressRoute. Uma autorização é válida para apenas uma ligação.
+O proprietário do circuito cria uma autorização, que cria uma chave de autorização que pode ser utilizada por um utilizador do circuito para ligar os seus gateways de rede virtual para o circuito do ExpressRoute. Uma autorização é válida para apenas uma ligação.
 
 O exemplo seguinte mostra como criar uma autorização:
 
@@ -103,17 +103,17 @@ A resposta contém a chave de autorização e o estado:
 "resourceGroup": "ExpressRouteResourceGroup"
 ```
 
-**Para rever autorizações**
+**Para rever as autorizações**
 
-O proprietário do circuito pode rever todas as autorizações que são emitidas sobre um determinado circuito, executando o seguinte exemplo:
+O proprietário do circuito pode rever todas as autorizações emitidos num determinado circuito ao executar o exemplo seguinte:
 
 ```azurecli
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**Para adicionar autorizações**
+**Para adicionar as autorizações**
 
-O proprietário do circuito pode adicionar autorizações utilizando o exemplo seguinte:
+O proprietário do circuito pode adicionar as autorizações utilizando o exemplo seguinte:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -121,7 +121,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 
 **Para eliminar autorizações**
 
-O proprietário do circuito pode revogar/eliminar autorizações ao utilizador executando o seguinte exemplo:
+O proprietário do circuito pode revogar/eliminar autorizações para o usuário ao executar o exemplo seguinte:
 
 ```azurecli
 az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -129,23 +129,23 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 ### <a name="circuit-user-operations"></a>Operações de utilizador do circuito
 
-O utilizador do circuito tem o ID de elemento de rede e uma chave de autorização do proprietário do circuito. A chave de autorização é um GUID.
+O utilizador de circuito tem o ID de elemento de rede e uma chave de autorização do proprietário do circuito. A chave de autorização é um GUID.
 
 ```azurecli
 Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
-**Para resgatar uma autorização de ligação**
+**Para resgatar uma autorização de conexão**
 
-O utilizador do circuito pode executar o exemplo a seguir para resgatar uma autorização de ligação:
+O utilizador de circuito pode executar o exemplo a seguir para resgatar uma autorização de ligação:
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**Para libertar uma autorização de ligação**
+**Para liberar uma autorização de conexão**
 
-Pode disponibilizar uma autorização ao eliminar a ligação que liga o circuito de ExpressRoute para a rede virtual.
+Pode libertar uma autorização ao eliminar a ligação que ligue o circuito do ExpressRoute para a rede virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

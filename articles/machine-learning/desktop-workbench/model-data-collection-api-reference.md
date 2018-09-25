@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c047555c30481f34b607197f71483197bc64620c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646827"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961472"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de recolha de dados do Machine Learning modelo do Azure
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Recolha de dados de modelo permite-lhe arquivar as entradas de modelo e as previsões de um serviço web machine learning. Consulte a [guia de procedimentos de recolha de dados de modelo](how-to-use-model-data-collection.md) para saber como pode instalar `azureml.datacollector` no seu computador Windows e Linux.
 

@@ -3,19 +3,22 @@ title: Códigos de erro do SQL - erro de ligação de base de dados | Documentos
 description: 'Saiba mais sobre códigos de erro SQL para aplicações de cliente da base de dados SQL, como erros de ligação de base de dados comuns, problemas de cópia do banco de dados e erros gerais. '
 keywords: código de erro de SQL, sql de acesso, erro de ligação de base de dados, códigos de erro de sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 643add4e0e4732734e9ef763a587755bf8700605
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731007"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064395"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: erros de ligação e outros problemas de base de dados
 

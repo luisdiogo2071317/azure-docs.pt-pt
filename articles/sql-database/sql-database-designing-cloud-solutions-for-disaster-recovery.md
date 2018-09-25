@@ -3,20 +3,22 @@ title: Desenhe os serviços globalmente disponíveis com a base de dados SQL do 
 description: Saiba mais sobre o design do aplicativo para serviços de elevada disponibilidade com a base de dados do Azure SQL.
 keywords: cloud de recuperação após desastre, as soluções de recuperação após desastre, cópia de segurança de dados de aplicação, a georreplicação, planejamento da continuidade dos negócios
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/26/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 70af437fb7baa461b63430747cf5252be3503c0e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714790"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064276"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criando serviços globalmente disponíveis com a base de dados do Azure SQL
 

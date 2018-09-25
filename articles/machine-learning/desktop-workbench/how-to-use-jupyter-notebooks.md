@@ -11,19 +11,23 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 712cdaa65487620b2f8af4a0ad57c01c24b9a965
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c59969d5a56bd2eb4eb8c490d4f1b5af20d7f056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649961"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998700"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Utilizar blocos de notas do Jupyter no Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 O Azure Machine Learning Workbench oferece suporte a experimentação de ciência de dados interativa por meio da integração com blocos de notas do Jupyter. Este artigo descreve como fazer uso eficiente esse recurso para aumentar a velocidade e qualidade da sua experimentação de ciência de dados interativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../service/quickstart-installation.md).
+- [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](quickstart-installation.md).
 - Estar familiarizado com o [bloco de notas do Jupyter](http://jupyter.org/). Este artigo não é sobre como utilizar o Jupyter de aprendizado.
 
 ## <a name="jupyter-notebook-architecture"></a>Arquitetura de bloco de notas do Jupyter

@@ -1,5 +1,5 @@
 ---
-title: Configuração de controladores da série N do Azure para Windows | Documentos da Microsoft
+title: Configuração de controladores GPU da série N do Azure para Windows | Documentos da Microsoft
 description: Como configurar controladores de NVIDIA GPU para VMs de série N que executam o Windows Server ou Windows no Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033265"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Configurar controladores GPU para VMs de série N que executam o Windows 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar controladores de NVIDIA GPU em VMs de série N que executam o Windows 
+
 Para tirar partido das capacidades de GPU de VMs de série N do Azure a executar o Windows, tem de estar instalados controladores NVIDIA GPU. O [extensão de controladores de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala os controladores adequados NVIDIA CUDA ou GRADE numa VM de série N. Instalar ou gerir a extensão com o portal do Azure ou ferramentas, tais como modelos do Azure PowerShell ou do Azure Resource Manager. Consulte a [documentação da extensão de controladores de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e os passos de implementação.
 
 Se optar por instalar manualmente os controladores de GPU, este artigo fornece sistemas operativos suportados, drivers e passos de instalação e verificação. Informações de configuração manual de driver também estão disponíveis para [VMs do Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -38,7 +39,7 @@ Para especificações básicas, as capacidades de armazenamento e detalhes do di
 
 2. Transferir, extrair e instale o controlador suportado para o seu sistema operativo do Windows.
 
-Em VMs do Azure NV, é necessário um reinício após a instalação de driver. Em VMs do NC, não é necessário um reinício.
+Após a instalação de driver de GRADE numa VM, é necessário um reinício. Após a instalação de controlador CUDA, não é necessário um reinício.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de driver
 
@@ -64,7 +65,7 @@ Para instalar a versão mais recente 1.1 HpcVMDrivers extensão numa VM com capa
   ```
   Para obter mais informações, consulte [extensões de Máquina Virtual e funcionalidades para o Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-A rede RDMA suporta tráfego de Message Passing Interface (MPI) para aplicações em execução com [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou do Intel MPI 5.x. 
+A rede RDMA suporta tráfego de Message Passing Interface (MPI) para aplicações em execução com [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ou do Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

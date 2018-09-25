@@ -11,14 +11,19 @@ ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: eb788f56825166ccaa376d32b07371db0588edc8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35947663"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967613"
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagens aéreas
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Este exemplo demonstra como utilizar o Azure Machine Learning Workbench para coordenar o treinamento distribuído e de operacionalização de modelos de classificação de imagens. Podemos usar duas abordagens para treinamento: (i) refinar uma rede neural profunda com um [do Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) cluster GPU e (ii) utilizando o [Microsoft Machine Learning para Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) pacote caracterização de imagens através de modelos de CNTK pré-preparadas com e para preparar classificadores usando os recursos derivados. Podemos, em seguida, aplicar os modelos treinados de forma paralela para conjuntos de imagem grande na cloud com uma [do Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) cluster, permitindo-nos aumentar a velocidade de treinamento e operacionalização ao adicionar ou remover nós de trabalho.
 
@@ -61,7 +66,7 @@ As instruções a seguir descreve o processo de configuração de ambiente de ex
        - Se tiver menos núcleos disponíveis, pode modificar o modelo de cluster do HDInsight para reduzir o número de workers aprovisionado. Instruções para isto são apresentados na secção "Criar o cluster do Spark do HDInsight".
     - Este exemplo cria um cluster do Batch AI Training com dois NC6 (1 GPU, 6 de vCPU) VMs. Certifique-se de que a conta tem núcleos suficientes disponíveis na região E.U.A. leste, revendo "utilização + quotas" separador para a sua subscrição no portal do Azure.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - Siga os [instalar e criar o guia de introdução](../service/quickstart-installation.md) para instalar o Azure Machine Learning Workbench e criar a experimentação e contas de gestão de modelo.
+    - Siga os [instalar e criar o guia de introdução](../desktop-workbench/quickstart-installation.md) para instalar o Azure Machine Learning Workbench e criar a experimentação e contas de gestão de modelo.
 - [IA do batch](https://github.com/Azure/BatchAI) Python SDK e CLI do Azure
     - Conclua as seguintes secções do [Leiame de receitas de IA do Batch](https://github.com/Azure/BatchAI/tree/master/recipes):
         - "Pré-requisitos"

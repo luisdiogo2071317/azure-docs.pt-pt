@@ -2,20 +2,22 @@
 title: A otimização automática de e-mail guia de procedimentos de notificações - base de dados SQL do Azure | Documentos da Microsoft
 description: Ative as notificações de email para o ajuste de consulta automática da base de dados do Azure SQL.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 546a21c4be13fdd0d06e29253d73c6b67cb8c91c
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498475"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064106"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações de e-mail para a otimização automática
 
@@ -205,12 +207,12 @@ A próxima etapa é adicionar três tarefas (criar, saída de get e envio de e-m
 1. Criar ação para executar o script do PowerShell para obter recomendações de otimização
 - Selecione "**+ novo passo**", seguido de"**adicionar uma ação**" dentro do painel de fluxo de periodicidade
 - O tipo de campo de pesquisa "**automatização**"e selecione"**automatização do Azure – criar tarefa**" resultados da pesquisa
-- No painel de trabalho de criar, configure as propriedades da tarefa. Para esta configuração, terá de detalhes da sua subscrição do Azure ID do grupo de recursos e a conta de automatização **gravado anteriormente** com o **painel de conta de automatização**. Para saber mais sobre as opções disponíveis nesta secção, veja [automatização do Azure - criar tarefa](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- No painel de trabalho de criar, configure as propriedades da tarefa. Para esta configuração, terá de detalhes da sua subscrição do Azure ID do grupo de recursos e a conta de automatização **gravado anteriormente** com o **painel de conta de automatização**. Para saber mais sobre as opções disponíveis nesta secção, veja [automatização do Azure - criar tarefa](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Concluir a criação desta ação clicando em "**Guardar fluxo**"
 
 2. Criar uma ação para obter o resultado do script do PowerShell executado
 - Selecione "**+ novo passo**", seguido de"**adicionar uma ação**" dentro do painel de fluxo de periodicidade
-- Na pesquisa arquivou o tipo "**automatização**"e selecione"**automatização do Azure – resultado da tarefa Get**" resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta secção, veja [automatização do Azure – resultado da tarefa Get](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- Na pesquisa arquivou o tipo "**automatização**"e selecione"**automatização do Azure – resultado da tarefa Get**" resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta secção, veja [automatização do Azure – resultado da tarefa Get](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Preencher campos necessário (semelhante a criar a tarefa anterior) - preencher a sua subscrição do Azure ID, grupo de recursos e a conta de automatização (tal como foi introduzido no painel de conta de automatização)
 - Clique dentro do campo "**ID da tarefa**" para o "**conteúdo dinâmico**" menu sejam apresentados. Neste menu, selecione a opção "**ID da tarefa**".
 - Concluir a criação desta ação clicando em "**Guardar fluxo**"

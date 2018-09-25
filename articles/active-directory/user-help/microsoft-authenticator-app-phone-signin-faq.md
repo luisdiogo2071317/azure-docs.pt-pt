@@ -4,78 +4,90 @@ description: Utilize o seu telefone para iniciar sessão na sua conta Microsoft 
 services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3536c5da7833c32b583f1a510be43864c9107068
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038872"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o telefone, não com a palavra-passe.
-A aplicação Microsoft Authenticator ajuda-o a proteger as suas contas ao realizar a verificação de dois passos depois de introduzir a palavra-passe. Mas sabia que pode substituir completamente a palavra-passe da sua conta Microsoft pessoal?
+A aplicação Microsoft Authenticator não só ajuda a manter as suas contas segura ao efetuar a verificação de dois passos depois de introduzir a palavra-passe, mas agora ele pode substituir a palavra-passe da sua conta Microsoft inteiramente.
 
-Esta funcionalidade está disponível em dispositivos iOS e Android e funciona com contas pessoais da Microsoft.
+Esta funcionalidade está disponível no iOS e Android dispositivos que executam o Android 6.0 ou superior.
  
 ## <a name="how-it-works"></a>Como funciona
-Muitos de vocês utilizarem a aplicação Microsoft Authenticator para verificação de dois passos quando iniciam sessão na sua conta Microsoft. Escreva a palavra-passe, em seguida, vá para a aplicação para aprovar uma notificação ou obter um código de verificação. Com o início de sessão no telemóvel, ignorar a palavra-passe e fazer tudo a verificação de identidade no seu telemóvel. Como o início de sessão no telefone é um tipo de verificação de dois passos, ainda assim será preciso fornecer algo que conhece e uma coisa que precisa verificar a sua identidade. O telefone ainda é a coisa que tem e do seu telemóvel PIN ou biométrico chave é a coisa de que sabe.
+Muitos de vocês utilizarem a aplicação Microsoft Authenticator para verificação de dois passos quando iniciam sessão na sua conta Microsoft. Escreva a palavra-passe e, em seguida, vá para a aplicação ou aprovar uma notificação ou para obter um código de verificação. Com o início de sessão no telemóvel, ignorar a palavra-passe e fazer sua verificação de identidade no seu telemóvel. Como o início de sessão no telefone é um tipo de verificação de dois passos, ainda terá de verificar a sua identidade, fornecendo uma coisa que sabe e uma coisa que precisa. O telefone ainda é a coisa que precisa, mas o PIN ou biométrico chave do seu telemóvel está agora a coisa de que sabe.
 
-## <a name="how-to-get-started"></a>Como começar
-Para iniciar sessão sua conta Microsoft pessoal com o seu telemóvel, siga estes passos:
+## <a name="turn-on-phone-sign-in-for-your-work-or-school-account"></a>Ativar o telefone início de sessão para a sua conta escolar ou profissional 
+Se sua organização tiver ativado a esta nova experiência, será capaz de ativar e utilizar o início de sessão no telefone a partir da aplicação Microsoft Authenticator.
 
-1. Ative o início de sessão no telefone para a sua conta.
+### <a name="to-turn-on-phone-sign-in-for-your-account"></a>Para ativar o início de sessão para a sua conta no telemóvel
 
-    - Se não tiver a aplicação Microsoft Authenticator, ainda, instalar e adicionar a sua conta Microsoft pessoal, de acordo com os passos sobre a [página do Microsoft Authenticator](microsoft-authenticator-app-how-to.md). As contas recentemente adicionadas são ativadas automaticamente, para que está pronto para começar.
+- **Se tiver este ícone ![ícone mostrando a configurá-lo](media/microsoft-authenticator-app-phone-signin-faq/icon.png) no seu telemóvel.** Já configurou início de sessão no telefone. Poderá ser-lhe pedido para atualizar a conta para adicionar notificações push, para que pode ser notificado sobre pedidos de autenticação fora da aplicação. 
 
-    - Se já utiliza o Microsoft Authenticator para verificação de dois passos, selecione a conta a partir da home page da aplicação e selecione **ativar o início de sessão no telefone** no menu pendente.
+- **Se já utilizar a aplicação Microsoft Authenticator para verificação de dois passos.** Vá para o ecrã de contas da aplicação, selecione a seta de lista pendente para a sua conta profissional ou escolar e, em seguida, selecione **ativar o início de sessão no telefone**. 
+
+- **Se utilizar a aplicação Microsoft Authenticator para a sua conta pessoal, mas não para a sua conta escolar ou profissional.** Siga as instruções de verificação de dois passos da sua organização e, em seguida, ativar o início de sessão no telefone. Para obter mais informações, consulte [começar com a aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+
+### <a name="to-use-phone-sign-in-to-sign-in-to-your-work-or-school-account"></a>Para utilizar o início de sessão no telefone para iniciar sessão na sua conta escolar ou profissional 
+
+1. Inicie sessão na sua conta escolar ou profissional, como habitualmente. 
+
+    Depois de escrever o seu nome de utilizador, verá uma página com um número de dois dígitos, que lhe pede para aprovar o início de sessão através da aplicação Microsoft Authenticator. Se não pretender utilizar este início de sessão no método, pode selecionar **em alternativa, utilize a palavra-passe**e inicie sessão com a sua palavra-passe.
+
+    ![Aprovar início de sessão de caixa](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+
+2. Na aplicação Microsoft Authentication, receberá uma notificação que lhe pede para **aprovar início de sessão**. Escolher **aprovar** se reconhecer a tentativa de início de sessão. Caso contrário, escolha **negar**. 
+
+3. Toque no mesmo número que vê no **aprovar início de sessão** ecrã. Utilize a sua chave de Biometria ou PIN de seu telefone para concluir a autenticação.
+
+    ![Aprovar início de sessão caixa com o número para selecionar](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+
+## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Ativar o telefone início de sessão para a sua conta pessoal 
+Pode ativar o início de sessão no telefone para a sua conta Microsoft pessoal, como a conta que utiliza para iniciar sessão no Outlook.com, Xbox ou Skype.
+
+### <a name="to-turn-on-phone-sign-in-for-your-personal-account"></a>Para ativar o telefone início de sessão para a sua conta pessoal
+
+- **Se não utilizar a aplicação Microsoft Authenticator.** Transferir e instalar a aplicação Microsoft Authenticator e, em seguida, adicione a sua conta Microsoft pessoal ao iniciar sessão para a conta a partir do ecrã de contas de adicionar a aplicação Microsoft Authenticator. Para obter mais informações, consulte [começar com a aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+
+    As novas contas são automaticamente ativadas, para que pode começar a utilizar o início de sessão no telefone. 
+
+- **Se já utilizar a aplicação Microsoft Authenticator para verificação de dois passos.** Vá para o **contas** ecrã da aplicação, selecione a seta pendente para a sua conta escolar ou profissional e, em seguida, selecione **ativar início de sessão no telefone**.
 
     >[!NOTE]
-    >Para proteger a sua conta, é necessário um PIN ou biométrico bloqueio no seu dispositivo. Se mantiver o seu telemóvel desbloqueado, a aplicação aparece um pedido que lhe pede para configurar um bloqueio antes de ativar o início de sessão no telefone.
+    >Para ajudar a proteger a sua conta, a aplicação requer um PIN ou biométrico bloqueio no seu dispositivo. Se mantiver o seu telemóvel desbloqueado, a aplicação tem de configurar um bloqueio de segurança antes de ativar o início de sessão no telefone.
 
-2. A maioria das páginas onde normalmente deve introduzir a palavra-passe de conta do Microsoft têm uma ligação que diz **em alternativa, utilize uma aplicação**. Selecione esta ligação para iniciar sessão com o seu telemóvel.
- 
-3. A Microsoft envia uma notificação para o seu telefone. Aprove a notificação para iniciar sessão na sua conta.   
- 
-## <a name="faq"></a>FAQ
+### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Para utilizar o início de sessão no telefone para iniciar sessão na sua conta pessoal 
 
-### <a name="how-is-signing-in-with-my-phone-more-secure-than-typing-a-password"></a>Como é iniciar sessão com o meu telefone mais segura do que escrever uma palavra-passe?  
-Hoje em dia a maioria das pessoas sessão para web sites ou aplicações com um nome de utilizador e palavra-passe.  Infelizmente, as palavras-passe são, muitas vezes, perdidas, roubadas ou que adivinhado por hackers. Quando configurou a aplicação Microsoft Authenticator para iniciar sessão, geramos uma chave no seu telemóvel que pode desbloquear a sua conta. Podemos proteger esta chave com o PIN ou biométrico que já utiliza no seu telemóvel.  Quando inicia sessão com o seu telemóvel, esta chave é utilizada para provar a sua identidade com segurança com dois fatores – o próprio telefone e a capacidade para o desbloquear.
- 
-A chave usada é semelhante às chaves utilizadas em Hello do Windows e as especificações de FIDO Alliance UAF. Sua biografia dados só são utilizado para proteger a chave localmente e é nunca enviada para ou armazenada na cloud. 
- 
-### <a name="where-can-i-use-my-phone-to-replace-my-password-and-where-would-i-still-need-the-password"></a>Onde posso usar meu telefone para substituir a minha palavra-passe e, em que eu ainda precisava a palavra-passe?  
-Hoje em dia, a funcionalidade de início de sessão no telefone só funciona com aplicações web e serviços que têm a tecnologia contas Microsoft pessoais, iOS ou aplicações Android que utilizam uma conta Microsoft pessoal e aplicações no Windows 10 que utilizam uma conta Microsoft pessoal. Quando iniciar sessão a uma destes web sites ou aplicações, na página em que, normalmente, introduza a palavra-passe existe uma ligação que diz **em alternativa, utilize uma aplicação**. 
+1. Aceda ao seu pessoal Microsoft início de sessão-página de conta e, em seguida, em vez de digitar a palavra-passe, selecione o **em alternativa, utilize a aplicação Microsoft Authenticator** ligação. 
 
-Início de sessão no telefone não pode ser utilizado para desbloquear um PC Windows, XBOX ou as versões de área de trabalho de aplicações da Microsoft, como as aplicações do Office neste momento.
- 
-### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>Isto substitui verificação em dois passos? Deve desativá-lo?   
-Às vezes. Estamos a trabalhar em expandir o âmbito do início de sessão no telefone, mas por enquanto ainda existem lugares no ecossistema da Microsoft que não o suportam. Em desses lugares, ainda estamos usando a verificação de dois passos para o início de sessão seguro. Por esse motivo, não, não deve desativar a verificação de dois passos para a sua conta.
- 
-### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>Tudo bem, se eu manter a verificação de dois passos ativada para a minha conta, é necessário que aprovar dois notificações?
-Não, não. Iniciar sessão na sua conta Microsoft com o seu telemóvel equivale a verificação de dois passos. Em vez de digitar a palavra-passe, em seguida, aprovar uma notificação de provar a sua identidade a saber como desbloquear o seu telemóvel e, em seguida, aprovar uma notificação. Não a enviar uma notificação de segundo para aprovar.
+    A Microsoft envia uma notificação para o seu telefone. 
 
-### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>E se eu perder o meu telefone ou não o tiver comigo, como posso acessar minha conta?  
-Pode sempre clicar **em alternativa, utilize uma palavra-passe** na página de início de sessão para mudar para utilizar a sua palavra-passe. Tenha em atenção que se usar a verificação de dois passos, ainda tem um segundo método para verificar seu início de sessão. É por isso que recomendamos vivamente que certifique-se de que tem informações de segurança extra e atualizado na sua conta. Pode gerenciar suas informações de segurança em https://account.live.com/proofs/manage.
- 
-### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Como parar de utilizar esta funcionalidade e volte a introduzir a palavra-passe?
-Clique em **em alternativa, utilize uma palavra-passe** quando inicia sessão no. Podemos lembrar-se à sua escolha mais recente e oferecem que, por predefinição, a próxima vez que iniciar sessão. Se alguma vez pretender voltar a iniciar sessão com o seu telemóvel, clique em **em alternativa, utilize uma aplicação**. 
- 
-### <a name="can-i-use-the-app-to-sign-in-to-all-my-accounts-with-microsoft"></a>Pode utilizar a aplicação para iniciar sessão em todas as minhas contas com a Microsoft?   
-Esta funcionalidade só está disponível para contas Microsoft pessoais neste momento. 
- 
-### <a name="can-i-sign-into-my-pc-with-my-phone"></a>Pode entrar no meu PC com o meu telefone?  
-Para o seu PC, recomendamos que iniciar sessão com o Windows Hello no Windows 10 com o rosto, impressão digital ou um PIN.   
- 
-### <a name="can-i-sign-in-with-my-windows-phone"></a>Posso iniciar sessão com o meu telemóvel Windows?  
-Neste momento, não podemos são desenvolvimento desta funcionalidade para o Microsoft Authenticator no Windows Phone. 
+2. Aprove a notificação. 
+
+## <a name="phone-sign-in-faq"></a>FAQ do início de sessão no telefone
+|**Pergunta**|**Solução**|
+|--------------|-------------|
+|**Como é iniciar sessão com o meu telefone mais segura do que escrever uma palavra-passe?**|Hoje em dia a maioria das pessoas sessão para web sites ou aplicações com um nome de utilizador e palavra-passe. Infelizmente, as palavras-passe podem ser perdidas, roubadas ou que adivinhado por hackers.<br><br>Depois de configurar a aplicação Microsoft Authenticator, ele cria uma chave no seu telefone para desbloquear a conta que está protegida por PIN ou biométrico bloqueio do seu telemóvel. Esta chave, em seguida, é utilizada para provar a sua identidade ao iniciar sessão.<br><br>**Importante**<br>Os dados só são utilizados para proteger a sua chave localmente. Nunca tem enviado para ou armazenadas na cloud.|
+|**Isto substitui verificação em dois passos? Deve desativá-lo?**| Estamos a trabalhar para expandir o âmbito do início de sessão no telefone, mas por enquanto ainda existem lugares no ecossistema da Microsoft que não o suportam. Em desses lugares, ainda estamos usando a verificação de dois passos para o início de sessão seguro. Por esse motivo, não, não deve desativar a verificação de dois passos para a sua conta.|
+|**Se eu manter a verificação de dois passos ativada para a minha conta, é necessário que aprovar dois notificações?**| Não. Iniciar sessão na sua conta da Microsoft através do telefone também é contabilizado como verificação de dois passos, portanto, não há nenhum segundo aprovação necessária.|
+|**E se eu perder o meu telefone ou não o tiver comigo? Como posso acessar minha conta?**| Sempre é possível selecionar a utilização de uma palavra-passe em vez disso, a ligação na página de início de sessão para mudar para utilizar a sua palavra-passe. No entanto, se usar a verificação de dois passos ainda terá de utilizar um segundo método para verificar a sua identidade.<br><br>**Importante**<br>Recomendamos vivamente que para se certificar de que tiver mais do que um, atualizado, o método de verificação associado à sua conta.<br><br>Pode gerenciar seus métodos de verificação para contas pessoais da sua [definições de segurança](https://account.live.com/proofs/manage) página. Para contas profissionais ou escolares, pode aceder à sua organização [verificação de segurança adicional](https://aka.ms/MFASetup) página ou o **manter a sua conta segura** página se o administrador tiver ativado a informações de segurança. Para obter mais informações sobre as informações de segurança, consulte [gerir as suas informações de segurança](security-info-manage-settings.md).<br><br>Se não for possível gerir os seus métodos de verificação, tem de contactar o seu administrador.|
+|**Como parar de utilizar esta funcionalidade e voltar atrás e utilizar a minha palavra-passe?**|Contas pessoais, selecione o **em alternativa, utilize uma palavra-passe** ligação durante o início de sessão. À sua escolha mais recente memorizada e disponibilizada por predefinição na próxima vez que iniciar sessão. Se alguma vez pretender voltar a utilizar o início de sessão no telefone, selecione o **em alternativa, utilize uma aplicação** ligação durante o início de sessão.<br><br>Para contas profissionais ou escolares, tem de remover a conta ao abrir a aplicação Microsoft Authenticator, selecionando o **editar contas** menu e, em seguida, eliminar a sua conta.|
+|**Por que não é possível utilizar mais de uma conta escolar ou profissional para início de sessão no telefone?**| Um telefone tem de estar registado para uma única conta escolar ou profissional. Se pretender ativar o início de sessão no telefone para uma conta escolar ou profissional de diferente, deve primeiro anular o registo o dispositivo antigo por meio da **definições** página.|
+|**Posso entrar no meu PC com o meu telefone?**| Para o seu PC, recomendamos que iniciar sessão utilizando Hello do Windows no Windows 10. Windows Hello permite-lhe utilizar face, a identificação digital ou o PIN para iniciar sessão.|
+|**Posso utilizar início de sessão no telefone com o meu telefone do Windows?**| Não. Esta funcionalidade não é suportada pela aplicação Microsoft Authenticator no Windows Phone.|
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se ainda não transferiu a aplicação Microsoft Authenticator, confira. A aplicação está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), e início de sessão no telefone está disponível na aplicação Microsoft Authenticator para [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+- Se tiver perguntas mais gerais sobre a aplicação, veja o [FAQs do Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
-Se tiver dúvidas sobre a aplicação em geral, dê uma olhada a [FAQs do Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+- Se pretender obter mais informações sobre a verificação de dois passos, veja [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md)
+
+- Se pretender obter mais informações sobre as informações de segurança, veja [gerir as suas informações de segurança](security-info-manage-settings.md)

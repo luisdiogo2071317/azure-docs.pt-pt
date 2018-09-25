@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 18692fe631a7e1349ead6bc68a87934e6d030913
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8158d6faee5ec4d28f0c7e16963fc3d78392b857
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978966"
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Como configurar o Azure Machine Learning Workbench para trabalhar com um IDE 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 O Azure Machine Learning Workbench pode ser configurado para trabalhar com IDEs de Python populares (ambiente de desenvolvimento integrado). Permite uma experiência de desenvolvimento de ciência de dados uniforme a movimentação entre a preparação de dados, a criação de código, a execução de controlo e a operacionalização. Atualmente, os IDEs suportados são:
 - Microsoft Visual Studio Code 

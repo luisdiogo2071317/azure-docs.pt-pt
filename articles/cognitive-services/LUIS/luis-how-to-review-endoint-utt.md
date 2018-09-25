@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: O recurso de vanguarda através do LUIS é o conceito de aprendizagem ativa. Depois que o LUIS tiver consultas de ponto de extremidade, aprendizagem ativa melhora a qualidade dos resultados por expressões seleciona com que ela seja verificá-lo. Se coloca essas expressões com uma etiqueta, formar e publicar, em seguida, LUIS identifica expressões com mais precisão.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 3ec791d534fb73a9d88f2dcdb81e445d6c26ab69
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057363"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030800"
 ---
 # <a name="review-endpoint-utterances"></a>Rever pronunciações de ponto final
 

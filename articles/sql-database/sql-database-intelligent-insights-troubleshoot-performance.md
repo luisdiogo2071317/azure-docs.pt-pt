@@ -8,50 +8,50 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
-ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b6e619f75ebf6ee58f3c259b665cd38c3546d2ff
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733193"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040640"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
-Esta página fornece informações sobre problemas de desempenho de base de dados do Azure SQL que são detetados através da [informações inteligentes](sql-database-intelligent-insights.md) registo de diagnóstico de desempenho da base de dados. Este registo de diagnóstico pode ser enviado para [do Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado de alertas e relatórios capacidades.
+Esta página fornece informações sobre a base de dados do Azure SQL e detetados problemas de desempenho de instância gerida através da [informações inteligentes](sql-database-intelligent-insights.md) registo de diagnóstico de desempenho da base de dados. A telemetria de registo de diagnóstico possam ser transmitida para [do Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para alertas personalizados de DevOps e capacidades de relatórios.
 
 > [!NOTE]
-> Para um base de dados SQL desempenho Resolução de problemas Guia Rápido por meio de informações inteligentes, consulte a [recomendado a resolução de problemas de fluxo](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) fluxograma neste documento.
+> Para obter um rápido desempenho de base de dados SQL com informações inteligentes de guia de resolução de problemas, consulte a [recomendado a resolução de problemas de fluxo](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) fluxograma neste documento.
 >
 
 ## <a name="detectable-database-performance-patterns"></a>Padrões de desempenho de bases de dados detetável
 
-Informações inteligentes Deteta automaticamente os problemas de desempenho com a base de dados SQL baseada em tempos de espera de execução de consulta, erros ou tempos limite. Em seguida, gera a saída de padrões de desempenho detetados no log de diagnóstico. Padrões de desempenho detetável estão resumidos na tabela a seguir:
+Informações inteligentes Deteta automaticamente os problemas de desempenho com os bancos de dados base de dados SQL e a instância gerida com base em tempos de espera de execução de consulta, erros ou tempos limite. Ele produz os padrões de desempenho detetados no log de diagnóstico. Padrões de desempenho detetável estão resumidos na tabela abaixo.
 
-| Padrões de desempenho detetável | Detalhes de saída |
-| :------------------- | ------------------- |
-| [Alcance limites de recursos](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumo de recursos disponíveis (DTUs), threads de trabalho de base de dados ou sessões de início de sessão de banco de dados disponíveis na subscrição monitorizada atingiu limites, que faz com que os problemas de desempenho de base de dados SQL. |
-| [Aumento de carga de trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detetada o aumento de carga de trabalho ou de acumulação contínua da carga de trabalho no banco de dados, que faz com que os problemas de desempenho de base de dados SQL. |
-| [Pressão de memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os operadores que solicitou concessões de memória tem de aguardar que as alocações de memória para quantidades significativas de ponto de vista estatístico de tempo. Ou existe uma acumulação de aumento de trabalhadores que solicitou concessões de memória, que afeta o desempenho de base de dados SQL. |
-| [Bloqueio](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Bloqueio excessivo da base de dados foi detetado, que afeta o desempenho de base de dados SQL. |
-| [MAXDOP maior](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | O grau máximo da opção de paralelismo (MAXDOP) foi alterado e afeta a eficiência de execução da consulta. |
-| [Pagelatch contenção](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Foi detetada Pagelatch contenção, que afeta o desempenho de base de dados SQL. Vários threads simultaneamente tentam acessar as mesmas páginas de memória intermédia de dados na memória. Isso resulta em tempos de espera maior, que afeta o desempenho de base de dados SQL. |
-| [Índice em falta](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Foi detetado um problema de índice em falta, que afeta o desempenho de base de dados SQL. |
-| [Nova consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Foi detetada uma nova consulta, que afeta o desempenho geral da base de dados SQL. |
-| [Estatística de espera invulgar](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Foram detetados tempos de espera de base de dados fora do comum, que afeta o desempenho de base de dados SQL. |
-| [Contenção do TempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Experimente vários threads acessar os recursos de tempDB mesmo, o que faz com que um afunilamento que afete o desempenho da base de dados SQL. |
-| [Conjunto elástico insuficiência de DTU](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Uma falta de eDTUs disponíveis num conjunto elástico afeta o desempenho de base de dados SQL. |
-| [Regressão do plano](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Foi detetada um novo plano ou de uma alteração na carga de trabalho de um plano existente, que afeta o desempenho de base de dados SQL. |
-| [Alteração do valor de configuração do âmbito de base de dados](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Uma alteração de configuração na base de dados afeta o desempenho de base de dados SQL. |
-| [Cliente lentas](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Foi detetado um cliente de lenta do aplicativo que não é possível consumir o resultado da base de dados SQL rápida o suficiente, que afeta o desempenho de base de dados SQL. |
-| [Mudança para versão anterior do escalão de preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Uma ação de mudança para versão anterior do escalão preços diminuiu recursos disponíveis, que afeta o desempenho de base de dados SQL. |
+| Padrões de desempenho detetável | Descrição para a base de dados do Azure SQL e conjuntos elásticos | Descrição para bases de dados na instância gerida |
+| :------------------- | ------------------- | ------------------- |
+| [Alcance limites de recursos](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumo de recursos disponíveis (DTUs), threads de trabalho de base de dados ou sessões de início de sessão de banco de dados disponíveis na subscrição monitorizada atingiu os limites. Isto está a afetar o desempenho da base de dados SQL. | Consumo de recursos de CPU está a atingir os limites de instância gerida. Isto está a afetar o desempenho da base de dados. |
+| [Aumento de carga de trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detetada o aumento de carga de trabalho ou de acumulação contínua da carga de trabalho no banco de dados. Isto está a afetar o desempenho da base de dados SQL. | Foi detetado o aumento de carga de trabalho. Isto está a afetar o desempenho da base de dados. |
+| [Pressão de memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os operadores que solicitou concessões de memória tem de aguardar que as alocações de memória para quantidades significativas de ponto de vista estatístico de tempo. Ou existe uma acumulação de aumento de trabalhadores que solicitou concessões de memória. Isto está a afetar o desempenho da base de dados SQL. | Os operadores que solicitaram concessões de memória estão a aguardar para alocações de memória para um ponto de vista estatístico considerável de tempo. Isto está a afetar o desempenho da base de dados. |
+| [Bloqueio](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Bloqueio excessivo da base de dados foi detetada a afetar o desempenho da base de dados SQL. | Bloqueio excessivo da base de dados foi detetada a afetar o desempenho da base de dados. |
+| [MAXDOP maior](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | O grau máximo da opção de paralelismo (MAXDOP) foi alterada que afetam a eficiência de execução da consulta. Isto está a afetar o desempenho da base de dados SQL. | O grau máximo da opção de paralelismo (MAXDOP) foi alterada que afetam a eficiência de execução da consulta. Isto está a afetar o desempenho da base de dados. |
+| [Pagelatch contenção](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads em simultâneo estão a tentar acessar as páginas de memória intermédia de dados na memória mesmo resulta em tempos de espera maior e fazendo com que pagelatch contenção. Isto está a afetar a base de dados do SQL o desempenho. | Vários threads em simultâneo estão a tentar acessar as páginas de memória intermédia de dados na memória mesmo resulta em tempos de espera maior e fazendo com que pagelatch contenção. Isto está a afetar o desempenho da base de dados. |
+| [Índice em falta](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Índice ausente foi detetado que afetam o desempenho de base de dados SQL. | Índice ausente foi detetado que afetam o desempenho da base de dados. |
+| [Nova consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Nova consulta foi detetada que afetam o desempenho geral da base de dados SQL. | Nova consulta foi detetada que afetam o desempenho geral da base de dados. |
+| [Estatística de espera invulgar](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Tempos de espera de base de dados incomuns foram detetados que afetam o desempenho de base de dados SQL. | Tempos de espera de base de dados incomuns foram detetados que afetam o desempenho da base de dados. |
+| [Contenção do TempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão a tentar aceder ao mesmo recurso de TempDB provocar um estrangulamento. Isto está a afetar o desempenho da base de dados SQL. | Vários threads estão a tentar aceder ao mesmo recurso de TempDB provocar um estrangulamento. Isto está a afetar o desempenho da base de dados. |
+| [Falta DTU do conjunto elástico](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Falta de eDTUs disponíveis num conjunto elástico está a afetar o desempenho da base de dados SQL. | Não está disponível para a instância gerida como ele usa o modelo de vCore. |
+| [Regressão do plano](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Foi detetado o novo plano ou uma alteração na carga de trabalho de um plano existente. Isto está a afetar o desempenho da base de dados SQL. | Foi detetado o novo plano ou uma alteração na carga de trabalho de um plano existente. Isto está a afetar o desempenho da base de dados. |
+| [Alteração do valor de configuração do âmbito de base de dados](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Alteração de configuração na base de dados SQL foi detetada que afetam o desempenho da base de dados. | Alteração de configuração na base de dados foi detetada que afetam o desempenho da base de dados. |
+| [Cliente lentas](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Cliente de lenta do aplicativo é não é possível consumir o resultado da base de dados rápido o bastante. Isto está a afetar o desempenho da base de dados SQL. | Cliente de lenta do aplicativo é não é possível consumir o resultado da base de dados rápido o bastante. Isto está a afetar o desempenho da base de dados. |
+| [Mudança para versão anterior do escalão de preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Ação de mudança para versão anterior do escalão de preço reduzido recursos disponíveis. Isto está a afetar o desempenho da base de dados SQL. | Ação de mudança para versão anterior do escalão de preço reduzido recursos disponíveis. Isto está a afetar o desempenho da base de dados. |
 
 > [!TIP]
 > Para a otimização de desempenho contínuo de base de dados SQL, ative [otimização automática da base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esse recurso exclusivo de inteligência incorporada da base de dados SQL continuamente monitoriza a base de dados SQL, automaticamente adaptável índices e aplica-se as correções de plano de execução de consulta.
 >
 
-A secção seguinte descreve os padrões de desempenho detetável listadas anteriormente em mais detalhes.
+A secção seguinte descreve os padrões de desempenho detetável mais detalhadamente.
 
 ## <a name="reaching-resource-limits"></a>Alcance limites de recursos
 
@@ -59,11 +59,11 @@ A secção seguinte descreve os padrões de desempenho detetável listadas anter
 
 Este padrão de desempenho detetável combina os problemas de desempenho relacionados com a atingir os limites de recursos disponíveis, limites de trabalho e limites de sessão. Depois deste problema de desempenho é detectado, um campo de descrição do registo de diagnóstico indica se o problema de desempenho está relacionado com recursos, trabalho ou os limites de sessão.
 
-Recursos na base de dados SQL são normalmente denominados [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Eles consistem numa medida combinada de CPU e e/s (transações e dados de log e/s) de recursos. O padrão de atingir os limites de recursos é reconhecido quando detectado degradação do desempenho de consulta é causada por atingir qualquer um dos limites de recursos de medida.
+Recursos na base de dados SQL, normalmente, são referidos [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) recursos. O padrão de atingir os limites de recursos é reconhecido quando detectado degradação do desempenho de consulta é causada por atingir qualquer um dos limites de recursos de medida.
 
 O recurso de limites de sessão indica o número de inícios de sessão simultâneos disponíveis para a base de dados SQL. Este padrão de desempenho é reconhecido quando aplicativos que estão ligados às bases de dados SQL atingiu o número de inícios de sessão simultâneos disponíveis para a base de dados. Se as aplicações tentam utilizar mais sessões que estão disponíveis numa base de dados, o desempenho de consulta é afetado.
 
-Chegar aos limites de trabalho é um caso específico de atingir os limites de recursos porque trabalhadores disponíveis não são contabilizados na utilização DTU. Chegar aos limites de trabalho numa base de dados pode fazer com que o surgimento de tempos de espera de recursos específicos, que resulta na degradação do desempenho de consulta.
+Chegar aos limites de trabalho é um caso específico de atingir os limites de recursos porque trabalhadores disponíveis não são contabilizados na utilização DTU ou vCore. Chegar aos limites de trabalho numa base de dados pode fazer com que o surgimento de tempos de espera de recursos específicos, que resulta na degradação do desempenho de consulta.
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
@@ -229,7 +229,7 @@ O registo de diagnóstico produz os detalhes de contenção do tempDB. Pode util
 
 Para obter mais informações, consulte [introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## <a name="elastic-pool-dtu-shortage"></a>Conjunto elástico insuficiência de DTU
+## <a name="elastic-pool-dtu-shortage"></a>Falta DTU do conjunto elástico
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
@@ -283,7 +283,7 @@ Alterações de configuração de âmbito de base de dados podem ser definidas p
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-O diagnóstico de registo alterações de configuração de âmbito de base de saídas, foram feitas recentemente que causou uma degradação do desempenho em comparação comparada o comportamento de carga de trabalho de sete dias anteriores. Pode reverter as alterações de configuração para os valores anteriores. Também pode otimizar valor por valor até que o tamanho de computação desejada é atingido. Pode copiar os valores de configuração de âmbito de base de dados de uma base de dados semelhante com desempenho satisfatório. Se não for possível resolver o desempenho, reverter para os valores predefinidos do padrão de base de dados SQL e tente ajustar a partir desta linha de base.
+O diagnóstico de registo alterações de configuração de âmbito de base de saídas, foram feitas recentemente que causou uma degradação do desempenho em comparação comparada o comportamento de carga de trabalho de sete dias anteriores. Pode reverter as alterações de configuração para os valores anteriores. Também pode otimizar valor por valor até que seja atingido o nível de desempenho pretendidos. Pode copiar os valores de configuração de âmbito de base de dados de uma base de dados semelhante com desempenho satisfatório. Se não for possível resolver o desempenho, reverter para os valores predefinidos do padrão de base de dados SQL e tente ajustar a partir desta linha de base.
 
 Para obter mais informações sobre como otimizar a configuração do âmbito de base de dados e a sintaxe de T-SQL sobre a alteração da configuração, consulte [configuração do âmbito de base de dados Alter (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

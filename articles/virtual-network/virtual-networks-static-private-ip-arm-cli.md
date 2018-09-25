@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561133"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997476"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual utilizando a CLI do Azure
 
@@ -42,13 +42,13 @@ Este artigo abrange o modelo de implementação do Resource Manager. Também pod
 
 Para criar uma VM com o nome *DNS01* no *front-end* sub-rede de uma VNet com o nome *TestVNet* com um IP privado estático da *192.168.1.101*e completo os seguintes passos:
 
-1. Se ainda não ainda, instalar e configurar a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login). 
+1. Se ainda não ainda, instalar e configurar a versão mais recente [CLI do Azure](/cli/azure/install-azure-cli) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
 
 2. Criar um IP público para a VM com o [criar a rede de az public-ip](/cli/azure/network/public-ip#az_network_public_ip_create) comando. A lista apresentada depois do resultado explica os parâmetros utilizados.
 
     > [!NOTE]
     > Pode desejar ou tem de utilizar valores diferentes para seus argumentos desta e os passos subsequentes, consoante o seu ambiente.
-   
+
     ```azurecli
     az network public-ip create \
     --name TestPIP \
@@ -58,7 +58,7 @@ Para criar uma VM com o nome *DNS01* no *front-end* sub-rede de uma VNet com o n
     ```
 
     Resultado esperado:
-   
+
    ```json
    {
         "publicIp": {

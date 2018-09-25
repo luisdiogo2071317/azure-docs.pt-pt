@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: O serviço de voz permite-lhe utilizar uma única solicitação receber áudio e retornar a predição de LUIS objetos JSON. Neste artigo, baixe e use um projeto c# no Visual Studio para falar de uma expressão num microfone e receber informações de predição de LUIS. O projeto utiliza o pacote NuGet de voz, já incluído como referência.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8eff6ff3d0263708158f2fea82380e88ba4638ad
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042079"
 ---
 # <a name="integrate-speech-service"></a>Integre o serviço de voz
 O [serviço de voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar uma única solicitação receber áudio e retornar a predição de LUIS objetos JSON. Neste artigo, baixe e use um projeto c# no Visual Studio para falar de uma expressão num microfone e receber informações de predição de LUIS. O projeto utiliza a voz [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pacote, já incluída como referência. 

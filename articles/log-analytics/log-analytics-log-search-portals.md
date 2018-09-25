@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: magoedte; bwren
+ms.date: 09/17/2018
+ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 996502ffe5a31fcfa1b73dab9a041c336c4ea98f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961064"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visualizando e analisando os dados no Log Analytics
 Existem duas opções disponíveis no portal do Azure para analisar dados armazenados no Log analytics e para a criação de consultas de análise ad hoc. As consultas que crie com estes portais podem ser utilizadas para outros recursos, como alertas e dashboards.
@@ -27,7 +27,7 @@ Existem duas opções disponíveis no portal do Azure para analisar dados armaze
 ## <a name="log-analytics-page"></a>Página do log Analytics
 Abra a página do Log Analytics da **registos** no menu do Log Analytics. Esta é uma nova experiência para trabalhar com dados de registo e criação de consultas. Pode obter uma introdução a este portal e inspecionar seus recursos em [começar com a página do Log Analytics no portal do Azure](query-language/get-started-analytics-portal.md).
 
-A página do Log Analytics fornece as seguintes melhorias relativamente a [pesquisa de registos](#log-search) experiência.
+A página do Log Analytics fornece as seguintes melhorias relativamente a [pesquisa de registos (clássico)](#log-search-classic) experiência.
 
 * Vários separadores – criar guias separados para trabalhar com várias consultas.
 * Visualizações ricas – diversas opções de criação de gráficos.
@@ -44,6 +44,18 @@ A página do Log Analytics fornece as seguintes melhorias relativamente a [pesqu
 
 ![Portal de análises avançado](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
+### <a name="resource-logs"></a>Registos de recursos
+A nova experiência de Log Analytics integra-se a vários recursos do Azure como máquinas virtuais. Isso significa que pode abrir a página do Log Analytics diretamente através do menu de monitorização do recurso sem mudar para o Azure Monitor ou o Log Analytics e perder o contexto de recursos. **Registos** ainda não tiver sido ativada para todos os recursos do Azure, mas vão começar a aparecer no menu do portal para os recursos de diferentes tipos.
+
+Quando abrir o Log Analytics a partir de um recurso específico, ele tem um âmbito automaticamente para criar registos apenas desse recurso.   Se quiser escrever uma consulta que inclui outros registos, em seguida, precisaria para abri-lo no menu do Log Analytics ou no Azure Monitor.
+
+As seguintes opções ainda não estão disponíveis por meio do modo de exibição do Log Analytics:
+
+- Guardar
+- Definir alerta
+- Explorador de consultas
+- Mudar para a área de trabalho/recursos diferentes (atualmente não planejado)
+
 
 ### <a name="firewall-requirements"></a>Requisitos de firewall
 O browser requer acesso para os seguintes endereços para acessar a página do Log Analytics e o portal da análise avançada.  Se o browser estiver acessando o portal do Azure através de uma firewall, tem de ativar o acesso a estes endereços.
@@ -56,7 +68,8 @@ O browser requer acesso para os seguintes endereços para acessar a página do L
 
 
 ## <a name="log-search-classic"></a>Pesquisa de registos (clássico)
-Abra a página de pesquisa de registo da **registos (clássico)** no menu do Log Analytics ou a partir de **do Log Analytics** no menu do Azure Monitor. Isso é adequado para analisar dados de registo através de consultas básicas. Ele fornece várias funcionalidades para edição de consultas sem ter um conhecimento completo da linguagem de consulta.  Pode obter um resumo desses recursos no [pesquisas de registos de criar no Azure Log Analytics com a pesquisa de registos](log-analytics-log-search-log-search-portal.md). 
+Abra a página de pesquisa de registo da **registos (clássico)** no menu do Log Analytics ou a partir de **do Log Analytics** no menu do Azure Monitor. Esta é a página clássica usada para trabalhar com consultas do Log Analytics que não tenha o adicionais, os recursos da [página do Log Analytics](#log-analytics-page) listados acima.
+
 
 
 ![Página de pesquisa de registo](media/log-analytics-log-search-portals/log-search-portal.png)

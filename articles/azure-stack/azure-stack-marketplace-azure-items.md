@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 09/21/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 16590fe5b27c85fdb5e1fa52ec3b835eaccbb2de
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630982"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032296"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Azure Marketplace disponíveis para o Azure Stack
 
@@ -43,6 +43,8 @@ Sempre que existirem atualizações para extensões de máquina virtual (VM) que
 | ![Extensão de cópia de segurança Acronis para Windows](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão de cópia de segurança Acronis para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | A extensão de cópia de segurança Acronis para o Microsoft Azure faz parte da família Acronis cópia de segurança de produtos de proteção de dados. | GmbH internacional de Acronis. | Windows |
 | ![Extensão de SecureVM da CloudLink para Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Extensão de SecureVM da CloudLink para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar VMs com facilidade e confiança. | Dell EMC | Linux |
 | ![Extensão de SecureVM da CloudLink para Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Extensão de SecureVM da CloudLink para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar VMs com facilidade e confiança. | Dell EMC | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Agente de segurança de Cloud híbrida Kaspersky para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Com a segurança de Cloud híbrida de Kaspersky, pode aprovisionar capacidades de cibersegurança dentro as cargas de trabalho na cloud através de extensões do Azure. | Laboratório Kaspersky | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Agente de segurança de Cloud híbrida Kaspersky para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Com a segurança de Cloud híbrida de Kaspersky, pode aprovisionar capacidades de cibersegurança dentro as cargas de trabalho na cloud através de extensões do Azure. | Laboratório Kaspersky | Linux |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Imagens de máquinas virtuais do Microsoft e modelos de soluções
 
@@ -101,7 +103,7 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 
 |  | Nome do item | Descrição | Publicador |
 | --- | --- | --- | --- |
-| ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | O Router de vEOS Arista é uma funcionalidade avançada várias Clouds e router de virtual de vários hipervisores que capacita as empresas e fornecedores de cloud para criar consistente e altamente seguro e redes híbridas dimensionável. | Redes de arista |
+| ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | O vEOS Arista Router é uma nuvem de vários e avançados e router de virtual de vários hipervisores que capacita as empresas e fornecedores de cloud para criar consistente e altamente seguro e as redes de híbridos dimensionáveis. | Redes de arista |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | Comércio Eletrónico de código-fonte aberto carrinho de compras. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Mediador de mensagens de código-fonte aberto em Java. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | PIM poderosas concebido para simplificar os processos de gerenciamento. | Bitnami |
@@ -140,6 +142,7 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![JRuby](media/azure-stack-marketplace-azure-items/jruby.png) | [JRuby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jrubystack) | Implementação de Java de alto desempenho do Ruby. | Bitnami |
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Poderosas distribuído sistema de mensagens de publicação-subscrição. | Bitnami |
 | ![Cluster do Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Cluster do Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka é de publicação-subscrição rethought como um registo de consolidação distribuídas de mensagens. Esta solução melhora a confiabilidade de um cluster de Kafka através do aprovisionamento de vários mediadores Kafka e instâncias do Zookeeper. **Este modelo de solução requer também Debian 8 e o Script personalizado para a extensão do 2.0 de Linux.** | Bitnami |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Segurança de Cloud híbrida Kaspersky](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | A segurança de Cloud híbrida Kaspersky permite que um ecossistema de cibersegurança de forma totalmente integrada organizada e adaptável. | Laboratório Kaspersky |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Totalmente integrados e prontos para executar o ambiente de desenvolvimento. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | Ambiente de desenvolvimento do PHP, PostgreSQL e Apache completo. | Bitnami |
 | ![Vamos conversar](media/azure-stack-marketplace-azure-items/letschat.png) | [Vamos conversar](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Aplicação de mensagens persistentes de código-fonte aberto. | Bitnami |
@@ -231,7 +234,7 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Criar, implementar e gerir com o Chef Automate, a plataforma de automatização contínua. **Transferir ambos os itens do marketplace Chef** | Software, Inc. chef |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar VMs com facilidade e confiança. **Baixe todos os itens da CloudLink SecureVM.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM é uma plataforma de segurança abrangente que fornece ferramentas de segurança com recursos prontos para auditoria de conformidade avançadas. | EventTracker |
-| ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Balanceamento de carga avançada, GSLB, Firewall da rede, DNS, WAF e acesso da aplicação. | Redes F5 |
+| ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Advanced balanceamento de carga, GSLB, Firewall da rede, DNS, WAF e acesso da aplicação. | Redes F5 |
 | ![Área de segurança do Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Área de segurança do Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Com tecnologia HDP 2,5 plataforma 100% de código-fonte aberto para Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Comutador de conteúdo de ADC do Balanceador de carga do KEMP LoadMaster](media/azure-stack-marketplace-azure-items/kemp.png) | [Comutador de conteúdo de ADC do Balanceador de carga do KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Balanceador de carga de controlador (ADC) de entrega de aplicação de camada 4 a 7, o comutador de conteúdo e o Gestor de tráfego. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite - Conductor de várias Clouds](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Conductor de várias Clouds](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Um painel único de vidro para monitorizar, configurar, aprovisionar, automatizar e regular a qualquer carga de trabalho ou na cloud. | NRI |
@@ -241,4 +244,4 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise permite-lhe automatizar todo o ciclo de vida da sua infraestrutura do Azure Stack. **Transferir ambos os itens do Marketplace de Puppet.** | Puppet |
 | ![Recuperação rápida da Quest](media/azure-stack-marketplace-azure-items/quest.png) | [Núcleos de recuperação rápida da Quest](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Recuperação rápida de proteção de dados avançada unifica a cópia de segurança, a replicação e a recuperação numa solução de software fácil de usar. | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Gestão de infraestruturas de open source de melhor na classe. | SUSE |
-| ![Software de ZeroDown BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Continuidade do negócio ZeroDown Software como serviço](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | Tecnologia ZeroDown® Software fornece às empresas com acesso contínuo aos seus dados da empresa através do respetivo continuidade do negócio, como um serviço (BCaaS)™ arquitetura, proteger aplicações e as transações em caso de interrupções de rede que iriam Normalmente, prejudicar a empresa. | ZeroDown Software |
+| ![Software de ZeroDown BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Continuidade do negócio ZeroDown Software como serviço](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | Tecnologia ZeroDown® Software fornece às empresas com acesso contínuo aos seus dados da empresa através do respetivo continuidade do negócio, como um serviço (BCaaS)™ arquitetura, proteger aplicações e as transações, se ocorrerem de interrupções de rede que faria normalmente prejudicar a empresa. | ZeroDown Software |

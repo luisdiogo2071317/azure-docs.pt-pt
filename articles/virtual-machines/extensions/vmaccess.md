@@ -1,6 +1,6 @@
 ---
 title: Reponha o acesso a uma VM do Linux do Azure | Documentos da Microsoft
-description: Como gerir os utilizadores administrativos e reponha o acesso em VMs do Linux com a extensão VMAccess e a CLI 2.0 do Azure
+description: Como gerir os utilizadores administrativos e reponha o acesso em VMs do Linux com a extensão VMAccess e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415072"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998632"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gerir os utilizadores administrativos, SSH e verificar ou reparar discos em VMs do Linux com a extensão VMAccess com a CLI 2.0 do Azure
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerir os utilizadores administrativos, SSH e verificar ou reparar discos em VMs do Linux com a extensão VMAccess com a CLI do Azure
 ## <a name="overview"></a>Descrição geral
 O disco na sua VM do Linux está a Mostrar erros. Alguma forma repor a palavra-passe de raiz para a sua VM do Linux ou eliminado acidentalmente a chave privada SSH. Se o que aconteceu na época do Data Center, precisaria para lá da unidade e, em seguida, abra o KVM para obter a consola do servidor. Considere a extensão VMAccess do Azure como esse comutador KVM que permite-lhe aceder à consola para repor o acesso ao Linux ou realizar a manutenção de nível de disco.
 
@@ -47,10 +47,10 @@ A extensão de acesso à VM pode ser executada nessas distribuições de Linux:
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Formas de utilizar a extensão VMAccess
 Existem duas formas que pode utilizar a extensão VMAccess nas suas VMs do Linux:
 
-* Utilize a CLI 2.0 do Azure e os parâmetros necessários.
+* Utilize a CLI do Azure e os parâmetros necessários.
 * [Utilizar ficheiros JSON não processados que processam a extensão VMAccess](#use-json-files-and-the-vmaccess-extension) e, em seguida, tomar medidas.
 
-Os exemplos seguintes utilizam [utilizador de vm de az](/cli/azure/vm/user) comandos. Para executar estes passos, terá da versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Os exemplos seguintes utilizam [utilizador de vm de az](/cli/azure/vm/user) comandos. Para executar estes passos, terá da versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>Atualizar a chave SSH
 O exemplo seguinte atualiza a chave SSH para o usuário `azureuser` na VM com o nome `myVM`:

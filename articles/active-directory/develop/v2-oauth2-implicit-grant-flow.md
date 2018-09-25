@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7954a4eebaf25e2a22e5a39721098ac8db1ed8dd
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9e8d35ee606d66f5c4f6e11512247fc909ecfb9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581743"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999856"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
+
 Com o ponto final v2.0, pode iniciar a sessão de utilizadores nas suas aplicações de página única com contas pessoais e escolares/da Microsoft. Página única e outras aplicações de JavaScript que execute principalmente num rosto de navegador interessantes alguns desafios que diz respeito à autenticação:
 
 * As características de segurança destas aplicações são significativamente diferentes dos aplicativos web baseados em servidor tradicional.
@@ -33,21 +34,21 @@ Com o ponto final v2.0, pode iniciar a sessão de utilizadores nas suas aplicaç
 
 Para estas aplicações (pensar: AngularJS, ember, react. js, etc) do Azure AD suporta o fluxo de concessão implícita OAuth 2.0. O fluxo implícito está descrito com o [especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ela permite que a aplicação obter os tokens do Azure AD sem executar um servidor de back-end exchange de credencial. Isso permite que a aplicação iniciar a sessão do utilizador, manter a sessão e obtenha tokens para outras APIs web tudo dentro do cliente código JavaScript. Existem algumas considerações de segurança importante levar em conta ao utilizar o fluxo implícito - especificamente cerca [cliente](http://tools.ietf.org/html/rfc6749#section-10.3) e [representação de utilizadores](http://tools.ietf.org/html/rfc6749#section-10.3).
 
-Se pretender utilizar o fluxo implícito e o Azure AD para adicionar autenticação à sua aplicação do JavaScript, recomendamos que utilize a nossa biblioteca de JavaScript de código-fonte aberto, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js). Existem alguns tutoriais do AngularJS disponíveis [aqui](active-directory-appmodel-v2-overview.md#getting-started) para ajudar a começar. 
+Se pretender utilizar o fluxo implícito e o Azure AD para adicionar autenticação à sua aplicação do JavaScript, recomendamos que utilize a nossa biblioteca de JavaScript de código-fonte aberto, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js). Existem alguns tutoriais do AngularJS disponíveis [aqui](v2-overview.md#getting-started) para ajudar a começar.
 
 No entanto, se preferir não usar uma biblioteca na sua aplicação de página única e enviar mensagens de protocolo por conta própria, siga os passos gerais abaixo.
 
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
-> 
-> 
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
+
 O inteiro início de sessão fluxo implícito é parecido com isto - cada um dos passos são descritas detalhadamente abaixo.
 
 ![Pistas de diagrama de ligação do OpenId](./media/v2-oauth2-implicit-grant-flow/convergence_scenarios_implicit.png)
 
 ## <a name="send-the-sign-in-request"></a>Enviar o pedido de início de sessão
+
 Inicialmente iniciar a sessão do utilizador na sua aplicação, pode enviar um [OpenID Connect](v2-protocols-oidc.md) pedido de autorização e obtenha um `id_token` do ponto final v2.0:
 
 > [!IMPORTANT]
@@ -69,8 +70,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Clique na ligação abaixo para executar este pedido! Depois de iniciar sessão, o browser deve ser redirecionado para `https://localhost/myapp/` com um `id_token` na barra de endereço.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
@@ -86,12 +85,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | login_hint |opcional |Pode ser utilizado para preencher previamente o campo de endereço de e-mail/nome de utilizador de início de sessão na página do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, irão utilizar este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação. |
 | domain_hint |opcional |Pode ser um dos `consumers` ou `organizations`. Se incluído, ele irá ignorar o processo de descoberta baseada em e-mail que o utilizador passa por no sinal v2.0 na página, que leva a uma experiência de usuário ligeiramente mais simplificada. Muitas vezes, aplicações, irão utilizar este parâmetro durante a reautenticação, extraindo o `tid` o id_token de afirmação. Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad` (o Microsoft Account consumidor inquilino), deve usar `domain_hint=consumers`. Caso contrário, utilize `domain_hint=organizations`. |
 
-
 Neste momento, o usuário será solicitado para introduzir as respetivas credenciais e concluir a autenticação. O ponto final v2.0 também vai assegurar que o utilizador consentiu as permissões indicadas no `scope` parâmetro de consulta. Se o utilizador não consentiu a qualquer uma dessas permissões, pedirá ao utilizador para autorizar as permissões necessárias. Detalhes da [permissões e consentimento e aplicações multi-inquilino são fornecidas aqui](v2-permissions-and-consent.md).
 
 Depois do utilizador autentica e concede o consentimento, o ponto final v2.0 irá devolver uma resposta à sua aplicação no indicado `redirect_uri`, utilizando o método especificado no `response_mode` parâmetro.
 
 #### <a name="successful-response"></a>Resposta com êxito
+
 Uma resposta com êxito utilizando `response_mode=fragment` e `response_type=id_token+token` se parece com o seguinte, com quebras de linha para melhorar a legibilidade:
 
 ```
@@ -110,10 +109,11 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |If incluído `response_type` inclui `token`. Será sempre `Bearer`. |
 | expires_in |If incluído `response_type` inclui `token`. Indica o número de segundos que o token for válido, para fins de colocação em cache. |
 | scope |If incluído `response_type` inclui `token`. Indica os âmbitos que se para o qual o access_token será válido. |
-| id_token |O id_token que solicitou a aplicação. Pode usar o id_token para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Obter mais detalhes sobre id_tokens e seu conteúdo está incluído nos [referência de token de ponto final de v2.0](v2-id-and-access-tokens.md). |
+| id_token      | Um não assinados JSON Web Token (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
 | state |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
 
 #### <a name="error-response"></a>Resposta de erro
+
 Respostas de erro também podem ser enviadas para o `redirect_uri` para que a aplicação pode processar corretamente:
 
 ```
@@ -128,9 +128,10 @@ error=access_denied
 | error_description |Uma mensagem de erro específicas que pode ajudar a identificar a causa de raiz de um erro de autenticação do desenvolvedor. |
 
 ## <a name="validate-the-idtoken"></a>Validar o id_token
+
 Não é suficiente para autenticar o usuário; apenas receber uma id_token tem de validar a assinatura o id_token e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Utiliza o ponto final v2.0 [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
-Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [referência de token de v2.0](v2-id-and-access-tokens.md) para obter mais informações, incluindo [validar Tokens](v2-id-and-access-tokens.md#validating-tokens) e [importante informações sobre como assinar Rollover de chave](v2-id-and-access-tokens.md#validating-tokens). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
+Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [validar Tokens](id-tokens.md#validating-idtokens) e [importante informações sobre como assinar Rollover de chave](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
 <!--TODO: Improve the information on this-->
 
 Também pode pretender validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
@@ -139,11 +140,10 @@ Também pode pretender validar afirmações adicionais, dependendo do seu cenár
 * Garantir que o usuário tem autorização/privilégios apropriados
 * Garantir que um determinada força da autenticação tiver ocorrido, como a autenticação multifator.
 
-Para obter mais informações sobre as afirmações numa id_token, consulte a [referência de token de ponto final de v2.0](v2-id-and-access-tokens.md).
-
-Depois de validar o id_token completamente, pode iniciar uma sessão com o utilizador e utilizar as afirmações no id_token para obter informações sobre o utilizador na sua aplicação. Estas informações podem ser utilizadas para apresentar, registos, substituindo as autorizações, etc.
+Depois de validar o id_token completamente, pode iniciar uma sessão com o utilizador e utilizar as afirmações no id_token para obter informações sobre o utilizador na sua aplicação. Estas informações podem ser utilizadas para apresentar, registos, personalização, etc.
 
 ## <a name="get-access-tokens"></a>Obter os tokens de acesso
+
 Agora que o utilizador ter iniciado sessão na sua aplicação de página única, pode obter os tokens de acesso para chamadas de web APIs protegidas pelo Azure AD, como o [Microsoft Graph](https://graph.microsoft.io). Mesmo que já recebeu um token através do `token` response_type, pode utilizar este método para adquirir tokens para recursos adicionais sem ter de redirecionar o utilizador iniciar sessão novamente.
 
 No fluxo de OpenID Connect/OAuth normal, pode fazê-lo fazendo uma solicitação para a versão 2.0 `/token` ponto final. No entanto, o ponto final v2.0 não suporta solicitações CORS, portanto, fazer chamadas AJAX para obter e tokens de atualização está fora da pergunta. Em vez disso, pode utilizar o fluxo implícito num iframe oculto para obter novos tokens para outras APIs web: 
@@ -164,8 +164,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Tente copiar e colar o abaixo pedido num separador do browser! (Não se esqueça de substituir a `domain_hint` e o `login_hint` valores com os valores corretos para o seu utilizador)
-> 
-> 
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint={{consumers-or-organizations}}&login_hint={{your-username}}
@@ -188,6 +186,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 Graças ao `prompt=none` parâmetro, este pedido será o êxito ou falhar de imediato e retorne ao seu aplicativo. Uma resposta com êxito será enviada para a sua aplicação no indicado `redirect_uri`, utilizando o método especificado no `response_mode` parâmetro.
 
 #### <a name="successful-response"></a>Resposta com êxito
+
 Uma resposta com êxito utilizando `response_mode=fragment` se parece com:
 
 ```
@@ -208,6 +207,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope |Os âmbitos que o token de acesso é válido para. |
 
 #### <a name="error-response"></a>Resposta de erro
+
 Respostas de erro também podem ser enviadas para o `redirect_uri` para que a aplicação pode processar corretamente. No caso de `prompt=none`, será um erro inesperado:
 
 ```
@@ -231,12 +231,14 @@ Assim que receber um access_token, certifique-se validar a assinatura de token, 
 * **emissor** alegam, certifique-se de que o token foi emitido para a sua aplicação, o ponto final v2.0
 * **não antes** e **hora de expiração** afirma, certifique-se de que o token não expirou
 
-Para obter mais informações sobre as ações presentes no token de acesso, consulte o [referência de token de ponto final de v2.0](v2-id-and-access-tokens.md)
+Para obter mais informações sobre as ações presentes no token de acesso, consulte o [referência de token de acesso](access-tokens.md)
 
 ## <a name="refreshing-tokens"></a>Atualizar tokens
+
 A concessão implícita não fornece tokens de atualização. Ambos `id_token`s e `access_token`s irá expirar após um curto período de tempo, para que a sua aplicação tem de estar preparada para atualizar estes tokens periodicamente. Para atualizar de qualquer tipo de token, pode executar o mesmo pedido de iframe ocultos from above usando o `prompt=none` parâmetro para controlar o comportamento do Azure AD. Se pretender receber uma nova `id_token`, certifique-se de que utiliza `response_type=id_token` e `scope=openid`, bem como um `nonce` parâmetro.
 
 ## <a name="send-a-sign-out-request"></a>Enviar um pedido de sessão
+
 O OpenIdConnect `end_session_endpoint` permite à aplicação enviar um pedido para o ponto final v2.0 para terminar uma sessão de utilizador e desmarque cookies definidos pelo ponto final v2.0. Para assinar totalmente um utilizador de um aplicativo web, a aplicação deve terminar sua própria sessão com o utilizador (normalmente, limpar a cache de tokens ou remover cookies) e, em seguida, redirecionar o browser para:
 
 ```

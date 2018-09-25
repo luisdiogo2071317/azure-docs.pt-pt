@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Um objetivo representa uma tarefa ou ação o usuário quer executar. É um objetivo ou objetivo expressado na expressão de um utilizador. Defina um conjunto de objetivos que corresponde a ações que os usuários querem tirar em seu aplicativo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fcc14d2a7273a586386dc4da1f218d50d8aa9aef
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cfad122b44944cfb637d8ef98931410d60c81ab8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629717"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041177"
 ---
 # <a name="intents-in-luis"></a>Objetivos de LUIS
 

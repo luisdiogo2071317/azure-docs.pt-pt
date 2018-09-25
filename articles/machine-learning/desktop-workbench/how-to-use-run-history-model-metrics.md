@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 52b02460d444464211fc74c8982379424abebb5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647278"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965524"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como o histórico de execuções de utilização e métricas de modelo no Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 O Azure Machine Learning Workbench oferece suporte a experimentação de ciência de dados por meio de seus **histórico de execuções** e **métricas de modelo** funcionalidades.
 **Histórico de execuções** fornece um meio para controlar as saídas das suas experimentações de machine learning e, em seguida, permite a filtragem e comparação dos seus resultados.
@@ -27,8 +32,8 @@ Este artigo descreve como fazer uso eficiente desses recursos para aumentar a ta
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de procedimentos, terá de:
-* [Criar e instalar o Azure Machine Learning](../service/quickstart-installation.md)
-- [Criar um projeto](../service/quickstart-installation.md)
+* [Criar e instalar o Azure Machine Learning](quickstart-installation.md)
+- [Criar um projeto](quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Descrição geral da API de registo do Azure ML
@@ -51,7 +56,7 @@ logger.log("all values", [5, 6, 7])
 É fácil de usar o agente de log nos seus projetos de Azure ML Workbench e este artigo mostra-lhe como fazer isso.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Criar um projeto no Azure ML Workbench
-Se ainda não tiver um projeto, pode criar um a [criar e instalar o início rápido](../service/quickstart-installation.md) da **Dashboard do projeto**, pode abrir o **iris_sklearn. PY** (do script conforme mostrado).
+Se ainda não tiver um projeto, pode criar um a [criar e instalar o início rápido](quickstart-installation.md) da **Dashboard do projeto**, pode abrir o **iris_sklearn. PY** (do script conforme mostrado).
 
 ![aceder a um script do separador de ficheiros](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 

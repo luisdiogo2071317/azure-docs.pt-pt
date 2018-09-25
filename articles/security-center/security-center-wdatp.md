@@ -1,5 +1,5 @@
 ---
-title: Windows Defender avançadas de proteção contra ameaças (ATP) com o Centro de segurança do Azure (pré-visualização pública) | Documentos da Microsoft
+title: O Windows Defender proteção avançada contra ameaças (ATP) com o Centro de segurança do Azure | Documentos da Microsoft
 description: Este documento apresenta a integração entre o Centro de segurança do Azure e o Windows Defender ATP.
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: f2cb4edd469d76f79e4134ca261bac5263bf3ce4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5f604583aeb9a633d34bad633008e0c2ddeb3ef2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296062"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032041"
 ---
-# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center-public-preview"></a>Windows Defender avançadas de proteção contra ameaças (ATP) com o Centro de segurança do Azure (pré-visualização pública)
+# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças (ATP) com o Centro de segurança do Azure
 
 Centro de segurança do Azure é expandir a sua oferta de plataformas de proteção de carga de trabalho de nuvem (CWPP) através da integração com o [do Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
 Esta alteração oferece capacidades abrangentes de ponto final de deteção e resposta (EDR). Permite-lhe detetar anomalias, detetar e responder a ataques avançados em pontos finais de servidor monitorizados pelo ASC.
@@ -43,7 +43,7 @@ Estas capacidades estão agora disponíveis no Centro de segurança do Azure:
 
 ![* Figura 1 a ver a imagem inteira ao investigar incluindo alertas gerados pelo ASC *](media/security-center-wdatp/image1.png)
 
-Pode investigar o alerta no Centro de segurança do Azure:
+Pode [investigar](security-center-investigation.md) o alerta no Centro de segurança do Azure:
 
 ![Figura 2 investigação - Centro de segurança do Azure](media/security-center-wdatp/image2.png)
 
@@ -59,7 +59,15 @@ Apenas os servidores em subscrições no escalão Standard
 
 ## <a name="onboarding-instructions"></a>Instruções de inclusão
 
-- Se já carregada os servidores para o escalão standard do ASC - nenhuma ação necessária, ASC irá carregar automaticamente servidores para WDATP.
+Para ver se a integração do Windows Defender ATP estiver ativada, pode selecionar Centro de segurança > política de segurança > subscrição > Editar definições
+
+  ![Ver a política](media/security-center-wdatp/policy-management.png)
+
+Aqui pode ver as integrações atualmente ativadas
+
+  ![Integrações ativadas](media/security-center-wdatp/enable-integrations.png)
+
+- Se já carregada os servidores para o escalão standard do ASC - nenhuma ação necessária, ASC irá carregar automaticamente os servidores WDATP. Isto pode demorar até 24 horas.
 
 - Se nunca integrado a servidores do padrão de ASC camada – integrar ao ASC como de costume.
 
@@ -81,7 +89,7 @@ Se tiver um proxy ou firewall que está a bloquear tráfego anônimo, tal como o
 
 1. RDP para uma das VMs do Windows Server (2012R2 ou 2016) na subscrição e abra uma janela da linha de comandos
 
-2. Na linha de comandos, copie e execute o comando abaixo. Tenha em atenção que a janela da linha de comando será fechado automaticamente.
+2. Na linha de comandos, copie e execute o comando abaixo. A janela da linha de comando será fechado automaticamente.
 
     **PowerShell.exe - NoExit - ExecutionPolicy omissão - NONE oculta (novo objeto WebClient). DownloadFile ('http://127.0.0.1/1.exe', ' c:\\WDATP-teste-teste\\invoice.exe'); Iniciar o processo "c:\\WDATP-teste-teste\\invoice.exe' * *
 
@@ -95,6 +103,6 @@ Se tiver um proxy ou firewall que está a bloquear tráfego anônimo, tal como o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-* [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
-* [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
+- [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+- [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
+- [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.

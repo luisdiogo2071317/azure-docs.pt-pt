@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 085df618eb6d3eb78e42261d1b324c3a2374877b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123390"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036206"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>referência de Host. JSON para as funções do Azure
 
@@ -442,6 +442,12 @@ Definições de configuração para os registos que criar utilizando um `TraceWr
 |---------|---------|---------| 
 |consoleLevel|informações|O nível de rastreio para o registo da consola. As opções são: `off`, `error`, `warning`, `info`, e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreio para o registo do ficheiro. As opções são `never`, `always`, `debugOnly`.| 
+
+## <a name="version"></a>versão
+
+*Versão 2.x*
+
+A cadeia de versão `"version": "2.0"` é necessária para uma aplicação de função que tenha como destino o tempo de execução do v2.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

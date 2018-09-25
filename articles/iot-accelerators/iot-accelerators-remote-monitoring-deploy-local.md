@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 966af342937a36adc5932a7a4c92ee127723b4a0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295738"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034982"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementar localmente a acelerador de soluções de monitorização remota
 
@@ -39,58 +39,47 @@ Para concluir a implementação de local, terá das seguintes ferramentas instal
 
 O repositório GitHub monitorização remota de código de origem inclui os ficheiros de configuração do Docker que tem de transferir, configurar e executar as imagens do Docker que contêm os microsserviços. Clonar e criar uma versão local do repositório, utilize o seu ambiente de linha de comandos para navegar para uma pasta adequada no seu computador local e, em seguida, execute um dos seguintes comandos:
 
-Para instalar as implementações de Java dos microsserviços, execute:
+Para transferir a versão mais recente das implementações de microsserviços Java, execute:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
+cd azure-iot-pcs-remote-monitoring-java
+git submodule foreach git pull origin master
 ```
 
-Para instalar as implementações do .net dos microsserviços, execute:
+Para transferir a versão mais recente das implementações de microsserviços .NET, execute:
 
 ```cmd\sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+cd azure-iot-pcs-remote-monitoring-dotnet
+git submodule foreach git pull origin master
 ```
 
 > [!NOTE]
-> Estes comandos Baixe o código-fonte para todos os microsserviços são. Apesar de não precisar do código-fonte para executar os microsserviços no Docker, o código-fonte é útil se pretender mais tarde modificar o acelerador de solução e testar as suas alterações localmente.
+> Estes comandos Baixe o código-fonte para todos os microsserviços, além dos scripts que utiliza para executar os microsserviços localmente. Apesar de não precisar do código-fonte para executar os microsserviços no Docker, o código-fonte é útil se pretender mais tarde modificar o acelerador de solução e testar as suas alterações localmente.
 
 ## <a name="deploy-the-azure-services"></a>Implementar os serviços do Azure
 
-Embora este artigo mostra como executar os microsserviços localmente, dependem de serviços do Azure em execução na cloud. Pode implementar estes serviços do Azure [manualmente através do portal do Azure](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), ou utilize o script fornecido. Os exemplos de script seguintes partem do princípio de que estiver a utilizar o repositório .NET num computador Windows. Se estiver trabalhando em outro ambiente, ajuste adequadamente os caminhos, extensões de ficheiro e os separadores de caminho. Para utilizar os scripts fornecidos:
+Embora este artigo mostra como executar os microsserviços localmente, dependem de serviços do Azure em execução na cloud. Pode implementar estes serviços do Azure [manualmente através do portal do Azure](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), ou utilize o script fornecido. Os exemplos de script seguintes partem do princípio de que estiver a utilizar o repositório .NET num computador Windows. Se estiver trabalhando em outro ambiente, ajuste adequadamente os caminhos, extensões de ficheiro e os separadores de caminho. Para utilizar os scripts fornecidos para:
 
 ### <a name="create-new-azure-resources"></a>Criar novos recursos do Azure
 
-Se ainda não tiver criado os recursos do Azure necessários, siga estes passos:
+Se ainda não criou os recursos do Azure necessários, siga estes passos:
 
 1. No seu ambiente de linha de comandos, navegue para o **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** pasta na sua cópia clonada do repositório.
 
-2. Executar o **start.cmd** do script e siga as instruções. O script pede-lhe as seguintes informações:
+2. Executar o **start.cmd** do script e siga as instruções. O script pede-lhe para iniciar sessão sua conta do Azure e reinicie o script. O script, em seguida, pede-lhe as seguintes informações:
     * Um nome de solução.
     * A subscrição do Azure que deve utilizar.
     * A localização do datacenter do Azure para utilizar.
 
     O script cria o grupo de recursos no Azure com o nome da sua solução. Este grupo de recursos contém os recursos do Azure que utiliza o solution accelerator.
 
-3. No seu ambiente de linha de comandos, navegue para o **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** pasta na sua cópia clonada do repositório.
-
-4. Executar o **set-env-uri.cmd** script.
-
-5. Atualizar seu submódulos git para se certificar de que tem as versões mais recentes: `cd <repo-name>` e, em seguida, execute o seguinte comando `git submodule foreach git pull origin master`
-
-> [!NOTE]
-> Se tem um clone azure-iot-pcs-remote-monitoring-dotnet repositório, na pasta de scripts está presente em submodule de serviços (pasta). Este script pode exigir privilégios administrativos ou permissão de sudo como tentar instalar o [pcs-cli](https://github.com/Azure/pcs-cli).
+3. Quando o script tiver concluído, ele exibe uma lista de variáveis de ambiente. Siga as instruções para guardar estas variáveis para o **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** ficheiro.
 
 ### <a name="use-existing-azure-resources"></a>Utilizar recursos do Azure existentes
 
-Se já tiver criado os recursos do Azure necessários e só precisa de atualizá-las, execute apenas **um** dos seguintes procedimentos:
-
-* Defina as variáveis de ambiente globalmente no seu computador.
-* **VS Code:** definir as variáveis de ambiente na configuração do início ao editar o **Launch** ficheiro.
-* **Visual Studio:** definir as variáveis de ambiente para o projeto WebService dos microsserviços ao adicioná-la para **propriedades > depurar > variáveis de ambiente**.
-
-Por fim, atualize seu submódulos git para se certificar de que tem as versões mais recentes: `cd <repo-name>` e, em seguida, execute o seguinte comando `git submodule foreach git pull origin master`.
-
-Embora não seja recomendado, as variáveis de ambiente também podem ser definidas no ficheiro de appsettings.ini presente na pasta do serviço Web para cada uma dos microsserviços.
+Se já tiver criado os recursos do Azure necessários editar as definições de variável de ambiente no **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** ficheiro com os valores necessários. O **. env** arquivo contém informações detalhadas sobre onde encontrar os valores necessários.
 
 ## <a name="run-the-microservices-in-docker"></a>Execute os microsserviços no Docker
 

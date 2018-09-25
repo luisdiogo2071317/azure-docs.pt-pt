@@ -13,14 +13,19 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650453"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995521"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Aprendizagem profunda para cenários do mundo real de manutenção preditiva
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Aprendizagem profunda é uma das tendências mais populares no machine learning e tem aplicações em diversas áreas, incluindo:
 - Carros de frotas e robótica.
@@ -75,7 +80,7 @@ Este comando fornece uma chave de autenticação a ser utilizado com o https:\\a
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-É preferível executar numa [Máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) requisitos de memória e disco. Depois da DSVM estiver configurada, prepare o ambiente do Docker remoto com os dois comandos seguintes:
+É preferível executar numa [Máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) requisitos de memória e disco. Depois da DSVM estiver configurada, prepare o ambiente do Docker remoto com os dois comandos seguintes:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

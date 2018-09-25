@@ -1,6 +1,6 @@
 ---
-title: Abrir portas para uma VM do Linux com a CLI 2.0 do Azure | Documentos da Microsoft
-description: Saiba como abrir uma porta / criar um ponto final para a sua VM do Linux com o modelo de implementação do Gestor de recursos do Azure e a CLI 2.0 do Azure
+title: Abrir portas para uma VM do Linux com a CLI do Azure | Documentos da Microsoft
+description: Saiba como abrir uma porta / criar um ponto final para a sua VM do Linux com o modelo de implementação do Gestor de recursos do Azure e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4244520fa30fece53e1d01e50044cfeca496066c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928894"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973342"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e pontos finais para uma VM do Linux com a CLI do Azure
-Abrir uma porta ou criar um ponto de extremidade, a uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou a interface de rede VM. Estes filtros que controlam o tráfego de entrada e saído, coloca num grupo de segurança de rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da web na porta 80. Este artigo mostra como abrir uma porta para uma VM com a CLI 2.0 do Azure. 
 
-Para criar um grupo de segurança de rede e regras que tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Abrir uma porta ou criar um ponto de extremidade, a uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou a interface de rede VM. Estes filtros que controlam o tráfego de entrada e saído, coloca num grupo de segurança de rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da web na porta 80. Este artigo mostra como abrir uma porta para uma VM com a CLI do Azure. 
+
+
+Para criar um grupo de segurança de rede e regras que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup*, e *myVnet*.
 

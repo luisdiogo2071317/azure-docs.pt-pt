@@ -3,19 +3,22 @@ title: Corrigir um erro de ligação de SQL, erro transitório | Documentos da M
 description: Saiba como resolver problemas, diagnosticar e evitar um erro de ligação de SQL ou um erro transitório na base de dados do Azure SQL.
 keywords: ligação de SQL, cadeia de ligação, problemas de conectividade, erro transitório, erro de ligação
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: dalechen
 ms.author: ninarn
-ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398942"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064242"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Resolver problemas, diagnosticar e prevenir erros de ligação e erros transitórios do SQL para a Base de Dados SQL
 Este artigo descreve como impedir, resolução de problemas, diagnosticar e mitigar erros de ligação e erros transitórios que seu aplicativo de cliente encontra quando interage com a base de dados do Azure SQL. Saiba como configurar a lógica de repetição, criar a cadeia de ligação e ajustar as outras definições de ligação.

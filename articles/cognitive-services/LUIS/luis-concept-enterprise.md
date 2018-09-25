@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Compreenda os conceitos de design para aplicações de LUIS grandes.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 80d73620d11312a386a406d9a49d9223295b42f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3782874ac69b299e24cf1555b290a9d2d86b6285
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631383"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038345"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias da empresa para uma aplicação LUIS
 Reveja essas estratégias de design para a sua aplicação empresarial.

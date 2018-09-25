@@ -1,24 +1,26 @@
 ---
-title: Adicionar dados de LUIS ao Application Insights com c# | Documentos da Microsoft
-titleSuffix: Azure
+title: Dados de informações da aplicação do LUIS usando a linguagem c#
+titleSuffix: Azure Cognitive Services
 description: Crie um bot integrado com um aplicativo de LUIS e Application Insights com c#.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 83ad70e1242af1e01af06206a3a141f455072a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237796"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038957"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Adicionar o LUIS resultados para o Application Insights a partir de um bot de aplicação web
-Este tutorial adiciona informações de resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
+# <a name="add-luis-results-to-application-insights"></a>Adicionar o LUIS resultados para o Application Insights
+Este tutorial adiciona informações de resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS. 
+
+O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -231,7 +233,7 @@ O Application Insights dá-lhe o poder para consultar os dados com o [Kusto](htt
     ![Relatório de análise personalizada](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
 
-Saiba mais sobre o [linguagem de consulta de Kusto](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) ou [exportar os dados para o Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Saiba mais sobre o [linguagem de consulta de Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou [exportar os dados para o Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre arquitetura de Bot

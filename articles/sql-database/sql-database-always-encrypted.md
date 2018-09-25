@@ -3,19 +3,22 @@ title: 'Sempre encriptado: SQL Database do Azure - arquivo de certificados do Wi
 description: Este artigo mostra-lhe como proteger dados confidenciais numa base de dados SQL com a encriptação de base de dados utilizando o assistente encriptado sempre no SQL Server Management Studio (SSMS). Ele também mostra como armazenar as chaves de encriptação no arquivo de certificados do Windows.
 keywords: encriptar dados, a criptografia do sql, a encriptação de base de dados, dados confidenciais, Always Encrypted
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: c6656a1ef5e52782461d9b9e7106ff81eb3983ee
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviwer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4c9b2099308bc6a239a72fe2ebe559cdfa2fd3a1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544052"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064225"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptado: Proteger dados confidenciais na base de dados SQL e armazenar suas chaves de encriptação no arquivo de certificados do Windows
 

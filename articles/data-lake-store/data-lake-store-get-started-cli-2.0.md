@@ -1,6 +1,6 @@
 ---
-title: Interface de utilização do Azure 2.0 da linha de comandos para começar a utilizar com a geração 1 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Utilize a linha de comandos para várias plataformas do Azure 2.0 para criar uma conta de geração 1 de armazenamento do Data Lake e executar operações básicas
+title: Utilizar a CLI do Azure para começar a utilizar com a geração 1 de armazenamento do Azure Data Lake | Documentos da Microsoft
+description: Utilizar a CLI do Azure para criar uma conta de geração 1 de armazenamento do Data Lake e executar operações básicas
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,26 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b75fc3a96ce4e46fbd9efb03aa2ea9c2c4aaa15c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124784"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979071"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Introdução ao Azure Data Lake Storage Gen1 com a CLI 2.0 do Azure
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Store com a CLI do Azure
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
+> * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+Saiba como utilizar a CLI do Azure para criar uma conta de geração 1 de armazenamento do Azure Data Lake e executar operações básicas, tais como criar pastas, carregar e transferem ficheiros de dados, eliminar a conta, entre outras. Para obter mais informações sobre a geração 1 de armazenamento do Data Lake, veja [descrição geral do Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Aprenda a utilizar a CLI 2.0 do Azure para criar uma conta de geração 1 de armazenamento do Azure Data Lake e executar operações básicas, tais como criar pastas, carregar e transferem ficheiros de dados, eliminar a conta, etc. Para obter mais informações sobre a geração 1 de armazenamento do Data Lake, veja [descrição geral do Data Lake Storage Gen1](data-lake-store-overview.md).
-
-A CLI 2.0 do Azure é nova experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para obter mais informações, consulte [Overview of Azure CLI 2.0 (Descrição geral da CLI 2.0 do Azure)](https://docs.microsoft.com/cli/azure). Também pode ver o [referência da CLI 2.0 do Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e sintaxe.
+A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para obter mais informações, consulte [descrição geral da CLI do Azure](https://docs.microsoft.com/cli/azure). Também pode ver o [referência da CLI do Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e sintaxe.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,7 +35,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **CLI 2.0 do Azure** - Consulte [Install Azure CLI 2.0 (Instalar a 2.0 CLI do Azure)](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
+* **CLI do Azure** -veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -164,7 +162,7 @@ O resultado deve ser semelhante ao seguinte:
 
 ## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Trabalhar com as permissões e ACLs de uma conta de geração 1 de armazenamento do Data Lake
 
-Nesta secção, saiba mais sobre como gerir ACLs e permissões com a CLI 2.0 do Azure. Para uma discussão detalhada sobre como as ACLs estão implementadas na geração 1 de armazenamento do Azure Data Lake, veja [controlo de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
+Nesta secção, saiba mais sobre como gerir ACLs e permissões com a CLI do Azure. Para uma discussão detalhada sobre como as ACLs estão implementadas na geração 1 de armazenamento do Azure Data Lake, veja [controlo de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * **Para atualizar o proprietário de um ficheiro/pasta**, utilize o seguinte comando:
 

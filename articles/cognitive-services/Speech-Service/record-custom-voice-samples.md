@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 31bfe954a58d232408fd66a1f98911e079824fb0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3e9907450680d6984a644b43014ba90b1a9d987e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715215"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991934"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -105,11 +105,11 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 
 |Origem de texto|Descrição|
 |-|-|
-|[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1,100 frases selecionadas a partir de fora de copyright funciona especificamente para uso em projetos de síntese de fala. Um ponto de partida excelente.|
-|Já não funciona<br>autorais|Normalmente, funciona publicado antes 1923. Para inglês, [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, porque o idioma será mais de perto como inglês modernos.|
-|Governo&nbsp;funciona|Funciona que é criada pelo Governo dos Estados Unidos não é protegidos por direitos autorais nos Estados Unidos, embora o Governo poderá solicitar copyright em outros países.|
-|Domínio público|Funciona para os quais direitos de autor tenham sido explicitamente isenta ou que tem sido dedicada para o domínio público. (Pode não ser possível para renunciaremos aos direitos de autor inteiramente em alguns jurisdições.)|
-|Funciona permissively licenciado|Funciona distribuída sob uma licença, como Creative Commons ou a licença GNU documentação gratuitas (GFDL). Wikipedia utiliza o GFDL. Algumas licenças, no entanto, podem impor restrições sobre o desempenho do conteúdo licenciado que pode afetar a criação de um modelo de voz personalizadas, por isso, leia a licença com atenção.|
+|[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 frases selecionadas a partir de fora de copyright funciona especificamente para uso em projetos de síntese de fala. Um ponto de partida excelente.|
+|Já não funciona<br>autorais|Normalmente funciona publicado antes 1923. Para inglês, [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, como o idioma será mais de perto como inglês modernos.|
+|Governo&nbsp;funciona|Funciona criada pelo Governo dos Estados Unidos não é protegidos por direitos autorais nos Estados Unidos, embora o Governo poderá solicitar copyright em outros países.|
+|Domínio público|Funciona para os quais direitos de autor tenham sido explicitamente isenta ou que tem sido dedicada para o domínio público. (Ele pode não ser possível renunciaremos aos direitos de autor inteiramente em alguns jurisdições.)|
+|Funciona permissively licenciado|Como o Works distribuídos sob uma licença Creative Commons ou a licença GNU documentação gratuitas (GFDL). Wikipedia utiliza o GFDL. Algumas licenças, no entanto, podem impor restrições sobre o desempenho do conteúdo licenciado que possam afetar a criação de um modelo de voz personalizadas, por isso, leia a licença com atenção.|
 
 ## <a name="recording-your-script"></a>Gravar o seu script
 
@@ -150,7 +150,7 @@ Aqui, é utilizada a maior parte do intervalo (altura), mas os mais elevados pic
 
 Registo diretamente para o computador utilizando uma interface de áudio de alta qualidade ou uma porta USB, consoante o mic está a utilizar. Para analógicas, manter a cadeia de áudio simples: mic, preamp, interface de áudio, computador. Pode licenciar ambos [ávido ferramentas Pro](http://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) mensal a um custo razoável. Se o orçamento é extremamente curto, experimente gratuitamente [Audacity](https://www.audacityteam.org/).
 
-Gravar em 44.1-KHz 16 bits monophonic (qualidade de CD) ou melhor. O estado atual de arte é 48-KHz 24 bits, se seu equipamento de oferecer suporte a ele. Será downsample o áudio a 16 KHz 16 bits antes de enviá-lo para o portal de voz personalizada. Ainda assim, vale a pena ter uma alta qualidade original gravar no caso de edições são necessários.
+Registe 44.1 kHz 16 bits monophonic (CD qualidade) ou melhor. Atual-de-modernas são 48 kHz 24 bits, se seu equipamento de oferecer suporte a ele. Irá dimensionar o áudio a 16 kHz 16 bits antes de enviá-lo para o portal de voz personalizada. Ainda assim, vale a pena ter uma alta qualidade original gravar no caso de edições são necessários.
 
 O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e talento. Não tente fazê-lo a todos por conta própria. Numa situação de emergência, uma pessoa pode ser o diretor e o engenheiro.
 
@@ -198,7 +198,7 @@ Dê quebras regulares e fornecer um café para ajudar o seu talento de voz, mant
 
 ### <a name="after-the-session"></a>Após a sessão
 
-Os estúdios de gravação modernos executam em computadores. No final da sessão, recebe uma ou mais arquivos de áudio, não uma banda. Estes ficheiros serão provavelmente WAV ou AIFF formato na qualidade de CD (44.1 KHz 16-bit) ou melhor. 48 kHz 24 bits é comum e desejável. Em geral, as taxas de amostragem mais elevadas, por exemplo, 96 KHz, não são necessários.
+Os estúdios de gravação modernos executam em computadores. No final da sessão, recebe uma ou mais arquivos de áudio, não uma banda. Estes ficheiros serão provavelmente WAV ou AIFF formato na qualidade de CD (44.1 kHz 16-bit) ou melhor. 48 kHz 24 bits é comum e desejável. Em geral, as taxas de amostragem mais elevadas, por exemplo, 96 kHz, não são necessários.
 
 O portal de voz personalizada requer que cada ocorrência de pronunciação fornecida para estar em seu próprio arquivo. Cada arquivo de áudio fornecido pelo studio contém várias expressões. Assim, a principal tarefa pós-produção é dividir as gravações e prepará-los para a submissão. O engenheiro de gravação pode ter inserido marcadores no arquivo (ou fornecida uma lista de indicação separado) para indicar onde começa cada ocorrência de pronunciação.
 
@@ -208,7 +208,7 @@ Deixe apenas cerca de 0,2 segundos de silêncio no início e no final de cada cl
 
 Ouça a cada ficheiro com cuidado. Nesta fase, pode editar pequeno sons indesejável que tenha perdido durante a gravação, como um smack lip ligeira antes de uma linha, mas tenha cuidado para não remover qualquer voz real. Se não é possível corrigir um arquivo, removê-lo a partir do seu conjunto de dados e observe que tenha feito.
 
-Converta cada ficheiro de 16 bits e uma taxa de amostragem de 16 KHz antes de salvá-lo e, se registou studio chatter, remova o segundo canal. Guarde cada ficheiro no formato WAV e nomes aos ficheiros, incluindo o número de expressão do seu script.
+Converter cada ficheiro de 16 bits e uma taxa de amostragem de 16 kHz antes de guardar e, se registou o chatter studio, remova o segundo canal. Guarde cada ficheiro em formato WAV, nomear os ficheiros com o número de expressão do seu script.
 
 Por fim, crie o *transcrição* que associa cada arquivo WAV com uma versão de texto da expressão correspondente. [Criar tipos de voz personalizada](how-to-customize-voice-font.md) inclui detalhes sobre o formato necessário. Pode copiar o texto diretamente a partir do seu script. Em seguida, crie um ficheiro Zip dos arquivos WAV e a transcrição de texto.
 

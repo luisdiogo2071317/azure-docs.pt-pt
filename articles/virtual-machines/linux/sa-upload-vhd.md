@@ -1,6 +1,6 @@
 ---
-title: Carregar um disco de Linux personalizado com a CLI 2.0 do Azure | Documentos da Microsoft
-description: Criar e carregar um disco rígido virtual (VHD) para o Azure com o modelo de implementação do Resource Manager e o Azure CLI 2.0
+title: Carregar um disco de Linux personalizado com a CLI do Azure | Documentos da Microsoft
+description: Criar e carregar um disco rígido virtual (VHD) para o Azure com o modelo de implementação do Resource Manager e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,22 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 4b05c4c7db1e1c1953af2466d2c6a277baa07082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737350"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966508"
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Carregar e criar uma VM do Linux a partir de discos personalizados com a CLI 2.0 do Azure
-Este artigo mostra-lhe como carregar um disco rígido virtual (VHD) a uma conta de armazenamento do Azure com a CLI 2.0 do Azure e criar VMs do Linux a partir deste disco personalizado. Esta funcionalidade permite-lhe instalar e configurar uma distribuição Linux os seus requisitos e, em seguida, utilize esse VHD para criar rapidamente máquinas virtuais do Azure (VMs).
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Carregar e criar uma VM do Linux a partir de discos personalizados com a CLI do Azure
+
+Este artigo mostra-lhe como carregar um disco rígido virtual (VHD) a uma conta de armazenamento do Azure com a CLI do Azure e criar VMs do Linux a partir deste disco personalizado. Esta funcionalidade permite-lhe instalar e configurar uma distribuição Linux os seus requisitos e, em seguida, utilize esse VHD para criar rapidamente máquinas virtuais do Azure (VMs).
 
 Este tópico utiliza contas de armazenamento para os VHDs finais, mas também o pode fazer estes passos com [discos geridos](upload-vhd.md). 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Se precisar de realizar rapidamente a tarefa, os seguintes detalhes para a secção de segurança da base de comandos para carregar um VHD para o Azure. Mais informações detalhadas e contexto de cada etapa pode ver o resto do documento, [a partir de aqui](#requirements).
 
-Certifique-se de que tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 
@@ -96,7 +97,7 @@ Para concluir os passos seguintes, tem de:
   * Criar uma conta de armazenamento e um contentor para conter o seu disco personalizada e VMs criadas
   * Depois de criar todas as suas VMs, pode eliminar em segurança o disco
 
-Certifique-se de que tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 

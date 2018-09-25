@@ -20,7 +20,7 @@ A tabela seguinte lista os limites que se aplicam aos recursos do Hub IoT:
 | Número máximo de identidades de dispositivos<br/> devolvidas numa única chamada |1000 |
 | Retenção máxima de mensagem do Hub IoT para mensagens do dispositivo para a cloud |7 dias |
 | Tamanho máximo da mensagem do dispositivo para a cloud |256 KB |
-| Tamanho máximo do batch do dispositivo para a cloud |256 KB |
+| Tamanho máximo do batch do dispositivo para a cloud |AMQP e HTTP: 256 KB para o lote inteiro <br/>MQTT: 256 KB por cada mensagem |
 | Máximo de mensagens no batch do dispositivo para a cloud |500 |
 | Tamanho máximo da mensagem da cloud para o dispositivo |64 KB |
 | TTL máximo das mensagens da cloud para o dispositivo |2 dias |

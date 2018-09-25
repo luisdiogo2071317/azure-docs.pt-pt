@@ -1,6 +1,6 @@
 ---
 title: Instalar o MongoDB numa VM do Linux com a CLI do Azure | Documentos da Microsoft
-description: Saiba como instalar e configurar o MongoDB num iusando de máquina virtual do Linux a CLI 2.0 do Azure
+description: Saiba como instalar e configurar o MongoDB num iusando de máquina virtual do Linux a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d066b412fb722318824a408861fe7d9595c71537
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a6228290eb5f35d687c26042c87551471462ab85
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928238"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987837"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB numa VM do Linux
-[MongoDB](http://www.mongodb.org) é um banco popular dados NoSQL de código-fonte aberto de alto desempenho. Este artigo mostra-lhe como instalar e configurar o MongoDB numa VM do Linux com a CLI 2.0 do Azure. Exemplos são mostrados como esse detalhe para:
+
+[MongoDB](http://www.mongodb.org) é um banco popular dados NoSQL de código-fonte aberto de alto desempenho. Este artigo mostra-lhe como instalar e configurar o MongoDB numa VM do Linux com a CLI do Azure. Exemplos são mostrados como esse detalhe para:
 
 * [Instalar e configurar uma instância de MongoDB básica manualmente](#manually-install-and-configure-mongodb-on-a-vm)
 * [Criar uma instância de MongoDB básica com um modelo do Resource Manager](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -30,7 +31,7 @@ ms.locfileid: "37928238"
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Instalar e configurar o MongoDB numa VM manualmente
-MongoDB [fornecem instruções de instalação](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuições de Linux, incluindo o Red Hat / CentOS, SUSE, Ubuntu e Debian. O exemplo seguinte cria um *CentOS* VM. Para criar este ambiente, tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+MongoDB [fornecem instruções de instalação](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuições de Linux, incluindo o Red Hat / CentOS, SUSE, Ubuntu e Debian. O exemplo seguinte cria um *CentOS* VM. Para criar este ambiente, tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
@@ -120,7 +121,7 @@ Pode criar uma instância de MongoDB básica numa única VM CentOS utilizando o 
 
 * [Instância de MongoDB básica no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Para criar este ambiente, tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login). Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Para criar este ambiente, tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login). Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -171,7 +172,7 @@ Pode criar um cluster em partição horizontal MongoDB complexo usando o seguint
 > [!WARNING]
 > Este cluster em partição horizontal do MongoDB complexo a implementação requer mais de 20 núcleos, que normalmente é o número de núcleos de padrão por região para uma subscrição. Abra um pedido de suporte do Azure para aumentar o número de núcleos.
 
-Para criar este ambiente, tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login). Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Para criar este ambiente, tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login). Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

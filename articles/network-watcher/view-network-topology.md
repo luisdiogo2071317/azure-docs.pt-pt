@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35955763"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992207"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de rede virtual do Azure
 
@@ -52,7 +52,7 @@ Os recursos mostrados no diagrama são um subconjunto dos componentes do sistema
 
 Pode executar os comandos nos passos que se seguem:
 - No Azure Cloud Shell, selecionando **experimentar** na parte superior direita do qualquer comando. O Azure Cloud Shell é um shell interativo gratuito que tenha ferramentas comuns do Azure pré-instaladas e configuradas para utilizar com a sua conta.
-- Ao executar a CLI do seu computador. Se executar a CLI do seu computador, os passos neste artigo requerem 2.0.31 da versão da CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
+- Ao executar a CLI do seu computador. Se executar a CLI do seu computador, os passos neste artigo requerem 2.0.31 da versão da CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
 A conta que utilizar tem de ter as informações necessárias [permissões](required-rbac-permissions.md).
 

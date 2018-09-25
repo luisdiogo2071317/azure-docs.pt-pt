@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: c26019bad63a904f8ebd1241d2b58923d786e181
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 297d3bc201b4bc9d9db0b0bed7a364769fa72859
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993056"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como Etiquetar uma máquina virtual Linux no Azure
 Este artigo descreve as diferentes formas de etiquetar uma máquina virtual Linux no Azure através do modelo de implementação do Resource Manager. As etiquetas são pares de chave/valor definido pelo utilizador que podem ser colocados diretamente num recurso ou grupo de recursos. Atualmente, o Azure suporta até 15 etiquetas por recurso e grupo de recursos. Etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Tenha em atenção, as etiquetas são suportadas para os recursos criados por meio de apenas o modelo de implementação do Resource Manager.
@@ -28,7 +28,8 @@ Este artigo descreve as diferentes formas de etiquetar uma máquina virtual Linu
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Marcação com a CLI do Azure
-Para começar, terá da versão mais recente [CLI do Azure 2.0](/cli/azure/install-azure-cli) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az-login).
+
+Para começar, terá da versão mais recente [CLI do Azure](/cli/azure/install-azure-cli) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az-login).
 
 Pode ver todas as propriedades de uma determinada máquina Virtual, incluindo as etiquetas, utilizando este comando:
 

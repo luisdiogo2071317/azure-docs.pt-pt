@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba164cdf6d7665077616edc20d133c6912b186f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 19963edc3742cc5f09ed02249d313728410711c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160577"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973501"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Criar, lista ou eliminar uma identidade gerida atribuído ao utilizador com a CLI do Azure
 
@@ -39,11 +39,11 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade gerida atribuí
 - Para executar os exemplos de script da CLI, tem três opções:
     - Uso [Azure Cloud Shell](../../cloud-shell/overview.md) do portal do Azure (consulte a secção seguinte).
     - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
-    - [Instalar a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou posterior) se preferir utilizar uma consola CLI local. Inicie sessão no Azure com `az login`, utilizando uma conta que está associada à subscrição do Azure sob a qual pretende implementar o atribuído ao utilizador a identidade gerida.
+    - [Instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou posterior) se preferir utilizar uma consola CLI local. Inicie sessão no Azure com `az login`, utilizando uma conta que está associada à subscrição do Azure sob a qual pretende implementar o atribuído ao utilizador a identidade gerida.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuído ao utilizador 
+## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador 
 
 Para criar uma identidade gerida atribuído ao utilizador, utilize o [identidade az criar](/cli/azure/identity#az-identity-create) comando. O `-g` parâmetro especifica o grupo de recursos onde criar a identidade gerida atribuído ao utilizador e o `-n` parâmetro especifica o respetivo nome. Substitua a `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` valores de parâmetros com seus próprios valores:
 

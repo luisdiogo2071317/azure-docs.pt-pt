@@ -1,6 +1,6 @@
 ---
 title: Encriptar discos do Azure para conjuntos de dimensionamento com a CLI do Azure | Documentos da Microsoft
-description: Saiba como utilizar a CLI 2.0 do Azure para encriptar as instâncias de VM e os discos anexados num conjunto de dimensionamento de máquinas virtuais do Linux
+description: Saiba como utilizar a CLI do Azure para encriptar as instâncias de VM e os discos anexados num conjunto de dimensionamento de máquinas virtuais do Linux
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fecf7e121b1c0404f1ec67d46cc88008250b9d68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704560"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981064"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com o Azure CLI 2.0 (pré-visualização)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com a CLI do Azure (pré-visualização)
 
 Para proteger e salvaguardar os dados em descanso ao utilizar a tecnologia de encriptação padrão da indústria, os conjuntos de dimensionamento de máquinas virtuais suportam encriptação de disco do Azure (ADE). Encriptação pode ser ativada para a máquina virtual Linux e Windows conjuntos de dimensionamento. Para obter mais informações, consulte [do Azure Disk Encryption para Linux e Windows](../security/azure-security-disk-encryption.md).
 
@@ -38,7 +38,7 @@ Dimensionamento VM recriação de imagem e atualização operações de conjunto
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="register-for-disk-encryption-preview"></a>Registar-se na pré-visualização da encriptação de disco
 
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, utilizou o Azure CLI 2.0 para encriptar um conjunto de dimensionamento de máquina virtual. Também pode utilizar [do Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) ou modelos para [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Neste artigo, utilizou a CLI do Azure para encriptar um conjunto de dimensionamento de máquina virtual. Também pode utilizar [do Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) ou modelos para [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 Pode encontrar um exemplo de ficheiro de batch de ponto-a-ponto para a encriptação de disco de dados de conjunto de dimensionamento Linux [aqui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Este exemplo cria um grupo de recursos, o conjunto de dimensionamento do Linux, monta um disco de dados de 5 GB e encripta o conjunto de dimensionamento de máquina virtual.

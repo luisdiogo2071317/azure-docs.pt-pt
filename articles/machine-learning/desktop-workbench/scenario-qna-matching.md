@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055970"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973212"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Perguntas e respostas uma correspondência com o Azure Machine Learning workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Responder a perguntas ended abertas, é difícil e muitas vezes requer um esforço manual de especialistas no assunto (SMEs). Para ajudar a reduzir as demandas na SMEs internos, as empresas, muitas vezes, criam listas de perguntas mais frequentes (FAQ) como um meio de prestar assistência aos utilizadores. Este exemplo apresenta vários métodos de aprendizado de máquina em vigor para corresponder ao abrir consultas ended para pré-existente pares de pergunta/respostas de perguntas frequentes. Este exemplo demonstra um processo de desenvolvimento fácil para a criação de uma solução com o Azure Machine Learning Workbench. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Ligar para o repositório do GitHub de galeria
@@ -42,7 +47,7 @@ As principais etapas necessárias para fornecer essa solução são os seguintes
 As pré-requisitos para executar este exemplo são os seguintes:
 
 1. Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-2. Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [guia de início rápido de instalação](../service/quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
+2. Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [guia de início rápido de instalação](quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
 3. Neste exemplo pode ser executado em qualquer contexto de cálculo. No entanto, recomenda-se para executá-lo numa máquina com vários núcleo com, pelo menos, de 16GB de memória e espaço em disco de 5GB.
 
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto do workbench

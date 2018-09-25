@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216204"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987820"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introdução ao dimensionamento automático por métrica personalizada no Azure
 Este artigo descreve como dimensionar o seu recurso por uma métrica personalizada no portal do Azure.
 
-Dimensionamento de automático do Azure Monitor só se aplica a conjuntos de dimensionamento de máquinas virtuais (VMSS), serviços cloud, planos de serviço de aplicações e ambientes de serviço de aplicações. 
+Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Permite começar a utilizar
 Este artigo pressupõe que tem uma aplicação web com o application insights configurado. Se ainda não tiver uma, pode [configurar Application Insights para o seu Web site ASP.NET][1]

@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de ligações com o observador de rede do Azure - PowerShell | Microsoft Docs
+title: Resolver problemas de ligações com o observador de rede do Azure - PowerShell | Documentos da Microsoft
 description: Saiba como utilizar a ligação de resolução de problemas de capacidade do observador de rede do Azure com o PowerShell.
 services: network-watcher
 documentationcenter: na
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 7e8c04fd2284a3a00d4847f39fd34982a543cc29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aac23f616cb9d7c3fb29e516cfa2daa47c00e8e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181866"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989265"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Resolver problemas de ligações com o observador de rede do Azure com o PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
-> - [API REST do Azure](network-watcher-connectivity-rest.md)
+> - [CLI do Azure](network-watcher-connectivity-cli.md)
+> - [API de REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como utilizar a ligação de resolução de problemas para verificar se é possível estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
+Saiba como utilizar a ligação de resolução de problemas para verificar se pode ser estabelecida uma ligação TCP direta de uma máquina virtual para um determinado ponto de extremidade.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Uma instância do observador de rede na região que pretende resolver problemas de uma ligação.
+* Uma instância do observador de rede na região em que pretende resolver problemas de uma ligação.
 * Máquinas virtuais para resolver problemas de ligações com.
 
 > [!IMPORTANT]
-> Resolver problemas de ligação requer que a VM resolver problemas de tenha a `AzureNetworkWatcherExtension` extensão da VM instalado. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessário no ponto final de destino.
+> Resolver problemas de ligação requer que a solucionar problemas a partir de VM tem o `AzureNetworkWatcherExtension` extensão da VM instalado. Para instalar a extensão numa VM do Windows, visite [extensão de máquina virtual de agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para visite de VM do Linux [extensão da máquina virtual de agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessário no ponto de extremidade de destino.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verifique a conectividade a uma máquina virtual
 
-Neste exemplo verifica uma ligação a uma máquina virtual de destino através da porta 80. Este exemplo requer que tenham o observador de rede ativada na região que contém a VM de origem.  
+Este exemplo verifica uma ligação a uma máquina virtual de destino através da porta 80. Este exemplo requer que tenha o observador de rede ativada na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -62,7 +62,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Resposta
 
-É a seguinte resposta do exemplo anterior.  Esta resposta, a `ConnectionStatus` é **Unreachable**. Pode ver que todas as sondas enviadas com falhas. A conectividade falhou, a aplicação virtual devido a um configurada pelo utilizador `NetworkSecurityRule` denominado **UserRule_Port80**, configurado para bloquear o tráfego recebido na porta 80. Estas informações podem ser utilizadas para pesquisar problemas de ligação.
+É a seguinte resposta do exemplo anterior.  Esta resposta, o `ConnectionStatus` é **inacessível**. Pode ver que todas as sondas enviadas com falha. A conectividade falha momentânea ao executar a aplicação virtual devido a um utilizador-configurado `NetworkSecurityRule` com o nome **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Estas informações podem ser utilizadas para pesquisar os problemas de ligação.
 
 ```
 ConnectionStatus : Unreachable
@@ -135,7 +135,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Validar a problemas de encaminhamento
 
-Neste exemplo verifica a conectividade entre uma máquina virtual e um ponto final remoto. Este exemplo requer que tenham o observador de rede ativada na região que contém a VM de origem.  
+Este exemplo verifica a conectividade entre uma máquina virtual e um ponto final remoto. Este exemplo requer que tenha o observador de rede ativada na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -154,7 +154,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Resposta
 
-No exemplo seguinte, o `ConnectionStatus` é mostrado como **Unreachable**. No `Hops` mais detalhes, pode ver em `Issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`. 
+No exemplo a seguir, o `ConnectionStatus` é apresentado como **inacessível**. Na `Hops` detalhes, pode ver na `Issues` o tráfego bloqueado devido a um `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -197,9 +197,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-website-latency"></a>Verifique a latência de Web site
+## <a name="check-website-latency"></a>Verificar a latência de Web site
 
-O exemplo seguinte verifica a conectividade a um Web site. Este exemplo requer que tenham o observador de rede ativada na região que contém a VM de origem.  
+O exemplo seguinte verifica a conectividade a um Web site. Este exemplo requer que tenha o observador de rede ativada na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -219,7 +219,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Resposta
 
-A seguinte resposta, pode ver o `ConnectionStatus` mostra como **Reachable**. Quando uma ligação é bem-sucedida, são fornecidos valores de latência.
+Em resposta a seguir, pode ver o `ConnectionStatus` é apresentado como **Reachable**. Quando uma ligação é bem-sucedida, são fornecidos valores de latência.
 
 ```
 ConnectionStatus : Reachable
@@ -250,9 +250,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Verifique a conectividade a um ponto final de armazenamento
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Verifique a conectividade a um ponto de final de armazenamento
 
-O exemplo seguinte verifica a conectividade de uma máquina virtual para uma conta de armazenamento do blogue. Este exemplo requer que tenham o observador de rede ativada na região que contém a VM de origem.  
+O exemplo seguinte verifica a conectividade entre uma máquina virtual e uma conta de armazenamento do blogue. Este exemplo requer que tenha o observador de rede ativada na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -272,7 +272,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Resposta
 
-O seguinte json é a resposta de exemplo da execução do cmdlet anterior. Como o destino é acessível, o `ConnectionStatus` propriedade mostra como **Reachable**.  São fornecidos os detalhes sobre o número de saltos necessários para atingir o blob de armazenamento e a latência.
+O json seguinte é a resposta de exemplo de executar o cmdlet anterior. Como o destino está acessível, o `ConnectionStatus` propriedade é apresentado como **Reachable**.  São fornecidos os detalhes sobre o número de saltos necessária para alcançar o blob de armazenamento e a latência.
 
 ```json
 ConnectionStatus : Reachable
@@ -305,6 +305,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de IP verifique](diagnose-vm-network-traffic-filtering-problem.md).
+Determinar se determinado tráfego é permitido dentro ou fora da sua VM, visitando [fluxo de IP verificar](diagnose-vm-network-traffic-filtering-problem.md).
 
-Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para identificar as regras de segurança e de grupo de segurança de rede que estão definidas.
+Se o tráfego é bloqueado e não deve ser, veja [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) rastrear as regras de segurança e de grupo de segurança de rede que estão definidas.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092960"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969432"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
@@ -160,7 +160,7 @@ Em alguns ambientes de desenvolvimento, precisa explicitamente *registar* uma li
 |Biblioteca de classes do c# com o Visual Studio 2017|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
 |Biblioteca de classes do c# com o Visual Studio Code|N/A|[Utilizar o .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-Os seguintes tipos de ligação são exceções que não exigem Registro explícito, porque eles são automaticamente registrados em todas as versões e ambientes: HTTP, o temporizador e o armazenamento do Azure (blobs, filas e tabelas). 
+Os seguintes tipos de ligação são exceções que não exigem Registro explícito, porque eles são automaticamente registrados em todas as versões e ambientes: HTTP e temporizador.
 
 ### <a name="azure-portal-development"></a>Desenvolvimento de portal do Azure
 

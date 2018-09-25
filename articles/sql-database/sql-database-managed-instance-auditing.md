@@ -8,14 +8,14 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/20/2018
 ms.author: giladm
-ms.openlocfilehash: 7671b49921799e63b01d0eb85e90a8b75b2d5a48
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3971d6966088ccb19a35ab938408a1c9dc835d3b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544299"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031820"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução ao Azure SQL da base de dados geridos instância de auditoria
 
@@ -104,7 +104,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
     Se não for especificado, `RETENTION_DAYS` padrão é 0 (retenção ilimitada).
 
     Para obter informações adicionais:
-    - [Auditoria de diferenças entre a instância gerida, BD SQL do Azure e SQL Server](#subheading-3)
+    - [Auditoria de diferenças entre a instância gerida, BD SQL do Azure e SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 59ec4b109c01a027ce440d3f7749d69af3351571
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037716"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -28,7 +28,7 @@ Pode adquirir capacidade de base de dados do SQL Azure reservado [portal do Azur
 - Para subscrições Enterprise, compras de reserva do Azure tem de estar ativadas no [portal EA](https://ea.azure.com).
 -  Para o programa de fornecedor de soluções Cloud (CSP), apenas o admin de agentes ou agentes de vendas podem comprar capacidade de base de dados de SQL reservadas.
 
-Os detalhes sobre como são cobrados os clientes empresariais e os clientes de pay as you go para compras de reserva é abordada [perguntas mais frequentes sobre](#frequently-asked-questions).
+Os detalhes sobre como são cobrados os clientes empresariais e os clientes de pay as you go para compras de reserva, consulte [utilização de reserva de compreender o Azure da sua inscrição de Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md) e [reserva de compreender o Azure utilização para a sua subscrição pay as you go](../billing/billing-understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Determinar a dimensão certa de SQL antes da compra
 

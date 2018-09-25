@@ -2,7 +2,7 @@
 title: Automatizar a replicação das alterações de esquema na sincronização de dados SQL do Azure | Documentos da Microsoft
 description: Saiba como automatizar a replicação das alterações de esquema na sincronização de dados SQL do Azure.
 services: sql-database
-ms.date: 06/19/2018
+ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6859784dcb3b3905459e83cfcb7812d7f23ac630
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6e3f1710d342d97312cfd764726904c1d70ce199
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035033"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizar a replicação das alterações de esquema na sincronização de dados SQL do Azure
 
@@ -30,7 +30,7 @@ Este artigo apresenta uma solução de replicar automaticamente as alterações 
 Este artigo utiliza ALTER TABLE como um exemplo de uma alteração de esquema, mas esta solução também funciona para outros tipos de alterações de esquema.
 
 > [!IMPORTANT]
-> Recomendamos que leia este artigo com cuidado, especialmente as secções sobre [resolução de problemas](#troubleshooting) e [outras considerações](#other), antes de começar a implementar a replicação de alteração de esquema automatizada em o ambiente de sincronização. Também recomendamos que leia [sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL](sql-database-sync-data.md). Algumas operações de base de dados poderão interromper a solução descrita neste artigo. Dados de conhecimento de domínio adicional do SQL Server e o Transact-SQL podem ser necessário para resolver esses problemas.
+> Recomendamos que leia este artigo com cuidado, especialmente as secções sobre [resolução de problemas](#troubleshoot) e [outras considerações](#other), antes de começar a implementar a replicação de alteração de esquema automatizada em o ambiente de sincronização. Também recomendamos que leia [sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL](sql-database-sync-data.md). Algumas operações de base de dados poderão interromper a solução descrita neste artigo. Dados de conhecimento de domínio adicional do SQL Server e o Transact-SQL podem ser necessário para resolver esses problemas.
 
 ![Automatizar a replicação de alterações de esquema](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

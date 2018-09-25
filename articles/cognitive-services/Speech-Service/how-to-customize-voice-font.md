@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842476"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987911"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -25,7 +25,7 @@ Pode começar a utilizar com uma pequena quantidade de dados para uma prova de c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A funcionalidade de personalização de voz de texto em voz está atualmente em pré-visualização privada. [Preencha o formulário de aplicação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para ser considerado para o acesso.
+O **texto em voz** funcionalidade de personalização de voz está atualmente em pré-visualização privada. [Preencha o formulário de aplicação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para ser considerado para o acesso.
 
 Também precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar um](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligue-se a sua subscrição para o portal de voz personalizada da seguinte forma.
 

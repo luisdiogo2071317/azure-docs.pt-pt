@@ -1,6 +1,6 @@
 ---
-title: Proteger o acesso a uma conta de base de dados do Azure Cosmos utilizando o ponto final do serviço de rede Virtual do Azure | Microsoft Docs
-description: Este documento descreve os passos necessários para o ponto final do serviço de rede virtual de base de dados do Azure Cosmos do programa de configuração.
+title: Proteger o acesso a uma conta do Azure Cosmos DB utilizando o ponto final de serviço de rede Virtual do Azure | Documentos da Microsoft
+description: Este documento descreve os passos necessários para o ponto final de serviço do programa de configuração do Azure Cosmos DB rede virtual.
 services: cosmos-db
 author: kanshiG
 manager: kfile
@@ -9,104 +9,101 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109747"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037145"
 ---
-# <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta de base de dados do Azure Cosmos utilizando o ponto final do serviço de rede Virtual do Azure
+# <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta do Azure Cosmos DB utilizando o ponto final de serviço de rede Virtual do Azure
 
-As contas de CosmosDB do Azure podem ser configuradas para permitir o acesso apenas a partir de uma sub-rede específica da rede Virtual do Azure. Ao ativar uma [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para Azure CosmosDB de uma rede Virtual e a respetiva sub-rede, o tráfego está a certificar-se uma rota segura e ideal para a BD do Cosmos do Azure.  
+As contas do Azure cosmos DB podem ser configuradas para permitir o acesso apenas a partir de uma sub-rede específica da rede Virtual do Azure. Ativando um [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para o Azure cosmos DB de uma rede Virtual e a sua sub-rede, o tráfego é certificar-se de uma rota ideal e segura para o Azure Cosmos DB.  
 
-Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuído globalmente. Pode replicar os dados presentes na conta de base de dados do Azure Cosmos para várias regiões. Quando a BD do Cosmos Azure está configurado com um ponto final de serviço de rede virtual, cada rede virtual permite o acesso IPs que pertence à sub-rede specicifc. A imagem seguinte mostra uma ilustração de uma base de dados de Cosmos do Azure com o ponto final de serviço de rede virtual ativado:
+Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuído globalmente. Pode replicar os dados presentes na conta do Azure Cosmos DB em várias regiões. Quando o Azure Cosmos DB está configurado com um ponto de extremidade do serviço de rede virtual, cada rede virtual permite o acesso de IPs que pertencem a specicifc sub-rede. A imagem seguinte mostra uma ilustração de um Azure Cosmos DB com o ponto final de serviço de rede virtual ativado:
 
-![arquitetura de ponto final do serviço de rede virtual](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
+![arquitetura de ponto final de serviço de rede virtual](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
-Depois de ter uma conta de base de dados do Azure Cosmos configurada com um ponto final de serviço de rede virtual, pode ser acedido apenas da sub-rede especificada, todo o acesso público/internet é removido. Para saber em detalhadas sobre os pontos finais de serviço, consulte o Azure [descrição geral de pontos finais de serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) artigo.
-
-> [!NOTE]
-> Atualmente, pontos finais do serviço de rede Virtual podem ser configurados para a API do Azure Cosmos BD do SQL Server ou contas de API do Mongo. Capacidade de configurar pontos finais de serviço para outros APIs e nuvens sovereign como Datacenters do Azure ou o Azure Government estará disponível brevemente. Se tiver uma firewall IP existente configurada para a sua conta de base de dados do Azure Cosmos, tenha em atenção a configuração da firewall, remova a firewall IP e, em seguida, configurar o ponto final de serviço ACL. Depois de configurar o ponto final de serviço, pode voltar a ativar a firewall do IP se necessário.
+Depois de uma conta do Azure Cosmos DB está configurada com um ponto de extremidade do serviço de rede virtual, pode ser acedido apenas a partir de sub-rede especificada, todo o acesso público/internet é removido. Para saber mais no detalhadas sobre a pontos finais de serviço, consulte o do Azure [descrição geral de pontos finais de serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) artigo.
 
 ## <a name="configure-service-endpoint-by-using-azure-portal"></a>Configurar o ponto final de serviço utilizando o portal do Azure
-### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurar o ponto final de serviço para uma rede virtual do Azure existente e sub-rede
+### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurar o ponto final de serviço para uma rede virtual do Azure existente e a sub-rede
 
-1. De **todos os recursos** painel, localizar a rede virtual pretende configurar o ponto final de serviço para a base de dados do Azure Cosmos. Navegue para o **pontos finais de serviço** painel e certifique-se de que a sub-rede da rede virtual foi ativada para o ponto final de serviço de "Azure.CosmosDB".  
+1. Partir **todos os recursos** painel, localização de rede virtual pretende configurar o ponto final de serviço para o Azure Cosmos DB. Navegue para o **pontos finais de serviço** painel e certifique-se de que a sub-rede da rede virtual foi ativada para o ponto de final de serviço "Azure.CosmosDB".  
 
-   ![Confirme o ponto final de serviço ativado](./media/vnet-service-endpoint/confirm-service-endpoint-enabled.png)
+   ![Confirmar o ponto final de serviço ativado](./media/vnet-service-endpoint/confirm-service-endpoint-enabled.png)
 
-2. De **todos os recursos** painel, localizar a base de dados do Azure Cosmos conta pretende proteger.  
+2. Partir **todos os recursos** painel, localize a conta do Azure Cosmos DB que pretende proteger.  
 
-3. Antes de ativar o ponto final do serviço de rede virtual, copie as informações de firewall IP associadas com a sua conta de base de dados do Azure Cosmos para utilização futura. Pode reativar o IP firewall depois de configurar o ponto final de serviço.  
+3. Antes de ativar o ponto final de serviço de rede virtual, copie as informações de firewall do IP associadas com a sua conta do Azure Cosmos DB para utilização futura. Pode reativar o firewall do IP depois de configurar o ponto final de serviço.  
 
-4. Selecione **Firewalls e redes virtuais** a partir do menu de definições e escolha autorizar o acesso **selecionado redes**.  
+4. Selecione **Firewalls e redes virtuais** no menu de definições e selecione permitir o acesso a partir de **redes selecionadas**.  
 
 3. Para conceder acesso à sub-rede da rede virtual existente, em redes virtuais, selecione **adicionar rede virtual do Azure existente**.  
 
-4. Selecione o **subscrição** partir da qual pretende adicionar a rede virtual do Azure. Selecione o Azure **redes virtuais** e **sub-redes** que pretende fornecer acesso à sua conta de base de dados do Azure Cosmos. Em seguida selecione **ativar** para ativar a redes selecionadas com pontos finais de serviço para "Microsoft.AzureCosmosDB". Quando estiver concluída, selecione **adicionar**.  
+4. Selecione o **subscrição** partir da qual pretende adicionar a rede virtual do Azure. Selecione o Azure **redes virtuais** e **sub-redes** que deseja fornecer acesso à sua conta do Azure Cosmos DB. Em seguida selecione **ativar** para ativar redes selecionadas com pontos finais de serviço para "Microsoft.AzureCosmosDB". Quando terminar, selecione **adicionar**.  
 
    ![Selecione a rede virtual e sub-rede](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Se o ponto final de serviço para a base de dados do Azure Cosmos anteriormente não está configurado para as redes virtuais do Azure selecionadas e sub-redes, pode ser configurado como parte desta operação. Ativar o acesso irá demorar até 15 minutos a concluir. É muito importante desativar a firewall do IP após anota o conteúdo a ACL de firewall para renabling-los mais tarde. 
+   > Se o ponto final de serviço para o Azure Cosmos DB anteriormente não está configurado para o selecionadas redes virtuais do Azure e sub-redes, ele pode ser configurado como parte desta operação. Ativar o acesso irá demorar até 15 minutos a concluir. É muito importante desativar a firewall do IP após anota o conteúdo do firewall ACL para renabling-los mais tarde. 
 
    ![rede virtual e sub-rede configurada com êxito](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
-Agora a conta de base de dados do Azure Cosmos só irá permitir tráfego deste escolhido sub-rede. Se tinha anteriormente ativado firewall IP,. reativá-los utilizando as informações anteriores.
+Agora a sua conta do Azure Cosmos DB será a permitir apenas tráfego nesta escolhido sub-rede. Se anteriormente tiver habilitado a firewall do IP,. Volte a ativá-los usando as informações anteriores.
 
-### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto final de serviço para uma nova rede virtual do Azure e a sub-rede
+### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto final de serviço para uma nova rede virtual do Azure e uma sub-rede
 
-1. De **todos os recursos** painel, localizar a base de dados do Azure Cosmos conta pretende proteger.  
+1. Partir **todos os recursos** painel, localize a conta do Azure Cosmos DB que pretende proteger.  
 
 > [!NOTE]
-> Se tiver uma firewall IP existente configurada para a sua conta de base de dados do Azure Cosmos, tenha em atenção a configuração da firewall, remova a firewall IP e, em seguida, ativar o ponto final do serviço. Se ativar o ponto final de serviço sem disbling a firewall, o tráfego a partir desse intervalo de ip irá perder a identidade IP virtual e é removido com uma mensagem de erro do filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, ACL a sub-rede da base de dados do Cosmos. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar a firewall do IP novamente se for necessário.
+> Se tiver uma firewall do IP existente configurado para a sua conta do Azure Cosmos DB, tenha em atenção a configuração de firewall, remover o firewall do IP e, em seguida, ativar o ponto de final de serviço. Se ativar o ponto final de serviço sem disbling o firewall, o tráfego a partir desse intervalo de ip perderá a identidade IP virtual e é removido com uma mensagem de erro de filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar o firewall do IP novamente se necessário.
 
-2. Antes de ativar o ponto final do serviço de rede virtual, copie as informações de firewall IP associadas com a sua conta de base de dados do Azure Cosmos para utilização futura. Pode reativar o IP firewall depois de configurar o ponto final de serviço.  
+2. Antes de ativar o ponto final de serviço de rede virtual, copie as informações de firewall do IP associadas com a sua conta do Azure Cosmos DB para utilização futura. Pode reativar o firewall do IP depois de configurar o ponto final de serviço.  
 
-3. Selecione **Firewalls e redes virtuais do Azure** a partir do menu de definições e escolha autorizar o acesso **selecionado redes**.  
+3. Selecione **Firewalls e redes virtuais do Azure** no menu de definições e selecione permitir o acesso a partir de **redes selecionadas**.  
 
 4. Para conceder acesso a uma nova rede virtual do Azure, em redes virtuais, selecione **Adicionar nova rede virtual**.  
 
-5. Forneça os detalhes necessários para criar uma nova rede virtual e, em seguida, selecione a criar. A sub-rede será criada com um ponto final de serviço para "Microsoft.AzureCosmosDB" ativada.
+5. Indique os detalhes necessários para criar uma nova rede virtual e, em seguida, selecione criar. A sub-rede será criada com um ponto de extremidade de serviço para "Microsoft.AzureCosmosDB" ativada.
 
    ![Selecione a rede virtual e sub-rede para a nova rede virtual](./media/vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
 ## <a name="allow-access-from-azure-portal"></a>Permitir o acesso a partir do portal do Azure
 
-Depois de pontos finais do serviço de rede Virtual do Azure estão ativados para a sua conta de base de dados de base de dados do Azure Cosmos, acesso a partir do portais ou outros serviços do Azure está desativado por predefinição. Acesso à sua conta de base de dados de base de dados do Azure Cosmos máquinas fora da sub-rede configurada estão bloqueadas, incluindo acesso a partir do portal.
+Depois de pontos finais de serviço de rede Virtual do Azure estão ativados para a sua conta de base de dados do Azure Cosmos DB, acesso a partir do portais ou outros serviços do Azure está desativado por predefinição. Acesso à sua conta de base de dados do Azure Cosmos DB a partir de máquinas fora da sub-rede configurada são bloqueados incluindo o acesso a partir do portal.
 
 ![Permitir o acesso a partir do portal](./media/vnet-service-endpoint/allow-access-from-portal.png)
 
-Se a conta de base de dados do Azure Cosmos é utilizada por outros serviços do Azure, como pesquisa do Azure ou acedida a partir do Stream analytics ou o Power BI, permitir o acesso ao verificar **permitir o acesso aos serviços do Azure**.
+Se a sua conta do Azure Cosmos DB é utilizada por outros serviços do Azure, como o Azure Search ou acessada a partir de análise de Stream ou Power BI, permitir o acesso, verificando **permitir acesso aos serviços do Azure**.
 
-Para garantir que o utilizador tem acesso à base de dados do Azure Cosmos métricas do portal, tem de ativar **permitir o acesso ao portal do Azure** opções. Para saber mais sobre estas opções, consulte [ligações a partir do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [ligações a partir de serviços do Azure PaaS](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) secções. Depois de selecionar o acesso, selecione **guardar** para guardar as definições.
+Para garantir que tem acesso a métricas do Azure Cosmos DB a partir do portal, tem de ativar **permitir o acesso ao portal do Azure** opções. Para saber mais sobre estas opções, veja [ligações a partir do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [ligações de serviços de PaaS do Azure](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) secções. Depois de selecionar o acesso, selecione **guardar** para guardar as definições.
 
-## <a name="remove-a-virtual-network-or-subnet"></a>Remover uma rede virtual ou a sub-rede 
+## <a name="remove-a-virtual-network-or-subnet"></a>Remover uma rede virtual ou sub-rede 
 
-1. De **todos os recursos** painel, a conta de localizar a base de dados do Azure do Cosmos aos quais é atribuído pontos finais de serviço.  
+1. Partir **todos os recursos** painel, a conta de localizar o Azure Cosmos DB para o qual é atribuída a pontos finais de serviço.  
 
-2. Selecione **Firewalls e redes virtuais** a partir do menu de definições.  
+2. Selecione **Firewalls e redes virtuais** no menu de definições.  
 
-3. Para remover uma rede virtual ou a regra de sub-rede, selecione "..." ao lado de rede virtual ou a sub-rede e selecione **remover**.
+3. Para remover uma rede virtual ou a regra de sub-rede, selecione "..." ao lado de rede virtual ou sub-rede e selecione **remover**.
 
    ![Remover uma rede virtual](./media/vnet-service-endpoint/remove-a-vnet.png)
 
-4.  Clique em **guardar** para aplicar as suas alterações.
+4.  Clique em **guardar** para aplicar as alterações.
 
 ## <a name="configure-service-endpoint-by-using-azure-powershell"></a>Configurar o ponto final de serviço com o Azure PowerShell 
 
-Utilize os seguintes passos para configurar o ponto final de serviço para uma conta de base de dados do Azure Cosmos utilizando o Azure PowerShell:  
+Utilize os seguintes passos para configurar o ponto final de serviço a uma conta do Azure Cosmos DB com o Azure PowerShell:  
 
-1. Instalar a versão mais recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [início de sessão](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Certifique-se de que tenha em atenção as definições de firewall IP e eliminar a firewall do IP completamente antes de ativar o ponto final de serviço para a conta.
+1. Instalar a versão mais recente [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [início de sessão](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Certifique-se de que tenha em atenção as definições da firewall IP e eliminar a firewall do IP completamente antes de ativar o ponto final de serviço para a conta.
 
 
 > [!NOTE]
-> Se tiver uma firewall IP existente configurada para a sua conta de base de dados do Azure Cosmos, tenha em atenção a configuração da firewall, remova a firewall IP e, em seguida, ativar o ponto final do serviço. Se ativar o ponto final de serviço sem disbling a firewall, o tráfego a partir desse intervalo de ip irá perder a identidade IP virtual e é removido com uma mensagem de erro do filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, ACL a sub-rede da base de dados do Cosmos. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar a firewall do IP novamente se for necessário.
+> Se tiver uma firewall do IP existente configurado para a sua conta do Azure Cosmos DB, tenha em atenção a configuração de firewall, remover o firewall do IP e, em seguida, ativar o ponto de final de serviço. Se ativar o ponto final de serviço sem disbling o firewall, o tráfego a partir desse intervalo de ip perderá a identidade IP virtual e é removido com uma mensagem de erro de filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar o firewall do IP novamente se necessário.
 
-2. Antes de ativar o ponto final do serviço de rede virtual, copie as informações de firewall IP associadas com a sua conta de base de dados do Azure Cosmos para utilização futura. Será novamente ativar a firewall do IP após configurar o ponto final de serviço.  
+2. Antes de ativar o ponto final de serviço de rede virtual, copie as informações de firewall do IP associadas com a sua conta do Azure Cosmos DB para utilização futura. Será de reativar o firewall do IP depois de configurar o ponto final de serviço.  
 
-3. Ative o ponto final de serviço para uma sub-rede existente de uma rede virtual.  
+3. Ative o ponto de final de serviço para uma sub-rede existente de uma rede virtual.  
 
    ```powershell
    $rgname= "<Resource group name>"
@@ -122,14 +119,14 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
     -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
    ```
 
-4. Prepare para a ativação da ACL na conta CosmosDB, certificando-se de que a rede virtual e a sub-rede têm ponto final de serviço ativado para a base de dados do Azure Cosmos.
+4. Prepare-se para a ativação da ACL na conta do cosmos DB, tornando-se de que a rede virtual e a sub-rede tem o ponto final de serviço ativado para o Azure Cosmos DB.
 
    ```powershell
    $vnProp = Get-AzureRmVirtualNetwork `
      -Name $vnName  -ResourceGroupName $rgName
    ```
 
-5. Obter propriedades de conta de base de dados do Azure Cosmos executando o seguinte cmdlet:  
+5. Obter propriedades de conta do Azure Cosmos DB, execute o seguinte cmdlet:  
 
    ```powershell
    $apiVersion = "2015-04-08"
@@ -141,7 +138,7 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
      -Name $acctName
    ```
 
-6. Inicializar as variáveis para utilização posterior. Configurar todas as variáveis da definição de conta existente, se tiver várias localizações, terá de adicioná-los como parte da matriz. Neste passo, configure também ponto final do serviço de rede virtual ao definir a variável "accountVNETFilterEnabled" para "True". Mais tarde, este valor é atribuído ao parâmetro "isVirtualNetworkFilterEnabled".  
+6. Inicialize as variáveis para utilização posterior. Configurar a todas as variáveis da definição de conta existente, se tiver várias localizações, terá de adicioná-los como parte da matriz. Neste passo, também configurar ponto final de serviço de rede virtual ao definir a variável "accountVNETFilterEnabled" para "True". Mais tarde, este valor é atribuído para o parâmetro de "isVirtualNetworkFilterEnabled".  
 
    ```powershell
    $locations = @(@{})
@@ -167,7 +164,7 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
 
-7. Atualize propriedades da conta de base de dados do Azure Cosmos com a nova configuração executando os seguintes cmdlets: 
+7. Atualize propriedades da conta do Azure Cosmos DB com a nova configuração ao executar os seguintes cmdlets: 
 
    ```powershell
    $cosmosDBProperties['databaseAccountOfferType'] = $databaseAccountOfferType
@@ -183,7 +180,7 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
      -Name $acctName -Properties $CosmosDBProperties
    ```
 
-8. Execute o seguinte comando para verificar que a sua conta de base de dados do Azure Cosmos foi atualizada com o ponto de final de serviço de rede virtual que configurou no passo anterior:
+8. Execute o seguinte comando para verificar que a sua conta do Azure Cosmos DB é atualizada com o ponto de final de serviço de rede virtual que configurou no passo anterior:
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
@@ -195,88 +192,88 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
    $UpdatedcosmosDBConfiguration.Properties
    ```
 
-## <a name="add-virtual-network-service-endpoint-for-an-azure-cosmos-db-account-that-has-ip-firewall-enabled"></a>Adicionar o ponto final de serviço de rede virtual para uma conta de base de dados do Azure Cosmos que tenha de Firewall de IP ativada
+## <a name="add-virtual-network-service-endpoint-for-an-azure-cosmos-db-account-that-has-ip-firewall-enabled"></a>Adicionar ponto final de serviço de rede virtual para uma conta do Azure Cosmos DB com a Firewall do IP ativada
 
-1. Primeiro, desative o acesso de firewall IP para a conta de base de dados do Azure Cosmos.  
+1. Primeiro de desativar o acesso da firewall IP para a conta do Azure Cosmos DB.  
 
-2. Ative o ponto final da rede virtual para a conta de base de dados do Azure Cosmos utilizando um dos métodos descritos nas secções anteriores.  
+2. Ative o ponto final de rede virtual para a conta do Azure Cosmos DB através de um dos métodos descritos nas secções anteriores.  
 
-3. Volte a ativar o acesso de firewall IP. 
+3. Voltar a ativar o acesso de firewall do IP. 
 
 ## <a name="test-the-access"></a>Testar o acesso
 
-Para verificar se os pontos finais de serviço para a base de dados do Azure Cosmos estão configurados como esperado, utilize os seguintes passos:
+Para verificar se os pontos finais de serviço para o Azure Cosmos DB estão configurados como esperado, utilize os seguintes passos:
 
-* Configure duas sub-redes numa rede virtual como de front-end e back-end, ativar o ponto final de serviço de base de dados do Cosmos para a sub-rede de back-end.  
+* Configure duas sub-redes numa rede virtual, como o front-end e back-end, ativar o ponto final de serviço do Cosmos DB para a sub-rede de back-end.  
 
-* Ative o acesso na conta de base de dados do Cosmos para a sub-rede de back-end.  
+* Ative o acesso na conta do Cosmos DB para a sub-rede de back-end.  
 
-* Crie duas máquinas virtuais-na sub-rede de back-end e outra na sub-rede do front-end.  
+* Crie duas máquinas virtuais: uma na sub-rede de back-end e outra na sub-rede de front-end.  
 
-* Tente aceder a conta de base de dados do Azure Cosmos de ambas as máquinas virtuais. Deverá conseguir ligar da máquina virtual criada na sub-rede de back-end, mas não a partir de um criado na sub-rede do front-end. O pedido será com 404 erro quando tenta ligar a partir da sub-rede do front-end que confirma que o acesso à base de dados do Azure Cosmos está protegido utilizando o ponto final de serviço de rede virtual. A máquina na sub-rede de back-end poderá ajustar a trabalhar.
+* Tente aceder à conta do Azure Cosmos DB de ambas as máquinas virtuais. Deverá conseguir ligar a partir da máquina virtual criado na sub-rede de back-end, mas não a partir de um criado na sub-rede de front-end. O pedido irá apresentar um erro com 404 ao tentar ligar a partir da sub-rede de front-end que confirma que o acesso ao Azure Cosmos DB é protegido com o ponto de extremidade do serviço de rede virtual. A máquina na sub-rede de back-end poderá funcionar bem.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="what-happens-when-you-access-an-azure-cosmos-db-account-that-has-virtual-network-access-control-list-acl-enabled"></a>O que acontece ao aceder a uma conta de base de dados do Azure Cosmos que tenha ativado a lista de controlo de acesso (ACL) de rede virtual?  
+### <a name="what-happens-when-you-access-an-azure-cosmos-db-account-that-has-virtual-network-access-control-list-acl-enabled"></a>O que acontece quando acessar uma conta do Azure Cosmos DB que tenha ativado a lista de controlo de acesso (ACL) de rede virtual?  
 
-HTTP 404 é devolvido o erro.  
+HTTP 404 erro é retornado.  
 
-### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-cosmos-db-account-in-another-region-for-example-if-azure-cosmos-db-account-is-in-west-us-or-east-us-and-virtual-networks-are-in-multiple-regions-can-the-virtual-network-access-azure-cosmos-db"></a>São sub-redes de uma rede virtual criada em regiões diferentes permitidas para aceder a uma conta de base de dados do Azure Cosmos noutra região? Por exemplo, se a conta de base de dados do Azure Cosmos está nos EUA Oeste ou EUA leste e da rede virtual são em várias regiões, pode a rede virtual aceder à base de dados do Azure Cosmos?  
+### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-cosmos-db-account-in-another-region-for-example-if-azure-cosmos-db-account-is-in-west-us-or-east-us-and-virtual-networks-are-in-multiple-regions-can-the-virtual-network-access-azure-cosmos-db"></a>São as sub-redes de uma rede virtual criados em regiões diferentes, permitidas para aceder a uma conta do Azure Cosmos DB noutra região? Por exemplo, se a conta do Azure Cosmos DB está em E.U.A. oeste ou E.U.A. leste e da rede virtual estão em várias regiões, pode a rede virtual de acesso do Azure Cosmos DB?  
 
-Sim, podem aceder a redes virtuais criadas em regiões diferentes para a capacidade de novo. 
+Sim, as redes virtuais criadas em regiões diferentes podem aceder a nova capacidade. 
 
-### <a name="can-an-azure-cosmos-db-account-have-both-virtual-network-service-endpoint-and-a-firewall"></a>Uma conta de base de dados do Azure Cosmos pode ter o ponto final do serviço de rede virtual e uma firewall?  
+### <a name="can-an-azure-cosmos-db-account-have-both-virtual-network-service-endpoint-and-a-firewall"></a>Uma conta do Azure Cosmos DB pode ter o ponto final de serviço de rede virtual e uma firewall?  
 
-Sim, ponto final do serviço de rede Virtual e uma firewall podem coexistir. Em geral, deve garantir que o acesso ao portal é sempre ativado antes de configurar um ponto final de serviço de rede virtual que lhe permite ver as métricas associadas o contentor.
+Sim, ponto final de serviço de rede Virtual e uma firewall podem coexistir. Em geral, deve garantir que o acesso ao portal está sempre ativado antes de configurar um ponto de extremidade do serviço de rede virtual para que possa ver as métricas associadas ao contentor.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Pode posso "permitir o acesso a outros serviços do Azure a partir de uma determinada região do Azure" quando o acesso ao ponto final de serviço está ativado para a base de dados do Azure Cosmos?  
+### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Pode, "permitir o acesso a outros serviços do Azure a partir de uma determinada região do Azure" quando o acesso ao ponto final de serviço está ativado para o Azure Cosmos DB?  
 
-Isto é necessário apenas quando quiser que a sua conta de base de dados do Azure Cosmos para ser acedido por outra entidade primeiro do Azure para serviços como o Azure Data factory, pesquisa do Azure ou em qualquer serviço que é implementada no fornecido região do Azure.
+Isto é necessário apenas se pretender que a sua conta do Azure Cosmos DB para ser acedida por outra parte do Azure de primeira dos serviços, como a fábrica de dados do Azure, Azure Search ou qualquer serviço que é implementado numa determinada região do Azure.
 
-### <a name="how-many-virtual-network-service-endpoints-are-allowed-for-azure-cosmos-db"></a>Pontos finais de serviço de rede virtual quantos são permitidos para a base de dados do Azure Cosmos?  
+### <a name="how-many-virtual-network-service-endpoints-are-allowed-for-azure-cosmos-db"></a>Quantos pontos de extremidade de serviço de rede virtual são permitidos para o Azure Cosmos DB?  
 
-pontos finais de serviço de rede virtual 64 são permitidos para uma conta de base de dados do Azure Cosmos.
+64 pontos de extremidade de serviço de rede virtual são permitidos para uma conta do Azure Cosmos DB.
 
-### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>O que é a relação entre as regras de ponto final de serviço e o grupo de segurança de rede (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>Qual é a relação entre as regras de ponto final de serviço e o grupo de segurança de rede (NSG)?  
 
-Regras do NSG do BD Azure Cosmos permitem-lhe restringir o acesso ao intervalo de endereços IP de BD do Azure Cosmos específico. Se pretender permitir o acesso a uma instância de base de dados do Azure Cosmos que está presente na específico [região](https://azure.microsoft.com/global-infrastructure/regions/), pode especificar a região no seguinte formato: 
+As regras do NSG no Azure Cosmos DB permitem-lhe restringir o acesso ao intervalo de endereços IP do Azure Cosmos DB específico. Se pretender permitir o acesso a uma instância do Azure Cosmos DB, que está presente numa determinada [região](https://azure.microsoft.com/global-infrastructure/regions/), pode especificar a região no seguinte formato: 
 
     AzureCosmosDB.<region name>
 
-Para saber mais sobre o NSG etiquetas consulte [etiquetas do serviço de rede virtual](../virtual-network/security-overview.md#service-tags) artigo. 
+Para saber mais sobre o NSG com as etiquetas, consulte [etiquetas de serviço de rede virtual](../virtual-network/security-overview.md#service-tags) artigo. 
   
-### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>O que é a relação entre um firewall IP e a capacidade de ponto final do serviço de rede Virtual?  
+### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>O que é a relação entre um firewall IP e a capacidade de ponto final de serviço de rede Virtual?  
 
-Estas duas funcionalidades complementam entre si para assegure o isolamento de recursos de base de dados do Azure Cosmos e Proteja-os. Utilizar IP firewall garante que IPs estáticos podem aceder a conta de base de dados do Azure Cosmos.  
+Esses dois recursos complementam entre si para garantir o isolamento de recursos do Azure Cosmos DB e protegê-los. Utilizar um IP firewall assegura que IPs estáticos podem aceder a conta do Azure Cosmos DB.  
 
-### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>Endereço IP de um dispositivo no local que está ligado através de gateway(VPN) de rede Virtual do Azure ou o gateway de rota Express pode aceder a BD do Azure do Cosmos conta?  
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>Endereço IP de um dispositivo no local que está conectado por meio de gateway(VPN) de rede Virtual do Azure ou o gateway do Express route pode acessar a conta do Azure Cosmos DB?  
 
-Endereço IP ou intervalo de endereços IP do dispositivo no local deve ser adicionado à lista de IPs estáticos para aceder à conta de base de dados do Azure Cosmos.  
+Endereço IP ou intervalo de endereços IP do dispositivo no local deve ser adicionado à lista de IPs estáticos para aceder à conta do Azure Cosmos DB.  
 
-### <a name="what-happens-if-you-delete-a-virtual-network-that-has-service-endpoint-setup-for-azure-cosmos-db"></a>O que acontece se eliminar uma rede virtual que tenha o programa de configuração de ponto final de serviço para a base de dados do Azure Cosmos?  
+### <a name="what-happens-if-you-delete-a-virtual-network-that-has-service-endpoint-setup-for-azure-cosmos-db"></a>O que acontece se eliminar uma rede virtual que tenha a configuração do ponto final de serviço para o Azure Cosmos DB?  
 
-Quando uma rede virtual é eliminada, as informações de ACL associados com que a base de dados do Azure Cosmos é eliminado e remove a interação entre a rede virtual e a conta de base de dados do Azure Cosmos. 
+Quando uma rede virtual é eliminada, as informações de ACL associadas com que o Azure Cosmos DB é eliminado e remove a interação entre a rede virtual e a conta do Azure Cosmos DB. 
 
-### <a name="what-happens-if-an-azure-cosmos-db-account-that-has-virtual-network-service-endpoint-enabled-is-deleted"></a>O que acontece se uma conta de base de dados do Azure Cosmos que tenha o ponto final de serviço de rede virtual ativada é eliminado?
+### <a name="what-happens-if-an-azure-cosmos-db-account-that-has-virtual-network-service-endpoint-enabled-is-deleted"></a>O que acontece se uma conta do Azure Cosmos DB com o ponto final de serviço de rede virtual ativado é eliminado?
 
-Os metadados associados à conta de base de dados do Azure Cosmos específica é eliminado da sub-rede. Sendo responsabilidade do utilizador final a eliminar a sub-rede e a rede virtual utilizada.
+Os metadados associados a conta do Azure Cosmos DB específica é eliminado da sub-rede. E é responsabilidade do utilizador final para eliminar a sub-rede e rede virtual utilizada.
 
-### <a name="can-i-use-a-peered-virtual-network-to-create-service-endpoint-for-azure-cosmos-db"></a>Pode utilizar uma rede virtual em modo de peering para criar o ponto final de serviço para a BD do Cosmos Azure?  
+### <a name="can-i-use-a-peered-virtual-network-to-create-service-endpoint-for-azure-cosmos-db"></a>Pode utilizar uma rede virtual em modo de peering para criar o ponto final de serviço para o Azure Cosmos DB?  
 
-Não, apenas direta rede virtual e as respetivas sub-redes, podem criar pontos finais do serviço de base de dados do Azure Cosmos.
+Não, apenas a rede virtual direta e suas sub-redes, podem criar pontos finais de serviço do Azure Cosmos DB.
 
-### <a name="what-happens-to-the-source-ip-address-of-resource-like-virtual-machine-in-the-subnet-that-has-azure-cosmos-db-service-endpoint-enabled"></a>O que acontece para o endereço IP de origem do recurso como máquina virtual na sub-rede que tem o ponto final de serviço de base de dados do Azure Cosmos ativado?
+### <a name="what-happens-to-the-source-ip-address-of-resource-like-virtual-machine-in-the-subnet-that-has-azure-cosmos-db-service-endpoint-enabled"></a>O que acontece com o endereço IP de origem do recurso como máquina virtual na sub-rede que tem o ponto final de serviço do Azure Cosmos DB ativado?
 
-Quando são ativados pontos finais do serviço de rede virtual, os endereços IP de origem de recursos na sub-rede da rede virtual passará da utilização de endereços IPV4 públicos para endereços privados da rede Virtual do Azure para o tráfego de BD do Cosmos do Azure.
+Quando estão ativados pontos finais de serviço de rede virtual, os endereços IP de origem dos recursos na sub-rede da rede virtual muda de utilizar endereços IPV4 públicos para os endereços privados da rede Virtual do Azure para o tráfego para o Azure Cosmos DB.
 
-### <a name="does-azure-cosmos-db-reside-in-the-azure-virtual-network--provided-by-the-customer"></a>Base de dados do Azure Cosmos reside na rede virtual do Azure fornecida ao cliente?  
+### <a name="does-azure-cosmos-db-reside-in-the-azure-virtual-network--provided-by-the-customer"></a>Azure Cosmos DB residem na rede virtual do Azure fornecida pelo cliente?  
 
-BD do Cosmos do Azure é um serviço de multi-inquilino com um endereço IP público. Quando restringir o acesso a uma sub-rede de uma rede Virtual do Azure utilizando a funcionalidade de ponto final de serviço, o acesso é limitado para a sua conta de base de dados do Azure Cosmos através da rede Virtual do Azure fornecida e respetiva sub-rede.  Conta de base de dados do Cosmos do Azure não reside na rede Virtual do Azure. 
+O Azure Cosmos DB é um serviço de multi-inquilino com um endereço IP público. Quando restringir o acesso a uma sub-rede de uma rede Virtual do Azure ao utilizar a funcionalidade de ponto final de serviço, o acesso é restrito para a sua conta do Azure Cosmos DB através de determinada rede Virtual do Azure e a respetiva sub-rede.  Conta do Azure Cosmos DB não reside na rede Virtual do Azure. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>E se nada será registado no registo de análise/OMS se estiver ativado?  
+### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>E se nada será registado no Log Analytics/OMS se estiver ativado?  
 
-BD do Azure do Cosmos emitirá registos com o endereço IP (sem o último octeto) com o estado 403 para o pedido está bloqueado por ACL.  
+O Azure Cosmos DB irá enviar os registos com o endereço IP (sem o último octeto) com o estado 403 para o pedido bloqueado por ACL.  
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para configurar uma firewall de base de dados do Azure Cosmos consulte [suporte de firewall](firewall-support.md) artigo.
+Configurar uma firewall para Azure Cosmos DB, veja [suporte de firewall](firewall-support.md) artigo.
 

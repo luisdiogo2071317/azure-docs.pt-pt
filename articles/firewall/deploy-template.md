@@ -8,24 +8,20 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991339"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implantar o Firewall do Azure através de um modelo
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+Este modelo cria uma firewall e um ambiente de rede de teste. A rede tem uma VNet, com três sub-redes: *AzureFirewallSubnet*, *ServersSubnet*e um *JumpboxSubnet*. ServersSubnet e JumpboxSubnet têm um Windows Server de 2 núcleos em cada um.
 
-Os exemplos nos artigos de Firewall do Azure partem do princípio de que já ativou a pré-visualização pública do Firewall do Azure. Para obter mais informações, consulte [ativar a pré-visualização pública do Firewall do Azure](public-preview.md).
+A firewall está em AzureFirewallSubnet configurada com uma Coleção de Regras de Aplicação com uma única regra que permite o acesso a www.microsoft.com.
 
-Este modelo cria uma firewall e um ambiente de rede de teste. A rede tem uma VNet, com três sub-redes: *AzureFirewallSubnet*, *ServersSubnet*e um *JumpboxSubnet*. O ServersSubnet e JumpboxSubnet tem um servidor de Windows de 2 núcleos nas mesmas.
-
-A firewall está a AzureFirewallSubnet e está configurada com uma coleção de regras de aplicação com uma única regra que permite o acesso a www.microsoft.com.
-
-Uma rota definida pelo utilizador é criada que aponte o tráfego de rede do ServersSubnet através da firewall, em que são aplicadas as regras de firewall.
+É criada uma rota definida pelo utilizador que aponta o tráfego de rede de ServersSubnet através da firewall, em que são aplicadas as regras de firewall.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -48,5 +44,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Em seguida, pode monitorizar os registos de Firewall do Azure:
 
-- [Tutorial: Registos de Firewall do Azure Monitor](./tutorial-diagnostics.md)
+- [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
 

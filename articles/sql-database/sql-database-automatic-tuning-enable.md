@@ -2,20 +2,21 @@
 title: Ativar o ajuste automático da base de dados do Azure SQL | Documentos da Microsoft
 description: Pode ativar a otimização automática na base de dados do Azure SQL facilmente.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: d825ddd75bfc829aa82bab4cede0381dda2d36da
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4f043cfc9c85513abe16bde38c5cac6e16e34af9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575303"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063324"
 ---
 # <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
@@ -86,7 +87,7 @@ Para configurar opções de otimização automática individuais através de T-S
    
 Definir a opção de otimização individual on, irá substituir qualquer definição de base de dados herdada e ativar a opção de otimização. Defini-la como OFF, também substituir qualquer definição de base de dados herdada e desativar a opção de otimização. Opção de otimização automática, para que a predefinição é especificada, irá herdar a configuração do nível da base de dados, a definição de otimização automática.  
 
-Localizar nossa mais sobre as opções de T-SQL para configurar a otimização automática, consulte [alterar base de dados definir opções (Transact-SQL) para o servidor lógico de base de dados SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+Localizar nossa mais sobre as opções de T-SQL para configurar a otimização automática, consulte [alterar base de dados definir opções (Transact-SQL) para o servidor lógico de base de dados SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## <a name="disabled-by-the-system"></a>Desativada pelo sistema
 A otimização automática está a monitorizar todas as ações que demora na base de dados e, em alguns casos ele pode determinar que a otimização automática não é possível trabalhar corretamente no banco de dados. Nesta situação, opção de otimização será desativada pelo sistema. Na maioria dos casos, isto acontece porque Store de consulta não está ativado ou está no estado só de leitura numa base de dados específico.

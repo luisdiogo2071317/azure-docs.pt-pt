@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649336"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996218"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenção preditiva para cenários do mundo real
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 O impacto do período de indisponibilidade não agendado do equipamento pode ser prejudicial para qualquer negócio. É essencial para manter os equipamentos de campo em execução para maximizar o desempenho e a utilização e para minimizar o período de indisponibilidade dispendioso, não agendado. A identificação precoce de problemas pode ajudar a alocar recursos limitados de manutenção de uma forma rentável, melhorar a qualidade e fornecer os processos de cadeia. 
 
@@ -41,10 +46,10 @@ O problema de negócio para estes dados simulados é prever problemas causados p
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Siga os [guia de início rápido de instalação](../service/quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Siga os [guia de início rápido de instalação](quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
 * Operacionalização de Aprendizado de máquina do Azure requer um ambiente de implantação local e um [conta de gestão de modelos do Azure Machine Learning](model-management-overview.md).
 
-Neste exemplo é executado em qualquer contexto de computação do Machine Learning Workbench. No entanto, é recomendado para executar o exemplo de com, pelo menos, 16 GB de memória. Este cenário foi criado e testado numa máquina de Windows 10 com um padrão de DS4_V2 remoto [Máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Neste exemplo é executado em qualquer contexto de computação do Machine Learning Workbench. No entanto, é recomendado para executar o exemplo de com, pelo menos, 16 GB de memória. Este cenário foi criado e testado numa máquina de Windows 10 com um padrão de DS4_V2 remoto [Máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Operacionalização de modelo foi efetuada com a versão 0.1.0a22 da CLI do Azure Machine Learning.
 
@@ -71,7 +76,7 @@ Este comando fornece uma chave de autenticação para utilizar com o https:\\aka
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-É preferível executar numa [DSVM para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) requisitos de memória e disco. Depois da DSVM estiver configurada, prepare o ambiente do Docker remoto com os dois comandos seguintes:
+É preferível executar numa [DSVM para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) requisitos de memória e disco. Depois da DSVM estiver configurada, prepare o ambiente do Docker remoto com os dois comandos seguintes:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

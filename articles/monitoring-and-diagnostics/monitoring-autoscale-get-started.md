@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e96e3abc05353aa3ea134b7d11256a29fe64c300
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448973"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989231"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar as definições de dimensionamento automático para o seu recurso no portal do Microsoft Azure.
 
-Dimensionamento automático de Monitor do Azure aplica-se apenas a conjuntos de dimensionamento de máquinas virtuais, serviços cloud, planos de serviço de aplicações do Azure e ambientes de serviço de aplicações. 
+Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Detetar as definições de dimensionamento automático na sua subscrição
 Pode descobrir todos os recursos para o qual o dimensionamento automático é aplicável no Azure Monitor. Utilize os seguintes passos para obter instruções passo a passo:
@@ -47,8 +47,8 @@ Agora vamos através de um simples passo a passo para criar a sua primeira defin
 1. Forneça um nome para a definição de dimensionamento e, em seguida, clique em **adicionar uma regra**. Observe as opções de regra de dimensionamento que abra como um painel de contexto no lado direito. Por predefinição, isto define a opção de dimensionar sua contagem de instâncias por 1 se a percentagem de CPU do recurso superior a 70 por cento. Deixá-lo em seus valores predefinidos e clique em **adicionar**.
   ![Criar definição de dimensionamento para uma aplicação web][6]
 1. Acabou de criar a primeira regra de dimensionamento. Tenha em atenção que a experiência do Usuário recomenda as práticas recomendadas e afirma que "é recomendado ter, pelo menos, um dimensionamento na regra." Para tal:
-  
-    a. Clique em **adicionar uma regra**. 
+
+    a. Clique em **adicionar uma regra**.
 
     b. Definir **operador** ao **inferior a**.
 
@@ -62,7 +62,7 @@ Agora vamos através de um simples passo a passo para criar a sua primeira defin
 
 Parabéns! Agora criou com êxito a primeira definição de dimensionamento para dimensionar automaticamente a sua aplicação web com base na utilização da CPU.
 
-> [!NOTE] 
+> [!NOTE]
 > Os mesmos passos são aplicáveis a começar com um conjunto de dimensionamento de máquinas virtuais ou função do serviço de nuvem.
 
 ## <a name="other-considerations"></a>Outras considerações
@@ -105,8 +105,8 @@ Haverá ocasiões em que deseja desativar a definição de dimensionamento atual
 Clique nas **desativar o dimensionamento automático** botão na parte superior.
 ![Desativar o dimensionamento automático][13]
 
-> [!NOTE] 
-> Esta opção desativa a configuração. No entanto, pode voltar à mesma depois de ativar novamente o dimensionamento automático. 
+> [!NOTE]
+> Esta opção desativa a configuração. No entanto, pode voltar à mesma depois de ativar novamente o dimensionamento automático.
 
 Agora pode definir o número de instâncias que pretende dimensionar para manualmente.
 
@@ -133,4 +133,3 @@ Pode sempre regressar ao dimensionamento automático ao clicar em **ativar o dim
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

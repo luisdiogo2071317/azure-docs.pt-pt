@@ -1,6 +1,6 @@
 ---
-title: Personalizado medidores do serviço de reconhecimento de voz e quotas no Azure | Microsoft Docs
-description: Informações sobre medidores e quotas do serviço de reconhecimento de voz personalizadas no Azure.
+title: Medidores do serviço de voz personalizada e de quotas no Azure | Documentos da Microsoft
+description: Informações sobre medidores e quotas de serviço de voz personalizada no Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,44 +9,45 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: d2225dec818c600febfad2f9ebc42594f6ac09ac
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0ddd6274051fed5de86a88270a0dcc2e8288d885
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351470"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974532"
 ---
-# <a name="custom-speech-service-meters-and-quotas"></a>Personalizado medidores do serviço de reconhecimento de voz e quotas
+# <a name="custom-speech-service-meters-and-quotas"></a>Quotas e medidores do serviço de voz personalizada
 
-Com o serviço de reconhecimento de voz de personalizado baseado na nuvem, pode personalizar os modelos de reconhecimento de voz para reconhecimento de voz para texto transcription.
+Com o serviço de voz de personalizada com base na cloud, pode personalizar modelos de voz para transcrição de voz em texto.
 
-Para começar a utilizar o serviço de reconhecimento de voz personalizadas, vá para o [portal do serviço de reconhecimento de voz personalizadas](https://cris.ai).
+Para começar a utilizar o serviço de voz personalizada, vá para o [portal do serviço de voz personalizada](https://cris.ai).
 
-Para o atual preços medidores, vá para o [serviços cognitivos preços do serviço de reconhecimento de voz personalizadas](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) página.
+Para a atual preços medidores, vá para o [preços dos serviços cognitivos para o serviço de voz personalizada](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) página.
 
-## <a name="tiers-explained"></a>Camadas explicadas
-Para testar e protótipo apenas, iremos propor utilizar F0 escalão gratuito. Para sistemas de produção, iremos propor utilizar o escalão de S2. Utilizando a camada de S2 pode dimensionar a sua implementação para o número de unidades de escala (SUs) que o seu cenário exigir.
+## <a name="tiers-explained"></a>Escalões explicados
+Para teste e apenas o protótipo, propomos que utilize o escalão gratuito do F0. Para sistemas de produção, propomos de utilizar o escalão S2. Ao utilizar o escalão S2 pode dimensionar a sua implementação para o número de unidades de escala (SUs) que requer o seu cenário.
 
 > [!NOTE]
-> *Não é possível* migrar entre a camada de F0 e a camada de S2.
+> *Não é possível* migrar entre a camada de F0 e o escalão S2.
 >
 
 ## <a name="meters-explained"></a>Medidores explicados
 
 ### <a name="scale-out"></a>Ampliar
-Aumentar horizontalmente é uma funcionalidade nova que tenha lançada com o novo modelo de preços. Ao utilizar aumentar horizontalmente, pode controlar o número de pedidos simultâneos que pode processar o seu modelo.
+Aumentar horizontalmente é um novo recurso que lançámos com o novo modelo de preços. Ao utilizar aumentar horizontalmente, pode controlar o número de pedidos simultâneos que consegue processar o seu modelo.
 
-Pode definir pedidos em simultâneo utilizando a medida SU no **criar o modelo de implementação** vista. Para obter mais informações, consulte [criar um ponto final de reconhecimento de voz para texto personalizado](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md). Consoante a quantidade de tráfego que envisage a consumir o modelo, pode escolher um número adequado de SUs. 
+Pode definir pedidos em simultâneo com a medida SU no **criar o modelo de implementação** vista. Para obter mais informações, consulte [criar um ponto de final de voz em texto personalizado](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md). Consoante a quantidade de tráfego que prever o consumo de modelo, pode escolher um número adequado de SUs. 
 
 > [!NOTE]
-> Cada unidade de escala garante que os 5 pedidos em simultâneo. Pode comprar 1 ou mais SUs, conforme apropriado. Porque o número de SUs aumenta em incrementos de 1, o número de pedidos simultâneos garantido aumentam a incrementos de 5.
+> Cada unidade de escala garante a 5 pedidos em simultâneo. Pode comprar 1 ou mais SUs, conforme apropriado. Uma vez que aumenta o número de SUs em incrementos de 1, o número de pedidos simultâneos é garantido para aumentar em incrementos de 5.
 >
 
-### <a name="log-management"></a>Gestão do registo
-Pode optar por desactivar rastreios de áudio para um modelo recentemente implementado um custo adicional. Serviço de reconhecimento de voz personalizadas não regista os pedidos de áudio ou as transcrições esse modelo.
+### <a name="log-management"></a>Gestão de registos
+Pode optar por desativar rastreios de áudio para um modelo recentemente implementado a um custo adicional. Serviço de voz personalizada não regista os pedidos de áudio ou as transcrições desse modelo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre como utilizar o serviço de reconhecimento de voz personalizadas, vá para o [portal do serviço de reconhecimento de voz personalizadas](https://cris.ai).
+Para obter mais informações sobre como utilizar o serviço de voz personalizada, vá para o [portal do serviço de voz personalizada](https://cris.ai).
 
 * [Introdução](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)

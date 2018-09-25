@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: yeki
-ms.openlocfilehash: 6b20ef98e008d9c5d984ba29eed894b1c5ec8c09
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 935b3ff0fe03984b02dc2e1137f48e53b06ce0c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995113"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Atualizações automáticas de SO do conjunto de dimensionamento de máquina virtual do Azure
 
@@ -199,7 +199,7 @@ az policy assignment create --display-name "Enforce automatic OS upgrades with a
 ```
 
 ## <a name="configure-auto-updates"></a>Configurar atualizações automáticas
-Para configurar as atualizações automáticas, certifique-se de que o *automaticOSUpgrade* estiver definida como *verdadeiro* na escala de definição de modelo do conjunto. Pode configurar esta propriedade com o Azure PowerShell ou a CLI 2.0 do Azure.
+Para configurar as atualizações automáticas, certifique-se de que o *automaticOSUpgrade* estiver definida como *verdadeiro* na escala de definição de modelo do conjunto. Pode configurar esta propriedade com o Azure PowerShell ou a CLI do Azure.
 
 ### <a name="powershell"></a>PowerShell
 O exemplo seguinte utiliza o Azure PowerShell (4.4.1 ou posterior) para configurar as atualizações automáticas para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
@@ -223,7 +223,7 @@ az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.Aut
 
 
 ## <a name="check-the-status-of-an-automatic-os-upgrade"></a>Verificar o estado de uma atualização de SO automática
-Pode verificar o estado da atualização do SO mais recente efetuada no seu conjunto de dimensionamento com o Azure PowerShell, CLI 2.0 do Azure ou as APIs REST.
+Pode verificar o estado da atualização do SO mais recente efetuada no seu conjunto de dimensionamento com o Azure PowerShell, CLI do Azure ou as APIs REST.
 
 ### <a name="powershell"></a>PowerShell
 Para o exemplo seguinte utiliza o Azure PowerShell (4.4.1 ou posterior) para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
@@ -232,7 +232,8 @@ Para o exemplo seguinte utiliza o Azure PowerShell (4.4.1 ou posterior) para ver
 Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
 ```
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>CLI do Azure
+
 O exemplo seguinte utiliza a CLI do Azure (2.0.20 ou posterior) para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli

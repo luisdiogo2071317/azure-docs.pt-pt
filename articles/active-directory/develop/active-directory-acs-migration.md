@@ -1,6 +1,6 @@
 ---
 title: Migrar do serviço de controlo de acesso do Azure | Documentos da Microsoft
-description: Opções para mover aplicações e serviços a partir do serviço de controlo de acesso do Azure
+description: Saiba mais sobre as opções para mover aplicações e serviços a partir do serviço de controlo de acesso de Azure (ACS).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055299"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036546"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Migrar do serviço de controlo de acesso do Azure
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: migrar a partir do serviço de controlo de acesso do Azure
 
 Microsoft Azure controlo de acesso Service (ACS), um serviço do Azure Active Directory (Azure AD), será descontinuado a 7 de Novembro de 2018. Aplicações e serviços que a utilizam atualmente o controlo de acesso devem ser totalmente migrados para um mecanismo de autenticação diferentes até lá. Este artigo descreve as recomendações para os clientes atuais, à medida que planeia preterir a utilização do controlo de acesso. Se não utilizar atualmente o controlo de acesso, não precisa de tomar qualquer ação.
 
@@ -37,7 +37,7 @@ Casos de utilização para controlo de acesso podem ser divididos em três categ
 - Adicionar autenticação para aplicações web, personalizadas e previamente incluídas em pacotes (como o SharePoint). Ao utilizar a autenticação de "passiva" do controlo de acesso, os aplicativos da web podem suportar início de sessão com uma conta Microsoft (anteriormente conhecido como Live ID) e com as contas do Google, Facebook, Yahoo, do Azure AD e os serviços de Federação do Active Directory (AD FS).
 - Protegendo serviços da web personalizado com tokens emitidos pelo controlo de acesso. Ao utilizar a autenticação de "ativa", serviços da web podem certificar-se de que permitem acesso apenas aos clientes conhecidos que foram autenticadas com controlo de acesso.
 
-Cada um destes utilizar casos e sua migração recomendado estratégias são abordadas nas secções seguintes. 
+Cada um destes utilizar casos e sua migração recomendado estratégias são abordadas nas secções seguintes.
 
 > [!WARNING]
 > Na maioria dos casos, as alterações significativas de código são necessários para migrar serviços e aplicações existentes para as tecnologias mais recentes. Recomendamos que imediatamente comece a planear e executar sua migração para evitar potenciais falhas ou tempo de inatividade.
@@ -61,6 +61,51 @@ Todas as comunicações com o STS e operações de gestão são efetuadas neste 
 A exceção é qualquer tráfego para `https://accounts.accesscontrol.windows.net`. O tráfego para este URL já é processado por um serviço diferente e **není** afetados pela descontinuação do controlo de acesso. 
 
 Para obter mais informações sobre o controlo de acesso, consulte [2.0 de serviço de controlo de acesso (arquivados)](https://msdn.microsoft.com/library/hh147631.aspx).
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Descubra quais das suas aplicações vão ser afetadas
+
+Siga os passos nesta secção para saber quais das suas aplicações vão ser afetadas por extinção de ACS.
+
+### <a name="download-and-install-acs-powershell"></a>Transferir e instalar o PowerShell de ACS
+
+1. Aceda à galeria do PowerShell e transfira [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Instalar o módulo através da execução
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Obter uma lista de todos os comandos de possíveis através da execução
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    Para obter ajuda sobre um comando específico, execute:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    onde `[Command-Name]` é o nome do comando ACS.
+
+### <a name="list-your-acs-namespaces"></a>Liste os espaços de nomes do ACS
+
+1. Ligar ao ACS utilizando o **Connect-AcsAccount** cmdlet.
+  
+    Poderá ter de executar `Set-ExecutionPolicy -ExecutionPolicy Bypass` antes de pode executar comandos e ser o administrador nessas subscrições para executar os comandos.
+
+1. Listar as subscrições do Azure disponíveis com o **Get-AcsSubscription** cmdlet.
+1. Listar a sua espaços de nomes do ACS com o **Get-AcsNamespace** cmdlet.
+
+### <a name="check-which-applications-will-be-impacted"></a>Verificar as aplicações que vão ser afetadas
+
+1. Utilize o espaço de nomes do passo anterior e aceda a `https://<namespace>.accesscontrol.windows.net`
+
+    Por exemplo, se for um dos espaços de nomes contoso-test, vá para `https://contoso-test.accesscontrol.windows.net`
+
+1. Sob **relações de confiança**, selecione **da entidade Confiadora de terceiros** para ver a lista de aplicações que vão ser afetadas por extinção de ACS.
+1. Repita os passos 1 a 2 para outros namespace(s) do ACS que tem.
 
 ## <a name="retirement-schedule"></a>Agenda de extinção
 

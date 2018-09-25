@@ -3,19 +3,19 @@ title: Base de dados de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Uma base de dados de conhecimento do QnA Maker é composta por um conjunto de pares de pergunta/resposta (FAQ) e metadados opcionais associados a cada par de QnA.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: e1ac7bd3322f613888ca82cbd3c23c726f0c0e15
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.author: tulasim
+ms.openlocfilehash: cb3426a960a6644b3ae149f02055cdb083febca7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541186"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040766"
 ---
 # <a name="knowledge-base"></a>Base de dados de conhecimento
 

@@ -5,36 +5,36 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/19/2018
-ms.openlocfilehash: 7e002a43c774bd1a6df9cfe46207ddebd02284b3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 09/24/2018
+ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984318"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory para um cluster do HDInsight
 
-[Clusters do HDInsight associados a um domínio](hdinsight-domain-joined-introduction.md) podem utilizar a autenticação forte com utilizadores do Azure Active Directory (Azure AD), bem como utilizar *controlo de acesso baseado em funções* políticas (RBAC). À medida que adiciona utilizadores e grupos para o Azure AD, pode sincronizar os utilizadores que necessitam de aceder ao seu cluster.
+[Clusters do HDInsight com o pacote de segurança da empresa (ESP)](hdinsight-domain-joined-introduction.md) podem utilizar a autenticação forte com utilizadores do Azure Active Directory (Azure AD), bem como utilizar *controlo de acesso baseado em funções* políticas (RBAC). À medida que adiciona utilizadores e grupos para o Azure AD, pode sincronizar os utilizadores que necessitam de aceder ao seu cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver feito, [criar um cluster do HDInsight associados a um domínio](hdinsight-domain-joined-configure.md).
+Se ainda não tiver feito, [criar um cluster do HDInsight com o Enterprise Security Package](hdinsight-domain-joined-configure.md).
 
 ## <a name="add-new-azure-ad-users"></a>Adicionar o novo Azure os utilizadores do AD
 
 Para ver os seus anfitriões, abra a interface do Usuário de Web do Ambari. Cada nó será atualizado com novas definições de atualização automáticas.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue para o diretório do Azure AD associado com o seu cluster associado a um domínio.
+1. Na [portal do Azure](https://portal.azure.com), navegue para o diretório do Azure AD associado com o seu cluster do ESP.
 
 2. Selecione **todos os utilizadores** a partir do menu do lado esquerdo, em seguida, selecione **novo utilizador**.
 
     ![Painel de todos os utilizadores](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. Preencha o formulário de utilizador novo. Selecione os grupos que criou para atribuir permissões baseadas em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", para que pode atribuir novos utilizadores. O [instruções de exemplo](hdinsight-domain-joined-configure.md) para criar um cluster associado a um domínio incluem a adição de dois grupos, `HiveUsers` e `AAD DC Administrators`.
+3. Preencha o formulário de utilizador novo. Selecione os grupos que criou para atribuir permissões baseadas em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", para que pode atribuir novos utilizadores. O [instruções de exemplo](hdinsight-domain-joined-configure.md) para criar um cluster do ESP incluem a adição de dois grupos, `HiveUsers` e `AAD DC Administrators`.
 
     ![Novo painel de utilizador](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
@@ -148,6 +148,6 @@ Quando o utilizador novo (ou qualquer outro utilizador de domínio) inicia sess�
 
 ## <a name="see-also"></a>Consulte também
 
-* [Configurar políticas do Hive no HDInsight associado a um domínio](hdinsight-domain-joined-run-hive.md)
-* [Gerir clusters do HDInsight associados a um domínio](hdinsight-domain-joined-manage.md)
+* [Configurar políticas do Hive no HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
+* [Gerir clusters do HDInsight com o ESP](hdinsight-domain-joined-manage.md)
 * [Autorizar os utilizadores a Ambari](hdinsight-authorize-users-to-ambari.md)

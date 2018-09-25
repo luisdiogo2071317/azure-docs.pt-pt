@@ -1,6 +1,6 @@
 ---
-title: Gerir o cluster Azure Kubernetes com IU da web
-description: Utilizando a IU da web de Kubernetes no serviço de contentor do Azure
+title: Gerir o cluster de Kubernetes do Azure com a IU da web
+description: Usando a IU web do Kubernetes no Azure Container Service
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -9,24 +9,24 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998530"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilizando a IU da web de Kubernetes com o serviço de contentor do Azure
+# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilizar a IU web do Kubernetes com o Azure Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Esta instrução parte do princípio de que tem [criado um cluster de Kubernetes utilizando o serviço de contentor do Azure](container-service-kubernetes-walkthrough.md).
+Este passo a passo pressupõe que tenha [criado um cluster de Kubernetes com o Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
-Também parte do princípio que tem o 2.0 CLI do Azure e `kubectl` as ferramentas instaladas.
+Também parte do princípio que tem a CLI do Azure e `kubectl` ferramentas instaladas.
 
-Pode testar se tiver o `az` ferramenta instalada através da execução:
+Pode testar se tiver o `az` ferramenta instalada executando:
 
 ```console
 $ az --version
@@ -34,7 +34,7 @@ $ az --version
 
 Se não tiver o `az` ferramenta instalada, existem instruções [aqui](https://github.com/azure/azure-cli#installation).
 
-Pode testar se tiver o `kubectl` ferramenta instalada através da execução:
+Pode testar se tiver o `kubectl` ferramenta instalada executando:
 
 ```console
 $ kubectl version
@@ -48,83 +48,83 @@ $ az acs kubernetes install-cli
 
 ## <a name="overview"></a>Descrição geral
 
-### <a name="connect-to-the-web-ui"></a>Estabelecer ligação com a IU da web
-Pode iniciar a IU da web de Kubernetes executando:
+### <a name="connect-to-the-web-ui"></a>Ligar à IU da web
+Pode iniciar a IU web do Kubernetes ao executar:
 
 ```console
 $ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
-Isto deve abrir um browser configurado para comunicar com um proxy seguro ligar o seu computador local para a IU da web de Kubernetes.
+Esta deve abrir um navegador da web configurado para comunicar com um proxy seguro de ligar o seu computador local para a IU web do Kubernetes.
 
 ### <a name="create-and-expose-a-service"></a>Criar e expor um serviço
-1. Na Kubernetes IU da web, clique em **criar** botão na janela superior direito.
+1. No Kubernetes da IU da web, clique em **criar** botão na janela superior direita.
 
-    ![Kubernetes criar a IU](./media/container-service-kubernetes-ui/create.png)
+    ![Kubernetes criar a interface do Usuário](./media/container-service-kubernetes-ui/create.png)
 
-    Abre de caixa de diálogo onde podem iniciar a criação da sua aplicação.
+    Aberturas de caixa de diálogo onde pode começar a criar a sua aplicação.
 
-2. Atribua o nome `hello-nginx`. Utilize o [ `nginx` contentor do Docker](https://hub.docker.com/_/nginx/) e implementar três réplicas deste serviço web.
+2. Dê-lhe o nome `hello-nginx`. Utilize o [ `nginx` contentor de Docker](https://hub.docker.com/_/nginx/) e implementar a três réplicas desse web service.
 
-    ![Caixa de diálogo de criar Kubernetes Pod](./media/container-service-kubernetes-ui/nginx.png)
+    ![Caixa de diálogo Criar de Pod de Kubernetes](./media/container-service-kubernetes-ui/nginx.png)
 
-3. Em **serviço**, selecione **externo** e introduza a porta 80.
+3. Sob **serviço**, selecione **externo** e introduza a porta 80.
 
-    Esta definição carga balanceia tráfego para as três réplicas.
+    Esta definição carga faz o balanceamento de tráfego para as três réplicas.
 
-    ![Caixa de diálogo Criar do serviço de Kubernetes](./media/container-service-kubernetes-ui/service.png)
+    ![Caixa de diálogo Criar de serviço do Kubernetes](./media/container-service-kubernetes-ui/service.png)
 
-4. Clique em **implementar** para implementar estes serviços e contentores.
+4. Clique em **Deploy** para implementar estes contentores e serviços.
 
-    ![Implementar Kubernetes](./media/container-service-kubernetes-ui/deploy.png)
+    ![Implementar o Kubernetes](./media/container-service-kubernetes-ui/deploy.png)
 
-### <a name="view-your-containers"></a>Ver os contentores
-Depois de clicar em **implementar**, a IU mostra uma vista do seu serviço, como implementa:
+### <a name="view-your-containers"></a>Ver os seus contentores
+Depois de clicar em **Deploy**, a interface do Usuário mostra uma exibição do seu serviço, como ele implementa:
 
-![Estado de Kubernetes](./media/container-service-kubernetes-ui/status.png)
+![Estado do Kubernetes](./media/container-service-kubernetes-ui/status.png)
 
-Pode ver o estado de cada objeto Kubernetes no círculo no lado esquerdo da IU, em **Pods**. Se for um círculo parcialmente completo, em seguida, o objeto ainda está em implementação. Quando um objeto é totalmente implementado, apresenta uma marca de verificação verde:
+Pode ver o estado de cada objeto de Kubernetes no círculo no lado esquerdo da interface do Usuário, em **Pods**. Se for um círculo parcialmente completo, em seguida, o objeto ainda está em implementação. Quando um objeto totalmente é implantado, ele exibe uma marca de verificação verde:
 
 ![Kubernetes implementado](./media/container-service-kubernetes-ui/deployed.png)
 
-Assim que tudo está a ser executado, clique das suas pods para ver detalhes sobre o serviço web em execução.
+Quando tudo estiver em execução, clique dos seus pods para ver detalhes sobre o serviço web em execução.
 
-![Kubernetes Pods](./media/container-service-kubernetes-ui/pods.png)
+![Pods do Kubernetes](./media/container-service-kubernetes-ui/pods.png)
 
-No **Pods** vista, pode ver informações sobre os contentores no pod, bem como os recursos de CPU e memória utilizados desses contentores:
+Na **Pods** vista, pode ver informações sobre os contentores no pod, bem como os recursos de CPU e memória utilizados por desses contentores:
 
-![Kubernetes recursos](./media/container-service-kubernetes-ui/resources.png)
+![Recursos do Kubernetes](./media/container-service-kubernetes-ui/resources.png)
 
 Se não vir os recursos, poderá ter de aguardar alguns minutos para que os dados de monitorização propagar.
 
-Para ver os registos para o contentor, clique em **ver registos**.
+Para ver os registos para o seu contentor, clique em **ver registos**.
 
-![Registos de Kubernetes](./media/container-service-kubernetes-ui/logs.png)
+![Registos do Kubernetes](./media/container-service-kubernetes-ui/logs.png)
 
 ### <a name="viewing-your-service"></a>Visualizar o seu serviço
-Além de executar os contentores, a IU de Kubernetes criou um externo `Service` que aprovisiona um balanceador de carga para colocar o tráfego para os contentores do cluster.
+Além de executar os contentores, a IU do Kubernetes criou um externo `Service` que aprovisiona um balanceador de carga para trazer o tráfego para os contentores no seu cluster.
 
 No painel de navegação esquerdo, clique em **serviços** para ver todos os serviços (deve haver apenas um).
 
-![Serviços de Kubernetes](./media/container-service-kubernetes-ui/service-deployed.png)
+![Serviços do Kubernetes](./media/container-service-kubernetes-ui/service-deployed.png)
 
-Nessa vista, deverá ver um ponto final externo (endereço IP) que foi atribuído ao seu serviço.
-Se clicar nesse endereço IP, deverá ver o contentor Nginx em execução por detrás do Balanceador de carga.
+Nessa exibição, verá um ponto final externo (endereço IP) que foi alocado ao seu serviço.
+Se clicar esse endereço IP, deverá ver o contentor de Nginx em execução por detrás do Balanceador de carga.
 
-![Vista de nginx](./media/container-service-kubernetes-ui/nginx-page.png)
+![modo de exibição do nginx](./media/container-service-kubernetes-ui/nginx-page.png)
 
 ### <a name="resizing-your-service"></a>Redimensionar o seu serviço
-Além de visualizar os objetos na IU, pode editar e atualizar os objetos de Kubernetes API.
+Além de visualizar os objetos na interface do Usuário, pode editar e atualizar os objetos de API do Kubernetes.
 
 Em primeiro lugar, clique em **implementações** no painel de navegação à esquerda para ver a implementação para o seu serviço.
 
-Assim que estiver nessa vista, clique no conjunto de réplicas e, em seguida, clique em **editar** na barra de navegação superior:
+Assim que estiver em exibição, clique no conjunto de réplicas e, em seguida, clique em **editar** na barra de navegação superior:
 
-![Editar Kubernetes](./media/container-service-kubernetes-ui/edit.png)
+![Edição do Kubernetes](./media/container-service-kubernetes-ui/edit.png)
 
-Editar o `spec.replicas` campo ser `2`e clique em **atualização**.
+Editar a `spec.replicas` campo esteja `2`e clique em **atualização**.
 
-Isto faz com que o número de réplicas para remover a dois, eliminando um dos seus pods.
+Isso faz com que o número de réplicas para remover a dois eliminando um dos seus pods.
 
  
 

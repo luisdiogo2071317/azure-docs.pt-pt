@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714058"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034455"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
@@ -100,7 +100,7 @@ Uma função personalizada tem as seguintes propriedades.
 | `NotActions` | Não | String] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que são excluídas da permitidos `Actions`. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Não | String] | Uma matriz de cadeias de caracteres que especifica as operações de dados que permite que a função a ser executada aos seus dados dentro desse objeto. Para obter mais informações, consulte [DataActions (pré-visualização)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Não | String] | Uma matriz de cadeias de caracteres que especifica as operações de dados que são excluídas da permitidos `DataActions`. Para obter mais informações, consulte [NotDataActions (pré-visualização)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Sim | String] | Uma matriz de cadeias de caracteres que especifica os âmbitos que a função personalizada está disponível para atribuição. Atualmente, não é possível definir o âmbito de raiz (`"/"`) ou um âmbito de grupo de gestão. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Sim | String] | Uma matriz de cadeias de caracteres que especifica os âmbitos que a função personalizada está disponível para atribuição. Atualmente, não é possível definir o âmbito de raiz (`"/"`) ou um âmbito de grupo de gestão. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, eliminar, atualizar ou ver uma função personalizada
 

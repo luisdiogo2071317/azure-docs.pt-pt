@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094931"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980292"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para início de sessão 
 
@@ -30,7 +30,7 @@ Este artigo fornece exemplos de script do PowerShell e a CLI para início de ses
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Se planeja usar os exemplos do Azure PowerShell ou a CLI do Azure neste artigo, certifique-se de que instala a versão mais recente do [do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) ou [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se planeja usar os exemplos do Azure PowerShell ou a CLI do Azure neste artigo, certifique-se de que instala a versão mais recente do [do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Todos os script de exemplo neste artigo supõe que o cliente de linha de comando está em execução numa VM com identidades geridas para recursos do Azure ativados. Utilize a funcionalidade de "Ligar" de VM no portal do Azure, para ligar remotamente à VM. Para obter detalhes sobre como ativar identidades geridas para recursos do Azure numa VM, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (com o PowerShell, CLI, um modelo ou um Azure SDK). 

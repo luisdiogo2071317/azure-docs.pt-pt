@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: db4750e01b62835cf08fd52e3288e94aea539b26
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ce302db74f831e67b576e4c0001f21473fd7f2e0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161327"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Azure Active Directory com o FreshDesk
 
@@ -85,7 +85,7 @@ Nesta secção, configure e teste do Azure AD início de sessão único com o Fr
 
 Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no FreshDesk a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no FreshDesk deve ser estabelecido.
 
-Esta relação de ligação é estabelecida atribuindo o valor do **nome de utilizador** no Azure AD como o valor da **Username** no FreshDesk.
+Esta relação de ligação é estabelecida atribuindo o valor do **nome de utilizador** no Azure AD como o valor da **endereço de e-mail** no FreshDesk.
 
 Para configurar e testar o Azure AD início de sessão único com o FreshDesk, tem de concluir os seguintes blocos de construção:
 
@@ -116,47 +116,46 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<tenant-name>.freshdesk.com` ou qualquer outro valor Freshdesk sugeriu.
 
     > [!NOTE]
-    > Tenha em atenção que isto não é o valor real. Terá de atualizar o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente do FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) para obter este valor.  
+    > Tenha em atenção que isto não é o valor real. Terá de atualizar o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente do FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) para obter este valor.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Seu aplicativo espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra um exemplo disso. O valor predefinido **identificador de utilizador** é **user.userprincipalname** mas **FreshDesk** espera que isso seja mapeado com o endereço de e-mail do utilizador. Para que pode usar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização.
+
+    ![Configurar o início de sessão único](./media/freshdesk-tutorial/tutorial_attribute.png)
+
+5. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
     > [!NOTE]
     > Se tiver quaisquer problemas, veja este [link](https://support.freshdesk.com/support/discussions/topics/317543).
 
-5. Clique em **guardar** botão.
+6. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. Instale **OpenSSL** no seu sistema, se não tiver instalado no seu sistema.
+7. Instale **OpenSSL** no seu sistema, se não tiver instalado no seu sistema.
 
-7. Open **linha de comandos** e execute os seguintes comandos:
+8. Open **linha de comandos** e execute os seguintes comandos:
 
     a. Introduza `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` valor no prompt de comando.
 
     > [!NOTE]
     > Aqui **FreshDesk.cer** é o certificado que transferiu do portal do Azure.
 
-    b. Introduza `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` valor no prompt de comando. Aqui **certificate.crt** é o certificado de saída que é gerado no passo anterior.
+    b. Introduza `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` valor no prompt de comando. 
+    
+    > [!NOTE]
+    > Aqui **certificate.crt** é o certificado de saída que é gerado no passo anterior.
 
     c. Copiar o **Thumbprint** valor e cole-o bloco de notas. Remover dois pontos do Thumbprint e obter o valor do Thumbprint final.
 
-8. Na **configuração do FreshDesk** secção, clique em **configurar FreshDesk** para abrir a janela de início de sessão de configurar. Copie o SAML único início de sessão no URL do serviço e o URL de fim de sessão a partir da **referência rápida** secção.
+9. Na **configuração do FreshDesk** secção, clique em **configurar FreshDesk** para abrir a janela de início de sessão de configurar. Copie o SAML único início de sessão no URL do serviço e o URL de fim de sessão a partir da **referência rápida** secção.
 
     ![Configurar o início de sessão único](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-9. Numa janela do browser web diferente, inicie sessão no site da sua empresa Freshdesk como um administrador.
+10. Numa janela do browser web diferente, inicie sessão no site da sua empresa Freshdesk como um administrador.
 
-10. No menu na parte superior, clique em **administrador**.
-
-    ![Admin](./media/freshdesk-tutorial/IC776768.png "Admin")
-
-11. Na **definições gerais** separador, clique em **segurança**.
-  
-    ![Segurança](./media/freshdesk-tutorial/IC776769.png "segurança")
-
-12. Na **segurança** secção, execute os seguintes passos:
+11. Selecione o **ícone de definições** e, no **segurança** secção, execute os seguintes passos:
 
     ![Início de sessão único](./media/freshdesk-tutorial/IC776770.png "início de sessão único")
   
@@ -229,22 +228,19 @@ No caso do FreshDesk, aprovisionamento é uma tarefa manual.
 
    ![Informações de agentes](./media/freshdesk-tutorial/IC776775.png "informações de agentes")
 
-   a. Na **FullName** caixa de texto, escreva o nome da conta do Azure AD que pretende aprovisionar.
+   a. Na **E-Mail** caixa de texto, o Azure AD de tipo de endereço de e-mail da conta do Azure AD que pretende aprovisionar.
 
-   b. Na **E-Mail** caixa de texto, o Azure AD de tipo de endereço de e-mail da conta do Azure AD que pretende aprovisionar.
+   b. Na **FullName** caixa de texto, escreva o nome da conta do Azure AD que pretende aprovisionar.
 
    c. Na **Title** caixa de texto, digite o título da conta do Azure AD que pretende aprovisionar.
 
-   d. Selecione **função de agentes**e, em seguida, clique em **atribuir**.
-
-   e. Clique em **Guardar**.
+   d. Clique em **Guardar**.
 
     >[!NOTE]
     >O titular da conta do Azure AD irá receber uma mensagem de e-mail que inclui uma ligação para confirmar a conta antes de ser ativado.
     >
     >[!NOTE]
-    >Pode utilizar quaisquer outras Freshdesk utilizador conta criação ferramentas ou APIs fornecidas pelo Freshdesk para aprovisionar contas de utilizador do AAD.
-    para o FreshDesk.
+    >Pode utilizar quaisquer outras Freshdesk utilizador conta criação ferramentas ou APIs fornecidas pelo Freshdesk para aprovisionar contas de utilizador do AAD para o FreshDesk.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

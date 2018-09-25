@@ -1,6 +1,6 @@
 ---
 title: Compreender o ponto de final incorporado do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do desenvolvedor – descreve como utilizar as mensagens de dispositivo para a nuvem à marca de ponto final do incorporada, compatível com o Event Hub.
+description: Guia do desenvolvedor – descreve como utilizar o ponto final compatível com o Event Hub incorporado, para ler mensagens do dispositivo para a cloud.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055020"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984046"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -26,7 +26,7 @@ Por predefinição, as mensagens são roteadas para o ponto de final de serviço
 
 IoT Hub também permite-lhe gerir grupos de consumidores sobre o dispositivo para cloud incorporado recebem o ponto final.
 
-Por predefinição, todas as mensagens que não coincidem explicitamente uma regra de roteamento de mensagem são escritas para o ponto final incorporado. Se desativar esta rota de contingência, as mensagens que não coincidem explicitamente quaisquer regras de roteamento de mensagem são ignoradas.
+Se estiver a utilizar [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e o [rota contingência](iot-hub-devguide-messages-d2c.md#fallback-route) é ativada, todas as mensagens que não correspondam a uma consulta em qualquer rota são escritas para o ponto final incorporado. Se desativar esta rota de contingência, as mensagens que não correspondam a qualquer consulta são ignoradas.
 
 Pode modificar o período de retenção, por meio de programação utilizando o [fornecedor de recursos do IoT Hub REST APIs][lnk-resource-provider-apis], ou com o [portal do Azure] [ lnk-management-portal].
 
@@ -39,9 +39,8 @@ Quando utiliza a [SDK do Service Bus para .NET] [ lnk-servicebus-sdk] ou o [Hubs
 Ao utilizar SDKs (ou integrações de produtos) que não estão cientes do IoT Hub, tem de obter um ponto de final compatível com o Event Hub e o nome compatível com o Event Hub:
 
 1. Inicie sessão para o [portal do Azure] [ lnk-management-portal] e navegue até ao seu hub IoT.
-1. Clique em **Pontos Finais**.
-1. Na **pontos finais incorporados** secção, clique em **eventos**. 
-1. É aberta uma página de propriedades, que contém os seguintes valores: **ponto final de compatível com o Event Hub**, **nome compatível com o Event Hub**, **partições**,  **Período de retenção**, e **grupos de consumidores**.
+1. Clique em **pontos finais incorporados**.
+1. O **eventos** secção contém os seguintes valores: **endpoint compatível com o Event Hub**, **nome compatível com o Event Hub**, **partições**, **Período de retenção**, e **grupos de consumidores**.
 
     ![Definições do dispositivo para a nuvem][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ Os SDKs e integrações que pode utilizar com pontos finais de compatível com o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre pontos finais do IoT Hub, veja [pontos finais do IoT Hub][lnk-endpoints].
-
-O [inícios Rápidos] [ lnk-get-started] mostram-lhe como enviar mensagens dispositivo-para-cloud a partir de dispositivos simulados e ler as mensagens a partir do ponto final incorporado. Para obter mais detalhes, consulte a [mensagens de dispositivo-para-cloud do Hub de IoT de processo utilizar rotas] [ lnk-d2c-tutorial] tutorial.
-
-Se quiser encaminhe suas mensagens do dispositivo para a cloud para os pontos finais personalizados, veja [utilizar rotas de mensagens e os pontos finais personalizados para mensagens de dispositivo-para-cloud][lnk-custom].
+* Para obter mais informações sobre pontos finais do IoT Hub, veja [pontos finais do IoT Hub][lnk-endpoints].
+* O [inícios Rápidos] [ lnk-get-started] mostram-lhe como enviar mensagens dispositivo-para-cloud a partir de dispositivos simulados e ler as mensagens a partir do ponto final incorporado. Para obter mais detalhes, consulte a [mensagens de dispositivo-para-cloud do Hub de IoT de processo utilizar rotas] [ lnk-d2c-tutorial] tutorial.
+* Se quiser encaminhe suas mensagens do dispositivo para a cloud para os pontos finais personalizados, veja [utilizar rotas de mensagens e os pontos finais personalizados para mensagens de dispositivo-para-cloud][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

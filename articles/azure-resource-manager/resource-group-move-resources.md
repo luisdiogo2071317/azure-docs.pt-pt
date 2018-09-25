@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2448b1f799c5253b36a18f108af1ff2de8b6ced3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127453"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039740"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -204,6 +204,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Log Analytics
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
+* Managed Disks – consulte [limitações de máquinas virtuais para restrições](#virtual-machines-limitations)
 * Identidade gerida - atribuído ao utilizador
 * Serviços de Multimédia
 * Mobile Engagement
@@ -254,7 +255,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Serviços de laboratório - mudança para o novo grupo de recursos na mesma subscrição está ativada, mas a movimentação entre subscrições não está ativada.
 * Balanceadores de carga - veja [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Geridas
-* Managed Disks – consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Microsoft Genomics
 * NetApp
 * IP público - veja [limitações de IP público](#pip-limitations)
@@ -267,22 +267,36 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 
 ## <a name="virtual-machines-limitations"></a>Limitações de máquinas virtuais
 
-Discos geridos não suportam a mudança. Esta restrição significa que vários recursos relacionados não podem ser movidos demasiado. Não é possível mover:
+Discos geridos são suportados para migração a partir de 24 de Setembro de 2018. Terá de se registar para ativar esta funcionalidade
 
-* Managed disks
+#### <a name="powershell"></a>PowerShell
+`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
+#### <a name="cli"></a>CLI
+`az feature register Microsoft.Compute ManagedResourcesMove`
+
+
+Isso significa que pode também mover:
+
 * Máquinas virtuais com os discos geridos
-* Imagens criadas a partir de discos geridos
-* Instantâneos criados a partir de discos geridos
+* Imagens gerenciadas
+* Instantâneos geridos
 * Conjuntos de disponibilidade com máquinas virtuais com discos geridos
 
-Embora não é possível mover um disco gerido, pode criar uma cópia e, em seguida, criar uma nova máquina virtual a partir do disco gerido existente. Para obter mais informações, consulte:
+Aqui estão as restrições que ainda não são suportadas
 
-* Copiar discos geridos na mesma subscrição ou com uma subscrição diferente [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) ou [da CLI do Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Criar uma máquina virtual utilizando um disco de SO gerido existente com [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) ou [CLI do Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
+* Máquinas de virtuais configuradas com o Azure Backup. Utilize a abaixo da solução para mover estas máquinas virtuais
+  * Localize a localização da sua máquina Virtual.
+  * Localize um grupo de recursos com o padrão de nomenclatura seguinte: "AzureBackupRG_<location of your VM>1" AzureBackupRG_westus2_1 p. ex.
+  * Se no Portal do Azure, em seguida, verificação "Mostrar tipos ocultos"
+  * Se, no PowerShell, utilize o `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+  * Se, na CLI, utilize o `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Agora, localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Eliminar este recurso
+  * Após a eliminação estiver concluída, poderá mover a Máquina Virtual
+* Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard
+* Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
 
-Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
-
-Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 
 ## <a name="virtual-networks-limitations"></a>Limitações de redes virtuais
 

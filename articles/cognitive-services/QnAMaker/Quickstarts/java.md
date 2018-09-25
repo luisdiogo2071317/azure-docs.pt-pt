@@ -10,12 +10,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 48876a9cc1e79b99a94e99ced2ad823e7c368a60
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 8cf9df5130f11fd07dbf468ad0ad93dff4584b21
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721675"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031494"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Início rápido para o Microsoft QnA Maker API com Java 
 <a name="HOLTop"></a>
@@ -37,9 +37,11 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 - [Obtenha o conjunto atual de alterações do word.](#GetAlterations)
 - [Substitua o conjunto atual de alterações do word.](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Se tiver um favorito, mas um editor de texto será suficiente, pode usar um IDE Java.
+Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Se tiver um favorito, mas um editor de texto será suficiente, pode usar um IDE Java.
 
 Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API do Criador de FAQ da Microsoft**. Necessita de uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -47,9 +49,9 @@ Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.co
 
 ## <a name="create-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-O código seguinte cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+O seguinte código cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -262,7 +264,7 @@ public class CreateKB {
 
 **Criar a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -297,9 +299,9 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
 
-O código seguinte atualiza uma base de dados de conhecimento existente através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -571,7 +573,7 @@ public class UpdateKB {
 
 **Atualizar a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -607,7 +609,7 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 
 ## <a name="publish-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-O código seguinte publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
 1. Criar um novo projeto do Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -722,7 +724,7 @@ public class PublishKB {
 
 **Publicar resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -738,7 +740,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O seguinte código substitui o conteúdo do conhecimento especificado base, utilizando o [substitua](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -892,7 +894,7 @@ public class ReplaceKB {
 
 **Substitua a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -908,7 +910,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código seguinte transfere o conteúdo do conhecimento especificado base, utilizando o [transferir a base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1011,7 +1013,7 @@ public class GetQnA {
 
 **Transferir a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1052,7 +1054,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código a seguir obtém respostas a uma pergunta usando a base de dados de conhecimento especificada, utilizando o **gerar respostas** método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Substitua o `host` valor com o nome do Web site para a sua subscrição do QnA Maker. Para obter mais informações, consulte [criar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
 1. Substitua o `endpoint_key` valor com uma chave de ponto final válido para a sua subscrição. Tenha em atenção de que isso não é o mesmo que a chave de subscrição. Pode obter as chaves de ponto final com o [obter chaves de ponto final](#GetKeys) método.
@@ -1167,7 +1169,7 @@ public class GetAnswers {
 
 **Obter resposta de respostas**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1195,7 +1197,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código seguinte obtém informações sobre o conhecimento especificado base, utilizando o [obter os detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1294,7 +1296,7 @@ public class GetKB {
 
 **Obter resposta de detalhes da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1322,7 +1324,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código seguinte obtém informações sobre todas as bases de dados de conhecimento de um utilizador especificado, utilizando o [obter bases de dados de conhecimento para o utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1418,7 +1420,7 @@ public class GetKBsByUser {
 
 **Obter bases de dados de conhecimento de resposta do utilizador**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1462,7 +1464,7 @@ Press any key to continue.
 
 O código seguinte elimina os dados de conhecimento especificado base, utilizando o [eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1567,7 +1569,7 @@ public class DeleteKB {
 
 **Eliminar resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1583,7 +1585,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código seguinte obtém as chaves de ponto final atual, utilizando o [obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1679,7 +1681,7 @@ public class GetEndpointKeys {
 
 **Obter resposta de chaves de ponto final**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1696,7 +1698,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código a seguir Regenera as chaves de ponto final atual, utilizando o [atualizar as chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1843,7 +1845,7 @@ public class RefreshKeys {
 
 **Atualizar a resposta de chaves de ponto final**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1860,7 +1862,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código seguinte obtém as alterações de palavra atual, utilizando o [transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -1956,7 +1958,7 @@ public class GetAlterations {
 
 **Obter resposta de alterações do word**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1979,7 +1981,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 O código a seguir substitui as alterações de palavra atual, utilizando o [substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) método.
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -2113,7 +2115,7 @@ public class PutAlterations {
 
 **Substitua a resposta de alterações do word**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -2126,8 +2128,8 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral do QnA Maker](../Overview/overview.md)
+[Descrição geral do Criador de FAQ](../Overview/overview.md)

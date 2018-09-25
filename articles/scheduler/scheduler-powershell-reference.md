@@ -1,79 +1,60 @@
 ---
-title: Referência de Cmdlets do PowerShell do agendador
-description: Referência de Cmdlets do PowerShell do agendador
+title: Referência de cmdlets do PowerShell - Azure Scheduler
+description: Saiba mais sobre cmdlets do PowerShell do agendador do Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a06439150ac255e7b436082ecc88702bf0c1dec1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866052"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991101"
 ---
-# <a name="scheduler-powershell-cmdlets-reference"></a>Referência de Cmdlets do PowerShell do agendador
-A tabela seguinte descreve e hiperligações para a página de referência de cada um dos principais cmdlets no agendador do Azure.
+# <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referência de cmdlets do PowerShell para o Azure Scheduler
 
-Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). 
+> [!IMPORTANT]
+> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [Experimente o Azure Logic Apps antes](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Para obter mais informações sobre [cmdlets do Azure Resource Manager](/powershell/azure/overview), consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Para criar scripts para criar e gerir tarefas do Scheduler e coleções de tarefas, pode utilizar os cmdlets do PowerShell. Este artigo lista as principais [cmdlets do PowerShell para o Azure Scheduler](/powershell/module/azurerm.scheduler) com links para os artigos de referência. Para instalar o Azure PowerShell para a sua subscrição do Azure, veja [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para obter mais informações sobre [cmdlets do Azure Resource Manager](/powershell/azure/overview), consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-| Cmdlet | Descrição do cmdlet |
-| --- | --- |
-| [Desativar AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Desativa uma coleção de tarefas. |
-| [Ativar AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Permite a uma coleção de tarefas. |
-| [Get-AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Obtém as tarefas do programador. |
-| [Get-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |Obtém as coleções de tarefa. |
-| [Get-AzureRmSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |Obtém o histórico de tarefa. |
+| Cmdlet | Descrição |
+|--------|-------------|
+| [Disable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Desativa uma coleção de tarefas. |
+| [Ativar AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Permite que uma coleção de tarefas. |
+| [Get-AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Obtém as tarefas do Scheduler. |
+| [Get-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |Obtém coleções de tarefas. |
+| [Get-AzureRmSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |Obtém o histórico de tarefas. |
 | [Novo AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azurermschedulerhttpjob) |Cria uma tarefa HTTP. |
 | [Novo AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azurermschedulerjobcollection) |Cria uma coleção de tarefas. |
-| [Novo AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebusqueuejob) |Cria uma tarefa de fila de barramento de serviço. |
-| [Novo AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebustopicjob) |Cria uma tarefa de tópico de barramento de serviço. |
-| [Novo AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerstoragequeuejob) |Cria uma tarefa de fila de armazenamento. |
-| [Remover AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/remove-azurermschedulerjob) |Remove uma tarefa do agendador. |
-| [Remover AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azurermschedulerjobcollection) |Remove uma coleção de tarefas. |
-| [Conjunto AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azurermschedulerhttpjob) |Modifica uma tarefa do agendador HTTP. |
+| [Novo AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebusqueuejob) | Cria uma tarefa de fila do Service Bus. |
+| [Novo AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebustopicjob) |Cria uma tarefa de tópico do Service Bus. |
+| [Novo AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerstoragequeuejob) |Cria uma tarefa da fila de armazenamento. |
+| [Remove-AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/remove-azurermschedulerjob) |Remove uma tarefa do agendador. |
+| [Remove-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azurermschedulerjobcollection) |Remove uma coleção de tarefas. |
+| [Conjunto AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azurermschedulerhttpjob) |Modifica uma tarefa do Scheduler HTTP. |
 | [Conjunto AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azurermschedulerjobcollection) |Modifica uma coleção de tarefas. |
-| [Conjunto AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebusqueuejob) |Modifica uma tarefa de fila de barramento de serviço. |
-| [Conjunto AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Modifica uma tarefa de tópico de barramento de serviço. |
-| [Conjunto AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Modifica uma tarefa de fila de armazenamento. |
+| [Conjunto AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebusqueuejob) |Modifica uma tarefa de fila do Service Bus. |
+| [Conjunto AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Modifica uma tarefa de tópico do Service Bus. |
+| [Conjunto AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Modifica uma tarefa da fila de armazenamento. |
+||| 
 
-Para obter informações mais detalhadas, pode executar os seguintes cmdlets: 
+Para obter mais detalhes, pode executar qualquer um destes cmdlets: 
 
 ```
 Get-Help <cmdlet name> -Detailed
-```
-```
 Get-Help <cmdlet name> -Examples
-```
-```
 Get-Help <cmdlet name> -Full
 ```
 
-## <a name="see-also"></a>Veja Também
- [O que é o Scheduler?](scheduler-intro.md)
+## <a name="see-also"></a>Consulte também
 
- [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
-
- [Começar a utilizar o Scheduler no portal do Azure](scheduler-get-started-portal.md)
-
- [Planos e faturação no Azure Scheduler](scheduler-plans-billing.md)
-
- [Referência da API REST do Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Elevada disponibilidade e fiabilidade do Azure Scheduler](scheduler-high-availability-reliability.md)
-
- [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)
-
- [Autenticação de saída do Azure Scheduler](scheduler-outbound-authentication.md)
-
+* [O que é o agendador do Azure?](scheduler-intro.md)
+* [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
+* [Criar e agendar a sua primeira tarefa - portal do Azure](scheduler-get-started-portal.md)
+* [Referência da API REST do Azure Scheduler](https://msdn.microsoft.com/library/mt629143)

@@ -3,7 +3,6 @@ title: Do Machine learning cábula do algoritmo - Azure | Documentos da Microsof
 description: Uma máquina imprimível cábula do algoritmo de aprendizagem ajuda-o a escolher o algoritmo certo para o modelo de previsão no Azure Machine Learning Studio.
 keywords: cábula do algoritmo, truques e dicas, algoritmo de machine learning
 services: machine-learning
-documentationcenter: ''
 author: pakalra
 ms.author: pakalra
 manager: cgronlun
@@ -11,51 +10,39 @@ editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: b080a739aa73e3c8ef95c7db9a6358d942e94bba
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 56fadde5694dbd298c812db258105e03b7d23d45
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996745"
 ---
-# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Referência rápida de algoritmos do Machine Learning para o Microsoft Azure Machine Learning Studio
-O **Microsoft Azure Machine Learning Trapacear algoritmos** ajuda a escolher o algoritmo certo para um modelo de Análise Preditiva.
+# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
+
+O **a folha de referência do Azure Machine Learning algoritmo** ajuda a escolher o algoritmo certo para um modelo de Análise Preditiva.
 
 [O Azure Machine Learning Studio](https://studio.azureml.net/) tem uma ampla biblioteca de algoritmos dos ***regressão***, ***classificação***, ***clustering***, e  ***Deteção de anomalias*** famílias. Cada uma foi concebido para resolver outro tipo de problema do machine learning.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Transferência: Cábula do algoritmo de aprendizagem
-**Baixe a folha de referência rápida aqui: [Machine Learning Trapacear algoritmos (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
-![Cábula do algoritmo de aprendizagem do computador: Saiba como escolher um algoritmo de Machine Learning.][cheat-sheet]
+**Baixe a folha de referência rápida aqui: [Machine Learning Trapacear algoritmos (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+
+![Do Machine learning cábula do algoritmo: Saiba como escolher um algoritmo de Machine Learning.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-Transferir e imprimir o Machine Learning Trapacear algoritmos no tamanho de tabloide à mão e obtenha ajuda para escolher um algoritmo.
+Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho de tabloide à mão e obtenha ajuda para escolher um algoritmo.
 
 > [!NOTE]
-> Consulte o artigo [como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md) para um guia detalhado para usar esta referência rápida.
-> 
-> 
+> Para obter ajuda nesta referência rápida para escolher o algoritmo certo, além de uma discussão mais detalhada sobre os diferentes tipos de algoritmos de machine learning e como são utilizadas, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
 
-## <a name="more-help-with-algorithms"></a>Mais ajuda com algoritmos
-* Para obter ajuda nesta referência rápida para escolher o algoritmo certo, além de uma discussão mais detalhada sobre os diferentes tipos de algoritmos de machine learning e como são utilizadas, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
-* Para um infográfico transferível que descreve os algoritmos e fornece exemplos, consulte [Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem máquina](basics-infographic-with-algorithm-examples.md).
-* Para obter uma lista por categoria de todos os algoritmos de aprendizagem automática disponíveis no Machine Learning Studio, consulte [inicializar modelo] [ initialize-model] no algoritmo do Machine Learning Studio e, em seguida, ajuda do módulo.
-* Para obter uma lista alfabética completa de algoritmos e módulos no Machine Learning Studio, consulte [lista A-Z dos módulos do Machine Learning Studio] [ a-z-list] no algoritmo de Machine Learning Studio e a ajuda do módulo.
-* Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>Notas e de definições terminológicas para o algoritmo de machine learning, referência rápida
+## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notas e de definições terminológicas para o algoritmo de Machine Learning Studio referência rápida
 
 * As sugestões disponibilizadas neste cábula do algoritmo são aproximadas regras de bolso. Alguns podem ser vinculada e algumas podem ser flagrantly violadas. Isso se destina a sugerir um ponto de partida. Não tenha medo de executar uma competição de cabeça a cabeça entre vários algoritmos nos seus dados. Há simplesmente nenhum substituto para entender os princípios de cada algoritmo e entender o sistema que gerou os seus dados.
 
-* Cada algoritmo de machine learning tem seu próprio estilo ou *tendência inductive*. Para um problema específico, vários algoritmos podem ser adequados e um algoritmo pode ser uma opção melhor do que outras pessoas. Mas nem sempre é possível saber de antemão qual é a melhor opção. Em casos como esses, vários algoritmos estão listados em conjunto na folha de referência rápida. Uma estratégia apropriada seria tentar um algoritmo e se os resultados ainda não forem satisfatórios, experimente os outros. Eis um exemplo do [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de Roc: letras reconhecimento](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Cada algoritmo de machine learning tem seu próprio estilo ou *tendência inductive*. Para um problema específico, vários algoritmos podem ser adequados e um algoritmo pode ser uma opção melhor do que outras pessoas. Mas nem sempre é possível saber de antemão qual é a melhor opção. Em casos como esses, vários algoritmos estão listados em conjunto na folha de referência rápida. Uma estratégia apropriada seria tentar um algoritmo e se os resultados ainda não forem satisfatórios, experimente os outros. Eis um exemplo do [Galeria de IA do Azure](http://gallery.azure.ai/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de Roc: letras reconhecimento](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Existem três categorias principais do machine learning: **aprendizagem supervisionada**, **learning não supervisionado**, e **aprendizagem por reforço**.
 
@@ -75,15 +62,20 @@ Transferir e imprimir o Machine Learning Trapacear algoritmos no tamanho de tabl
 
 * As redes neurais podem ser usadas com variáveis categóricas através da criação de um **variável fictício** para cada categoria, defini-la como 1 em casos em que se aplica a categoria, 0, onde não.
 
+## <a name="next-steps"></a>Passos Seguintes
 
-<!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
-<a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
-<img src="C:\Users\garye\azure-docs-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
-</a>
--->
+* Para um infográfico transferível que descreve os algoritmos e fornece exemplos, consulte [Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem máquina](basics-infographic-with-algorithm-examples.md).
+
+* Para obter uma lista por categoria de todos os algoritmos de aprendizagem automática disponíveis no Machine Learning Studio, consulte [inicializar modelo] [ initialize-model] no algoritmo do Machine Learning Studio e, em seguida, ajuda do módulo.
+
+* Para obter uma lista alfabética completa de algoritmos e módulos no Machine Learning Studio, consulte [lista A-Z dos módulos do Machine Learning Studio] [ a-z-list] no algoritmo de Machine Learning Studio e a ajuda do módulo.
+
+* Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
+
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass

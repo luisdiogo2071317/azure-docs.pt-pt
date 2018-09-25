@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498713"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064438"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Aplicações web do Azure em direto de perfil com o Application Insights
 
@@ -45,9 +45,9 @@ Assim que tiver implementado uma aplicação Web, independentemente de se inclui
 
     ![Definição de aplicação para Profiler][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Ativar Profiler para os recursos de computação do Azure (pré-visualização)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Ativar Profiler para os recursos de computação do Azure
 
-Para obter informações, consulte a [versão de pré-visualização do Profiler para recursos de computação do Azure](https://go.microsoft.com/fwlink/?linkid=848155).
+Para obter informações, consulte a [versão do Profiler para recursos de computação do Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Ver dados do gerador de perfil
 

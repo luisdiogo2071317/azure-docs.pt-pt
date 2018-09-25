@@ -1,26 +1,23 @@
 ---
 title: Executar consultas de análise contra inquilino bases de dados com o Azure SQL Data Warehouse | Documentos da Microsoft
 description: Consultas de análise de entre inquilinos usando dados extraídos da base de dados do Azure SQL, o SQL Data Warehouse, o Azure Data Factory ou o Power BI.
-keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: 6f483b19b79435e1d7090ff42ab7fc9d3f79d747
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498407"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056601"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o SQL Database do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
 

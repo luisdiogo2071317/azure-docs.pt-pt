@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 1fa5451b852a564ef3f0858fdfe0ab0091117508
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1db54cfd32a0d598d0079ddaec9aab5d6b2f84c1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296029"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039297"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -69,7 +69,7 @@ O abaixo o suporte se aplica a qualquer carga de trabalho em execução no siste
 - SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SP4 do SUSE Linux Enterprise Server 11
-- Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3)
+- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3)
 
 (Atualização de replicar as máquinas de SLES 11 SP3 para SLES 11 SP4 não é suportada. Se uma máquina replicada foi atualizada de SLES 11SP3 para SP4 de 11 de SLES, terá de desativar a replicação e proteger a máquina novamente após a atualização.)
 

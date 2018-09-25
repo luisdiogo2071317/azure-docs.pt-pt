@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971387"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões de máquina virtual e funcionalidades para Linux
 
@@ -83,7 +83,7 @@ Extensões VM do Azure, execute em VMs existentes, que é útil quando precisa f
 
 Os seguintes métodos podem ser utilizados para executar uma extensão em relação a uma VM existente.
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+### <a name="azure-cli"></a>CLI do Azure
 
 Extensões VM do Azure podem ser executadas numa VM existente com o [conjunto de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) comando. O exemplo seguinte executa a extensão de Script personalizado em relação a uma VM com o nome *myVM* num grupo de recursos com o nome *myResourceGroup*:
 

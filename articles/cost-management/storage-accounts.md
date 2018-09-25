@@ -1,27 +1,27 @@
 ---
-title: Configurar contas de armazenamento do Azure Cost Management | Documentos da Microsoft
-description: Este artigo descreve como configurar contas de armazenamento do Azure e classificações de armazenamento AWS para o Azure Cost Management.
+title: Configurar contas de armazenamento para o Cloudyn no Azure | Documentos da Microsoft
+description: Este artigo descreve como configurar contas de armazenamento do Azure e classificações de armazenamento AWS para o Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 829995d40a73dc181a28a467e4d16fef0bdeb454
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990659"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Configurar contas de armazenamento para a gestão de custos
+# <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para o Cloudyn
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Pode salvar relatórios do Cost Management no Cloudyn portal, o armazenamento do Azure ou AWS classificações de armazenamento. A guardar os seus relatórios para o portal da Cloudyn é sem encargos. No entanto, a guardar os seus relatórios para o armazenamento do seu fornecedor de serviços de nuvem é opcional e incorre em custos adicionais. Este artigo ajuda-o a configurar contas de armazenamento do Azure e grupos de armazenamento do Amazon Web Services (AWS) para armazenar os seus relatórios.
+Pode salvar relatórios do Cloudyn no Cloudyn portal, o armazenamento do Azure ou AWS classificações de armazenamento. A guardar os seus relatórios para o portal da Cloudyn é sem encargos. No entanto, a guardar os seus relatórios para o armazenamento do seu fornecedor de serviços de nuvem é opcional e incorre em custos adicionais. Este artigo ajuda-o a configurar contas de armazenamento do Azure e grupos de armazenamento do Amazon Web Services (AWS) para armazenar os seus relatórios.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Se não tiver um AWS bucket de serviço (S3) de armazenamento simples, precisa c
 
 ## <a name="configure-your-azure-storage-account"></a>Configurar a sua conta de armazenamento do Azure
 
-A configurar o armazenamento do Azure para utilização pelo Cost Management é simples. Recolher detalhes sobre a conta de armazenamento e copiá-los no portal do Cloudyn.
+A configurar o armazenamento do Azure para utilização por Cloudyn é simples. Recolher detalhes sobre a conta de armazenamento e copiá-los no portal do Cloudyn.
 
 1. Inicie sessão no portal do Azure em http://portal.azure.com.
 2. Clique em **todos os serviços**, selecione **contas de armazenamento**, desloque-se para a conta de armazenamento que pretende utilizar e, em seguida, selecione a conta.
@@ -163,4 +163,4 @@ Agora pode salvar relatórios para o armazenamento do Azure. Em qualquer relató
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Revisão [relatórios de gestão de custos de compreensão](understanding-cost-reports.md) para saber mais sobre a estrutura básica e as funções de relatórios de gestão de custos.
+- Revisão [relatórios do Cloudyn compreensão](understanding-cost-reports.md) para saber mais sobre a estrutura básica e as funções de relatórios do Cloudyn.

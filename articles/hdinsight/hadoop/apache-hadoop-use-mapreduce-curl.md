@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: f497184b05432d6e32883bb3470f7e4da5fe550f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9941f442ad546155f58967fb3414eb2e7b7c3647
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973716"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Executar tarefas de MapReduce com o Hadoop no HDInsight com REST
 
@@ -141,7 +141,7 @@ Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce 
 
 6. Quando o estado da tarefa foi alterado para `SUCCEEDED`, pode recuperar os resultados da tarefa de armazenamento de Blobs do Azure. O `statusdir` parâmetro que é passado com a consulta contém a localização do ficheiro de saída. Neste exemplo, a localização é `/example/curl`. Este endereço armazena o resultado da tarefa no armazenamento do padrão de clusters em `/example/curl`.
 
-Pode listar e transferir estes ficheiros ao utilizar o [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs a partir da CLI do Azure, consulte a [utilizar a CLI 2.0 do Azure com o armazenamento de Azure](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) documento.
+Pode listar e transferir estes ficheiros ao utilizar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs a partir da CLI do Azure, consulte a [utilizar a CLI do Azure com o armazenamento de Azure](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) documento.
 
 ## <a id="nextsteps"></a>Passos seguintes
 

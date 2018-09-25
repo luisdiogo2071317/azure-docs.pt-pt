@@ -2,20 +2,22 @@
 title: Conceder acesso à base de dados do Azure SQL e SQL Data Warehouse | Documentos da Microsoft
 description: Saiba como conceder acesso à base de dados do Microsoft Azure SQL e SQL Data Warehouse.
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/13/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 5944f757782cf565b60904ac9f0e2f4a3e71d3d8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: a39e65d5a3aff6158c189f392e2db8bd8273ad1b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35956643"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063790"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controlo de acesso de base de dados SQL e SQL Data Warehouse do Azure
 Para fornecer segurança, do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) controlar o acesso com regras de firewall que limitam a conectividade por endereço IP, mecanismos de autenticação que exigem que os utilizadores forneçam a respetiva identidade e mecanismos de autorização que limitam os utilizadores a ações específicas e os dados. 

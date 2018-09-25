@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Referência para os domínios criados previamente, que são coleções pré-criados de objetivos e entidades do Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238901"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040045"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -180,7 +180,7 @@ O domínio de eventos fornece intenções e entidades relacionadas com pedidos d
 | Endereço | Localização do evento ou endereço. |Da Palo Alto<br/>300 112th Ave SE <br/> Seattle |
 | Nome | O nome de um evento.|Shakespeare no parque|
 | PlaceName| O nome de localização do evento.|Louvre<br/>Casa<br/>Broadway|
-| PlaceType | O tipo da localização do evento será mantido na.|Cafe<br/>Theater<br/>Biblioteca|
+| PlaceType | O tipo da localização do evento será mantido na.|Café<br/>Theater<br/>Biblioteca|
 | Tipo | O tipo de um evento.|Conjunto<br/>Jogo de desporto|
 
 ## <a name="fitness"></a>Adequação 
@@ -197,7 +197,7 @@ O domínio de adequação fornece intenções e entidades relacionadas às ativi
 ### <a name="entities"></a>Entidades
 | Nome de entidades | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
-| ActivityType | O tipo de atividade para controlar. |Executar<br/>Movimentação<br/>Retomar<br/>Ciclo de |
+| ActivityType | O tipo de atividade para controlar. |Executar<br/>A pé<br/>Retomar<br/>Ciclo de |
 | Comida | Um tipo de alimento para controlar num aplicativo de adequação. |Banana<br/>Salmão<br/>Agite de proteínas|
 | MealType| O tipo de refeição para controlar num Estado de funcionamento ou adequação a uma aplicação.|Café da manhã<br/>Jantar<br/>Almoço<br/>Supper|
 | Medida| Um tipo de medições de tempo, a distância ou peso, para utilização numa aplicação adequação ou estado de funcionamento.|Quilómetros de distância<br/>Quilómetros<br/>Minutos<br/>Quilogramas|
@@ -234,7 +234,7 @@ O domínio de HomeAutomation fornece intenções e entidades relacionadas para c
 | Nome da entidade | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
 | Dispositivo | Um tipo de dispositivo que pode ser ativado ou desativado.|Criador de café<br/>termóstato<br/>luzes|
-| Operação | O estado a definir do dispositivo.|bloqueio<br/>Abrir<br/>em<br/>desativado|
+| Operação | O estado a definir do dispositivo.|bloqueio<br/>abre<br/>em<br/>desativado|
 | Espaço | A localização ou o espaço que o dispositivo estiver no.|sala de estar<br/>carvalho<br/>cozinha|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -430,13 +430,13 @@ restart|
 | Atmosfera | A atmosfera de um local.|amigáveis para crianças<br/>restaurante casual<br/>sporty|
 | Cuisine | O cuisine de um local. |Mediterrâneo<br/>Italiano<br/>Rupia|
 | DestinationAddress| Uma localização de destino ou endereço.|Da Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName| O nome de um destino que é uma empresa, restaurante, attraction público ou instituição.|Central park<br/>safeway<br/>walmart|
+| DestinationPlaceName| O nome de um destino que é uma empresa, restaurante, attraction público ou instituição.|Central park<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | O tipo de um destino que é um comercial, restaurante, attraction público ou instituição. |Restaurante<br/>Opera<br/>cinema|
 | Distância | A distância para um local.|15 quilómetros<br/>5 quilómetros<br/>10 quilómetros de distância|
 | MealType | Tipo de refeição como café da manhã ou almoço. |Café da manhã<br/>Jantar<br/>Almoço<br/>Supper|
 | OpenStatus | Indica se um lugar é aberto ou fechado.|Aberto<br/>Fechado<br/>abrir|
 | PlaceName | O nome de um local.|Fábrica de bolos|
-| PlaceType | O tipo de um local.|Cafe<br/>Theater<br/>Biblioteca|
+| PlaceType | O tipo de um local.|Café<br/>Theater<br/>Biblioteca|
 | PreferredRoute | A rota preferida especificada pelo utilizador. | 101 <br/>202 <br/>Rota 401|
 | Produto | O produto oferecido um local. | Roupas<br/>Câmeras digitais ASR<br/>Peixe atualizados | 
 | PublicTransportationRoute | O nome da rota transporte público que o utilizador está a procurar. | Formação de corredor Nordeste<br/>Rota de barramento 3 X |
@@ -494,7 +494,7 @@ Table for 3 in Palo Alto at 7
 | Cuisine | Um tipo de comida, cuisine ou cuisine nationality. |Chinês<br/>Italiano<br/>Peso|
 | MealType | Um tipo de refeição associado a uma reserva.|Café da manhã<br/>Jantar<br/>Almoço<br/>Supper|
 | PlaceName | O nome de um comercial, restaurante, da atração pública ou instituição.|IHOP<br/>Fábrica de bolos<br/>Louvre|
-| PlaceType | O tipo de um comercial, restaurante, da atração pública ou instituição.|restaurante<br/>opera<br/>cinema|
+| PlaceType | O tipo de um comercial, restaurante, da atração pública ou instituição.|Restaurante<br/>Opera<br/>cinema|
 | Classificação | A classificação de um local ou um restaurante.|5 estrelas<br/>3 estrelas<br/>4 estrelas|
 
 ## <a name="taxi"></a>Táxis 

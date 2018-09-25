@@ -13,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4245cd4cf1f67007ced190e15d95929d854e303a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591337"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992750"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>Ligar de protocolos - OAuth 2.0 e OpenID v2.0
+
 O ponto final v2.0 pode utilizar o Azure AD para identidade-como-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui será útil se optar por escrever seu código através do envio direto & manipulação HTTP pedidos ou utilizar uma biblioteca de código-fonte aberto de terceiros 3ª, em vez de utilizar um dos nossos [bibliotecas-fonte aberto](reference-v2-libraries.md).
 
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
->
->
 
-## <a name="the-basics"></a>As noções básicas
+## <a name="the-basics"></a>Noções básicas
+
 Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas na troca de:
 
 ![Funções de OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -52,6 +52,7 @@ Cada aplicação que utiliza o ponto final v2.0, terá de ser registrado por [ap
 Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-v2-register-an-app.md).
 
 ## <a name="endpoints"></a>Pontos Finais
+
 Depois de registado, o aplicativo se comunica com o Azure AD ao enviar pedidos para o ponto final v2.0:
 
 ```
@@ -71,15 +72,17 @@ Onde o `{tenant}` pode efetuar uma das quatro valores diferente:
 Para obter mais informações sobre como interagir com estes pontos finais, escolha um tipo de aplicação específica abaixo.
 
 ## <a name="tokens"></a>Tokens
+
 A implementação de v2.0 de OAuth 2.0 e OpenID Connect fazem amplo uso de tokens de portador, incluindo os tokens de portador representados como JWTs. Um token de portador é um token de segurança simples que concede o acesso de "bearer" a um recurso protegido. Nesse sentido, "bearer" é capaz de apresentar o token de terceiros. Embora uma parte deve primeiro autenticar com o Azure AD para receber o token de portador, se não são tidas nos passos necessários para proteger o token na transmissão e o armazenamento, podem ser intercetado e utilizado por uma entidade não-intencionais. Embora alguns tokens de segurança tem um mecanismo interno para impedir que partes não autorizadas a utilizá-los, os tokens de portador não tem esse mecanismo e devam ser transportados num canal seguro, como a segurança de camada de transporte (HTTPS). Se um token de portador é transmitido de forma, um man-in a invasão intermediária pode ser utilizado por usuários mal-intencionados para adquirir o token e utilizá-lo para um acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou de colocação em cache os tokens de portador para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura. Para obter mais considerações de segurança em tokens de portador, consulte [RFC 6750 secção 5](http://tools.ietf.org/html/rfc6750).
 
 Existem mais detalhes de diferentes tipos de tokens utilizados no ponto final v2.0 está disponível no [a referência de token de ponto final de v2.0](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
+
 Se estiver pronto para ver alguns pedidos de exemplo, começar com um do abaixo tutoriais. Cada uma delas corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar o que é o fluxo certo para, confira [os tipos de aplicações que criar com a versão 2.0](v2-app-types.md).
 
-* [Crie uma aplicação nativa com o OAuth 2.0 e móveis](v2-oauth2-auth-code-flow.md)
-* [Criar Web aplicações com abrir ID Connect](v2-protocols-oidc.md)
-* [Criar aplicações de página única com o fluxo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
-* [Compilação Daemons ou processos de lado servidor com as credenciais de cliente OAuth 2.0 fluxo](v2-oauth2-client-creds-grant-flow.md)
-* [Obter os tokens de uma API Web com o fluxo do OAuth 2.0 em nome da](v2-oauth2-on-behalf-of-flow.md)
+* [Criar aplicações móveis e nativas com OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Criar aplicações web com abrir ID Connect](v2-protocols-oidc.md)
+* [Criar aplicações de página única com o OAuth 2.0 implícita de fluxo](v2-oauth2-implicit-grant-flow.md)
+* [Criar daemons ou processos de lado do servidor com a fluxo de credenciais do OAuth 2.0 cliente](v2-oauth2-client-creds-grant-flow.md)
+* [Obter os tokens numa API web o fluxo em-nome-do OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)

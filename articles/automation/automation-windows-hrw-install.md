@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294919"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032993"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -49,7 +49,7 @@ Depois de implementar com êxito uma função de trabalho de runbook, reveja [ex
 
 Execute os seguintes passos para automatizar a instalação e configuração da função da função de trabalho do Windows híbrida:
 
-1. Transferir o script New-OnPremiseHybridWorker.ps1 a partir da [galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) diretamente a partir do computador que executa a função de trabalho de Runbook híbrida ou de outro computador no seu ambiente. Copie o script para a função de trabalho.
+1. Transferir o script New-OnPremiseHybridWorker.ps1 a partir da [galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) diretamente a partir do computador que executa a função de trabalho de Runbook híbrida ou de outro computador no seu ambiente. Copie o script para a função de trabalho.
 
    O script New-OnPremiseHybridWorker.ps1 requer os seguintes parâmetros durante a execução:
 

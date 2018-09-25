@@ -1,6 +1,6 @@
 ---
 title: Criar e gerir máquinas virtuais no DevTest Labs com a CLI do Azure | Documentos da Microsoft
-description: Saiba como utilizar o Azure DevTest Labs para criar e gerir máquinas virtuais com a CLI 2.0 do Azure
+description: Saiba como utilizar o Azure DevTest Labs para criar e gerir máquinas virtuais com a CLI do Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ccf9b08856fcc652e3ad4b2b31587d43d7ef9cca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434684"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995960"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Criar e gerir máquinas virtuais com o DevTest Labs com a CLI do Azure
 Neste início rápido irá guiá-lo por meio de criar, iniciar, ligar, atualizar e limpeza de um computador de desenvolvimento no seu laboratório. 
@@ -27,7 +27,7 @@ Antes de começar:
 
 * Se não tiver sido criado um laboratório, pode encontrar instruções [aqui](devtest-lab-create-lab.md).
 
-* [Instalar a CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Para iniciar, execute o início de sessão az para criar uma ligação com o Azure. 
+* [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para iniciar, execute o início de sessão az para criar uma ligação com o Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Criar e certifique-se a máquina virtual 
 Crie uma VM a partir de uma imagem do marketplace com ssh autenticação.

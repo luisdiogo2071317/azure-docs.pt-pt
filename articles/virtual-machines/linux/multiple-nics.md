@@ -1,6 +1,6 @@
 ---
 title: Criar uma VM do Linux no Azure com várias NICs | Documentos da Microsoft
-description: Saiba como criar uma VM do Linux com vários NICs ligados ao mesmo com os modelos da CLI 2.0 do Azure ou do Resource Manager.
+description: Saiba como criar uma VM do Linux com vários NICs ligados ao mesmo com os modelos da CLI do Azure ou do Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 77feb52a4ba2013bd6ec0afcd30a20f05227031e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4982de352af2ce33f4dbf6dba00ff9296cc9b873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999757"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com rede várias placas de interface
-Pode criar uma máquina virtual (VM) no Azure que tenha várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com várias NICs ligadas a si e como adicionar ou remover NICs a uma VM existente. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM.
 
-Este artigo fornece detalhes sobre como criar uma VM com vários NICs com a CLI 2.0 do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](multiple-nics-nodejs.md).
 
+Este artigo fornece detalhes sobre como criar uma VM com vários NICs com a CLI do Azure.
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Instalar a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
+Instalar a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *mystorageaccount*, e *myVM*.
 
@@ -104,7 +103,7 @@ az vm create \
 Adicionar tabelas de roteamento para o SO convidado, concluindo os passos em [configurar o sistema operacional convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Adicionar uma NIC a uma VM
-Os passos anteriores criaram uma VM com várias NICs. Também pode adicionar NICs a uma VM existente com a CLI 2.0 do Azure. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM. Se for necessário, pode [redimensionar uma VM](change-vm-size.md).
+Os passos anteriores criaram uma VM com várias NICs. Também pode adicionar NICs a uma VM existente com a CLI do Azure. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM. Se for necessário, pode [redimensionar uma VM](change-vm-size.md).
 
 Crie outro NIC com [nic da rede de az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria um NIC com o nome *myNic3* ligada ao back-end sub-rede e de rede de grupo de segurança criado nos passos anteriores:
 

@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Utilize a entidade de pattern.any para extrair dados de expressões em que as expressões é bem formatada e em que o fim dos dados pode ser facilmente confundido com as palavras da expressão.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031375"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Tutorial: 5. Extrair dados de forma livre
+# <a name="tutorial-5-extract-free-form-data"></a>Tutorial: 5. Extrair dados sem formulário
 
 Neste tutorial, utilize a entidade de pattern.any para extrair dados de expressões em que as expressões são bem formatadas e em que o fim dos dados pode ser facilmente confundido com as palavras da expressão. 
 

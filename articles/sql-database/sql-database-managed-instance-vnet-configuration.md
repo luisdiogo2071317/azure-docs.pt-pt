@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c2caa9ebbc3a4e6b9180466950775524986fd244
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: dfcd61abd9f995a9bb848c23143adb99b0620956
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042164"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para a instância gerida de base de dados SQL do Azure
 
-O Azure SQL Database Managed Instance (pré-visualização) deve ser implantado numa do Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). Esta implementação permite que os seguintes cenários: 
+Instância de gerida de base de dados de SQL do Azure tem de ser implementada dentro do Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). Esta implementação permite que os seguintes cenários: 
 - Ligar-se para uma instância gerida diretamente a partir de uma rede no local 
 - Ligar uma instância gerida para o servidor ligado ou de outra-arquivo de dados no local 
 - Ligar uma instância gerida nos recursos do Azure  
@@ -34,7 +34,7 @@ Planeie como implementar uma instância gerida na rede virtual com as suas respo
 
    Se planeia utilizar uma rede virtual existente, terá de modificar essa configuração de rede para acomodar a sua instância gerida. Para obter mais informações, consulte [modificar a rede virtual existente para a instância gerida](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Se planeja criar nova rede virtual, veja [criar nova rede virtual para a instância gerida](#create-a-new-virtual-network-for-managed-instances).
+   Se planeja criar nova rede virtual, veja [criar nova rede virtual para a instância gerida](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -84,7 +84,7 @@ Se planeia implementar várias instâncias geridas dentro da sub-rede e precisa 
 > [!IMPORTANT]
 > Cálculo exibido acima se tornará obsoleto com ainda mais melhorias. 
 
-## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Criar uma nova rede virtual para a instância gerida através da implementação do Azure Resource Manager
+## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Criar uma nova rede virtual para uma instância gerida
 
 A maneira mais fácil para criar e configurar a rede virtual é usar o modelo de implementação Azure Resource Manager.
 
@@ -143,8 +143,6 @@ Preparação de sub-rede é feita em três passos simples:
 **Tem o servidor DNS personalizado configurado?** 
 
 Se Sim, veja [configurando um DNS personalizado](sql-database-managed-instance-custom-dns.md). 
-
-- Criar a tabela de rotas necessárias e associá-la: veja [criar a tabela de rotas necessárias e associá-la](#create-the-required-route-table-and-associate-it)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

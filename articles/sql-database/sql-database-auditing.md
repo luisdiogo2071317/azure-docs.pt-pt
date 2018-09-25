@@ -2,20 +2,22 @@
 title: Introdução à auditoria de base de dados SQL do Azure | Documentos da Microsoft
 description: Utilize a auditoria de base de dados SQL do Azure para controlar eventos de base de dados num log de auditoria.
 services: sql-database
-author: giladmit
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
 ms.reviewer: vanto
-ms.openlocfilehash: 935baf791d9244f2fa4f5be9c02d4778244754de
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: dd1672c0cdae243bf6ff19efa22df66239611b44
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543754"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064180"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. Auditoria também:
@@ -98,10 +100,25 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 11. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar os e-mails para receber alertas de segurança. Ao utilizar a deteção de ameaças, recebe alertas pró-ativos relativamente a atividades anómalas da base de dados que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [introdução à deteção de ameaças](sql-database-threat-detection-get-started.md). 
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
+Se optar por escrever registos de auditoria para o Log Analytics:
+- Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da base de dados **auditoria** página, clique em **ver registos de auditoria**.
+
+    ![Ver registos de auditoria](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+
+- Em seguida, clicar em **abra no OMS** na parte superior a **registos de auditoria** página irá abrir a vista de registos no Log Analytics, onde pode personalizar o intervalo de tempo e a consulta de pesquisa.
+
+    ![abrir no OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+
+- Em alternativa, também pode aceder os registos de auditoria no painel do Log Analytics. Abra a área de trabalho do Log Analytics e, em **gerais** secção, clique em **registos**. Pode começar com uma consulta simples, tais como: pesquisa *"SQLSecurityAuditEvents"* para ver a auditoria de registos.
+    A partir daqui, pode também usar [Log Analytics do Operations Management Suite (OMS)](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas nos seus dados de registo de auditoria. O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics do OMS, consulte [referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
+
+Se optar por escrever registos de auditoria para o Hub de eventos:
+- Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte [documentação de Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
+
 Se optar por escrever registos de auditoria numa conta de armazenamento do Azure, existem vários métodos que pode utilizar para ver os registos:
 - Registos de auditoria são agregados na conta que escolheu durante a configuração. Pode explorar os registos de auditoria utilizando uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/). No armazenamento do Azure, os registos de auditoria são guardados como uma coleção de ficheiros de blob num contentor com o nome **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e formato de registo, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da base de dados **deteção de ameaças e auditoria** página, clique em **ver registos de auditoria**.
+- Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da base de dados **auditoria** página, clique em **ver registos de auditoria**.
 
     ![Painel de navegação][7]
 
@@ -137,16 +154,6 @@ Se optar por escrever registos de auditoria numa conta de armazenamento do Azure
 
      * Utilize o [leitor de eventos expandidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) biblioteca do c#.
      * [Ficheiros de eventos expandidos de consulta](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) com o PowerShell.
-
-Se optar por escrever registos de auditoria para o Log Analytics:
-- Para ver os registos de auditoria no Log Analytics, abra a área de trabalho do Log Analytics e, em **pesquisa e analisar registos**, clique em **ver registos**. Na vista de pesquisa de registos, pode começar ao clicar em **todos os dados recolhidos**.  
-
-    ![pesquisa de registos do OMS](./media/sql-database-auditing-get-started/oms_log_search.png)
-
-   A partir daqui, pode utilizar [Log Analytics do Operations Management Suite (OMS)](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas nos seus dados de registo de auditoria. O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics do OMS, consulte [referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
-
-Se optar por escrever registos de auditoria para o Hub de eventos:
-- Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte [documentação de Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
 
 ## <a id="subheading-5"></a>Práticas de produção
 <!--The description in this section refers to preceding screen captures.-->
@@ -210,16 +217,16 @@ Para obter um exemplo de script, consulte [configurar a deteção de ameaças e 
 
 **REST API - a auditoria de BLOBs**:
 
-* [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
-* [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
-* [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
-* [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
+* [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+* [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Obter política expandida com em que suporta a cláusula para filtragem adicionais:
-* [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-* [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-* [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
-* [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
+* [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497761"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964109"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
@@ -47,12 +47,12 @@ Ver [vozes de texto em voz](supported-languages.md#text-to-speech) para obter um
 Cabeçalho|Valores|Comentários
 -|-|-
 |`Content-Type` | `application/ssml+xml` | O formato de texto de entrada.
-|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | O formato de áudio de saída.
+|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`riff-16khz-16bit-mono-pcm`<br>`raw-8khz-8bit-mono-mulaw`<br>`riff-8khz-8bit-mono-mulaw`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | O formato de áudio de saída.
 |`User-Agent`   |Nome da aplicação | O nome da aplicação é necessário e tem de ter menos de 255 carateres.
 | `Authorization`   | Token de autorização obtido através da sua chave de subscrição para o serviço de token de apresentação. Cada token é válido durante dez minutos. Ver [REST APIs: autenticação](rest-apis.md#authentication).
 
 > [!NOTE]
-> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. vozes de 24khz não suportam `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída. 
+> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário.
 
 Um pedido de exemplo é mostrado abaixo.
 
@@ -87,7 +87,8 @@ Se ocorrer um erro, são utilizados os códigos de estado abaixo. O corpo da res
 |-|-|-|
 400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
 401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou token é válido.
-413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
+413|Entidade do pedido demasiado grande|A entrada SSML é demasiado grande ou contém mais de 3 `<voice>` elementos.
+429|Demasiados Pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
 |502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Para obter mais informações sobre o texto a API de REST de voz, consulte [REST APIs](rest-apis.md#text-to-speech).

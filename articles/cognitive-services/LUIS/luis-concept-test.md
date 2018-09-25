@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: O teste é o processo de fornecimento de expressões de exemplo para LUIS e obter uma resposta de LUIS reconhecidas intenções e entidades. Pode testar interativamente, LUIS uma expressão de cada vez, ou fornecer um lote de expressões. Com os testes, compare o modelo de Active Directory atual para o modelo publicado.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 41ba968eb68f2104a2183917c4ef850b2b6a9edc
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033231"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Teste de expressões de exemplo no LUIS
 

@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542842"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955262"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tempo de ingestão de dados no Log Analytics
-O Azure Log Analytics é um serviço de dados de grande escala que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para os dados fiquem disponíveis no Log Analytics depois de serem recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
+O Azure Log Analytics é um serviço de dados de grande escala no Azure Monitor, que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para os dados fiquem disponíveis no Log Analytics depois de serem recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
 
 ## <a name="typical-latency"></a>Latência típica
 Latência refere-se para o tempo que dados são criados no sistema monitorizado e a hora em que se trata de disponível para análise no Log Analytics. A latência típica de ingerir dados no Log Analytics é entre 2 e 5 minutos. A latência específica para quaisquer dados específicos irá variar dependendo de vários fatores explicado abaixo.
 
-## <a name="sla-for-log-analytics"></a>SLA para o Log Analytics
-O [contrato de nível (SLA) do Log Analytics Service](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) é um contrato de enlace legais que define quando a Microsoft reembolsos clientes quando o serviço não cumpre os seus objetivos. Isso não é baseado no desempenho típico do sistema, mas seu pior das hipóteses, o que totaliza potenciais situações catastróficas.
 
 ## <a name="factors-affecting-latency"></a>Fatores que afetam a latência
 O tempo de ingestão total para um determinado conjunto de dados pode ser dividido nas seguintes áreas de alto nível. 

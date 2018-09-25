@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de ligações com o observador de rede do Azure - API REST do Azure | Microsoft Docs
-description: Saiba como utilizar a ligação de resolução de problemas de capacidade do observador de rede do Azure utilizando a API de REST do Azure.
+title: Resolver problemas de ligações com o observador de rede do Azure - API REST do Azure | Documentos da Microsoft
+description: Saiba como utilizar a ligação de resolução de problemas de capacidade do observador de rede do Azure com a API de REST do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d04340c340a7285b62ccc68eed4e70f7c4b43bc8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187356"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990030"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Resolver problemas de ligações com o observador de rede do Azure utilizando a API de REST do Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Resolver problemas de ligações com o observador de rede do Azure com a API de REST do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
-> - [API REST do Azure](network-watcher-connectivity-rest.md)
+> - [CLI do Azure](network-watcher-connectivity-cli.md)
+> - [API de REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como utilizar a ligação de resolução de problemas para verificar se é possível estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
+Saiba como utilizar a ligação de resolução de problemas para verificar se pode ser estabelecida uma ligação TCP direta de uma máquina virtual para um determinado ponto de extremidade.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que tem os seguintes recursos:
 
-* Uma instância do observador de rede na região que pretende resolver problemas de uma ligação.
+* Uma instância do observador de rede na região em que pretende resolver problemas de uma ligação.
 * Máquinas virtuais para resolver problemas de ligações com.
 
 > [!IMPORTANT]
-> Resolver problemas de ligação requer que a VM resolver problemas de tenha a `AzureNetworkWatcherExtension` extensão da VM instalado. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessário no ponto final de destino.
+> Resolver problemas de ligação requer que a solucionar problemas a partir de VM tem o `AzureNetworkWatcherExtension` extensão da VM instalado. Para instalar a extensão numa VM do Windows, visite [extensão de máquina virtual de agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para visite de VM do Linux [extensão da máquina virtual de agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessário no ponto de extremidade de destino.
 
-## <a name="log-in-with-armclient"></a>Iniciar sessão com ARMClient
+## <a name="log-in-with-armclient"></a>Inicie sessão com ARMClient
 
 Inicie sessão no armclient com as suas credenciais do Azure.
 
@@ -48,14 +48,14 @@ Inicie sessão no armclient com as suas credenciais do Azure.
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a>Obter uma máquina virtual
+## <a name="retrieve-a-virtual-machine"></a>Recuperar uma máquina virtual
 
-Execute o seguinte script para devolver uma máquina virtual. Estas informações são necessárias para a execução de conectividade. 
+Execute o seguinte script para retornar uma máquina virtual. Estas informações são necessárias para a execução de conectividade. 
 
-O seguinte código tem valores para as seguintes variáveis:
+O código a seguir tem valores para as seguintes variáveis:
 
-- **subscriptionId** -o ID de subscrição para utilizar.
-- **resourceGroupName** -o nome de um grupo de recursos que contém máquinas virtuais.
+- **subscriptionId** -o ID de subscrição a utilizar.
+- **resourceGroupName** -o nome do grupo de recursos que contém as máquinas virtuais.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -64,7 +64,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-O resultado seguinte, o ID da máquina virtual é utilizado no exemplo seguinte:
+A partir da saída seguinte, o ID da máquina virtual é utilizado no exemplo a seguir:
 
 ```json
 ...
@@ -81,7 +81,7 @@ O resultado seguinte, o ID da máquina virtual é utilizado no exemplo seguinte:
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verifique a conectividade a uma máquina virtual
 
-Neste exemplo verifica a conectividade a uma máquina virtual de destino através da porta 80.
+Este exemplo verifica a conectividade a uma máquina virtual de destino através da porta 80.
 
 ### <a name="example"></a>Exemplo
 
@@ -108,11 +108,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é muito a executar, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
+Uma vez que esta operação é longa em execução, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
 
 **Valores importantes**
 
-* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação foi concluída
+* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -133,7 +133,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-É a seguinte resposta do exemplo anterior.  Esta resposta, a `ConnectionStatus` é **Unreachable**. Pode ver que todas as sondas enviadas com falhas. A conectividade falhou, a aplicação virtual devido a um configurada pelo utilizador `NetworkSecurityRule` denominado **UserRule_Port80**, configurado para bloquear o tráfego recebido na porta 80. Estas informações podem ser utilizadas para pesquisar problemas de ligação.
+É a seguinte resposta do exemplo anterior.  Esta resposta, o `ConnectionStatus` é **inacessível**. Pode ver que todas as sondas enviadas com falha. A conectividade falha momentânea ao executar a aplicação virtual devido a um utilizador-configurado `NetworkSecurityRule` com o nome **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Estas informações podem ser utilizadas para pesquisar os problemas de ligação.
 
 ```json
 {
@@ -224,11 +224,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é muito a executar, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
+Uma vez que esta operação é longa em execução, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
 
 **Valores importantes**
 
-* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação foi concluída
+* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -249,7 +249,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-No exemplo seguinte, o `connectionStatus` é mostrado como **Unreachable**. No `hops` mais detalhes, pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
+No exemplo a seguir, o `connectionStatus` é apresentado como **inacessível**. Na `hops` detalhes, pode ver na `issues` o tráfego bloqueado devido a um `UserDefinedRoute`.
 
 ```json
 {
@@ -291,9 +291,9 @@ No exemplo seguinte, o `connectionStatus` é mostrado como **Unreachable**. No `
 }
 ```
 
-## <a name="check-website-latency"></a>Verifique a latência de Web site
+## <a name="check-website-latency"></a>Verificar a latência de Web site
 
-O exemplo seguinte verifica a conetividade de um Web site.
+O exemplo seguinte verifica a conectividade a um Web site.
 
 ### <a name="example"></a>Exemplo
 
@@ -320,11 +320,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é muito a executar, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
+Uma vez que esta operação é longa em execução, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
 
 **Valores importantes**
 
-* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação foi concluída
+* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -345,7 +345,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-A seguinte resposta, pode ver o `connectionStatus` mostra como **Reachable**. Quando uma ligação é bem-sucedida, são fornecidos valores de latência.
+Em resposta a seguir, pode ver o `connectionStatus` é apresentado como **Reachable**. Quando uma ligação é bem-sucedida, são fornecidos valores de latência.
 
 ```json
 {
@@ -378,9 +378,9 @@ A seguinte resposta, pode ver o `connectionStatus` mostra como **Reachable**. Qu
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Verifique a conectividade a um ponto final de armazenamento
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Verifique a conectividade a um ponto de final de armazenamento
 
-O exemplo seguinte verifica a conetividade de uma máquina virtual para uma conta de armazenamento do blogue.
+O exemplo seguinte verifica a conectividade entre uma máquina virtual e uma conta de armazenamento do blogue.
 
 ### <a name="example"></a>Exemplo
 
@@ -407,11 +407,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é muito a executar, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
+Uma vez que esta operação é longa em execução, o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
 
 **Valores importantes**
 
-* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação foi concluída
+* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -432,7 +432,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-O exemplo seguinte é a resposta ao executar a chamada de API anterior. Como a verificação for bem sucedida, o `connectionStatus` propriedade mostra como **Reachable**.  São fornecidos os detalhes sobre o número de saltos necessários para atingir o blob de armazenamento e a latência.
+O exemplo seguinte é a resposta a execução da chamada de API anterior. Como a verificação for bem sucedida, o `connectionStatus` propriedade é apresentado como **Reachable**.  São fornecidos os detalhes sobre o número de saltos necessária para alcançar o blob de armazenamento e a latência.
 
 ```json
 {
@@ -467,9 +467,9 @@ O exemplo seguinte é a resposta ao executar a chamada de API anterior. Como a v
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md).
+Saiba como automatizar as capturas de pacotes com alertas de Máquina Virtual, visualizando [criar uma captura de pacotes acionadas alerta](network-watcher-alert-triggered-packet-capture.md).
 
-Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de IP verifique](diagnose-vm-network-traffic-filtering-problem.md).
+Localizar se determinado tráfego é permitido dentro ou fora da sua VM, visitando [fluxo de IP verificar](diagnose-vm-network-traffic-filtering-problem.md).
 
 
 

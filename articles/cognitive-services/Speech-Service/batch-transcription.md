@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605594"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981377"
 ---
 # <a name="batch-transcription"></a>Transcrição em lote
 
@@ -100,7 +100,7 @@ Depois de obter o token, tem de especificar o URI de SAS que aponta para o arqui
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
@@ -169,7 +169,7 @@ Depois de obter o token, tem de especificar o URI de SAS que aponta para o arqui
 ```
 
 > [!NOTE]
-> No código anterior, a chave de subscrição é o recurso de Speech(Preview) que criar no portal do Azure. Teclas de obtido a partir do recurso de serviço de voz personalizada não funciona.
+> No código anterior, a chave de subscrição é o recurso de fala que criar no portal do Azure. Teclas de obtido a partir do recurso de serviço de voz personalizada não funciona.
 
 Observe a configuração assíncrona para a postagem de áudio e receber o estado de transcrição. O cliente criado é um cliente de Http do .NET. Há uma `PostTranscriptions` método para enviar os detalhes do arquivo de áudio e um `GetTranscriptions` método para receber os resultados. `PostTranscriptions` Retorna um identificador, e `GetTranscriptions` utiliza esse identificador para criar um identificador para obter o estado de transcrição.
 

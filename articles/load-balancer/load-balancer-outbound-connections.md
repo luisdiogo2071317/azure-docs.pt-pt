@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842260"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036995"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -69,7 +69,7 @@ Portas efêmeras de frontend de endereço IP público do Balanceador de carga s�
 
 Portas SNAT são pré-alocado conforme descrito no [SNAT de compreensão e PAT](#snat) secção. Eles são um recurso finito que pode esgotar-se. É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
-Quando [vários endereços IP (públicos) estão associados com o Balanceador de carga básico](load-balancer-multivip-overview.md), qualquer de IP público destes endereços são um [candidato para fluxos de saída](#multivipsnat), e um é selecionado.  
+Quando [vários endereços IP públicos estão associados com o Balanceador de carga básico](load-balancer-multivip-overview.md), qualquer de IP público destes endereços são um [candidato para fluxos de saída](#multivipsnat), e um é selecionado aleatoriamente.  
 
 Para monitorizar o estado de funcionamento das ligações de saída com o Balanceador de carga básico, pode usar [Log Analytics para o Balanceador de carga](load-balancer-monitor-log.md) e [registos de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para monitorizar as mensagens de esgotamento de porta SNAT.
 

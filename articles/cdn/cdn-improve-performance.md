@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056753"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997278"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho ao comprimir ficheiros na CDN do Azure para
 Compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiro e aumentar o desempenho de carregamento da página, reduzindo o tamanho de um ficheiro antes do envio do servidor. Compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência de maior capacidade de resposta para os seus utilizadores.
@@ -102,13 +102,14 @@ Os escalões CDN standard e premium fornecem a mesma funcionalidade de compacta�
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>CDN Standard do Azure de perfis da Microsoft
 
-Para **CDN Standard do Microsoft Azure** perfis, todos os ficheiros são elegíveis para compressão. No entanto, tem de ser um ficheiro de um tipo MIME que tem sido [configurado para compressão](#enabling-compression).
+Para **CDN Standard do Microsoft Azure** perfis, apenas os ficheiros elegíveis são compactados. Para ser elegível para compressão, tem um ficheiro:-ser de um tipo MIME que tem sido [configurado para compressão](#enabling-compression).
+-Ser maior do que 1 KB-ser menor do que 8 MB
 
 Estes perfis suportam as seguintes codificações de compressão:
 - gzip (GNU zip)
 - brotli 
  
-Se o pedido de suportar mais do que um tipo de compactação, esses tipos de compressão precedência sobre brotli compressão.
+Se o pedido de suportar mais do que um tipo de compactação, compressão de brotli tem precedência.
 
 Quando um pedido para um recurso Especifica compactação gzip e os resultados do pedido numa falha de acerto na cache, CDN do Azure realiza a compactação gzip do elemento de diretamente no servidor POP. Depois disso, o ficheiro comprimido é servido a partir da cache.
 

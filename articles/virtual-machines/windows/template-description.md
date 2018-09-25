@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987701"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo Azure Resource Manager
 
@@ -164,7 +164,7 @@ Use essas oportunidades para obter as mais recentes versões de API:
 
 - REST API - [listar todos os fornecedores de recursos](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell – [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- CLI do Azure 2.0 - [show de fornecedor de az](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- CLI do Azure - [show de fornecedor de az](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Parâmetros e variáveis
 
@@ -442,7 +442,7 @@ Pode ver o estado das extensões instaladas nas definições de extensões no po
 
 ![Obter estado da extensão](./media/template-description/virtual-machines-show-extensions.png)
 
-Também pode obter informações de extensão, utilizando o **Get-AzureRmVMExtension** comando do PowerShell, o **get de extensão de vm** comando da CLI 2.0 do Azure, ou o **obter informações de extensão** API DE REST.
+Também pode obter informações de extensão, utilizando o **Get-AzureRmVMExtension** comando do PowerShell, o **get de extensão de vm** comando da CLI do Azure, ou o **obter informações de extensão**REST API.
 
 ## <a name="deployments"></a>Implementações
 

@@ -1,6 +1,6 @@
 ---
-title: Carregar ou copiar uma VM com Linux personalizada com a CLI 2.0 do Azure | Documentos da Microsoft
-description: Carregar ou copiar uma máquina virtual personalizada usando o modelo de implementação do Resource Manager e o Azure CLI 2.0
+title: Carregar ou copiar uma VM com Linux personalizada com a CLI do Azure | Documentos da Microsoft
+description: Carregar ou copiar uma máquina virtual personalizada usando o modelo de implementação do Resource Manager e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 3fb6957cf6af5c09a355b61c7c2440a929d1b837
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736679"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957436"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Criar uma VM do Linux a partir de discos personalizados com a CLI 2.0 do Azure
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Criar uma VM do Linux a partir de discos personalizados com a CLI do Azure
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,7 +57,7 @@ Para concluir os passos seguintes, tem de:
 > 
 
 
-* Certifique-se de que tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+* Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *mystorageaccount*, e *mydisks*.
 

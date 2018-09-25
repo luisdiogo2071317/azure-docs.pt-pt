@@ -1,6 +1,6 @@
 ---
 title: Expanda os discos rígidos virtuais numa VM do Linux no Azure | Documentos da Microsoft
-description: Saiba como expandir os discos rígidos virtuais numa VM do Linux com a CLI 2.0 do Azure
+description: Saiba como expandir os discos rígidos virtuais numa VM do Linux com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421193"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974549"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir os discos rígidos virtuais numa VM do Linux com a CLI do Azure
-O tamanho de disco rígido virtual padrão para o sistema operativo (SO) é, normalmente, 30 GB numa máquina virtual (VM) do Linux no Azure. Pode [adicionar discos de dados](add-disk.md) fornecer para o espaço de armazenamento adicional, mas também pode pretender expandir um disco de dados existente. Este artigo fornece detalhes sobre como expandir os discos geridos para uma VM do Linux com a CLI 2.0 do Azure. 
+
+O tamanho de disco rígido virtual padrão para o sistema operativo (SO) é, normalmente, 30 GB numa máquina virtual (VM) do Linux no Azure. Pode [adicionar discos de dados](add-disk.md) fornecer para o espaço de armazenamento adicional, mas também pode pretender expandir um disco de dados existente. Este artigo fornece detalhes sobre como expandir os discos geridos para uma VM do Linux com a CLI do Azure. 
 
 > [!WARNING]
 > Sempre Certifique-se de que volta dos seus dados antes de executar o disco redimensiona operações. Para obter mais informações, consulte [cópia de segurança de VMs do Linux no Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Expanda o disco gerido do Azure
-Certifique-se de que tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Este artigo requer uma VM existente no Azure com pelo menos um disco de dados anexados e preparado. Se ainda não tiver uma VM que pode utilizar, veja [criar e preparar uma VM com discos de dados](tutorial-manage-disks.md#create-and-attach-disks).
 

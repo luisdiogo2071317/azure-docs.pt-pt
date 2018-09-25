@@ -14,19 +14,19 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 220132f5f8c926999ac18299c3e8362be78d23a8
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171794"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990183"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerir registos DNS e conjuntos de registros no DNS do Azure com o Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI do Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
+> * [CLI clássica do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Este artigo mostra-lhe como gerir registos DNS para a sua zona DNS com o Azure PowerShell. Registos DNS também podem ser geridos utilizando a Multiplataforma [CLI do Azure](dns-operations-recordsets-cli.md) ou o [portal do Azure](dns-operations-recordsets-portal.md).

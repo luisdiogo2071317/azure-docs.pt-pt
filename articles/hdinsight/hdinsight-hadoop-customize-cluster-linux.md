@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: e12379dbb63e57ee12e1cebb1761f0b103d50ef1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110532"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978034"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizar ações de script
 
@@ -89,7 +89,7 @@ Uma ação de script é o script de Bash que é executado em nós num cluster do
 
 * Executar com **privilégios no nível de raiz** em nós do cluster.
 
-* Pode ser utilizada através da **portal do Azure**, **Azure PowerShell**, **v1.0 da CLI do Azure**, ou **HDInsight .NET SDK**
+* Pode ser utilizada através da **portal do Azure**, **Azure PowerShell**, **CLI clássica do Azure**, ou **HDInsight .NET SDK**
 
 O cluster mantém um histórico de todos os scripts que tenham sido executado. O histórico é útil quando precisa localizar o ID de um script para operações de promoção ou despromoção.
 
@@ -147,7 +147,7 @@ Scripts de ações de script podem ser usados por meio dos utilitários a seguir
 
 * Portal do Azure
 * Azure PowerShell
-* CLI do Azure v1.0
+* CLI clássica do Azure
 * SDK de .NET do HDInsight
 
 HDInsight fornece scripts para instalar os seguintes componentes em clusters do HDInsight:
@@ -292,10 +292,9 @@ Quando a operação for concluída, receberá informações semelhantes ao segui
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Aplicar uma ação de script para um cluster em execução a partir da CLI do Azure
 
-Antes de continuar, certifique-se de ter instalado e configurado a CLI do Azure. Para obter mais informações, consulte [instalar a CLI 1.0 do Azure](../cli-install-nodejs.md).
+Antes de continuar, certifique-se de ter instalado e configurado a CLI do Azure. Para obter mais informações, consulte [instalar a CLI do Azure clássico](../cli-install-nodejs.md).
 
-> [!IMPORTANT]
-> HDInsight requer CLI 1.0 do Azure. Atualmente a CLI 2.0 do Azure não fornece comandos para trabalhar com o HDInsight.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. Para mudar para modo Azure Resource Manager, utilize o seguinte comando na linha de comandos:
 
@@ -380,7 +379,7 @@ O script de exemplo seguinte demonstra como utilizar os cmdlets para promover, e
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### <a name="using-the-azure-cli"></a>Com a CLI do Azure
+### <a name="using-the-azure-classic-cli"></a>Com a CLI clássica do Azure
 
 | Utilize o seguinte... | Para... |
 | --- | --- |

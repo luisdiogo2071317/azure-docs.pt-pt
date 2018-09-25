@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Utilize um padrão para extrair dados de uma expressão de modelo bem formatado. A expressão de modelo utiliza uma entidade e as funções para extrair dados relacionados, tais como a localização de origem e a localização de destino.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: f3ddbad350ed42823ca95136ae2a507c46c3c763
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 07fc753f7f60b51fc6b27e43ffb8c181c570bb5a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634545"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032517"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial: 4. Extrair contextualmente relacionados com padrões
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial: 4. Extrair padrões relacionados contextualmente
 
 Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatado. A expressão de modelo utiliza uma entidade e as funções para extrair dados relacionados, tais como a localização de origem e a localização de destino.  Ao usar padrões, expressões de exemplo menos são necessários para a intenção.
 

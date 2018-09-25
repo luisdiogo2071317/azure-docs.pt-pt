@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003836"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998243"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
 O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./monitoring-diagnostic-logs-schema.md) é fornecido no final do artigo.
@@ -192,6 +192,95 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
 }
 ```
 Consulte a [notificações de estado de funcionamento de serviço](./monitoring-service-notifications.md) artigo de documentação sobre os valores nas propriedades.
+
+## <a name="resource-health"></a>Estado de funcionamento de recursos
+Esta categoria contém o registo de quaisquer eventos de estado de funcionamento do recurso que ocorreram aos recursos do Azure. Um exemplo do tipo de evento, que veria nesta categoria é o "Estado de funcionamento estado da Máquina Virtual foi alterado para indisponível." Eventos de estado de funcionamento de recursos podem representar um dos quatro Estados de estado de funcionamento: disponível, indisponível, Degraded e desconhecido. Além disso, os eventos de estado de funcionamento de recursos podem ser categorizados como sendo iniciado de plataforma ou utilizador.
+
+### <a name="sample-event"></a>Evento de exemplo
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Descrições das propriedades
+| Nome do elemento | Descrição |
+| --- | --- |
+| canais | Sempre "Admin, operação" |
+| correlationId | Um GUID no formato de cadeia de caracteres. |
+| descrição |Descrição de texto estático do evento de alerta. |
+| eventDataId |Identificador exclusivo do evento de alerta. |
+| categoria | Sempre "ResourceHealth" |
+| eventTimestamp |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
+| operationName |Nome da operação. |
+| resourceGroupName |Nome do grupo de recursos que contém o recurso. |
+| resourceProviderName |Sempre "Microsoft.Resourcehealth/healthevent/action". |
+| resourceType | O tipo de recurso que foi afetado por um evento de estado de funcionamento do recurso. |
+| resourceId | Nome do ID do recurso para o recurso afetado. |
+| status |A cadeia de caracteres que descreve o estado do evento de estado de funcionamento. Os valores podem ser: Active, Resolved, InProgress, Updated. |
+| subStatus | Normalmente, null para alertas. |
+| submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId |ID de subscrição do Azure. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento.|
+| Properties.title | Uma cadeia de amigável de utilizador que descreve o estado de funcionamento do recurso. |
+| Properties.details | Uma cadeia de amigável de utilizador que descreve mais detalhes sobre o evento. |
+| properties.currentHealthStatus | O estado de funcionamento atual do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degraded" e "Desconhecido". |
+| properties.previousHealthStatus | O estado de funcionamento anterior do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degraded" e "Desconhecido". |
+| Properties.Type | Uma descrição do tipo de evento de estado de funcionamento de recursos. |
+| Properties.cause | Uma descrição da causa do evento de estado de funcionamento do recurso. "UserInitiated" e "PlatformInitiated". |
+
 
 ## <a name="alert"></a>Alerta
 Esta categoria contém o registo de todas as ativações de alertas do Azure. Um exemplo do tipo de evento, que veria nesta categoria é "% da CPU no myVM foi mais de 80 durante os últimos 5 minutos." Uma variedade de sistemas do Azure tem um conceito de alerta – pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem essa regra. Sempre que um tipo de alerta do Azure suportado 'ativa,' ou as condições são cumpridas para gerar uma notificação, um registo da ativação também é emitidos via push para esta categoria de registo de atividades.

@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055898"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958259"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação para programadores de acesso condicional do Azure Active Directory
 
@@ -40,9 +39,9 @@ Conhecimento dos [único](quickstart-v1-integrate-apps-with-azure-ad.md) e [mult
 
 ### <a name="app-types-impacted"></a>O impacto de tipos de aplicações
 
-Na maioria dos casos, o acesso condicional não altera o comportamento de uma aplicação ou requer que todas as alterações do desenvolvedor. Apenas em determinados casos quando uma aplicação indiretamente ou silenciosamente solicita um token para um serviço, uma aplicação necessitar de alterações de código para lidar com acesso condicional "desafios". Pode ser tão simples quanto executar um pedido de início de sessão interativo. 
+Na maioria dos casos, o acesso condicional não altera o comportamento de uma aplicação ou requer que todas as alterações do desenvolvedor. Apenas em determinados casos quando uma aplicação indiretamente ou silenciosamente solicita um token para um serviço, uma aplicação necessitar de alterações de código para lidar com acesso condicional "desafios". Pode ser tão simples quanto executar um pedido de início de sessão interativo.
 
-Os seguintes cenários requerem especificamente, o código para lidar com acesso condicional "desafios": 
+Os seguintes cenários requerem especificamente, o código para lidar com acesso condicional "desafios":
 
 * Aplicações acedam aos Microsoft Graph
 * Aplicações a executar o fluxo em-nome-de
@@ -147,7 +146,7 @@ Para exemplos de código que demonstram como lidar com o desafio de afirmações
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: Aplicação executar o fluxo em-nome-de
 
-Neste cenário, vamos analisar o caso em que uma aplicação nativa chama uma serviço/API web. Por sua vez, esse serviço faz [o fluxo "em-nome-de"](authentication-scenarios.md#application-types-and-scenarios) para chamar um serviço downstream. No nosso caso, estamos aplicou a nossa política de acesso condicional para o serviço downstream (Web API 2) e estiver a utilizar uma aplicação nativa, em vez de uma aplicação de servidor/daemon. 
+Neste cenário, vamos analisar o caso em que uma aplicação nativa chama uma serviço/API web. Por sua vez, esse serviço faz [he "fluxo em-nome-de" para chamar um serviço downstream. No nosso caso, estamos aplicou a nossa política de acesso condicional para o serviço downstream (Web API 2) e estiver a utilizar uma aplicação nativa, em vez de uma aplicação de servidor/daemon. 
 
 ![Aplicação efetuar o diagrama de fluxo em-nome-de](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -190,7 +189,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Se a aplicação estiver a utilizar a biblioteca ADAL, uma falha ao adquirir o token é sempre repetida interativamente. Quando ocorre este pedido interativo, o utilizador final tem a oportunidade para estar em conformidade com o acesso condicional. Isso é verdade, a menos que o pedido é uma `AcquireTokenSilentAsync` ou `PromptBehavior.Never` caso em que a aplicação precisa de realizar uma interativo ```AcquireToken``` pedido para dar a utilização de fim a oportunidade para estar em conformidade com a política. 
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: Única aplicação SPA (página) usando ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: Aplicação de página única (SPA) usando ADAL.js
 
 Neste cenário, vamos analisar o caso quando temos uma aplicação de página única (SPA), usando ADAL.js para chamar uma API da web de acesso condicional protegido. Esta é uma arquitetura de simple, mas tem algumas nuances que precisam ser levados em consideração ao desenvolver em torno do acesso condicional.
 

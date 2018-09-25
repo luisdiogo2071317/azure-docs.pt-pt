@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861925"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947222"
 ---
 # <a name="document-collection-analysis"></a>Análise de coleção de documentos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Este cenário demonstra como resumir e analisar uma grande coleção de documentos, incluindo técnicas, como a aprendizagem de frase, tópico de modelagem e análise de modelo de tópico com o Azure ML Workbench. O Azure Machine Learning Workbench fornece para fácil Dimensionar para a coleção de documentos muito grandes e fornece mecanismos para treinar e otimizar modelos de dentro de uma variedade de contextos de cálculo, abrangendo desde cálculo local para dados de máquinas virtuais de ciência para Cluster do Spark. Fácil desenvolvimento é fornecido por meio de blocos de notas do Jupyter no Azure Machine Learning Workbench.
 
@@ -60,7 +65,7 @@ Os técnicas/algoritmos de machine learning utilizados neste cenário incluem:
 
 As pré-requisitos para executar este exemplo são os seguintes:
 
-* Certifique-se de que instalou corretamente [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) ao seguir os [instalar e criar o guia de introdução](../service/quickstart-installation.md).
+* Certifique-se de que instalou corretamente [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) ao seguir os [instalar e criar o guia de introdução](quickstart-installation.md).
 
 * Neste exemplo pode ser executado em qualquer contexto de cálculo. No entanto, recomenda-se para executá-lo numa máquina com vários núcleo com, pelo menos, de 16GB de memória e espaço em disco de 5GB.
 

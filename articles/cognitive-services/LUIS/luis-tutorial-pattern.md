@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Utilize padrões para aumentar a predição de intenção e entidade ao mesmo tempo, menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040708"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial: 3. Adicionar os formatos de expressão comuns
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial: 3. Adicionar formatos de expressão comuns
 
 Neste tutorial, utilize padrões para aumentar a predição de intenção e entidade ao mesmo tempo, menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto. Um padrão é uma combinação de correspondência de expressões e machine learning.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dê uma melhor compreensão de quais expressões com ajustar a intenção de LUIS. 
 

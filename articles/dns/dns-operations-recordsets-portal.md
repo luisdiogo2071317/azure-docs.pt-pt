@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f7991ff1b0c5a29b002818bc4dc5d9106ba5bfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174431"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974770"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos DNS e conjuntos de registos com o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI do Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
+> * [CLI clássica do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Este artigo mostra-lhe como gerir conjuntos de registos e registos para a sua zona DNS com o portal do Azure.

@@ -1,6 +1,6 @@
 ---
-title: Armazenamento frequente, esporádico e de arquivos para blobs | Microsoft Docs
-description: Armazenamento frequente, esporádico e de arquivos para contas de Armazenamento do Azure.
+title: Premium, frequente, esporádico e arquivo de armazenamento de blobs - armazenamento do Azure
+description: Premium, frequente, esporádica e de arquivo de armazenamento para as contas de armazenamento do Azure.
 services: storage
 author: kuhussai
 ms.service: storage
@@ -8,28 +8,64 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 66c47a97eee6759eb963db43d5c573fb6612bde6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735923"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997833"
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo
 
 ## <a name="overview"></a>Descrição geral
 
-O Armazenamento do Azure disponibiliza três camadas de armazenamento para o Armazenamento de objetos de blobs, para que possa armazenar os seus dados de forma mais económica consoante o modo como os utiliza. A **camada de armazenamento de acesso frequente** do Azure está otimizada para armazenar dados que são acedidos com frequência. A **camada de armazenamento de acesso esporádico** do Azure está otimizada para armazenar dados que são acedidos com pouca frequência e armazenados durante 30 dias, pelo menos. A **camada de armazenamento de arquivos** do Azure está otimizada para armazenar dados que são raramente acedidos e armazenados durante, pelo menos, 180 dias, com requisitos de latência flexíveis (na ordem das horas). Este armazenamento só está disponível ao nível do blob e não ao nível da conta de armazenamento. Os dados na camada de armazenamento de acesso esporádico podem tolerar disponibilidade ligeiramente inferior, mas ainda requerem uma durabilidade elevada, bem como tempo de acesso e características de débito semelhantes aos dados de acesso frequente. Para os dados de acesso esporádico, um SLA de disponibilidade ligeiramente inferior e custos de acesso superiores comparados com frequentes são compromissos aceitáveis em troca de custos de armazenamento inferiores. O armazenamento de arquivos está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais elevados. Apenas os níveis de armazenamento frequente e esporádico (não arquivo) podem ser definidos ao nível de conta. Todos os três níveis podem ser definidos ao nível de objeto.
+O armazenamento do Azure oferece as camadas de armazenamento diferentes que lhe permitem armazenar dados de objeto de Blob da maneira mais econômica. As camadas disponíveis incluem:
 
-Atualmente, os dados armazenados na nuvem estão a crescer a um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes em termos da forma como são gerados, processados e acedidos ao longo da respetiva duração. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na nuvem e são raramente acedidos após serem armazenados ou não são acedidos de todo.
+- **O armazenamento Premium (pré-visualização)** fornece o hardware de elevado desempenho para dados que são acedidos com frequência.
+ 
+- **Armazenamento de frequente**: está otimizada para armazenar dados que são acedidos com frequência. 
+
+- **Armazenamento de acesso esporádico** está otimizada para armazenar dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias.
+ 
+- **Armazenamento de arquivo** está otimizada para armazenar dados que são raramente acedidos e armazenados durante, pelo menos, 180 dias com os requisitos de latência flexíveis (na ordem das horas).
+
+As seguintes considerações de acompanham as camadas de armazenamento diferentes:
+
+- Este armazenamento só está disponível ao nível do blob e não ao nível da conta de armazenamento.
+ 
+- Os dados na camada de armazenamento de acesso esporádico podem tolerar disponibilidade ligeiramente inferior, mas ainda requerem uma durabilidade elevada, bem como tempo de acesso e características de débito semelhantes aos dados de acesso frequente. Para os dados de acesso esporádico, um SLA de disponibilidade ligeiramente inferior e custos de acesso superiores comparados com frequentes são compromissos aceitáveis em troca de custos de armazenamento inferiores.
+
+- O armazenamento de arquivos está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais elevados.
+ 
+- Apenas os níveis de armazenamento frequente e esporádico (não arquivo) podem ser definidos ao nível de conta.
+ 
+- Todas as camadas podem ser definidas ao nível do objeto.
+
+Dados armazenados na cloud que cresce um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes em termos da forma como são gerados, processados e acedidos ao longo da respetiva duração. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na nuvem e são raramente acedidos após serem armazenados ou não são acedidos de todo.
 
 Cada um destes cenários de acesso a dados beneficia de uma camada de armazenamento diferente, otimizada para um padrão de acesso específico. Com as camadas de armazenamento frequente, esporádico e de arquivo, o armazenamento de Blobs do Azure dá resposta à necessidade de ter camadas de armazenamento diferenciadas com modelos de preços distintos.
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que suportam camadas
 
-Só pode incluir os seus dados de armazenamento de objetos à camada frequente, esporádica ou de arquivos em contas de armazenamento de Blobs ou de Fins Gerais v2 (GPv2). As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. GPv2 proporciona uma nova estrutura de preço para blobs, ficheiros e filas, bem como acesso a uma variedade de outras funcionalidades de armazenamento novas. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Por este motivo, os clientes devem considerar a utilização destas contas, mas utilizá-las apenas depois de analisarem os preços de todos os serviços, pois algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Para obter mais informações, consulte [descrição geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+Só pode incluir os seus dados de armazenamento de objetos à camada frequente, esporádica ou de arquivos em contas de armazenamento de Blobs ou de Fins Gerais v2 (GPv2). As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. GPv2 proporciona uma nova estrutura de preço para blobs, ficheiros e filas, bem como acesso a uma variedade de outras funcionalidades de armazenamento novas. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Por este motivo, os clientes devem considerar a utilização destas contas, mas utilizá-las apenas depois de analisarem os preços de todos os serviços, pois algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 As contas GPv2 e de armazenamento de Blobs expõem o atributo **Access Tier** (Camada de Acesso) ao nível da conta, que lhe permite especificar a camada de armazenamento predefinida como frequente ou esporádica para qualquer blob na conta de armazenamento que não tenha a camada definida ao nível do objeto. Relativamente aos objetos cuja camada está definida ao nível do objeto, a camada da conta não se aplicará. A camada de arquivo só pode ser aplicada ao nível do blob. Pode alternar entre estas camadas de armazenamento em qualquer altura.
+
+## <a name="premium-access-tier"></a>Camada de acesso de Premium
+
+Disponível em pré-visualização, é uma camada de acesso de Premium que torna os dados disponíveis por meio de hardware de elevado desempenho acedidos com frequência. Dados armazenados neste escalão são armazenados em unidades de estado sólidas, que estão otimizadas para latência mais baixa um taxas transacional superior em comparação com as unidades de disco rígido tradicionais. A camada de acesso de Premium está disponível via o tipo de conta de armazenamento de Blob de blocos apenas.
+
+Esta camada é ideal para cargas de trabalho que exigem tempos de resposta rápida e consistente. Dados que envolva os utilizadores finais, como edição, estático conteúdo da web, transações online e assim por diante são um bons candidatos para a camada de acesso de Premium de vídeo interativo. Esta camada é ideal para cargas de trabalho que realizam muitas pequenas transações, como a captura de dados de telemetria, mensagens e transformação de dados.
+
+Para utilizar este escalão, aprovisionar uma nova conta de armazenamento de Blob de blocos e comece a criar contentores e blobs com o [API de REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), ou [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+
+Durante a pré-visualização, a camada de acesso de Premium:
+
+- Está disponível como armazenamento localmente redundante (LRS)
+- Só está disponível nas seguintes regiões: E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste
+- Não suporta a disposição em camadas automática e gerenciamento de ciclo de vida de dados
+
+Para saber como se registar na pré-visualização de camada de acesso de Premium, veja [introdução ao armazenamento de Blobs do Azure Premium](http://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Escalão de acesso frequente
 
@@ -73,6 +109,8 @@ Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob
 
 > [!NOTE]
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Também não é possível alterar a camada de um blob de bloco que tem instantâneos.
+
+Dados armazenados na camada de acesso Premium não podem ser camadas frequente, esporádico ou arquivo usando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ou utilizar a gestão de ciclo de vida de armazenamento de Blobs do Azure. Para mover dados, tem forma síncrona de copiar blobs contra o acesso de Premium para frequente utilizando o [colocar o bloco de API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy que suporte esta API. O *colocar o bloco de URL* API de forma síncrona copia os dados no servidor, que significa que a chamada é concluída apenas uma vez todos os dados são movidos da localização original do servidor para a localização de destino.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
 Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece uma política de avançado e baseado em regras que pode utilizar para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do seu ciclo de vida. Ver [gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
@@ -153,7 +191,7 @@ Todas as contas de armazenamento utilizam um modelo de preços para o armazename
 
 Para adicionar a camadas, recomendamos que utilize uma conta GPv2 em vez de uma conta de armazenamento de Blobs. As contas GPv2 suportam todas as funcionalidades que as contas de armazenamento de Blobs suportam e muitas mais. Os preços entre ambas são quase idênticos, mas algumas funcionalidades e reduções de preços só estarão disponíveis nas GPv2. As contas GPv1 não suportam as camadas.
 
-A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes devem analisá-las cuidadosamente antes de optarem pelas GPv2. Pode converter facilmente uma conta de armazenamento de Blobs ou GPv1 existente em GPv2 através de um processo de um só clique simples. Para obter mais informações, consulte [descrição geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes devem analisá-las cuidadosamente antes de optarem pelas GPv2. Pode converter facilmente uma conta de armazenamento de Blobs ou GPv1 existente em GPv2 através de um processo de um só clique simples. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 **Posso armazenar objetos nas três camadas de armazenamento (frequente, esporádica e de arquivo) na mesma conta?**
 

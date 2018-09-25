@@ -2,18 +2,22 @@
 title: Criar e gerir conjuntos do Azure SQL da base de dados elásticos com o Transact-SQL (T-SQL) | Documentos da Microsoft
 description: Execute scripts em muitas bases de dados com o agente de tarefa elástica da base de dados com o Transact-SQL (T-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: d524f7756c8dd394d8651839a1f6426c512d6a73
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023533"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056792"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 

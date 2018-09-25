@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 10e39a205950d50794169e9bedaa65f480f1e9b5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35756044"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977575"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual (VM) do Linux é fácil fazê-lo na linha de comando ou a partir do portal. Este tutorial mostra como Certifique-se de que o configurou para otimizar o desempenho na plataforma Microsoft Azure. Este tópico utiliza uma VM do Ubuntu Server, mas também pode criar a máquina virtual do Linux utilizar [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tópico pressupõe que já tem uma subscrição do Azure ([inscrição na avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e já aprovisionou uma VM na sua subscrição do Azure. Certifique-se de que tem a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) instalado e iniciado sessão sua subscrição do Azure com [início de sessão az](/cli/azure/reference-index#az_login) antes de [criar uma VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Este tópico pressupõe que já tem uma subscrição do Azure ([inscrição na avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e já aprovisionou uma VM na sua subscrição do Azure. Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e iniciado sessão sua subscrição do Azure com [início de sessão az](/cli/azure/reference-index#az_login) antes de [criar uma VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco do SO do Azure
 Depois de criar uma VM do Linux no Azure, ela tem dois discos associados a ele. **/ desenvolvimento/sda** é o seu disco de SO **/desenvolvimento/sdb** é o seu disco temporário.  Não utilize o disco do SO principal (**/desenvolvimento/sda**) para qualquer coisa, exceto o sistema operativo como ele está otimizado para rápido tempo de arranque da VM e não oferecer um bom desempenho para cargas de trabalho. Pretende anexar um ou mais discos para a VM para obter persistente e otimizados de armazenamento para os seus dados. 
@@ -42,7 +42,7 @@ Para atingir o IOps mais alto em discos de armazenamento Premium em que as defin
 * Se usar **XFS**, utilizando a opção de montagem de barreiras de Desativação `nobarrier` (para habilitar as barreiras, utilize a opção `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações sobre contas de armazenamento não gerida
-A ação de predefinição quando cria uma VM com a CLI 2.0 do Azure é utilizar Managed Disks do Azure.  Estes discos são processados pela plataforma do Azure e não necessitam de qualquer preparação ou localização para armazená-las.  Discos não geridos requerem uma conta de armazenamento e têm algumas considerações de desempenho adicionais.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../windows/managed-disks-overview.md).  A secção seguinte descreve as considerações de desempenho apenas quando utilizar discos não geridos.  Novamente, a predefinição e solução de armazenamento recomendada consiste em utilizar discos geridos.
+A ação de predefinição quando cria uma VM com a CLI do Azure é utilizar Managed Disks do Azure.  Estes discos são processados pela plataforma do Azure e não necessitam de qualquer preparação ou localização para armazená-las.  Discos não geridos requerem uma conta de armazenamento e têm algumas considerações de desempenho adicionais.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../windows/managed-disks-overview.md).  A secção seguinte descreve as considerações de desempenho apenas quando utilizar discos não geridos.  Novamente, a predefinição e solução de armazenamento recomendada consiste em utilizar discos geridos.
 
 Se criar uma VM com discos não geridos, certifique-se de que anexar discos a partir de contas de armazenamento que residem na mesma região que a VM para assegurar a proximidade fechar e minimizar a latência de rede.  Cada conta de armazenamento Standard tem um máximo de 20 mil IOps e uma capacidade de tamanho de 500 TB.  Este limite funcione para aproximadamente 40 discos muito utilizados, incluindo o disco do SO e qualquer discos de dados que criar. Para contas de armazenamento Premium, não existe nenhum limite de IOps máximo, mas existe um limite de tamanho de 32 TB. 
 

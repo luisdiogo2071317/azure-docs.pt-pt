@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do serviço de reconhecimento de voz personalizada no Azure | Microsoft Docs
-description: O serviço de reconhecimento de voz personalizadas é um serviço baseado na nuvem que permite aos utilizadores personalizar os modelos de reconhecimento de voz para reconhecimento de voz para texto transcription.
+title: Descrição geral do serviço de voz personalizada no Azure | Documentos da Microsoft
+description: O serviço de voz personalizada é um serviço baseado na nuvem que permite aos utilizadores personalizar modelos de voz para transcrição de voz em texto.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,40 +9,41 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ms.openlocfilehash: a6139283a555f8f97371c02f9d1f3d53dc6f15d3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: da88989753069f7ba8ca2c2e2806a648f3df4e3c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948371"
 ---
-# <a name="what-is-custom-speech-service"></a>O que é o serviço de reconhecimento de voz personalizadas?
+# <a name="what-is-custom-speech-service"></a>O que é o Serviço de Voz Personalizada?
 
-Serviço de reconhecimento de voz personalizadas é um serviço baseado na nuvem que fornece aos utilizadores a capacidade para personalizar os modelos de reconhecimento de voz para transcription de reconhecimento de voz para texto.
-Para utilizar o serviço de reconhecimento de voz personalizadas, consulte o [Portal de serviço de reconhecimento de voz personalizadas](https://cris.ai).
+Serviço de voz personalizada é um serviço baseado na nuvem que fornece aos utilizadores a capacidade de personalizar modelos de voz para transcrição de voz em texto.
+Para utilizar o serviço de voz personalizada, veja a [Portal de serviço de voz personalizada](https://cris.ai).
 
-O serviço de reconhecimento de voz personalizada permite-lhe criar modelos de idioma personalizado e acústica modelos e adaptados às suas aplicações e os seus utilizadores. Ao carregar o reconhecimento de voz específico e/ou os dados de texto para o serviço de reconhecimento de voz personalizadas, pode criar modelos personalizados que podem ser utilizados em conjunto com os modelos de estado da última reconhecimento de voz existentes da Microsoft.
+O serviço de voz personalizada permite-lhe criar modelos de linguagem personalizados e modelos acústicos adaptados às suas aplicações e os seus utilizadores. Ao carregar a sua voz específico e/ou dados de texto para o serviço de voz personalizada, pode criar modelos personalizados que podem ser utilizados em conjunto com modelos de voz topo de gama existentes da Microsoft.
 
-Por exemplo, se estiver a adicionar a interação de voz para telemóvel, tablet ou PC aplicação, pode criar um modelo de idioma personalizado que pode ser combinado com o modelo de acústica da Microsoft para criar um ponto final de reconhecimento de voz para texto concebido especialmente para a sua aplicação. Se a aplicação foi concebida para utilização num determinado ambiente ou por uma população de utilizador em particular, também pode criar e implementar um modelo personalizado acústica com este serviço.
+Por exemplo, se estiver a adicionar interação de voz para um telemóvel, tablet ou uma aplicação de PC, pode criar um modelo de idioma personalizado que pode ser combinado com um modelo acústico da Microsoft para criar um ponto final de voz em texto projetado especialmente para a sua aplicação. Se seu aplicativo for desenvolvido para utilização num determinado ambiente ou por uma população do utilizador em particular, também pode criar e implementar um modelo acústico personalizado com este serviço.
 
 
-## <a name="how-do-speech-recognition-systems-work"></a>Como funcionam os sistemas de reconhecimento de voz?
-Sistemas de reconhecimento de voz são constituídos por vários componentes que funcionam em conjunto. Dois dos componentes mais importantes são acústica modelo e o modelo de linguagem.
+## <a name="how-do-speech-recognition-systems-work"></a>Como funcionam os sistemas de reconhecimento de fala?
+Sistemas de reconhecimento de fala são compostos por vários componentes que funcionam em conjunto. Dois dos componentes mais importantes são o modelo acústico e o modelo de idioma.
 
-O modelo acústica for um classificador que etiquetas curtos fragmentos de áudio numa de um número de fonemas ou unidades de som, por um determinado idioma. Por exemplo, o palavra "reconhecimento de voz" é composto por quatro fonemas "s p iy categoria". Estas classificações são feitas na ordem de 100 vezes por segundo.
+O modelo acústico é um classificador que rotula fragmentos curtos de áudio num de vários fonemas, ou unidades de som, num determinado idioma. Por exemplo, a palavra "speech" é composta por quatro fonemas "s p iy ch". Estas classificações são feitas na ordem de 100 vezes por segundo.
 
 O modelo de idioma é uma distribuição de probabilidade sobre sequências de palavras. O modelo de idioma ajuda o sistema a decidir entre sequências de palavras que soam de forma semelhante, com base na probabilidade das próprias sequências de palavras. Por exemplo, “recognize speech” e “wreck a nice beach” soam de forma parecida, mas a primeira hipótese é muito mais provável de ocorrer e, portanto, será atribuída uma melhor classificação pelo modelo do idioma.
 
-Modelos de acústica e de idioma são modelos análises aprendidos em dados de preparação. Como resultado, desempenhadas melhor quando o reconhecimento de voz que se deparam quando utilizado em aplicações é semelhante aos dados observados durante formação. Os modelos acústica e de idioma no motor de reconhecimento de voz para texto da Microsoft foi preparados uma coleção grande de reconhecimento de voz e o texto e fornecem desempenho de-de-última geração para os cenários de utilização mais comuns, tais como interagir com Cortana no seu smart telemóvel, tablet ou PC, pesquise web por voz ou dictating as mensagens de texto para um friend.
+Modelos acústicos e de idioma são modelos estatísticos aprendidos em dados de treinamento. Como resultado, eles têm um melhor desempenho quando a conversão de voz que se deparam quando usado em aplicativos é semelhante aos dados observados durante o treinamento. Os modelos de acústica e idioma no mecanismo de conversão de voz para texto da Microsoft foram treinados numa coleção enorme de voz e texto e fornecem desempenho de topo de gama para os cenários de utilização mais comuns, como interagir com a Cortana no seu inteligente telefone, tablet ou PC, pesquisa na web por meio da voz ou ditar mensagens de texto para um amigo.
 
-## <a name="why-use-the-custom-speech-service"></a>Porquê utilizar o serviço de reconhecimento de voz personalizadas?
-Enquanto o motor de reconhecimento de voz para texto da Microsoft é trabalho, é direcionado para os cenários descritos acima. No entanto, se prevê que as consultas de voz para a aplicação que contém os itens de vocabulário específica, tais como nomes de produtos ou jargon que ocorrem raramente no reconhecimento de voz típico, é provável que pode obter um melhor desempenho ao personalizar o modelo de linguagem.
+## <a name="why-use-the-custom-speech-service"></a>Porquê utilizar o serviço de voz personalizada?
+Enquanto o mecanismo de conversão de voz para texto da Microsoft é a nível mundial, ele se destina a cenários descritos acima. No entanto, se necessitar de consultas de voz na sua aplicação contenham itens de vocabulário particulares, como nomes de produtos ou gíria, que ocorrem raramente no discurso habitual, é provável que pode obter um melhor desempenho ao personalizar o modelo de idioma.
 
 Por exemplo, se estava a criar uma aplicação para pesquisar o MSDN por voz, é provável que termos como “orientado por objetos” ou “espaço de nomes” ou “ponto net” apareçam com mais frequência do que em aplicações de discurso habitual. A personalização do modelo de idioma irá permitir que o sistema aprenda isto.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre como utilizar o serviço de reconhecimento de voz personalizadas, consulte [personalizada voz Portal do serviço] (https://cris.ai).
+Para obter mais informações sobre como utilizar o serviço de voz personalizada, veja [Custom Speech serviço Portal] (https://cris.ai).
 
 * [Introdução](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)

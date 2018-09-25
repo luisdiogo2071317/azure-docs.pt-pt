@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 83a768b82172b8736ea06bfed012309ac92734b7
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497965"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039433"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -62,6 +62,43 @@ Se a área de trabalho selecionada não está ligada a uma conta de automatizaç
 Desmarque a caixa de verificação junto a qualquer máquina virtual que não pretende ativar. Máquinas virtuais que não é possível ativar já estão a ser desmarcadas.
 
 Clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
+
+## <a name="unlink-workspace"></a>Desassociar área de trabalho
+
+As seguintes soluções são dependentes de uma área de trabalho do Log Analytics:
+
+* [Gestão de Atualizações](automation-update-management.md)
+* [Monitorização de Alterações](automation-change-tracking.md)
+* [Iniciar/parar VMs fora do horário comercial](automation-solution-vm-management.md)
+
+Se decidir que já não pretende integrar a sua conta de automatização com o Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure. Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
+
+Depois de remover estas soluções, pode executar os seguintes passos para desassociar a conta de automatização.
+
+> [!NOTE]
+> Algumas soluções, incluindo versões anteriores da solução de monitorização de SQL do Azure podem ter criado os recursos de automatização e também poderão ter de ser removida antes de desassociar a área de trabalho.
+
+1. A partir do portal do Azure, abra sua conta de automatização e na Automação de conta de página select **ligado área de trabalho** na secção **recursos relacionados** à esquerda.
+
+1. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
+
+   ![Desassociar a página de área de trabalho](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   Irá receber um pedido de confirmação de que pretende continuar.
+
+1. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
+
+Se utilizou a solução de gestão de atualizações, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
+
+* Agenda de atualização - cada terão nomes que coincidem com as implementações de atualização que criou)
+
+* Grupos de trabalho híbrida criados para a solução - cada um terá o nome da mesma forma para 9-4051-b6b3-227600d715c8 de machine1.contoso.com_9ceb8108 - 26 c).
+
+Se utilizou a iniciar/parar VMs durante a solução de horário comercial, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
+
+* Iniciar e parar agendas de runbook VM
+* Iniciar e parar runbooks VM
+* Variáveis
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

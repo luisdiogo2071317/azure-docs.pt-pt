@@ -1,6 +1,6 @@
 ---
-title: Modificar um conjunto de dimensionamento da máquina virtual do Azure | Microsoft Docs
-description: Saiba como modificar e atualize um conjunto de REST APIs, o Azure PowerShell e o Azure CLI 2.0 de dimensionamento de máquina virtual do Azure
+title: Modificar um conjunto de dimensionamento de máquina virtual do Azure | Documentos da Microsoft
+description: Saiba como modificar e atualizar um conjunto com as REST APIs, Azure PowerShell e CLI do Azure de dimensionamento de máquina virtual do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996660"
 ---
-# <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquina virtual
-Ao longo do ciclo de vida das suas aplicações, poderá ter de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um conjunto com as REST APIs, o Azure PowerShell ou o Azure CLI 2.0 de dimensionamento existente.
+# <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
+Em todo o ciclo de vida das suas aplicações, terá de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um existente conjunto de dimensionamento com as REST APIs, o Azure PowerShell ou a CLI do Azure.
 
-## <a name="fundamental-concepts"></a>conceitos fundamentais
+## <a name="fundamental-concepts"></a>Conceitos fundamentais
 
 ### <a name="the-scale-set-model"></a>O modelo de conjunto de dimensionamento
-Um conjunto de dimensionamento tem um "escala conjunto modelo" que capture o *pretendido* estado da escala definido como um todo. Para consultar o modelo para um conjunto de dimensionamento, pode utilizar o 
+Um conjunto de dimensionamento tem um "conjunto de modelo de dimensionamento" que captura a *pretendido* estado da escala definido como um todo. Para consultar o modelo para um conjunto de dimensionamento, pode utilizar o 
 
 - API de REST com [computação/virtualmachinescalesets/obter](/rest/api/compute/virtualmachinescalesets/get) da seguinte forma:
 
@@ -42,15 +42,15 @@ Um conjunto de dimensionamento tem um "escala conjunto modelo" que capture o *pr
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI 2.0 com [mostrar de vmss az](/cli/azure/vmss#az_vmss_show):
+- CLI do Azure com [show do az vmss](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
     ```
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) a específicas do idioma ou [Azure SDKs](https://azure.microsoft.com/downloads/).
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou o idioma específico [SDKs do Azure](https://azure.microsoft.com/downloads/).
 
-A apresentação de saída exata depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensed do 2.0 de CLI do Azure:
+A apresentação exata da saída depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensado partir da CLI do Azure:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -68,13 +68,13 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propriedades aplicam-se à escala definido como um todo.
+Estas propriedades aplicam-se à escala definida como um todo.
 
 
-### <a name="the-scale-set-instance-view"></a>Vista de instância de conjunto de escala
-Um conjunto também de dimensionamento tem uma "escala conjunto instância ver" que capture atual *runtime* estado da escala definido como um todo. Para consultar a vista de instância de um conjunto de dimensionamento, pode utilizar:
+### <a name="the-scale-set-instance-view"></a>O conjunto de dimensionamento vista de instância
+Um conjunto também de dimensionamento tem uma "instância conjunto de dimensionamento ver" que captura o atual *tempo de execução* estado da escala definido como um todo. Para consultar a vista de instância de um conjunto de dimensionamento, pode utilizar:
 
-- API de REST com [virtualmachinescalesets/computação/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) da seguinte forma:
+- API de REST com [computação/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) da seguinte forma:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
@@ -86,15 +86,15 @@ Um conjunto também de dimensionamento tem uma "escala conjunto instância ver" 
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI 2.0 com [az vmss get--vista de instância](/cli/azure/vmss#az_vmss_get_instance_view):
+- CLI do Azure com [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     ```
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) a específicas do idioma ou [SDKs do Azure](https://azure.microsoft.com/downloads/)
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou o idioma específico [SDKs do Azure](https://azure.microsoft.com/downloads/)
 
-A apresentação de saída exata depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensed do 2.0 de CLI do Azure:
+A apresentação exata da saída depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensado partir da CLI do Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -122,11 +122,11 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propriedades fornecem um resumo do Estado de runtime atual das VMs no conjunto de dimensionamento, tais como o estado das extensões aplicadas ao conjunto de dimensionamento.
+Estas propriedades fornecem um resumo do estado atual do tempo de execução das VMs no conjunto de dimensionamento, tais como o estado das extensões aplicadas ao conjunto de dimensionamento.
 
 
-### <a name="the-scale-set-vm-model-view"></a>Vista de modelo VM de conjunto de escala
-Semelhante à forma como um conjunto de dimensionamento tem uma vista de modelo, cada VM no conjunto de dimensionamento tem a suas próprias vista do modelo. Para consultar a vista de modelo para um conjunto de dimensionamento, pode utilizar:
+### <a name="the-scale-set-vm-model-view"></a>O conjunto de dimensionamento vista de modelo VM
+Semelhante à forma como um conjunto de dimensionamento tem uma vista de modelo, cada VM no conjunto de dimensionamento tem sua própria exibição de modelo. Para consultar a vista de modelo para um conjunto de dimensionamento, pode utilizar:
 
 - API de REST com [computação/virtualmachinescalesetvms/obter](/rest/api/compute/virtualmachinescalesetvms/get) da seguinte forma:
 
@@ -140,15 +140,15 @@ Semelhante à forma como um conjunto de dimensionamento tem uma vista de modelo,
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 com [mostrar de vmss az](/cli/azure/vmss#az_vmss_show):
+- CLI do Azure com [show do az vmss](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou [Azure SDKs](https://azure.microsoft.com/downloads/).
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou o [SDKs do Azure](https://azure.microsoft.com/downloads/).
 
-A apresentação de saída exata depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensed do 2.0 de CLI do Azure:
+A apresentação exata da saída depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensado partir da CLI do Azure:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -162,13 +162,13 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propriedades descrevem a configuração da VM e não a configuração da escala definido como um todo. Por exemplo, o modelo de conjunto de dimensionamento tem `overprovision` como uma propriedade, enquanto o modelo para uma VM num conjunto de dimensionamento não. Esta diferença é porque provocam um aprovisionamento é uma propriedade para o conjunto como um todo, não individuais VMs no conjunto de dimensionamento de dimensionamento (para obter mais informações sobre provocam um aprovisionamento, consulte [considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Estas propriedades descrevem a configuração da VM em si, não a configuração da escala definida como um todo. Por exemplo, o modelo de conjunto de dimensionamento tem `overprovision` como uma propriedade, enquanto o modelo para uma VM num conjunto de dimensionamento não existir. Essa diferença é como aprovisionar em excesso é uma propriedade para o conjunto como um todo, não individuais VMs no conjunto de dimensionamento de dimensionamento (para obter mais informações sobre como aprovisionar em excesso, consulte [considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
-### <a name="the-scale-set-vm-instance-view"></a>Vista de instância VM de conjunto de escala
-Semelhante à forma como um conjunto de dimensionamento tem uma vista de instância, cada VM no conjunto de dimensionamento tem a suas próprias vista de instância. Para consultar a vista de instância de um conjunto de dimensionamento, pode utilizar:
+### <a name="the-scale-set-vm-instance-view"></a>O conjunto de dimensionamento vista de instância VM
+Semelhante à forma como um conjunto de dimensionamento tem uma vista de instância, cada VM no conjunto de dimensionamento tem sua própria vista de instância. Para consultar a vista de instância de um conjunto de dimensionamento, pode utilizar:
 
-- API de REST com [virtualmachinescalesetvms/computação/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) da seguinte forma:
+- API de REST com [computação/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) da seguinte forma:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
@@ -180,15 +180,15 @@ Semelhante à forma como um conjunto de dimensionamento tem uma vista de instân
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI 2.0 com [az vmss get--vista de instância](/cli/azure/vmss#az_vmss_get_instance_view)
+- CLI do Azure com [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou [SDKs do Azure](https://azure.microsoft.com/downloads/)
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou o [SDKs do Azure](https://azure.microsoft.com/downloads/)
 
-A apresentação de saída exata depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensed do 2.0 de CLI do Azure:
+A apresentação exata da saída depende as opções de que fornecer ao comando. O exemplo seguinte mostra a saída de exemplo condensado partir da CLI do Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -239,28 +239,28 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Estas propriedades descrevem o estado atual do tempo de execução da VM, que inclui quaisquer extensões aplicadas ao conjunto de dimensionamento.
+Estas propriedades descrevem o estado atual do tempo de execução da VM em si, que inclui quaisquer extensões aplicadas ao conjunto de dimensionamento.
 
 
-## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar escala global definir propriedades
-Para atualizar uma propriedade de conjunto de dimensionamento global, tem de atualizar a propriedade no modelo de conjunto de dimensionamento. Pode utilizar para esta atualização através de:
+## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar a escala global, definir propriedades
+Para atualizar uma propriedade de conjunto de escala global, tem de atualizar a propriedade no modelo de conjunto de dimensionamento. Pode fazer esta atualização por meio de:
 
-- API de REST com [virtualmachinescalesets/computação/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) da seguinte forma:
+- API de REST com [computação/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) da seguinte forma:
 
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Pode implementar um modelo do Resource Manager com as propriedades a partir da API de REST ao atualizar as propriedades do conjunto de dimensionamento global.
+- Pode implementar um modelo do Resource Manager com as propriedades da API REST para atualizar as propriedades do conjunto de escala global.
 
-- O Azure PowerShell com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
+- O Azure PowerShell com [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI 2.0 com [atualização az vmss](/cli/azure/vmss#az_vmss_update):
-    - Para modificar uma propriedade:
+- CLI do Azure com [az vmss update](/cli/azure/vmss#az_vmss_update):
+    - Para modificar uma propriedade de:
 
         ```azurecli
         az vmss update --set {propertyPath}={value}
@@ -278,46 +278,46 @@ Para atualizar uma propriedade de conjunto de dimensionamento global, tem de atu
         az vmss update --remove {propertyPath} {indexToRemove}
         ```
 
-    - Se implementou anteriormente a escala definida com o `az vmss create` comando, pode executar o `az vmss create` comando novamente para atualizar o conjunto de dimensionamento. Certifique-se de que todas as propriedades de `az vmss create` comando são os mesmos como anteriormente, exceto as propriedades que pretende modificar.
+    - Se tiver implementado anteriormente o conjunto de dimensionamento com o `az vmss create` comando, pode executar o `az vmss create` comando novamente para atualizar o conjunto de dimensionamento. Certifique-se de que todas as propriedades no `az vmss create` comando são os mesmos como antes, exceto para as propriedades que deseja modificar.
 
-- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou [Azure SDKs](https://azure.microsoft.com/downloads/).
+- Também pode utilizar [resources.azure.com](https://resources.azure.com) ou o [SDKs do Azure](https://azure.microsoft.com/downloads/).
 
-Assim que o modelo de conjunto de dimensionamento é atualizado, a nova configuração aplica-se para VMs novas criadas no conjunto de dimensionamento. No entanto, os modelos para as VMs existentes no conjunto de dimensionamento tem ainda ser colocados atualizado com o mais recentes geral escala conjunto modelo. O modelo para cada VM é uma propriedade booleana designada `latestModelApplied` que indica se a VM está atualizada com o mais recentes geral escala conjunto modelo (`true` significa que a VM está atualizada com o modelo mais recente).
+Assim que o modelo de conjunto de dimensionamento for atualizado, a nova configuração se aplica a VMs novas criadas no conjunto de dimensionamento. No entanto, os modelos para as VMs existentes no conjunto de dimensionamento devem ainda ser colocados atualizado com o mais recente dimensionamento conjunto modelo geral. No modelo para cada VM é uma propriedade boolean chamada `latestModelApplied` que indica se a VM está atualizada com o mais recente dimensionamento conjunto modelo geral (`true` significa que a VM está atualizada com o modelo mais recente).
 
 
-## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Como colocar as VMs com o modelo de conjunto de dimensionamento mais recente
-Conjuntos de dimensionamento de tem uma "política de atualização de" que determine como as VMs estão colocadas atualizados com o modelo de conjunto de dimensionamento mais recente. Os três modos para a política de atualização são:
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Como colocar atualizadas com o modelo mais recente do conjunto de dimensionamento de VMs
+Conjuntos de dimensionamento de tem uma "política de atualização" que determinam como as VMs são encaminhadas atualizado com o modelo de conjunto de dimensionamento mais recente. Os três modos para a política de atualização são:
 
-- **Automática** -neste modo, o conjunto de dimensionamento torna sem garantias sobre a ordem das VMs que está a ser colocada para baixo. O conjunto de dimensionamento pode demorar baixo todas as VMs em simultâneo. 
-- **A anular** -neste modo, o conjunto de dimensionamento lança a atualização em lotes com um período de tempo de interrupção opcionais entre lotes.
-- **Manual** - neste modo, quando atualizar o modelo de conjunto de dimensionamento, nada acontece para VMs existentes.
+- **Automática** -neste modo, o conjunto de dimensionamento não garante a ordem das VMs a ser movido para baixo. O conjunto de dimensionamento pode demorar para baixo de todas as VMs ao mesmo tempo. 
+- **Sem interrupção** -neste modo, o conjunto de dimensionamento for implementada a atualização em lotes com um tempo de pausa opcionais entre lotes.
+- **Manual** - neste modo, quando atualizar o modelo de conjunto de dimensionamento, nada acontece às VMs existentes.
  
-Para atualizar as VMs existentes, tem de efetuar uma "atualização manual" de cada VM existente. Pode utilizar para esta atualização manual com:
+Para atualizar as VMs existentes, tem de fazer uma "atualização manual" de cada VM existente. Pode fazer esta atualização manual com:
 
-- API de REST com [virtualmachinescalesets/computação/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) da seguinte forma:
+- API de REST com [computação/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) da seguinte forma:
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- O Azure PowerShell com [atualização AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
+- O Azure PowerShell com [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
     
     ```powershell
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 com [az vmss update-instâncias](/cli/azure/vmss#az_vmss_update_instances)
+- CLI do Azure com [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
-- Também pode utilizar a específicas do idioma [Azure SDKs](https://azure.microsoft.com/downloads/).
+- Também pode utilizar o idioma específico [SDKs do Azure](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Só podem utilizar o Service Fabric clusters *automática* modo, mas a atualização é processada de forma. Para obter mais informações, consulte [ as atualizações de aplicações de Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Só podem utilizar clusters do Service Fabric *automática* modo, mas a atualização é tratada diferentemente. Para obter mais informações, consulte [ as atualizações de aplicações do Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
-Não há um tipo de modificação para propriedades do conjunto de dimensionamento global que segue a política de atualização. Mudar para o conjunto de dimensionamento do perfil do SO (por exemplo, admin nome de utilizador e palavra-passe) só pode ser alterado na versão de API *2017-12-01* ou posterior. Estas alterações só se aplicam a VMs criados após a alteração na escala de modelo. Para colocar as VMs existentes atualizadas, tem de fazer uma "recriação de imagem" de cada VM existente. Pode efetuar esta recriação de imagem através de:
+Existe um tipo de modificação de propriedades do conjunto de dimensionamento global que não segue a política de atualização. Alterações no conjunto de dimensionamento do perfil do SO (como o nome de utilizador administrador e a palavra-passe) só pode ser alterado na versão de API *2017-12-01* ou posterior. Estas alterações só se aplicam a VMs criadas após a alteração na escala de definir o modelo. Para transformar VMs existentes atualizadas, tem de fazer uma "recriação de imagem" de cada VM existente. Pode fazer esta recriação de imagem por meio de:
 
 - API de REST com [computação/virtualmachinescalesets/recriação de imagem](/rest/api/compute/virtualmachinescalesets/reimage) da seguinte forma:
 
@@ -325,82 +325,82 @@ Não há um tipo de modificação para propriedades do conjunto de dimensionamen
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- O Azure PowerShell com [conjunto AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
+- O Azure PowerShell com [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
 
     ```powershell
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI 2.0 com [recriação de imagem do az vmss](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- CLI do Azure com [recriação de imagem do az vmss](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Também pode utilizar a específicas do idioma [Azure SDKs](https://azure.microsoft.com/downloads/).
+- Também pode utilizar o idioma específico [SDKs do Azure](https://azure.microsoft.com/downloads/).
 
 
 ## <a name="properties-with-restrictions-on-modification"></a>Propriedades com restrições de modificação
 
-### <a name="create-time-properties"></a>Propriedades do tempo criar
-Algumas propriedades só podem ser definidas quando criar o conjunto de dimensionamento. Estas propriedades incluem:
+### <a name="create-time-properties"></a>Propriedades do tempo de criar
+Algumas propriedades só podem ser definidas quando criar o conjunto de dimensionamento. Essas propriedades incluem:
 
 - Zonas de Disponibilidade
-- publicador de referência da imagem
-- oferta de referência da imagem
+- Publicador de referência de imagem
+- Oferta de imagem de referência
 - Tipo de conta de armazenamento de disco de SO de geridos
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriedades que só podem ser alteradas com base no valor atual
-Algumas propriedades podem ser alteradas com exceções dependendo do valor atual. Estas propriedades incluem:
+Algumas propriedades podem ser alteradas com exceções, dependendo do valor atual. Essas propriedades incluem:
 
-- **singlePlacementGroup** - se singlePlacementGroup for VERDADEIRO, poderão ser alterado como false. No entanto, se for FALSO, singlePlacementGroup- **não pode** ser modificado como true.
-- **sub-rede** - a sub-rede de um conjunto de dimensionamento, desde que a sub-rede original pode ser modificada e nova sub-rede estão na mesma rede virtual.
+- **singlePlacementGroup** - se singlePlacementGroup for VERDADEIRO, ele pode ser modificado como false. No entanto, se singlePlacementGroup é false, ele **podem não** ser modificado como true.
+- **sub-rede** - a sub-rede de um conjunto de dimensionamento pode ser modificada, desde que a sub-rede original e a nova sub-rede estão na mesma rede virtual.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriedades que necessitam de Desalocação para alterar
-Algumas propriedades só podem ser alteradas para determinados valores se as VMs no conjunto de dimensionamento são desalocadas. Estas propriedades incluem:
+Algumas propriedades só podem ser alteradas para determinados valores se as VMs no conjunto de dimensionamento são desalocadas. Essas propriedades incluem:
 
-- **Nome do SKU**- se o novo SKU de VM não é suportado no hardware do conjunto de dimensionamento é atualmente, tem de anular a atribuição de VMs no dimensionamento definido antes de modificar o nome do SKU. Para obter mais informações, consulte [como redimensionar uma VM do Azure](../virtual-machines/windows/resize-vm.md).
+- **Nome SKU**- se o novo SKU de VM não é suportado no hardware o conjunto de dimensionamento está atualmente em, precisa ao desalocar as VMs no conjunto antes de modificar o nome do SKU de dimensionamento. Para obter mais informações, consulte [como redimensionar uma VM do Azure](../virtual-machines/windows/resize-vm.md).
 
 
-## <a name="vm-specific-updates"></a>Atualizações específicas da VM
-Determinados modificações podem ser aplicadas às VMs específicas em vez das propriedades do conjunto de dimensionamento global. Atualmente, a única VM específicos a atualização que é suportada é ao anexar/desanexar os discos de dados da VMs no conjunto de dimensionamento. Esta funcionalidade está em pré-visualização. Para obter mais informações, consulte o [pré-visualizar documentação](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+## <a name="vm-specific-updates"></a>Atualizações específicas de VM
+Determinados modificações podem ser aplicadas a VMs específicas em vez das propriedades do conjunto de escala global. Atualmente, o único é de atualização de VM específicos que é suportada anexar/desanexar discos de dados de/para as VMs no conjunto de dimensionamento. Esta funcionalidade está em pré-visualização. Para obter mais informações, consulte a [documentação de pré-visualização](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 
 ## <a name="scenarios"></a>Cenários
 
-### <a name="application-updates"></a>Atualizações da aplicação
-Se uma aplicação for implementada para uma escala definido através de extensões, uma atualização para a configuração da extensão faz com que a aplicação de atualização de acordo com a política de atualização. Por exemplo, se tiver uma nova versão de um script para executar uma extensão de Script personalizado, foi possível atualizar o *fileUris* propriedade para apontar para o script de novo. Em alguns casos, poderá pretender forçar uma atualização, apesar da configuração de extensão é alterada (por exemplo, atualizar o script sem uma alteração para o URI do script). Nestes casos, pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma do Azure não interpretar esta propriedade. Se alterar o valor, não há sem qualquer efeito nas como a extensão é executado. Uma alteração simplesmente força a extensão para voltar a executar. Para mais informações sobre o *forceUpdateTag*, consulte o [documentação da REST API para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Tenha em atenção que o *forceUpdateTag* podem ser utilizadas com todas as extensões, não apenas a extensão de script personalizado.
+### <a name="application-updates"></a>Atualizações de aplicativos
+Se uma aplicação for implementada para um conjunto através de extensões de dimensionamento, uma atualização para a configuração da extensão faz com que o aplicativo atualizar em conformidade com a política de atualização. Por exemplo, se tiver uma nova versão de um script para ser executado numa extensão de Script personalizado, foi possível atualizar o *fileUris* propriedade para apontar para o novo script. Em alguns casos, poderá querer forçar uma atualização, apesar da configuração da extensão não é alterada (por exemplo, atualizar o script sem fazer alterações para o URI do script). Nestes casos, pode modificar os *forceUpdateTag* para forçar uma atualização. A plataforma do Azure não interpreta esta propriedade. Se alterar o valor, não há nenhum efeito sobre como a extensão é executado. Uma alteração simplesmente força a extensão para voltar a executar. Para obter mais informações sobre o *forceUpdateTag*, consulte a [documentação da REST API para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Tenha em atenção que o *forceUpdateTag* podem ser utilizadas com todas as extensões, não apenas a extensão de script personalizado.
 
-É também comum as aplicações implementadas através de uma imagem personalizada. Este cenário é descrito na secção seguinte.
+Também é comum para aplicativos a serem implantados por meio de uma imagem personalizada. Este cenário é descrito na secção seguinte.
 
 ### <a name="os-updates"></a>Atualizações do SO
-Se utilizar imagens da plataforma do Azure, pode atualizar a imagem ao modificar o *imageReference* (mais informações, consulte o [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Se utilizar imagens da plataforma do Azure, pode atualizar a imagem ao modificar os *imageReference* (mais informações, consulte a [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> Com imagens da plataforma, é comum para especificar "mais recente" para a versão de referência da imagem. Quando cria, aumentar horizontalmente e recriação de imagem, as VMs são criadas com a versão mais recente disponível. No entanto, este **não** significa que a imagem do SO é atualizada automaticamente ao longo do tempo, são lançadas novas versões de imagem. Uma funcionalidade individual está atualmente em pré-visualização que fornece atualizações automáticas do SO. Para obter mais informações, consulte o [documentação de atualizações automáticas de SO](virtual-machine-scale-sets-automatic-upgrade.md).
+> Com as imagens de plataforma, é comum especificar "mais recente" para a versão de referência de imagem. Quando criar, aumentar horizontalmente e recriação de imagem, as VMs são criadas com a versão mais recente disponível. No entanto, ele **não** significa que a imagem do SO é atualizada automaticamente ao longo do tempo à medida que novas versões de imagem são lançadas. Um recurso separado está atualmente em pré-visualização, que fornece atualizações automáticas de SO. Para obter mais informações, consulte a [documentação de atualizações automáticas de SO](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se utilizar imagens personalizadas, pode atualizar a imagem, atualizando o *imageReference* ID (mais informações, consulte o [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Se utilizar imagens personalizadas, pode atualizar a imagem ao atualizar o *imageReference* ID (mais informações, consulte a [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Exemplos
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Atualizar a imagem do SO para o conjunto de dimensionamento
-Pode ter um conjunto de dimensionamento que executa uma versão antiga do Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu LTS 16.04, tais como versão *16.04.201801090*. A propriedade de versão de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente estas propriedades com um dos seguintes comandos:
+Pode ter um conjunto de dimensionamento que executa uma versão antiga do Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu 16.04 LTS., como a versão *16.04.201801090*. A propriedade de versão de referência de imagem não faz parte de uma lista, para que pode modificar diretamente essas propriedades com um dos seguintes comandos:
 
-- O Azure PowerShell com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) da seguinte forma:
+- O Azure PowerShell com [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) da seguinte forma:
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI 2.0 com [atualização az vmss](/cli/azure/vmss#az_vmss_update_instances):
+- CLI do Azure com [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
     ```
 
 
-### <a name="update-the-load-balancer-for-your-scale-set"></a>Atualizar o Balanceador de carga para o conjunto de dimensionamento
-Imaginemos que tem uma escala definida com um balanceador de carga do Azure e que pretende substituir o Balanceador de carga do Azure com um Gateway de aplicação do Azure. O Balanceador de carga e propriedades de Gateway de aplicação para um conjunto de dimensionamento fazem parte de uma lista, pelo que pode utilizar os comandos para remover ou adicionar elementos de lista em vez de modificar as propriedades diretamente:
+### <a name="update-the-load-balancer-for-your-scale-set"></a>Atualize o Balanceador de carga para o conjunto de dimensionamento
+Digamos que tem um conjunto de dimensionamento com um balanceador de carga do Azure e pretende substituir o Balanceador de carga do Azure com um Gateway de aplicação do Azure. O Balanceador de carga e propriedades de Gateway de aplicação para um conjunto de dimensionamento fazem parte de uma lista, pelo que pode utilizar os comandos para remover ou adicionar elementos de lista em vez de modificar as propriedades diretamente:
 
 - O Azure Powershell:
 
@@ -418,7 +418,7 @@ Imaginemos que tem uma escala definida com um balanceador de carga do Azure e qu
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- CLI 2.0 do Azure:
+- CLI do Azure:
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -432,8 +432,8 @@ Imaginemos que tem uma escala definida com um balanceador de carga do Azure e qu
     ```
 
 >[!NOTE]
-> Estes comandos pressupõem que haja apenas um balanceador de configuração e a carga IP num conjunto de dimensionamento. Se existirem vários, poderá ter de utilizar um índice de lista diferente de *0*.
+> Estes comandos pressupõem que existe apenas um balanceador de carga e de configuração de IP no conjunto de dimensionamento. Se existirem vários, poderá ter de utilizar um índice de lista que *0*.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Também pode efetuar tarefas de gestão comuns nos conjuntos de dimensionamento com o [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Também pode efetuar tarefas de gestão comuns em conjuntos de dimensionamento com o [CLI do Azure](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

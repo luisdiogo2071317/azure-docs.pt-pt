@@ -1,22 +1,23 @@
 ---
 title: Utilizar o Log Analytics com uma aplicação multi-inquilino de base de dados SQL | Documentos da Microsoft
 description: Configurar e utilizar o Log Analytics com uma aplicação SaaS de base de dados SQL do Azure multi-inquilino
-keywords: tutorial de base de dados sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420187"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056714"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar o Log Analytics com uma aplicação de SQL da base de dados SaaS multi-inquilino
 

@@ -1,19 +1,19 @@
 ---
 title: Criar e executar tarefas na sua aplicação do Azure IoT Central | Documentos da Microsoft
 description: Tarefas do Azure IoT Central permitem funcionalidades de gestão de dispositivos em massa, como atualizar uma propriedade do dispositivo, definição ou executar um comando.
+ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/15/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ce003eba07950a56fe178a19655a9059416b69b7
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031310"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar uma tarefa no seu aplicativo de Central de IoT do Azure
 

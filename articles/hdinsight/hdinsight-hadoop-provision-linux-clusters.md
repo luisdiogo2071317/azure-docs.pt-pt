@@ -1,6 +1,6 @@
 ---
-title: Configuração de cluster de Hadoop, Spark, Kafka, HBase ou serviços de ML - Azure HDInsight
-description: Configure o Hadoop, Kafka, Spark, HBase, serviços de ML ou Storm clusters para HDInsight de um navegador, a CLI do Azure, Azure PowerShell, REST ou SDK.
+title: Configuração de cluster de Hadoop, Spark, Kafka, HBase ou R Server - Azure HDInsight
+description: Configure clusters do Hadoop, Kafka, Spark, HBase, R Server ou Storm para HDInsight partir de um navegador, a CLI clássica do Azure, Azure PowerShell, REST ou SDK.
 keywords: configuração de cluster do hadoop, instalação, configuração de cluster do spark, o que é o cluster do hadoop de cluster do kafka
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9eb99c26510475a5db51fa30f1634813b2c377f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127912"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992852"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
 
@@ -36,7 +36,7 @@ A tabela seguinte mostra os diferentes métodos que pode utilizar para configura
 | --- |:---:|:---:|:---:|:---:|
 | [Portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [CLI do Azure (vidor 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |

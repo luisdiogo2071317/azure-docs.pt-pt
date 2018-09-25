@@ -1,6 +1,6 @@
 ---
 title: Gerir com a CLI do Azure Key Vault | Documentos da Microsoft
-description: Utilize este artigo para automatizar tarefas comuns no Key Vault com a CLI 2.0
+description: Utilize este artigo para automatizar tarefas comuns no Key Vault com a CLI do Azure
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00d79462fcaad785820e3879079414c88c958a89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295179"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961489"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>Gerir o Cofre de chaves com a CLI 2.0
+# <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Key Vault com a CLI do Azure 
 
-Este artigo aborda como começar a trabalhar com o Azure Key Vault com a CLI 2.0 do Azure. Pode ver informações sobre:
+Este artigo aborda como começar a trabalhar com o Azure Key Vault a utilizar a CLI do Azure.  Pode ver informações sobre:
 
-- Pré-requisitos
 - Como criar um contentor protegido (cofre) no Azure
 - Adicionar um certificado, chave ou segredo ao Cofre de chaves
 - Registo de aplicações no Azure Active Directory
@@ -50,7 +49,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para utilizar os comandos da CLI do Azure neste artigo, tem de ter os seguintes itens:
 
 * Uma subscrição ao Microsoft Azure. Se não tiver uma, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interface de linha de comandos versão 2.0 ou posterior. Para instalar a versão mais recente, consulte [instalar e configurar a Interface de linha de comandos de várias plataformas do Azure 2.0](/cli/azure/install-azure-cli).
+* Interface de linha de comandos do Azure versão 2.0 ou posterior. Para instalar a versão mais recente, consulte [instalar a CLI do Azure](/cli/azure/install-azure-cli).
 * Um aplicativo que será configurado para utilizar a chave ou palavra-passe que criou neste artigo. Uma aplicação de exemplo está disponível a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame incluído.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obter ajuda com Interface de linha de comandos de várias plataformas do Azure
@@ -67,7 +66,7 @@ az account set -h
 Pode ainda ler os artigos seguintes para se familiarizar com o Azure Resource Manager na Interface de linha de comandos de várias plataformas do Azure:
 
 * [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
-* [Introdução à CLI 2.0 do Azure](/cli/azure/get-started-with-azure-cli)
+* [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Como criar um contentor protegido (cofre) no Azure
 
@@ -200,7 +199,7 @@ As aplicações que utilizam um cofre de chaves devem ser autenticadas através 
 
 Para obter um token, a aplicação deve apresentar ambos os valores ao Azure Active Directory. Como um aplicativo está configurado para obter um token irá depender do aplicativo. Na [aplicação de exemplo do Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), o proprietário da aplicação define estes valores no ficheiro app.config.
 
-Para obter passos detalhados no registo de aplicações no Azure Active Directory deve rever os artigos intitulados [integrar aplicações com o Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [utilize o portal para criar um Azure Active Principal de serviço que pode aceder aos recursos e aplicações do](../azure-resource-manager/resource-group-create-service-principal-portal.md), e [criar principal de serviço de Azure CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para obter passos detalhados no registo de aplicações no Azure Active Directory deve rever os artigos intitulados [integrar aplicações com o Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [utilize o portal para criar um Azure Active Principal de serviço que pode aceder aos recursos e aplicações do](../azure-resource-manager/resource-group-create-service-principal-portal.md), e [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Registar uma aplicação no Azure Active Directory:
 

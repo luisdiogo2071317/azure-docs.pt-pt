@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 00b908fb078a6ad32363c0168b88a162f8735fc3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 227e6b87e5a131147ffebdeac045b9b27ab20dc8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991322"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introdução ao Docker e o Compose para definir e executar uma aplicação de vários contentores no Azure
 Com o [Compose](http://github.com/docker/compose), utilizar um ficheiro de texto simples para definir uma aplicação constituída por vários contentores do Docker. , Em seguida, crie a sua aplicação com um único comando que faz tudo para implementar o seu ambiente definido. Por exemplo, este artigo mostra-lhe como configurar rapidamente um blogue do WordPress com um back-end da base de dados do MariaDB SQL numa VM do Ubuntu. Também pode utilizar o Compose para configurar as aplicações mais complexas.
@@ -32,8 +32,8 @@ Pode usar vários procedimentos do Azure e as imagens disponíveis ou modelos do
 Quando utiliza a extensão Docker VM, a VM é automaticamente configurada como um anfitrião do Docker e Compose já está instalado.
 
 
-### <a name="create-docker-host-with-azure-cli-20"></a>Criar anfitrião do Docker com a CLI 2.0 do Azure
-Instalar a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
+### <a name="create-docker-host-with-azure-cli"></a>Criar anfitrião do Docker com a CLI do Azure
+Instalar a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
 
 Primeiro, crie um grupo de recursos para o seu ambiente do Docker com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 

@@ -1,6 +1,6 @@
 ---
-title: Descrição geral de padrões comuns de dimensionamento automático
-description: Saiba mais alguns de padrões comuns para automática escala os recursos no Azure.
+title: Descrição geral dos padrões comuns do dimensionamento automático
+description: O conheça alguns dos padrões comuns para dimensionamento automático do seu recurso no Azure.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967409"
 ---
-# <a name="overview-of-common-autoscale-patterns"></a>Descrição geral de padrões comuns de dimensionamento automático
-Este artigo descreve algumas dos padrões comuns dimensionar o seu recurso no Azure.
+# <a name="overview-of-common-autoscale-patterns"></a>Descrição geral dos padrões comuns do dimensionamento automático
+Este artigo descreve alguns dos padrões comuns para dimensionar o seu recurso no Azure.
 
-Escala de automática de Monitor do Azure só se aplica a conjuntos de dimensionamento da Máquina Virtual (VMSS), cloud services, planos de serviço de aplicações e ambientes do app service. 
+Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Permite começar a utilizar
 
-Este artigo pressupõe que está familiarizado com uma escala automática. Pode [começar aqui dimensionar o seu recurso][1]. Seguem-se alguns dos padrões comuns da escala.
+Este artigo pressupõe que está familiarizado com o dimensionamento automático. Pode [comece aqui para dimensionar o seu recurso][1]. Seguem-se alguns dos padrões comuns do dimensionamento.
 
-## <a name="scale-based-on-cpu"></a>Escala com base na CPU
+## <a name="scale-based-on-cpu"></a>Dimensionar com base na CPU
 
-Tiver uma aplicação web (VMSS/nuvem função do serviço) e 
+Tem uma aplicação web (/ VMSS/função do serviço cloud) e
 
-- Pretende escala out/escala em CPU com base no.
-- Além disso, pretender certificar-se de que há um número mínimo de instâncias. 
-- Além disso, pretender certificar-se de que defina um limite máximo para o número de instâncias que pode escalar.
+- Pretende dimensionamento out/reduzir horizontalmente com base na CPU.
+- Além disso, pretender certificar-se de que existe um número mínimo de instâncias.
+- Além disso, pretender certificar-se de que defina um limite máximo para o número de instâncias que pode ser dimensionado para.
 
-![Escala com base na CPU][2]
+![Dimensionar com base na CPU][2]
 
-## <a name="scale-differently-on-weekdays-vs-weekends"></a>Dimensionar de forma diferente no fim de semana do dias da semana vs
+## <a name="scale-differently-on-weekdays-vs-weekends"></a>Dimensionar de forma diferente aos fins de semana de vs dias da semana
 
-Tiver uma aplicação web (VMSS/nuvem função do serviço) e
+Tem uma aplicação web (/ VMSS/função do serviço cloud) e
 
-- Pretende 3 instâncias por predefinição (em dias da semana)
-- Não espera que o tráfego no fim de semana e, por conseguinte, se pretender dimensionar para baixo até 1 instância no fim de semana.
+- Se desejar 3 instâncias padrão (nos dias de semana)
+- Não que o tráfego no fim de semana e, por conseguinte, pretende dimensionar-se para baixo até 1 instância no fim de semana.
 
-![Dimensionar de forma diferente no fim de semana do dias da semana vs][3]
+![Dimensionar de forma diferente aos fins de semana de vs dias da semana][3]
 
 ## <a name="scale-differently-during-holidays"></a>Dimensionar de forma diferente durante feriados
 
-Tiver uma aplicação web (VMSS/nuvem função do serviço) e 
+Tem uma aplicação web (/ VMSS/função do serviço cloud) e
 
-- Pretende dimensionar para cima/para baixo com base na utilização da CPU por predefinição
-- No entanto, durante a época (ou os dias específicos que são importantes para a sua empresa) que pretende substituir as predefinições e mais capacidade de ter no seu disposal.
+- Pretende aumentar/reduzir verticalmente, com base na utilização da CPU por predefinição
+- No entanto, durante a época festiva (ou os dias específicos que são importantes para a sua empresa) que pretende substituir os padrões e tem mais capacidade à sua disposição.
 
 ![Feriados de forma diferente em escala][4]
 
-## <a name="scale-based-on-custom-metric"></a>Escala com base numa métrica personalizada
+## <a name="scale-based-on-custom-metric"></a>Dimensionar com base na métrica personalizada
 
-Tem um front-end da web e uma camada de API que comunica com o back-end. 
+Tem um front-end da web e uma camada de API que comunica com o back-end.
 
-- Pretende dimensionar o escalão de API com base em eventos personalizados no front-end (exemplo: pretende dimensionar o processo de finalização da compra com base no número de itens no carrinho de compras)
+- Pretende dimensionar a camada de API com base em eventos personalizados no front-end (exemplo: pretende dimensionar o seu processo de Check-out com base no número de itens no carrinho de compras)
 
-![Escala com base numa métrica personalizada][5]
+![Dimensionar com base na métrica personalizada][5]
 
 <!--Reference-->
 [1]: ./monitoring-autoscale-get-started.md

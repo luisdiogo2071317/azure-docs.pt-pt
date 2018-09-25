@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303783"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996456"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -89,10 +89,10 @@ A estrutura de diretório pode ser clonada partir [Github](https://github.com/Az
 
 TDSP fornece recomendações para a gestão de análise partilhado e a infraestrutura de armazenamento, tais como:
 
-- sistemas de ficheiros de cloud para armazenar conjuntos de dados, 
+- sistemas de ficheiros de cloud para armazenar conjuntos de dados 
 - bases de dados
 - clusters de grandes volumes de dados (Hadoop ou Spark) 
-- serviços do Machine learning. 
+- serviço de Machine learning 
 
 É possível a infraestrutura de armazenamento e análise na cloud ou no local. Isso é onde os conjuntos de dados não processados e processados são armazenados. Essa infra-estrutura permite que a análise reproduzível. Ele também evita a duplicação, que pode levar a inconsistências e custos de infraestrutura desnecessários. São fornecidas ferramentas para aprovisionar os recursos partilhados, controlá-las e permitir que cada membro da Equipe ligar a esses recursos em segurança. Também é recomendável ter membros de projeto, criar um ambiente de computação consistentes. Os membros da Equipe diferentes, em seguida, podem replicar e validar experimentações.
 

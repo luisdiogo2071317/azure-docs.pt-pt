@@ -1,6 +1,6 @@
 ---
-title: Configurar endereços IP privados para as VMs (clássica) - CLI do Azure 1.0 | Microsoft Docs
-description: Saiba como configurar endereços IP privados para máquinas virtuais (clássicas) utilizando a interface de linha de comandos do Azure (CLI) 1.0.
+title: Configurar endereços IP privados para as VMs (clássica) – CLI clássica do Azure | Documentos da Microsoft
+description: Saiba como configurar os endereços IP privados para máquinas virtuais (clássico) usando a interface de linha de comandos clássica (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791812"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971149"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configurar endereços IP privados para uma máquina virtual (clássica) utilizando a CLI do Azure 1.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurar endereços IP privados para uma máquina virtual (clássico) com a CLI clássica do Azure
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -31,15 +31,15 @@ ms.locfileid: "31791812"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Este artigo abrange o modelo de implementação clássica. Também pode [gerir um endereço IP privado estático no modelo de implementação Resource Manager](virtual-networks-static-private-ip-arm-cli.md).
+Este artigo abrange o modelo de implementação clássica. Também pode [gerir um endereço IP privado estático no modelo de implementação do Resource Manager](virtual-networks-static-private-ip-arm-cli.md).
 
-Os comandos da CLI do Azure de exemplo abaixo esperam num ambiente simple que já criado. Se pretender executar os comandos, como são apresentados neste documento, criar primeiro o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-classic-cli.md).
+O exemplo de que comandos do CLI clássica do Azure que se seguem esperar um ambiente simples já criado. Se quiser executar os comandos à medida que são apresentadas neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-classic-cli.md).
 
-## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Como especificar um endereço IP privado estático quando criar uma VM
-Para criar uma nova VM com o nome *DNS01* num novo serviço em nuvem com o nome *TestService* com base no cenário acima, siga estes passos:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Como especificar um endereço IP privado estático ao criar uma VM
+Para criar uma nova VM com o nome *DNS01* num novo serviço cloud com o nome *TestService* com base no cenário acima, siga estes passos:
 
-1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
-2. Execute o **criar o serviço do azure** comando para criar o serviço em nuvem.
+1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](/cli/azure/install-cli-version-1.0) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
+2. Executar o **criar o serviço do azure** comando para criar o serviço em nuvem.
    
         azure service create TestService --location uscentral
    
@@ -49,7 +49,7 @@ Para criar uma nova VM com o nome *DNS01* num novo serviço em nuvem com o nome 
         info:    Creating cloud service
         data:    Cloud service name TestService
         info:    service create command OK
-3. Execute o **azure criar a vm** comando para criar a VM. Tenha em atenção o valor para um endereço IP privado estático. A lista apresentada depois do resultado explica os parâmetros utilizados.
+3. Executar o **azure-criar vm** comando para criar a VM. Tenha em atenção o valor para um endereço IP privado estático. A lista apresentada depois do resultado explica os parâmetros utilizados.
    
         azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
    
@@ -68,16 +68,16 @@ Para criar uma nova VM com o nome *DNS01* num novo serviço em nuvem com o nome 
         info:    OK
         info:    vm create command OK
    
-   * **-l (ou --location)**. Região do Azure onde será criada a VM. Para o nosso cenário *centralus*.
-   * **-n (ou nome de vm –)**. Nome da VM ser criada.
-   * **-w (ou ---nome de rede virtual)**. Nome da VNet onde será criada a VM. 
-   * **-S (ou - ip estático)**. Endereço de IP privado estático para a VM.
-   * **TestService**. Nome do serviço de nuvem onde será criada a VM.
+   * **-l (ou --location)**. Região do Azure onde a VM será criada. Para o nosso cenário *centralus*.
+   * **-n (ou - vm-name)**. Nome da VM a ser criada.
+   * **-w (ou ----nome de rede virtual)**. Nome da VNet onde a VM será criada. 
+   * **-S (ou --ip estático)**. Endereço de IP privado estático para a VM.
+   * **TestService**. Nome do serviço cloud em que a VM será criada.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Imagem utilizada para criar a VM.
    * **adminuser**. Administrador local para a VM do Windows.
    * **AdminP@ssw0rd**. Palavra-passe de administrador local para a VM do Windows.
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Como obter privadas informações endereços IP estáticos para uma VM
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Como obter estáticas informações de endereço IP privadas para uma VM
 Para ver as informações de endereço IP privadas estáticas para a VM criada com o script acima, execute o seguinte comando da CLI do Azure e observe o valor para *rede StaticIP*:
 
     azure vm static-ip show DNS01
@@ -89,8 +89,8 @@ Resultado esperado:
     data:    Network StaticIP "192.168.1.101"
     info:    vm static-ip show command OK
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover um endereço IP privado estático de uma VM
-Para remover o endereço IP privado estático adicionadas para a VM com o script acima, execute o seguinte comando da CLI do Azure:
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover um endereço IP privado estático a partir de uma VM
+Para remover o endereço IP privado estático adicionado à VM no script acima, execute o seguinte comando da CLI do Azure:
 
     azure vm static-ip remove DNS01
 
@@ -102,8 +102,8 @@ Resultado esperado:
     info:    Updating network configuration
     info:    vm static-ip remove command OK
 
-## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>Como adicionar um IP privado estático para uma VM existente
-Para adicionar um estático privado de endereços IP para a VM criada ao utilizar o script acima, runt tados os seguintes comandos:
+## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>Como adicionar um IP privado estático a uma VM existente
+Para adicionar um estático privado de endereços IP para a VM criada utilizando o script acima, runt seguinte comando:
 
     azure vm static-ip set DNS01 192.168.1.101
 
@@ -118,10 +118,9 @@ Resultado esperado:
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Conjunto de endereços IP no sistema operativo
 
-É recomendado que não estaticamente atribui o IP privado atribuído à máquina virtual do Azure no sistema operativo de uma VM, a menos que necessário. Se definir manualmente o endereço IP privado no sistema operativo, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído à VM do Azure ou pode perder a conectividade à máquina virtual. Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure dentro do sistema operativo da máquina virtual.
+É recomendável que não atribuir estaticamente IP privado atribuído à máquina virtual do Azure no sistema operativo de uma VM, a menos que necessário. Se definir manualmente o endereço IP privado no sistema operativo, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído à VM do Azure ou pode perder a conectividade para a máquina virtual. Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure no sistema de operativo da máquina virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [reservado de IP público](virtual-networks-reserved-public-ip.md) endereços.
-* Saiba mais sobre [instância ao nível do IP público (ILPIP)](virtual-networks-instance-level-public-ip.md) endereços.
-* Consulte o [reservado APIs REST do IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Saiba mais sobre [IP público (ILPIP) de nível de instância](virtual-networks-instance-level-public-ip.md) endereços.
+* Consulte a [reservado IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

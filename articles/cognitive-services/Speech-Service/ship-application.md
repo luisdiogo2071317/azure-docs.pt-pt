@@ -1,5 +1,5 @@
 ---
-title: Serviços cognitivos do Azure, cognitivos dos serviços de API do SDK de voz documentação - tutoriais, referência da API
+title: Serviços cognitivos do Azure, API de SDK de voz dos serviços cognitivos documentação - tutoriais, referência da API
 description: Saiba como criar e desenvolver aplicações com o SDK de voz dos serviços cognitivos
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b920b7bcb86d94b2948ed0a9bf783cee1282b33f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987583"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041080"
 ---
-# <a name="shipping-an-application"></a>Um aplicativo de envio
+# <a name="ship-an-application"></a>Enviar uma aplicação
 
-Observe a [licença do SDK de voz](license.md), bem como o [notificações de software de terceiros](third-party-notices.md) ao distribuir o SDK de voz dos serviços cognitivos. Além disso, reveja os [declaração de privacidade do Microsoft](https://aka.ms/csspeech/privacy).
+Observe a [licença do SDK de voz](license.md), bem como o [avisos de software de terceiros](third-party-notices.md) quando distribui o SDK de voz dos serviços cognitivos do Azure. Além disso, reveja os [declaração de privacidade do Microsoft](https://aka.ms/csspeech/privacy).
 
 Consoante a plataforma, existem dependências diferentes para executar seu aplicativo.
 
@@ -31,11 +31,11 @@ O SDK de voz dos serviços cognitivos requer o [Microsoft Visual C++ Redistribut
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Se a aplicação estiver a utilizar o código gerenciado, o `.NET Framework 4.6.1` ou posterior é necessário no computador de destino.
+Se o aplicativo usar código gerenciado, o `.NET Framework 4.6.1` ou posterior é necessário no computador de destino.
 
-Para a entrada do microfone, as bibliotecas de base de dados tem de ser instalado. Essas bibliotecas fazem parte do Windows 10 e Windows Server 2016. É possível utilizar o SDK de voz dessas bibliotecas, desde que microfone não é utilizado como o dispositivo de entrada de áudio.
+Para a entrada do microfone, as bibliotecas do Media Foundation tem de ser instaladas. Essas bibliotecas fazem parte do Windows 10 e Windows Server 2016. É possível utilizar o SDK de voz dessas bibliotecas, desde que um microfone não é utilizado como o dispositivo de entrada de áudio.
 
-Os ficheiros necessários do SDK de voz podem ser implementados no mesmo diretório que seu aplicativo. Desta forma, que seu aplicativo pode acessar diretamente as bibliotecas. Certificar-se de que seleciona a versão correta (Win32/x64) correspondentes a sua aplicação.
+Os ficheiros necessários do SDK de voz podem ser implementados no mesmo diretório que seu aplicativo. Desta forma, que seu aplicativo pode acessar diretamente as bibliotecas. Certificar-se de que seleciona a versão correta (Win32/x64) que corresponde à sua aplicação.
 
 | Nome | Função
 |:-----|:----|
@@ -46,9 +46,9 @@ Os ficheiros necessários do SDK de voz podem ser implementados no mesmo diretó
 ## <a name="linux"></a>Linux
 
 Para uma aplicação nativa, terá de enviar a biblioteca do SDK de voz, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Certifique-se de selecionar a versão (x86, x64) correspondentes a sua aplicação. Dependendo da versão do Linux, também poderá incluir as seguintes dependências:
+Certificar-se de que seleciona a versão (x86, x64) que corresponde à sua aplicação. Dependendo da versão do Linux, também poderá ter de incluir as seguintes dependências:
 
-* As bibliotecas compartilhadas da biblioteca de C GNU (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
+* As bibliotecas compartilhadas da biblioteca do GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
 * A biblioteca OpenSSL (`libssl.so.1.0.0`)
 * A biblioteca de cURL (`libcurl.so.4`)
 * A biblioteca partilhada para aplicativos de ALSA (`libasound.so.2`)

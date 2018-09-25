@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b97a32e2e859a5bb370873bfbdc5c6b4dffa1ac1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993855"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitorização de desempenho com o Log Analytics
 
@@ -30,7 +30,7 @@ Este artigo aborda os passos para adicionar o Log Analytics Agent como extensão
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Adicione a extensão do agente através da CLI do Azure
 
-Por meio de dimensionamento da máquina virtual, a melhor forma de adicionar o Log Analytics Agent no seu cluster está definida APIs disponíveis com a CLI do Azure. Se não tiver o CLI do Azure configurar ainda, ir para o portal do Azure e abrir um [Cloud Shell](../cloud-shell/overview.md) instância, ou [instalar Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Por meio de dimensionamento da máquina virtual, a melhor forma de adicionar o Log Analytics Agent no seu cluster está definida APIs disponíveis com a CLI do Azure. Se não tiver o CLI do Azure configurar ainda, ir para o portal do Azure e abrir um [Cloud Shell](../cloud-shell/overview.md) instância, ou [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Depois do Cloud Shell é solicitada, certifique-se de que está a trabalhar na mesma subscrição que o seu recurso. Verificar isto com `az account show` e certificar-se de que o valor de "nome" corresponde da subscrição do seu cluster.
 

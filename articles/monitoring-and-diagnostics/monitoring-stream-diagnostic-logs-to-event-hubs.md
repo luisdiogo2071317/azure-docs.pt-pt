@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578375"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996558"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
-**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure Cmdlets do PowerShell ou o Azure CLI 2.0.
+**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure CLI do Azure ou Cmdlets do PowerShell.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>O que pode fazer com os registos de diagnóstico e os Hubs de eventos
 Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em fluxo registos de diagnóstico:
@@ -91,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 O ID de regra de autorização de Hub de eventos é uma cadeia de caracteres com este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente não é possível selecionar um nome de hub de eventos específico com o PowerShell.
 
-### <a name="via-azure-cli-20"></a>Através da CLI 2.0 do Azure
+### <a name="via-azure-cli"></a>Através da CLI do Azure
 
-Para ativar a transmissão em fluxo através de [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), pode utilizar o [az monitor diagnostic-settings criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando.
+Para ativar a transmissão em fluxo através do [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), pode utilizar o [az monitor diagnostic-settings criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

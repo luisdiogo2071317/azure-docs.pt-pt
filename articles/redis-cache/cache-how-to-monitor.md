@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 14854960aa8db50507b407d4fab7c4113618235c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071551"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976363"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Como monitorizar a Cache de Redis do Azure
 A Cache de Redis do Azure utiliza [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para fornecer várias opções para a monitorização de instâncias de cache. Pode ver métricas, afixar gráficos de métricas ao Startboard, personalizar o intervalo de data e hora dos gráficos de monitorização, adicionar e remover as métricas de gráficos e definir alertas quando forem cumpridas determinadas condições. Essas ferramentas permitem-lhe monitorizar o estado de funcionamento das suas instâncias de Cache de Redis do Azure e ajudar a gerir as suas aplicações de colocação em cache.
@@ -61,7 +61,7 @@ Para obter mais informações sobre como trabalhar com a métrica de utilizar o 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportar métricas da cache
-Por predefinição, são métricas de cache no Azure Monitor [armazenadas durante 30 dias](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) e, em seguida, eliminados. Para manter as suas métricas de cache durante mais de 30 dias, pode [designar uma conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e especifique um **retenção (dias)** política para as suas métricas de cache. 
+Por predefinição, são métricas de cache no Azure Monitor [armazenadas durante 30 dias](../monitoring/monitoring-data-collection.md#metrics) e, em seguida, eliminados. Para manter as suas métricas de cache durante mais de 30 dias, pode [designar uma conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e especifique um **retenção (dias)** política para as suas métricas de cache. 
 
 Para configurar uma conta de armazenamento para as suas métricas de cache:
 
@@ -75,11 +75,11 @@ Para configurar uma conta de armazenamento para as suas métricas de cache:
 ![Diagnóstico de redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Além de arquivamento de suas métricas de cache para o armazenamento, pode também [transmiti-los para um hub de eventos ou enviá-los para o Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>Além de arquivamento de suas métricas de cache para o armazenamento, pode também [transmiti-los para um hub de eventos ou enviá-los para o Log Analytics](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 
-Para acessar as suas métricas, pode visualizá-las no portal do Azure, conforme descrito anteriormente neste artigo, e também pode acessá-los utilizando o [API de REST do Azure Monitor métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Para acessar as suas métricas, pode visualizá-las no portal do Azure, conforme descrito anteriormente neste artigo, e também pode acessá-los utilizando o [API de REST do Azure Monitor métricas](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Se alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecem disponíveis para download, mas não é apresentada no portal do Azure.  

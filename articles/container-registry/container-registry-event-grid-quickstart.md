@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 4b29804690b951083810d4f75b68ff23fca44a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746513"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039620"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Início rápido: Enviar contentor eventos de registo para o Event Grid
 
@@ -141,20 +141,20 @@ Quando a subscrição estiver concluída, deve produzir semelhante ao seguinte:
 
 ## <a name="trigger-registry-events"></a>Eventos de registo do acionador
 
-Agora que a aplicação de exemplo está ativo e em execução e tive subscrito para o seu registo com o Event Grid, está pronto para gerar alguns eventos. Nesta secção, vai utilizar ACR Build para criar e enviar uma imagem de contentor para o seu registo. ACR Build é um recurso do Azure Container Registry permite-lhe criar imagens de contentor na cloud, sem a necessidade do motor do Docker instalado no seu computador local.
+Agora que a aplicação de exemplo está ativo e em execução e tive subscrito para o seu registo com o Event Grid, está pronto para gerar alguns eventos. Nesta secção, vai utilizar tarefas do ACR para criar e enviar uma imagem de contentor para o seu registo. Tarefas de ACR é um recurso do Azure Container Registry permite-lhe criar imagens de contentor na cloud, sem a necessidade do motor do Docker instalado no seu computador local.
 
 ### <a name="build-and-push-image"></a>Criar e emitir imagem
 
-Execute o seguinte comando da CLI do Azure para criar uma imagem de contentor com o conteúdo de um repositório do GitHub. Por predefinição, ACR Build automaticamente envia por push uma imagem criada com êxito para o seu registo, o que gera o `ImagePushed` eventos.
+Execute o seguinte comando da CLI do Azure para criar uma imagem de contentor com o conteúdo de um repositório do GitHub. Por predefinição, as tarefas de ACR automaticamente envia por push uma imagem criada com êxito para o seu registo, o que gera o `ImagePushed` eventos.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Deverá ver um resultado semelhante ao seguinte enquanto o ACR Build cria e, em seguida, envia sua imagem. A seguinte saída de exemplo foi truncada para fins de brevidade.
+Deverá ver um resultado semelhante ao seguinte enquanto as tarefas de ACR cria e, em seguida, envia sua imagem. A seguinte saída de exemplo foi truncada para fins de brevidade.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +227,10 @@ Pode encontrar a referência de esquema de mensagem de eventos do Azure Containe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, implementou um registo de contentor, criada uma imagem com o ACR Build, eliminado e tiver consumido eventos do seu registo do Event Grid com um aplicativo de exemplo. Em seguida, avance para o ACR Build tutorial para saber mais sobre a criação de imagens de contentor na cloud, incluindo automatizada compilações na atualização da imagem base:
+Neste início rápido, implementou um registo de contentor, criou uma imagem com tarefas do ACR, eliminado e, tiver consumido eventos do seu registo do Event Grid com um aplicativo de exemplo. Em seguida, avance para o tutorial de tarefas do ACR para saber mais sobre a criação de imagens de contentor na cloud, incluindo automatizada compilações na atualização da imagem base:
 
 > [!div class="nextstepaction"]
-> [Criar imagens de contentor na cloud com o ACR Build](container-registry-tutorial-quick-build.md)
+> [Criar imagens de contentor na cloud com tarefas do ACR](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

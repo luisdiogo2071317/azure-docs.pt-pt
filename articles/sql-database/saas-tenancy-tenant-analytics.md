@@ -1,22 +1,23 @@
 ---
 title: Executar análises de entre inquilinos usando dados extraídos | Documentos da Microsoft
 description: Consultas de análise de entre inquilinos usando dados extraídos a partir de várias bases de dados de base de dados do Azure SQL num aplicativo de inquilino único.
-keywords: tutorial de base de dados sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: a838630e3423ca5ec26893597e2bb2b6e36ede2e
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: dc912ded6f879d14689a267c7ee63245c11c0bd0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498064"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054953"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de entre inquilinos com extraídos dados - aplicação de inquilino único
  

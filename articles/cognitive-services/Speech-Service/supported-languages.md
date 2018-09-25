@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a4307ee0ff210dafee5afe51bd9cb90db9be22e5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d28c67b1c7039f6e139a897196d88464b3bcf977
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295433"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064344"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas suportados para o serviço de voz
 
@@ -22,29 +22,41 @@ Diferentes idiomas são suportados para diferentes funções do serviço de voz.
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. 
+A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão disponíveis para cada idioma diferentes níveis de personalização.  
 
-  Código | Idioma | Adaptação acústica | Adaptação de idioma | Adaptação de pronúncia
+  Código | Idioma | [Adaptação acústica](how-to-customize-acoustic-models.md) | [Adaptação de idioma](how-to-customize-language-model.md) | [Adaptação de pronúncia](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-por exemplo | Árabe (Egito), standard moderna | Não | Sim | Não
- it-IT | Italiano (Itália) | Não | Sim | Não 
- de-DE | Alemão (Alemanha) | Não | Sim | Sim
- FR-FR | Francês (França) | Não | Sim | Não
+ ES de AC | Catalão | Não | Não | Não
+ da-DK | Dinamarquês (Dinamarca) | Não | Não | Não
+ de-DE | Alemão (Alemanha) | Sim | Sim | Não
+ EN-AU | Inglês (Austrália) | Sim | Sim | Sim
+ en-CA | Inglês (Canadá) | Sim | Sim | Sim
+ en-GB | Inglês (Reino Unido) | Sim | Sim | Sim
+ EN-IN | English (India) | Não | Sim | Sim
+ EN-NZ | Inglês (Nova Zelândia) | Sim | Sim | Sim  
  pt-PT | Inglês (Estados Unidos) | Sim | Sim | Sim
- en-GB | Inglês (British) | Não | Sim | Não
- en-CA | Inglês (Canadá) | Não | Sim | Não
- EN-AU | Inglês (Austrália) | Não | Sim | Não
- es-ES | Espanhol (Espanha) | Não | Sim | Não
- NL-NL | Holandês (Países Baixos) | Não | Sim | Não
- pt-PT | Portoguese (Portogal) | Não | Sim | Não
- tr-TR | Turco (Turquia) | Não | Sim | Não
- pt-BR | Português (Brasil) | Não | Sim | Não
- ru-RU | Russo (Rússia) | Não | Sim | Não
- zh-CN | Chinês (simplificado Mandarim) | Não | Sim | Não
- zh-HK | Chinês (Mandarim, tradicional) | Não | Sim | Não
- zh-TW | Chinês (Taiwanês Mandarim) | Não | Sim | Não
+ es-ES | Espanhol (Espanha) | Sim | Sim | Não
+ es-MX | Espanhol (México) | Sim | Sim | Não 
+ fi-FI | Finlandês (Finlândia) | Não | Não | Não 
+ fr-CA | Francês (Canadá) | Sim | Sim | Não 
+ FR-FR | Francês (França) | Sim | Sim | Não
+ IN | Hindi (Índia) | Não | Sim | Não 
+ it-IT | Italiano (Itália) | Sim | Sim | Não
  ja-JP | Japonês (Japão) | Não | Sim | Não
  ko-KR | Coreano (Coreia) | Não | Sim | Não
+ nb-NO | Norueguês (Bokmål) (Noruega) | Não | Não | Não 
+ NL-NL | Holandês (Países Baixos) | Não | Sim | Não
+ pl-PL | Polaco (Polónia) | Não | Não | Não
+ pt-BR | Português (Brasil) | Não | Sim | Não
+ pt-PT | Português (Portugal) | Não | Sim | Não
+ ru-RU | Russo (Rússia) | Não | Sim | Não
+ SV-SE | Sueco (Suécia) | Não | Não | Não 
+ zh-CN | Chinês (simplificado Mandarim) | Sim | Sim | Não
+ zh-HK | Chinês (Mandarim, tradicional) | Não | Sim | Não
+ zh-TW | Chinês (Taiwanês Mandarim) | Não | Sim | Não
+ th-TH | Tailandês (Tailândia) | Não | Não | Não
+
 
 ## <a name="text-to-speech"></a>Conversão de Texto em Voz
 
@@ -52,11 +64,12 @@ A API de síntese de voz oferece as seguintes vozes, cada um deles suporta um id
 
 Região | Idioma | Género | Mapeamento de nome de serviço
 -------|----------|---------|--------------------
-ar-por exemplo * | Árabe (Egito) | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)"
+ar-por exemplo\* | Árabe (Egito) | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)"
 ar SA | Árabe (Arábia Saudita) | Masculino | "Microsoft Server voz texto para voz de voz (ar-SA, Naayf)"
 bg-BG | Búlgaro | Masculino | "Microsoft Server voz texto em voz voz (bg-BG, Ivan)"
 ES de AC | Catalão | Feminino | "Microsoft Server voz texto em voz voz (AC-ES, HerenaRUS)"
 cs-CZ | Checo | Masculino | "Microsoft Server voz texto para voz de voz (cs-CZ, Jakub)"
+cs-CZ | Checo | Masculino | "Microsoft Server voz texto para voz de voz (cs-CZ, Vit)"
 da-DK | Dinamarquês | Feminino | "Microsoft Server voz texto para voz de voz (da-DK, HelleRUS)"
 Alemanha-AT | Alemão (Áustria) | Masculino | "Microsoft Server voz texto para voz de voz (Alemanha-AT, Michael)"
 Alemanha-CH | Alemão (Suíça) | Masculino | "Microsoft Server voz texto para voz de voz (Alemanha-CH, Karsten)"
@@ -72,6 +85,7 @@ en-GB | English (UK) | Feminino | "Microsoft Server voz texto para voz de voz (e
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-GB, HazelRUS)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (en-GB, George, Apollo)"
 EN-IE | Inglês (Irlanda) |Masculino | "Microsoft Server voz texto para voz de voz (en-IE, Sean)"
+EN-IE | Inglês (Irlanda) |Masculino | "Microsoft Server voz texto para voz de voz (en-IE, Shaun)"
 EN-IN | English (India) | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, Heera, Apollo)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-IN, PriyaRUS)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (en-IN, Ravi, Apollo)"
@@ -116,13 +130,14 @@ RO-RO | Romeno | Masculino | "Microsoft Server voz texto para voz de voz (ro-RO,
 ru-RU |Russo| Feminino | "Microsoft Server voz texto em voz voz (ru-RU, Irina, Apollo)"
 | | |Masculino | "Microsoft Server voz texto em voz voz (ru-RU, Pavel, Apollo)"
 | | |Feminino | "Microsoft Server voz texto em voz voz (ru-RU, EkaterinaRUS)"
-sk SK | Eslovaco | Masculino | "Microsoft Server voz texto em voz voz (sk-SK, Filip)"
-IS SL | Esloveno | Masculino | "Microsoft Server voz texto em voz voz (sl-SI, Lado)"
-SV-SE | Sueco | Feminino | "Microsoft Server voz texto para voz de voz (sv-SE, HedvigRUS)"
-es-IN | Tamil (Índia) | Masculino | "Microsoft Server voz texto para voz de voz (dados-IN, Valluvar)"
-th-TH | Tailandês | Masculino | "Microsoft Server voz texto em voz voz (th-TH, Pattara)"
-tr-TR |Turco | Feminino | "Microsoft Server voz texto em voz voz (tr-TR, SedaRUS)"
-vi-VN | Vietnamita | Masculino | "Voz de texto em voz de voz do Microsoft Server (vi-VN, um)"
+sk SK | Eslovaco|Masculino | "Microsoft Server voz texto em voz voz (sk-SK, Filip)"
+IS SL | Esloveno|Masculino | "Microsoft Server voz texto em voz voz (sl-SI, Lado)"
+SV-SE | Sueco|Feminino | "Microsoft Server voz texto para voz de voz (sv-SE, HedvigRUS)"
+es-IN | Tamil (Índia) |Masculino | "Microsoft Server voz texto para voz de voz (dados-IN, Valluvar)"
+te-IN | Telugu (Índia) |Feminino | "Microsoft Server voz texto para voz de voz (te-IN, Chitra)"
+th-TH | Tailandês|Masculino | "Microsoft Server voz texto em voz voz (th-TH, Pattara)"
+tr-TR |Turco| Feminino | "Microsoft Server voz texto em voz voz (tr-TR, SedaRUS)"
+vi-VN | Vietnamita|Masculino | "Voz de texto em voz de voz do Microsoft Server (vi-VN, um)"
 zh-CN | Chinês (continental)|Feminino | "Microsoft Server voz texto para voz de voz (zh-CN, HuihuiRUS)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (zh-CN, Yaoyao, Apollo)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (zh-CN, Kangkang, Apollo)"

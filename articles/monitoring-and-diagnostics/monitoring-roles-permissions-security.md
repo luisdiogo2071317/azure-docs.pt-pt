@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248466"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977864"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da Equipe que trabalham exclusivamente em monitorização (engenheiros de suporte, engenheiros de devops) ou se usar um provedor de serviço gerida, pode querer lhes conceder acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar, ou Elimine recursos. Este artigo mostra como aplicar uma função de monitorização incorporada RBAC a um utilizador no Azure ou criar sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas rapidamente. Em seguida, ele aborda considerações de segurança dos seus recursos relacionados com o Azure Monitor e a forma como pode limitar o acesso aos dados que contêm.
@@ -171,6 +171,24 @@ Pode ser seguido de um padrão semelhante com os hubs de eventos, mas primeiro t
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
    New-AzureRmRoleDefinition -Role $role 
    ```
+
+## <a name="monitoring-within-a-secured-virtual-network"></a>Monitorização dentro de uma rede Virtual protegida
+
+O Azure Monitor precisa de aceder aos recursos do Azure para fornecer os serviços que ativa. Se quiser monitorizar os recursos do Azure enquanto ainda protegendo-los contra o acesso à Internet pública, pode ativar as seguintes definições.
+
+### <a name="secured-storage-accounts"></a>Contas de armazenamento seguro 
+
+Dados de monitorização, muitas vezes, é escrito para uma conta de armazenamento. Pode querer Certifique-se de que os dados copiados para uma conta de armazenamento não podem ser acedidos por utilizadores não autorizados. Para segurança adicional, pode bloquear acesso à rede para permitir apenas os recursos autorizados e acesso de serviços Microsoft fidedigno para uma conta de armazenamento ao restringir uma conta de armazenamento para utilizar "redes selecionadas".
+![Caixa de diálogo de definições do armazenamento do Azure](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor é considerado um dos seguintes "trusted serviços da Microsoft" se permitir que os serviços Microsoft fidedignos para aceder ao seu armazenamento protegido, o Azure monitor terão acesso à sua conta de armazenamento seguro; ativar escrever os registos de diagnóstico do Azure Monitor, registo de atividades e métricas para a sua conta de armazenamento sob essas condições protegidas. Irá também permitir Log Analytics para ler registos a partir do armazenamento seguro.   
+
+Para obter mais informações, consulte [de rede de segurança e armazenamento do Azure](../storage/common/storage-network-security.md)
+ 
+### <a name="secured-virtual-networks-with-service-endpoints"></a>Redes virtuais protegidas com pontos finais de serviço 
+
+Redes virtuais (VNets) permitem-lhe restringir o tráfego para permitir apenas tráfego especificado comunicar com os recursos do Azure. Pode especificar pontos finais de serviço para expandir a sua VNet para incluir o Azure Monitor; Isso permitirá que seus recursos para conitinue para enviar em segurança as informações de métricas e de registos para o Azure Monitor de redes virtuais.  
+
+Para obter mais informações, consulte [pontos finais de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre RBAC e as permissões no Resource Manager](../role-based-access-control/overview.md)

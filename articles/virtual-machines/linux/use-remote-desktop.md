@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934753"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996354"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar o ambiente de trabalho remoto para ligar a uma VM do Linux no Azure
 Máquinas de virtuais do Linux (VMs) no Azure, normalmente, são geridas a partir da linha de comandos a utilizar uma ligação de secure shell (SSH). Quando novos para Linux, ou para cenários de resolução de problemas rápidos, o uso de ambiente de trabalho remoto pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de desktop ([xfce](https://www.xfce.org)) e o ambiente de trabalho remoto ([xrdp](http://www.xrdp.org)) para a sua VM do Linux com o modelo de implementação do Resource Manager.
@@ -28,7 +28,7 @@ Máquinas de virtuais do Linux (VMs) no Azure, normalmente, são geridas a parti
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo requer uma VM de LTS do Ubuntu 16.04 existente no Azure. Se precisar de criar uma VM, utilize um dos seguintes métodos:
 
-- O [CLI 2.0 do Azure](quick-create-cli.md)
+- O [da CLI do Azure](quick-create-cli.md)
 - O [portal do Azure](quick-create-portal.md)
 
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra de grupo de segurança de rede para tráfego de ambiente de trabalho remoto
 Para permitir o tráfego de ambiente de trabalho remoto aceda à VM do Linux, uma segurança de rede tem de regra de grupo ser criado que permite que o TCP na porta 3389, aceda à VM. Para obter mais informações sobre regras de grupo de segurança de rede, consulte [o que é um grupo de segurança de rede?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Também pode [utilizar o portal do Azure para criar uma regra de grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-O exemplo seguinte cria uma regra de grupo de segurança de rede com [az vm open-port](/cli/azure/vm#az-vm-open-port) na porta *3389*. A partir do CLI 2.0 do Azure, não a sessão SSH à VM, abra a seguinte regra de grupo de segurança de rede:
+O exemplo seguinte cria uma regra de grupo de segurança de rede com [az vm open-port](/cli/azure/vm#az-vm-open-port) na porta *3389*. A partir do CLI do Azure, não a sessão SSH à VM, abra a seguinte regra de grupo de segurança de rede:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

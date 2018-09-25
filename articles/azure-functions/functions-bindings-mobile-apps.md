@@ -11,14 +11,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a68e7cfe2966592861f3fb58c99327c5849a6004
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6b5a45bfcfc02c6b313e868fb3ba037ce3ba48c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721607"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967579"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
+
+> [!NOTE]
+> Enlaces de aplicações móveis do Azure só estão disponíveis para as funções do Azure 1.x. Não são suportados nas funções do Azure 2.x.
 
 Este artigo explica como trabalhar com [Mobile Apps do Azure](../app-service-mobile/app-service-mobile-value-prop.md) enlaces no funções do Azure. Funções do Azure suporta de entrada e saída enlaces para aplicações móveis.
 
@@ -31,12 +34,6 @@ Os enlaces de aplicações móveis permitem-lhe ler e atualizar tabelas de dados
 Enlaces de aplicações móveis são fornecidos na [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
-
-Enlaces de aplicações móveis são fornecidos na [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pacote NuGet, versão 3.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) repositório do GitHub.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>Input
 

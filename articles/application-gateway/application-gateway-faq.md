@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022921"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986681"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -360,6 +360,12 @@ Registos de auditoria estão disponíveis para o Gateway de aplicação. No port
 **P. Pode definir alertas com o Gateway de aplicação?**
 
 Sim, o Gateway de aplicação suporta alertas, os alertas são configurados fora métricas. Gateway de aplicação tem atualmente uma métrica de "saída", que pode ser configurada para o alerta. Para obter mais informações sobre alertas, visite [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**P. Como posso analisar as estatísticas de tráfego para o Gateway de aplicação?**
+
+Pode ver e analisar registos de acesso através de vários mecanismos, como o Azure Log Analytics, Excel, Power BI etc.
+
+Também Publicámos um modelo do Resource Manager que instala e executa o popular [GoAccess](https://goaccess.io/) log analyzer para aceder aos registos do Gateway de aplicação. GoAccess fornece valiosas estatísticas de tráfego HTTP, como visitantes exclusivos, arquivos de pedido, anfitriões, sistemas operacionais, navegadores, códigos de estado de HTTP e muito mais. Para obter mais detalhes, consulte a [ficheiro Leia-me na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **P. Estado de funcionamento do back-end devolve o estado desconhecido, o que pode estar a causar este Estado?**
 

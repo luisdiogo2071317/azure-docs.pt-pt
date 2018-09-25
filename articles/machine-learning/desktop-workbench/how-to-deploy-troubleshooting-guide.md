@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf86466d5fca4f5095c67a8400643bff29bb56c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: a2867545e454e2b13360d87f5282e684753d6476
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649894"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994501"
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Resolução de problemas de implementação do serviço e configuração do ambiente
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 As informações seguintes podem ajudar a determinar a causa dos erros quando configurar o ambiente de gestão de modelo.
 
 ## <a name="model-management-environment"></a>Ambiente de gestão de modelo

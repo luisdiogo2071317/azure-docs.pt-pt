@@ -1,21 +1,21 @@
 ---
-title: Veja métricas-chave nos dashboards do Azure Cost Management | Documentos da Microsoft
-description: Este artigo descreve como visualizar métricas-chave com dashboards no Azure Cost Management.
+title: Veja métricas-chave com dashboards da Cloudyn no Azure | Documentos da Microsoft
+description: Este artigo descreve como visualizar métricas-chave com dashboards no Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4f51598dd2b026f1c3a4b0d763b1547a44eedc7b
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647140"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999717"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Chave de ver as métricas com os dashboards de custos
 
@@ -34,7 +34,7 @@ Versões de dashboard são diferentes para os utilizadores de gestão (MSP), Ent
 
 Disponibilidade de dashboard depende do tipo de conta de fornecedor de serviço na cloud que é utilizado ao visualizar os dashboards. O tipo de informação disponível e recolhido pelo Cloudyn afeta relatórios nos dashboards. Por exemplo, se não tiver uma conta AWS, em seguida, não verá o dashboard do controlador de S3. Da mesma forma, se não ativar o acesso ao Cloudyn do Azure Resource Manager, em seguida, não verá quaisquer informações específicas do Azure em widgets do dashboard de otimizador.
 
-Pode utilizar qualquer um dos dashboards pré-criados ou pode criar seu próprio dashboard com relatórios personalizados. Se não estiver familiarizado com os relatórios do Cloudyn, consulte [relatórios de gestão de custos de utilização](use-reports.md).
+Pode utilizar qualquer um dos dashboards pré-criados ou pode criar seu próprio dashboard com relatórios personalizados. Se não estiver familiarizado com os relatórios do Cloudyn, consulte [relatórios de utilização Cloudyn](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Criar um dashboard personalizado
 
@@ -297,4 +297,4 @@ Este widget destaca o melhor mapeamento de unidades de computação elástica en
 - Clique em do widget para abrir o relatório de mapeamento de tipo de instâncias.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Leitura a [relatórios de gestão de custos de utilização](use-reports.md) artigo para saber mais sobre os relatórios.
+- Leitura a [relatórios de utilização Cloudyn](use-reports.md) artigo para saber mais sobre os relatórios.

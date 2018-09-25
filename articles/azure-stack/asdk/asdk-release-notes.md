@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984446"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056544"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -289,7 +289,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 - <!-- 2368581 - IS. ASDK --> Um operador do Azure Stack, se receber um alerta de pouca memória e máquinas de virtuais de inquilino não for possível implementar com um *erro de criação de recursos de infraestrutura de VM*, é possível que o carimbo de data / Azure Stack está disponível memória esgotada. Utilize o [Planeador de capacidade do Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para melhor compreender a capacidade disponível para as cargas de trabalho.
 
-- <!-- TBD - IS. ASDK --> Ao executar o cmdlet de teste AzureStack no ponto final de privilégio (PEP), o teste irá gerar uma mensagem de aviso de êxito/falha para a VM ERCS. Pode continuar a utilizar o ASDK.
+- <!-- TBD - IS. ASDK --> Ao executar o **teste AzureStack** cmdlet no ponto final com privilégios (PEP), o **desempenho de instâncias de função do Azure Stack infraestrutura** teste irá gerar uma mensagem de aviso para a VM ERCS. Pode ignorar a mensagem de aviso e continuar a utilizar o ASDK com segurança.
 
 #### <a name="compute"></a>Computação
 - <!-- 2494144 - IS, ASDK --> Ao selecionar um tamanho de máquina virtual para uma implementação da máquina virtual, alguns tamanhos de VM da série F não estão visíveis como parte do Seletor de tamanho, ao criar uma VM. Os seguintes tamanhos VM não aparecem no Seletor de: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  

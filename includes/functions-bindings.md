@@ -2,7 +2,7 @@ A tabela seguinte mostra as ligações que são suportadas nas duas versões pri
 
 | Tipo | 1.x | 2.x | Acionador | Input | Saída |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
-| [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
 | [BD do Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |  
 | [Hubs de Eventos](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
@@ -14,16 +14,16 @@ A tabela seguinte mostra as ligações que são suportadas nas duas versões pri
 | [Microsoft Graph<br/>e-mail do Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
 | [Microsoft Graph<br/>eventos](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
 | [Microsoft Graph<br/>tokens de autenticação](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
-| [Aplicações Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔|✔| |✔|✔|  
+| [Aplicações Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|  
 | [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
-| [Armazenamento de filas](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔<sup>1</sup>|✔| |✔|  
+| [Armazenamento de filas](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|  
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|  
-| [Armazenamento de tabelas](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔<sup>1</sup>| |✔|✔|  
-| [Temporizador](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
+| [Armazenamento de tabelas](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|  
+| [Temporizador](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔<sup>1</sup>|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 | [Webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
   
-<sup>1</sup> no 2.x, todos os enlaces, exceto o HTTP, o temporizador e o armazenamento do Azure tem de estar registados. Ver [registar as extensões de vinculação](../articles/azure-functions/functions-triggers-bindings.md#register-binding-extensions).
+<sup>1</sup> no 2.x, tem de estar registados todos os enlaces, exceto o HTTP e temporizador. Ver [registar as extensões de vinculação](../articles/azure-functions/functions-triggers-bindings.md#register-binding-extensions).
 
 <sup>2</sup> Experimental &mdash; não suportados e poderão ser abandonada no futuro.

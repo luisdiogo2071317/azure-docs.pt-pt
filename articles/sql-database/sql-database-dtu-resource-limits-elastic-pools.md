@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a0e0b8e2de3c944698cdbc6b1b11351f70e77276
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c4f9daa4d9f5d09d4078d29409f116d1e8284f7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729897"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036750"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de recursos para conjuntos elásticos com o modelo de compra baseado em DTU 
 
@@ -108,7 +108,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 ||||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto as seguintes: e.u.a. centro-oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, Nordeste da Alemanha, USGov Iowa, China Norte. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto as seguintes: e.u.a. centro-oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, Nordeste da Alemanha, USGov Iowa, China Norte. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.
 

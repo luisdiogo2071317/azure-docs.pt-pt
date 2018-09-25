@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Por meio de programação find publicar região com a chave de ponto final e o aplicativo ID para LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 2b978b8459bbf248f7702076c78c1948b036aec6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 193872d03dde1d5c620acca1b7aba99b60db238d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057368"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034081"
 ---
 # <a name="find-endpoint-region-with-nodejs"></a>Localizar a região de ponto final com o node. js
 Se tiver o LUIS ID da aplicação e o ID de subscrição do LUIS, pode encontrar a qual a região a utilizar para consultas de ponto final.
 
 > [!NOTE] 
-> A solução completa do node. js está disponível a partir da [ **LUIS-Samples** repositório do Github](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> A solução Node.js completa está disponível a partir do [**repositório do Github** LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Estratégia de consulta de ponto final do LUIS
 Cada consulta de ponto final do LUIS requer:

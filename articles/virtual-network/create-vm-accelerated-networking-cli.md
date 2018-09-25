@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5863160632e544ca542debcf74971e90ea452939
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990965"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com redes aceleradas
 
@@ -75,7 +75,7 @@ Embora este artigo fornece passos para criar uma máquina virtual com redes acel
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instalar a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login). Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *myNic*, e *myVm*.
+Instalar a versão mais recente [CLI do Azure](/cli/azure/install-azure-cli) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login). Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *myNic*, e *myVm*.
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* no *centralus* localização:
 

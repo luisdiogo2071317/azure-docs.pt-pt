@@ -13,14 +13,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: c47d9bc72ad1d197b5030076456f9dc9efc422bc
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 26674648217e01b66fbe722cd013d51d867e9ba9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647218"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984395"
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Usar transformações de dados para preparação de dados no Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 R *transformar* no Azure Machine Learning consome dados num determinado formato, executa uma operação nos dados (por exemplo, alterando o tipo de dados) e, em seguida, produz dados no novo formato. Cada transformação tem sua própria interface e o comportamento. Vinculando várias transformações em conjunto através de passos no fluxo de dados, pode efetuar transformações complexas e passível de repetição nos seus dados. Este é o núcleo da funcionalidade de preparação de dados.
 

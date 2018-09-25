@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: e626260dba3155ef56ee4a784aab2c6fd6897295
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 792a1fc2403e672c973577efd7a05c9c81d45ad4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45581364"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054086"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registo de autenticação multifator
 
@@ -30,37 +30,52 @@ O Azure AD Identity Protection ajuda a gerir o roll-cancelar o registro de auten
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>O que é a política de registo de autenticação multifator?
 
 Autenticação multifator do Azure é um método de verificação quem é o que requer a utilização de mais do que apenas um nome de utilizador e palavra-passe. Ele fornece uma segunda camada de segurança para inícios de sessão de utilizador e transações.  
+
 Recomendamos que exigem multi-factor authentication para inícios de sessão de utilizador, porque ele:
 
-* Proporciona uma autenticação segura com uma variedade de opções de verificação simples
-* Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar a partir de comprometimentos de conta
+- Proporciona uma autenticação segura com uma variedade de opções de verificação simples
 
-![Política de risco do utilizador](./media/howto-mfa-policy/1019.png "política de risco do utilizador")
+- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar a partir de comprometimentos de conta
+
 
 Para obter mais detalhes, consulte [o que é o Azure multi-factor Authentication?](../authentication/multi-factor-authentication.md)
 
-## <a name="configuration"></a>Configuração
 
-**Para abrir a caixa de diálogo de configuração relacionados**:
+## <a name="how-do-i-access-the-mfa-registration-policy"></a>Como posso aceder a política de registo MFA?
+   
+A política de registo MFA está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
+![Política da MFA](./media/howto-mfa-policy/1014.png)
 
-- Sobre o **do Azure AD Identity Protection** painel, na **configurar** secção, clique em **registo de multi-factor authentication**.
 
-    ![Política da MFA](./media/howto-mfa-policy/1019.png "política da MFA")
 
-### <a name="settings"></a>Definições
 
-* Defina os utilizadores e grupos que a política aplica-se a:
+## <a name="policy-settings"></a>Definições da política
 
-    ![Política da MFA](./media/howto-mfa-policy/1020.png "política da MFA")
-* Defina os controlos a serem impostas quando a política aciona::  
+Ao configurar a política de risco de início de sessão, tem de definir:
 
-    ![Política da MFA](./media/howto-mfa-policy/1021.png "política da MFA")
-* Alterne o estado da política:
+- Os utilizadores e grupos que a política aplica-se a:
 
-    ![Política da MFA](./media/howto-mfa-policy/403.png "política da MFA")
-* Ver o estado atual do registo:
+    ![Utilizadores e grupos](./media/howto-mfa-policy/11.png)
 
-    ![Política da MFA](./media/howto-mfa-policy/1022.png "política da MFA")
+- O tipo de acesso que pretende ser imposto:  
+
+    ![Utilizadores e grupos](./media/howto-mfa-policy/12.png)
+
+- O estado da política:
+
+    ![Impor a política](./media/howto-mfa-policy/14.png)
+
+
+A caixa de diálogo de configuração de política fornece uma opção para calcular o impacto da sua configuração.
+
+![Impacto estimado](./media/howto-mfa-policy/15.png)
+
+
+
+
+## <a name="user-experience"></a>Experiência de utilizador
+
 
 Para uma descrição geral da experiência do usuário relacionadas, consulte:
 

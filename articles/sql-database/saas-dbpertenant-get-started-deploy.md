@@ -1,21 +1,23 @@
 ---
 title: Tutorial de SaaS de base de dados por inquilino - base de dados SQL do Azure | Documentos da Microsoft
 description: Implementar e explorar a aplicação multi-inquilino de Wingtip Tickets SaaS que demonstra o padrão de base de dados por inquilino e outros padrões de SaaS ao utilizar a base de dados do Azure SQL.
-keywords: tutorial de base de dados sql
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 87560f3fb34c281b6802ef5079fd1445caba6db8
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056391"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 

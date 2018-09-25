@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: e5cac34a9aead209bec90cfd5f89e94a005a1995
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980360"
 ---
 # <a name="obtain-subscription-keys"></a>Obter chaves de subscrição
 Para começar a utilizar o serviço de voz personalizada do Azure, primeiro tem de ligar a sua conta de utilizador para uma subscrição do Azure. As assinaturas para os escalões gratuito e pagos estão disponíveis. Para obter informações sobre os escalões de mensagens em fila, consulte a [página de preços](https://www.microsoft.com/cognitive-services/en-us/pricing).

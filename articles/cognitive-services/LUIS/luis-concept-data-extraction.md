@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Saiba de que tipo de dados pode ser extraído de compreensão de idiomas (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d857767e5d94daa0a32997474722cec608e513b0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 717d02947c4ea74d5805749157d6a691888be72c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031349"
 ---
 # <a name="data-extraction"></a>Extração de dados
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON. 

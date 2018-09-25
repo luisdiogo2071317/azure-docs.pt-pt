@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055905"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -36,7 +36,7 @@ Este artigo ajuda-o a localizar informações sobre problemas comuns sobre o Azu
 - Se um utilizador faz parte de demasiados grupos no Active Directory, permissão Kerberos do utilizador deverá ser demasiado grande para processar e isso fará com que SSO totalmente integrado a falhar. Pedidos de HTTPS de AD do Azure podem ter cabeçalhos com um tamanho máximo de 50 KB; Os tíquetes Kerberos tem de ser menor do que esse limite para acomodar outros artefatos do Azure AD (normalmente, 2 a 5 KB), como cookies. A nossa recomendação é reduzir as associações de grupo do utilizador e tente novamente.
 - Se estiver sincronizando 30 ou mais florestas do Active Directory, não é possível ativar o SSO totalmente integrado através do Azure AD Connect. Como solução, pode [ative manualmente](#manual-reset-of-the-feature) a funcionalidade no seu inquilino.
 - Adicionar o URL do serviço do Azure AD (https://autologon.microsoftazuread-sso.com) para a zona de sites fidedignos, em vez de zona da Local intranet *bloqueia os utilizadores se inscrevam*.
-- Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação para Kerberos nas definições do Active Directory irá interromper o SSO totalmente integrado. Na sua ferramenta de Editor de gerenciamento de diretiva de grupo Certifique-se de que o valor da política para **RC4_HMAC_MD5** sob **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: configurar os tipos de encriptação permitidos para Kerberos"** está "ativado".
+- Utiliza o SSO totalmente integrado a **RC4_HMAC_MD5** tipo de encriptação para Kerberos. Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação nas definições do Active Directory irá interromper o SSO totalmente integrado. Na sua ferramenta de Editor de gerenciamento de diretiva de grupo Certifique-se de que o valor da política para **RC4_HMAC_MD5** sob **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: configurar os tipos de encriptação permitidos para Kerberos"** é **ativado**. Além disso, o SSO totalmente integrado não é possível utilizar outros tipos de encriptação, por isso, certifique-se de que estão **desativada**.
 
 ## <a name="check-status-of-feature"></a>Verificar o estado do recurso
 

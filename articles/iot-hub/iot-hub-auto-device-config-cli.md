@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971914"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Configurar e monitorizar dispositivos de IoT em escala com a CLI do Azure
 
@@ -34,8 +34,8 @@ Trabalho de configurações de automático de dispositivos ao atualizar um conju
 ## <a name="cli-prerequisites"></a>Pré-requisitos CLI
 
 * Uma [IoT hub](../iot-hub/iot-hub-create-using-cli.md) na sua subscrição do Azure. 
-* [CLI 2.0 do Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. 
-* O [extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a versão da CLI do Azure tem de ser 2.0.24 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. 
+* O [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos duplos para configurar dispositivos
 
@@ -56,7 +56,7 @@ Antes de poder criar uma configuração, tem de especificar quais os dispositivo
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir o conteúdo de destino e métricas
 
-O conteúdo de destino e métrica consultas especificadas como documentos JSON que descrevem o dispositivo duplo propriedades desejadas ao conjunto e propriedades comunicadas para ser medido.  Para criar uma configuração do dispositivo automática com a CLI 2.0 do Azure, salve o conteúdo de destino e as métricas localmente como arquivos. txt. Utilize os caminhos de ficheiro numa secção posterior seguinte ao executar o comando para aplicar a configuração para o seu dispositivo. 
+O conteúdo de destino e métrica consultas especificadas como documentos JSON que descrevem o dispositivo duplo propriedades desejadas ao conjunto e propriedades comunicadas para ser medido.  Para criar uma configuração do dispositivo automática com a CLI do Azure, salve o conteúdo de destino e as métricas localmente como arquivos. txt. Irá utilizar os caminhos de ficheiro numa secção posterior seguinte ao executar o comando para aplicar a configuração para o seu dispositivo. 
 
 Eis um exemplo de conteúdo do destino básico:
 

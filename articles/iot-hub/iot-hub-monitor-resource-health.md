@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 4f7eefc7d6b067c360fdc3ce12b9a7ae36080bd8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d3c32c2258f7542a02549fbc531aa9e8293d0235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336879"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996303"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente
 
@@ -329,7 +329,7 @@ Para saber mais sobre como interpretar os dados de estado de funcionamento, cons
 - [A monitorização remota do IoT e notificações com o Azure Logic Apps, ligar o seu IoT hub e caixa de correio][lnk-monitoring-notifications]
 
 
-[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-AM]: ../azure-monitor/index.yml
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md

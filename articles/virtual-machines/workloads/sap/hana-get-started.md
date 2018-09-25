@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161310"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032089"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: Instalação Manual de instância única SAP HANA em VMs do Azure
 ## <a name="introduction"></a>Introdução
@@ -93,6 +93,11 @@ Tipos VM do Azure que são certificados pelo SAP para o SAP NetWeaver ou a camad
 >Integração da SAP-Linux-Azure é suportada apenas no Azure Resource Manager e não o modelo de implementação clássica. 
 
 ## <a name="manual-installation-of-sap-hana"></a>Instalação manual do SAP HANA
+
+> [!IMPORTANT]
+> Certifique-se de que o sistema operacional seleciona é SAP certificado para SAP HANA em determinados tipos VM que está a utilizar. A lista de SAP HANA certificadas de tipos de VM e o sistema operacional libera para aqueles podem ser pesquisados [plataformas de IaaS com certificação do SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Certifique-se de clicar em detalhes sobre o tipo de VM listados para obter a lista completa de SAP HANA suportadas versões do SO para o tipo VM específico. Tenha em atenção que o exemplo neste documento usamos uma versão de SO de SLES que não é suportada pelo SAP para o SAP HANA nas VMs de série M.
+>
+
 Este guia descreve como instalar manualmente o SAP HANA em VMs do Azure de duas formas diferentes:
 
 * Ao utilizar o Gestor de aprovisionamento de Software SAP (SWPM) como parte de uma instalação distribuída do NetWeaver no passo "instância de base de dados de instalação"

@@ -3,8 +3,8 @@ title: Permitido autoridades de certificação para ativar o HTTPS personalizado
 description: Se estiver a utilizar o seu próprio certificado para ativar o HTTPS num domínio personalizado, tem de utilizar uma autoridade de certificados permitidos (AC) para criá-lo.
 services: cdn
 documentationcenter: ''
-author: KumudD
-manager: jeconnoc
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: kumud
+ms.date: 09/17/2018
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 28d6d24266c11b1295c57c8ec46c2bd5ec690b28
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005922"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969514"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Permitido autoridades de certificação para ativar o HTTPS personalizado na CDN do Azure
 
@@ -33,6 +33,10 @@ Para um domínio personalizado da rede de entrega conteúdo (CDN) numa **CDN Sta
 As CAs seguintes são permitidas quando cria seu próprio certificado:
 
 - AddTrust externo AC de raiz
+- AC de raiz de AlphaSSL
+- Infra-estrutura AME 01 de AC
+- Infra-estrutura AME AC 02
+- Ameroot
 - AC de raiz do Pacífico
 - Autoridade de certificação de raiz de AP 2013
 - Autoridade de certificação de raiz de AP de 2014
@@ -47,16 +51,25 @@ As CAs seguintes são permitidas quando cria seu próprio certificado:
 - AC de raiz Global DigiCert
 - DigiCert alta garantia AC-3
 - AC de raiz de Assurance EV DigiCert alta
+- DigiCert SHA2 estendido AC do servidor de validação
 - Servidor de alta garantia de DigiCert SHA2 AC
 - Servidor seguro da DigiCert SHA2 AC
+- X3 de AC de raiz de horário de Verão
+- AC de classe 3 de raiz de confiança de D de 2009 2
+- Encriptação em qualquer lugar DV TLS AC
+- Autoridade de certificação de raiz da Entrust
+- G2 da autoridade de certificação de raiz - Entrust
+- Autoridade de certificação Entrust.NET (2048)
 - AC de GeoTrust Global
 - Autoridade de certificação primária GeoTrust
 - Autoridade de certificação primária GeoTrust - G2
+- Geotrust RSA 2018 de AC
 - GlobalSign
 - GlobalSign estendido G2 de AC - SHA256 - validação
 - Validação de organização GlobalSign AC - G2
 - AC de raiz de GlobalSign
 - Aceda a autoridade de certificação de raiz Daddy - G2
+- Aceda a autoridade de certificação segura de Daddy - G2
 - Autoridade de raiz de Authenticode(tm) da Microsoft
 - Serviços do Microsoft Exchange 2015 de AC
 - Microsoft de raiz empresarial interna
@@ -78,6 +91,7 @@ As CAs seguintes são permitidas quando cria seu próprio certificado:
 - MSIT Z2 DE AC
 - AC empresarial do MSIT 1
 - AC empresarial do MSIT 3
+- RapidSSL RSA 2018 de AC
 - Agência de raiz
 - AC de SSL do Symantec classe 3 EV - G3
 - Classe da Symantec 3 servidor seguro AC - G4
@@ -85,7 +99,9 @@ As CAs seguintes são permitidas quando cria seu próprio certificado:
 - AC de raiz de Thawte primário
 - AC de raiz do principal de Thawte - G2
 - AC de raiz do principal de Thawte - G3
+- Thawte RSA 2018 de AC
 - Carimbo de Thawte AC
+- TrustAsia TLS RSA AC
 - Objeto de USERFirst UTN
 - AC de SSL de validação estendida 3 classe VeriSign
 - Classe de VeriSign 3 validação estendida SSL SGC AC

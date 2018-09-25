@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: a51e4e61b8d0a9f9a80acc513dbba32c74372f5e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994807"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -54,7 +54,7 @@ A configuração que pode ser baixada é apenas um exemplo; modificá-lo para se
 ### <a name="prerequisites"></a>Pré-requisitos
 
 * **O agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens da galeria do Azure VM Linux incluem a versão 2.2.7 ou posterior. Executar `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) atualizá-la.
-* **CLI do Azure**. [Configurar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) ambiente no seu computador.
+* **CLI do Azure**. [Configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) ambiente no seu computador.
 * O comando wget, se ainda não tiver: executar `sudo apt-get install wget`.
 * Uma subscrição do Azure existente e uma conta de armazenamento existente na mesma para armazenar os dados.
 * Lista de distribuições suportadas de Linux está ativada https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions

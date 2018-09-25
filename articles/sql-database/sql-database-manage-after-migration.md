@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b34aca8d8aaf9e2c7dbdd092e14a1ebe1e04963d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367921"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985825"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -170,7 +170,7 @@ Também o Expressroute permite-lhe ultrapassar 2x até o limite de largura de ba
 - [Fluxos de trabalho](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>É a base de dados SQL em conformidade com quaisquer requisitos de regulamentação e como o que ajuda a conformidade do meu próprio da organização?
-Base de dados SQL está em conformidade com uma gama de normas regulamentares. Para ver o conjunto mais recente de regulamentares que tiverem sido cumpridos, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) e desagregar as regulamentares que são importantes para a sua organização para ver se a base de dados SQL está incluído em serviços do Azure em conformidade. É importante observar que embora a base de dados SQL pode ser certificada como um serviço em conformidade, ele auxilia a conformidade de serviço da sua organização, mas não automaticamente garante que ele.
+Base de dados SQL está em conformidade com uma gama de normas regulamentares. Para ver o conjunto mais recente de regulamentares que tiverem sido cumpridos, visite o [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) e desagregar as regulamentares que são importantes para a sua organização para ver se a base de dados SQL está incluído em serviços do Azure em conformidade. É importante observar que embora a base de dados SQL pode ser certificada como um serviço em conformidade, ele auxilia a conformidade de serviço da sua organização, mas não automaticamente garante que ele.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitorização de base de dados inteligente e a manutenção após a migração
 

@@ -1,6 +1,6 @@
 ---
-title: OpenShift na pré-requisitos do Azure | Microsoft Docs
-description: Pré-requisitos para implementar OpenShift no Azure.
+title: OpenShift em pré-requisitos do Azure | Documentos da Microsoft
+description: Pré-requisitos para implementar o OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984345"
 ---
-# <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implementar OpenShift no Azure
+# <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implementar o OpenShift no Azure
 
-Este artigo descreve os pré-requisitos comuns para implementar OpenShift origem ou OpenShift contentor plataforma no Azure.
+Este artigo descreve os pré-requisitos comuns para implementar o OpenShift Origin ou OpenShift Container Platform no Azure.
 
-A instalação do OpenShift utiliza Ansible playbooks. Ansible utiliza Secure Shell (SSH) para ligar a todos os anfitriões de cluster para concluir os passos de instalação.
+A instalação do OpenShift utiliza playbooks do Ansible. Ansible utiliza Secure Shell (SSH) para ligar a todos os anfitriões de cluster para concluir os passos de instalação.
 
-Quando inicia a ligação SSH para os anfitriões remotos, não é possível introduzir uma palavra-passe. Por este motivo, a chave privada não pode ter uma palavra-passe associada ou falha na implementação.
+Quando iniciar a ligação de SSH para hosts remotos, não é possível introduzir uma palavra-passe. Por esse motivo, a chave privada não pode ter uma palavra-passe associada a ele ou falha de implementação.
 
-Porque as máquinas virtuais (VMs) implementar através de modelos Azure Resource Manager, a mesma chave pública é utilizada para aceder a todas as VMs. Tem de inserir a chave privada correspondente no VM que executa, bem como todos os os playbooks. Para fazê-lo em segurança, pode utilizar um cofre de chaves do Azure para transferir a chave privada para a VM.
+Uma vez que as máquinas virtuais (VMs) implementar através de modelos Azure Resource Manager, a mesma chave pública é utilizada para acesso a todas as VMs. Tem de inserir a chave privada correspondente na VM que executa todos os playbooks também. Para fazer isso de forma segura, use um cofre de chave do Azure para passar a chave privada para a VM.
 
-Se for necessário para armazenamento persistente de contentores, volumes persistentes são necessários. OpenShift suporta discos rígidos virtuais (VHDs) do Azure para esta capacidade, mas tem de ser configurado primeiro Azure como o fornecedor de nuvem. 
+Se for necessário para armazenamento persistente para contentores, volumes persistentes são necessários. OpenShift suporta discos rígidos virtuais (VHDs) do Azure para esta capacidade, mas tem de ser configurado primeiro Azure como o fornecedor de cloud. 
 
-Neste modelo, OpenShift:
+Nesse modelo, o OpenShift:
 
-- Cria um objeto VHD de uma conta de armazenamento do Azure.
-- Montar o VHD para uma VM e formatar o volume.
-- Montar o volume para o pod.
+- Cria um objeto VHD numa conta de armazenamento do Azure.
+- Monta o VHD para uma VM e o formato do volume.
+- Monta o volume para o pod.
 
-Para esta configuração funcionar, OpenShift tem permissões para efetuar as tarefas anteriores no Azure. Fazê-lo com um principal de serviço. O principal de serviço é uma conta de segurança no Azure Active Directory que são concedidas permissões para recursos.
+Para esta configuração funcione, OpenShift necessita de permissões para executar as tarefas anteriores no Azure. Conseguir isto com um principal de serviço. O principal de serviço é uma conta de segurança no Azure Active Directory que são concedidas permissões para recursos.
 
-O principal de serviço tem de ter acesso a contas de armazenamento e as VMs que compõem o cluster. Se todos os recursos de cluster OpenShift implementar num grupo de recursos única, o principal de serviço pode ser concedido permissões para esse grupo de recursos.
+O principal de serviço tem de ter acesso às contas de armazenamento e as VMs que compõem o cluster. Se todos os recursos de cluster do OpenShift implementar um grupo de recursos, o principal de serviço pode ser concedido permissões para esse grupo de recursos.
 
 Este guia descreve como criar os artefactos associados com os pré-requisitos.
 
 > [!div class="checklist"]
-> * Crie um cofre de chaves para gerir as chaves SSH para o cluster OpenShift.
-> * Crie um principal de serviço para utilização pelo fornecedor de solução de nuvem do Azure.
+> * Crie um cofre de chaves para gerir as chaves SSH para o cluster do OpenShift.
+> * Crie um principal de serviço para utilização pelo fornecedor de soluções de Cloud do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
-Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/reference-index#az_login) de comandos e siga no ecrã as direções, ou clique em **experimente** para utilizar a Shell de nuvem.
+Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/reference-index#az_login) comando e siga na tela direções, ou clique em **experimentá-la** para utilizar o Cloud Shell.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo está separado do grupo de recursos no qual implementar os recursos de cluster OpenShift. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo é separado do grupo de recursos no qual implementar os recursos do cluster OpenShift. 
 
-O exemplo seguinte cria um grupo de recursos denominado *keyvaultrg* no *eastus* localização:
+O exemplo seguinte cria um grupo de recursos chamado *keyvaultrg* no *eastus* localização:
 
 ```azurecli 
 az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
-Criar um cofre de chaves para armazenar as chaves SSH para o cluster com o [az keyvault criar](/cli/azure/keyvault#az_keyvault_create) comando. O nome do Cofre de chaves deve ser globalmente exclusivo.
+Criar um cofre de chaves para armazenar as chaves SSH para o cluster com o [az keyvault criar](/cli/azure/keyvault#az_keyvault_create) comando. O nome do Cofre de chaves tem de ser globalmente exclusivo.
 
 O exemplo seguinte cria um cofre de chaves com o nome *keyvault* no *keyvaultrg* grupo de recursos:
 
@@ -80,30 +80,30 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Criar uma chave SSH 
-É necessária uma chave SSH para proteger o acesso ao cluster OpenShift origem. Criar um par de chaves SSH com o `ssh-keygen` comando (no Linux ou macOS):
+Uma chave SSH, é necessário para proteger o acesso ao cluster OpenShift Origin. Criar um par de chaves SSH com o `ssh-keygen` comando (no Linux ou macOS):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> O par de chaves SSH não pode ter uma palavra-passe.
+> O par de chaves de SSH não pode ter uma palavra-passe.
 
-Para obter mais informações sobre chaves SSH no Windows, consulte [das chaves de como criar SSH no Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Para obter mais informações sobre chaves SSH no Windows, consulte [chaves de como criar SSH no Windows](/azure/virtual-machines/linux/ssh-from-windows).
 
-## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Armazenar a chave privada SSH no Cofre de chaves do Azure
-A implementação de OpenShift utiliza a chave SSH que criou para proteger o acesso ao modelo global de OpenShift. Para ativar a implementação para obter a chave SSH de forma segura, armazene a chave no Cofre de chaves utilizando o seguinte comando:
+## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Store a chave privada SSH no Azure Key Vault
+A implementação do OpenShift utiliza a chave SSH criado para proteger o acesso ao mestre de OpenShift. Para ativar a implementação obter a chave SSH de forma segura, armazene a chave no Cofre de chaves utilizando o seguinte comando:
 
 ```azurecli
 az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço 
-OpenShift comunica com o Azure, utilizando um nome de utilizador e palavra-passe ou um principal de serviço. Um principal de serviço do Azure é uma identidade de segurança que pode utilizar com aplicações, serviços e ferramentas de automatização como OpenShift. Controlar e definir as permissões para as operações o principal de serviço pode efetuar no Azure. Para melhorar a segurança para além de fornecer apenas um nome de utilizador e palavra-passe, este exemplo cria um serviço básico principal.
+OpenShift comunica com o Azure através de um nome de utilizador e palavra-passe ou um principal de serviço. Um principal de serviço do Azure é uma identidade de segurança que pode utilizar com aplicações, serviços e ferramentas de automatização, como o OpenShift. Pode controlar e define as permissões em relação às quais operações o principal de serviço pode executar no Azure. Para melhorar a segurança para além de simplesmente fornecer um nome de utilizador e palavra-passe, este exemplo cria um serviço básico principal.
 
-Criar um serviço principal com [az ad sp criar-para-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e as credenciais que OpenShift necessita de saída.
+Criar um serviço principal com [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e as credenciais que precisa de OpenShift de saída.
 
-O exemplo seguinte cria um serviço principal e atribui-permissões de contribuinte a um grupo de recursos denominado myResourceGroup. Se estiver a utilizar o Windows, execute ```az group show --name myResourceGroup --query id``` separadamente e utilizar a saída para feed a - opção de âmbitos.
+O exemplo seguinte cria um serviço principal e o atribui permissões de contribuinte a um grupo de recursos com o nome myResourceGroup. Se estiver a utilizar o Windows, execute ```az group show --name myResourceGroup --query id``` em separado e usar o resultado para alimentar a opção-- âmbitos.
 
 ```azurecli
 az ad sp create-for-rbac --name openshiftsp \
@@ -122,19 +122,19 @@ Tome nota da propriedade appId devolvida do comando:
 }
 ```
  > [!WARNING] 
- > Lembre-se de que criar uma palavra-passe segura. Siga as instruções em [Azure AD password rules and restrictions](/azure/active-directory/active-directory-passwords-policy) (Regras e limitações de palavras-passe do Azure AD).
+ > Certifique-se de que criar uma palavra-passe segura. Siga as instruções em [Azure AD password rules and restrictions](/azure/active-directory/active-directory-passwords-policy) (Regras e limitações de palavras-passe do Azure AD).
 
-Para obter mais informações sobre principais de serviço, consulte [criar um Azure principal de serviço com o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Para obter mais informações sobre principais de serviço, consulte [criar um Azure principal de serviço com a CLI do Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo abrangidos os seguintes tópicos:
+Este artigo abordou os seguintes tópicos:
 > [!div class="checklist"]
-> * Crie um cofre de chaves para gerir as chaves SSH para o cluster OpenShift.
-> * Crie um principal de serviço para utilização pelo fornecedor de solução de nuvem do Azure.
+> * Crie um cofre de chaves para gerir as chaves SSH para o cluster do OpenShift.
+> * Crie um principal de serviço para utilização pelo fornecedor de soluções de Cloud do Azure.
 
-Em seguida, implemente um cluster de OpenShift:
+Em seguida, implemente um cluster do OpenShift:
 
-- [Implementar OpenShift origem](./openshift-origin.md)
-- [Implementar OpenShift contentor plataforma](./openshift-container-platform.md)
+- [Implementar o OpenShift Origin](./openshift-origin.md)
+- [Implementar o OpenShift Container Platform](./openshift-container-platform.md)
 

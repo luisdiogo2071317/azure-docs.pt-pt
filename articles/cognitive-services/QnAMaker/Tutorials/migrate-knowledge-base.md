@@ -3,19 +3,19 @@ title: Migrar bases de dados de conhecimento de pré-visualização - Qna Maker
 titleSuffix: Azure Cognitive Services
 description: Como importar uma base de dados de conhecimento
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: ba883acc0cd74e5252e704cede837a814c17b975
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031633"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
 A ferramenta QnA Maker anunciámos a disponibilidade geral de 7 de Maio de 2018 no \\\build\ conferência. Disponibilidade geral do QnA Maker tem uma nova arquitetura baseada no Azure. Criado com a pré-visualização gratuita do QnA Maker de bases de dados de conhecimento, terá de ser migrados para GA. do QnA Maker Pré-visualização do QnA Maker vão ser preterido em Novembro de 2018. Para obter mais informações sobre as alterações em disponibilidade geral do QnA Maker, veja o anúncio de disponibilidade geral do QnA Maker [mensagem de blogue](https://aka.ms/qnamakerga-blog).

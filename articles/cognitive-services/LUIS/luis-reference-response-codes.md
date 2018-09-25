@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Compreender quais códigos de resposta HTTP devolvidos pelas APIs de ponto final e de criação de LUIS
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: diberry
-ms.openlocfilehash: 5fd64b5fa3e3c084aee1e63c5233ccffc93917ae
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 07982716ff655f980844ca3dbcf7e8d7df1827c4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237949"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031225"
 ---
 # <a name="luis-api-http-response-codes"></a>Códigos de resposta HTTP da API de LUIS
 O [criação](https://aka.ms/luis-authoring-apis) e [endpoint](https://aka.ms/luis-endpoint-apis) APIs devolvem os códigos de resposta HTTP. Mensagens de resposta inclui informações específicas a um pedido, o código de estado de resposta HTTP é geral. 

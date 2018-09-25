@@ -10,12 +10,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: eba6b82d9378d3dd9713a8d17284b5ceac0d1cde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040284"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Início rápido para API c# do Microsoft QnA Maker 
 <a name="HOLTop"></a>
@@ -37,6 +37,8 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 - [Obtenha o conjunto atual de alterações do word.](#GetAlterations)
 - [Substitua o conjunto atual de alterações do word.](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
@@ -47,7 +49,7 @@ Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.co
 
 ## <a name="create-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-O código seguinte cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+O seguinte código cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -209,7 +211,7 @@ namespace QnAMaker
 
 **Criar a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -244,7 +246,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
 
-O código seguinte atualiza uma base de dados de conhecimento existente através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -410,7 +412,7 @@ namespace QnAMaker
 
 **Atualizar a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -446,7 +448,7 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 
 ## <a name="publish-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-O código seguinte publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -527,7 +529,7 @@ namespace QnAMaker
 
 **Publicar resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -644,7 +646,7 @@ namespace QnAMaker
 
 **Substitua a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -736,7 +738,7 @@ namespace QnAMaker
 
 **Transferir a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -852,7 +854,7 @@ namespace QnAMaker
 
 **Obter resposta de respostas**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -952,7 +954,7 @@ namespace QnAMaker
 
 **Obter resposta de detalhes da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1049,7 +1051,7 @@ namespace QnAMaker
 
 **Obter bases de dados de conhecimento de resposta do utilizador**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1171,7 +1173,7 @@ namespace QnAMaker
 
 **Eliminar resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1255,7 +1257,7 @@ namespace QnAMaker
 
 **Obter resposta de chaves de ponto final**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1343,7 +1345,7 @@ namespace QnAMaker
 
 **Atualizar a resposta de chaves de ponto final**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1428,7 +1430,7 @@ namespace QnAMaker
 
 **Obter resposta de alterações do word**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1552,7 +1554,7 @@ namespace QnAMaker
 
 **Substitua a resposta de alterações do word**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1565,8 +1567,8 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral do QnA Maker](../Overview/overview.md)
+[Descrição geral do Criador de FAQ](../Overview/overview.md)

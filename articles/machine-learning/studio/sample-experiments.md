@@ -14,14 +14,14 @@ ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 11cc4889690cb44cb621ed53f3e3614afcc57abf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: HT
+ms.openlocfilehash: f93d0d4e12d97fadb23476afc3199599b3268580
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838013"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998054"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experimentações do machine learning a partir de exemplos de trabalho na Galeria de AI do Azure
 
@@ -67,7 +67,7 @@ Também pode criar uma nova experimentação no Machine Learning Studio através
 
 É criada uma nova experimentação na sua área de trabalho do Machine Learning Studio através da experimentação de exemplo como modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Importar dados de várias origens](import-data.md)
 * [Tutorial de início rápido para a linguagem R no Machine Learning](r-quickstart.md)
 * [Implementar um serviço Web Machine Learning](publish-a-machine-learning-web-service.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436324"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039385"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e utilizar duplos de módulo no IoT Hub
 
@@ -250,7 +250,7 @@ As etiquetas, as propriedades pretendidas e propriedades comunicadas são objeto
     }
     ```
 
-* Todos os valores de cadeia de caracteres podem ter até 4 KB de comprimento.
+* Todos os valores de cadeia de caracteres podem ter um máximo de 512 bytes de comprimento.
 
 ## <a name="module-twin-size"></a>Tamanho do módulo duplo
 IoT Hub impõe um limite de tamanho de 8KB em cada um dos respetivos valores totais de `tags`, `properties/desired`, e `properties/reported`, excluindo os elementos somente leitura.

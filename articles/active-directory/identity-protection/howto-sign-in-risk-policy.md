@@ -16,89 +16,79 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 7350cbd3e8aed6098f24d0edaa5807d241890287
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bae71c55bdea838d0ef5e0ae3acbac3e98a92fa0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45581476"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055060"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Como: Configurar a política de risco de início de sessão
 
 O Azure Active Directory Deteta [tipos de eventos de risco](../reports-monitoring/concept-risk-events.md#risk-event-types) no offline e em tempo real. Cada evento de risco que foi detetado um início de sessão de um utilizador contribui para um conceito lógico chamado o início de sessão arriscado. Um risco início de sessão é um indicador de uma tentativa de início de sessão não poderão ter sido executada pelo proprietário legítimo de uma conta de utilizador.
 
 
-## <a name="sign-in-risk-level"></a>Nível de risco do início de sessão
+## <a name="what-is-the-sign-in-risk-policy"></a>O que é a política de risco de início de sessão?
 
-Um nível de risco de início de sessão é uma indicação (elevada, média ou baixa) da probabilidade de que uma tentativa de início de sessão não foi efetuada pelo proprietário legítimo de uma conta de utilizador.
+O Azure AD analisa cada início de sessão de um utilizador. É o objetivo da análise detetar as ações suspeitas que acompanham o início de sessão. Por exemplo, o início de sessão efetuado com um endereço IP anónimo, ou o início de sessão iniciado a partir de uma localização não familiar? No Azure AD, as ações suspeitas que consegue detetar o sistema também são conhecidos como eventos de risco. Com base em eventos de risco que foram detetados durante um início de sessão, do Azure AD calcula um valor. O valor representa a probabilidade (baixa, média, alta) que o início de sessão não é efetuado pelo usuário legítimo. Denomina-se a probabilidade **nível de risco de início de sessão**.
 
-## <a name="mitigating-sign-in-risk-events"></a>Mitigar eventos de risco de início de sessão
+A política de risco de início de sessão é uma resposta automática, que pode configurar para um nível de risco de início de sessão específicos. Em sua resposta, pode bloquear o acesso aos seus recursos ou exigir passando um desafio de autenticação multifator (MFA) para obter acesso.
 
-Uma atenuação é uma ação para limitar a capacidade de um atacante explore uma identidade comprometida ou dispositivo sem restaurar o dispositivo ou a identidade para um estado seguro. Uma atenuação não resolve eventos de risco de início de sessão anteriores associados com a identidade ou dispositivo.
-
-Para mitigar o risco de inícios de sessão automaticamente, pode configurar políticas de segurança de risco de início de sessão. Utilizar estas políticas, considere o nível de risco do utilizador ou o início de sessão para inícios de sessão de risco de bloquear ou exigir que o utilizador para efetuar a autenticação multifator. Estas ações podem impedir que um invasor explorando uma identidade roubada provocar danos e podem lhe oferecer algum tempo para proteger a identidade.
-
-## <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de início de sessão
-Uma política de risco de início de sessão é uma política de acesso condicional que avalia o risco para um início de sessão-in específico e aplica-se mitigações com base em regras e condições predefinidas.
-
+   
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Como posso aceder a política de risco de início de sessão?
+   
+A política de risco de início de sessão está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
 ![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1014.png "política de risco de início de sessão")
 
-O Azure AD Identity Protection ajuda a gerir a redução de inícios de sessão de risco ao permitir-lhe:
 
-* Defina os utilizadores e grupos que a política aplica-se a:
+## <a name="policy-settings"></a>Definições da política
 
-    ![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1015.png "política de risco de início de sessão")
-* Defina o risco de início de sessão ao nível limiar (baixa, média ou alta) que aciona a política:
+Ao configurar a política de risco de início de sessão, tem de definir:
 
-    ![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1016.png "política de risco de início de sessão")
-* Defina os controlos a serem impostas quando a política aciona:  
+- Os utilizadores e grupos que a política aplica-se a:
 
-    ![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1017.png "política de risco de início de sessão")
-* Alterne o estado da política:
+    ![Utilizadores e grupos](./media/howto-sign-in-risk-policy/11.png)
 
-    ![Registo na MFA](./media/howto-sign-in-risk-policy/403.png "registo na MFA")
-* Rever e avaliar o impacto de uma alteração antes de ativar ele:
+- O nível de risco de início de sessão que aciona a política:
 
-    ![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1018.png "política de risco de início de sessão")
+    ![Nível de risco do início de sessão](./media/howto-sign-in-risk-policy/12.png)
 
-## <a name="what-you-need-to-know"></a>O que precisa saber
-Pode configurar uma política de segurança de risco de início de sessão para exigir autenticação multifator:
+- O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
 
-![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1017.png "política de risco de início de sessão")
+    ![Access](./media/howto-sign-in-risk-policy/13.png)
 
-No entanto, por motivos de segurança, esta definição só funciona para os utilizadores que já tenham sido registados para a autenticação multifator. Se a condição para exigir autenticação multifator for satisfeita para um utilizador que ainda não está registado na autenticação multifator, o utilizador está bloqueado.
+- O estado da política:
 
-Como melhor prática, se quiser exigir autenticação multifator para risco inícios de sessão, deve:
+    ![Impor a política](./media/howto-sign-in-risk-policy/14.png)
+
+
+A caixa de diálogo de configuração de política fornece uma opção para calcular o impacto de reconfiguração.
+
+![Impacto estimado](./media/howto-sign-in-risk-policy/15.png)
+
+## <a name="what-you-should-know"></a>O que deve saber
+
+Pode configurar uma política de segurança de risco de início de sessão para exigir a MFA:
+
+![Requerer MFA](./media/howto-sign-in-risk-policy/16.png)
+
+No entanto, por motivos de segurança, esta definição só funciona para os utilizadores que já tenham sido registados para a MFA. Proteção de identidade bloqueia os utilizadores com um requisito de MFA se eles não estão registados para o MFA ainda.
+
+Se quiser exigir a MFA para inícios de sessão de risco, deve:
 
 1. Ativar a [política de registo de autenticação multifator](#multi-factor-authentication-registration-policy) para os utilizadores afetados.
-2. Requer que os utilizadores afetados para início de sessão numa sessão não risco para efetuar um registo na MFA
+
+2. Requer que os utilizadores afetados iniciar sessão numa sessão não risco para efetuar um registo na MFA.
 
 Concluir estes passos garante que a autenticação multifator é necessária um risco para início de sessão.
 
-## <a name="best-practices"></a>Melhores práticas
-Escolher uma **elevada** limiar reduz o número de vezes que uma política é acionada e minimiza o impacto para os utilizadores.  
-
-No entanto, exclui **baixa** e **médio** inícios de sessão sinalizados para risco da política, que não pode bloquear um invasor a exploração de uma identidade comprometida.
-
-Ao definir a política
-
-* Excluir os usuários que não o fizer / não é possível ter a autenticação multifator
-* Excluir os usuários em localidades onde o ativar a política não é prático (por exemplo, sem acesso ao suporte técnico)
-* Excluir utilizadores que têm propensão para gerar muitos falsos positivos (desenvolvedores, analistas de segurança)
-* Utilize um **elevada** limiar durante o política inicial com, ou se deve minimizar desafios vistos pelos utilizadores finais.
-* Utilize um **baixa** limiar se a sua organização precisar de maior segurança. Selecionar uma **baixa** limiar introduz utilizador adicional início de sessão desafios, mas uma maior segurança.
-
-A predefinição recomendada na maioria das organizações é configurar uma regra para um **médio** limiar para encontrar o equilíbrio entre segurança e usabilidade.
-
 A política de risco de início de sessão é:
 
-* Aplicadas a todo o tráfego de navegador e inícios de sessão que utilizam autenticação moderna.
-* Não é aplicada a aplicações através de protocolos de segurança mais antigos, desativando o ponto de extremidade do WS-Trust no IDP federado, por exemplo, o AD FS.
+- Aplicadas a todo o tráfego de navegador e inícios de sessão que utilizam autenticação moderna.
 
-O **eventos de risco** página na consola do Identity Protection apresenta uma lista de todos os eventos:
+- Não é aplicada a aplicações através de protocolos de segurança mais antigos, desativando o ponto de extremidade do WS-Trust no IDP federado, por exemplo, o AD FS.
 
-* Esta política foi aplicada a
-* Pode rever a atividade e determinar se a ação foi apropriada ou não
 
 Para uma descrição geral da experiência do usuário relacionadas, consulte:
 
@@ -106,11 +96,27 @@ Para uma descrição geral da experiência do usuário relacionadas, consulte:
 * [Risco início de sessão bloqueado](flows.md#risky-sign-in-blocked)  
 * [Experiências de início de sessão com o Azure AD Identity Protection](flows.md)  
 
-**Para abrir a caixa de diálogo de configuração relacionados**:
+## <a name="best-practices"></a>Melhores práticas
 
-- Sobre o **do Azure AD Identity Protection** painel, na **configurar** secção, clique em **política de risco de início de sessão**.
+Escolher uma **elevada** limiar reduz o número de vezes que uma política é acionada e minimiza o impacto para os utilizadores.  
 
-    ![Política de risco do utilizador](./media/howto-sign-in-risk-policy/1014.png "política de risco do utilizador")
+No entanto, exclui **baixa** e **médio** inícios de sessão sinalizados para risco da política, que não pode bloquear um invasor a exploração de uma identidade comprometida.
+
+Ao definir a política
+
+- Excluir os usuários que não o fizer / não é possível ter a autenticação multifator
+
+- Excluir os usuários em localidades onde o ativar a política não é prático (por exemplo, sem acesso ao suporte técnico)
+
+- Excluir utilizadores que têm propensão para gerar vários falso-positivos (desenvolvedores, analistas de segurança)
+
+- Utilize um **elevada** limiar durante a política inicial faseada, ou se deve minimizar desafios vistos pelos utilizadores finais.
+
+- Utilize um **baixa** limiar se a sua organização precisar de maior segurança. Selecionar uma **baixa** limiar introduz utilizador adicional início de sessão desafios, mas uma maior segurança.
+
+A predefinição recomendada na maioria das organizações é configurar uma regra para um **médio** limiar para encontrar o equilíbrio entre segurança e usabilidade.
+
+
 
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032685"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Registos de fluxo do grupo de segurança de rede visualizing com o Power BI
 
@@ -54,7 +54,7 @@ Também tem de ter o cliente do Power BI Desktop instalado no seu computador e o
 1. Transfira e abra o modelo seguinte do Power BI na aplicação de ambiente de trabalho do Power BI [modelo de registos de fluxo do Power BI do observador de rede](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Introduza os parâmetros de consulta necessários
     1. **StorageAccountName** – Especifica como o nome da conta de armazenamento que contém os registos de fluxo NSG que gostaria de carregar e visualizar.
-    1. **NumberOfLogFiles** – Especifica o número de ficheiros de registo que pretende transferir e visualizar no Power BI. Por exemplo, se for especificado 50, 50 ficheiros de registo mais recente. FF temos 2 NSGs ativada e configurada para enviar registos de fluxo NSG para esta conta e, em seguida, pode ver as últimas 25 horas de registos.
+    1. **NumberOfLogFiles** – Especifica o número de ficheiros de registo que pretende transferir e visualizar no Power BI. Por exemplo, se for especificado 50, 50 ficheiros de registo mais recente. Se tivermos 2 NSGs ativada e configurada para enviar registos de fluxo NSG para esta conta, as últimas 25 horas de registos podem ser visualizadas.
 
     ![principal do Power BI][2]
 

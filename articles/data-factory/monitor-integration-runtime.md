@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4f1e6e7e61cdfd72251120f3c03df7a689aecafe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574628"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997459"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 **Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
@@ -168,10 +168,10 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | NodeSize | O tamanho de cada nó do integration runtime Azure-SSIS. |
 | NodeCount | O número de nós no seu runtime de integração Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no seu runtime de integração Azure-SSIS. |
-| CatalogServerEndpoint | O ponto final do seu servidor existente do Azure SQL da base de dados/instância gerida (pré-visualização) para alojar o SSISDB. |
-| CatalogAdminUserName | O nome de utilizador de administrador do seu servidor existente do Azure SQL da base de dados/instância gerida (pré-visualização). Serviço do Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
-| CatalogAdminPassword | A palavra-passe do administrador do seu servidor existente do Azure SQL da base de dados/instância gerida (pré-visualização). |
-| CatalogPricingTier | O escalão de preço de SSISDB alojado pelo seu servidor de base de dados do Azure SQL existente.  Não é aplicável à instância SQL do Azure gerido (pré-visualização) a alojar o SSISDB. |
+| CatalogServerEndpoint | O ponto final do seu servidor de instância de base de dados/gerida de SQL do Azure existente para alojar o SSISDB. |
+| CatalogAdminUserName | O nome de utilizador de administrador do seu servidor existente do Azure SQL da base de dados/instância gerida. Serviço do Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
+| CatalogAdminPassword | A palavra-passe do administrador do seu servidor existente do Azure SQL da base de dados/instância gerida. |
+| CatalogPricingTier | O escalão de preço de SSISDB alojado pelo seu servidor de base de dados do Azure SQL existente.  Não é aplicável ao Azure SQL Database Managed Instance alojar SSISDB. |
 | VNetId | O rede virtual ID de recurso para o runtime de integração Azure-SSIS para associar. |
 | Subrede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
 | ID | O ID de recurso do Azure-SSIS integration runtime. |
@@ -223,7 +223,7 @@ Consulte os seguintes artigos para saber mais sobre o runtime de integração Az
 
 - [Runtime de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre runtimes de integração em geral, incluindo o ir Azure-SSIS. 
 - [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (Pré-visualização) e associar o IR a uma rede virtual. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e fornece instruções sobre como utilizar a instância gerida da base de dados SQL do Azure e associar o IR a uma rede virtual. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
 - [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também descreve os passos para utilizar o portal do Azure para configurar a rede virtual para que o IR Azure-SSIS pode aderir a rede virtual. 
 

@@ -1,24 +1,25 @@
 ---
-title: Usando a linguagem c#, integrar o LUIS com um bot através do Bot Builder SDK - serviços cognitivos do Azure | Documentos da Microsoft
+title: Bot de LUIS com c# – Web app Bot - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Usando c#, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41987580"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032279"
 ---
-# <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot de aplicação Web com o modelo do LUIS para c#
+# <a name="luis-bot-in-c"></a>Bot de LUIS em c#
 
-Usando c#, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. 
+Usando c#, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -46,7 +47,10 @@ Usando c#, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este cha
 4. Na **Bot Service**, forneça as informações necessárias e clique em **criar**. Esta ação cria e implementa o serviço de bot e aplicação LUIS para o Azure. Se quiser usar [priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), reveja [requisitos de região](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar o seu bot. 
     * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio ao seu bot é implementado na cloud (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selecione a subscrição [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano de serviço de aplicações, e [localização](https://azure.microsoft.com/regions/).
-    * Selecione o **compreensão de idiomas (c#)** modelo para o **modelo do Bot** campo.
+    * Para **modelo de Bot**, selecione:
+        * **SDK v3**
+        * **C#**
+        * **Compreensão de idiomas**
     * Selecione o **localização da aplicação LUIS**. Este é o processo de criação [região](luis-reference-regions.md) a aplicação é criada no.
     * Selecione a caixa de verificação confirmação para o aviso legal. São os termos do aviso legal a caixa de verificação abaixo.
 

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039007"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurar definições de função de diretório do Azure AD no PIM
 
@@ -63,24 +63,23 @@ Utilize o **multi-factor Authentication** comutador para especificar se pretende
 * Os utilizadores com contas Microsoft para os respetivos endereços de e-mail (normalmente @outlook.com, mas não sempre) não é possível registar para MFA do Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve torná-los a administradores permanentes ou desativar a MFA para essa função.
 * Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e Office 365. Esse é um recurso de segurança, uma vez que estas funções devem ser protegidas com cuidado:  
   
-  * Administrador de aplicações
-  * Administrador de servidor de Proxy de aplicações
-  * Administrador de faturação  
-  * Administrador de Conformidade  
-  * Administrador de serviço CRM
-  * Aprovador de acesso ao Sistema de Proteção de Dados do Cliente
-  * Escritor de diretório  
-  * Administrador do Exchange  
-  * Administrador global
-  * Administrador de serviço do Intune
-  * Administrador de caixa de correio  
-  * Suporte para parceiros do escalão 1  
-  * Suporte para parceiros do escalão 2  
-  * Administrador com Função Privilegiada
-  * Administrador de segurança  
-  * Administrador do SharePoint  
-  * Administrador do Skype para Empresas  
-  * Administrador de conta de utilizador  
+  * Administrador de Faturação
+  * Administrador da Aplicação Cloud
+  * Administrador de Conformidade
+  * Administrador de Acesso Condicional
+  * Administrador de Serviço CRM
+  * Aprovador de Acesso ao Cofre de Cliente
+  * Escritores de Diretório
+  * Administrador do Exchange
+  * Administrador Global
+  * Administrador do Information Protection
+  * Administrador de Serviço Intune
+  * Administrador do Power BI
+  * Administrador de Função com Privilégios 
+  * Administrador de Segurança
+  * Administrador de Serviços do SharePoint
+  * Administrador do Skype para Empresas
+  * Administrador de Utilizadores
 
 Para obter mais informações, consulte [multi-factor authentication (MFA) e o PIM](pim-how-to-require-mfa.md).
 

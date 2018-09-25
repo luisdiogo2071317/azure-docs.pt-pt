@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781569"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981870"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault
 Microsoft Azure está empenhada em ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacionais. Uma forma que a plataforma de armazenamento do Azure protege os seus dados é através do Storage Service Encryption (SSE), que encripta os dados ao escrevê-lo para o armazenamento e desencripta os dados quando recuperá-lo. A encriptação e desencriptação é automático, transparente e utiliza a 256 bits [encriptação AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
@@ -31,7 +31,7 @@ Porquê criar suas próprias chaves? Chaves personalizadas dão-lhe mais flexibi
 Para utilizar chaves geridas pelo cliente e o SSE, pode criar um novo cofre de chaves e chave ou pode usar um cofre de chaves existente e a chave. A conta de armazenamento e o Cofre de chaves têm de estar na mesma região, mas podem estar em diferentes subscrições. 
 
 ### <a name="step-1-create-a-storage-account"></a>Passo 1: Criar uma conta de armazenamento
-Primeiro, crie uma conta de armazenamento, se ainda não tiver um. Para obter mais informações, consulte [criar uma nova conta de armazenamento](storage-quickstart-create-account.md).
+Primeiro, crie uma conta de armazenamento, se ainda não tiver um. Para obter mais informações, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Passo 2: Ativar o SSE para o armazenamento de BLOBs e ficheiros
 Para ativar o SSE com chaves geridas pelo cliente, os dois recursos de proteção de chaves, eliminação de forma recuperável e fazer limpar, também devem ser ativados no Azure Key Vault. Estas definições Certifique-se que as chaves não podem ser de forma acidental ou intencionalmente eliminados. O período de retenção máximo de chaves está definido para 90 dias, proteger os usuários contra atores maliciosos ou ataques de ransomware.

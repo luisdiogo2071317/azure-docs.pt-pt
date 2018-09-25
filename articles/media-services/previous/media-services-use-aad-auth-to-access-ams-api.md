@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d6fe69588c44e489f37ad0908df569c2b5a4b96c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502707"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967817"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acesso à API de serviços de multimédia do Azure com a autenticação do Azure AD
  
@@ -146,7 +146,7 @@ Solução: Para o pedido de REST de serviços de suporte de dados tenha êxito, 
 
 Os seguintes artigos são proporciona uma visão geral dos conceitos de autenticação do Azure AD: 
 
-- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-scenarios.md)
 - [Adicionar, atualizar ou remover uma aplicação no Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Configurar e gerir o controlo de acesso baseado em funções com o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 

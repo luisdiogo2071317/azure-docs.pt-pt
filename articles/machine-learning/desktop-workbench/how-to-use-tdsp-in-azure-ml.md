@@ -8,7 +8,6 @@ ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058255"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970928"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estruturar projetos com o modelo de processo de ciência de dados de equipa
 
-Este documento fornece instruções sobre como criar projetos de ciência de dados no Azure Machine Learning com modelos de processo de ciência de dados de equipa (TDSP). Estes modelos ajudam a estruturar projetos para colaboração e a capacidade de reprodução. 
+Este documento fornece instruções sobre como criar projetos de ciência de dados numa versão anterior do Azure Machine Learning através de modelos de processo de ciência de dados de equipa (TDSP). Estes modelos ajudam a estruturar projetos para colaboração e a capacidade de reprodução. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 O TDSP é um processo de ciência de dados ágil e iterativa, para executar e fornecimento de soluções de análise avançada. Foi concebido para melhorar a colaboração e a eficiência das equipes de ciência de dados em organizações empresariais. Ele oferece suporte a esses objetivos com quatro componentes principais:
@@ -52,7 +53,7 @@ Reveja os seguintes itens *antes de* criar um novo projeto:
 * Reveja o TDSP Machine Learning [modelo](https://aka.ms/tdspamlgithubrepo).
 * O conteúdo (que não seja o que já se encontra presente na pasta "documentos") têm de ser inferior a 25 MB de tamanho. Consulte a nota que se segue nesta lista.
 * O exemplo\_pasta de dados é apenas para ficheiros de dados pequenos (menos de 5 MB) com a qual pode testar o seu código ou começar o desenvolvimento inicial.
-* Armazenamento de arquivos, como o Word e PowerPoint, o pode aumentar substancialmente o tamanho da pasta "documentos". Aconselhamos que encontre um Wiki de colaboração, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), ou outros recursos de colaboração para armazenar esses ficheiros.
+* Armazenamento de arquivos, como o Word e PowerPoint, o pode aumentar substancialmente o tamanho da pasta "documentos". Aconselhamos que encontre um Wiki de colaboração, [SharePoint](https://products.office.com/sharepoint/collaboration), ou outros recursos de colaboração para armazenar esses ficheiros.
 * Para saber como lidar com ficheiros grandes e saídas no Machine Learning, leia [persistir alterações e lidar com arquivos grandes](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

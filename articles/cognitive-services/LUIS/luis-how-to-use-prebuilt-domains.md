@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Compreensão de idiomas (LUIS) fornece domínios pré-concebidos, que são conjuntos pré-criados de objetivos e entidades que funcionam em conjunto para domínios ou categorias comuns de aplicativos de cliente. Os domínios pré-concebidos previamente treinados e estão prontos para adicionar à sua aplicação LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053728"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037376"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Utilizar domínios pré-concebidos nas aplicações de LUIS  
 
@@ -26,7 +26,7 @@ Procurar os **domínios pré-concebidos** guia para ver outros domínios pré-co
 > [!TIP]
 > Pode encontrar uma lista completa dos domínios criados previamente no [referência de domínios pré-concebidos](./luis-reference-prebuilt-domains.md).
 
-![Adicionar domínio pré-criado](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
+![Adicionar um domínio pré-concebido](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 
 ## <a name="add-a-prebuilt-domain"></a>Adicionar um domínio pré-concebido

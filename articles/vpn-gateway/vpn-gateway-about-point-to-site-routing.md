@@ -1,6 +1,6 @@
 ---
-title: Acerca do Azure ponto a Site encaminhamento | Microsoft Docs
-description: Este artigo ajuda-o a compreender a forma como se comporta a VPN ponto a Site encaminhamento.
+title: Sobre o Azure ponto a Site encaminhamento | Documentos da Microsoft
+description: Este artigo ajuda-o a compreender como se comporta a Point-to-Site VPN de encaminhamento.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 620a2bf9221bdb7c46dc36a2b3ed23d853faff35
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702181"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031725"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 
-Este artigo ajuda-o a compreender a forma como se comporta a VPN do Azure ponto a Site encaminhamento. Comportamento de encaminhamento P2S VPN está dependente do cliente do SO, o protocolo utilizado para a ligação VPN e como as redes virtuais (VNets) estão ligadas entre si.
+Este artigo ajuda-o a compreender o comportamento do encaminhamento de VPN do Azure ponto a Site. Comportamento de encaminhamento de VPN de P2S é dependente do cliente do sistema operacional, o protocolo utilizado para a ligação VPN e como as redes virtuais (VNets) estão ligadas entre si.
 
-Atualmente, o Azure suporta os dois protocolos para acesso remoto, IKEv2 e SSTP. IKEv2 é suportado em muitos sistemas operativos de cliente, incluindo Windows, Linux, MacOS, Android e iOS. SSTP só é suportada no Windows. Se fizer uma alteração à topologia da rede e que os clientes de VPN do Windows, o pacote de cliente VPN para clientes Windows tem de ser transferido e instalado novamente para que as alterações sejam aplicadas ao cliente.
+Atualmente, o Azure suporta dois protocolos para acesso remoto, IKEv2 e SSTP. IKEv2 é suportado em muitos sistemas de operativos de cliente, incluindo Windows, Linux, MacOS, Android e iOS. O SSTP só é suportado no Windows. Se fizer uma alteração para a topologia da sua rede e que os clientes de VPN do Windows, o pacote de cliente VPN para clientes do Windows tem de ser transferido e instalado novamente para que as alterações sejam aplicadas ao cliente.
 
 > [!NOTE]
-> Este artigo aplica-se apenas a IKEv2.
+> Este artigo aplica-se apenas para IKEv2.
 >
 
 ## <a name="diagrams"></a>Sobre os diagramas
 
-Há uma série de diferentes diagramas neste artigo. Cada secção mostra uma topologia diferente ou uma configuração. Para efeitos deste artigo, Site a Site (S2S) e ligações VNet a VNet funcionarem da mesma forma, como são ambos os túneis IPsec. Todos os gateways VPN neste artigo são baseadas na rota.
+Há uma série de diagramas diferentes neste artigo. Cada seção mostra uma topologia diferente ou de configuração. Para os fins deste artigo, Site-Site (S2S) e ligações de VNet a VNet funcionam da mesma forma, pois ambos são túneis IPsec. Todos os gateways VPN neste artigo são baseadas na rota.
 
 ## <a name="isolatedvnet"></a>Uma VNet isolada
 
-A ligação de gateway VPN de ponto a Site neste exemplo é para uma VNet que está ligada ou não em modo de peering com qualquer outra rede virtual (VNet1). Neste exemplo, os clientes através de SSTP ou IKEv2 podem aceder a VNet1.
+A ligação de gateway VPN ponto a Site neste exemplo destina-se uma VNet que está ligada ou não em modo de peering com qualquer outra rede virtual (VNet1). Neste exemplo, os clientes que utilizam o SSTP ou IKEv2 podem aceder a VNet1.
 
-![isolada VNet encaminhamento](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolada de encaminhamento de VNet")
+![encaminhamento da VNet em ambiente isolado](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isoladas de encaminhamento de VNet")
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -48,25 +48,25 @@ A ligação de gateway VPN de ponto a Site neste exemplo é para uma VNet que es
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas para clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
 * Clientes Windows podem aceder a VNet1
 
-* Clientes do Windows não podem aceder a VNet1
+* Os clientes do Windows não podem aceder a VNet1
 
 ## <a name="multipeered"></a>Várias VNets em modo de peering
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. VNet1 está em modo de peering com VNet2. VNet 2 está em modo de peering com VNet3. VNet1 está em modo de peering com VNet4. Não há nenhum peering direta entre VNet1 e VNet3. VNet1 tem "Permitir que o trânsito do gateway" e VNet2 tem "Utilizar remotos gateways" ativada.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 é agrupada com VNet2. VNet 2 está em modo de peering com VNet3. VNet1 é agrupada com VNet4. Não existe nenhum peering direta entre VNet1 e VNet3. Tem de VNet1 "Permitir que o trânsito de gateway" e VNet2 tem "utilizar gateways remotos" ativada.
 
-Clientes que utilizam o Windows podem aceder diretamente as VNets, mas o cliente VPN tem de ser transferido novamente se as alterações efetuadas a topologia de rede ou de VNet peering. Clientes Windows não podem aceder diretamente as VNets. Acesso não é transitiva e está limitado a apenas diretamente as VNets.
+Clientes que utilizam Windows podem aceder diretamente em modo de peering de VNets, mas o cliente VPN tem de ser transferido novamente se a todas as alterações efetuadas ao peering de VNet ou a topologia de rede. Clientes de não-Windows podem aceder diretamente em modo de peering de VNets. Acesso não é transitivo e está limitado a apenas VNets em modo de peering diretamente.
 
-![as VNets em modo de peering de vários](./media/vpn-gateway-about-point-to-site-routing/2.jpg "VNets em modo de peering de vários")
+![VNets em modo de peering de vários](./media/vpn-gateway-about-point-to-site-routing/2.jpg "VNets em modo de peering de vários")
 
-### <a name="address-space"></a>O espaço de endereços:
+### <a name="address-space"></a>Espaço de endereços:
 
 * VNet1: 10.1.0.0/16
 
@@ -78,21 +78,21 @@ Clientes que utilizam o Windows podem aceder diretamente as VNets, mas o cliente
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas para clientes do Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes do Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Clientes Windows podem aceder a VNet1, VNet2 e VNet4, mas o cliente VPN tem de ser transferido novamente para efetuar quaisquer alterações de topologia entre em vigor.
+* Clientes Windows podem aceder a VNet1, VNet2 e VNet4, mas o cliente VPN tem de ser transferido novamente para efetuar quaisquer alterações de topologia entrar em vigor.
 
-* Clientes Windows não podem aceder VNet1, VNet2 e VNet4
+* Os clientes do Windows não podem aceder a VNet1, VNet2 e VNet4
 
 ## <a name="multis2s"></a>Várias VNets ligadas através de uma VPN S2S
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. Está ligado VNet1 para a VNet2 utilizando uma ligação VPN de Site para Site. VNet2 está ligado a VNet3 utilizando uma ligação VPN de Site para Site. Não há nenhum peering direta ou a ligação VPN de Site a Site entre VNet1 e VNet3. Todas as ligações Site a Site não estão em execução BGP para o encaminhamento.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 está ligado para a VNet2 usando uma conexão VPN de Site a Site. VNet2 está ligado a VNet3 usando uma conexão VPN de Site a Site. Não existe nenhum peering direto ou a ligação VPN de Site a Site entre VNet1 e VNet3. Todas as ligações Site a Site não estão executando o BGP para o encaminhamento.
 
-Clientes que utilizam, SO Windows ou outro suportado, só podem aceder a VNet1. Para aceder a VNets adicionais, tem de utilizar o BGP.
+Clientes que utilizam o Windows ou outro sistema operacional suportado, só podem aceder a VNet1. Para aceder às VNets adicionais, tem de utilizar o BGP.
 
 ![várias VNets e S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "várias VNets e S2S")
 
@@ -106,23 +106,23 @@ Clientes que utilizam, SO Windows ou outro suportado, só podem aceder a VNet1. 
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas para clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Clientes Windows só podem aceder a VNet1
+* Os clientes do Windows só podem aceder a VNet1
 
-* Clientes Windows não podem aceder apenas VNet1
+* Os clientes do Windows não podem aceder apenas VNet1
 
-## <a name="multis2sbgp"></a>Várias VNets ligadas através de uma VPN S2S (BGP)
+## <a name="multis2sbgp"></a>Várias VNets ligados através de uma VPN S2S (BGP)
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. Está ligado VNet1 para a VNet2 utilizando uma ligação VPN de Site para Site. VNet2 está ligado a VNet3 utilizando uma ligação VPN de Site para Site. Não há nenhum peering direta ou a ligação VPN de Site a Site entre VNet1 e VNet3. Todas as ligações Site a Site estão a executar BGP para o encaminhamento.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 está ligado para a VNet2 usando uma conexão VPN de Site a Site. VNet2 está ligado a VNet3 usando uma conexão VPN de Site a Site. Não existe nenhum peering direto ou a ligação VPN de Site a Site entre VNet1 e VNet3. Todas as ligações Site a Site executem o BGP para o encaminhamento.
 
-Clientes que utilizam, SO Windows ou outro suportados, podem aceder a todas as VNets que estão ligadas utilizando uma ligação VPN de Site a Site, mas rotas para VNets ligadas têm de ser adicionado manualmente para os clientes Windows.
+Clientes que utilizam o Windows ou outro sistema operacional suportado, podem aceder a todas as VNets que estão ligadas através de uma ligação VPN de Site a Site, mas tem de ser adicionados manualmente para os clientes Windows rotas para VNets ligadas.
 
-![várias VNets e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "várias VNets e S2S BGP")
+![várias VNets e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "várias VNets e BGP de S2S")
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -134,23 +134,23 @@ Clientes que utilizam, SO Windows ou outro suportados, podem aceder a todas as V
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas para clientes do Windows: 10.1.0.0/16
+* Rotas adicionadas aos clientes do Windows: 10.1.0.0/16
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Clientes Windows podem aceder a VNet1, VNet2 e VNet3, mas rotas para a VNet2 e VNet3 terão de ser adicionados manualmente.
+* Clientes Windows podem aceder a VNet1, VNet2 e VNet3, mas rotas para a VNet2 e VNet3 terão que ser adicionados manualmente.
 
-* Clientes Windows não podem aceder VNet1, VNet2 e VNet3
+* Os clientes do Windows não podem aceder a VNet1, VNet2 e VNet3
 
-## <a name="vnetbranch"></a>Uma VNet e o escritório de sucursal
+## <a name="vnetbranch"></a>Uma VNet e uma filial
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. VNet1 não está ligado / em modo de peering com outra rede virtual, mas está ligado a um site no local através de uma ligação de VPN de Site a Site não está a executar o BGP.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 não está ligado / em modo de peering com outra rede virtual, mas está ligado a um site no local através de uma ligação de VPN de Site a Site que não está a executar o BGP.
 
-Clientes Windows podem aceder a VNet1 e o escritório de sucursal (Site1), mas as rotas para Site1 tem ser adicionadas manualmente para o cliente. Clientes Windows não podem aceder a VNet1, bem como o Site1 no local.
+Clientes Windows e não Windows só podem aceder a VNet1.
 
-![encaminhamento com uma VNet e um escritório de sucursal](./media/vpn-gateway-about-point-to-site-routing/5.jpg "encaminhamento com uma VNet e um escritório de sucursal")
+![roteamento com uma VNet e uma filial](./media/vpn-gateway-about-point-to-site-routing/5.jpg "roteamento com uma VNet e uma filial")
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -160,23 +160,23 @@ Clientes Windows podem aceder a VNet1 e o escritório de sucursal (Site1), mas a
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas para clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Clientes Windows podem aceder apenas VNet1
+* Clientes de Windows podem aceder apenas VNet1
 
-* Clientes Windows não podem aceder apenas VNet1
+* Os clientes do Windows não podem aceder apenas VNet1
 
-## <a name="vnetbranchbgp"></a>Uma VNet e o escritório de sucursal (BGP)
+## <a name="vnetbranchbgp"></a>Uma VNet e uma filial (BGP)
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. VNet1 não ligado ou não está em modo de peering com outra rede virtual, mas está ligado a um site no local (Site1) através de uma ligação de VPN de Site a Site que executa o BGP.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 não está ligado ou em modo de peering com outra rede virtual, mas está ligado a um site no local (Site1) através de uma ligação de VPN de Site a Site com o BGP.
 
-Clientes Windows podem aceder a VNet e o escritório de sucursal (Site1), mas as rotas para Site1 tem ser adicionadas manualmente para o cliente. Clientes do Windows não podem aceder a VNet, bem como o escritório de sucursal local.
+Clientes de Windows podem aceder a VNet e o escritório da filial (Site1), mas as rotas para Site1 devem ser adicionadas manualmente para o cliente. Clientes de não-Windows podem aceder a VNet, bem como o escritório da filial no local.
 
-![uma VNet e o escritório de sucursal (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "uma VNet e o escritório de sucursal")
+![uma VNet e uma filial (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "uma VNet e uma filial")
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -186,24 +186,24 @@ Clientes Windows podem aceder a VNet e o escritório de sucursal (Site1), mas as
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas para clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes do Windows: 10.1.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Clientes Windows podem aceder a VNet1 e Site1, mas rotas para Site1 terão de ser adicionados manualmente.
+* Clientes Windows podem aceder a VNet1 e Site1, mas rotas para Site1 terão que ser adicionados manualmente.
 
-* Clientes Windows não podem aceder VNet1 e Site1.
+* Os clientes do Windows não podem acessar VNet1 e Site1.
 
 
-## <a name="multivnets2sbranch"></a>Várias VNets ligadas através de S2S e o escritório de sucursal
+## <a name="multivnets2sbranch"></a>Várias VNets ligados através de S2S e para uma filial
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. Está ligado VNet1 para a VNet2 utilizando uma ligação VPN de Site para Site. VNet2 está ligado a VNet3 utilizando uma ligação VPN de Site para Site. Não há nenhum peering direta ou túnel VPN Site a Site entre as redes VNet1 e VNet3. VNet3 está ligado a uma sucursal (Site1) utilizando uma ligação VPN de Site para Site. Todas as ligações VPN não estão a executar o BGP.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 está ligado para a VNet2 usando uma conexão VPN de Site a Site. VNet2 está ligado a VNet3 usando uma conexão VPN de Site a Site. Não existe nenhum peering direto ou o túnel VPN de Site a Site entre as redes VNet1 e VNet3. VNet3 está ligado a uma filial (Site1) usando uma conexão VPN de Site a Site. Todas as ligações VPN não estão a executar o BGP.
 
-Todos os clientes podem aceder apenas a VNet1.
+Todos os clientes podem aceder a VNet1 apenas.
 
-![várias VNet S2S e ramo office](./media/vpn-gateway-about-point-to-site-routing/7.jpg "várias VNet S2S e ramo office")
+![office de S2S e o ramo do multi-VNet](./media/vpn-gateway-about-point-to-site-routing/7.jpg "office de S2S e o ramo do multi-VNet")
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -217,23 +217,23 @@ Todos os clientes podem aceder apenas a VNet1.
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Os clientes de adicionadas rotas: 10.1.0.0/16, 192.168.0.0/24
+* As rotas adicionadas clientes: 10.1.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
 * Os clientes Windows podem aceder apenas VNet1
 
-* Clientes Windows não podem aceder apenas VNet1
+* Os clientes do Windows não podem aceder apenas VNet1
 
-## <a name="multivnets2sbranchbgp"></a>Várias VNets ligadas através de S2S e o escritório de sucursal (BGP)
+## <a name="multivnets2sbranchbgp"></a>Várias VNets ligados através de S2S e para uma filial (BGP)
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. Está ligado VNet1 para a VNet2 utilizando uma ligação VPN de Site para Site. VNet2 está ligado a VNet3 utilizando uma ligação VPN de Site para Site. Não há nenhum peering direta ou túnel VPN Site a Site entre as redes VNet1 e VNet3. VNet3 está ligado a uma sucursal (Site1) utilizando uma ligação VPN de Site para Site. Todas as ligações VPN estão a executar o BGP.
+Neste exemplo, a ligação de gateway VPN ponto a Site é para a VNet1. VNet1 está ligado para a VNet2 usando uma conexão VPN de Site a Site. VNet2 está ligado a VNet3 usando uma conexão VPN de Site a Site. Não existe nenhum peering direto ou o túnel VPN de Site a Site entre as redes VNet1 e VNet3. VNet3 está ligado a uma filial (Site1) usando uma conexão VPN de Site a Site. Todas as ligações VPN estão a executar o BGP.
 
-Clientes que utilizam Windows podem aceder a VNets e sites que estão ligados através de uma ligação VPN de Site a Site, mas as rotas VNet2, VNet3 e Site1 tem ser adicionados manualmente para o cliente. Clientes Windows não podem aceder a VNets e sites que estão ligados utilizando uma ligação de VPN de Site para Site sem qualquer intervenção manual. O acesso é transitiva e os clientes podem aceder a recursos ligados todas as VNets e sites (no local).
+Clientes que utilizam Windows podem aceder a VNets e sites que estão ligados através de uma ligação VPN de Site a Site, mas as rotas para a VNet2, VNet3 e Site1 devem ser adicionados manualmente para o cliente. Os clientes do Windows não podem acessar VNets e sites que estão ligados através de uma ligação de VPN de Site a Site sem qualquer intervenção manual. O acesso é transitivo, e os clientes podem aceder a recursos em VNets tudo ligado e de sites (no local).
 
-![várias VNet S2S e ramo office](./media/vpn-gateway-about-point-to-site-routing/8.jpg "várias VNet S2S e ramo office")
+![office de S2S e o ramo do multi-VNet](./media/vpn-gateway-about-point-to-site-routing/8.jpg "office de S2S e o ramo do multi-VNet")
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -247,16 +247,16 @@ Clientes que utilizam Windows podem aceder a VNets e sites que estão ligados at
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Os clientes de adicionadas rotas: 10.1.0.0/16, 192.168.0.0/24
+* As rotas adicionadas clientes: 10.1.0.0/16, 192.168.0.0/24
 
-* Rotas adicionadas para clientes não-Windows: 10.1.0.0/16 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes não-Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Os clientes Windows podem aceder a VNet1, VNet2, VNet3 e Site1, mas as rotas VNet2, VNet3 e Site1 tem ser adicionadas manualmente para o cliente.
+* Os clientes Windows podem aceder a VNet1, VNet2, VNet3 e Site1, mas rotas para a VNet2, VNet3 e Site1 devem ser adicionadas manualmente para o cliente.
 
-* Clientes Windows não podem aceder a VNet1, Vnet2, VNet3 e Site1.
+* Clientes de não-Windows podem aceder a VNet1, Vnet2, VNet3 e Site1.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte [criar uma VPN P2S no portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para começar a criar a VPN P2S.
+Ver [criar uma VPN de P2S com o portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para começar a criar a VPN P2S.

@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578740"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951972"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Otimização distribuída de hiperparâmetros com o Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Este cenário mostra como utilizar o Azure Machine Learning Workbench para aumentar horizontalmente o ajuste de hiperparâmetros de algoritmos de machine learning que implementam scikit-saiba API. Vamos mostrar como configurar e utilizar um cluster do Spark e um contentor do Docker remoto como um back-end de execução para o ajuste de hiperparâmetros.
 
@@ -38,7 +43,7 @@ Pesquisa de grade com a validação cruzada pode ser demorada. Se um algoritmo t
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [instalar e criar o guia de introdução](../service/quickstart-installation.md) para instalar o Workbench e criar contas.
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [instalar e criar o guia de introdução](quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que está a executar Azure ML Workbench no Windows 10 ou MacOS com o motor de Docker instalado localmente. 
 * Para executar o cenário com um contentor do Docker remoto, aprovisionar a Máquina Virtual de ciência de dados do Ubuntu (DSVM) ao seguir a [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos que utilize uma máquina virtual com, pelo menos, 8 núcleos e memória de 28 Gb. D4 instâncias de máquinas virtuais têm essa capacidade. 
 * Para executar este cenário com um cluster do Spark, Aprovisione o cluster do HDInsight Spark através destas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomendamos ter um cluster com a seguinte configuração em nós de cabeçalho e de trabalho:

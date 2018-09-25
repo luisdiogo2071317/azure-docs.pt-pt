@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782030"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960622"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de disco de caixa de dados do Azure (pré-visualização)
 
@@ -66,7 +66,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 Aqui estão os limites no tamanho dos dados que são copiados para a conta de armazenamento. Certifique-se de que os dados carregados estão de acordo com estes limites. Para obter as informações mais atualizadas sobre estes limites, aceda a [metas de dimensionamento de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [alvos de dimensionamento de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
-| Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite Predefinido          |
+| Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite predefinido          |
 |---------------------------------------------------------------------|------------------------|
 | Blob de página e BLOBs de blocos                                            | 500 TB por conta de armazenamento. <br> Isto inclui dados de todas as origens, incluindo disco Data Box.|
 
@@ -75,7 +75,7 @@ Aqui estão os limites no tamanho dos dados que são copiados para a conta de ar
 
 Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-se de que todos os ficheiros que são carregados estão em conformidade com estes limites.
 
-| Tipo de objeto do Azure | Limite Predefinido                                             |
+| Tipo de objeto do Azure | Limite predefinido                                             |
 |-------------------|-----------------------------------------------------------|
 | Blob de Blocos        | ~ 8 TB                                                 |
 | Blob de Página         | 1 TB <br> (Todos os ficheiros carregados no formato de Blob de páginas têm de ter 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
@@ -87,3 +87,7 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Os nomes dos contentores de blob de blocos e BLOBs de páginas | Tem de ser um nome DNS válido é entre 3 e 63 carateres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Pode conter apenas letras minúsculas, números e hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. <br> Não são permitidos hífenes consecutivos em nomes. |
 | Nomes de blobs para blob de blocos e blob de páginas      | Os nomes de blobs são sensíveis a maiúsculas e minúsculas e podem conter qualquer combinação de carateres. <br> Um nome de blob tem de ter entre 1 e 1024 carateres de comprimento. <br> Os carateres de URL reservados devem ser escritos corretamente. <br>O número de segmentos de linha que inclui o nome do blob não pode exceder 254. Um segmento de linha é a cadeia de carateres entre os carateres delimitadores consecutivos (por exemplo, uma barra "/") que corresponde ao nome de um diretório virtual. |
+
+
+## <a name="next-steps"></a>Passos Seguintes
+* Revisão [requisitos de sistema do Data Box](data-box-system-requirements.md)

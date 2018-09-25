@@ -6,14 +6,14 @@ author: mahilleb-msft
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: d2c40935504f6c2d477eae1830e58bf782d28b11
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8485caeff3a7c96ed8f7403befac0026fae16e90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366205"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987565"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de voz
 
@@ -29,8 +29,7 @@ Ver [REST APIs](rest-apis.md) para obter detalhes.
 
 ## <a name="speech-sdk"></a>API de Voz
 
-Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres.
-Um exemplo é como um parâmetro para [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) no SDK de voz para c#.
+Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK de voz para c#).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regiões para reconhecimento de fala e tradução
 

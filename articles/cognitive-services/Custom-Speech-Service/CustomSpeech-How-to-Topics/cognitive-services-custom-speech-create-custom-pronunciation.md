@@ -1,6 +1,6 @@
 ---
-title: Utilizar pronunciação personalizada com o serviço de reconhecimento de voz personalizadas no Azure | Microsoft Docs
-description: Saiba como criar um modelo de idioma com o serviço de reconhecimento de voz personalizadas nos serviços cognitivos.
+title: Utilizar pronúncia personalizada com o serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Saiba como criar um modelo de idioma com o serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,17 +9,18 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351685"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999380"
 ---
-# <a name="enable-custom-pronunciation"></a>Ativar pronunciação personalizada
-Pronunciação personalizada permite aos utilizadores definir o formulário fonético e apresentação de uma palavra ou termo. É útil para processar os termos de personalizados, tais como nomes de produto ou a utilização de acrónimos. Tudo o que precisa é um ficheiro de pronunciação (um ficheiro. txt simples).
+# <a name="enable-custom-pronunciation"></a>Ativar pronúncia personalizada
+Pronúncia personalizada permite aos utilizadores definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa é um ficheiro de pronúncia (um ficheiro. txt simples).
 
-Eis como funciona. Num ficheiro. txt único, pode introduzir várias entradas de pronunciação personalizado. A estrutura é o seguinte:
+Eis como funciona. Num arquivo. txt único, pode inserir várias entradas de pronúncia personalizado. A estrutura é o seguinte:
 
 ```
 Display form <Tab> Spoken form <Newline>
@@ -27,40 +28,40 @@ Display form <Tab> Spoken form <Newline>
 
 *Exemplos*:
 
-| Formato de apresentação | Formulário ditas |
+| Formulário de apresentação | Formulário falado |
 |----------|-------|
-| C3PO | Consulte pea três Nã |
-| L8R | são tarde |
-| CNTK | Consulte n tea k|
+| C3PO | Veja três pea s |
+| L8R | são mais tarde |
+| CNTK | Veja o n chá k|
 
-## <a name="requirements-for-the-spoken-form"></a>Requisitos para o formulário ditas
-O formulário ditas tem de ser em minúsculas, que pode ser forçada durante a importação. Além disso, tem de fornecer as verificações o importador de dados. Não existem separador do formulário ditas ou o formato de apresentação é permitida. Não existe pode, no entanto, mais ser proibido carateres no formato de apresentação (por exemplo, ~ e ^).
+## <a name="requirements-for-the-spoken-form"></a>Requisitos para o formulário falado
+O formulário falado tem de estar em minúsculas, que pode ser forçado durante a importação. Além disso, tem de fornecer verificações no importador de dados. Nenhum separador no formulário falado ou o formulário de apresentação é permitida. Aí pode, no entanto, mais ser proibido carateres no formulário de apresentação (por exemplo, ~ e ^).
 
-Cada ficheiro. txt pode ter várias entradas. Por exemplo, consulte a captura de ecrã seguinte:
+Cada arquivo. txt pode ter várias entradas. Por exemplo, veja a captura de ecrã seguinte:
 
-![Captura de ecrã do bloco de notas com várias entradas para pronunciação acrónimo](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
+![Captura de ecrã do bloco de notas com várias entradas para pronúncia de acrônimos](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
 
-O formulário ditas está a sequência fonético o formato de apresentação. Este é composto por letras, palavras ou sílabas. Atualmente, não há nenhum orientações adicionais ou um conjunto de normas para o ajudar a formular a forma ditas. 
+O formulário falado é a sequência de fonética do formulário de apresentação. Ele é composto por letras, palavras ou sílabas. Atualmente, não existe mais orientações ou conjunto de padrões para o ajudar a formular a forma falada. 
 
-## <a name="supported-pronunciation-characters"></a>Pronunciação suportados carateres
-Pronunciação personalizada é atualmente suportada para inglês (en-US) e alemão (Alemanha-). O conjunto de carateres que pode ser utilizado para expressar a forma ditas de um termo (no ficheiro de pronunciação personalizado) é apresentado na seguinte tabela: 
+## <a name="supported-pronunciation-characters"></a>Pronúncia suportados carateres
+Pronúncia personalizada é atualmente suportada para inglês (en-US) e alemão (Alemanha-de). O conjunto de caracteres que pode ser utilizado para expressar o formulário falado de um período (no arquivo pronúncia personalizado) é mostrado na tabela a seguir: 
 
 | Idioma | Carateres |
 |---------- |----------|
-| Inglês (en-US) | a, b, c, d, i, f, g, h, i, j, k, l, Nã, p, q, r, s, t, u, v, m, x, y, z |
-| Alemão (Alemanha) | ä, ö, ü, ẞ, a, b, c, d, i, f, g, h, i, j, k, l, Nã, p, q, r, s, t, u, v, m, x, y, z |
+| Inglês (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, s, p, p, r, s, t, u, v, w, x, y, z |
+| Alemão (Alemanha-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, s, p, p, r, s, t, u, v, w, x, y, z |
 
->[NOTA] Formato de apresentação de um termo (num ficheiro pronunciação) deve ser escrito da mesma forma de um conjunto de dados de adaptation de idioma.
+>[NOTA] Formulário de apresentação de um termo (num arquivo de pronúncia) deve ser escrito da mesma forma num conjunto de dados de adaptação de idioma.
 
-## <a name="requirements-for-the-display-form"></a>Requisitos para o formato de apresentação
-Um formulário de visualização só pode ser uma palavra personalizada, termo, acrónimo ou compostas palavras que combinam palavras existentes. Também pode introduzir pronunciations alternativos para palavras comuns. 
+## <a name="requirements-for-the-display-form"></a>Requisitos para o formulário de apresentação
+Um formulário de apresentação só pode ser uma palavra personalizada, termo, acrônimos ou palavras compostas que combinam palavras existentes. Também pode introduzir pronunciations alternativas para palavras comuns. 
 
 >[!NOTE]
-Não é recomendada a utilizar esta funcionalidade para reformulate palavras comuns ou modificar o formulário ditas. É melhor executar o descodificador para ver se alguns palavras invulgares (por exemplo, abreviaturas, palavras técnicas e palavras externas) não estão corretamente descodificar. Se forem, adicioná-los para o ficheiro de pronunciação personalizado. No modelo de linguagem, deve sempre e apenas utilizar o formato de apresentação de uma palavra. 
+Não é recomendável utilizar esta funcionalidade para reformulate palavras comuns ou para modificar o formato falado. É melhor executar o Decodificador para ver se algumas palavras pouco habitual (por exemplo, abreviaturas, palavras técnicas e palavras estrangeiras) não estão corretamente decodificadas. Se forem, adicioná-los para o ficheiro de pronúncia personalizado. No modelo de idioma, deve sempre e apenas usar o formulário de apresentação de uma palavra. 
 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do ficheiro
-O tamanho do ficheiro. txt que contenha as entradas de pronunciação está limitado a 1 MB. Normalmente, não terá de carregar grandes quantidades de dados através deste ficheiro. A maioria dos ficheiros de pronunciação personalizado são provável que haja apenas alguns KBs de tamanho. A codificação de ficheiro. txt para todas as regiões deve ser LM UTF-8. Para a região em inglês, ANSI também é aceitável.
+O tamanho do ficheiro. txt que contenha as entradas de pronúncia está limitado a 1 MB. Normalmente, não é necessário carregar grandes quantidades de dados por meio deste ficheiro. A maioria dos arquivos de pronúncia personalizados são probabilidade de serem apenas alguns KBs de tamanho. A codificação do ficheiro. txt para todas as localidades deve ser o UTF-8 BOM. Para a Localidade do inglês, ANSI também é aceitável.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Melhorar a exatidão do reconhecimento através da criação do [personalizado modelo acústica](cognitive-services-custom-speech-create-acoustic-model.md).
-* [Criar um ponto final de reconhecimento de voz para texto personalizado](cognitive-services-custom-speech-create-endpoint.md), que pode utilizar a partir de uma aplicação.
+* Melhorar a precisão de reconhecimento através da criação de seus [um modelo acústico personalizado](cognitive-services-custom-speech-create-acoustic-model.md).
+* [Criar um ponto de final de voz em texto personalizado](cognitive-services-custom-speech-create-endpoint.md), que pode utilizar a partir de uma aplicação.

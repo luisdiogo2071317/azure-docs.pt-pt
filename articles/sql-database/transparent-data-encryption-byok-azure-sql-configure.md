@@ -15,15 +15,15 @@ ms.service: sql-database
 ms.tgt_pltfrm: ''
 ms.devlang: azurecli, powershell
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 09/20/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 11e190e1a4d0309bdbdcb7a578fccaf84fabb8e3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 65f9384bb0ceedd6c2bde8ef513040e198ccc4d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036376"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a sua própria chave de Cofre de chaves do Azure
 
@@ -35,11 +35,11 @@ Este artigo explica como utilizar uma chave de Cofre de chaves do Azure para dad
 - [Recomendável, mas opcional] Ter um módulo de segurança de hardware (HSM) ou chave local armazenar para a criação de uma cópia local do material de chave de Protetor de TDE.
 - Tem de ter o Azure PowerShell versão 4.2.0 ou mais recente instalado e em execução. 
 - Crie um cofre de chaves do Azure e a chave a utilizar para TDE.
-   - [Instruções do PowerShell do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
-   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Instruções do PowerShell do Key Vault](../key-vault/key-vault-get-started.md)
+   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
-   - [eliminação de forma recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) 
+   - [eliminação de forma recuperável](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - A chave tem de ter os seguintes atributos a ser utilizado para TDE:
    - Sem data de expiração
    - Não foi desativada
@@ -201,11 +201,11 @@ Verifique o seguinte se ocorrer um problema:
 - [Recomendável, mas opcional] Ter um módulo de segurança de hardware (HSM) ou chave local armazenar para a criação de uma cópia local do material de chave de Protetor de TDE.
 - Interface de linha de comandos versão 2.0 ou posterior. Para instalar a versão mais recente e ligar à sua subscrição do Azure, veja [instalar e configurar a Interface de linha de comandos de várias plataformas do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - Crie um cofre de chaves do Azure e a chave a utilizar para TDE.
-   - [Gerir o Cofre de chaves com a CLI 2.0](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2)
-   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Gerir o Cofre de chaves com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
+   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
-   - [eliminação de forma recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli) 
+   - [eliminação de forma recuperável](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - A chave tem de ter os seguintes atributos a ser utilizado para TDE:
    - Sem data de expiração
    - Não foi desativada

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
 ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714875"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042385"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Início rápido para API com o Go do Microsoft QnA Maker 
 <a name="HOLTop"></a>
@@ -190,7 +190,7 @@ func main() {
 
 **Criar a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -225,7 +225,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
 
-O código seguinte atualiza uma base de dados de conhecimento existente através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -373,7 +373,7 @@ func main() {
 
 **Atualizar a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -409,7 +409,7 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 
 ## <a name="publish-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-O código seguinte publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -485,7 +485,7 @@ func main() {
 
 **Publicar resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -593,7 +593,7 @@ func main() {
 
 **Substitua a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -677,7 +677,7 @@ func main() {
 
 **Transferir a resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -791,7 +791,7 @@ func main() {
 
 **Obter resposta de respostas**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -883,7 +883,7 @@ func main() {
 
 **Obter resposta de detalhes da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -972,7 +972,7 @@ func main() {
 
 **Obter bases de dados de conhecimento de resposta do utilizador**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1086,7 +1086,7 @@ func main() {
 
 **Eliminar resposta da base de dados de conhecimento**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1163,7 +1163,7 @@ func main() {
 
 **Obter resposta de chaves de ponto final**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1249,7 +1249,7 @@ func main() {
 
 **Atualizar a resposta de chaves de ponto final**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1327,7 +1327,7 @@ func main() {
 
 **Obter resposta de alterações do word**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1431,7 +1431,7 @@ func main() {
 
 **Substitua a resposta de alterações do word**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1444,8 +1444,8 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral do QnA Maker](../Overview/overview.md)
+[Descrição geral do Criador de FAQ](../Overview/overview.md)

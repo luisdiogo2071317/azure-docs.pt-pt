@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296742"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972560"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
 2. Apresenta o estado da regra predefinida para a conta de armazenamento.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
 2. Regras de rede Virtual da lista
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
 2. Regras de rede IP de lista
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ Quando a exceção de "Serviços Microsoft fidedignos" está ativada, os seguint
 |Azure Event Grid|Microsoft.EventGrid|Ative a publicação de eventos de armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Arquivar dados com a captura de Hubs de eventos.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Redes do Azure|Microsoft.Networking|Store e analisar registos de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure Monitor|Microsoft.Insights| Permite a escrita de dados para uma conta de storaage segura de monitorização [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento
 Em alguns casos, o acesso para ler os registos de diagnóstico e métricas é necessário a partir de fora do limite de rede.  Exceções às regras de rede podem ser concedidas para permitir o acesso de leitura para o armazenamento de ficheiros de registo de conta, as tabelas de métricas ou ambos. [Saiba mais sobre como trabalhar com a análise de armazenamento.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [início de sessão](/cli/azure/authenticate-azure-cli).
 2. Apresente as exceções para as regras de rede da conta de armazenamento.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 3783bc6ccda7a559e749a84005f20d860ab56755
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a077c7d154235205126d77e5523c0acd96e70ad5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368811"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031616"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
 
@@ -46,7 +46,6 @@ Para copiar dados do Office 365 no Azure, tem de concluir os passos de pré-requ
     - ID do inquilino.  Para obter instruções, consulte [obter ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Chave de ID da aplicação e a aplicação.  Para obter instruções, consulte [chave de ID e a autenticação da aplicação Get](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Adicionar a identidade do utilizador que está a definir o pedido de acesso de dados como o proprietário do aplicativo web do Azure AD (do Azure AD da aplicação web > Definições > proprietários > Adicionar proprietário).
-- _(Recomendado)_  [Políticas de atribuir Azure](../azure-policy/assign-policy-definition.md) para a encriptação de dados para os arquivos de dados. Serão apresentadas informações da política de conformidade para os aprovadores de dados como parte da solicitação de dados. Depois de estabelecida atribuição de política, para cada atividade de cópia executa, irá verificar ADF para se certificar de que a atribuição de política é imposta. Consultar [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) para uma lista completa das políticas de suporte.
 
 ## <a name="approving-new-data-access-requests"></a>Aos novos pedidos de acesso de dados
 
@@ -54,9 +53,23 @@ Se esta for a primeira vez que está a solicitar dados para este contexto (uma c
 
 Consultar [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) sobre como o aprovador pode aprovar os dados de pedido de acesso e consulte [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) para obter uma explicação sobre a integração geral com o Privileged Access Management, incluindo como configurar os dados grupo de aprovador de acesso.
 
+## <a name="policy-validation"></a>Validação de diretivas
+
+Se ADF é criado como parte de uma aplicação gerida e atribuições de políticas do Azure são feitas nos recursos no grupo de recursos de gerenciamento, em seguida, para cada atividade de cópia executa, ADF irá verificar para se certificar de que as atribuições de política são impostas. Consultar [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) para obter uma lista de políticas suportadas.
+
 ## <a name="getting-started"></a>Introdução
 
-Pode criar um pipeline com a atividade de cópia com o SDK de .NET, o SDK de Python, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Ver [tutorial da atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+>[!TIP]
+>Para obter instruções para utilizar o conector do Office 365, consulte [carregar dados a partir do Office 365](load-office-365-data.md) artigo.
+
+Pode criar um pipeline com a atividade de cópia utilizando um dos seguintes ferramentas ou SDKs. Selecione uma ligação para ir para um tutorial com instruções passo a passo para criar um pipeline com uma atividade de cópia. 
+
+- [Portal do Azure](quickstart-create-data-factory-portal.md)
+- [SDK do .NET](quickstart-create-data-factory-dot-net.md)
+- [Python SDK](quickstart-create-data-factory-python.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [API REST](quickstart-create-data-factory-rest-api.md)
+- [Modelo Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md). 
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Office 365.
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446729"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056527"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Utilizar o controlo de idade no Azure AD B2C
 
 >[!IMPORTANT]
->Esta funcionalidade está em pré-visualização privada.  Consulte nossos [blogue do serviço](https://blogs.msdn.microsoft.com/azureadb2c/) para obter detalhes de como isso se torna disponível, ou contacte AADB2CFeedback@microsoft.com.  NÃO use isso em diretórios de produção, o uso desses novos recursos pode resultar em perda de dados e pode ter inesperadas alterações de comportamento até entrarmos em disponibilidade geral.  
+>Esta funcionalidade está em pré-visualização privada.  Consulte nossos [blogue do serviço](https://blogs.msdn.microsoft.com/azureadb2c/) para obter detalhes de como isso se torna disponível, ou contacte AADB2CPreview@microsoft.com.  NÃO use isso em diretórios de produção, o uso desses novos recursos pode resultar em perda de dados e pode ter inesperadas alterações de comportamento até entrarmos em disponibilidade geral.  
 >
 
 ##<a name="age-gating"></a>Controlo de idade
@@ -56,13 +56,3 @@ Fluxos de utilizador que permite o início de sessão até, inicie sessão no, o
 Para fluxos de utilizador que permite o início de sessão até, inicie sessão no, ou ambos, pode optar por bloquear os menores sem o consentimento da aplicação.  Existem duas opções para lidar com utilizadores bloqueados no Azure AD B2C:
 * Enviar um JSON de volta para a aplicação - esta opção irá enviar uma resposta de volta para a aplicação que o menor foi bloqueado.
 * Mostrar uma página de erro - o utilizador será apresentado uma página informar que eles não é possível aceder à aplicação
-
-##<a name="known-issues"></a>Problemas conhecidos
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato para a resposta quando o menor é bloqueado.
-A resposta atualmente não está corretamente formada, esse bug será resolvido numa atualização próximo.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>A eliminar atributos específicos que foram adicionados durante a configuração pode tornar o seu diretório não é possível utilizar o controlo de idade.
-Na configuração de controlo de idade, configurou o seu diretório por meio de uma opção no seu `Properties`.  Se eliminar um `legalCountry` ou `dateOfBirth` através do Graph, o diretório já não pode utilizar controlo de idade e essas propriedades não podem ser recriadas.
-
-###<a name="list-of-countries-is-incomplete"></a>Lista de países está incompleta
-Atualmente, a lista de países para os atributos legalCountry está incompleta, adicionaremos o resto dos países numa atualização próximo.

@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935812"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042882"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
@@ -26,11 +26,11 @@ Controladores de NVIDIA CUDA para NC, a NCv2, NCv3 e VMs de série ND (opcionais
 
 | Distribuição | Controlador |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> Baseada em centOS 7.3 ou 7.4, baseada em CentOS 7.4 HPC | NVIDIA CUDA 9.1, ramo de controlador R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> Baseada em centOS 7.3 ou 7.4, baseada em CentOS 7.4 HPC | NVIDIA CUDA 10.0, ramo de controlador R410 |
 
 ### <a name="nvidia-grid-drivers"></a>Controladores de GRID da NVIDIA
 
-Microsoft redistribui programas de instalação de controladores de NVIDIA GRID para VMs de série NV utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em distribuições listadas na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure.
+Microsoft redistribui programas de instalação de controladores de NVIDIA GRID NV e as VMs da série NVv2 utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em distribuições listadas na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure.
 
 | Distribuição | Controlador |
 | --- | -- |

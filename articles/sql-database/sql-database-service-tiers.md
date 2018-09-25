@@ -1,6 +1,6 @@
 ---
 title: Base de dados do SQL do Azure adquirir modelos | Documentos da Microsoft
-description: Saiba mais sobre a compra de modelo para a base de dados do Azure SQL.
+description: Saiba mais sobre o modelo de modelos de compra que são bases de dados disponíveis no serviço de base de dados do Azure SQL.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -9,18 +9,21 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 651f80c8b8f4bc5f8aa8cf117e3208f4126e964c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737118"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961081"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Base de dados do SQL do Azure compra de modelos e recursos 
 
 Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dados de PaaS totalmente gerido que se adeque às suas necessidades de desempenho e custo. Consoante o modelo de implementação de base de dados do Azure SQL, pode selecionar o modelo de compra que atende às suas necessidades: 
- - [Servidores lógicos](sql-database-logical-servers.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um modelo de compra baseado em DTU e um [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). 
+ - [Servidores lógicos](sql-database-logical-servers.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e um [baseado em vCore modelo de compra](sql-database-service-tiers-vcore.md). Dentro desse modelo de compra, pode escolher [bases de dados únicas](sql-database-single-databases-manage.md) ou [conjuntos elásticos](sql-database-elastic-pool.md).
  - [Instâncias geridas](sql-database-managed-instance.md) na oferta de base de dados do Azure SQL única a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> [Bases de dados de grande escala (pré-visualização)](sql-database-hyperscale.md) só estão disponíveis com o modelo de compra baseado em vCore para bases de dados individuais com um servidor lógico ou dentro de uma instância gerida. 
 
 O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compras.
 
@@ -34,17 +37,12 @@ O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compra
 
 ## <a name="vcore-based-purchasing-model"></a>modelo de compra baseado em vCore 
 
-Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore oferece a flexibilidade, o controle, a transparência de consumo de recursos individuais e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, os clientes podem escolher entre [fins gerais](sql-database-high-availability.md#standardgeneral-purpose-availability) e [crítico para a empresa](sql-database-high-availability.md#premiumbusiness-critical-availability) escalões de serviço para ambos [bases de dados únicas](sql-database-single-database-scale.md), [instâncias geridas](sql-database-managed-instance.md), e [conjuntos elásticos](sql-database-elastic-pool.md). 
+Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore oferece a flexibilidade, o controle, a transparência de consumo de recursos individuais e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#standardgeneral-purpose-availability) e [crítico para a empresa](sql-database-high-availability.md#premiumbusiness-critical-availability) escalões de serviço para ambos [bases de dados únicas](sql-database-single-database-scale.md), [ instâncias geridas](sql-database-managed-instance.md), e [conjuntos elásticos](sql-database-elastic-pool.md). Para bases de dados individuais, também pode escolher o [Hiperescala (pré-visualização)](sql-database-hyperscale.md) escalão de serviço.
 
 O modelo de compra baseado em vCore permite que escolha os recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. No modelo de compra baseado em vCore, os clientes pagam pelo:
-- Computação (camada de serviços + número de vCores e a quantidade de memória + geração de hardware) *
+- Computação (camada de serviços + número de vCores e a quantidade de memória + geração de hardware)
 - Tipo e a quantidade de armazenamento de dados e de registo 
-- Número de IOs * * - aplicáveis aos [servidores lógicos](sql-database-logical-servers.md) apenas
-- Cópia de segurança de armazenamento (RA-GRS) * * 
-
-\* Na pré-visualização pública inicial, as CPUs lógicas do Gen 4 baseiam-se no Intel E5-2673 v3 processadores de 2,4 GHz (Haswell).
-
-\*\* Durante a pré-visualização, sete dias de cópias de segurança e o IOs são gratuitos.
+- Armazenamento de cópias de segurança (RA-GRS) 
 
 > [!IMPORTANT]
 > Computação, IOs, dados e armazenamento de registo é cobrada por base de dados ou conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes de encargos de instância gerida, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).

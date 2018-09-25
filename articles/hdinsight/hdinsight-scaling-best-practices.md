@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: d554cdf5e89898874811ea113985fac4b332fac6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109936"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948134"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters do HDInsight
 
@@ -28,11 +28,13 @@ Por exemplo, se tiver algum processamento em lotes que ocorre uma vez por dia ou
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* Para dimensionar o seu cluster através da [CLI do Azure](hdinsight-administer-use-command-line.md):
+* Para dimensionar o seu cluster através da [CLI clássica do Azure](hdinsight-administer-use-command-line.md):
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * Para dimensionar o seu cluster através da [portal do Azure](https://portal.azure.com), abra o painel de cluster do HDInsight, selecione **Dimensionar cluster** no menu do lado esquerdo, em seguida, no painel do cluster de dimensionamento, escreva o número de nós de trabalho, e Selecione guardar.
 

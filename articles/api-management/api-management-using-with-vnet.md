@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093197"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040340"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 | Origem / porta de destino (s) | Direção | Protocolo de transporte | Origem / destino | Finalidade (*) | Tipo de rede virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente para gestão de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Externo e interno |
+| * / 3443 |Entrada |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Externo e interno |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Dependência do armazenamento do Azure**, Service bus do Azure e Azure Active Directory (quando aplicável).|Externo e interno |
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso a pontos finais do SQL do Azure** |Externo e interno |
 | * / 5672 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência para o registo de política do Hub de eventos e o agente de monitorização |Externo e interno |
@@ -158,8 +158,6 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 * **As atualizações incrementais**: ao fazer alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)para confirmar que o serviço de gestão de API não perdeu acesso a qualquer um dos recursos críticos que ele depende. O estado de conectividade, deverão ser atualizado a cada 15 minutos.
 
 * **Ligações de navegação de recursos**: ao implementar numa sub-rede de vnet do Resource Manager estilo, gestão de API reserva-se a sub-rede, através da criação de uma ligação de navegação de recursos. Se a sub-rede já contém um recurso de um fornecedor diferente, implementação irá **falhar**. Da mesma forma, quando move um serviço de gestão de API para outra sub-rede ou eliminá-lo, podemos remover essa ligação de navegação de recursos.
-
-* **Teste de API do portal do Azure**: quando o teste de uma API a partir do portal do Azure e a instância de gestão de API está integrado com VNet interna, os servidores DNS configurados na VNet serão utilizados para resolução de nomes. Se receber um 404 durante o teste do portal do Azure, certifique-se de que os servidores DNS para a VNet podem resolver adequadamente o nome do anfitrião da sua instância de gestão de API. 
 
 ## <a name="subnet-size"> </a> Requisito de tamanho de sub-rede
 O Azure reserva alguns endereços IP em cada sub-rede e não não possível utilizar estes endereços. Os endereços IP primeiros e últimos das sub-redes são reservados para conformidade com o protocolo, juntamente com três outros endereços utilizados para serviços do Azure. Para obter mais informações, consulte [existem restrições sobre como utilizar endereços IP dentro destas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

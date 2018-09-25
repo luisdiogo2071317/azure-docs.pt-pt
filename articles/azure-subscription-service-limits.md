@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: a24fc56bf455fbc487cb6f93e06678d52e5b1c0b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c67cc5cb13e2c1112c4752660c82c3ab18360b00
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295770"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056629"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -71,6 +71,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [DNS](#dns-limits)
 * [Hubs de Eventos](#event-hubs-limits)
 * [Firewall do Azure](#azure-firewall-limits)
+* [Porta de entrada](#azure-front-door-service-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Serviço de Aprovisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Cofre de Chaves](#key-vault-limits)
@@ -88,6 +89,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Scheduler](#scheduler-limits)
 * [Pesquisa](#search-limits)
 * [Service Bus](#service-bus-limits)
+* [Serviço SignalR](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [Base de Dados SQL](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -156,6 +158,9 @@ A tabela seguinte fornece detalhes sobre os recursos e limites do básico, Stand
 
 #### <a name="azure-firewall-limits"></a>Limites da Firewall do Azure
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
+#### <a name="azure-front-door-service-limits"></a>Limites de serviço de porta de entrada do Azure
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
 ### <a name="storage-limits"></a>Limites de armazenamento
 <!--like # storage accts -->
@@ -232,9 +237,6 @@ Para a base de dados do Azure para MySQL limites, consulte [limitações na base
 
 ### <a name="azure-database-for-postgresql"></a>Base de Dados do Azure para PostgreSQL
 Para a base de dados do Azure para PostgreSQL limites, consulte [limitações na base de dados do Azure para PostgreSQL](postgresql/concepts-limits.md).
-
-### <a name="mobile-engagement-limits"></a>Limites do Mobile Engagement
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>Limites de pesquisa
 Escalões de preço determinam a capacidade e limites do seu serviço de pesquisa. Os escalões incluem:
@@ -315,6 +317,9 @@ Para saber mais sobre os limites num nível mais granular, tais como o tamanho d
 
 ### <a name="backup-limits"></a>Limites de cópia de segurança
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>Limites de serviço do SignalR
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>Limites do Site Recovery
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

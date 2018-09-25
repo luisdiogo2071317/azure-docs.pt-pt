@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 405c85c24ca3a956a3d75733c5dd13a6f12de46a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668126"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042419"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) é uma ferramenta de diagnóstico de ajuda autónoma que recolhe e analisa os dados de diagnóstico e fornece um relatório para ajudar a resolver problemas de desempenho de máquina virtual do Windows no Azure. PerfInsights pode ser executado em máquinas virtuais como uma ferramenta autônoma, ou diretamente no portal, instalando [extensão de VM de diagnóstico de desempenho do Azure](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) é uma ferramenta de diagnóstico de ajuda autónoma que recolhe e analisa os dados de diagnóstico e fornece um relatório para ajudar a resolver problemas de desempenho de máquina virtual do Windows no Azure. PerfInsights podem ser executados em máquinas virtuais como uma ferramenta autônoma, diretamente no portal usando [diagnóstico de desempenho para máquinas virtuais do Azure](performance-diagnostics.md), ou instalando [extensão de VM de diagnóstico de desempenho do Azure ](performance-diagnostics-vm-extension.md).
 
 Se estiver tendo problemas de desempenho com máquinas virtuais, antes de contactar o suporte, execute esta ferramenta.
 

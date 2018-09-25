@@ -17,29 +17,30 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3fb6cad6243bd6cd0b6a09827d590f7097550e31
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d94aaa93596a18cf92b745267a6be9966454e36f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055824"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971554"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
+
 A concessão de código de autorização de OAuth 2.0 pode ser utilizada nas aplicações que são instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Usando a implementação do v2.0 de modelo de aplicação do OAuth 2.0, pode adicionar a iniciar sessão e a API de acesso às suas aplicações móveis e de Desktops. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer um da [bibliotecas de autenticação de código-fonte aberto do Azure](active-directory-authentication-libraries.md).
 
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
-> 
-> 
 
 O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](http://tools.ietf.org/html/rfc6749). Ele é usado para realizar a autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [instalado nativamente aplicações](v2-app-types.md#mobile-and-native-apps). O fluxo permite que aplicações em segurança adquirir access_tokens que pode ser utilizado para aceder aos recursos protegidos pelo ponto final v2.0. 
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
+
 Num alto nível, o fluxo de autenticação completa para uma aplicação nativa/móvel parece um pouco com isto:
 
 ![Fluxo de código de autenticação do OAuth](./media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
 
 ## <a name="request-an-authorization-code"></a>Pedir um código de autorização
+
 O fluxo de código de autorização começa com o cliente que direciona o utilizador para o `/authorize` ponto final. Este pedido, o cliente indica as permissões necessárias para adquirir do usuário:
 
 ```
@@ -57,8 +58,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Clique na ligação abaixo para executar este pedido! Depois de iniciar sessão, o browser deve ser redirecionado para `https://localhost/myapp/` com um `code` na barra de endereço.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Parâmetro             |             | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,6 +79,7 @@ Neste momento, o usuário será solicitado para introduzir as respetivas credenc
 Depois do utilizador autentica e concede o consentimento, o ponto final v2.0 irá devolver uma resposta à sua aplicação no indicado `redirect_uri`, utilizando o método especificado no `response_mode` parâmetro.
 
 #### <a name="successful-response"></a>Resposta com êxito
+
 Uma resposta com êxito utilizando `response_mode=query` se parece com:
 
 ```
@@ -94,6 +94,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | state     | Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos.                                            |
 
 #### <a name="error-response"></a>Resposta de erro
+
 Respostas de erro também podem ser enviadas para o `redirect_uri` para que a aplicação pode processar corretamente:
 
 ```
@@ -108,6 +109,7 @@ error=access_denied
 | error_description | Uma mensagem de erro específicas que pode ajudar a identificar a causa de raiz de um erro de autenticação do desenvolvedor.          |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
+
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
 
 | Código de Erro                | Descrição                                                                                                           | Ação de cliente                                                                                                                                                                                                                               |
@@ -123,6 +125,7 @@ A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos 
 |interaction_required       | O pedido requer interação do utilizador. | É necessário um passo de autenticação adicional ou consentimento. Repita o pedido sem `prompt=none`. |
 
 ## <a name="request-an-access-token"></a>Pedir um token de acesso
+
 Agora que comprou um authorization_code e tenha sido concedida permissão pelo utilizador, poderá resgatá a `code` para um `access_token` para o recurso pretendido. Faça isso enviando um `POST` pedido para o `/token` ponto final:
 
 ```
@@ -142,8 +145,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Experimente executar este pedido no Postman! (Não se esqueça de substituir a `code`) [ ![executar no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
-> 
-> 
 
 | Parâmetro     |                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -155,7 +156,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri  | obrigatório              | O valor de redirect_uri mesmo que foi utilizado para adquirir o authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não deve ser utilizada num aplicativo nativo, porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web.  O segredo do cliente tem de ser codificados de URL antes de serem enviados.                                                                                                                    |
 | code_verifier | opcional              | O code_verifier mesmo que foi utilizado para obter o authorization_code. Necessário se PKCE foi utilizada no pedido de concessão do código de autorização. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 #### <a name="successful-response"></a>Resposta com êxito
+
 Uma resposta com êxito de token terá o seguinte aspeto:
 
 ```json
@@ -174,8 +177,8 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 | token_type    | Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | O tempo que o token de acesso é válido (em segundos).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | Os âmbitos que o access_token é válido para.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token adquirir os tokens de acesso adicionais depois do token de acesso atual expira. Refresh_tokens são vida longa e pode ser utilizado para manter o acesso aos recursos por longos períodos de tempo. Para obter mais detalhes, consulte a [referência de token de v2.0](v2-id-and-access-tokens.md). <br> **Nota:** só será fornecido se `offline_access` âmbito foi pedido.                                               |
-| id_token      | Um não assinados JSON Web Token (JWT). Base64Url de podem aplicação decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [referência de token de ponto final de v2.0](v2-id-and-access-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
+| refresh_token | Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token adquirir os tokens de acesso adicionais depois do token de acesso atual expira. Refresh_tokens são vida longa e pode ser utilizado para manter o acesso aos recursos por longos períodos de tempo. Para obter mais detalhes sobre como atualizar um token de acesso, consulte a [secção abaixo](#refresh-the-access-token). <br> **Nota:** só será fornecido se `offline_access` âmbito foi pedido.                                               |
+| id_token      | Um não assinados JSON Web Token (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
 #### <a name="error-response"></a>Resposta de erro
 Respostas de erro terá o seguinte aspeto:
 
@@ -202,6 +205,7 @@ Respostas de erro terá o seguinte aspeto:
 | correlation_id    | Um identificador exclusivo para o pedido que pode ajudar no diagnóstico em componentes.                             |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de erro para erros de ponto final do token
+
 | Código de Erro              | Descrição                                                                                                           | Ação de cliente                                                                                                                                                                                                                               |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | invalid_request         | Erro de protocolo, como um parâmetro necessário em falta.                                                               | Corrigir e submeta novamente o pedido                                                                                                                                                                                                                |
@@ -214,6 +218,7 @@ Respostas de erro terá o seguinte aspeto:
 | temporarily_unavailable | O servidor está temporariamente demasiado ocupado para processar o pedido.                                                            | Repita o pedido. A aplicação cliente pode explicar ao usuário que a sua resposta está atrasada devido a uma condição temporária.                                                                                                                |
 
 ## <a name="use-the-access-token"></a>Utilizar o token de acesso
+
 Agora que tive adquirido com sucesso um `access_token`, pode utilizar o token em pedidos para as APIs da Web, incluindo-na `Authorization` cabeçalho:
 
 > [!TIP]
@@ -228,6 +233,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## <a name="refresh-the-access-token"></a>Atualizar o token de acesso
+
 Access_tokens tiverem vida curta e deve atualizá-los depois que ocorra para continuar a aceder a recursos. Pode fazê-lo ao submeter outro `POST` pedido para o `/token` ponto final, desta vez, desde que o `refresh_token` em vez do `code`:
 
 ```
@@ -261,6 +267,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_secret | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não deve ser utilizada num aplicativo nativo, porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Resposta com êxito
+
 Uma resposta com êxito de token terá o seguinte aspeto:
 
 ```json
@@ -280,7 +287,7 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 | expires_in    | O tempo que o token de acesso é válido (em segundos).                                                                                                                                                                                                                                                                                                                                                                                                        |
 | scope         | Os âmbitos que o access_token é válido para.                                                                                                                                                                                                                                                                                                                                                                                                          |
 | refresh_token | Um novo token de atualização de OAuth 2.0. Deve substituir o token de atualização antigo com este token de atualização recentemente adquirida para garantir que seus tokens de atualização mantêm-se válidas durante mais tempo. <br> **Nota:** só será fornecido se `offline_access` âmbito foi pedido.                                                                                                                                                                                                |
-| id_token      | Um não assinados JSON Web Token (JWT). Base64Url de podem aplicação decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [referência de token de ponto final de v2.0](v2-id-and-access-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
+| id_token      | Um não assinados JSON Web Token (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
 
 #### <a name="error-response"></a>Resposta de erro
 

@@ -1,6 +1,6 @@
 ---
-title: Comandos da CLI do Azure no modo Resource Manager | Microsoft Docs
-description: Comandos de interface de linha de comandos (CLI) do Azure para gerir recursos no modelo de implementação Resource Manager
+title: Os comandos da CLI do Azure no modo Resource Manager | Documentos da Microsoft
+description: Comandos de interface de linha de comandos (CLI) do Azure para gerir recursos no modelo de implementação do Resource Manager
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839149"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995555"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo Resource Manager
-Este artigo fornece sintaxe e as opções para comandos de interface de linha de comandos do Azure (CLI) que normalmente utilizaria para criar e gerir recursos do Azure no modelo de implementação Azure Resource Manager. Aceder a estes comandos, executando o CLI no modo Resource Manager (arm). Não se trata de uma referência completa e a versão da CLI pode mostrar parâmetros ou comandos ligeiramente diferentes. Para obter uma descrição geral de recursos do Azure e os grupos de recursos, consulte [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
+Este artigo fornece sintaxe e as opções para comandos de interface de linha de comandos (CLI) do Azure, que normalmente usaria para criar e gerir recursos do Azure no modelo de implementação Azure Resource Manager. Aceder a estes comandos ao executar a CLI no modo Resource Manager (arm). Não se trata de uma referência completa e a versão da CLI pode mostrar um pouco diferentes comandos ou parâmetros. Para obter uma visão geral dos recursos do Azure e grupos de recursos, consulte [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Este artigo mostra Resource Manager comandos de modo a CLI do Azure, por vezes denominado Azure CLI 1.0. Para funcionar no modelo do Resource Manager, pode também experimentar o [Azure CLI 2.0](/cli/azure/install-az-cli2), nossa próxima geração várias plataformas CLI.
->Saiba mais sobre o [antigos e novos CLIs Azure](/cli/azure/old-and-new-clis).
+> Este artigo mostra Gestor de recursos do modo de comandos na CLI do Azure, que por vezes denominado CLI clássica do Azure. Para trabalhar com o modelo do Resource Manager, também pode tentar o [CLI do Azure](/cli/azure/install-az-cli2), nossa próxima geração várias plataformas CLI.
+>Saiba mais sobre o [CLI do Azure antigos e novos](/cli/azure/old-and-new-clis).
 >
 
-Para começar a utilizar, primeiro [instalar a CLI do Azure](../cli-install-nodejs.md) e [ligar à sua subscrição do Azure](/cli/azure/authenticate-azure-cli).
+Para começar, primeiro [instalar a CLI do Azure](../cli-install-nodejs.md) e [ligar a sua subscrição do Azure](/cli/azure/authenticate-azure-cli).
 
-Para opções na linha de comandos no modo Resource Manager e sintaxe de comando atual, escreva `azure help` ou, para apresentar a ajuda para um comando específico, `azure help [command]`. Também encontrar exemplos CLI na documentação para criar e gerir serviços específicos do Azure.
+Para opções na linha de comandos no modo Resource Manager e de sintaxe de comando atual, escreva `azure help` ou, para apresentar a ajuda para um comando específico, `azure help [command]`. Também encontre exemplos da CLI na documentação para criar e gerir serviços específicos do Azure.
 
-São apresentados parâmetros opcionais entre parênteses Retos (por exemplo, `[parameter]`). Todos os outros parâmetros são necessários.
+Parâmetros opcionais são mostrados entre parêntesis Retos (por exemplo, `[parameter]`). Todos os outros parâmetros são necessários.
 
-Para além de parâmetros opcionais específicos de comando documentados aqui, existem três parâmetros opcionais que podem ser utilizados para apresentar os resultados detalhados, tais como opções de pedido e códigos de estado. O `-v` parâmetro fornece uma saída verbosa e o `-vv` parâmetro fornece ainda mais uma saída verbosa. O `--json` opção produz o resultado no formato json não processado.
+Além de parâmetros opcionais específica do comando documentados aqui, há três parâmetros opcionais que podem ser usados para exibir a saída detalhada, tais como opções de pedido e códigos de estado. O `-v` parâmetro fornece uma saída verbosa ideal e o `-vv` parâmetro fornece ainda mais detalhada saída detalhada. O `--json` opção apresenta o resultado no formato json não processado.
 
-## <a name="setting-the-resource-manager-mode"></a>Definir o modo Resource Manager
+## <a name="setting-the-resource-manager-mode"></a>Definir o modo do Resource Manager
 Utilize o seguinte comando para ativar comandos de modo da CLI do Azure Resource Manager.
 
     azure config mode arm
 
 > [!NOTE]
-> A CLI do Azure Resource Manager modo e de gestão de serviço do Azure são mutuamente exclusivos. Ou seja, recursos criados no modo de um não podem ser geridos a partir de outro modo.
+> A CLI do Azure Resource Manager modo e modo de gestão de serviço do Azure são mutuamente exclusivas. Ou seja, não podem ser geridos recursos criados num modo o outro modo.
 > 
 > 
 
-## <a name="azure-account-manage-your-account-information"></a>conta do Azure: Gerir informações da sua conta
-Informações da sua subscrição do Azure são utilizadas pela ferramenta para ligar à sua conta.
+## <a name="azure-account-manage-your-account-information"></a>conta do Azure: gerir as suas informações de conta
+As informações da sua subscrição do Azure são utilizadas pela ferramenta para ligar à sua conta.
 
-**Lista de subscrições importadas**
+**Liste as subscrições importadas**
 
     account list [options]
 
@@ -63,11 +63,11 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
 
     account set [options] <subscriptionNameOrId>
 
-**Remover uma subscrição ou o ambiente ou desmarque todas as informações de conta e ambiente armazenadas**  
+**Remover uma subscrição ou o ambiente ou desmarcar todas as informações de conta e o ambiente armazenada**  
 
     account clear [options]
 
-**Os comandos para gerir o ambiente de conta**  
+**Comandos para gerir o seu ambiente da conta**  
 
     account env list [options]
     account env show [options] [environment]
@@ -75,39 +75,39 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure ad: comandos para apresentar objetos do Active Directory
-**Os comandos para apresentar aplicações do Active Directory**
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>o Azure ad: comandos para apresentar os objetos do Active Directory
+**Comandos para apresentar as aplicações do Active Directory**
 
     ad app create [options]
     ad app delete [options] <object-id>
 
-**Os comandos para apresentar grupos do Active Directory**
+**Comandos para apresentar grupos do Active Directory**
 
     ad group list [options]
     ad group show [options]
 
-**Os comandos para fornecer um grupo ou membro informações sub do Active Directory**
+**Os comandos para fornecer uma informações de grupo ou membro da sub-rotina do Active Directory**
 
     ad group member list [options] [objectId]
 
-**Os comandos para apresentar principais de serviço do Active Directory**
+**Comandos para apresentar os principais de serviço do Active Directory**
 
     ad sp list [options]
     ad sp show [options]
     ad sp create [options] <application-id>
     ad sp delete [options] <object-id>
 
-**Os comandos para apresentar os utilizadores do Active Directory**
+**Comandos para apresentar os utilizadores do Active Directory**
 
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>Azure availset: comandos para gerir os conjuntos de disponibilidade
+## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>availset do Azure: comandos para gerir os seus conjuntos de disponibilidade
 **Cria um conjunto dentro de um grupo de recursos de disponibilidade**
 
     availset create [options] <resource-group> <name> <location> [tags]
 
-**Apresenta uma lista de conjuntos de disponibilidade dentro de um grupo de recursos**
+**Lista os conjuntos de disponibilidade dentro de um grupo de recursos**
 
     availset list [options] <resource-group>
 
@@ -119,8 +119,8 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config-commands-to-manage-your-local-settings"></a>configuração do Azure: comandos para gerir as definições locais
-**Definições de configuração do lista CLI do Azure**
+## <a name="azure-config-commands-to-manage-your-local-settings"></a>configuração do Azure: comandos para gerir as suas definições locais
+**Definições de configuração de CLI do Azure de lista**
 
     config list [options]
 
@@ -132,25 +132,25 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
 
     config set <name> <value>
 
-**Define o modo de trabalho da CLI do Azure para qualquer `arm` ou `asm`**
+**Define o modo de trabalho da CLI do Azure a qualquer uma `arm` ou `asm`**
 
     config mode [options] <modename>
 
 
-## <a name="azure-feature-commands-to-manage-account-features"></a>funcionalidade do Azure: comandos para gerir as funcionalidades de conta
-**Lista todas as funcionalidades disponíveis para a sua subscrição**
+## <a name="azure-feature-commands-to-manage-account-features"></a>funcionalidade do Azure: comandos para gerir recursos de contas
+**Listar todas as funcionalidades disponíveis para a sua subscrição**
 
     feature list [options]
 
-**Mostra uma funcionalidade**
+**Mostra um recurso**
 
     feature show [options] <providerName> <featureName>
 
-**Regista uma funcionalidade previewed de um fornecedor de recursos**
+**Regista uma funcionalidade visualizada de um fornecedor de recursos**
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>grupo do Azure: comandos para gerir os grupos de recursos
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>grupo do Azure: comandos para gerir os seus grupos de recursos
 **Cria um grupo de recursos**
 
     group create [options] <name> <location>
@@ -171,18 +171,18 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
 
     group show [options] <name>
 
-**Os comandos para gerir os registos do grupo de recursos**
+**Comandos para gerir os registos do grupo de recursos**
 
     group log show [options] [name]
 
-**Comandos para gerir a implementação de um grupo de recursos**
+**Comandos para gerir a implementação num grupo de recursos**
 
     group deployment create [options] [resource-group] [name]
     group deployment list [options] <resource-group> [state]
     group deployment show [options] <resource-group> [deployment-name]
     group deployment stop [options] <resource-group> [deployment-name]
 
-**Comandos para gerir o seu modelo do grupo de recursos locais ou de galeria**
+**Comandos para gerir o seu modelo de grupo de recursos locais ou de galeria**
 
     group template list [options]
     group template show [options] <name>
@@ -190,7 +190,7 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
     group template validate [options] <resource-group>
 
 ## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>o Azure hdinsight: comandos para gerir os seus clusters do HDInsight
-**Os comandos para criar ou adicionar a um ficheiro de configuração de cluster**
+**Comandos para criar ou adicionar a um ficheiro de configuração de cluster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
@@ -205,7 +205,7 @@ Exemplo: Crie um ficheiro de configuração que contém uma ação de script par
 
     hdinsight cluster create [options] <clusterName>
 
-Exemplo: Criar um Storm no cluster do Linux
+Exemplo: Criar um Storm num cluster do Linux
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
@@ -283,7 +283,7 @@ Opções de parâmetro:
 
     hdinsight cluster show [options] <clusterName>
 
-**Comando para listar todos os clusters (de um grupo de recurso específico, se fornecidas)**
+**Comando para listar todos os clusters (num grupo de recursos específico, se fornecido)**
 
     hdinsight cluster list [options]
 
@@ -299,7 +299,7 @@ Opções de parâmetro:
 
     hdinsight cluster disable-http-access [options] <clusterName>
 
-**Comando para ativar o acesso RDP para um cluster**
+**Comando para ativar o acesso do RDP para um cluster**
 
     hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
 
@@ -307,13 +307,13 @@ Opções de parâmetro:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>as informações do Azure: comandos relacionados com a monitorização Insights (eventos, regras de alertas, definições de dimensionamento automático, métricas)
-**Obter os registos de operações para uma subscrição, um correlationId, um grupo de recursos, recursos ou fornecedor de recursos**
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>informações do Azure: comandos relacionada com a monitorização de informações (eventos, regras de alerta, definições de dimensionamento automático, métricas)
+**Obter registos de operações para uma subscrição, um correlationId, um grupo de recursos, o recurso ou o fornecedor de recursos**
 
     insights logs list [options]
 
 ## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>localização do Azure: comandos para obter as localizações disponíveis para todos os tipos de recursos
-**Lista as localizações disponíveis**
+**Listar as localizações disponíveis**
 
     location list [options]
 
@@ -321,7 +321,7 @@ Opções de parâmetro:
 **Comandos para gerir redes virtuais**
 
     network vnet create [options] <resource-group> <name> <location>
-Cria uma rede virtual. No exemplo seguinte, iremos criar uma rede virtual denominada newvnet para myresourcegroup do grupo de recursos na região EUA oeste.
+Cria uma rede virtual. No exemplo a seguir, vamos criar uma rede virtual denominada newvnet para o grupo de recursos myresourcegroup na região E.U.A. oeste.
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -364,7 +364,7 @@ Opções de parâmetro:
 
     network vnet set [options] <resource-group> <name>
 
-As atualizações de uma configuração de rede virtual dentro de um grupo de recursos.
+Atualiza uma configuração de rede virtual dentro de um grupo de recursos.
 
     azure network vnet set myresourcegroup newvnet
 
@@ -412,7 +412,7 @@ Opções de parâmetro:
 
     network vnet list [options] <resource-group>
 
-O comando apresenta uma lista de todas as redes virtuais num grupo de recursos.
+O comando lista todas as redes virtuais num grupo de recursos.
 
     C:\>azure network vnet list myresourcegroup
 
@@ -437,7 +437,7 @@ Opções de parâmetro:
 <BR>
 
     network vnet show [options] <resource-group> <name>
-O comando mostra as propriedades de rede virtuais num grupo de recursos.
+O comando mostra as propriedades de rede virtual num grupo de recursos.
 
     azure network vnet show -g myresourcegroup -n newvnet
 
@@ -577,7 +577,7 @@ Opções de parâmetro:
 <BR>
 
     network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
-Remove uma sub-rede da rede virtual existente.
+Remove uma sub-rede de uma rede virtual existente.
 
     azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -601,7 +601,7 @@ Opções de parâmetro:
 **Comandos para gerir os balanceadores de carga**
 
     network lb create [options] <resource-group> <name> <location>
-Cria um conjunto de Balanceador de carga.
+Cria um conjunto de balanceadores de carga.
 
     azure network lb create -g myresourcegroup -n mylb -l westus
 
@@ -631,7 +631,7 @@ Opções de parâmetro:
 <BR>
 
     network lb list [options] <resource-group>
-Apresenta uma lista de recursos de Balanceador de carga dentro de um grupo de recursos.
+Apresenta uma lista de recursos do Balanceador de carga dentro de um grupo de recursos.
 
     azure network lb list myresourcegroup
 
@@ -653,7 +653,7 @@ Opções de parâmetro:
 
     network lb show [options] <resource-group> <name>
 
-Apresenta informações de um balanceador de carga específicos dentro de um grupo de recursos do Balanceador de carga
+Apresenta informações de um balanceador de carga específico dentro de um grupo de recursos do Balanceador de carga
 
     azure network lb show myresourcegroup mylb -v
 
@@ -679,7 +679,7 @@ Opções de parâmetro:
 
     network lb delete [options] <resource-group> <name>
 
-Elimine recursos de Balanceador de carga.
+Elimine recursos do Balanceador de carga.
 
     azure network lb delete  myresourcegroup mylb
 
@@ -699,11 +699,11 @@ Opções de parâmetro:
      -q, --quiet                            quiet mode, do not ask for delete confirmation
      -s, --subscription <subscription>      the subscription identifier
 
-**Comandos para gerir as pesquisas de um balanceador de carga**
+**Comandos para gerir as sondas do Balanceador de carga**
 
     network lb probe create [options] <resource-group> <lb-name> <name>
 
-Crie a configuração de pesquisa para o estado de funcionamento no balanceador de carga. Tenha em atenção para executar este comando, o seu Balanceador de carga requer um recurso de ip de front-end (modificação do comando "azure network ip de front-end" para atribuir um endereço ip para o Balanceador de carga).
+Crie a configuração de sonda de estado de funcionamento no balanceador de carga. Lembre-se para executar este comando, o Balanceador de carga requer um recurso de ip de front-end (veja "rede do azure ip de front-end" de comando para atribuir um endereço ip ao balanceador de carga).
 
     azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
 
@@ -731,7 +731,7 @@ Opções de parâmetro:
 
     network lb probe set [options] <resource-group> <lb-name> <name>
 
-Atualiza uma sonda do Balanceador de carga existente com novos valores para o mesmo.
+Atualiza uma sonda de Balanceador de carga existente com novos valores para o mesmo.
 
     azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
 
@@ -759,7 +759,7 @@ Opções de parâmetros
 
     network lb probe list [options] <resource-group> <lb-name>
 
-Lista as propriedades de pesquisa para um conjunto de Balanceador de carga.
+Liste as propriedades de pesquisa para um conjunto de balanceadores de carga.
 
     C:\>azure network lb probe list -g myresourcegroup -l mylb
 
@@ -791,10 +791,10 @@ Remove a sonda criada para o Balanceador de carga.
     + Updating load balancer "mylb"
     info:    network lb probe delete command OK
 
-**Comandos para gerir configurações de ip de front-end de Balanceador de carga**
+**Comandos para gerir configurações de ip de front-end de um balanceador de carga**
 
     network lb frontend-ip create [options] <resource-group> <lb-name> <name>
-Cria uma configuração de IP de front-end para um conjunto de Balanceador de carga existente.
+Cria uma configuração de IP de front-end para um conjunto de balanceadores de carga existente.
 
     azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
 
@@ -822,7 +822,7 @@ Cria uma configuração de IP de front-end para um conjunto de Balanceador de ca
 
     network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-As atualizações de uma configuração existente de um IP de front-end. O comando abaixo adiciona um IP público chamado mypubip5 para um IP de front-end do Balanceador de carga existente com o nome myfrontendip.
+Atualiza uma configuração existente de um IP de front-end. O comando a seguir adiciona um IP público chamado mypubip5 para um IP de front-end do Balanceador de carga existente com o nome myfrontendip.
 
     azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 
@@ -913,7 +913,7 @@ Opções de parâmetro:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Comandos para gerir conjuntos de endereços de back-end de Balanceador de carga**
+**Comandos para gerir conjuntos de endereços de back-end de um balanceador de carga**
 
     network lb address-pool create [options] <resource-group> <lb-name> <name>
 
@@ -948,7 +948,7 @@ Opções de parâmetro:
 
     network lb address-pool list [options] <resource-group> <lb-name>
 
-Lista o intervalo do conjunto de endereços IP do back-end de um grupo de recurso específico
+Intervalo do conjunto de endereços IP do back-end para um grupo de recursos específicos de lista
 
     azure network lb address-pool list -g myresourcegroup -l mylb
 
@@ -971,7 +971,7 @@ Opções de parâmetro:
 <BR>
     eliminar o conjunto de endereços do lb rede [opções] < resource-group >< lb-name > <name>
 
-Remove o recurso de intervalo do conjunto IP back-end do Balanceador de carga.
+Remove o recurso de intervalo de conjunto IP de back-end do Balanceador de carga.
 
     azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
 
@@ -992,14 +992,14 @@ Opções de parâmetro:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Comandos para gerir as regras de Balanceador de carga**
+**Comandos para gerir as regras do Balanceador de carga**
 
     network lb rule create [options] <resource-group> <lb-name> <name>
-Crie as regras de Balanceador de carga.
+Crie regras de Balanceador de carga.
 
-Pode criar uma regra de Balanceador de carga configurar o ponto final de front-end de Balanceador de carga e o intervalo de conjunto de endereços de back-end para receber o tráfego de rede de entrada. As definições também incluem as portas para o ponto final IP de front-end e portas para o intervalo de conjunto de endereços de back-end.
+Pode criar uma regra de Balanceador de carga configurar o ponto de final de front-end do Balanceador de carga e o intervalo de conjunto de endereços de back-end para receber o tráfego de rede recebido. As definições também incluem as portas para o intervalo de conjunto de endereços de back-end e de portas para o ponto final IP de front-end.
 
-O exemplo seguinte mostra como criar uma regra de Balanceador de carga, o ponto final de front-end a escutar a porta 80 TCP e envio para a porta 8080 para o intervalo de conjunto de endereços de back-end o tráfego de rede balanceamento de carga.
+O exemplo seguinte mostra como criar uma regra de Balanceador de carga, o ponto final de front-end escutar a porta 80 TCP e enviar para a porta 8080 para o intervalo de conjunto de endereços de back-end o tráfego de rede balanceamento de carga.
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
@@ -1027,7 +1027,7 @@ O exemplo seguinte mostra como criar uma regra de Balanceador de carga, o ponto 
 
     network lb rule set [options] <resource-group> <lb-name> <name>
 
-Atualiza uma regra de Balanceador de carga existente definida num grupo de recursos específico. No exemplo seguinte, Alterámos o nome da regra de mylbrule para mynewlbrule.
+Atualiza uma regra de Balanceador de carga existente definida no grupo de recursos específico. No exemplo seguinte, Alterámos o nome da regra de mylbrule para mynewlbrule.
 
     azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
 
@@ -1072,7 +1072,7 @@ Opções de parâmetro:
 
     network lb rule list [options] <resource-group> <lb-name>
 
-Apresenta uma lista de todos os configurado para um balanceador de carga num grupo de recursos específico de regras de Balanceador de carga.
+Lista todas as configuradas para um balanceador de carga num grupo de recursos específico de regras do Balanceador de carga.
 
     azure network lb rule list -g myresourcegroup -l mylb
 
@@ -1120,7 +1120,7 @@ Opções de parâmetro:
     network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
 Cria uma regra NAT de entrada para o Balanceador de carga.
 
-No exemplo seguinte foi criada uma regra NAT do IP de front-end (o que estava definido anteriormente utilizando o comando "azure network ip de front-end") com uma porta de escuta de entrada e a porta de saída que utiliza o Balanceador de carga para enviar o tráfego de rede.
+No exemplo a seguir que criámos uma regra NAT de IP de front-end (o que estava definido anteriormente com o comando "azure network ip de front-end") com uma porta de escuta de entrada e saída através da porta que o Balanceador de carga utiliza para enviar o tráfego de rede.
 
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
@@ -1162,7 +1162,7 @@ Opções de parâmetro:
 <BR>
 
     network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
-Atualiza uma regra nat de entrada existente. No exemplo seguinte, Alterámos a porta de escuta de entrada de 80 para 81.
+Atualiza uma regra nat de entrada existente. No exemplo seguinte, Alterámos a porta de escuta de entrada de 80 a 81.
 
     azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
 
@@ -1205,7 +1205,7 @@ Opções de parâmetro:
 
     network lb inbound-nat-rule list [options] <resource-group> <lb-name>
 
-Apresenta uma lista de todas as regras de nat de entrada do Balanceador de carga.
+Apresenta uma lista de todas as regras de nat de entrada para o Balanceador de carga.
 
     azure network lb inbound-nat-rule list -g myresourcegroup -l mylb
 
@@ -1254,7 +1254,7 @@ Opções de parâmetro:
 **Comandos para gerir endereços ip públicos**
 
     network public-ip create [options] <resource-group> <name> <location>
-Cria um recurso de ip público. Irá criar o recurso de ip público e associar a um nome de domínio.
+Cria um recurso de ip público. Irá criar o recurso de ip público e associe a um nome de domínio.
 
     azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d azureclitest -a "Dynamic"
     info:    Executing command network public-ip create
@@ -1294,7 +1294,7 @@ Opções de parâmetro:
 <br>
 
     network public-ip set [options] <resource-group> <name>
-Atualiza as propriedades de um recurso de ip público existente. No exemplo seguinte Alterámos o endereço IP público do dinâmico para estático.
+Atualiza as propriedades de um recurso de ip público existente. No exemplo a seguir Alterámos o endereço IP público de dinâmico para estático.
 
     azure network public-ip set -g group-1 -n mytestpublicip1 -d azureclitest -a "Static"
     info:    Executing command network public-ip set
@@ -1333,7 +1333,7 @@ Opções de parâmetro:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    lista de ip público de rede [opções] < resource-group > apresenta uma lista de todos os recursos do IP público dentro de um grupo de recursos.
+    lista de public-ip de rede [opções] < resource-group > lista todos os recursos de IP público dentro de um grupo de recursos.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1354,7 +1354,7 @@ Opções de parâmetro:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    público-ip da rede Mostrar [opções] < resource-group > <name>
+    rede public-ip Mostrar [opções] < grupo de recursos > <name>
 
 Apresenta as propriedades de ip público para um recurso de ip público dentro de um grupo de recursos.
 
@@ -1409,7 +1409,7 @@ Opções de parâmetro:
 **Comandos para gerir as interfaces de rede**
 
     network nic create [options] <resource-group> <name> <location>
-Cria um recurso chamado interface de rede (NIC) que pode ser utilizado para balanceadores de carga ou associar a uma Máquina Virtual.
+Cria um recurso chamado de interface de rede (NIC) que pode ser utilizada para balanceadores de carga ou associar a uma Máquina Virtual.
 
     azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 
@@ -1504,8 +1504,8 @@ Opções de parâmetro:
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>o fornecedor do Azure: comandos para gerir registos do fornecedor de recursos
-**Lista de fornecedores atualmente registados no Gestor de recursos**
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>o fornecedor do Azure: comandos para gerir os registos do fornecedor de recursos
+**Lista de fornecedores atualmente registados no Resource Manager**
 
     provider list [options]
 
@@ -1513,7 +1513,7 @@ Opções de parâmetro:
 
     provider show [options] <namespace>
 
-**A registar o fornecedor de subscrição**
+**Registar o fornecedor com a subscrição**
 
     provider register [options] <namespace>
 
@@ -1526,11 +1526,11 @@ Opções de parâmetro:
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
 
-**Atualiza um recurso num grupo de recursos sem quaisquer parâmetros ou modelos**
+**Atualiza um recurso num grupo de recursos sem quaisquer modelos ou parâmetros**
 
     resource set [options] <resource-group> <name> <resource-type> <properties> <api-version>
 
-**Apresenta uma lista de recursos**
+**Lista os recursos**
 
     resource list [options] [resource-group]
 
@@ -1551,14 +1551,14 @@ Opções de parâmetro:
 
     role show [options] [name]
 
-**Comandos para gerir a sua atribuição de função**
+**Comandos para gerir a atribuição de funções**
 
     role assignment create [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>armazenamento do Azure: comandos para gerir os seus objetos de armazenamento
-**Comandos para gerir as contas de armazenamento**
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>o armazenamento do Azure: comandos para gerir os seus objetos de armazenamento
+**Comandos para gerir as suas contas de armazenamento**
 
     storage account list [options]
     storage account show [options] <name>
@@ -1566,7 +1566,7 @@ Opções de parâmetro:
     storage account set [options] <name>
     storage account delete [options] <name>
 
-**Os comandos para gerir as chaves de conta de armazenamento**
+**Comandos para gerir as chaves de conta de armazenamento**
 
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
@@ -1575,7 +1575,7 @@ Opções de parâmetro:
 
     storage account connectionstring show [options] <name>
 
-**Comandos para gerir os contentores de armazenamento**
+**Comandos para gerir os seus contentores de armazenamento**
 
     storage container list [options] [prefix]
     storage container show [options] [container]
@@ -1583,11 +1583,11 @@ Opções de parâmetro:
     storage container delete [options] [container]
     storage container set [options] [container]
 
-**As assinaturas do contentor de armazenamento de acesso de comandos para gerir partilhado**
+**Assinaturas do seu contentor de armazenamento de acesso de comandos para gerir partilhado**
 
     storage container sas create [options] [container] [permissions] [expiry]
 
-**Políticas de contentor de armazenamento de acesso de comandos para gerir armazenados**
+**Políticas do seu contentor de armazenamento de acesso de comandos para gerir armazenado**
 
     storage container policy create [options] [container] [name]
     storage container policy show [options] [container] [name]
@@ -1609,11 +1609,11 @@ Opções de parâmetro:
     storage blob copy show [options] [container] [blob]
     storage blob copy stop [options] [container] [blob] [copyid]
 
-**Assinatura do blob de armazenamento de acesso de comandos para gerir partilhado**
+**A assinatura dos seus BLOBs de armazenamento de acesso de comandos para gerir partilhado**
 
     storage blob sas create [options] [container] [blob] [permissions] [expiry]
 
-**Os comandos para gerir as partilhas de ficheiros de armazenamento**
+**Comandos para gerir as partilhas de ficheiros de armazenamento**
 
     storage share create [options] [share]
     storage share show [options] [share]
@@ -1639,11 +1639,11 @@ Opções de parâmetro:
     storage queue show [options] [queue]
     storage queue delete [options] [queue]
 
-**Assinaturas de uma fila de armazenamento de acesso de comandos para gerir partilhado**
+**Assinaturas da sua fila de armazenamento de acesso de comandos para gerir partilhado**
 
     storage queue sas create [options] [queue] [permissions] [expiry]
 
-**Políticas da sua fila de armazenamento de acesso de comandos para gerir armazenados**
+**Políticas da sua fila de armazenamento de acesso de comandos para gerir armazenado**
 
     storage queue policy create [options] [queue] [name]
     storage queue policy show [options] [queue] [name]
@@ -1651,28 +1651,28 @@ Opções de parâmetro:
     storage queue policy set [options] [queue] [name]
     storage queue policy delete [options] [queue] [name]
 
-**Os comandos para gerir as propriedades de registo de armazenamento**
+**Comandos para gerir as propriedades de registo de armazenamento**
 
     storage logging show [options]
     storage logging set [options]
 
-**Comandos para gerir as propriedades de métricas de armazenamento**
+**Comandos para gerir as suas propriedades de métricas de armazenamento**
 
     storage metrics show [options]
     storage metrics set [options]
 
-**Comandos para gerir as tabelas de armazenamento**
+**Comandos para gerir as suas tabelas de armazenamento**
 
     storage table create [options] [table]
     storage table list [options] [prefix]
     storage table show [options] [table]
     storage table delete [options] [table]
 
-**As assinaturas da sua tabela de armazenamento de acesso de comandos para gerir partilhado**
+**Assinaturas da sua tabela de armazenamento de acesso de comandos para gerir partilhado**
 
     storage table sas create [options] [table] [permissions] [expiry]
 
-**Políticas da sua tabela de armazenamento de acesso de comandos para gerir armazenados**
+**Políticas da sua tabela de armazenamento de acesso de comandos para gerir armazenado**
 
     storage table policy create [options] [table] [name]
     storage table policy show [options] [table] [name]
@@ -1680,16 +1680,16 @@ Opções de parâmetro:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>etiqueta do Azure: comandos para gerir a tag de Gestor de recursos
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>etiqueta do Azure: comandos para gerir a sua etiqueta de Gestor de recursos
 **Adicionar uma etiqueta**
 
     tag create [options] <name> <value>
 
-**Remover uma etiqueta de toda ou um valor de etiqueta**
+**Remover uma etiqueta de inteira ou um valor de etiqueta**
 
     tag delete [options] <name> <value>
 
-**Lista as informações de etiqueta**
+**Lista as informações da etiqueta**
 
     tag list [options]
 
@@ -1697,7 +1697,7 @@ Opções de parâmetro:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>vm do Azure: comandos para gerir as máquinas virtuais do Azure
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>vm do Azure: comandos para gerir máquinas virtuais do Azure
 **Criar uma VM**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1707,7 +1707,7 @@ Opções de parâmetro:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> A partir da CLI versão 0.10, pode fornecer um alias de curto, tais como "UbuntuLTS" ou "Win2012R2Datacenter" como o `image-urn` para algumas imagens do Marketplace populares. Executar `azure help vm quick-create` para opções. Além disso, começando com a versão 0.10, `azure vm quick-create` utiliza armazenamento premium por predefinição, se estiver disponível na região selecionada.
+> A partir da versão 0.10 da CLI, pode fornecer um alias curto, como "UbuntuLTS" ou "Win2012R2Datacenter" como o `image-urn` para algumas imagens populares do Marketplace. Executar `azure help vm quick-create` para opções. Além disso, a partir da versão 0.10, `azure vm quick-create` utiliza o armazenamento premium por predefinição, se estiver disponível na região selecionada.
 > 
 > 
 
@@ -1731,7 +1731,7 @@ Opções de parâmetro:
 
     vm restart [options] <resource-group> <name>
 
-**Inicie uma máquina virtual dentro de um grupo de recursos**
+**Iniciar uma máquina virtual dentro de um grupo de recursos**
 
     vm start [options] <resource-group> <name>
 
@@ -1739,11 +1739,11 @@ Opções de parâmetro:
 
     vm deallocate [options] <resource-group> <name>
 
-**Listar tamanhos de máquina virtual disponíveis**
+**Listar tamanhos de máquina virtual de disponibilidade**
 
     vm sizes [options]
 
-**A VM como imagem VM ou de imagem do SO de captura**
+**Capturar a VM como imagem de VM ou de imagem do SO**
 
     vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
@@ -1755,15 +1755,15 @@ Opções de parâmetro:
 
     vm get-instance-view [options] <resource-group> <name>
 
-**Permitem-lhe para repor as definições de acesso de ambiente de trabalho remoto ou SSH numa máquina Virtual e para repor a palavra-passe para a conta de administrador ou da autoridade de sudo**
+**Permitir que para repor as definições de acesso de ambiente de trabalho remoto ou SSH numa máquina Virtual e para repor a palavra-passe para a conta que tem autoridade de sudo ou de administrador**
 
     vm reset-access [options] <resource-group> <name>
 
-**Atualizar a VM com novos dados**
+**Atualizar VM com novos dados**
 
     vm set [options] <resource-group> <name>
 
-**Comandos para gerir os discos de dados de Máquina Virtual**
+**Comandos para gerir discos de dados da Máquina Virtual**
 
     vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]
     vm disk detach [options] <resource-group> <vm-name> <lun>
@@ -1778,7 +1778,7 @@ Opções de parâmetro:
 
     vm docker create [options] <resource-group> <name> <location> <os-type>
 
-**Comandos para gerir imagens VM**
+**Comandos para gerir imagens de VM**
 
     vm image list-publishers [options] <location>
     vm image list-offers [options] <location> <publisher>

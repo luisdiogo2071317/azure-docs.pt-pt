@@ -1,5 +1,5 @@
 ---
-title: Dependência de controlo no Azure Application Insights | Microsoft Docs
+title: Dependência de controlo no Application Insights do Azure | Documentos da Microsoft
 description: Analise a utilização, a disponibilidade e o desempenho da aplicação Web no local ou do Microsoft Azure com o Application Insights.
 services: application-insights
 documentationcenter: .net
@@ -13,143 +13,143 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999707"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
-A *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado utilizando HTTP, ou uma base de dados ou um sistema de ficheiros. [Application Insights](app-insights-overview.md) mede o tempo durante o qual a aplicação aguarda dependências e frequência uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
+R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
 
 ![gráficos de exemplo](./media/app-insights-asp-net-dependencies/10-intro.png)
 
-O monitor de dependência de out of box atualmente relatórios chamadas a estes tipos de dependências:
+O monitor de dependência de out-of-the-box relatórios atualmente chamadas para esses tipos de dependências:
 
 * Servidor
   * Bases de dados SQL
-  * Web do ASP.NET e serviços WCF que utilizam enlaces baseado em HTTP
+  * ASP.NET web e serviços do WCF que usar associações com base em HTTP
   * Chamadas HTTP locais ou remotas
-  * Azure Cosmos DB, tabela, armazenamento de BLOBs e fila
+  * Azure Cosmos DB, tabela, armazenamento de BLOBs e filas
 * Páginas Web
   * Chamadas AJAX
 
-Monitorização funciona utilizando [instrumentação de código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) à volta de métodos selecionados. Overhead de desempenho é mínimo.
+A monitorização funciona utilizando [instrumentação de código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) em torno de métodos selecionados. Sobrecarga de desempenho é mínima.
 
-Também pode escrever o seus próprio chamadas SDK para monitorizar outras dependências, ambos no código de cliente e servidor, utilizando o [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+Também pode escrever suas próprias chamadas SDK para monitorizar outras dependências, ambos no código de cliente e servidor, utilizando o [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Configurar a monitorização de dependência
-Informações de dependência parcial são recolhidas automaticamente pelo [Application Insights SDK](app-insights-asp-net.md). Para obter dados completo, instale o agente adequado para o servidor anfitrião.
+Informações de dependência parciais são recolhidas automaticamente pelos [SDK do Application Insights](app-insights-asp-net.md). Para obter dados completos, instale o agente adequado para o servidor de anfitrião.
 
 | Plataforma | Instalar |
 | --- | --- |
-| Servidor IIS |O [instalar Monitor de estado no seu servidor](app-insights-monitor-performance-live-website-now.md) ou [atualizar a sua aplicação para o .NET framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [Application Insights SDK](app-insights-asp-net.md) na sua aplicação. |
-| Aplicação Web do Azure |No painel de controlo de aplicação da web, [abrir o painel do Application Insights no seu painel de controlo de aplicação web](app-insights-azure-web-apps.md) e escolha a instalação, se lhe for pedido. |
-| Serviço em nuvem do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Servidor IIS |Qualquer um dos [instalar o Monitor de estado no seu servidor](app-insights-monitor-performance-live-website-now.md) ou [atualizar a sua aplicação para o .NET framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instale o [SDK do Application Insights](app-insights-asp-net.md) na sua aplicação. |
+| Aplicação Web do Azure |No seu painel de controlo de aplicação web, [abrir o painel do Application Insights no seu painel de controlo de aplicação web](app-insights-azure-web-apps.md) e escolha a instalação, se lhe for pedido. |
+| Serviço Cloud do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
-## <a name="where-to-find-dependency-data"></a>Onde encontrar dados de dependência
-* [O mapeamento de aplicações](#application-map) visualiza dependências entre a aplicação e componentes circundantes.
-* [Painéis de desempenho, browser e falha](#performance-and-blades) mostram os dados de dependência de servidor.
-* [Painel browsers](#ajax-calls) mostra as chamadas AJAX browsers dos seus utilizadores.
-* [Clique em através de pedidos lentos ou falhados](#diagnose-slow-requests) verificar a respetiva dependência chamadas.
-* [Análise de](#analytics) podem ser utilizadas para consultar dados de dependência.
+## <a name="where-to-find-dependency-data"></a>Onde encontrar os dados de dependência
+* [Mapa da aplicação](#application-map) visualiza as dependências entre as suas aplicações e componentes vizinhos.
+* [Os painéis de desempenho, navegadores e falha](#performance-and-blades) Mostrar dados de dependência de servidor.
+* [Painel browsers](#ajax-calls) mostra as chamadas AJAX de browsers dos seus utilizadores.
+* [Clicar a partir de pedidos de lentos ou com falha](#diagnose-slow-requests) verificar sua dependência chama.
+* [Análise](#analytics) pode ser usado para consultar dados de dependência.
 
 ## <a name="application-map"></a>Mapeamento de Aplicações
-O mapeamento de aplicações funciona como um auxiliar visual para detetar as dependências entre os componentes da aplicação. É gerado automaticamente de telemetria a partir da sua aplicação. Este exemplo mostra as chamadas AJAX de scripts do browser e chamadas REST da aplicação de servidor para dois serviços externos.
+Mapa da aplicação atua como uma ajuda visual para detetar as dependências entre os componentes da sua aplicação. É gerado automaticamente da telemetria da sua aplicação. Este exemplo mostra as chamadas AJAX dos scripts de navegador e chamadas REST a partir da aplicação de servidor para dois serviços externos.
 
 ![Mapeamento de Aplicações](./media/app-insights-asp-net-dependencies/08.png)
 
-* **Navegue das caixas de** relevante dependência e outros gráficos.
-* **Afixar o mapa** para o [dashboard](app-insights-dashboards.md), onde ficará totalmente funcional.
+* **Navegar das caixas de** dependência relevante e outros gráficos.
+* **Afixar mapa** para o [dashboard](app-insights-dashboards.md), onde será totalmente funcional.
 
 [Saiba mais](app-insights-app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Painéis de desempenho e falha
-O painel desempenho mostra a duração das chamadas de dependência efetuadas pela aplicação de servidor. Não há um gráfico de resumo e uma tabela segmentada por chamada.
+O painel de desempenho mostra a duração das chamadas de dependência efetuadas pela aplicação de servidor. Existe um gráfico de resumo e uma tabela segmentados por chamada.
 
 ![Gráficos de dependência do painel de desempenho](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
 
-Clique nos gráficos de resumo ou os itens de tabela para procurar ocorrências em bruto destas chamadas.
+Clique nos gráficos de resumos ou os itens da tabela para procurar ocorrências não processadas dessas chamadas.
 
 ![Instâncias de chamada de dependência](./media/app-insights-asp-net-dependencies/dependency-call-instance.png)
 
-**Contagens de falhas** são apresentadas no **falhas** painel. Uma falha é qualquer código de retorno que não se encontra no intervalo 200-399, ou desconhecido.
+**Contagens de falhas** são mostrados os **falhas** painel. Uma falha é qualquer código de retorno não está no intervalo 200-399, ou desconhecido.
 
 > [!NOTE]
-> **falhas de 100%?** -Isto provavelmente indica que apenas está a obter dados de dependência parcial. Terá de [configurar monitorização de dependência adequado para a sua plataforma](#set-up-dependency-monitoring).
+> **100% de falhas?** -Isso provavelmente indica que está a obter apenas dados parciais de dependência. Precisa [configurar a monitorização de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
 >
 >
 
 ## <a name="ajax-calls"></a>Chamadas AJAX
-O painel Browsers mostra a taxa de falha e duração de chamadas AJAX de [JavaScript nas suas páginas web](app-insights-javascript.md). Estas são apresentadas como dependências.
+O painel Browsers mostra a taxa de duração e de falha de chamadas AJAX partir [JavaScript em páginas da web](app-insights-javascript.md). Eles são apresentados como dependências.
 
-## <a name="diagnosis"></a> Diagnosticar pedidos lenta
-Cada evento do pedido está associado com as chamadas de dependência, exceções e outros eventos que são controlados enquanto a aplicação está a processar o pedido. Por isso, se algumas pedidos estão a funcionar incorretamente, pode descobrir se é devido a respostas lentas do que uma dependência.
+## <a name="diagnosis"></a> Diagnosticar pedidos lentos
+Cada evento do pedido está associado com as chamadas de dependência, exceções e outros eventos que são controlados enquanto a aplicação está a processar o pedido. Portanto, se alguns pedidos estão a funcionar incorretamente, pode descobrir se ele é devido a respostas lentas do que uma dependência.
 
-Vamos guiá-lo através de um exemplo desse.
+Vamos examinar um exemplo disso.
 
 ### <a name="tracing-from-requests-to-dependencies"></a>Rastreio de pedidos para dependências
-Abra o painel desempenho e observe a grelha de pedidos:
+Abra o painel desempenho e examinar a grade de pedidos:
 
-![Lista de pedidos com médias e contagens](./media/app-insights-asp-net-dependencies/02-reqs.png)
+![Lista de pedidos com contagens e médias](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
-Dos principais está a demorar muito tempo. Vamos ver se podemos pode saber em que o tempo é gasto.
+Principal aquele está a demorar muito tempo. Vejamos se conseguimos perceber em que o tempo é gasto.
 
 Clique nessa linha para ver eventos de pedidos individuais:
 
 ![Lista de ocorrências de pedido](./media/app-insights-asp-net-dependencies/03-instances.png)
 
-Clique em qualquer instância de execução longa analisá-lo mais e desloque para baixo para as chamadas de dependência remoto relacionados com este pedido:
+Clique em qualquer instância de execução longa inspecioná-la ainda mais e desloque para baixo para as chamadas de dependência remoto relacionados com este pedido:
 
-![Localizar chamadas para dependências remotas, identifique a duração de atividade invulgar](./media/app-insights-asp-net-dependencies/04-dependencies.png)
+![Encontre as chamadas para dependências remotas, identifique a duração invulgar](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
-Se parece com a maioria do tempo de manutenção que este pedido foi despendido numa chamada para um serviço local.
+Ele se parece com a maioria do tempo de manutenção que este pedido foi gasto numa chamada para um serviço local.
 
 Selecione essa linha para obter mais informações:
 
-![Clique em através desse dependência remota para identificar o culprit](./media/app-insights-asp-net-dependencies/05-detail.png)
+![Clique nessa dependência remota para identificar o culpado](./media/app-insights-asp-net-dependencies/05-detail.png)
 
-Parece que esta é a onde o problema. Iremos tiver pinpointed o problema, por isso, agora vamos apenas precisa de saber por que motivo chamada de que está a demorar tempo.
+Parece que este é onde está o problema. Vamos ter apontada o problema, então, agora nós apenas precisa descobrir por que essa chamada está demorando tanto.
 
 ### <a name="request-timeline"></a>Linha cronológica de pedido
-Caso diferente, não há nenhuma chamada de dependência particularmente longo. Mas, ao mudar para a vista de linha cronológica, é possível ver onde o atraso ocorreu no nosso processamento interno:
+Num outro caso, não existe nenhuma chamada de dependência é bastante longa. Mas, ao mudar para a vista de linha do tempo, podemos ver onde o atraso ocorreu no nosso processamento interno:
 
-![Localizar chamadas para dependências remotas, identifique a duração de atividade invulgar](./media/app-insights-asp-net-dependencies/04-1.png)
+![Encontre as chamadas para dependências remotas, identifique a duração invulgar](./media/app-insights-asp-net-dependencies/04-1.png)
 
-Parece haver um intervalo de grande Depois de chamar a dependência primeiro, pelo que deverá ter um aspeto no nosso código por que motivo que se encontra.
+Parece haver uma grande lacuna depois de chamar a primeira dependência, portanto, o que devemos olhar nosso código para ver por que isso é.
 
-### <a name="profile-your-live-site"></a>Perfil do site em direto
+### <a name="profile-your-live-site"></a>Perfil de seu site em direto
 
-Não existem ideia onde o tempo passa? O [gerador de perfis do Application Insights](app-insights-profiler.md) rastreios HTTP chama para o seu site em direto e mostra as funções no código demoraram o tempo mais longo.
+Não sabe onde o tempo passa? O [criador de perfil do Application Insights](app-insights-profiler.md) rastreios HTTP chama-se ao seu site em direto e mostra quais as funções em seu código demorou muito tempo.
 
 ## <a name="failed-requests"></a>Pedidos falhados
-Também podem ser associados com chamadas falhadas para dependências pedidos falhados. Novamente, iremos pode clicar para identificar o problema.
+Também podem ser associados a chamadas falhadas para dependências de pedidos falhados. Novamente, podemos clicar por meio de rastrear o problema.
 
-![Clique em do gráfico de pedidos falhados](./media/app-insights-asp-net-dependencies/06-fail.png)
+![Clique no gráfico de pedidos falhados](./media/app-insights-asp-net-dependencies/06-fail.png)
 
-Clique em através de uma ocorrência de um pedido falhado e observar os eventos associados.
+Clicar para uma ocorrência de um pedido falhado e examinar seus eventos associados.
 
-![Clique num tipo de pedido, clique na instância para obter uma vista diferente da mesma instância, clique nela para obter detalhes da exceção.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
+![Clique num tipo de pedido, clique na instância para obter uma exibição diferente da instância do mesmo, clique nele para obter detalhes da exceção.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análise
-Pode controlar as dependências no [idioma de consulta de análise de registos](https://docs.loganalytics.io/). Eis alguns exemplos.
+Pode controlar as dependências no [linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage). Eis alguns exemplos.
 
-* Localize quaisquer chamadas de falha de dependência:
+* Encontre quaisquer chamadas de dependência falhadas:
 
 ```
 
     dependencies | where success != "True" | take 10
 ```
 
-* Localize as chamadas AJAX:
+* Encontre as chamadas AJAX:
 
 ```
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
-* Localize associadas aos pedidos de chamadas de dependência:
+* Encontre associadas a pedidos de chamadas de dependência:
 
 ```
 
@@ -160,7 +160,7 @@ Pode controlar as dependências no [idioma de consulta de análise de registos](
 ```
 
 
-* Localizar as chamadas AJAX associadas a vistas de página:
+* Encontre as chamadas AJAX associadas a vistas de página:
 
 ```
 
@@ -172,12 +172,12 @@ Pode controlar as dependências no [idioma de consulta de análise de registos](
 
 
 
-## <a name="custom-dependency-tracking"></a>Controlo de dependência personalizada
-O módulo de registo de dependência padrão Deteta automaticamente as dependências externas, como bases de dados e REST APIs. Mas é aconselhável que alguns componentes adicionais para ser tratados da mesma forma.
+## <a name="custom-dependency-tracking"></a>Controlo de dependência personalizadas
+O módulo de controlo de dependência padrão Deteta automaticamente as dependências externas, tais como bases de dados e REST APIs. Mas talvez tenha alguns componentes adicionais para ser tratados da mesma forma.
 
-Pode escrever o código que envia as informações de dependência com o mesmo [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) que é utilizado por módulos de padrão.
+Pode escrever código que envia informações de dependência, com o mesmo [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) que é utilizada pelos módulos padrão.
 
-Por exemplo, se criar o seu código com uma assemblagem que não tenha de escrever pessoalmente, foi tempo todas as chamadas, para saber que contribuição faz com que os tempos de resposta. Para que estes dados apresentados nos gráficos de dependência no Application Insights, envia-as utilizando `TrackDependency`.
+Por exemplo, se criar seu código com um assembly que não escrever por conta própria, tempo todas as chamadas para o mesmo, para descobrir o que faz para os tempos de resposta de contribuição. Para que estes dados apresentados nos gráficos de dependência no Application Insights, enviá-la usando `TrackDependency`.
 
 ```csharp
 
@@ -196,20 +196,20 @@ Por exemplo, se criar o seu código com uma assemblagem que não tenha de escrev
             }
 ```
 
-Se pretender desactivar o módulo de registo de dependência padrão, remova a referência DependencyTrackingTelemetryModule no [Applicationinsights](app-insights-configuration-with-applicationinsights-config.md).
+Se quiser optar por desativar o módulo de controlo de dependência padrão, remova a referência DependencyTrackingTelemetryModule na [applicationinsights. config](app-insights-configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-*Sucesso de dependência sempre sinalizador mostra true ou false.*
+*Sucesso de dependência sempre sinalizar mostra verdadeira ou falsa.*
 
-*Consulta SQL não mostrada no completo.*
+*Consulta SQL não é apresentada por completo.*
 
-Consulte a tabela abaixo e assegurar que escolheu a configuração correta para ativar a monitorização de dependência para a sua aplicação.
+Consulte a tabela abaixo e assim garantir que escolheu a configuração correta para ativar a monitorização de dependência para a sua aplicação.
 
 | Plataforma | Instalar |
 | --- | --- |
-| Servidor IIS |O [instalar Monitor de estado no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar a sua aplicação para o .NET framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [Application Insights SDK](app-insights-asp-net.md) na sua aplicação. |
-| Aplicação Web do Azure |No painel de controlo de aplicação da web, [abrir o painel do Application Insights no seu painel de controlo de aplicação web](app-insights-azure-web-apps.md) e escolha a instalação, se lhe for pedido. |
-| Serviço em nuvem do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Servidor IIS |Qualquer um dos [instalar o Monitor de estado no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar a sua aplicação para o .NET framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instale o [SDK do Application Insights](app-insights-asp-net.md) na sua aplicação. |
+| Aplicação Web do Azure |No seu painel de controlo de aplicação web, [abrir o painel do Application Insights no seu painel de controlo de aplicação web](app-insights-azure-web-apps.md) e escolha a instalação, se lhe for pedido. |
+| Serviço Cloud do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Vídeo
 

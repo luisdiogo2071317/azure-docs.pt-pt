@@ -2,20 +2,22 @@
 title: Dados de base de dados SQL do Azure deteção e classificação | Documentos da Microsoft
 description: Dados de base de dados SQL do Azure deteção e classificação
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543967"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064191"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados do Azure SQL para **detetar**, **classificar**, **etiquetagem**  &  **proteger** os dados confidenciais em seus bancos de dados.
@@ -115,9 +117,9 @@ Pode usar o T-SQL para adicionar ou remover as classificações de coluna, bem c
 > [!NOTE]
 > Quando utilizar o T-SQL para gerir as etiquetas, não há nenhuma validação adicionadas a uma coluna de etiquetas existentes na política de proteção de informações da empresa (o conjunto de etiquetas que são apresentados no portais recomendações). É therefor depende de para validar isto.
 
-* Adicionar/atualizar a classificação de uma ou mais colunas: [adicionar a classificação de sensibilidade](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* Adicionar/atualizar a classificação de uma ou mais colunas: [adicionar a classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Também pode utilizar as APIs REST para gerir programaticamente classificações. As APIs REST publicados suportam as seguintes operações:
 * [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza a etiqueta de sensibilidade de uma determinada coluna

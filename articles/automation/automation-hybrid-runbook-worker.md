@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034234"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 
@@ -26,11 +26,11 @@ A imagem seguinte ilustra esta funcionalidade:
 
 Cada função de trabalho de Runbook híbrida é um membro de um grupo de trabalho de Runbook híbrida que forem especificados durante a instalação do agente. Um grupo pode conter um único agente, mas é possível instalar vários agentes num grupo para elevada disponibilidade.
 
-Quando inicia um runbook numa função de trabalho de Runbook híbrida, especifique o grupo que é executado. Cada função de trabalho no grupo de consulta de automatização do Azure para ver se todas as tarefas estão disponíveis. Se uma tarefa estiver disponível, a primeira função de trabalho para obter a tarefa demora-lo. Não é possível especificar uma função de trabalho específica.
+Quando inicia um runbook numa função de trabalho de Runbook híbrida, especifique o grupo que é executado. Cada função de trabalho no grupo de consulta de automatização do Azure para ver se todas as tarefas estão disponíveis. Se uma tarefa estiver disponível, a primeira função de trabalho para obter a tarefa demora-lo. Não é possível especificar uma função de trabalho específica. A tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalar uma função de trabalho de Runbook híbrida
 
-O processo para instalar uma função de trabalho de Runbook híbrida depende do sistema operacional. A tabela seguinte contém ligações para os métodos que pode utilizar para a instalação. 
+O processo para instalar uma função de trabalho de Runbook híbrida depende do sistema operacional. A tabela seguinte contém ligações para os métodos que pode utilizar para a instalação.
 
 Para instalar e configurar um Runbook Worker híbrido do Windows, pode usar dois métodos. O método recomendado é utilizar um runbook da automatização para automatizar completamente o processo de configuração de um computador Windows. O segundo método está a seguir um procedimento passo a passo para instalar e configurar a função manualmente. Para máquinas do Linux, executa um script de Python para instalar o agente na máquina.
 
