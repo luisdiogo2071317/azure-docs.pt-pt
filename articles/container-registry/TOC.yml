@@ -18,21 +18,15 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Azure Container Instances
-    href: ../container-instances/container-instances-tutorial-prepare-app.md
-  - name: Serviço de Kubernetes do Azure (AKS)
-    href: ../aks/tutorial-kubernetes-prepare-app.md
-  - name: Service Fabric
-    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-  - name: Criar imagens de contentores (pré-visualização)
+  - name: Criar imagens de contentor
     items:
     - name: 1 - Criar imagens no Azure
-      href: container-registry-tutorial-quick-build.md
+      href: container-registry-tutorial-quick-task.md
     - name: 2 - Automatizar compilações de imagem
       href: container-registry-tutorial-build-task.md
     - name: 3 - Basear as atualizações de compilações de imagem
       href: container-registry-tutorial-base-image-update.md
-  - name: Georreplicação
+  - name: Georreplicação de um registo
     items:
     - name: 1 - Preparar o registo de contentores
       href: container-registry-tutorial-prepare-registry.md
@@ -46,26 +40,28 @@ items:
     href: container-registry-skus.md
   - name: Armazenamento de imagens
     href: container-registry-storage.md
-  - name: Criar e corrigir com o ACR Build
-    href: container-registry-build-overview.md
   - name: Georreplicação
     href: container-registry-geo-replication.md
   - name: Registar melhores práticas
     href: container-registry-best-practices.md
 - name: Guias de procedimentos
   items:
-  - name: Enviar e extrair imagens
-    href: container-registry-get-started-docker-cli.md
-  - name: Ver repositórios
-    href: container-registry-repositories.md
-  - name: Eliminar imagens de contentor
-    href: container-registry-delete.md
-  - name: Fidedignidade do conteúdo (pré-visualização)
-    href: container-registry-content-trust.md
-  - name: Atualizar para um registo Clássico
-    href: container-registry-upgrade.md
-  - name: Utilizar webhooks do ACR
-    href: container-registry-webhook.md
+  - name: Operações de registo
+    items:
+    - name: Enviar e extrair imagens
+      href: container-registry-get-started-docker-cli.md
+    - name: Ver repositórios
+      href: container-registry-repositories.md
+    - name: Eliminar imagens de contentor
+      href: container-registry-delete.md
+    - name: Fidedignidade do conteúdo (pré-visualização)
+      href: container-registry-content-trust.md
+    - name: Atualizar para um registo Clássico
+      href: container-registry-upgrade.md
+    - name: Utilizar webhooks do ACR
+      href: container-registry-webhook.md
+    - name: Repositórios de gráfico do Helm (pré-visualização)
+      href: container-registry-helm-repos.md
   - name: Autenticação
     items:
     - name: Descrição geral da autenticação
@@ -76,6 +72,22 @@ items:
       href: container-registry-auth-aci.md
     - name: Serviço de Kubernetes do Azure (AKS)
       href: container-registry-auth-aks.md
+  - name: Compilação e aplicação de patches
+    items:
+    - name: Tarefas ACR
+      href: container-registry-tasks-overview.md
+    - name: Tarefas de vários passos (pré-visualização)
+      href: container-registry-tasks-multi-step.md
+    - name: Referência de tarefa de vários passos (pré-visualização)
+      href: container-registry-tasks-reference-yaml.md
+  - name: Registos e outros serviços do Azure
+    items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Serviço de Kubernetes do Azure (AKS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Referência
   items:
   - name: CLI do Azure
@@ -115,9 +127,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 979c2864481b25df6534d9f5858d65d02fe498f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ea059f7c534b760b0db0c406edb7c34ac73c0dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957746"
+ms.locfileid: "47031174"

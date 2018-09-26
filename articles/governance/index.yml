@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1c25ae1acb112221047876ea6dd360c6d3bb2817
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b2ee21b77fc3bb26a1ca449ede198f8873a090c0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946243"
+ms.locfileid: "47036852"
 documentType: LandingData
 title: Gestão do Azure - Governação
 metadata:
@@ -19,6 +19,15 @@ metadata:
   ms.author: dacoulte
 abstract:
   description: A Governação do Azure é um conjunto de conceitos e serviços que foram concebidos para permitir a gestão dos seus vários recursos do Azure à escala. Estes serviços oferecem a capacidade de organizar e estruturar as suas subscrições de forma lógica, criar e implementar pacotes nativos de recursos reutilizáveis e do Azure, definir, auditar e remediar os seus recursos, entre muitas outras capacidades. Utilize esta página para saber mais sobre estes conceitos e serviços e como ativar e utilizar hoje mesmo cada um deles no seu ambiente.
+  aside:
+    image:
+      alt: 
+      height: 225
+      src: ./media/video.png
+      width: 250
+    title: Obtenha velocidade e controlo sobre os recursos com a Governação do Azure (1:47)
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    width: 250
 sections:
 - title: Componentes e Serviços
 - items:

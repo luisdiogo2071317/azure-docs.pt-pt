@@ -2,19 +2,22 @@
 title: Migrar Bases de Dados do SQL Server para a Base de Dados SQL do Azure através do DMA | Microsoft Docs
 description: Aprenda a migrar a sua base de dados do SQL Server para a Base de Dados SQL do Azure através do DMA.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050209"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162867"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrar a sua base de dados do SQL Server para a Base de Dados SQL do Azure através do DMA
 
@@ -246,11 +249,11 @@ Utilize o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql
 
 ## <a name="change-database-properties"></a>Alterar as propriedades da base de dados
 
-Pode alterar o escalão de serviço, o nível de desempenho e o nível de compatibilidade com o SQL Server Management Studio. Durante a fase de importação, recomendamos que importe para uma base de dados de escalão de desempenho superior para melhor desempenho, mas que reduza verticalmente assim que a importação estiver concluída, para economizar dinheiro até estar pronto a utilizar ativamente a base de dados importada. Alterar o nível de compatibilidade poderá suspender um melhor desempenho e o acesso às funcionalidades mais recentes do serviço da Base de Dados SQL do Azure. Quando migra uma base de dados mais antiga, o seu nível de compatibilidade de base de dados é mantido ao nível mais baixo suportado que é compatível com a base de dados que está a ser importada. Para obter mais informações, veja [Desempenho melhorado das consultas com Nível 130 de compatibilidade na Base de Dados SQL do Azure](sql-database-compatibility-level-query-performance-130.md).
+Pode alterar a camada de serviços, computação tamanho e o nível de compatibilidade com SQL Server Management Studio. Durante a fase de importação, recomendamos que importe para um escalão de serviço superior ou tamanho para um melhor desempenho de computação, mas que reduza verticalmente após a importação estiver concluída para economizar dinheiro até estar pronto a utilizar ativamente a base de dados importado. Alterar o nível de compatibilidade poderá suspender um melhor desempenho e o acesso às funcionalidades mais recentes do serviço da Base de Dados SQL do Azure. Quando migra uma base de dados mais antiga, o seu nível de compatibilidade de base de dados é mantido ao nível mais baixo suportado que é compatível com a base de dados que está a ser importada. Para obter mais informações, veja [Desempenho melhorado das consultas com Nível 130 de compatibilidade na Base de Dados SQL do Azure](sql-database-compatibility-level-query-performance-130.md).
 
 1. No Object Explorer, clique com o botão direito do rato em **mySampleDatabase** e, em seguida, clique em **Nova Consulta**. Uma janela de consulta abre-se ligada à sua base de dados.
 
-2. Execute o seguinte comando para definir a camada de serviço para **Standard** e o nível de desempenho para **S1**.
+2. Execute o seguinte comando para definir a camada de serviços para **padrão** e o tamanho da computação **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 
@@ -262,7 +265,7 @@ Pode alterar o escalão de serviço, o nível de desempenho e o nível de compat
     );
     ```
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 Neste tutorial, aprendeu a:
 
 > * Criar uma base de dados SQL do Azure vazia no portal do Azure 

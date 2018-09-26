@@ -2,19 +2,22 @@
 title: Implementar uma solução de Base de Dados SQL do Azure distribuída geograficamente | Microsoft Docs
 description: Saiba como configurar a sua Base de Dados SQL do Azure e a aplicação para ativação pós-falha para uma base de dados replicada e ativação pós-falha de teste.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416624"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166270"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementar uma base de dados distribuída geograficamente
 
@@ -38,8 +41,8 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 - Instalar uma base de dados SQL do Azure. Este tutorial utiliza a base de dados de exemplo AdventureWorksLT com o nome **mySampleDatabase** a partir de um dos seguintes inícios rápidos:
 
    - [Criar BD - Portal](sql-database-get-started-portal.md)
-   - [Criar BD - CLI](sql-database-get-started-cli.md)
-   - [Criar BD - PowerShell](sql-database-get-started-powershell.md)
+   - [Criar BD - CLI](sql-database-cli-samples.md)
+   - [Criar BD - PowerShell](sql-database-powershell-samples.md)
 
 - Depois de identificar um método para executar scripts SQL na base de dados, pode utilizar uma das seguintes ferramentas de consulta:
    - O editor de consultas no [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como utilizar o editor de consultas no portal do Azure, veja [Ligar e consultar com o Editor de Consultas](sql-database-get-started-portal.md#query-the-sql-database).
@@ -54,7 +57,7 @@ Ligue à base de dados e crie contas de utilizador com uma das seguintes ferrame
 - SQL Server Management Studio
 - Visual Studio Code
 
-Estas contas de utilizador são replicadas automaticamente para o servidor secundário (e são mantidas em sincronização). Para utilizar o SQL Server Management Studio ou o Visual Studio Code, pode ter de configurar uma regra de firewall se estiver a ligar a partir de um cliente num endereço IP para o qual ainda não configurou uma firewall. Para obter passos detalhados, veja [Criar uma regra de firewall ao nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Estas contas de utilizador são replicadas automaticamente para o servidor secundário (e são mantidas em sincronização). Para utilizar o SQL Server Management Studio ou o Visual Studio Code, pode ter de configurar uma regra de firewall se estiver a ligar a partir de um cliente num endereço IP para o qual ainda não configurou uma firewall. Para obter passos detalhados, veja [Criar uma regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
 
 - Numa janela de consulta, execute a consulta seguinte para criar duas contas de utilizador na base de dados. Este script concede permissões **db_owner** à conta **app_admin** e atribui permissões **SELECT** e **UPDATE** à conta **app_user**. 
 
@@ -70,7 +73,7 @@ Estas contas de utilizador são replicadas automaticamente para o servidor secun
 
 ## <a name="create-database-level-firewall"></a>Criar uma firewall ao nível da base de dados
 
-Crie uma [regra de firewall ao nível da base de dados](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para a sua base de dados SQL. Esta regra de firewall ao nível da base de dados é replicada automaticamente para o servidor secundário que vai criar neste tutorial. Para maior simplicidade (neste tutorial), utilize o endereço IP público do computador onde está a efetuar os passos neste tutorial. Para determinar o endereço IP utilizado para a regra de firewall ao nível do servidor para o computador atual, veja [Criar uma firewall ao nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Crie uma [regra de firewall ao nível da base de dados](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para a sua base de dados SQL. Esta regra de firewall ao nível da base de dados é replicada automaticamente para o servidor secundário que vai criar neste tutorial. Para maior simplicidade (neste tutorial), utilize o endereço IP público do computador onde está a efetuar os passos neste tutorial. Para determinar o endereço IP utilizado para a regra de firewall ao nível do servidor para o computador atual, veja [Criar uma firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).  
 
 - Na janela de consulta aberta, substitua a consulta anterior pela consulta seguinte, ao substituir os endereços IP pelos endereços IP adequados para o seu ambiente.  
 
@@ -390,8 +393,8 @@ Neste tutorial, aprendeu a configurar uma base de dados SQL do Azure e a aplica�
 > * Criar e compilar uma aplicação Java para consultar uma base de dados SQL do Azure
 > * Efetuar um teste de recuperação após desastre
 
-Avance para o tutorial seguinte para aprender a criar uma Instância Gerida.
+Avance para o próximo tutorial para migrar o SQL Server para o Azure SQL Database Managed Instance com o DMS.
 
 > [!div class="nextstepaction"]
->[Criar uma Instância Gerida](sql-database-managed-instance-create-tutorial-portal.md)
+>[Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure com o DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 

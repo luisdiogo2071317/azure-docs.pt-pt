@@ -3,18 +3,22 @@ title: O que é o serviço Base de Dados SQL do Azure? | Microsoft Docs
 description: 'Obtenha uma introdução à Base de Dados SQL: detalhes técnicos e capacidades do sistema de gestão de bases de dados relacionais (RDBMS) da Microsoft na nuvem.'
 keywords: introdução à sql, introdução sql, o que é a base de dados sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054585"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163193"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure? 
 
@@ -23,7 +27,7 @@ A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fin
 A Base de Dados SQL do Azure oferece as seguintes opções de implementação para bases de dados SQL do Azure:
 - Uma base de dados individual com o seu próprio conjunto de recursos geridos através de um servidor lógico 
 - Como uma base de dados agrupada num [conjunto elástico](sql-database-elastic-pool.md) com um conjunto partilhado de recursos geridos através de um servidor lógico
-- Como parte de uma coleção de bases de dados conhecidas como [instância gerida](sql-database-managed-instance.md) (em pré-visualização pública) que contém bases de dados de sistema e de utilizador e que partilham um conjunto de recursos.
+- Como parte de uma coleção de bases de dados conhecida como uma [instância gerida](sql-database-managed-instance.md) que contém o sistema e bases de dados de utilizador e um conjunto de recursos de partilha
 
 A ilustração seguinte mostra estas opções de implementação:
 
@@ -37,29 +41,27 @@ A Base de Dados SQL partilha a base de código com o [motor de bases de dados do
 > [!IMPORTANT]
 > Para saber as diferenças de funcionalidades entre a Base de Dados SQL e o SQL Server, consulte [Funcionalidades SQL](sql-database-features.md). 
 
-A Base de Dados SQL proporciona um desempenho previsível a vários níveis de serviço, que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade e disponibilidade globais e opções de segurança avançadas — tudo isto sem praticamente qualquer administração. Estas capacidades permitem-lhe concentrar-se no desenvolvimento rápido de aplicações e acelerar o seu tempo de colocação no mercado, em vez de alocar tempo e recursos valiosos para a gestão de máquinas virtuais e de infraestruturas. O serviço Base de Dados SQL encontra-se atualmente em 38 datacenters em todo o mundo, sendo que são colocados online mais datacenters regularmente, o que lhe permite executar a sua base de dados num datacenter perto de si.
-
-> [!NOTE]
-> A Instância Gerida da Base de Dados SQL está atualmente em pré-visualização e só está disponível num único nível de serviço. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md).
->
+Base de dados SQL proporciona um desempenho previsível com vários tipos de recursos, escalões de serviço e tamanhos de computação que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade global e disponibilidade e segurança avançada Opções — tudo com quase sem administração. Estas capacidades permitem-lhe concentrar-se no desenvolvimento rápido de aplicações e acelerar o seu tempo de colocação no mercado, em vez de alocar tempo e recursos valiosos para a gestão de máquinas virtuais e de infraestruturas. O serviço Base de Dados SQL encontra-se atualmente em 38 datacenters em todo o mundo, sendo que são colocados online mais datacenters regularmente, o que lhe permite executar a sua base de dados num datacenter perto de si.
 
 ## <a name="scalable-performance-and-pools"></a>Dimensionar o desempenho e os conjuntos
 
-Com a Base de Dados SQL, as bases de dados estão isoladas umas das outras e são portáteis, tendo cada uma a sua própria camada de serviço no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou no [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um nível de desempenho garantido. Este serviço disponibiliza diferentes níveis de desempenho para diferentes necessidades e permite agrupar as bases de dados, de modo a maximizar a utilização de recursos e poupar dinheiro.
+Base de dados SQL, cada base de dados é isolada umas das outras e portáteis, tendo cada um com sua própria camada de serviços dentro do [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [o modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um garantida tamanho de computação. Base de dados SQL fornece diferentes tamanhos de computação para diferentes necessidades e permite a bases de dados ser agrupados para maximizar a utilização de recursos e poupar dinheiro.
 
-Com a Instância Gerida da Base de Dados SQL, cada instância está isolada das restantes instâncias com recursos garantidos. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md) 
+- Com o [mi](sql-database-managed-instance.md), cada instância está isolada das restantes instâncias com recursos garantidos. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md).
+- Com o [camada de serviços de Hiperescala](sql-database-hyperscale.md) (pré-visualização) o modelo de compra de vCore, pode aumenta para 100 TB com cópia de segurança rápida e recursos de restauração.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste o desempenho e dimensione a capacidade sem períodos de indisponibilidade
 
 A Base de Dados SQL disponibiliza um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou um [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). 
-- O modelo de compra baseado em DTU oferece um blend de computação, memória e recursos de E/S em três camadas de serviço para suportar cargas de trabalho de base de dados leves a pesadas: Basic, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
+- O modelo de compra baseado em DTU oferece um blend de computação, memória e recursos de E/S em três camadas de serviço para suportar cargas de trabalho de base de dados leves a pesadas: Basic, Standard e Premium. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
 - O modelo de compra baseado em vCore permite-lhe escolher o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
 
-Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+Pode criar a primeira aplicação numa base de dados pequena e individual a um baixo custo por mês no escalão de serviço para fins gerais e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para a camada de negócio críticos de serviço para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+
+> [!IMPORTANT]
+> Não é possível dimensionar de um escalão de serviço crítico para a empresa ou de fins gerais para um [camada de serviços de Hiperescala](sql-database-hyperscale.md). No entanto, pode, alterar os níveis de desempenho dentro da camada de serviços de Hiperescala.
 
 A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade. Uma Base de Dados SQL do Azure única suporta a escalabilidade dinâmica manual, mas não o dimensionamento automático. Para uma experiência mais *automática*, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados. No entanto, existem scripts que podem ajudar a automatizar a escalabilidade de uma Base de Dados SQL do Azure única. Por exemplo, veja [Utilizar o PowerShell para monitorizar e dimensionar uma Base de Dados SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md). 
-
-A Instância Gerida da Base de Dados SQL está em pré-visualização e disponibiliza um único escalão de serviço. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md)
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -86,13 +88,13 @@ Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósti
 
 - **Armazenamento do Azure**: para arquivar grandes quantidades de telemetria a um preço baixo
 - **Hub de Eventos do Azure**: para integrar a telemetria da Base de Dados SQL na sua solução personalizada de monitorizção ou em pipelines ativos.
-- **Azure Log Analytics**: para uma solução de monitorização incorporada com capacidade para relatórios, alertas e mitigação. Esta é uma funcionalidade do [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: para uma solução de monitorização incorporada com capacidade para relatórios, alertas e mitigação. O Azure Log Analytics é um recurso do [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
-O contrato de nível de serviço [(SLA)](http://azure.microsoft.com/support/legal/sla/) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. A plataforma do Azure gere totalmente cada Base de Dados SQL do Azure e garante que nenhum dado é perdido e elevada percentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é alcançada ao integrar a computação e o armazenamento num único nó para obter desempenho e, em seguida, implementar Grupos de Disponibilidade Always nos bastidores. Para ver um debate completo das funcionalidades de elevada disponibilidade da Base de Dados SQL do Azure, veja [Disponibilidade da Base de Dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
+O contrato de nível de serviço [(SLA)](http://azure.microsoft.com/support/legal/sla/) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. A plataforma do Azure gere totalmente cada Base de Dados SQL do Azure e garante que nenhum dado é perdido e elevada percentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é alcançada ao integrar a computação e o armazenamento num único nó para obter desempenho e, em seguida, implementar Grupos de Disponibilidade Always nos bastidores. Para uma discussão completa sobre as capacidades de elevada disponibilidade da base de dados do Azure SQL, consulte [disponibilidade de base de dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
 
 - **[Cópias de segurança automáticas](sql-database-automated-backups.md)**: a Base de Dados SQL faz cópias de segurança completas, diferenciais e de registos de transações.
 - **[Restauros para um ponto anterior no tempo](sql-database-recovery-using-backups.md)**: a Base de Dados SQL suporta a recuperação para qualquer ponto anterior no tempo dentro do período de retenção de cópias de segurança automáticas.
@@ -170,15 +172,15 @@ A Base de Dados suporta a criação de aplicações com Python, Java, Node.js, P
 - [Comentários](http://aka.ms/sqlfeedback): relatar erros e pedir funcionalidades
 - [Reddit](https://www.reddit.com/r/SQLServer/): discutir sobre o SQL Server
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consultar a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para ver comparações de preços e calculadoras de bases de dados individuais e conjuntos elásticos.
 
 - Veja estes guias de introdução para começar:
 
   - [Criar uma base de dados SQL no portal do Azure](sql-database-get-started-portal.md)  
-  - [Criar uma base de dados SQL com a CLI do Azure](sql-database-cli-samples.md)
-  - [Criar uma base de dados SQL utilizando o PowerShell](sql-database-powershell-samples.md)
+  - [Criar uma base de dados SQL com a CLI do Azure](sql-database-get-started-cli.md)
+  - [Criar uma base de dados SQL utilizando o PowerShell](sql-database-get-started-powershell.md)
 
 - Para um conjunto de amostras de CLI do Azure e PowerShell, veja:
   - [Exemplos da CLI do Azure para a Base de Dados SQL (Azure CLI samples for SQL Database)](sql-database-cli-samples.md)
