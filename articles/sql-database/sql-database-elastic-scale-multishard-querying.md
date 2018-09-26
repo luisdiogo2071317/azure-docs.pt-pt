@@ -2,19 +2,22 @@
 title: Consultar bases de dados SQL do Azure em partição horizontal | Documentos da Microsoft
 description: Execute consultas em partições horizontais com a biblioteca de cliente de base de dados elástica.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 759ef7bfca118434c36044ff490ff3d2735b11c9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 5af6779bfb6075aa3606cc32939ae715241afe8d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719175"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166321"
 ---
 # <a name="multi-shard-querying"></a>Consultas de vários fragmentos
 ## <a name="overview"></a>Descrição geral

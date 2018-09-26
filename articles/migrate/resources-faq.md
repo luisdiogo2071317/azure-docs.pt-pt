@@ -4,14 +4,14 @@ description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377551"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161867"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -41,7 +41,7 @@ O Azure Migrate é um serviço de avaliação que ajuda a detetar as suas cargas
 O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site Recovery Deployment Planner é uma recuperação após desastre (DR), ferramenta de planejamento.
 
 **Migração do VMware para Azure**: Se pretender migrar as cargas de trabalho no local para o Azure, utilizar o Azure Migrate para planeamento da migração. O Azure Migrate avalia cargas de trabalho no local e fornece orientações, informações e mecanismos para ajudá-lo a migrar para o Azure. Assim que estiver pronto com o seu plano de migração, pode utilizar serviços como o Azure Site Recovery e o serviço de migração de base de dados do Azure para migrar as máquinas para o Azure.
- 
+
 **Migração do Hyper-V para o Azure**: Azure Migrate atualmente suporta apenas a avaliação das máquinas de virtuais de VMware para migração para o Azure. Suporte para Hyper-V está nas previsões para o Azure Migrate. Até lá, pode usar o Site Recovery Deployment Planner. Assim que o suporte de Hyper-V está ativado no Azure Migrate, pode utilizar o Azure Migrate para planejamento de migração de cargas de trabalho do Hyper-V.
 
 **Recuperação após desastre do VMware/Hyper-V para o Azure**: se pretende fazer a recuperação após desastre (DR) no Azure com o Azure Site Recovery (recuperação de sites), utilize o Site Recovery Deployment Planner para planejamento de DR. Site Recovery Deployment Planner faz uma avaliação profunda ASR específicos do seu ambiente no local. Fornece recomendações que são necessários pelo Site Recovery para operações bem-sucedidas de DR, como replicação, ativação pós-falha das suas máquinas virtuais.  
@@ -58,7 +58,7 @@ A ligação pode ser através da internet ou utilizar o ExpressRoute com peering
 
 Componentes adicionais (por exemplo, software antivírus) é possível adicionar o. Modelo de OVA, desde que forem deixadas com as regras de comunicação e de firewall necessárias para a aplicação do Azure Migrate trabalhar é.   
 
-## <a name="discovery-and-assessment"></a>Deteção e avaliação
+## <a name="discovery"></a>Deteção
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Que dados são recolhidos pelo Azure Migrate?
 
@@ -130,11 +130,14 @@ Se tiver um ambiente que é partilhado em inquilinos e não pretender detetar as
 
 Pode descobrir 1500 máquinas de virtuais num projeto de migração única. Se tiver mais máquinas no seu ambiente no local, [Saiba mais](how-to-scale-assessment.md) sobre como é possível descobrir um ambiente de grandes dimensões no Azure Migrate.
 
+## <a name="assessment"></a>Avaliação
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Suporte do Azure Migrate Enterprise Agreement (EA) com base custa estimativa?
 
 O Azure Migrate atualmente não suporta a estimativa de custos para [oferta Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). A solução é especificar pay as you go, como a oferta e a especificação manual a percentagem de desconto (aplicável à subscrição) no campo "De desconto" de propriedades de avaliação.
 
   ![Desconto](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -144,7 +147,34 @@ O Azure Migrate está disponível sem custos adicionais. Saiba mais sobre os pre
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Pode utilizar uma área de trabalho existente para visualização de dependências?
 
-O Azure Migrate não suporta a utilização de uma área de trabalho existente para visualização de dependência, no entanto, o Microsoft Monitoring Agent (MMA) suporta multi-homing e permite-lhe enviar dados para várias áreas de trabalho. Então, se já tiver os agentes implementados e configurados para uma área de trabalho, pode tirar partido do multi-homing no agente MMA e configurá-lo para a área de trabalho do Azure Migrate (além de área de trabalho existente) e fazê-lo funcionar. [Aqui](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) é um blog sobre como ativar o multi-homing num agente MMA.
+Sim, do Azure Migrate agora permite-lhe ligar uma área de trabalho existente para o projeto de migração e tirar partido dos mesmos para visualização de dependência. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>Pode exportar o relatório de visualização de dependências?
+
+Não, não é possível exportar a visualização de dependência. No entanto, uma vez que o Azure Migrate utiliza o mapa de serviço para visualização de dependências, pode utilizar o [APIs de REST de mapa de serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obter as dependências no formato json.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Como posso automatizar a instalação do Microsoft Monitoring Agent (MMA) e o agente de dependência?
+
+[Aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) é um script que pode utilizar para a instalação do agente de dependência. Para o MMA, [aqui](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) é um script disponível no TechNet, que pode ser aproveitado.
+
+Além de scripts, também pode aproveitar, como o System Center Configuration Manager (SCCM), as ferramentas de implantação [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) etc. para implantar os agentes.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quais são os sistemas operativos suportados por MMA?
+
+É a lista de sistemas de operativos do Windows suportados pelo MMA [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+É a lista de sistemas de operativos Linux suportados pelo MMA [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operativos suportados pelo agente de dependência?
+
+A lista de sistemas de operativos do Windows suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+A lista dos sistemas de operativos Linux suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Posso visualizar dependências no Azure Migrate para obter mais informações à duração de uma hora?
+Não, a Azure Migrate permite que visualize as dependências de duração do até uma hora. O Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, mas a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Visualização de dependência é suportada para grupos com mais de 10 VMs?
+Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que têm cópia de segurança para 10 VMs, se tiver um grupo com mais de 10 VMs, recomendamos que dividir o grupo em grupos mais pequenos e visualize as dependências.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

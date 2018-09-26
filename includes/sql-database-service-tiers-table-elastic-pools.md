@@ -10,13 +10,13 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por conjunto (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opções de armazenamento máximo por conjunto (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/D | N/D | N/D | N/D | N/D | N/D | N/A |
+| Armazenamento OLTP máximo em memória por conjunto (GB) | N/A | N/D | N/D | N/D | N/D | N/D | N/D | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de inícios de sessão simultâneos por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Opções de eDTUs Mín por base de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Opções de eDTUs máx. por base de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Min escolhas de eDTUs por base de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Opções de eDTUs máximo por base de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Armazenamento máximo por base de dados (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
 ||||||||
 
@@ -26,13 +26,13 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Armazenamento incluído por conjunto (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Opções de armazenamento máximo por conjunto (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/D | N/D | N/D | N/D | N/A | 
+| Armazenamento OLTP máximo em memória por conjunto (GB) | N/A | N/D | N/D | N/D | N/D | N/A | 
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de inícios de sessão simultâneos por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opções de eDTUs Mín por base de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Opções de eDTUs máx. por base de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Min escolhas de eDTUs por base de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Opções de eDTUs máximo por base de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
 | Armazenamento máximo por base de dados (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -42,13 +42,13 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por conjunto (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Opções de armazenamento máximo por conjunto (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/D | N/D | N/D | N/A | 
+| Armazenamento OLTP máximo em memória por conjunto (GB) | N/A | N/D | N/D | N/D | N/A | 
 | Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de inícios de sessão simultâneos por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Opções de eDTUs Mín por base de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Opções de eDTUs máx. por base de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Min escolhas de eDTUs por base de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Opções de eDTUs máximo por base de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
 | Opções de armazenamento máximo por base de dados (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
@@ -58,7 +58,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | 
 | Armazenamento incluído por conjunto (GB) | 250 | 500 | 750 | 1024 | 1536 | 
 | Opções de armazenamento máximo por conjunto (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
-| Armazenamento máximo de memória OLTP por conjunto (GB) | 1 | 2 | 4 | 10 | 12 | 
+| Armazenamento OLTP máximo em memória por conjunto (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Número de DBs máximo por conjunto | 50 | 100 | 100 | 100 | 100 | 
 | Máximo de trabalhadores simultâneos por conjunto (pedidos) | 200 | 400 | 800 | 1600 | 2400 | 
 | Máximo de inícios de sessão simultâneos por conjunto | 200 | 400 | 800 | 1600 | 2400 |
@@ -74,20 +74,20 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | 
 | Armazenamento incluído por conjunto (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
 | Opções de armazenamento máximo por conjunto (GB) * | 2048 | 2560 | 3072 | 3548 | 4096|
-| Armazenamento máximo de memória OLTP por conjunto (GB) | 16 | 20 | 24 | 28 | 32 |
+| Armazenamento OLTP máximo em memória por conjunto (GB) | 16 | 20 | 24 | 28 | 32 |
 | Número de DBs máximo por conjunto | 100 | 100 | 100 | 100 | 100 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Máximo de inícios de sessão simultâneos por conjunto | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Opções de eDTUs Mín por base de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Opções de eDTUs máx. por base de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Min escolhas de eDTUs por base de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Opções de eDTUs máximo por base de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Armazenamento máximo por base de dados (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 
 > [!IMPORTANT]
-> \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
+> \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter detalhes, consulte a [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter detalhes, consulte a [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul BR, Canadá Central, Leste do Canadá, E.U.A. Central, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia do Sul Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 

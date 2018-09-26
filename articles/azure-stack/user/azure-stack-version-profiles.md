@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034373"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182897"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerir perfis de versão de API no Azure Stack
 
@@ -77,6 +77,7 @@ Como desenvolvedor, possa se concentrar em escrever a sua solução. Em vez de p
 
 Pode encontrar exemplos de código para o ajudar a integrar a sua solução com a sua linguagem preferida com o Azure Stack através de perfis. Atualmente, pode encontrar exemplos e orientação para os seguintes idiomas:
 
+- **.NET** pode utilizar o perfil de .NET API para obter a versão mais recente, mais estável de cada tipo de recurso num pacote de fornecedor de recursos. Para obter mais informações, consulte [perfis de versão de utilizar a API com .NET no Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 Pode utilizar o **AzureRM.Bootstrapper** disponível através da galeria do PowerShell para obter os cmdlets do PowerShell necessários para trabalhar com perfis de versão de API do módulo. Para obter informações, consulte [perfis de versão de API de utilização para o PowerShell](azure-stack-version-profiles-powershell.md).
 - **CLI do Azure**  

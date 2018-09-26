@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 724cdb82f601805ffd93f1afd0c27983cc1ef96b
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b165d7a21399fad0949953e733d7ee25a9dd0271
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389478"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159385"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e o Log Analytics
 O [do Azure Application Insights](app-insights-overview.md) serviço usa um número de endereços IP. Poderá ter de conhecer estes endereços se a aplicação que está a monitorizar é alojada por trás de uma firewall.
@@ -41,7 +41,7 @@ Tem de abrir algumas portas de envio na firewall do servidor para permitir que o
 | Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74 | 443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
-## <a name="status-monitor"></a>Monitor de estado
+## <a name="status-monitor"></a>Monitor de Estado
 Configuração do Monitor de estado - necessária apenas quando efetuar alterações.
 
 | Objetivo | do IdP | IP | Portas |
@@ -275,6 +275,12 @@ Nota: *. loganalytics.io domínio é propriedade da Equipe do Log Analytics.
 | --- | --- | --- | --- |
 | SDK do Application Insights JS CDN | az416426.vo.msecnd.net | Dinâmico | 80,443 |
 | Java do Application Insights SDK | aijavasdk.blob.core.windows.net | Dinâmico | 80,443 |
+
+## <a name="alert-webhooks"></a>Webhooks de alertas
+
+| Objetivo | IP | Portas
+| --- | --- | --- | --- |
+| Alertas | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Gerador de perfis
 

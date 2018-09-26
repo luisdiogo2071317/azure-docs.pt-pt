@@ -7,34 +7,59 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576125"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181894"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
-No Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço específico ou SKU. As opções incluem **gratuito**, **básica**, ou **padrão**, onde **padrão** está disponível em várias configurações e capacidades. 
+No Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço fixo ou SKU: **gratuito**, **básica**, ou **padrão**, onde  **Padrão** está disponível em várias configurações e capacidades. Começar a maioria dos clientes com o **gratuito** escalão para avaliação e, em seguida, passar gradualmente para **padrão** para o desenvolvimento. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva. 
 
-O objetivo deste artigo é para o ajudar a escolher um escalão. Complementa o [página de preços](https://azure.microsoft.com/pricing/details/search/) e [limites do serviço](search-limits-quotas-capacity.md) página com um resumo de faturas de conceitos e padrões de consumo de associadas com várias camadas. Ele também recomenda uma abordagem iterativa para entender melhor qual dos escalões atende às suas necessidades. 
+Camadas de determinam a capacidade, não de recursos, com diferenciação por:
 
-Camadas de determinam a capacidade, não a recursos. Se a capacidade de uma camada é demasiado baixo, terá de aprovisionar um novo serviço, o escalão superior e, em seguida [recarregar os índices](search-howto-reindex.md). Não existe nenhuma atualização in-loco do mesmo serviço de um SKU para outro.
++ Número de índices que pode criar
++ Tamanho e a velocidade de partições (armazenamento físico)
 
-Disponibilidade de funcionalidades não é uma consideração de escalão primário. Todos os escalões, incluindo o **gratuito** camada, oferta de paridade de funcionalidades, com exceção do suporte de indexador para S3HD. No entanto, as restrições de indexação e de recursos efetivamente podem limitar a extensão da utilização da funcionalidade. Por exemplo, [pesquisa cognitiva](cognitive-search-concept-intro.md) indexação tem habilidades de execução longa esse tempo limite num serviço gratuito, a menos que o conjunto de dados acontece ser bem pequeno.
+Embora todas as camadas, incluindo o **gratuito** camada, oferta geralmente paridade de funcionalidades, cargas de trabalho maiores podem ditar os requisitos para escalões superiores. Por exemplo, [pesquisa cognitiva](cognitive-search-concept-intro.md) indexação tem habilidades de execução longa esse tempo limite num serviço gratuito, a menos que o conjunto de dados acontece ser bem pequeno.
 
-> [!TIP]
-> Começar a maioria dos clientes com o **gratuito** escalão para avaliação e, em seguida, passar gradualmente para **padrão** para o desenvolvimento. Depois de escolher um escalão e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), pode [aumentar as contagens de partição e réplica](search-capacity-planning.md) para ajuste de desempenho. Para obter mais informações sobre o quando e por que seria ajuste a capacidade, consulte [considerações sobre desempenho e otimização](search-performance-optimization.md).
+> [!NOTE] 
+> Paridade de funcionalidades existe em escalões com a exceção do [indexadores](search-indexer-overview.md), que não está disponível no S3HD.
 >
 
-## <a name="billing-concepts"></a>Conceitos de faturação
+Dentro de uma camada, pode [ajustar os recursos de partição e réplica](search-capacity-planning.md) para ajuste de desempenho. Ao passo que pode começar com dois ou três de cada, poderia temporariamente de aumentar o nível de recurso para uma pesada carga de trabalho de indexação. A capacidade de otimizar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas ligeiramente também complica a sua análise. Poderá ter de experimentar para verificar se um escalão mais baixo com recursos superior/réplicas oferece melhor valor e desempenho do que um escalão mais elevado com a obtenção de recursos mais baixo. Para saber mais sobre o quando e por que seria ajuste a capacidade, veja [considerações sobre desempenho e otimização](search-performance-optimization.md).
 
-Conceitos que precisa entender para seleção do escalão incluem definições de capacidade, limites de serviço e unidades de serviço. 
+> [!Important] 
+> Embora a estimar as necessidades futuras de índices e o armazenamento pode sentir como suposição, ele vale a pena. Se a capacidade de uma camada é demasiado baixo, terá de aprovisionar um novo serviço, o escalão superior e, em seguida [recarregar os índices](search-howto-reindex.md). Não existe nenhuma atualização in-loco do mesmo serviço de um SKU para outro.
+>
 
-### <a name="capacity"></a>Capacidade
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
+
+## <a name="how-billing-works"></a>Como funciona a faturação
+
+No Azure Search, é o conceito de faturação mais importante para compreender um *unidade de pesquisa* (SU). Porque o Azure Search depende de réplicas e partições para a função, ele não faz sentido são faturadas ao apenas um ou outro. Em vez disso, a faturação baseia-se numa composição de ambos. 
+
+Formulaically, um SU é o produto da *réplica* e *partições* utilizado por um serviço: **`(R X P = SU)`**
+
+No mínimo, cada serviço é iniciado com 1 SU (uma réplica multiplicada por partição), mas para cargas de trabalho maiores, um modelo mais realista pode ser um serviço de réplica de 3, 3-partition cobrado como 9 SUs. 
+
+É a taxa de faturação **por hora por SU**, com cada escalão de ter uma taxa de cada vez maior. Escalões superiores são fornecidos com partições maiores e mais veloz, que contribuem para uma taxa por hora geral maior para essa camada. As tarifas baixas para cada camada pode ser encontrada no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/). 
+
+Embora cada escalão oferece a capacidade de cada vez mais elevada, pode colocar um *parte* da capacidade total online, que contém o resto em reserva. Em termos de faturação, é o número de partições e réplicas que colocar online, calculada utilizando a fórmula SU, que determina o que, na verdade, paga.
+
+### <a name="tips-for-lowering-the-bill"></a>Dicas para reduzir a fatura
+
+Não pode encerrar o serviço para reduzir a fatura. Recursos dedicados para as partições e réplicas estão operacionais 24x7, mantidos em reserva para seu uso exclusivo, durante o ciclo de vida do seu serviço. A única forma de reduzir uma fatura é reduzir as réplicas e partições para o nível mais baixo que ainda lhe oferece um desempenho aceitável. 
+
+Outro alavanca é escolher uma camada de uma taxa por hora mais baixo. Tarifas à hora de S1 são mais baixas que obtêm tarifas horárias S2 ou S3. Pode aprovisionar um serviço no final de suas projeções inferior e, em seguida, se ser excedida, criar um segundo serviço em camadas maior, recriação dos índices nesse serviço segundo e, em seguida, elimine primeiro.
+
+### <a name="capacity-drill-down"></a>Capacidade de desagregação
 
 Capacidade está estruturada como *réplicas* e *partições*. 
 
@@ -45,15 +70,7 @@ Capacidade está estruturada como *réplicas* e *partições*.
 > [!NOTE]
 > Todos os **padrão** camadas suporte [réplica combinações flexível e partições](search-capacity-planning.md#chart) para que possa [seu sistema de armazenamento ou de velocidade de importância](search-performance-optimization.md) alterando o saldo. **Básico** oferece segurança de três réplicas para elevada disponibilidade, mas tem apenas uma partição. **Gratuito** camadas não fornece recursos dedicados: recursos são partilhados por vários serviços gratuitos de computação.
 
-### <a name="search-units"></a>Unidades de pesquisa
-
-O conceito de faturação mais importante para compreender é um *unidade de pesquisa* (SU), que é a unidade de faturação para o Azure Search. Porque o Azure Search depende de réplicas e partições para a função, ele não faz sentido são faturadas por um ou outro. Em vez disso, a faturação baseia-se numa composição de ambos. Formulaically, um SU é o produto de réplicas e partições utilizadas por um serviço: (R X P = SU). No mínimo, cada serviço é iniciado com 1 SU (uma réplica multiplicada por partição), mas um modelo mais realista pode ser um serviço de réplica de 3, 3-partition cobrado como 9 SUs. 
-
-Embora cada escalão oferece a capacidade de cada vez mais elevada, pode colocar uma parte da capacidade total online, que contém o resto em reserva. Em termos de faturação, é o número de partições e réplicas que colocar online, calculada utilizando a fórmula SU, que determina o que, na verdade, paga.
-
-A taxa de faturação à hora é por SU, com cada escalão de ter uma taxa de diferente. As tarifas baixas para cada camada pode ser encontrada no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
-
-### <a name="limits"></a>Limites
+### <a name="more-about-service-limits"></a>Mais informações sobre limites de serviço
 
 Serviços de recursos de anfitrião, como índices, indexadores e assim por diante. Cada escalão impõe [limites de serviço](search-limits-quotas-capacity.md) sobre a quantidade de recursos, pode criar. Como tal, um limite no número de índices (e outros objetos) é o segundo recurso diferenciador em escalões. Ao analisar cada opção no portal, tenha em atenção os limites no número de índices. Outros recursos, como indexadores e origens de dados e conjuntos de habilidades, são estabilizados aos limites de índice.
 

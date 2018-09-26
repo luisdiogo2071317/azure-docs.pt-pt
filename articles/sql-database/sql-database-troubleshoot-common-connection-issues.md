@@ -2,19 +2,22 @@
 title: Resolver problemas comuns de ligação para a Base de Dados SQL do Azure
 description: Passos para identificar e resolver erros comuns de ligação de base de dados do Azure SQL.
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: dalechen
 ms.author: daleche
-ms.openlocfilehash: 65892518cf041cbef87657b8c43cfb0b2ac333cb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 276a2d6d717497538a6633a9b0926bb89b9e875c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981913"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161102"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Resolver problemas de ligação à base de dados do Azure SQL
 Quando a ligação à base de dados do Azure SQL falhar, receberá [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que o ajuda a resolver problemas de conectividade da base de dados do Azure SQL. Ele introduz [as causas comuns](#cause) dos problemas de ligação, recomenda [uma ferramenta de resolução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identidade do problema e fornece passos de resolução de problemas para resolver [transitório erros](#troubleshoot-transient-errors) e [persistentes ou não transitórias erros](#troubleshoot-persistent-errors). 

@@ -1,77 +1,141 @@
 ---
 title: Origens de dados suportadas - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: A ferramenta QnA Maker possível extrair automaticamente pares de perguntas respostas de formatos de conteúdo semiestruturados comuns, como o perguntas frequentes e manuais de produto. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros estruturados.
+description: QnA Maker extrai automaticamente pares de pergunta-resposta de conteúdo semiestruturado, tais como FAQs, manuais de produto, diretrizes, documentos de suporte e armazenadas como páginas da web, ficheiros PDF ou arquivos de documento do Word de MS de políticas. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros de conteúdo de QnA estruturados.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: b9214d44061edad967212a1f904c2cdb6687dba2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 29e894b0666b37d32f36b016603fda408e9d2746
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039059"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161063"
 ---
-# <a name="data-sources"></a>Origens de dados 
-A ferramenta QnA Maker possível extrair automaticamente pares de perguntas respostas de formatos de conteúdo semiestruturados comuns, como o perguntas frequentes e manuais de produto. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros estruturados.
+# <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
-## <a name="plain-faq-pages"></a>Páginas de FAQ simples
+QnA Maker extrai automaticamente pares de pergunta-resposta de conteúdo semiestruturado, tais como FAQs, manuais de produto, diretrizes, documentos de suporte e armazenadas como páginas da web, ficheiros PDF ou arquivos de documento do Word de MS de políticas. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros de conteúdo de QnA estruturados. 
+
+A tabela abaixo resume os tipos de conteúdo e formatos de arquivo que são suportados pelo QnA Maker.
+
+|Tipo de Fonte|Tipo de Conteúdo| Exemplos|
+|--|--|--|
+|do IdP|FAQs (fixa, com seções ou com uma home page de tópicos)|[FAQ simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [FAQ com links](https://www.microsoft.com/software-download/faq), [FAQ com home page de tópicos](https://support.microsoft.com/products/windows?os=windows-10)|
+|PDF / DOC|FAQs, manuais de produto, brochuras, documento, política de documentos, suporte a guia, QnA estruturados, etc.|[Estruturado QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Manual.pdf de produto de exemplo](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [semiestruturados structured.doc de exemplo](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [paper.pdf branco de exemplo](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
+|Excel|Ficheiro estruturado do QnA (incluindo RTF, HTML suportam)|[Exemplo QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|TXT/TSV|Ficheiro de QnA estruturado|[Exemplo chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
+
+## <a name="faq-urls"></a>URLs de FAQ
+
+A ferramenta QnA Maker pode suportar FAQ páginas da web em 3 diferentes formatos: páginas de FAQ sem formatação, páginas de FAQ com links, páginas de FAQ com uma home page de tópicos.
+
+### <a name="plain-faq-pages"></a>Páginas de FAQ simples
+
 Este é o tipo mais comum da página de FAQ, em que as respostas siga imediatamente as perguntas na mesma página. 
+
+Segue-se um exemplo de uma página de FAQ simples:
 
 ![Página de perguntas frequentes simples](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
+### <a name="faq-pages-with-links"></a>Páginas de FAQ com links 
 
-## <a name="faq-pages-with-section-links"></a>Páginas de FAQ com Links de secção 
-Este tipo de página de perguntas frequentes, as perguntas são agregadas em conjunto e são associadas a respostas que estão nas seções diferentes na mesma página.
+Este tipo de página de perguntas frequentes, as perguntas são agregadas em conjunto e são associadas a respostas que estão em diferentes seções da mesma página ou em diferentes páginas.
+
+Segue-se um exemplo de uma página de FAQ com ligações nas secções que se encontram na mesma página:
 
  ![Página de FAQ de ligação da secção](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
-## <a name="faq-pages-with-links-to-different-pages"></a>Páginas de FAQ com links para páginas diferentes 
-Este tipo de página de perguntas frequentes é semelhante a uma página de FAQ vinculados a seção, exceto pelo fato das ligações redirecionar para uma página diferente. A ferramenta QnA Maker rastreia todas as páginas ligadas para extrair as respostas correspondentes.
+### <a name="faq-pages-with-a-topics-homepage"></a>Páginas de FAQ com uma home page de tópicos
 
- ![Página de perguntas frequentes sobre a ligação avançada](../media/qnamaker-concepts-datasources/deeplink-faq.png) 
+Esse tipo de FAQ tem uma home page com os tópicos em que cada tópico é um link para sua QnAs relevantes numa página diferente. Aqui, o QnA Maker rastreia todas as páginas ligadas para extrair o correspondentes de perguntas e respostas.
+
+Segue-se um exemplo de uma página de perguntas frequentes sobre onde uma home page de tópicos com links para páginas diferentes secções FAQ. 
+
+ ![Página de perguntas frequentes sobre a ligação avançada](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
-## <a name="product-manuals"></a>Manuais de produto
+## <a name="pdf-doc-files"></a>PDF / arquivos do documento
+
+A ferramenta QnA Maker pode processar o conteúdo semiestruturado num ficheiro PDF ou documentos e convertê-los QnAs. Um ficheiro de boa que pode ser extraído também é um em que o conteúdo está organizado em alguma forma estruturada e é representado nas secções bem definidas. As secções mais podem ser divididas em subsecções ou subtópicos. Extração funciona melhor em documentos que tenham uma estrutura clara com cabeçalhos hierárquicas.
+
+A ferramenta QnA Maker identifica as seções e subsecções e relações no arquivo com base em pistas visuais, como o tamanho da fonte, o estilo de fonte, numeração, cores, etc. Ficheiros PDF ou documentos semiestruturados poderiam ser manuais, FAQs, diretrizes, políticas, brochuras, panfletos e muitos outros tipos de ficheiros. Seguem-se alguns tipos de exemplo desses arquivos.
+
+### <a name="product-manuals"></a>Manuais de produto
 
 Um manual é, normalmente, material de orientação que acompanha um produto. Ele ajuda o utilizador para configurar, utilizar, manter e resolver problemas relacionados com o produto. Quando o QnA Maker processa um manual, extrai os títulos e subtítulos como perguntas e o conteúdo subsequente como respostas. Ver um exemplo [aqui](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
+
+Segue-se um exemplo de um manual com uma página de índice e conteúdo hierárquico
+
+ ![Exemplo de manuais de produto](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Extração funciona melhor em manuais que tenham uma tabela de conteúdos e/ou uma página de índice e uma estrutura clara com cabeçalhos hierárquicas.
 
+### <a name="brochures-guidelines-papers-and-other-files"></a>Brochuras, diretrizes, documentos e outros ficheiros
 
-## <a name="structured-data-format-through-file-upload"></a>Formato de dados estruturados através de carregamento de ficheiros
+Muitos outros tipos de documentos também podem ser processados para gerar pares de controle de qualidade, desde que tenham uma estrutura clara e o layout. Estes incluem: brochuras, diretrizes, relatórios, white papers, papers científicas, políticas, livros, etc. Ver um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
-Ficheiros estruturados, como. tsv,. xlsx com colunas formatadas também podem ser carregados para o QnA Maker durante a criação da base de dados de conhecimento. Também pode carregar ficheiros a partir da **definições** separador de uma base de dados de conhecimento
+Segue-se um exemplo de um documento semiestruturado, sem um índice:
+
+ ![Armazenamento de Blobs do Azure Doc semiestruturado](../media/qnamaker-concepts-datasources/semi-structured-doc.png) 
+
+### <a name="structured-qna-document"></a>Documento de QnA estruturado
+
+O formato estruturados-respostas a perguntas nos arquivos de documento, é na forma de alternância de perguntas e respostas por linha, uma pergunta por linha, seguido sua resposta na linha seguinte, conforme mostrado abaixo: 
+
+```
+Question1
+
+Answer1
+
+Question2
+
+Answer2
+```
+
+Segue-se um exemplo de um documento do word QnA estruturado:
+
+ ![Documento de QnA estruturado](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+
+## <a name="structured-txt-tsv-and-xls-files"></a>Estruturados *TXT*, *TSV* e *XLS* ficheiros
+
+QnAs na forma de estruturado *. txt*, *. tsv* ou *. xls* ficheiros também podem ser carregados para o QnA Maker para criar ou aumente uma base de dados de conhecimento.  Estas podem ser texto simples, ou podem ter o conteúdo em RTF ou HTML. 
 
 | Pergunta  | Resposta  | Metadados                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | "Key1:Value1|Key2:Value2' |
+| Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
+
 Quaisquer colunas adicionais no arquivo de origem são ignoradas.
 
+Segue-se um exemplo de um QnA estruturado *. xls* arquivo, com conteúdo HTML:
+
+ ![QnA estruturado do excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
 ## <a name="structured-data-format-through-import"></a>Formato de dados estruturados através de importação
+
 Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. Importação requer um ficheiro. tsv estruturados que contém informações de origem de dados. Estas informações ajudam o QnA Maker agrupar os pares de resposta de pergunta e atributo-los para uma determinada origem de dados.
 
 | Pergunta  | Resposta  | Origem| Metadados                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|"Key1:Value1|Key2:Value2' |
+| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
-## <a name="editorial"></a>Editorial
-Se não tiver conteúdo já existente para preencher a base de dados de conhecimento, também pode adicioná-los forma editorial nos conhecimentos do QnA Maker base. Saiba como atualizar a sua base de dados de conhecimento [aqui](../How-To/edit-knowledge-base.md).
+## <a name="editorially-add-to-knowledge-base"></a>Adicionar de forma editorial à base de dados de conhecimento
+
+Se não tiver conteúdo já existente para preencher a base de dados de conhecimento, pode adicionar QnAs forma editorial nos conhecimentos do QnA Maker base. Saiba como atualizar a sua base de dados de conhecimento [aqui](../How-To/edit-knowledge-base.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar personalidade para respostas com pessoas chit-bate-papo](../How-To/chit-chat-knowledge-base.md)
+> [Configurar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
 ## <a name="see-also"></a>Consulte também 
 

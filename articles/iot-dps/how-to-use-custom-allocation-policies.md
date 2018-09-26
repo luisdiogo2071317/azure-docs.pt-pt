@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955254"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161711"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
 
-Uma política de alocação personalizado dá-lhe mais controlo sobre a forma como os dispositivos são atribuídos a um hub IoT. Isto é conseguido utilizando código personalizado num [função do Azure](../azure-functions/functions-overview.md) atribuir dispositivos a um hub IoT. O serviço aprovisionamento de dispositivos chama seu código de função do Azure, fornecendo o grupo de hub IoT. O código de função devolve as informações do hub IoT para o aprovisionamento de dispositivo.
+Uma política de alocação personalizado dá-lhe mais controlo sobre a forma como os dispositivos são atribuídos a um hub IoT. Isto é conseguido utilizando código personalizado num [função do Azure](../azure-functions/functions-overview.md) atribuir dispositivos a um hub IoT. O serviço aprovisionamento de dispositivos chama seu código de função do Azure, fornecendo todas as informações relevantes sobre o dispositivo e a inscrição. O código de função é executado e devolve as informações do hub IoT utilizadas para aprovisionar o dispositivo.
 
 Ao utilizar políticas de alocação personalizados definem suas próprias políticas de alocação quando as políticas fornecidas pelo serviço de aprovisionamento de dispositivos não cumprem os requisitos do seu cenário.
 
@@ -107,7 +107,9 @@ Nesta secção, irá criar um novo grupo de inscrição que utiliza a política 
     ![Adicionar grupo de inscrição de alocação personalizado para o atestado de chave simétrico](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. No **adicionar grupo de inscrição**, clique em **ligar um hub IoT novo** para associar ambos os hubs de IoT de divisão nova.
+4. No **adicionar grupo de inscrição**, clique em **ligar um hub IoT novo** para associar ambos os hubs de IoT de divisão nova. 
+
+    Tem de executar este passo para ambos os hubs IoT divisão.
 
     **Subscrição**: Se tiver várias subscrições, escolha a subscrição onde criou os hubs IoT divisão.
 
@@ -278,9 +280,9 @@ Nesta secção, irá criar um novo grupo de inscrição que utiliza a política 
 
 Nesta secção, irá criar duas chaves de dispositivo exclusivo. Uma chave será utilizada para um dispositivo simulado torradeira. A outra chave será utilizada para um dispositivo simulado bomba de calor.
 
-Para gerar a chave de dispositivo, utilize o **chave primária** que anotou anteriormente para computar a [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo do dispositivo para cada dispositivo e converter o resultado em formato Base64.
+Para gerar a chave de dispositivo, que irá utilizar o **chave primária** que anotou anteriormente para computar a [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo do dispositivo para cada dispositivo e converter o resultado em formato Base64. Para obter mais informações sobre como criar as chaves de dispositivo derivada com grupos de inscrição, consulte a secção de inscrições de grupo de [atestado de chave simétrico](concepts-symmetric-key-attestation.md).
 
-Utilize os seguintes IDs de registo dois dispositivos e uma chave de dispositivo para ambos os dispositivos de computação. Ambos os IDs de registo têm um sufixo válido para trabalhar com o código de exemplo para a política de alocação personalizado:
+Para o exemplo neste artigo, utilize o seguinte registo de dispositivos de dois IDs e uma chave de dispositivo para ambos os dispositivos de computação. Ambos os IDs de registo têm um sufixo válido para trabalhar com o código de exemplo para a política de alocação personalizado:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -289,53 +291,53 @@ Utilize os seguintes IDs de registo dois dispositivos e uma chave de dispositivo
 
 Se estiver a utilizar uma estação de trabalho do Linux, pode utilizar openssl para gerar as chaves de dispositivo derivada, conforme mostrado no exemplo a seguir.
 
-Substitua o valor de **chave** com o **chave primária** que anotou anteriormente.
+1. Substitua o valor de **chave** com o **chave primária** que anotou anteriormente.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Estações de trabalho baseados em Windows
 
 Se estiver a utilizar uma estação de trabalho baseados em Windows, pode utilizar o PowerShell para gerar a chave de dispositivo derivada, conforme mostrado no exemplo a seguir.
 
-Substitua o valor de **chave** com o **chave primária** que anotou anteriormente.
+1. Substitua o valor de **chave** com o **chave primária** que anotou anteriormente.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 Os dispositivos simulados irão utilizar as chaves de dispositivo derivada com cada ID de registo para executar o atestado de chave simétrico.

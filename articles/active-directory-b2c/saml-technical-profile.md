@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6dcc1abdf06df2de951bb851c8b1abe93b71a69e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381495"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162447"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de SAML em políticas personalizadas do Azure Active Directory B2C
 
@@ -106,7 +106,6 @@ O **Name** atributo do elemento de protocolo tem de ser definido como `SAML2`.
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | PartnerEntity | Sim | URL dos metadados do fornecedor de identidade SAML. Copie os metadados do fornecedor de identidade e adicioná-lo dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>` |
-| IssuerUri | Não | Controla o valor de **entityID** da **EntityDescriptor** elemento nos metadados do perfil técnico do Azure AD B2C. O **entityID** atributo é o identificador exclusivo do fornecedor de serviços, neste caso, o perfil técnico do Azure AD B2C. O valor predefinido da **entityID** é `https://login.microsoftonline.com/te/your-tenant.onmicrosoft.com/your-base-policy-name` |
 | WantsSignedRequests | Não | Indica se o perfil técnico necessita que todos os pedidos de autenticação de saída sejam assinados. Valores possíveis: `true` ou `false`. O valor predefinido é `true`. Quando o valor é definido como `true`, o **SamlMessageSigning** chave criptográfica tem de ser especificado e todos os pedidos de autenticação de saída tem sessão iniciados. Se o valor é definido como `false`, o **SigAlg** e **assinatura** parâmetros (cadeia de consulta ou postar parâmetro) são omitidos do pedido. Estes metadados também controla os metadados **AuthnRequestsSigned** atributo, que é a saída nos metadados do perfil técnico do Azure AD B2C que é partilhado com o fornecedor de identidade. |
 | XmlSignatureAlgorithm | Não | O método que utiliza o Azure AD B2C para assinar o pedido SAML. Estes metadados controla o valor do **SigAlg** parâmetro (cadeia de consulta ou postar parâmetro) no pedido de SAML. Valores possíveis: `Sha256`, `Sha384`, `Sha512`, ou `Sha1`. Certifique-se de que configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Utilize apenas o algoritmo que suporta o seu certificado. | 
 | WantsSignedAssertions | Não | Indica se o perfil técnico necessita que todas as declarações de entrada sejam assinados. Valores possíveis: `true` ou `false`. O valor predefinido é `true`. Se o valor é definido como `true`, todos os secção de asserções `saml:Assertion` enviadas pela identidade do fornecedor para o Azure AD B2C deve ser assinado. Se o valor é definido como `false`, o fornecedor de identidade não deve assinar as asserções, mas mesmo se falhar, o Azure AD B2C não validar a assinatura. Estes metadados também controla o sinalizador de metadados **WantsAssertionsSigned**, que é de saída nos metadados do perfil técnico do Azure AD B2C que é partilhado com o fornecedor de identidade. Se desativar a validação de asserções, pode também querer desativar a validação de assinatura de resposta (para obter mais informações, consulte **ResponsesSigned**). |

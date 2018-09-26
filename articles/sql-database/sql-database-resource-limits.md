@@ -2,19 +2,22 @@
 title: Descrição geral de limites de recursos de base de dados SQL do Azure | Documentos da Microsoft
 description: Este artigo fornece uma descrição geral do recurso de base de dados do Azure SQL limita e fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6dbabb853b9c4c5f96144c59c62567fc3000267d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: sashan,moslake
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 582e0cc8dd48921bbbef188cb712a156e128e4fe
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952703"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159589"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Limites de recursos de base de dados do Azure SQL de descrição geral 
 

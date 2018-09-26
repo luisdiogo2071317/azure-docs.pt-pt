@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
 ms.openlocfilehash: c7191f60b8780e8ccee9b330aa21d8174f0f0148
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160715"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106914"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Criar, lista ou eliminar uma identidade gerida atribuído ao utilizador com o Azure PowerShell
 
@@ -44,7 +44,7 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade gerida atribuí
     - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade gerida atribuído ao utilizador.
     - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para ler (lista) as propriedades de uma identidade gerida atribuído ao utilizador.
 
-## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuído ao utilizador
+## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 Para criar uma identidade gerida atribuído ao utilizador, utilize o [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) comando. O `ResourceGroupName` parâmetro especifica o grupo de recursos onde criar a identidade gerida atribuído ao utilizador e o `-Name` parâmetro especifica o respetivo nome. Substitua a `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` valores de parâmetros com seus próprios valores:
 

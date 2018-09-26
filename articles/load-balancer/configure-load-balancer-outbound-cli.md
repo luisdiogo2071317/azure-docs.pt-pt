@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dd549005776656bb755b78fc0ca73d24edcc77bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973750"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160660"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar o balanceamento de carga e regras de saída no balanceador de carga Standard com a CLI do Azure
 
@@ -155,6 +155,9 @@ az network lb outbound-rule create \
  --outbound-ports 10000 \
  --address-pool bepool
 ```
+
+Neste momento, pode continuar com a adição da VM ao agrupamento de back-end *bepool* ao atualizar a configuração de IP os respectivos recursos de NIC.
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.

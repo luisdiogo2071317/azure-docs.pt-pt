@@ -2,20 +2,22 @@
 title: Sincronização de dados SQL do Azure | Documentos da Microsoft
 description: Esta visão geral introduz de sincronização de dados SQL do Azure
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: data-sync
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ab5d042517716ee2b155d99803f4058772622036
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 08/09/2018
+ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721454"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161986"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 

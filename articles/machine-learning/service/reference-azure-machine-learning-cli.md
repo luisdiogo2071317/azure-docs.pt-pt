@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 7e430d1b590413f497c851b687abcaa98e04d0e4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053866"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158908"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>O que é da CLI do Azure Machine Learning?
 
@@ -56,6 +56,8 @@ Os exemplos incluem:
 Os cientistas de dados são recomendados para utilizar o SDK do Azure ML.
 
 ## <a name="common-machine-learning-cli-commands"></a>Aprendizagem comuns comandos da CLI
+> [!NOTE]
+> Pode utilizar para executar com êxito de ficheiros de exemplo o abaixo comandos podem ser encontradas [aqui.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Utilize o conjunto avançado de `az ml` comandos para interagir o serviço em qualquer ambiente de linha de comando, incluindo o shell de cloud de portal do Azure.
 
@@ -73,7 +75,7 @@ Eis um exemplo dos comandos comuns:
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
-+ Crie uma DSVM (ciência de dados VM) para modelos de treinamento. Também pode criar clusters de BatchAI para a formação distribuída.
++ Crie uma DSVM (ciência de dados VM). Também pode criar clusters de BatchAI para a formação distribuída ou clusters do AKS para a implementação.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -84,7 +86,7 @@ Eis um exemplo dos comandos comuns:
   az ml project attach --experiment-name myhistory
   ```
 
-+ Submeta uma experimentação com o serviço do Azure Machine Learning no destino de computação à sua escolha. Neste exemplo é executado em relação a seu ambiente de computação local. Pode encontrar um exemplo de script de train.py [aqui](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/train.py).
++ Submeta uma experimentação com o serviço do Azure Machine Learning no destino de computação à sua escolha. Neste exemplo serão executados em seu ambiente de computação local. Certifique-se de que o ficheiro de ambiente de conda captura as suas dependências de python.
 
   ```AzureCLI
   az ml run submit -c local train.py
@@ -99,17 +101,17 @@ az ml history list
 
 + Registe um modelo com o Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Crie uma imagem para conter o modelo e as dependências da aprendizagem automática. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m mymodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Implemente o seu modelo em pacote destinos, incluindo o ACI e o AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Lista de comando completo

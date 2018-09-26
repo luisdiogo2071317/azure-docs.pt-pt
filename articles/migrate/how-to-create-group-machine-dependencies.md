@@ -4,14 +4,14 @@ description: Descreve como criar uma avaliação com as dependências das máqui
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737103"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163431"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
@@ -55,6 +55,7 @@ Para instalar o agente num computador Windows:
 4. Na **opções de configuração do agente**, selecione **Azure Log Analytics** > **seguinte**.
 5. Clique em **adicionar** para adicionar uma nova área de trabalho do Log Analytics. Cole o ID de área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
 
+[Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) sobre a lista de suporte de sistemas operativos do Windows por MMA.
 
 Para instalar o agente num computador Linux:
 
@@ -63,6 +64,7 @@ Para instalar o agente num computador Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre a lista de suporte de sistemas operativos Linux por MMA.
 
 ### <a name="install-the-dependency-agent"></a>Instalar o agente de Dependência
 1. Para instalar o agente de dependência num computador Windows, clique duas vezes o ficheiro de configuração e siga o assistente.
@@ -102,5 +104,6 @@ Assim que o grupo for criado, recomenda-se para instalar agentes em todas as má
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Saiba como](how-to-create-group-dependencies.md) para refinar o grupo ao visualizar as dependências de grupo
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre as perguntas frequentes sobre a visualização de dependência.
+- [Saiba como](how-to-create-group-dependencies.md) para refinar o grupo ao visualizar as dependências de grupo.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.

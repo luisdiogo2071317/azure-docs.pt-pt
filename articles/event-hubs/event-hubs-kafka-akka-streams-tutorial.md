@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 063f8bc050064d191dd502b74156be85df4f0031
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745501"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182224"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar fluxos Akka com os Hubs de eventos para o Apache Kafka
 Este tutorial mostra-lhe como ligar Akka fluxos para os hubs de eventos de Kafka-ativado sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Os Hubs de eventos do Azure para o Kafka suporta [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -27,14 +27,14 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
-> * Execute o produtor Flink 
-> * Execução de Flink de consumidor
+> * Execute o produtor Akka fluxos 
+> * Execute o consumidor Akka fluxos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-* Leia os [os Hubs de eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) artigo. 
+* Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * [Kit de desenvolvimento Java (JDK 1.8 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
@@ -142,8 +142,8 @@ Neste tutorial, aprendeu a ligar Akka fluxos para os hubs de eventos de Kafka-at
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
-> * Execute o produtor Flink 
-> * Execução de Flink de consumidor
+> * Execute o produtor Akka fluxos 
+> * Execute o consumidor Akka fluxos
 
 Para saber mais sobre os Hubs de eventos e os Hubs de eventos para o Kafka, consulte o tópico seguinte:  
 

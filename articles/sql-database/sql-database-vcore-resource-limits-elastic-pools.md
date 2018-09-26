@@ -2,19 +2,22 @@
 title: Limites de recursos baseados em vcore da base de dados SQL do Azure - conjuntos elásticos | Documentos da Microsoft
 description: Esta página descreve alguns limites de recursos baseados em vCore comuns para conjuntos elásticos na base de dados do Azure SQL.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 09/14/2018
-ms.author: carlrab
-ms.openlocfilehash: 19693e394b0bd3a589ead25e2ddfa2fa88e92bad
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730384"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161578"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore
 
@@ -92,7 +95,7 @@ Para conjuntos elásticos da base de dados SQL, as tabelas seguintes mostram os 
 |Memória (GB)|7|14|28|56|112|168|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1|2|4|8|20|36|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo|307|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|384|

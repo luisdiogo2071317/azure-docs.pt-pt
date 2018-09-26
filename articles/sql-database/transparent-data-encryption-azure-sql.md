@@ -2,23 +2,22 @@
 title: Encriptação de dados transparente para o Azure SQL Database e o armazém de dados | Documentos da Microsoft
 description: Uma descrição geral da criptografia de dados transparente para a base de dados SQL e o armazém de dados. O documento abrange suas vantagens e as opções de configuração, que inclui encriptação de dados transparente gerida pelo serviço e traga a sua própria chave.
 services: sql-database
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: vanto
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/09/2018
+author: becczhang
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 8c1db822c1c0e7b91843687fdc1e6f6808cf60c1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
+ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544167"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165931"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 

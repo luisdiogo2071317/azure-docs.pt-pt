@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
 ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648856"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096638"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço do Reliable Services
 Seguem-se exemplos de manifestos de aplicações e serviços para uma aplicação do Service Fabric com um front-end de web de ASP.NET Core e um back-end com monitorização de estado. O objetivo destes exemplos é mostrar quais configurações estão disponíveis e como utilizá-los. Esses manifestos de aplicações e serviços são baseiam o [início rápido de .NET do Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifestos.

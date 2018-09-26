@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2ef24692f9166fdca7eb19f648aee9ed3b0514f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026479"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185765"
 ---
 Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de CPU que são ótimos para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
@@ -26,7 +26,7 @@ Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de 
 
 * O série Ev3 funcionalidades E5-2673 v4 (Broadwell) de 2.3 GHz processador numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de fins mais gerais e colocar a Ev3 em alinhamento com as VMs para fins gerais da maioria das outras clouds.  Memória foi expandida (de 7 GiB/vCPU de 8 GiB/Vcpus) enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hyperthreading.  A Ev3 é a siga até os tamanhos VM de elevada da memória das famílias D/Dv2.
 
-* Computação do Azure oferece a tamanhos de máquinas virtuais que são Isolated para um tipo de hardware específico e dedicado de um único cliente.  Estes tamanhos de máquina virtual são mais adequados para cargas de trabalho que requerem um elevado grau de isolamento de outros clientes para cargas de trabalho que envolvem elementos, como os requisitos de regulamentação e conformidade.  Os clientes também podem optar por subdividir os recursos dessas máquinas de virtuais isoladas usando [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Consulte as tabelas de famílias de máquinas virtuais, abaixo, para as opções de VM isoladas.
+* A Computação do Azure oferece tamanhos de máquinas virtuais que são Isolados para um tipo de hardware específico e dedicados a um único cliente.  Estes tamanhos de máquinas virtuais são mais adequados para cargas de trabalho que exigem um elevado grau de isolamento de outros clientes para cargas de trabalho que envolvem elementos como os requisitos de conformidade e regulamentares.  Os clientes também podem optar por subdividir os recursos dessas máquinas de virtuais isoladas usando [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Consulte as tabelas de famílias de máquinas virtuais, abaixo, para as opções de VM isoladas.
 
 ## <a name="esv3-series"></a>Série Esv3 
 
@@ -45,6 +45,7 @@ As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
+| Standard_E20s_v3&nbsp;<sup>2</sup> | 20     | 160         | 320            | 32             | 40 000 / 320 (400)                                                    | 32.000 / 480                              | 8 / 10 000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
@@ -76,6 +77,7 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
+| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10 000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 | Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |

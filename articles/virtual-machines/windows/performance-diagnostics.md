@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 587540430dc4089973186c2862f402ccde73df65
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048093"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163811"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho para máquinas virtuais do Azure
 
@@ -35,15 +35,15 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instalar e executar o diagnóstico de desempenho na sua VM
 Diagnóstico de desempenho instala uma extensão de VM que executa uma ferramenta de diagnóstico com o nome [PerfInsights](https://aka.ms/perfinsights). Para instalar e executar o diagnóstico de desempenho, siga estes passos:
-1)  Na coluna esquerda de comandos, selecione **máquinas virtuais**.
-2)  Na lista de nomes VM, selecione a VM que pretende executar diagnósticos.
-3)  Na coluna da direita de comandos, selecione **diagnóstico de desempenho**.
+1.  Na coluna esquerda de comandos, selecione **máquinas virtuais**.
+1.  Na lista de nomes VM, selecione a VM que pretende executar diagnósticos.
+1.  Na coluna da direita de comandos, selecione **diagnóstico de desempenho**.
 
     ![Captura de ecrã do portal do Azure, com o botão de diagnóstico de desempenho de instalação realçado](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
     > Esta captura de tela, está oculta o painel de nomes VM.
-4) Selecione uma conta de armazenamento (opcional)
+1. Selecione uma conta de armazenamento (opcional)
 
     Se pretender utilizar uma única conta de armazenamento para armazenar os resultados de diagnóstico de desempenho de várias VMs, pode selecionar uma conta de armazenamento ao clicar o **definições** botão na barra de ferramentas. Clique nas **OK** botão depois de selecionar a conta de armazenamento.
 
@@ -53,8 +53,8 @@ Diagnóstico de desempenho instala uma extensão de VM que executa uma ferrament
 
     ![Captura de ecrã da seleção de conta de armazenamento do painel de definições de diagnóstico de desempenho](media/performance-diagnostics/select-storage-account.png)
 
-5) Selecione o **instalar o diagnóstico de desempenho** botão.
-6) Selecione o **executar diagnósticos** caixa de verificação se pretender executar um diagnóstico depois de concluída a instalação. Se tornar esta seleção, poderá escolher o cenário de análise de desempenho e opções relacionadas.
+1. Selecione o **instalar o diagnóstico de desempenho** botão.
+1. Selecione o **executar diagnósticos** caixa de verificação se pretender executar um diagnóstico depois de concluída a instalação. Se tornar esta seleção, poderá escolher o cenário de análise de desempenho e opções relacionadas.
 
     ![Botão instalar o diagnóstico de captura de ecrã de desempenho](media/performance-diagnostics/install-diagnostics-button.png)
 
@@ -148,13 +148,13 @@ Quando abrir um pedido de suporte com a Microsoft, é importante partilhar o rel
 
 **Opção 2:** gerar uma assinatura de acesso partilhado para o diagnóstico reportar o ficheiro comprimido  
 Pode partilhar uma ligação para o ficheiro comprimido relatórios através da utilização de assinaturas de acesso partilhado. Para tal, siga estes passos: 
-1)  No portal do Azure, navegue para a conta de armazenamento na qual os dados de diagnóstico são armazenados.
-2)  Selecione **Blobs** sob a **serviço Blob** secção. 
-3)  Selecione o **azdiagextnresults** contentor.
-4)  Selecione o desempenho diagnóstico saída ficheiro comprimido que pretende partilhar.
-5)  Sobre o **gerar SAS** separador, selecione os critérios para a partilha. 
-6)  Clique em **gerar o token SAS do blob e o URL**.
-7)  Copiar o **URL de SAS do Blob**e partilhá-lo com o engenheiro de suporte. 
+1.  No portal do Azure, navegue para a conta de armazenamento na qual os dados de diagnóstico são armazenados.
+1.  Selecione **Blobs** sob a **serviço Blob** secção. 
+1.  Selecione o **azdiagextnresults** contentor.
+1.  Selecione o desempenho diagnóstico saída ficheiro comprimido que pretende partilhar.
+1.  Sobre o **gerar SAS** separador, selecione os critérios para a partilha. 
+1.  Clique em **gerar o token SAS do blob e o URL**.
+1.  Copiar o **URL de SAS do Blob**e partilhá-lo com o engenheiro de suporte. 
 
 **Opção 3:** transferir o relatório da conta de armazenamento
 
@@ -162,8 +162,8 @@ Também pode localizar o ficheiro comprimido de relatório de diagnóstico do de
 
 ### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Como posso capturar os dados de diagnóstico no momento correto?
 Cada execução de diagnóstico de desempenho tem duas fases: 
-1)  Instalar ou atualizar o extensão de VM de diagnóstico de desempenho.
-2)  Execute o diagnóstico durante o período especificado.
+1.  Instalar ou atualizar o extensão de VM de diagnóstico de desempenho.
+1.  Execute o diagnóstico durante o período especificado.
 
 Atualmente, não existe nenhuma forma fácil de saber exatamente quando a instalação da extensão VM estiver concluída. Em geral, que demora cerca de 45 segundos a 1 minuto a instalar a extensão VM. Depois da extensão de VM está instalada, pode executar as etapas de reprodução para ter o diagnóstico de desempenho capturar o conjunto correto de dados para resolução de problemas. 
 

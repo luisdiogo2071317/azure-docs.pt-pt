@@ -2,19 +2,22 @@
 title: Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados do Azure SQL
 description: O tópico fornece uma evidência que operações de banco de dados de criação de batches imroves significativamente a velocidade e escalabilidade das suas aplicações de base de dados do Azure SQL. Embora essas técnicas de criação de batches funcionam para qualquer base de dados do SQL Server, o foco deste artigo está no Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 92640eeb068b8e9a95dbe1209b2c8834e5f29da8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036104"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160813"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 Criação de batches de operações para a base de dados do Azure SQL significativamente melhora o desempenho e escalabilidade das suas aplicações. Para compreender as vantagens, a primeira parte deste artigo aborda alguns resultados de teste de exemplo que comparam seqüenciais e em lote pedidos para uma base de dados SQL. O restante do artigo mostra as técnicas, cenários e considerações para ajudá-lo a utilizar a criação de batches com êxito nas suas aplicações do Azure.

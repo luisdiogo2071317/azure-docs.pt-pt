@@ -1,9 +1,9 @@
 ---
-title: Conjuntos de dimensionamento de atualizações automáticas de SO com a máquina virtual do Azure | Documentos da Microsoft
-description: Saiba como atualizar automaticamente o sistema operacional nas instâncias VM num conjunto de dimensionamento
+title: Conjuntos de dimensionamento de atualizações automáticas de imagem de SO com a máquina virtual do Azure | Documentos da Microsoft
+description: Saiba como atualizar automaticamente a imagem do SO nas instâncias VM num conjunto de dimensionamento
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: yeki
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,152 +13,98 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
-ms.author: yeki
-ms.openlocfilehash: 935b3ff0fe03984b02dc2e1137f48e53b06ce0c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/25/2018
+ms.author: rajraj
+ms.openlocfilehash: 4d3af3b7c7084c3c410bc936356d9caff643b805
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995113"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182132"
 ---
-# <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Atualizações automáticas de SO do conjunto de dimensionamento de máquina virtual do Azure
+# <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure
 
-Atualização automática de imagem do SO é uma funcionalidade de pré-visualização para conjuntos de dimensionamento de máquina virtual do Azure que atualiza automaticamente todas as VMs para a imagem de SO mais recente.
+Atualização automática de imagem do SO é um recurso de conjuntos de dimensionamento de máquina virtual do Azure de que atualiza automaticamente todas as VMs para a imagem de SO mais recente.
 
 Atualização automática de SO tem as seguintes características:
 
 - Depois de configurada, a imagem de SO mais recente, publicada por editores de imagem é aplicada automaticamente para o conjunto sem intervenção do utilizador de dimensionamento.
 - Atualiza lotes de instâncias de uma maneira sem interrupção sempre que uma nova imagem de plataforma é publicada pelo editor.
-- Integra-se com a sonda de estado de funcionamento da aplicação (opcional, mas altamente recomendado de segurança).
-- Funciona para todos os tamanhos VM.
-- Imagens da plataforma funciona para Windows e Linux.
-- Pode desativar as atualizações automáticas em qualquer altura (atualizações de SO pode ser iniciadas manualmente também).
+- Integra-se com a sonda de estado de funcionamento da aplicação.
+- Funciona para todos os tamanhos VM e para imagens de plataforma do Windows e Linux.
+- Pode desativar as atualizações automáticas em qualquer altura (atualizações de SO podem ser iniciadas manualmente também).
 - O disco do SO de uma VM é substituído pelo novo disco de SO criado com a versão mais recente da imagem. Extensões configuradas e scripts de dados personalizados são executados ao mesmo tempo são retidos discos de dados persistentes.
+- Encriptação de disco do Azure (em pré-visualização) não é atualmente suportada.  
 
+## <a name="how-does-automatic-os-image-upgrade-work"></a>Como a SO automática trabalho de atualização de imagens?
 
-## <a name="preview-notes"></a>Notas de pré-visualização 
-Enquanto está em pré-visualização, as seguintes limitações e restrições aplicam-se:
+Uma atualização funciona ao substituir o disco do SO de uma VM um novo, criado usando a versão mais recente da imagem. Qualquer configurado extensões e os scripts de dados personalizados são executados, ao mesmo tempo são retidos discos de dados persistentes. Para minimizar o período de indisponibilidade de aplicação, as atualizações ocorrem em lotes de máquinas, com mais do que 20% da escala definida a atualizar em qualquer altura. Tem também a opção para integrar uma sonda de estado de funcionamento da aplicação de Balanceador de carga do Azure. Isso é altamente recomendável para incorporar um heartbeat do aplicativo e validar o êxito da atualização para cada lote no processo de atualização.
 
-- Atualizações de SO automática só suportam [quatro SKUs de SO](#supported-os-images). Não existe SLA ou garantias. Recomendamos que não usar as atualizações automáticas em cargas de trabalho críticas de produção durante a pré-visualização.
-- A encriptação de disco do Azure é **não** atualmente suportada com a máquina virtual dimensionamento conjunto atualização automática de SO.
+Estes são os passos de execução: 
 
+1. Antes de iniciar o processo de atualização, certifique-se de que não mais do que 20% das instâncias estão danificados. 
+2. Identifique o lote de instâncias de VM para atualizar, com um lote de ter o máximo de 20% da contagem de instâncias total.
+3. Atualize a imagem do SO deste lote de instâncias de VM.
+4. Se o cliente tiver configurado as sondas de estado de funcionamento do aplicativo, a atualização tem de aguardar até 5 minutos para sondas para se tornar íntegros, em seguida, continua a imediatamente para o lote seguinte. 
+5. Se é restantes que são instâncias para atualizar, goto passo 1) para o lote seguinte; caso contrário, a atualização foi concluída.
 
-## <a name="register-to-use-automatic-os-upgrade"></a>Registre-se para utilizar a atualização automática do SO
-Para utilizar a funcionalidade de atualização do sistema operacional automatizada, registe o fornecedor de pré-visualização com o Azure Powershell ou a CLI 2.0 do Azure.
-
-### <a name="powershell"></a>PowerShell
-
-1. Registe-se com [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature):
-
-     ```powershell
-     Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName AutoOSUpgradePreview
-     ```
-
-2. Demora cerca de 10 minutos para o estado de registo para o relatório como *registado*. Pode verificar o estado do registo atual com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). 
-
-3. Depois de registado, confirme que o *Microsoft. Compute* fornecedor está registado. O exemplo seguinte utiliza o Azure Powershell com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
-
-     ```powershell
-     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-     ```
-
-
-### <a name="cli-20"></a>CLI 2.0
-
-1. Registe-se com [Registre-se de funcionalidade de az](/cli/azure/feature#az-feature-register):
-
-     ```azurecli
-     az feature register --name AutoOSUpgradePreview --namespace Microsoft.Compute
-     ```
-
-2. Demora cerca de 10 minutos para o estado de registo para o relatório como *registado*. Pode verificar o estado do registo atual com [show de funcionalidade de az](/cli/azure/feature#az-feature-show). 
- 
-3. Depois de registado, certifique-se de que o *Microsoft. Compute* fornecedor está registado. O exemplo seguinte utiliza a CLI do Azure (2.0.20 ou posterior) com [Registre-se fornecedor de az](/cli/azure/provider#az-provider-register):
-
-     ```azurecli
-     az provider register --namespace Microsoft.Compute
-     ```
-
-> [!NOTE]
-> Clusters do Service Fabric tem seus próprios noção de estado de funcionamento do aplicativo, mas os conjuntos de dimensionamento sem o Service Fabric utilizar a sonda de estado de funcionamento do Balanceador de carga para monitorizar o estado de funcionamento do aplicativo. 
->
-> ### <a name="azure-powershell"></a>Azure PowerShell
->
-> 1. Registar a funcionalidade do fornecedor, para as sondas de estado de funcionamento com [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature):
->
->      ```powershell
->      Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
->      ```
->
-> 2. Novamente, demora cerca de 10 minutos para o estado de registo para o relatório como *registado*. Pode verificar o estado do registo atual com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature)
->
-> 3. Uma vez registado Certifique-se de que o *Network* fornecedor é registrado usando [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
->
->      ```powershell
->      Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
->      ```
->
->
-> ### <a name="cli-20"></a>CLI 2.0
->
-> 1. Registar a funcionalidade do fornecedor, para as sondas de estado de funcionamento com [Registre-se de funcionalidade de az](/cli/azure/feature#az-feature-register):
->
->      ```azurecli
->      az feature register --name AllowVmssHealthProbe --namespace Microsoft.Network
->      ```
->
-> 2. Novamente, demora cerca de 10 minutos para o estado de registo para o relatório como *registado*. Pode verificar o estado do registo atual com [show de funcionalidade de az](/cli/azure/feature#az-feature-show). 
->
-> 3. Uma vez registado Certifique-se de que o *Network* fornecedor é registrado usando [Registre-se fornecedor de az](/cli/azure/provider#az-provider-register) da seguinte forma:
->
->      ```azurecli
->      az provider register --namespace Microsoft.Network
->      ```
-
-## <a name="portal-experience"></a>Experiência do portal
-Depois de seguir os passos de registo acima, pode aceder à [do portal do Azure](https://aka.ms/managed-compute) para ativar atualizações automáticas de SO em conjuntos de dimensionamento e para ver o progresso das atualizações:
-
-![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
-
+O conjunto de dimensionamento verificações de mecanismo de atualização de SO para o estado de funcionamento de instância VM geral antes de atualizar todos os lotes. Durante a atualização de um lote, pode haver outros planeada em simultâneo ou a manutenção não planeada acontecendo nos centros de dados do Azure que possa afetar a disponibilidade das suas VMs. Por conseguinte, é possível que temporariamente mais de 20% instâncias podem ficar inativo. Nesses casos, no final do lote atual, o conjunto de dimensionamento paradas de atualização.
 
 ## <a name="supported-os-images"></a>Imagens de SO suportadas
-Atualmente são suportadas apenas determinadas imagens de plataforma de SO. Atualmente não é possível utilizar imagens personalizadas que tenha criado por conta própria. O *versão* propriedade da imagem de plataforma tem de ser definida como *mais recente*.
+Atualmente são suportadas apenas determinadas imagens de plataforma de SO. Atualmente não é possível utilizar imagens personalizadas que tenha criado por mesmo. 
 
-Os SKUs seguintes são atualmente suportados (serão adicionadas mais):
+Os SKUs seguintes são atualmente suportados (serão adicionadas mais no futuro):
     
-| Publicador               | Oferta         |  Sku               | Versão  |
-|-------------------------|---------------|--------------------|----------|
-| Canónico               | UbuntuServer  | 16.04-LTS          | mais recente   |
-| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | mais recente   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | mais recente   |
-| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | mais recente   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter com contentores | mais recente   |
+| Publicador               | Oferta de SO      |  Sku               |
+|-------------------------|---------------|--------------------|
+| Canónico               | UbuntuServer  | 16.04-LTS          |
+| Canónico               | UbuntuServer  | 18.04 LTS *        | 
+| Rogue Wave (OpenLogic)  | CentOS        | 7.5 *              | 
+| CoreOS                  | CoreOS        | Estável             | 
+| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter | 
+| Microsoft Corporation   | WindowsServer | 2016 Datacenter    | 
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2016 Datacenter com contentores |
 
+* Suporte para estas imagens está atualmente a implementar e estará disponível em todas as regiões do Azure em breve. 
 
+## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática de imagem do SO
 
-## <a name="application-health-without-service-fabric"></a>Estado de funcionamento do aplicativo sem o Service Fabric
-> [!NOTE]
-> Esta secção aplica-se apenas para conjuntos de dimensionamento sem o Service Fabric. Service Fabric tem seu próprio noção de estado de funcionamento do aplicativo. Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem de sistema operacional é lançada domínio de atualização por domínio de atualização para manter uma elevada disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, veja [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+- O *versão* propriedade da imagem de plataforma tem de ser definida como *mais recente*.
+- Utilize sondas de estado de funcionamento de aplicações não Service Fabric para conjuntos de dimensionamento.
+- Certifique-se de que os recursos que o modelo de conjunto de dimensionamento se refere a está disponível e mantido atualizado. URI de Exa.SAS para inicialização payload nas propriedades de extensão VM, payload na conta de armazenamento referenciar a segredos no modelo. 
 
-Durante uma atualização de SO, instâncias de VM num conjunto de dimensionamento são atualizadas um lote a cada vez. A atualização deve continuar apenas se a aplicação de cliente está em bom estada nas instâncias de VM atualizadas. Por esse motivo, a aplicação tem de fornecer sinais de estado de funcionamento para o mecanismo de atualização de SO de conjunto de dimensionamento. Durante as atualizações de SO, a plataforma considera o estado de energia da VM e para determinar se uma instância de VM está em bom estada após uma atualização, o estado de aprovisionamento de extensão. Durante a atualização de SO de uma instância VM, o disco do SO numa instância VM é substituído por um novo disco com base na versão mais recente da imagem. Depois de concluída a atualização do sistema operacional, as extensões configuradas são executadas nestas VMS. Apenas quando todas as extensões numa VM estão aprovisionadas com êxito, é o aplicativo considerado em bom estado. 
+## <a name="configure-automatic-os-image-upgrade"></a>Configurar a atualização automática de imagem do SO
+Para configurar a atualização automática de imagem do SO, certifique-se de que o *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* estiver definida como *verdadeiro* na escala de definição de modelo do conjunto. 
 
-Além disso, o conjunto de dimensionamento *tem* ser configurado com sondas de estado de funcionamento da aplicação para fornecer a plataforma com as informações corretas sobre o estado em curso do aplicativo. Sondas de estado de funcionamento do aplicativo são personalizado Load Balancer sonda que são utilizadas como um sinal de estado de funcionamento. O aplicativo em execução numa instância VM do conjunto de dimensionamento pode responder a pedidos HTTP ou TCP externos, que indica se está em bom estado. Para obter mais informações sobre como funcionam os sondas do Balanceador de carga personalizado, consulte a [as sondas do Balanceador de carga compreender](../load-balancer/load-balancer-custom-probe-overview.md).
+```
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+```
+
+```json
+{ 
+  "properties": { 
+    "upgradePolicy": { 
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade":  true 
+      } 
+    } 
+  } 
+} 
+```
+
+Suporte para configurar esta propriedade através do Azure PowerShell e CLI 2.0 será lançado em 10/09.
+
+## <a name="using-application-health-probes"></a>Sondas de estado de funcionamento da aplicação a utilizar 
+
+Durante uma atualização de SO, instâncias de VM num conjunto de dimensionamento são atualizadas um lote a cada vez. A atualização deve continuar apenas se a aplicação de cliente está em bom estada nas instâncias de VM atualizadas. Recomendamos que o aplicativo fornece sinais de estado de funcionamento para o mecanismo de atualização de SO de conjunto de dimensionamento. Por predefinição, durante as atualizações de SO a plataforma considera o estado de energia VM e para determinar se uma instância de VM está em bom estada após uma atualização, o estado de aprovisionamento de extensão. Durante a atualização de SO de uma instância VM, o disco do SO numa instância VM é substituído por um novo disco com base na versão mais recente da imagem. Depois de concluída a atualização do sistema operacional, as extensões configuradas são executadas nestas VMS. Apenas quando todas as extensões numa VM estão aprovisionadas com êxito, é o aplicativo considerado em bom estado. 
+
+Opcionalmente, pode ser configurado um conjunto de dimensionamento com sondas de estado de funcionamento da aplicação para fornecer a plataforma com informações precisas sobre o estado atual do aplicativo. Sondas de estado de funcionamento do aplicativo são personalizado Load Balancer sonda que são utilizadas como um sinal de estado de funcionamento. O aplicativo em execução numa instância VM do conjunto de dimensionamento pode responder a pedidos HTTP ou TCP externos, que indica se está em bom estado. Para obter mais informações sobre como funcionam os sondas do Balanceador de carga personalizado, consulte a [as sondas do Balanceador de carga compreender](../load-balancer/load-balancer-custom-probe-overview.md). Uma sonda de estado de funcionamento de aplicação não é necessário para atualizações automáticas de SO, mas é altamente recomendável.
 
 Se o conjunto de dimensionamento está configurado para utilizar vários grupos de colocação, sondas usando um [Balanceador de carga Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) tenha de ser utilizada.
 
-### <a name="important-keep-credentials-up-to-date"></a>Importantes: Credenciais de manter atualizadas
-Se o conjunto de dimensionamento utiliza quaisquer credenciais para aceder a recursos externos, terá de certificar-se de que as credenciais são mantidas atualizadas. Por exemplo, uma extensão de VM pode ser configurada para utilizar um token SAS para a conta de armazenamento. Se quaisquer credenciais, incluindo certificados e tokens tiverem expirado, a atualização irá falhar e o primeiro batch de VMs será deixado no estado de falha.
-
-Os passos recomendados para recuperar as VMs e volte a ativar a atualização automática do SO, se houver uma falha de autenticação de recursos são:
-
-* Voltar a gerar o token (ou quaisquer outras credenciais) passados para sua extensão ou extensões.
-* Certifique-se de que qualquer credencial utilizada de dentro da VM para comunicar com entidades externas está atualizada.
-* Atualize extensão ou extensões de no modelo de conjunto de dimensionamento com quaisquer tokens de novo.
-* Implemente o conjunto de dimensionamento atualizada, o qual irá atualizar todas as instâncias de VM, incluindo aqueles com falha. 
-
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurar uma sonda de Balanceador de carga do personalizada como a sonda de estado de funcionamento do aplicativo numa escala definido
-*Tem* criar explicitamente uma sonda de Balanceador de carga, para o estado de funcionamento do conjunto de dimensionamento. Pode ser utilizado o mesmo ponto final para uma sonda HTTP existente ou uma sonda TCP, mas uma sonda de estado de funcionamento pode exigir um comportamento diferente de uma sonda de Balanceador de carga tradicional. Por exemplo, uma sonda de Balanceador de carga tradicional poderia retornar danificada se a carga na instância é demasiado elevada. Por outro lado que pode não ser adequado para determinar o estado de funcionamento da instância durante uma atualização de SO automática. Configure a sonda de ter uma elevada taxa de pesquisa de menos de dois minutos.
+Como melhor prática, crie uma sonda de Balanceador de carga explicitamente para o estado de funcionamento do conjunto de dimensionamento. Pode ser utilizado o mesmo ponto final para uma sonda HTTP existente ou uma sonda TCP, mas uma sonda de estado de funcionamento pode exigir um comportamento diferente de uma sonda de Balanceador de carga tradicional. Por exemplo, uma sonda de Balanceador de carga tradicional pode retornar danificada se a carga na instância é demasiado elevada, enquanto que pode não ser apropriado para determinar o estado de funcionamento da instância durante uma atualização de SO automática. Configure a sonda de ter uma elevada taxa de pesquisa de menos de dois minutos.
 
 A sonda de Balanceador de carga pode ser referenciada a *networkProfile* da escala definida e pode ser associado a qualquer um dos interno ou público com acesso-balanceadores de carga da seguinte forma:
 
@@ -170,70 +116,30 @@ A sonda de Balanceador de carga pode ser referenciada a *networkProfile* da esca
   "networkInterfaceConfigurations":
   ...
 ```
+> [!NOTE]
+> Esta secção aplica-se apenas para conjuntos de dimensionamento sem o Service Fabric. Service Fabric tem seu próprio noção de estado de funcionamento do aplicativo. Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem de sistema operacional é lançada domínio de atualização por domínio de atualização para manter uma elevada disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, veja [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
+### <a name="keep-credentials-up-to-date"></a>Manter credenciais atualizados
+Se o conjunto de dimensionamento utiliza quaisquer credenciais para aceder a recursos externos, por exemplo, se estiver configurada uma extensão de VM que utiliza um token SAS para a conta de armazenamento, terá de certificar-se de que as credenciais são mantidas atualizadas. Se quaisquer credenciais, incluindo certificados e tokens tiverem expirado, a atualização irá falhar e o primeiro batch de VMs será deixado no estado de falha.
 
-## <a name="enforce-an-os-image-upgrade-policy-across-your-subscription"></a>Impor uma política de atualização de imagem de sistema operacional em sua assinatura
-Para atualizações de segurança, recomendamos para impor uma política de atualização. Esta política pode exigir que as sondas de estado de funcionamento da aplicação na sua subscrição. A seguinte política do Azure Resource Manager rejeita as implementações que não têm a imagem do sistema operacional automatizada atualizar as definições configuradas:
+Os passos recomendados para recuperar as VMs e volte a ativar a atualização automática do SO, se houver uma falha de autenticação de recursos são:
 
-### <a name="powershell"></a>PowerShell
-1. Obter a definição de política incorporada do Azure Resource Manager com [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) da seguinte forma:
+* Voltar a gerar o token (ou quaisquer outras credenciais) passados para sua extensão ou extensões.
+* Certifique-se de que qualquer credencial utilizada de dentro da VM para comunicar com entidades externas está atualizada.
+* Atualize extensão ou extensões de no modelo de conjunto de dimensionamento com quaisquer tokens de novo.
+* Implemente o conjunto de dimensionamento atualizada, o qual irá atualizar todas as instâncias de VM, incluindo aqueles com falha. 
 
-    ```powershell
-    $policyDefinition = Get-AzureRmPolicyDefinition -Id "/providers/Microsoft.Authorization/policyDefinitions/465f0161-0087-490a-9ad9-ad6217f4f43a"
-    ```
+## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Obter o histórico de atualizações automáticas da imagem de SO 
+Pode verificar o histórico de atualização de SO mais recente efetuada no seu conjunto de dimensionamento com o Azure PowerShell, CLI 2.0 do Azure ou as APIs REST. Pode obter o histórico para as tentativas de atualização de SO últimos 5 nos últimos 2 meses.
 
-2. Atribuir a política a uma subscrição com [New-AzureRmPolicyAssignment](/powershell/module/AzureRM.Resources/New-AzureRmPolicyAssignment) da seguinte forma:
-
-    ```powershell
-    New-AzureRmPolicyAssignment `
-        -Name "Enforce automatic OS upgrades with app health checks" `
-        -Scope "/subscriptions/<SubscriptionId>" `
-        -PolicyDefinition $policyDefinition
-    ```
-
-### <a name="cli-20"></a>CLI 2.0
-Atribua a política a uma subscrição com a política do Azure Resource Manager incorporada:
-
-```azurecli
-az policy assignment create --display-name "Enforce automatic OS upgrades with app health checks" --name "Enforce automatic OS upgrades" --policy 465f0161-0087-490a-9ad9-ad6217f4f43a --scope "/subscriptions/<SubscriptionId>"
-```
-
-## <a name="configure-auto-updates"></a>Configurar atualizações automáticas
-Para configurar as atualizações automáticas, certifique-se de que o *automaticOSUpgrade* estiver definida como *verdadeiro* na escala de definição de modelo do conjunto. Pode configurar esta propriedade com o Azure PowerShell ou a CLI do Azure.
-
-### <a name="powershell"></a>PowerShell
-O exemplo seguinte utiliza o Azure PowerShell (4.4.1 ou posterior) para configurar as atualizações automáticas para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
+### <a name="azure-powershell"></a>Azure PowerShell
+Para o exemplo seguinte utiliza o Azure PowerShell para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
 
 ```powershell
-$rgname = myResourceGroup
-$vmssname = myVMSS
-$vmss = Get-AzureRmVMss -ResourceGroupName $rgname -VmScaleSetName $vmssname
-$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
-Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -VirtualMachineScaleSet $vmss
+Get-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeHistory
 ```
 
-### <a name="cli-20"></a>CLI 2.0
-O exemplo seguinte utiliza a CLI do Azure (2.0.20 ou posterior) para configurar as atualizações automáticas para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
-
-```azurecli
-rgname="myResourceGroup"
-vmssname="myVMSS"
-az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
-```
-
-
-## <a name="check-the-status-of-an-automatic-os-upgrade"></a>Verificar o estado de uma atualização de SO automática
-Pode verificar o estado da atualização do SO mais recente efetuada no seu conjunto de dimensionamento com o Azure PowerShell, CLI do Azure ou as APIs REST.
-
-### <a name="powershell"></a>PowerShell
-Para o exemplo seguinte utiliza o Azure PowerShell (4.4.1 ou posterior) para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
-
-```powershell
-Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
-```
-
-### <a name="azure-cli"></a>CLI do Azure
-
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 O exemplo seguinte utiliza a CLI do Azure (2.0.20 ou posterior) para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli
@@ -244,51 +150,54 @@ az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMS
 O exemplo seguinte utiliza a API REST para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/rollingUpgrades/latest?api-version=2017-03-30`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
 ```
+Consulte a documentação para esta API aqui: https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getosupgradehistory.
 
 A chamada GET retorna propriedades semelhantes à saída de exemplo seguinte:
 
 ```json
 {
-  "properties": {
-    "policy": {
-      "maxBatchInstancePercent": 20,
-      "maxUnhealthyInstancePercent": 5,
-      "maxUnhealthyUpgradedInstancePercent": 5,
-      "pauseTimeBetweenBatches": "PT0S"
-    },
-    "runningStatus": {
-      "code": "Completed",
-      "startTime": "2017-06-16T03:40:14.0924763+00:00",
-      "lastAction": "Start",
-      "lastActionTime": "2017-06-22T08:45:43.1838042+00:00"
-    },
-    "progress": {
-      "successfulInstanceCount": 3,
-      "failedInstanceCount": 0,
-      "inprogressInstanceCount": 0,
-      "pendingInstanceCount": 0
+  "value": [
+    {
+      "properties": {
+        "runningStatus": {
+          "code": "RollingForward",
+          "startTime": "2018-07-24T17:46:06.1248429+00:00",
+          "completedTime": "2018-04-21T12:29:25.0511245+00:00"
+        },
+        "progress": {
+          "successfulInstanceCount": 16,
+          "failedInstanceCount": 0,
+          "inProgressInstanceCount": 4,
+          "pendingInstanceCount": 0
+        },
+        "startedBy": "Platform",
+        "targetImageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2016-Datacenter",
+          "version": "2016.127.20180613"
+        },
+        "rollbackInfo": {
+          "successfullyRolledbackInstanceCount": 0,
+          "failedRolledbackInstanceCount": 0
+        }
+      },
+      "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades",
+      "location": "westeurope"
     }
-  },
-  "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades",
-  "location": "southcentralus"
-}
+  ]
+} 
 ```
 
+## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>Como obter a versão mais recente de uma imagem de plataforma de SO? 
 
-## <a name="automatic-os-upgrade-execution"></a>Execução de atualização automática de SO
-Para expandir o uso de sondas de estado de funcionamento do aplicativo, atualizações de SO do conjunto de dimensionamento executar passos seguintes:
+Pode obter as versões de imagem para a atualização de SO automática de SKUs suportados usando os cmdlets do PowerShell abaixo: 
 
-1. Se tiver mais do que 20% das instâncias são mau estado de funcionamento, pare a atualização; caso contrário, continue.
-2. Identifique o lote seguinte de instâncias de VM para atualizar, com um lote ter máximo 20% do total de instâncias.
-3. Atualize o sistema operativo do lote seguinte de instâncias de VM.
-4. Se tiver mais do que 20% das instâncias atualizadas são mau estado de funcionamento, pare a atualização; caso contrário, continue.
-5. Para conjuntos de dimensionamento que não fazem parte de um cluster do Service Fabric, a atualização tem de aguardar até 5 minutos para sondas para se tornar íntegros, em seguida, continua a imediatamente para o lote seguinte. Para conjuntos de dimensionamento que fazem parte de um cluster do Service Fabric, o conjunto de dimensionamento aguarda 30 minutos antes de passar para o lote seguinte.
-6. Se é restantes que são instâncias para atualizar, goto passo 1) para o lote seguinte; caso contrário, a atualização foi concluída.
-
-O conjunto de dimensionamento verificações de mecanismo de atualização de SO para o estado de funcionamento de instância VM geral antes de atualizar todos os lotes. Durante a atualização de um lote, pode haver outros planeada em simultâneo ou a manutenção não planeada acontecendo nos centros de dados do Azure que possa afetar a disponibilidade das suas VMs. Portanto, é possível que temporariamente mais de 20% instâncias podem estar inativa. Nesses casos, no final do lote atual, o conjunto de dimensionamento paradas de atualização.
-
+```powershell
+Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+```
 
 ## <a name="deploy-with-a-template"></a>Implementar com um modelo
 
@@ -297,7 +206,6 @@ Pode utilizar o modelo seguinte para implementar um conjunto de dimensionamento 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais exemplos sobre como utilizar as atualizações automáticas de SO com conjuntos de dimensionamento, veja a [repositório do GitHub para funcionalidades de pré-visualização](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

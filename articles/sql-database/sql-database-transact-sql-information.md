@@ -2,19 +2,22 @@
 title: Resolução de base de dados do T-SQL diferenças-migração o Azure SQL | Documentos da Microsoft
 description: Instruções de Transact-SQL que são menos do que totalmente suportadas na Base de Dados SQL do Azure
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 440605806915d515d2a60556a9c298b29e0fca8c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735433"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160712"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças do Transact-SQL durante a migração para a base de dados SQL   
 Quando [migrar a sua base de dados](sql-database-cloud-migrate.md) do SQL Server para o Azure SQL Server, pode descobrir que a sua base de dados requer alguma reengenharia antes do SQL Server podem ser migrado. Este artigo fornece orientações para ajudá-lo a realizar este reengenharia tanto Noções básicas sobre os motivos subjacentes por que motivo é necessário o reengenharia. Para detetar incompatibilidades, utilize o [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).

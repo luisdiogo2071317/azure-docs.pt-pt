@@ -7,199 +7,147 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 09/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b4ff8b607f9fded02a519b5f2a3abdfeedf93d88
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344567"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181788"
 ---
-# <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>O Azure Active Directory B2C: Introdução às políticas personalizadas
+# <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Depois de concluir os passos neste artigo, a diretiva personalizada oferecerá suporte a "conta local" inscrição ou início de sessão por meio de um endereço de e-mail e palavra-passe. Também irá preparar o ambiente para o adicionar fornecedores de identidade (como o Facebook ou do Azure Active Directory). Aconselhamo-lo para concluir estes passos antes de ler sobre outros usos do Framework de experiência de identidade do Azure Active Directory (Azure AD) B2C.
+[As políticas personalizadas](active-directory-b2c-overview-custom.md) são ficheiros de configuração que definem o comportamento do seu inquilino do Azure Active Directory (Azure AD) B2C. Neste artigo, vai criar uma política personalizada que suporta uma conta local inscrição ou início de sessão com um endereço de e-mail e palavra-passe. Também preparar o ambiente para o adicionar fornecedores de identidade, como o Facebook ou do Azure Active Directory.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar, certifique-se de que tem um inquilino do Azure AD B2C, que é um contentor para todos os seus utilizadores, aplicações, políticas e muito mais. Se ainda não tiver um, tem de [criar um inquilino do Azure AD B2C](active-directory-b2c-get-started.md). Recomendamos todos os desenvolvedores para concluir as instruções de política incorporada do Azure AD B2C e configurar seus aplicativos com as políticas incorporadas antes de continuar. Seus aplicativos funcionarão com ambos os tipos de políticas uma vez que fizer uma alteração menor ao nome da política para invocar a política personalizada.
+Se ainda não tiver um, tem de [criar um inquilino do Azure AD B2C](tutorial-create-tenant.md) que está ligada à sua subscrição do Azure.
 
->[!NOTE]
->Para aceder a edição de política personalizada, precisa de uma subscrição do Azure válida associada ao seu inquilino. Se ainda não o tiver [ligado o inquilino do Azure AD B2C para uma subscrição do Azure](active-directory-b2c-how-to-enable-billing.md) ou a sua subscrição do Azure está desativada, o botão de arquitetura de experiências de identidade não estará disponível.
+## <a name="add-signing-and-encryption-keys"></a>Adicione chaves de assinatura e encriptação
 
-## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Adicione chaves de assinatura e encriptação para o inquilino de B2C para utilização por políticas personalizadas
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino. 
 
-1. Abra o **arquitetura de experiências de identidade** painel nas definições de inquilino do Azure AD B2C.
-2. Selecione **chaves de política** para exibir as chaves disponíveis no seu inquilino.
-3. Se não existir, crie B2C_1A_TokenSigningKeyContainer:<br>
-    a. Selecione **Adicionar**. <br>
-    b. Selecione **gerar**.<br>
-    c. Para **Name**, utilize `TokenSigningKeyContainer`. <br> 
-    O prefixo `B2C_1A_` podem ser adicionados automaticamente.<br>
-    d. Para **tipo de chave**, utilize **RSA**.<br>
-    e. Para **datas**, utilize as predefinições. <br>
-    f. Para **utilização de chave**, utilize **assinatura**.<br>
-    g. Selecione **Criar**.<br>
-4. Se não existir, crie B2C_1A_TokenEncryptionKeyContainer:<br>
- a. Selecione **Adicionar**.<br>
- b. Selecione **gerar**.<br>
- c. Para **Name**, utilize `TokenEncryptionKeyContainer`. <br>
-   O prefixo `B2C_1A`_ podem ser adicionados automaticamente.<br>
- d. Para **tipo de chave**, utilize **RSA**.<br>
- e. Para **datas**, utilize as predefinições.<br>
- f. Para **utilização de chave**, utilize **encriptação**.<br>
- g. Selecione **Criar**.<br>
-5. Crie B2C_1A_FacebookSecret. <br>
-Se já tiver um segredo de aplicação do Facebook, adicione-o como uma chave de política com o seu inquilino. Caso contrário, tem de criar a chave com um valor de marcador de posição para que as políticas de passam na validação.<br>
- a. Selecione **Adicionar**.<br>
- b. Para **opções**, utilize **Manual**.<br>
- c. Para **Name**, utilize `FacebookSecret`. <br>
- O prefixo `B2C_1A_` podem ser adicionados automaticamente.<br>
- d. Na **segredo** , introduza o seu FacebookSecret de developers.facebook.com ou `0` como um marcador de posição. *Não se trata de sua ID de aplicação do Facebook.* <br>
- e. Para **utilização de chave**, utilize **assinatura**. <br>
- f. Selecione **criar** e confirme a criação.
+    ![Mudar para o inquilino do Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
 
-## <a name="register-identity-experience-framework-applications"></a>Registar aplicações de arquitetura de experiências de identidade
+3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
+4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
 
-O Azure AD B2C exige que Registre-se duas aplicações adicionais que são utilizadas pelo mecanismo para inscrição e início de sessão dos utilizadores.
+### <a name="create-the-signing-key"></a>Criar a chave de assinatura
 
->[!NOTE]
->Tem de criar duas aplicações que ativar início de sessão com contas locais: IdentityExperienceFramework (uma aplicação web) e ProxyIdentityExperienceFramework (uma aplicação nativa) com o delegado permissão da aplicação IdentityExperienceFramework. Contas locais existem apenas no seu inquilino. Os utilizadores inscrever-se com uma combinação de endereço/palavra-passe de e-mail exclusivo para aceder às suas aplicações de inquilino registado.
+1. Selecione **chaves de política** e, em seguida, selecione **Add**.
+2. Para **opções**, escolha `Generate`.
+3. Na **Name**, introduza `TokenSigningKeyContainer`. O prefixo `B2C_1A_` podem ser adicionados automaticamente.
+4. Para **tipo de chave**, selecione **RSA**.
+5. Para **utilização de chave**, selecione **assinatura**.
+6. Clique em **Criar**.
 
-### <a name="create-the-identityexperienceframework-application"></a>Criar a aplicação de IdentityExperienceFramework
+### <a name="create-the-encryption-key"></a>Criar a chave de encriptação
 
-1. Na [portal do Azure](https://portal.azure.com), mudar para o [contexto do inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md).
-2. Abra o **do Azure Active Directory** painel (não o **do Azure AD B2C** painel). Poderá ter de selecionar **mais serviços** encontrá-lo.
-3. Selecione **Registos das aplicações**.
-4. Selecione **Novo registo de aplicação**.
-   * Para **Name**, utilize `IdentityExperienceFramework`.
-   * Para **tipo de aplicação**, utilize **aplicação/API Web**.
-   * Para **URL de início de sessão**, utilize `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu nome de domínio de inquilino do Azure AD B2C.
-5. Selecione **Criar**.
-6. Depois de criado, selecione a aplicação criada recentemente **IdentityExperienceFramework**.<br>
-   * Selecione **propriedades**.<br>
-   * Copie o ID da aplicação e guarde-o para utilizar mais tarde.
+1. Selecione **chaves de política** e, em seguida, selecione **Add**.
+2. Para **opções**, escolha `Generate`.
+3. Na **Name**, introduza `TokenEncryptionKeyContainer`. O prefixo `B2C_1A`_ podem ser adicionados automaticamente.
+4. Para **tipo de chave**, selecione **RSA**.
+5. Para **utilização de chave**, selecione **encriptação**.
+6. Clique em **Criar**.
 
-### <a name="create-the-proxyidentityexperienceframework-application"></a>Criar a aplicação de ProxyIdentityExperienceFramework
+### <a name="create-the-facebook-key"></a>Criar a chave do Facebook
 
-1. Selecione **Registos das aplicações**.
-1. Selecione **Novo registo de aplicação**.
-   * Para **Name**, utilize `ProxyIdentityExperienceFramework`.
-   * Para **tipo de aplicação**, utilize **nativo**.
-   * Para **URI de redirecionamento**, utilize `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
-1. Selecione **Criar**.
-1. Depois de este ter sido criado, selecione a aplicação **ProxyIdentityExperienceFramework**.<br>
-   * Selecione **propriedades**. <br>
-   * Copie o ID da aplicação e guarde-o para utilizar mais tarde.
-1. Selecione **permissões obrigatórias**.
-1. Selecione **Adicionar**.
-1. Selecione **Selecionar uma API**.
-1. Procure o nome IdentityExperienceFramework. Selecione **IdentityExperienceFramework** nos resultados e, em seguida, clique **selecione**.
-1. Selecione a caixa de verificação junto a **acesso IdentityExperienceFramework**e, em seguida, clique em **selecione**.
-1. Selecione **Done** (Concluído).
-1. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
+Se já tiver um [segredo de aplicação do Facebook](active-directory-b2c-setup-fb-app.md), adicioná-lo como uma chave de política com o seu inquilino. Caso contrário, tem de criar a chave com um valor de marcador de posição para que as políticas de passam na validação.
+
+1. Selecione **chaves de política** e, em seguida, selecione **Add**.
+2. Para **opções**, escolha `Manual`.
+3. Para **Name**, introduza `FacebookSecret`. O prefixo `B2C_1A_` podem ser adicionados automaticamente.
+4. Na **segredo**, introduza o seu segredo do Facebook do developers.facebook.com ou `0` como um marcador de posição. Esse é o segredo, não o ID da aplicação.
+5. Para **utilização de chave**, selecione **assinatura**.
+6. Clique em **Criar**.
+
+## <a name="register-applications"></a>Registar aplicações
+
+O Azure AD B2C requere que registe duas aplicações que são utilizadas para inscrição e início de sessão dos utilizadores: IdentityExperienceFramework (uma aplicação web) e ProxyIdentityExperienceFramework (uma aplicação nativa) com uma permissão delegada a partir da aplicação de IdentityExperienceFramework. Contas locais existem apenas no seu inquilino. Os utilizadores inscrever-se com uma combinação de endereço/palavra-passe de e-mail exclusivo para aceder às suas aplicações de inquilino registado.
+
+### <a name="register-the-identityexperienceframework-application"></a>Registar a aplicação de IdentityExperienceFramework
+
+1. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure Active Directory**e, em seguida, selecione **registos das aplicações**.
+2. Selecione **Novo registo de aplicação**.
+3. Para **Name**, introduza `IdentityExperienceFramework`.
+4. Para **tipo de aplicação**, escolha **aplicação/API Web**.
+5. Para **URL de início de sessão**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `your-tenant-name` é o seu nome de domínio de inquilino do Azure AD B2C.
+6. Clique em **Criar**. 
+7. Depois de criado, copie o ID da aplicação e guardá-lo para utilizar mais tarde.
+
+### <a name="register-the-proxyidentityexperienceframework-application"></a>Registar a aplicação de ProxyIdentityExperienceFramework
+
+1. Selecione **registos de aplicações**e, em seguida, selecione **novo registo de aplicação**.
+2. Para **Name**, introduza `ProxyIdentityExperienceFramework`.
+3. Para **tipo de aplicação**, escolha **nativo**.
+4. Para **URI de redirecionamento**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
+5. Clique em **Criar**. Depois de criado, copie o ID da aplicação e guardá-lo para utilizar mais tarde.
+6. Na página Definições, selecione **permissões obrigatórias**e, em seguida, selecione **Add**.
+7. Selecione **Selecionar uma API**.
+8. Procure e selecione **IdentityExperienceFramework**e, em seguida, clique em **selecione**.
+9. Selecione a caixa de verificação junto a **acesso IdentityExperienceFramework**, clique em **selecione**e, em seguida, clique em **feito**.
+10. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Transferir o pacote de iniciante e modificar as políticas
 
-As políticas personalizadas são um conjunto de arquivos XML que devem ser carregados para o inquilino do Azure AD B2C. Fornecemos pacotes starter para ajudá-lo a trabalhar rapidamente. Cada pacote de iniciante na lista seguinte contém o menor número de perfis técnicos e jornadas de utilizador necessárias para atingir os cenários descritos:
- * LocalAccounts. Permite a utilização de apenas contas locais.
- * SocialAccounts. Permite a utilização de apenas para contas de redes sociais (ou federadas).
- * **SocialAndLocalAccounts**. Podemos usar esse arquivo para o passo a passo.
- * SocialAndLocalAccountsWithMFA. Opções de redes sociais, o local e o multi-factor Authentication são incluídas aqui.
+As políticas personalizadas são um conjunto de arquivos XML que devem ser carregados para o inquilino do Azure AD B2C. Pacotes de iniciante de arquivos são fornecidos para ajudá-lo a trabalhar rapidamente. Cada pacote de iniciante na lista seguinte contém o menor número de perfis técnicos e jornadas de utilizador necessárias para atingir os cenários descritos:
+
+- LocalAccounts - permite a utilização de apenas contas locais.
+- SocialAccounts - permite a utilização de apenas para contas de redes sociais (ou federadas).
+- SocialAndLocalAccounts - permite que tanto pelo uso de contas locais e contas de redes sociais.
+- SocialAndLocalAccountsWithMFA - permite social, locais e opções de multi-factor Authentication.
 
 Cada pacote de iniciante contém:
 
-* O [ficheiro base](active-directory-b2c-overview-custom.md#policy-files) da política. Algumas modificações são necessárias para a base.
-* O [ficheiro de extensão](active-directory-b2c-overview-custom.md#policy-files) da política.  Este ficheiro é onde a maior parte das alterações de configuração são feitas.
-* [Ficheiros de terceiros entidade confiadora](active-directory-b2c-overview-custom.md#policy-files) são chamados pelo seu aplicativo de ficheiros de tarefa específica.
+- O ficheiro de base. Algumas modificações são necessárias para a base.
+* O ficheiro de extensão.  Este ficheiro é onde a maior parte das alterações de configuração são feitas.
+* Os ficheiros da entidade confiadora de terceiros. Arquivos de tarefa específica chamados pelo seu aplicativo.
 
 >[!NOTE]
 >Se o seu editor de XML dá suporte a validação, Valide os ficheiros no esquema de TrustFrameworkPolicy_0.3.0.0.xsd XML que está localizado no diretório de raiz do pacote de iniciante. Validação do esquema XML identifica os erros antes de carregar.
 
- Vamos começar:
-
-1. Baixe active-directory-b2c-custom-policy-starterpack do GitHub. [Transfira o ficheiro. zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou executar
+1. [Transfira o ficheiro. zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou executar:
 
     ```console
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
-2. Abra a pasta de SocialAndLocalAccounts.  O ficheiro de base (TrustFrameworkBase.xml) nesta pasta contém conteúdo necessário para contas locais e social corporativa. O conteúdo social não interfere com os passos para colocar as contas locais em funcionamento.
-3. Abra TrustFrameworkBase.xml. Se precisar de um editor de XML, [Experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor simples de várias plataformas.
-4. Na raiz `TrustFrameworkPolicy` elemento, atualize o `TenantId` e `PublicPolicyUri` atributos, substituindo `yourtenant.onmicrosoft.com` com o nome de domínio do inquilino do Azure AD B2C:
-   ```xml
-    <TrustFrameworkPolicy
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-    PolicySchemaVersion="0.3.0.0"
-    TenantId="yourtenant.onmicrosoft.com"
-    PolicyId="B2C_1A_TrustFrameworkBase"
-    PublicPolicyUri="http://yourtenant.onmicrosoft.com">
-    ```
-   >[!NOTE]
-   >`PolicyId` é o nome da política que vê no portal e o nome pelo qual este ficheiro de política é referenciado por outros ficheiros de política.
 
-5. Guarde o ficheiro.
-6. Abra TrustFrameworkExtensions.xml. Faça as alterações de dois mesmo, substituindo `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C. Fazer a mesma substituição no `<TenantId>` elemento para um total de três alterações. Guarde o ficheiro.
-7. Abra SignUpOrSignIn.xml. Tornar as mesmas alterações ao substituir `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C em três locais. Guarde o ficheiro.
-8. Abra a reposição de palavra-passe e editar ficheiros de perfil. Tornar as mesmas alterações ao substituir `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C em três locais em cada arquivo. Guarde os ficheiros.
+2. Na pasta SocialAndLocalAccounts, editar todos os ficheiros, substituindo `yourtenant.onmicrosoft.com` com o nome do seu inquilino. Por exemplo, `contosoTenant.onmicrosoft.com`. Se precisar de um editor de XML, [Experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor simples de várias plataformas.
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar os IDs de aplicação à sua política personalizada
-Adicionar os IDs de aplicação para o arquivo de extensões (`TrustFrameworkExtensions.xml`):
+### <a name="add-application-ids-to-the-custom-policy"></a>Adicionar IDs de aplicação para a política personalizada
 
-1. O arquivo de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Substitua as duas instâncias de `IdentityExperienceFrameworkAppId` com o ID de aplicação a arquitetura de experiências de identidade que criou anteriormente. Segue-se um exemplo:
+Adicionar os IDs de aplicação para o arquivo de extensões *TrustFrameworkExtensions.xml*.
 
-   ```xml
-   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-   ```
-3. Substitua as duas instâncias de `ProxyIdentityExperienceFrameworkAppId` com o ID de aplicação a arquitetura de experiências de identidade de Proxy que criou anteriormente.
-4. Guarde o ficheiro de extensões.
+1. Abra o *TrustFrameworkExtensions.xml* de ficheiros e localizar o elemento `<TechnicalProfile Id="login-NonInteractive">`.
+2. Substitua as duas instâncias de `IdentityExperienceFrameworkAppId` com o ID de aplicação a arquitetura de experiências de identidade que criou anteriormente. Substitua as duas instâncias de `ProxyIdentityExperienceFrameworkAppId` com o ID de aplicação a arquitetura de experiências de identidade de Proxy que criou anteriormente. A exemplo a seguir mostra a **NonInteractive de início de sessão** perfil técnico após as alterações:
 
-## <a name="upload-the-policies-to-your-tenant"></a>Carregar as políticas para o seu inquilino
+    ![Ids de aplicação](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
 
-1. Na [portal do Azure](https://portal.azure.com), mudar para o [contexto do inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)e abra a **do Azure AD B2C** painel.
-2. Selecione **arquitetura de experiências de identidade**.
-3. Selecione **carregar política**.
+3. Guarde o ficheiro de extensões.
 
-    >[!WARNING]
-    >Os ficheiros de política personalizada tem de ser carregados na seguinte ordem:
+## <a name="upload-the-policies"></a>Carregar as políticas
 
-1. Carregar TrustFrameworkBase.xml.
-2. Carregar TrustFrameworkExtensions.xml.
-3. Carregar SignUpOrSignin.xml.
-4. Carregar os outros ficheiros de política.
+1. Na página de políticas personalizadas do Framework de experiência de identidade, selecione **carregar política**.
+1. Por esta ordem, carregue *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* , e *PasswordReset.xml*. Quando um ficheiro é carregado, o nome do ficheiro de política é anexado ao `B2C_1A_`.
 
-Quando um ficheiro é carregado, o nome do ficheiro de política é anexado ao `B2C_1A_`.
+## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada com executar agora
-
-1. Open **definições do Azure AD B2C** e aceda à **Framework de experiência de identidade**.
-
-   >[!NOTE]
-   >**Executar agora** requer, pelo menos, um aplicativo para ser foi pré-registado no inquilino. Aplicações tem de estar registadas no inquilino do B2C, através da utilização a **aplicativos** seleção de menu no Azure AD B2C ou com o Framework de experiência de identidade para invocar as políticas incorporadas e personalizadas. É necessário apenas um registo por aplicação.<br><br>
-   Para saber como registar aplicações, veja o Azure AD B2C [começar](active-directory-b2c-get-started.md) artigo ou o [registo de aplicação](active-directory-b2c-app-registration.md) artigo.  
-
-2. Abra B2C_1A_signup_signin, a política personalizada de terceiros (RP) da entidade confiadora que carregou. Selecione **executar agora**.
+1. Na página de políticas personalizadas, selecione **B2C_1A_signup_signin**. 
+2. Selecione **executar agora**.
 
 3. Deverá conseguir inscrever-se através de um endereço de e-mail.
 
 4. Inicie sessão com a mesma conta para confirmar que tem a configuração correta.
 
->[!NOTE]
->Uma causa comum de falha de início de sessão é uma aplicação de IdentityExperienceFramework configurada incorretamente.
+## <a name="add-facebook-as-an-identity-provider"></a>Adicionar o Facebook como um fornecedor de identidade
 
-
-## <a name="next-steps"></a>Passos Seguintes
-
-### <a name="add-facebook-as-an-identity-provider"></a>Adicionar o Facebook como um fornecedor de identidade
-Para configurar o Facebook:
-1. [Configurar uma aplicação do Facebook no developers.facebook.com](active-directory-b2c-setup-fb-app.md).
-2. [Adicione o segredo de aplicação do Facebook para o inquilino do Azure AD B2C](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
-3. No ficheiro de política TrustFrameworkExtensions, substitua o valor do `client_id` com o ID de aplicação do Facebook:
+1. Configurar uma [aplicativo para Facebook](active-directory-b2c-setup-fb-app.md).
+2. Na *TrustFrameworkExtensions.xml* ficheiro, substitua o valor do `client_id` com o ID de aplicação do Facebook:
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
@@ -207,10 +155,9 @@ Para configurar o Facebook:
      <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
        <Item Key="client_id">00000000000000</Item>
    ```
-4. Carregue o ficheiro de política de TrustFrameworkExtensions.xml ao seu inquilino.
-5. Teste usando **executar agora** ou ao invocar a política diretamente a partir da aplicação registada.
+3. Carregar o *TrustFrameworkExtensions.xml* ficheiro com o seu inquilino.
+4. Teste usando **executar agora** ou ao invocar a política diretamente a partir da aplicação registada.
 
-### <a name="add-azure-active-directory-as-an-identity-provider"></a>Adicionar o Azure Active Directory como um fornecedor de identidade
-O ficheiro de base utilizado neste guia de introdução já contém alguns do conteúdo que precisa para adicionar outros fornecedores de identidade. Para obter informações sobre como configurar inícios de sessão, consulte a [do Azure Active Directory B2C: Inicie sessão com contas do Azure AD](active-directory-b2c-setup-aad-custom.md) artigo.
+## <a name="next-steps"></a>Próximos Passos
 
-Para uma descrição geral das políticas personalizadas no Azure AD B2C que usam o Framework de experiência de identidade, consulte a [do Azure Active Directory B2C: políticas personalizadas](active-directory-b2c-overview-custom.md) artigo. 
+- Adicione o Azure Active Directory como um fornecedor de identidade. O ficheiro de base utilizado neste guia de introdução já contém alguns do conteúdo que precisa para adicionar outros fornecedores de identidade. Para obter informações sobre como configurar inícios de sessão, consulte a [configurar a inscrição e início de sessão com uma conta do Azure Active Directory com as políticas personalizadas do Active Directory B2C](active-directory-b2c-setup-aad-custom.md) artigo.

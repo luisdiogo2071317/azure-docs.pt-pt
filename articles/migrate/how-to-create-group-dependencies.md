@@ -4,14 +4,14 @@ description: Descreve como refinar uma avaliação com o mapeamento de grupo de 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 4f5ab4565191b38c07b2071609a57db2525860e3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733419"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158619"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
@@ -101,5 +101,5 @@ Se pretender verificar as dependências de uma máquina específica que aparece 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-[Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre as perguntas frequentes sobre a visualização de dependência.
+- [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.

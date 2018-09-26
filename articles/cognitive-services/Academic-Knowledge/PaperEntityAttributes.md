@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 75efba2c2ce8842f233f766876ca00844338fb25
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35624008"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094716"
 ---
 # <a name="paper-entity"></a>Entidade de documento
 
@@ -27,7 +27,7 @@ Id      |ID de entidade                                          |Int64      |Ig
 Te      |Título do documento                                        |Cadeia     |É igual a,<br/>StartsWith
 L       |Documento separada de código de idioma por "\@@ @"            |Cadeia     |Igual a
 S       |Ano de documento                                         |Int32      |É igual a,<br/>IsBetween
-1!D       |Data do documento                                         |Date       |É igual a,<br/>IsBetween
+D       |Data do documento                                         |Date       |É igual a,<br/>IsBetween
 Cc      |Contagem de citação                                     |Int32      |nenhum  
 ECC     |Contagem de citação estimada                           |Int32      |nenhum
 AA. AuN  |Nome do autor                                        |Cadeia     |É igual a,<br/>StartsWith

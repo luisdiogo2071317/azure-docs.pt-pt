@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 6a9ecbcc5161f47a192d5bf3a893a42b3ee9ce2f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 10e6c440fe669f4bc8a18eb0a7a0f833675ab923
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379507"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182220"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -143,7 +143,7 @@ Internamente, este enlace de Acionador consulta uma fila na conta de armazenamen
 Seguem-se algumas notas sobre o acionador de atividade:
 
 * **Threading** – ao contrário do acionador de orquestração, acionadores de atividade não tem quaisquer restrições em torno de threading ou e/s. Eles podem ser tratados como funções regulares.
-* **Processamento de mensagens poising** -não são suportadas mensagens não processáveis em acionadores de atividade.
+* **Processamento de mensagens de veneno** -não são suportadas mensagens não processáveis em acionadores de atividade.
 * **Visibilidade da mensagem** -as mensagens de Acionador de atividade são removidos da fila e mantidas invisíveis durante um período configurável. A visibilidade destas mensagens é renovada automaticamente, desde que a aplicação de função está em execução e em bom estado.
 * **Valores de retorno** -retornar valores são serializados para JSON e persistidas para a tabela de histórico de orquestração no armazenamento de tabelas do Azure.
 

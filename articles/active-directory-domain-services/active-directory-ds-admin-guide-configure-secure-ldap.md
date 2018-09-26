@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 5740f36889b8c4d6ce1604e6d0138f840e88ef1a
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505202"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182251"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
 Este artigo mostra como pode permitir proteger Lightweight Directory Access Protocol (LDAPS) para o seu domínio gerido do Azure AD Domain Services. LDAP seguro também é conhecido como "acesso protocolo LDAP (Lightweight Directory) através de Secure Sockets Layer (SSL) / Transport Layer Security (TLS)".
@@ -81,7 +81,7 @@ No seu computador Windows, abra uma nova janela do PowerShell como **administrad
 
 ```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com `
+New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```

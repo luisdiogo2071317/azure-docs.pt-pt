@@ -17,11 +17,11 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f4e0c77c03856b4851ee5fe49bd6ae54d47f6c31
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35947812"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092186"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Resolver problemas de implementação ao reiniciar ou redimensionar uma VM existente do Windows no Azure
 Ao tentar iniciar uma Máquina Virtual do Azure (VM) parada ou redimensionar uma VM do Azure existente, o erro comum que encontrar é uma falha de alocação. Este erro resulta quando o cluster ou a região não tem recursos disponíveis ou não suporta o tamanho da VM pedida.

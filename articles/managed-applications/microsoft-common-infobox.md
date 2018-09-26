@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: abd1329f2ebac90bf846dfd5fc5b307ddb5e52bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35955760"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095485"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.InfoBox
 Um controle que adiciona uma caixa de informações. A caixa contém texto importante ou avisos que ajudam os utilizadores a compreender os valores que precisam. Também pode ligar a um URI para obter mais informações.

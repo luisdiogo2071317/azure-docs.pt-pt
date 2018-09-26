@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 1987ebf76f06cb60e8ce1fb5c8215b6520d44d52
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649331"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093990"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção inteligente – anomalias de falha
 [O Application Insights](app-insights-overview.md) notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos falhados. Detetar um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência são reportadas como falhado. Para pedidos, pedidos com falhas são geralmente aqueles com códigos de resposta de 400 ou superior. Para ajudar a fazer a triagem e diagnosticar o problema, uma análise das características da falhas e telemetrias relacionadas é fornecida na notificação. Também existem ligações para o portal do Application Insights para diagnósticos adicionais. A funcionalidade não precisa nenhuma configuração nem a configuração, como ele utiliza algoritmos de machine learning para prever a taxa de falhas normal.

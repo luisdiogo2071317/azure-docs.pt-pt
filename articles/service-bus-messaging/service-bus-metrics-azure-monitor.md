@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: d141ac284b1ed8e128588e1a49a0594e0c61707f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974056"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166338"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização)
 
-Métricas de barramento de serviço dá-lhe o estado dos recursos na sua subscrição do Azure. Com um vasto conjunto de dados de métricas, pode avaliar o estado de funcionamento geral dos seus recursos do Service Bus, não apenas ao nível do espaço de nomes, mas também no nível de entidade. Essas estatísticas podem ser importantes como eles ajudam-na monitorizar o estado do Service Bus. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
+Métricas de barramento de serviço oferecem-lhe o estado dos recursos na sua subscrição do Azure. Com um vasto conjunto de dados de métricas, pode avaliar o estado de funcionamento geral dos seus recursos do Service Bus, não apenas ao nível do espaço de nomes, mas também no nível de entidade. Essas estatísticas podem ser importantes como eles ajudam-na monitorizar o estado do Service Bus. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
 
 O Azure Monitor fornece interfaces do usuário unificada para monitoramento em vários serviços do Azure. Para obter mais informações, consulte [monitorização no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o [métricas de obter o Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) exemplo no GitHub.
 
@@ -37,7 +37,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (Peview)**. Para apresentar métricas filtradas para o âmbito da entidade, selecione a entidade e, em seguida, clique em **métricas (pré-visualização)**.
+Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (pré-visualização)**. Para apresentar métricas filtradas para o âmbito da entidade, selecione a entidade e, em seguida, clique em **métricas (pré-visualização)**.
 
 ![][2]
 
@@ -70,7 +70,7 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 Os seguintes dois tipos de erros são classificados como erros de utilizador:
 
-1. Erros de lado do cliente (em HTTP que seriam 400 erros).
+1. Erros do lado do cliente (em HTTP que seriam 400 erros).
 2. Erros que ocorrem durante o processamento das mensagens, tal como [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -90,6 +90,9 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 |Ligações fechado (pré-visualização)|O número de conexões encerradas.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métricas de utilização de recursos
+
+> [!NOTE] 
+> As métricas seguintes estão disponíveis apenas com o **premium** escalão. 
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |

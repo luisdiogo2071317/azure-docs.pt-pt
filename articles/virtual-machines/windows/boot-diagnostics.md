@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: 61d5ce4db6941ea4b768761fe0f1e8d9d8e449be
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590437"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095053"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-windows-virtual-machines-in-azure"></a>Como utilizar o diagnóstico de arranque para resolver problemas relacionados com máquinas de virtuais do Windows no Azure
 

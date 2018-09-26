@@ -1,28 +1,23 @@
 ---
 title: TDE - Bring Your Own Key (BYOK) - base de dados SQL do Azure | Documentos da Microsoft
 description: Leve o suporte de Your Own Key (BYOK) para dados de encriptação transparente (TDE) com o Azure Key Vault para a base de dados SQL e o armazém de dados. TDE com BYOK descrição geral, benefícios, como ele funciona, considerações e recomendações.
-keywords: ''
 services: sql-database
-documentationcenter: ''
-author: aliceku
-manager: craigg
-ms.prod: ''
-ms.reviewer: vanto
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
-ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/30/2018
+author: aliceku
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: d87747e60c375f844681ed6cfd40dba84f46a9b2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/30/2018
+ms.openlocfilehash: 5a19afcd713af5b7ea6d8509c7d9645d796bbfad
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963616"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162887"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL e o armazém de dados
 

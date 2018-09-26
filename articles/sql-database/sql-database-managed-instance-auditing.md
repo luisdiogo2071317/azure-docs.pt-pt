@@ -2,20 +2,22 @@
 title: Base de dados SQL do Azure geridos instância auditoria | Documentos da Microsoft
 description: Saiba como começar com o Azure SQL da base de dados geridos instância auditoria com T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: 3971d6966088ccb19a35ab938408a1c9dc835d3b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 38dee577ff57e6ba440fb4062315b57e4eb7957b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031820"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162258"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução ao Azure SQL da base de dados geridos instância de auditoria
 

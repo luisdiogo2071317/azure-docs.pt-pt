@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e1a74828213b595e6955a750904de7a3c2a5a865
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719091"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165539"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de reativação personalizado com o serviço de voz
 
@@ -57,7 +57,8 @@ Antes de poder utilizar uma palavra de reativação personalizado com o seu disp
 
     ![iniciar sessão com êxito](media/speech-devices-sdk/wake-word-3.png)
  
-4. O **Word de reativação personalizado** página não está disponível ao público, portanto, não há nenhum link que leva-o aí. Selecione ou cole em vez disso, esta ligação: https://cris.ai/customkws.
+4. O **Word de reativação personalizado** página não está disponível ao público, portanto, não há nenhuma ligação direta que leva-o aí. A funcionalidade de voz personalizada requer um subscrições do Azure, mas não a funcionalidade do Word de reativação personalizado. Se tem o **subscrições não encontrado.** página de erro, apenas substitua a **"subscrições? errorMessage = não 20found de % de 20Subscriptions %"** com "**customkws**" no URL e pressionar ENTER. O URL deve ser um dos seguintes: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, consoante o local em que é a sua região.   
+
 
     ![A página do Word de reativação personalizada está oculta](media/speech-devices-sdk/wake-word-4.png)
  

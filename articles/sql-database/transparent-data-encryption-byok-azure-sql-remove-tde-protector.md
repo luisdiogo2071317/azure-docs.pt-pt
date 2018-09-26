@@ -1,28 +1,23 @@
 ---
 title: SQL Database do Azure PowerShell - remover um protetor de TDE - | Documentos da Microsoft
 description: Guia de procedimentos para responder a um protetor de TDE potencialmente comprometido, para uma base de dados do Azure SQL ou armazém de dados utilizando a TDE com suporte de Bring YOur Own Key (BYOK).
-keywords: ''
 services: sql-database
-documentationcenter: ''
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: vanto
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
-ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/07/2017
+author: becczhang
 ms.author: rebeccaz
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: c7d7c9ae3a53783a9f1f7dcef2275e74814d07f3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/07/2017
+ms.openlocfilehash: f965a008ed5973a544dba686e54e041ca6ef7673
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543933"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165998"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de encriptação de dados transparente (TDE) com o PowerShell
 ## <a name="prerequisites"></a>Pré-requisitos

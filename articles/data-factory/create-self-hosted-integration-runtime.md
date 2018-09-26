@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715419"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162275"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Runtime de integração autoalojado
 O Runtime de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do Runtime de integração](concepts-integration-runtime.md).
@@ -187,18 +187,20 @@ Na fábrica de dados aos quais foram concedidas as permissões,
 
 1. Número predefinido de Runtime de integração ligado, que pode ser criada em único Runtime de integração autoalojado é **20**. Se precisar de mais, em seguida, contacte o suporte. 
 
-2. A fábrica de dados em que o runtime de integração ligado é a ser criada tem de ter um MSI ([identidade do serviço gerido](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Por predefinição, as fábricas de dados criado no Ibiza portal ou cmdlets do PowerShell terão MSI criado implicitamente. No entanto, em alguns casos, quando é criado a fábrica de dados de utilização de um modelo de Gestor de recursos do Azure ou SDK, o "**identidade**" **tem de definir a propriedade** explicitamente para garantir que o Gestor de recursos do Azure cria uma fábrica de dados que contém um MSI. 
+2. A fábrica de dados em que o runtime de integração ligado é a ser criada tem de ter um MSI ([identidade do serviço gerido](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Por predefinição, as fábricas de dados criadas no portal do Azure ou cmdlets do PowerShell terão MSI criado implicitamente. No entanto, em alguns casos, quando é criado a fábrica de dados de utilização de um modelo de Gestor de recursos do Azure ou SDK, o "**identidade**" **tem de definir a propriedade** explicitamente para garantir que o Gestor de recursos do Azure cria uma fábrica de dados que contém um MSI. 
 
 3. A versão de Runtime de integração autoalojada tem de ser igual ou superior a 3.8.xxxx.xx. Tente [transferir a versão mais recente](https://www.microsoft.com/download/details.aspx?id=39717) do Runtime de integração autoalojado
 
-4. A fábrica de dados em que o runtime de integração ligado é a ser criada tem de ter um MSI ([identidade do serviço gerido](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Por predefinição, as fábricas de dados criadas no Ibiza portal ou cmdlets do PowerShell terão MSI ([identidade do serviço gerido](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-criada implicitamente, no entanto, as fábricas de dados criadas com o modelo Azure Resource Manager (ARM) ou o SDK requer "Identity" propriedade ser definida para garantir que é criado um MSI.
+4. A fábrica de dados em que o runtime de integração ligado é a ser criada tem de ter um MSI ([identidade do serviço gerido](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Por predefinição, as fábricas de dados criadas no portal do Azure ou cmdlets do PowerShell terão MSI ([identidade do serviço gerido](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  criada implicitamente, no entanto, as fábricas de dados criadas com o modelo Azure Resource Manager ou o SDK requer "**identidade**" propriedade ser definida para garantir um MSI é criada.
 
 5. O SDK que suportam esta funcionalidade do .net do ADF é a versão > = 1.1.0
 
 6. O Azure PowerShell que suportam esta funcionalidade é a versão > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
 
-7. Para conceder permissão, o usuário exigirá a função de "Proprietário" ou função de "Proprietário" herdado na fábrica de dados, onde existe o IR partilhado. 
+7. Para conceder permissão, o utilizador irá exigir "**proprietário**" função ou herdada "**proprietário**" função na fábrica de dados, onde existe o IR partilhado. 
+
+8. Para o Active Directory  **[os utilizadores convidados](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, a funcionalidade de pesquisa (listagem de todas as fábricas de dados usando a palavra-chave de pesquisa) na IU [não funciona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Mas, desde que o utilizador convidado é a "**proprietário**"da fábrica de dados, podem partilhar o runtime de integração sem a funcionalidade de pesquisa, ao escrever diretamente a identidade de serviço gerida do Data Factory com a qual o runtime de integração precisa ser compartilhadas em"**Pemission atribuir**"caixa de texto e selecionando"**adicionar**"na interface do Usuário do ADF. 
 
   > [!NOTE]
   > Esta funcionalidade só está disponível no Azure Data Factory versão 2 

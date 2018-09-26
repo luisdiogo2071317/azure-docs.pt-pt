@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8fd8bf6128d09d6431a8542206430b9bb6df095d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 09/25/2018
+ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063732"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181146"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -83,6 +83,10 @@ Para obter mais informações, consulte [retenção de cópia de segurança de l
 ## <a name="are-backups-encrypted"></a>As cópias de segurança são encriptadas?
 
 Se a sua base de dados é encriptado com TDE, as cópias de segurança são encriptadas automaticamente em repouso, incluindo cópias de segurança LTR. Quando a TDE está ativada para uma base de dados SQL do Azure, cópias de segurança também são encriptadas. Todas as novas bases de dados do SQL do Azure são configuradas com o TDE ativado por predefinição. Para obter mais informações sobre a TDE, consulte [encriptação de dados transparente com a base de dados do Azure SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="how-does-microsoft-ensure-backup-integrity"></a>Como a que a Microsoft garante a integridade de cópia de segurança
+
+De forma contínua, a equipe de engenharia do Azure SQL Database automaticamente testa o restauro de cópias de segurança da base de dados automatizada das bases de dados em todo o serviço. Após o restauro, a bases de dados também recebem as verificações de integridade com o DBCC CHECKDB. Quaisquer problemas encontrados durante a verificação de integridade irão resultar num alerta para a equipa de engenharia. Para obter mais informações sobre a integridade dos dados na base de dados do Azure SQL, consulte [integridade dos dados na base de dados do Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>Como cópias de segurança automáticas afetar minha conformidade?
 

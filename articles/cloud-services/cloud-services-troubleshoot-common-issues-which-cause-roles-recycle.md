@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35948110"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093185"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que fazem com que as funções reciclem
 Este artigo discute algumas das causas comuns dos problemas de implementação e fornece sugestões de resolução de problemas para ajudar a resolver esses problemas. Uma indicação de que existe um problema com um aplicativo é quando a instância de função não consegue iniciar ou ciclos de entre os Estados de inicializar, ocupados e interromper.

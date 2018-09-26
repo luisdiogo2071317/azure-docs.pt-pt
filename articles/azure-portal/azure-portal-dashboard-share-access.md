@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35947932"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096205"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure utilizando o controlo de acesso baseado em funções
 Depois de configurar um dashboard, pode publicá-la e partilhá-lo com outros utilizadores na sua organização. Permitir que outros utilizadores para ver o seu dashboard ao utilizar o Azure [controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md). Atribuir um utilizador ou grupo de utilizadores a uma função, e essa função define se esses utilizadores podem ver ou modificar o dashboard publicado. 

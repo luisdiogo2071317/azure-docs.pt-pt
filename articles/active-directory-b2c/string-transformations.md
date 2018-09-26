@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 54812ed8b53143d8fa156149bfb2c7adff7da98d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381552"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159895"
 ---
 # <a name="string-claims-transformations"></a>Transformações de afirmações de cadeia de caracteres
 
@@ -150,7 +150,7 @@ Utilize que este afirmações de transformação para definir uma cadeia de valo
 
 ## <a name="compareclaims"></a>CompareClaims
 
-Determine se uma afirmação de cadeia de caracteres é igual para outro. O resultado é um valor booleano de ClaimType nova com um valor de `true` ou `false`.
+Determine se uma afirmação de cadeia de caracteres é igual para outro. O resultado é um novo ClaimType booleano com um valor de `true` ou `false`.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |

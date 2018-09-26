@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: v-deasim
 ms.custom: mvc
 ms.openlocfilehash: 16a939c69d9ed9be597306765f316ffe32db6665
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649438"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094041"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de final de CDN do Azure
 Este artigo descreve todas as definições para a criação de um [rede de entrega de conteúdos (CDN)](cdn-overview.md) ponto de extremidade num perfil CDN existente. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes. Para um início rápido sobre como criar um perfil e ponto final, consulte [início rápido: criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).

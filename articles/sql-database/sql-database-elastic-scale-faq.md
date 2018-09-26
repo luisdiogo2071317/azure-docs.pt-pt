@@ -1,49 +1,51 @@
 ---
-title: Escala elástica do SQL do Azure FAQ | Microsoft Docs
-description: Perguntas mais frequentes sobre a escala elástica do SQL do Azure da base de dados.
+title: Dimensionamento elástico de SQL do Azure FAQ | Documentos da Microsoft
+description: Perguntas mais frequentes sobre o dimensionamento elástico de base de dados SQL do Azure.
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 94ae9549bb5e09c80703a7db316675bff1272372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: afa442897637e6c7255335798dc45b48aedb2b2a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647481"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158586"
 ---
-# <a name="elastic-database-tools-faq"></a>Ferramentas de base de dados elástica FAQ
-#### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Se tiver um único inquilino por ID de partição horizontal e nenhuma chave de fragmentação, como posso preencher a chave de fragmentação para as informações de esquema?
-O objeto de informações de esquema só é utilizado para dividir os cenários de intercalação. Se uma aplicação está inerentemente de inquilino único, não requer a ferramenta de intercalação de divisão e, consequentemente, não é necessário para preencher o objeto de informações de esquema.
+# <a name="elastic-database-tools-faq"></a>FAQ das ferramentas de bases de dados elásticas
+#### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Se eu tiver um inquilino individual por partição horizontal e nenhuma chave de fragmentação, como posso preencher a chave de fragmentação para as informações de esquema?
+O objeto de informações de esquema só é utilizado para dividir os cenários de intercalação. Se um aplicativo for inerentemente de inquilino único, em seguida, não requer a ferramenta de intercalação de divisão e, portanto, não é necessário para preencher o objeto de informações de esquema.
 
-#### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Posso ter aprovisionado uma base de dados e já tiver um Gestor de mapa de partições horizontais, como registar esta nova base de dados como um ID de partição horizontal?
-Consulte  **[a adição de um ID de partição horizontal para uma aplicação utilizando a biblioteca de clientes de base de dados elástica](sql-database-elastic-scale-add-a-shard.md)**. 
+#### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Posso ter aprovisionado um banco de dados e já tenho um Gestor de mapas de partições horizontais, como Registro esta nova base de dados como uma partição horizontal?
+Veja  **[adicionar uma partição horizontal a um aplicativo usando a biblioteca de clientes de bases de dados elásticas](sql-database-elastic-scale-add-a-shard.md)**. 
 
-#### <a name="how-much-do-elastic-database-tools-cost"></a>Quantidade de ferramentas de base de dados elástica custos?
-Utilizar a biblioteca de cliente da base de dados elástica não implica quaisquer custos. Acumular custos apenas para as bases de dados SQL do Azure que utiliza para shards e o Gestor de mapa de partições horizontais, bem como as funções da web/trabalho que aprovisionar para a ferramenta de intercalação de divisão.
+#### <a name="how-much-do-elastic-database-tools-cost"></a>Quanto o custo de ferramentas de bases de dados elásticas?
+Usando a biblioteca de cliente da base de dados elástica não incorre em quaisquer custos. Os custos acumulam-se apenas para as bases de dados SQL do Azure que utilizar para as partições horizontais e o Gestor de mapas de partições horizontais, bem como as funções da web/trabalho que aprovisionar para a ferramenta de intercalação de divisão.
 
-#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Por que razão as minhas credenciais não estiverem a funcionar quando adiciono um ID de partição horizontal a partir de um servidor diferente?
-Não usar credenciais no formato "ID de utilizador =username@servername", em vez disso, basta utilizar "ID de utilizador = nome de utilizador".  Além disso, lembre-se de que o início de sessão de "nomedeutilizador" tem permissões nas partições horizontais.
+#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Por que as minhas credenciais não estão a funcionar quando adiciono uma partição horizontal a partir de um servidor diferente?
+Não utilizar credenciais na forma de "ID de utilizador =username@servername", em vez disso, simplesmente use "ID de utilizador = o nome de utilizador".  Além disso, certifique-se de que o início de sessão "nomedeutilizador" tem permissões sobre a partição horizontal.
 
-#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>É necessário criar um Gestor de mapa de partições horizontais e preencher shards sempre que iniciar a minhas aplicações?
-Não, a criação do Gestor de mapa de partições horizontais (por exemplo,  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  A aplicação deve utilizar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** no momento do arranque de aplicação.  Deve existir apenas um desse chamada por domínio de aplicação.
+#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>É necessário criar um Gestor de mapas de partições horizontais e preencher as partições horizontais, sempre começo as minhas aplicações?
+Não, a criação de Gestor de mapas de partições horizontais (por exemplo,  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo.  Deve existir apenas uma tal chamada por domínio de aplicativo.
 
-#### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Posso ter dúvidas sobre como utilizar as ferramentas de base de dados elástica, como obtê-los respondidas?
-Contacte-no [fórum da SQL Database do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+#### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho dúvidas sobre como utilizar ferramentas de bases de dados elásticas, como posso obter respostas para?
+Contacte-nos sobre o [fórum de base de dados do Azure SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando posso obter uma ligação de base de dados utilizando uma chave de fragmentação, posso ainda pode consultar os dados para outras chaves de fragmentação de partições horizontais mesmo.  É por predefinição?
-APIs de dimensionamento flexível dão-lhe uma ligação à base de dados correto para a sua chave de fragmentação, mas não fornecer a filtragem de chave de fragmentação.  Adicionar **onde** cláusulas à sua consulta restringir o âmbito para a chave de fragmentação fornecidas, se necessário.
+#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando receber uma ligação de base de dados com uma chave de fragmentação, eu ainda pode consultar os dados para outras chaves de fragmentação na mesma partição horizontal.  Isso é por design?
+As APIs de dimensionamento elástico dão-lhe uma ligação à base de dados correto para a sua chave de fragmentação, mas não fornece filtragem de chave de fragmentação.  Adicione **onde** cláusulas para sua consulta para restringir o âmbito para a chave de fragmentação fornecido, se necessário.
 
-#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Posso utilizar uma edição de base de dados do Azure diferente para cada partição horizontal no meu conjunto de partições horizontais?
-Sim, um ID de partição horizontal é uma base de dados individuais e, por conseguinte, um ID de partição horizontal pode ser uma edição Premium enquanto outra ser uma edição Standard. Além disso, a edição de um ID de partição horizontal pode aumentar ou reduzir verticalmente várias vezes durante a duração das partições horizontais.
+#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Posso utilizar uma edição de base de dados do Azure diferente para cada partição horizontal em meu conjunto de partições horizontais?
+Sim, uma partição horizontal é uma base de dados individual e, portanto, uma partição pode ser uma edição Premium enquanto outro ser uma edição Standard. Além disso, a edição de uma partição horizontal pode aumentar ou reduzir verticalmente várias vezes durante a duração de partição horizontal.
 
-#### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Não o aprovisionamento da ferramenta de intercalação de divisão (ou elimina) uma base de dados durante uma operação de intercalação ou divisão?
-Não. Para **dividir** operações, a base de dados de destino tem de existir com o esquema apropriado e registado com o Gestor de mapa de partições horizontais.  Para **intercalação** operações, tem de eliminar as partições horizontais do Gestor de mapa de partições horizontais e, em seguida, elimine a base de dados.
+#### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Não a provisão de ferramenta de intercalação de divisão (ou elimina) uma base de dados durante uma operação de intercalação ou divisão?
+Não. Para **dividir** operações, a base de dados de destino tem de existir com o esquema apropriado e ser registado com o Gestor de mapas de partições horizontais.  Para **intercalação** operações, tem de eliminar a partição horizontal a partir do Gestor de mapas de partições horizontais e, em seguida, eliminar a base de dados.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

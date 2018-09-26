@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998768"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162292"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Ficheiros fora do `$Home` e o estado da máquina não são mantidas entre sessõ
 
 ### <a name="azure-drive-azure"></a>Unidade Azure (Azure:)
 
-PowerShell no Cloud Shell (pré-visualização) é iniciado o na unidade do Azure (`Azure:`).
+PowerShell no Cloud Shell é iniciado o na unidade do Azure (`Azure:`).
 A unidade do Azure permite que o processo de deteção e a navegação de recursos do Azure, como computação, rede, etc. do armazenamento semelhante à navegação de sistema de ficheiros.
 Pode continuar a utilizar o familiar [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure) gerir estes recursos, independentemente da unidade está no.
 Todas as alterações efetuadas aos recursos do Azure, seja feito diretamente no portal do Azure ou através de cmdlets do PowerShell do Azure, são refletidas na unidade do Azure.  Pode executar `dir -Force` para atualizar os seus recursos.
@@ -81,6 +81,6 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Guia de introdução do Cloud Shell de bash](quickstart.md) <br>
-[PowerShell no guia de introdução do Cloud Shell (pré-visualização)](quickstart-powershell.md) <br>
-[Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
+[PowerShell no guia de introdução do Cloud Shell](quickstart-powershell.md) <br>
+[Saiba mais sobre a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

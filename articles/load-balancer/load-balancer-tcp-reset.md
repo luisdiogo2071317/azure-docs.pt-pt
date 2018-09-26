@@ -1,5 +1,5 @@
 ---
-title: Reposição de TCP do Balanceador de carga no tempo limite de inatividade | Documentos da Microsoft
+title: Carregar balanceador TCP reposição ociosos | Documentos da Microsoft
 description: Balanceador de carga com pacotes TCP RST bidirecional no tempo limite de inatividade
 services: load-balancer
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: b33c701bde082404ea86c9882dcb7bf50d1f1df9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 212212d4650fe25b4ced591d4d4f1ee184e3fc44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036185"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163329"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Balanceador de carga com a reposição de TCP no tempo limite de inatividade (pré-visualização pública)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de carga com a reposição TCP em inatividade (pré-visualização pública)
 
 Pode usar [Balanceador de carga Standard](load-balancer-standard-overview.md) para criar um comportamento mais previsível em termos de aplicação para os seus cenários com bidirecional TCP redefine (pacote de RST de TCP) para cada tempo de limite de inatividade configurável.  Comportamento do Balanceador de carga predefinido é descartar silenciosamente fluxos quando é atingido o tempo limite de inatividade de um fluxo.
 
@@ -75,6 +75,7 @@ Este parâmetro é atualmente em vigor nas seguintes regiões.  Regiões não li
 
 | Região |
 |---|
+| Sudeste Asiático |
 | Este dos EUA 2 |
 | Norte dos EUA |
 | E.U.A. Oeste |
@@ -89,4 +90,4 @@ Esta tabela será atualizada à medida que a pré-visualização é expandida pa
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [Balanceador de carga Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre [regras de saída](https://aka.ms/lboutboundrules).
+- Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md).

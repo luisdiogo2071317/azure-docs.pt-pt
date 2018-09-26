@@ -1,5 +1,5 @@
 ---
-title: PowerShell no guia de introdução do Azure Cloud Shell (pré-visualização) | Documentos da Microsoft
+title: PowerShell no guia de introdução do Azure Cloud Shell | Documentos da Microsoft
 description: Início rápido para o PowerShell no Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108143"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166211"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Início rápido para o PowerShell no Azure Cloud Shell (pré-visualização)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido para o PowerShell no Azure Cloud Shell
 
-Este documento fornece detalhes sobre como utilizar o PowerShell no Cloud Shell no [portal do Azure](https://aka.ms/PSCloudPreview).
+Este documento fornece detalhes sobre como utilizar o PowerShell no Cloud Shell no [portal do Azure](https://portal.azure.com/).
 
 > [!NOTE]
 > R [no Azure Cloud Shell de Bash](quickstart.md) início rápido também está disponível.

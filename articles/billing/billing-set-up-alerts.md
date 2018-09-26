@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: adpick
 ms.openlocfilehash: 094bfe041ae04e52b6d998ccfd1d964abf192d6a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35956619"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095104"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Posso configurar alertas de faturação ou de crédito para as suas subscrições do Microsoft Azure
 Se for o administrador de conta para uma subscrição do Azure, pode utilizar o serviço do Azure de faturação alerta criar personalizado alertas de faturação que o ajudam a monitorizar e gerir a faturação das suas contas do Azure.

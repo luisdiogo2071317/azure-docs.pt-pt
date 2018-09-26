@@ -1,101 +1,80 @@
 ---
-title: Adicionar o Twitter como fornecedor de identidade de OAuth1 ao utilizar políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Utilize o Twitter como fornecedor de identidade utilizando o protocolo de OAuth1.
+title: Configurar o início de sessão com uma conta do Twitter ao utilizar políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
+description: Configure o início de sessão com uma conta do Twitter ao utilizar políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a17b2dda2df87121843c1533122df66f9d352a8f
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339873"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181282"
 ---
-# <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar Twitter como fornecedor de identidade de OAuth1 ao utilizar políticas personalizadas
+# <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Twitter ao utilizar políticas personalizadas no Azure Active Directory B2C
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra-lhe como ativar o início de sessão dos utilizadores de uma conta do Twitter usando [políticas personalizadas](active-directory-b2c-overview-custom.md).
+Este artigo mostra-lhe como ativar o início de sessão dos utilizadores de uma conta do Twitter usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Conclua os passos a [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md) artigo.
 
-## <a name="step-1-create-a-twitter-account-application"></a>Passo 1: Criar uma aplicação de conta do Twitter
-Para utilizar o Twitter como fornecedor de identidade no Azure Active Directory B2C (Azure AD B2C), tem de criar um aplicativo do Twitter e fornecer os parâmetros certos. Pode registrar um aplicativo do Twitter ao aceder a [página de inscrição do Twitter](https://twitter.com/signup).
+- Conclua os passos na [introdução às políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Se ainda não tiver uma conta do Twitter, criar um de cada [página de inscrição do Twitter](https://twitter.com/signup).
 
-1. Vá para o [Twitter desenvolvedores](https://apps.twitter.com/) Web site, inicie sessão com as credenciais da sua conta do Twitter e, em seguida, selecione **criar nova aplicação**.
+## <a name="create-an-application"></a>Criar uma aplicação
 
-    ![Conta do twitter - criar nova aplicação](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app1.png)
+Para utilizar o Twitter como fornecedor de identidade no Azure AD B2C, terá de criar um aplicativo do Twitter.
 
-2. Na **criar uma aplicação** janela, efetue o seguinte procedimento:
- 
-    a. Tipo de **nome** e uma **Descrição** para a nova aplicação. 
+1. Entrar para o [Twitter desenvolvedores](https://developer.twitter.com/en/apps) Web site com as suas credenciais de conta do Twitter.
+2. Selecione **criar uma aplicação**.
+3. Introduza um **nome da aplicação** e uma **descrição da aplicação**.
+4. Na **URL do site**, introduza `https://your-tenant.b2clogin.com`. Substitua `your-tenant` com o nome do seu inquilino. Por exemplo, https://contosob2c.b2clogin.com.
+5. Para o **URL de chamada de retorno**, introduza `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Substitua `your-tenant` com o nome do nome do seu inquilino e `your-policy-Id` com o identificador da sua política. Por exemplo, `b2c_1A_signup_signin_twitter`. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
+6. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **criar**.
+7. Na **detalhes da aplicação** página, selecione **Editar > Editar detalhes**, marque a caixa **ativar o início de sessão com o Twitter**e, em seguida, selecione **guardar**.
+8. Selecione **chaves e tokens** e registe o **chave de API de consumidor** e o **chave secreta da API de consumidor** valores a utilizar mais tarde.
 
-    b. Na **Web site** caixa, cole **https://{tenant}.b2clogin.com**. Em que **{inquilino}** é o nome do inquilino (por exemplo, https://contosob2c.b2clogin.com).
+## <a name="create-a-policy-key"></a>Criar uma chave de política
 
-    c. 4. Para o **URL de chamada de retorno**, introduza `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`. Certifique-se de substituir **{inquilino}** com o nome do inquilino (por exemplo, contosob2c) e **{policyId}** com o seu id de política (por exemplo, b2c_1_policy).  **O retorno de chamada URL tem de ser em letras minúsculas.** Deve adicionar um URL de retorno de chamada para todas as políticas que utilizam o início de sessão do Twitter. Certifique-se de usar `b2clogin.com` em vez de ` login.microsoftonline.com` se estiver a utilizá-lo em seu aplicativo.
+Precisa armazenar a chave secreta que registou anteriormente no seu inquilino do Azure AD B2C.
 
-    d. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **criar a sua aplicação do Twitter**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
+4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+5. Selecione **chaves de política** e, em seguida, selecione **Add**.
+6. Para **opções**, escolha `Manual`.
+7. Introduza um **nome** para a chave de política. Por exemplo, `TwitterSecret`. O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
+8. Na **segredo**, introduza o seu segredo de cliente que registou anteriormente.
+9. Para **utilização de chave**, selecione `Encryption`.
+10. Clique em **Criar**.
 
-    ![Conta do twitter - adicionar uma nova aplicação](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app2.png)
+## <a name="add-a-claims-provider"></a>Adicionar um fornecedor de afirmações
 
-3. Na **demonstração de B2C** janela, selecione **definições**, selecione o **permitir que esta aplicação a ser utilizado para iniciar sessão com o Twitter** caixa de verificação e, em seguida, selecione **Update Definições**.
+Se pretender que os utilizadores iniciem sessão com uma conta do Twitter, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado. 
 
-4. Selecione **chaves e Tokens de acesso**e tenha em atenção a **chave de consumidor (chave de API)** e **segredo de consumidor (segredo de API)** valores.
+Pode definir uma conta do Twitter como um fornecedor de afirmações ao adicioná-la para o **ClaimsProviders** elemento no arquivo de extensão da sua política.
 
-    ![Conta do twitter - conjunto de propriedades da aplicação](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app3.png)
-
-    >[!NOTE]
-    >O segredo de consumidor é uma credencial de segurança importantes. Não partilhe este segredo com qualquer pessoa ou distribuí-la com a sua aplicação.
-
-## <a name="step-2-add-your-twitter-account-application-key-to-azure-ad-b2c"></a>Passo 2: Adicionar a chave de aplicação da conta de Twitter ao Azure AD B2C
-Federação com contas do Twitter requer um segredo de consumidor para a conta de Twitter à confiança do Azure AD B2C em nome do aplicativo. Para armazenar o segredo de consumidor de aplicação do Twitter no seu inquilino do Azure AD B2C, efetue o seguinte: 
-
-1. No seu inquilino do Azure AD B2C, selecione **definições do B2C** > **Framework de experiência de identidade**.
-
-2. Para ver as chaves que estão disponíveis no seu inquilino, selecione **chaves de política**.
-
-3. Selecione **Adicionar**.
-
-4. Na **opções** caixa, selecione **Manual**.
-
-5. Na **Name** caixa, selecione **TwitterSecret**.  
-    O prefixo *B2C_1A_* podem ser adicionados automaticamente.
-
-6. Na **segredo** , introduza o segredo da aplicação Microsoft da [Portal de registo de aplicação](https://apps.dev.microsoft.com).
-
-7. Para **utilização de chave**, utilize **encriptação**.
-
-8. Selecione **Criar**.
-
-9. Confirme que criou o `B2C_1A_TwitterSecret` chave.
-
-## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>Passo 3: Adicionar um fornecedor de afirmações na sua política de extensão
-
-Se pretender que os utilizadores iniciem sessão com a conta do Twitter, deve definir o Twitter como um fornecedor de afirmações. Em outras palavras, tem de especificar os pontos de extremidade do Azure AD B2C se comunica com. Os pontos de extremidade fornecem um conjunto de afirmações que são utilizados pelo Azure AD B2C para verificar que um utilizador específico foi autenticado.
-
-Definir o Twitter como um fornecedor de afirmações, adicionando `<ClaimsProvider>` nó em seu arquivo de política de extensão:
-
-1. No seu diretório de trabalho, abra a *TrustFrameworkExtensions.xml* ficheiro de política de extensão. 
-
-2. Procure o `<ClaimsProviders>` secção.
-
-3. Na `<ClaimsProviders>` nó, adicione o seguinte fragmento XML:  
+1. Abra o *TrustFrameworkExtensions.xml*.
+2. Encontrar o **ClaimsProviders** elemento. Se não existir, adicione-o sob o elemento raiz.
+3. Adicionar um novo **ClaimsProvider** da seguinte forma:
 
     ```xml
     <ClaimsProvider>
-        <Domain>twitter.com</Domain>
-        <DisplayName>Twitter</DisplayName>
-        <TechnicalProfiles>
+      <Domain>twitter.com</Domain>
+      <DisplayName>Twitter</DisplayName>
+      <TechnicalProfiles>
         <TechnicalProfile Id="Twitter-OAUTH1">
-            <DisplayName>Twitter</DisplayName>
-            <Protocol Name="OAuth1" />
-            <Metadata>
+          <DisplayName>Twitter</DisplayName>
+          <Protocol Name="OAuth1" />
+          <Metadata>
             <Item Key="ProviderName">Twitter</Item>
             <Item Key="authorization_endpoint">https://api.twitter.com/oauth/authenticate</Item>
             <Item Key="access_token_endpoint">https://api.twitter.com/oauth/access_token</Item>
@@ -103,104 +82,82 @@ Definir o Twitter como um fornecedor de afirmações, adicionando `<ClaimsProvid
             <Item Key="ClaimsEndpoint">https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true</Item>
             <Item Key="ClaimsResponseFormat">json</Item>
             <Item Key="client_id">Your Twitter application consumer key</Item>
-            </Metadata>
-            <CryptographicKeys>
+          </Metadata>
+          <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_TwitterSecret" />
-            </CryptographicKeys>
-            <InputClaims />
-            <OutputClaims>
+          </CryptographicKeys>
+          <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
+          </OutputClaims>
+          <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-            </OutputClaimsTransformations>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
         </TechnicalProfile>
-        </TechnicalProfiles>
+      </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Substitua a *client_id*' valor com a chave de consumidor de aplicação da conta de Twitter.
-
+4. Substitua o valor de **client_id** com a chave de consumidor que registou anteriormente.
 5. Guarde o ficheiro.
 
-## <a name="step-4-register-the-twitter-account-claims-provider-to-your-sign-up-or-sign-in-user-journey"></a>Passo 4: Registar o fornecedor de afirmações de conta do Twitter para o seu percurso de utilizador de inscrição ou início de sessão
-Ter configurado o fornecedor de identidade. No entanto, ele ainda não está disponível em qualquer uma das janelas da inscrição ou início de sessão. Agora, tem de adicionar o fornecedor de identidade de conta do Twitter ao seu utilizador `SignUpOrSignIn` percurso do utilizador.
+### <a name="upload-the-extension-file-for-verification"></a>Carregar o ficheiro de extensão de verificação
 
-### <a name="step-41-make-a-copy-of-the-user-journey"></a>Passo 4.1: Fazer uma cópia do percurso do utilizador
-Para disponibilizar o percurso do utilizador, crie um duplicado de um modelo do percurso de utilizador existente e, em seguida, adicionar o fornecedor de identidade do Twitter:
+Agora, configurou sua política para que o Azure AD B2C sabe como se comunicar com a sua conta do LinkedIn. Tente carregar o ficheiro de extensão da sua política só para confirmar que ele não tem quaisquer problemas até agora.
 
->[!NOTE]
->Se tiver copiado o `<UserJourneys>` elemento a partir do ficheiro de base da sua política para o *TrustFrameworkExtensions.xml* ficheiro de extensão, pode avançar para a secção seguinte.
+1. Sobre o **políticas personalizadas** página no seu inquilino do Azure AD B2C, selecione **carregar política**.
+2. Ativar **substituir a política, se existir**e, em seguida, procure e selecione o *TrustFrameworkExtensions.xml* ficheiro.
+3. Clique em **Carregar**.
 
-1. Abra o ficheiro de base da sua política (por exemplo, TrustFrameworkBase.xml).
+## <a name="register-the-claims-provider"></a>Registar o fornecedor de afirmações
 
-2. Procure o `<UserJourneys>` elemento, selecione todo o conteúdo do `<UserJourney>` nó e, em seguida, selecione **Cortar** para mover o texto selecionado para a área de transferência.
+Neste momento, o fornecedor de identidade tiver sido configurado, mas não está disponível em qualquer um dos ecrãs de inscrição ou início de sessão. Para disponibilizá-lo, pode criar um duplicado de um percurso do utilizador modelo existente e, em seguida, modificá-lo para que ele também tem o fornecedor de identidade do Twitter.
 
-3. Abra o ficheiro de extensão (por exemplo, TrustFrameworkExtensions.xml) e, em seguida, procure o `<UserJourneys>` elemento. Se o elemento não existir, adicioná-lo.
+1. Abra o *TrustFrameworkBase.xml* ficheiro do pacote de iniciante.
+2. Localize e copie o conteúdo inteiro dos **UserJourney** elemento que inclui `Id="SignUpOrSignIn"`.
+3. Abra o *TrustFrameworkExtensions.xml* e localize a **UserJourneys** elemento. Se o elemento não existir, adicione um.
+4. Colar o conteúdo inteiro do **UserJourney** elemento que copiou como subordinado da **UserJourneys** elemento.
+5. Mudar o nome o ID do percurso do utilizador. Por exemplo, `SignUpSignInTwitter`.
 
-4. Cole o conteúdo inteiro dos `<UserJourney>` nó, que é movido para a área de transferência no passo 2, para o `<UserJourneys>` elemento.
+### <a name="display-the-button"></a>Exibir o botão
 
-### <a name="step-42-display-the-button"></a>Passo 4.2: Exibir o "botão"
-O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção do fornecedor de afirmações e sua ordem. O `<ClaimsProviderSelection>` nó é semelhante a um botão de fornecedor de identidade numa página de inscrição ou início de sessão. Se adicionar um `<ClaimsProviderSelection>` nó para uma conta do Twitter, um novo botão é apresentado quando um utilizador que chegam na página. Para adicionar este elemento, faça o seguinte:
+O **ClaimsProviderSelection** elemento é semelhante a um botão do fornecedor de identidade numa tela de inscrição ou início de sessão. Se adicionar um **ClaimsProviderSelection** elemento para uma conta do Twitter, um novo botão exibido quando um utilizador que chegam na página.
 
-1. Procure o `<UserJourney>` nó que contém `Id="SignUpOrSignIn"` no percurso do utilizador que copiou.
+1. Encontrar o **OrchestrationStep** elemento que inclui `Order="1"` no percurso do utilizador que criou.
+2. Sob **ClaimsProviderSelects**, adicione o seguinte elemento. Defina o valor da **TargetClaimsExchangeId** para um valor adequado, por exemplo `TwitterExchange`:
 
-2. Localize a `<OrchestrationStep>` nó que contém `Order="1"`.
-
-3. Na `<ClaimsProviderSelections>` elemento, adicione o seguinte fragmento XML:
-
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
     ```
 
-### <a name="step-43-link-the-button-to-an-action"></a>Passo 4.3: Ligar o botão para uma ação
-Agora que tem um botão no local, tem de o associar a uma ação. A ação, neste caso, é para o Azure AD B2C comunicar com a conta do Twitter para receber um token. Ligue o botão a uma ação, o perfil técnico de ligação para o seu fornecedor de afirmações de conta do Twitter:
+### <a name="link-the-button-to-an-action"></a>Ligar o botão para uma ação
 
-1. Procure o `<OrchestrationStep>` nó que contém `Order="2"` no `<UserJourney>` nó.
-2. Na `<ClaimsExchanges>` elemento, adicione o seguinte fragmento XML:
+Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, neste caso, é para o Azure AD B2C comunicar com uma conta do Twitter para receber um token.
 
-    ```xml
+1. Encontrar o **OrchestrationStep** que inclua `Order="2"` no percurso do utilizador.
+2. Adicione as seguintes **ClaimsExchange** elemento certificar-se de que usar o mesmo valor para **Id** que utilizou para **TargetClaimsExchangeId**:
+
+    ```XML
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
+    
+    Atualize o valor de **TechnicalProfileReferenceId** para o **Id** do perfil técnico que criou anteriormente. Por exemplo, `Twitter-OAUTH1`.
 
-    >[!NOTE]
-    >* Certifique-se de que `Id` tem o mesmo valor que `TargetClaimsExchangeId` na secção anterior.
-    >* Certifique-se de que o `TechnicalProfileReferenceId` ID está definido para o perfil técnico que criou anteriormente (Twitter-OAUTH1).
+3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>Passo 5: Carregar a política para o seu inquilino
-1. Na [portal do Azure](https://portal.azure.com), mude para o [contexto do inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)e, em seguida, selecione **do Azure AD B2C**.
+## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o ficheiro da entidade confiadora de terceiros
 
-2. Selecione **arquitetura de experiências de identidade**.
+Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percurso do utilizador que criou.
 
-3. Selecione **todas as políticas**.
-
-4. Selecione **carregar política**.
-
-5. Selecione o **substituir a política, se existir** caixa de verificação.
-
-6. Carregar o *TrustFrameworkBase.xml* e *TrustFrameworkExtensions.xml* ficheiros e certifique-se de que eles passarem na validação.
-
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Passo 6: Testar a política personalizada com executar agora
-
-1. Selecione **definições do Azure AD B2C**e, em seguida, selecione **Framework de experiência de identidade**.
-
-    >[!NOTE]
-    >Executar agora requer, pelo menos, um aplicativo para ser foi pré-registado no inquilino. Para saber como registar aplicações, veja o Azure AD B2C [começar](active-directory-b2c-get-started.md) artigo ou o [registo de aplicação](active-directory-b2c-app-registration.md) artigo.
-
-2. Open **B2C_1A_signup_signin**, a política personalizada de terceiros (RP) da entidade confiadora que carregou e, em seguida, selecione **executar agora**.  
-    Deve agora conseguir iniciar sessão com a conta do Twitter.
-
-## <a name="step-7-optional-register-the-twitter-account-claims-provider-to-the-profile-edit-user-journey"></a>Passo 7: (Opcional) registar a conta de Twitter afirmações do fornecedor para o percurso do utilizador de edição de perfil
-Pode também querer adicionar o fornecedor de identidade de conta do Twitter para sua `ProfileEdit` percurso do utilizador. Para tornar o utilizador jornada disponível, repita "o passo 4." Desta vez, selecione o `<UserJourney>` nó que contém `Id="ProfileEdit"`. Guardar e carregar para testar a sua política.
-
-
-## <a name="optional-download-the-complete-policy-files"></a>(Opcional) Transferir os ficheiros de política concluída
-Depois de concluir o [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md) passo a passo, é recomendável que criar seu cenário com seus próprios arquivos de política personalizada. Para referência, nós fornecemos [arquivos de diretiva de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-twitter-app).
+1. Faça uma cópia deles *SignUpOrSignIn.xml* no diretório de trabalho e renomeá-lo. Por exemplo, mude o nome para *SignUpSignInTwitter.xml*.
+2. Abra o ficheiro novo e atualize o valor do **PolicyId** atributo **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInTwitter`.
+3. Atualize o valor de **PublicPolicyUri** com o URI para a política. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_twitter`
+4. Atualize o valor do **ReferenceId** atributo **DefaultUserJourney** de acordo com o ID do percurso do utilizador novo que criou (SignUpSignTwitter).
+5. Guardar as alterações, carregue o ficheiro e testá-lo ao abri-lo e clicar em **executar agora**.

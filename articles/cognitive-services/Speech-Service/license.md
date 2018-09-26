@@ -9,18 +9,18 @@ ms.topic: article
 ms.component: speech-service
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 6e5f3128a6a62ef27bdc0d24ddda0afc54d78b03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a56b50e8bd01c8eab9e8935b0d250f1b0da59bc
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994756"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181849"
 ---
 # <a name="microsoft-software-license-termsbrmicrosoft-cognitive-services-speech-sdk"></a>TERMOS DE LICENCIAMENTO DE SOFTWARE MICROSOFT<br>SDK DE VOZ DO MICROSOFT DOS SERVIÇOS COGNITIVOS
 
 **SE VIVER (OU SE TIVER UMA EMPRESA COM O SEU LOCAL DE PRINCIPAL DE NEGÓCIO EM) NOS ESTADOS UNIDOS, LEIA A SECÇÃO "ARBITRAGEM DE ENLACE E RENÚNCIA À AÇÃO DE CLASSE POR" ABAIXO. AFETA A FORMA COMO AS CONTESTAÇÕES SÃO RESOLVIDAS.**
 
-Estes termos de licenciamento constituem um contrato entre e a Microsoft Corporation (ou uma das respetivas empresas afiliadas). Aplicam-se para o software de pré-visualização com o nome acima e quaisquer atualizações de software ou serviços da Microsoft (exceto na medida em tais serviços ou atualizações sejam acompanhadas de termos novos ou adicionais, caso em que esses diferentes termos aplicam-se de forma prospetiva e não alteram sua ou Direitos da Microsoft relacionadas com software pré-atualizado ou serviços). SE ESTIVER EM CONFORMIDADE COM ESTES TERMOS DE LICENCIAMENTO, TERÁ OS DIREITOS DESCRITOS ABAIXO. AO UTILIZAR O SOFTWARE, ACEITA ESTES TERMOS.
+Estes termos de licenciamento constituem um contrato entre e a Microsoft Corporation (ou uma das respetivas empresas afiliadas). Eles se aplicam ao software supra mencionado e quaisquer atualizações de software ou serviços da Microsoft (exceto na medida em tais serviços ou atualizações sejam acompanhadas de termos novos ou adicionais, caso em que esses diferentes termos aplicam-se de forma prospetiva e não alteram sua ou Direitos da Microsoft relacionadas com software pré-atualizado ou serviços). SE ESTIVER EM CONFORMIDADE COM ESTES TERMOS DE LICENCIAMENTO, TERÁ OS DIREITOS DESCRITOS ABAIXO.  AO UTILIZAR O SOFTWARE, ACEITA ESTES TERMOS.
 
 ## <a name="1-installation-and-use-rights"></a>1. DIREITOS DE INSTALAÇÃO E UTILIZAÇÃO.
 

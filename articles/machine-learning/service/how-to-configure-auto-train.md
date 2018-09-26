@@ -9,31 +9,31 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f4a8ff272e498871f4a31ce76487509673f48328
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034251"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163856"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurar seu automatizada experimentação do machine learning
 
-Aprendizagem automática escolhe um algoritmo para e gera um modelo pronto para implantação. O modelo pode ser transferido para ser personalizadas também. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning. Neste guia, aprenderá a configurar várias definições de configuração.
+Aprendizagem automática (ML automatizada) escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. O modelo pode ser transferido para ser personalizadas também. Existem várias opções que pode utilizar para configurar experiências de ML automatizada. Neste guia, aprenderá a configurar várias definições de configuração.
 
-Para ver exemplos de uma sequência de aprendizagem automática, consulte [Tutorial: preparar automaticamente um modelo de classificação](tutorial-auto-train-models.md) ou [formar modelos automaticamente na cloud](how-to-auto-train-remote.md).
+Para ver exemplos de um ML automatizada, consulte [Tutorial: preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md) ou [formar modelos com aprendizagem automática na cloud](how-to-auto-train-remote.md).
 
 Opções de configuração disponíveis no automatizada de machine learning:
 
 * Selecione o tipo de experimentação, por exemplo, classificação, regressão 
 * Origem de dados, formatos e obtenção de dados
 * Escolher o destino de computação (local ou remoto)
-* `AutoML` definições de experimentação
-* Executar `AutoML` de experimentação
+* Automatizada as definições de experimentação do ML
+* Executar uma experimentação do ML automatizada
 * Explorar métricas de modelo
 * Registe e implemente o modelo
 
 ## <a name="select-your-experiment-type"></a>Selecione o tipo de experimentação
-Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. Automatizada de machine learning suporta duas categorias de aprendizagem supervisionada: classificação e regressão. Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo.
+Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. ML automatizada suporta duas categorias de aprendizagem supervisionada: classificação e regressão. Automatizado ML oferece suporte aos seguintes algoritmos durante o processo de Otimização e automatização. Como um utilizador, não é necessário para especificar o algoritmo.
 Classificação | Regressão
 --|--
 sklearn.linear_model. LogisticRegression | sklearn.linear_model. ElasticNet
@@ -51,8 +51,8 @@ sklearn.ensemble.GradientBoostingClassifier |
 lightgbm. LGBMClassifier |
 
 
-## <a name="data-source-and-format-for-automl-experiment"></a>Origem de dados e o formato para `AutoML` de experimentação
-`AutoML` suporta dados que residem no ambiente de trabalho local ou na cloud no armazenamento de Blobs do Azure. Os dados podem ser lidos em scikit-saiba formatos de dados suportados. É possível ler os dados em matrizes de 1) Numpy X (recursos) e y (variável de destino ou também conhecido como etiqueta) ou 2) Pandas dataframe. 
+## <a name="data-source-and-format"></a>Origem de dados e de formato
+ML automatizada suporta os dados que residem no ambiente de trabalho local ou na cloud no armazenamento de Blobs do Azure. Os dados podem ser lidos em scikit-saiba formatos de dados suportados. É possível ler os dados em matrizes de 1) Numpy X (recursos) e y (variável de destino ou também conhecido como etiqueta) ou 2) Pandas dataframe. 
 
 Exemplos:
 
@@ -79,9 +79,9 @@ Exemplos:
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Obter dados para executar a experimentação em computação remota
 
-Se estiver a utilizar uma computação remota para executar a sua experimentação AutoML, a obtenção de dados deverá ser colada num script de python separado `GetData()`. Este script é executado na computação remota onde a experimentação de AutoML é executada. `GetData` Elimina a necessidade de obter os dados durante a transmissão para cada iteração. Sem `GetData`, sua experimentação irão falhar quando é executado no cálculo remoto.
+Se estiver a utilizar uma computação remota para executar a sua experimentação, a obtenção de dados deverá ser colada num script de python separado `get_data()`. Este script é executado na computação remota onde a experimentação do ML automatizada é executada. `get_data` Elimina a necessidade de obter os dados durante a transmissão para cada iteração. Sem `get_data`, sua experimentação irão falhar quando é executado no cálculo remoto.
 
-Eis um exemplo de `GetData`:
+Eis um exemplo de `get_data`:
 
 ```python
 %%writefile $project_folder/get_data.py 
@@ -100,13 +100,13 @@ def get_data(): # Burning man 2016 data
     return { "X" : df, "y" : y }
 ```
 
-No seu `AutoMLConfig` objeto, especifique o `data_script` parâmetro e forneça o caminho para o `GetData` ficheiro de script semelhante à abaixo:
+No seu `AutoMLConfig` objeto, especifique o `data_script` parâmetro e forneça o caminho para o `get_data` ficheiro de script semelhante à abaixo:
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "./get_data.py", **** )
+automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`GetData` script pode retornar o seguinte:
+`get_data` script pode retornar o seguinte:
 Chave | Tipo |    Mutuamente exclusivo com | Descrição
 ---|---|---|---
 X | Pandas Dataframe ou matriz de Numpy | data_train, etiqueta, colunas |  Todas as funcionalidades para treinar com
@@ -140,17 +140,17 @@ Utilize o conjunto de dados de validação personalizada se dividir aleatório n
 
 ## <a name="compute-to-run-experiment"></a>Computação para executar a experimentação
 
-Em seguida, determine onde será preparado o modelo. Uma experimentação de preparação de aprendizagem automática é executada num destino de computação que o proprietário e gerir. 
+Em seguida, determine onde será preparado o modelo. Uma experimentação de preparação de ML automatizada é executado num destino de computação que o proprietário e gerir. 
 
 Opções de computação suportadas são:
 1.  Seu computador local, como uma área de trabalho local ou computador portátil – em geral, quando tem pequeno conjunto de dados e estiver na fase de exploração.
 2.  Um computador remoto na cloud – [máquina de Virtual de ciência de dados do Azure](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) que executem o Linux – tem um conjunto de dados grandes e quer aumentar verticalmente para uma máquina de grandes dimensões que está disponível na Cloud do Azure. 
-3.  Cluster de IA do Batch do Azure – A geridos cluster que pode configurar para dimensionar iterações de AutoML fora e execução em paralelo. 
+3.  Cluster do Azure Batch AI – A geridos cluster que pode configurar para aumentar horizontalmente e executar iterações de ML automatizada em paralelo. 
 
 
 ## <a name="configure-your-experiment-settings"></a>Configurar as definições de experimentação
 
-Existem vários botões que pode utilizar para configurar a sua experimentação AutoML. Esses parâmetros são definidos pela Instanciação de um `AutoMLConfig` objeto.
+Existem vários botões que pode utilizar para configurar a sua experimentação do ML automatizada. Esses parâmetros são definidos pela Instanciação de um `AutoMLConfig` objeto.
 
 Alguns exemplos incluem:
 
@@ -205,7 +205,7 @@ Propriedade |  Descrição | Valor Predefinido
 `data_script`  |    Caminho para um ficheiro que contém o método get_data.  É necessário para execução remota.   |Nenhuma
 
 
-## <a name="run-automl-experiment"></a>Executar `AutoML` de experimentação
+## <a name="run-experiment"></a>Execute experimentação
 
 Em seguida, podemos pode iniciar a experimentação para executar e gerar um modelo para nós. Passar o `AutoMLConfig` para o `submit` método para gerar o modelo.
 
@@ -219,7 +219,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 
 ## <a name="explore-model-metrics"></a>Explorar métricas de modelo
-Pode ver os resultados num widget ou inline, se estiver num bloco de notas. Consulte os detalhes para "Controlar e avaliar modelos". (Certifique-se de conteúdo AML contém informações relevantes para AutoML)
+Pode ver os resultados num widget ou inline, se estiver num bloco de notas. Consulte os detalhes para "Controlar e avaliar modelos". (Certifique-se de conteúdo AML contém informações relevantes para ML automatizado)
 
 As métricas seguintes são salvas em cada iteração
 * AUC_macro
@@ -247,3 +247,5 @@ As métricas seguintes são salvas em cada iteração
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [como e onde implementar um modelo](how-to-deploy-and-where.md).
+
+Saiba mais sobre [como preparar um modelo de classificação com ML automatizada](tutorial-auto-train-models.md) ou [como dar formação através de ML de automatizada num recurso remoto](how-to-auto-train-remote.md). 

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5b4ae96b8a0505123bc6f518d85702d58bad892b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 1bb1a61f8ee4cd1cffcd7ce0b466947bbb0cbeaa
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024033"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182064"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar as revisões de transcrição de vídeo com o .NET
 
@@ -70,7 +70,7 @@ Instale os seguintes pacotes de NuGet para o projeto de TermLists.
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Microsoft.Rest.ClientRuntime.Azure
-- Newtonsoft
+- Newtonsoft.Json
 
 ### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
 
@@ -116,9 +116,9 @@ Sempre que for indicado, substitua os valores de exemplo para estas propriedades
             /// </summary>
             /// <remarks>This must be the team name you used to create your 
             /// Content Moderator account. You can retrieve your team name from
-            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// the Content Moderator web site. Your team name is the Id associated 
             /// with your subscription.</remarks>
-            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
             /// <summary>
             /// The base URL fragment for Content Moderator calls.
@@ -148,7 +148,7 @@ Adicione a seguinte definição de método ao espaço de nomes VideoTranscriptRe
     {
         return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-            BaseUrl = AzureBaseURL
+            Endpoint = AzureBaseURL
         };
     }
 
@@ -353,7 +353,7 @@ Adicionar a **Main** definição de método ao espaço de nomes VideoTranscriptR
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
     }
 

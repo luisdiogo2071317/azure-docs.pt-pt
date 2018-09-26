@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 77953884253002c6da7b0151151d97bb65a6c659
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b73a79676be559ad491bd7bb16691369dd8fa271
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377093"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158636"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades geridas para recursos do Azure numa VM com o portal do Azure
 
@@ -46,10 +46,15 @@ Nesta secção, saiba como ativar e desativar a identidade gerida atribuído de 
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Ativar a identidade gerida atribuído ao sistema durante a criação de uma VM
 
-Atualmente, o portal do Azure não suporta a ativar a identidade do sistema atribuídos durante a criação de uma VM. Em vez disso, consulte um dos seguintes artigos de início rápido de criação de VM para primeiro criar uma VM e, em seguida, avance para a secção seguinte para obter detalhes sobre como ativar a identidade atribuída de sistema na VM:
+Para ativar a identidade gerida atribuído ao sistema durante a criação de uma VM, no **gerenciamento** separador a **identidade** secção, mude **identidade de serviço gerida** para  **No**.  
 
-- [Criar uma máquina virtual do Windows com o portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Criar uma máquina virtual Linux com o portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+![Ativar a identidade do sistema atribuídos durante a criação da VM](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
+
+Veja os inícios Rápidos seguintes para criar uma VM: 
+
+- [Criar uma máquina virtual do Windows com o portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
+- [Criar uma máquina virtual Linux com o portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Ativar a identidade gerida atribuído de sistema numa VM existente
 

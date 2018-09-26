@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 496f411224a8d7424f85fed6e5eb105369863791
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714481"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161255"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre os perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -55,12 +55,10 @@ Todos os tipos de perfis técnicos partilham o mesmo conceito. Enviar afirmaçõ
     - Chame uma API de REST ao envio de parâmetros como InputClaims e obtenção de informações de volta como OutputClaims.
     - Criar ou atualizar a conta de utilizador.
     - Envia e verifica se a mensagem de texto MFA.
-4. **ValidationTechnicalProfiles** – para uma [autodeclarativas perfil técnico](self-asserted-technical-profile.md), pode chamar uma entrada [perfil técnico de validação](validation-technical-profile.md). O perfil técnico de validação valida os dados fornecidos pelo usuário e retorna uma mensagem de erro ou Ok, com ou sem afirmações de saída. Por exemplo, antes que o Azure AD B2C, crie uma nova conta, ele verifica se o utilizador já existe nos serviços de diretório. Pode chamar um perfil técnico da REST API para adicionar sua própria lógica de negócios.
-5. **OutputClaims** -afirmações são ajustadas para o conjunto de afirmações. Pode usar essas declarações nos passos seguintes de orquestração ou transformações de afirmações de saída.
-6. **OutputClaimsTransformations** - entrada afirmações de todas as transformações de afirmações de saída são captadas a partir do conjunto de afirmações. As afirmações de saída do perfil técnico do passo anterior, bem como afirmações de saída das transformações de afirmações de entrada da primeira etapa podem ser afirmações de entrada de uma transformação de afirmações de saída. Após a execução, as afirmações de saída são colocadas para trás no conjunto de afirmações. As afirmações de saída de uma transformação de afirmações de saída também podem ser afirmações de entrada de uma transformação de afirmações de saída subsequentes.
-7. **ValidationTechnicalProfiles** – para uma [auto-avaliar relativamente perfil técnico](self-asserted-technical-profile.md), pode chamar uma entrada [perfil técnico de validação](validation-technical-profile.md). O perfil técnico de validação valida os dados com perfis criados pelo usuário e retorna uma mensagem de erro ou Ok, com ou sem afirmações de saída. Por exemplo, antes que o Azure AD B2C, crie uma nova conta, ele verifica se o utilizador já existe nos serviços de diretório. Pode chamar um perfil técnico da REST API para adicionar sua própria lógica de negócios.
-8. **OutputClaims** -afirmações são ajustadas para o conjunto de afirmações. Pode usar essas declarações na próxima etapa de orquestrações ou transformações de afirmações de saída.
-9. **OutputClaimsTransformations** -afirmações de cada saída de entrada [transformação de afirmações](claimstransformations.md) são captados a partir do conjunto de afirmações. As afirmações de saída do perfil técnico dos passos anteriores podem ser afirmações de entrada de uma transformação de afirmações de saída. Após a execução, as afirmações de saída são colocadas para trás no conjunto de afirmações. As afirmações de saída de uma transformação de afirmações de saída também podem ser afirmações de entrada de uma transformação de afirmações de saída subsequentes.
+4. **ValidationTechnicalProfiles** – para uma [auto-avaliar relativamente perfil técnico](self-asserted-technical-profile.md), pode chamar uma entrada [perfil técnico de validação](validation-technical-profile.md). O perfil técnico de validação valida os dados com perfis criados pelo usuário e retorna uma mensagem de erro ou Ok, com ou sem afirmações de saída. Por exemplo, antes que o Azure AD B2C, crie uma nova conta, ele verifica se o utilizador já existe nos serviços de diretório. Pode chamar um perfil técnico da REST API para adicionar sua própria lógica de negócios.<p>O âmbito das afirmações de saída de um perfil de técnicas de validação é limitado para o perfil técnico que invoca o perfil técnico de validação e de outros perfis de técnicas de validação sob o mesmo perfil técnico. Se pretender utilizar as afirmações de saída no próximo passo de orquestração, terá de adicionar as afirmações de saída para o perfil técnico que invoca o perfil técnico de validação.
+5. **OutputClaims** -afirmações são ajustadas para o conjunto de afirmações. Pode usar essas declarações na próxima etapa de orquestrações ou transformações de afirmações de saída.
+6. **OutputClaimsTransformations** -afirmações de cada saída de entrada [transformação de afirmações](claimstransformations.md) são captados a partir do conjunto de afirmações. As afirmações de saída do perfil técnico dos passos anteriores podem ser afirmações de entrada de uma transformação de afirmações de saída. Após a execução, as afirmações de saída são colocadas para trás no conjunto de afirmações. As afirmações de saída de uma transformação de afirmações de saída também podem ser afirmações de entrada de uma transformação de afirmações de saída subsequentes.
+7. **Único início de sessão em gerenciamento de sessão (SSO)** - [gestão de sessões SSO](active-directory-b2c-reference-sso-custom.md) controla a interação com um utilizador depois do utilizador já foi autenticado. Por exemplo, o administrador pode controlar se a seleção de fornecedores de identidade é apresentada, ou se os detalhes da conta local precisam de ser introduzido novamente.
 
 Um perfil técnico pode herdar de outro perfil técnico para alterar definições ou adicionar novas funcionalidades.  O **IncludeTechnicalProfile** elemento é uma referência para o perfil técnico base do que um perfil técnico é derivado.  
 

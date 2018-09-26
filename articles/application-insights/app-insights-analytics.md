@@ -1,6 +1,6 @@
 ---
-title: Análise - a pesquisa de elevado desempenho e a ferramenta de consulta do Azure Application Insights | Microsoft Docs
-description: 'Descrição geral da análise, a ferramenta de pesquisa de diagnóstico de elevado desempenho do Application Insights. '
+title: Análise - a pesquisa poderosa e a ferramenta de consulta do Azure Application Insights | Documentos da Microsoft
+description: 'Descrição geral da análise, a ferramenta de pesquisa poderosas de diagnóstico do Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294205"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159147"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
-A análise é a ferramenta de pesquisa e a consulta poderosa de [Application Insights](app-insights-overview.md). Análise é uma ferramenta web, pelo que não é necessária nenhuma configuração. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação, abrindo a análise da sua aplicação [painel Descrição geral](app-insights-dashboards.md).
+A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](app-insights-dashboards.md).
 
-![Abrir portal.azure.com, abra o recurso do Application Insights e clique em análise.](./media/app-insights-analytics/001.png)
+![Abrir portal.azure.com, abra o recurso do Application Insights e clique em Analytics.](./media/app-insights-analytics/001.png)
 
-Também pode utilizar o [playground análise](https://go.microsoft.com/fwlink/?linkid=859557) que é um ambiente de demonstração gratuita com uma grande quantidade de dados de exemplo.
+Também pode utilizar o [recreio de análise](https://go.microsoft.com/fwlink/?linkid=859557) que é um ambiente de demonstração gratuito com uma grande quantidade de dados de exemplo.
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
-## <a name="query-data-in-analytics"></a>Consultar dados nas análise
-Uma consulta típica começa com um nome de tabela seguido por uma série de *operadores* separados por `|`.
-Por exemplo, vamos descobrir o número de pedidos nossa aplicação recebida de diferentes países, durante as últimos 3 horas:
+## <a name="query-data-in-analytics"></a>Dados de consulta do Analytics
+Uma consulta típica começa com um nome de tabela, seguido de uma série de *operadores* separados por `|`.
+Por exemplo, vamos descobrir o número de pedidos a nossa aplicação recebida a partir de diferentes países, durante as últimas 3 horas:
 ```AIQL
 requests
 | where timestamp > ago(3h)
@@ -40,25 +40,25 @@ requests
 | render piechart
 ```
 
-Iremos começar com o nome da tabela *pedidos* e adicionar elementos direcionados conforme necessário.  Primeiro, iremos definir um filtro de tempo para rever apenas os registos da últimas 3 horas.
-Iremos contagem, em seguida, o número de registos por país (que dados são encontrados na coluna *client_CountryOrRegion*). Por fim, vamos compor resultados de um gráfico circular.
+Vamos começar com o nome da tabela *pedidos* e adicionar elementos de pipe, conforme necessário.  Em primeiro lugar, definimos um filtro de tempo para rever apenas os registos das últimas 3 horas.
+Em seguida, Contamos o número de registos por país (que é encontrar os dados da coluna *client_CountryOrRegion*). Por fim, vamos renderizar os resultados num gráfico circular.
 <br>
 
 ![Resultados da consulta](./media/app-insights-analytics/030.png)
 
-O idioma tem muitas funcionalidades apelativo:
+A linguagem tem muitos recursos atraentes:
 
-* [Filtro](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) a telemetria de aplicações não processados por quaisquer campos, incluindo as métricas e propriedades personalizadas.
-* [Associar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) várias tabelas – correlacione pedidos com vistas de página, chamadas de dependência, exceções e rastreios de registo.
-* Poderosas análises [agregações](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
-* Visualizações imediatas e poderosas.
-* [REST API](https://dev.applicationinsights.io/) que pode utilizar para executar consultas através de programação, por exemplo a partir do PowerShell.
+* [Filtro](/azure/kusto/query/whereoperator) telemetria da aplicação não processados por qualquer campos, incluindo as propriedades personalizadas e as métricas.
+* [Junte-se a](/azure/kusto/query/joinoperator) várias tabelas – fazer a correlação de pedidos com vistas de página, chamadas de dependências, exceções e rastreios de registos.
+* Poderosa estatística [agregações](/azure/kusto/query/summarizeoperator).
+* Visualizações de imediatas e poderosas.
+* [REST API](https://dev.applicationinsights.io/) que pode usar para executar consultas através de programação, por exemplo do PowerShell.
 
-O [completa referência de linguagem](https://go.microsoft.com/fwlink/?linkid=856079) fornece detalhes sobre cada comando suportado e atualiza regularmente.
+O [completa de referência de linguagem](https://go.microsoft.com/fwlink/?linkid=856079) fornece detalhes sobre cada comando suportado e atualiza regularmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Começar a utilizar o [portal da análise](https://go.microsoft.com/fwlink/?linkid=856587)
+* Comece com o [Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587)
 * Introdução ao [escrever consultas](https://go.microsoft.com/fwlink/?linkid=856078)
-* Reveja o [dos SQL Server-utilizadores cheat folha](https://aka.ms/sql-analytics) para traduções dos idioms mais comuns.
-* Experimente a análise no nosso [playground](https://analytics.applicationinsights.io/demo) se a aplicação não está a enviar dados para o Application Insights ainda.
-* Veja o [as vídeo introdutórias](https://applicationanalytics-media.azureedge.net/home_page_video.mp4).
+* Reveja a [Roteiro para SQL-os utilizadores](https://aka.ms/sql-analytics) para traduções dos idiomas mais comuns.
+* Teste de unidade de análise em nosso [recreio](https://analytics.applicationinsights.io/demo) se a aplicação não está a enviar dados para o Application Insights ainda.
+* Veja a [vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4).

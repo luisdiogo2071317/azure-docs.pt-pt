@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: cfed1636bf27279b8a391559d3e88b823036f703
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 932e7447c59c7e9d8322a0e85b0843b0e836b840
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648314"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095517"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights com o PowerShell
 Este artigo mostra-lhe como automatizar a criação e atualização das [Application Insights](app-insights-overview.md) recursos automaticamente, com a gestão de recursos do Azure. Pode, por exemplo, tal como parte de um processo de compilação. Juntamente com o recurso do Application Insights básico, pode criar [testes web de disponibilidade](app-insights-monitor-web-app-availability.md), configure a [alertas](app-insights-alerts.md), defina o [preços esquema](app-insights-pricing.md)e criar outros recursos do Azure .

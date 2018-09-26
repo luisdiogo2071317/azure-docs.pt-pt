@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647229"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162173"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
 
@@ -110,7 +110,7 @@ Os duas coortes anteriores foram definidos usando caixas de lista pendente. Mas 
 
     * Uma secção de consulta, onde define a coorte utilizando uma consulta do analytics.
 
-    Na secção de consulta, [escrever uma consulta do analytics](https://docs.loganalytics.io/index). A consulta seleciona o determinado conjunto de linhas que descrevem a coorte que pretende definir. A ferramenta coortes, em seguida, adiciona implicitamente um "| cláusula resumir por user_Id"para a consulta. Estes dados são visualizados abaixo a consulta numa tabela, para que pode verificar se a que sua consulta está a devolver resultados.
+    Na secção de consulta, [escrever uma consulta do analytics](/azure/kusto/query). A consulta seleciona o determinado conjunto de linhas que descrevem a coorte que pretende definir. A ferramenta coortes, em seguida, adiciona implicitamente um "| cláusula resumir por user_Id"para a consulta. Estes dados são visualizados abaixo a consulta numa tabela, para que pode verificar se a que sua consulta está a devolver resultados.
 
     > [!NOTE]
     > Se não vir a consulta, tente redimensionar a secção para torná-lo aumentasse e revelar a consulta. Os GIF animados no início desta secção ilustra o comportamento de redimensionamento.

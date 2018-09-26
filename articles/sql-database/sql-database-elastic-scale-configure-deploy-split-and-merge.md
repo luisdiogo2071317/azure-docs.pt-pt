@@ -2,19 +2,22 @@
 title: Implementar um serviço de divisão / intercalação | Documentos da Microsoft
 description: Utilize a dividir / unir demasiado para mover dados entre bases de dados em partição horizontal.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c7682b63689d9b47fce5fa65a3c0a2301d53502a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e277e2fa5ca7062cde1c0061e585dfb092337d4a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379202"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159351"
 ---
 # <a name="deploy-a-split-merge-service"></a>Implementar um serviço de divisão/intercalação
 A ferramenta de dividir / unir permite mover dados entre bases de dados em partição horizontal. Consulte [mover dados entre bases de dados de cloud escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)

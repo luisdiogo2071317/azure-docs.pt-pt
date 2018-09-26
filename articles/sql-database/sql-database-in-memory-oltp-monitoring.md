@@ -2,19 +2,22 @@
 title: Monitorizar o armazenamento de dentro da memória do XTP | Documentos da Microsoft
 description: Estimativa e o monitor de armazenamento de dentro da memória do XTP utilizam, capacidade. Resolva o erro de capacidade 41823
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: 3cfa13ae78c2669cc15e4c1e4eb7ab6615b1a263
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985231"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161629"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Armazenamento OLTP dentro da memória de monitor
 Ao usar [OLTP dentro da memória](sql-database-in-memory.md), dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP dentro da memória. Cada escalão de serviço Premium e crítico para a empresa tem um tamanho máximo de armazenamento OLTP dentro da memória. Ver [limites de recursos baseados em DTU - base de dados individual](sql-database-dtu-resource-limits-single-databases.md), [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).

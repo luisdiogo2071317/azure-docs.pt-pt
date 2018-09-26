@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974311"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159573"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços do Azure Logic Apps
 
@@ -54,7 +54,7 @@ Pode encontrar as execuções de Acionador no painel de descrição geral da sua
 
 ## <a name="actions"></a>Ações
 
-Ações incorporadas, tais como ações que chamam HTTP, as funções do Azure ou gestão de API e também controlam os passos de fluxo são medidas como ações nativas, que têm os respetivos tipos. Ações que chamam [conectores](https://docs.microsoft.com/connectors) tem o tipo "ApiConnection". Estes conectores são classificados como standard ou enterprise de conectores, que são medidas com base em seus respectivos [preços][pricing]. 
+Ações incorporadas, tais como ações que chamam HTTP, as funções do Azure ou gestão de API e também controlam os passos de fluxo são medidas como ações nativas, que têm os respetivos tipos. Ações que chamam [conectores](https://docs.microsoft.com/connectors) tem o tipo "ApiConnection". Estes conectores são classificados como standard ou enterprise de conectores, que são medidas com base em seus respectivos [preços][pricing]. Conectores empresariais na *pré-visualização* é cobrada conforme os conectores padrão.
 
 Todas as ações com êxito e sem êxito execução são contadas e medidas como execuções de ação. No entanto, as ações que são ignoradas, devido a condições por cumprir ou ações que não são executados, uma vez que a aplicação lógica terminada antes da conclusão, não contam como execuções de ação. Aplicações lógicas desativado não é possível instanciar a novas instâncias, portanto, eles não são cobrados enquanto eles estão desativados.
 

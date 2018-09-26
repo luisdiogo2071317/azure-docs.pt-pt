@@ -9,29 +9,32 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 27e73bc75c5f04190bad3dab49c1d46782982a18
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d84040dc440c373ae9bae6dbac7a95109a387ba7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034146"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162751"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
  
 Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados ao utilizar o serviço Azure Machine Learning. 
 
 
-## <a name="databricks-and-azure-machine-learning"></a>Databricks e do Azure Machine Learning
+## <a name="databricks"></a>Databricks
 
-**Recomendação de cluster do Databricks:** 
+Problemas de Databricks e o Azure Machine Learning.
 
-Crie o cluster do Azure Databricks como v4.x com o Python 3. Recomendamos um cluster de elevada simultaneidade.
+1. Recomendação de cluster do Databricks:
+   
+   Crie o cluster do Azure Databricks como v4.x com o Python 3. Recomendamos um cluster de elevada simultaneidade.
  
-**SDK de AML instalar falha no Databricks, quando são instalados mais pacotes** alguns pacotes e, por exemplo, `psutil upgrade libs`, pode causar conflitos. Para evitar erros de instalação, instale pacotes pela versão de lib congelar. Este problema é relacionados com o Databricks e não relacionadas com o SDK de AML. Exemplo:
-```
-pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
-```
+1. SDK de AML instalar falha no Databricks quando mais pacotes são instalados.
 
+   Alguns pacotes e, por exemplo, `psutil upgrade libs`, pode causar conflitos. Para evitar erros de instalação, instale pacotes pela versão de lib congelar. Este problema é relacionados com o Databricks e não relacionadas com o SDK de AML. Exemplo:
+   ```python
+   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
+   ```
 
 ## <a name="gather-diagnostics-information"></a>Recolher informações de diagnóstico
 Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. É aqui onde residem os ficheiros de registo:

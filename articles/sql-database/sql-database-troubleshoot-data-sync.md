@@ -2,19 +2,22 @@
 title: Resolver problemas da sincronização de dados SQL do Azure | Documentos da Microsoft
 description: Saiba como resolver problemas comuns com sincronização de dados SQL do Azure.
 services: sql-database
-ms.date: 07/16/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: 8ba4b32f45dd978439b08650e498c3030c618aab
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 07/16/2018
+ms.openlocfilehash: 0f836a857d6f9748416fda1526a1957af4fc51e4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618714"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163601"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados SQL
 
@@ -245,7 +248,7 @@ Se um ponto final local (ou seja, uma base de dados) que está registado com um 
     b. Nos resultados da pesquisa, faça duplo clique em **serviços**.  
   1. Parar o **sincronização de dados SQL** serviço.
   1. Reinicie o **sincronização de dados SQL** serviço.  
-  1. Reabra a aplicação.
+  1. Reabrir a aplicação.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuração e manutenção
 

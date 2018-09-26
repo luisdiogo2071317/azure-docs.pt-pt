@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542570"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163907"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -93,11 +93,18 @@ Este erro ocorre se o nome da subscrição não é válido ou se o utilizador do
 
 Para determinar se corretamente autenticado para o Azure e ter acesso à subscrição que está a tentar selecionar, siga os passos seguintes:  
 
-1. Certifique-se de que executa o **Add-AzureAccount** antes de executar o **Select-AzureSubscription** cmdlet.  
-2. Se continuar a ver esta mensagem de erro, modifique o código, adicionando a **Get-AzureSubscription** seguinte cmdlet a **Add-AzureAccount** cmdlet e, em seguida, executar o código. Agora, verifique se a saída de Get-AzureSubscription contém os detalhes da sua subscrição.  
+1. Certifique-se de que executa o **Add-AzureAccount** cmdlet antes de executar o **Select-AzureSubscription** cmdlet.  
+2. Se continuar a ver esta mensagem de erro, modifique o código, adicionando a **- AzureRmContext** seguinte parâmetro a **Add-AzureAccount** cmdlet e, em seguida, executar o código.
 
-   * Se não vir quaisquer detalhes da subscrição na saída, isso significa que a subscrição não está inicializada ainda.  
-   * Se ver os detalhes da subscrição na saída, confirme que está a utilizar o nome da subscrição correta ou o ID com o **Select-AzureSubscription** cmdlet.
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Cenário: Autenticação no Azure falhou porque a autenticação multifator está ativada
 
@@ -151,7 +158,7 @@ O runbook subordinado não está a utilizar o contexto correto quando em execuç
 
 #### <a name="resolution"></a>Resolução
 
-Ao trabalhar com várias subscrições o contexto da subscrição poderão perder-se ao invocar runbooks subordinados. Para garantir que o contexto da subscrição é transferido para os runbooks subordinados, adicione o `DefaultProfile` parâmetro para o cmdlet e passe o contexto para o mesmo.
+Ao trabalhar com várias subscrições o contexto da subscrição poderão perder-se ao invocar runbooks subordinados. Para garantir que o contexto da subscrição é transferido para os runbooks subordinados, adicione o `AzureRmContext` parâmetro para o cmdlet e passe o contexto para o mesmo.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 

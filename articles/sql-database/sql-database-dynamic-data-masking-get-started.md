@@ -2,20 +2,22 @@
 title: Máscara de dados dinâmica de base de dados SQL do Azure | Documentos da Microsoft
 description: Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados confidenciais ao mascará-los para utilizadores sem privilégios
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-ms.openlocfilehash: 92be9a54e5309670b51baa371d26406676778737
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542096"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165556"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos da base de dados SQL
 

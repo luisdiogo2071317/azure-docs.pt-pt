@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 5d60c5f2d759f3329997762270e9a0335ebbe1e9
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35948019"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095970"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Tamanho da pasta TEMP predefinida é demasiado pequeno numa função de web/de trabalho de serviço na nuvem
 O diretório temporário do padrão de uma função de trabalho ou web de serviço do cloud tem um tamanho máximo de 100 MB, as quais podem se tornar total em algum momento. Este artigo descreve como evitar ficar sem espaço para o diretório temporário de.

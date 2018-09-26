@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
 ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35947948"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094198"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorizar e depurar uma aplicação .NET do Batch do Azure com o Application Insights
 
@@ -277,7 +277,7 @@ Captura de ecrã seguinte mostra como um rastreio único para uma tarefa é inic
 
 As capturas de ecrã seguinte mostra como o Application Insights regista exceções acionadas a partir da sua aplicação. Neste caso, dentro de segundos do aplicativo gera a exceção, pode explorar uma exceção específica e diagnosticar o problema.
 
-![Exceções sem tratamento](./media/monitor-application-insights/exception.png)
+![Exceções não processadas](./media/monitor-application-insights/exception.png)
 
 ### <a name="measure-blob-download-time"></a>Tempo de transferência de blob de medida
 

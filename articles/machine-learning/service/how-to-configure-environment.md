@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 7796accffb7041e567c5e18857d09e105b5268ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 87b3bc4128d800e4f76d71dc5f9d081dffa0e3a7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961574"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163448"
 ---
 # <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Como configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning
 
@@ -39,17 +39,31 @@ A abordagem recomendada é usar o Continuum Anaconda [ambientes virtuais de cond
 
 O ficheiro de configuração da área de trabalho é utilizado pelo SDK para comunicar com a sua área de trabalho do serviço do Azure Machine Learning.  Existem duas formas de obter este ficheiro:
 
-* Quando terminar a [início rápido](quickstart-get-started.md), o ficheiro `config.json` é criada para em blocos de notas do Azure.  Este ficheiro contém as informações de configuração para a área de trabalho.  Baixe-o no mesmo diretório que os scripts ou blocos de notas que fazem referência a ele.
+* Concluir o [guia de introdução](quickstart-get-started.md) para criar um ficheiro de configuração e de área de trabalho. O ficheiro `config.json` é criada para em blocos de notas do Azure.  Este ficheiro contém as informações de configuração para a área de trabalho.  Baixe ou copie-as para o mesmo diretório que os scripts ou blocos de notas que fazem referência a ele.
+
 
 * Crie o ficheiro de configuração por conta própria com seguindo estes passos:
 
     1. Abra a área de trabalho do [portal do Azure](https://portal.azure.com). Copiar o __nome da área de trabalho__, __grupo de recursos__, e __ID de subscrição__. Estes valores são utilizados para criar o ficheiro de configuração.
 
-       Dashboard de área de trabalho do portal é suportado em navegadores Edge, Chrome e Firefox.
-    
         ![Portal do Azure](./media/how-to-configure-environment/configure.png) 
     
-    3. Num editor de texto, crie um ficheiro chamado **config**.  Adicione o seguinte conteúdo para esse ficheiro, inserir seus valores a partir do portal:
+    1. Crie o ficheiro com este código de Python. Execute o código no mesmo diretório que os scripts ou blocos de notas que fazem referência a área de trabalho:
+        ```
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        Isto grava o seguinte `aml_config/config.json` ficheiro: 
     
         ```json
         {
@@ -58,12 +72,11 @@ O ficheiro de configuração da área de trabalho é utilizado pelo SDK para com
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Mais tarde no seu código, ler este ficheiro com:  `ws = Workspace.from_config()`
-    
-    4. Certifique-se de que guarde **config** no mesmo diretório que os scripts ou blocos de notas que fazem referência a ele.
-    
+        Pode copiar o `aml_config` diretório ou apenas o `config.json` ficheiro para outro diretório que faça referência a área de trabalho.
+
+>[!NOTE] 
+>Outros scripts ou blocos de notas no mesmo diretório ou abaixo irão carregar a área de trabalho com `ws=Workspace.from_config()`
+
 ## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Blocos de notas do Azure e de máquina de Virtual de ciência de dados
 
 Blocos de notas e máquinas virtuais de ciência de dados do Azure (DSVM) do Azure são pré-configurada para funcionar com o serviço Azure Machine Learning. Componentes necessários, por exemplo, o SDK do Azure Machine Learning, estão pré-instalados nesses ambientes.
@@ -98,7 +111,7 @@ Para obter um exemplo do uso de blocos de notas do Azure com o serviço Azure Ma
 3. Para instalar o SDK do Azure Machine Learning com extras de bloco de notas, utilize o seguinte comando:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     Pode demorar vários minutos para instalar o SDK.
@@ -155,7 +168,7 @@ Para obter um exemplo do uso de blocos de notas do Azure com o serviço Azure Ma
 2. Para instalar o SDK do Azure Machine Learning, utilize o seguinte comando:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. Para instalar o Visual Studio code Tools para IA, consulte a entrada de marketplace do Visual Studio para [Tools para IA](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 

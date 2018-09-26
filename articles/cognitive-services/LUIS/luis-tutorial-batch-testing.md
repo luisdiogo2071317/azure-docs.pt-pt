@@ -10,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5eb4b8d1b6408779f09a148d1e91f9111a9561
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041749"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162546"
 ---
-# <a name="tutorial--2-batch-test-data-sets"></a>Tutorial: n. º 2. Conjuntos de dados de teste do batch
+# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Conjuntos de dados de teste de Batch
 
 Este tutorial demonstra como usar o teste de batch para localizar problemas de predição de expressão na sua aplicação e corrigi-los.  
 

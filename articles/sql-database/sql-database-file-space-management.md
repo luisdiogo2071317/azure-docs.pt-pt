@@ -2,19 +2,22 @@
 title: Gestão de espaço de ficheiro de base de dados SQL do Azure | Documentos da Microsoft
 description: Esta página descreve como gerir o espaço de ficheiro com a base de dados do Azure SQL e fornece exemplos de código para saber como determinar se necessita de reduzir uma base de dados, bem como a forma como para executar uma base de dados reduzir a operação.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730245"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159946"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.

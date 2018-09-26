@@ -14,11 +14,11 @@ ms.date: 01/25/2018
 ms.reviewer: daviste
 ms.author: mbullwin
 ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648475"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091486"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com o Application Insights
 

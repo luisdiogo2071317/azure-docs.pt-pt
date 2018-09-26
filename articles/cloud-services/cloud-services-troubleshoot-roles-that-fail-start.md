@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 4b4669ecdae474c8926a346ed02f40913cf67265
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35948052"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093496"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas de funções do serviço Cloud que falharem ao iniciar
 Seguem-se alguns problemas comuns e soluções relacionadas para serviços Cloud do Azure, funções que falharem ao iniciar.

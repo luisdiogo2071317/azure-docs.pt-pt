@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 0732fe06db77ab96c909c5f84f69825036fedf4e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031599"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163023"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
-O Balanceador de carga do Azure fornece a conectividade de saída da rede virtual, além de entrada.  Regras de saída tornam mais fácil configurar pública [Balanceador de carga Standard](load-balancer-standard-overview.md)da tradução de endereços de saída da rede (NAT).  Tem controle completo declarativo sobre conectividade de saída para dimensionar e ajustar esta capacidade às suas necessidades específicas.
+O Balanceador de carga do Azure fornece a conectividade de saída da rede virtual, além de entrada.  Regras de saída tornam mais fácil configurar pública [Balanceador de carga Standard](load-balancer-standard-overview.md)da tradução de endereços de rede de saída.  Tem controle completo declarativo sobre conectividade de saída para dimensionar e ajustar esta capacidade às suas necessidades específicas.
 
 ![Regras de saída do Balanceador de carga](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -213,4 +213,5 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
 
 - Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
 - Saiba mais sobre [Balanceador de carga Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre [bidirecional de reposição de TCP no tempo limite de inatividade](https://aka.ms/lbtcpreset).
+- Saiba mais sobre [bidirecional de reposição de TCP no tempo limite de inatividade](load-balancer-tcp-reset.md).
+- [Configurar regras de saída com a CLI 2.0 do Azure](configure-load-balancer-outbound-cli.md).

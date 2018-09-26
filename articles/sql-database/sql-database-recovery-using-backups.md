@@ -2,20 +2,22 @@
 title: Restaurar uma base de dados SQL do Azure a partir de uma cópia de segurança | Documentos da Microsoft
 description: Saiba mais sobre o restauro de ponto no tempo, o que permite-lhe reverter uma base de dados do SQL do Azure para um ponto anterior no tempo (até 35 dias).
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733588"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161340"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 Base de dados SQL fornece estas opções de recuperação de base de dados com [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) e [cópias de segurança em retenção de longo prazo](sql-database-long-term-retention.md). Pode restaurar a partir de uma cópia de segurança da base de dados para:

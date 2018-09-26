@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950844"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182574"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -111,7 +111,7 @@ Para mudar de uma subscrição para outro, por exemplo, quando a avaliação gra
 > [!NOTE]
 > As chaves de avaliação gratuitas são criadas no Oeste dos E.U.A. (`westus`) região. Uma subscrição criada através do dashboard do Azure pode ser em alguma outra região, se assim o desejar.
 
-* Se o aplicativo usar um [SDK de voz](speech-sdk.md), indique o código de região, como `westus`, ao instanciar `RecognizerFactory`. 
+* Se o aplicativo usar um [SDK de voz](speech-sdk.md), indique o código de região, como `westus`, ao criar uma configuração de voz.
 * Se seu aplicativo usa um do serviço de voz [REST APIs](rest-apis.md), a região é a parte do ponto final do URI a utilizar quando são efetuados pedidos.
 
 Criado para uma região de chaves são válidas apenas nessa região. A tentar usá-los com outras regiões irá resultar em erros de autenticação.

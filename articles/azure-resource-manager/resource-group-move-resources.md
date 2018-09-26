@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039740"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159109"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -227,7 +227,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Servidor de base de dados SQL - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
 * Time Series Insights
 * Gestor de Tráfego
-* Não é possível mover as máquinas virtuais - VMs com discos geridos. Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
+* Máquinas virtuais - para VMs com discos geridos, consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássico) - consulte [limitações da implementação clássica](#classic-deployment-limitations)
 * Veja conjuntos de dimensionamento de máquinas virtuais - [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Redes virtuais - veja [limitações de redes virtuais](#virtual-networks-limitations)
@@ -267,28 +267,30 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 
 ## <a name="virtual-machines-limitations"></a>Limitações de máquinas virtuais
 
-Discos geridos são suportados para migração a partir de 24 de Setembro de 2018. Terá de se registar para ativar esta funcionalidade
+Discos geridos são suportados para migração a partir de 24 de Setembro de 2018. Terá de se registar para ativar esta funcionalidade.
 
-#### <a name="powershell"></a>PowerShell
-`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
-#### <a name="cli"></a>CLI
-`az feature register Microsoft.Compute ManagedResourcesMove`
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
 
+```azurecli-interactive
+az feature register Microsoft.Compute ManagedResourcesMove
+```
 
-Isso significa que pode também mover:
+Esse suporte significa que pode também mover:
 
 * Máquinas virtuais com os discos geridos
 * Imagens gerenciadas
 * Instantâneos geridos
 * Conjuntos de disponibilidade com máquinas virtuais com discos geridos
 
-Aqui estão as restrições que ainda não são suportadas
+Aqui estão as restrições que ainda não são suportadas:
 
 * Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 * Máquinas de virtuais configuradas com o Azure Backup. Utilize a abaixo da solução para mover estas máquinas virtuais
   * Localize a localização da sua máquina Virtual.
-  * Localize um grupo de recursos com o padrão de nomenclatura seguinte: "AzureBackupRG_<location of your VM>1" AzureBackupRG_westus2_1 p. ex.
-  * Se no Portal do Azure, em seguida, verificação "Mostrar tipos ocultos"
+  * Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` AzureBackupRG_westus2_1 p. ex.
+  * Se no portal do Azure, em seguida, verificação "Mostrar tipos ocultos"
   * Se, no PowerShell, utilize o `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * Se, na CLI, utilize o `az resource list -g AzureBackupRG_<location of your VM>_1`
   * Agora, localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`

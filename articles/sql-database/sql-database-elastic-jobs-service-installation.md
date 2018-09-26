@@ -2,19 +2,22 @@
 title: Instalar tarefas elásticas da base de dados | Documentos da Microsoft
 description: Instruções sobre a instalação da funcionalidade de tarefa elástica.
 services: sql-database
-manager: craigg
-author: ddove
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: e59fc7caf0fa9f02a2182f86295f1a9e59d98788
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 37052c86736a05012b9bb996f07bbf2568d7c879
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733580"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163178"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalação de descrição geral das tarefas de bases de dados elásticas
 

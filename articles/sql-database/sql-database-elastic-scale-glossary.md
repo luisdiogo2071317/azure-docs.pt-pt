@@ -2,20 +2,22 @@
 title: Glossário de ferramentas de base de dados elástico | Documentos da Microsoft
 description: Explicação dos termos utilizados para ferramentas de bases de dados elásticas
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 387f40204c8ab07ba0205fd74b5c6a549efff0ef
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728851"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162581"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas de base de dados elástico
 Os termos seguintes são definidos para o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md), uma funcionalidade de base de dados do Azure SQL. As ferramentas são utilizadas para gerir [mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md)e incluem o [biblioteca de cliente](sql-database-elastic-database-client-library.md), o [ferramenta de dividir / unir](sql-database-elastic-scale-overview-split-and-merge.md), [conjuntos elásticos](sql-database-elastic-pool.md)e o [consultas](sql-database-elastic-query-overview.md). 

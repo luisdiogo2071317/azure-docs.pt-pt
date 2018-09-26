@@ -9,12 +9,12 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: fa6ff90c3a573285ec8d6cc6f2e97bf3c75a1e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993287"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158692"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>O que é FPGA e Project Brainwave?
 
@@ -28,7 +28,7 @@ FPGAs contêm uma matriz de blocos de lógica programável e uma hierarquia de r
 
 |Processador||Descrição|
 |---|:-------:|------|
-|Circuitos do integrado específicas da aplicação|ASICs|Circuitos personalizados, como o da Google TensorFlow processador unidades (TPU), fornecem a mais alta eficiência, mas são inflexíveis.|
+|Circuitos do integrado específicas da aplicação|ASICs|Circuitos personalizados, como o da Google TensorFlow processador unidades (TPU), fornecem a mais alta eficiência. Não pode ser reconfigurados conforme suas necessidades mudam.|
 |Matrizes de porta de campos programáveis|FPGAs|FPGAs, como as disponíveis no Azure, apresentam um desempenho quase ASICs, mas são flexíveis e reconfiguráveis ao longo do tempo para implementar a lógica de novo.|
 |Unidades de processamento de gráficos|GPUs|Uma opção popular para computações de IA, oferecendo capacidades de processamento paralelo, tornando-o mais rápido na composição de imagem que CPUs.|
 |Unidades de processamento central|CPUs|Processadores para fins gerais, cujo desempenho não é ideal para gráficos e processamento de vídeo.|
@@ -37,17 +37,15 @@ FPGAs contêm uma matriz de blocos de lógica programável e uma hierarquia de r
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) é arquitetura de hardware económicas da Microsoft, com base em dispositivos FPGA da Intel, que os programadores e cientistas de dados usam para acelerar os cálculos de IA em tempo real.  Esta arquitetura habilitados em FPGA oferece **desempenho**, **flexibilidade**, e **dimensionamento** e está disponível no Azure.
 
-FPGAs tornam possível obter a baixa latência para pedidos de inferência em tempo real. Processamento em lote, significa uma grande quantidade de dados a recolher e alimentá-los para um processador para melhorar a utilização de hardware. Processamento em lote pode causar uma latência porque precisam de mais dados a ser processada, mas pode melhorar o débito. Project Brainwave implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser muitas vezes mais baixo em comparação comparadas a CPU e GPU.
+**FPGAs tornam possível obter a baixa latência para pedidos de inferência em tempo real.** Processamento em lote, significa uma grande quantidade de dados a recolher e alimentá-los para um processador para melhorar a utilização de hardware. Processamento em lote pode causar uma latência porque precisam de mais dados a ser processada, mas pode melhorar o débito. Project Brainwave implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser muitas vezes mais baixo em comparação comparadas a CPU e GPU.
 
 ### <a name="reconfigurable-power"></a>Power reconfiguráveis
-FPGAs podem ser reconfigurados para diferentes tipos de modelos de aprendizagem automática. Esta flexibilidade torna mais fácil acelerar as aplicações com a mais precisão numérica ideal e o modelo de memória que está a ser utilizado.
+**FPGAs podem ser reconfigurados para diferentes tipos de modelos de aprendizagem automática.** Esta flexibilidade torna mais fácil acelerar as aplicações com a mais precisão numérica ideal e o modelo de memória que está a ser utilizado.
 
 Novas técnicas de aprendizado de máquina estão a ser desenvolvidas em intervalos regulares e design de hardware do Project Brainwave também está a evoluir rapidamente. Uma vez que FPGAs são reconfiguráveis, é possível manter-se atualizado com os requisitos dos algoritmos de IA mudanças rapidamente.
 
 ### <a name="whats-supported-on-azure"></a>O que é suportado no Azure
-O Microsoft Azure é o investimento de maior na cloud do mundo em FPGAs. Pode executar Project Brainwave na infraestrutura de dimensionamento do Azure.
-
-Com esta arquitetura de hardware habilitados em FPGA, redes neurais treinadas executam rapidamente e com uma latência mais baixa. Project Brainwave pode executar em paralelo com formação prévia redes neurais profundas (DNN) em FPGAs para aumentar horizontalmente o seu serviço. Os DNNs podem ser previamente treinados, como um featurizer profunda para a transferência de aprendizado ou otimizar com pesos atualizados.
+**O Microsoft Azure é o investimento de maior na cloud do mundo em FPGAs.** Pode executar Project Brainwave na infraestrutura de dimensionamento do Azure.
 
 Hoje em dia, Project Brainwave suporta:
 + Cenários de classificação e reconhecimento de imagem
@@ -55,7 +53,9 @@ Hoje em dia, Project Brainwave suporta:
 + DNNs: Utilizar o ResNet 50, utilizar o ResNet 152, VGG-16, SSD VGG e DenseNet 121
 + Hardware da Intel FPGA 
 
-## <a name="scenarios-and-applications"></a>Cenários e aplicações
+Com esta arquitetura de hardware habilitados em FPGA, redes neurais treinadas executam rapidamente e com uma latência mais baixa. Project Brainwave pode executar em paralelo com formação prévia redes neurais profundas (DNN) em FPGAs para aumentar horizontalmente o seu serviço. Os DNNs podem ser previamente treinados, como um featurizer profunda para a transferência de aprendizado ou otimizar com pesos atualizados.
+
+### <a name="scenarios-and-applications"></a>Cenários e aplicações
 
 Project Brainwave está integrado com o Azure Machine Learning. Microsoft usa FPGAs de avaliação de DNN, classificação de pesquisa do Bing e software definidas redes aceleração de (SDN) para reduzir a latência, liberando CPUs para outras tarefas.
 

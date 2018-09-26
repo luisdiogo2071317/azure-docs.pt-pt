@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/17/2018
 ms.author: subramar
-ms.openlocfilehash: f3f381fddee9c1830202854f02556f73b5aeed23
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3f321775ba112471760e627e6b43ed17ff8c5b6b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055582"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182880"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de uma aplicação do Azure Service Fabric. Parâmetros de atualização de aplicativo controlam os tempos limite e verificações de estado de funcionamento que são aplicadas durante a atualização, e eles especificam as políticas que devem ser aplicadas quando ocorre uma falha de uma atualização.
@@ -42,7 +42,7 @@ Parâmetros de atualização Visual Studio Service Fabric application são defin
 | --- | --- | --- |
 ApplicationName |PS| Nome da aplicação que está a ser atualizado. Exemplos: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Tipo de versão do aplicativo que os destinos de atualização. |
-FailureAction |PS, VS|Valores permitidos são **inválido**, **reversão**, e **Manual**. A ação tomada pelo Service Fabric quando a atualização falhar. O aplicativo pode ser revertido para a versão de pré-atualização (reversão) ou a atualização poderá ser interrompida no domínio de atualização atual. No último caso, o modo de atualização também é alterado para **Manual**.|
+FailureAction |PS, VS|Valores permitidos são **reversão**, **Manual**, e **inválido**. A compensação ação a executar quando uma *monitorizados* encontros monitorização as violações de políticas ou de estado de funcionamento da política de atualização. <br>**Reversão** Especifica que a atualização será automaticamente revertida para a versão de pré-atualização. <br>**Manual** indica que a atualização irá mudar para o *UnmonitoredManual* o modo de atualização. <br>**Inválido** indica que a ação de falha é inválida.|
 Monitorizada |PS|Indica que o modo de atualização está a ser monitorizado. Quando o cmdlet termina uma atualização para um domínio de atualização, se o estado de funcionamento do cluster e o domínio de atualização cumprir as políticas de estado de funcionamento que definir, o Service Fabric atualiza o domínio de atualização seguinte. Se o domínio de atualização ou o cluster não cumprir as políticas de estado de funcionamento, a atualização falhar e o Service Fabric reverte a atualização para o domínio de atualização ou reverte para o modo manual pela política especificada. Este é o modo recomendado para as atualizações de aplicações num ambiente de produção. |
 UpgradeMode | VS | Valores permitidos são **monitorizados** (predefinição), **UnmonitoredAuto**, ou **UnmonitoredManual**. Veja os parâmetros de PowerShell para cada modo neste artigo para obter detalhes. |
 UnmonitoredAuto | PS | Indica que o modo de atualização é automático não monitorizado. Após um domínio de atualização de atualização do Service Fabric, o Service Fabric atualiza o próximo domínio de atualização, independentemente do Estado de funcionamento da aplicação. Este modo não é recomendado para produção e só é útil durante o desenvolvimento de um aplicativo. |

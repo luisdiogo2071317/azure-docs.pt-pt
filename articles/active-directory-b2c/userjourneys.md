@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c49ebcf31df950920574af05a9411e463b908bad
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381459"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161830"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -173,8 +173,8 @@ O **ClaimsProviderSelection** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Não | O identificador da troca de afirmações, que é executada no próximo passo de orquestração da seleção do fornecedor de afirmações. Este atributo do atributo ValidationClaimsExchangeId tem de ser especificado. | 
-| ValidationClaimsExchangeId | Não | O identificador da troca de afirmações, que é executado o passo de orquestração atual para validar a seleção do fornecedor de afirmações. Este atributo do atributo TargetClaimsExchangeId tem de ser especificado. |
+| TargetClaimsExchangeId | Não | O identificador da troca de afirmações, que é executada no próximo passo de orquestração da seleção do fornecedor de afirmações. Este atributo ou o atributo de ValidationClaimsExchangeId tem de ser especificado, mas não ambos. | 
+| ValidationClaimsExchangeId | Não | O identificador da troca de afirmações, que é executado o passo de orquestração atual para validar a seleção do fornecedor de afirmações. Este atributo ou o atributo de TargetClaimsExchangeId tem de ser especificado, mas não ambos. |
 
 ### <a name="claimsproviderselection-example"></a>Exemplo de ClaimsProviderSelection
 

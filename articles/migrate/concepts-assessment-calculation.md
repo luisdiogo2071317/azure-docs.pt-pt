@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f1986e2ebf406762916869d9dc1cb3d73174f93
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574883"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165692"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -39,7 +39,7 @@ O Azure Migrate analisa as seguintes propriedades da VM no local para identifica
 **Propriedade** | **Detalhes** | **Estado de preparação para o Azure**
 --- | --- | ---
 **Tipo de arranque** | O Azure suporta VMs com o tipo de arranque como o BIOS e UEFI não. | Condicionalmente preparado se é o tipo de arranque UEFI.
-**Núcleos** | O número de núcleos nas máquinas tem de ser igual ou inferior ao número máximo de núcleos (32) suportado para uma VM do Azure.<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera os núcleos utilizados para comparação. Se for um fator de conforto é especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver nenhum histórico de desempenho, o Azure Migrate utiliza núcleos alocados, sem aplicar o fator de conforto. | Pronto, se tiver menos do que ou igual a limites.
+**Núcleos** | O número de núcleos nas máquinas tem de ser igual ou menor que o número máximo de núcleos (128 núcleos) suportada para uma VM do Azure.<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera os núcleos utilizados para comparação. Se for um fator de conforto é especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver nenhum histórico de desempenho, o Azure Migrate utiliza núcleos alocados, sem aplicar o fator de conforto. | Pronto, se tiver menos do que ou igual a limites.
 **Memória** | O tamanho de memória da máquina tem de ser igual ou menor que o máximo de memória (GB 3892 na série de M de Azure Standard_M128m&nbsp;<sup>2</sup>) permitido para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera a memória utilizada para comparação. Se não for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico é utilizada a memória alocada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
 **Disco de armazenamento** | Tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina tem de ser 65 ou menos, incluindo o disco do SO. | Pronto se dentro dos limites.
 **Redes** | Uma máquina tem de 32 ou menos NICs ligadas à mesma. | Pronto se dentro dos limites.
@@ -61,7 +61,8 @@ Windows Server 2008 R2 com todos os SPs | O Azure fornece suporte completo.| Pre
 Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte completo. | Preparado para o Azure
 2003, do Windows Server 2003 R2 | Esses sistemas operacionais tenham passado o fim do suporte data e a necessidade de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para suporte no Azure. | Condicionalmente preparado para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Estes sistemas operativos passaram a sua data de fim de suporte, a máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure. | Condicionalmente preparado para o Azure, recomenda-se para atualizar o sistema operacional antes de migrar para o Azure.
-Cliente do Windows 7, 8 e 10 | O Azure fornece suporte apenas a subscrição do Visual Studio. | Condicionalmente preparado para o Azure
+Cliente do Windows 7, 8 e 10 | O Azure fornece suporte com [apenas a subscrição do Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Condicionalmente preparado para o Azure
+Ambiente de trabalho do Windows 10 Pro | O Azure fornece suporte com [direitos de alojamento multi-inquilino.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente preparado para o Azure
 Windows Vista, XP Professional | Estes sistemas operativos passaram a sua data de fim de suporte, a máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure. | Condicionalmente preparado para o Azure, recomenda-se para atualizar o sistema operacional antes de migrar para o Azure.
 Linux | Azure endossa estes [sistemas operativos Linux](../virtual-machines/linux/endorsed-distros.md). Outros sistemas de operativos Linux pode arrancar no Azure, mas é recomendado que Atualize o sistema operativo para uma versão apoiada antes de migrar para o Azure. | Preparado para o Azure se a versão é apoiado pelo.<br/><br/>Condicionalmente preparado se a versão não é apoiado pelo.
 Outros sistemas operativos<br/><br/> Por exemplo, Oracle Solaris, etc. de SO do Apple Mac, FreeBSD, etc. | Azure apoia estes sistemas operativos. A máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure. | Condicionalmente preparado para o Azure, é recomendado para instalar um SO suportado antes de migrar para o Azure.  
