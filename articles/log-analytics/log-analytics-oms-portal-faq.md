@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d82fda2928ea8c1e3e60006d3fbe8d53f3d12a9c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182336"
+ms.locfileid: "47223836"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -83,7 +83,7 @@ Gerir a maioria das definições de origem ligado na **definições avançadas**
 | Storage do Azure     | **Definições avançadas** menu para a área de trabalho. |
 | System Center     | **Definições avançadas** menu para a área de trabalho. |
 | Office 365        | Consulte a [documentação para solução de gestão do Office 365](../operations-management-suite/oms-solution-office-365.md) para obter detalhes de configuração. |
-| Telemetria Windows | Ainda não está disponível no portal do Azure. |
+| Telemetria Windows | Menu de definições para a solução. Ver [Windows Analytics no portal do Azure](/windows/deployment/update/windows-analytics-azure-portal) para obter detalhes de configuração. |
 | Conector ITSM    | Ver [produtos/serviços de estabelecer ligação ITSM com o conector de gestão do serviço de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como ligar o seu serviço ITSM com o Log Analytics. |
 
 ### <a name="data"></a>Dados

@@ -10,35 +10,49 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: da5823473b7f69fa0a6c65d5ea7319bfd2e92720
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 81344d388fbba0db034b8adb06adab6797ec2ce1
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946770"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166752"
 ---
-# <a name="write-data-with-the-azure-machine-learning-data-prep-sdk"></a>Escrever dados com o SDK de preparação de dados do Azure Machine Learning
-Pode escrever os dados em qualquer ponto num fluxo de dados. Essas escritas são adicionadas como passos para o fluxo de dados resultante e são executadas sempre que é o fluxo de dados. Uma vez que existem sem limites de quantos escrever passos existem num pipeline, é fácil escrever os resultados intermediários para resolução de problemas ou a ser escolhidas por outros pipelines. É importante observar que a execução de cada passo de escrita resulta numa solicitação completa dos dados no fluxo de dados. Por exemplo, um fluxo de dados com três passos de escrita irá ler e processar todos os registos no conjunto de dados três vezes.
+# <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Escrever os dados com o SDK de Prep de dados do Azure Machine Learning
+Pode escrever os dados em qualquer ponto num fluxo de dados. Essas escritas são adicionadas como passos para o fluxo de dados resultante e são executadas sempre que é o fluxo de dados. Dados são gravados para vários ficheiros de partição para permitir que escritas paralelas.
 
-## <a name="writing-to-files"></a>Gravar em arquivos
-Com o [SDK do Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py), pode escrever dados em ficheiros em qualquer um dos nossos localizações suportadas (sistema de arquivos local, armazenamento de Blobs do Azure e armazenamento do Azure Data Lake). Dados são gravados para vários ficheiros de partição para permitir que escritas paralelas. Quando uma gravação for concluída, um arquivo de sentinel com êxito o nome também é gerado. Isto ajuda a identificar quando uma gravação de intermediária for concluído sem ter de esperar por todo o pipeline concluir.
+Uma vez que existem sem limites de quantos escrever passos existem num pipeline, pode adicionar facilmente passos adicionais de escrita para obter os resultados intermediários para resolução de problemas ou para outros pipelines. 
 
-Ao executar um fluxo de dados no Spark, deve escrever para uma pasta vazia. a tentar executar uma gravação para uma pasta existente irá falhar. Certificar-se de que sua pasta de destino está vazia ou utilizar uma localização de destino diferente para cada execução, ou a gravação irá falhar.
+Sempre que executar uma etapa de escrita, ocorre uma solicitação completa dos dados no fluxo de dados. Por exemplo, um fluxo de dados com três passos de escrita irá ler e processar todos os registos no conjunto de dados três vezes.
 
-O SDK de Prep de dados do Azure Machine Learning suporta os seguintes formatos de arquivo:
+## <a name="supported-data-types-and-location"></a>Tipos de dados suportados e localização
+
+São suportados os seguintes formatos de arquivo
 -   Ficheiros delimitados (CSV, TSV, etc.)
 -   Ficheiros parquet
 
+Utilizar o [SDK de python de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk), pode escrever dados para:
++ um sistema de ficheiros local
++ Armazenamento de Blobs do Azure
++ Armazenamento do Azure Data Lake
+
+## <a name="spark-considerations"></a>Considerações sobre o Spark
+Ao executar um fluxo de dados no Spark, deve escrever para uma pasta vazia. Tentar executar uma gravação para um resulta de pasta existente numa falha. Certificar-se de que sua pasta de destino está vazia ou utilizar uma localização de destino diferente para cada execução, ou a gravação irá falhar.
+
+## <a name="monitoring-write-operations"></a>Monitorização de operações de escrita
+Para sua comodidade, um arquivo de sentinel com êxito o nome é gerado quando uma gravação for concluída. Sua presença ajuda a identificar quando uma gravação de intermediária for concluído sem ter de esperar por todo o pipeline concluir.
+
+## <a name="example-write-code"></a>Código de escrita de exemplo
+
 Neste exemplo, comece por carregar os dados num fluxo de dados. Podemos irá reutilizar esses dados com diferentes formatos.
 
-```
-
+```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
 ```   
 
+Exemplo de saída:
 |   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
 | -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
 | 0 |   10000.0 |   99999.0 |   Nenhuma|       NÃO|     NÃO  |   ENRS    |NaN    |   NaN |   NaN|    
@@ -52,19 +66,22 @@ t.head(10)
 |8| 10020.0|    99999.0|    Nenhuma|   NÃO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    Nenhuma|   NÃO| SV|     |77000.0|   15500.0|    120.0|
 
-## <a name="delimited-files"></a>Ficheiros delimitados
-A linha abaixo cria um novo fluxo de dados com um passo de escrita, mas a gravação real ainda não tenha ocorrido. Quando os dados de execuções de fluxo, irá executar a operação de escrita.
+### <a name="delimited-file-example"></a>Exemplo de ficheiro delimitado
 
-```
+Nesta seção, pode ver um exemplo usando o `write_to_csv` função escrever com um arquivo delimitado.
+
+```python
+# Create a new data flow using `write_to_csv` 
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
-```
-Agora, execute o fluxo de dados, que executa a operação de escrita.
-```
+
+# Run the data flow to begin the write operation.
 write_t.run_local()
 
 written_files = dprep.read_csv('./test_out/part-*')
 written_files.head(10)
 ```
+
+Exemplo de saída:
 |   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
 | -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
 | 0 |   10000.0 |   99999.0 |   ERRO |       NÃO|     NÃO  |   ENRS    |ERRO    |   ERRO |   ERRO|    
@@ -78,9 +95,11 @@ written_files.head(10)
 |8| 10020.0|    99999.0|    ERRO |   NÃO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERRO |   NÃO| SV|     |77000.0|   15500.0|    120.0|
 
-Os dados escritos contém vários erros nas colunas numéricas por causa de números que não foram analisados corretamente. Quando escritos para CSV, estes valores nulos são substituídos com a cadeia de caracteres "ERROR" por predefinição. Pode adicionar parâmetros como parte da sua escrita chamarem e especifique uma cadeia de caracteres a utilizar para representar valores nulos.
+Pode ver na saída do anterior, o que vários erros aparecem nas colunas numéricas por causa de números que não foram analisados corretamente. Quando escritos para CSV, estes valores nulos são substituídos com a cadeia de caracteres "ERROR" por predefinição. 
 
-```
+Pode adicionar parâmetros como parte da sua escrita chamarem e especifique uma cadeia de caracteres a utilizar para representar valores nulos. Por exemplo:
+
+```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
                          error='BadData',
                          na='NA')
@@ -88,6 +107,8 @@ write_t.run_local()
 written_files = dprep.read_csv('./test_out/part-*')
 written_files.head(10)
 ```
+
+O código anterior produz esta saída:
 |   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
 | -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
 | 0 |   10000.0 |   99999.0 |   BadData |       NÃO|     NÃO  |   ENRS    |BadData    |   BadData |   BadData|    
@@ -100,15 +121,18 @@ written_files.head(10)
 |7| 10017.0|    99999.0|    BadData |   NÃO| NÃO| ENFR|   59933.0|    2417.0| 480.0|
 |8| 10020.0|    99999.0|    BadData |   NÃO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    BadData |   NÃO| SV|     |77000.0|   15500.0|    120.0|
-## <a name="parquet-files"></a>Ficheiros parquet
 
- Da mesma forma para o `write_to_csv` função acima, `write_to_parquet` retorna um novo fluxo de dados com um passo de Parquet que será executado quando as execuções de fluxo de dados de escrita.
 
-```
+### <a name="parquet-file-example"></a>Exemplo de ficheiro parquet
+
+Semelhante à `write_to_csv`, o `write_to_parquet` função devolve um novo fluxo de dados com um passo de Parquet, que é executado quando as execuções de fluxo de dados de escrita.
+
+```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
 error='MiscreantData')
 ```
- Agora, podemos executar o fluxo de dados, que executa a operação de escrita.
+
+Em seguida, pode executar o fluxo de dados para iniciar a operação de escrita.
 
 ```
 write_parquet_t.run_local()
@@ -116,6 +140,8 @@ write_parquet_t.run_local()
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')
 written_parquet_files.head(10)
 ```
+
+O código anterior produz esta saída:
 |   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
 | -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
 | 0 |   10000.0 |   99999.0 |   MiscreantData |       NÃO|     NÃO  |   ENRS    |MiscreantData    |   MiscreantData |   MiscreantData|    

@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator - moderado texto usando o .NET | Documentos da Microsoft
-description: Como moderada de texto com o SDK de moderador de conteúdos do Azure para .NET
+title: Moderar texto - Content Moderator, .NET
+titlesuffix: Azure Cognitive Services
+description: Como texto moderado utilizando o SDK de moderador de conteúdo para .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 11f0cf523b6a6cfac2fb25924e5e03992945975e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6db97231b2dc8905f1a3b3a6bc63580e9f371f84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182591"
+ms.locfileid: "47227270"
 ---
 # <a name="moderate-text-using-net"></a>Texto moderado através do .NET
 
 Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+
 - Detetar potencial linguagem obscena em texto com a filtragem baseada no termo
 - Utilizar modelos baseados em machine-learning para [classificar o texto](text-moderation-api.md#classification) em três categorias.
 - Detete informações de identificação pessoal (PII) como dos EUA e do Reino Unido números de telefone, endereços de e-mail e dos Estados Unidos, endereços de correspondência.

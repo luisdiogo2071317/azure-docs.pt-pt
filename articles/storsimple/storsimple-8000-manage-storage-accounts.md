@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688733"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225730"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utilizar o serviço StorSimple Device Manager para gerir as credenciais da conta de armazenamento
 
@@ -143,7 +143,7 @@ Quando cria uma conta de armazenamento, o Microsoft Azure gera duas chaves de ac
 
 Normalmente, há aplicações que utilizam apenas uma das chaves para aceder aos seus dados. Após um determinado período de tempo, pode ter seus aplicativos que mudem para a segunda chave a utilizar. Depois de mudar a seus aplicativos para a chave secundária, pode extinguir a primeira chave e, em seguida, gerar uma nova chave. Usar as duas chaves dessa forma permite o acesso de aplicações para os dados sem incorrer em qualquer período de inatividade.
 
-As chaves de conta de armazenamento são sempre armazenadas no serviço em formato criptografado. No entanto, estes podem ser repostas através do serviço StorSimple Device Manager. O serviço pode obter a chave primária e chave secundária para todas as contas de armazenamento na mesma subscrição, incluindo as contas criadas no serviço de armazenamento, bem como as contas de armazenamento de predefinido geradas quando o serviço StorSimple Device Manager foi criado pela primeira vez. O serviço StorSimple Device Manager será sempre obter estas chaves do portal clássico do Azure e, em seguida, armazená-las de forma encriptada.
+As chaves de conta de armazenamento são sempre armazenadas no serviço em formato criptografado. No entanto, estes podem ser repostas através do serviço StorSimple Device Manager. O serviço pode obter a chave primária e chave secundária para todas as contas de armazenamento na mesma subscrição, incluindo as contas criadas no serviço de armazenamento, bem como as contas de armazenamento de predefinido geradas quando o serviço StorSimple Device Manager foi inicialmente criado. O serviço StorSimple Device Manager será sempre obter estas chaves do portal clássico do Azure e, em seguida, armazená-las de forma encriptada.
 
 ## <a name="rotation-workflow"></a>Fluxo de trabalho de rotação
 

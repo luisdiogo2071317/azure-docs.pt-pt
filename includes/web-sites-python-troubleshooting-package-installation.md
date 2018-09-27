@@ -12,9 +12,9 @@ Nota: ao utilizar esta opção, garanta que compila o pacote através de um ambi
 
 Se o pacote não for instalado por ser necessário um compilador, pode instalar o compilador no computador local e criar uma roda para o pacote, que irá incluir no seu repositório.
 
-Utilizadores Mac/Linux: Se não tiver acesso a um computador Windows, consulte o artigo [criar uma Máquina Virtual com o Windows] [ Create a Virtual Machine Running Windows] para saber como criar uma VM no Azure.  Pode utilizá-la para criar as rodas, adicioná-las ao repositório e eliminar a VM, se assim o desejar. 
+Utilizadores Mac/Linux: Se não tiver acesso a um computador Windows, consulte [criar um Windows em execução do Virtual Machine] [ Create a Virtual Machine Running Windows] para saber como criar uma VM no Azure.  Pode utilizá-la para criar as rodas, adicioná-las ao repositório e eliminar a VM, se assim o desejar. 
 
-Para Python 2.7, pode instalar [Microsoft Visual C++ Compiler para o Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
+Para o Python 2.7, pode instalar [Microsoft Visual C++ Compiler para o Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
 Para Python 3.4, pode instalar [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 

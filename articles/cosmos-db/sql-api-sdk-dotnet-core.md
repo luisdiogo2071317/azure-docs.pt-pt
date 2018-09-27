@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1ab1381271391da9f4775488908af4eb1e47f5d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 01857eb28f63eb1f60e8ca84bd6ce5e6c3c67446
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346275"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392470"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK para .NET Core para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,11 @@ ms.locfileid: "44346275"
 ## <a name="release-notes"></a>Notas de Versão
 
 O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão mais recente dos [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Suporte de escrita de adicionado várias regiões.
+* Em várias melhorias de desempenho de consulta de partição com a parte superior e MaxBufferedItemCount.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 
@@ -195,6 +200,7 @@ Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](http:
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |21 de setembro de 2018 |--- |
 | [2.0.0](#2.0.0) |07 de Setembro de 2018 |--- |
 | [1.9.1](#1.9.1) |09 de Março de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |

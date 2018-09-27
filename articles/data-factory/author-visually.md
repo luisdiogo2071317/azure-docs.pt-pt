@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: shlo
-ms.openlocfilehash: 5bb1099dee919de50d2c2fc110f3a204e580b66c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465984"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394431"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
 
 - Autor diretamente com o serviço Data Factory.
-- Autor com a integração de Git com repositórios do Azure para colaboração, controlo de origem ou controle de versão.
+- Autor com a integração de Git de repositórios do Azure para colaboração, controlo de origem e controle de versão.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Autor diretamente com o serviço Data Factory
-Criação de Visual com o serviço Data Factory é diferente de criação visual com os serviços de DevOps do Azure de duas formas:
+Criação de Visual com o serviço Data Factory é diferente da criação de visual com integração de Git de duas formas:
 
 - O serviço Data Factory não inclui um repositório para armazenar as entidades JSON para as suas alterações.
 - O serviço Data Factory não está otimizado para colaboração ou controle de versão.
@@ -38,8 +38,8 @@ Ao utilizar a experiência do Usuário **tela de criação** para criar diretame
 
 ![Modo de publicação](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-git-integration-with-azure-repos"></a>Autor com a integração de Git com repositórios do Azure
-Criação de Visual com integração de Git com repositórios do Azure suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório da organização do Azure repositórios Git para controlo de origem, colaboração, controlo de versões e assim por diante. Uma única organização de Git de repositórios do Azure pode ter vários repositórios, mas um repositório de Git de repositórios do Azure pode ser associado com apenas uma fábrica de dados. Se não tiver uma organização de repositórios do Azure ou o repositório, siga [estas instruções](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os seus recursos.
+## <a name="author-with-azure-repos-git-integration"></a>Autor com a integração de Git de repositórios do Azure
+Criação visual com a integração de Git de repositórios do Azure suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório da organização do Azure repositórios Git para controlo de origem, colaboração, controlo de versões e assim por diante. Uma única organização de Git de repositórios do Azure pode ter vários repositórios, mas um repositório de Git de repositórios do Azure pode ser associado com apenas uma fábrica de dados. Se não tiver uma organização de repositórios do Azure ou o repositório, siga [estas instruções](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os seus recursos.
 
 > [!NOTE]
 > Pode armazenar ficheiros de dados e de script num repositório de Git de repositórios do Azure. No entanto, terá de carregar os ficheiros manualmente para o armazenamento do Azure. Um pipeline do Data Factory não automaticamente carregar arquivos de script ou de dados armazenados num repositório Git de repositórios do Azure para o armazenamento do Azure.
@@ -61,7 +61,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 
 | Definição | Descrição | Valor |
 |:--- |:--- |:--- |
-| **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Tenha em atenção**: GitHub não é atualmente suportado. | Git de Ops de desenvolvimento do Azure |
+| **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Tenha em atenção**: GitHub não é atualmente suportado. | Azure repositórios Git |
 | **Azure Active Directory** | Nome do seu inquilino do Azure AD. | <your tenant name> |
 | **Organização de repositórios do Azure** | O nome de organização de repositórios do Azure. Pode localizar o nome de organização de repositórios do Azure em `https://{organization name}.visualstudio.com`. Pode [iniciar sessão na sua organização de repositórios de Azure](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e verá os repositórios e os projetos. | <your organization name> |
 | **ProjectName** | O nome do projeto de Repos do Azure. Pode localizar o nome do projeto de Repos de Azure no `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,7 +70,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **Pasta raiz** | A pasta de raiz no seu ramo de colaboração de repositórios do Azure. | <your root folder name> |
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório de Git de repositórios do Azure. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 
-#### <a name="configuration-method-2--azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Git de repositórios do Azure): UX tela de criação
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Git de repositórios do Azure): UX tela de criação
 Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 
 É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições <a href="#method1">método de configuração 1</a>.

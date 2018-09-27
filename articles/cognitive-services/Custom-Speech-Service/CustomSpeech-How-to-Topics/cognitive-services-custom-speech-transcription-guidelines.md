@@ -1,21 +1,22 @@
 ---
-title: Diretrizes de transcrição no serviço de voz personalizada no Azure | Documentos da Microsoft
-description: Saiba como preparar os dados para o serviço de voz personalizada nos serviços cognitivos.
+title: Diretrizes de transcrição - serviço de voz personalizada
+titlesuffix: Azure Cognitive Services
+description: Saiba como preparar os dados para o serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2772665107f94a273731d2147154e546225b22dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999737"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220623"
 ---
 # <a name="transcription-guidelines"></a>Diretrizes de transcrição
 Para garantir o melhor uso dos seus dados de texto para personalização do modelo de acústica e idioma, as seguintes diretrizes de transcrição devem ser seguidas. Essas diretrizes são específicas do idioma.

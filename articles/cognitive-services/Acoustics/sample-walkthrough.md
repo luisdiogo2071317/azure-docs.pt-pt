@@ -9,19 +9,19 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b738cc2fc7db6987b8f4ad54a2c53cc9e69989b3
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181611"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227508"
 ---
 # <a name="unity-sample-walkthrough"></a>Instruções de exemplo do Unity
 Este é um passo a passo do exemplo Acoustics do projeto. Para obter mais informações sobre quais Acoustics de projeto são, consulte a [introdução ao projeto Acoustics](what-is-acoustics.md). Para obter ajuda na adicionar o pacote de projeto Acoustics para um projeto Unity já existente, utilize o [guia de introdução](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Requisitos para executar o projeto de exemplo
 * Unity 2018.2 +, usando a versão de tempo de execução de scripts de 4.x do .NET
-* Editor de Unity de 64 bits do Windows
+* Unity Editor para Windows de 64 bits
 * O exemplo suporta Windows desktop, UWP e destinos de Android, incluindo montado, head apresenta (HMDs)
 * Subscrição do Azure de lote necessária para criar processo
 

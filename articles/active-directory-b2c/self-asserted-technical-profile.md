@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9472f0fb6ca7c9924df57bb61a3f234bc7d4b13
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381443"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166916"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de declaração própria em políticas personalizadas do Azure Active Directory B2C
 
@@ -135,6 +135,7 @@ Também pode chamar um perfil técnico da REST API com a sua lógica de negócio
 | ContentDefinitionReferenceId | Sim | O identificador do [definição de conteúdo](contentdefinitions.md) associados a este perfil técnico. |
 | EnforceEmailVerification | Não | Para inscrição ou edição de perfil, que impõe a verificação de e-mail. Valores possíveis: `true` (predefinição), ou `false`. | 
 | setting.showSignupLink | Não | Mostra o botão de inscrição. Valores possíveis: `true` (predefinição), ou `false` |
+| setting.retryLimit | Não | Controla o número de vezes que um utilizador pode tentar para fornecer os dados que são comparados com um perfil de técnicas de validação. Por exemplo, um utilizador tentar inscrever-se com uma conta que já existe e que mantém a tentar até que o limite atingido.
 | SignUpTarget | Não | O identificador de exchange de destino de inscrição. Quando o usuário clica no botão de inscrição, o Azure AD B2C executa o identificador do exchange especificado. |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas

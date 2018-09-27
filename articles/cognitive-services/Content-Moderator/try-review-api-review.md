@@ -1,20 +1,21 @@
 ---
-title: Moderar conteúdo com revisões realizadas por pessoas no Azure Content Moderator | Documentos da Microsoft
+title: Moderar conteúdo utilizando as revisões realizadas por pessoas com a consola de API - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Saiba como criar revisões realizadas por pessoas na consola de Content Moderator API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866513"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219758"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Criar análises a partir da consola de API
 

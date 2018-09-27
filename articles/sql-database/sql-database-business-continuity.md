@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 320489f27a3c00cf4d13f7db37c6eb9fda39f5f1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064140"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221154"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -123,7 +123,7 @@ Se estiver a utilizar grupos de ativação pós-falha automática e de georrepli
 > 
 
 ### <a name="perform-a-geo-restore"></a>Efetuar um georrestauro
-Se estiver a utilizar as cópias de segurança automatizadas com o armazenamento georredundante (ativado por predefinição), pode recuperar a base de dados com [georrestauro](sql-database-disaster-recovery.md#recover-using-geo-restore). Recuperação têm normalmente decorre no prazo de 12 horas - com perda de dados de até uma hora, determinada por quando o último backup diferencial de hora a hora foi executado e replicado. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Tenha em atenção de que o restauro geográfico restaura apenas a base de dados para o último ponto disponível no tempo.
+Se estiver a utilizar as cópias de segurança automatizadas com o armazenamento georredundante (ativado por predefinição), pode recuperar a base de dados com [georrestauro](sql-database-disaster-recovery.md#recover-using-geo-restore). Recuperação têm normalmente decorre no prazo de 12 horas - com perda de dados de até uma hora, determinada por quando a última cópia de segurança do registo foi executada e replicada. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Tenha em atenção de que o restauro geográfico restaura apenas a base de dados para o último ponto disponível no tempo.
 
 > [!NOTE]
 > Se o Centro de dados estiver online novamente antes de passar seu aplicativo para a base de dados recuperada, pode cancelar a recuperação.  

@@ -9,18 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181894"
+ms.locfileid: "47221763"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
-No Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço fixo ou SKU: **gratuito**, **básica**, ou **padrão**, onde  **Padrão** está disponível em várias configurações e capacidades. Começar a maioria dos clientes com o **gratuito** escalão para avaliação e, em seguida, passar gradualmente para **padrão** para o desenvolvimento. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva. 
+No Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem **gratuito**, **básica**, ou **padrão**, onde **padrão** está disponível em várias configurações e capacidades. Começar a maioria dos clientes com o **gratuito** escalão para avaliação e, em seguida, passar gradualmente para **padrão** para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva. 
 
-Camadas de determinam a capacidade, não de recursos, com diferenciação por:
+Camadas de determinam a capacidade, recursos e são diferenciadas por:
 
 + Número de índices que pode criar
 + Tamanho e a velocidade de partições (armazenamento físico)
@@ -28,14 +28,10 @@ Camadas de determinam a capacidade, não de recursos, com diferenciação por:
 Embora todas as camadas, incluindo o **gratuito** camada, oferta geralmente paridade de funcionalidades, cargas de trabalho maiores podem ditar os requisitos para escalões superiores. Por exemplo, [pesquisa cognitiva](cognitive-search-concept-intro.md) indexação tem habilidades de execução longa esse tempo limite num serviço gratuito, a menos que o conjunto de dados acontece ser bem pequeno.
 
 > [!NOTE] 
-> Paridade de funcionalidades existe em escalões com a exceção do [indexadores](search-indexer-overview.md), que não está disponível no S3HD.
+> A exceção a paridade de funcionalidades são [indexadores](search-indexer-overview.md), que não estão disponível em S3HD.
 >
 
-Dentro de uma camada, pode [ajustar os recursos de partição e réplica](search-capacity-planning.md) para ajuste de desempenho. Ao passo que pode começar com dois ou três de cada, poderia temporariamente de aumentar o nível de recurso para uma pesada carga de trabalho de indexação. A capacidade de otimizar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas ligeiramente também complica a sua análise. Poderá ter de experimentar para verificar se um escalão mais baixo com recursos superior/réplicas oferece melhor valor e desempenho do que um escalão mais elevado com a obtenção de recursos mais baixo. Para saber mais sobre o quando e por que seria ajuste a capacidade, veja [considerações sobre desempenho e otimização](search-performance-optimization.md).
-
-> [!Important] 
-> Embora a estimar as necessidades futuras de índices e o armazenamento pode sentir como suposição, ele vale a pena. Se a capacidade de uma camada é demasiado baixo, terá de aprovisionar um novo serviço, o escalão superior e, em seguida [recarregar os índices](search-howto-reindex.md). Não existe nenhuma atualização in-loco do mesmo serviço de um SKU para outro.
->
+Dentro de uma camada, pode [ajustar os recursos de partição e réplica](search-capacity-planning.md) para ajuste de desempenho. Ao passo que pode começar com dois ou três de cada, temporariamente poderia aumentar sua capacidade computacional de uma pesada carga de trabalho de indexação. A capacidade de otimizar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas ligeiramente também complica a sua análise. Poderá ter de experimentar para verificar se um escalão mais baixo com recursos superior/réplicas oferece melhor valor e desempenho do que um escalão mais elevado com a obtenção de recursos mais baixo. Para saber mais sobre o quando e por que seria ajuste a capacidade, veja [considerações sobre desempenho e otimização](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -53,15 +49,15 @@ No mínimo, cada serviço é iniciado com 1 SU (uma réplica multiplicada por pa
 
 Embora cada escalão oferece a capacidade de cada vez mais elevada, pode colocar um *parte* da capacidade total online, que contém o resto em reserva. Em termos de faturação, é o número de partições e réplicas que colocar online, calculada utilizando a fórmula SU, que determina o que, na verdade, paga.
 
-### <a name="tips-for-lowering-the-bill"></a>Dicas para reduzir a fatura
+### <a name="tips-for-reducing-costs"></a>Dicas para reduzir os custos
 
-Não pode encerrar o serviço para reduzir a fatura. Recursos dedicados para as partições e réplicas estão operacionais 24x7, mantidos em reserva para seu uso exclusivo, durante o ciclo de vida do seu serviço. A única forma de reduzir uma fatura é reduzir as réplicas e partições para o nível mais baixo que ainda lhe oferece um desempenho aceitável. 
+Não pode encerrar o serviço para reduzir a fatura. Recursos dedicados para as partições e réplicas estão operacionais 24x7, alocado para seu uso exclusivo, durante o ciclo de vida do seu serviço. A única forma de reduzir uma fatura está reduzindo as réplicas e partições para um nível baixo que ainda fornece um desempenho aceitável e [conformidade SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Outro alavanca é escolher uma camada de uma taxa por hora mais baixo. Tarifas à hora de S1 são mais baixas que obtêm tarifas horárias S2 ou S3. Pode aprovisionar um serviço no final de suas projeções inferior e, em seguida, se ser excedida, criar um segundo serviço em camadas maior, recriação dos índices nesse serviço segundo e, em seguida, elimine primeiro.
+Outro alavanca para reduzir os custos é escolher uma camada de uma taxa por hora mais baixo. Tarifas à hora de S1 são mais baixas que as taxas de S2 ou S3. Pode aprovisionar um serviço que visa a extremidade inferior do seu projeções de carga. Se ser excedida do serviço, criar um segundo serviço maiores em camadas, recriação dos índices nesse serviço segundo e, em seguida, elimine primeiro. Nos servidores de site, é comum "comprar se" para que pode manipular o crescimento previsto. Mas com um serviço cloud, pode obter poupança de custos de forma mais agressiva, sabendo que pode sempre mudar para um serviço em camadas superior se a atual é insuficiente.
 
 ### <a name="capacity-drill-down"></a>Capacidade de desagregação
 
-Capacidade está estruturada como *réplicas* e *partições*. 
+No Azure Search, a capacidade está estruturada como *réplicas* e *partições*. 
 
 + Réplicas são instâncias de serviço de pesquisa, em que cada réplica aloja uma cópia de um índice com balanceamento de carga. Por exemplo, um serviço com 6 réplicas tem 6 cópias de todos os índices carregado no serviço. 
 
@@ -105,7 +101,11 @@ Capacidade e os custos da execução do service vão lado a lado. Escalões impo
 
 As necessidades comerciais estabeleçam, normalmente, o número de índices, que será necessário. Por exemplo, um índice global para um grande repositório de documentos, ou talvez vários índices, com base na região, aplicativo ou nicho de negócios.
 
-Para determinar o tamanho de um índice, precisa [criar um](search-create-index-portal.md). A estrutura de dados no Azure Search é principalmente uma [invertido índice](https://en.wikipedia.org/wiki/Inverted_index), que tem diferentes características que os dados de origem. Para um índice invertido, tamanho e complexidade são determinadas pelo conteúdo, não necessariamente a quantidade de dados que alimentar nele. Uma origem de dados de grande dimensão com redundância maciça pode resultar num índice menor do que um conjunto de dados mais pequeno que contém conteúdo altamente variável.  Como tal, é raramente possível inferir o tamanho do índice com base no tamanho do conjunto de dados original.
+Para determinar o tamanho de um índice, precisa [criar um](search-create-index-portal.md). A estrutura de dados no Azure Search é principalmente uma [invertido índice](https://en.wikipedia.org/wiki/Inverted_index), que tem diferentes características que os dados de origem. Para um índice invertido, tamanho e complexidade são determinadas pelo conteúdo, não necessariamente a quantidade de dados que alimentar nele. Uma origem de dados de grande dimensão com redundância maciça pode resultar num índice menor do que um conjunto de dados mais pequeno que contém conteúdo altamente variável. Como tal, é raramente possível inferir o tamanho do índice com base no tamanho do conjunto de dados original.
+
+> [!NOTE] 
+> Embora a estimar as necessidades futuras de índices e o armazenamento pode sentir como suposição, ele vale a pena. Se a capacidade de uma camada é demasiado baixo, terá de aprovisionar um novo serviço, o escalão superior e, em seguida [recarregar os índices](search-howto-reindex.md). Não existe nenhuma atualização in-loco do mesmo serviço de um SKU para outro.
+>
 
 ### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Passo 1: Desenvolver essas estimativas aproximadas através do escalão gratuito
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954403"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227151"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
 Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
@@ -136,7 +136,7 @@ R [dispositivo duplo](iot-hub-devguide-device-twins.md) é um documento JSON que
 Assim como o dispositivo duplo, um duplo do módulo é um documento JSON que armazena informações de estado do módulo como metadados, configurações e condições. O IoT Hub cria um módulo duplo para cada identidade de módulo que for aprovisionado sob uma identidade de dispositivo do seu hub IoT. Duplos de módulo permitem-lhe sincronizar condições de módulo e configurações entre o módulo e o back-end de solução. Pode consultar duplos de módulo para localizar os módulos específicos e consultar o estado das operações de longa execução.
 
 ## <a name="twin-queries"></a>Consultas de gémeos
-[Consultas de gémeos de dispositivo e módulo](iot-hub-devguide-query-language.md) utilizar a linguagem de consulta do Hub de IoT de tipo SQL para obter informações a partir dos dispositivos duplos ou duplos de módulo. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [ ](#job) em execução no seu hub IoT.
+[Consultas de gémeos de dispositivo e módulo](iot-hub-devguide-query-language.md) utilizar a linguagem de consulta do Hub de IoT de tipo SQL para obter informações a partir dos dispositivos duplos ou duplos de módulo. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [](#job) em execução no seu hub IoT.
 
 ## <a name="twin-synchronization"></a>Sincronização de duplo
 Duplo sincronização utiliza a [propriedades pretendidas](#desired-properties) no seu dispositivos duplos ou duplos de módulo para configurar seus dispositivos ou os módulos e recuperar [propriedades comunicadas](#reported-properties) dos mesmos para armazenar no duplo.
@@ -177,7 +177,7 @@ O IoT Hub é um serviço totalmente gerido do Azure que permite comunicações b
 [Métricas do IoT Hub](iot-hub-metrics.md) dão-lhe dados sobre o estado dos hubs de IoT em seu [subscrição do Azure](#subscription). Métricas do IoT Hub permitem-lhe avaliar o estado de funcionamento geral do serviço e os dispositivos ligados ao mesmo. Métricas do IoT Hub podem ajudá-lo a ver o que está acontecendo com o seu hub IoT e investigar problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
 
 ## <a name="iot-hub-query-language"></a>Linguagem de consulta do IoT Hub
-O [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md) é uma linguagem de tipo SQL que lhe permite consultar seu [ ](#job) e dispositivos duplos.
+O [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md) é uma linguagem de tipo SQL que lhe permite consultar seu [](#job) e dispositivos duplos.
 
 ## <a name="iot-hub-resource-rest-api"></a>REST API do IoT Hub recursos
 Pode utilizar o [API do REST de recursos do IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para gerir os hubs IoT no seu [subscrição do Azure](#subscription) efetuar operações como criar, atualizar e excluir os hubs.
@@ -219,7 +219,7 @@ No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), reporto
 [O Azure Resource Manager](#azure-resource-manager) utiliza grupos de recursos para agrupar os recursos relacionados. Pode utilizar um grupo de recursos para realizar operações em todos os recursos no grupo em simultâneo.
 
 ## <a name="retry-policy"></a>Política de repetição
-Utilizar uma política de repetição para processar [erros transitórios](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) ao ligar a um serviço cloud.
+Utilizar uma política de repetição para processar [erros transitórios](/azure/architecture/best-practices/transient-faults) ao ligar a um serviço cloud.
 
 ## <a name="routing-rules"></a>Regras de encaminhamento
 Configura [regras de encaminhamento](iot-hub-devguide-messages-read-custom.md) do seu hub IoT para encaminhar mensagens dispositivo-para-cloud para um [ponto final incorporado](#built-in-endpoints) ou a [pontos finais personalizados](#custom-endpoints) para processamento através do seu back-end de solução .

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e0269e17a419c6b611d72a7d00668fe9c9519894
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929685"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166193"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos Azure Resource Manager 
 
@@ -28,14 +28,14 @@ Resource Manager fornece várias funções para trabalhar com matrizes e objetos
 * [array](#array)
 * [Coalesce](#coalesce)
 * [concat](#concat)
-* [contém](#contains)
+* [Contém](#contains)
 * [createArray](#createarray)
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
 * [json](#json)
 * [last](#last)
-* [comprimento](#length)
+* [Comprimento](#length)
 * [max](#max)
 * [min](#min)
 * [range](#range)
@@ -738,6 +738,10 @@ Devolve um objeto JSON.
 
 O objeto JSON a partir da cadeia especificado, ou um objeto vazio quando **nulo** está especificado.
 
+### <a name="remarks"></a>Observações
+
+Se tiver de incluir um valor de parâmetro ou variável no objeto JSON, utilize o [concat](resource-group-template-functions-string.md#concat) função para criar a cadeia de caracteres passada para a função.
+
 ### <a name="example"></a>Exemplo
 
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) mostra como utilizar a função de json com matrizes e objetos:
@@ -746,6 +750,12 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,6 +781,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Booleano | Verdadeiro |
+| paramOutput | Object | {"a": "valor de demonstração"}
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -847,7 +862,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="length" />
 
-## <a name="length"></a>comprimento
+## <a name="length"></a>Comprimento
 `length(arg1)`
 
 Devolve o número de elementos numa matriz ou carateres numa cadeia.
@@ -1058,7 +1073,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="range" />
 
-## <a name="range"></a>intervalo
+## <a name="range"></a>Intervalo
 `range(startingInteger, numberOfElements)`
 
 Cria uma matriz de inteiros a partir de um partir de número inteiro e que contém um número de itens.
@@ -1122,7 +1137,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="skip" />
 
-## <a name="skip"></a>Ignorar
+## <a name="skip"></a>ignorar
 `skip(originalValue, numberToSkip)`
 
 Devolve uma matriz com todos os elementos após o número especificado na matriz ou retorna uma cadeia de caracteres com todos os carateres após o número especificado na cadeia de caracteres.

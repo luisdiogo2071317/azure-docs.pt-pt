@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 8a0b823a12178df56417b05de28c2125ec155829
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6e77c4836531a7efd0b52b9a411ac40ff6a613fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740818"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224499"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento para fins gerais v2
 
@@ -77,7 +77,7 @@ Para decidir qual a camada de acesso melhor às suas necessidades, pode ser úti
 
 Para recolher dados de utilização para a sua conta de armazenamento antes da migração, pode monitorizar a conta de armazenamento através de [do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). O Azure Monitor efetua o registo e fornece dados de métricas para os serviços do Azure, incluindo o armazenamento do Azure. 
 
-Para monitorizar os dados de consumo para os blobs na sua conta de armazenamento, ative métricas de capacidade no Azure Monitor. Métricas de capacidade gravam dados sobre a quantidade de armazenamento os blobs na sua conta estiver a utilizar numa base diária. Métricas de capacidade podem ser utilizadas para calcular o custo do armazenamento de dados na conta de armazenamento. Para saber como a capacidade de armazenamento de BLOBs para é cobrada para cada tipo de conta, veja [preços do blob de bloco](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Para monitorizar os dados de consumo para os blobs na sua conta de armazenamento, ative métricas de capacidade no Azure Monitor. Métricas de capacidade gravam dados sobre a quantidade de armazenamento os blobs na sua conta estiver a utilizar numa base diária. Métricas de capacidade podem ser utilizadas para calcular o custo do armazenamento de dados na conta de armazenamento. Para saber como é o preço da capacidade de armazenamento de BLOBs para cada tipo de conta, veja [preços do blob de bloco](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Para monitorizar os padrões de acesso de dados para armazenamento de BLOBs, ative métricas de transação no Azure Monitor. Pode filtrar diferentes operações de armazenamento do Azure para estimar a frequência com que cada um é chamado. Para saber como diferentes tipos de transações têm um preço para o bloco e de acréscimo para cada tipo de conta, consulte [preços do blob de bloco](https://azure.microsoft.com/pricing/details/storage/blobs/).  
 

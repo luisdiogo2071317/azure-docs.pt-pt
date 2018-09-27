@@ -1,72 +1,73 @@
 ---
-title: Executar tarefas de moderação de interrupção de conteúdo no Azure conteúdo Moderator | Microsoft Docs
-description: Saiba como executar tarefas de moderação de interrupção de conteúdos na consola de API.
+title: Executar tarefas de moderação de conteúdos com a consola de API - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Saiba como executar tarefas de moderação de conteúdos na consola de API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6f741be1001ae70d5fdbf6f374204aaad1601abe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351590"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227114"
 ---
-# <a name="start-a-moderation-job-from-the-api-console"></a>Iniciar uma tarefa de moderação interrupção a partir da consola de API
+# <a name="start-a-moderation-job-from-the-api-console"></a>Iniciar uma tarefa de moderação a partir da consola de API
 
-Utilize a API de revisão [operações de tarefa](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) para iniciar tarefas de moderação de interrupção de conteúdo ponto-a-ponto para o conteúdo de imagem ou texto em Moderator de conteúdo do Azure. 
+Utilizar a API de revisão [operações de tarefa](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) para iniciar tarefas de moderação de conteúdos do ponto-a-ponto para o conteúdo de imagem ou texto no Azure Content Moderator. 
 
-A tarefa de moderação interrupção analisa o conteúdo utilizando a API do conteúdo Moderator imagem moderação interrupção ou a API de moderação interrupção de texto. Em seguida, a tarefa de moderação interrupção utiliza fluxos de trabalho (definidos na ferramenta de revisão) para gerar revisões na ferramenta de revisão. 
+A tarefa de moderação analisa o conteúdo utilizando a API de moderação de imagens de moderador de conteúdo ou a API de moderação de texto. Em seguida, a tarefa de moderação utiliza fluxos de trabalho (definidos na ferramenta de revisão) para gerar as revisões na ferramenta de revisão. 
 
-Depois de um moderator humana revê as etiquetas atribuídos e os dados de predição e submete uma decisão de moderação de interrupção final, a API de revisão submete todas as informações para o ponto final de API.
+Depois de um moderador humano revisa o atribuída automaticamente etiquetas e dados de predição e envia uma decisão de moderação final, a API de revisão envia todas as informações para o ponto final de API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Navegue para o [Rever ferramenta](https://contentmoderator.cognitive.microsoft.com/). Inscrever-se se não o fez, ainda. Na ferramenta de revisão, [definir um fluxo de trabalho personalizado](Review-Tool-User-Guide/Workflows.md) para utilizar neste `Job` operação.
+Navegue para o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/). Inscreva-se se não o tiver feito isso ainda. Dentro da ferramenta de revisão [definir um fluxo de trabalho personalizado](Review-Tool-User-Guide/Workflows.md) de usar nisso `Job` operação.
 
-## <a name="use-the-api-console"></a>Utilize a consola de API
-Para test-drive a API utilizando a consola online, terá de alguns valores para introduzir para a consola:
+## <a name="use-the-api-console"></a>Utilizar a consola de API
+Para testar a API utilizando a consola online, terá de alguns valores para celebrar o console:
     
 - `teamName`: Utilize o `Id` campo a partir do ecrã de credenciais da sua ferramenta de revisão. 
-- `ContentId`: Esta cadeia é transmitida para a API e devolvida através de chamada de retorno. **ContentId** é útil para associar os resultados de uma tarefa de moderação interrupção. identificadores internos ou metadados- `Workflowname`: O nome do [fluxo de trabalho que criou](Review-Tool-User-Guide/Workflows.md) na secção anterior.
-- `Ocp-Apim-Subscription-Key`: Localizado o **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
+- `ContentId`: Esta cadeia é passada para a API e devolvida pelo retorno de chamada. **ContentId** é útil para associar os resultados de uma tarefa de moderação. identificadores de internos ou metadados- `Workflowname`: O nome da [fluxo de trabalho que criou](Review-Tool-User-Guide/Workflows.md) na secção anterior.
+- `Ocp-Apim-Subscription-Key`: Localizado no **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
 
-Consola de acesso a API é a partir de **credenciais** janela.
+Consola de acesso a API é a partir da **credenciais** janela.
 
 ### <a name="navigate-to-the-api-reference"></a>Navegue para a referência de API
-No **credenciais** janela, selecione [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
+Na **credenciais** janela, selecione [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
 
   O `Job.Create` é aberta a página.
 
-### <a name="select-your-region"></a>Selecione a região
-Para **consola de teste de Open API**, selecione a região que melhor coincida descreve a localização.
-  ![Tarefa - seleção de região de página de criação](images/test-drive-job-1.png)
+### <a name="select-your-region"></a>Selecione a sua região
+Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização.
+  ![Tarefa - criar a seleção de região de página](images/test-drive-job-1.png)
 
   O `Job.Create` é aberta a consola de API. 
 
 ### <a name="enter-parameters"></a>Introduzir parâmetros
 
-Introduza valores para os parâmetros de consulta necessário e a chave de subscrição. No **corpo do pedido** caixa, especifique a localização das informações que pretende analisar. Neste exemplo, vamos utilizar isto [imagem de exemplo](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
+Introduza valores para os parâmetros de consulta necessário e a chave de subscrição. Na **corpo do pedido** caixa, especifique a localização das informações que pretende analisar. Neste exemplo, vamos usar isso [imagem de exemplo](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
 
-  ![Tarefa - os parâmetros de consulta da consola, cabeçalhos e caixa de corpo do pedido de criação](images/job-api-console-inputs.PNG)
+  ![Tarefa - criar parâmetros de consulta da consola, cabeçalhos e caixa de corpo de pedido](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>Submeter o pedido
-Selecione **Enviar**. Um ID de tarefa é criado. Copie esta opção para utilizar os passos seguintes.
+Selecione **Enviar**. Um ID da tarefa é criada. Copie esta opção para utilizar nos passos seguintes.
 
   `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
 
-### <a name="open-the-get-job-details-page"></a>Abra a página de detalhes da tarefa de obter
-Selecione **obter**e, em seguida, abra a API, selecionando o botão que corresponda à sua região.
+### <a name="open-the-get-job-details-page"></a>Abra a página de detalhes do obter tarefa
+Selecione **obter**e, em seguida, abra a API ao selecionar o botão que corresponde à sua região.
 
-  ![Tarefa - criar consola resultados de Get](images/test-drive-job-4.png)
+  ![Tarefa - criar console resultados de Get](images/test-drive-job-4.png)
 
-### <a name="review-the-response"></a>Reveja a resposta
+### <a name="review-the-response"></a>Rever a resposta
 
-Introduza os valores para **teamName** e **JobID**. Introduza a chave de subscrição e, em seguida, selecione **enviar**. A resposta seguinte mostra o estado da tarefa de exemplo e os detalhes.
+Introduza os valores para **teamName** e **JobID**. Introduza a chave de subscrição e, em seguida, selecione **enviar**. A seguinte resposta mostra o estado da tarefa de exemplo e os detalhes.
 
 ```
     {
@@ -97,10 +98,10 @@ Introduza os valores para **teamName** e **JobID**. Introduza a chave de subscri
 ```
 
 ## <a name="navigate-to-the-review-tool"></a>Navegue para a ferramenta de revisão
-No Dashboard do conteúdo Moderator, selecione **revisão** > **imagem**. Aparece a imagem que lhe foram analisados, prontos para revisão humano.
+No Dashboard de moderador de conteúdo, selecione **revisão** > **imagem**. A imagem que analisados aparece, pronta para revisão humana.
 
-  ![Reveja a imagem de ferramenta de três cyclists](images/ocr-sample-image.PNG)
+  ![Imagem de ferramenta de revisão de três cyclists](images/ocr-sample-image.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilizar a API REST no seu código ou começar com o [início rápido de .NET de tarefas](moderation-jobs-quickstart-dotnet.md) para integrar com a sua aplicação.
+Utilizar a API REST no seu código ou começar com o [guia de introdução do .NET de tarefas](moderation-jobs-quickstart-dotnet.md) para integrar com a sua aplicação.

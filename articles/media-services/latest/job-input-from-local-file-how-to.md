@@ -1,34 +1,34 @@
 ---
-title: Criar uma entrada da tarefa de serviços de suporte de dados do Azure a partir de um ficheiro local | Microsoft Docs
-description: Este tópico mostra como criar uma entrada de tarefa a partir de um ficheiro local.
+title: Criar uma entrada da tarefa de serviços de multimédia do Azure a partir de um ficheiro local | Documentos da Microsoft
+description: Este tópico mostra como criar uma entrada da tarefa a partir de um ficheiro local.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 94e7192e13397ad8ec973d92f4c538f430c9cd60
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 66bd03b03289f568c019588f1b8ac1317ab9c076
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160010"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222025"
 ---
-# <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de tarefa a partir de um ficheiro local
+# <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada da tarefa a partir de um ficheiro local
 
-V3 de Media Services, ao submeter tarefas para processar os seus vídeos, é necessário saber onde encontrar o vídeo de entrada de Media Services. O vídeo de entrada pode ser armazenado como um recurso de serviço de suporte de dados, caso em que cria um recurso de entrada com base num ficheiro (armazenado localmente ou no Blob storage do Azure). Este tópico mostra como criar uma entrada de tarefa a partir de um ficheiro local. Para obter um exemplo completo, consulte este [github exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+Em serviços de multimédia v3, quando submete tarefas para processar os seus vídeos, terá de informar os serviços de multimédia onde encontrar o vídeo de entrada. O vídeo de entrada pode ser armazenado como um recurso de serviço de suporte de dados, caso em que crie um elemento de entrada com base num arquivo (armazenado localmente ou no armazenamento de Blobs do Azure). Este tópico mostra como criar uma entrada da tarefa a partir de um ficheiro local. Para obter um exemplo completo, consulte [exemplo de github](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
 ## <a name="net-sample"></a>Exemplo de .NET
 
-O código seguinte mostra como criar um recurso de entrada e utilizá-lo como entrada para a tarefa. A função de CreateInputAsset efetua as seguintes ações:
+O código a seguir mostra como criar um elemento de entrada e usá-lo como entrada para a tarefa. A função de CreateInputAsset executa as seguintes ações:
 
 * Cria o elemento 
-* Obtém um gravável [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) para o elemento [contentor de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
-* Carrega o ficheiro para o contentor de armazenamento utilizando o URL de SAS
+* Obtém um [URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável para o [contentor de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) do Elemento
+* Carrega o ficheiro para o contentor de armazenamento através do URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
@@ -36,4 +36,4 @@ O código seguinte mostra como criar um recurso de entrada e utilizá-lo como en
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Criar uma entrada de tarefa a partir de um URL de HTTP (s)](job-input-from-http-how-to.md).
+[Criar uma entrada da tarefa a partir de um URL HTTPS](job-input-from-http-how-to.md).

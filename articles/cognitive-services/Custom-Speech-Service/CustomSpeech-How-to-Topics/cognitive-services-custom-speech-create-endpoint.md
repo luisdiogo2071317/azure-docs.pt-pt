@@ -1,21 +1,22 @@
 ---
-title: Criar um ponto de final de voz personalizada com o serviço de voz personalizada no Azure | Documentos da Microsoft
-description: Saiba como criar um ponto de final de voz em texto personalizado com o serviço de voz personalizada nos serviços cognitivos.
+title: Criar um ponto de final de voz personalizada - serviço de voz personalizada
+titlesuffix: Azure Cognitive Services
+description: Saiba como criar um ponto de final de voz em texto personalizado com o serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed93afa8e10fdfbb0d45f4500b4a648716e25e00
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952227"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219028"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto final de conversão de voz em texto personalizado
 Depois de criar modelos acústicos personalizados ou modelos de linguagem, pode implementá-las num ponto de final de voz em texto personalizado. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 59e5825554843ef7265cbccdd9a63db0426891fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307794"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226314"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar o escalão PremiumV2 para serviço de aplicações do Azure
 
@@ -55,7 +55,7 @@ Selecione **produção**, em seguida, selecione **P1V2**, **P2V2**, ou **P3V2**,
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Se não vir **P1V2**, **P2V2**, e **P3V2** como opções, ou se as opções são cinzento fora, em seguida, **PremiumV2** provavelmente não está disponível no a implementação de serviço de aplicações subjacente que contém o plano do serviço de aplicações. Consulte ver [aumentar verticalmente a partir de uma combinação de grupo e a região de recurso não suportado](#unsupported) para obter mais detalhes.
+> Se não vir **P1V2**, **P2V2**, e **P3V2** como opções, ou se as opções são cinzento fora, em seguida, **PremiumV2** provavelmente não está disponível no a implementação de serviço de aplicações subjacente que contém o plano do serviço de aplicações. Ver [aumentar verticalmente a partir de uma combinação de grupo e a região de recurso não suportado](#unsupported) para obter mais detalhes.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Aumentar verticalmente uma aplicação existente para o escalão PremiumV2
 

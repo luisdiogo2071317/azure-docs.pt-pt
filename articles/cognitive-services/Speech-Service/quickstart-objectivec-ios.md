@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e21348ccd694baf6b7eccf2787ec0a9f21a73b11
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985658"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226029"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Início rápido: Recognize speech no Objective-C no iOS com o SDK de voz dos serviços cognitivos
 
@@ -46,7 +46,7 @@ As caixas de diálogo que siga, faça as seleções seguintes:
 
 1. Caixa de diálogo de opções de projeto
     1. Introduza um nome para a aplicação de início rápido, por exemplo `helloworld`.
-    1. Introduza um nome de organização, tal como `TestOrg`e um identificador de organização, tais como `testorg`.
+    1. Introduza um nome de organização adequada e o identificador de organização, se já tiver uma conta de programador da Apple. Para fins de teste, apenas pode escolher qualquer nome, como `testorg`. Para se inscrever a aplicação, também também precisa de um perfil de aprovisionamento correto. Consulte a [site do desenvolvedor Apple](https://developer.apple.com/) para obter detalhes.
     1. Certifique-se de que Objective-C é escolhido como o idioma para o projeto.
     1. Desative todas as caixas de verificação para testes e os dados principais.
     ![Definições do projeto](media/sdk/qs-objectivec-project-settings.png)
@@ -54,13 +54,11 @@ As caixas de diálogo que siga, faça as seleções seguintes:
     1. Escolha o diretório de raiz para colocar o projeto. Esta ação irá criar um `helloworld` diretório no seu diretório de raiz que contém todos os ficheiros para o projeto Xcode.
     1. Desative a criação de um repositório de Git para este projeto de exemplo.
     1. Ajustar os caminhos para o SDK no *definições do projeto*.
-        1. No **gerais** separador sob a **estruturas e bibliotecas ligadas** cabeçalho, adicionar a biblioteca do SDK como uma estrutura: **Adicionar estrutura** > **adicionar outros...**  > Navegar para o diretório raiz e escolha o ficheiro `MicrosoftCognitiveServicesSpeech.framework`.
+        1. No **gerais** separador sob a **binários incorporados** cabeçalho, adicionar a biblioteca do SDK como uma estrutura: **adicionar os binários incorporados** > **adicionar outro ...**  > Navegar para o diretório raiz e escolha o ficheiro `MicrosoftCognitiveServicesSpeech.framework`. Isso também adiciona automaticamente a biblioteca do SDK para o cabeçalho **ligado Framework e bibliotecas**.
         ![Framework foi adicionado](media/sdk/qs-objectivec-framework.png)
         1. Vá para o **definições de criação** separador e ativar **todos os** definições.
         1. Adicione o diretório `$(SRCROOT)/..` para o *caminhos de pesquisa do Framework* sob o **caminhos de pesquisa** cabeçalho.
         ![Definição do caminho de pesquisa de estrutura](media/sdk/qs-objectivec-framework-search-paths.png)
-        1. Adicione o diretório `$(SRCROOT)/..` para o *caminhos de pesquisa de Runpath* sob o **Linking** cabeçalho.
-        ![Definição do caminho de pesquisa de Runpath](media/sdk/qs-objectivec-runpaths.png)
 
 
 ## <a name="set-up-the-ui"></a>Definir a interface do usuário
@@ -79,16 +77,21 @@ Clique em **concluir** na caixa de diálogo seguinte sem alterar as definições
 1. Substitua os conteúdos do gerado automaticamente `ViewController.m` de ficheiros por:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
-1. Substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição.
+1. Adicione o pedido de acesso ao microfone. Clique com o botão direito do rato na entrada do ficheiro info. plist da árvore de projeto e selecione **aberto como...**   >  **Código-fonte**. Adicione as seguintes linhas para o `<dict>` secção e, em seguida, guarde o ficheiro.
+    ```xml
+    <key>NSMicrophoneUsageDescription</key>
 
+    <string>Need microphone access for speech recognition from microphone.</string>
+    ```
+1. Substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição.
 1. Substitua a cadeia de caracteres `YourServiceRegion` com o [região](regions.md) associados à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 
 ## <a name="building-and-running-the-sample"></a>Criar e executar o exemplo
 
 1. Tornar a saída de depuração visível (**View** > **depurar área** > **ativar consola**).
-1. Criar e executar o código de exemplo no simulador do iOS selecionando **produto** -> **executar** no menu ou clicando no **reproduzir** botão.
-1. Depois de clicar em "Recognize!" botão na aplicação, deverá ver o conteúdo do áudio de ficheiros "Qual é o clima, como"? na parte inferior do ecrã simulado.
+1. Criar e executar o código de exemplo no simulador do iOS selecionando **produto** -> **executar** no menu ou clicando no **reproduzir** botão. Para executar num dispositivo iOS, ligue o dispositivo à sua máquina de desenvolvimento e selecione o dispositivo como o destino em execução. Atualmente, o SDK de voz apenas suporta plataforma iOS de 64 bits.
+1. Depois de clicar em "Recognize!" botão na aplicação, deverá ver o conteúdo do áudio de ficheiros "Qual é o clima, como"? na parte inferior do ecrã.
 
  ![Aplicação do iOS simulada](media/sdk/qs-objectivec-simulated-app.png)
 

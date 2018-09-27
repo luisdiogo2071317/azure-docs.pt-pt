@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/26/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a4bb5f59e7aa99a676145ba7a6dbd1883cb860cf
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055815"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394331"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um ficheiro do Power BI Desktop
 
@@ -22,11 +22,13 @@ Pode importar um modelo de dados no ficheiro do Power BI Desktop (pbix) para o A
 **Restrições**   
 
 - Importar a partir de um ficheiro pbix utiliza a funcionalidade de designer da web no portal, o que é **pré-visualização**. A funcionalidade é limitada. Para mais avançados modelo desenvolvimento e teste, é melhor usar o Visual Studio (SSDT) e o SQL Server Management Studio (SSMS).
+- Se receber o seguinte erro ao importar, o ficheiro pbix tem funcionalidades de pré-visualização ativadas que ainda não são suportadas no Azure Analysis Services.
+
+    ![Aviso do nível de compatibilidade](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)
 - Tem de ter permissões de administrador do servidor para importar a partir de um ficheiro pbix.
 - O modelo de pbix pode ligar à **base de dados do Azure SQL** e **Azure SQL Data Warehouse** apenas origens de dados.
 - O modelo de pbix não pode ter ao vivo ou ligações do DirectQuery. 
 - Importação poderá falhar se o seu modelo de dados do pbix contém metadados não suportado no Analysis Services.
-
 
 ## <a name="to-import-from-pbix"></a>Para importar a partir do pbix
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 00/19/2018
 ms.author: genli
-ms.openlocfilehash: 6525067ec7a7a3154d1439f15736a1038ab0408c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a029e331129d40b0380fc142d858aa299b7751b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168057"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225451"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mostra a tela azul de erro quando se reinicia uma VM do Azure
 Este artigo descreve os erros de tela azul que poderá encontrar ao inicializar uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos para o ajudar a recolher dados para um pedido de suporte. 
@@ -43,7 +43,7 @@ Pode haver vários motivos, como por que obteria um erro de parada. As causas ma
 - Arquivo de sistema corrompido ou memória
 - Acede a uma aplicação para um setor proibido da memória
 
-## <a name="solution"></a>Solução
+## <a name="collect-memory-dump-file"></a>Recolher o arquivo de despejo de memória
 
 Para resolver este problema, precisaria primeiro a reunir o arquivo de despejo de falha e contacte o suporte com o ficheiro de informação. Para recolher o ficheiro de informação, siga estes passos:
 
@@ -53,7 +53,7 @@ Para resolver este problema, precisaria primeiro a reunir o arquivo de despejo d
 2. [Anexar o disco do SO a uma VM de recuperação](troubleshoot-recovery-disks-portal.md). 
 3. Ambiente de trabalho remoto para a VM de recuperação.
 
-### <a name="collect-dump-file-and-submit-a-support-ticket"></a>Recolher o arquivo de despejo e submeter um pedido de suporte
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de informação e submeter um pedido de suporte
 
 1. Na VM de recuperação, vá para a pasta do windows no disco do SO anexado. Se a letra de unidade que está atribuída ao disco do SO anexado F, terá de ir para F:\Windows.
 2. Localize o ficheiro de memory.dmp th e, em seguida [submeter um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de informação. 

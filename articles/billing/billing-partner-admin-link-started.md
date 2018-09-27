@@ -3,19 +3,19 @@ title: Ligar a conta do Azure para o ID de parceiros | Documentos da Microsoft
 description: ID de parceiro de ligação para a conta de utilizador que utiliza para gerir os recursos do cliente para controlar compromissos com os clientes do Azure.
 services: billing
 author: dhirajgandhi
-ms.author: dhgandhi
+ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ddfe83bf4d10eb3ee9b61ee1f60e60a965047cf9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980212"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391783"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>ID de parceiro de ligação para suas contas do Azure
 

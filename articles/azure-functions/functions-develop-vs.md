@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714450"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395548"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -72,7 +72,7 @@ Para criar e implementar as funções, também terá de:
 
 4. Depois de concluída a atualização, escolha **fechar** e reinicie o Visual Studio.
 
-## <a name="create-an-azure-functions-project"></a>Criar um projeto de funções do Azure
+## <a name="create-an-azure-functions-project"></a>Criar um projeto das Funções do Azure
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
@@ -171,7 +171,9 @@ Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Visual S
 
 Com o projeto em execução, pode testar seu código, como testaria função implementada. Para obter mais informações, consulte [estratégias para testar seu código nas funções do Azure](functions-test-a-function.md). Quando em execução no modo de depuração, pontos de interrupção são atingidos no Visual Studio, conforme o esperado. 
 
-Para obter um exemplo de como testar uma função acionada por fila, consulte a [tutorial de início rápido de função acionada por fila](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Para saber mais sobre como utilizar as ferramentas de núcleo de funções do Azure, veja [código e testar as funções do Azure localmente](functions-run-local.md).
 
@@ -179,7 +181,7 @@ Para saber mais sobre como utilizar as ferramentas de núcleo de funções do Az
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Definições da aplicação de funções
+## <a name="function-app-settings"></a>Definições da Aplicação de funções
 
 Quaisquer configurações adicionadas no Settings tem de ser adicionadas também para a aplicação de funções no Azure. Estas definições não são carregadas automaticamente quando publica o projeto.
 

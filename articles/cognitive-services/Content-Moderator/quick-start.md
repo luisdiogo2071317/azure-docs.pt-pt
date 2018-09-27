@@ -1,20 +1,21 @@
 ---
-title: Introdução ao Azure Content Moderator | Documentos da Microsoft
-description: Como começar com Azure Content Moderator.
+title: Introdução ao Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Como começar com o Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: 39727b4d97ade67b854fe525afad565451cc3d77
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024516"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225299"
 ---
 # <a name="get-started-with-content-moderator"></a>Introdução ao Content Moderator
 

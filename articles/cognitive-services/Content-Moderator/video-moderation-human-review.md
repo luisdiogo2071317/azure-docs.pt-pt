@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - moderação de vídeo | Documentos da Microsoft
+title: Moderação de vídeos com revisão humana - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Utilize a moderação de vídeos assistida e ferramentas de revisão humana para moderar conteúdo inadequado
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714501"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222085"
 ---
-# <a name="video-moderation"></a>Moderação de vídeos
+# <a name="video-moderation-with-human-review"></a>Moderação de vídeos com revisão humana
 
 Utilize Content Moderator assistida [moderação de vídeos](video-moderation-api.md) e [ferramenta de revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) para vídeos moderados e transcrições para adulto (explícita) e o conteúdo para adultos de (suggestive) para obter os melhores resultados para sua empresa.
 

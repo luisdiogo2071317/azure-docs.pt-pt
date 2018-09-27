@@ -4,7 +4,7 @@ description: Saiba como desenvolver e depurar pipelines do Data Factory iterativ
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: ca1ca616fdd097811b3f02285706b3ae8977d737
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034141"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391102"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e de depuração com o Azure Data Factory
 
@@ -42,11 +42,8 @@ Depois de uma execução de teste for bem sucedida, adicionar mais atividades ao
 
 Quando de teste, não tem de publicar as alterações à fábrica de dados antes de selecionar **depurar**. Esta funcionalidade é útil em cenários em que pretende certificar-se de que as alterações funcionam conforme esperado antes de atualizar o fluxo de trabalho de fábrica de dados.
 
-## <a name="more-info-about-debugging"></a>Obter mais informações sobre a depuração
-
-1. As execuções do teste iniciado com o **depurar** capacidade não estão disponíveis na lista de **Monitor** separador. Pode apenas ver executa acionada com **acionar agora**, **agenda**, ou **janela em cascata** acionadores no **Monitor** separador. Pode ver o último teste executar iniciada com o **depurar** capacidade no **saída** janela da tela de pipeline.
-
-2. Selecionando **depurar** , na verdade, executa o pipeline. Então, por exemplo, se o pipeline contém uma atividade de cópia, a execução de teste copia dados de origem para destino. Como resultado, recomendamos que utilize o teste de pastas em suas atividades de cópia e outras atividades durante a depuração. Depois de ter depurado o pipeline, mude para as pastas reais que pretende utilizar nas operações normais.
+> [!IMPORTANT]
+> Selecionando **depurar** , na verdade, executa o pipeline. Então, por exemplo, se o pipeline contém uma atividade de cópia, a execução de teste copia dados de origem para destino. Como resultado, recomendamos que utilize o teste de pastas em suas atividades de cópia e outras atividades durante a depuração. Depois de ter depurado o pipeline, mude para as pastas reais que pretende utilizar nas operações normais.
 
 ## <a name="visualizing-debug-runs"></a>Visualização de execuções de depuração
 
@@ -55,6 +52,10 @@ Quando de teste, não tem de publicar as alterações à fábrica de dados antes
 ![Selecione o ícone de execuções de depuração do Active Directory do Vista](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Lista de exemplos de depuração do Active Directory é executado](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>Depuração de monitorização é executado
+
+As execuções do teste iniciado com o **depurar** capacidade não estão disponíveis na lista de **Monitor** separador. Pode apenas ver executa acionada com **acionar agora**, **agenda**, ou **janela em cascata** acionadores no **Monitor** separador. Pode ver o último teste executar iniciada com o **depurar** capacidade no **saída** janela da tela de pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Definindo pontos de interrupção para depuração
 

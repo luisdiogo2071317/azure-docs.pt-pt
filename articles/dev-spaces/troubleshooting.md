@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: c6ca3003c1338f3e057c76d9e04d8b0cbd2210c7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721199"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226896"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -28,11 +28,11 @@ Para resolver problemas com mais eficiência, ele pode ajudar a criar registos m
 
 Para a extensão do Visual Studio, defina o `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` variável de ambiente para 1. Certifique-se de que reinicie o Visual Studio para a variável de ambiente para entrar em vigor. Uma vez ativada, os registos detalhados serão gravados no seu `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` diretório.
 
-Na CLI, o utilizador pode apresentar mais informações durante a execução do comando utilizando o `--verbose` mudar.
+Na CLI, o utilizador pode apresentar mais informações durante a execução do comando utilizando o `--verbose` mudar. Também pode procurar registos mais detalhados no `%TEMP%\Azure Dev Spaces`. Num Mac, o diretório TEMP do diretório pode ser encontrado ao executar `echo $TMPDIR` de uma janela de terminal. Num computador Linux, o diretório TEMP do diretório é normalmente `/tmp`.
 
 ## <a name="debugging-services-with-multiple-instances"></a>Depuração de serviços com várias instâncias
 
-Neste momento, os espaços de desenvolvimento do Azure suporta depuração apenas numa única instância (pod). O ficheiro de azds.yaml contém uma definição, replicaCount, que indica o número de instâncias que será executada para o seu serviço. Se alterar o replicaCount para configurar a sua aplicação para executar várias instâncias para um determinado serviço, o comportamento do depurador poderá não ser conforme esperado.
+Neste momento, espaços de desenvolvimento do Azure funciona melhor quando a depuração de uma única instância (pod). O ficheiro de azds.yaml contém uma definição, replicaCount, que indica o número de pods que será executada para o seu serviço. Se alterar o replicaCount para configurar a aplicação seja executada vários pods para um determinado serviço, o depurador se ligará o pod primeiro (quando listados por ordem alfabética). Se desse pod recicla por qualquer motivo, irá anexar o depurador a um pod diferente, resultando possivelmente num comportamento inesperado.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erro "Falha ao criar o controlador de espaços de desenvolvimento do Azure"
 

@@ -1,6 +1,6 @@
 ---
-title: Alterar o seu cartão de crédito do Azure | Microsoft Docs
-description: Descreve como como alterar o cartão de crédito utilizado pagar para uma subscrição do Azure
+title: Alterar o seu cartão de crédito do Azure | Documentos da Microsoft
+description: Descreve como como alterar o cartão de crédito utilizado para pagar uma subscrição do Azure
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,93 +14,94 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 6b0db12da7c187ce80f1d55ce8b9900601033068
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395496"
 ---
-# <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou de débito do Azure
+# <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito para o Azure
 
-No Centro de conta, pode adicionar um novo cartão de crédito, atualizar um cartão de crédito existente ou eliminar um cartão de crédito não utilizar. Tem de ser [administrador da conta](billing-subscription-transfer.md#whoisaa) para efetuar estas alterações.
+No Centro de contas, pode adicionar um novo cartão de crédito, atualizar um cartão de crédito existente ou eliminar um cartão de crédito que não usa. Tem de ser [conta de administrador](billing-subscription-transfer.md#whoisaa) para efetuar estas alterações.
 
-**Pretende mudar pagar por fatura?** Consulte [pagar para as subscrições do Azure por fatura](billing-how-to-pay-by-invoice.md).
+**Deseja mudar para pagar por fatura?** Ver [comprar subscrições do Azure por fatura](billing-how-to-pay-by-invoice.md).
  
 <a id="addcard"></a>
 
-## <a name="add-a-new-credit-or-debit-card"></a>Adicionar um novo cartão de crédito ou de débito
+## <a name="add-a-new-credit-or-debit-card"></a>Adicionar um novo cartão de crédito ou débito
 
-1. Iniciar sessão para o [Centro de contas](https://account.windowsazure.com/Subscriptions) como o administrador da conta.
+1. Inicie sessão para o [Centro de contas](https://account.windowsazure.com/Subscriptions) como o administrador de conta.
 1. Selecione uma subscrição.
 1. No lado direito da página, selecione **Gerir métodos de pagamento**.
 
     ![Captura de ecrã que mostra a opção de métodos de pagamento de gerir selecionada.](./media/billing-how-to-change-credit-card/changesub_new.png)
 1. Selecione "+" para adicionar um cartão.
 
-    ![Captura de ecrã que mostra a opção de editar junto o método de pagamento.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Introduza o crédito ou débito os detalhes do cartão.
+    ![Captura de ecrã que mostra a opção de editar ao lado do método de pagamento.](./media/billing-how-to-change-credit-card/editcard_new.png)
+1. Detalhes do cartão de débito ou introduza o crédito.
 1. Selecione **Guardar**. 
 
-Se obtiver um erro depois de adicionar o cartão de crédito, consulte [recusado de cartão de crédito no Azure inscrição](billing-credit-card-fails-during-azure-sign-up.md).
+Se obtiver um erro depois de adicionar o cartão de crédito, consulte [recusado de cartão de crédito no Azure, inscreva-se](billing-credit-card-fails-during-azure-sign-up.md).
 
-## <a name="update-existing-credit-or-debit-card"></a>Atualizar crédito existente ou de débito
+## <a name="update-existing-credit-or-debit-card"></a>Atualizar o cartão de crédito existente ou cartão de débito
 
-Se o seu cartão de crédito obtém renovado e o número permanece o mesmo, atualize os detalhes de cartão de crédito existente, como a data de expiração. Se as alterações de número de cartão de crédito porque o cartão é perdido, roubados ou expirado, siga os passos a [adicionar um cartão de crédito como um método de pagamento](#addcard) secção. Não precisa de atualizar o CVV.
+Se for renovado seu cartão de crédito e o número permanece o mesmo, atualize os detalhes de cartão de crédito existente como a data de expiração. Se as alterações de número de cartão de crédito porque o cartão é perdido, roubado ou expirado, siga os passos a [adicionar um cartão de crédito como um método de pagamento](#addcard) secção. Não precisa de atualizar o CVV.
 
-1. Iniciar sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta.
-1. Selecione a subscrição que está ligada para o cartão.
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador de conta.
+1. Selecione a subscrição que está ligada ao cartão.
 1. Selecione **gerir métodos de pagamento**.
-1. Selecione **editar** junto a placa de que pretende atualizar.
-1. Atualize os detalhes de cartão de crédito ou de débito.
+1. Selecione **editar** junto do cartão que pretende atualizar.
+1. Atualize os detalhes de cartão de crédito ou débito.
 1. Selecione **Guardar**.
 
-## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Utilizar um cartão de crédito diferente para a subscrição do Azure
+## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Utilizar outro cartão de crédito para a subscrição do Azure
 
-1. Iniciar sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta.
-1. Selecione a subscrição que está ligada para o cartão.
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador de conta.
+1. Selecione a subscrição que está ligada ao cartão.
 1. No lado direito da página, selecione **Gerir métodos de pagamento**.
-1. Clique em **utilizar em vez disso,** junto a placa de que pretende utilizar. Isto também atualiza quaisquer outras subscrições atualmente associadas este cartão. 
+1. Clique em **utilizar em vez disso** junto ao cartão que pretende utilizar. Este procedimento também atualiza quaisquer outras subscrições que está associadas este cartão. 
 
-## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Remover um cartão de crédito ou de débito da conta
+## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Remover um cartão de crédito ou débito a partir da conta
 
-1. Iniciar sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta.
-1. Selecione a subscrição que está ligada para o cartão.
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como administrador de conta.
+1. Selecione a subscrição que está ligada ao cartão.
 3. No lado direito da página, selecione **Gerir métodos de pagamento**.
 4. Clique em **eliminar** para o cartão de crédito que pretende eliminar.
 
-Se o seu cartão de crédito é associado a outras subscrições do Microsoft Active Directory, não é possível removê-lo da sua conta do Azure. Remova o cartão de crédito de todas as subscrições de Active Directory com a Microsoft e tente novamente.
+Se o seu cartão de crédito é associado a outras subscrições do Microsoft Active Directory, não é possível removê-lo a partir da sua conta do Azure. Remova o cartão de crédito de todas as subscrições ativas que tem com a Microsoft e tente novamente.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>A minha subscrição está desativada. Por que motivo não é possível remover o meu cartão de crédito agora?
+### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>A minha subscrição está desativada. Por que motivo não posso remover meu cartão de crédito agora?
 
-Após a sua subscrição está desativada ou cancelada, aguardaremos 90 dias antes de eliminar permanentemente a sua subscrição. Vamos manter o seu método de pagamento no ficheiro durante o período de retenção caso pretende reativar a subscrição. Depois disso, a subscrição é totalmente eliminada.
+Após a sua subscrição está desativada ou foi cancelada, podemos esperar 90 dias antes de serem eliminados permanentemente a sua subscrição. Mantemos o método de pagamento registado durante o período de retenção, no caso de que pretende reativar a subscrição. Depois disso, é completamente eliminar a subscrição.
 
-Se precisar de remover o seu cartão de crédito ou de débito antes de terminar o período de retenção de 90 dias, [reativar a sua subscrição](billing-subscription-become-disable.md). Se não é possível reativar, [contacte o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se tiver de remover o seu cartão de crédito ou débito antes de terminar o período de retenção de 90 dias, [reativar a sua subscrição](billing-subscription-become-disable.md). Se não é possível reativar, [contacte o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Por que motivo posso manter obter "a sua sessão de início de sessão expirou. Clique aqui para voltar a iniciar sessão"?
+### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Por que posso continuar a receber "a sua sessão de início de sessão expirou. Clique aqui para voltar a iniciar sessão"?
 
-Se manter a obter esta mensagem de erro, mesmo se já tiver terminar sessão e iniciá-la no, tente novamente com uma sessão de navegação privada.
+Se continuar a receber esta mensagem de erro, mesmo que já terminada e novamente no, tente novamente com uma sessão de navegação privada.
 
-### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Como utilizar um cartão diferente para cada subscrição que tiver?
+### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Como posso utilizar um cartão diferente para cada subscrição que tenho?
 
-Infelizmente, se as suas subscrições já estiver a utilizar a mesma placa, não é possível separar-lhe utilizar diferentes cartões. No entanto, quando se inscreve para uma nova subscrição, pode optar por utilizar um novo método de pagamento para essa subscrição.
+Infelizmente, se as suas subscrições já estiver a utilizar o cartão, não é possível para separá-las para utilizar cartões diferentes. No entanto, quando se inscreve para uma nova subscrição, pode optar por utilizar um novo método de pagamento para essa subscrição.
 
-### <a name="how-do-i-make-payments"></a>Como efetuar pagamentos?
+### <a name="how-do-i-make-payments"></a>Como me certifico de pagamentos?
 
-Se configurou um cartão de crédito ou de um débito como método de pagamento, iremos cobram automaticamente seu cartão após cada período de faturação. Não precisa de fazer nada.
+Se configurar um cartão de crédito ou um cartão de débito como o método de pagamento, é cobrada automaticamente seu cartão após cada período de faturação. Não precisa de fazer nada.
 
-Se estiver [pagar por fatura](billing-how-to-pay-by-invoice.md), envie o pagamento para a localização indicado na parte inferior da sua fatura.
+Se estiver [pagar por fatura](billing-how-to-pay-by-invoice.md), envie o pagamento para a localização listado na parte inferior da sua fatura.
 
-### <a name="how-do-i-make-a-one-time-payment"></a>Como efetuar um única pagamento?
+### <a name="how-do-i-make-a-one-time-payment"></a>Como faço para que um único pagamento?
 
-Infelizmente, Azure atualmente não suporta uma única pagamentos para cartões de crédito ou de débito. 
+Infelizmente, o Azure atualmente não suporta pagamentos de uso individual para cartões de crédito ou débito. 
 
-### <a name="how-do-i-change-the-tax-id"></a>Como posso alterar o ID de dedução dos impostos?
+### <a name="how-do-i-change-the-tax-id"></a>Como posso alterar o ID de imposto?
 
-Para adicionar ou atualizar o ID de dedução dos impostos, visite [ **perfil** no Centro de contas do Azure](https://account.azure.com/Profile), em seguida, selecione **dedução dos impostos registo**. Este ID de dedução dos impostos é utilizada para cálculos de exclusão dedução dos impostos e é apresentado na sua fatura.
+Para adicionar ou atualizar o ID de imposto, visite [ **perfil** no Centro de contas do Azure](https://account.azure.com/Profile), em seguida, selecione **imposto sobre vendas registo**. O NIF é utilizado para cálculos de isenção fiscal e é apresentado na sua fatura.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

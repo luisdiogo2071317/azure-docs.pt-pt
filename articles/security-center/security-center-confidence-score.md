@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 03c4a36330ca17eea4233e928d6b728e94e15292
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 18b7b1b3d2a74b6e3aeb671154de48bd7b7f1e00
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299199"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218059"
 ---
 # <a name="alert-confidence-score"></a>Pontuação de confiança de alerta 
 
@@ -29,7 +29,7 @@ A pontuação de confiança no Centro de segurança pode ajudar a triagem de sua
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Como a pontuação de confiança é acionada
 
-Os alertas são gerados quando processos suspeitos são detetados em execução nas suas máquinas virtuais. Centro de segurança analisa e analisa estes alertas em máquinas virtuais do Windows em execução no Azure. Ele executa verificações automatizadas e correlações utilizando algoritmos avançados em várias entidades e fontes de dados em toda a organização e todos os seus recursos do Azure e apresenta-com uma pontuação de confiança que é uma medida confiante do Centro de segurança é que o alerta é genuíno e tem de ser investigado.
+Os alertas são gerados quando processos suspeitos são detetados em execução nas suas máquinas virtuais. Centro de segurança analisa e analisa estes alertas em máquinas virtuais do Windows em execução no Azure. Ele realiza verificações automatizadas e correlações utilizando algoritmos avançados em várias entidades e fontes de dados em toda a organização e todos os seus recursos do Azure e apresenta-se com uma pontuação que é uma medida confiante do Centro de segurança é de confiança que o alerta é genuíno e tem de ser investigado.
 
 ## <a name="understanding-the-confidence-score"></a>Noções básicas sobre a pontuação de confiança
 

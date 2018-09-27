@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: d17215fe05a4795bd539759d98695ec2f6b0df3d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919131"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393504"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -33,7 +33,7 @@ Quando se inscreve para o Azure, existem várias coisas que pode fazer para ter 
 - Se se inscreveu para obter [conta gratuita do Azure](https://azure.microsoft.com/free/), [pode usar alguns dos serviços mais populares do Azure gratuitamente durante 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações apresentadas abaixo, veja [evitar ser cobrado gratuitamente conta](billing-avoid-charges-free-account.md).
 
 > [!div class="nextstepaction"]
-> [Ajude a melhorar os documentos de faturas do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
+> [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obtenha custos estimados antes de adicionar serviços do Azure
 
@@ -138,7 +138,7 @@ Para obter mais informações, consulte [recomendações de custos do Advisor](.
 
 Após o fim do seu ciclo de faturação, a fatura irá tornar-se disponível. Também pode [transferir anteriores faturas e ficheiros de utilização em pormenor](billing-download-azure-invoice-daily-usage-date.md) para se certificar de que foram bem cobrados corretamente. Para obter mais informações sobre como comparar a sua utilização diária com a sua fatura, consulte [compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
-### <a name="billing-api"></a>API de faturação
+### <a name="billing-api"></a>API de Faturação
 
 Utilize a nossa API de faturação para obter programaticamente os dados de utilização. Utilize a API de RateCard e a API de utilização em conjunto para obter a sua utilização faturada. Para obter mais informações, consulte [obter informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md).
 

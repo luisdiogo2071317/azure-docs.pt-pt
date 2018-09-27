@@ -5,15 +5,15 @@ services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 8/8/2018
+ms.date: 9/24/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: c3b35666a4340818fa9fcabea25541cd5d27c13b
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f5eb4b630039401fa6947ab6734274051f290a94
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060489"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47185709"
 ---
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "47060489"
 | Diagnóstico | Monitor do Azure, incluindo bytes e contadores de pacotes, estado de funcionamento de métricas multidimensionais sonda de estado, as tentativas de ligação (TCP SYN), estado de funcionamento da ligação de saída (SNAT com êxito ou falhados fluxos), medidas de plano de dados do Active Directory | O Azure Log Analytics para o Balanceador de carga público apenas, alerta de esgotamento de SNAT, contagem de estado de funcionamento do conjunto de back-end. |
 | HA portas | Balanceador de Carga Interno | Não disponível |
 | Seguro por padrão | Predefinição fechada para pontos finais públicos do Balanceador de carga e de IP e um grupo de segurança de rede deve ser usado para explicitamente lista de permissões para o tráfego para o fluxo. | Padrão aberto, grupo de segurança de rede opcional. |
-| [Ligações de saída](../articles/load-balancer/load-balancer-outbound-connections.md) | Vários front-ends com por sair em regra de balanceamento de carga. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  Pontos finais de serviço de rede virtual pode ser contatados sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços IP públicos, incluindo serviços de PaaS do Azure não está disponíveis como pontos finais de serviço de VNet, tem de ser contatados por meio de conectividade de saída e contagem para dados processados. Quando apenas um balanceador de carga interno está a servir uma máquina virtual, as ligações de saída através do padrão SNAT não estão disponíveis. Programação de SNAT de saída é o protocolo de transporte específico com base no protocolo de regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estão presentes.  Quando uma máquina virtual está a servir apenas Balanceador de carga interno, é utilizada a predefinição SNAT. |
+| [Ligações de saída](../articles/load-balancer/load-balancer-outbound-connections.md) | Pode definir explicitamente NAT de saída com base em conjunto com [regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Pode usar vários front-ao ends com por carga balanceamento regra sair. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  Pontos finais de serviço de rede virtual pode ser contatados sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços IP públicos, incluindo serviços de PaaS do Azure não está disponíveis como pontos finais de serviço de VNet, tem de ser contatados por meio de conectividade de saída e contagem para dados processados. Quando apenas um balanceador de carga interno está a servir uma máquina virtual, as ligações de saída através do padrão SNAT não estão disponíveis; utilizar [regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md) em vez disso. Programação de SNAT de saída é o protocolo de transporte específico com base no protocolo de regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estão presentes.  Quando uma máquina virtual está a servir apenas Balanceador de carga interno, é utilizada a predefinição SNAT. |
 | [Regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Alocação de porta de declarativa configuração de NAT saída, incluindo o endereço de IP público (s) ou s IP público, configurável saída tempo limite de inatividade, SNAT personalizado | Não disponível |
 |  [Reposição TCP em inatividade](../articles/load-balancer/load-balancer-tcp-reset.md) | Ativar o TCP repostas (TCP RST) no tempo limite de inatividade em qualquer regra | Não disponível |
 | [Vários front-ends](../articles/load-balancer/load-balancer-multivip-overview.md) | Entrada e [saída](../articles/load-balancer/load-balancer-outbound-connections.md) | Apenas de entrada |

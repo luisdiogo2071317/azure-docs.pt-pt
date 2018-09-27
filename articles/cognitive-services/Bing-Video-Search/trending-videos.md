@@ -1,25 +1,25 @@
 ---
-title: Procurar na web vídeos tendências | Microsoft Docs
-description: Mostra como utilizar a API de pesquisa de vídeo do Bing para pesquisar na web vídeos tendências.
+title: Pesquisar na web para vídeos populares - pesquisa de vídeos do Bing
+titlesuffix: Azure Cognitive Services
+description: Mostra como utilizar a API de pesquisa de vídeos do Bing para pesquisar na web para vídeos populares.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 897A28A3-0980-484E-814F-FFE1D5C885E6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 8db7fcf77042631260b4b165bd3d44053827f3ce
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8a6ccc9ea8cf9468d7638360c9db8131bc6dc5be
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351416"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222051"
 ---
-# <a name="get-trending-videos"></a>Obter análises históricas vídeos  
+# <a name="get-trending-videos"></a>Obter vídeos populares  
 
-Para obter vídeos tendências hoje, envie o pedido GET seguinte:  
+Para obter vídeos populares da atualidade, envie o pedido GET seguinte:  
   
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
@@ -31,24 +31,24 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-Os seguintes mercados suportam vídeos tendências.  
+Os seguintes mercados suportam vídeos populares.  
  
 -   EN-AU (inglês, Austrália)  
 -   en-CA (inglês, Canadá)  
--   en-GB (inglês, ótimo Britain)  
--   EN-ID (inglês, Indonesia)  
+-   en-GB (em inglês, Grã-Bretanha)  
+-   EN-ID (inglês, Indonésia)  
 -   EN-IE (inglês, Irlanda)  
--   EN-IN (inglês, Índia)  
+-   EN-Índia (inglês, Índia)  
 -   EN-NZ (inglês, Nova Zelândia)  
 -   EN-PH (inglês, Filipinas)  
 -   EN-SG (inglês, Singapura)  
 -   EN-US (inglês, Estados Unidos)  
--   EN WW (código de agregação de inglês, Worldwide)  
--   EN-ZA (inglês, África do Sul)  
+-   EN-WW (inglês, Worldwide agregar código)  
+-   ZA en (inglês, África do Sul)  
 -   zh-CN (chinês, China)
 
   
-O exemplo seguinte mostra uma resposta que contém vídeos tendências.  
+O exemplo seguinte mostra uma resposta que contém vídeos populares.  
 
 ```  
 {  
@@ -113,7 +113,7 @@ O exemplo seguinte mostra uma resposta que contém vídeos tendências.
 }  
   
 ```  
-A resposta contém uma lista de vídeos por categoria e subcategoria. Por exemplo, se a lista de categorias contidas uma categoria de vídeos de música e um dos respetivos subcategorias foi parte superior, pode criar uma categoria de vídeos de música superior na sua experiência de utilizador. Pode, em seguida, utilizar o `thumbnailUrl`, `displayText`, e `webSearchUrl` campos para criar um mosaico clicável em cada categoria (por exemplo, vídeos de música superior). Quando o utilizador clica no mosaico, se estiver a direcionado para browser de vídeo de Bing onde o vídeo é reproduzido.
+A resposta contém uma lista de vídeos por categoria e subcategoria. Por exemplo, se a lista de categorias continha uma categoria de vídeos de música e foi uma das respetivas subcategorias parte superior, pode criar uma categoria de vídeos de música da parte superior na sua experiência de utilizador. Em seguida, pode utilizar o `thumbnailUrl`, `displayText`, e `webSearchUrl` campos para criar um mosaico clicável em cada categoria (por exemplo, vídeos de música superior). Quando o usuário clica no mosaico, ele estão levado ao navegador de vídeos do Bing em que o vídeo é reproduzido.
 
-A resposta também contém vídeos de faixa, que são os vídeos tendências mais populares. Os vídeos de faixa podem ter um ou mais das categorias.  
+A resposta também contém vídeos de faixa, que são os mais populares vídeos mais populares. Os vídeos de faixa podem ter um ou mais das categorias.  
   

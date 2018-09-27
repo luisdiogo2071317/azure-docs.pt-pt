@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: 8ac3bb2c95420eb4a608f003f3d937e3a47c272b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: cwatson
+ms.openlocfilehash: a9ca57ce916dc3f9bc8d451063596519d1d6649c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448235"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391352"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar programaticamente Dashboards do Azure
 
@@ -45,7 +45,7 @@ Para criar um novo dashboard, utilize o comando de dashboard novo no ecrã de pr
 Em seguida, pode utilizar a Galeria de mosaicos para localizar e adicionar mosaicos. Mosaicos serem adicionados arrastando e soltando-los. Alguns mosaicos suportam o redimensionamento por meio de uma alça de arrasto, enquanto outros tamanhos que podem ser vistos no respetivo menu de contexto de correções de suporte.
 
 ### <a name="drag-handle"></a>Alça de arrasto
-![Arraste a alça](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+![Alça de arrasto](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
 ### <a name="fixed-sizes-via-context-menu"></a>Tamanhos fixos através do menu de contexto
 ![menu de contexto de tamanhos](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)

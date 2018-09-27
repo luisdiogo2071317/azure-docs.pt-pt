@@ -1,63 +1,64 @@
 ---
-title: Moderada de texto, utilizando a API de moderação interrupção de texto no Moderator conteúdo do Azure | Microsoft Docs
-description: Test-Drive moderação de interrupção de texto, utilizando a API de moderação interrupção de texto na consola do online.
+title: Texto moderado com a API de moderação de texto - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Testar a moderação de texto com a API de moderação de texto na consola do online.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352723"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219792"
 ---
-# <a name="moderate-text-from-the-api-console"></a>Moderada texto a partir da consola de API
+# <a name="moderate-text-from-the-api-console"></a>Texto moderado, a partir da consola de API
 
-Utilize o [texto moderação interrupção API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure conteúdo Moderator para analisar o conteúdo de texto. A operação analisa o conteúdo para profanity e compara o conteúdo contra blacklists personalizados e partilhados.
+Utilize o [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure Content Moderator para analisar o conteúdo de texto. A operação analisa os seus conteúdos relativamente a profanidades e compara o conteúdo em relação a listas de bloqueios personalizadas e partilhados.
 
 
-## <a name="get-your-api-key"></a>Obter a chave de API
-Antes de pode test-drive API na consola do online, terá da chave de subscrição. Isto está localizado no **definições** separador o **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, consulte [descrição geral](overview.md).
+## <a name="get-your-api-key"></a>Obtenha a chave de API
+Antes de pode testar a API na consola do online, terá a chave de subscrição. Isto está localizado no **configurações** separador a **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, consulte [descrição geral](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegue para a referência de API
-Vá para o [referência da API de moderação interrupção de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Vá para o [referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   O **texto - ecrã** é aberta a página.
 
 ## <a name="open-the-api-console"></a>Abra a consola de API
-Para **consola de teste de Open API**, selecione a região que melhor coincida descreve a localização. 
+Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização. 
 
-  ![Texto - seleção de região de página do ecrã](images/test-drive-region.png)
+  ![Texto - seleção de região da página de ecrã](images/test-drive-region.png)
 
   O **texto - ecrã** é aberta a consola de API.
 
 ## <a name="select-the-inputs"></a>Selecione as entradas
 
 ### <a name="parameters"></a>Parâmetros
-Selecione os parâmetros de consulta que pretende utilizar no seu ecrã de texto. Neste exemplo, utilizar o valor predefinido para **idioma**. Pode também deixar em branco porque a operação irá detetar automaticamente o idioma provável como parte da sua execução.
+Selecione os parâmetros de consulta que pretende utilizar no seu texto na tela. Neste exemplo, utilize o valor predefinido para **linguagem**. Pode também deixá-lo em branco porque a operação irá detetar automaticamente o idioma provavelmente como parte de sua execução.
 
 > [!NOTE]
-> Para o **idioma** parâmetro, atribuir `eng` ou deixe vazio para ver a máquina assistida por **classificação** resposta (funcionalidade de pré-visualização). **Esta funcionalidade só suporta o inglês**.
+> Para o **linguagem** parâmetro, atribuir `eng` ou deixe vazio para ver o assistida **classificação** resposta (funcionalidade de pré-visualização). **Esta funcionalidade só suporta o inglês**.
 >
-> Para **termos profanity** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas suportados listados neste artigo, ou deixe em branco.
+> Para **termos de linguagem inapropriada** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte demonstrados neste artigo ou deixe-o vazio.
 
-Para **autocorrect**, **PII**, e **classificar (pré-visualização)**, selecione **verdadeiro**. Deixe o **ListId** campo vazio.
+Para **autocorreção**, **PII**, e **classificar (pré-visualização)**, selecione **verdadeiro**. Deixe o **ListId** campo vazio.
 
   ![Texto - parâmetros de consulta da consola de ecrã](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Tipo de conteúdo
-Para **Content-Type**, selecione o tipo de conteúdo que pretende ecrã. Neste exemplo, utilizar a predefinição **texto/plain** tipo de conteúdo. No **Ocp-Apim-Subscription-Key** box, introduza a chave de subscrição.
+Para **Content-Type**, selecione o tipo de conteúdo que pretende ecrã. Neste exemplo, utilize a predefinição **text/plain** tipo de conteúdo. Na **Ocp-Apim-Subscription-Key** , introduza a chave de subscrição.
 
 ### <a name="sample-text-to-scan"></a>Texto de exemplo para analisar
-No **corpo do pedido** box, introduza algum texto. O exemplo seguinte mostra um erro de digitação intencional no texto.
+Na **corpo do pedido** , introduza algum texto. O exemplo seguinte mostra um erro de digitação intencional no texto.
 
 > [!NOTE]
-> O número de segurança social inválidos no texto de exemplo seguinte é intencional. O objetivo é transmitir o exemplo de entrada e saída de formato.
+> O número de segurança social inválidos no texto de exemplo a seguir é intencional. O objetivo é transmitir a entrada de exemplo e formato de saída.
 
 ```
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -67,21 +68,21 @@ No **corpo do pedido** box, introduza algum texto. O exemplo seguinte mostra um 
 
 ### <a name="text-classification-feature"></a>Funcionalidade de classificação de texto
 
-No exemplo seguinte, verá de resposta de classificação do conteúdo Moderator texto assistida por máquina. Ajuda a detetar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser considerado como inapropriado, dependendo de contexto. Para além de conveying a probabilidade de cada categoria, este poderá recomendar uma revisão humana do conteúdo. A funcionalidade utiliza um modelo preparado para identificar possíveis idioma abusivo, derogatory ou discriminatory. Isto inclui slang, abreviadas palavras, palavras ofensivas e intencionalmente com erros ortográficos para revisão. 
+No exemplo seguinte, verá de resposta de classificação de texto assistida do Content Moderator. Ajuda a detetar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser considerado como inadequado consoante o contexto. Para além de transmitir a probabilidade de cada categoria, ele poderá recomendar uma revisão de segurança do conteúdo. A funcionalidade utiliza um modelo preparado para identificar possíveis linguagem abusiva, depreciativo ou discriminatory. Isto inclui gíria, abreviadas palavras, palavras ofensivas e intencionalmente com erros ortográficos para revisão. 
 
 #### <a name="explanation"></a>Explicação
 
-- `Category1` representa a presença potencial de idioma que pode ser considerada sexually explícita ou para adultos em determinadas situações.
-- `Category2` representa a presença potencial de idioma que pode ser considerada sexually suggestive ou madura em determinadas situações.
-- `Category3` representa a presença potencial de idioma que pode ser considerada ofensiva em determinadas situações.
-- `Score` está entre 0 e 1. Quanto maior for a classificação, quanto maior for o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo de análises, em vez de resultados manualmente codificados. Recomendamos que teste com o seus próprios conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
-- `ReviewRecommended` é true ou false, dependendo do modelo de pontuação interno limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base nas políticas os respetivos conteúdas.
+- `Category1` representa a presença de potencial de idioma que pode ser considerada sexualmente explícita ou para adultos em determinadas situações.
+- `Category2` representa a presença de potencial de idioma que pode ser considerada sexualmente suggestive ou madura e em determinadas situações.
+- `Category3` representa a presença de potencial de idioma que pode ser considerada ofensiva em determinadas situações.
+- `Score` é entre 0 e 1. Quanto maior for a pontuação, maior será o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo estatístico em vez de resultados codificados manualmente. Recomendamos que teste com o seu próprio conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
+- `ReviewRecommended` é true ou false dependendo da pontuação interna limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base em suas diretivas de conteúdo.
 
 ### <a name="analyze-the-response"></a>Analisar a resposta
-A resposta seguinte mostra as informações de vários partir da API de. Contém profanity potencial, PII, classificação (pré-visualização) e a versão de auto-corrigido.
+A seguinte resposta mostra as várias informações da API. Ela contém potencial linguagem inapropriada, PII, classificação (pré-visualização) e a versão corrigidas automaticamente.
 
 > [!NOTE]
-> A funcionalidade de 'Classificação' assistida por máquina está em pré-visualização e suporta apenas inglês.
+> A funcionalidade de "Classificação" assistida está em pré-visualização e suporta apenas o inglês.
 
 ```
 {
@@ -161,8 +162,8 @@ A resposta seguinte mostra as informações de vários partir da API de. Contém
 }
 ```
 
-Para obter uma explicação detalhada de todas as secções na resposta JSON, consulte o [descrição geral de moderação de interrupção API texto](text-moderation-api.md).
+Para obter uma explicação detalhada de todas as secções na resposta JSON, consulte a [descrição geral da API de moderação de texto](text-moderation-api.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilizar a API REST no seu código ou começar com o [guia de introdução do texto moderação interrupção .NET](text-moderation-quickstart-dotnet.md) para integrar com a sua aplicação.
+Utilizar a API REST no seu código ou começar com o [guia de introdução de .NET de moderação de texto](text-moderation-quickstart-dotnet.md) para integrar com a sua aplicação.

@@ -14,19 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 79cc543e2a106fa8cbff31bdd0e6bb35afe68e4b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918857"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392045"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilizar APIs de faturação do Azure para obter informações sobre sua utilização do Azure programaticamente
-Utilize APIs de faturação do Azure para extrair dados de utilização e de recursos em suas ferramentas de análise de dados preferencial. A utilização de recursos do Azure e RateCard APIs podem ajudá-lo a prever e gerir os seus custos com precisão. As APIs são implementadas como um fornecedor de recursos e a parte da família de APIs expostas pelo Azure Resource Manager.  
+Utilize APIs de faturação do Azure para extrair dados de utilização e de recursos em suas ferramentas de análise de dados preferencial. As APIs de Utilização de Recursos do Azure e de RateCard podem ajudá-lo a prever e gerir os seus custos com precisão. As APIs são implementadas como um fornecedor de recursos e a parte da família de APIs expostas pelo Azure Resource Manager.  
 
 > [!div class="nextstepaction"]
-> [Ajude a melhorar os documentos de faturas do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>API de transferência de faturas do Azure (pré-visualização)
 Uma vez a [participar tiver sido concluída](billing-manage-access.md#opt-in), notas fiscais de download com a versão de pré-visualização [API de nota fiscal](/rest/api/billing). As funcionalidades incluem:
@@ -65,7 +65,7 @@ Aqui estão alguns dos cenários que são possíveis com a combinação da utili
   * Também pode determinar se o outro tipo de oferta do Azure fornece uma melhor taxa sobre um recurso do Azure.
   
 ## <a name="partner-solutions"></a>Soluções de parceiros
-[Cloud Cruiser e integração de APIS de faturação do Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) descreve como [Cloud Cruiser Express para o Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funciona diretamente a partir do portal do Windows Azure Pack (WAP). Pode gerir perfeitamente aspectos operacionais e financeiros da Microsoft Azure alojada ou privada nuvem pública de uma interface de utilizador único.   
+[Cloud Cruiser and Microsoft Azure Billing API Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) (Cloud Cruiser e Integração da API de Faturação do Microsoft Azure) descreve como o [Cloud Cruiser's Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funciona diretamente a partir do portal do Windows Azure Pack (WAP). Pode gerir facilmente os aspetos operacionais e financeiros da cloud privada ou pública alojada do Microsoft Azure a partir de uma única interface de utilizador.   
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Veja os exemplos de código no GitHub:

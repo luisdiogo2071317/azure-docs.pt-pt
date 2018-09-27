@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4219878673bbb3560ca13f09eb0fde940b2b17e3
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987911"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222765"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -25,9 +25,7 @@ Pode começar a utilizar com uma pequena quantidade de dados para uma prova de c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O **texto em voz** funcionalidade de personalização de voz está atualmente em pré-visualização privada. [Preencha o formulário de aplicação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para ser considerado para o acesso.
-
-Também precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar um](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligue-se a sua subscrição para o portal de voz personalizada da seguinte forma.
+Terá de uma conta do Azure e uma subscrição para o serviço de voz. [Criar um](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligue-se a sua subscrição para o portal de voz personalizada da seguinte forma.
 
 1. Inicie sessão no [portal de voz personalizada](https://customvoice.ai) com a mesma conta Microsoft que utilizou para aplicam-se para obter acesso.
 
@@ -35,16 +33,13 @@ Também precisa de uma conta do Azure e uma subscrição para o serviço de voz.
 
     ![Subscrições](media/custom-voice/subscriptions.png)
 
-3. Na página "Subscrições", escolha "Subscrição existente do Connect".
+3. Na página "Subscrições", escolha "Subscrição existente do Connect". Tenha em atenção que os serviços de voz suportam diferentes regiões. Verifique a região onde a chave de subscrição foi criada e certifique-se de que se liga a sua chave para o portal de secundárias correto.  
 
 4. Cole a chave de subscrição na tabela, conforme mostrado abaixo. Cada subscrição tem duas chaves, e pode usar qualquer um deles.
 
      ![Adicionar subscrição](media/custom-voice/add-subscription.png)
 
 Está pronto para começar!
-
-> [!IMPORTANT]
-> Durante a fase de pré-visualização privada, subscrições têm de estar na lista de permissões para utilizar a funcionalidade de voz personalizada. Siga os passos na página para obter a sua subscrição na lista de permissões.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Preparar gravações e transcrições
 
@@ -232,4 +227,4 @@ Personalização de voz está disponível para inglês Americano (em inglês), c
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+- [Gravar seus exemplos de voz](record-custom-voice-samples.md)

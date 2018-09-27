@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 67624e7ad21e6c3526b3ca47ff4b8e2df3b6ae54
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ea7393584e77b51073ca8938ec03e9d6f6ad6fc0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962271"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166678"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo, acessível para o browser para o gerenciamento de recursos do Azure.
@@ -41,11 +41,11 @@ Cloud Shell permite o acesso a uma experiência da linha de comandos baseada no 
 Tire partido dos Cloud Shell para trabalhar untethered de um computador local de uma forma apenas para a cloud pode fornecer.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Opção de experiência de shell preferida
-Os utilizadores de Linux podem utilizar Bash no Cloud Shell, enquanto os usuários do Windows podem utilizar o PowerShell no Cloud Shell (pré-visualização) no menu pendente do shell.
+Os utilizadores podem escolher entre o Bash ou o PowerShell no menu pendente do shell.
 
 ![Bash no Cloud Shell](media/overview/overview-bash-pic.png)
 
-![PowerShell no Cloud Shell (pré-visualização)](media/overview/overview-ps-pic.png)
+![PowerShell no Cloud Shell](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Autenticado e configurada estação de trabalho do Azure
 Cloud Shell é gerida pela Microsoft para que ele vem com ferramentas de linha de comandos populares e suporte de idiomas. Cloud Shell segura é autenticado automaticamente para acesso imediato a seus recursos através dos cmdlets de CLI do Azure ou do Azure PowerShell.
@@ -68,7 +68,7 @@ O cloud Shell é uma ferramenta flexível que pode ser usada em:
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ligar o seu armazenamento de ficheiros do Microsoft Azure
 Cloud Shell máquinas são temporárias e requerem uma partilha de ficheiros do Azure nova ou existente para ser montado como `clouddrive` para manter os ficheiros.
 
-Na primeira execução que cloud Shell pede-lhe para criar um recurso do grupo de conta de armazenamento e ficheiros do Azure partilham em seu nome. Este é um passo de uma única vez e será automaticamente anexado para todas as sessões. Uma partilha de ficheiros único pode ser mapeada e será utilizada pelo Bash e o PowerShell no Cloud Shell (pré-visualização).
+Na primeira execução que cloud Shell pede-lhe para criar um recurso do grupo de conta de armazenamento e ficheiros do Azure partilham em seu nome. Este é um passo de uma única vez e será automaticamente anexado para todas as sessões. Uma partilha de ficheiros único pode ser mapeada e será utilizada pelo Bash e o PowerShell no Cloud Shell.
 
 Leia mais para aprender a montar um [conta de armazenamento nova ou existente](persisting-shell-storage.md).
 
@@ -81,11 +81,11 @@ Leia mais para aprender a montar um [conta de armazenamento nova ou existente](p
 * Cloud Shell persistir $Home com uma imagem de 5 GB mantida na partilha de ficheiros
 * As permissões estão definidas como um usuário normal do Linux no Bash
 
-Saiba mais sobre as funcionalidades nas [Bash no Cloud Shell](features.md) e [PowerShell no Cloud Shell (pré-visualização)](features-powershell.md).
+Saiba mais sobre as funcionalidades nas [Bash no Cloud Shell](features.md) e [PowerShell no Cloud Shell](features-powershell.md).
 
 ## <a name="pricing"></a>Preços
 A máquina que aloja o Cloud Shell é gratuita, um pré-requisito de uma partilha de ficheiros do Azure montada. Os custos de armazenamento normais aplicam-se.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Guia de introdução do Cloud Shell de bash](quickstart.md) <br>
-[PowerShell no início rápido do Cloud Shell (pré-visualização)](quickstart-powershell.md)
+[PowerShell no início rápido do Cloud Shell](quickstart-powershell.md)

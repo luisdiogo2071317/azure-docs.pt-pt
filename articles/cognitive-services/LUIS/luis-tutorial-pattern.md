@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040708"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166406"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial: 3. Adicionar formatos de expressão comuns
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos comuns de expressão
 
 Neste tutorial, utilize padrões para aumentar a predição de intenção e entidade ao mesmo tempo, menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto. Um padrão é uma combinação de correspondência de expressões e machine learning.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dê uma melhor compreensão de quais expressões com ajustar a intenção de LUIS. 
 

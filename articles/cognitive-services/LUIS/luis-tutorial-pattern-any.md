@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031375"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164400"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Tutorial: 5. Extrair dados sem formulário
+# <a name="tutorial-5-extract-free-form-data"></a>5 do Tutorial: Extrair dados de forma livre
 
 Neste tutorial, utilize a entidade de pattern.any para extrair dados de expressões em que as expressões são bem formatadas e em que o fim dos dados pode ser facilmente confundido com as palavras da expressão. 
 
