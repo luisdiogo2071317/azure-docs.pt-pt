@@ -1,17 +1,17 @@
 ---
-title: Capacidades de composição do batch
+title: Capacidades de composição do Batch
 description: Recursos de renderização específico no Azure Batch
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054557"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392790"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Capacidades de composição do Azure Batch
 
@@ -50,9 +50,12 @@ Os aplicativos que serão utilizados e têm uma tarifa de licenciamento tem de s
 * Especifique a `applicationLicenses` propriedade quando [criar um agrupamento](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Os seguintes valores podem ser especificados na matriz de cadeias de caracteres, "vray", "arnold", "3dsmax", "maya".
 * Quando especificar uma ou mais aplicações, o custo desses aplicativos é adicionado ao custo das VMs.  Os preços de aplicativo são listados os [página de preços do Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Se em vez disso, se liga a um servidor de licença para usar os aplicativos de composição, não especifique o `applicationLicenses` propriedade.
+
 Pode utilizar o portal do Azure ou o Explorador do Batch selecione aplicações e mostrar os preços de aplicação.
 
-Se for feita uma tentativa para utilizar uma aplicação, mas o aplicativo ainda não foram especificado a `applicationLicenses` propriedade da configuração do conjunto, em seguida, a execução do aplicativo falha com um erro de licenciamento e o código de saída diferente de zero.
+Se for feita uma tentativa para utilizar uma aplicação, mas o aplicativo ainda não foram especificado a `applicationLicenses` propriedade da configuração do conjunto ou faz não alcance um servidor de licenças, em seguida, a execução do aplicativo falhar com um erro de licenciamento e o código de saída diferente de zero.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variáveis de ambiente para aplicações pré-instaladas
 

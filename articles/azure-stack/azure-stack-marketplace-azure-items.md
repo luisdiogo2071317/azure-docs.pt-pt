@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032296"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221728"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Azure Marketplace disponíveis para o Azure Stack
 
@@ -230,6 +230,8 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![Centro de controlo de segurança de aplicativo barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centro de controlo de segurança de aplicativo barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Gerencie centralmente Web de vários Barracuda Firewalls de aplicações (WAF). | Barracuda Networks, Inc. |
 | ![Gateway de segurança do barracuda E-Mail](media/azure-stack-marketplace-azure-items/barracuda.png) | [Gateway de segurança do barracuda E-Mail](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Gateway de segurança de e-mail para proteger contra ameaças de e-mail emails de entrada. | Barracuda Networks, Inc. |
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Segurança e proteção contra DDoS contra ataques automatizados & Direcionados. | Barracuda Networks, Inc. |
+| ![Centro de controlo do barracuda CloudGen Firewall](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centro de controlo do barracuda CloudGen Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Gerencie centralmente a centenas de Firewalls de CloudGen Barracuda, independentemente da respetiva localização e o fator forma. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall para o Azure](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall para o Azure](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | Fornece proteção de firewall onde a aplicação e os dados residem, em vez de apenas onde termina a ligação. | Barracuda Networks, Inc. |
 | ![VSEC do ponto de verificação de gerenciamento de segurança](media/azure-stack-marketplace-azure-items/checkpoint.png) | [VSEC do ponto de verificação de gerenciamento de segurança](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | O vSEC do Check Point fornece prevenção de ameaças avançada, com várias camadas para proteger os ativos de cliente no Azure contra software maligno e ameaças sofisticadas. **Transfira ambos os itens de marketplace do vSEC do ponto de verificação.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Criar, implementar e gerir com o Chef Automate, a plataforma de automatização contínua. **Transferir ambos os itens do marketplace Chef** | Software, Inc. chef |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar VMs com facilidade e confiança. **Baixe todos os itens da CloudLink SecureVM.** | Dell EMC |

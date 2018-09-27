@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024078"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222272"
 ---
 # <a name="what-is-baseline-protection-preview"></a>O que é a proteção de linha de base (pré-visualização)?  
 
@@ -56,7 +56,7 @@ Esta política de linha de base fornece-lhe a opção para excluir os utilizador
 
 ## <a name="enable-a-baseline-policy"></a>Ativar uma política de linha de base 
 
-Embora as políticas de linha de base estiverem em pré-visualização, são por predefinição não ativada. Tem de ativar manualmente uma política para ativá-lo. Assim que esta funcionalidade tem atingiram a disponibilidade geral, as políticas são, por predefinição ativada. A alteração de comportamento planeada é o motivo por que há além disso, para ativar e desativar uma terceira opção para definir o estado de uma política: **ativar política automaticamente no futuro**. Ao selecionar esta opção, deixar que Microsoft decida quando deve ativar uma política.      
+Embora as políticas de linha de base estiverem em pré-visualização, são por predefinição não ativada. Tem de ativar manualmente uma política para ativá-lo. Se ativar explicitamente as políticas de linha de base a fase de pré-visualização, eles permanecerá ativos quando esta funcionalidade atinge disponibilidade geral. A alteração de comportamento planeada é o motivo por que, além do mais para ativar e desativar, tem uma terceira opção para definir o estado de uma política: **ativar política automaticamente no futuro**. Ao selecionar esta opção, pode deixar as políticas desativadas durante a pré-visualização, mas tem de ativá-las automaticamente quando esta funcionalidade atinge disponibilidade geral do Microsoft. Se não explicitamente ativar políticas de linha de base agora e não selecionar a **ativar política automaticamente no futuro** opção, as políticas permanecerá desativado quando esta funcionalidade atinge disponibilidade geral.
 
 
 **Para ativar uma política de linha de base:**  

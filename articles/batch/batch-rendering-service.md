@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034792"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393558"
 ---
 # <a name="rendering-using-azure"></a>Composição com o Azure
 
@@ -69,7 +69,7 @@ O Azure Batch é utilizado para muitas cargas de trabalho, mas as seguintes func
   * Imagens de VM do Marketplace do Azure estão disponíveis que contêm gráficos populares e aplicações de composição, evitando a necessidade de instalar os aplicativos por conta própria ou criar suas próprias imagens personalizadas com os aplicativos instalados. 
 * Licenciamento pay-per-use para aplicações de composição:
   * Pode optar por pagar para os aplicativos ao minuto, além de pagar para a computação de VMs, que evita ter de comprar licenças e potencialmente configurar um servidor de licenças para os aplicativos.  Pagar por utilização também significa que é possível para se adaptar para variados e inesperada de carga porque não é um número fixo de licenças não existe.
-  * Também é possível utilizar as aplicações pré-instaladas com suas próprias licenças e não utilizar o licenciamento de pagamento por utilização.
+  * Também é possível utilizar as aplicações pré-instaladas com suas próprias licenças e não utilizar o licenciamento de pagamento por utilização. Para fazer isso, normalmente instala um no local ou baseado no Azure de licença de servidor e utilizar uma rede virtual do Azure para ligar o conjunto de composição para o servidor de licenças.
 * Plug-ins para aplicativos de modelagem e design de cliente:
   * Plug-ins de permitir que os utilizadores finais possam utilizar o Azure Batch diretamente a partir do aplicativo cliente, como o Autodesk Maya, permitindo-lhes criar conjuntos, submeter tarefas e fazer uso de mais a capacidade para executar composições mais rápidas de computação.
 * Integração do Gestor de composição:

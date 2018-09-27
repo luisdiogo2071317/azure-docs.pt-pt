@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953033"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393496"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
 **Aplica-se a:** base de dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> A funcionalidade de consulta Store está em pré-visualização pública.
+> A funcionalidade de consulta Store está em pré-visualização pública num número limitado de regiões.
 
 
 A funcionalidade de Store de consulta no banco de dados do Azure para PostgreSQL fornece uma maneira de controlar o desempenho das consultas ao longo do tempo. Consulta Store simplifica o desempenho de resolução de problemas, ajudando-o rapidamente encontrar as consultas de maior duração e muitos mais recursos. Consulta Store automaticamente captura um histórico das consultas e estatísticas de tempo de execução e mantém-los para revisão. Ela separa dados por intervalos de tempo para que possa ver padrões de utilização de bases de dados. Os dados para todos os utilizadores, as bases de dados e consultas são armazenados numa base de dados com o nome **azure_sys** na base de dados do Azure para PostgreSQL a instância.
@@ -117,7 +117,7 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 |query_id   |bigint  || Código de hash interna, calculado a partir da árvore de análise a instrução|
 |query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
 |plan_id    |bigint |   |ID do plano correspondente a esta consulta não está disponível ainda|
-|start_time |carimbo de data/hora  ||  Consultas são agregadas por buckets de tempo - o intervalo de tempo de um registo é de 15 minutos por predefinição mas configurável. Esta é a hora de início correspondente para o registo de tempo para esta entrada.|
+|start_time |carimbo de data/hora  ||  Consultas são agregadas por buckets de tempo - o intervalo de tempo de um registo é de 15 minutos por predefinição. Esta é a hora de início correspondente para o registo de tempo para esta entrada.|
 |end_time   |carimbo de data/hora  ||  Hora de fim correspondente para o registo de tempo para esta entrada.|
 |chamadas  |bigint  || Número de vezes que a consulta executada|
 |total_time |precisão dupla   ||  Tempo de execução total da consulta, em milissegundos|
@@ -168,6 +168,10 @@ Query_store.qs_reset() retorna void
 Query_store.staging_data_reset() retorna void
 
 `staging_data_reset` Elimina todas as estatísticas recolhidas na memória pelas Query Store (ou seja, os dados na memória que não foram descarregada, mas para a base de dados). Esta função só pode ser executada pela função de administrador de servidor.
+
+## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
+- Se a um servidor PostgreSQL tiver o parâmetro default_transaction_read_only, Store de consulta não é possível capturar os dados.
+- Funcionalidade de consulta Store pode ser interrompida se encontrar consultas de Unicode longas (> = 6000 bytes).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

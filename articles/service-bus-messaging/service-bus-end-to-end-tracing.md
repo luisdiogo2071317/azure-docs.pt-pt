@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: e30c6b9ef8f593f2fea3f6e3f5ccf22734ca5bee
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 59aa3ec8ee417bec68cfec181f63dc1910100c3f
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092178"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392782"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação por meio de mensagens do Service Bus
 
@@ -153,7 +153,7 @@ Cada evento 'Stop' tem `Status` propriedade com o `TaskStatus` operação assín
 
 Eis a lista completa das operações instrumentadas:
 
-| Nome da operação | API controlada | Propriedades de Payload específico|
+| Nome da Operação | API controlada | Propriedades de Payload específico|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> mensagens – lista de mensagens sendo enviadas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Mensagem de mensagem - mensagem a ser processado<br/>DateTimeOffset ScheduleEnqueueTimeUtc - desvio de mensagem agendada<br/>SequenceNumber longo - número de sequência de mensagem agendada ('Stop' payload do evento) |

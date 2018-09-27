@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574713"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227451"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Como gerir a conectividade e o sistema de mensagens confiável através de SDKs de dispositivo do IoT Hub do Azure
 
@@ -54,7 +54,7 @@ Falhas de ligação podem ocorrer em muitos níveis:
 - Erros de nível de protocolo para HTTP, AMQP e MQTT de transporte, como ligações desanexado ou sessões expirou
 - Erros de nível de aplicativo que resultam de qualquer um dos erros de locais, como credenciais inválidas ou comportamento, como que excediam a cota ou limitação de serviço
 
-Os SDKs do dispositivo detectar erros em todos os três níveis.  Erros relacionados com o sistema operacional e erros de hardware não são detetados e processados pelos SDKs do dispositivo.  O design se baseia [The transitório falhas manipulação orientações](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) do Centro de arquitetura do Azure.
+Os SDKs do dispositivo detectar erros em todos os três níveis.  Erros relacionados com o sistema operacional e erros de hardware não são detetados e processados pelos SDKs do dispositivo.  O design se baseia [The transitório falhas manipulação orientações](/azure/architecture/best-practices/transient-faults#general-guidelines) do Centro de arquitetura do Azure.
 
 ### <a name="retry-patterns"></a>Repita os padrões de
 

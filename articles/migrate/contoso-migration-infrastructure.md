@@ -5,14 +5,14 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/26/2018
 ms.author: raynew
-ms.openlocfilehash: 533b12f5a2a70834d9f0dc7ecabebf7864fb3a1e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bf2562f4772d20f099faec94794e0e908e6636d5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299020"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227542"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementar uma infraestrutura de migração
 
@@ -58,7 +58,7 @@ Antes de Contoso pode migrar para o Azure, é fundamental para preparar uma infr
 
 Antes de começarmos a olhar para a infraestrutura, pode querer ler algumas informações gerais sobre as capacidades do Azure que discutimos neste artigo:
 
-- Existem várias opções disponíveis para a compra de acesso do Azure, incluindo o pay as you go, contratos de Enterprise (EA), ou licenciamento Open revendedores da Microsoft ou a partir de Microsoft Partners sabe como fornecedores de soluções Cloud (CSPs). Saiba mais sobre [opções de compra](https://azure.microsoft.com/pricing/purchase-options/)e leia sobre como [subscrições do Azure são organizadas](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
+- Há várias opções disponíveis para compra acesso do Azure, incluindo o pay as you go, contratos de Enterprise (EA), licenciamento Open revendedores da Microsoft ou a partir de Microsoft Partners conhecido como fornecedores de soluções Cloud (CSPs). Saiba mais sobre [opções de compra](https://azure.microsoft.com/pricing/purchase-options/)e leia sobre como [subscrições do Azure são organizadas](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
 - Obtenha uma visão geral do Azure [gestão de identidades e acesso](https://www.microsoft.com/trustcenter/security/identity). Em particular, saiba mais sobre [do Azure AD e estendendo o AD no local para a cloud](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Há um útil que pode ser baixado e-book de sobre [gestão de identidades e acesso (IAM) num ambiente híbrido](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
 - O Azure fornece uma infraestrutura de rede robusta com opções para conectividade híbrida. Obtenha uma visão geral dos [controlo de acesso de rede e de rede](https://docs.microsoft.com/azure/security/security-network-overview).
 - Obtenha uma introdução aos [segurança do Azure](https://docs.microsoft.com/azure/security/azure-security)e leia sobre a criação de um plano para [governação](https://docs.microsoft.com/azure/security/governance-in-azure).
@@ -96,7 +96,7 @@ Contoso vai com um [Enterprise Agreement (EA)](https://azure.microsoft.com/prici
 
 Depois de pagar para o Azure, a Contoso precisa de saber como gerir as subscrições do Azure. A Contoso tiver um EA, e, portanto, sem limite no número de subscrições do Azure pode configurar.
 
-- Uma inscrição de Enterprise do Azure define como uma forma de empresa e utiliza os serviços do Azure e define uma estrutura de governação de núcleo.
+- Uma inscrição de Enterprise do Azure define como uma empresa molda e utiliza os serviços do Azure e define uma estrutura de governação de núcleo.
 - Como primeiro passo, a Contoso determinou uma estrutura (conhecida como uma estrutura de enterprise para a inscrição empresarial. Contoso utilizado [este artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) para ajudar a compreender e uma estrutura de design.
 - Por enquanto, Contoso decidiu usar uma abordagem funcional para gerir as subscrições.
     - Dentro da empresa irá utilizar um único departamento de TI, que controla o orçamento do Azure. Este será o grupo de apenas com as assinaturas.
@@ -112,7 +112,7 @@ Com as assinaturas configuradas, a Contoso pode procurar nos licenciamento da Mi
 
 #### <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Quando implementar VMs no Azure, imagens padrão incluem uma licença que vai ser debitada Contoso por minuto para o software a ser utilizado. No entanto, o Contoso tem sido um cliente da Microsoft longo prazo e é mantida EAs e abra licenças com o software assurance (SA). 
+Quando implementar VMs no Azure, imagens padrão incluem uma licença que vai ser debitada Contoso por minuto para o software a ser utilizado. No entanto, a Contoso tem sido um cliente da Microsoft de longo prazo e é mantida EAs e as licenças do open License com Software Assurance (SA). 
 
 Benefício híbrido do Azure fornece um método rentável para a migração da Contoso, permitindo que ela guardar em VMs do Azure e o SQL Server de cargas de trabalho ao converter ou reutilizar o Windows Server Datacenter e licenças da edição Standard abrangidas por Software Assurance. Isso permitirá Contoso pagar uma taxa de computação com base mais baixa para VMs e o SQL Server. [Saiba mais](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -137,8 +137,8 @@ Dando e controlar o acesso de utilizador aos recursos do Azure com a gestão de 
 - Contoso decide expandir o Active Directory no local para a cloud, em vez de criar um novo sistema separado no Azure.
 - Ele cria um baseada no Azure Active Directory para fazer isso.
 - Contoso não tem o Office 365 no local, pelo que tem de aprovisionar um novo do Azure AD.
-- Office 365 utiliza o Azure AD para gestão de utilizadores. Se a Contoso estava a utilizar o Office 365, seria já tem uma filosofia do Azure AD e utilizá-lo como o AD primário.
-- [Saiba mais](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) sobre o Azure AD para o Office 365 e Aprenda [como adicionar uma subscrição](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) para um Azure AD existente.
+- Office 365 utiliza o Azure AD para gestão de utilizadores. Se a Contoso estava a utilizar o Office 365, já teria um inquilino do Azure AD e pode utilizá-lo como o AD primário.
+- [Saiba mais](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) sobre o Azure AD para o Office 365 e Aprenda [como adicionar uma subscrição](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) para um inquilino do Azure AD existente.
 
 ### <a name="create-an-azure-ad"></a>Criar um Azure AD
 
@@ -154,16 +154,16 @@ Contoso é usar a edição gratuita do Azure AD que está incluído com uma subs
 
 ### <a name="add-the-domain-name"></a>Adicione o nome de domínio
 
-Para utilizar o respetivo nome de domínio padrão, os administradores da Contoso tem de adicioná-lo como um nome personalizado para o Azure AD. Esta opção permite-lhes atribuir nomes de usuário familiar. Por exemplo, um utilizador pode iniciar sessão com o endereço de correio eletrónico billg@contoso.com, em vez de precisar billg@contosomigration.microsoft.com. 
+Para utilizar o respetivo nome de domínio padrão, os administradores da Contoso tem de adicioná-lo como um nome de domínio personalizado para o Azure AD. Esta opção permite-lhes atribuir nomes de usuário familiar. Por exemplo, um utilizador pode iniciar sessão com o endereço de e-mail billg@contoso.com, em vez de precisar billg@contosomigration.microsoft.com. 
 
-Para configurar um nome personalizado que adicioná-lo para o diretório, adicione uma entrada DNS e, em seguida, verifique se o nome no Azure AD.
+Para configurar um nome de domínio personalizado que eles adicioná-lo para o diretório, adicione uma entrada DNS em, em seguida, verifique se o nome no Azure AD.
 
 1. Na **nomes de domínio personalizado** > **Adicionar domínio personalizado**, eles adicionam o domínio.
 2. Para utilizar uma entrada DNS no Azure que precisam para registá-lo com a sua entidade de registo do domínio. 
 
     - Na **nomes de domínio personalizado** lista, tenha em atenção as informações de DNS para o nome. Ele está usando uma entrada de MX.
     - Eles precisam de acesso para o nome do servidor para fazer isso. Inicie sessão no domínio Contoso.com e criar um novo registo MX para a entrada DNS fornecida pelo Azure AD, com os detalhes indicados.  
-1. Depois de propagarem os registos DNS, o nome de detalhes do domínio, pode clicar em **Verifique se** para verificar o nome personalizado.
+1. Depois de propagarem os registos DNS, o nome de detalhes do domínio, pode clicar em **Verifique se** para verificar o nome de domínio personalizado.
 
      ![DNS do Azure AD](./media/contoso-migration-infrastructure/azure-ad-dns.png) 
 
@@ -176,7 +176,7 @@ Agora que o Azure AD está em execução, os administradores precisam de adicion
 Grupos de recursos do Azure reunir recursos do Azure. Com um ID de grupo de recursos permite que o Azure para realizar operações nos recursos dentro do grupo.
 
 - Uma subscrição do Azure pode ter vários grupos de recursos, mas um grupo de recursos só pode existir dentro de uma única subscrição.
-- Além disso, um grupo de recursos pode ter vários recursos, mas um recurso só pode pertencer a um único grupo.
+- Além disso, um grupo de recursos pode ter vários recursos, mas um recurso só pode pertencer a um grupo de recursos.
 
 Administradores da Contoso, configure os grupos de recursos do Azure, conforme resumido na tabela seguinte.
 
@@ -224,7 +224,7 @@ Para facilitar a integração, a Contoso utiliza a [ferramenta Azure AD Connect]
 
     ![Transferir o AD Connect](./media/contoso-migration-infrastructure/download-ad-connect.png) 
 
-2. São iniciados a **Azureadconnect** instalação, usando **utilizar definições rápidas**. Esta é a instalação mais comuns e pode ser utilizada para uma topologia de floresta única com sincronização de hash de palavra-passe para autenticação.
+2. São iniciados a **Azureadconnect** instalação, com **utilizar definições rápidas**. Esta é a instalação mais comuns e pode ser utilizada para uma topologia de floresta única com sincronização de hash de palavra-passe para autenticação.
 
     ![Assistente para conectar do AD](./media/contoso-migration-infrastructure/ad-connect-wiz1.png) 
 
@@ -244,7 +244,7 @@ Tenha em atenção que:
 
     ![AD no Azure no local](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
-- Equipe de TI da Contoso é representada em cada grupo, com base na sua função.
+- A equipe de TI da Contoso é representada em cada grupo, com base na sua função.
 
     ![Os membros do AD no Azure no local](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png) 
 
@@ -255,7 +255,7 @@ Azure [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.co
 Os administradores da Contoso agora atribui funções para os grupos do AD que eles sincronizados no local.
 
 1. Na **ControlCobRG** grupo de recursos, pode clicar em **controlo de acesso (IAM)** > **adicionar**.
-2. Na **adicionar permissões** > **função**, eles selecionam **contribuinte**e selecione o **ContosoCobRG** grupo do AD da lista. O grupo, em seguida, aparece na **membros selecionados** lista. 
+2. Na **adicionar permissões** > **função**, > **contribuinte**, eles selecionam o **ContosoCobRG** grupo do AD da lista. O grupo, em seguida, é apresentado na **membros selecionados** lista. 
 3. Eles repetir isso com as mesmas permissões para os outros grupos de recursos (exceto para **ContosoAzureAdmins**), ao adicionar as permissões de Contribuidor à conta do AD que corresponde ao grupo de recursos.
 4. Para o **ContosoAzureAdmins** grupo do AD, atribuir os **proprietário** função.
 
@@ -274,7 +274,7 @@ Recursos do Azure são implementados dentro de regiões.
 - Leia sobre [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)e compreender [como regiões estão emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 
-Contoso tiver decidido a escolher a E.U.A. Leste 2 (localizado em Virgínia) como a região primária e E.U.A. Central, como a região secundária. Existem algumas razões para isso:
+Contoso tiver decidido a escolher a E.U.A. Leste 2 (localizado em Virgínia) como a região primária e centro dos E.U.A. (localizado no Iowa) como a região secundária. Existem algumas razões para isso:
 
 - O Centro de dados da Contoso está localizado em nova York e Contoso considerado latência para o datacenter mais próximo.
 - A região E.U.A. Leste 2 tem todos os serviços e produtos que a Contoso precisa de utilizar. Nem todas as regiões do Azure são os mesmos em termos de produtos e serviços disponíveis. Pode rever [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/).
@@ -282,7 +282,7 @@ Contoso tiver decidido a escolher a E.U.A. Leste 2 (localizado em Virgínia) com
 
 À medida que ele pensa sobre o ambiente híbrido, a Contoso precisa de considerar como criar uma estratégia de recuperação após desastre e resiliência para o design de região. De forma ampla, o intervalo de estratégias de uma implementação numa única região, que se baseia na plataforma Azure como domínios de falha e regional de emparelhamento para ser resiliente, por meio de um ativo-ativo completa do modelo nos quais serviços cloud e a base de dados de recursos são implementados e manutenção utilizadores de duas regiões.
 
-Contoso decidiu tirar um meio caminho. Ele irá implementar aplicações e recursos numa região primária e manter uma infraestrutura completa na região secundária, para que fique pronto para agir como uma cópia de segurança completa em caso de desastre da aplicação completa, ou a falha de região.
+Contoso decidiu tirar um meio caminho. Ele irá implementar aplicações e recursos numa região primária e manter uma cópia completa da infra-estrutura na região secundária, para que fique pronto para agir como uma cópia de segurança completa em caso de desastre da aplicação completa, ou a falha regional.
 
 ### <a name="set-up-availability-zones"></a>Configure as zonas de disponibilidade
 
@@ -298,11 +298,11 @@ Contoso irá implementar disponibilidade zonas como aplicações, ligue para esc
 
 ## <a name="step-4-design-a-network-infrastructure"></a>Passo 4: Conceber uma infraestrutura de rede
 
-Com o design regional em vigor, a Contoso está pronta para considerar uma estratégia de rede. Ele precisa pensar em como o datacenter no local e o Azure, ligarem e comunicarem entre si e como conceber a sua infraestrutura de rede no Azure. Especificamente a Contoso precisa de:
+Com o design regional em vigor, a Contoso está pronta para considerar uma estratégia de rede. Ele precisa pensar em como o datacenter no local e o Azure, ligarem e comunicarem entre si e como conceber a infraestrutura de rede no Azure. Especificamente a Contoso precisa de:
 
-**Planear a conectividade de rede híbrida**: descobrir como ela será para ligar as redes no local e o Azure.
-**Estruturar uma infraestrutura de rede do Azure**: decidir como irá implementar redes através de regiões. Como comunicará redes na mesma região e entre regiões?
-**Criar e configurar redes do Azure**: configurar redes do Azure e sub-redes e decidir o que irá residir nos mesmos.
+- **Planear a conectividade de rede híbrida**: descobrir como ela será para ligar as redes no local e o Azure.
+- **Estruturar uma infraestrutura de rede do Azure**: decidir como irá implementar redes através de regiões. Como comunicará redes na mesma região e entre regiões?
+- **Criar e configurar redes do Azure**: configurar redes do Azure e sub-redes e decidir o que irá residir nos mesmos.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Planear a conectividade de rede híbrida
 
@@ -333,7 +333,7 @@ Eis como Contoso decidiu implementar uma conectividade híbrida:
 
 ### <a name="design-the-azure-network-infrastructure"></a>Conceber a infraestrutura de rede do Azure
 
-É fundamental que Contoso coloca redes no local de forma que faz a implementação híbrida segura e dimensionável. Para tal, Contoso está a demorar uma abordagem de longo prazo e está a conceber redes virtuais (VNets) para ser pronto para as empresas e resiliência. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) sobre o planeamento de VNets.
+É fundamental que Contoso coloca redes no local de forma que faz a implementação híbrida segura e dimensionável. Para tal, Contoso está a demorar uma abordagem de longo prazo e está a conceber redes virtuais (VNets) para que seja resiliente e pronto para as empresas. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) sobre o planeamento de VNets.
 
 Para ligar as duas regiões, Contoso decidiu implementar um modelo de rede hub-para-hub:
 
@@ -378,7 +378,7 @@ Dentro do modelo de hub- and -spoke que escolheu Contoso, tem de pensar sobre co
 - Entre o datacenter da Contoso:
     - Tráfego de entrada através da VPN site a site (ou ExpressRoute) atinge o endereço IP público do gateway de VPN do Azure.
     - O tráfego é encaminhado através da firewall e sujeita a regras de firewall.
-    - Depois de aplicar regras de tráfego é encaminhado para um balanceador de carga interno (Standard SKU) na sub-rede interna de zona fidedigna.
+    - Depois de aplicar regras de firewall, o tráfego é encaminhado para um balanceador de carga interno (Standard SKU) na sub-rede interna de zona fidedigna.
     - Tráfego de saída da sub-rede fidedigno para o datacenter no local através de VPN é encaminhado através da firewall e regras aplicadas, antes de passar pela conexão VPN site a site.
 
 
@@ -399,7 +399,7 @@ E.U.A. Leste 2 é a região primária que Contoso irá utilizar para implementar
 
 - **Hub**: VNet na região E.U.A. Leste 2 do hub é o ponto central de conectividade primário para o datacenter no local.
 - **VNets**: VNets Spoke na região E.U.A. Leste 2 pode ser utilizado para isolar cargas de trabalho, se necessário. Além da VNet do Hub, a Contoso terá spoke duas VNets na região E.U.A. Leste 2:
-    - **VNET-DEV-EUS2**. Esta VNet fornecerá que o desenvolvimento e a equipe de teste serão uma rede totalmente funcional para projetos de desenvolvimento. Ele funcionará como uma área de piloto de produção e irá contar com a infraestrutura de produção para a função.
+    - **VNET-DEV-EUS2**. Esta VNet irá fornecer o desenvolvimento e teste da Equipe com uma rede totalmente funcional para projetos de desenvolvimento. Ele funcionará como uma área de piloto de produção e irá contar com a infraestrutura de produção para a função.
     - **VNET-PROD-EUS2**: componentes de produção de IaaS do Azure estarão localizados na rede. 
     -  Cada VNet tem seu próprio espaço de endereço exclusivo, sem sobreposição. Contoso pretende configurar o encaminhamento sem a necessidade de NAT.
 - **Sub-redes**:
@@ -459,7 +459,7 @@ Componentes de IaaS do Azure estão localizados na rede de produção. Cada cama
 
 E.U.A. central é a região secundária da Contoso. Eis como Contoso será arquitetar redes dentro da mesma:
 
-- **Hub**: hub Vnet na região E.U.A. Leste 2 é o ponto central de conectividade para o datacenter no local e o spoke VNets na região E.U.A. Leste 2 pode ser utilizado para isolar cargas de trabalho se for necessário, geridas separadamente dos outros spokes.
+- **Hub**: hub VNet na região E.U.A. Leste 2 é o ponto central de conectividade para o datacenter no local e o spoke VNets na região E.U.A. Leste 2 pode ser utilizado para isolar cargas de trabalho se for necessário, geridas separadamente dos outros spokes.
 - **VNets**: Contoso terão duas VNets na região E.U.A. Central:
     - VNET-PROD-CUS. Esta VNet é uma rede de produção, semelhante à VNET PROD_EUS2. 
     - VNET-ASR-CUS. Esta VNet atuará como uma localização na qual as VMs são criadas após a ativação pós-falha no local ou como uma localização para VMs do Azure com ativação pós-falha dos principais para a região secundária. Esta rede é semelhante para as redes de produção, mas sem quaisquer controladores de domínio no mesmo.
@@ -504,7 +504,7 @@ Em paralelo para a rede de produção na região E.U.A. Leste 2 primária, exist
 
 A rede de VNET-ASR-CUS é utilizada para fins de ativação pós-falha entre regiões. Recuperação de site será utilizada para replicar e efetuar a ativação pós-falha de VMs do Azure entre regiões. Ele também funciona como um centro de dados da Contoso a rede do Azure para cargas de trabalho protegidas que permanecem no local, mas a ativação pós-falha para o Azure para recuperação após desastre.
 
-VNET-ASR-CUS é a mesma sub-rede básica que a VNET na região E.U.A. Leste 2, mas sem a necessidade de uma sub-rede do controlador de domínio de produção.
+VNET-ASR-CUS é a mesma sub-rede básica que a VNet na região E.U.A. Leste 2, mas sem a necessidade de uma sub-rede do controlador de domínio de produção.
 
 **Sub-rede** | **CIDR** | **Endereços** | **Na sub-rede**
 --- | --- | --- | ---
@@ -535,7 +535,7 @@ Para os controladores de domínio na rede de VNET-PROD-EUS2, Contoso, além de t
 
     ![Peering](./media/contoso-migration-infrastructure/peering2.png)
 
-3. No local que irá configurar uma rota estática que direciona o tráfego local para encaminhar entre o túnel VPN para a VNet. Seria possível concluir a configuração no gateway que fornece o túnel VPN da Contoso para o Azure. Utilizam o Windows encaminhamento e acesso remoto para isso.
+3. No local que irá configurar uma rota estática que direciona o tráfego local para encaminhar entre o túnel VPN para a VNet. Seria possível concluir a configuração no gateway que fornece o túnel VPN da Contoso para o Azure. Eles usam o RRAS para isso.
 
     ![Peering](./media/contoso-migration-infrastructure/peering3.png)
 
@@ -555,7 +555,7 @@ Os administradores da Contoso decidiu que o serviço de DNS do Azure não é uma
 
 - Como se trata de uma rede híbrida de todas a VMs no local e no Azure tem de conseguir resolver nomes para funcionar corretamente. Isso significa que as definições de DNS personalizadas devem ser aplicadas a todas as VNets.
 - Atualmente, a Contoso tiver controladores de domínio implementados no Centro de dados Contoso e das filiais. Os servidores DNS primários são CONTOSODC1(172.16.0.10) e CONTOSODC2(172.16.0.1)
-- Quando as VNets são implementadas, os controladores de domínio no local serão definidos para ser usado como servidor DNS nas redes. 
+- Quando as VNets são implementadas, os controladores de domínio no local serão definidos para ser utilizada como servidores DNS nas redes. 
 - Para configurar isso, quando utilizar DNS personalizado na VNet, o endereço IP de resoluções de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista de DNS.  Para fazer isso, o Contoso configura as definições do servidor DNS em cada VNet. Por exemplo, as definições de DNS personalizadas para a rede de VNET-HUB-EUS2 seria da seguinte forma:
     
     ![DNS Personalizado](./media/contoso-migration-infrastructure/custom-dns.png)
@@ -607,7 +607,7 @@ Depois de atualizar as definições de rede, os administradores da Contoso estã
 
     ![Reencaminhador DNS](./media/contoso-migration-infrastructure/dns-forwarder.png)
 
-10. Agora, Atualize as definições de DNS personalizadas para cada VNet com o controlador de domínio apropriadas para a região da VNet. Eles incluem controladores de domínio no local na lista.
+10. Agora, eles atualizar as definições de DNS personalizadas para cada VNet com o controlador de domínio apropriadas para a região da VNet. Eles incluem controladores de domínio no local na lista.
 
 ### <a name="set-up-active-directory"></a>Configurar o Active Directory
 
@@ -642,11 +642,11 @@ Tal como configurar a identidade e controlo de acesso, Contoso já começou a co
 
 ### <a name="set-up-policies"></a>Definir políticas
 
-O serviço do Azure Policy avalia os recursos, analisando aqueles que não em conformidade com as definições de política que tem no local. Por exemplo, pode ter uma política que apenas permite que um determinado tipo de VMs ou exige recursos para ter uma etiqueta específica. 
+O serviço do Azure Policy avalia os recursos, analisando aqueles que não em conformidade com as definições de política que tem no local. Por exemplo, pode ter uma política que apenas permite que determinados tipos de VMs ou exige recursos para ter uma etiqueta específica. 
 
-Políticas do Azure, especifique uma definição de política e atribuição de política especifique o âmbito em que deve ser aplicada uma política. O âmbito pode ir desde um grupo de gestão a um grupo de recursos. [Saiba](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) sobre a criação e gestão de políticas.
+Políticas do Azure, especifique uma definição de política e uma atribuição de política especifica o âmbito em que deve ser aplicada uma política. O âmbito pode ir desde um grupo de gestão a um grupo de recursos. [Saiba](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) sobre a criação e gestão de políticas.
 
-Contoso pretende começar com duas diretivas:
+A Contoso pretende começar com duas diretivas:
 
 - Ele quer uma política para garantir que os recursos só podem ser implementados nas regiões EUS2 e CUS.
 - Quer limitar os SKUs de VM para apenas SKUs aprovados. A intenção é para garantir que não são utilizadas a cara SKUs de VM.
@@ -701,7 +701,7 @@ Para monitorizar os recursos como estes serão adicionados, será cada vez mais 
 
 Além de fornecer informações sobre recursos e os proprietários, etiquetas permitirá Contoso, a agregação e de grupo de recursos e usar esses dados para fins de estorno.
 
-A Contoso precisa de visualizar os seus recursos do Azure de forma que faça sentido para a empresa. Por exemplo, mas uma função ou departamento. Tenha em atenção que os recursos não precisam de residir no mesmo grupo de recursos para partilhar uma etiqueta. Para fazer isso, a Contoso criará uma taxonomia de etiquetas simples para que todos estiverem a utilizar as etiquetas mesmo.
+A Contoso precisa de visualizar os seus recursos do Azure de forma que faça sentido para a empresa. Por exemplo, por função ou departamento. Tenha em atenção que os recursos não precisam de residir no mesmo grupo de recursos para partilhar uma etiqueta. Contoso criará uma taxonomia de etiquetas simples para que todos usam as mesmo etiquetas.
 
 **Nome da etiqueta** | **Valor**
 --- | ---
@@ -724,7 +724,7 @@ Depois de criar a marca, Contoso irá voltar atrás e criar novas definições d
 
 A segurança é crucial na cloud e o Azure disponibiliza uma vasta gama de capacidades e ferramentas de segurança. Isso o ajudará a criar soluções seguras, na plataforma do Azure segura. Leia [confiança na cloud fidedigna](https://azure.microsoft.com/overview/trusted-cloud/) para saber mais sobre a segurança do Azure.
 
-Há alguns aspectos principais da Contoso a considerar:
+Existem alguns aspetos da Contoso a considerar:
 
 - **Centro de segurança do Azure**: Centro de segurança do Azure fornece gestão de segurança unificada e proteção avançada contra ameaças entre cargas de trabalho híbrida na cloud. Com o Centro de Segurança, pode aplicar políticas de segurança pelas suas cargas de trabalho, limitar a sua exposição a ameaças e detetar e responder a ataques.  [Saiba mais](https://docs.microsoft.com/azure/security-center/security-center-intro).
 - **Grupos de segurança (NSGs) de rede**: um NSG é um filtro (firewall) que contém uma lista de segurança de regras que, quando aplicada, permitir ou negar o tráfego de rede para recursos ligados a VNets do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/security-overview).
@@ -761,11 +761,12 @@ Contoso pode limitar o tráfego de rede a recursos numa rede virtual com grupos 
 - Os grupos de segurança de rede contêm uma lista das regras de segurança que permitem ou recusam o tráfego de rede de entrada ou saída com base no endereço IP de destino, na porta e no protocolo.
 - Quando aplicado a uma sub-rede, as regras são aplicadas a todos os recursos na sub-rede. Para além das interfaces de rede, isto inclui a instâncias dos serviços do Azure implementadas na sub-rede.
 - Grupos de segurança de aplicação (ASGs) permitem-lhe configurar a segurança de rede como uma extensão natural de uma estrutura de aplicação, permitindo que para agrupar VMs e definir políticas de segurança de rede com base nesses grupos.
-    - Grupos de segurança de aplicação significam que pode reutilizar a política de segurança em escala, sem manutenção manual de endereços IP explícitos. A plataforma lida com a complexidade dos endereços IP explícitos e dos múltiplos conjuntos de regras, permitindo-lhe focar-se na lógica de negócio.
-    - Pode especificar um grupo de segurança de aplicações como origem e destino numa regra de segurança. Depois da política de segurança é definida, pode criar VMs e atribuir os NICs de VM a um grupo. 
+    - Grupos de segurança de aplicação significam que a Contoso pode reutilizar a política de segurança em escala, sem manutenção manual de endereços IP explícitos. A plataforma lida com a complexidade dos endereços IP explícitos e dos múltiplos conjuntos de regras, permitindo-lhe focar-se na lógica de negócio.
+    - Contoso pode especificar um grupo de segurança de aplicações como a origem e destino numa regra de segurança. Depois de uma política de segurança está definida, Contoso pode criar VMs e atribuir os NICs de VM a um grupo. 
 
 
-Contoso implementará uma combinação de NSGs e ASGs. Contoso estão preocupados com a gestão de NSG. Ele é também preocupado com o uso excessivo de NSGs e a complexidade adicional para a equipe de operações.
+Contoso implementará uma combinação de NSGs e ASGs. Contoso está preocupado com a gestão de NSG. Ele é também preocupado com o uso excessivo de NSGs e a complexidade adicional para a equipe de operações. Eis o que fará Contoso:
+
 - Todo o tráfego de e para todas as sub-redes (Norte-Sul), estará sujeito a uma regra NSG, exceto o GatewaySubnets nas redes de Hub.
 - Quaisquer firewalls ou controlador de domínio será protegido pelo NSGs de sub-rede e NSGs de NIC.
 - Todas as aplicações de produção terão ASGs aplicadas.

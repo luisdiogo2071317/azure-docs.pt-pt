@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972322"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222102"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -57,7 +57,7 @@ Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de ar
 
 A Microsoft recomenda utilizar uma conta de armazenamento para fins gerais v2 na maioria dos cenários. Pode facilmente atualizar uma para fins gerais v1 ou a conta de armazenamento de BLOBs para uma conta para fins gerais v2, sem reescritas de tempo de inatividade ou aplicativo e sem a necessidade de copiar dados. Para obter mais informações sobre como atualizar para uma conta para fins gerais v2, consulte [atualizar para uma conta de armazenamento para fins gerais v2](storage-account-upgrade.md). 
 
-Contas de armazenamento para fins gerais v2 oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [escalões para dados de BLOBs de acesso](#access-tiers-for-blob-data).
+Contas de armazenamento para fins gerais v2 oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
 
 ### <a name="general-purpose-v1-accounts"></a>Contas de armazenamento para fins gerais v1
 
@@ -81,7 +81,7 @@ Embora as contas para fins gerais v2 são recomendadas na maioria dos casos, con
 
 Uma conta de armazenamento de BLOBs é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados como blobs de blocos. Contas de armazenamento de BLOBs fornecem o mesmo durabilidade, disponibilidade, escalabilidade e funcionalidades de desempenho que estão disponíveis com contas de armazenamento para fins gerais v2. Contas de armazenamento de BLOBs suportam armazenamento de blobs de blocos e blobs, mas não os blobs de páginas de acréscimo.
 
-Contas do blob storage oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [escalões para dados de BLOBs de acesso](#access-tiers-for-blob-data).
+Contas do blob storage oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de contas de armazenamento
 

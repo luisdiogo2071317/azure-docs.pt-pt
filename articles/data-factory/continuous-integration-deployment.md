@@ -1,6 +1,6 @@
 ---
-title: Integração contínua e implementação no Azure Data Factory | Documentos da Microsoft
-description: Saiba como utilizar a integração contínua e implementação para mover os pipelines da fábrica de dados de um ambiente (desenvolvimento, teste, produção) para outro.
+title: Integração contínua e entrega no Azure Data Factory | Documentos da Microsoft
+description: Saiba como utilizar a integração contínua e entrega mover pipelines da fábrica de dados de um ambiente (desenvolvimento, teste, produção) para outra.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 587c4c0804de809431bf9e731e7533f0d75770d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364989"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392623"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e implementação no Azure Data Factory
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
 
-Integração contínua é a prática de teste de cada alteração feita à sua base de código automaticamente e mais cedo possível. Implementação contínua segue os testes que acontece durante a integração contínua e envia por push as alterações para um sistema de teste ou produção.
+Integração contínua é a prática de teste de cada alteração feita à sua base de código automaticamente e mais cedo possível. Entrega contínua segue os testes que acontece durante a integração contínua e envia por push as alterações para um sistema de teste ou produção.
 
-Azure Data Factory, integração contínua e implementação significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer a integração contínua e implementação, pode utilizar a integração de IU do Data Factory com modelos Azure Resource Manager. IU do Data Factory pode gerar um modelo do Resource Manager, ao selecionar o **modelo ARM** opções. Quando seleciona **modelo de ARM exportar**, o portal gera o modelo do Resource Manager para a fábrica de dados e um ficheiro de configuração que inclui todas as suas cadeias de caracteres de ligações e outros parâmetros. Em seguida, terá de criar um ficheiro de configuração para cada ambiente (desenvolvimento, teste, produção). O principal arquivo de modelo do Resource Manager permanece o mesmo para todos os ambientes.
+Azure Data Factory, integração contínua e entrega significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer a integração contínua e entrega, pode utilizar a integração de IU do Data Factory com modelos Azure Resource Manager. IU do Data Factory pode gerar um modelo do Resource Manager, ao selecionar o **modelo ARM** opções. Quando seleciona **modelo de ARM exportar**, o portal gera o modelo do Resource Manager para a fábrica de dados e um ficheiro de configuração que inclui todas as suas cadeias de caracteres de ligações e outros parâmetros. Em seguida, terá de criar um ficheiro de configuração para cada ambiente (desenvolvimento, teste, produção). O principal arquivo de modelo do Resource Manager permanece o mesmo para todos os ambientes.
 
 Para obter uma introdução de nove minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
 
@@ -53,9 +53,9 @@ Selecione **carregar ficheiro** para selecionar o modelo do Resource Manager exp
 ![Vista de código aberto para ver a cadeia de ligação](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de integração contínua
-Aqui está todo o ciclo de vida para integração contínua e implementação que pode utilizar depois de ativar a integração de GIT de serviços de DevOps do Azure na IU do Data Factory:
+Aqui está todo o ciclo de vida para integração contínua e entrega que pode utilizar depois de ativar a integração com o Azure repositórios Git na IU do Data Factory:
 
-1.  Defina uma fábrica de dados de desenvolvimento com os serviços de DevOps do Azure na qual todos os desenvolvedores podem criar recursos do Data Factory, como conjuntos de dados, pipelines etc.
+1.  Defina uma fábrica de dados de desenvolvimento com repositórios do Azure na qual todos os desenvolvedores podem criar recursos do Data Factory, como conjuntos de dados, pipelines etc.
 
 1.  Em seguida, os desenvolvedores podem modificar recursos, tais como pipelines. À medida que faz a suas modificações, pode selecionar **depurar** para ver como o pipeline é executado com as alterações mais recentes.
 
@@ -67,23 +67,23 @@ Aqui está todo o ciclo de vida para integração contínua e implementação qu
 
 1.  O modelo exportado do Resource Manager pode ser implementado com ficheiros de parâmetros diferentes para a fábrica de teste e a fábrica de produção.
 
-## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Automatizar a integração contínua com as versões de serviços do Azure DevOps
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Automatizar a integração contínua com as versões de Pipelines do Azure
 
-Eis os passos para configurar uma versão de serviços do Azure DevOps, para que pode automatizar a implementação de uma fábrica de dados em vários ambientes.
+Eis os passos para configurar uma versão de Pipelines do Azure, para que pode automatizar a implementação de uma fábrica de dados em vários ambientes.
 
-![Diagrama da integração contínua com os serviços do Azure DevOps](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagrama da integração contínua com Pipelines do Azure](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisitos
 
--   Uma subscrição do Azure ligada ao Team Foundation Server ou serviços de DevOps do Azure utilizando o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Uma subscrição do Azure ligada ao Team Foundation Server ou de repositórios do Azure utilizando o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Uma fábrica de dados com o Git de serviços do Azure DevOps configurado.
+-   Uma fábrica de dados com a integração de Git de repositórios do Azure configurada.
 
 -   Uma [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
 
-### <a name="set-up-an-azure-devops-services-release"></a>Configurar uma versão de serviços do Azure DevOps
+### <a name="set-up-an-azure-pipelines-release"></a>Configurar uma versão de Pipelines do Azure
 
-1.  Aceda à sua página de serviços de DevOps do Azure no mesmo projeto que aquela configurado com a fábrica de dados.
+1.  Aceda à sua página de repositórios do Azure no mesmo projeto que aquela configurado com a fábrica de dados.
 
 1.  Clique no menu superior **Pipelines do Azure** &gt; **versões** &gt; **Criar definição de versão**.
 
@@ -121,7 +121,7 @@ Eis os passos para configurar uma versão de serviços do Azure DevOps, para que
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional – obter os segredos no Azure Key Vault
 
-Se tiver de segredos para passar num modelo Azure Resource Manager, recomendamos que utilize o Azure Key Vault com o lançamento de serviços de DevOps do Azure.
+Se tiver de segredos para passar num modelo Azure Resource Manager, recomendamos que utilize o Azure Key Vault com o lançamento de Pipelines do Azure.
 
 Existem duas formas de lidar com os segredos:
 
@@ -156,13 +156,13 @@ Existem duas formas de lidar com os segredos:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Conceder permissões para o agente dos serviços de DevOps do Azure
-A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente dos serviços de DevOps do Azure. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões para o agente de Pipelines do Azure
+A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente de Pipelines do Azure. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
 
 ### <a name="update-active-triggers"></a>Atualizar o Active Directory acionadores
 Se tentar atualizar os acionadores de Active Directory, a implementação pode falhar. Para atualizar os acionadores de Active Directory, terá de manualmente pará-los e iniciá-las após a implementação. Pode adicionar uma tarefa do Azure Powershell para essa finalidade, conforme mostrado no exemplo a seguir:
 
-1.  No separador tarefas da versão de serviços do Azure DevOps, procure **do Azure Powershell** e adicioná-lo.
+1.  No separador tarefas da versão, procure **do Azure Powershell** e adicioná-lo.
 
 1.  Escolher **do Azure Resource Manager** da ligação escreva e selecione a sua subscrição.
 
@@ -180,7 +180,7 @@ Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-Az
 
 ## <a name="sample-deployment-template"></a>Modelo de implementação de exemplo
 
-Aqui está um modelo de implementação de exemplo que pode ser importado nos serviços de DevOps do Azure.
+Aqui está um modelo de implementação de exemplo que pode ser importado em Pipelines do Azure.
 
 ```json
 {

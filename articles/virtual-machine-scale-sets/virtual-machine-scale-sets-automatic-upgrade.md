@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: 4d3af3b7c7084c3c410bc936356d9caff643b805
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1ca0ec7185707d9b9f9712c2ace8dacb361f7b5b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182132"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394374"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure
 
@@ -38,17 +38,15 @@ Atualização automática de SO tem as seguintes características:
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>Como a SO automática trabalho de atualização de imagens?
 
-Uma atualização funciona ao substituir o disco do SO de uma VM um novo, criado usando a versão mais recente da imagem. Qualquer configurado extensões e os scripts de dados personalizados são executados, ao mesmo tempo são retidos discos de dados persistentes. Para minimizar o período de indisponibilidade de aplicação, as atualizações ocorrem em lotes de máquinas, com mais do que 20% da escala definida a atualizar em qualquer altura. Tem também a opção para integrar uma sonda de estado de funcionamento da aplicação de Balanceador de carga do Azure. Isso é altamente recomendável para incorporar um heartbeat do aplicativo e validar o êxito da atualização para cada lote no processo de atualização.
+Uma atualização funciona ao substituir o disco do SO de uma VM um novo, criado usando a versão mais recente da imagem. Qualquer configurado extensões e os scripts de dados personalizados são executados, ao mesmo tempo são retidos discos de dados persistentes. Para minimizar o período de indisponibilidade de aplicação, as atualizações ocorrem em lotes de máquinas, com mais do que 20% da escala definida a atualizar em qualquer altura. Tem também a opção para integrar uma sonda de estado de funcionamento da aplicação de Balanceador de carga do Azure. É altamente recomendado para incorporar um heartbeat do aplicativo e validar o êxito da atualização para cada lote no processo de atualização. Os passos de execução são: 
 
-Estes são os passos de execução: 
-
-1. Antes de iniciar o processo de atualização, certifique-se de que não mais do que 20% das instâncias estão danificados. 
+1. Antes de iniciar o processo de atualização, o orchestrator será Certifique-se de que não mais do que 20% das instâncias estão danificados. 
 2. Identifique o lote de instâncias de VM para atualizar, com um lote de ter o máximo de 20% da contagem de instâncias total.
 3. Atualize a imagem do SO deste lote de instâncias de VM.
-4. Se o cliente tiver configurado as sondas de estado de funcionamento do aplicativo, a atualização tem de aguardar até 5 minutos para sondas para se tornar íntegros, em seguida, continua a imediatamente para o lote seguinte. 
+4. Se o cliente tiver configurado as sondas de estado de funcionamento do aplicativo, a atualização tem de aguardar até 5 minutos para sondas para se tornar íntegros, antes de passar para atualizar o lote seguinte. 
 5. Se é restantes que são instâncias para atualizar, goto passo 1) para o lote seguinte; caso contrário, a atualização foi concluída.
 
-O conjunto de dimensionamento verificações de mecanismo de atualização de SO para o estado de funcionamento de instância VM geral antes de atualizar todos os lotes. Durante a atualização de um lote, pode haver outros planeada em simultâneo ou a manutenção não planeada acontecendo nos centros de dados do Azure que possa afetar a disponibilidade das suas VMs. Por conseguinte, é possível que temporariamente mais de 20% instâncias podem ficar inativo. Nesses casos, no final do lote atual, o conjunto de dimensionamento paradas de atualização.
+O conjunto de dimensionamento verificações de orchestrator de atualização de SO para o estado de funcionamento de instância VM geral antes de atualizar todos os lotes. Durante a atualização de um lote, pode haver outros planeada em simultâneo ou a manutenção não planeada acontecendo nos centros de dados do Azure que possa afetar a disponibilidade das suas VMs. Por conseguinte, é possível que temporariamente mais de 20% instâncias podem ficar inativo. Nesses casos, no final do lote atual, o conjunto de dimensionamento paradas de atualização.
 
 ## <a name="supported-os-images"></a>Imagens de SO suportadas
 Atualmente são suportadas apenas determinadas imagens de plataforma de SO. Atualmente não é possível utilizar imagens personalizadas que tenha criado por mesmo. 
@@ -72,7 +70,8 @@ Os SKUs seguintes são atualmente suportados (serão adicionadas mais no futuro)
 
 - O *versão* propriedade da imagem de plataforma tem de ser definida como *mais recente*.
 - Utilize sondas de estado de funcionamento de aplicações não Service Fabric para conjuntos de dimensionamento.
-- Certifique-se de que os recursos que o modelo de conjunto de dimensionamento se refere a está disponível e mantido atualizado. URI de Exa.SAS para inicialização payload nas propriedades de extensão VM, payload na conta de armazenamento referenciar a segredos no modelo. 
+- Certifique-se de que os recursos que o modelo de conjunto de dimensionamento se refere a está disponível e mantido atualizado. 
+  URI de Exa.SAS para inicialização payload nas propriedades de extensão VM, payload na conta de armazenamento referenciar a segredos no modelo. 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurar a atualização automática de imagem do SO
 Para configurar a atualização automática de imagem do SO, certifique-se de que o *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* estiver definida como *verdadeiro* na escala de definição de modelo do conjunto. 
@@ -117,7 +116,7 @@ A sonda de Balanceador de carga pode ser referenciada a *networkProfile* da esca
   ...
 ```
 > [!NOTE]
-> Esta secção aplica-se apenas para conjuntos de dimensionamento sem o Service Fabric. Service Fabric tem seu próprio noção de estado de funcionamento do aplicativo. Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem de sistema operacional é lançada domínio de atualização por domínio de atualização para manter uma elevada disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, veja [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem de sistema operacional é lançada domínio de atualização por domínio de atualização para manter uma elevada disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, veja [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Manter credenciais atualizados
 Se o conjunto de dimensionamento utiliza quaisquer credenciais para aceder a recursos externos, por exemplo, se estiver configurada uma extensão de VM que utiliza um token SAS para a conta de armazenamento, terá de certificar-se de que as credenciais são mantidas atualizadas. Se quaisquer credenciais, incluindo certificados e tokens tiverem expirado, a atualização irá falhar e o primeiro batch de VMs será deixado no estado de falha.
@@ -130,7 +129,7 @@ Os passos recomendados para recuperar as VMs e volte a ativar a atualização au
 * Implemente o conjunto de dimensionamento atualizada, o qual irá atualizar todas as instâncias de VM, incluindo aqueles com falha. 
 
 ## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Obter o histórico de atualizações automáticas da imagem de SO 
-Pode verificar o histórico de atualização de SO mais recente efetuada no seu conjunto de dimensionamento com o Azure PowerShell, CLI 2.0 do Azure ou as APIs REST. Pode obter o histórico para as tentativas de atualização de SO últimos 5 nos últimos 2 meses.
+Pode verificar o histórico de atualização de SO mais recente efetuada no seu conjunto de dimensionamento com o Azure PowerShell, CLI 2.0 do Azure ou as APIs REST. Pode obter o histórico para as tentativas de atualização de SO últimos cinco nos últimos dois meses.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Para o exemplo seguinte utiliza o Azure PowerShell para verificar o estado para o conjunto nomeado de dimensionamento *myVMSS* no grupo de recursos com o nome *myResourceGroup*:

@@ -1,28 +1,29 @@
 ---
-title: Moderator conteúdo do Azure - moderação de interrupção de imagem | Microsoft Docs
-description: Utilize a moderação de interrupção de imagem para moderada imagens inadequadas
+title: O Content Moderator da moderação de - de imagem
+titlesuffix: Azure Cognitive Services
+description: Utilize a moderação de imagens para moderar as imagens inadequadas
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355076"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219656"
 ---
 # <a name="image-moderation"></a>Moderação de imagens
 
-Utilize a moderação de interrupção do Moderator de conteúdo imagem auxiliada a uma máquina e [revisão humana ferramenta](Review-Tool-User-Guide/human-in-the-loop.md) para moderada de imagens para o conteúdo para adultos e racy. Análise de imagens para o conteúdo de texto e extrair esse texto e detetar faces. Pode corresponder a imagens de listas personalizadas e qualquer ação adicional.
+Utilize a moderação de imagens de assistida do Content Moderator e [ferramenta de revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) moderar as imagens para o conteúdo para adultos. Analise imagens para o conteúdo de texto e extrair esse texto para detetar rostos. Pode corresponder a imagens face às listas personalizadas e qualquer ação adicional.
 
-## <a name="evaluating-for-adult-and-racy-content"></a>Avaliar o conteúdo para adultos e racy
+## <a name="evaluating-for-adult-and-racy-content"></a>Avaliar o conteúdo para adultos
 
-O **Evaluate** operação devolve uma pontuação de confiança entre 0 e 1. Também devolve dados booleano igual a true ou false. Estes valores prever se a imagem contém conteúdo para adultos ou racy potencial. Quando chamar a API com a imagem (ficheiro ou URL), a resposta devolvida inclui as seguintes informações:
+O **Evaluate** operação devolve uma pontuação de confiança entre 0 e 1. Ele também retorna dados booleano igual a VERDADEIRO ou FALSO. Estes valores preveem se a imagem contém o conteúdo de adultos potencial. Quando chama a API com a sua imagem (ficheiro ou URL), a resposta retornada inclui as seguintes informações:
 
     "ImageModeration": {
       .............
@@ -35,19 +36,19 @@ O **Evaluate** operação devolve uma pontuação de confiança entre 0 e 1. Tam
 
 > [!NOTE]
 
-> - `isImageAdultClassified` representa a presença potencial de imagens que pode ser considerada sexually explícita ou para adultos em determinadas situações.
-> - `isImageRacyClassified` representa a presença potencial de imagens que pode ser considerada sexually suggestive ou madura em determinadas situações.
-> - As pontuações encontram-se entre 0 e 1. Quanto maior for a classificação, quanto maior for o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo de análises, em vez de resultados manualmente codificados. Recomendamos que teste com o seus próprios conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
-> - Os valores booleanos são VERDADEIRO ou FALSO, consoante o modelo de pontuação interno limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base nas políticas os respetivos conteúdas.
+> - `isImageAdultClassified` representa a presença de potencial de imagens que podem ser considerados sexualmente explícita ou para adultos em determinadas situações.
+> - `isImageRacyClassified` representa a presença de potencial de imagens que podem ser considerados sexualmente suggestive ou madura e em determinadas situações.
+> - As pontuações são entre 0 e 1. Quanto maior for a pontuação, maior será o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo estatístico em vez de resultados codificados manualmente. Recomendamos que teste com o seu próprio conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
+> - Os valores booleanos são true ou false dependendo da pontuação interna limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base em suas diretivas de conteúdo.
 >
 
-## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detetar texto com reconhecimento de caráter Optical (OCR)
+## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detecção de texto com reconhecimento Ótico de carateres (OCR)
 
-O **Optical caráter reconhecimento (OCR)** operação prevê a presença de conteúdo de texto numa imagem e extrai-lo para a moderação de interrupção de texto, entre outras utilizações. Pode especificar o idioma. Se não especificar uma linguagem, será assumida a deteção para inglês.
+O **reconhecimento Ótico de carateres (OCR)** operação prevê a presença de conteúdo de texto numa imagem e extrai-lo para moderação de texto, entre outras utilizações. Pode especificar o idioma. Se não especificar um idioma, a deteção é predefinido para inglês.
 
 A resposta inclui as seguintes informações:
 - O texto original.
-- Os elementos de texto detetado com os respetivos pontuações de confiança.
+- Os elementos de texto detetado com suas pontuações de confiança.
 
 Extração de exemplo:
 
@@ -64,14 +65,14 @@ Extração de exemplo:
     },
 
 
-## <a name="detecting-faces"></a>Detetar faces
+## <a name="detecting-faces"></a>Detetar rostos
 
-Detetar faces ajuda a detetar informações de identificação pessoal (PII) como faces nas imagens do. Detetar potenciais faces e o número de potenciais faces em cada imagem.
+Ajuda a detetar rostos para detetar informações de identificação pessoal (PII), como rostos nas imagens. Detetar rostos potenciais e o número de rostos potenciais em cada imagem.
 
 Uma resposta inclui estas informações:
 
-- Contagem de faces
-- Lista de localizações de faces detetados
+- Contagem de rostos
+- Lista de localizações de rostos detetados
 
 Extração de exemplo:
 
@@ -101,25 +102,25 @@ Extração de exemplo:
 
 ## <a name="creating-and-managing-custom-lists"></a>Criar e gerir listas personalizadas
 
-Em muitos comunidades online, depois dos utilizadores carregar imagens ou outro tipo de conteúdo, itens ofensivas poderão obter partilhadas várias vezes durante os seguintes dias, semanas ou meses. Os custos de repetidamente analisar e filtrar a mesma imagem ou mesmo ligeiramente modificadas versões da imagem a partir de vários locais podem ser dispendiosa e sujeito a erros.
+Em muitas comunidades online, depois dos utilizadores carregar imagens ou outro tipo de conteúdo, ofensivas itens podem obter compartilhados várias vezes durante os seguintes dias, semanas ou meses. Os custos de repetidamente verificação e filtragem a mesma imagem ou até mesmo ligeiramente modificadas versões da imagem a partir de vários locais podem ser dispendiosa e propenso a erros.
 
-Em vez de moderating da mesma imagem várias vezes, adicione as imagens ofensivas à sua lista personalizada de conteúdo bloqueada. Dessa forma, o sistema de moderação de interrupção conteúdo compara as imagens de entrada relativamente as listas personalizadas e deixa de qualquer processamento adicional.
+Em vez de moderating a mesma imagem várias vezes, é possível adicionar as imagens ofensivas à sua lista personalizada de conteúdo bloqueado. Dessa forma, o seu sistema de moderação de conteúdos compara as imagens de entrada face às suas listas personalizadas e para a qualquer processamento adicional.
 
 > [!NOTE]
-> Há um limite máximo de **apresenta uma lista de imagem de 5** com cada lista para **não pode exceder 10 000 imagens**.
+> Existe um limite máximo de **listas de imagem de 5** cada lista para **não pode exceder 10 000 imagens**.
 >
 
-O conteúdo Moderator fornece um concluída [API de gestão da lista de imagem](try-image-list-api.md) com operações para a gestão de listas de imagens personalizadas. Começar a utilizar o [imagem apresenta uma lista de API consola](try-image-list-api.md) e utilizar os exemplos de código da REST API. Consulte também o [início rápido de .NET de lista de imagem](image-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
+O Content Moderator fornece uma completa [API de gestão da lista de imagens](try-image-list-api.md) com operações de gerenciamento de listas de imagens personalizadas. Começar com o [consola de API de lista de imagem](try-image-list-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução do .NET de lista de imagem](image-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
 
-## <a name="matching-against-your-custom-lists"></a>Correspondência contra as listas personalizadas
+## <a name="matching-against-your-custom-lists"></a>Correspondência face às suas listas personalizadas
 
-A operação de correspondência permite a correspondência por semelhantes de imagens de entrada em relação a qualquer uma das suas listas personalizadas criados e geridos através de operações de lista.
+A operação de correspondência permite a correspondência difusa de imagens de entrada em relação a qualquer uma das suas listas personalizadas criadas e geridas com as operações de lista.
 
-Se for encontrada uma correspondência, a operação devolve o identificador e as etiquetas de moderação interrupção da imagem correspondente. A resposta inclui estas informações:
+Se uma correspondência for encontrada, a operação devolve o identificador e as etiquetas de moderação de imagem correspondente. A resposta inclui estas informações:
 
-- Classificação de correspondência (entre 0 e 1)
+- Pontuação de correspondência (entre 0 e 1)
 - Imagem correspondente
-- Etiquetas de imagem (atribuídas durante a moderação de interrupção anterior)
+- Etiquetas de imagem (atribuídas durante a moderação anterior)
 - Etiquetas de imagem
 
 Extração de exemplo:
@@ -141,10 +142,10 @@ Extração de exemplo:
 
 ## <a name="human-review-tool"></a>Ferramenta de revisão humana
 
-Para obter mais informações nuanced casos, utilizar Moderator o conteúdo [Rever ferramenta](Review-Tool-User-Guide/human-in-the-loop.md) e respetiva API a anexação os resultados de moderação interrupção e o conteúdo em revisão para a sua moderators humanos. Reveja as etiquetas máquina atribuída e confirme as decisões finais.
+Para obter mais variada casos, utilize o Content Moderator [ferramenta de revisão](Review-Tool-User-Guide/human-in-the-loop.md) e sua API para apresentar os resultados de moderação e o conteúdo da revisão para sua moderadores humanos. Eles rever as etiquetas de máquina atribuída e confirmar suas decisões finais.
 
-![Revisão de imagem para moderators humanos](images/moderation-reviews-quickstart-dotnet.PNG)
+![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Testar o [consola imagem moderação interrupção API](try-image-api.md) e utilizar os exemplos de código da REST API. Consulte também o [início rápido do .NET de moderação interrupção imagem](image-moderation-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
+Faça o test drive da [consola de API de moderação de imagens](try-image-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução de .NET de moderação de imagem](image-moderation-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.

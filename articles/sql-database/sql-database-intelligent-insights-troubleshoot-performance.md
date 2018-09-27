@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 311d1e1fc048e65182fbcbc8ca4b6f8c338da0de
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163873"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222459"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -41,7 +41,7 @@ Informações inteligentes Deteta automaticamente os problemas de desempenho com
 | [Pagelatch contenção](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads em simultâneo estão a tentar acessar as páginas de memória intermédia de dados na memória mesmo resulta em tempos de espera maior e fazendo com que pagelatch contenção. Isto está a afetar a base de dados do SQL o desempenho. | Vários threads em simultâneo estão a tentar acessar as páginas de memória intermédia de dados na memória mesmo resulta em tempos de espera maior e fazendo com que pagelatch contenção. Isto está a afetar o desempenho da base de dados. |
 | [Índice em falta](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Índice ausente foi detetado que afetam o desempenho de base de dados SQL. | Índice ausente foi detetado que afetam o desempenho da base de dados. |
 | [Nova consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Nova consulta foi detetada que afetam o desempenho geral da base de dados SQL. | Nova consulta foi detetada que afetam o desempenho geral da base de dados. |
-| [Estatística de espera invulgar](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Tempos de espera de base de dados incomuns foram detetados que afetam o desempenho de base de dados SQL. | Tempos de espera de base de dados incomuns foram detetados que afetam o desempenho da base de dados. |
+| [Estatística de aumento de espera](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Tempos de espera de base de dados aumentada foram detetados que afetam o desempenho de base de dados SQL. | Tempos de espera de base de dados aumentada foram detetados que afetam o desempenho da base de dados. |
 | [Contenção do TempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão a tentar aceder ao mesmo recurso de TempDB provocar um estrangulamento. Isto está a afetar o desempenho da base de dados SQL. | Vários threads estão a tentar aceder ao mesmo recurso de TempDB provocar um estrangulamento. Isto está a afetar o desempenho da base de dados. |
 | [Falta DTU do conjunto elástico](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Falta de eDTUs disponíveis num conjunto elástico está a afetar o desempenho da base de dados SQL. | Não está disponível para a instância gerida como ele usa o modelo de vCore. |
 | [Regressão do plano](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Foi detetado o novo plano ou uma alteração na carga de trabalho de um plano existente. Isto está a afetar o desempenho da base de dados SQL. | Foi detetado o novo plano ou uma alteração na carga de trabalho de um plano existente. Isto está a afetar o desempenho da base de dados. |
@@ -203,17 +203,17 @@ O diagnóstico registar informações de saídas até duas novas a maioria dos c
 
 Considere a utilização [do Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
-## <a name="unusual-wait-statistic"></a>Estatística de espera invulgar
+## <a name="increased-wait-statistic"></a>Estatística de aumento de espera
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
 Este padrão de desempenho detetável indica uma degradação do desempenho de carga de trabalho em que são identificadas consultas fraco desempenho, em comparação com a linha de base de carga de trabalho de sete dias anteriores.
 
-Neste caso, o sistema não é possível classificar as consultas de desempenho fraco em outras categorias de desempenho detetável padrão, mas detetada a estatística de espera responsável pela regressão. Por conseguinte, considera-as como consultas com *estatísticas de espera invulgar*, onde também é exposta a estatística de espera invulgar responsável pela regressão. 
+Neste caso, o sistema não é possível classificar as consultas de desempenho fraco em outras categorias de desempenho detetável padrão, mas detetada a estatística de espera responsável pela regressão. Por conseguinte, considera-as como consultas com *aumentou as estatísticas de espera*, onde também é exposta a estatística de espera responsável pela regressão. 
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-O registo de diagnóstico produz informações nos detalhes do tempo de espera invulgar, hashes de consulta de consultas afetadas e os tempos de espera.
+O diagnóstico registar informações de saídas em detalhes do tempo de espera maior e hashes de consulta das consultas afetadas.
 
 Uma vez que o sistema com êxito não foi possível identificar a causa de raiz para as consultas de fraco desempenho, as informações de diagnóstico são um bom ponto de partida para solucionar problemas manualmente. Pode otimizar o desempenho dessas consultas. É uma boa prática obter apenas os dados que necessários para utilizar e para simplificar e dividir consultas complexas em menores. 
 

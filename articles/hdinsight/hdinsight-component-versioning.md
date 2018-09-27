@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: dc1f076a6450a7b6fa33a959e79b0fd5a68a99d4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5be239fd3c77872a59b37efc6de5fc42aca9bb0c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162396"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395819"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -80,6 +80,9 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Pré-visualização) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
+| HDInsight 3.5 <br> (Spark) * |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |13 de Março de 2019 |13 de Março de 2019 |Sim |Sim |
+
+*Suporte de HDInsight 3.5 foi expandido apenas para tipos de cluster do Spark*
 
 > [!NOTE]
 > Depois de suporte para uma versão tiver expirado, poderá não ser disponível através do portal do Microsoft Azure. No entanto, a versões de cluster continuam a estar disponíveis através da `Version` parâmetro no Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) comando e o SDK de .NET até a data de retirada de versão.
@@ -91,7 +94,7 @@ A tabela seguinte lista as versões do HDInsight que são **não** disponível n
 
 | Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |28 de Junho de 2018 |Sim |Não |
+| HDInsight 3.5 <br> (Não-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |28 de Junho de 2018 |Sim |Não |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
 | 3.3 do HDInsight |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de julho de 2018 |Sim |Não |
 | 3.3 do HDInsight |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |

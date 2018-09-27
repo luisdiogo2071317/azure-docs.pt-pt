@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: a077c7d154235205126d77e5523c0acd96e70ad5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: dc5f6c8c12dc10d135eaaf26d83236b2287bf059
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031616"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223123"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
 
-O Azure Data Factory permite-lhe reunir a avançada dados organizacionais no seu Office 365 de inquilino para o Azure de uma forma escalável e criem aplicações de análise e extrair informações com base nestes ativos de dados valiosos. Integração com o Privileged Access Management fornece controlo de acesso protegido para os valiosos dados organizados no Office 365.  Para obter mais informações sobre acesso gerido para o Microsoft Graph em pré-visualização do Microsoft Azure, consulte [esta ligação](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
+O Azure Data Factory permite-lhe reunir a avançada dados organizacionais no seu Office 365 de inquilino para o Azure de uma forma escalável e criem aplicações de análise e extrair informações com base nestes ativos de dados valiosos. Integração com o Privileged Access Management fornece controlo de acesso protegido para os valiosos dados organizados no Office 365.  Para obter mais informações sobre os dados do Microsoft Graph ligar, veja [esta ligação](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Office 365. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 

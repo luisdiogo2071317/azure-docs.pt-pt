@@ -1,6 +1,6 @@
 ---
-title: Compreender a utilização detalhada do Azure | Microsoft Docs
-description: Saiba como leia e compreenda as secções da sua utilização detalhada CSV para a sua subscrição do Azure
+title: Compreender a utilização detalhada do Azure | Documentos da Microsoft
+description: Saiba como ler e entender as seções da sua utilização detalhada CSV para a sua subscrição do Azure
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -13,80 +13,80 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060805"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394442"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreender os termos de licenciamento em custos de utilização detalhada do Azure da Microsoft 
+# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreender os termos na sua cobranças de utilização detalhados do Azure da Microsoft 
 
-O ficheiro CSV de encargos de utilização detalhada contém diária e medição custos de utilização de nível para o período de faturação atual. 
+O ficheiro CSV de custos de utilização detalhada contém os custos de utilização de nível de diária e dos medidores para o período de faturação atual. 
 
-Para obter o ficheiro de utilização detalhada, consulte [como obter o Azure faturação dados de utilização de uma fatura e diariamente](billing-download-azure-invoice-daily-usage-date.md).
-Está disponível no formato de ficheiro de valores separados por vírgulas (. csv) que pode abrir uma aplicação de folha de cálculo. Se vir duas versões disponíveis, transfira a versão 2. Este é o formato de ficheiro mais recente.
+Para obter o seu ficheiro de utilização detalhada, veja [como obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md).
+Está disponível num formato de ficheiro de valores separados por vírgulas (. csv) que pode abrir num aplicativo de folha de cálculo. Se vir duas versões disponíveis, transfira a versão 2. Que é o formato de ficheiro mais recente.
 
-Custos de utilização são o total **mensal** encargos em subscrições. Os encargos de utilização não tem em conta quaisquer créditos nem descontos.
+Custos de utilização são o total **mensal** das cobranças uma subscrição. Os custos de utilização não levam em conta quaisquer créditos ou descontos.
 
 >[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
-## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termos de detalhado e descrições do seu ficheiro de utilização detalhada
+## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termos detalhados e as descrições do seu ficheiro de utilização detalhada
 
-As secções seguintes descrevem os termos importantes mostrados na versão 2 do ficheiro de utilização detalhada.
+As secções seguintes descrevem os termos de importantes exibidos na versão 2 do ficheiro de utilização detalhada.
 
 ### <a name="statement"></a>Declaração
 
-A secção superior do ficheiro CSV de utilização detalhada mostra os serviços que utilizou durante o período do mês de faturação. A tabela seguinte lista os termos e as descrições apresentadas nesta secção.
+A secção superior do ficheiro CSV de utilização detalhada mostra os serviços que utilizou durante o período de faturação do mês. A tabela seguinte lista os termos e as descrições apresentadas nesta secção.
 
 | Termo | Descrição |
 | --- | --- |
-|Período de Faturação |O período de faturação quando os medidores foram utilizados |
-|Categoria do Medidor |Identifica o serviço de nível superior de utilização |
-|Subcategoria do Medidor |Define o tipo de serviço do Azure que pode afetar a velocidade |
-|Nome do Medidor |Identifica a unidade de medida para a medição consumida |
-|Região do Medidor |Identifica a localização do Centro de dados para determinados serviços que têm um preço com base na localização do Centro de dados |
+|Período de Faturação |O período de faturação quando eram usados os medidores |
+|Categoria do Medidor |Identifica o serviço de nível superior para a utilização |
+|Subcategoria do Medidor |Define o tipo de serviço do Azure que pode afetar a tarifa |
+|Nome do Medidor |Identifica a unidade de medida para o medidor de consumo |
+|Região do Medidor |Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter |
 |SKU |Identifica o identificador de sistema exclusivo para cada Medidor do Azure |
 |Unidade |Identifica a Unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10 000 s. |
 |Quantidade Consumida |A quantidade de medidor utilizado durante o período de faturação |
-|Quantidade Incluída |A quantidade de medição que está incluída, sem encargos no seu período de faturação atual |
-|Quantidade de Utilização Excedente |Mostra a diferença entre a quantidade consumido e a quantidade incluída. Será cobrado durante este período. Para ofertas de pay as you go com nenhuma quantidade incluída com a oferta, este total é o mesmo que a quantidade consumido. |
-|No Limite da Alocação |Mostra os encargos de medição são subtraídos a quantidade de compromisso associada a sua oferta 6 ou de 12 meses. Custos de medição são subtraídos por ordem cronológica. |
-|Moeda |A moeda utilizada no seu período de faturação atual |
-|Utilização Excedente |Mostra os encargos de medidor excedem a quantidade de compromisso associada a sua oferta 6 ou de 12 meses |
-|Tarifa de Alocação |Mostra a taxa de compromisso com base na quantidade total de compromisso associada a sua oferta 6 ou de 12 meses |
-|Tarifa |A velocidade a que se estiver a ser cobrados por unidade facturável |
-|Valor |Mostra o resultado da multiplicação a coluna de excedido quantidade pela coluna de taxa. Se a quantidade consumido não exceder a quantidade incluída, há sem qualquer encargo nesta coluna. |
+|Quantidade Incluída |A quantidade do medidor de que está incluída sem custos no período de faturação atual |
+|Quantidade de Utilização Excedente |Mostra a diferença entre a quantidade consumida e a quantidade incluída. É-lhe cobrada durante este período. Para ofertas de pay as you go com sem quantidade incluída com a oferta, é este total equivale à quantidade consumida. |
+|No Limite da Alocação |Mostra os custos de medidor são subtraídos da quantidade alocada associada com a sua oferta de 6 ou 12 meses. Custos de medidor são subtraídos por ordem cronológica. |
+|Moeda |A moeda utilizada no período de faturação atual |
+|Utilização Excedente |Mostra os custos de medidor que excedam a quantidade alocada associada com a sua oferta de 6 ou 12 meses |
+|Tarifa de Alocação |Mostra a tarifa de alocação com base na totalidade do montante alocado associado à sua oferta de 6 ou 12 meses |
+|Tarifa |A tarifa que lhe é cobrada por unidade faturável |
+|Valor |Mostra o resultado da multiplicação entre a coluna de quantidade de utilização excedida, a coluna tarifa. Se a quantidade consumida não exceder a quantidade incluída, não é sem encargos, nesta coluna. |
 
 ### <a name="daily-usage"></a>Utilização diária
 
-A secção diária de utilização do ficheiro CSV mostra detalhes de utilização que afetam as taxas de faturação. A tabela seguinte lista os termos e as descrições apresentadas nesta secção.
+A secção utilização diária do ficheiro CSV mostra detalhes de utilização que afetam as tarifas de faturas. A tabela seguinte lista os termos e as descrições apresentadas nesta secção.
 
 | Termo | Descrição |
 | --- | --- |
 |Data de Utilização |A data em que foi utilizado o medidor |
-|Categoria do Medidor |Identifica o serviço de nível superior para que esta utilização pertence |
-|ID do Medidor |O identificador de medidor cobrados que é utilizado para a utilização de faturação de preços |
-|Subcategoria do Medidor |Define o tipo de serviço do Azure que pode afetar a velocidade |
-|Nome do Medidor |Identifica a unidade de medida para a medição consumida |
-|Região do Medidor |Identifica a localização do Centro de dados para determinados serviços que têm um preço com base na localização do Centro de dados |
-|Unidade |Identifica a unidade que o medidor é cobrada. Por exemplo, GB, horas, 10 000 s. |
-|Quantidade Consumida |A quantidade de medição que consumiu para esse dia |
+|Categoria do Medidor |Identifica o serviço de nível superior que esta utilização corresponde |
+|ID do Medidor |O identificador do medidor faturado que é utilizado para a utilização de faturação de preços |
+|Subcategoria do Medidor |Define o tipo de serviço do Azure que pode afetar a tarifa |
+|Nome do Medidor |Identifica a unidade de medida para o medidor de consumo |
+|Região do Medidor |Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter |
+|Unidade |Identifica a unidade que o medidor é cobrado. Por exemplo, GB, horas, 10 000 s. |
+|Quantidade Consumida |A quantidade do medidor de que foi consumido para esse dia |
 |Localização do Recurso |Identifica o datacenter onde o medidor está em execução |
-|Serviço Consumido |O serviço de plataforma Azure que utilizou |
-|Grupo de Recursos |O grupo de recursos no qual o medidor implementado está em execução no. <br/><br/>Para obter mais informações, veja [Descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|ID da Instância | O identificador para o medidor. <br/><br/> O identificador contém o nome que especificar para a medição quando foi criado. É o nome do recurso ou o ID de recurso completamente qualificado. Para obter mais informações, consulte [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Etiquetas | Tag que atribuir para a medição. Utilize etiquetas para registos de faturação do grupo.<br/><br/>Por exemplo, pode utilizar etiquetas para distribuir os custos pelo departamento de que utiliza a medição. Services que suporta etiquetas de emissão são máquinas virtuais, armazenamento e serviços de rede aprovisionados através da utilização de [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para obter mais informações, consulte [organizar os recursos do Azure com etiquetas](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Informações Adicionais |Metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual. |
-|Informações de Serviço 1 |O nome do projeto que o serviço pertence a sua subscrição |
-|Informações de Serviço 2 |Campo de legado que capture metadados específicos do serviço opcionais |
+|Serviço Consumido |O serviço de plataforma do Azure que utilizou |
+|Grupo de Recursos |O grupo de recursos no qual o medidor implementado está em execução numa. <br/><br/>Para obter mais informações, veja [Descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+|ID da Instância | O identificador para o medidor. <br/><br/> O identificador contém o nome que especificar para o medidor de quando foram criada. É o nome do recurso ou o ID de recurso completamente qualificado. Para obter mais informações, consulte [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
+|Etiquetas | Etiqueta de que atribuir para o medidor. Utilize etiquetas para registos de faturação de grupo.<br/><br/>Por exemplo, pode utilizar etiquetas para distribuir os custos pelo departamento de que utiliza o medidor. Serviços que suportam a emissão de etiquetas são aprovisionados através da utilização de serviços de rede, armazenamento e máquinas virtuais a [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para obter mais informações, consulte [organizar os recursos do Azure com etiquetas](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Informações Adicionais |Metadados de serviço específicos. Por exemplo, um tipo de imagem para uma máquina virtual. |
+|Informações de Serviço 1 |O nome do projeto que o serviço pertence na sua subscrição |
+|Informações de Serviço 2 |Campo legado que captura metadados opcionais do específico do serviço |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Como torno se de que os encargos na minha ficheiros de utilização detalhada corretos?
-Se não houver cobrada uma taxa no seu ficheiro de utilização detalhada que pretende obter mais detalhes, consulte [compreender a fatura do Microsoft Azure.](./billing-understand-your-bill.md)
+## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Como posso Certifique-se de que os encargos no meu arquivo de utilização detalhada estão corretos?
+Se existe uma cobrança no seu ficheiro de utilização detalhada que deseja obter mais detalhes, consulte o artigo [compreender a sua fatura do Microsoft Azure.](./billing-understand-your-bill.md)
 
-## <a name="external"></a>O que sobre externos encargos de serviço?
-Os serviços externos (também conhecido como as ordens de Marketplace) são fornecidos pelos fornecedores do serviço independentes e são cobrados separadamente. Os encargos não apareçam a fatura do Azure. Para obter mais informações, consulte [compreender a Azure cobra serviço externa](billing-understand-your-azure-marketplace-charges.md).
+## <a name="external"></a>E encargos de serviços externos?
+Serviços externos (também conhecido como pedidos de Marketplace) são fornecidos pelos fornecedores de serviço independentes e são faturados separadamente. Os encargos não aparecem da nota fiscal do Azure. Para obter mais informações, consulte [compreender os encargos de serviços externos do Azure](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?) para obter o seu problema resolvido rapidamente.
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?) para a sua questão resolvidos rapidamente.

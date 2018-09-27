@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf1d1a62bd8e2e1d0a0a8ad30f2d4c4833be0e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a52654ab620908b9c8c07edf3fcdfbf70068528d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125098"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220795"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho do Log Analytics no portal do Azure
 No portal do Azure que pode configurar uma área de trabalho do Log Analytics, que é um ambiente do Log Analytics exclusivo com seu próprio repositório de dados, origens de dados e soluções.  Os passos descritos neste artigo são necessários se pretende recolher dados das seguintes origens:
@@ -48,7 +48,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
   
 2. Clique em **Criar** e, em seguida, selecione as opções para os seguintes itens:
 
-  * Indique um nome para a nova **Área de Trabalho do OMS**, como *DefaultLAWorkspace*. 
+  * Forneça um nome para a nova **área de trabalho do Log Analytics**, tal como *DefaultLAWorkspace*. 
   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
   * Para **grupo de recursos**, optar por utilizar um recurso existente já grupo configuração ou criar um novo.  
   * Selecione um disponíveis **localização**.  Para obter mais informações, veja em que [regiões do Log Analytics está disponível no](https://azure.microsoft.com/regions/services/).
@@ -56,7 +56,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
 
-3. Depois de fornecer as informações necessárias no painel **Área de Trabalho do OMS**, clique em **OK**.  
+3. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** painel, clique em **OK**.  
 
 Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
 
@@ -66,4 +66,4 @@ Agora que tem uma área de trabalho disponível, pode configurar a recolha de mo
 * Para ativar a recolha de dados dos recursos do Azure com o diagnóstico do Azure ou o armazenamento do Azure, veja [registos do serviço de recolha do Azure e as métricas de utilização do Log Analytics](log-analytics-azure-storage.md).  
 * [Adicionar o System Center Operations Manager como uma origem de dados](log-analytics-om-agents.md) para recolher dados de agentes que reportam o grupo de gestão do Operations Manager e o armazenamos em sua área de trabalho do Log Analytics. 
 * Ligue-se [Configuration Manager](log-analytics-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
-* Reveja os [soluções de gestão](log-analytics-add-solutions.md) disponíveis e como adicionar ou remover uma solução da sua área de trabalho.
+* Reveja os [soluções de gestão](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) disponíveis e como adicionar ou remover uma solução da sua área de trabalho.

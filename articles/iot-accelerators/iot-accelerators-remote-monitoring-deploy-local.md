@@ -6,18 +6,18 @@ manager: timlt
 ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034982"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219979"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementar localmente a acelerador de soluções de monitorização remota
 
-Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Essa abordagem implementa os microsserviços para um contentor do Docker local e utiliza o IoT Hub, o Cosmos DB e o Azure Time Series Insights serviços na cloud.
+Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. A abordagem descrita neste artigo implementa os microsserviços para um contentor do Docker local e utiliza o IoT Hub, o Cosmos DB e o Azure Time Series Insights serviços na cloud. Para saber como executar o acelerador de solução de monitorização remota num IDE no seu computador local, veja [a partir de Microsserviços no ambiente local](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,13 +75,19 @@ Se ainda não criou os recursos do Azure necessários, siga estes passos:
 
     O script cria o grupo de recursos no Azure com o nome da sua solução. Este grupo de recursos contém os recursos do Azure que utiliza o solution accelerator.
 
-3. Quando o script tiver concluído, ele exibe uma lista de variáveis de ambiente. Siga as instruções para guardar estas variáveis para o **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** ficheiro.
+3. Quando o script tiver concluído, ele exibe uma lista de variáveis de ambiente. Siga as instruções na saída do comando para guardar estas variáveis para o **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\local\\. env** ficheiro.
 
 ### <a name="use-existing-azure-resources"></a>Utilizar recursos do Azure existentes
 
-Se já tiver criado os recursos do Azure necessários editar as definições de variável de ambiente no **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** ficheiro com os valores necessários. O **. env** arquivo contém informações detalhadas sobre onde encontrar os valores necessários.
+Se já tiver criado os recursos do Azure necessários editar as definições de variável de ambiente no **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\local\\. env**  ficheiro com os valores necessários. O **. env** arquivo contém informações detalhadas sobre onde encontrar os valores necessários.
 
 ## <a name="run-the-microservices-in-docker"></a>Execute os microsserviços no Docker
+
+Os microsserviços em execução nos contentores do Docker locais tem de aceder aos serviços em execução no Azure. Pode testar a conectividade de internet do seu ambiente do Docker com o seguinte comando que inicia um contentor de pequeno e tenta fazer ping um endereço na internet:
+
+```cmd/sh
+docker run --rm -ti library/alpine ping google.com
+```
 
 Para executar o solution accelerator, navegue para o **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** pasta no seu ambiente de linha de comandos e execute o seguinte comando:
 
@@ -97,7 +103,7 @@ Para aceder ao dashboard de solução de monitorização remota, navegue até [ 
 
 ## <a name="clean-up"></a>Limpeza
 
-Para evitar cobranças desnecessárias, quando tiver concluído os testes, remova os serviços em nuvem da sua subscrição do Azure. A maneira mais fácil para remover os serviços é navegar para o [portal do Azure](https://ms.portal.azure.com) e elimine o grupo de recursos que foi criado quando executou o **start.cmd** script.
+Para evitar desnecessários custos, quando tiver terminado de seu teste remover os serviços em nuvem da sua subscrição do Azure. A maneira mais fácil para remover os serviços é navegar para o [portal do Azure](https://ms.portal.azure.com) e elimine o grupo de recursos que foi criado quando executou o **start.cmd** script.
 
 Utilize o `docker-compose down --rmi all` comando para remover as imagens do Docker e liberte espaço no seu computador local. Também pode eliminar a cópia local do repositório de monitorização remota criado quando clonou o código-fonte do GitHub.
 

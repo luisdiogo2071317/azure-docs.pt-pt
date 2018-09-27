@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123900"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221099"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -32,7 +32,7 @@ Para configurar a monitorização do ponto final, tem de especificar as seguinte
 * **Protocolo**. Selecione HTTP, HTTPS ou TCP como protocolo que o Gestor de tráfego utiliza quando o ponto final de pesquisa para verificar o respetivo estado de funcionamento. Monitorização de HTTPS não verifica se o seu certificado SSL não é válido – só verifica que o certificado está presente.
 * **Porta**. Escolha a porta utilizada para o pedido.
 * **Caminho**. Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para que o caminho de especificar a definição é necessária. Fornecer esta definição para o TCP resultados de protocolo num erro de monitorização. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página Web ou o ficheiro que acede a monitorização. Uma barra (/) é uma entrada válida para o caminho relativo. Este valor indica que o ficheiro está no diretório de raiz (predefinição).
-* **Definições de cabeçalho personalizado** esta definição de configuração ajuda-o a adicionar a adicionar cabeçalhos HTTP específicos para o estado de funcionamento verifica que o Gestor de tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil até ser aplicável a todos os pontos finais esse perfil and / or num nível de ponto final aplicável apenas para esse ponto final. Pode usar os cabeçalhos personalizados para ter as verificações do Estado de funcionamento para pontos finais num ambiente multi-inquilino ser roteados corretamente ao especificar um cabeçalho de anfitrião ao seu destino. Também pode utilizar esta definição, adicionando os cabeçalhos exclusivos que podem ser utilizados para identificar o Gestor de tráfego teve origem pedidos de HTTP (S) e processa-os de forma diferente.
+* **Definições de cabeçalho personalizado** esta definição ajuda a adicionar cabeçalhos HTTP específicos para o estado de funcionamento de configuração verifica que o Gestor de tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil até ser aplicável a todos os pontos finais esse perfil and / or num nível de ponto final aplicável apenas para esse ponto final. Pode usar os cabeçalhos personalizados para ter as verificações do Estado de funcionamento para pontos finais num ambiente multi-inquilino ser roteados corretamente ao especificar um cabeçalho de anfitrião ao seu destino. Também pode utilizar esta definição, adicionando os cabeçalhos exclusivos que podem ser utilizados para identificar o Gestor de tráfego teve origem pedidos de HTTP (S) e processa-os de forma diferente.
 * **Intervalos de código de estado de espera** esta definição permite-lhe especificar vários intervalos de código de êxito no formato 200 299, 301 301. Se estes códigos de estado são recebidos como resposta a partir de um ponto de extremidade quando uma verificação de estado de funcionamento é iniciada, o Gestor de tráfego marca esses pontos de extremidade como bom estado de funcionamento. Pode especificar um máximo de 8 intervalos de código de estado. Esta definição é aplicável apenas para o protocolo HTTP e HTTPS e para todos os pontos finais. Esta definição é no nível de perfil do Gestor de tráfego e por predefinição, o valor de 200 é definido como o código de estado de êxito.
 * **Intervalo de pesquisa**. Este valor Especifica a frequência com que um ponto de extremidade é verificado para seu estado de funcionamento de um agente de pesquisa do Gestor de tráfego. Pode especificar aqui dois valores: 30 segundos (pesquisa normal) e de 10 segundos (pesquisa rápida). Se não forem fornecidos valores, o perfil define como um valor predefinido de 30 segundos. Visite o [preço de Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) página para obter mais informações sobre os preços de pesquisa rápida.
 * **Pela tolerar o número de falhas de**. Este valor Especifica como várias falhas de um agente de pesquisa do Gestor de tráfego tolera antes de os marcar esse ponto final danificada. O valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitorização pode causar o ponto de extremidade seja marcado como mau estado de funcionamento. Se for especificado nenhum valor, ele usa o valor predefinido de 3.

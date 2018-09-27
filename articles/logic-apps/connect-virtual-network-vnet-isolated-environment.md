@@ -1,6 +1,6 @@
 ---
-title: Ligar vnets do Azure a partir do Azure Logic Apps
-description: Para acessar redes virtuais do Azure (VNETs) no Azure Logic Apps, pode criar integração privada, dedicada e isolada ambientes de serviço que mantém as aplicações lógicas e separam os outros recursos do Azure público ou "global"
+title: Ligar a redes virtuais do Azure a partir do Azure Logic Apps
+description: Para aceder a redes virtuais do Azure a partir do Azure Logic Apps, pode criar integração privada, dedicada e isolada ambientes de serviço que mantém as aplicações lógicas e separam os outros recursos do Azure público ou "global"
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: b1a75c140376c1e2e2fdfdcd1581978301ab32f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/25/2018
+ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996473"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391926"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-vnets-from-azure-logic-apps"></a>Criar ambientes isolados para aceder a redes virtuais do Azure (VNETs) a partir do Azure Logic Apps
+# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Criar ambientes isolados para aceder a redes virtuais do Azure a partir do Azure Logic Apps
 
 > [!NOTE]
 > Esta capacidade está em *pré-visualização privada*. Para pedir acesso [criar o pedido de associação aqui](https://aka.ms/iseprivatepreview).
 
-Para cenários de integração em que o logic apps e as contas de integração precisam de acesso a uma [rede virtual do Azure (VNET)](../virtual-network/virtual-networks-overview.md), pode criar um [ *ambiente de serviço de integração* (ISE) ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que liga à sua VNET e implementa o serviço de aplicações lógicas na sua VNET. Quando criar logic apps e contas de integração, selecione esta ISE como a respetiva localização. O logic apps e as contas de integração podem, em seguida, acessar diretamente recursos, tais como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua VNET. 
+Para cenários de integração em que o logic apps e as contas de integração precisam de acesso a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md), pode criar um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que liga à sua rede virtual e implementa o serviço de aplicações lógicas na sua rede. Quando criar logic apps e contas de integração, selecione esta ISE como a respetiva localização. O logic apps e as contas de integração podem, em seguida, acessar diretamente recursos, tais como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua rede virtual. 
 
 ![Selecione o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -29,7 +29,7 @@ O ISE é um ambiente isolado e privado que utiliza armazenamento dedicado e outr
 
 Este artigo mostra como realizar estas tarefas:
 
-* Configure as permissões na sua VNET do Azure, para que a instância privada do Logic Apps possa acessar a sua VNET.
+* Configure as permissões na sua rede virtual do Azure, para que a instância privada do Logic Apps possa acessar a rede virtual.
 
 * Crie o seu ambiente de serviço de integração (ISE). 
 
@@ -37,30 +37,32 @@ Este artigo mostra como realizar estas tarefas:
 
 * Crie uma conta de integração para as aplicações lógicas no seu ISE.
 
-Para obter mais informações sobre os ambientes de serviço de integração, consulte [acesso aos recursos de rede Virtual do Azure (VNET) do Azure Logic Apps isolado](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+Para obter mais informações sobre os ambientes de serviço de integração, consulte [acesso aos recursos de rede Virtual do Azure do Azure Logic Apps isolado](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
 
-* Se não tiver uma VNET do Azure, saiba como [criar uma Azure virtual network](../virtual-network/quick-create-portal.md). 
+* Se não tiver uma rede virtual do Azure, saiba como [criar uma Azure virtual network](../virtual-network/quick-create-portal.md). 
 
   > [!IMPORTANT]
-  > Embora não precisa de uma VNET do Azure para criar o seu ambiente, pode *apenas* selecionar uma VNET como elemento de rede do seu ambiente ao criar nesse ambiente. 
+  > Embora não precisa de uma rede virtual do Azure para criar o seu ambiente, pode *apenas* selecionar uma rede virtual como ponto a ponto do seu ambiente ao criar nesse ambiente. 
 
-* Para proporcionar acesso direto à VNET do Azure, a suas aplicações lógicas [configurar permissões de controlo de acesso baseado em funções (RBAC)](#vnet-access) para que o serviço de aplicações lógicas tem as permissões para aceder à sua VNET. 
+* Para proporcionar acesso direto à rede virtual do Azure, a suas aplicações lógicas [configurar permissões de controlo de acesso baseado em funções (RBAC)](#vnet-access) para que o serviço de aplicações lógicas tem as permissões para aceder à sua rede virtual. 
 
 * Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="vnet-access"></a>
 
-## <a name="set-up-vnet-permissions"></a>Configurar permissões de VNET
+## <a name="set-virtual-network-permissions"></a>Definir permissões de rede virtual
 
-Ao criar o ambiente de serviço de integração, pode selecionar uma rede virtual do Azure (VNET) como um *ponto a ponto* para o seu ambiente. No entanto, só pode efetuar este passo, ou *peering*, ao criar o seu ambiente. Esta relação permite que o serviço de aplicações lógicas ligar diretamente aos recursos nessa vnet e concede o acesso de ambiente a esses recursos. 
+Ao criar o ambiente de serviço de integração, pode selecionar uma rede virtual do Azure como um *ponto a ponto* para o seu ambiente. No entanto, só pode efetuar este passo, ou *peering*, ao criar o seu ambiente. Esta relação permite que o serviço de aplicações lógicas ligar diretamente a recursos na rede virtual e concede o acesso de ambiente a esses recursos. 
 
-Pode selecionar a sua VNET, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua VNET. Para concluir essa tarefa, tem de atribuir funções específicas para o serviço do Azure Logic Apps.
+Pode selecionar a rede virtual, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua rede virtual. Para concluir essa tarefa, tem de atribuir funções específicas para o serviço do Azure Logic Apps.
 
-1. Na [portal do Azure](https://portal.azure.com), localize e selecione a sua VNET. No menu da sua VNET, selecione **controlo de acesso (IAM)**. 
+1. Na [portal do Azure](https://portal.azure.com), localize e selecione a rede virtual. 
+
+1. No menu da sua rede virtual, selecione **controlo de acesso (IAM)**. 
 
 1. Sob **controlo de acesso**, selecione **atribuição de função** se não estiver selecionado. Sobre o **atribuição de função** barra de ferramentas, escolha **Add**. 
 
@@ -78,7 +80,51 @@ Pode selecionar a sua VNET, tem de configurar permissões de controlo de acesso 
 
    ![Adicionar permissões](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
-Para obter mais informações sobre as permissões de função necessários para o peering, veja a [permissões secção criação, alteração, ou eliminar um peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#permissions).
+   Para obter mais informações sobre as permissões de função necessários para o peering, veja a [permissões secção criação, alteração, ou eliminar um peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#permissions). 
+
+Se a rede virtual estiver ligada através do ExpressRoute do Azure, Azure ponto-para-Site VPN ou VPN de Site a Site do Azure, avance para a secção seguinte para que pode adicionar a sub-rede do gateway necessário. Caso contrário, continue com [criar um ambiente](#create-environment).
+
+<a name="add-gateway-subnet"></a>
+
+## <a name="add-gateway-subnet-for-virtual-networks-with-expressroute-or-vpns"></a>Adicionar sub-rede do gateway para redes virtuais com o ExpressRoute ou de VPNs
+
+Depois de concluir os passos anteriores, para dar o ambiente de serviço de integração (ISE) aceder a uma rede virtual do Azure que tenha ligado através de [Azure ExpressRoute](../expressroute/expressroute-introduction.md), [Azure ponto-para-Site VPN](../vpn-gateway/point-to-site-about.md), ou [VPN de Site a Site do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), também tem de adicionar uma [ *sub-rede do gateway* ](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) à sua rede virtual:
+
+1. Na [portal do Azure](https://portal.azure.com), localize e selecione a rede virtual. No menu da sua rede virtual, selecione **sub-redes**e, em seguida, escolha **sub-rede do Gateway** > **OK**.
+
+   ![Adicionar sub-rede do gateway](./media/connect-virtual-network-vnet-isolated-environment/add-gateway-subnet.png)
+
+1. Agora, crie uma [ *tabela de rotas*](../virtual-network/manage-route-table.md), que irá ser associado a sub-rede do gateway que criou anteriormente.
+
+   1. No menu principal do Azure, selecione **criar um recurso** > 
+    **rede** > **tabela de rotas**.
+
+      ![Criar tabela de rotas](./media/connect-virtual-network-vnet-isolated-environment/create-route-table.png)
+
+   1. Fornece informações sobre a tabela de rotas, como o nome, a subscrição do Azure para utilizar, grupo de recursos do Azure e localização. Certifique-se de que o **propagação de rotas BGP** estiver definida como **ativado**e, em seguida, escolha **criar**.
+
+      ![Forneça os detalhes da tabela de rota](./media/connect-virtual-network-vnet-isolated-environment/enter-route-table-information.png)
+
+   1. No menu de tabela da rota, selecione **sub-redes**e, em seguida, escolha **associar**. 
+
+      ![Ligue-se a tabela de rotas à sub-rede](./media/connect-virtual-network-vnet-isolated-environment/associate-route-table.png)
+
+   1. Selecione **rede Virtual**e, em seguida, selecione a rede virtual.
+   
+   1. Selecione **sub-rede**e, em seguida, selecione a sub-rede do gateway criada anteriormente.
+
+   1. Quando tiver terminado, escolha **OK**.
+
+1. Se tiver uma VPN ponto a site, muito a concluir estes passos:
+
+   1. No Azure, localize e selecione o recurso de gateway de rede virtual.
+
+   1. No menu do gateway, selecione **configuraçãopontoasiteda**. 
+   e, em seguida, escolha **transferir cliente VPN** para que tenha a configuração mais recente do cliente VPN.
+
+      ![Transferir o cliente VPN mais recente](./media/connect-virtual-network-vnet-isolated-environment/download-vpn-client.png)
+
+Está agora concluído com a configuração de uma sub-rede de gateway para redes virtuais que utilizam o ExpressRoute, VPNs ponto a site ou VPNs de site a site. Para continuar a criar o seu ambiente de serviço de integração, siga os passos seguintes.
 
 <a name="create-environment"></a>
 
@@ -107,9 +153,9 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    | **Subscrição** | Sim | <*Nome da subscrição do Azure*> | A subscrição do Azure a utilizar para o seu ambiente | 
    | **Grupo de recursos** | Sim | <*Azure-resource--nome do grupo*> | O grupo de recursos do Azure onde pretende criar o seu ambiente |
    | **Localização** | Sim | <*Região do datacenter do Azure*> | A região do datacenter do Azure onde pretende armazenar as informações sobre o ambiente |
-   | **VNET com peering** | Não | <*Nome da VNET do Azure*> | A rede virtual do Azure (VNET) para associar o seu ambiente como um *ponto a ponto* para aplicações lógicas nesse ambiente podem aceder a sua VNET. Antes de poder criar esta relação, certifique-se de que já [configurar o controlo de acesso baseado em funções na sua VNET para o Azure Logic Apps](#vnet-access). <p>**Importante**: Embora uma VNET não é necessária, pode selecionar uma VNET *apenas* ao criar o seu ambiente. | 
-   | **Nome de peering** | Sim, com uma VNET selecionada | <*nome de peering*> | O nome para dar a relação de ponto a ponto | 
-   | **Intervalo de IP de VNET** | Sim, com uma VNET selecionada | <*Intervalo de endereços IP*> | O intervalo de endereços IP a utilizar para criar recursos no seu ambiente. Este intervalo tem de utilizar o [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), por exemplo, 10.0.0.1/16 e necessita de um espaço de endereços de classe B. O intervalo não pode existir dentro do espaço de endereço para a VNET selecionado no **VNET de ponto a ponto** propriedade, nem em quaisquer outros endereços IP privados em que o elemento da rede está ligado, através do peering ou gateways. <p><p>**Importante**: *não é possível alterar* este intervalo de endereços, depois de criar o seu ambiente. |
+   | **VNET com peering** | Não | <*Nome da VNET do Azure*> | A rede virtual do Azure para associar o seu ambiente como um *ponto a ponto* para aplicações lógicas nesse ambiente podem aceder a sua rede virtual. Antes de poder criar esta relação, certifique-se de que já [configurar o controlo de acesso baseado em funções na sua rede virtual para o Azure Logic Apps](#vnet-access). <p>**Importante**: Embora uma rede virtual não é necessária, pode selecionar uma rede virtual *apenas* ao criar o seu ambiente. | 
+   | **Nome de peering** | Sim, com uma rede virtual selecionada | <*nome de peering*> | O nome para dar a relação de ponto a ponto | 
+   | **Intervalo de IP de VNET** | Sim, com uma rede virtual selecionada | <*Intervalo de endereços IP*> | O intervalo de endereços IP a utilizar para criar recursos no seu ambiente. Este intervalo tem de utilizar o [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), por exemplo, 10.0.0.1/16 e necessita de um espaço de endereços de classe B. O intervalo não pode existir dentro do espaço de endereço para a rede virtual selecionada na **VNET de ponto a ponto** propriedade, nem em quaisquer outros endereços IP privados em que o elemento da rede está ligado, através do peering ou gateways. <p><p>**Importante**: *não é possível alterar* este intervalo de endereços, depois de criar o seu ambiente. |
    |||||
    
 1. Quando tiver terminado, escolha **Create** (Criar). 
@@ -139,7 +185,7 @@ Para criar aplicações lógicas que utilizem o ambiente de serviço de integra�
 
   ![Selecionar conectores do ISE](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
-* Se configurou anteriormente o ISE com uma VNET do Azure como uma ponto a ponto, os logic apps no seu ISE podem acessar diretamente recursos nessa vnet. Para sistemas no local numa VNET que está ligada a um ISE, aplicações lógicas podem acessar diretamente desses sistemas, utilizando qualquer um destes itens: 
+* Se configurou anteriormente o ISE com uma rede virtual do Azure como uma ponto a ponto, os logic apps no seu ISE podem acessar diretamente recursos nessa rede virtual. Para sistemas no local numa rede virtual que está ligada a um ISE, aplicações lógicas podem acessar diretamente desses sistemas, utilizando qualquer um destes itens: 
 
   * Conector do ISE para esse sistema, por exemplo, o SQL Server
 
@@ -147,7 +193,7 @@ Para criar aplicações lógicas que utilizem o ambiente de serviço de integra�
 
   * Conector personalizado
 
-  Para sistemas no local que não estão numa VNET ou não tem conectores ISE, pode ligar depois [configurar e utilizar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md).
+  Para sistemas no local que não estão numa rede virtual ou não tem conectores ISE, pode ligar depois [configurar e utilizar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
 

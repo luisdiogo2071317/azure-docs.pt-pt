@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 73bacebe6edc5b1d1273a10a0db7397766c45b0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc8abee93983ce4ea06d0b433eb35ed22e0f61b4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971648"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218076"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -20,7 +20,7 @@ ms.locfileid: "46971648"
 
 ## <a name="circuit-metrics"></a>Métricas de circuito
 
-Para navegar até **métricas**, clique na página de ExpressRoute para o circuito que pretende monitorizar. Sob **monitorização** pode exibir o **métricas**.
+Para navegar até **métricas**, clique na página de ExpressRoute para o circuito que pretende monitorizar. Sob **monitorização** pode ver a **métricas**.
 
 ![métricas de circuito](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26de3545c5d79c711703fa97cb796cd6c504f663
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8ba241ccfdaed8694d3dfb9513e56975e39cdb1c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346480"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395785"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos DB do Azure para a API de SQL: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ ms.locfileid: "44346480"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Suporte de escrita de adicionado várias regiões.
+* Em várias melhorias de desempenho de consulta de partição com a parte superior e MaxBufferedItemCount.
+
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 
 * Suporte a cancelamento de solicitação foi adicionado.
@@ -318,6 +323,7 @@ Todos os pedidos para o Azure Cosmos DB com um SDK extinto são rejeitados pelo 
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |21 de setembro de 2018 |--- |
 | [2.0.0](#2.0.0) |07 de Setembro de 2018 |--- |
 | [1.22.0](#1.22.0) |19 de abril de 2018 |--- |
 | [1.21.1](#1.20.1) |09 de Março de 2018 |--- |

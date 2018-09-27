@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2ab917f701ebcb78ae01a4ed97915858e5b95db
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028648"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392878"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitetura de rede do SAP HANA (instâncias grandes)
 
@@ -79,7 +79,7 @@ As diferenças para implementações de SAP no Azure são:
 - A arquitetura de aplicação SAP é mais sensível à latência de rede que cenários típicos onde os dados são trocados entre no local e o Azure.
 - O gateway de rede virtual tem, pelo menos, duas ligações do ExpressRoute. Ambas as ligações partilham a largura de banda máxima para os dados recebidos do gateway de rede virtual.
 
-A latência de rede teve entre VMs e instâncias grandes do HANA unidades podem ser mais do que um típica latência ida e volta de rede de VM para VM. Depende da região do Azure, os valores de medida podem exceder a latência de ida e volta de 0,7 ms classificada como abaixo da média na [1100926 no SAP Note # - FAQ: desempenho de rede](https://launchpad.support.sap.com/#/notes/1100926/E). No entanto, os clientes implementar aplicações de SAP de produção com base em SAP HANA com êxito na instância grande do SAP HANA. Os clientes que implementaram melhorias relatório ao executar seus aplicativos de SAP no SAP HANA através da utilização de unidades de instância grande do HANA. Certifique-se de que testar os processos empresariais minuciosamente em instâncias grandes do HANA do Azure.
+A latência de rede teve entre VMs e instâncias grandes do HANA unidades podem ser mais do que um típica latência ida e volta de rede de VM para VM. Depende da região do Azure, os valores de medida podem exceder a latência de ida e volta de 0,7 ms classificada como abaixo da média na [1100926 no SAP Note # - FAQ: desempenho de rede](https://launchpad.support.sap.com/#/notes/1100926/E). Dependente de região do Azure e a ferramenta para medir a latência de ida e volta de rede entre uma VM do Azure e a unidade de instância grande do HANA, a latência de medida pode ser até e em torno de 2 milissegundos. No entanto, os clientes implementar aplicações de SAP de produção com base em SAP HANA com êxito na instância grande do SAP HANA. Certifique-se de que testar os processos empresariais minuciosamente em instâncias grandes do HANA do Azure.
  
 Para fornecer a latência de rede determinística entre VMs e instâncias grandes do HANA, a escolha do gateway de rede virtual SKU é essencial. Ao contrário dos padrões de tráfego entre VMs e no local, o padrão de tráfego entre VMs e instâncias grandes do HANA pode desenvolver pequenas mas elevadas rajadas de volumes de pedidos e dados a serem transmitidos. Para lidar com essas extrapolações bem, recomendamos vivamente a utilização do SKU de gateway de UltraPerformance. Para a classe de tipo II de SKUs de instância grande do HANA, a utilização do SKU de gateway de UltraPerformance como um gateway de rede virtual é obrigatória.
 

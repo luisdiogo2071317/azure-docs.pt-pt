@@ -2,21 +2,22 @@
 title: Descrição geral de instância de gerida de base de dados SQL do Azure | Documentos da Microsoft
 description: Este tópico descreve uma instância de gerida de base de dados do Azure SQL e explica como funciona e como isso é diferente de uma base de dados na base de dados do Azure SQL.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 711a076409ed1d90c197bbf97a6e15144c0a4d38
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956630"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392827"
 ---
 # <a name="what-is-a-managed-instance"></a>O que é uma instância gerida?
 
@@ -205,7 +206,10 @@ Gerido cenários de usuário de destinos de instância com a migração de base 
 A abordagem de migração tira partido de cópias de segurança SQL para o armazenamento de Blobs do Azure. As cópias de segurança armazenadas no blob de armazenamento do Azure podem ser diretamente restauradas na instância gerida utilizando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
   - Para um início rápido que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados padrão, consulte [restaurar um ficheiro de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Este início rápido mostra de que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e seguro mesmo com uma chave de assinatura (SAS) de acesso partilhado.
   - Para obter informações sobre o restauro a partir do URL, consulte [nativo restaurar a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Cópias de segurança de uma instância gerida só podem ser restauradas para a outra instância gerida. Não é possível restaurar para um servidor de SQL no local ou para uma base de dados do Azure SQL server lógico individual ou agrupada base de dados.
+
 ### <a name="data-migration-service"></a>Serviço de migração de dados
 
 O serviço de migração de base de dados do Azure é um serviço completamente gerido criado para ativar migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. Este serviço simplifica as tarefas necessárias para mover de terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação incluem a base de dados do Azure SQL, instância gerida e do SQL Server na VM do Azure em pré-visualização pública. Ver [como migrar a sua base de dados no local para a instância gerida com o DMS](https://aka.ms/migratetoMIusingDMS).
@@ -233,7 +237,7 @@ Gerido benefícios de instância de ser sempre up-até à data na nuvem, o que s
 
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas  
 
-Geridos pelo administrador de sistema de ativação de instância para se focar no que é importante ao máximo para empresas. Muitas atividades de administrador/DBA do sistema não são necessárias, ou eles são simples. Por exemplo, o sistema operacional / instalação RDBMS e aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, replicação de base de dados (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração de estado de funcionamento e os dados de monitorização de desempenho fluxos. 
+Geridos pelo administrador de sistema de ativação de instância para se focar no que é importante ao máximo para empresas. Muitas atividades de administrador/DBA do sistema não são necessárias, ou eles são simples. Por exemplo, o sistema operacional / instalação RDBMS e aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, [replicação de base de dados](replication-with-sql-database-managed-instance.md) (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração do Estado de funcionamento e fluxos de dados de monitorização do desempenho. 
 
 > [!IMPORTANT]
 > Para obter uma lista dos recursos suportados, parcialmente suportadas e não suportados, consulte [funcionalidades de base de dados SQL](sql-database-features.md). Para obter uma lista de diferenças do T-SQL em instâncias geridas em comparação com o SQL Server, consulte [diferenças de T-SQL de instância gerida do SQL Server](sql-database-managed-instance-transact-sql-information.md)

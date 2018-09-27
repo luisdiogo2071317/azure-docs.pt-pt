@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: ef2288e2f756db6529f1ec5f7b3a49067b2998aa
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b9897fd0030c2b6efed0fefc47dd6720a61978cd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648916"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165147"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -67,6 +67,8 @@ Quando aumenta ou reduzir verticalmente, são adicionadas novas funções do tam
 
 ## <a name="ase-dependencies"></a>Dependências de ASE ##
 
+### <a name="ase-inbound-dependencies"></a>Dependências de entrada do ASE ###
+
 O ASE de entrada de acesso são dependências:
 
 | Utilizar | De | Para |
@@ -84,26 +86,23 @@ Para a comunicação entre o Balanceador de carga do Azure e a sub-rede do ASE o
 
 Se estiver a utilizar aplicações atribuídas os endereços IP que tem de permitir o tráfego de IPs atribuídos às suas aplicações para a sub-rede do ASE.
 
-Para acesso de saída, um ASE depende da existência de vários sistemas externos. Essas dependências do sistema são definidas com nomes DNS e não a mapear para um conjunto fixo de endereços IP. Portanto, o ASE requer acesso de saída a partir da sub-rede do ASE para todos os IPs externos numa variedade de portas. Um ASE tem as seguintes dependências de saída:
+O tráfego TCP que chega nas portas 454 e 455 deve voltar a partir do mesmo VIP ou terá um problema de encaminhamento assimétrico. 
 
-| Utilizar | De | Para |
-|-----|------|----|
-| Storage do Azure | Sub-rede do ASE | TABLE.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 só é necessário para ASEv1.) |
-| Base de Dados SQL do Azure | Sub-rede do ASE | Database.Windows.NET: 1433 |
-| Gestão do Azure | Sub-rede do ASE | Management.Core.Windows.NET, management.azure.com, admin.core.windows.net: 443 |
-| Verificação de certificado SSL |  Sub-rede do ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
-| Azure Active Directory        | Sub-rede do ASE            |  login.Windows.NET: 443 |
-| Gestão de serviço de aplicações        | Sub-rede do ASE            |  Gr-prod -<regionspecific>. cloudapp.net, .net de az-prod.metrics.nsatc: 443 |
-| DNS do Azure                     | Sub-rede do ASE            |  Internet: 53 |
-| Comunicação interna do ASE    | Sub-rede do ASE: todas as portas |  Sub-rede do ASE: todas as portas |
+### <a name="ase-outbound-dependencies"></a>Dependências de saída do ASE ###
 
-Se o ASE perder acesso a estas dependências, deixa de funcionar. Quando isso acontece o tempo suficiente, o ASE está suspensa.
+Para acesso de saída, um ASE depende da existência de vários sistemas externos. Muitas dessas dependências do sistema são definidas com nomes DNS e não mapeiam para um conjunto fixo de endereços IP. Portanto, o ASE requer acesso de saída a partir da sub-rede do ASE para todos os IPs externos numa variedade de portas. 
+
+A lista completa de dependências de saída são listados no documento que descreve [bloquear o tráfego de saída do ambiente de serviço de aplicações](./firewall-integration.md). Se o ASE perder o acesso às respetivas dependências, deixa de funcionar. Quando isso acontece o tempo suficiente, o ASE está suspensa. 
 
 ### <a name="customer-dns"></a>Cliente DNS ###
 
 Se a VNet está configurada com um servidor DNS definida pelo cliente, as cargas de trabalho de inquilinos usá-lo. O ASE ainda precisa para comunicar com o DNS do Azure para fins de gestão. 
 
 Se a VNet está configurada com um cliente DNS no outro lado de uma VPN, o servidor DNS tem de ser acessível a partir da sub-rede que contém o ASE.
+
+Para testar a resolução da sua aplicação web pode utilizar o comando de consola *nameresolver*. Ir para a janela de depuração no seu site scm da sua aplicação ou vá para a aplicação no portal e selecione consola. Prompt do shell, pode emitir o comando *nameresolver* juntamente com o endereço que pretende procurar. O resultado, que obtém é o mesmo que o que seu aplicativo obteria quando fizer a pesquisa do mesmo. Se utilizar o nslookup fizer uma pesquisa com o DNS do Azure em vez disso.
+
+Se alterar a definição de DNS da VNet que está a seu ASE, terá de reiniciar o seu ASE. Para evitar o reinício seu ASE, é altamente recomendável que configure as definições de DNS para a sua VNet antes de criar o seu ASE.  
 
 <a name="portaldep"></a>
 
@@ -205,9 +204,6 @@ Para criar as rotas mesmo manualmente, siga estes passos:
 ## <a name="service-endpoints"></a>Pontos Finais de Serviço ##
 
 Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Pode ler mais sobre Pontos Finais de Serviço na documentação [Pontos Finais de Serviço de Rede Virtual][serviceendpoints]. 
-
-   > [!NOTE]
-   > Os pontos finais de serviço com SQL não funcionam com o ASE nas regiões do Governo dos Estados Unidos. Estas informações só são válidas em regiões público do Azure.
 
 Quando ativar Pontos Finais de Serviço num recurso, são criadas rotas com uma prioridade mais alta do que todas as outras rotas. Se utilizar Pontos Finais de Serviço com um ASE com túnel forçado, o tráfego de gestão do SQL do Azure e do Armazenamento do Azure não fica com um túnel forçado. 
 

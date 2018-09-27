@@ -1,48 +1,49 @@
 ---
-title: Azure Moderator conteúdo - tarefas moderação interrupção e humanos no ciclo revisões | Microsoft Docs
-description: Aplica supervisão humana a moderação de interrupção assistida por máquina para obter os melhores resultados.
+title: Tarefas de moderação e avaliações de humanos em loop - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Aplicam-se a supervisão humana para moderação assistida por computador para obter melhores resultados.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 35b3cdaa410712c3fd08d3df4ebe4c83e3955d50
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351769"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223260"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Tarefas de moderação interrupção e revisões
+# <a name="moderation-jobs-and-reviews"></a>Tarefas de moderação e revisões
 
-Combinar moderação de interrupção auxiliada a uma máquina com capacidades de humanos no ciclo utilizando o Moderator conteúdo Azure [revisão API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) para obter os melhores resultados para a sua empresa.
+Combinar moderação assistida por computador com recursos humanos em loop através da utilização do Azure Content Moderator [revisão de API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) para obter os melhores resultados para a sua empresa.
 
-A API de revisão oferece as seguintes opções para incluir supervisão humana no seu processo de moderação de interrupção de conteúdo:
+A revisão de API oferece as seguintes opções para incluir a supervisão humana em seu processo de moderação de conteúdos:
 
-* `Job` operações são utilizadas para iniciar a moderação de interrupção assistido por computador e a criação de revisão humana como um passo.
-* `Review` operações são utilizadas para a criação de revisão humanos, fora do passo de moderação interrupção.
-* `Workflow` operações são utilizadas para gerir fluxos de trabalho que automatizam a análise com limiares para a criação de revisão.
+* `Job` operações são utilizadas para iniciar o moderação assistida por computador e a criação de revisão humana como uma etapa.
+* `Review` operações são utilizadas para a criação de revisão humana, fora a etapa de moderação.
+* `Workflow` operações são utilizadas para gerir fluxos de trabalho que automatizam a verificação com limiares para a criação de revisão.
 
-O `Job` e `Review` operações aceitam pontos finais da sua chamada de retorno para a receção de estado e os resultados.
+O `Job` e `Review` operações de aceitam os pontos de extremidade do retorno de chamada para o recebimento de status e os resultados.
 
-Este artigo abrange o `Job` e `Review` operações. Leia o [descrição geral de fluxos de trabalho](workflow-api.md) para obter informações sobre como criar, editar e obter as definições de fluxo de trabalho.
+Este artigo aborda os `Job` e `Review` operações. Leitura a [descrição geral de fluxos de trabalho](workflow-api.md) para obter informações sobre como criar, editar e obtém as definições de fluxo de trabalho.
 
 ## <a name="job-operations"></a>Operações de tarefa
 
 ### <a name="start-a-job"></a>Iniciar uma tarefa
-Utilize o `Job.Create` operação para iniciar um moderação interrupção e a tarefa de criação de revisão humanos. Conteúdo Moderator analisa o conteúdo e avalia o fluxo de trabalho designado. Com base nos resultados de fluxo de trabalho, cria revisões ou ignore o passo. Submete também as etiquetas de pós-moderação de interrupção e Revisão pós-implementação para o ponto final de chamada de retorno.
+Utilize o `Job.Create` operação para iniciar uma moderação e a tarefa de criação de revisão humana. O Content Moderator analisa o conteúdo e avalia o fluxo de trabalho designado. Com base nos resultados de fluxo de trabalho, ele o cria revisões ou ignora o passo. Submete também as etiquetas de pós- moderação de e pós-revisão para o ponto final de retorno de chamada.
 
 As entradas incluem as seguintes informações:
 
 - O ID de equipa de revisão.
-- O conteúdo a ser moderated.
-- O nome do fluxo de trabalho. (A predefinição é o fluxo de trabalho "predefinido").
-- A chamada de retorno de API de pontos de notificações.
+- O conteúdo para ser moderado.
+- O nome do fluxo de trabalho. (A predefinição é o fluxo de trabalho de "predefinição".)
+- Seu retorno de chamada de API ponto para notificações.
  
-A resposta seguinte mostra o identificador da tarefa que foi iniciado. Utilize o identificador de tarefa para obter o estado da tarefa e receber informações detalhadas.
+A seguinte resposta mostra o identificador da tarefa que foi iniciado. Utilize o identificador de tarefa para obter o estado da tarefa e receber informações detalhadas.
 
     {
         "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
@@ -50,17 +51,17 @@ A resposta seguinte mostra o identificador da tarefa que foi iniciado. Utilize o
 
 ### <a name="get-job-status"></a>Obter estado da tarefa
 
-Utilize o `Job.Get` operação e o identificador de tarefa para obter os detalhes de uma tarefa em execução ou foi concluída. A operação devolve imediatamente enquanto a moderação interrupção tarefa será executada no modo assíncrono. Os resultados são devolvidos através do ponto final de chamada de retorno.
+Utilize o `Job.Get` operação e o identificador de tarefa para obter os detalhes de uma tarefa em execução ou concluído. A operação devolve imediatamente enquanto a tarefa de moderação é executada de forma assíncrona. Os resultados são devolvidos através do ponto final de retorno de chamada.
 
-Os parâmetros e incluem as seguintes informações:
+Suas entradas incluem as seguintes informações:
 
 - O ID da equipa de revisão: O identificador de tarefa devolvido pela operação anterior
 
 A resposta inclui as seguintes informações:
 
-- O identificador de revisão criada. (Utilizar este ID para obter os resultados da revisão final).
-- O estado da tarefa (concluída ou em curso): as etiquetas de moderação de interrupção atribuído (pares chave-valor).
-- O relatório de execução da tarefa.
+- O identificador de revisão criada. (Utilizar este ID para obter os resultados de revisão final).
+- O estado da tarefa (conclusão ou em curso): as etiquetas de moderação atribuído (pares chave-valor).
+- O relatório de execução de tarefa.
  
  
         {
@@ -109,46 +110,46 @@ A resposta inclui as seguintes informações:
             ]
         }
  
-![Revisão de imagem para moderators humanos](images/ocr-sample-image.PNG)
+![Revisão de imagem para moderadores humanos](images/ocr-sample-image.PNG)
 
 ## <a name="review-operations"></a>Operações de revisão
 
-### <a name="create-reviews"></a>Criar revisões
+### <a name="create-reviews"></a>Criar as revisões
 
-Utilize o `Review.Create` operação para criar as revisões humanos. Moderada de noutro local ou utilizar lógica personalizada para atribuir as etiquetas de moderação interrupção.
+Utilize o `Review.Create` operação para criar as revisões de realizadas por pessoas. Moderá-los em outro lugar ou usar lógica personalizada para atribuir as etiquetas de moderação.
 
-Os parâmetros e a esta operação incluem:
+Suas entradas para esta operação incluem:
 
 - O conteúdo a ser revisto.
-- As etiquetas (pares de valor de chave) atribuídas para revisão por moderators humanos.
+- As etiquetas (pares chave-valor) atribuídas para revisão por moderadores humanos.
 
-A resposta seguinte mostra o identificador de revisão:
+A seguinte resposta mostra o identificador de revisão:
 
     [
         "201712i46950138c61a4740b118a43cac33f434",
     ]
 
 
-### <a name="get-review-status"></a>Obter o estado de revisão
-Utilize o `Review.Get` operação para obter os resultados de uma revisão humana da imagem moderated esteja concluída. Seja notificado através do ponto final de chamada de retorno fornecida. 
+### <a name="get-review-status"></a>Obter estado da revisão
+Utilize o `Review.Get` operação para obter os resultados após a conclusão de uma revisão de segurança da imagem moderada. Seja notificado através de ponto final da chamada de retorno fornecida. 
 
-A operação devolve dois conjuntos de etiquetas: 
+A operação retorna dois conjuntos de etiquetas: 
 
-* As etiquetas atribuídas pelo serviço moderação interrupção
-* As etiquetas desde que foi concluída a revisão humano
+* As etiquetas atribuídas pelo serviço de moderação
+* As marcas de revisão humana foi concluída
 
-Os parâmetros e incluem um mínimo:
+Suas entradas incluem-se no mínimo:
 
-- O nome do agrupamento de revisão
+- O nome da equipa de revisão
 - O identificador de revisão devolvido pela operação anterior
 
 A resposta inclui as seguintes informações:
 
 - O estado de revisão
-- As etiquetas (pares chave-valor) confirmadas pelo humano revisor
-- As etiquetas (pares chave-valor) atribuídas pelo serviço moderação interrupção
+- As etiquetas (pares chave-valor) confirmadas pelo revisor humano
+- As etiquetas (pares chave-valor) atribuídas pelo serviço de moderação
 
-Consulte ambas as etiquetas atribuído revisor (**reviewerResultTags**) e as etiquetas iniciais (**metadados**) na resposta de exemplo seguinte:
+Ver ambas as etiquetas atribuídas revisor (**reviewerResultTags**) e as etiquetas iniciais (**metadados**) na resposta de exemplo seguinte:
 
     {
         "reviewId": "201712i46950138c61a4740b118a43cac33f434",
@@ -183,6 +184,6 @@ Consulte ambas as etiquetas atribuído revisor (**reviewerResultTags**) e as eti
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Testar o [consola de API de tarefa](try-review-api-job.md)e utilizar os exemplos de código da REST API. Se estiver familiarizado com o Visual Studio e c#, consulte também o [início rápido de .NET de tarefas](moderation-jobs-quickstart-dotnet.md). 
-* Para revisões, comece a [consola revisão API](try-review-api-review.md)e utilizar os exemplos de código da REST API. Em seguida, consulte o [início rápido de .NET de revisões](moderation-reviews-quickstart-dotnet.md).
-* Para as vídeos revisões, utilize o [início rápido de revisão de vídeo](video-reviews-quickstart-dotnet.md)e saber como [adicionar transcrições para rever a vídeo](video-transcript-reviews-quickstart-dotnet.md).
+* Faça o test drive da [consola de API de tarefa](try-review-api-job.md)e utilize os exemplos de código da REST API. Se estiver familiarizado com o Visual Studio e c#, também, veja a [guia de introdução do .NET de tarefas](moderation-jobs-quickstart-dotnet.md). 
+* Para revisões, comece com o [consola de API de revisão](try-review-api-review.md)e utilize os exemplos de código da REST API. Em seguida, consulte a [guia de introdução do .NET de revisões](moderation-reviews-quickstart-dotnet.md).
+* Para revisões de vídeo, utilize o [guia de introdução do vídeo revisão](video-reviews-quickstart-dotnet.md)e saiba como [adicionar transcrições para a revisão de vídeo](video-transcript-reviews-quickstart-dotnet.md).

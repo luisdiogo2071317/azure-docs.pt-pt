@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023298"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225264"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obter ambiente do Azure onde a VM está em execução 
 
-O Azure tem várias nuvens de soverign como [do Azure Government](https://azure.microsoft.com/overview/clouds/government/) , às vezes precisa para o ambiente do Azure tomar algumas decisões de tempo de execução. Exemplo seguinte irá mostrar-lhe como fazê-lo
+O Azure tem várias clouds soberanas, como [do Azure Government](https://azure.microsoft.com/overview/clouds/government/). Às vezes precisa tomar algumas decisões de tempo de execução do ambiente do Azure. O exemplo a seguir mostra como fazê-lo.
 
 **Pedido**
 
@@ -445,7 +445,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Sim do serviço de metadados está disponível para instâncias de conjunto de dimensionamento. 
 8. Como posso obter suporte para o serviço?
    * Para obter suporte para o serviço, criar um problema de suporte no portal do Azure para a VM em que não é possível obter a resposta de metadados após repetições longas 
-9. Posso obter o pedido excedeu o tempo limite para a chamada ao serviço?
+9. Posso obter o pedido excedeu o tempo limite para a chamada para o serviço?
    * Chamadas de metadados têm de ser efetuadas do endereço IP primário atribuído à placa de rede da VM, além no caso de ter alterado as rotas aqui tem de ser uma rota para o endereço de 169.254.0.0/16 fora de sua placa de rede.
 10. Atualizei meu etiquetas num conjunto de dimensionamento de máquinas virtuais, mas não são apresentados nas instâncias ao contrário de VMs?
    * Atualmente para ScaleSets etiquetas mostram apenas para a VM em reinício/recriação de imagem/ou um disco alterar para a instância. 

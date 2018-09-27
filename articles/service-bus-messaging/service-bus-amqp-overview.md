@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 8fd87897a70b0a7bb629e185473374837cf1026e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701939"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393337"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte de AMQP 1.0 no Service Bus
 O serviço de nuvem do Azure Service Bus e no local [Service Bus para Windows Server (1.1 do barramento de serviço)](https://msdn.microsoft.com/library/dn282144.aspx) suportam o Advanced Message colocação em fila Protocol (AMQP) 1.0. AMQP permite-lhe criar para várias plataformas, aplicações híbridas com um protocolo de norma aberta. Pode construir aplicativos usando componentes que são criadas através de linguagens e estruturas diferentes e que executam sistemas operacionais. Todos esses componentes podem ligar-se ao Service Bus e perfeitamente trocam mensagens comerciais estruturados com eficiência e em total fidelidade.

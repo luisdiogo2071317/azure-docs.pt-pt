@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 6ff28443dda65e91fa69fececaff95aa8e872603
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604256"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226453"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)
 
@@ -36,7 +36,7 @@ Para instalar o Virtual Kubelet [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados em RBAC
 
-Se o seu cluster do AKS tem a capacidade de RBAC, tem de criar uma conta de serviço e o enlace de função para utilização com Tiller. Para obter mais informações, consulte [controlo de acesso baseado em funções do Helm][helm-rbac]. Para criar uma conta de serviço e o enlace de função, crie um ficheiro denominado *rbac virtualkubelet.yaml* e cole a seguinte definição:
+Se o seu cluster do AKS tem a capacidade de RBAC, tem de criar uma conta de serviço e o enlace de função para utilização com Tiller. Para obter mais informações, consulte [controlo de acesso baseado em funções do Helm][helm-rbac]. Para criar uma conta de serviço e o enlace de função, crie um ficheiro denominado *rbac virtual kubelet.yaml* e cole a seguinte definição:
 
 ```yaml
 apiVersion: v1
@@ -59,7 +59,7 @@ subjects:
     namespace: kube-system
 ```
 
-Aplicam-se a conta de serviço e a ligação com [aplicam-se de kubectl] [ kubectl-apply] e especifique seus *rbac virtualkubelet.yaml* ficheiro, conforme mostrado no exemplo a seguir:
+Aplicam-se a conta de serviço e a ligação com [aplicam-se de kubectl] [ kubectl-apply] e especifique seus *rbac virtual kubelet.yaml* ficheiro, conforme mostrado no exemplo seguinte:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -158,7 +158,7 @@ NAME                                READY     STATUS    RESTARTS   AGE       IP 
 aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
 ```
 
-## <a name="run-windows-container"></a>Execute contentores do Windows
+## <a name="run-windows-container"></a>Executar o contentor do Windows
 
 Crie um ficheiro denominado `virtual-kubelet-windows.yaml` e copie o YAML seguinte. Substitua o `kubernetes.io/hostname` valor com o nome do nó Virtual Kubelet do Windows. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
 
@@ -182,7 +182,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

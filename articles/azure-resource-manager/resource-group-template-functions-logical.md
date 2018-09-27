@@ -1,6 +1,6 @@
 ---
-title: Funções do Azure Resource Manager modelo - lógicas | Microsoft Docs
-description: Descreve as funções de utilizar um modelo Azure Resource Manager para determinar os valores lógicos.
+title: Funções do Azure Resource Manager modelo - lógicas | Documentos da Microsoft
+description: Descreve as funções para utilizar num modelo do Azure Resource Manager para determinar os valores lógicos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359072"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164792"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções de lógicas de modelos Azure Resource Manager
+# <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
-O Resource Manager fornece várias funções, para efetuar comparações nos seus modelos.
+Resource Manager fornece várias funções para fazer comparações nos seus modelos.
 
-* [E](#and)
-* [bool](#bool)
+* [e](#and)
+* [Bool](#bool)
 * [if](#if)
 * [not](#not)
 * [ou](#or)
@@ -34,22 +34,22 @@ O Resource Manager fornece várias funções, para efetuar comparações nos seu
 ## <a name="and"></a>e
 `and(arg1, arg2)`
 
-Verifica se ambos os valores de parâmetro forem verdadeiros.
+Verifica se os dois valores de parâmetro são verdadeiros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
+| arg2 |Sim |boolean |O segundo valor a verificar se é verdadeiro. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Devolve **verdadeiro** se ambos os valores forem true; caso contrário, **falso**.
+Devolve **True** se ambos os valores forem true; caso contrário, **falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mostra como utilizar funções lógicas.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mostra como utilizar funções lógicas.
 
 ```json
 {
@@ -77,9 +77,9 @@ O resultado do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | Falso |
-| orExampleOutput | bool | Verdadeiro |
-| notExampleOutput | bool | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | Verdadeiro |
+| notExampleOutput | Bool | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -93,23 +93,23 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-## <a name="bool"></a>bool
+## <a name="bool"></a>Bool
 `bool(arg1)`
 
-Converte o parâmetro booleano.
+Converte o parâmetro para um valor booleano.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia ou int |O valor para converter um valor booleano. |
+| arg1 |Sim |cadeia de caracteres ou int |O valor a converter em booleano. |
 
-### <a name="return-value"></a>Valor devolvido
-Um booleano do valor convertido.
+### <a name="return-value"></a>Valor de retorno
+Um valor booleano do valor convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) mostra como utilizar bool com uma cadeia ou um número inteiro.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) mostra como utilizar bool com uma cadeia de caracteres ou um número inteiro.
 
 ```json
 {
@@ -141,10 +141,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| trueString | bool | Verdadeiro |
-| falseString | bool | Falso |
-| trueInt | bool | Verdadeiro |
-| falseInt | bool | Falso |
+| trueString | Bool | Verdadeiro |
+| falseString | Bool | Falso |
+| trueInt | Bool | Verdadeiro |
+| falseInt | Bool | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -158,26 +158,26 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
-## <a name="if"></a>Se
+## <a name="if"></a>IF
 `if(condition, trueValue, falseValue)`
 
-Devolve um valor com base nas permissões de uma condição for true ou false.
+Devolve um valor com base em se uma condição for true ou false.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| condição |Sim |boolean |O valor para verificar se é verdadeiro. |
-| trueValue |Sim | cadeia, int, objetos ou matriz |O valor a devolver quando a condição for true. |
-| falseValue |Sim | cadeia, int, objetos ou matriz |O valor a devolver quando a condição for false. |
+| condition |Sim |boolean |O valor a verificar se é verdadeira. |
+| trueValue |Sim | cadeia de caracteres, int, objeto ou matriz |O valor a devolver quando a condição for verdadeira. |
+| falseValue |Sim | cadeia de caracteres, int, objeto ou matriz |O valor a devolver quando a condição for falsa. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Devolve o segundo parâmetro quando o primeiro parâmetro é **verdadeiro**; caso contrário, devolve o terceiro parâmetro.
+Devolve o segundo parâmetro quando o primeiro parâmetro é **True**; caso contrário, devolve o terceiro parâmetro.
 
 ### <a name="remarks"></a>Observações
 
-Pode utilizar esta função condicionalmente definir uma propriedade de recurso. O exemplo seguinte não é um modelo completo, mas mostra as partes relevantes para condicionalmente definir o conjunto de disponibilidade.
+Pode utilizar esta função condicionalmente definir uma propriedade de recurso. O exemplo seguinte não é um modelo completo, mas mostra as partes relevantes para a definição condicionalmente o conjunto de disponibilidade.
 
 ```json
 {
@@ -223,7 +223,7 @@ Pode utilizar esta função condicionalmente definir uma propriedade de recurso.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) mostra como utilizar o `if` função.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) mostra como utilizar o `if` função.
 
 ```json
 {
@@ -239,6 +239,10 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -250,6 +254,7 @@ O resultado do exemplo anterior é:
 | ---- | ---- | ----- |
 | yesOutput | Cadeia | sim |
 | noOutput | Cadeia | não |
+| objectOutput | Object | {"teste": "value1"} |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -266,7 +271,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="not"></a>não
 `not(arg1)`
 
-Converte o valor booleano para o valor oposto.
+Converte o valor booleano para seu valor oposta.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -274,13 +279,13 @@ Converte o valor booleano para o valor oposto.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O valor a converter. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Devolve **verdadeiro** quando o parâmetro é **falso**. Devolve **falso** quando o parâmetro é **verdadeiro**.
+Devolve **True** quando o parâmetro é **falso**. Devolve **False** quando o parâmetro é **verdadeiro**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mostra como utilizar funções lógicas.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mostra como utilizar funções lógicas.
 
 ```json
 {
@@ -308,9 +313,9 @@ O resultado do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | Falso |
-| orExampleOutput | bool | Verdadeiro |
-| notExampleOutput | bool | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | Verdadeiro |
+| notExampleOutput | Bool | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -324,7 +329,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) utiliza **não** com [é igual a](resource-group-template-functions-comparison.md#equals).
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) utiliza **não** com [é igual a](resource-group-template-functions-comparison.md#equals).
 
 ```json
 {
@@ -344,7 +349,7 @@ O resultado do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | bool | Verdadeiro |
+| checkNotEquals | Bool | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -368,15 +373,15 @@ Verifica se o valor do parâmetro é verdadeiro.
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
+| arg2 |Sim |boolean |O segundo valor a verificar se é verdadeiro. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Devolve **verdadeiro** se o valor for true; caso contrário, **falso**.
+Devolve **True** se qualquer valor for verdadeiro; caso contrário, **falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mostra como utilizar funções lógicas.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mostra como utilizar funções lógicas.
 
 ```json
 {
@@ -404,9 +409,9 @@ O resultado do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | Falso |
-| orExampleOutput | bool | Verdadeiro |
-| notExampleOutput | bool | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | Verdadeiro |
+| notExampleOutput | Bool | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -422,7 +427,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 

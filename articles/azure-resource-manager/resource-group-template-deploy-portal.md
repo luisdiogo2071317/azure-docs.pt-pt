@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494093"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220130"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 
@@ -137,4 +137,4 @@ O portal permite-lhe guardar um modelo para sua conta do Azure e reimplementá-l
 * Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](resource-group-audit.md).
 * Para resolver erros de implementação, consulte o artigo [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para obter um modelo a partir de uma implementação ou o grupo de recursos, veja [modelo de exportar o Azure Resource Manager a partir de recursos existentes](resource-manager-export-template.md).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
+* Para implementação com segurança o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](deployment-manager-overview.md).

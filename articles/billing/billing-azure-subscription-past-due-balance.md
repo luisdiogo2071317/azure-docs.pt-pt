@@ -1,6 +1,6 @@
 ---
-title: Devedor e-mail de saldo do Azure | Microsoft Docs
-description: Descreve como efetuar pagamento se a sua subscrição do Azure tem um passado devida saldo
+title: E-mail do Azure com o saldo antigo vencido | Documentos da Microsoft
+description: Descreve como adaptar-pagamento se a sua subscrição do Azure tiver um passado saldo
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 5e5d8849e59d95640b490d29bf1233135980486c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.author: cwatson
+ms.openlocfilehash: fbc1f906812c0fb40a173fd90eac315753c893ef
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159225"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393236"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver vencido saldo para a sua subscrição do Azure após obter um e-mail a partir do Azure
+# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver em atraso saldo para a sua subscrição do Azure após obter uma mensagem de e-mail do Azure
 
-Se o pagamento não é recebido ou se não é possível processar o pagamento, poderá receber um e-mail ou consulte um alerta no portal do Azure ou do Centro de contas. A mensagem poderá ser como:
+Se o pagamento não é recebido ou se não foi possível processar o pagamento, poderá receber um e-mail ou ver um alerta no portal do Centro de contas ou do Azure. A mensagem pode ser, como:
 
-**Iremos foram não é possível cobram seu cartão de crédito da sua subscrição. Para evitar quaisquer interrupções do serviço, Atualize as informações de pagamento.**
+**Podemos ter sido não é possível a debitar o cartão de crédito para a sua subscrição. Para evitar interrupções de serviço, Atualize as informações de pagamento.**
 
-Siga os passos no artigo para resolver passado devida balancear.
+Siga os passos no artigo para resolver passado saldo vencimento.
 
-## <a name="resolve-the-past-due-balance"></a>Resolver passado Saldo devido
+## <a name="resolve-the-past-due-balance"></a>Resolver passado vencimento de saldo
 
-* Se o cartão de crédito no ficheiro for recusado ou expirou, [alterar o cartão de crédito utilizado para a subscrição paga](billing-how-to-change-credit-card.md) ou contacte o seu banco para resolver o problema. Quando atualizar o método de pagamento, Azure imediatamente os processos de pagamento para todos os encargos pendentes. Pagamento também é processado para quaisquer outros serviços da Microsoft em que tenha os encargos pendentes.
+* Se o cartão de crédito no ficheiro for recusado ou expirou, [alterar o cartão de crédito utilizado para pagar a subscrição](billing-how-to-change-credit-card.md) ou contacte o seu banco para resolver o problema. Quando atualizar o método de pagamento, o Azure processa imediatamente o pagamento para todas as cobranças por liquidar. Pagamento também é processado para quaisquer outros serviços da Microsoft em que tenha encargos pendentes.
 
-* Se estiver no modo fatura de pagamento, envie o pagamento para a localização indicada na parte inferior da sua fatura. Se precisar de ajuda, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Se estiver num modo de nota fiscal de pagamento, envie o pagamento para a localização listada na parte inferior da sua fatura. Se precisar de ajuda, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-* Se não vir uma fatura porque o administrador da conta deixou a empresa ou funções alteradas, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
+* Se não vir uma fatura, porque o administrador de conta saiu da empresa ou mudou de função, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
 
-* Se souber o pagamento ter sido processado, mas ainda está desativada a sua subscrição, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Se souber o pagamento foi processado, mas a sua subscrição ainda está desativada, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="not-getting-billing-email-notifications"></a>Obter não faturação notificações de e-mail?
+## <a name="not-getting-billing-email-notifications"></a>Não a obter notificações de e-mail de faturação?
 
-Se for administrador de conta, [o endereço de correio eletrónico é utilizado para notificações de verificação](billing-how-to-change-azure-account-profile.md). Recomendamos que utilize um endereço de e-mail que verificar regularmente. Se o e-mail é adequado, verifique a pasta de spam.
+Se for o administrador de conta [que endereço de e-mail é utilizado para notificações de verificação](billing-how-to-change-azure-account-profile.md). Recomendamos que utilize um endereço de e-mail que verificar regularmente. Se o e-mail está certo, verifique a pasta de spam.
 
-## <a name="if-i-forget-to-pay-what-happens"></a>Se esqueceu de pagar, o que acontece?
+## <a name="if-i-forget-to-pay-what-happens"></a>Se eu me esquecer a pagar, o que acontece?
 
-O serviço foi cancelado e os recursos já não estão disponíveis. Os dados do Azure são eliminados 90 dias após o serviço foi terminado. Para obter mais informações, consulte [Microsoft Trust Center - como podemos gerir os seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+O serviço é cancelado e seus recursos já não estão disponíveis. Seus dados do Azure são eliminados 90 dias após o serviço é encerrado. Para obter mais informações, consulte [Microsoft Trust Center - como podemos gerir os seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

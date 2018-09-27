@@ -1,22 +1,23 @@
 ---
 title: Regras de firewall de base de dados SQL e o armazém de dados do Azure | Documentos da Microsoft
 description: Saiba como configurar uma base de dados SQL e o firewall do SQL Data Warehouse com regras de firewall ao nível do servidor para gerir o acesso e configurar regras de firewall ao nível da base de dados de base de dados SQL.
-keywords: firewall de base de dados do servidor
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 698014c24d6a3af3fb79980a07e25483554b1007
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bc246031e57fd8e28cddf9f4e6e170b0695d7579
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042436"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166763"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall de base de dados SQL e SQL Data Warehouse do Azure 
 

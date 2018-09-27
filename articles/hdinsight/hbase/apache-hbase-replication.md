@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978544"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224386"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase em redes virtuais do Azure
 
@@ -109,6 +109,7 @@ Para instalar o enlace, yon tem de encontrar o endereço IP público de duas má
 2. Abra a máquina virtual DNS, selecionando **grupos de recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é criado no último procedimento. Os nomes de máquina virtual DNS padrão são *vnet1DNS* e *vnet2NDS*.
 3. Selecione **propriedades** para abrir a página de propriedades da rede virtual.
 4. Anote o **endereço IP público**e também verificar se o **endereço IP privado**.  Deve ser o endereço IP privado **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
+5. Altere os servidores de DNS para ambas as redes virtuais para utilizar servidores DNS de predefinição (fornecida pelo Azure) para permitir o acesso de entrada e saído transferir pacotes a serem instalados Bind nos passos seguintes.
 
 Para instalar o enlace, utilize o seguinte procedimento:
 
@@ -217,7 +218,7 @@ Para instalar o enlace, utilize o seguinte procedimento:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]

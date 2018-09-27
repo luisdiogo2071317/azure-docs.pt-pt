@@ -1,5 +1,5 @@
 ---
-title: Criar e partilhar dashboards de portais do Azure | Microsoft Docs
+title: Criar e partilhar dashboards de portais do Azure | Documentos da Microsoft
 description: Este artigo explica como criar e editar dashboards no portal do Azure.
 services: azure-portal
 documentationcenter: ''
@@ -13,86 +13,86 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: sewatson
-ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: cwatson
+ms.openlocfilehash: 6062e54f0fb584dec4c2db540565c5860ae92a2d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165354"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394969"
 ---
-# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar os dashboards no portal do Azure
-Pode criar dashboards vários e partilhá-los com outras pessoas que têm acesso às suas subscrições do Azure.  Este artigo abordar as noções básicas de criação, edição, publicar e gerir o acesso aos dashboards.
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
+Pode criar vários dashboards e partilhá-los com outras pessoas que têm acesso às suas subscrições do Azure.  Este artigo aborda as noções básicas de criação, edição, publicar e gerir o acesso aos dashboards.
 
 ## <a name="create-a-dashboard"></a>Criar um dashboard
 Para criar um dashboard, selecione o botão **Novo dashboard** junto ao nome do dashboard atual.  
 
-![criar o dashboard](./media/azure-portal-dashboards/new-dashboard.png)
+![criar dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-Esta ação cria um dashboard novo, vazio e privado, e coloca-o no modo de personalização onde pode nomear o seu dashboard e adicionar ou reorganizar os mosaicos.  Neste modo, a galeria do mosaico expansível assume o menu de navegação esquerdo.  A galeria do mosaico permite-lhe localizar mosaicos para os seus recursos do Azure de várias formas: pode procurar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), por tipo de recurso, por [tag](../azure-resource-manager/resource-group-using-tags.md), ou ao pesquisar para o seu recurso por nome.  
+Esta ação cria um dashboard novo, vazio e privado, e coloca-o no modo de personalização onde pode nomear o seu dashboard e adicionar ou reorganizar os mosaicos.  Neste modo, a Galeria de mosaicos recolhível assume o menu de navegação à esquerda.  A Galeria de mosaicos permite-lhe encontrar mosaicos para os seus recursos do Azure de várias formas: pode procurar ao [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), ao tipo de recurso, por [marca](../azure-resource-manager/resource-group-using-tags.md), ou ao procurar o seu recurso por nome.  
 
 ![Personalizar o dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
-Adicione peças de mosaicos e largue-os para a superfície de dashboard onde quiser.
+Adicione mosaicos arrastando e soltando-os para a superfície de dashboard onde quiser.
 
-Há uma nova categoria designada **geral** para mosaicos não estão associados um recurso específico.  Neste exemplo, vamos afixe o mosaico de Markdown.  Utilize este mosaico para adicionar conteúdo personalizado ao seu dashboard.  O mosaico suporta texto simples, [sintaxe de Markdown](https://daringfireball.net/projects/markdown/syntax)e um conjunto limitado de HTML.  (Para segurança, que não pode fazer coisas como injetar `<script>` etiquetas ou utilizar determinado elemento estilo CSS pode interferir com o portal.) 
+Há uma nova categoria designada **gerais** para os mosaicos que não estão associados um recurso específico.  Neste exemplo, vamos afixar o mosaico de Markdown.  Utilize este mosaico para adicionar conteúdo personalizado ao seu dashboard.  O mosaico suporta texto simples, [sintaxe de Markdown](https://daringfireball.net/projects/markdown/syntax)e um conjunto limitado de HTML.  (Para segurança, não é possível fazer coisas como injetar `<script>` etiquetas ou utilize a determinado elemento de definição de estilo de CSS que podem interferir com o portal.) 
 
 ![adicionar o markdown](./media/azure-portal-dashboards/add-markdown.png)
 
 ## <a name="edit-a-dashboard"></a>Editar um dashboard
-Depois de criar o dashboard, pode afixar mosaicos da galeria do mosaico ou a representação do mosaico de painéis. Vamos afixar a representação do nosso grupo de recursos. Pode um pin ao procurar o item ou a partir do painel do grupo de recursos. Ambas as abordagens resultam em afixação a representação de mosaico do grupo de recursos.
+Depois de criar o seu dashboard, pode afixar mosaicos a partir da Galeria de mosaicos ou a representação de mosaico dos painéis. Vamos afixar a representação do nosso grupo de recursos. Pode um pin quando o item de navegação ou a partir do painel do grupo de recursos. As duas abordagens resultam no fixando a representação de mosaico do grupo de recursos.
 
 ![Afixar ao dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
-Após da afixação o item, a mesma aparece no dashboard.
+Depois de fixar o item, ele aparece no seu dashboard.
 
-![Veja o dashboard](./media/azure-portal-dashboards/view-dashboard.png)
+![Ver dashboard](./media/azure-portal-dashboards/view-dashboard.png)
 
-Agora que temos um mosaico de Markdown e um grupo de recursos afixado ao dashboard, mas pode redimensionar e reorganizar os mosaicos para um esquema adequado.
+Agora que temos um mosaico de Markdown e um grupo de recursos afixada ao dashboard, podemos redimensionar e reorganizar os mosaicos num layout adequado.
 
-Por posicionado e selecionando "..." ou clicar num mosaico, pode ver todos os comandos contextuais para este mosaico. Por predefinição, existem dois itens:
+Ao pairar o rato e selecionar "..." ou clicando com o botão direito num mosaico, pode ver todos os comandos contextuais para esse mosaico. Por predefinição, existem dois itens:
 
-1. **Remover a partir do dashboard** – remove o mosaico do dashboard
-2. **Personalizar** – entra modo de personalização
+1. **Remover do dashboard** – remove o mosaico do dashboard
+2. **Personalizar** – entra em modo de personalização
 
 ![Personalizar o mosaico](./media/azure-portal-dashboards/customize-tile.png)
 
-Selecionando personalizar, pode redimensionar e reordenar os mosaicos. Para redimensionar um mosaico, selecione o novo tamanho do menu de nível contextual das, conforme mostrado na imagem seguinte.
+Selecionando personalizar, pode redimensionar e reorganizar os mosaicos. Para redimensionar um mosaico, selecione o novo tamanho do contextual menu, conforme mostrado na imagem seguinte.
 
 ![redimensionar o mosaico](./media/azure-portal-dashboards/resize-tile.png)
 
-Em alternativa, se o mosaico suporta qualquer tamanho, pode arrastar canto inferior direito para o tamanho pretendido.
+Em alternativa, se o mosaico suportar qualquer tamanho, pode arrastar o canto inferior direito para o tamanho pretendido.
 
 ![redimensionar o mosaico](./media/azure-portal-dashboards/resize-corner.png)
 
-Depois de o redimensionamento de mosaicos, ver o dashboard.
+Depois de redimensionar mosaicos, ver o dashboard.
 
 ![mosaico de vista](./media/azure-portal-dashboards/view-tile.png)
 
-Quando tiver terminado de personalizar um dashboard, basta selecionar a **feito personalizar** para sair personalizar modo ou com o botão direito e selecione **feito personalizar** no menu de contexto.
+Quando tiver terminado de personalizar um dashboard, basta selecionar o **personalização concluída** para sair do modo de personalização ou com o botão direito e selecione **personalização concluída** no menu de contexto.
 
 ## <a name="publish-a-dashboard-and-manage-access-control"></a>Publicar um dashboard e gerir o controlo de acesso
 Quando cria um dashboard, é privado por predefinição, o que significa que é o único utilizador que o pode ver.  Para o tornar visível a outros utilizadores, utilize o botão **Partilhar** que se encontra junto aos outros comandos do dashboard.
 
-![Partilhe o dashboard](./media/azure-portal-dashboards/share-dashboard.png)
+![partilhar dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para perfeitamente integrar dashboards do ecossistema, iremos tiver implementado dashboards partilhados como recursos do Azure (para que não é possível partilhar, escrevendo um endereço de e-mail).  Acesso para as informações apresentadas pela maioria dos mosaicos no portal são regidos pelas [controlo de acesso baseado em do Azure funções](../role-based-access-control/role-assignments-portal.md). De uma perspetiva de controlo de acesso partilhados dashboards são não diferentes de uma máquina virtual ou uma conta de armazenamento.  
+É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Integre o dashboards no ecossistema do, Implementámos dashboards partilhados como recursos do Azure (portanto, não é possível partilhar ao escrever um endereço de e-mail).  Acesso às informações apresentadas pela maioria dos mosaicos no portal são regidos pelos [controlo de acesso baseado em do Azure funções](../role-based-access-control/role-assignments-portal.md). Da perspectiva de controlo de acesso, dashboards partilhados não são diferentes de uma máquina virtual ou uma conta de armazenamento.  
 
-Vamos supor que tiver uma subscrição do Azure e os membros da sua equipa foram atribuídos as funções de **proprietário**, **contribuinte**, ou **leitor** da subscrição.  Os utilizadores que são proprietários ou contribuintes são capazes de lista, ver, criar, modificar ou eliminar dashboards dentro dessa subscrição.  Os utilizadores que são leitores são capazes de lista e vista dashboards, mas não é possível modificar ou eliminar.  Os utilizadores com acesso de leitor são capazes de efetuar edições de locais para um dashboard partilhado, mas não conseguem publicar as alterações no servidor.  No entanto, fazer uma cópia do dashboard para os seus próprios utilização privada.  Como sempre, individuais mosaicos no dashboard impor as suas próprias regras de controlo de acesso baseadas nos recursos que correspondem a.  
+Vamos supor que tem uma subscrição do Azure e membros de sua equipe foram atribuídos as funções de **proprietário**, **contribuinte**, ou **leitor** da subscrição.  Os utilizadores que são proprietários ou contribuidores são capazes de lista, visualizar, criar, modificar ou eliminar dashboards nessa subscrição.  Os utilizadores que são os leitores podem listar e ver dashboards, mas não é possível modificar ou eliminá-los.  Os utilizadores com acesso de leitor são capazes de fazer edições locais para um dashboard partilhado, mas não são possível publicar as alterações no servidor.  No entanto, eles podem fazer uma cópia privada do dashboard para utilização pessoal.  Como sempre, individuais mosaicos no dashboard impõem suas próprias regras de controlo de acesso com base nos recursos correspondem às.  
 
 Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  
 
 ![Publicar o dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
 
-Também pode optar por publicar um dashboard a um grupo de recurso específico.  O controlo de acesso para esse dashboard corresponde o controlo de acesso para o grupo de recursos.  Os utilizadores que podem gerir os recursos nesse grupo de recursos também tem acesso para os dashboards.
+Também pode optar por publicar um dashboard num grupo de recursos específico.  O controlo de acesso para esse dashboard coincide com o controlo de acesso para o grupo de recursos.  Os utilizadores que podem gerir os recursos nesse grupo de recursos também têm acesso aos dashboards.
 
 ![publicar o dashboard para o grupo de recursos](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-Depois do dashboard é publicado, a **partilha + acesso** painel de controlo irá atualizar e mostrar-lhe informações sobre o dashboard publicado, incluindo uma ligação para gerir o acesso de utilizador para o dashboard.  Esta ligação inicia o painel de controlo de acesso baseado em funções padrão utilizado para gerir o acesso para qualquer recurso do Azure.  Pode sempre regressar a esta vista selecionando **partilha**.
+Depois de seu dashboard é publicado, o **acesso + partilha** painel de controle irá atualizar e mostrar-lhe informações sobre o dashboard publicado, incluindo uma ligação para gerir o acesso de utilizador para o dashboard.  Isso inicia o painel de controlo de acesso baseado em funções padrão, utilizado para gerir o acesso para qualquer recurso do Azure.  Pode sempre voltar a esta vista selecionando **partilha**.
 
-![Gerir o controlo de acesso](./media/azure-portal-dashboards/manage-access.png)
+![Gerir controlo de acesso](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para gerir recursos, consulte [recursos do Azure de gerir através do portal](../azure-resource-manager/resource-group-portal.md).
-* Para implementar os recursos, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* Para gerir os recursos, consulte [recursos de gerir o Azure através do portal](../azure-resource-manager/resource-group-portal.md).
+* Para implementar recursos, veja [implementar recursos com modelos do Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

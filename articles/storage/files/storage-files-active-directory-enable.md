@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 31bfcd99e23cc7fe0575a293e3dc22507dbd9e13
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8ad5a509b4fd4b6fd59212ac0df17f98f417fd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973274"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222442"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Ativar a autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
 
@@ -103,8 +103,6 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 **CLI**
-
-"Precisa primeiro adicionar a extensão de armazenamento-pré-visualização, em seguida, siga a pancada de exemplo. Lembre-se substituir os valores de marcador de posição pelos seus próprios valores. Consulte este artigo para obter mais informações sobre como adicionar extensões da CLI do Azure."
 
 Para ativar a autenticação do Azure AD através de SMB da CLI 2.0 do Azure, instale primeiro o *pré-visualização do armazenamento* extensão:
 
@@ -274,7 +272,7 @@ Em seguida, utilize o comando seguinte para montar a partilha de ficheiros do Az
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-Agora com êxito ativou a autenticação do Azure AD através de SMB e atribuída uma função personalizada que fornece acesso a uma partilha de ficheiros para uma identidade do Azure AD. Para conceder acesso à partilha de ficheiros para os utilizadores adicionais, siga as instruções fornecidas no passo 2.
+Agora com êxito ativou a autenticação do Azure AD através de SMB e atribuída uma função personalizada que fornece acesso a uma partilha de ficheiros para uma identidade do Azure AD. Para conceder acesso à partilha de ficheiros para os utilizadores adicionais, siga as instruções fornecidas no passo 2 e 3.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

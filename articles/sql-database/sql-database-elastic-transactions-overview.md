@@ -2,20 +2,22 @@
 title: Transações distribuídas entre bases de dados de nuvem
 description: Descrição geral das transações da base de dados elástica com a base de dados SQL do Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.custom: scale out apps
-ms.workload: On Demand
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 0de19870b39bc679d653f3d9bdf4fea3a2c100c1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3147061f527621ba98dee84f4d347a6e883d61c0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722151"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166474"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 Transações de base de dados elástica de base de dados do Azure SQL (SQL DB) permitem-lhe executar transações que abrangem várias bases de dados no SQL DB. Transações de base de dados elástica para a BD SQL estão disponíveis para aplicativos .NET usando o ADO .NET e integrar com a através de experiência de programação familiar a [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. Para obter a biblioteca, consulte [.NET Framework 4.6.1 (instalador Web)](https://www.microsoft.com/download/details.aspx?id=49981).

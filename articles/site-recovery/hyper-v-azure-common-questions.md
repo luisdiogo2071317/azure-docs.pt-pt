@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7600fc81d0d3e3607f2185ad2c793255a0c68634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721913"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227304"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Perguntas comuns - Hyper-V para replicação do Azure
 
@@ -104,7 +104,7 @@ Pode replicar qualquer aplicação ou carga de trabalho de executar uma VM de Hy
 
 ### <a name="whats-the-replication-process"></a>O que é o processo de replicação?
 
-1. Quando a replicação inicial for acionada, é criado um instantâneo de instantâneo de VM de Hyper-V.
+1. Quando a replicação inicial for acionada, é criado um instantâneo de VM de Hyper-V.
 2. Discos rígidos virtuais na VM são replicados um de cada, até estarem todos copiados para o Azure. Isto poderá demorar algum tempo, dependendo do tamanho VM e largura de banda de rede. Saiba como aumentar a largura de banda de rede.
 3. Se ocorrerem alterações de disco enquanto a replicação inicial está em curso, o controlador de replicação de réplica do Hyper-V controla as alterações como registos de replicação de Hyper-V (. hrl). Estes ficheiros de registo estão localizados na mesma pasta que os discos. Cada disco tem um ficheiro. hrl associado que é enviado para o armazenamento secundário. Os ficheiros de instantâneo e de registo consomem recursos do disco quando a replicação inicial está em curso.
 4. Quando a replicação inicial for concluída, o instantâneo da VM é eliminado.

@@ -3,20 +3,21 @@ title: Pontos finais de serviço de rede virtual e regras para a base de dados S
 description: Marca uma sub-rede como um ponto de extremidade do serviço de rede Virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados do SQL do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.reviewer: vanto
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 51a9c1e2528833f0931e0bff30a9ec8a78eb99e0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367343"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166814"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 

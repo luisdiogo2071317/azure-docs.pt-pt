@@ -1,21 +1,21 @@
 ---
-title: Com o token de informações com a API de pesquisa Visual do Bing | Documentos da Microsoft
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Mostra como utilizar o insight de uma imagem token com a API de pesquisa Visual para obter informações sobre uma imagem.
+title: Com o token de insights - pesquisa Visual do Bing
+titleSuffix: Azure Cognitive Services
+description: Mostra como utilizar o insight de uma imagem token com a API pesquisa Visual do Bing para obter informações sobre uma imagem.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e853545e07709d82fa1e3b1143392e6d6012f6f6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126563"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227593"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Com um token de informações para obter informações sobre uma imagem
 
@@ -68,7 +68,7 @@ Para obter exemplos que utilizam o token de informações, consulte [c#](#using-
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows. (A edição de Comunidade gratuito irá funcionar.)
+Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
 Neste início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
 
@@ -240,11 +240,11 @@ namespace VisualSearchInsightsToken
 
 <a name="using-java" />
 
-## <a name="using-java"></a>Com o Java
+## <a name="using-java"></a>Utilizar o Java
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Se tiver um favorito, mas um editor de texto será suficiente, pode usar um IDE Java.
+Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Se tiver um favorito, mas um editor de texto será suficiente, pode usar um IDE Java.
 
 Neste início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
 
@@ -425,7 +425,7 @@ function requestCallback(err, res, body) {
 
 <a name="using-python" />
 
-## <a name="using-python"></a>Com o Python
+## <a name="using-python"></a>Utilizar o Python
 
 
 ### <a name="prerequisites"></a>Pré-requisitos

@@ -1,21 +1,22 @@
 ---
-title: Introdução ao serviço de voz personalizada no Azure | Documentos da Microsoft
+title: Introdução ao serviço de voz personalizada
+titlesuffix: Azure Cognitive Services
 description: Subscrever o serviço de voz personalizada e ligar as atividades de serviço a uma subscrição do Azure para preparar um modelo e efetuar uma implementação.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975788"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225247"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introdução ao serviço de voz personalizada
 
@@ -51,7 +52,7 @@ Quando tiver criado modelos acústicos personalizados e/ou modelos de linguagem,
 Pode encontrar uma descrição detalhada sobre como criar um ponto de final de voz personalizada-texto [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Com um ponto de final de voz personalizada
-Pedidos podem ser enviados para um ponto de final de voz em texto CRIS de forma muito semelhante como o ponto de final de voz de serviços cognitivos da Microsoft predefinido. Tenha em atenção que estes pontos finais são funcionalmente idênticos para os pontos de extremidade padrão a API de voz. Portanto, a mesma funcionalidade, disponível através da biblioteca de cliente ou a API REST para a API de voz também está disponível para o ponto final personalizado.
+Pedidos podem ser enviados para um ponto de final de voz em texto CRIS de forma muito semelhante como o ponto de final de voz de serviços cognitivos do Azure padrão. Tenha em atenção que estes pontos finais são funcionalmente idênticos para os pontos de extremidade padrão a API de voz. Portanto, a mesma funcionalidade, disponível através da biblioteca de cliente ou a API REST para a API de voz também está disponível para o ponto final personalizado.
 
 Pode encontrar uma descrição detalhada sobre como utilizar um ponto de final de voz em texto personalizado [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

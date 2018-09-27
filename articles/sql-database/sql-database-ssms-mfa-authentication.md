@@ -2,21 +2,22 @@
 title: Autenticação Multifator - SQL do Azure | Documentos da Microsoft
 description: Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) com o Active Directory Universal Authentication.
 services: sql-database
-documentationcenter: ''
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.openlocfilehash: e1755ec0db998f1f9303d3baceb3b40f079945fe
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542385"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166661"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação universal com a base de dados SQL e SQL Data Warehouse (suporte do SSMS para a MFA)
 Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) usando *Active Directory Universal Authentication*. 

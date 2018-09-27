@@ -1,43 +1,35 @@
 ---
-title: Introdução ao ligar a dispositivos físicos para o IoT Hub do Azure | Microsoft Docs
-description: Saiba como ligar dispositivos físicos e quadros de ao IoT Hub do Azure. Os seus dispositivos podem enviar telemetria ao IoT Hub e do IoT Hub pode monitorizar e gerir os seus dispositivos.
-author: dominicbetts
+title: Começar a utilizar a ligação de dispositivos físicos para o IoT Hub do Azure | Documentos da Microsoft
+description: Saiba como ligar dispositivos físicos e quadros ao IoT Hub do Azure. Os dispositivos podem enviar telemetria para o IoT Hub e IoT Hub pode monitorizar e gerir os seus dispositivos.
+author: wesmc7777
 manager: timlt
 keywords: tutorial de hub iot do Azure
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: dobett
-ms.openlocfilehash: e7911c190ded59f758eff868add6440f5add6579
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: wesmc
+ms.openlocfilehash: 5dcd588d525fe296348bd01252846bc498261018
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634000"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394748"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Introdução ao IoT Hub do Azure tutoriais de dispositivos físicos
 
-Estes tutoriais apresentam-o para o IoT Hub do Azure e os SDKs do dispositivo. Os tutoriais abrangem os cenários comuns do IoT para demonstrar as capacidades do IoT Hub. Os tutoriais mostram também como combinar o IoT Hub com outros serviços do Azure e ferramentas para criar soluções de IoT mais poderosas. Os tutoriais listados na tabela a seguir mostram como criar dispositivos de IoT físicos.
+Estes tutoriais apresentá-lo para o IoT Hub do Azure e os SDKs do dispositivo. Os tutoriais abrangem os cenários de IoT comuns para demonstrar as capacidades do IoT Hub. Os tutoriais também mostram como combinar o IoT Hub com outros serviços do Azure e ferramentas para criar soluções de IoT mais poderosas. Os tutoriais listados na tabela a seguir mostram-lhe como criar dispositivos de IoT físicos.
 
 | Dispositivo IoT                       | Linguagem de programação |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
+| Raspberry Pi                    | [NODE. js][Pi_Nd], [C][Pi_C]  |
 | IoT DevKit                      | [Arduino no VSCode][DevKit]     |
-| Intel Edison                    | [NODE.js][Ed_Nd], [C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 coisa Dev      | [Arduino][Th_Ard]              |
-| Adafruit Feather M0             | [Arduino][M0_Ard]              |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
-[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
 [DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
-[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
-[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
-[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md

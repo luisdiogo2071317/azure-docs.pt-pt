@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: dba0474e83c886edcad1101083e45ff39ee222dd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f9bc9bf540f7f44e07bc4bb0ae8ef6910ae78476
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300228"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222391"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Use o Visual Studio para ver tarefas do Azure Stream Analytics
 
@@ -53,7 +53,7 @@ Tarefas do Azure Stream Analytics podem ser totalmente geridas a partir da vista
 
 ## <a name="check-job-results"></a>Resultados da verificação de tarefa
 
-Ferramentas de análise do Stream para o Visual Studio suporta atualmente a pré-visualização de saída para armazenamento de BLOBs e de armazenamento de armazenamento do Azure Data Lake. Para ver o resultado, apenas clique duas vezes o nó de saída do diagrama de tarefas no **vista de tarefas** e introduza as credenciais apropriadas.
+Ferramentas de análise do Stream para o Visual Studio suporta atualmente a pré-visualização de saída para armazenamento de BLOBs e de armazenamento do Azure Data Lake. Para ver o resultado, apenas clique duas vezes o nó de saída do diagrama de tarefas no **vista de tarefas** e introduza as credenciais apropriadas.
 
    ![Saída de blob de tarefa do Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 

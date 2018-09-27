@@ -1,5 +1,5 @@
 ---
-title: Personalização de soluções pré-configuradas | Microsoft Docs
+title: Personalizar soluções pré-configuradas | Documentos da Microsoft
 description: Fornece orientações sobre como personalizar as soluções pré-configuradas do Azure IoT Suite.
 services: ''
 suite: iot-suite
@@ -16,72 +16,73 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: cb5955111cb3954f71f11602042b5153ccee3473
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106921"
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizar uma solução pré-configurada
 
-As soluções pré-configuradas fornecidas com o Azure IoT Suite demonstram serviços dentro do conjunto de trabalhar em conjunto para fornecer uma solução ponto-a-ponto. A partir deste ponto de partida, existem vários locais que podem expandir e personalizar a solução para cenários específicos. As secções seguintes descrevem estes pontos de personalização comuns.
+As soluções pré-configuradas fornecidas com o Azure IoT Suite demonstram os serviços no suite trabalhar em conjunto para fornecer uma solução ponto-a-ponto. A partir deste ponto de partida, existem vários lugares em que pode estender e personalizar a solução para cenários específicos. As secções seguintes descrevem estes pontos de personalização comuns.
 
 ## <a name="find-the-source-code"></a>Encontrar o código de origem
 
-O código de origem para as soluções pré-configuradas está disponível no GitHub em repositórios do seguintes:
+O código-fonte para as soluções pré-configuradas está disponível no GitHub nos repositórios seguintes:
 
 * Monitorização remota: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 * Manutenção preditiva: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * Fábrica ligada: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
-O código de origem para as soluções pré-configuradas é fornecido para demonstrar a padrões e práticas utilizados para implementar a funcionalidade de ponto a ponto da solução de IoT utilizando o Azure IoT Suite. Pode encontrar mais informações sobre como criar e implementar as soluções no repositórios do GitHub.
+O código-fonte para as soluções pré-configuradas é fornecido para demonstrar os padrões e práticas utilizadas para implementar a funcionalidade de ponta a ponta de uma solução de IoT com o Azure IoT Suite. Pode encontrar mais informações sobre como criar e implementar as soluções em repositórios do GitHub.
 
 ## <a name="change-the-preconfigured-rules"></a>Alterar as regras pré-configuradas
 
-A solução de monitorização remota inclui três [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tarefas para processar as informações do dispositivo, telemetria e lógica regras na solução.
+Solução de monitorização remota inclui três [do Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) trabalhos para lidar com as informações do dispositivo, telemetria e lógica de regras na solução.
 
-Os três sequência de tarefas de análise e os respetivos sintaxe são descritos em pormenor no [instruções sobre a solução pré-configurada de monitorização remota](iot-suite-v1-remote-monitoring-sample-walkthrough.md). 
+As três tarefas do stream analytics e sua sintaxe são descritas em profundidade no [instruções da solução pré-configurada de monitorização remota](iot-suite-v1-remote-monitoring-sample-walkthrough.md). 
 
-Pode editar estas tarefas diretamente para a lógica de alterar ou adicionar lógica específica ao seu cenário. Pode encontrar as tarefas do Stream Analytics da seguinte forma:
+Pode editar estas tarefas diretamente para alterar a lógica ou adicionar lógica específica ao seu cenário. Pode encontrar tarefas do Stream Analytics da seguinte forma:
 
 1. Aceda a [portal do Azure](https://portal.azure.com).
 2. Navegue para o grupo de recursos com o mesmo nome que a sua solução de IoT. 
-3. Selecione a tarefa de Stream Analytics do Azure que pretende modificar. 
+3. Selecione a tarefa do Azure Stream Analytics que pretende modificar. 
 4. Parar a tarefa selecionando **parar** no conjunto de comandos. 
-5. Edite a entradas, consulta e saídas.
+5. Edite as entradas, consulta e saídas.
    
-    Uma alteração simple está a mudar a consulta para o **regras** tarefa para utilizar um **"<"** em vez de um **">"**. O portal de solução mostra ainda **">"** quando editar uma regra, mas tenha em atenção a como o comportamento é flipped devido a alteração na tarefa subjacente.
+    Uma modificação simple é alterar a consulta para o **regras** tarefa para utilizar um **"<"** em vez de um **">"**. O portal de solução continua a mostrar **">"** quando editar uma regra, mas observe como o comportamento é invertido devido à alteração na tarefa subjacente.
 6. Iniciar a tarefa
 
 > [!NOTE]
-> O dashboard de monitorização remota depende em dados específicos, para que alterar as tarefas pode fazer com que o dashboard a falhar.
+> O dashboard de monitorização remota depende dados específicos, para que alterar as tarefas pode fazer com que o dashboard efetuar a ativação.
 
-## <a name="add-your-own-rules"></a>Adicionar as suas próprias regras
+## <a name="add-your-own-rules"></a>Adicionar suas próprias regras
 
-Para além de alterar as tarefas do Azure Stream Analytics pré-configurada, pode utilizar o portal do Azure para adicionar novas tarefas ou adicionar novas consultas para as tarefas existentes.
+Além de alterar as tarefas pré-configuradas do Azure Stream Analytics, pode utilizar o portal do Azure para adicionar novas tarefas ou adicionar novas consultas para as tarefas existentes.
 
 ## <a name="customize-devices"></a>Personalizar dispositivos
 
-Uma das atividades de extensão mais comuns é a trabalhar com dispositivos específicos ao seu cenário. Existem vários métodos para trabalhar com dispositivos. Estes métodos incluem a alteração de um dispositivo simulado para corresponder ao seu cenário ou utilizando o [SDK do dispositivo IoT] [ IoT Device SDK] para ligar o dispositivo físico para a solução.
+Uma das atividades de extensão mais comuns é a trabalhar com dispositivos específicos ao seu cenário. Existem vários métodos para trabalhar com dispositivos. Estes métodos incluem a alteração de um dispositivo simulado para corresponder ao seu cenário ou ao utilizar o [SDK de dispositivo IoT] [ IoT Device SDK] para ligar o dispositivo físico para a solução.
 
-Para obter um guia passo a passo para adicionar dispositivos, consulte o [dispositivos de ligação do Iot Suite](iot-suite-v1-connecting-devices.md) artigo e [remoto monitorização C SDK exemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Este exemplo foi concebido para trabalhar com a solução pré-configurada de monitorização remota.
+Para obter um guia passo a passo para adicionar dispositivos, consulte a [dispositivos de ligação do Iot Suite](iot-suite-v1-connecting-devices.md) artigo e o [exemplo de SDK de C de monitorização remota](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Este exemplo foi concebido para funcionar com a solução pré-configurada de monitorização remota.
 
-### <a name="create-your-own-simulated-device"></a>Criar o seu próprio dispositivo simulado
+### <a name="create-your-own-simulated-device"></a>Criar seu próprio dispositivo simulado
 
-Incluído no [código fonte da solução de monitorização remota](https://github.com/Azure/azure-iot-remote-monitoring), está um simulador de .NET. Este simulador é o aprovisionado como parte da solução e pode alterá-la para enviar metadados diferentes, telemetria e responder a comandos diferentes e métodos.
+Incluído nos [código fonte da solução de monitorização remota](https://github.com/Azure/azure-iot-remote-monitoring), é um simulador de .NET. Este simulador é aquele aprovisionada como parte da solução e pode alterá-lo para enviar metadados diferentes, telemetria e responder a comandos diferentes e métodos.
 
-O simulador na solução pré-configurada de monitorização remota pré-configurada simula um dispositivo cooler que emite a telemetria de temperatura e humidade. Pode modificar o simulador no [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) projeto quando tiver escolhido o repositório do GitHub.
+O simulador pré-configurada na solução pré-configurada de monitorização remota simula um dispositivo mais legal que emite a telemetria de temperatura e humidade. Pode modificar o simulador no [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver bifurcou o repositório do GitHub do projeto.
 
 ### <a name="available-locations-for-simulated-devices"></a>Localizações disponíveis para dispositivos simulados
 
-O conjunto predefinido de localizações é em Seattle/Redmond, Washington, Estados Unidos da América. Pode alterar estas localizações no [SampleDeviceFactory.cs][lnk-sample-device-factory].
+O conjunto padrão de localizações está em Seattle/Redmond, Washington, Estados Unidos da América. Pode alterar estas localizações na [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
-### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>Adiciona um processador de atualização de propriedade pretendido para o simulador
+### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>Adicionar um processador de atualização de propriedade pretendida para o simulador
 
-Pode definir um valor para uma propriedade pretendido para um dispositivo no portal de solução. É da responsabilidade do dispositivo para lidar com a propriedade de pedido de alteração, quando o dispositivo obtém o valor da propriedade pretendido. Para adicionar suporte para uma alteração de valor de propriedade através de uma propriedade pretendida, terá de adicionar um processador para o simulador.
+Pode definir um valor para uma propriedade pretendida para um dispositivo no portal da solução. É da responsabilidade do dispositivo para lidar com a propriedade de pedido de alteração, quando o dispositivo obtém o valor da propriedade pretendida. Para adicionar suporte para uma alteração do valor de propriedade por meio de uma propriedade pretendida, terá de adicionar um manipulador para o simulador.
 
-O simulador contém processadores para a **SetPointTemp** e **TelemetryInterval** propriedades que pode atualizar para atualizar a definição pretendida valores no portal de solução.
+O simulador contém manipuladores para o **SetPointTemp** e **TelemetryInterval** propriedades que pode atualizar, definindo assim o desejar valores no portal da solução.
 
-O exemplo seguinte mostra o processador para o **SetPointTemp** pretendido propriedade no **CoolerDevice** classe:
+O exemplo seguinte mostra o manipulador para o **SetPointTemp** propriedade no desejada a **CoolerDevice** classe:
 
 ```csharp
 protected async Task OnSetPointTempUpdate(object value)
@@ -93,11 +94,11 @@ protected async Task OnSetPointTempUpdate(object value)
 }
 ```
 
-Este método atualiza a temperatura do ponto de telemetria e, em seguida, envia um relatório a alteração ao IoT Hub, definindo uma propriedade que relatados.
+Este método atualiza a temperatura do ponto de telemetria e, em seguida, envia um relatório a alteração para o IoT Hub, definindo uma propriedade comunicada.
 
-Pode adicionar os seus próprios processadores para as suas propriedades ao seguir o padrão no exemplo anterior.
+Pode adicionar seus próprios manipuladores para as suas propriedades, seguindo o padrão no exemplo anterior.
 
-Tem também de vincular a propriedade pretendida para o processador conforme mostrado no exemplo seguinte do **CoolerDevice** construtor:
+Tem também de vincular a propriedade pretendida para o manipulador conforme mostrado no exemplo seguinte do **CoolerDevice** construtor:
 
 ```csharp
 _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdate);
@@ -107,14 +108,14 @@ Tenha em atenção que **SetPointTempPropertyName** é uma constante definida co
 
 ### <a name="add-support-for-a-new-method-to-the-simulator"></a>Adicionar suporte para um novo método para o simulador
 
-Pode personalizar o simulador para adicionar suporte para um novo [método (method direta)][lnk-direct-methods]. Existem dois passos principais necessários:
+Pode personalizar o simulador para adicionar suporte para uma nova [método (método direto)][lnk-direct-methods]. Existem dois passos principais necessários:
 
-- O simulador tem de notificar o IoT hub na solução pré-configurada com detalhes do método.
-- O simulador têm de incluir o código para processar a chamada de método quando invocar-à partir de **detalhes do dispositivo** painel no Explorador de soluções ou através de uma tarefa.
+- O simulador tem de notificar o hub IoT na solução pré-configurada com detalhes do método.
+- O simulador tem de incluir código para processar a chamada de método ao invocá-lo a partir da **detalhes do dispositivo** painel no Explorador de soluções ou por meio de uma tarefa.
 
-Monitorização remota pré-configurada solução utiliza *comunicadas propriedades* enviar detalhes dos métodos suportados ao IoT hub. O solução de back-end mantém uma lista de todos os métodos suportados por cada dispositivo, juntamente com um histórico de invocações de método. Pode ver estas informações sobre os dispositivos e invocar métodos no portal de solução.
+A monitorização remota pré-configurada a solução utiliza *propriedades comunicadas* para enviar detalhes de métodos suportados para o hub IoT. O back-end de solução mantém uma lista de todos os métodos suportados por cada dispositivo juntamente com um histórico das invocações de método. Pode ver estas informações sobre os dispositivos e invocar métodos no portal da solução.
 
-Para notificar o IoT hub que um dispositivo suporta um método, o dispositivo tem de adicionar detalhes do método para o **SupportedMethods** nó nas propriedades de comunicado:
+Para notificar o hub IoT que um dispositivo oferece suporte a um método, o dispositivo tem de adicionar detalhes do método para o **SupportedMethods** nó das propriedades comunicadas:
 
 ```json
 "SupportedMethods": {
@@ -123,20 +124,20 @@ Para notificar o IoT hub que um dispositivo suporta um método, o dispositivo te
 }
 ```
 
-A assinatura de método tem o seguinte formato: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Por exemplo, para especificar o **InitiateFirmwareUpdate** método espera um parâmetro de cadeia denominado **FwPackageURI**, utilize a assinatura de método seguinte:
+A assinatura do método tem o seguinte formato: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Por exemplo, para especificar a **InitiateFirmwareUpdate** método espera um parâmetro de cadeia de caracteres chamado **FwPackageURI**, utilize a seguinte assinatura do método:
 
 ```json
 InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
-Para obter uma lista de tipos de parâmetros suportados, consulte o **CommandTypes** classe no projeto de infraestrutura.
+Para obter uma lista de tipos de parâmetro suportados, consulte a **CommandTypes** classe no projeto de infra-estrutura.
 
-Para eliminar um método, defina a assinatura de método para `null` nas propriedades de comunicados.
+Para eliminar um método, definir a assinatura do método como `null` nas propriedades comunicadas.
 
 > [!NOTE]
-> O solução de back-end apenas as atualizações de informações sobre métodos suportados quando recebe um *informações do dispositivo* mensagens do dispositivo.
+> O back-end de solução apenas de atualizações de informações sobre métodos suportados quando recebe um *informações do dispositivo* mensagens do dispositivo.
 
-O seguinte exemplo de código do **SampleDeviceFactory** classe no projeto comuns mostra como adicionar um método à lista de **SupportedMethods** nas propriedades de comunicado enviadas pelo dispositivo:
+O código de exemplo seguinte do **SampleDeviceFactory** classe no projeto comum mostra como adicionar um método à lista de **SupportedMethods** nas propriedades comunicadas enviadas pelo dispositivo:
 
 ```csharp
 device.Commands.Add(new Command(
@@ -147,11 +148,11 @@ device.Commands.Add(new Command(
 ));
 ```
 
-Este fragmento de código adiciona detalhes sobre o **InitiateFirmwareUpdate** método, incluindo o texto a apresentar no portal de solução e detalhes dos parâmetros de método necessário.
+Este fragmento de código adiciona detalhes sobre o **InitiateFirmwareUpdate** método incluindo o texto a apresentar no portal de solução e detalhes dos parâmetros de método necessário.
 
-O simulador envia comunicadas propriedades, incluindo a lista de métodos suportados, ao IoT Hub quando inicia o simulador.
+O simulador envia as propriedades comunicadas, incluindo a lista de métodos com suporte, para o IoT Hub quando o simulator é iniciado.
 
-Adiciona um processador para o código do simulador para cada método suporta. Pode ver os processadores existentes no **CoolerDevice** classe no projeto Simulator.WebJob. O exemplo seguinte mostra o processador para **InitiateFirmwareUpdate** método:
+Adicione um manipulador para o código de simulador para cada método oferece suporte. Pode ver os manipuladores existentes na **CoolerDevice** classe no projeto Simulator.WebJob. O exemplo seguinte mostra o manipulador **InitiateFirmwareUpdate** método:
 
 ```csharp
 public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -195,24 +196,24 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 }
 ```
 
-Os nomes de processador de método tem de começar com `On` seguido do nome do método. O **methodRequest** parâmetro contém quaisquer parâmetros transmitidos com a invocação do método de solução de back-end. O valor de retorno tem de ser do tipo **tarefas&lt;MethodResponse&gt;**. O **BuildMethodResponse** método do utilitário ajuda-o a criar o valor de retorno.
+Tem de começar com os nomes de manipuladores de método `On` seguido do nome do método. O **methodRequest** parâmetro contém todos os parâmetros passados com a invocação de método da solução de back-end. O valor de retorno deve ser do tipo **tarefa&lt;MethodResponse&gt;**. O **BuildMethodResponse** método utilitário o ajuda a criar o valor de retorno.
 
-Dentro do processador, o método foi:
+Dentro do manipulador de método, pode:
 
 - Inicie uma tarefa assíncrona.
-- Obter propriedades pretendidas a partir do *dispositivo duplo* no IoT Hub.
-- Atualizar uma única propriedade comunicada utilizando o **SetReportedPropertyAsync** método o **CoolerDevice** classe.
-- Atualizar várias propriedades comunicadas criando um **TwinCollection** instância e chamar a **Transport.UpdateReportedPropertiesAsync** método.
+- Obter as propriedades pretendidas a partir da *dispositivo duplo* no IoT Hub.
+- Atualizar uma propriedade comunicada única com o **SetReportedPropertyAsync** método na **CoolerDevice** classe.
+- Atualizar várias propriedades comunicadas através da criação de um **TwinCollection** instância e chamar os **Transport.UpdateReportedPropertiesAsync** método.
 
 O exemplo de atualização de firmware anterior efetua os seguintes passos:
 
 - Verifica que o dispositivo é capaz de aceitar o pedido de atualização de firmware.
-- No modo assíncrono inicia a operação de atualização de firmware e repõe a telemetria quando a operação foi concluída.
-- Devolve imediatamente a mensagem "FirmwareUpdate aceites", para indicar que o pedido foi aceite pelo dispositivo.
+- Modo assíncrono inicia a operação de atualização de firmware e repõe a telemetria quando a operação for concluída.
+- Devolve imediatamente a mensagem "FirmwareUpdate aceites" para indicar que o pedido foi aceite pelo dispositivo.
 
 ### <a name="build-and-use-your-own-physical-device"></a>Criar e utilizar o seu próprio dispositivo (físico)
 
-O [SDKs IoT do Azure](https://github.com/Azure/azure-iot-sdks) fornecer bibliotecas para ligar a vários tipos de dispositivos (idiomas e sistemas operativos) para soluções de IoT.
+O [do Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) fornecer bibliotecas para ligar a vários tipos de dispositivo (idiomas e sistemas operacionais) em soluções de IoT.
 
 ## <a name="modify-dashboard-limits"></a>Modificar os limites de dashboard
 
@@ -220,7 +221,7 @@ O [SDKs IoT do Azure](https://github.com/Azure/azure-iot-sdks) fornecer bibliote
 
 A predefinição é 200. Pode alterar este número num [DashboardController.cs][lnk-dashboard-controller].
 
-### <a name="number-of-pins-to-display-in-bing-map-control"></a>Número de pins a apresentar no controlo de mapa do Bing
+### <a name="number-of-pins-to-display-in-bing-map-control"></a>Número de pins a apresentar no controlo de mapas do Bing
 
 A predefinição é 200. Pode alterar este número num [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
@@ -230,16 +231,16 @@ A predefinição é 10 minutos. Pode alterar este valor na [TelmetryApiControlle
 
 ## <a name="feedback"></a>Comentários
 
-Tem a personalização gostaria de ver abrangidas neste documento? Adicionar sugestões de funcionalidades para [voz do utilizador](https://feedback.azure.com/forums/321918-azure-iot), ou comentário neste artigo. 
+Tem uma personalização gostariam de ver abrangidas neste documento? Adicionar sugestões de funcionalidades para [User Voice](https://feedback.azure.com/forums/321918-azure-iot), ou comentário sobre este artigo. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as opções para personalizar as soluções pré-configuradas, consulte:
 
 * [Ligar aplicação lógica à sua solução do Azure IoT Suite monitorização remota pré-configurada][lnk-logicapp]
-* [Utilizar telemetria dinâmica com a solução pré-configurada de monitorização remota][lnk-dynamic]
-* [Metadados de informações de dispositivos na solução pré-configurada de monitorização remota][lnk-devinfo]
-* [Personalizar a forma como a solução de fábrica ligado apresenta dados dos seus servidores de OPC UA][lnk-cf-customize]
+* [Utilizar a telemetria dinâmica com a solução pré-configurada de monitorização remota][lnk-dynamic]
+* [Metadados de informações do dispositivo na solução pré-configurada de monitorização remota][lnk-devinfo]
+* [Personalizar a forma como a solução de fábrica ligada apresenta dados de seus servidores OPC UA][lnk-cf-customize]
 
 [lnk-logicapp]: iot-suite-v1-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-v1-dynamic-telemetry.md

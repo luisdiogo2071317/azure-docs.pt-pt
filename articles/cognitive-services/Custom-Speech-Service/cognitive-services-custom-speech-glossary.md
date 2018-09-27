@@ -1,21 +1,22 @@
 ---
-title: Glossário de termos de serviço de voz personalizada no Azure | Documentos da Microsoft
+title: Glossário de termos - serviço de voz personalizada
+titlesuffix: Azure Cognitive Services
 description: Terminologia no glossário define os termos que encontrará ao trabalhar com o serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: f57809fee463213cbb427146325666656b022e41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6922244fa9a5d053e506120112759d29bc74a8af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956749"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222799"
 ---
 # <a name="glossary"></a>Glossário
 

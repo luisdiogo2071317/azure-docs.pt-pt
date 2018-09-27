@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 30f9a874853f4cb492d7a562d0d2439b73cf62dc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989979"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225167"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Utilizar o Azure Monitor para o mapa de VMs para compreender os componentes da aplicação
-Ver os componentes da aplicação detetada no Windows e Linux, máquinas virtuais em execução no Azure está seu ambiente pode ser observado de duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou através de grupos de VMs do Azure Monitor. 
+Ver a aplicação detetada componentes no Windows e Linux máquinas de virtuais em execução no ambiente do Azure podem ser observados em duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou através de grupos de VMs do Azure Monitor. 
 
 Este artigo ajuda-o a compreender a experiência de entre as duas perspetivas e como utilizar a funcionalidade de mapa. Para obter informações sobre como configurar o Azure Monitor para VMs, veja [ativar o Azure Monitor para VMs](monitoring-vminsights-onboard.md).
 

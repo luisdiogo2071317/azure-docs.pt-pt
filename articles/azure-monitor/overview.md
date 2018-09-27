@@ -10,19 +10,19 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958021"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220980"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
-O Azure Monitor maximiza a disponibilidade e desempenho das suas aplicações, fornecendo uma solução abrangente para recolher, analisar e atuar na telemetria a partir da nuvem e ambientes no local. Ele ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que afetam-los e os recursos que dependem.
+O Azure Monitor maximiza a disponibilidade e desempenho das suas aplicações, fornecendo uma solução abrangente para recolher, analisar e atuar na telemetria a partir da nuvem e ambientes no local. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
@@ -47,7 +47,7 @@ A linguagem de consulta do Log Analytics é adequada para consultas de registo s
 ![Registos](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Os dados que recolher o Azure Monitor?
-O log Analytics pode recolher dados de várias origens. Pode considerar os dados para as suas aplicações em camadas que vão desde a sua aplicação, quaisquer campos operacional e depende, para baixo para a própria plataforma de serviços de monitorização. Monitor do Azure recolhe dados de cada um dos seguintes escalões:
+O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados para as suas aplicações em camadas que vão desde a sua aplicação, quaisquer campos operacional e depende, para baixo para a própria plataforma de serviços de monitorização. Monitor do Azure recolhe dados de cada um dos seguintes escalões:
 
 - **Dados de monitorização de aplicações**: dados sobre o desempenho e a funcionalidade do código escreveu, independentemente de sua plataforma.
 - **Dados de monitorização de SO de convidado**: dados sobre o sistema operativo no qual a sua aplicação está em execução. Isso poderia estar em execução no Azure, noutra cloud ou no local. 
@@ -74,12 +74,12 @@ Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre 
 
 ![App Insights](media/overview/app-insights.png)
 
-### <a name="azure-monitor-for-containers"></a>Monitor do Azure para contentores
+### <a name="azure-monitor-for-containers"></a>Azure Monitor para contentores
 Monitor do Azure para contentores é uma funcionalidade concebida para monitorizar o desempenho de cargas de trabalho de contentor implementadas em clusters do Kubernetes alojados no Azure Kubernetes Service (AKS) geridos. Ele fornece visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização de clusters de Kubernetes, estas métricas e registos são automaticamente recolhidos para por meio de uma versão em contentores do agente do Log Analytics para Linux e armazenados no Log Analytics.
 
 ![Estado de funcionamento do contentor](media/overview/container-insights.png)
 
-### <a name="azure-monitor-for-vms"></a>Monitor do Azure para VMs
+### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
 Informações de VM de Monitor do Azure monitoriza máquinas de virtuais do Azure (VM) em escala, ao analisar o desempenho e estado de funcionamento do Windows e VMs do Linux, incluindo os respetivos diferentes processos e interconectadas dependências em outros recursos e processos externos. A solução inclui suporte para monitorização do desempenho e dependências de aplicações para as VMs alojadas no local ou de outro fornecedor de cloud.  
 
 
@@ -145,9 +145,6 @@ Várias APIs estão disponíveis para ler e escrever métricas e registos de e p
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre:
 
-* O [Azure Monitor](https://azure.microsoft.com/services/monitor/) – para obter uma introdução às métricas de monitorização principais e aos alertas.
-* O [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – se estiver a tentar diagnosticar problemas na Aplicação Web do Serviço de Aplicações.
-* O [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – para analisar os dados de monitorização recolhidos e os registos.
-
-
-
+* [Métricas e registos](../monitoring/monitoring-data-collection.md) para os dados recolhidos pelo Monitor do Azure.
+* [Origens de dados](../monitoring/monitoring-data-sources.md) para como os diferentes componentes da sua aplicação enviam telemetria.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos.

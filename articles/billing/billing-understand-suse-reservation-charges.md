@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
-ms.author: yashar
-ms.openlocfilehash: 20fae715923da93799b2d0ac8adc2083d726a95a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: 62f75be44ed92528b48fc0f093f5966284662312
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307819"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393694"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Compreender a forma como o desconto de plano de software SUSE Linux Enterprise é aplicado
 
@@ -129,7 +129,7 @@ Para saber mais sobre as reservas, veja os artigos seguintes:
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento do SUSE planos de software com as reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
+- [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 

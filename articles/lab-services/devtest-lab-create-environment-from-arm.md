@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e53e3e551041ed5bb04ae8e692a3fe3baf2521f8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302244"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222289"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos Azure Resource Manager
 
@@ -30,7 +30,6 @@ O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite-lhe
 - Recursos de PaaS do Azure podem ser aprovisionados num ambiente a partir de um modelo Azure Resource Manager, além de VMs de IaaS.
 - O custo de ambientes pode ser controlado no laboratório, além de VMs individuais criados por outros tipos de bases.
 - Recursos de PaaS são criados e serão apresentados no custo de controlo; No entanto, o encerramento automático da VM não é aplicável a recursos de PaaS.
-- Os utilizadores têm o mesmo controle de política VM para ambientes à medida que têm para VMs do laboratório de único.
 
 Saiba mais sobre os muitos [vantagens da utilização de modelos do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) para implementar, atualizar ou eliminar todos os seus recursos do laboratório numa única operação.
 

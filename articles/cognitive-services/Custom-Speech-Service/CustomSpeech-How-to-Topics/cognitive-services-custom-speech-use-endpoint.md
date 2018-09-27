@@ -1,21 +1,22 @@
 ---
-title: Utilizar um ponto de final de voz personalizada com o serviço de voz personalizada no Azure | Documentos da Microsoft
-description: Saiba como utilizar um ponto de final de voz em texto personalizado com o serviço de voz personalizada nos serviços cognitivos.
+title: Utilizar um ponto de final de voz personalizada - serviço de voz personalizada
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar um ponto de final de voz em texto personalizado com o serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966525"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223377"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Utilizar um ponto final de conversão de voz em texto personalizado
 Pode enviar pedidos para um ponto de final de voz em texto do serviço de voz personalizada do Azure, de forma semelhante possível para o ponto de final de voz de serviços cognitivos predefinido. Estes pontos finais são funcionalmente idênticos para os pontos de extremidade padrão a API de voz. Portanto, a mesma funcionalidade que está disponível através da biblioteca de cliente ou a API REST para a API de voz também está disponível para o ponto final personalizado.

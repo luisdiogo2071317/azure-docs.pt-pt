@@ -1,21 +1,22 @@
 ---
-title: Migrar dos preços das camadas de pontos de extremidade de serviço de voz personalizada do Azure | Documentos da Microsoft
-description: Saiba como migrar as implementações de escalões S0 e S1 para pontos finais de S2 do serviço de voz personalizada nos serviços cognitivos.
+title: Migrar de escalões de serviço de voz personalizada - pontos de extremidade de preço
+titlesuffix: Azure Cognitive Services
+description: Saiba como migrar as implementações de escalões S0 e S1 para pontos finais de S2 do serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964978"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224856"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migração de implementações para o novo modelo de preços
 A partir de Julho de 2017, o serviço de voz personalizada oferece uma [novo modelo de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). É o novo modelo *mais fáceis de entender*, *mais simples calcular os custos*, e *mais flexível* em termos de dimensionamento. Para dimensionar, a Microsoft introduziu o conceito de uma unidade de escala. Cada unidade de escala pode lidar com cinco pedidos simultâneos. O dimensionamento para pedidos simultâneos no modelo antigo foi definido para 5 pedidos simultâneos para escalão S0 e foi definida em 12 pedidos simultâneos para o escalão S1. Vamos abrir estes limites para oferecer a mais flexibilidade com os seus requisitos de casos de utilização.

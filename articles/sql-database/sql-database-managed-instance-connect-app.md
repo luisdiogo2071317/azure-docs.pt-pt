@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2228f4664acc8fd63c781897ef77ccd0197c0d7d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161465"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221745"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
@@ -60,7 +60,7 @@ Se criada com êxito no local para a ligação do Azure e não é possível esta
 A instância gerida pode ser acedida apenas por meio de um endereço IP privado por isso, para poder acessá-lo de sua caixa de desenvolvedor, primeiro tem de estabelecer uma ligação entre a sua caixa de desenvolvedor e a VNet de instância gerida. Para fazer isso, configure uma ligação ponto a Site a uma VNet com a autenticação de certificados nativa do Azure. Para obter mais informações, consulte [configurar uma ligação de ponto a site para ligar a uma instância de gerida de base de dados do Azure SQL a partir do computador no local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Ligar no local com o peering de VNet
-Outro cenário implementado por parte dos clientes é onde o gateway de VPN está instalado numa subscrição de uma instância gerida alojamento e de uma rede virtual separada. Os dois etworks virtual, em seguida, em modo de peering. O exemplo arquitetura diagrama seguinte mostra como isso pode ser implementado.
+Outro cenário implementado por parte dos clientes é onde o gateway de VPN está instalado numa subscrição de uma instância gerida alojamento e de uma rede virtual separada. Os dois etworks virtual, em seguida, em modo de peering. O diagrama de arquitetura de exemplo seguinte mostra como isso pode ser implementado.
 
 ![VNet peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 

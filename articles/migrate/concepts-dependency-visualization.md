@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 84ce20186b882bf07177305291a6f7512ed9ac62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732028"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165029"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -32,7 +32,7 @@ O Azure Migrate utiliza a [mapa de serviço](../operations-management-suite/oper
     ![Associar área de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
-- O espaço de trabalho associado é marcado com a chave **projeto de migração**e o valor * * nome do projeto, que pode usar para pesquisar no portal do Azure.
+- O espaço de trabalho associado é marcado com a chave **projeto de migração**e o valor **nome do projeto**, que pode usar para pesquisar no portal do Azure.
 - Para navegar para a área de trabalho associada ao projeto, pode aceder à **Essentials** secção do projeto **descrição geral** página e aceder a área de trabalho
 
     ![Navegue até a área de trabalho do Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -62,5 +62,5 @@ Pode utilizar a área de trabalho do Log Analytics fora do Azure Migrate. Não �
 Não elimine a área de trabalho criada pelo Azure Migrate, a menos que excluir o projeto de migração. Se o fizer, a funcionalidade de visualização de dependência não funcionará conforme esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-[Agrupar máquinas através de dependências de máquina](how-to-create-group-machine-dependencies.md)
+- [Agrupar máquinas através de dependências de máquina](how-to-create-group-machine-dependencies.md)
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre as perguntas frequentes sobre a visualização de dependência.

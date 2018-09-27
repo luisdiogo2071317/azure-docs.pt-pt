@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/24/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126369"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165302"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -34,6 +34,12 @@ Para ativar a recolha de dados de desempenho de disco e rede, altere o nível de
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu agentes instalados e usado a visualização de dependência para criar grupos. Agora após a ativação pós-falha, as máquinas mostram a ação de "Instalar o agente", em vez de "Dependências do modo de exibição"
 * Post planeada ou ativação pós-falha não planeada, no local máquinas estão desativadas e máquinas equivalentes são criadas no Azure. Estas máquinas adquirir um endereço MAC diferente. Eles podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços MAC e IP, o Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
 * Após a ativação pós-falha de teste, as máquinas no local mantêm ativadas conforme esperado. As máquinas equivalentes rotacionadas no Azure adquirir o endereço MAC diferente e podem adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída do Log Analytics dessas máquinas, do Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Eu especifiquei uma geografia do Azure, ao criar um projeto de migração, como posso saber a região do Azure exata em que os metadados detetados seriam armazenados?
+
+Pode ir para o **Essentials** secção a **descrição geral** página do projeto para identificar o local exato onde os metadados são armazenados. A localização é selecionada aleatoriamente na geografia pelo Azure Migrate e não é possível modificá-lo. Se pretender criar um projeto em apenas uma região específica, pode utilizar as APIs REST para criar o projeto de migração e passar para a região desejada.
+
+   ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>Erros do recoletor
 
@@ -102,6 +108,37 @@ Se o problema ainda acontece na versão mais recente, é possível porque a máq
 2. Se o passo 1 falhar, tente ligar ao servidor do vCenter através do endereço IP.
 3. Identifique o número de porta correto para ligar ao vCenter.
 4. Por fim, verifique se o servidor do vCenter está em execução.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Resolver problemas de visualização de dependência
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o Microsoft Monitoring Agent (MMA) e o agente de dependência em minhas VMs no local, mas as dependências são agora aparecer no portal do Azure Migrate.
+
+Depois de instalar os agentes, do Azure Migrate, normalmente, demora 15 a 30 minutos para apresentar as dependências no portal. Se se esperou durante mais de 30 minutos, certifique-se de que o agente MMA é capaz de comunicar com a área de trabalho do OMS ao seguir os passos abaixo:
+
+Para a Windows VM:
+1. Aceda a **painel de controlo** e inicie **Microsoft Monitoring Agent**
+2. Vá para o **do Azure Log Analytics (OMS)** separador nas propriedades do MMA pop-up
+3. Certifique-se de que o **estado** para a área de trabalho é verde.
+4. Se o estado não for verde, tente remover a área de trabalho e adicionando-a novamente para o MMA.
+        ![Estado do MMA](./media/troubleshooting-general/mma-status.png)
+
+Para VM do Linux, certifique-se de que os comandos de instalação para o agente MMA e de dependência tinham sido concluída.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quais são os sistemas operativos suportados por MMA?
+
+É a lista de sistemas de operativos do Windows suportados pelo MMA [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+É a lista de sistemas de operativos Linux suportados pelo MMA [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operativos suportados pelo agente de dependência?
+
+A lista de sistemas de operativos do Windows suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+A lista dos sistemas de operativos Linux suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo me visualize as dependências no Azure Migrate para obter mais informações à duração de uma hora?
+O Azure Migrate permite que visualize as dependências de duração do até uma hora. Embora o Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo me visualize as dependências para grupos com mais de 10 VMs?
+Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que têm cópia de segurança para 10 VMs, se tiver um grupo com mais de 10 VMs, recomendamos que dividir o grupo em grupos mais pequenos e visualize as dependências.
 
 ## <a name="troubleshoot-readiness-issues"></a>Resolver problemas de preparação
 

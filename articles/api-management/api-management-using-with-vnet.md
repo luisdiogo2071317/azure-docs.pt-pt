@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1a02fd604d08e87c84a73657b7204ecb42b3498b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040340"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393184"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -110,10 +110,11 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente para gestão de API|Externo |
 | * / 3443 |Entrada |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Externo e interno |
-| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Dependência do armazenamento do Azure**, Service bus do Azure e Azure Active Directory (quando aplicável).|Externo e interno |
+| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / armazenamento|**Dependência do armazenamento do Azure**|Externo e interno |
+| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET| O Azure Active Directory (quando aplicável)|Externo e interno |
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso a pontos finais do SQL do Azure** |Externo e interno |
-| * / 5672 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência para o registo de política do Hub de eventos e o agente de monitorização |Externo e interno |
-| * / 445 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência na partilha de ficheiros do Azure para o GIT |Externo e interno |
+| * / 5672 |Saída |TCP |VIRTUAL_NETWORK / EventHub |Dependência para o registo de política do Hub de eventos e o agente de monitorização |Externo e interno |
+| * / 445 |Saída |TCP |VIRTUAL_NETWORK / armazenamento |Dependência na partilha de ficheiros do Azure para o GIT |Externo e interno |
 | * / 1886 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Necessário para publicar o estado de funcionamento para Estado de funcionamento do recurso |Externo e interno |
 | * / 25028 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Ligar para o reencaminhamento de SMTP para enviar E-mails |Externo e interno |
 | * / 6381 - 6383 |Entrada e saída |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Instâncias de Cache de Redis de acesso entre RoleInstances |Externo e interno |
@@ -130,9 +131,11 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 
     | Ambiente do Azure | Pontos Finais |
     | --- | --- |
-    | Público do Azure | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li></ul> |
+    | Público do Azure | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com onde `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
     | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
+
+* **Portal do Azure Diagnostics**: para ativar o fluxo de registos de diagnóstico do portal do Azure ao utilizar a extensão de gestão de API de dentro de uma rede Virtual, o acesso de saída `dc.services.visualstudio.com` na porta 443 é necessária. Isto ajuda a resolução de problemas, que poderá deparar ao utilizar a extensão.
 
 * **Configuração de rota rápida**: uma configuração de cliente comum é definir sua própria rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída para o fluxo em vez disso, no local. Este fluxo de tráfego quebra Invariavelmente conectividade com a API Management do Azure, porque o tráfego de saída está bloqueado no local ou o NAT iria para um conjunto irreconhecível de endereços que já não funcionam com vários pontos de extremidade do Azure. A solução é definir uma (ou mais) rotas definidas pelo utilizador ([UDRs][UDRs]) na sub-rede que contém a gestão de API do Azure. Um UDR define as rotas de sub-rede específica que serão cumpridas em vez da rota predefinida.
   Se possível, é recomendado que utilize a seguinte configuração:
@@ -184,6 +187,7 @@ De acordo com o cálculo acima o tamanho mínimo da sub-rede, no qual pode ser i
 * [Ligar uma rede Virtual a partir de modelos de implementação diferentes](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Como utilizar o Inspetor de API para rastreamento chama-se na gestão de API do Azure](api-management-howto-api-inspector.md)
 * [Faq da rede virtual](../virtual-network/virtual-networks-faq.md)
+* [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

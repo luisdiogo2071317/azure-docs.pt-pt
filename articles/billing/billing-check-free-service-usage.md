@@ -1,6 +1,6 @@
 ---
-title: Monitorizar e controlar a utilização de serviços do Azure gratuitas | Microsoft Docs
-description: Saiba verificar a utilização dos serviços livres. Utilize csv de utilização e o portal do Azure.
+title: Monitorar e controlar utilização de serviços gratuitos do Azure | Documentos da Microsoft
+description: Saiba como verificar a utilização de serviços gratuitos. Utilize csv de utilização e o portal do Azure.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,62 +13,62 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061321"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390243"
 ---
-# <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verifique a utilização dos serviços livres incluído com a sua conta gratuita do Azure 
+# <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar a utilização de serviços gratuitos incluídos na sua conta gratuita do Azure 
 
-Não lhe serem cobrados para os serviços incluídos gratuitamente com uma conta gratuita do Azure, a menos que excede os limites destes serviços. Para permanecerem com os limites, pode utilizar o portal do Azure ou o ficheiro de utilização para monitorizar e controlar a utilização dos serviços livres. 
+Não são cobradas serviços incluídos gratuitamente com a conta gratuita do Azure, a menos que excede os limites destes serviços. Para permanecerem com os limites, pode utilizar o portal do Azure ou o ficheiro de utilização para monitorizar e controlar a utilização de serviços gratuitos. 
 
-## <a name="check-usage-on-the-azure-portal"></a>Utilização de verificação no portal do Azure
+## <a name="check-usage-on-the-azure-portal"></a>Verificar a utilização no portal do Azure
 
 1.  Inicie sessão no [Portal do Azure]( http://portal.azure.com).
 
 2.  Na área de navegação esquerdo, selecione **todos os serviços**.
 
-3.  Selecione **subscrições**.
+3.  Selecione **Subscrições**.
 
-4.  Selecione a subscrição que criou quando se inscreveu gratuitamente conta.
+4.  Selecione a subscrição que criou quando se inscreveu no gratuitamente conta.
 
     ![Captura de ecrã que mostra todas as subscrições](./media/billing-check-usage-of-free-services/select-free-account-subscription.png)
 
-5.  Secção Descrição geral de mostra-lhe informações essenciais sobre a sua subscrição, tais como o ID de subscrição, oferecem tipo e o nome da subscrição. Também pode encontrar informações sobre quando o crédito de conta gratuita seria expirar.
+5.  A seção de visão geral mostra-lhe informações essenciais sobre a sua subscrição, como o ID de subscrição, oferecem o tipo e o nome da subscrição. Também pode encontrar informações sobre o quando o seu crédito de conta gratuita seria expirar.
 
     ![Captura de ecrã que mostra as informações essenciais de subscrição](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
 
-6.  Desloque para baixo para localizar informações no seus custos atuais e previstos. O custo inclui a utilização dos serviços não incluídas com a sua conta gratuita e a utilização excede o limite de serviços livres. 
+6.  Desloque-se para baixo para localizar informações no seus custos atuais e previstas. O custo inclui a utilização de serviços não incluídos na sua conta gratuita e a utilização que exceda os limites de serviços gratuitos. 
 
     ![Captura de ecrã que mostra as informações de custo de subscrição](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
 
-7.  A parte final do secção Descrição geral de tem uma tabela na utilização dos serviços livres. 
+7.  A parte final da seção de visão geral tem uma tabela na utilização de serviços gratuitos. 
 
     ![Captura de ecrã que mostra a utilização de serviços gratuitos](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
     A tabela contém as seguintes colunas:
 
-* **Nome do medidor:** identifica a unidade de medida para medir a ser consumido. Para saber mais sobre o serviço para o mapeamento do medidor, consulte [compreender serviço gratuito para o mapeamento do medidor](billing-understand-free-service-meter-mapping.md). 
-* **Utilização/limite:** utilização e limite para a medição do mês atual. Também pode encontrar estas informações na barra de estado.
-* **Estado:** estado de utilização do medidor. Com base no seu padrão de utilização, pode ter um destes statutes.
-  * **Não em utilização:** não tiver utilizado a medição ou a utilização de medição não atingiu o sistema de faturação.
-  * **Foi excedido no \<data >:** excedeu o limite para a medição no \<data >.
-  * **Pouco provável para Exceed:** é pouco provável que excedem o limite para a medição.
-  * **Excede no \<data >:** que é provável que excedem o limite para a medição no \<data >.
+* **Nome do medidor:** identifica a unidade de medida para o medidor de consumo. Para saber mais sobre o serviço para o mapeamento de medidores, veja [compreender o serviço gratuito para o mapeamento de medidores](billing-understand-free-service-meter-mapping.md). 
+* **Utilização/limite:** utilização e o limite para o Medidor do mês atual. Também pode encontrar estas informações na barra de status.
+* **Estado:** estado de utilização do medidor de. Com base no seu padrão de utilização, pode ter um destes statutes.
+  * **Não está em utilização:** não tiver utilizado o medidor ou a utilização para o contador não atingiu o sistema de faturação.
+  * **Foi excedido em \<data >:** excedeu o limite para o medidor no \<data >.
+  * **Pouco provável que Exceed:** é pouco provável de exceder o limite para o medidor.
+  * **Excede em \<data >:** que é provável que exceder o limite para o medidor no \<data >.
 
 
-## <a name="check-usage-through-the-usage-file"></a>Verifique a utilização através do ficheiro de utilização
+## <a name="check-usage-through-the-usage-file"></a>Verificar a utilização por meio do arquivo de utilização
 
-O ficheiro de utilização fornece informações detalhadas para a sua subscrição do Azure. Pode transferir o mensal e diariamente ficheiros de utilização do Centro de contas do Azure. Para saber como transferir o ficheiro de utilização e compreender o acesso requerido, consulte [obter fatura e utilização](billing-download-azure-invoice-daily-usage-date.md). Para saber mais sobre as colunas no ficheiro de utilização, consulte [compreender os termos de licenciamento em conta a utilização](billing-understand-your-usage.md). 
+O ficheiro de utilização fornece informações granulares para a sua subscrição do Azure. Pode baixar seu mensal e diariamente ficheiro de utilização do Centro de contas do Azure. Para saber como transferir o ficheiro de utilização e compreender o acesso necessário, veja [obter fatura e utilização](billing-download-azure-invoice-daily-usage-date.md). Para saber mais sobre as colunas no ficheiro de utilização, veja [compreender os termos na sua utilização](billing-understand-your-usage.md). 
 
-O ficheiro de utilização contém informações de utilização para os serviços gratuitos e pagos. Medidores serviço gratuito teria **livres** no final do nome do medidor. Localizar medidores livres, abra o ficheiro no excel e filtrar o **coluna categoria de medição** de células que contêm texto **- livre** (utilize os filtros de texto &rarr; filtro Contains) &nbsp;
+O ficheiro de utilização contém informações de utilização de serviços gratuitos e pagos. Medidores de serviço gratuito teria **gratuito** anexada ao final do nome do medidor. Para encontrar medidores gratuitos, abra o ficheiro no excel e filtro os **coluna de categoria do medidor** células que contêm texto **- gratuito** (Utilize filtros de texto &rarr; filtro Contains) &nbsp;
 
 ![Captura de ecrã que mostra a utilização de serviços gratuitos](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
-Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.
+Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

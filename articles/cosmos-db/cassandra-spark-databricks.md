@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 3f1bdb63253506aee211f3733df2a339824de7a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994654"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222038"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Aceder a dados Cassandra API do Azure Cosmos DB do Azure Databricks
 
@@ -32,9 +32,9 @@ Este artigo descreve como workwith do Azure Cosmos DB Cassandra API do Spark no 
 
 * [Utilize cqlsh para validação, se preferir por isso](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuração de instância da API de Cassandra para o conector do Datastax Cassandra:**
+* **Configuração de instância da API de Cassandra para o conector do Cassandra:**
 
-  O conector do Datastax para Cassandra requer os detalhes de ligação do Cassandra para ser inicializado como parte do contexto do spark. Quando inicia um bloco de notas do Databricks, o contexto do spark já foi inicializado e não é recomendado parar e reinicializá-lo. Uma solução é adicionar a configuração de instância de API para Cassandra num nível de cluster, a configuração do cluster do spark. Esta é uma atividade de uso individual por cluster. Adicione o seguinte código para a configuração de Spark, como um espaço separados par chave-valor:
+  O conector para a API de Cassandra requer os detalhes de ligação do Cassandra para ser inicializado como parte do contexto do spark. Quando inicia um bloco de notas do Databricks, o contexto do spark já foi inicializado e não é recomendado parar e reinicializá-lo. Uma solução é adicionar a configuração de instância de API para Cassandra num nível de cluster, a configuração do cluster do spark. Esta é uma atividade de uso individual por cluster. Adicione o seguinte código para a configuração de Spark, como um espaço separados par chave-valor:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -46,11 +46,11 @@ Este artigo descreve como workwith do Azure Cosmos DB Cassandra API do Spark no 
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-* **Conector do Spark do Datastax Cassandra:** - para integrar com a API de Cassandra do Azure Cosmos DB com o Spark, o Datastax Cassandra conector deverá ligar ao cluster do Azure Databricks. Para anexar o cluster:
+* **Conector do Spark de Cassandra:** - para integrar a API de Cassandra do Azure Cosmos DB com o Spark, o Cassandra conector deverá ligar ao cluster do Azure Databricks. Para anexar o cluster:
 
-  * Consulte a versão de runtime do Databricks, a versão do Spark. Em seguida, localize a [coordenadas do maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que são compatíveis com o conector do Spark do Datastax Cassandra e anexá-lo para o cluster. Ver ["Carregar um pacote Maven ou um pacote Spark"](https://docs.databricks.com/user-guide/libraries.html) artigo para anexar a biblioteca de conectores para o cluster. Por exemplo, coordenada do maven para "Tempo de execução versão 4.3 do Databricks", "2.3.1 do Spark," e "Scala 2.11" é `spark-cassandra-connector_2.11-2.3.1`
+  * Consulte a versão de runtime do Databricks, a versão do Spark. Em seguida, localize a [coordenadas do maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que são compatíveis com o conector do Spark de Cassandra e anexá-lo para o cluster. Ver ["Carregar um pacote Maven ou um pacote Spark"](https://docs.databricks.com/user-guide/libraries.html) artigo para anexar a biblioteca de conectores para o cluster. Por exemplo, coordenada do maven para "Tempo de execução versão 4.3 do Databricks", "2.3.1 do Spark," e "Scala 2.11" é `spark-cassandra-connector_2.11-2.3.1`
 
-* **Biblioteca de específico do Cosmos DB Cassandra API do Azure:** -uma fábrica de conexão personalizada é necessária para configurar a política de repetição a partir do conector do Spark do Datastax à Cassandra API do Azure Cosmos DB. Adicionar a `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [coordenadas do maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) anexar biblioteca ao cluster.
+* **Biblioteca de específico do Cosmos DB Cassandra API do Azure:** -uma fábrica de conexão personalizada é necessária para configurar a política de repetição a partir do conector do Spark do Cassandra para a API de Cassandra do Azure Cosmos DB. Adicionar a `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [coordenadas do maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) anexar biblioteca ao cluster.
 
 ## <a name="sample-notebooks"></a>Blocos de notas de exemplo
 

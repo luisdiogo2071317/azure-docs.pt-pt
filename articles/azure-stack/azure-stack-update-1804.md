@@ -3,7 +3,7 @@ title: O Azure Stack 1804 atualização | Documentos da Microsoft
 description: Saiba mais sobre as novidades na atualização para o Azure Stack 1804 integrada sistemas, os problemas conhecidos e onde pode transferir a atualização.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413521"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393524"
 ---
 # <a name="azure-stack-1804-update"></a>Atualização de 1804 de pilha do Azure
 
@@ -56,7 +56,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 
 
 
-## <a name="fixed-issues"></a>Problemas de fixos
+## <a name="fixed-issues"></a>Problemas corrigidos
 
 - <!-- IS, ASDK -->  No portal de administração, já não tem de atualizar o mosaico de atualização antes de apresenta informações.
  
@@ -102,6 +102,9 @@ Após a instalação de 1804, instale as correções aplicáveis. Para obter mai
 Seguem-se após a instalação problemas conhecidos para compilação **20180513.1**.
 
 #### <a name="portal"></a>Portal
+
+- A documentação técnica do Azure Stack enfoca a versão mais recente. Devido a alterações de portais entre versões, o que vê quando utilizar os portais do Azure Stack pode variar do que vê na documentação. 
+
 - <!-- TBD - IS ASDK --> Não é possível aplicar atualizações de controladores mediante a utilização de um pacote de extensão de OEM com esta versão do Azure Stack.  Não é uma solução para este problema.
 
 - <!-- 1272111 - IS --> Depois de instalar ou atualizar para esta versão do Azure Stack, poderá não conseguir ver as unidades de escala do Azure Stack no portal de administração.  

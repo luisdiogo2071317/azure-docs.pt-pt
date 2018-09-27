@@ -4,16 +4,16 @@ description: Nesta explicação de procedimento orienta-o através de remediaç�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 747650bc47644cdca07f705f42d063c995ebe9bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980258"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392703"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
@@ -27,7 +27,7 @@ Política cria uma identidade gerida para cada atribuição para, mas tem de for
 ![Identidade gerida - função em falta](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Se um recurso modificado por **deployIfNotExists** está fora do âmbito da atribuição de política, identidade gerida da atribuição tem de ser por meio de programação concedida acesso ou a implementação de atualização irá falhar.
+> Se um recurso modificado por **deployIfNotExists** está fora do âmbito de atribuição de política ou o modelo de propriedades de acessos em recursos fora do âmbito de atribuição de política, a identidade gerida da atribuição tem de ser [manualmente concedido acesso](#manually-configure-the-managed-identity) ou a implementação de atualização irá falhar.
 
 ## <a name="configure-policy-definition"></a>Configurar a definição de política
 
@@ -53,6 +53,79 @@ az role definition list --name 'Contributor'
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Contributor'
 ```
+
+## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente a identidade gerida
+
+Ao criar uma atribuição através do portal, política gera a identidade gerida tanto ele concede as funções definidas na **roleDefinitionIds**. Nas seguintes condições, passos para criar a identidade gerida e atribua-lhe permissões devem ser executados manualmente:
+
+- Ao utilizar o SDK (por exemplo, o Azure PowerShell)
+- Quando um recurso fora do âmbito de atribuição é modificado pelo modelo
+- Quando um recurso fora do âmbito de atribuição é lido pelo modelo
+
+> [!NOTE]
+> Azure PowerShell e .NET são os SDKs únicos que suportam atualmente esta capacidade.
+
+### <a name="create-managed-identity-with-powershell"></a>Criar a identidade gerida com o PowerShell
+
+Para criar uma identidade gerida durante a atribuição da política **localização** tem de ser definido e **AssignIdentity** utilizado. O exemplo seguinte obtém a definição da política incorporada **encriptação de dados transparente de implementar o SQL DB**, define o grupo de recursos de destino e, em seguida, cria a atribuição.
+
+```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+
+# Create the assignment using the -Location and -AssignIdentity properties
+$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+```
+
+O `$assignment` variável agora contém o ID de principal de a identidade gerida, juntamente com os valores padrão retornado ao criar uma atribuição de política. Pode ser acedido através de `$assignment.Identity.PrincipalId`.
+
+### <a name="grant-defined-roles-with-powershell"></a>Concessão definido funções com o PowerShell
+
+Podem ser concedida as funções necessárias, a nova identidade gerida tem de concluir a replicação através do Azure Active Directory. Depois de concluída a replicação, o exemplo a seguir itera a definição de política na `$policyDef` para o **roleDefinitionIds** e utiliza [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) conceder o novo geridos identidade as funções.
+
+```azurepowershell-interactive
+# Use the $policyDef to get to the roleDefinitionIds array
+$roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
+
+if ($roleDefinitionIds.Count -gt 0)
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+}
+```
+
+### <a name="grant-defined-roles-through-portal"></a>Concessão definido funções através do portal
+
+Existem duas formas de conceder as funções definidas com o portal, utilizando a identidade gerida de uma atribuição **controlo de acesso (IAM)** ou a atribuição de política ou iniciativa de edição e clicando em **guardar**.
+
+Para adicionar uma função a identidade gerida da atribuição, siga estes passos:
+
+1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
+
+1. Selecione **Atribuições** no lado esquerdo da página Azure Policy.
+
+1. Localize a atribuição de que tem uma identidade gerida e clique no nome.
+
+1. Encontrar o **ID de atribuição** propriedade na página de edição. O ID de atribuição será algo como:
+
+   ```
+   /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
+   ```
+
+   O nome da identidade gerida é a última parte do ID de recurso de atribuição, o que é `2802056bfc094dfb95d4d7a5` neste exemplo. Copie esta parte do ID de recurso de atribuição.
+
+1. Navegue para o recurso ou recursos contentor principal (grupo de recursos, subscrição, grupo de gestão) que tem a definição de função adicionada manualmente.
+
+1. Clique nas **controlo de acesso (IAM)** ligar na página de recursos e clique em **+ adicionar** na parte superior da página de controle de acesso.
+
+1. Selecione a função adequada que corresponda a um **roleDefinitionIds** da definição de política. Deixe **atribuir acesso a** predefinido de 'Utilizador do Azure AD, grupo ou aplicação'. Na **selecione** caixa, cole ou escreva a parte do ID do recurso de atribuição localizado anteriormente. Uma vez concluída a pesquisa, clique com o objeto com o mesmo nome para selecionar o id e clique em **guardar**.
 
 ## <a name="create-a-remediation-task"></a>Criar uma tarefa de remediação
 

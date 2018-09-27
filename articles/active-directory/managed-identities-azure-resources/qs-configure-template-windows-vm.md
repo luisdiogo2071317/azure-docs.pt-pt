@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: b8e36480269259f38453593973d1f362c136e6be
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349063"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223445"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurar identidades geridas para recursos do Azure na VM do Azure com um modelo
 
@@ -34,8 +34,10 @@ Neste artigo, usando o modelo de implementação Azure Resource Manager, aprende
 - Se não estiver familiarizado com a utilização do modelo de implementação Azure Resource Manager, consulte a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de controlo de acesso baseado em funções do Azure seguintes:
+
     > [!NOTE]
     > Nenhum adicionais do Azure AD directory as atribuições de funções necessárias.
+
     - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar uma VM e ativar e remover o sistema e/ou atribuído ao utilizador a identidade gerida de uma VM do Azure.
     - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) identidade gerida de função para criar um atribuído ao utilizador.
     - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para atribuir e remover um atribuído ao utilizador identidade gerida de e para uma VM.
@@ -381,7 +383,7 @@ Se tiver uma VM que não precisa mais de uma identidade gerida atribuído ao uti
  
    **Microsoft.Compute/virtualMachines versão 2017-12-01 de API**
 
-   Para remover uma uma única utilizador atribuído identidade gerida de uma VM, remova-a do `identityIds` matriz.
+   Para remover uma única identidade gerida atribuído ao utilizador a partir de uma VM, remova-a do `identityIds` matriz.
 
    Se tiver uma identidade gerida atribuído de sistema, mantenha-a no no `type` valor sob a `identity` valor.
    

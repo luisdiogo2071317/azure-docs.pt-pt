@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984947"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227442"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 
@@ -62,7 +62,7 @@ Este início rápido contém um código de exemplo que demonstra como uma aplica
 
 1. Extraia o ficheiro zip para uma pasta local (por exemplo, **C:\Azure-Samples**)
 1. Se usar o Visual Studio 2017, abra o projeto no Visual Studio (opcional)
-1. Editar **appSettings** e substitua o valor para `ClientId` com o Id da aplicação a partir da aplicação que acabou de registar:
+1. Editar **appSettings** e substitua o valor para `ClientId` com o Id de aplicação a partir da aplicação que acabou de registar:
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

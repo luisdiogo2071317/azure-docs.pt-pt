@@ -1,39 +1,40 @@
 ---
-title: Moderator conteúdo do Azure - conteúdo fluxos de trabalho de moderação interrupção partir da consola de API | Microsoft Docs
-description: Saiba como utilizar os fluxos de trabalho de conteúdo moderação de interrupção da consola de API.
+title: Fluxos de trabalho de moderação de conteúdos a partir da consola de API - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar fluxos de trabalho de moderação de conteúdos a partir da consola de API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351775"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223855"
 ---
-# <a name="workflows-from-the-api-console"></a>Fluxos de trabalho da consola de API
+# <a name="workflows-from-the-api-console"></a>Fluxos de trabalho a partir da consola de API
 
-Utilize o [operações de fluxo de trabalho](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) no Moderator conteúdo do Azure para criar ou atualizar um fluxo de trabalho ou obter os detalhes de fluxo de trabalho, utilizando a API de revisão. Pode definir expressões mesmo aninhadas, simples e complexas para os fluxos de trabalho ao utilizar esta API. Os fluxos de trabalho são apresentadas na ferramenta de revisão para a sua equipa utilizar. Os fluxos de trabalho também são utilizados por operações de tarefa a API de revisão.
+Utilize o [operações de fluxo de trabalho](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) no Azure Content Moderator para criar ou atualizar um fluxo de trabalho ou para obter detalhes de fluxo de trabalho com a API de revisão. Pode definir expressões simples, complexas e até mesmo aninhadas para os fluxos de trabalho ao utilizar esta API. Os fluxos de trabalho são apresentados na ferramenta de revisão para a sua equipa a utilizar. Os fluxos de trabalho também são utilizados por operações de tarefa a API de revisão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Vá para o [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com/). Inscrever-se se ainda não o fez, ainda. 
-2. Na ferramenta de revisão, sob **definições**, selecione o **fluxos de trabalho** separador, conforme mostrado na ferramenta de revisão [tutorial de fluxo de trabalho](Review-Tool-User-Guide/Workflows.md).
+1. Vá para o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/). Inscreva-se se ainda não tiver feito isso ainda. 
+2. Na ferramenta de revisão, sob **configurações**, selecione a **fluxos de trabalho** separador, como mostra a ferramenta de revisão [tutorial de fluxo de trabalho](Review-Tool-User-Guide/Workflows.md).
 
-### <a name="browse-to-the-workflows-screen"></a>Navegue para o ecrã de fluxos de trabalho
+### <a name="browse-to-the-workflows-screen"></a>Navegue para a tela de fluxos de trabalho
 
-No dashboard do Moderator conteúdo, selecione **revisão** > **definições** > **fluxos de trabalho**. Verá um fluxo de trabalho predefinido.
+No dashboard do Content Moderator, selecione **revisão** > **definições** > **fluxos de trabalho**. Verá um fluxo de trabalho predefinida.
 
-  ![Fluxo de trabalho predefinido](images/default-workflow-listed.PNG)
+  ![Fluxo de trabalho predefinida](images/default-workflow-listed.PNG)
 
-### <a name="get-the-json-definition-of-the-default-workflow"></a>Obter a definição de JSON do fluxo de trabalho predefinido
+### <a name="get-the-json-definition-of-the-default-workflow"></a>Obter a definição de JSON do fluxo de trabalho predefinida
 
-Selecione o **editar** opção ao fluxo de trabalho e, em seguida, selecione o **JSON** separador. Consulte a seguinte expressão de JSON:
+Selecione o **edite** opção para seu fluxo de trabalho e, em seguida, selecione a **JSON** separador. Verá a seguinte expressão de JSON:
 
     {
         "Type": "Logic",
@@ -58,36 +59,36 @@ Selecione o **editar** opção ao fluxo de trabalho e, em seguida, selecione o *
 
 ## <a name="get-workflow-details"></a>Obter os detalhes de fluxo de trabalho
 
-Utilize o **fluxo de trabalho - Get** operação para obter detalhes do fluxo de trabalho predefinido existente.
+Utilize o **fluxo de trabalho - Get** operação para obter detalhes de fluxo de trabalho padrão existente.
 
 Na ferramenta de revisão, vá para o [credenciais](Review-Tool-User-Guide/credentials.md#the-review-tool) secção.
 
 ### <a name="browse-to-the-api-reference"></a>Navegue para a referência de API
 
-1. No **credenciais** visualizar, selecione [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). 
-2. Quando o **fluxo de trabalho - criar ou atualizar** é aberta a página, visite o [fluxo de trabalho - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) referência.
+1. Na **credenciais** visualizar, selecione [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). 
+2. Quando o **fluxo de trabalho - criar ou atualizar** é aberta a página, vá para o [fluxo de trabalho - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) referência.
 
-### <a name="select-your-region"></a>Selecione a região
+### <a name="select-your-region"></a>Selecione a sua região
 
-Para **consola de teste de Open API**, selecione a região que melhor coincida descreve a localização.
+Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização.
 
-  ![Fluxo de trabalho - seleção de região Get](images/test-drive-region.png)
+  ![Fluxo de trabalho - seleção de região de Get](images/test-drive-region.png)
 
   O **fluxo de trabalho - Get** é aberta a consola de API.
 
 ### <a name="enter-parameters"></a>Introduzir parâmetros
 
-Introduza os valores para **equipa**, **workflowname**, e **Ocp-Apim-Subscription-Key** (a chave de subscrição):
+Introduza os valores para **equipe**, **workflowname**, e **Ocp-Apim-Subscription-Key** (a chave de subscrição):
 
-- **equipa**: O ID de equipa que criou quando configurou o [rever conta ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: O nome do fluxo de trabalho. Utilize `default`.
+- **equipe**: O ID da equipa que criou quando configurou seu [rever a conta de ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: O nome do seu fluxo de trabalho. Utilize `default`.
 - **OCP-Apim-Subscription-Key**: localizado no **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
 
-  ![Obter parâmetros de consulta e nos cabeçalhos](images/workflow-get-default.PNG)
+  ![Obter parâmetros de consulta e cabeçalhos](images/workflow-get-default.PNG)
 
 ### <a name="submit-your-request"></a>Submeter o pedido
   
-Selecione **Enviar**. Se a operação for bem sucedida, o **estado de resposta** é `200 OK`e o **conteúdo da resposta** caixa apresenta o seguinte fluxo de trabalho JSON:
+Selecione **Enviar**. Se a operação for bem-sucedida, o **estado de resposta** é `200 OK`e o **conteúdo da resposta** caixa apresenta o seguinte fluxo de trabalho JSON:
 
     {
         "Name": "default",
@@ -123,30 +124,30 @@ Na ferramenta de revisão, vá para o [credenciais](Review-Tool-User-Guide/crede
 
 ### <a name="browse-to-the-api-reference"></a>Navegue para a referência de API
 
-No **credenciais** visualizar, selecione [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). O **fluxo de trabalho - criar ou atualizar** é aberta a página.
+Na **credenciais** visualizar, selecione [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). O **fluxo de trabalho - criar ou atualizar** é aberta a página.
 
-### <a name="select-your-region"></a>Selecione a região
+### <a name="select-your-region"></a>Selecione a sua região
 
-Para **consola de teste de Open API**, selecione a região que melhor coincida descreve a localização.
+Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização.
 
-  ![Fluxo de trabalho - criar seleção de região de página ou Update](images/test-drive-region.png)
+  ![Fluxo de trabalho - seleção de região de página de atualização ou de criar](images/test-drive-region.png)
 
   O **fluxo de trabalho - criar ou atualizar** é aberta a consola de API.
 
 ### <a name="enter-parameters"></a>Introduzir parâmetros
 
-Introduza os valores para **equipa**, **workflowname**, e **Ocp-Apim-Subscription-Key** (a chave de subscrição):
+Introduza os valores para **equipe**, **workflowname**, e **Ocp-Apim-Subscription-Key** (a chave de subscrição):
 
-- **equipa**: O ID de equipa que criou quando configurou o [rever conta ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: O nome do novo fluxo de trabalho.
+- **equipe**: O ID da equipa que criou quando configurou seu [rever a conta de ferramenta](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: O nome do seu novo fluxo de trabalho.
 - **OCP-Apim-Subscription-Key**: localizado no **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
 
-  ![Fluxo de trabalho - criar parâmetros de consulta ou atualização consola e nos cabeçalhos](images/workflow-console-parameters.PNG)
+  ![Fluxo de trabalho - criar parâmetros de consulta de consola ou de atualização e cabeçalhos](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-the-workflow-definition"></a>Introduza a definição de fluxo de trabalho
 
-1. Editar o **corpo do pedido** caixa para introduzir o pedido do JSON com detalhes para **Descrição** e **tipo** (imagem ou texto). 
-2. Para **expressão**, copie a expressão de fluxo de trabalho predefinida da secção anterior, conforme mostrado aqui:
+1. Editar a **corpo do pedido** caixa para introduzir o pedido do JSON com detalhes para **Descrição** e **tipo** (imagem ou texto). 
+2. Para **expressão**, copie a expressão de fluxo de trabalho padrão da secção anterior, conforme mostrado aqui:
 
         {
             "Description": "Default workflow from API console",
@@ -155,7 +156,7 @@ Introduza os valores para **equipa**, **workflowname**, e **Ocp-Apim-Subscriptio
                 // Copy the default workflow expression from the preceding section
         }
 
-    O corpo do pedido aspeto pedido JSON seguinte:
+    O corpo do pedido é parecido com o seguinte pedido JSON:
 
         {
             "Description": "Default workflow from API console",
@@ -184,23 +185,23 @@ Introduza os valores para **equipa**, **workflowname**, e **Ocp-Apim-Subscriptio
  
 ### <a name="submit-your-request"></a>Submeter o pedido
   
-Selecione **Enviar**. Se a operação for bem sucedida, o **estado de resposta** é `200 OK`e o **conteúdo da resposta** caixa apresenta `true`.
+Selecione **Enviar**. Se a operação for bem-sucedida, o **estado de resposta** é `200 OK`e o **conteúdo da resposta** caixa apresenta `true`.
 
-### <a name="check-out-the-new-workflow"></a>Veja o novo fluxo de trabalho
+### <a name="check-out-the-new-workflow"></a>Confira o novo fluxo de trabalho
 
-Na ferramenta de revisão, selecione **revisão** > **definições** > **fluxos de trabalho**. O novo fluxo de trabalho é apresentado e está pronto a utilizar.
+Na ferramenta de revisão, selecione **revisão** > **definições** > **fluxos de trabalho**. Seu novo fluxo de trabalho é apresentada e está pronto a utilizar.
 
-  ![Lista de ferramenta de revisão de fluxos de trabalho](images/workflow-console-new-workflow.PNG)
+  ![Lista de ferramentas de revisão de fluxos de trabalho](images/workflow-console-new-workflow.PNG)
   
-### <a name="review-your-new-workflow-details"></a>Reveja os detalhes novos do fluxo de trabalho
+### <a name="review-your-new-workflow-details"></a>Reveja os detalhes do fluxo de trabalho nova
 
-1. Selecione o **editar** opção ao fluxo de trabalho e, em seguida, selecione o **Designer** e **JSON** separadores.
+1. Selecione o **edite** opção para seu fluxo de trabalho e, em seguida, selecione a **Designer** e **JSON** separadores.
 
-   ![Separador estruturador para um fluxo de trabalho selecionado](images/workflow-console-new-workflow-designer.PNG)
+   ![Separador de Designer para um fluxo de trabalho selecionado](images/workflow-console-new-workflow-designer.PNG)
 
 2. Para ver a vista JSON do fluxo de trabalho, selecione o **JSON** separador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter exemplos mais complexos do fluxo de trabalho, consulte o [descrição geral de fluxos de trabalho](workflow-api.md).
-* Saiba como utilizar os fluxos de trabalho com [conteúdo tarefas moderação interrupção](try-review-api-job.md).
+* Para obter exemplos de fluxo de trabalho mais complexos, consulte a [descrição geral de fluxos de trabalho](workflow-api.md).
+* Saiba como utilizar fluxos de trabalho com [tarefas de moderação de conteúdos](try-review-api-job.md).

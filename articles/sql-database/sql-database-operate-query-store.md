@@ -2,19 +2,22 @@
 title: Operacional Store de consulta na base de dados SQL do Azure
 description: Saiba como operar o Store de consulta na base de dados do Azure SQL
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903103"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164570"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Operar o Store de consulta na base de dados SQL do Azure
 Store de consulta no Azure é uma funcionalidade de base de dados totalmente gerido que recolhe e apresenta informações históricas detalhadas sobre todas as consultas de forma contínua. Pense sobre Store de consulta como sendo semelhante a dados gravador um avião que significativamente simplifica o desempenho das consultas de resolução de problemas para a cloud e os clientes locais. Este artigo explica os aspetos específicos de operar Store de consulta no Azure. Usando esta consulta previamente recolhidos dados, pode diagnosticar rapidamente e resolver problemas de desempenho e, portanto, passar mais tempo se concentrando em seu negócio. 
@@ -54,6 +57,6 @@ Para obter mais informações, veja os artigos seguintes:
 
 * [Um gravador de dados da base de dados](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [A monitorização de desempenho utilizando a Store de consulta](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Cenários de utilização de Store de consulta](https://msdn.microsoft.com/library/mt614796.aspx)
+* [Cenários de Utilização do Arquivo de Consultas](https://msdn.microsoft.com/library/mt614796.aspx)
  
 

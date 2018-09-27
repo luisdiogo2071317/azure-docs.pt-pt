@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466069"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395717"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -146,6 +146,8 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 ### <a name="portal"></a>Portal
 
+- A documentação técnica do Azure Stack enfoca a versão mais recente. Devido a alterações de portais entre versões, o que vê quando utilizar os portais do Azure Stack pode variar do que vê na documentação. 
+
 - <!-- TBD - IS ASDK --> Poderá ver um dashboard em branco no portal. Para recuperar o dashboard, clique em **editar Dashboard**, em seguida, clique com botão direito e selecione **repor para o estado predefinido**.
 
 - <!-- 2930718 - IS ASDK --> No portal do administrador, ao acessar os detalhes de qualquer subscrição do utilizador, depois de fechar o painel e clique em **recente**, não é apresentado o nome de subscrição de utilizador.
@@ -217,6 +219,8 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - <!-- 2724873 - IS --> Ao utilizar os cmdlets do PowerShell **Start-AzsScaleUnitNode** ou **Stop-AzsScaleunitNode** para gerir unidades de escala, a primeira tentativa para iniciar ou parar a unidade de escala poderá falhar. Se o cmdlet falhar na primeira execução, execute o cmdlet uma segunda vez. A segunda execução deve ser bem-sucedida para concluir a operação. 
 
 - <!-- TBD - IS ASDK --> Ao criar máquinas virtuais no portal de utilizador do Azure Stack, o portal apresenta um número incorreto de discos de dados que pode anexar a uma VM da série DS. Séries de DS VMs capaz de acomodar os discos de dados como a configuração do Azure.
+
+- <!-- TBD - IS ASDK --> Se estiver a utilizar um ambiente multi-inquilino, aprovisionamento de uma VM com disco gerido numa subscrição não pertencente ao inquilino predefinido falha com o seguinte erro: *a operação de recursos foi concluída com o estado de aprovisionamento terminal 'Com falhas'.*
 
 - <!-- TBD - IS ASDK --> Se uma extensão numa implantação de VM o aprovisionamento demora demasiado tempo, os utilizadores devem permitir que o limite de tempo de aprovisionamento em vez de tentar interromper o processo para desaloque ou elimine a VM.  
 

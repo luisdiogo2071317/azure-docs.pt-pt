@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 180d4092a2570b719e77d98319ab9b329f2e48c5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: bdbe15a85ad4d2ef6918b7ab7e16942edde5096e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637430"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220340"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "45637430"
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida no Azure Active Directory. Pode utilizar esta identidade para autenticar para serviços que suportam a autenticação do Azure AD, sem a necessidade de credenciais no seu código. 
 
-Neste artigo, irá aprender a criar, listar, eliminar ou atribuir uma função para um um atribuído ao utilizador gerido identidade através do Portal do Azure.
+Neste artigo, irá aprender a criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador através do Portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

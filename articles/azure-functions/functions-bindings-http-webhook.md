@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1b34484978ad95f0945e93411ac2e2a74fff238
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980979"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227559"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -483,7 +483,7 @@ Para proteger completamente seus pontos de extremidade de função na produção
 
 * Ativar a autenticação do serviço de aplicação / autorização para a sua aplicação de função. A plataforma de serviço de aplicações permite utilizar o Azure Active Directory (AAD) e de vários fornecedores de identidade de terceiros para autenticar clientes. Pode utilizá-lo para implementar regras de autorização personalizada para as suas funções e pode trabalhar com informações de utilizador a partir do código de função. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md).
 
-* Utilize a gestão de API do Azure (APIM) para autenticar pedidos. APIM fornece uma variedade de opções de segurança de API para pedidos recebidos. Para obter mais informações, consulte [políticas de autenticação de gestão de API](../api-management/api-management-authentication-policies.md). Com APIM no local, pode configurar a aplicação de funções para aceitar pedidos apenas a partir do endereço de instalador de plataforma da sua instância APIM. Para obter mais informações, consulte [restrições de endereço IP](ip-addresses.md#ip-address-restrictions).
+* Utilize a gestão de API do Azure (APIM) para autenticar pedidos. APIM fornece uma variedade de opções de segurança de API para pedidos recebidos. Para obter mais informações, consulte [políticas de autenticação de gestão de API](../api-management/api-management-authentication-policies.md). Com APIM no local, pode configurar a aplicação de funções para aceitar pedidos apenas a partir do endereço IP da sua instância APIM. Para obter mais informações, consulte [restrições de endereço IP](ip-addresses.md#ip-address-restrictions).
 
 * Implemente a sua aplicação de função para um ambiente de serviço do Azure aplicações (ASE). ASE fornece um ambiente de alojamento dedicado para executar as suas funções. ASE permite-lhe configurar um único gateway de front-end que pode utilizar para autenticar a todos os pedidos recebidos. Para obter mais informações, consulte [configurar uma Firewall de aplicações Web (WAF) para o ambiente de serviço de aplicações](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 

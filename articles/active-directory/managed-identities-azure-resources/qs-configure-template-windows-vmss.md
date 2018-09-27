@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 259e22607887d4aae43c46a410edb6efa8a5e497
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637661"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220924"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades geridas para recursos do Azure numa escala de máquina virtual do Azure através de um modelo
 
@@ -343,7 +343,7 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não necessi
    
    **Compute/virtualmachinescalesets 2018-01 06 de versão de API**
     
-   Para remover uma uma única utilizador atribuído identidade gerida de um conjunto de dimensionamento de máquina virtual, remova-a do `userAssignedIdentities` dicionário.
+   Para remover uma única identidade gerida atribuído ao utilizador a partir de um conjunto de dimensionamento de máquina virtual, remova-a do `userAssignedIdentities` dicionário.
 
    Se tiver uma identidade atribuída de sistema, mantenha-a no no `type` valor sob a `identity` valor.
 

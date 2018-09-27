@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea2a58e61d781e6ebfb72b860a3b7aed6ce0c7d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953485"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394488"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB enlaces das funções do Azure 2.x
 
@@ -1694,11 +1694,10 @@ Por predefinição, quando escreve para o parâmetro de saída na sua função, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Ir para um início rápido que utiliza um acionador Cosmos DB](functions-create-cosmos-db-triggered-function.md)
+* [Saiba mais sobre a base de dados sem servidor computação com o Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a base de dados sem servidor computação com o Cosmos DB](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

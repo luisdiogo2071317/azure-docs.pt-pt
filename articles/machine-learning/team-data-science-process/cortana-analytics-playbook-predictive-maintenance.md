@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972388"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221711"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -156,7 +156,7 @@ Recursos estáticos são metadados sobre o equipamento. Os exemplos são o equip
 
 Exemplos de dados relevantes para o [casos de utilização de exemplo PdM](#Sample-PdM-use-cases) são apresentadas abaixo:
 
-| Caso de utilização | Exemplos de dados relevantes |
+| Caso de Utilização | Exemplos de dados relevantes |
 |:---------|---------------------------|
 |_Atraso de voo e cancelamentos_ | Informações de rota de voo na forma de registos de página e de legs de voo. Dados de leg de voo incluem detalhes de encaminhamento, como a data de entrada/saída, hora, aeroporto, layovers etc. Registo de página inclui uma série de códigos de erro e manutenção registado pelo pessoal de manutenção do zero.|
 |_Falhas de partes de motores de aeronaves_ | Os dados recolhidos a partir de sensores na aeronave que fornece informações sobre a condição de várias partes. Registos de manutenção ajudam a identificar quando ocorreram de falhas de componentes e quando elas foram substituídas.|
@@ -426,19 +426,19 @@ A seção final deste guia fornece uma lista de modelos de soluções PdM, tutor
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Recursos de treinamento para manutenção preditiva
 
-O [percurso de aprendizagem de IA do Azure para manutenção preditiva](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) fornece o material de treinamento para uma compreensão mais aprofundado sobre os conceitos e a matemática por trás de algoritmos e as técnicas utilizadas em PdM problemas. 
-
-O Microsoft Azure oferece conteúdo gratuito e o treinamento sobre os conceitos gerais de IA e prática.
+O Microsoft Azure oferece os percursos de aprendizagem para os conceitos básicos por trás de técnicas de PdM, além de conteúdo e treinamento em geral, os conceitos de IA e prática.
 
 | Recursos de treinamento  | Disponibilidade |
 |:-------------------|--------------|
+| [Percurso de aprendizagem do PdM usando árvores e florestas de Random](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Público | 
+| [Percurso de aprendizagem do PdM com aprendizagem profunda](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Público |
 | [Programador AI no Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Instituição de ensino do Microsoft AI](http://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizagem de IA do Azure do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [Aprendizagem do LinkedIn](http://www.linkedin.com/learning) | Público |
 | [Webinars do Youtube de IA da Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Show de IA da Microsoft](http://channel9.msdn.com/Shows/AI-Show) | Público |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Para parceiros da Microsoft |
-| [Rede de parceiros da Microsoft](http://learningportal.microsoft.com) | Para parceiros da Microsoft |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Parceiros |
+| [Rede de parceiros da Microsoft](http://learningportal.microsoft.com) | Parceiros |
 
 Além disso, MOOCS gratuitas (cursos abertos massivos online) em IA estão online oferecidas por instituições académicas como Stanford e MIT e outras empresas de instituições de ensino.

@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502816"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395734"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina Virtual Windows dados ciência
 
@@ -47,7 +47,7 @@ Neste artigo, aprenderá a usar sua DSVM para efetuar várias tarefas de ciênci
 **Pré-requisitos**
 
 * Precisa de uma subscrição do Azure. Pode inscrever-se numa avaliação gratuita [aqui](https://azure.microsoft.com/free/).
-* Estão disponíveis instruções para o aprovisionamento de uma Máquina Virtual de ciência de dados no portal do Azure em [criar uma máquina virtual](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+* Estão disponíveis instruções para o aprovisionamento de uma Máquina Virtual de ciência de dados no portal do Azure em [criar uma máquina virtual](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Explorar dados e desenvolver modelos com o Microsoft ML Server ou Python
 Pode usar as linguagens como R e Python para fazer sua análise de dados na DSVM.
@@ -56,7 +56,7 @@ Para R, pode utilizar um IDE, como o r Studio que pode ser encontrado no menu In
 
 Para o Python, pode utilizar um IDE, como o Visual Studio Community Edition, que tem as ferramentas Python para a extensão do Visual Studio (PTVS) pré-instalado. Por predefinição, apenas o Python 3.6, o ambiente de conda raiz está configurado no PTVS. Para habilitar Anaconda Python 2.7, terá de efetuar os passos seguintes:
 
-* Criar ambientes personalizados para cada versão ao navegar até **ferramentas** -> **ferramentas do Python** -> **ambientes do Python** e, em seguida, clicando em " **+ Personalizado**"no Visual Studio 2015 Community Edition
+* Criar ambientes personalizados para cada versão ao navegar até **ferramentas** -> **ferramentas do Python** -> **ambientes do Python** e, em seguida, clicando em " **+ Personalizado**"na edição de Comunidade do Visual Studio
 * Forneça uma descrição e defina o caminho de prefixo de ambiente porque *c:\anaconda\envs\python2* para Anaconda Python 2.7
 * Clique em **deteção automática** e, em seguida **aplicar** para guardar o ambiente.
 
@@ -66,7 +66,7 @@ Eis o aspeto de configuração do ambiente personalizado no Visual Studio.
 
 Consulte a [documentação das PTVS](http://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar ambientes do Python.
 
-Agora são configuradas para criar um novo projeto de Python. Navegue para **arquivo** -> **New** -> **projeto** -> **Python** e selecione o tipo de Aplicação de Python que está a criar. Pode configurar o ambiente do Python para o projeto atual para a versão pretendida (Anaconda 2.7 ou 3.6) ao clicar com o botão direito a **ambiente do Python**, ao selecionar **ambientes do Python Adicionar/remover**e, em seguida, Escolher o ambiente pretendido. Pode encontrar mais informações sobre como trabalhar com a PTVS no produto [documentação](http://aka.ms/ptvsdocs).
+Agora são configuradas para criar um novo projeto de Python. Navegue para **arquivo** -> **New** -> **projeto** -> **Python** e selecione o tipo de Aplicação de Python que está a criar. Pode configurar o ambiente do Python para o projeto atual para a versão pretendida (Python 2.7 ou 3.6) ao clicar com o botão direito a **ambientes do Python**, ao selecionar **ambientes do Python Adicionar/remover**e, em seguida, Escolher o ambiente pretendido. Pode encontrar mais informações sobre como trabalhar com a PTVS no produto [documentação](http://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Utilizar um bloco de notas do Jupyter para explorar e modelar os seus dados com o Python ou R
 O bloco de notas do Jupyter é um ambiente poderoso que fornece um baseada no browser "IDE" para modelação e exploração de dados. Pode utilizar o Python 2, 3 de Python ou R (código-fonte aberto e o Microsoft R Server) num bloco de notas do Jupyter.
