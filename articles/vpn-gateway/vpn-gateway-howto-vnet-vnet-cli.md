@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 796f63a77e90c729edae7b11adf3c7be807db5f4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670916"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971965"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
 
@@ -87,7 +87,7 @@ Neste exercício, pode combinar configurações ou escolher apenas aquela com qu
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para obter informações sobre como instalar os comandos da CLI, veja [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Instalar a CLI 2.0 do Azure).
+Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ### <a name="Plan"></a>Planear os intervalos de endereços IP
 

@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983519"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -31,7 +31,9 @@ O tráfego de rede está sujeito às regras de firewall configuradas quando enca
 
 As regras de aplicação e de rede são armazenadas em *coleções de regras*. Uma coleção de regras é uma lista de regras que partilham a mesma ação e prioridade.  Uma coleção de regras de rede é uma lista de regras de rede, e uma coleção de regras de aplicação é uma lista de regras de aplicação.
 
-As coleções de regras de rede são sempre processadas antes das coleções de regras de aplicação. Todas as regras são de fim, pelo que, se for encontrada uma correspondência de uma coleção de regras de rede, as coleções seguintes de regras de aplicação para a sessão não são processadas.
+O Azure Firewall não tem um conceito de regras de entrada e de saída. Existem regras de aplicação e regras de redes que são aplicadas a qualquer tráfego que entra na firewall. As regras das redes são aplicadas primeiro, em seguida as regras de aplicações e as regras estão a terminar.
+
+Por exemplo, se uma regra de rede for correspondida, o pacote não é avaliado pelas regras de aplicações. Se não houver uma correspondência de regra de rede e o protocolo de pacotes for HTTP/HTTPS, o pacote é então avaliado pelas regras de aplicações. Se ainda não for encontrada uma correspondência, o pacote é avaliado em relação à coleção de regras de infraestruturas. Se ainda não houver correspondência, então o pacote é negado por predefinição.
 
 Neste tutorial, ficará a saber como:
 
@@ -46,10 +48,6 @@ Neste tutorial, ficará a saber como:
 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Os exemplos nos artigos do Azure Firewall partem do princípio de que já ativou a pré-visualização pública do Azure Firewall. Para obter mais informações, veja [Ativar a pré-visualização pública do Azure Firewall](public-preview.md).
 
 Neste tutorial, criou uma VNet única com três sub-redes:
 - **FW-SN** - a firewall está nesta sub-rede.
@@ -83,9 +81,7 @@ Em primeiro lugar, crie um grupo de recursos para conter os recursos necessário
 7. Em **Subscrição**, selecione a sua subscrição.
 8. Em **Grupo de recursos**, selecione **Utilizar existente** e, em seguida, selecione **Test-FW-RG**.
 9. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
-10. Em **Sub-rede**, em **Nome**, escreva **AzureFirewallSubnet**.
-
-    A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
+10. Em **Sub-rede**, em **Nome**, escreva **AzureFirewallSubnet**. A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
 11. Em **Intervalo de endereços**, escreva **10.0.1.0/24**.
 12. Utilize as outras predefinições e, em seguida, clique em **Criar**.
 
@@ -207,25 +203,21 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 
 
 1. Abra o **Test-FW-RG** e clique na firewall **Test-FW01**.
-1. Na página **Test-FW01**, em **Definições**, clique em **Regras**.
-2. Clique em **Adicionar coleção de regras de aplicação**.
-3. Em **Nome**, escreva **App-Coll01**.
-1. Em **Prioridade**, escreva **200**.
-2. Em **Ação**, selecione **Permitir**.
+2. Na página **Test-FW01**, em **Definições**, clique em **Regras**.
+3. Clique em **Adicionar coleção de regras de aplicação**.
+4. Em **Nome**, escreva **App-Coll01**.
+5. Em **Prioridade**, escreva **200**.
+6. Em **Ação**, selecione **Permitir**.
+7. Em **Regras**, em **Nome**, escreva **AllowGH**.
+8. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
+9. Em **Protocolo:porta**, escreva **http, https**. 
+10. Em **FQDNS de destino**, escreva **github.com**
+11. Clique em **Adicionar**.
 
-6. Em **Regras**, em **Nome**, escreva **AllowGH**.
-7. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
-8. Em **Protocolo:porta**, escreva **http, https**. 
-9. Em **FQDNS de destino**, escreva **github.com**
-10. Clique em **Adicionar**.
+O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição. Estes FQDNs são específicos da plataforma e não podem ser utilizados para outros fins. Para obter mais informações, veja [FQDNs de Infraestrutura](infrastructure-fqdns.md).
 
-> [!NOTE]
-> O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição. Estes FQDNs são específicos da plataforma e não podem ser utilizados para outros fins. Os FQDNs de infraestrutura permitidos incluem:
->- Acesso de computação ao Repositório de Imagens da Plataforma (PIR) de armazenamento.
->- Acesso ao armazenamento do estado dos discos geridos.
->- Diagnóstico do Windows
->
-> Pode substituir esta coleção de regras incorporadas na infraestrutura, ao criar uma coleção de regras de aplicação *recusar tudo*, que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
+> [!Note]
+> As Etiquetas de FQDN podem ser atualmente configuradas pelo Azure PowerShell e REST. Clique [aqui](https://aka.ms/firewallapplicationrule) para saber mais. 
 
 ## <a name="configure-network-rules"></a>Configurar regras de rede
 

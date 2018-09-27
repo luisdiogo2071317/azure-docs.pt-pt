@@ -8,18 +8,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: b65a5dec63bdc625dda64e101620f56cd6dd7308
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 23f10280cd34927e2e74cb7c5001850bedc6dd35
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919175"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967545"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Criar um ambiente de teste do Azure Firewall
-
-[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
-
-Os exemplos nos artigos do Azure Firewall partem do princípio de que já ativou a pré-visualização pública do Azure Firewall. Para obter mais informações, veja [Ativar a pré-visualização pública do Azure Firewall](../public-preview.md).
 
 Este exemplo de script cria uma firewall e um ambiente de rede de teste. A rede tem uma VNet, com três sub-redes: *AzureFirewallSubnet*, *ServersSubnet*e *JumpboxSubnet*. ServersSubnet e JumpboxSubnet têm um Windows Server de 2 núcleos em cada um.
 
@@ -29,7 +25,7 @@ A firewall está em AzureFirewallSubnet configurada com uma Coleção de Regras 
 
 Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/powershell) ou a partir de uma instalação local do PowerShell. 
 
-Se executar o PowerShell localmente, este script requer a versão 6.4.0 ou posterior do módulo AzureRM PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable AzureRM`. 
+Se executar o PowerShell localmente, este script requer a versão mais recente do módulo AzureRM PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable AzureRM`. 
 
 Pode utilizar o `PowerShellGet` se precisar de atualizar, o qual está incorporado no Windows 10 e no Windows Server 2016.
 
@@ -39,12 +35,6 @@ Pode utilizar o `PowerShellGet` se precisar de atualizar, o qual está incorpora
 Para obter mais informações, veja [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
 
 Qualquer instalação existente do Azure PowerShell feita com o instalador de Plataforma Web entrará em conflito com a instalação do PowerShellGet e terá de ser removida.
-
-Além disso, tem de instalar a versão de pré-visualização do AzureRM.Network (versão 6.4.0). Se tiver um módulo anterior, execute `Uninstall-Module AzureRM.Network -Force` para removê-lo. Em seguida, execute:
-
- `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
-
-para instalar a versão 6.4.0.
 
 Não se esqueça de que, se estiver a executar o PowerShell localmente, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 

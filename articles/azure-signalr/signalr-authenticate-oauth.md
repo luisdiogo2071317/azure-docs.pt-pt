@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974328"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticação do Azure SignalR Service
-
-O Microsoft Azure SignalR Service está atualmente em [Pré-visualização Pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tutorial baseia-se na aplicação de sala de chat introduzida no início rápido. Se não tiver concluído [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md) (Criar uma sala de chat com o SignalR Service), conclua primeiro esse exercício. 
 
@@ -396,7 +394,7 @@ Nesta secção, vai ativar a autenticação real ao adicionar o atributo `Author
 
 Nesta secção, vai utilizar a interface de linha de comandos (CLI) do Azure a partir do Azure Cloud Shell para criar uma [Aplicação Web do Azure](https://docs.microsoft.com/azure/app-service/) nova na qual alojar a sua aplicação ASP.NET no Azure. A aplicação Web será configurada para utilizar a implementação de Git local. A aplicação Web também vai ser configurada com a sua cadeia de ligação do SignalR, os segredos da aplicação de OAuth do GitHub e um utilizador de implementação.
 
-Os passos nesta secção utilizam a extensão *signalr* da CLI do Azure. Execute o seguinte comando para instalar a extensão *signalr* da CLI 2.0 do Azure:
+Os passos nesta secção utilizam a extensão *signalr* da CLI do Azure. Execute o seguinte comando para instalar a extensão *signalr* da CLI do Azure:
 
 ```azurecli-interactive
 az extension add -n signalr
