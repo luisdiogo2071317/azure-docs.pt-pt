@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9a1d5378ea5717514a2b247afad2db7d88986fb0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ace2178ac4e1d76d561800d94b07780c3579f1f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033775"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166984"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -293,7 +293,7 @@ Projeto de DevOps do Azure </a>
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Desenvolva as suas capacidades com o Microsoft Learn</h3>
+                                                <h3>Desenvolva as suas competências com o Microsoft Learn</h3>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
@@ -1107,7 +1107,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/databox/">
+                                            <a href="/azure/databox-family/">
                                                 <img src="media/index/Service-icon.png" alt="" />
                                                 <p>Data Box</p>
                                             </a>
@@ -2487,7 +2487,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox/" data-linktype="absolute-path">
+                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2497,8 +2497,8 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Box</h3>
-                                                    <p>Transferência segura e de baixo custo de grandes quantidades de dados quando limitado pela disponibilidade de rede</p>
+                                                    <h3>Família do Data Box</h3>
+                                                    <p>Família de dispositivos de armazenamento que permitem a transferência de dados offline ou baseada na rede</p>
                                                 </div>
                                             </div>
                                         </div>
