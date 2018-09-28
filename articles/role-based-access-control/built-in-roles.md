@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/15/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 0b7933df1e9f250430800b5b7deba06239cb6fd1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736684"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410277"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -63,8 +63,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuinte de conta de armazenamento clássicas](#classic-storage-account-contributor) | Permite-lhe gerir contas de armazenamento clássico, mas não aceder às mesmas. |
 | [Função do serviço de operador de chave de conta de armazenamento clássicas](#classic-storage-account-key-operator-service-role) | Os Operadores de Chave da Conta de Armazenamento Clássica têm permissão para listar e regenerar chaves em Contas de Armazenamento Clássicas |
 | [Contribuinte de Máquina Virtual clássica](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
+| [Contribuinte de serviços cognitivos](#cognitive-services-contributor) | Permite-lhe criar, ler, atualizar, eliminar e gerir as chaves dos serviços cognitivos. |
 | [Utilizador dos serviços cognitivos](#cognitive-services-user) | Permite-lhe ler e lista as chaves dos serviços cognitivos. |
 | [Função de leitor de conta do cosmos DB](#cosmos-db-account-reader-role) | Pode ler os dados da conta do Azure Cosmos DB. Ver [contribuinte de conta do DocumentDB](#documentdb-account-contributor) para a gestão de contas do Azure Cosmos DB. |
+| [Contribuinte de gestão de custos](#cost-management-contributor) | Pode ver os custos e gerir a configuração de custo (por exemplo, orçamentos, exportações) |
+| [Leitor de gestão de custos](#cost-management-reader) | Pode ver os dados de custo e a configuração (por exemplo, orçamentos, exportações) |
 | [Contribuinte de caixa de dados](#data-box-contributor) | Permite-lhe gerir tudo no serviço do Data Box, exceto que lhe dá acesso a outras pessoas. |
 | [Leitor de dados de caixa](#data-box-reader) | Permite-lhe gerir o serviço do Data Box, exceto a ordem de criação ou edição de detalhes do pedido e que lhe dá acesso a outras pessoas. |
 | [Contribuinte do Data Factory](#data-factory-contributor) | Permite-lhe gerir fábricas de dados, mas não aceder-lhes. |
@@ -73,6 +76,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Utilizador de DevTest Labs](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar máquinas virtuais nos seus Azure DevTest Labs. |
 | [Contribuidor da zona DNS](#dns-zone-contributor) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Contribuinte de conta do DocumentDB](#documentdb-account-contributor) | Pode gerir contas do Azure Cosmos DB. O Azure Cosmos DB anteriormente é conhecido como o DocumentDB. |
+| [Contribuinte de serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e eliminar serviços de domínio operações relacionadas necessários para o HDInsight Enterprise Security Package |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) | Permite-lhe gerir contas de Sistemas Inteligentes, mas não aceder-lhes. |
 | [Contribuinte do Cofre de chaves](#key-vault-contributor) | Permite-lhe gerir cofres de chaves, mas não o acesso aos mesmos. |
 | [Criador do laboratório](#lab-creator) | Permite-lhe criar, gerir e eliminar os seus laboratórios geridos nas suas Contas do Azure Lab. |
@@ -91,6 +95,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Leitor de monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Contribuidor de Rede](#network-contributor) | Permite-lhe gerir redes, mas não aceder-lhes. |
 | [Contribuinte de conta APM do novo Relic](#new-relic-apm-account-contributor) | Permite-lhe gerir contas e aplicações do New Relic Application Performance Management, mas não aceder-lhes. |
+| [Teste de administrador do PowerApps](#powerapps-administrator-test) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Leitor e acesso a dados](#reader-and-data-access) | Permite-lhe ver tudo, mas não lhe permitirá eliminar ou criar uma conta de armazenamento ou recurso contido. Também irá permitir acesso de leitura/gravação para todos os dados contidos numa conta de armazenamento através do acesso às chaves de conta de armazenamento. |
 | [Contribuinte de Cache de redis](#redis-cache-contributor) | Permite-lhe gerir caches de Redis, mas não aceder-lhes. |
 | [Contribuinte de política de recurso (pré-visualização)](#resource-policy-contributor-preview) | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recurso, criam pedidos de suporte e leem recursos/hierarquia. |
@@ -373,6 +378,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerir os resultados da operação na gestão de cópia de segurança |
@@ -393,14 +399,13 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter alertas para o Cofre dos serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | A operação obter cofre obtém um objeto que representa o recurso do Azure do tipo "Cofre" |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerir a operação de deteção para a obter recém-criado contentores |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contentores |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerir identidades registadas |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerir a utilização do cofre dos serviços de recuperação |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="backup-operator"></a>Operador de Cópia de Segurança
@@ -506,9 +511,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.Billing/*/read | Ler as informações de faturação |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="biztalk-contributor"></a>Contribuinte do BizTalk
@@ -655,6 +661,31 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
+## <a name="cognitive-services-contributor"></a>Contribuinte de serviços cognitivos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe criar, ler, atualizar, eliminar e gerir as chaves dos serviços cognitivos. |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | Obtém as funcionalidades de uma subscrição. |
+> | Microsoft.Features/providers/features/read | Obtém a funcionalidade de uma subscrição de um fornecedor de recursos específico. |
+> | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta de Insights |
+> | Microsoft.Insights/diagnosticSettings/* | Cria, atualiza ou lê a definição de diagnóstico para o Analysis Server |
+> | Microsoft.Insights/logDefinitions/read | Ler definições de registo |
+> | Microsoft.Insights/metricdefinitions/read | Ler definições de métricas |
+> | Microsoft.Insights/metrics/read | Ler métricas |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
+> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
+> | Microsoft.Resources/deployments/operations/read | Obtém ou lista as operações de implementação. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação de subscrição. |
+> | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
 ## <a name="cognitive-services-user"></a>Utilizador dos serviços cognitivos
 > [!div class="mx-tableFixed"]
 > | | |
@@ -691,6 +722,34 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
+## <a name="cost-management-contributor"></a>Contribuinte de gestão de custos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode ver os custos e gerir a configuração de custo (por exemplo, orçamentos, exportações) |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **Ações** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Apresenta uma lista de períodos de faturação disponíveis |
+> | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
+## <a name="cost-management-reader"></a>Leitor de gestão de custos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode ver os dados de custo e a configuração (por exemplo, orçamentos, exportações) |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Ações** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Apresenta uma lista de períodos de faturação disponíveis |
+> | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
 ## <a name="data-box-contributor"></a>Contribuinte de caixa de dados
 > [!div class="mx-tableFixed"]
 > | | |
@@ -714,7 +773,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.Databox/*/read |  |
-> | Microsoft.Databox/jobs/listsecrets/action | Lista os segredos não encriptados relativos à encomenda. |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | Lista as credenciais não encriptadas relacionadas à encomenda. |
 > | Microsoft.Databox/locations/availableSkus/action | Este método devolve a lista de SKUs disponíveis. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
@@ -846,6 +906,17 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
+## <a name="hdinsight-domain-services-contributor"></a>Contribuinte de serviços de domínio do HDInsight
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode ler, criar, modificar e eliminar serviços de domínio operações relacionadas necessários para o HDInsight Enterprise Security Package |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Ações** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Contribuinte de Conta de Sistemas Inteligentes
 > [!div class="mx-tableFixed"]
@@ -1140,6 +1211,21 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | NewRelic.APM/accounts/* |  |
 
+## <a name="powerapps-administrator-test"></a>Teste de administrador do PowerApps
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta de Insights |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
+> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
 ## <a name="reader-and-data-access"></a>Acesso de Dados e Leitor
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1425,6 +1511,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Sql/servers/read | Devolve a lista de servidores ou obtém as propriedades para o servidor especificado. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **notActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar as políticas de auditoria |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Não é possível editar as definições de auditoria |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Obter os registos de auditoria de Blobs do banco de dados |
@@ -1452,6 +1539,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerir políticas de auditorias do SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Criar e gerir a definição de auditoria do SQL server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Criar e gerir políticas de auditoria de base de dados do SQL server |
@@ -1491,6 +1579,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Sql/servers/* | Criar e gerir servidores SQL |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **notActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Não é possível editar as políticas de auditoria do SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Não é possível editar definições de auditorias do SQL server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar as políticas de auditoria de base de dados do SQL server |

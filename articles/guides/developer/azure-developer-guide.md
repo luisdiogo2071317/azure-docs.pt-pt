@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294582"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423600"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -310,9 +310,3 @@ O Azure fornece um conjunto de APIs de REST de faturação conceder acesso ao co
 Embora é difícil de estimar os custos antes do tempo, o Azure tem um [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) que pode utilizar ao calcular o custo dos recursos implementados. Também pode utilizar o painel de faturação no portal e as APIs de REST de faturação de estimar os custos futuros, com base no consumo atual.
 
 >**Começar a utilizar**: veja [descrição geral da utilização de faturação do Azure e RateCard APIs](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
-
-Depois de implementar a sua aplicação ou solução no Azure, pode criar alertas que enviam o que e-mail para quando a aborda os limites de gastos que estão definidos no alerta.
-
->**Começar a utilizar**: para obter mais informações, consulte [configurar alertas para as suas subscrições do Microsoft Azure de faturação](../../billing-set-up-alerts.md).

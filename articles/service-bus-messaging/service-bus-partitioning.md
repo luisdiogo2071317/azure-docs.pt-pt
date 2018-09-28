@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccdd17bf5a6b3ff00fd3fdada8f4ae02a071274c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392457"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423175"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -140,7 +140,7 @@ Service Bus suporta mensagem automática de reencaminhamento de, para ou entre e
 
 Atualmente o Service Bus impõe as seguintes limitações nas filas e tópicos particionados:
 
-* Filas e tópicos particionados não são suportados no escalão mensagens Premium.
+* Filas e tópicos particionados não são suportados no escalão mensagens Premium. Sessões são suportados na camada de premier utilizando SessionId. 
 * Filas e tópicos particionados não suporta o envio de mensagens que pertencem a diferentes sessões numa única transação.
 * Atualmente, o Service Bus permite até 100 filas ou tópicos particionados por espaço de nomes. Cada particionada fila ou tópico conta para a quota de 10 000 entidades por espaço de nomes (não é aplicável para o escalão Premium).
 

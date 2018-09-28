@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542825"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408985"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -47,7 +47,7 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 Antes de preparar o seu ambiente, certifique-se de que compreender estas limitações:
 
 * Atualmente, o backup das VMs com Standard SSD não é suportada.
-* Cópias de máquinas virtuais com mais de 16 discos de dados não é suportada.
+* Cópias de máquinas virtuais com mais do que 32 discos de dados não é suportada.
 * Cópias de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido não é suportada.
 * Não é suportada para o backup das VMs de Linux encriptado através da encriptação de Linux Unified chave configuração (LUKS).
 * Não recomendamos que o backup das VMs que contêm a configuração de Volumes de partilhado de Cluster (CSV) ou o servidor de ficheiros de escalamento horizontal. Se feito, espera-se a falha de escritores CSV. Eles exigem envolvendo todas as VMs incluídas na configuração do cluster durante uma tarefa de instantâneo. O Azure Backup não suporta a consistência de várias VMS. 

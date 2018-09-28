@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 20b664e8a194c394f90b1d060dbd081fc1507528
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395615"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423090"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Compreender o limite e como removê-lo de gastos do Azure
 
 Limite no Azure de gastos existe para evitar gastos ao longo do seu montante de crédito. Todos os clientes novos que se inscrevam para a avaliação ou ofertas que incluem créditos ao longo de vários meses tem o limite de gastos ativado por predefinição. O limite de gastos é US $0. Não pode ser alterado. O limite de gastos não está disponível para tipos de subscrição como subscrições Pay As You Go e planos de compromisso. Consulte a [lista completa de ofertas do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
-
-**À procura de alertas de faturação?** Ver [configurar alertas de faturação ou de crédito para subscrições do Azure](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>O que acontece quando atinjo o limite de gastos?
 
@@ -78,7 +76,7 @@ Esta funcionalidade está disponível apenas quando foi removido o limite de gas
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Como posso definir um limite de gastos personalizado?
 
-Não temos personalizado limites de gastos hoje mesmo. No entanto, pode optar por [utilizar alertas de faturação para controlar seus gastos](billing-set-up-alerts.md).
+Limites de gastos personalizadas não estão disponíveis.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>O limite de gastos impedir que todos os encargos do Azure?
 

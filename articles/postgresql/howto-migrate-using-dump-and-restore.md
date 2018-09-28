@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465662"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409614"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.
@@ -36,9 +36,6 @@ Por exemplo, se tiver um servidor local e uma base de dados chamado **testdb** n
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Copie os ficheiros de cópia de segurança para um blob do Azure/armazenamento e efetuar o restauro a partir daí, o que deve ser muito mais rápido do que efetuar o restauro na Internet.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restaurar os dados para o base de dados do Azure de destino para PostrgeSQL usando pg_restore
 Depois de criar a base de dados de destino, pode utilizar o comando pg_restore e a -d, o parâmetro – dbname para restaurar os dados no banco de dados de destino do ficheiro de informação.
@@ -74,7 +71,7 @@ Uma forma de migrar a base de dados existente do PostgreSQL para base de dados d
     ```
 
 ### <a name="for-the-restore"></a>Para o restauro
-- Copie os ficheiros de cópia de segurança num blob do Azure/arquivo e fazer a restauração a partir daí. Deve ser mais rápido do que o restauro na Internet. 
+- Sugerimos que mover o ficheiro de cópia de segurança para uma VM do Azure na mesma região que a base de dados do Azure para o servidor PostgreSQL está a migrar para e fazer o pg_restore dessa VM para reduzir a latência de rede. Recomendamos também que a VM é criada com [accelerated networking](..\virtual-network\create-vm-accelerated-networking-powershell.md) ativada.
 - Ele deve ser feito já por predefinição, mas abrir o ficheiro de informação para verificar que as declarações de índice de criar após a inserção dos dados. Se não for o caso, mova as declarações de índice de criar depois dos dados são inseridos.
 - Restaurar com os comutadores de -Fc e -j *#* para paralelizar o restauro. *#* é o número de núcleos no servidor de destino. Também pode tentar com *#* definido como duas vezes o número de núcleos de servidor de destino para ver o impacto. Por exemplo:
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 76fdf532a35cbe16543bc49b5c02fad5d86690d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 364600d4c1c53f4e5fe726d443287bf1a5f2d4ec
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718998"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419173"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -268,7 +268,7 @@ O **palavra-passe** tipo de entrada do utilizador é utilizado para registar uma
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-O **DateTimeDropdown** tipo de entrada do utilizador é utilizado para fornecer um conjunto de listas pendentes para selecionar um dia, mês e ano.
+O **DateTimeDropdown** tipo de entrada do utilizador é utilizado para fornecer um conjunto de listas pendentes para selecionar um dia, mês e ano. Pode utilizar os elementos de predicados e PredicateValidations para controlar os valores de data mínimo e máximo. Para obter mais informações, consulte a **configurar um intervalo de datas** secção [predicados e PredicateValidations](predicates.md).
 
 ![Usando o tipo com datetimedropdown de afirmação](./media/claimsschema/datetimedropdown.png)
 
