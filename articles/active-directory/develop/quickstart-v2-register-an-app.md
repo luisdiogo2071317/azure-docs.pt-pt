@@ -1,6 +1,6 @@
 ---
-title: Registar uma aplicação com o ponto final v2.0 do Azure AD através do portal do | Documentos da Microsoft
-description: Como registar uma aplicação com a Microsoft para ativar o início de sessão e aceder aos serviços da Microsoft com o ponto final v2.0
+title: Registar uma aplicação com o ponto final do Azure AD v2.0| Microsoft Docs
+description: Saiba como registar uma aplicação com a Microsoft para ativar o início de sessão e aceder aos serviços da Microsoft com o ponto final do Azure AD v2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,47 +12,50 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
+ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 8ab4e6b5b2813a216b6dd6f0fc108a09239ca9a6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: MT
+ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975815"
 ---
-# <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Como registar uma aplicação com o ponto final v2.0
-Para criar uma aplicação que aceita a conta Microsoft (MSA) de pessoal e profissional ou escolar início de sessão na conta (Azure AD), terá primeiro de registar uma aplicação com a Microsoft. Neste momento, não será possível usar todas as aplicações existentes podem ter com o Azure AD ou MSA - terá de criar um novo.
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início rápido: Registar uma aplicação com o ponto final do Azure Active Directory v2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Para criar uma aplicação que aceite o início de sessão de conta pessoal da Microsoft (MSA), e profissional ou escolar (Azure AD), terá de registar uma aplicação com o ponto final do Azure Active Directory (Azure AD) v2.0. Neste momento, não poderá utilizar as aplicações existentes que possa ter com o Azure AD ou MSA - terá de criar uma nova.
 
 > [!NOTE]
-> Nem todos os cenários do Azure Active Directory e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre o [v2.0 limitações](active-directory-v2-limitations.md).
+> Observe que todos os cenários e funcionalidades do Azure AD são compatíveis com o ponto final do v2.0. Para determinar se deve utilizar o ponto final do v2.0, leia sobre as [limitações do v2.0](active-directory-v2-limitations.md).
 
+## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>Passo 1: Iniciar sessão no portal de registo de aplicações da Microsoft
 
-## <a name="visit-the-microsoft-app-registration-portal"></a>Visite o portal de registo de aplicação do Microsoft
-Em primeiro lugar, navegue para o portal de registo de aplicações Microsoft em [ https://apps.dev.microsoft.com/ ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). 
+1. Navegue para o portal de registo de aplicações da Microsoft em [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
+1. Inicie sessão com uma conta pessoal, escolar ou profissional da Microsoft. Se não tiver uma, inscreva-se numa nova conta pessoal.
+1. Feito? Agora deve procurar a sua lista de aplicações da Microsoft, que provavelmente está vazia. Vamos mudar isso.
 
-Iniciar sessão com um pessoal ou conta escolar ou profissional Microsoft. Se não tiver qualquer um, inscreva-se uma nova conta pessoal.
+## <a name="step-2-register-an-app"></a>Passo 2: Registar uma aplicação
 
-Feito? Deve agora procurar a sua lista de aplicações da Microsoft, que é provavelmente vazio. Vamos mudar.
-
-Clique em **adicionar uma aplicação**e dê a ele um nome. O portal irá atribuir a aplicação um ID de aplicação globalmente exclusivo, que irá utilizar mais tarde no seu código. Se a sua aplicação inclui um componente do lado do servidor que tem os tokens de acesso para chamar APIs (pensar: Office, o Azure ou o seu próprio web API), vai querer criar uma **segredo de aplicação** aqui também.
-
-Em seguida, adicione a **plataformas** que irá utilizar a sua aplicação.
-
-* Para aplicações baseadas na web, forneça uma **URI de redirecionamento** onde possam ser enviadas mensagens de início de sessão.
-* Para aplicações móveis, copie o redirecionamento de padrão criado automaticamente para.
-* Para web APIs, um âmbito de padrão para aceder à API Web é criado automaticamente para. Pode optar por adicionar âmbitos adicionais a utilizar o **Adicionar âmbito** botão. Também pode adicionar todas as aplicações que já estão autorizadas a utilizar a sua Web API utilizando o **pré-autorizados aplicativos** formulário. 
-
-Opcionalmente, pode personalizar o aspeto e funcionalidade da sua página de início de sessão no **perfil** secção. Certifique-se de clicar **guardar** antes de continuar.
+1. Selecione **Adicionar uma aplicação** e atribua um nome.
+    O portal irá atribuir a aplicação a um ID de Aplicação globalmente exclusivo, que irá utilizar mais tarde no seu código. Se a sua aplicação inclui um componente do lado do servidor de tokens de acesso para chamar APIs (o Office, o Azure ou a sua própria API Web), também deve criar aqui um **Segredo de Aplicação**.
+1. Em seguida, adicione as **Plataformas** que a sua aplicação irá utilizar.
+    * Para aplicações baseadas na Web, indique um **URI de Redirecionamento** onde as mensagens de início de sessão possam ser enviadas.
+    * Para as aplicações móveis, copie o URI de redirecionamento predefinido criado automaticamente para si.
+    * Para APIs Web, é criado automaticamente um âmbito predefinido para aceder à API Web.
+        Pode adicionar âmbitos adicionais com o botão **Adicionar Âmbito**. Também pode adicionar todas as aplicações que já estão pré-autorizadas para utilizar a sua API Web com o formulário **Aplicações pré-autorizadas**.
+1. Opcionalmente, personalize o aspeto e a funcionalidade da sua página de início de sessão na secção **Perfil**. 
+1. **Guarde** as suas alterações antes de continuar.
 
 > [!NOTE]
-> Quando cria uma aplicação com [ https://apps.dev.microsoft.com/ ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), a aplicação será registada no inquilino principal da conta que utiliza para iniciar sessão no portal. Isso significa que não pode registar uma aplicação no seu inquilino do Azure AD com uma conta Microsoft pessoal. Se desejar explicitamente registar uma aplicação num inquilino específico, inicie sessão com uma conta criada originalmente nesse inquilino.
+> Quando registar uma aplicação com [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), a aplicação será registada no inquilino principal da conta que utiliza para iniciar sessão no portal. Isto significa que não pode registar uma aplicação no seu inquilino do Azure AD com uma conta Microsoft pessoal. Se desejar registar explicitamente uma aplicação num inquilino específico, inicie sessão com uma conta criada originalmente nesse inquilino.
 
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="build-a-quickstart-app"></a>Criar uma aplicação de início rápido
-Agora que tem uma aplicação da Microsoft, pode concluir um dos tutoriais de início rápido v2.0. Seguem-se algumas recomendações:
+Agora que tem uma aplicação da Microsoft, pode concluir um dos quickstart2 do v2.0. Seguem-se algumas recomendações:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-

@@ -25,7 +25,7 @@ Nome    |Descrição                                        |Tipo       | Opera�
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |ID de entidade                                          |Int64      |Igual a
 Te      |Título do documento                                        |Cadeia     |É igual a,<br/>StartsWith
-L       |Documento separada de código de idioma por "\@@ @"            |Cadeia     |Igual a
+L       |Documento separada de código de idioma por "\@@@\"            |Cadeia     |Igual a
 S       |Ano de documento                                         |Int32      |É igual a,<br/>IsBetween
 D       |Data do documento                                         |Date       |É igual a,<br/>IsBetween
 Cc      |Contagem de citação                                     |Int32      |nenhum  

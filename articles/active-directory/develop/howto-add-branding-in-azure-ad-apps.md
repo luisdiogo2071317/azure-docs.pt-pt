@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185425"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958871"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
-Este artigo descreve as diretrizes de imagem corporativa que deve utilizar ao desenvolver aplicações com o Azure Active Directory (Azure AD). Estas diretrizes vão ajudar a orientar os seus clientes quando quiserem utilizar a respetiva conta escolar ou profissional, gerida no Azure AD, ou a respetiva conta pessoal para inscrição e início de sessão na sua aplicação.
+Ao desenvolver aplicações com o Azure Active Directory (Azure AD), irá precisar de orientar os seus clientes quando quiserem utilizar a respetiva conta escolar ou profissional (gerida no Azure AD), ou a respetiva conta pessoal para inscrição e início de sessão na sua aplicação.
+
+Neste artigo, vai:
+
+- Aprender sobre os dois tipos de contas de utilizador geridas pela Microsoft e como fazer referência a contas do Azure AD na sua aplicação
+- Descubra o que precisa de fazer para adicionar o logótipo da Microsoft para utilizar na sua aplicação
+- Transfira as imagens **Iniciar sessão** ou **Iniciar sessão com a Microsoft** oficiais para utilizar na sua aplicação
+- Saiba mais sobre os prós e contras da imagem corporativa e da navegação
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Contas pessoais versus contas escolares ou profissionais da Microsoft
 
 A Microsoft gere dois tipos de contas de utilizador:
 
-* **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Estas contas representam a relação entre utilizadores *individuais* e a Microsoft e servem para aceder a dispositivos de consumo e a serviços da Microsoft. Estas contas foram concebidas para utilização pessoal.
-* **Contas escolares ou profissionais.** Estas contas são geridas pela Microsoft em nome de organizações que utilizam o Azure Active Directory. Estas contas servem para iniciar sessão no Office 365 e noutros serviços comerciais da Microsoft.
+- **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Estas contas representam a relação entre utilizadores *individuais* e a Microsoft e servem para aceder a dispositivos de consumo e a serviços da Microsoft. Estas contas foram concebidas para utilização pessoal.
+- **Contas escolares ou profissionais.** Estas contas são geridas pela Microsoft em nome de organizações que utilizam o Azure Active Directory. Estas contas servem para iniciar sessão no Office 365 e noutros serviços comerciais da Microsoft.
 
 As contas escolares ou profissionais da Microsoft são, normalmente, atribuídas a utilizadores finais (colaboradores, estudantes, colaboradores do governo) pelas suas organizações (empresa, escola, agência governamental). Estas contas são controladas diretamente na cloud (na plataforma Azure AD) ou sincronizadas com o Azure AD a partir de um diretório no local, como o Windows Server Active Directory. A Microsoft é o *conservador* das contas escolares ou profissionais, mas as contas são detidas e controladas pela organização.
 
@@ -41,8 +48,8 @@ As contas escolares ou profissionais da Microsoft são, normalmente, atribuídas
 
 A Microsoft não expõe os utilizadores finais às marcas Azure ou Active Directory e o utilizador também não deve fazê-lo.
 
-* Assim que os utilizadores iniciarem sessão, utilize o nome e o logótipo da organização tanto quanto possível. É melhor do que utilizar termos genéricos como "a sua organização".
-* Quando os utilizadores não têm sessão iniciada, faça referência às respetivas contas como "Contas escolares ou profissionais" e utilize o logótipo da Microsoft para transmitir que a Microsoft gere estas contas. Não utilize termos como "conta empresarial", "conta de negócio" ou "conta de empresa", porque confundem o utilizador.
+- Assim que os utilizadores iniciarem sessão, utilize o nome e o logótipo da organização tanto quanto possível. É melhor do que utilizar termos genéricos como "a sua organização".
+- Quando os utilizadores não têm sessão iniciada, faça referência às respetivas contas como "Contas escolares ou profissionais" e utilize o logótipo da Microsoft para transmitir que a Microsoft gere estas contas. Não utilize termos como "conta empresarial", "conta de negócio" ou "conta de empresa", porque confundem o utilizador.
 
 ## <a name="user-account-pictogram"></a>Pictograma de conta de utilizador
 
@@ -94,7 +101,6 @@ Para transferir as imagens oficiais da Microsoft para utilizar na sua aplicaçã
 | Iniciar sessão com a Microsoft (tema claro) | ![PNG do tema claro do botão Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG do tema claro do botão Iniciar sessão com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | Iniciar sessão (tema escuro)                 | ![PNG do tema escuro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG do tema escuro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | Iniciar sessão (tema claro)                | ![PNG do tema claro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG do tema claro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>O que fazer e não fazer com a imagem corporativa
 

@@ -1,25 +1,18 @@
 ---
 title: 'Descrição geral do ExpressRoute: Expandir a sua rede no local para o Azure através de uma ligação privada | Microsoft Docs'
-description: Esta Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
-documentationcenter: na
+description: A Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.topic: overview
+ms.date: 09/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f1bc447f73912ccf04f0c0cf7d6460d472bace4c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29940168"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961914"
 ---
 # <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
 O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365.
@@ -70,11 +63,29 @@ Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, tem 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividade global com o suplemento do ExpressRoute Premium
 Pode ativar a funcionalidade do suplemento ExpressRoute Premium para expandir a conectividade ao longo dos limites geopolíticos. Por exemplo, se estiver ligado à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços em nuvem da Microsoft alojados em todas as regiões pelo mundo (exceto nuvens nacionais). Pode aceder aos serviços implementados na América do Sul ou Austrália da mesma forma que acede às regiões da Europa do Norte e Europa Ocidental.
 
+### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Na conectividade local com Alcance Global do ExpressRoute
+
+Pode ativar o Alcance Global do ExpressRoute para trocar dados entre os sites remotos ao ligar os vários circuitos do ExpressRoute. Por exemplo, se tiver um datacenter privado na Califórnia ligado ao ExpressRoute em Silicon Valley e outro datacenter privado em Texas ligado ao ExpressRoute em Dallas, com o Alcance Global do ExpressRoute, pode ligar os datacenters privados em conjunto através de dois circuitos do ExpressRoute. O tráfego em vários datacenters irá percorrer a rede da Microsoft.
+
+Para obter mais informações, veja [Alcance Global do ExpressRoute](expressroute-global-reach.md).
+
 ### <a name="rich-connectivity-partner-ecosystem"></a>Ecossistema de parceiro de conectividade avançada
 O ExpressRoute tem um crescente ecossistema de fornecedores de conectividade e parceiros de SI. Consulte o artigo [Fornecedores e localizações do ExpressRoute](expressroute-locations.md) para obter as informações mais recentes.
 
 ### <a name="connectivity-to-national-clouds"></a>Conectividade com nuvens nacionais
 A Microsoft funciona em ambientes de nuvem isolados para regiões geopolíticas especiais e segmentos de cliente. Veja a página [Fornecedores e localizações do ExpressRoute](expressroute-locations.md) para obter uma lista de nuvens e fornecedores nacionais.
+
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+O ExpressRoute Direct oferece aos clientes a possibilidade de se ligarem diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. O ExpressRoute Direct dispõe de conectividade de 100 Gbps dupla, que suporta conetividade Ativa/Ativa em escala. 
+
+As principais funcionalidades que o ExpressRoute Direct dispõe incluem, mas não se limitam a:
+
+* Ingestão de Dados em Massa em serviços como o Armazenamento e o Cosmos DB 
+* Isolamento físico para setores que são regulamentados e exigem conectividade dedicada e isolada como: Bancos, Governo e retalho 
+* Controlo granular de distribuição do circuito baseado na unidade de negócios
+
+Para obter mais informações, veja [Sobre o ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
 
 ### <a name="bandwidth-options"></a>Opções de largura de banda
 Pode comprar circuitos ExpressRoute para uma vasta gama de larguras de banda. As larguras de banda suportadas são apresentada abaixo. Confirme que consulta o seu fornecedor de conectividade para determinar a lista de larguras de banda suportadas fornecidas.
