@@ -1,6 +1,6 @@
 ---
-title: Como obter um inquilino do Azure AD | Microsoft Docs
-description: Como obter um inquilino do Azure Active Directory para registar e criar aplicações.
+title: Criar um inquilino do Azure Active Directory | Microsoft Docs
+description: Saiba como criar um inquilino do Azure AD para registar e criar aplicações.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,34 +12,67 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1f866d3ee56b0c9a1e7a986d3ac951764b6a1cae
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: MT
+ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963939"
 ---
-# <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um inquilino do Azure Active Directory
+# <a name="quickstart-set-up-a-dev-environment"></a>Início rápido: Configurar um ambiente de desenvolvimento
 
-No Azure Active Directory (Azure AD), uma organização é representada por um [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0). Quando cria uma relação com a Microsoft, tal como inscrever-se num serviço cloud da Microsoft como o Azure, o Microsoft Intune ou o Office 365, uma organização recebe e fica proprietária de uma instância dedicada do serviço Azure AD. Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD. 
+A plataforma de identidade da Microsoft permite que os programadores criem aplicações orientadas para uma grande variedade de ambientes personalizados e identidades do Microsoft 365. Para começar a utilizar a plataforma de identidade da Microsoft, irá aceder a um ambiente, também denominado inquilino do Azure AD, que pode registar e gerir aplicações, ter acesso a dados do Microsoft 365 e implementar restrições personalizadas de Acesso Condicional e de inquilino. 
 
-Um inquilino aloja os utilizadores de uma empresa e respetivas informações: palavras-passe, dados de perfil de utilizador, permissões, etc. Também contém grupos, aplicações e outras informações relativas a uma organização e à sua segurança.
+Um inquilino é a representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365. 
 
-Para permitir que os utilizadores do Azure AD iniciem sessão na aplicação, tem de registá-la no seu próprio inquilino. Criar um inquilino do Azure AD e publicar uma aplicação no mesmo é **absolutamente gratuito**, embora possa optar por pagar por funcionalidades premium no seu inquilino. Na verdade, muitos programadores criam vários inquilinos e aplicações com o objetivo de experimentar, desenvolver e testar.
+Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD e tem sua própria representação de identidades profissionais e escolares, de identidades de consumidor (se for um inquilino do Azure AD B2C) e registos de aplicações. Um registo de aplicações dentro do seu inquilino pode permitir autenticações de contas apenas no seu inquilino ou em todos os inquilinos. 
 
-## <a name="use-an-existing-azure-ad-tenant"></a>Utilizar um inquilino do Azure AD existente
+## <a name="determining-environment-type"></a>Determinar o tipo de ambiente
 
-Muitos programadores já têm inquilinos através de serviços ou subscrições que estão associadas a inquilinos do Azure AD, como, por exemplo, subscrições do Office 365 ou do Azure. Para verificar se já tem um inquilino, inicie sessão no [portal do Azure](https://portal.azure.com) com a conta que pretende utilizar para gerir a sua aplicação e verifique o canto superior direito, onde são apresentadas as informações da sua conta. Se tiver um inquilino, irá ter automaticamente sessão iniciada no mesmo e verá o nome do inquilino diretamente sob o nome da sua conta. Se pairar o rato sobre o nome da sua conta no lado direito superior do portal do Azure, verá o seu nome, e-mail, diretório e ID de inquilino (um GUID) e o seu domínio. Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino.
+Existem dois tipos de ambientes que pode criar. A decisão de que ambiente necessita baseia-se unicamente nos tipos de utilizadores que a sua aplicação irá autenticar.
+
+* Profissional e escolar (contas do Azure AD) ou contas Microsoft (por exemplo, outlook.com e live.com)
+* Contas de redes sociais e locais (Azure AD B2C)
+
+O início rápido é dividido em dois cenários, dependendo do tipo de aplicação que pretende criar. Se necessitar de ajuda na definição de um tipo de identidade, dê uma olhada [Sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md)
+
+## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Trabalho e contas escolares ou contas pessoais da Microsoft
+
+### <a name="use-an-existing-tenant"></a>Utilizar um inquilino existente
+
+Muitos programadores já têm inquilinos através de serviços ou subscrições que estão associadas a inquilinos do Azure AD, como, por exemplo, subscrições do Office 365 ou do Azure.
+
+1. Para verificar o inquilino, inicie sessão no [Portal do Azure](https://portal.azure.com) com a conta que pretende utilizar para gerir a sua aplicação.
+1. Verifique o canto superior direito. Se tiver um inquilino, irá ter automaticamente sessão iniciada no mesmo e verá o nome do inquilino imediatamente por baixo do nome da sua conta.
+   * Se passar com o rato por cima do nome da sua conta, no canto superior direito do portal do Azure, verá o seu nome, e-mail, diretório e ID de inquilino (um GUID) e o seu domínio.
+   * Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino.
 
 > [!TIP]
-> Se precisar de localizar o ID do inquilino, existem várias formas de localizar esta informação. Pode pairar o rato sobre o nome da sua conta para obter o ID de inquilino ou pode selecionar **Azure Active Directory > Propriedades > ID de Diretório** no portal do Azure.
+> Se necessitar de obter o ID do inquilino, pode:
+* Passe com o rato por cima do nome da sua conta para obter o diretório/ID do inquilino ou
+* Selecione **Azure Active Directory > Propriedades > ID do diretório** no portal do Azure
 
-Se não tiver um inquilino existente associado à sua conta, verá um GUID sob o nome da sua conta e não poderá executar ações como registar aplicações até [criar um novo inquilino](#create-a-new-azure-ad-tenant).
+Se não tiver um inquilino existente associado à sua conta, verá um GUID por baixo do nome da sua conta e não poderá executar ações como registar aplicações até seguir os passos da secção seguinte.
 
-## <a name="create-a-new-azure-ad-tenant"></a>Criar um novo inquilino do Azure AD
+### <a name="create-a-new-azure-ad-tenant"></a>Criar um novo inquilino do Azure AD
 
-Se ainda não tiver um inquilino do Azure AD ou quiser criar um novo, pode fazê-lo com a [experiência de criação de diretórios](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) no [portal do Azure](https://portal.azure.com). O processo demorará cerca de um minuto e, no fim, ser-lhe-á pedido que navegue até ao inquilino recém-criado.
+Se ainda não tiver um inquilino do Azure AD ou se quiser criar um novo para desenvolvimento, siga a [Experiência de criação do diretório](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Terá de fornecer as informações seguintes para criar o novo inquilino:
+
+- **Nome da organização**
+- **Domínio inicial** – fará parte de *.onmicrosoft.com. Pode personalizar melhor o domínio posteriormente. 
+- **País ou região**
+
+## <a name="social-and-local-accounts"></a>Contas de redes sociais e locais
+
+Para começar a criar aplicações que iniciem sessão nas contas de redes sociais e locais, terá de criar um inquilino do Azure AD B2C. Para começar, siga [Criar um inquilino do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md). 
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Experimente um início rápido de codificação e inicie a autenticação de utilizadores. 
+* Para obter amostras de código mais aprofundadas, consulte a secção **Tutoriais** da documentação.
+* Deseja implementar a sua aplicação na cloud? Consulte [Implementar contentores no Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 

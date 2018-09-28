@@ -1,6 +1,6 @@
 ---
-title: Aplicação web do Azure node. js do AD, introdução | Documentos da Microsoft
-description: Saiba como criar uma aplicação web MVC de Express node. js que se integra com o Azure AD para início de sessão.
+title: Criar uma aplicação Web Node.js Express para início de sessão e fim de sessão com o Azure Active Directory | Microsoft Docs
+description: Aprenda a criar uma aplicação Web MVC Node.js Express que se integra no Azure AD para início de sessão.
 services: active-directory
 documentationcenter: nodejs
 author: CelesteDG
@@ -12,66 +12,76 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 04/20/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 1f8f19944f64a5dfd5421a99734c5fd0fc3be1bc
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
-ms.translationtype: MT
+ms.openlocfilehash: 19563f76c261fda1fca53babcb553f2dceeaa345
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061068"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990098"
 ---
-# <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure node. js do AD, introdução
-Aqui usamos Passport para:
+# <a name="quickstart-build-a-nodejs-express-web-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início Rápido: Criar uma aplicação Web Node.js Express para início de sessão e fim de sessão com o Azure Active Directory
 
-* Sessão do utilizador para a aplicação no Azure Active Directory (Azure AD).
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Passport é o middleware de autenticação do Node.js. É flexível, modular e pode largá-lo discretamente em qualquer aplicação Web baseada no Express ou Restify. Um conjunto abrangente de estratégias suporta a autenticação que utiliza um nome de utilizador e uma palavra-passe, o Facebook, o Twitter e muito mais. Para o Azure Active Directory (Azure AD), vamos instalar este módulo e, em seguida, adicionar o plug-in `passport-azure-ad` do Azure AD.
+
+Neste início rápido, vai aprender a utilizar o Passport para:
+
+* Iniciar a sessão do utilizador na aplicação com o Azure AD.
 * Apresentar informações sobre o utilizador.
-* Iniciar a sessão do utilizador fora da aplicação.
+* Terminar a sessão do utilizador na aplicação.
 
-Passport é middleware de autenticação para node. js. Flexível e modular, Passport pode ser discretamente soltos para qualquer baseada em Express ou restify aplicação web. Um conjunto abrangente de estratégias suporta a autenticação que utiliza um nome de utilizador e palavra-passe, Facebook, Twitter e muito mais. Desenvolvemos uma estratégia para o Microsoft Azure Active Directory. Podemos instalar este módulo e, em seguida, adicione o Microsoft Azure Active Directory `passport-azure-ad` Plug-in.
+Para criar a aplicação funcional e completa, precisa de:
 
-Para tal, siga os passos seguintes:
-
-1. Registe uma aplicação.
-2. Configure a sua aplicação para utilizar o `passport-azure-ad` estratégia.
+1. Registar uma aplicação.
+2. Configurar a aplicação para utilizar a estratégia `passport-azure-ad`.
 3. Utilizar o Passport para emitir pedidos de início de sessão e fim de sessão para o Azure AD.
-4. Dados sobre o utilizador de impressão.
+4. Imprimir dados sobre o utilizador.
 
-O código deste tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Para acompanhar, pode [transferir a estrutura da aplicação como um ficheiro. zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) ou clonar a estrutura:
+## <a name="prerequisites"></a>Pré-requisitos
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+Para começar, conclua estes pré-requisitos:
 
-A aplicação concluída é fornecida no final deste tutorial também.
+* [Transfira a estrutura da aplicação como um ficheiro .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)
+  
+    * Clone a estrutura:
+
+        ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+
+    O código deste início rápido é mantido [no GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). A aplicação concluída é fornecida no final deste início rápido.
+
+* Tenha um inquilino do Azure AD no qual possa criar utilizadores e registar uma aplicação. Se ainda não tiver um inquilino, [saiba como obter um](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-an-app"></a>Passo 1: Registar uma aplicação
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. No menu na parte superior da página, selecione a sua conta. Na lista **Diretório**, escolha o inquilino do Active Directory onde pretende registar a aplicação.
+1. Selecione **Todos os serviços** no menu no lado esquerdo do ecrã e, em seguida, selecione **Azure Active Directory**.
+1. Selecione **Registos de aplicações** e, em seguida, selecione **Adicionar**.
+1. Siga as indicações para criar uma nova **Aplicação Web** e/ou **API Web**.
 
-2. No menu na parte superior da página, selecione a sua conta. Sob o **Directory** lista, escolha o inquilino do Active Directory onde pretende registar a sua aplicação.
+    * O **Nome** da aplicação descreve a sua aplicação aos utilizadores.
+    * O **URL de Início de Sessão** é o URL base da sua aplicação. A predefinição da estrutura é `http://localhost:3000/auth/openid/return`.
 
-3. Selecione **todos os serviços** no menu no lado esquerdo do ecrã e, em seguida, selecione **Azure Active Directory**.
+1. Após o registo, o Azure AD atribui um ID exclusivo à sua aplicação. Este valor é necessário nas secções seguintes, por conseguinte, copie-o a partir da página da aplicação.
+1. Na página **Definições > Propriedades** da aplicação, atualize o URI do ID da Aplicação. 
+    
+    O **URI do ID da Aplicação** é um identificador exclusivo para a sua aplicação. A convenção é utilizar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
-4. Selecione **registos de aplicações**e, em seguida, selecione **Add**.
-
-5. Siga as instruções para criar uma **aplicação Web** e/ou **WebAPI**.
-  * O **nome** do aplicativo, descreva a aplicação aos utilizadores.
-
-  * O **URL de início de sessão** é o URL base da sua aplicação. Predefinição a estrutura é `http://localhost:3000/auth/openid/return`.
-
-6. Depois de registar, do Azure AD atribui a aplicação um ID de aplicação único. Este valor é necessário nas secções seguintes, por isso, copie-o partir da página de aplicativo.
-7. Partir do **definições** -> **propriedades** página para a sua aplicação, atualize o URI de ID de aplicação. O **URI de ID de aplicação** é um identificador exclusivo para a sua aplicação. A Convenção é utilizar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-
-8. Partir do **definições** -> **URLs de resposta** página para a sua aplicação, adicione o URL, adicionado no URL de início de sessão do passo 5 e clique em Guardar.
-
-9. Para criar uma chave secreta, siga o passo 4 [para adicionar credenciais de aplicativo ou permissões para aceder a web APIs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+1. Na página **Definições > URLs de Resposta** da sua aplicação, adicione o URL adicionado em URL de Início de Sessão no Passo 5 e selecione **Guardar**.
+1. Para criar uma chave secreta, siga o passo 4 em [Para adicionar credenciais de aplicação ou permissões para aceder a APIs Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
-   > Copie o valor da chave de aplicação. Este é o valor para o `clientSecret`, que precisará para **passo 3** abaixo. 
+   > Copie o valor da chave da aplicação. Este é o valor para o `clientSecret`, que precisará para o **Passo 3** abaixo. 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>Passo 2: Adicionar pré-requisitos ao diretório
-1. A linha de comandos, altere os diretórios para a pasta raiz se não ainda exista, e, em seguida, execute os seguintes comandos:
+
+1. Na linha de comandos, altere os diretórios para a pasta raiz, caso ainda não exista, e execute os seguintes comandos:
 
     * `npm install express`
     * `npm install ejs`
@@ -82,23 +92,23 @@ A aplicação concluída é fornecida no final deste tutorial também.
     * `npm install assert-plus`
     * `npm install passport`
 
-2. Além disso, precisa `passport-azure-ad`:
+1. Também precisa de `passport-azure-ad`, por isso, execute o seguinte comando:
+
     * `npm install passport-azure-ad`
 
-Esta ação instala as bibliotecas que `passport-azure-ad` depende.
+Esta ação instala as bibliotecas de que `passport-azure-ad` depende.
 
-## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Passo 3: Configure a sua aplicação para utilizar a estratégia passport-nó-js
-Aqui, podemos configurar o Express para utilizar o protocolo de autenticação OpenID Connect. Passport for utilizado para executar várias ações, incluindo pedidos de início de sessão e fim de sessão do problema, gerir a sessão do utilizador e obter informações sobre o utilizador.
+## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Passo 3: Configurar a sua aplicação para utilizar a estratégia passport-node-js
 
-1. Para começar, abra a `config.js` arquivo na raiz do projeto e, em seguida, introduza os valores de configuração da sua aplicação a `exports.creds` secção.
+Aqui, vai configurar o Express para utilizar o protocolo de autenticação OpenID Connect. O Passport é utilizado para executar várias ações, incluindo emitir pedidos de início e fim de sessão do utilizador, gerir a sessão do utilizador e obter informações sobre o utilizador.
 
-  * O `clientID` é o **Id da aplicação** que é atribuído à sua aplicação no portal de registo.
+1. Abra o ficheiro `config.js` na raiz do projeto e, em seguida, introduza os valores de configuração da aplicação na secção `exports.creds`.
 
-  * O `returnURL` é o **URL de resposta** que introduziu no portal.
+    * O `clientID` é o **ID da Aplicação** atribuído à sua aplicação no portal de registo.
+    * O `returnURL` é o **URL de Resposta** que introduziu no portal.
+    * O `clientSecret` é o segredo que gerou no portal.
 
-  * O `clientSecret` é o segredo que gerou no portal.
-
-2. Em seguida, abra o `app.js` ficheiro na raiz do projeto. Em seguida, adicione a seguinte chamada para invocar a `OIDCStrategy` estratégia que vem com `passport-azure-ad`.
+1. Em seguida, abra o ficheiro `app.js` na raiz do projeto. Adicione a chamada seguinte para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`.
 
     ```JavaScript
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -110,7 +120,7 @@ Aqui, podemos configurar o Express para utilizar o protocolo de autenticação O
     });
     ```
 
-3. Depois disso, utilize a estratégia que acabou de referenciar para processar os nossos pedidos de início de sessão.
+1. Depois, utilize a estratégia que acabámos de referenciar para processar os pedidos de início de sessão.
 
     ```JavaScript
     // Use the OIDCStrategy within Passport. (Section 2)
@@ -150,13 +160,12 @@ Aqui, podemos configurar o Express para utilizar o protocolo de autenticação O
     }
     ));
     ```
-   O Passport utiliza um padrão semelhante para todas as respetivas estratégias (Twitter, Facebook etc.) que todos os escritores aderem. Observando a estratégia, verá que passamos a ele uma função que tem um token e um concluído como os parâmetros. A estratégia é-nos depois de seu trabalho. Em seguida, queremos armazenar o utilizador e stash o token, pelo que não temos de pedi-lo.
+   O Passport utiliza um padrão semelhante para todas as estratégias (Twitter, Facebook etc.) a que todos os escritores aderem. Ao observar a estratégia, pode ver que lhe transmitimos uma função que tem um token e um done como parâmetros. A estratégia regressa depois de fazer o seu trabalho. Em seguida, queremos armazenar o utilizador e guardar o token de modo a não ser necessário voltar a pedi-lo.
 
    > [!IMPORTANT]
-   > O código anterior aceita qualquer utilizador que ocorre autenticar com o nosso servidor. Isso é conhecido como registo automático. Recomendamos que não permitiremos que qualquer utilizador autenticado num servidor de produção sem primeiro passá-los, registe-se através de um processo que decidir qual. Isto é, normalmente, o padrão normal que vê nas aplicações de consumidor, o que lhe permitem registar com o Facebook, mas, em seguida, a pedir-lhe para fornecer informações adicionais. Se isso não fosse um aplicativo de exemplo, poderíamos extrair o endereço de e-mail do utilizador do objeto do token que é devolvido e, em seguida, pedir ao utilizador para preencher informações adicionais. Como se trata de um servidor de teste, podemos adicioná-los para a base de dados na memória.
+   > O código anterior aceita qualquer utilizador que se autentique no nosso servidor. Este processo é conhecido como auto-registo. Recomendamos que não deixe nenhum utilizador autenticar-se num servidor de produção sem que se registem primeiro através de um processo decidido por si. Trata-se normalmente do padrão que vê nas aplicações de consumidor, que lhe permite registar com o Facebook, mas que, em seguida, lhe pede para fornecer informações adicionais. Se a aplicação não era de exemplo, poderíamos extrair o endereço de e-mail do utilizador a partir do objeto de token devolvido e, em seguida, pedir ao utilizador para preencher informações adicionais. Dado que se trata de um servidor de teste, adicionamos os utilizadores à base de dados em memória.
 
-
-4. Em seguida, vamos adicionar os métodos que permitem-nos controlar os utilizadores com sessão iniciada como requerido pelo Passport. Estes métodos incluem serializando e desserializando as informações do utilizador.
+1. Adicione os métodos que nos permitem controlar os utilizadores com sessão iniciada como requerido pelo Passport. Estes métodos incluem a serialização e desserialização das informações do utilizador.
 
     ```JavaScript
     // Passport session setup. (Section 2)
@@ -190,7 +199,7 @@ Aqui, podemos configurar o Express para utilizar o protocolo de autenticação O
     };
     ```
 
-5. Em seguida, vamos adicionar o código para carregar o motor Express. Aqui usamos o /views padrão e padrão de /routes Express fornece.
+1. Adicione o código para carregar o motor Express. Aqui, utilizamos o padrão /views e /routes predefinido fornecido pelo Express.
 
     ```JavaScript
     // configure Express (section 2)
@@ -213,7 +222,7 @@ Aqui, podemos configurar o Express para utilizar o protocolo de autenticação O
     });
     ```
 
-6. Por fim, vamos adicionar as rotas que entregam os pedidos de início de sessão reais para o `passport-azure-ad` mecanismo:
+1. Por fim, adicione as rotas que entregam os pedidos reais de início de sessão ao motor `passport-azure-ad`:
 
     ```JavaScript
     // Our Auth routes (section 3)
@@ -256,11 +265,11 @@ Aqui, podemos configurar o Express para utilizar o protocolo de autenticação O
       });
     ```
 
+## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Passo 4: Utilizar o Passport para emitir pedidos de início e fim de sessão para o Azure AD
 
-## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Passo 4: Utilizar Passport para emitir pedidos de início de sessão e fim de sessão para o Azure AD
-A aplicação está agora corretamente configurada para comunicar com o ponto final, utilizando o protocolo de autenticação OpenID Connect. `passport-azure-ad` tem Tratado de todos os detalhes de mensagens de autenticação de composição, tokens de validação do Azure AD e manutenção de sessões de utilizador. Tudo o que permanece é fornecer aos utilizadores uma forma de iniciar sessão e terminar sessão e coleta de informações adicionais sobre os utilizadores com sessão iniciada.
+A aplicação está agora corretamente configurada para comunicar com o ponto final através do protocolo de autenticação OpenID Connect. `passport-azure-ad` tem tratado de todos os detalhes das mensagens de autenticação de composição, tokens de validação do Azure AD e manutenção das sessões dos utilizadores. Tudo o que falta fazer é conceder aos seus utilizadores uma forma de iniciar e terminar sessão, e recolher informações adicionais sobre os utilizadores com sessão iniciada.
 
-1. Em primeiro lugar, vamos adicionar o padrão, início de sessão, conta e fim de sessão métodos para nosso `app.js` ficheiro:
+1. Adicione os métodos predefinição, início de sessão, conta e fim de sessão ao ficheiro `app.js`:
 
     ```JavaScript
     //Routes (section 4)
@@ -286,14 +295,14 @@ A aplicação está agora corretamente configurada para comunicar com o ponto fi
     });
     ```
 
-2. Vamos rever em detalhe:
+1. Reveja-os em detalhe:
 
-  * O `/`rota redireciona para a vista de index.ejs, passando o utilizador no pedido (se existir).
-  * O `/account` encaminhar primeiro *garante que são autenticados* (implementamos que no exemplo a seguir) e, em seguida, transmite o utilizador no pedido para que podemos obter informações adicionais sobre o utilizador.
-  * O `/login` rota chama nosso authenticator azuread openidconnect de `passport-azuread`. Se o que não for bem sucedido, redirecionará o usuário voltar ao /login.
-  * O `/logout` encaminhar simplesmente chamadas a logout.ejs (e a rota), que limpa cookies e, em seguida, devolve o utilizador ao index.ejs.
+    * A rota `/` redireciona para a vista index.ejs ao transmitir o utilizador no pedido (se existir).
+    * A rota `/account` primeiro *garante que estamos autenticados* (implementamos esta definição no exemplo a seguir) e, em seguida, transmite o utilizador no pedido para que possamos obter informações adicionais sobre o mesmo.
+    * A rota `/login` chama o nosso autenticador azuread-openidconnect a partir de `passport-azuread`. Se não for bem sucedido, redireciona o utilizador de volta a /login.
+    * A rota `/logout` chama simplesmente logout.ejs, o que limpa os cookies e, em seguida, devolve o utilizador a index.ejs.
 
-3. Para a última parte da `app.js`, vamos adicionar a **EnsureAuthenticated** método que é utilizado na `/account`, conforme mostrado anteriormente.
+1. Na última parte de `app.js`, adicione o método **EnsureAuthenticated** utilizado em `/account`, conforme mostrado anteriormente.
 
     ```JavaScript
     // Simple route middleware to ensure user is authenticated. (section 4)
@@ -308,15 +317,15 @@ A aplicação está agora corretamente configurada para comunicar com o ponto fi
     }
     ```
 
-4. Por fim, vamos criar o próprio servidor no `app.js`:
+1. Por fim, crie o próprio servidor em `app.js`:
 
-```JavaScript
-app.listen(3000);
-```
+    ```JavaScript
+    app.listen(3000);
+    ```
 
+## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a>Passo 5: Para apresentar o utilizador no site, crie as vistas e rotas no Express
 
-## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a>Passo 5: Para apresentar o nosso utilizador no Web site, criar as vistas e rotas no Express
-Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas e vistas que apresentam as informações que podemos obter ao usuário, bem como lidar com o `/logout` e `/login` rotas que criamos.
+Agora, `app.js` está concluído. Apenas tem de adicionar as rotas e vistas que mostram as informações obtidas ao utilizador, bem como lidar com as rotas `/logout` e `/login` que criámos.
 
 1. Crie a rota `/routes/index.js` no diretório de raiz.
 
@@ -330,7 +339,7 @@ Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas
     };
     ```
 
-2. Crie a rota `/routes/user.js` no diretório de raiz.
+1. Crie a rota `/routes/user.js` no diretório de raiz.
 
     ```JavaScript
     /*
@@ -342,9 +351,9 @@ Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas
     };
     ```
 
- Estes passam o pedido para as exibições, incluindo o utilizador se estiver presente.
+    Estas transmitem o pedido para as vistas, incluindo o utilizador, se estiver presente.
 
-3. Crie a vista `/views/index.ejs` no diretório de raiz. Esta é uma página simples que chama nossos métodos de início de sessão e fim de sessão e permite-nos obter informações da conta. Tenha em atenção que podemos utilizar política de acesso `if (!user)` como o utilizador que está a ser transferido no pedido é evidências que temos um utilizador com sessão iniciada.
+1. Crie a vista `/views/index.ejs` no diretório de raiz. Esta é uma página simples que chama os métodos de início e fim de sessão, e nos permite obter informações da conta. Tenha em atenção que podemos utilizar o `if (!user)` condicional como o utilizador a transmitir no pedido como prova de que temos um utilizador com sessão iniciada.
 
     ```JavaScript
     <% if (!user) { %>
@@ -357,7 +366,7 @@ Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas
     <% } %>
     ```
 
-4. Criar a `/views/account.ejs` visualizado sob o diretório de raiz, de modo que podemos exibir informações adicionais que `passport-azure-ad` colocou no pedido de utilizador.
+1. Crie a vista `/views/account.ejs` no diretório raiz, para que possamos ver informações adicionais que `passport-azure-ad` colocou no pedido de utilizador.
 
     ```Javascript
     <% if (!user) { %>
@@ -369,14 +378,14 @@ Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas
     <p>familyName: <%= user.name.familyName %></p>
     <p>UPN: <%= user._json.upn %></p>
     <p>Profile ID: <%= user.id %></p>
-  ##Next steps  <p>Full Claimes</p>
+    <p>Full Claimes</p>
     <%- JSON.stringify(user) %>
     <p></p>
     <a href="/logout">Log Out</a>
     <% } %>
     ```
 
-5. Vamos tornar essa análise boa ao adicionar um layout. Crie a vista `/views/layout.ejs` no diretório de raiz.
+1. Adicione um esquema para melhorar o aspeto da página. Crie a vista `/views/layout.ejs` no diretório de raiz.
 
     ```HTML
 
@@ -403,17 +412,20 @@ Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas
     </html>
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Por fim, crie e execute a sua aplicação. Execute `node app.js`e, em seguida, aceda a `http://localhost:3000`.
+## <a name="step-6-build-and-run-your-app"></a>Passo 6: Criar e executar a aplicação
 
-Inicie sessão com uma conta Microsoft pessoal ou uma conta escolar ou profissional e repare como a identidade do utilizador é refletida na lista /account. Tem agora uma aplicação web que está protegida com protocolos padrão da indústria que podem autenticar utilizadores com ambas as suas contas pessoais e de trabalho/escola.
+1. Execute `node app.js` e, em seguida, aceda a `http://localhost:3000`.
+1. Inicie sessão com uma conta Microsoft pessoal ou uma conta escolar ou profissional.
 
-Para sua referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um ficheiro .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip). Em alternativa, pode clonar a partir do GitHub:
+    Repare como a identidade do utilizador é refletida na lista /account. Tem agora uma aplicação Web protegida com protocolos de norma da indústria que podem autenticar os utilizadores com contas pessoais e profissionais/escolares.
 
-```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+    Para sua referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um ficheiro .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip). Em alternativa, pode cloná-lo a partir do GitHub:
 
-Agora pode passar para tópicos mais avançados. Talvez queira experimentar:
+    ```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-[Proteger uma Web API com o Azure AD](quickstart-v1-nodejs-webapi.md)
+## <a name="next-steps"></a>Passos seguintes
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+Agora, pode avançar para outros cenários:
+
+> [!div class="nextstepaction"]
+> [Proteger uma API Web com o Azure AD](quickstart-v1-nodejs-webapi.md)
