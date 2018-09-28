@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: aa26106460f305568fcb2dd1b84fbc54370e5f39
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: efe08eddaceb5a764dbd5393e79644eac1e2e106
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543582"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406163"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a perguntas comuns sobre os componentes de cópia de segurança do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -148,7 +148,7 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 | Microsoft Exchange |Soma de todas as bases de dados do Exchange num servidor Exchange para a cópia de segurança |
 | Estado do Sistema/BMR |Cada cópia individual da BMR ou estado do sistema da máquina para a cópia de segurança |
 
-Para cópia de segurança de VM de IaaS do Azure, cada VM pode ter até 16 discos de dados e cada disco de dados pode ter até 4095 GB.
+Para cópia de segurança de VM de IaaS do Azure, cada VM pode ter até 32 discos de dados e cada disco de dados pode ter até 4095 GB.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Existe um limite na quantidade de dados mantidos num cofre dos serviços de recuperação?
 Não existe nenhum limite na quantidade de dados, que pode criar uma cópia de segurança serviços de recuperação do cofre.

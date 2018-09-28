@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99329dd812ad47cf98845ba794bc108d26d85352
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543705"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409849"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -31,6 +31,9 @@ Seguem-se limitações para a solução atual:
 - Essa solução gerencia VMs em qualquer região, mas só pode ser utilizada na mesma subscrição como a sua conta de automatização do Azure.
 - Esta solução está disponível no Azure e AzureGov para qualquer região que suporte uma área de trabalho do Log Analytics, uma conta de automatização do Azure e alertas. Regiões de AzureGov atualmente não suportam a funcionalidade de correio eletrónico.
 
+> [!NOTE]
+> Se estiver a utilizar a solução para as VMs clássicas, em seguida, todas as suas VMs serão processadas sequencialmente por serviço cloud. Processamento de trabalho de paralelo é continuará a ser suportado em serviços cloud diferentes.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os runbooks para esta solução funcionam com um [conta Run As do Azure](automation-create-runas-account.md). A conta Run As é o método de autenticação preferencial, porque utiliza a autenticação de certificado em vez de uma palavra-passe que pode expirar ou ser alteradas frequentemente.
@@ -45,28 +48,28 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
 
    > [!NOTE]
    > Também pode criá-la em qualquer lugar no portal do Azure, ao clicar em **criar um recurso**. Na página do Marketplace, escreva uma palavra-chave, como **começar** ou **iniciar/parar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Em alternativa, pode digitar um ou mais palavras-chave do nome completo da solução e, em seguida, prima Enter. Selecione **iniciar/parar VMs fora do horário comercial** resultados da pesquisa.
-1. Na **iniciar/parar VMs fora do horário comercial** página da solução selecionada, reveja as informações de resumidas e, em seguida, clique em **criar**.
+2. Na **iniciar/parar VMs fora do horário comercial** página da solução selecionada, reveja as informações de resumidas e, em seguida, clique em **criar**.
 
    ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)
 
-1. O **Adicionar solução** é apresentada a página. São-lhe pedido para configurar a solução antes de poder importá-lo na sua subscrição da automatização.
+3. O **Adicionar solução** é apresentada a página. São-lhe pedido para configurar a solução antes de poder importá-lo na sua subscrição da automatização.
 
    ![Página Adicionar solução de gestão VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. Sobre o **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho do Log Analytics que está ligada à mesma subscrição do Azure que a conta de automatização faz parte. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. Sobre o **área de trabalho do Log Analytics** página, execute os seguintes passos:
+4. Sobre o **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho do Log Analytics que está ligada à mesma subscrição do Azure que a conta de automatização faz parte. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. Sobre o **área de trabalho do Log Analytics** página, execute os seguintes passos:
    - Especifique um nome para a nova **área de trabalho do Log Analytics**.
    - Selecione um **subscrição** para ligar ao escolher na lista pendente, se a predefinição selecionada não é apropriada.
    - Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
    - Selecione uma **Localização**. Atualmente, as únicas localizações disponíveis são **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **E.U.A. Leste**, **Leste do Japão**, **Sudeste asiático**, **sul do Reino Unido**, e **Europa Ocidental**.
    - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Atualizou o log Analytics [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
 
-1. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
-1. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho de análise de registo. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
+5. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
+6. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho de análise de registo. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
    - No campo **Nome**, introduza o nome da conta de Automatização.
 
     Todas as outras opções são preenchidas automaticamente com base na área de trabalho da Log Analytics selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.
 
-1. Por fim, sobre o **Adicionar solução** página, selecione **configuração**. O **parâmetros** é apresentada a página.
+7. Por fim, sobre o **Adicionar solução** página, selecione **configuração**. O **parâmetros** é apresentada a página.
 
    ![Página de parâmetros para a solução](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
@@ -83,7 +86,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
      > [!IMPORTANT]
      > O valor predefinido para **nomes de ResourceGroup de destino** é um **&ast;**. Isto destina-se todas as VMs numa subscrição. Se não pretender que a solução para todas as VMs na sua subscrição, que este valor tem de ser atualizado para uma lista de nomes de grupo de recursos antes de ativar as agendas de destino.
 
-1. Depois de ter configurado as definições iniciais necessárias para a solução, clique em **OK** para fechar a **parâmetros** página e selecione **criar**. Depois de todas as definições são validadas, a solução é implementada na sua subscrição. Este processo pode demorar vários segundos a concluir, e pode acompanhar o progresso em **notificações** no menu.
+8. Depois de ter configurado as definições iniciais necessárias para a solução, clique em **OK** para fechar a **parâmetros** página e selecione **criar**. Depois de todas as definições são validadas, a solução é implementada na sua subscrição. Este processo pode demorar vários segundos a concluir, e pode acompanhar o progresso em **notificações** no menu.
 
 ## <a name="scenarios"></a>Cenários
 

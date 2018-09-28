@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: dd0ef94c7efb27641d5f0bf50d87bf852bcd1e9a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696341"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404966"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra utilizando um modelo Azure Resource Manager
 
@@ -43,7 +43,7 @@ Para o modelo completo, consulte a [espaço de nomes do Service Bus com o tópic
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>O que irá implementar?
+## <a name="what-do-you-deploy"></a>O que implanta?
 
 Com este modelo, implementa um espaço de nomes do Service Bus com o tópico, subscrição e regra (filtro).
 
@@ -51,7 +51,7 @@ Com este modelo, implementa um espaço de nomes do Service Bus com o tópico, su
 
 ## <a name="what-are-rules-filters"></a>O que são regras (filtros)?
 
-Em muitos cenários, as mensagens com características específicas devem ser processadas de formas diferentes. Para ativar este processamento personalizado, pode configurar subscrições para localizar mensagens que têm as propriedades específicas e, em seguida, executam modificações nas propriedades. Apesar de subscrições do Service Bus ver todas as mensagens enviadas para o tópico, só poderá copiar um subconjunto dessas mensagens na fila virtual da subscrição. Isso é realizado usando filtros de subscrição. Para saber mais sobre regras (filtros), veja [regras e ações](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Em muitos cenários, as mensagens com características específicas devem ser processadas de formas diferentes. Para ativar este processamento personalizado, pode configurar subscrições para localizar mensagens que têm as propriedades específicas e, em seguida, executam modificações nas propriedades. Apesar de subscrições do Service Bus ver todas as mensagens enviadas para o tópico, só poderá copiar um subconjunto dessas mensagens na fila virtual da subscrição. Isso pode ser realizado com filtros de subscrição. Para saber mais sobre regras (filtros), veja [regras e ações](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
@@ -59,7 +59,7 @@ Para executar automaticamente a implementação, clique no seguinte botão:
 
 ## <a name="parameters"></a>Parâmetros
 
-Com o Azure Resource Manager, deve definir parâmetros para valores que pretende especificar quando o modelo é implementado. O modelo inclui uma secção denominada `Parameters` que contém todos os valores de parâmetro. Deverá definir um parâmetro para esses valores que variam com base no projeto ou no ambiente que está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
+Com o Azure Resource Manager, defina parâmetros para valores que pretende especificar quando o modelo é implementado. O modelo inclui uma secção denominada `Parameters` que contém todos os valores de parâmetro. Defina um parâmetro para esses valores que variam com base no projeto que está a implementar ou com base no ambiente que esteja a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
 
 O modelo define os seguintes parâmetros:
 

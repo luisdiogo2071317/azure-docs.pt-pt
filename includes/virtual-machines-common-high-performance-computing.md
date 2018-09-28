@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 77da95ce0d37e8d0b35125f0cc8dc33376a52259
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967871"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401608"
 ---
 As organizações têm necessidades de computação em grande escala. Estas cargas de trabalho de Macrocomputação incluem o design de engenharia e análise, cálculos de riscos financeiros, composição de imagem, modelação complexa, simulações Monte Carlo e muito mais. 
 
@@ -56,7 +56,7 @@ Visite o [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketpla
 * [SUSE Linux Enterprise Server para HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 *  [Motor de servidor de grade TIBCO](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [VM para Windows e Linux de ciência de dados do Azure](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
-* [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
+* [d3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
 * [Intel Cloud Edition para Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
@@ -162,7 +162,7 @@ Máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais,
 ### <a name="data-and-analytics"></a>Dados e análises
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Geração 1 do Data Lake Storage](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [Base de Dados SQL](../articles/sql-database/sql-database-technical-overview.md)
 
@@ -189,7 +189,7 @@ Exemplos de clientes que tem resolvido os problemas de negócios com soluções 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [D3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)

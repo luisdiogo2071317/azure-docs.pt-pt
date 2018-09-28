@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08a90811356f508eebfed9f88500a694f2fbd83e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699391"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407132"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
@@ -30,7 +30,7 @@ Service Bus suporta três condições de filtro:
 
 -   *Filtros Boolianos* – a **TrueFilter** e **FalseFilter** podem causar a todas as mensagens que são recebidas (**verdadeiro**) ou nenhuma das mensagens que são recebidas (**false**) a ser selecionado para a subscrição.
 
--   *Filtros de SQL* - uma **SqlFilter** contém uma expressão condicional de tipo SQL que é avaliada no Mediador contra as mensagens que são recebidas propriedades definidas pelo utilizador e as propriedades do sistema. Todas as propriedades do sistema tem de ter o prefixo `sys.` na expressão condicional. O [subconjunto de linguagem de SQL para condições de filtro](service-bus-messaging-sql-filter.md) testes a existência de propriedades (EXISTS), bem como para (IS NULL) de valores null, os operadores lógicos de não/AND/OR, relacionais, aritmética numérico simple e padrão de texto simples correspondência com assim por DIANTE.
+-   *Filtros de SQL* - uma **SqlFilter** contém uma expressão condicional de tipo SQL que é avaliada no Mediador contra as mensagens que são recebidas propriedades definidas pelo utilizador e as propriedades do sistema. Todas as propriedades do sistema tem de ter o prefixo `sys.` na expressão condicional. O [subconjunto de linguagem de SQL para condições de filtro](service-bus-messaging-sql-filter.md) testes a existência de propriedades (`EXISTS`), bem como para valores nulos (`IS NULL`), lógico não/AND/OR, operadores relacionais, aritmética numérico simple, e correspondência de padrões de texto simples com `LIKE`.
 
 -   *Filtros de correlação* - uma **CorrelationFilter** contém um conjunto de condições comparados com uma ou mais das propriedades de utilizador e o sistema de uma mensagem que são recebidos. Um uso comum é a correspondência com o **CorrelationId** propriedade, mas o aplicativo também pode optar por correspondência com **ContentType**, **etiqueta**,  **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **para**e qualquer definido pelo utilizador Propriedades. Quando o valor de uma mensagem que são recebidos para uma propriedade é igual ao valor especificado no filtro de correlação, existir uma correspondência. Para expressões de cadeia de caracteres, a comparação diferencia maiúsculas de minúsculas. Ao especificar várias propriedades de correspondência, o filtro combina-o como uma condição lógica e, para o filtro de acordo com o que significa, todas as condições têm de corresponder.
 
@@ -40,7 +40,7 @@ Regras do filtro complexos exigem a capacidade de processamento. Em particular, 
 
 ## <a name="actions"></a>Ações
 
-Com condições de filtro SQL e apenas com aqueles que, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL](service-bus-messaging-sql-filter.md) que livremente apresenta a sintaxe de instrução SQL UPDATE. A ação é executada na mensagem depois foi encontrada e antes da mensagem será selecionada para o tópico. As alterações às propriedades da mensagem são privadas para a mensagem copiada para a subscrição.
+Com condições de filtro SQL, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL](service-bus-messaging-sql-filter.md) que livremente apresenta a sintaxe de instrução SQL UPDATE. A ação é executada na mensagem depois foi encontrada e antes da mensagem será selecionada para o tópico. As alterações às propriedades da mensagem são privadas para a mensagem copiada para a subscrição.
 
 ## <a name="usage-patterns"></a>Padrões de utilização
 
@@ -50,7 +50,7 @@ Filtros e as ações permitem dois grupos adicionais de padrões: criação de p
 
 Criação de partições de filtros de utilizações para distribuir as mensagens por várias subscrições de tópicos existentes de forma previsível e mutuamente exclusiva. O padrão de criação de partições é utilizado quando um sistema é aumentado horizontalmente para lidar com vários contextos diferentes em compartimentos funcionalmente idênticos que cada conter um subconjunto de dados global; Por exemplo, informações de perfil de cliente. Com a criação de partições, um publicador envia a mensagem num tópico, sem a necessidade de qualquer conhecimento do modelo de criação de partições. A mensagem, em seguida, é movida para a subscrição correta da qual pode, em seguida, ser obtida pelo manipulador de mensagens da partição.
 
-Encaminhamento utiliza filtros para distribuir mensagens através de subscrições de tópicos de maneira previsível, mas não necessariamente exclusivo. Em conjunto com o [reencaminhamento automático](service-bus-auto-forwarding.md) tópico filtros podem ser usados para criar o encaminhamento complexo de funcionalidade, gráficos num espaço de nomes do Service Bus para distribuição de mensagem dentro de uma região do Azure. Com as funções do Azure ou do Azure Logic Apps, que atua como uma ponte entre espaços de nomes do Service bus do Azure, pode criar topologias complexas de global com a integração direta na linha de aplicativos de negócios.
+Encaminhamento utiliza filtros para distribuir mensagens através de subscrições de tópicos de maneira previsível, mas não necessariamente exclusivo. Em conjunto com o [reencaminhamento automático](service-bus-auto-forwarding.md) tópico filtros podem ser usados para criar o encaminhamento complexo de funcionalidade, gráficos num espaço de nomes do Service Bus para distribuição de mensagem dentro de uma região do Azure. Com as funções do Azure ou do Azure Logic Apps, que atua como uma ponte entre espaços de nomes do Service bus do Azure, pode criar topologias complexas de global com a integração direta em aplicativos de linha de negócio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

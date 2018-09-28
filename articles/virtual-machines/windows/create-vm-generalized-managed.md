@@ -12,40 +12,40 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867985"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404661"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM a partir de uma imagem gerida
 
-Pode criar várias VMs a partir de uma imagem VM gerida com o PowerShell ou o portal do Azure. Uma imagem VM gerida contém as informações necessárias para criar uma VM, incluindo os discos de SO e dados. Os VHDs que formam a imagem, incluindo os discos de SO e qualquer discos de dados, são armazenadas como discos geridos. 
+Pode criar várias máquinas virtuais (VMs) a partir de uma VM gerida do Azure com o portal do Azure ou do PowerShell de imagem. Uma imagem VM gerida contém as informações necessárias para criar uma VM, incluindo os discos de SO e dados. Os discos rígidos virtuais (VHDs) que formam a imagem, incluindo os discos de SO e qualquer discos de dados, são armazenados como discos geridos. 
 
-Tem de ter já [criou uma imagem VM gerida](capture-image-resource.md) a utilizar para criar a nova VM. 
+Antes de criar uma nova VM, precisará [crie uma imagem VM gerida](capture-image-resource.md) para utilizar como imagem de origem. 
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. No menu do lado esquerdo, selecione **Todos os recursos**. Pode ordenar os recursos por **tipo** para localizar facilmente as suas imagens.
+2. No menu da esquerda, selecione **todos os recursos**. Pode ordenar os recursos por **tipo** para localizar facilmente as suas imagens.
 3. Selecione a imagem que pretende utilizar na lista. A imagem **descrição geral** é aberta a página.
-4. Clique em **+ criar VM** no menu.
-5. Introduza as informações da máquina virtual. O nome de utilizador e palavra-passe introduzidos aqui são utilizados para iniciar sessão na máquina virtual. Quando terminar, clique em **OK**. Pode criar a nova VM no grupo de recursos existente ou escolha **criar novo** para criar um novo grupo de recursos para armazenar a VM.
+4. Selecione **Create VM** no menu.
+5. Introduza as informações da máquina virtual. O nome de utilizador e palavra-passe introduzidos aqui serão utilizadas para iniciar sessão na máquina virtual. Quando terminar, selecione **OK**. Pode criar a nova VM no grupo de recursos existente ou escolha **criar novo** para criar um novo grupo de recursos para armazenar a VM.
 6. Selecione um tamanho para a VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. 
-7. Sob **configurações**, fazer as alterações necessárias e clique em **OK**. 
-8. Na página Resumo, deverá ver seu nome de imagem listado para **imagem privada**. Clique em **Ok** para iniciar a implementação da máquina virtual.
+7. Sob **configurações**, fazer as alterações necessárias e selecione **OK**. 
+8. Na página Resumo, deverá ver seu nome de imagem listado como um **imagem privada**. Selecione **Ok** para iniciar a implementação da máquina virtual.
 
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
 
-Pode utilizar o PowerShell para criar uma VM a partir de uma imagem usando o parâmetro simplificado definido para o [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. A imagem tem de estar no mesmo grupo de recursos onde pretende criar a VM.
+Pode utilizar o PowerShell para criar uma VM a partir de uma imagem usando o parâmetro simplificado definido para o [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. A imagem tem de estar no mesmo grupo de recursos onde irá criar a VM.
 
 Este exemplo requer o versão 5.6.0 do módulo do AzureRM ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
-O parâmetro simplificado definido para New-AzureRmVm exige apenas que forneça um nome, o nome da imagem e o grupo de recursos para criar uma VM a partir de uma imagem, mas ele usará o valor do **-nome** parâmetro como o nome de todos os recursos que a TI cria automaticamente. Neste exemplo, podemos fornecer nomes mais detalhados para cada do recurso, mas permitir que o cmdlet criá-los automaticamente. Também pode criar recursos, como a rede virtual, antes do tempo e passar o nome para o cmdlet. Irá utilizar os recursos existentes se ele pode encontrá-los pelo respetivo nome.
+O parâmetro de simplificada definido para [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) requer apenas que forneça um nome, grupo de recursos e o nome da imagem para criar uma VM a partir de uma imagem. New-AzureRmVm utilizará o valor do **-nome** parâmetro como o nome de todos os recursos que ele cria automaticamente. Neste exemplo, podemos fornecer nomes mais detalhados para cada um dos recursos, mas permitir que o cmdlet criá-los automaticamente. Também pode criar recursos com antecedência, como a rede virtual e passar o nome do recurso para o cmdlet. New-AzureRmVm irá utilizar os recursos existentes, se ele pode encontrá-los pelo respetivo nome.
 
 O exemplo seguinte cria uma VM com o nome *myVMFromImage*, na *myResourceGroup* grupo de recursos, da imagem com o nome *myImage*. 
 
@@ -66,5 +66,5 @@ New-AzureRmVm `
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para gerir a sua nova máquina virtual com o Azure PowerShell, veja [criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

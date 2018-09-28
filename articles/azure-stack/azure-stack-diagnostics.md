@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616954"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419613"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -124,7 +124,7 @@ if($s)
  |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
  |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
  |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|Domínio|KeyVaultInternalDataPlane|SQL|
+ |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Armazenamento|
  |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
@@ -143,14 +143,6 @@ if($s)
  |Nuvem|identityProvider|OnboardRP|     |   
  |Cluster|iDns|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Recolher registos com uma interface gráfica do usuário
-Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog obter os registos do Azure Stack, também pode aproveitar as ferramentas do Azure Stack de código-fonte aberto disponível localizadas no repositório de ferramentas de GitHub de ferramentas do principal do Azure Stack em http://aka.ms/AzureStackTools.
-
-O **ERCS_AzureStackLogs.ps1** script do PowerShell é armazenado no repositório de ferramentas do GitHub e é atualizado regularmente. Para garantir que tem a versão mais recente disponível, deve baixá-lo diretamente a partir do http://aka.ms/ERCS. Iniciada a partir de uma sessão administrativa do PowerShell, o script liga-se para o ponto final com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Não se for fornecido nenhum parâmetro, o script por predefinição, a pedir para os parâmetros por meio de uma interface gráfica do usuário.
-
-Para saber mais sobre o script do ERCS_AzureStackLogs.ps1 PowerShell, pode assistir [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou ver o script [ficheiro Leia-me](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas do Azure Stack. 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 

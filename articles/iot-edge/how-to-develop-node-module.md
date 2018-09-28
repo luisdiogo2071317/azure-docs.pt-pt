@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 22049ae0903d2735e4c1974c1071eb7582be9823
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049988"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423532"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar módulos node. js para o Azure IoT Edge
 
@@ -37,14 +37,13 @@ Para criar um módulo, terá de node. js, que inclui o npm para criar a pasta de
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Pode utilizar um registo do Docker local para o protótipo e fins de testes, em vez de um registo de cloud. 
 
-Para configurar o local ambiente de desenvolvimento para depurar, executar e testar a sua solução de IoT Edge, precisa [ferramenta de desenvolvimento do Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Instale [Python (2.7/3.6) e o Pip](https://www.python.org/). Em seguida, instale **iotedgehubdev** executando o comando no seu terminal abaixo.
+Para configurar o local ambiente de desenvolvimento para depurar, executar e testar a sua solução de IoT Edge, precisa [ferramenta de desenvolvimento do Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Instale [Python (2.7/3.6) e o Pip](https://www.python.org/). PIP está incluído com o instalador do Python. Em seguida, instale **iotedgehubdev** executando o comando no seu terminal abaixo.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
 Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory com pelo menos um ID de dispositivo IoT Edge criou. Se estiver a executar o daemon de IoT Edge no computador de desenvolvimento, poderá ter de parar EdgeHub e EdgeAgent antes de prosseguir para o passo seguinte. 
-
 
 ## <a name="create-a-new-solution-template"></a>Criar um novo modelo de solução
 
@@ -56,6 +55,7 @@ Os seguintes passos mostram como criar um módulo do IoT Edge com base em node. 
    ```cmd/sh
    npm install -g yo generator-azure-iot-edge-module
    ```
+
 3. No Visual Studio Code, selecione **Vista** > **Paleta de Comando**. 
 4. Na paleta de comandos, escreva e execute o comando **do Azure IoT Edge: nova solução do IoT Edge**.
 
@@ -90,6 +90,7 @@ Quando estiver pronto para personalizar o modelo de node. js com o seu próprio 
 Visual Studio Code tem suporte para node. js. Saiba mais sobre [como trabalhar com node. js no VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="launch-and-debug-module-code-without-container"></a>Inicie e depurar o código de módulo sem contentor
+
 O módulo de node. js do IoT Edge depende do Azure IoT SDK de dispositivo node. js. No código do módulo padrão, inicializar uma **ModuleClient** com definições de ambiente e o nome de entrada, que significa que o módulo de node. js do IoT Edge requer as definições de ambiente iniciar e executar e, também terá de enviar ou encaminhar mensagens para os canais de entrada. O módulo de node. js predefinida contém apenas um canal de entrada e o nome é **input1**.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Simulador de IoT Edge do programa de configuração para a aplicação de módulo único
@@ -158,13 +159,13 @@ No computador de desenvolvimento, pode iniciar o simulador do IoT Edge em vez de
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
-5. Navegue para a vista de depuração do VS Code. Selecione o ficheiro de configuração de depuração para seu módulo. O nome de opção de depuração deve ser semelhante à **ModuleName depuração remota (node. js)** ou **ModuleName depuração remota (node. js num contentor do Windows)**, que depende de seu tipo de contentor no computador de desenvolvimento.
+3. Navegue para a vista de depuração do VS Code. Selecione o ficheiro de configuração de depuração para seu módulo. O nome de opção de depuração deve ser semelhante à **ModuleName depuração remota (node. js)** ou **ModuleName depuração remota (node. js num contentor do Windows)**, que depende de seu tipo de contentor no computador de desenvolvimento.
 
-6. Selecione **iniciar depuração** ou selecione **F5**. Selecione o processo para anexar a.
+4. Selecione **iniciar depuração** ou selecione **F5**. Selecione o processo para anexar a.
 
-7. Na vista de depuração de código do VS, verá as variáveis no painel esquerdo.
+5. Na vista de depuração de código do VS, verá as variáveis no painel esquerdo.
 
-8. Para parar a sessão de depuração, clique no botão Parar ou o press **Shift + F5**. E na paleta de comandos do VS Code, escreva e selecione **do Azure IoT Edge: parar simulador do IoT Edge**.
+6. Para parar a sessão de depuração, clique no botão Parar ou o press **Shift + F5**. E na paleta de comandos do VS Code, escreva e selecione **do Azure IoT Edge: parar simulador do IoT Edge**.
 
 > [!NOTE]
 > O exemplo anterior mostra como depurar os módulos do IoT Edge do node. js em contentores. Ele adicionou portas expostas no seu createOptions de contentor do módulo. Depois de concluir a depuração de seus módulos do node. js, recomendamos que remova estas portas expostas de módulos do IoT Edge prontos para produção.

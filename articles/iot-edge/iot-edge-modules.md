@@ -4,16 +4,16 @@ description: Saiba mais sobre os módulos do Azure IoT Edge e como estão config
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995389"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423396"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos do Azure IoT Edge
 
@@ -65,7 +65,7 @@ await client.OpenAsync();
 Twin twin = await client.GetTwinAsync(); 
 ```
 
-## <a name="offline-capabilities"></a>Recursos offline
+## <a name="offline-capabilities"></a>Funcionalidades offline
 
 O Azure IoT Edge suporta operações offline nos seus dispositivos IoT Edge. Estas capacidades estão limitadas por agora. 
 
@@ -79,6 +79,7 @@ Módulos do IoT Edge podem ser offline por períodos prolongados, desde que são
 Capacidades offline adicionais estão disponíveis em pré-visualização pública. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge, dispositivos, módulos e dispositivos de subordinados](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
+ - [Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge][lnk-mod-dev]
  - [Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura][lnk-runtime]
 
 <!-- Images -->
@@ -89,3 +90,4 @@ Capacidades offline adicionais estão disponíveis em pré-visualização públi
 [lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md

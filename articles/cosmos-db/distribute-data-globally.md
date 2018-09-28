@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: fef4d14e6f5a9dcba1f7e111f9a54c3e1a9fbfa9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227c243d82665dc533e3bfa6a1fe3e9bb775a262
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959859"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408900"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Distribuição de dados global com o Azure Cosmos DB
 
@@ -24,7 +24,7 @@ O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de bases de dad
 
 ## <a name="global-distribution-with-multi-master"></a>Distribuição global com múltiplos principais
 
-Como um nativamente born no serviço cloud, Azure Cosmos DB foi cuidadosamente desenvolvido desde o backup com vários inquilinos, distribuição global e com vários mestres para documentos, chave-valor, gráfico e modelos de dados de família de colunas.
+Como um serviço em nuvem, o Azure Cosmos DB com cuidado foi desenvolvido para suportar vários inquilinos, distribuição global e com vários mestres para documentos, chave-valor, gráfico e modelos de dados de família de colunas.
 
 ![Contentor do Azure Cosmos DB particionado e distribuídos em três regiões](./media/distribute-data-globally/global-apps.png)
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363148"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423516"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados no Log Analytics
 A origem de dados de registos personalizado no Log Analytics permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo no início de sessão campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) recurso do Log Analytics.
@@ -40,6 +40,10 @@ Os ficheiros de registo a recolher devem coincidir com os seguintes critérios.
 >Se existirem entradas duplicadas no ficheiro de registo, o Log Analytics recolhê-los.  No entanto, os resultados da pesquisa serão inconsistente onde os filtrar os resultados mostram mais eventos que a contagem de resultado.  É importante que validar o registo para determinar se o aplicativo que cria a mesma está a causar esse comportamento e solucioná-lo se for possível antes de criar a definição de coleção de registo personalizado.  
 >
   
+>[!NOTE]
+> Se a sua aplicação cria um novo ficheiro de registo por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux não Deteta-las após ser reiniciado. Isso é porque o agente apenas enumera e começa a monitorizar a existência de padrões com os registos especificados após a inicialização e, por isso precisa planejar em torno dele automatizando o reinício do agente.  Esta limitação não existe com o agente do Log Analytics para Windows.  
+>
+
 ## <a name="defining-a-custom-log"></a>Definir um registo personalizado
 Utilize o procedimento seguinte para definir um arquivo de log personalizado.  Desloque-se no final deste artigo para obter instruções de um exemplo da adição de um registo personalizado.
 
@@ -66,9 +70,13 @@ Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGene
 5. Clique em **Seguinte**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos da coleção de registos
-Deve definir um ou mais caminhos no agente onde ele pode localizar o registo personalizado.  Pode fornecer um caminho específico e um nome para o ficheiro de registo ou pode especificar um caminho com um caráter universal para o nome.  Isto suporta as aplicações que criar um novo ficheiro, por dia ou quando um ficheiro atinge um certo tamanho.  Também pode fornecer vários caminhos para um único ficheiro de registo.
+Deve definir um ou mais caminhos no agente onde ele pode localizar o registo personalizado.  Pode fornecer um caminho específico e um nome para o ficheiro de registo ou pode especificar um caminho com um caráter universal para o nome. Isto suporta as aplicações que criar um novo ficheiro, por dia ou quando um ficheiro atinge um certo tamanho. Também pode fornecer vários caminhos para um único ficheiro de registo.
 
 Por exemplo, um aplicativo pode criar um ficheiro de registo por dia com a data incluída no nome do que no log20100316.txt. Um padrão para um início de sessão pode ser *log\*. txt* que seria aplicada a qualquer ficheiro de registo após a aplicação de atribuição de nomes da esquema.
+
+>[!NOTE]
+> Se a sua aplicação cria um novo ficheiro de registo por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux não Deteta-las após ser reiniciado. Isso é porque o agente apenas enumera e começa a monitorizar a existência de padrões com os registos especificados após a inicialização e, por isso precisa planejar em torno dele automatizando o reinício do agente.  Esta limitação não existe com o agente do Log Analytics para Windows.  
+>
 
 A tabela seguinte fornece exemplos de padrões válidos para especificar os ficheiros de registo diferente.
 

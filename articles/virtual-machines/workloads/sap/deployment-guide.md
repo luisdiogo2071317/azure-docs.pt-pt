@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c6d7b4515546ea51264b094316c5da52dbb321c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957028"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407931"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1000,6 +1000,10 @@ Esta verificação certifica-se de que todas as métricas de desempenho que apar
 
 Se a extensão de monitorização de avançada para do Azure não está instalada ou o serviço de AzureEnhancedMonitoring não está em execução, a extensão não foi configurada corretamente. Para obter informações detalhadas sobre como implementar a extensão, consulte [resolução de problemas da infraestrutura de monitorização do Azure para SAP][deployment-guide-5.3].
 
+> [!NOTE]
+> O Azperflib.exe é um componente que não pode ser utilizado para fins de próprios. É um componente que fornece dados relacionados com a VM para o agente de anfitrião do SAP de monitorização do Azure.
+> 
+
 ##### <a name="check-the-output-of-azperflibexe"></a>Verificar a saída do azperflib.exe
 Saída de Azperflib.exe mostra que todos preenchidos contadores de desempenho do Azure para SAP. Na parte inferior da lista de contadores coletados, um indicador de estado de funcionamento e o resumo mostra o estado da monitorização do Azure.
 
@@ -1093,6 +1097,10 @@ Se alguns da monitorização não os dados são entregues corretamente, conforme
 
 Certifique-se de que todos os resultados da verificação de estado de funcionamento está **OK**. Se não são apresentadas algumas verificações **OK**, execute o cmdlet de atualização, conforme descrito na [configurar avançada de monitorização a extensão do Azure para SAP][deployment-guide-4.5]. Aguarde 15 minutos e repita as verificações descritas em [verificação de disponibilidade para avançada monitorização do Azure para SAP] [ deployment-guide-5.1] e [verificação de estado de funcionamento de configuração da infraestrutura de monitorização de Azure] [deployment-guide-5.2]. Se as verificações ainda indicarem um problema com alguns ou todos os contadores, veja [resolução de problemas da infraestrutura de monitorização do Azure para SAP][deployment-guide-5.3].
 
+> [!Note]
+> Pode experimentar alguns avisos nos casos em que o Managed Disks Standard do Azure que utilizar. Avisos serão apresentados em vez dos testes de retornar "OK". Isso é normal e previsto em caso desse tipo de disco. Consulte também [resolução de problemas da infraestrutura de monitorização do Azure para SAP][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Resolução de problemas da infraestrutura de monitorização do Azure para SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Contadores de desempenho do Azure não aparecem em todos os
@@ -1144,6 +1152,23 @@ O diretório \\var\\lib\\waagent\\ não tem um subdiretório para a extensão Az
 
 ###### <a name="solution"></a>Solução
 A extensão não está instalada. Determine se este é um problema de proxy (como descrito anteriormente). Poderá ter de reiniciar a máquina e/ou volte a executar o `Set-AzureRmVMAEMExtension` script de configuração.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>A execução do Set-AzureRmVMAEMExtension e Test-AzureRmVMAEMExtension Mostrar mensagens de aviso a indicar que o Standard Managed Disks não são suportados
+
+###### <a name="issue"></a>Problema
+Quando são mostradas em execução Set-AzureRmVMAEMExtension ou de Test-AzureRmVMAEMExtension mensagens como esta:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Executar azperfli.exe, conforme descrito anteriormente pode obter um resultado que é que indica um mau estado. 
+
+###### <a name="solution"></a>Solução
+As mensagens são causadas pelo fato de que o Standard Managed Disks não fornecendo as APIs usadas pela extensão de monitorização para verificar as estatísticas das contas de armazenamento do Azure Standard. Não é uma questão de preocupação. Razão para introduzir a monitorização para contas de armazenamento de disco Standard foi limitação de e/s que ocorreu com frequência. Discos geridos evitará essa limitação ao limitar o número de discos numa conta de armazenamento. Por conseguinte, não ter esse tipo de dados de monitorização não é crítico.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Alguns contadores de desempenho do Azure estão em falta
 Métricas de desempenho no Azure são recolhidas por um daemon, que obtém dados de várias origens. Alguns dados de configuração são recolhidos localmente e algumas métricas de desempenho são lidos a partir do diagnóstico do Azure. Contadores de armazenamento são provenientes os registos na sua subscrição de armazenamento.

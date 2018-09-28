@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7a1b7b7f970aff620ce01e340c5e56326f4a4a35
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 329bba11c95056b038fdab5041637cbb6a0feb6a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055089"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407268"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -81,6 +81,10 @@ Recomendamos que defina **modo** para `all` na maioria dos casos. Todas as defin
 
 Parâmetros ajudam a simplificar a gestão de políticas ao reduzir o número de definições de política. Pense em parâmetros como os campos num formulário – `name`, `address`, `city`, `state`. Esses parâmetros são sempre os mesmos, no entanto alterar seus valores com base em individuais a preencher o formulário.
 Parâmetros funcionam da mesma forma, na criação de políticas. Ao incluir parâmetros na definição de política, pode reutilizar essa política para diferentes cenários com valores diferentes.
+
+> [!NOTE]
+> A definição de parâmetros para uma política ou a definição de iniciativa apenas pode ser configurada durante a criação inicial da política ou iniciativa. A definição de parâmetros não é possível alterar mais tarde.
+> Isto impede que existente atribuições da política ou iniciativa indiretamente que estão sendo feitas inválido.
 
 Por exemplo, pode definir uma política para uma propriedade de recurso limitar as localizações onde os recursos podem ser implementados. Neste caso, seria declarar os seguintes parâmetros ao criar a política:
 

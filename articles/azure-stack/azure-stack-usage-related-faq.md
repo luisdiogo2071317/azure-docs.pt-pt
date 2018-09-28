@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ffe3dbf975984eb8df341728075e628d14080ada
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380238"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406010"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas mais frequentes sobre na API de utilização do Azure Stack
 
@@ -321,10 +321,10 @@ Este artigo responde a algumas perguntas mais frequentes sobre a API de utiliza�
 **Notas de**: pedido de entrada Total de bytes de resposta + pedido de saída total de bytes + FTP de entrada total do pedido bytes de resposta + web de entrada total implementar bytes de resposta do pedido.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Como fazer a utilização do Azure Stack APIs comparam com o [API de utilização do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (atualmente em pré-visualização pública)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Como fazer a utilização do Azure Stack APIs comparam com o [API de utilização do Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (atualmente em pré-visualização pública)?
 * A API de utilização do inquilino é consistente com a API do Azure, com uma exceção: os *showDetails* sinalizador não é atualmente suportado no Azure Stack.
 * A API de utilização do fornecedor aplica-se apenas ao Azure Stack.
-* Atualmente, o [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) ou seja disponíveis no Azure não estão disponível no Azure Stack.
+* Atualmente, o [RateCard API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) ou seja disponíveis no Azure não estão disponível no Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>O que é a diferença entre o tempo de utilização e o tempo comunicado?
 Relatórios de dados de utilização tem dois valores de hora principal:

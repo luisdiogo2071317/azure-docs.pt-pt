@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 09/20/2018
 ms.author: spelluru
-ms.openlocfilehash: 66d0e10765976503ae7222eeb024890916e42af1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ba95eb7742af611cc3365fdb07b75c785ba42681
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698303"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406894"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como utilizar tópicos do Service Bus e as subscrições com Python
 
@@ -76,7 +76,7 @@ Subscrições de tópicos também são criadas com o **ServiceBusService** objet
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
 
-O filtro **MatchAll** é o filtro predefinido utilizado se não for especificado qualquer filtro na criação de uma nova subscrição. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome `AllMessages` e utiliza a predefinição **MatchAll** filtro.
+Se for especificado nenhum filtro quando é criada uma nova subscrição, o **MatchAll** filtro (predefinição) é usado. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome `AllMessages` e utiliza a predefinição **MatchAll** filtro.
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
@@ -148,7 +148,7 @@ print(msg.body)
 
 As mensagens são eliminadas da subscrição como eles são lidas quando o parâmetro `peek_lock` está definido como **False**. Pode ler (pré-visualização) e a mensagem de bloqueio sem eliminá-lo da fila definindo o parâmetro `peek_lock` para **True**.
 
-O comportamento de leitura e a eliminação da mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem se ocorrer uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
+O comportamento de leitura e a eliminação da mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem quando houver uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Porque o Service Bus marcou a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, ele tem estado em falta a mensagem consumida antes da falha de sistema.
 
 Se o `peek_lock` parâmetro estiver definido como **True**, a receção torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar `delete` método no **mensagem** objeto. O `delete` método marca a mensagem como consumida e remove-o da subscrição.
 
@@ -165,7 +165,7 @@ O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de er
 
 Existe também um tempo limite associado à mensagem bloqueada na subscrição e se a aplicação conseguir processar a mensagem antes do bloqueio de tempo limite expira (por exemplo, se a falha da aplicação), em seguida, do Service Bus desbloqueia automaticamente a mensagem e torna-o disponível para ser recebida novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a `delete` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Este comportamento é frequentemente designado *, pelo menos, uma vez processamento*; ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Para tal, pode utilizar o **MessageId** propriedade da mensagem, que permanece constante nas tentativas de entrega.
+No caso de falha da aplicação após o processamento da mensagem, mas antes a `delete` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Este comportamento é frequentemente designado. Pelo menos uma vez processamento *; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Para tal, pode utilizar o **MessageId** propriedade da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
 

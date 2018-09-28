@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: d17215fe05a4795bd539759d98695ec2f6b0df3d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393504"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423005"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -54,17 +54,6 @@ Para obter mais informações sobre os preços, consulte esta [FAQ](https://azur
 Normalmente, quando adicionar um serviço no portal do Azure, existe uma vista que mostra-lhe um custo estimado semelhante por mês. Por exemplo, ao escolher o tamanho da sua VM do Windows, consulte o custo mensal estimado as horas de computação:
 
 ![Exemplo: uma VM do Windows A1 estima-se custos 66.96 USD por mês](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
-
-Configure alertas de faturação para receber e-mails quando os custos de utilização excederem uma quantidade que especificar. Se tiver de créditos mensais, configure alertas para quando utilizar o período especificado. Para obter mais informações, consulte [configurar alertas para as suas subscrições do Microsoft Azure de faturação](billing-set-up-alerts.md).
-
-![Captura de ecrã de um e-mail de alerta de faturação](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Esta funcionalidade ainda está em pré-visualização para que deve verificar sua utilização regularmente.
-
-Pode querer utilizar a estimativa de custo da Calculadora de preços como orientação para o primeiro alerta.
 
 ### <a name="spending-limit"></a> Verifique se tem um limite de gastos
 
@@ -166,7 +155,7 @@ Vistas de custo de Enterprise estão atualmente em pré-visualização pública.
     - É um administrador do departamento e o administrador de inscrição desativou as "DA vista cobranças" definição.  Contacte o administrador de inscrição para obter acesso. 
     - Tiver comprado o Azure através de um parceiro de canal e o parceiro não disponibilizadas informações sobre preços.  
 - Quando as definições relacionadas com acesso de custo são atualizadas no portal da empresa, existe um atraso de alguns minutos antes das alterações são refletidas no portal do Azure.
-- Limite de gastos, alertas de faturação e orientações de nota fiscal não pertençam a subscrições do EA.
+- Limite de gastos e orientações de nota fiscal não se aplicam às subscrições do EA.
 
 ### <a name="check-your-subscription-and-access"></a>Verifique a sua subscrição e acesso
 

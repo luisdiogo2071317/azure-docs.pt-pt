@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: cwatson
-ms.openlocfilehash: f7ec113a7fa51fc6d3684c2e7ee9379bd1534e30
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be2e774bc4220d5d93f555263fa9f342f449f8b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392419"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423447"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare a fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
@@ -141,7 +141,6 @@ Azure 1º de custos com terceiros às são recursos que são desenvolvidos diret
 
 ## <a name="tips-for-cost-management"></a>Dicas para a gestão de custos
 - Estimar os custos ao utilizar o [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) e [custo total da Calculadora de propriedade](https://aka.ms/azure-tco-calculator)e obtenha o [detalhes dos preços informações para cada serviço](https://azure.microsoft.com/pricing/).
-- [Configurar alertas de faturação](billing-set-up-alerts.md).
 - [Reveja a utilização e custos regularmente no portal do Azure](billing-getting-started.md#costs).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.

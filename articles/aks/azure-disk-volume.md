@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 68a7883e7f8b3fb62265375208f66b761d43d82e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391214"
+ms.locfileid: "47404624"
 ---
 # <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Crie manualmente e utilizar o volume do Kubernetes com os discos do Azure no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre volumes do Kubernetes, consulte [Kubernetes 
 
 Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.46 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar CLI do Azure] [install-azure-cli].
+Também precisa da versão 2.0.46 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Criar um disco do Azure
 
@@ -91,7 +91,7 @@ Tem agora um pod em execução com um disco do Azure montado em `/mnt/azure`. Po
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o AKS clusters interagir com os discos do Azure, consulte o [Plug-in do Kubernetes para os discos do Azure][kubernetes-disks]
+Para obter mais informações sobre o AKS clusters interagir com os discos do Azure, consulte a [Plug-in do Kubernetes para os discos do Azure][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
@@ -106,3 +106,4 @@ Para obter mais informações sobre o AKS clusters interagir com os discos do Az
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[install-azure-cli]: /cli/azure/install-azure-cli

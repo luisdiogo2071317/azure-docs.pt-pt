@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498186"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407880"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure
 
@@ -41,12 +41,22 @@ Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o o
 
 É um comportamento opcional do Cofre de chaves de eliminação de forma recuperável sendo **não ativada por predefinição** nesta versão. 
 
-### <a name="do-not-purge-flag"></a>Não remover o sinalizador
-Um usuário que deseja forçar a eliminação de cofre ou o objeto de cofre pode fazê-lo. Isso é se um utilizador que tem permissões para eliminar um cofre ou um objeto dentro do cofre pode forçar a remoção, mesmo se a eliminação de forma recuperável para esse cofre estiver ativada. Mas se o usuário desejar impedir a eliminação de força de cofre ou o objeto do cofre podem definir – enable--proteção contra remoção sinalizador como true. Quando cria um cofre pode ativar o sinalizador ao fazer isso. O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada. É o comando para fazer isso em 2 de CLI do Azure
+### <a name="purge-protection--flag"></a>Limpar sinalizador de proteção
+Remover a proteção (**– enable--proteção contra remoção** na CLI do Azure) sinalizador está desativada por predefinição. Quando esse sinalizador estiver ativado, um cofre ou um objeto no estado de eliminado, não é possível limpar até ter passado o período de retenção de 90 dias. Esse cofre ou o objeto ainda pode ser recuperado. Este sinalizador oferece mais segurança para os clientes que um cofre ou um objeto pode nunca ser permanentemente eliminado até que tenha passado o período de retenção. Pode ativar o sinalizador de proteção de remoção somente se o sinalizador de eliminação de forma recuperável está ativada ou durante a criação do cofre ativar ambas as eliminação de forma recuperável e remover a proteção.
+
+[!NOTE] O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada. É o comando para fazer isso em 2 de CLI do Azure
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
 ```
+
+### <a name="permitted-purge"></a>Remoção permitida
+
+Permanentemente a eliminar, remoção, um cofre de chaves é possível através de uma operação de publicação do recurso de proxy e exija privilégios especiais. Em geral, apenas o proprietário da subscrição será capaz de remover um cofre de chaves. A operação de publicação aciona a eliminação de imediata e irrecuperável desse cofre. 
+
+Um exceções a isso são
+- o caso quando a subscrição do Azure foi marcada como *undeletable*. Neste caso, apenas o serviço, em seguida, pode executar a eliminação real e faz isso como um processo agendado. 
+- Quando – o sinalizador de enable--proteção contra remoção está ativado no próprio cofre. Neste caso, o Key Vault aguardará durante 90 dias do quando o objeto secreto original foi marcado para eliminação eliminar permanentemente o objeto.
 
 ### <a name="key-vault-recovery"></a>Recuperação de Cofre de chaves
 
@@ -70,12 +80,6 @@ Recursos de eliminado de forma recuperável são retidos durante um determinado 
 - Apenas um utilizador especificamente com privilégios a forçar pode eliminar um cofre de chaves ou o objeto do Cofre de chaves ao emitir um comando de eliminação do recurso de proxy correspondente.
 
 A menos que um cofre de chaves ou o objeto do Cofre de chaves é recuperado, no final do intervalo de retenção, o serviço executa uma limpeza do Cofre de chaves eliminado de forma recuperável ou o objeto do Cofre de chaves e o respetivo conteúdo. Eliminação do recurso não pode ser reagendada.
-
-### <a name="permitted-purge"></a>Remoção permitida
-
-Permanentemente a eliminar, remoção, um cofre de chaves é possível através de uma operação de publicação do recurso de proxy e exija privilégios especiais. Em geral, apenas o proprietário da subscrição será capaz de remover um cofre de chaves. A operação de publicação aciona a eliminação de imediata e irrecuperável desse cofre. 
-
-Uma exceção é o caso quando a subscrição do Azure foi marcada como *undeletable*. Neste caso, apenas o serviço, em seguida, pode executar a eliminação real e faz isso como um processo agendado. 
 
 ### <a name="billing-implications"></a>Implicações de faturação
 

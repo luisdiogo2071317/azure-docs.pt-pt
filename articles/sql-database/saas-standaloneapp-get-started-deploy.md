@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 28f572ee61271c4c81319f7c263172012788765a
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055548"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423022"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a base de dados do Azure SQL
 
@@ -27,7 +27,7 @@ O aplicativo autônomo ou um padrão de aplicação por inquilino implementa uma
 
 Neste tutorial, irá implementar três aplicativos autônomos para três inquilinos na sua subscrição do Azure.  Tem acesso total para explorar e trabalhar com os componentes de aplicativos individuais.
 
-Os scripts de código e gestão da origem de aplicação estão disponíveis no [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) repositório do GitHub.
+Os scripts de código e gestão da origem de aplicação estão disponíveis no [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) repositório do GitHub. A aplicação foi criada com o Visual Studio 2015 e não com êxito abra e compilar no Visual Studio 2017 sem atualizar.
 
 
 Neste tutorial, ficará a saber:

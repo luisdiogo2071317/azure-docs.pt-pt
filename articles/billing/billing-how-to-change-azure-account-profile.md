@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f17a65befc1abbe2a2405e8470f61068ac34f8b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394816"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422631"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Alterar as informações de perfil de conta do Azure como o e-mail de contacto, endereço e número de telefone
 
@@ -55,10 +55,6 @@ Para saber como atualizar as informações de faturação, veja [alterar o cart�
 ### <a name="why-cant-i-update-the-country"></a>Por que não é possível atualizar os país?
 
 Devido a restrições técnicas, não é possível alterar o país numa conta existente. No entanto, pode criar uma conta no país desejado e, em seguida, contacte o suporte do Azure para migrar os serviços para essa conta.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Que endereço de e-mail faz os alertas de faturação do Azure utilização da funcionalidade de pré-visualização?
-
-Receber notificações de alerta para o endereço de e-mail, adicionar quando se inscreve para os alertas. O endereço de e-mail utilizado para os alertas está separado do endereço de e-mail do administrador de conta. Para obter mais informações, consulte [configurar alertas para as suas subscrições do Microsoft Azure de faturação](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

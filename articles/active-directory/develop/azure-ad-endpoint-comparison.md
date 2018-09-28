@@ -3,7 +3,7 @@ title: Comparação entre o ponto final da v2.0 do Azure AD com o ponto final de
 description: Saber as diferenças entre o ponto final de v2.0 do Azure AD e o ponto de extremidade v1.0
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948964"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406537"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Comparação entre o ponto final da v2.0 do Azure AD com o ponto final de v1.0
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparação entre o ponto final da v2.0 do Azure AD com o ponto final de v1.0
 
 Ao desenvolver um novo aplicativo, é importante saber as diferenças entre os pontos finais v1.0 e v2.0. Seguem-se as principais diferenças, bem como algumas limitações existentes para o ponto final v2.0.
 
 > [!NOTE]
-> Nem todos os cenários do Azure AD e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](#limitations).
+> Nem todos os cenários do Azure Active Directory (Azure AD) e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](#limitations).
 
 ## <a name="who-can-sign-in"></a>Quem pode iniciar sessão
 
@@ -37,7 +37,7 @@ Ao desenvolver um novo aplicativo, é importante saber as diferenças entre os p
 
 * O ponto de extremidade v1.0 permite apenas contas profissionais e escolares iniciar sessão na sua aplicação (Azure AD)
 
-* O ponto final v2.0 permite que o trabalho e contas escolares do Azure Active Directory e as contas pessoais (MSA) (hotmail.com, outlook.com, msn.com) para iniciar sessão.
+* O ponto final v2.0 permite que o trabalho e contas escolares do Azure AD e as contas pessoais (MSA) (hotmail.com, outlook.com, msn.com) para iniciar sessão.
 
 * Pontos finais v1.0 e v2.0 também aceitam inícios de sessão do *[os utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure AD para aplicações configuradas como *[inquilino único](single-and-multi-tenant-apps.md)* ou para *multi-inquilino* aplicações configuradas para apontar para o ponto final específico de inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -119,7 +119,7 @@ O `email` âmbito permite o acesso a aplicações para o endereço de e-mail pri
 
 Isto permite-lhe a aplicação de uma forma de divulgação mínima de código – só pode pedir ao utilizador para o conjunto de informações que a sua aplicação necessita para fazer seu trabalho. Para obter mais informações sobre estes âmbitos, consulte [a referência de âmbito v2.0](v2-permissions-and-consent.md).
 
-## <a name="token-claims"></a>Afirmações de Token
+## <a name="token-claims"></a>Afirmações de token
 
 As afirmações nos tokens emitidos pelo ponto final v2.0 não será idênticas à tokens emitidos pelo disponível em geral os pontos finais do Azure AD. Migrar para o novo serviço de aplicações não devem assumir que uma afirmação específica existirá no id_tokens ou access_tokens. Estão disponíveis em detalhes adicionais de diferentes tipos de tokens utilizados no ponto final v2.0 a [token de acesso](access-tokens.md) referência e [ `id_token` referência](id-tokens.md)
 
@@ -214,15 +214,13 @@ Atualmente, o suporte de biblioteca para o ponto final v2.0 é limitado. Se quis
 
 O ponto final v2.0 não suporta SAML ou WS-Federation; ela oferece suporte apenas abrir ID Connect e OAuth 2.0. Nem todas as funcionalidades e capacidades de protocolos OAuth foram incorporadas ao ponto final v2.0.
 
-As seguintes funcionalidades de protocolo e capacidades estão atualmente *não está disponível* o ponto final de v2.0:
+As seguintes funcionalidades de protocolo e capacidades estão atualmente *não está disponível* ou *nepodporuje* o ponto final de v2.0:
 
-* Atualmente, o `email` afirmação é devolvida apenas se uma afirmação de opcional é configurada e escopo é o âmbito = correio eletrónico foi especificado no pedido. No entanto, este comportamento será alterado à medida que o ponto final v2.0 é atualizado para ainda mais estar em conformidade com as normas de abrir ID Connect e OAuth2.0.
+* O `email` afirmação é devolvida apenas se uma afirmação de opcional é configurada e escopo é o âmbito = correio eletrónico foi especificado no pedido. No entanto, esperassem esse comportamento para alterar à medida que o ponto final v2.0 é atualizado para ainda mais estar em conformidade com as normas de abrir ID Connect e OAuth2.0.
 
 * O ponto final v2.0 não suporta a emissoras declarações de função ou grupo nos tokens de ID.
 
-* O [concessão de credenciais de palavra-passe do OAuth 2.0 recursos proprietário](https://tools.ietf.org/html/rfc6749#section-4.3) não é suportado pelo ponto final v2.0.
-
-Além disso, o ponto final v2.0 não suporta qualquer outra forma dos protocolos SAML ou WS-Federation.
+* O ponto final v2.0 nepodporuje [concessão de credenciais de palavra-passe do OAuth 2.0 recursos proprietário](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 Para compreender melhor o âmbito da funcionalidade de protocolo suportado o ponto final de v2.0, leia nossa [referência de protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 

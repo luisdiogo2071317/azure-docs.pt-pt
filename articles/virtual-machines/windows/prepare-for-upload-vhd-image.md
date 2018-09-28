@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 293671ac3426a92453e0c1642d421038824ac02c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4787f5b9657afbcedbd3803d6a17af9c8cf9099
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886978"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406996"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -374,7 +374,7 @@ Se, em vez disso, quiser apenas criar uma VM a partir de um disco, não tem de u
 Para obter mais informações sobre como criar uma VM a partir de um disco especializado, consulte:
 
 - [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
-- [Criar uma VM a partir de um disco VHD especializado](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
+- [Criar uma VM a partir de um disco VHD especializado](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Se quiser criar uma imagem generalizada, terá de executar o sysprep. Para obter mais informações sobre o Sysprep, consulte [como utilizar Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx). 
 

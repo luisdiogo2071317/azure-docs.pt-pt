@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163499"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409359"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementar o Kubernetes para o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em pré-visualização. O operador do Azure Stack tem de pedir acesso para o item do Marketplace de Cluster de Kubernetes necessário para executar as instruções neste artigo.
+> Kubernetes no Azure Stack está em pré-visualização.
 
 O seguinte artigo analisa com um modelo de solução do Azure Resource Manager para implementar e aprovisionar os recursos do Kubernetes numa operação única e coordenada. Serão necessárias para recolher as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implementar a sua cloud. Tenha em atenção o modelo não é o mesmo serviço AKS gerido oferecido no global Azure.
 
@@ -55,6 +55,8 @@ Para começar, certifique-se de que tem as permissões corretas e que o Azure St
 1. Verifique se tem uma subscrição válida no seu portal de inquilino do Azure Stack, e que tem suficiente IP público de endereços disponíveis para adicionar novos aplicativos.
 
     O cluster não é possível implementar um Azure Stack **administrador** subscrição. Tem de utilizar um **utilizador** subscrição. 
+
+1. Se não tiver o Cluster de Kubernetes no seu mercado, fale com o administrador do Azure Stack.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Criar um principal de serviço no Azure AD
 

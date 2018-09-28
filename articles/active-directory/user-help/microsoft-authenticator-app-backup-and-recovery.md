@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106969"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406129"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator
 
@@ -78,12 +78,12 @@ Para contas Microsoft pessoais, pode provar a sua identidade ao introduzir a pal
 
     ![Aplicação Microsoft Authenticator, que mostra as contas disponíveis com suas setas de menu pendente associadas](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
 
-2.  Selecione **código QR de análise para recuperar**e, em seguida, verifique o código de QR fornecido pelo seu administrador.
+2.  Selecione **código QR de análise para recuperar**e, em seguida, verifique o código QR.
 
     ![Aplicação Microsoft Authenticator, permitindo-lhe analisar o código QR](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Para obter mais informações sobre como obter um código QR, consulte a [secção do Get de contas de como adicionar à aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) artigo.
+    >Para mais informações sobre como obter um código QR, veja [começar com a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) ou [definir informações de segurança para utilizar uma aplicação de autenticação](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), com base nos se o seu administrador tiver ativado a informações de segurança.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Resolução de problemas de cópia de segurança e recuperação
 Há alguns motivos por que a cópia de segurança pode não estar disponível:

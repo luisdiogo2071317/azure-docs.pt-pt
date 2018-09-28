@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 205a4d454be02d64058e3d0fcffda35df5b831a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6370fd9125c5b14df781b27e028c139175b7589
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971680"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405806"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Otimizar hiperparâmetros para o modelo
 
@@ -240,7 +240,7 @@ max_concurrent_runs=4
 Isto irá configurar o experimentação para poder utilizar um máximo de 20 execuções total, executado 4 configurações de cada vez de otimização de hiper-parâmetros.
 
 ## <a name="configure-your-hyperparameter-tuning-experiment"></a>Configurar a sua experimentação de otimização de hiper-parâmetros
-Pode configurar a sua experiência com o hyperpameter definido o espaço de pesquisa, a política de cessação antecipada, a métrica primária e a alocação de recursos das secções acima de otimização de hiper-parâmetros. Além disso, terá de fornecer um `estimator` que será chamado com os amostras hiperparâmetros. O `estimator` descreve o script de treinamento, executar, os recursos por tarefa (única ou múltipla gpu) e o destino de computação para utilizar. Desde a simultaneidade para a sua experimentação de otimização de hiper-parâmetros é Check controlado nos recursos disponíveis, precisará para se certificar de que o destino de computação especificado no `estimator` tem recursos suficientes para a simultaneidade pretendido. (Consulte [link](/how-to-train-ml-models.md) para obter mais informações sobre estimadores).
+Pode configurar a sua experiência com o hyperpameter definido o espaço de pesquisa, a política de cessação antecipada, a métrica primária e a alocação de recursos das secções acima de otimização de hiper-parâmetros. Além disso, terá de fornecer um `estimator` que será chamado com os amostras hiperparâmetros. O `estimator` descreve o script de treinamento, executar, os recursos por tarefa (única ou múltipla gpu) e o destino de computação para utilizar. Desde a simultaneidade para a sua experimentação de otimização de hiper-parâmetros é Check controlado nos recursos disponíveis, precisará para se certificar de que o destino de computação especificado no `estimator` tem recursos suficientes para a simultaneidade pretendido. (Consulte [como a criar modelos](how-to-train-ml-models.md) para obter mais informações sobre estimadores).
 
 Eis um exemplo de como pode configurar a sua experiência de otimização de hiper-parâmetros-
 
@@ -314,5 +314,5 @@ Obter este bloco de notas:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Controlar uma experimentação](/how-to-track-experiments.md)
-* [Implementar um modelo preparado](/how-to-deploy-and-where.md)
+* [Controlar uma experimentação](how-to-track-experiments.md)
+* [Implementar um modelo preparado](how-to-deploy-and-where.md)

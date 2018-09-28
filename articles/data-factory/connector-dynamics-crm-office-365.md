@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d1a34a4c341a48f594f37da9fb34420adab390ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227321"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406180"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM com o Azure Data Factory
 
@@ -158,8 +158,8 @@ Para copiar dados de e para o Dynamics, defina a propriedade de tipo de conjunto
 | entityName | O nome lógico da entidade para recuperar. | Não para a origem (se não for especificada "consulta" na origem de atividade), Sim para o sink |
 
 > [!IMPORTANT]
->- Quando copiar dados do Dynamics, a seção de "estrutura" é obrigatório o conjunto de dados do Dynamics para garantir um resultado de cópia determinística. Define o tipo de dados e de nome de coluna para dados do Dynamics que pretende copiar pela. Para obter mais informações, consulte [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure) e [mapeamento de tipo de dados para o Dynamics](#data-type-mapping-for-dynamics).
->- Durante a criação na interface do Usuário, o ADF pode inferir o esquema por amostragem as primeiras linhas do resultado de consulta do Dynamics para inicializar a construção de estrutura, em que casos colunas com sem valores serão omitidas devido à Otimização do desempenho pelo serviço do Dynamics. Pode rever e adicionar mais colunas para a Dynamics esquema/estrutura de dataset conforme necessário, que serão cumpridas durante o tempo de execução de cópia. 
+>- Quando copiar dados do Dynamics, a seção de "estrutura" é opcional mas recommanded do conjunto de dados do Dynamics para garantir um resultado de cópia determinística. Define o tipo de dados e de nome de coluna para dados do Dynamics que pretende copiar pela. Para obter mais informações, consulte [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure) e [mapeamento de tipo de dados para o Dynamics](#data-type-mapping-for-dynamics).
+>- Ao importar o esquema na criação da interface do Usuário, o ADF inferir o esquema, as primeiras linhas do resultado de consulta do Dynamics para inicializar a construção de estrutura, em que irão ser omitidas casos colunas com nenhum valor de amostragem. Pode rever e adicionar mais colunas para a Dynamics esquema/estrutura de dataset conforme necessário, que serão cumpridas durante o tempo de execução de cópia.
 >- Quando copiar dados para o Dynamics, a seção de "estrutura" é opcional no conjunto de dados do Dynamics. As colunas que pretende copiar para é determinado pelo esquema de dados de origem. Se a origem é um ficheiro CSV sem cabeçalho, o conjunto de dados de entrada, especifique a "estrutura" com o tipo de dados e de nome de coluna. Podem ser mapeados para os campos no ficheiro CSV individualmente por ordem.
 
 **Exemplo:**

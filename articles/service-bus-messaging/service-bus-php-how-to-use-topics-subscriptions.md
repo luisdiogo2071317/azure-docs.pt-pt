@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 9901b485b97ecde2de889796fc682db3ee30c544
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 8b2cd62d9f1c2010956604a9f3c753d893f7c2ad
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701400"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407285"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como utilizar tópicos do Service Bus e as subscrições com PHP
 
@@ -63,7 +63,7 @@ use WindowsAzure\Common\ServicesBuilder;
 Nos exemplos a seguir, o `require_once` instrução sempre é mostrada, mas apenas as classes necessárias para o exemplo executar são referenciadas.
 
 ## <a name="set-up-a-service-bus-connection"></a>Configurar uma ligação do Service Bus
-Para criar uma instância de um cliente do Service Bus tem de ter uma cadeia de ligação válida no seguinte formato:
+Para criar uma instância de um cliente do Service Bus, primeiro tem de ter uma cadeia de ligação válida no seguinte formato:
 
 ```
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
@@ -71,7 +71,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 Em que `Endpoint` costuma ter o formato `https://[yourNamespace].servicebus.windows.net`.
 
-Para criar qualquer cliente de serviço do Azure tem de utilizar o `ServicesBuilder` classe. Pode:
+Para criar qualquer cliente de serviço do Azure, tem de utilizar o `ServicesBuilder` classe. Pode:
 
 * Transmita a cadeia de ligação direta para o mesmo.
 * Utilize o **CloudConfigurationManager (CCM)** para verificar várias fontes externas para a cadeia de ligação:
@@ -129,7 +129,7 @@ catch(ServiceException $e){
 Subscrições de tópicos também são criadas com o `ServiceBusRestProxy->createSubscription` método. As subscrições têm um nome e podem ter um filtro opcional que restringe o conjunto de mensagens transmitidas para a fila virtual da subscrição.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
-O filtro **MatchAll** é o filtro predefinido utilizado se não for especificado qualquer filtro na criação de uma nova subscrição. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome "mysubscription" e utiliza a predefinição **MatchAll** filtro.
+Se for especificado nenhum filtro quando é criada uma nova subscrição, o **MatchAll** filtro (predefinição) é usado. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome "mysubscription" e utiliza a predefinição **MatchAll** filtro.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -177,7 +177,7 @@ $ruleInfo->withSqlFilter("MessageNumber > 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleInfo);
 ```
 
-Observe que esse código requer a utilização de um espaço de nomes adicional: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
+Esse código requer a utilização de um espaço de nomes adicional: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
 Da mesma forma, o exemplo seguinte cria uma subscrição com o nome `LowMessages` com um `SqlFilter` que seleciona apenas as mensagens com um `MessageNumber` propriedade menor ou igual a 3.
 
@@ -225,7 +225,7 @@ catch(ServiceException $e){
 }
 ```
 
-As mensagens enviadas para tópicos do Service Bus são instâncias do [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de propriedades padrão e métodos, bem como propriedades que podem ser utilizadas para conter as propriedades específicas do aplicativo personalizadas. O exemplo seguinte mostra como enviar 5 mensagens de teste para o `mytopic` tópico que criou anteriormente. O `setProperty` método é usado para adicionar uma propriedade personalizada (`MessageNumber`) para cada mensagem. Tenha em atenção que o `MessageNumber` valor da propriedade varia em cada mensagem (pode utilizar este valor para determinar quais as subscrições recebem-la, como mostra a [criar uma subscrição](#create-a-subscription) secção):
+As mensagens enviadas para tópicos do Service Bus são instâncias do [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de propriedades padrão e métodos, bem como propriedades que podem ser utilizadas para conter as propriedades específicas do aplicativo personalizadas. O exemplo seguinte mostra como enviar cinco mensagens de teste para o `mytopic` tópico que criou anteriormente. O `setProperty` método é usado para adicionar uma propriedade personalizada (`MessageNumber`) para cada mensagem. O `MessageNumber` valor da propriedade varia em cada mensagem (pode utilizar este valor para determinar quais as subscrições recebem-la, como mostra a [criar uma subscrição](#create-a-subscription) secção):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -246,7 +246,7 @@ Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
 A melhor forma de receber mensagens de uma subscrição é usar um `ServiceBusRestProxy->receiveSubscriptionMessage` método. As mensagens podem ser recebidas em dois modos diferentes: [ *ReceiveAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é a predefinição.
 
-Na utilização do modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), a receção é uma operação única; ou seja, quando o Service Bus recebe um pedido de leitura para uma mensagem numa subscrição, aquele marca a mensagem como consumida e devolve a mesma à aplicação. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * modo é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
+Na utilização do modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), a receção é uma operação única; ou seja, quando o Service Bus recebe um pedido de leitura para uma mensagem numa subscrição, aquele marca a mensagem como consumida e devolve a mesma à aplicação. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * modo é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem quando ocorre uma falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Porque o Service Bus marcou a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, ele tem estado em falta a mensagem consumida antes da falha de sistema.
 
 No padrão [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) modo, uma mensagem a receber torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao transmitir a mensagem recebida para `ServiceBusRestProxy->deleteMessage`. Quando o Service Bus vê a `deleteMessage` chamada, ela marca a mensagem como consumida e removê-lo da fila.
 
@@ -292,14 +292,14 @@ catch(ServiceException $e){
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como: lidar com falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o `unlockMessage` método à mensagem recebida (em vez do `deleteMessage` método). Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o `unlockMessage` método à mensagem recebida (em vez do `deleteMessage` método). Ele faz com que o Service Bus desbloqueie a mensagem na fila e disponibilizá-lo ser novamente recebida, pela mesma aplicação de consumo ou por outra aplicação de consumo.
 
 Há também um tempo limite associado à mensagem bloqueada na fila e, se a aplicação conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus desbloqueia automaticamente a mensagem e torná-lo disponível para ser recebida novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a `deleteMessage` solicitação é emitida, em seguida, a mensagem é reenviada para a aplicação quando esta reiniciar. Isto é frequentemente chamado *, pelo menos, uma vez* processamento; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não pode tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar lógica adicional para aplicações para processar a entrega de mensagens duplicadas. Isto é, frequentemente, conseguido utilizando o `getMessageId` método da mensagem, que permanece constante nas tentativas de entrega.
+No caso de falha da aplicação após o processamento da mensagem, mas antes a `deleteMessage` solicitação é emitida, em seguida, a mensagem é reenviada para a aplicação quando esta reiniciar. Este tipo de processamento é frequentemente designado *, pelo menos, uma vez* processamento; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não pode tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar lógica adicional para aplicações para processar a entrega de mensagens duplicadas. É, frequentemente, conseguido utilizando o `getMessageId` método da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
-Para eliminar um tópico ou uma subscrição, utilize o `ServiceBusRestProxy->deleteTopic` ou o `ServiceBusRestProxy->deleteSubscripton` métodos, respectivamente. Tenha em atenção que eliminar um tópico também elimina quaisquer subscrições registadas com o tópico.
+Para eliminar um tópico ou uma subscrição, utilize o `ServiceBusRestProxy->deleteTopic` ou o `ServiceBusRestProxy->deleteSubscripton` métodos, respectivamente. A eliminação de um tópico elimina também quaisquer subscrições registadas com o tópico.
 
 O exemplo seguinte mostra como eliminar um tópico com o nome `mytopic` e respetivas subscrições de registados.
 
@@ -334,7 +334,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas de filas do Service Bus, veja [filas, tópicos e subscrições] [ Queues, topics, and subscriptions] para obter mais informações.
+Para obter mais informações, consulte [filas, tópicos e subscrições][Queues, topics, and subscriptions].
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

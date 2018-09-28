@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: a7e592e9911c596f2cf74724e73c469ed616e5f0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8aab091ed992a946cd78ecf4f0c8fdfff4185a08
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391351"
+ms.locfileid: "47407557"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilizar um endereço IP público estático com o Balanceador de carga do Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como criar um endereço IP público estático e atribuí-
 
 Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.46 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar CLI do Azure] [install-azure-cli].
+Também precisa da versão 2.0.46 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="create-a-static-ip-address"></a>Criar um endereço IP estático
 
@@ -69,20 +69,26 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Criar um serviço com o endereço IP estático
 
-Para criar um serviço com o endereço IP estático, adicione o `loadBalancerIP` propriedade e o valor do IP estático de endereços para o manifesto YAML, conforme mostrado no exemplo a seguir:
+Para criar um serviço com o endereço IP público estático, adicione o `loadBalancerIP` propriedade e o valor do IP público estático de endereços para o manifesto YAML. Crie um ficheiro denominado `load-balancer-service.yaml` e copie o YAML seguinte. Fornece seu próprio endereço IP público criado no passo anterior.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: azure-load-balancer
 spec:
   loadBalancerIP: 40.121.183.52
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: azure-load-balancer
+```
+
+Criar o serviço e a implantação com o `kubectl apply` comando.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## <a name="troubleshoot"></a>Resolução de problemas
@@ -90,17 +96,17 @@ spec:
 Se o endereço IP estático definida no *loadBalancerIP* propriedade do manifesto do serviço de Kubernetes, não existe ou não tiver sido criada no grupo de recursos de nó, a criação de serviço do Balanceador de carga falhar. Para resolver problemas, reveja os eventos de criação de serviço com o [kubectl descrevem] [ kubectl-describe] comando. Forneça o nome do serviço, conforme especificado no manifesto YAML, conforme mostrado no exemplo a seguir:
 
 ```console
-kubectl describe service azure-vote-front
+kubectl describe service azure-load-balancer
 ```
 
 São apresentadas informações sobre o recurso de serviço do Kubernetes. O *eventos* no final da saída de exemplo seguintes indicam que a *utilizador não foi possível encontrar o endereço de IP fornecidos*. Nestes cenários, certifique-se de que criou o endereço IP público estático no grupo de recursos de nó e se o endereço IP especificado no manifesto do serviço de Kubernetes está correto.
 
 ```
-Name:                     azure-vote-front
+Name:                     azure-load-balancer
 Namespace:                default
 Labels:                   <none>
 Annotations:              <none>
-Selector:                 app=azure-vote-front
+Selector:                 app=azure-load-balancer
 Type:                     LoadBalancer
 IP:                       10.0.18.125
 IP:                       40.121.183.52
@@ -114,7 +120,7 @@ Events:
   Type     Reason                      Age               From                Message
   ----     ------                      ----              ----                -------
   Normal   CreatingLoadBalancer        7s (x2 over 22s)  service-controller  Creating load balancer
-  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-vote-front: user supplied IP Address 40.121.183.52 was not found
+  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-load-balancer: user supplied IP Address 40.121.183.52 was not found
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -133,3 +139,4 @@ Para obter controlo adicional sobre o tráfego de rede às suas aplicações, po
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

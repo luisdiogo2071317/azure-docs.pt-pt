@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 1426bddb6e9e3e110fe5a86ed451ec40c2677e78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957511"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405738"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 
@@ -78,7 +78,6 @@ Depois de criar um prefixo, tem de criar o endereços IP estáticos a partir do 
     |Nome|Sim|O nome do endereço IP público tem de ser exclusivo no grupo de recursos que selecionar.|
    |Tempo limite de inatividade (minutos)|Não|O número de minutos para manter uma ligação TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep-alive. |
    |Etiqueta de nome DNS|Não|Tem de ser exclusivo dentro da região do Azure, que crie o nome de no (em todas as subscrições e todos os clientes). Azure regista automaticamente o nome e endereço IP no seu DNS para que possa ligar a um recurso com o nome. Azure acrescenta uma sub-rede de predefinição como *location.cloudapp.azure.com* (onde a localização é a localização que selecionou) para o nome que indicar, para criar o nome DNS completamente qualificado. Para obter mais informações, consulte [Use Azure DNS com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
-   |Zona de disponibilidade|  Não | Esta definição só é apresentada se selecionar uma região suportada. Para obter uma lista das localizações suportadas, consulte [descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Com redundância de zona é selecionado automaticamente para e torna o seu caminho de dados resiliente a falhas de zona. Se preferir garantir uma zona específica, que não é resiliente a falhas de zona, pode selecionar uma zona específica.
 
 ## <a name="view-or-delete-a-prefix"></a>Ver ou eliminar um prefixo
 

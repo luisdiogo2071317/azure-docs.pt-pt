@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 88c73b3c9fd3ffc0c323b9971e245e6f6d9695a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095543"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409478"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -233,17 +233,16 @@ Para ver estes erros, execute o **FileSyncErrorsReport.ps1** script do PowerShel
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Não é possível sincronizar ainda uma alteração de ficheiro ou diretório porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado depois das alterações dependentes estarem sincronizadas. | É necessária nenhuma ação. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, portanto, ele precisa ser sincronizado novamente. | É necessária nenhuma ação. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | É necessária nenhuma ação. |
 
 #### <a name="handling-unsupported-characters"></a>Carateres de tratamento não suportado
-Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a carateres não suportados (0x7b de códigos de erro e 0x8007007b), deve remover ou mudar o nome de carateres com falha dos respectivos arquivos. PowerShell provavelmente irá imprimir esses caracteres como pontos de interrogação ou retângulos vazios uma vez que a maior parte desses caracteres não têm nenhuma codificação visual padrão.
+Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a carateres não suportados (0x7b de códigos de erro e 0x8007007b), deve remover ou mudar o nome de carateres com falha dos respectivos arquivos. PowerShell provavelmente irá imprimir esses caracteres como pontos de interrogação ou retângulos vazios uma vez que a maior parte desses caracteres não têm nenhuma codificação visual padrão. O [ferramenta na avaliação](storage-sync-files-planning.md#evaluation-tool) pode ser utilizado para identificar os carateres que não são suportadas.
 
 A tabela a seguir contém todos os caracteres unicode do Azure File Sync ainda não suporta.
 
 | Conjunto de carateres | Contagem de carateres |
 |---------------|-----------------|
 | <ul><li>0x0000009D (comando do sistema operativo osc)</li><li>0x00000090 (cadeia de controlo do dispositivo de controladores de domínio)</li><li>0x0000008F (shift único do ss3 três)</li><li>0x00000081 (configuração predefinida de octeto alta)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri inversa avanço de linha)</li></ul> | 6 |
-| <ul><li>0x0000200F (marca de direita para a esquerda)</li><li>0x0000200E (marca de esquerda para a direita)</li><li>0x0000202E (substituição da direita para a esquerda)</li><li>0x0000202D (substituição da esquerda para a direita)</li><li>0x0000202C (formatação direcional falharam.)</li><li>0x0000202B (incorporação de direita para a esquerda)</li><li>0x0000202A (incorporação do esquerda para a direita)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (apresentação árabe formulários-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (specials) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (que não sejam caracteres)</li><li>0x0002FFFE - 0x0002FFFF = 2 (que não sejam caracteres)</li><li>0x0003FFFE - 0x0003FFFF = 2 (que não sejam caracteres)</li><li>0x0004FFFE - 0x0004FFFF = 2 (que não sejam caracteres)</li><li>0x0005FFFE - 0x0005FFFF = 2 (que não sejam caracteres)</li><li>0x0006FFFE - 0x0006FFFF = 2 (que não sejam caracteres)</li><li>0x0007FFFE - 0x0007FFFF = 2 (que não sejam caracteres)</li><li>0x0008FFFE - 0x0008FFFF = 2 (que não sejam caracteres)</li><li>0x0009FFFE - 0x0009FFFF = 2 (que não sejam caracteres)</li><li>0x000AFFFE - 0x000AFFFF = 2 (que não sejam caracteres)</li><li>0x000BFFFE - 0x000BFFFF = 2 (que não sejam caracteres)</li><li>0x000CFFFE - 0x000CFFFF = 2 (que não sejam caracteres)</li><li>0x000DFFFE - 0x000DFFFF = 2 (que não sejam caracteres)</li><li>0x000EFFFE - 0x000EFFFF = 2 (indefinido)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de uso particular suplementares)</li></ul> | 30 |
@@ -423,7 +422,7 @@ Este erro pode acontecer se a sua organização utilizar um proxy de terminaçã
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Ao definir este valor de registo, o agente do Azure File Sync irá aceitar qualquer certificado SSL fidedigno localmente ao transferir dados entre o servidor e o serviço em nuvem.
+Ao definir este valor de registo, o agente do Azure File Syn vai aceitar qualquer certificado de SSL fidedigno ao transferir dados entre o servidor e o serviço cloud.
 
 <a id="-2147012894"></a>**Não foi possível estabelecer uma ligação com o serviço.**  
 | | |
@@ -516,7 +515,7 @@ Em casos em que há muitas por erros de sincronização de ficheiros, sessões d
 | **Cadeia de erro** | ECS_E_SYNC_INVALID_PATH |
 | **Remediação necessária** | Sim |
 
-Certifique-se de que o caminho existe, está num local NTFS volume e não é um ponto de reanálise ou o ponto final de servidor existente.
+Certifique-se de que o caminho existe, encontra-se num volume NTFS local e não é um ponto de reanálise ou ponto final de servidor existente.
 
 <a id="-2134376373"></a>**O serviço está atualmente indisponível.**  
 | | |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296861"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423498"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -228,10 +228,6 @@ Para obter mais informações, consulte [obter informações sobre o consumo de 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Montante dos custos com a Calculadora de preços
 
 Os preços para cada serviço no Azure são diferente. Muitos serviços do Azure fornecem escalões Basic, Standard e Premium. Normalmente, cada escalão tem vários níveis de preço e desempenho. Ao utilizar o [Calculadora de preços online](http://azure.microsoft.com/pricing/calculator), pode criar as estimativas de preços. A Calculadora inclui flexibilidade para estimar o custo num único recurso ou um grupo de recursos.
-
-### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
-
-Depois de implementar a sua aplicação ou solução no Azure, pode criar alertas que enviar por e-mail quando abordagem limites de gastos definido no alerta. Para obter mais informações, consulte [configurar alertas para as suas subscrições do Microsoft Azure de faturação](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

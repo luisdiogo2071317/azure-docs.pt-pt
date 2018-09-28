@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8947a34f43f09281712c0e211c3dc6b8db9da6b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/26/2018
+ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160677"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407660"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
@@ -89,7 +89,7 @@ Armazenamento para cópias de segurança da base de dados é alocado para suport
 
 ### <a name="hyperscale-service-tier-preview"></a>Camada de serviços de Hiperescala (pré-visualização)
 
-com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápida e não do tamanho das operações de dados (em minutos não horas/dias).
+A camada de serviços de hiperescala, as cópias de segurança são baseadas em instantâneos e armazenados no armazenamento remoto do Azure. Restauros utilizam estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápida e não do tamanho das operações de dados (em minutos não horas/dias).
 
 ## <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951615"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410005"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica de utilizar o Azure Monitor
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
 
 Alertas de métricas clássicas no Azure Monitor oferecem uma forma de ser notificado quando uma das suas métricas ultrapassam um determinado limiar. Alertas de métricas clássicas é uma funcionalidade mais antiga que permite para alertar apenas em métricas não dimensionais. Existe uma funcionalidade mais recente existente chamada alertas de métricas que tem funcionalidade melhorada através de alertas de métricas clássicas. Pode saber mais sobre a nova funcionalidade de alertas de métricas no [descrição geral dos alertas de métrica](alert-metric-overview.md). Neste artigo, descreveremos como criar, ver e gerir clássicas métrica regras de alerta através do portal do Azure, CLI do Azure e Powershell.
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>Criar uma regra de alerta métrica clássica com o portal do Azure
+## <a name="with-azure-portal"></a>Com o portal do Azure
 
 1. Na [portal](https://portal.azure.com/), localize o recurso que pretende monitorizar e, em seguida, selecioná-lo.
 
@@ -46,15 +46,13 @@ Alertas de métricas clássicas no Azure Monitor oferecem uma forma de ser notif
 
 Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>Gerir as regras do alerta métrica clássicas com o portal do Azure
-
 Depois de criar um alerta, pode selecioná-lo e realize uma das seguintes tarefas:
 
 * Ver um gráfico que mostra o limiar de métrica e os valores reais do dia anterior.
 * Editar ou eliminá-lo.
 * **Desativar** ou **ativar** -los, se deseja temporariamente parar ou retomar a receção de notificações para esse alerta.
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>Criar e gerir regra alerta de métrica clássica com a CLI do Azure
+## <a name="with-azure-cli"></a>Com a CLI do Azure
 
 As secções anteriores descreveram como criar, ver e gerir regras de alerta de métrica com portal do Azure. Esta secção descreve como fazer o mesmo com várias plataformas [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). CLI do Azure mais rápida maneira de começar a utilizar é através de [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest).
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>Criar, ver e gerir alertas de métrica clássicas com o PowerShell
+## <a name="with-powershell"></a>Com o PowerShell
 
 Estas secções mostram como utilizar o PowerShell comandos criar, ver e gerir alertas de métricas clássicas. Os exemplos neste artigo mostram como pode utilizar os cmdlets do Azure Monitor para alertas de métricas clássicas.
 

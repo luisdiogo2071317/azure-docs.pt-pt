@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128750"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410158"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens no Azure Logic Apps do batch
 
@@ -60,7 +60,7 @@ Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir c
    |----------|-------------|
    | **Modo de lote** | - **Inline**: para definir critérios de versão do acionador de lote <br>- **Conta de integração**: para definir várias configurações de critérios de lançamento por meio de um [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, pode manter estas configurações, tudo num único local, em vez de em aplicações lógicas separadas. | 
    | **Nome do lote** | O nome para o batch, o que é "TestBatch" neste exemplo e aplica-se apenas ao **Inline** modo de lote |  
-   | **Critérios de versão** | Aplica-se apenas ao **Inline** modo do batch e especifica os critérios para atender às antes do processamento de cada lote: <p>- **Com base de contagem de mensagens**: O número de mensagens para recolher no lote, por exemplo, 10 mensagens <br>- **Tamanho com base**: O tamanho de lote máximo em bytes, por exemplo, 100 MB <br>- **Programação com base**: O intervalo e a frequência entre batch for lançada, por exemplo, 10 minutos. Também pode especificar uma data de início e hora. <br>- **Selecionar tudo**: utilizar os critérios especificados. | 
+   | **Critérios de versão** | Aplica-se apenas ao **Inline** modo e seleciona os critérios para atender às antes do processamento de cada lote do batch: <p>- **Com base de contagem de mensagens**: O número de mensagens para recolher no lote, por exemplo, 10 mensagens <br>- **Tamanho com base**: O tamanho de lote máximo em bytes, por exemplo, 100 MB <br>- **Programação com base**: O intervalo e a frequência entre batch for lançada, por exemplo, 10 minutos. A periodicidade mínima é de 60 segundos ou 1 minuto. Os valores de minutos fracionados efetivamente são arredondados para 1 minuto. Para especificar uma data de início e hora, escolha **Mostrar opções avançadas**. <br>- **Selecionar tudo**: utilizar os critérios especificados. | 
    ||| 
    
    Neste exemplo seleciona todos os critérios:
@@ -107,9 +107,7 @@ Antes de pode enviar mensagens para um lote, esse lote primeiro tem de existir c
 
    * Na **corpo** caixa, quando for apresentada a lista de conteúdo dinâmico, selecione a **Id de mensagem** campo. 
 
-     O estruturador de aplicações lógicas adiciona automaticamente um loop "For each" em torno da ação de e-mail de envio, porque essa ação aceita uma matriz como entrada. 
-     Esse loop envia um e-mail para cada mensagem no lote. 
-     Para que, quando o acionador de lote é definido como 10 mensagens, obter 10 e-mails para cada vez que o acionador é acionado.
+     O estruturador de aplicações lógicas adiciona automaticamente um loop "For each" em torno da ação de e-mail de envio, porque essa ação trata a saída da ação anterior como uma coleção, em vez de um lote. 
 
      ![Para "Corpo", selecione "Id da mensagem"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ A aplicação de lógica de remetente do batch é executado a cada minuto, gera 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* [Lote e enviar mensagens EDI](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Criar em definições de aplicação lógica com o JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Criar uma aplicação sem servidor no Visual Studio com o Azure Logic Apps e funções](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Registo de erros para o logic apps e manipulação de exceção](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

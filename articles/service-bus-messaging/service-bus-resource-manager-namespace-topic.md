@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b5512186913eb59be2b89ce8b8bb9fb881f59cd8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08b4ef6ea59123524500188428eb0bc03d85138b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699826"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409988"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com o tópico e uma subscrição com um modelo Azure Resource Manager
 
 Este artigo mostra como utilizar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus e um tópico e uma subscrição dentro desse namespace. O artigo explica como especificar quais recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades
 
-Para obter mais informações sobre a criação de modelos, veja [modelos Authoring Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager).
 
 Para o modelo completo, consulte a [espaço de nomes do Service Bus com o tópico e uma subscrição] [ Service Bus namespace with topic and subscription] modelo.
 
@@ -41,7 +41,7 @@ Para o modelo completo, consulte a [espaço de nomes do Service Bus com o tópic
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>O que irá implementar?
+## <a name="what-do-you-deploy"></a>O que implanta?
 
 Com este modelo, implementa um espaço de nomes do Service Bus com o tópico e uma subscrição.
 
@@ -53,9 +53,9 @@ Para executar automaticamente a implementação, clique no seguinte botão:
 
 ## <a name="parameters"></a>Parâmetros
 
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro. Deverá definir um parâmetro para esses valores que variam com base no projeto ou no ambiente que está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
+Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro. Defina um parâmetro para esses valores que variam com base no projeto que estiver a implementar ou com base no ambiente que está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
 
-O modelo define os seguintes parâmetros.
+O modelo define os seguintes parâmetros:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 O nome do espaço de nomes do Service Bus para criar.

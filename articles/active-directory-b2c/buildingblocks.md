@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2582284f56da1dd1c49c4183ba07a4f60d4f6061
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 85fbbc4e489c7b48f7dc95de1738636b7383de16
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381449"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419411"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -37,15 +37,15 @@ O **BuildingBlocks** elemento é adicionado no interior da [TrustFrameworkPolicy
     <ClaimsSchema>
       ...
     </ClaimsSchema>
-    <ClaimsTransformations>
-      ...
-    </ClaimsTransformations>
     <Predicates>
     ...
     </Predicates>
     <PredicateValidations>
     ...
     </PredicateValidations>
+    <ClaimsTransformations>
+      ...
+    </ClaimsTransformations>
     <ContentDefinitions>
       ...
     </ContentDefinitions>
@@ -55,9 +55,11 @@ O **BuildingBlocks** elemento é adicionado no interior da [TrustFrameworkPolicy
  </BuildingBlocks>
 ```
 
-O **BuildingBlocks** elemento contém os seguintes elementos:
+O **BuildingBlocks** elemento contém os elementos seguintes que tem de ser especificados na ordem definida:
 
 - [ClaimsSchema](claimsschema.md) -define os tipos de afirmações que podem ser referenciados como parte da política. O esquema de declarações é o lugar onde declarar seus tipos de afirmação. Um tipo de afirmação é semelhante a uma variável em várias linguagens de programação. Pode utilizar o tipo de afirmação para recolher dados de utilizador da sua aplicação, receber declarações de fornecedores de identidade social, enviar e receber dados de uma API de REST personalizada ou armazenar quaisquer dados internos utilizados pela sua política personalizada. 
+
+- [Predicados e PredicateValidationsInput](predicates.md) -permite-lhe executar um processo de validação para garantir que apenas os dados corretamente formados são introduzidos numa afirmação.
  
 - [ClaimsTransformations](claimstransformations.md) -contém uma lista de transformações de afirmações que podem ser utilizadas na sua política.  Uma transformação de declarações converte uma afirmação em outro. Na transformação de declarações, que especifica um método de transformação, tal como: 
     - Alterar o caso de uma afirmação de cadeia de caracteres para um serviço especificado. Por exemplo, alterando uma cadeia de caracteres de minúscula em maiúscula.
@@ -70,4 +72,4 @@ O **BuildingBlocks** elemento contém os seguintes elementos:
 
 - [Localização](localization.md) -permite-lhe dar suporte a vários idiomas. O suporte de localização nas políticas permite configurar a lista de idiomas suportados numa política e escolha um idioma padrão. Cadeias de caracteres específicas de idiomas e as coleções também são suportadas.
 
-- [Predicados e PredicateValidationsInput](predicates.md) -permite-lhe executar um processo de validação para garantir que apenas os dados corretamente formados são introduzidos numa afirmação.
+

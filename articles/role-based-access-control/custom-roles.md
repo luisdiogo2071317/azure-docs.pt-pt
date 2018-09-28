@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034455"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405619"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
-Se as [funções incorporadas](built-in-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas. Tal como funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e principais de serviço na subscrição, grupo de recursos e os âmbitos de recursos. Funções personalizadas são armazenadas num inquilino do Azure Active Directory (Azure AD) e podem ser partilhadas entre várias subscrições. Cada inquilino pode ter até 2000 de funções personalizadas. Funções personalizadas podem ser criadas com o Azure PowerShell, CLI do Azure ou a API REST.
+Se as [funções incorporadas](built-in-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas. Tal como funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e principais de serviço na subscrição, grupo de recursos e os âmbitos de recursos. Funções personalizadas são armazenadas num diretório do Azure Active Directory (Azure AD) e podem ser partilhadas entre subscrições. Cada diretório pode ter até 2000 de funções personalizadas. Funções personalizadas podem ser criadas com o Azure PowerShell, CLI do Azure ou a API REST.
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
@@ -92,7 +92,7 @@ Uma função personalizada tem as seguintes propriedades.
 
 | Propriedade | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| `Name` | Sim | Cadeia | O nome a apresentar da função personalizada. Tem de ser exclusivo para o seu inquilino. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é 128. |
+| `Name` | Sim | Cadeia | O nome a apresentar da função personalizada. Enquanto uma definição de função é um recurso de nível de assinatura, uma definição de função pode ser utilizada em várias subscrições que partilham o mesmo diretório do Azure AD. Este nome a apresentar tem de ser exclusivo no âmbito do diretório do Azure AD. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é 128. |
 | `Id` | Sim | Cadeia | O ID exclusivo da função personalizada. Para o Azure PowerShell e CLI do Azure, este ID é gerado automaticamente quando cria uma nova função. |
 | `IsCustom` | Sim | Cadeia | Indica se se trata de uma função personalizada. Definido como `true` para funções personalizadas. |
 | `Description` | Sim | Cadeia | A descrição da função personalizada. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é de 1024. |

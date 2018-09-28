@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 41e7f1aacfaf228b271aee0547d5f26a5967dafe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47011314"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401636"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (pré-visualização) Managed Disks para cargas de trabalho de Máquina Virtual do Azure
 
@@ -46,12 +46,12 @@ A tabela seguinte resume as diferentes configurações suportadas pelos diferent
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2.000         |
-|64     |19,200         |2.000         |
-|128     |38,400         |2.000         |
-|256     |76,800         |2.000         |
-|512     |80,000         |2.000         |
-|1.024-65,536 (tamanhos neste intervalo de aumento em incrementos de 1 TiB)     |160,000         |2.000         |
+|32     |9,600         |2,000         |
+|64     |19,200         |2,000         |
+|128     |38,400         |2,000         |
+|256     |76,800         |2,000         |
+|512     |80,000         |2,000         |
+|1.024-65,536 (tamanhos neste intervalo de aumento em incrementos de 1 TiB)     |160,000         |2,000         |
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -64,7 +64,7 @@ Ao utilizar o Ultra SSDs, aplicam-se as seguintes considerações de faturas:
 
 ### <a name="managed-disk-size"></a>Tamanho do disco de geridos
 
-Discos geridos são faturados sobre os tamanhos aprovisionados. Azure mapeia o tamanho aprovisionado (arredondado) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e em conformidade faturadas à hora. Por exemplo, se aprovisionar um disco 200 para o GiB Ultra SSD e eliminado depois de 20 horas, ele será mapeada para a oferta de tamanho de disco de 256gib e será cobrado para o 256gib durante 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
+Discos geridos são faturados sobre os tamanhos aprovisionados. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e em conformidade faturadas à hora. Por exemplo, se aprovisionar um disco 200 para o GiB Ultra SSD e eliminado depois de 20 horas, ele será mapeada para a oferta de tamanho de disco de 256gib e será cobrado para o 256gib durante 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>Disco gerido aprovisionado IOPS
 
