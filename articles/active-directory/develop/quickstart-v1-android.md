@@ -1,6 +1,6 @@
 ---
-title: O Azure AD Android, introdução | Documentos da Microsoft
-description: Como criar uma aplicação Android que se integra com o Azure AD para início de sessão e as chamadas do Azure AD protegidos as APIs com o OAuth2.0.
+title: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android | Microsoft Docs
+description: Saiba como iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android.
 services: active-directory
 documentationcenter: android
 author: CelesteDG
@@ -12,41 +12,46 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c548f9287ce1326de3322950f297176b67ae61c6
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: MT
+ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600249"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970182"
 ---
-# <a name="azure-ad-android-getting-started"></a>O Azure AD Android, introdução
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
-Se estiver a desenvolver uma aplicação Android, a Microsoft torna simples e fácil de iniciar sessão dos utilizadores do Azure Active Directory (Azure AD). O Azure AD permite que a sua aplicação para aceder a dados de utilizador através do Microsoft Graph ou sua própria API web protegida. 
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-A biblioteca do Android do Azure AD Authentication Library (ADAL) permite que a aplicação começar a utilizar o [Cloud do Microsoft Azure](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) ao suportar [ Contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) com o setor padrão OAuth2 e o OpenID Connect. Este exemplo demonstra todas as normais ciclos de vida de que seu aplicativo deve experimentar, incluindo:
+Se estiver a desenvolver uma aplicação Android, a Microsoft torna o processo de início de sessão dos utilizadores no Azure Active Directory (Azure AD) simples e direto. O Azure AD permite que a sua aplicação obtenha acesso a dados de utilizador através do Microsoft Graph ou da sua própria API WEB protegida.
+
+A biblioteca Android da Biblioteca de Autenticação do Azure AD (ADAL) dá à sua aplicação a possibilidade de começar a utilizar a [Cloud do Microsoft Azure](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) ao suportar [contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) com os protocolos OAuth 2.0 e OpenID Connect padrão do setor.
+
+Neste início rápido, vai aprender a:
 
 * Obter um token para o Microsoft Graph
-* Um token de atualização
+* Atualizar um token
 * Chamar o Microsoft Graph
-* Terminar sessão do utilizador
+* Terminar a sessão do utilizador
 
-Para começar, terá de inquilino do Azure AD, onde pode criar utilizadores e registar uma aplicação. Se ainda não tiver um inquilino [Saiba como obter um](quickstart-create-new-tenant.md).
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para começar, vai precisar de um inquilino do Azure AD no qual possa criar utilizadores e registar uma aplicação. Se ainda não tiver um inquilino, [saiba como obter um](quickstart-create-new-tenant.md).
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Cenário: Iniciar sessão dos utilizadores e chamar o Microsoft Graph
 
 ![Topologia](./media/quickstart-v1-android/active-directory-android-topology.png)
 
-Esta aplicação pode ser utilizada para todas as contas do Azure AD. Ele oferece suporte a cenários de únicos e com vários organizacionais (discutidos nos passos). Ele demonstra como um desenvolvedor pode criar aplicações para ligar a utilizadores empresariais e aceder aos seus Azure + O365 dados por meio do Microsoft Graph. Durante o fluxo de autenticação, os utilizadores finais será necessário para iniciar sessão e consentimento às permissões da aplicação e, em alguns casos, pode exigir um administrador para autorizar a aplicação. A maioria da lógica neste exemplo mostra como a autenticação de um utilizador final e faça a básico chamar para o Microsoft Graph.
+Pode utilizar esta aplicação para todas as contas do Azure AD. Suporta cenários de inquilino único e multi-inquilino (discutidos nos passos). Demonstra como pode criar aplicações para ligar a utilizadores empresariais e aceder aos seus dados do Azure + O365 através do Microsoft Graph. Durante o fluxo de autenticação, os utilizadores finais precisarão de iniciar sessão e consentir as permissões da aplicação e, em alguns casos, pode ser preciso que um administrador dê o consentimento para a aplicação. A maioria da lógica neste exemplo mostra como autenticar um utilizador final e fazer uma chamada básica ao Microsoft Graph.
 
-## <a name="example-code"></a>Código de exemplo
+## <a name="sample-code"></a>Código de exemplo
 
-Pode encontrar o código de exemplo completo [no Github](https://github.com/Azure-Samples/active-directory-android). 
+O código de exemplo completo está disponível [no GitHub](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
@@ -71,66 +76,65 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="steps-to-run"></a>Passos para executar
+## <a name="step-1-register-and-configure-your-app"></a>Passo 1: Registar e configurar a sua aplicação
 
-### <a name="register-and-configure-your-app"></a>Registar e configurar a sua aplicação 
-Terá de ter uma aplicação de cliente nativo registrada com a Microsoft a utilizar o [portal do Azure](https://portal.azure.com). 
+Terá de ter uma aplicação cliente nativa registada na Microsoft com o [portal do Azure](https://portal.azure.com).
 
-1. Conhecendo o registo de aplicações
-    - Navegue para o [portal do Azure](https://aad.portal.azure.com). 
-    - Selecione ***do Azure Active Directory*** > ***registos das aplicações***. 
+1. Aceder ao registo de aplicações
+    - Navegue para o [portal do Azure](https://aad.portal.azure.com).
+    - Selecione ***Azure Active Directory*** > ***Registos das Aplicações***.
 
 2. Criar a aplicação
-    - Selecione **Novo registo de aplicação**. 
-    - Introduza um nome de aplicação na **nome** campo. 
-    - Na **tipo de aplicação** selecionar **nativo**. 
-    - Na **URI de redirecionamento**, introduza `http://localhost`. 
+    - Selecione **Novo registo de aplicação**.
+    - Introduza um nome de aplicação no campo **Nome**.
+    - Em **Tipo de aplicação**, selecione **Nativa**.
+    - Em **URI de Redirecionamento**, introduza `http://localhost`.
 
 3. Configurar o Microsoft Graph
-    - Selecione **definições > permissões obrigatórias**.
-    - Selecione **Add**, no **selecionar uma API** selecionar ***Microsoft Graph***. 
-    - Selecione a permissão **iniciar sessão e ler o perfil de utilizador**, em seguida, pressione **selecione** para guardar. 
-        - Esta permissão é mapeado para o `User.Read` âmbito. 
-    - Opcional: Lado de dentro **permissões obrigatórias > Windows Azure Active Directory**, remova a permissão selecionada **iniciar sessão e ler o perfil de utilizador**. Isso evitará a página de consentimento do utilizador listagem a permissão duas vezes. 
+    - Selecione **Definições > Permissões obrigatórias**.
+    - Selecione **Adicionar** e, dentro de **Selecionar uma API**, selecione ***Microsoft Graph***.
+    - Selecione a permissão **Iniciar sessão e ler perfil do utilizador** e clique em **Selecionar** para guardar.
+        - Esta permissão é mapeada para o âmbito `User.Read`.
+    - Opcional: dentro de **Permissões obrigatórias > Microsoft Azure Active Directory**, remova a permissão selecionada **Iniciar sessão e ler perfil do utilizador**. Esta ação irá evitar que a página de consentimento do utilizador apresente a permissão duas vezes.
 
-4. Parabéns! A aplicação é configurada com êxito. Na secção seguinte, terá de:
+4. Parabéns! A sua aplicação está corretamente configurada. Na secção seguinte, terá de:
     - `Application ID`
     - `Redirect URI`
 
-### <a name="get-the-sample-code"></a>Obter o código de exemplo
+## <a name="step-2-get-the-sample-code"></a>Passo 2: Obter o código de exemplo
 
 1. Clone o código.
     ```
     git clone https://github.com/Azure-Samples/active-directory-android
     ```
 2. Abra o exemplo no Android Studio.
-    - Selecione **abrir um projeto existente do Android Studio**.
+    - Selecione **Open an existing Android Studio project** (Abrir um projeto existente do Android Studio).
 
-### <a name="configure-your-code"></a>Configurar o seu código
+## <a name="step-3-configure-your-code"></a>Passo 3: Configurar o código
 
-Pode encontrar toda a configuração para este exemplo de código no ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** ficheiro. 
+Pode encontrar toda a configuração para este exemplo de código no ficheiro ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java***.
 
-1. Substitua a constante `CLIENT_ID` com o `ApplicationID`.
-2. Substitua a constante `REDIRECT URI` com o `Redirect URI` que configurou anteriormente (`http://localhost`). 
+1. Substitua a constante `CLIENT_ID` pelo `ApplicationID`.
+2. Substitua a constante `REDIRECT URI` pelo `Redirect URI` que configurou anteriormente (`http://localhost`).
 
-### <a name="run-the-sample"></a>Executar o exemplo
+## <a name="step-4-run-the-sample"></a>Passo 4: Executar o exemplo
 
-1. Selecione **criar > Limpar projeto**. 
-2. Selecione **executar > Executar aplicação**. 
-3. A aplicação deve criar e mostrar alguns experiência do usuário básica. Quando clica no `Call Graph API` botão, ele irá pedir para um início de sessão e, em seguida, chamar silenciosamente o Microsoft Graph API com o novo token. 
+1. Selecione **Compilar > Limpar Projeto**.
+2. Selecione **Executar > Executar aplicação**.
+3. A aplicação deve criar e mostrar alguma UX básica. Quando clica no botão `Call Graph API`, irá pedir um início de sessão e, em seguida, chamar silenciosamente a Microsoft Graph API com o novo token.
 
-## <a name="important-info"></a>Informações importantes
+## <a name="next-steps"></a>Passos seguintes
 
-1. Check-Out do [Wiki Android da ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) para obter mais informações sobre a mecânica de biblioteca e como configurar novos cenários e capacidades. 
-2. Em cenários nativos, a aplicação irá utilizar uma Webview incorporado e não deixe a aplicação. O `Redirect URI` pode ser arbitrário. 
-3. Localizar quaisquer problemas ou têm pedidos? Pode criar um problema ou publicar no Stackoverflow com a marca `azure-active-directory`. 
+1. Consulte o [Wiki ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) para obter mais informações sobre a mecânica da biblioteca e como configurar novos cenários e capacidades.
+2. Em cenários Nativos, a aplicação vai utilizar uma Webview incorporada e não deixará a aplicação. O `Redirect URI` pode ser arbitrário.
+3. Deparou-se com problemas ou tem pedidos? Pode criar um problema ou mensagem no Stackoverflow com a etiqueta `azure-active-directory`.
 
-### <a name="cross-app-sso"></a>SSO em vária aplicações
-Saiba mais [como ativar o SSO em vária aplicações em dispositivos Android ao utilizar a ADAL](howto-v1-enable-sso-android.md). 
+### <a name="cross-app-sso"></a>SSO entre várias aplicações
+
+Saiba [como ativar o SSO entre várias aplicações em Android com a ADAL](howto-v1-enable-sso-android.md).
 
 ### <a name="auth-telemetry"></a>Telemetria de autenticação
-a biblioteca ADAL expõe a telemetria de autenticação para o ajudar a compreender como as aplicações estão se comportando e criar melhores experiências desenvolvedores de aplicativos. Isto permite-lhe capturar o início de sessão com êxito, os utilizadores ativos e várias outras informações interessantes. Com a telemetria de autenticação, é necessário estabelecer um serviço de telemetria para agregar e armazenar eventos, os programadores de aplicações.
 
-Para obter mais informações sobre a telemetria de autenticação, Check-out [telemetria de autenticação da ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry). 
+A biblioteca ADAL expõe telemetria de autenticação para ajudar os programadores de aplicações a compreenderem o comportamento das suas aplicações e criar melhores experiências. Isto permite-lhe capturar o êxito do início de sessão, os utilizadores ativos e várias outras informações interessantes. A utilização da telemetria de autenticação requer que os programadores de aplicações estabeleçam um serviço de telemetria para agregar e armazenar eventos.
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+Para saber mais sobre a telemetria de autenticação, veja [Telemetria de autenticação da ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry).

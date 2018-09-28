@@ -1,0 +1,120 @@
+items:
+- name: Resolver problemas das VMs do Azure
+  href: index.md
+- name: Falhas de alocação
+  items:
+  - name: Falhas de alocação
+    href: allocation-failure.md
+  - name: Falhas de atribuição para implementações clássicas
+    href: allocation-failure-classic.md
+- name: Diagnósticos de arranque
+  href: boot-diagnostics.md
+- name: RDP
+  items:
+  - name: Repor o RDP
+    href: reset-rdp.md
+  - name: Resolução de problemas de RDP
+    href: troubleshoot-rdp-connection.md
+  - name: Resolução de problemas detalhada de RDP
+    href: detailed-troubleshoot-rdp.md
+  - name: Resolver problemas de erros específicos
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH
+  items:
+  - name: Resolução de problemas de SSH
+    href: troubleshoot-ssh-connection.md
+  - name: Resolução de problemas detalhada de SSH
+    href: detailed-troubleshoot-ssh-connection.md
+- name: Mensagens de erro comuns
+  href: error-messages.md
+- name: Problemas de desempenho com VMs do Windows
+  href: performance-diagnostics.md
+  items:
+  - name: Como utilizar o PerfInsights
+    href: how-to-use-perfInsights.md
+  - name: Extensão de diagnóstico de desempenho
+    href: performance-diagnostics-vm-extension.md
+- name: Instalar o agente offline da VM do Windows
+  href: install-vm-agent-offline.md
+- name: Reimplementar uma VM
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
+- name: Repor palavra-passe de VM
+  items:
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: Repor NIC
+  href: reset-network-interface.md
+- name: Reiniciar ou redimensionar uma VM
+  href: restart-resize-error-troubleshooting.md
+- name: Utilizar a consola de série
+  items:
+  - name: VM do Linux
+    href: serial-console-linux.md
+    items:
+    - name: Modo de utilizador GRUB/Único da Consola de Série
+      href: serial-console-grub-single-user-mode.md
+    - name: Consola de Série NMI/SysRq
+      href: serial-console-nmi-sysrq.md
+  - name: VM do Windows
+    href: serial-console-windows.md
+    items:
+    - name: Comandos de CMD e PowerShell
+      href: serial-console-cmd-ps-commands.md
+- name: Erros ao eliminar os recursos de armazenamento
+  href: storage-resource-deletion-errors.md
+- name: Reinícios inesperados de VMs com VHDs ligadas
+  href: unexpected-reboots-attached-vhds.md
+- name: Problemas de ativação do Windows
+  href: troubleshoot-activation-problems.md
+- name: Problemas no acesso à aplicação
+  href: troubleshoot-app-connection.md
+- name: Novas implementações de VM
+  items:
+  - name: Linux
+    href: troubleshoot-deployment-new-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deployment-new-vm-windows.md
+- name: Resolução de problemas de implementações
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+- name: Os nomes de dispositivo foram alterados
+  href: troubleshoot-device-names-problems.md
+- name: Acesso da recuperação de VM
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Portal do Azure
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Portal do Azure
+      href: troubleshoot-recovery-disks-portal-linux.md
+- name: Erros de disco BitLocker
+  href: troubleshoot-bitlocker-boot-error.md
+- name: Verificar erros do sistema de ficheiros
+  href: troubleshoot-check-disk-boot-error.md
+- name: Erros de limitação
+  href: troubleshooting-throttling-errors.md
+- name: Utilizar a virtualização aninhada
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Entender o reinício do sistema
+  href: understand-vm-reboot.md
+ms.openlocfilehash: b00e785c3ae31171ce3189edd9cffe094bc71024
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410756"

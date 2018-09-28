@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 81f4830691f423e51d6c1f0b71a8fc62160ea92e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393014"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422665"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que motivo a minha subscrição do Azure está desativada e como posso reativá-la?
 
@@ -38,7 +38,7 @@ Subscrições do Azure com o crédito como versão de avaliação gratuita e o V
 > [!NOTE] 
 > Se tiver uma subscrição de avaliação gratuita e remover o limite de gastos, converte a sua subscrição pay as you go no final da avaliação gratuita. Mantenha o seu crédito restante para todos os 30 dias depois de criado a subscrição. Também tem acesso a serviços durante 12 meses gratuitos.
 
-Para monitorizar e gerir a faturação do Azure, veja [evitar custos inesperados com a faturação do Azure e a gestão de custos](billing-getting-started.md) e [configurar alertas para as suas subscrições do Microsoft Azure de faturação](billing-set-up-alerts.md).
+Para monitorizar e gerir a faturação do Azure, veja [evitar custos inesperados com a faturação do Azure e a gestão de custos](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>A fatura está em atraso

@@ -6,19 +6,19 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6e3bbe996a2f0c37905aa990b39d324fd540952b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a5e86b7c93344a6c61fecaa41b98bc1daa20f36f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057172"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423226"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de Java para o Azure IoT Edge
 
-Pode enviar a lógica de negócio a funcionar no limite, ativá-la em módulos do Azure IoT Edge. Este artigo fornece instruções detalhadas para utilizar o Visual Studio Code (código de VS) como a ferramenta de desenvolvimento principal para desenvolver módulos do Java.
+Pode enviar a lógica de negócio a funcionar no limite, ativá-la em módulos do Azure IoT Edge. Este artigo fornece instruções detalhadas para utilizar o Visual Studio Code (código de VS) como a ferramenta de desenvolvimento principal para desenvolver e depurar os módulos de Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que utilize um computador ou máquina virtual com o Windows, macOS ou Linux como o computador de desenvolvimento. Dispositivo IoT Edge pode ser outro dispositivo físico.
@@ -33,7 +33,7 @@ Uma vez que este artigo usa código do Visual Studio como a ferramenta de desenv
 * [Extensão do docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Para criar um módulo, terá de Java e Maven para criar e executar o código do módulo, Docker para criar a imagem do módulo e um registo de contentores para armazenar a imagem de módulo:
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), e [definir o `JAVA_HOME` variável de ambiente](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a instalação do JDK.
+* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html) e [defina a variável de ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a sua instalação do JDK.
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
