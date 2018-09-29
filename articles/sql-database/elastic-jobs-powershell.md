@@ -2,18 +2,22 @@
 title: Criar um Agente de Tarefa Elástica da Base de Dados SQL do Azure com o PowerShell | Microsoft Docs
 description: Saiba como criar um agente de Tarefa Elástica com o PowerShell.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 06/14/2018
+author: johnpaulkee
 ms.author: joke
-ms.openlocfilehash: 2cc8db0ce849e0f0d376824665aac7dbc2af29db
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviwer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 56dd6eff7744ddddf57b747574ee9800174d6365
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035222"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055497"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 

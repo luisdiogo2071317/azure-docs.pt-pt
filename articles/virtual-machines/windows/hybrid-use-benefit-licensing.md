@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 1b893518ec67d6c11c2bcee3acc52c01cd573f86
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fef057b5d1e1ba8b03b04852376b1e5a49926008
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091571"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432410"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Azure híbrido benefício para o Windows Server permite-lhe utilizar as suas licenças do Windows Server no local e executar as máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure híbrido benefício para o Windows Server para implementar novas máquinas virtuais com o SO Windows. Este artigo vai sobre os passos sobre como implementar novas VMs com o Azure híbrido benefício para o Windows Server e como pode atualizar existente VMs em execução. Para obter mais informações sobre o Azure híbrido benefício para o Windows Server poupanças de custos e licenciamento, consulte a [página de licenciamento do Azure híbrido benefício para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -114,7 +114,7 @@ No portal do painel da VM, pode atualizar a VM para utilizar o benefício híbri
     ```azurecli
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
-    
+
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Como verificar a sua VM está a utilizar o benefício de licenciamento
 Assim que tiver implementado a sua VM através do PowerShell, o modelo do Resource Manager ou do portal, pode verificar a definição nos métodos seguintes.
 
@@ -145,6 +145,10 @@ LicenseType              :
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
+
+> [!NOTE]
+> Alterar o tipo de licença na VM não faz com que o sistema reiniciar ou fazer com que um interuption de serviço. É uma sinalizador só de licenciamento de metadados.
+>
 
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Listar todas as VMs com o Azure híbrido benefício para o Windows Server numa subscrição
 Para ver e contagem de todas as máquinas virtuais implementadas com o Azure híbrido benefício para o Windows Server, pode executar o seguinte comando da sua subscrição:

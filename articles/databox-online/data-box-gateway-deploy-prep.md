@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953417"
+ms.locfileid: "47030610"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar a implementação do Azure Data Box Gateway (Pré-visualização)
 
@@ -75,7 +75,7 @@ Antes de implementar um dispositivo virtual, certifique-se de que:
   
   * Um mínimo de 4 núcleos.
   * Pelos menos 8 GB de RAM. 
-  * Uma Interface de rede.
+  * Uma interface de rede.
   * Um disco de SO de 250 GB.
   * Um disco virtual de 2 TB para dados do sistema.
 
@@ -89,7 +89,7 @@ Antes de começar, certifique-se de que:
 
 ## <a name="create-a-new-resource"></a>Criar um novo recurso
 
-Uma única instância do recurso de Data Box Gateway pode gerir vários dispositivos virtuais Data Box Gateway. Execute os seguintes passos para criar um novo recurso do Data Box Gateway. 
+Execute os seguintes passos para criar um novo recurso do Data Box Gateway. 
 
 Se tiver um recurso existente do Data Box Gateway para gerir os dispositivos virtuais, ignore este passo e vá para o passo [Obter a chave de ativação](#get-the-activation-key).
 

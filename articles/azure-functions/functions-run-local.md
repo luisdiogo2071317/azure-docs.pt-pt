@@ -9,14 +9,14 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: f950d8d5b52685e45acf4093adac451c8f22aecd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a987ea8fbfc3d6360a604d0d9f3dbab1b5559444
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226216"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452433"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -177,7 +177,7 @@ Na versão 2.x do runtime das funções do Azure, precisa registrar explicitamen
 
 Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](functions-triggers-bindings.md#register-binding-extensions).
 
-## <a name="local-settings-file"></a>Arquivo de configurações local
+## <a name="local-settings-file"></a>Ficheiro de definições locais
 
 O ficheiro Settings armazena as definições da aplicação, as cadeias de ligação e as definições para as ferramentas de núcleo de funções do Azure. Ele tem a seguinte estrutura:
 

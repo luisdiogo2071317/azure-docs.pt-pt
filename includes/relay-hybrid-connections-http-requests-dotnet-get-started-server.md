@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 2784102cdc778188f0874a15e3ff02e4cc2e3eb8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5c7c2fe101315959d07ce4912905bbf59a7ee664
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33904996"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452814"
 ---
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
@@ -22,8 +22,10 @@ No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framewo
 ### <a name="add-the-relay-nuget-package"></a>Adicionar o pacote NuGet de Reencaminhamento
 
 1. Clique com o botão direito do rato no projeto recém-criado e, em seguida, selecione **Gerir Pacotes NuGet**.
-2. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Reencaminhamento do Microsoft Azure**. 
-3. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
+2. Selecione a opção **Incluir pré-lançamento**. 
+3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Reencaminhamento do Microsoft Azure**.
+4. Para a versão, selecione **2.0.0-preview1-20180523**. 
+5. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 
 ### <a name="write-code-to-receive-messages"></a>Escrever código para receber mensagens
 
@@ -35,13 +37,21 @@ No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framewo
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
+    using System.Net;
     ```
 2. Adicione constantes à classe `Program`, para obter os detalhes da ligação híbrida. Substitua os marcadores de posição entre parênteses retos pelos valores que obteve quando criou a ligação híbrida. Certifique-se de que utiliza o nome de espaço de nomes totalmente qualificado.
    
     ```csharp
+    // replace {RelayNamespace} with the name of your namespace
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+
+    // replace {HybridConnectionName} with the name of your hybrid connection
     private const string ConnectionName = "{HybridConnectionName}";
+
+    // replace {SAKKeyName} with the name of your Shared Access Policies key, which is RootManageSharedAccessKey by default
     private const string KeyName = "{SASKeyName}";
+
+    // replace {SASKey} with the primary key of the namespace you saved earlier
     private const string Key = "{SASKey}";
     ```
 

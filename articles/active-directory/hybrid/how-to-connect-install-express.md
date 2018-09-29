@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0e31f311c123fa8ace523cfde21ebdf2f707fce5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303881"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434675"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.
@@ -46,7 +46,7 @@ Pode ver estes passos em ação na secção [vídeos](#videos).
    Se esta página for apresentada, reveja todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Certifique-se de que os domínios que utiliza foram verificados no Azure AD. Quando tiver verificado os domínios, clique no símbolo de atualização.
 8. No ecrã Preparado para configurar, clique em **Instalar**.
    * Opcionalmente, na página Preparado para configurar, pode desmarcar a caixa de verificação **Inicie o processo de sincronização assim que a configuração for concluída**. Deve desmarcar esta caixa de verificação se pretender efetuar qualquer configuração adicional, como [filtragem](how-to-connect-sync-configure-filtering.md). Se desmarcar esta opção, o assistente configura a sincronização, mas deixa o agendador desativado. Não é executado até que o ative manualmente, [voltando a executar o assistente de instalação](how-to-connect-installation-wizard.md).
-   * Deixar a caixa de verificação **Iniciar o processo de sincronização logo que a configuração termine** aciona imediatamente uma sincronização completa para o Azure AD de todos os utilizadores, grupos e contactos. 
+   * Deixar a caixa de verificação **Iniciar o processo de sincronização logo que a configuração termine** aciona imediatamente uma sincronização completa para o Azure AD de todos os utilizadores, grupos e contactos.
    * Se tiver o Exchange no Active Directory no local, terá também uma opção para ativar a [**Implementação Híbrida do Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Ative esta opção se planear ter caixas de correio do Exchange simultaneamente na nuvem e no local.
      ![Pronto para configurar o Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. Quando concluir a instalação, clique em **Sair**.

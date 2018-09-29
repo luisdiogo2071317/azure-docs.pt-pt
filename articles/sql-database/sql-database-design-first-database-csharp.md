@@ -2,20 +2,22 @@
 title: Criar a sua primeira base de dados SQL do Azure - C# | Microsoft Docs
 description: Saiba como criar a sua primeira base de dados SQL do Azure e ligar a esta com um programa C# a utilizar ADO.NET.
 services: sql-database
-author: MightyPen
-manager: craigg-msft
-ms.reviewer: CarlRabeler
 ms.service: sql-database
-ms.custom: develop databases, mvc, devcenter
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
+author: MightyPen
 ms.author: genemi
+ms.reviewer: carlrab
+manager: craigg-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 9fdc23eb2e607d1264e1bd2bc9dc85ef8d9be642
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 65a9bde6fa086dc56809df9619ceee1c5b417e31
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498167"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063306"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Criar uma base de dados SQL do Azure e estabelecer ligação com C&#x23; e ADO.NET
 

@@ -2,20 +2,22 @@
 title: Utilizar o Node.js para consultar a Base de Dados SQL do Azure | Microsoft Docs
 description: Este tópico mostra-lhe como utilizar o Node.js para criar um programa que se liga a uma base de dados SQL do Azure e a consulta com instruções Transact-SQL.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: cdc438240f81f047ff1e7babeed785f8a9b4b05c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: c6cfbd330f77c5a2f448093e58684032a84a41d9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055163"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063477"
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Utilizar o Node.js para consultar uma base de dados SQL do Azure
 

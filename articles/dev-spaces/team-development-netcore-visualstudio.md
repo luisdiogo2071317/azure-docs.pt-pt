@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2a04b80e728ecf0af39cb46041a005a86ea1abec
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158471"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406112"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em Equipa com o Azure Dev Spaces
 
@@ -163,6 +163,23 @@ Para testar a nova versão de `mywebapi` em conjunto com `webfrontend`, abra o b
 
 Em seguida, adicione o elemento "scott.s." ao URL de modo a mostrar algo semelhante a http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io e atualize o browser. O ponto de interrupção definido no projeto `mywebapi` deverá ser acedido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para o seu código atualizado em `mywebapi` está em execução no espaço `default/scott`.
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>Já está!
+Concluiu o guia de introdução! Aprendeu a:
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Configurar os Espaços de Programador do Azure com um cluster Kubernetes gerido no Azure.
+> * Desenvolver iterativamente código em contentores.
+> * Desenvolver de modo independente dois serviços separados e utilizar a deteção do serviço DNS de Kubernetes para fazer uma chamada para outro serviço.
+> * Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
+
+Agora que explorou os Espaços de Programação do Azure, [partilhe o seu espaço de programação com um membro da equipa](how-to/share-dev-spaces.md) e ajude-o a ver como é fácil colaborar em conjunto.
+
+## <a name="clean-up"></a>Limpeza
+Para eliminar completamente uma instância dos Espaços de Programador do Azure num cluster, incluindo todos os espaços de programador e serviços em execução, utilize o comando `az aks remove-dev-spaces`. Não se esqueça que esta ação é irreversível. Pode adicionar suporte aos Espaços de Programador do Azure novamente no cluster, mas será como se estivesse novamente a começar. Os seus serviços e espaços antigos não serão restaurados.
+
+O exemplo a seguir lista os controladores dos Espaços de Programador do Azure na sua subscrição ativa e, em seguida, elimina o controlador do mesmo que está associado ao cluster do AKS "myaks" do AKS no grupo de recursos "myaks-rg".
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

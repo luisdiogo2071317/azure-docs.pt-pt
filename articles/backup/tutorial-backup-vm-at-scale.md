@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: dfe561e7a7231c8e7f9465819a01cd4b0a35f47c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983085"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434549"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -42,15 +42,15 @@ O cofre dos Serviços de Recuperação contém os dados para os quais foi criada
 
     ![Abrir o menu do cofre](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. No menu do cofre dos Serviços de Recuperação, 
+3. No menu do cofre dos Serviços de Recuperação,
 
-    - escreva *myRecoveryServicesVault* em **Name**,
+    - escreva *myRecoveryServicesVault* em **Name** (Nome).
     - O ID da subscrição atual aparece em **Subscrição**. Se tiver subscrições adicionais, pode escolher outra subscrição para o cofre novo.
     - Em **Grupo de recursos**, selecione **Utilizar existente** *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Criar novo** e escreva *myResourceGroup*.
     - No menu pendente **Localização**, escolha *Europa Ocidental*.
     - Clique em **Criar** para criar o cofre dos Serviços de Recuperação.
 
-Os cofres dos Serviços de Recuperação têm de estar na mesma localização das máquinas virtuais que estão a ser protegidas. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada uma. Este tutorial cria um cofre dos Serviços de Recuperação na *Europa Ocidental*, uma vez que *myVM* (a máquina virtual criada com o início rápido) foi criada aí.
+Os cofres dos Serviços de Recuperação têm de estar na mesma localização das máquinas virtuais que estão a ser protegidas. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Este tutorial cria um cofre dos Serviços de Recuperação na *Europa Ocidental*, uma vez que *myVM* (a máquina virtual criada com o início rápido) foi criada aí.
 
 Pode demorar vários minutos até que o cofre dos Serviços de Recuperação seja criado. Monitorize as notificações de estado na área superior direita do portal. Quando o cofre for criado, aparecerá na lista de cofres dos Serviços de Recuperação.
 
@@ -76,7 +76,7 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
 
     ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. No menu **Backup policy** (Política de cópia de segurança), em **Policy Name** (Nome da Política), escreva *Finance* (Financeiro). Introduza as seguintes alterações à política de cópia de segurança: 
+5. No menu **Backup policy** (Política de cópia de segurança), em **Policy Name** (Nome da Política), escreva *Finance* (Financeiro). Introduza as seguintes alterações à política de cópia de segurança:
     - Em **Backup frequency** (Frequência da cópia de segurança), defina o fuso horário como *Hora Central*. Uma vez que o complexo desportivo está localizado no Texas, o proprietário quer que a hora seja a local. Deixe a frequência de cópia de segurança definida como Daily at 3:30AM. (Diariamente às 03:30).
     - Em **Retention of daily backup point** (Retenção do ponto de criação de cópia de segurança diário), defina o período como 90 dias.
     - Em **Retention of weekly backup point** (Retenção do ponto de criação de cópia de segurança semanal), utilize o ponto de restauro *Monday* (Segunda-feira) e retenha-o durante 52 semanas.
@@ -84,21 +84,21 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
     - Anule seleção da opção **Retention of yearly backup point** (Retenção do ponto de criação de cópia de segurança anual). O responsável pela área financeira não quer manter os dados por mais de 36 meses.
     - Clique em **OK** para criar a política de cópias de segurança.
 
-    ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
+    ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
     Depois de criar a política de cópia de segurança, associe-a às máquinas virtuais.
 
-6. Na caixa de diálogo **Select virtual machines** (Selecionar máquinas virtuais), selecione *myVM* e clique em **OK** para implementar a política de cópia de segurança nas máquinas virtuais. 
+6. Na caixa de diálogo **Select virtual machines** (Selecionar máquinas virtuais), selecione *myVM* e clique em **OK** para implementar a política de cópia de segurança nas máquinas virtuais.
 
     São apresentadas todas as máquinas virtuais que estejam na mesma localização e que ainda não tenham sido associadas a uma política de cópia de segurança. *myVMH1* e *myVMR1* são selecionadas para serem associadas à política *Finance*.
 
-    ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
+    ![Selecionar a carga de trabalho](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
 
     Quando a implementação estiver concluída, receberá uma notificação de que foi concluída com êxito.
 
 ## <a name="initial-backup"></a>Cópia de segurança inicial
 
-Ativou a cópia de segurança para os cofres dos Serviços de Recuperação, mas não foi criada uma cópia de segurança inicial. Acionar a primeira cópia de segurança, para que os dados sejam protegidos, é uma boa prática do processo de recuperação após desastre. 
+Ativou a cópia de segurança para os cofres dos Serviços de Recuperação, mas não foi criada uma cópia de segurança inicial. Acionar a primeira cópia de segurança, para que os dados sejam protegidos, é uma boa prática do processo de recuperação após desastre.
 
 Para executar um trabalho de cópia de segurança a pedido:
 
@@ -130,10 +130,10 @@ Para executar um trabalho de cópia de segurança a pedido:
 
     As notificações de implementação permitem-lhe saber se a tarefa de cópia de segurança foi acionada e que pode acompanhar o progresso da tarefa na página Tarefas de cópias de segurança. Dependendo do tamanho da sua máquina virtual, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
-    Quando o trabalho de cópia de segurança inicial estiver concluído, pode ver o estado do mesmo no menu Backup job (Trabalho de cópia de segurança). O trabalho de cópia de segurança a pedido criou o ponto de restauro inicial para *myVM*. Se pretender criar cópias de segurança de outras máquinas virtuais, repita estes passos para cada uma. 
+    Quando o trabalho de cópia de segurança inicial estiver concluído, pode ver o estado do mesmo no menu Backup job (Trabalho de cópia de segurança). O trabalho de cópia de segurança a pedido criou o ponto de restauro inicial para *myVM*. Se pretender criar cópias de segurança de outras máquinas virtuais, repita estes passos para cada uma.
 
     ![Mosaico Tarefas de cópia de segurança](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
-  
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os recursos criados neste tutorial. Se não quiser continuar, utilize os passos seguintes para eliminar todos os recursos criados por este tutorial no portal do Azure.
@@ -153,15 +153,15 @@ Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os rec
 
     ![Ícone Definições](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. No menu de contexto, selecione **Stop backup** (Parar cópia de segurança) para abrir o respetivo menu. 
+4. No menu de contexto, selecione **Stop backup** (Parar cópia de segurança) para abrir o respetivo menu.
 
     ![Ícone Definições](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
 5. No menu **Stop Backup**, selecione o menu pendente superior e escolha **Delete Backup Data** (Eliminar Dados de Cópia de Segurança).
 
 6. Na caixa de diálogo **Type the name of the Backup item** (Escrever o nome do Item de cópia de segurança), escreva *myVM*.
- 
-7. Após o item de cópia de segurança ser verificado (aparece uma marca de verificação), o botão **Stop backup** fica ativado. Clique em **Stop Backup** para parar a política e eliminar os pontos de restauro. 
+
+7. Após o item de cópia de segurança ser verificado (aparece uma marca de verificação), o botão **Stop backup** fica ativado. Clique em **Stop Backup** para parar a política e eliminar os pontos de restauro.
 
     ![clicar em Stop backup para eliminar o cofre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
@@ -183,7 +183,7 @@ Neste tutorial, utilizou o portal do Azure para:
 > * Atribuir a política para proteger várias máquinas virtuais
 > * Acionar uma cópia de segurança a pedido de máquinas virtuais
 
-Avance para o próximo tutorial para restaurar uma máquina virtual do Azure a partir do disco. 
+Avance para o próximo tutorial para restaurar uma máquina virtual do Azure a partir do disco.
 
 > [!div class="nextstepaction"]
 > [Restore VMs using CLI](./tutorial-restore-disk.md) (Restaurar VMs com a CLI)
