@@ -3,19 +3,18 @@ title: Limites e configuração - Azure Logic Apps | Documentos da Microsoft
 description: Valores de configuração para o Azure Logic Apps e limites do serviço
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055199"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452462"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -76,7 +75,7 @@ Para alterar o limite predefinido para entre 7 dias e 90 dias, siga estes passos
 
 Quando desativa uma aplicação lógica, não existem novas execuções são instanciadas. Todos em curso e execuções pendentes continuará até terminarem, que pode levar tempo a concluir.
 
-Quando elimina uma aplicação lógica, não existem novas execuções são instanciadas. Todos em curso e execuções pendentes serão canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
+Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
 
 <a name="looping-debatching-limits"></a>
 
@@ -305,8 +304,13 @@ Todas as aplicações de lógica numa região, utilize os mesmos intervalos de e
 Para suportar as chamadas que [conectores](../connectors/apis-list.md) make, configurar as configurações de firewall para que eles incluem estes endereços IP de saída, com base nas regiões onde existem as logic apps.
 
 > [!IMPORTANT]
->
 > Se tiver configurações existentes, atualize-los **logo que possível antes de 1 de Setembro de 2018** para que incluem e correspondem aos endereços IP nesta lista para as regiões onde existem as logic apps. 
+> 
+> O Logic Apps não suporta a ligação direta para contas de armazenamento do Azure através de firewalls. Para aceder a estas contas de armazenamento, utilize uma das opções aqui: 
+>
+> * Criar uma [ambiente do serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode ligar aos recursos numa rede virtual do Azure. 
+> 
+> * Se já utilizar a gestão de API, pode utilizar este serviço para este cenário. Para mais informações, veja [arquitetura de integração empresarial simples](http://aka.ms/aisarch).
 
 | Região de aplicações lógicas | IP de saída | 
 |-------------------|-------------|  

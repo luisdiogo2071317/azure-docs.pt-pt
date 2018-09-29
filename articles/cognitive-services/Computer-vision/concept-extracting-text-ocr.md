@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: af88063a68cef4953da8357596ce64e4510e8d36
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4cbc8ebcdd19aa65a37ffe0f82019a7681f1c6c5
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985461"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434879"
 ---
 # <a name="extracting-text-with-ocr"></a>Extrair texto com o OCR
 
@@ -32,7 +32,7 @@ Se for necessário, OCR corrige a rotação do texto reconhecido, em graus, à v
 Imagem digitalizada pode extrair texto usando OCR a partir de imagens que cumprem os requisitos seguintes:
 
 * A imagem tem de ser apresentada no formato JPEG, PNG, GIF ou BMP
-* O tamanho da imagem de entrada deve ser entre 40 x 40 e 3200 x 3200 pixels
+* O tamanho da imagem de entrada deve ser entre 50 x 50 e 4200 x 4200 pixels
 * A imagem não pode ser maior do que 10 megapixels
 
 A imagem de entrada pode ser rodada qualquer múltiplo de 90 graus além de um ângulo pequeno de até 40 graus.

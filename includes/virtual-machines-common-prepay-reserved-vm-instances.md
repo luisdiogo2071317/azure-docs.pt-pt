@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 75e493f6b2e47bf3323df9e52ad3a933a6efbead
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058275"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454585"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -19,22 +19,23 @@ Pode comprar uma instância de VM reservada [portal do Azure](https://portal.azu
 
 - Deve estar numa função de proprietário de, pelo menos, uma empresa ou uma subscrição pay as you go.
 - Para subscrições Enterprise, compras de reserva tem de estar ativadas no [portal EA](https://ea.azure.com).
-- Para o programa de fornecedor de soluções Cloud (CSP), apenas o admin de agentes ou agentes de vendas podem comprar as reservas.
+- Para o programa de fornecedor de soluções Cloud (CSP), apenas o admin de agentes ou agentes de vendas podem comprar reservas.
 
-## <a name="determine-the-right-vm-size-before-purchase"></a>Determinar o tamanho VM correto antes da compra
+## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinar o tamanho VM correto antes de comprar
 
-Os campos de subcategoria do medidor e produto nos dados de utilização não distinguir entre tamanhos de VM que utilizam o armazenamento premium de tamanhos de VM que não utilizam o armazenamento premium, com estes campos para determinar a VM tamanho para a compra de reserva pode levar a incorreto reserva de compra e não fornecer-lhe descontos de reserva. Utilize um dos métodos abaixo para determinar o tamanho VM certo para compra de reserva.
+Os campos de subcategoria do medidor e produto nos dados de utilização não distinguem entre tamanhos de VM que utilizam o armazenamento premium de VMs que não. Se utilizar estes campos para determinar o tamanho VM a utilizar para a reserva, pode comprar o tamanho errado e não obterá o desconto de reserva que espera. Utilize um dos seguintes métodos para determinar o tamanho VM correto ao comprar a reserva:
 
-- Consulte o campo de AdditionalInfo no seu ficheiro de utilização ou a API de utilização para determinar o tamanho VM correto para uma compra de reserva. Não utilize os valores dos campos de subcategoria do medidor ou um produto, uma vez que estes campos não diferenciam entre versões de uma VM S e não-S.
-- Também pode obter informações precisas de tamanho da VM com o Powershell, do Azure Resource Manager, ou a partir de VM de detalhes no portal do Azure.
+- Consulte o campo de AdditionalInfo no seu ficheiro de utilização ou a API de utilização para determinar o tamanho VM correto. Não utilize os valores dos campos de produto ou subcategoria do medidor. Estes campos não diferenciarem entre versões S e não-S de uma VM.
+- Obter informações precisas de tamanho da VM com o Powershell, do Azure Resource Manager, ou a partir da VM detalhes no portal do Azure.
 
 Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de VM com algumas exceções:
 
-- As VMs clássicas e Cloud services não receber o desconto de reserva.
-- VMs de núcleo suprimido não obtém descontos de reserva.
-- Seguinte série de VM não receber os descontos de reserva: série A, série Av2 ou série G.
-- As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização não estão disponíveis para compra de reserva.
-- Nuvens: Reservas não estão disponíveis para compra nas regiões do Azure US Government, Alemanha e China.
+- O desconto de reserva não se aplica para as VMs seguintes:
+  - As VMs clássicas e serviços em nuvem
+  - Tamanhos de vCPU restrita
+  - Série VM: Série A, série Av2 ou série G
+  - As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização
+- Nuvens: Não reservas estão disponíveis para compra nas regiões do Azure US Government, Alemanha e China.
 - Quota insuficiente: uma reserva de que tem um âmbito a uma subscrição individual tem de ter a quota de vCPU disponível na subscrição para a nova RI. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a série D, em seguida, é possível comprar uma reserva para 11 Standard_D1 instâncias. A verificação de quota para as reservas inclui VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a série D e tem duas instâncias de standard_D1 implementadas, em seguida, pode comprar uma reserva para 10 instâncias standard_D1 nesta subscrição. 
 - Restrições de capacidade: limites em raras circunstâncias, a compra de reservas de novo para o subconjunto de tamanhos VM, devido à baixa capacidade numa região do Azure.
 

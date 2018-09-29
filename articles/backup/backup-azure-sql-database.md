@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433570"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434250"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -823,6 +823,10 @@ Acione uma cópia de segurança completa. Backups de log começarem conforme esp
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Pode proteger SQL grupos de Disponibilidade AlwaysOn em que a réplica primária for no local
 
 Não. O Azure Backup protege os SQL Servers em execução no Azure. Se um grupo de disponibilidade (AG) é distribuído por entre as máquinas do Azure e no local, o AG pode ser protegido apenas se a réplica primária está em execução no Azure. Além disso, o Azure Backup protege apenas os nós em execução na mesma região do Azure que o Cofre dos serviços de recuperação.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Pode proteger sempre grupos de disponibilidade SQL que são distribuídas em várias regiões do Azure
+Cofre de serviços de recuperação de cópia de segurança do Azure pode detetar e proteger todos os nós que estão na mesma região que o Cofre dos serviços de recuperação. Se tiver um SQL sempre no grupo de disponibilidade em diversas regiões do Azure, terá de configurar a cópia de segurança da região que tem o nó principal. Cópia de segurança do Azure será capaz de detetar e proteger todas as bases de dados no grupo de disponibilidade de acordo com a preferência de cópia de segurança. Se a preferência de cópia de segurança não for cumprida, as cópias de segurança irão falhar e receberá o alerta de falha.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

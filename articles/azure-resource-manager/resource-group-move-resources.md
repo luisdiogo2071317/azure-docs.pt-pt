@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393286"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452161"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -196,6 +196,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * DNS
 * Event Grid
 * Hubs de Eventos
+* Porta de entrada
 * Clusters do HDInsight - veja [limitações do HDInsight](#hdinsight-limitations)
 * Centro de IoT
 * Hubs IoT
@@ -207,7 +208,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Managed Disks – consulte [limitações de máquinas virtuais para restrições](#virtual-machines-limitations)
 * Identidade gerida - atribuído ao utilizador
 * Serviços de Multimédia
-* Mobile Engagement
 * Hubs de Notificação
 * Informações Operacionais
 * Gestão de Operações
@@ -267,37 +267,39 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 
 ## <a name="virtual-machines-limitations"></a>Limitações de máquinas virtuais
 
-Discos geridos são suportados para migração a partir de 24 de Setembro de 2018. Terá de se registar para ativar esta funcionalidade.
+Discos geridos são suportados para migração a partir de 24 de Setembro de 2018. 
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. Terá de se registar para ativar esta funcionalidade.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-O pedido de registo inicialmente devolve um Estado de `Registering`. Pode verificar o estado atual com:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. O pedido de registo inicialmente devolve um Estado de `Registering`. Pode verificar o estado atual com:
 
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Aguarde alguns minutos até que o estado alterar para `Registered`.
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-Depois do recurso está registado, registe o `Microsoft.Compute` fornecedor de recursos. Efetue este passo, mesmo que o fornecedor de recursos foi registado anteriormente.
+1. Aguarde alguns minutos até que o estado alterar para `Registered`.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
+1. Depois do recurso está registado, registe o `Microsoft.Compute` fornecedor de recursos. Efetue este passo, mesmo que o fornecedor de recursos foi registado anteriormente.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
 
 Esse suporte significa que pode também mover:
 

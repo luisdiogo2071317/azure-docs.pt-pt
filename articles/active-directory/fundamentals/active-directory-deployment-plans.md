@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: 66e3e37d0f42516c67cfe37c42db3b3914cbb667
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730552"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434165"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Está à procura de orientações completas para implementar algumas das capacidades do Azure Active Directory (Azure AD)? Os planos de implementação que se seguem orientam-no ao longo do valor comercial, das considerações de planeamento, de design e dos procedimentos operacionais necessários para implementar algumas das capacidades mais comuns do Azure AD. 
@@ -27,6 +27,7 @@ Gostaríamos muito de saber a sua opinião sobre os documentos. Responda a este 
 |Cenário |Descrição |
 |-|-|
 |[Início de sessão único](https://aka.ms/SSODPDownload)|O início de sessão único ajuda-o a aceder a todos os recursos e aplicações de que precisa para trabalhar ao iniciar sessão só uma vez e com uma única conta de utilizador. Depois de iniciar sessão, pode utilizar o Microsoft Office, o SalesForce ou o Box sem ter de se autenticar (por exemplo, introduzir uma palavra-passe) uma segunda vez.|
+|[Aprovisionamento de utilizadores de entrada baseadas no workday](https://aka.ms/WorkdayDeploymentPlan)|Controlado por workday Inbound aprovisionamento do utilizador do Active Directory cria uma base para a governação de identidade em curso e melhora a qualidade dos processos de negócios que se baseiam nos dados de identidade autoritativas. Utilizar esta funcionalidade, pode facilmente gerir o ciclo de vida de identidade dos funcionários e os operadores de contingência ao configurar as regras que mapeiam os processos de participante-Movimentador-Leaver (por exemplo, transferência de nova contratação, Terminate,) para ações de aprovisionamento de IT (como criar, Enable, Desativar e eliminar contas).|
 |[Painel de Acesso](https://aka.ms/AccessPanelDPDownload)|Proporcionar aos usuários um hub simple para detetar e aceder a todos os seus aplicativos. Ativá-los para serem mais produtivos com capacidades self-service, como a capacidade de solicitar acesso a aplicações de novas e grupos, ou gerir o acesso a estes recursos em nome de outros.|
 |[Aprovisionamento de utilizadores](https://aka.ms/UserProvisioningDPDownload)|O Azure AD ajuda-o a automatizar a criação, a manutenção e a remoção de identidades de utilizadores em aplicações da cloud (SaaS), como o Dropbox, o Salesforce, o ServiceNow, entre outras.|
 |[Multi-Factor Authentication](https://aka.ms/MFADPDownload)|A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Ao utilizar métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, enquanto cumpre a exigência de um processo de início de sessão simples.|

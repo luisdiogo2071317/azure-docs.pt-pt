@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: def921a5378e85caadfaebdd06fc61dba2661756
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c99ad77bba60a4573faae1c857b3e6dc0203c4ab
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223095"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434692"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -342,7 +342,7 @@ public void eventHubProcessor(
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atributo.
+Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) atributo.
 
 Construtor o atributo usa o nome do hub de eventos, o nome do grupo de consumidores e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte a [acionar a seção de configuração](#trigger---configuration). Aqui está um `EventHubTriggerAttribute` exemplo de atributo:
 

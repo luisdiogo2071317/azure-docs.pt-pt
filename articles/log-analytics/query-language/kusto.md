@@ -1,6 +1,6 @@
 ---
-title: Diferenças de linguagem de Monitor de Log Analytics e Kusto do Azure | Documentos da Microsoft
-description: Descreve as diferenças entre consultas do Log Analytics e núcleo de idioma do Kusto.
+title: Referência de linguagem de Monitor Log Analytics do Azure | Documentos da Microsoft
+description: Informações de referência para o idioma de Kusto usado pelo Log Analytics. Inclui elementos adicionais específicos para o Log Analytics e os elementos que não é suportados em consultas do Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,25 +15,27 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 109ffa6abb34dad6a00210a5c2c726bdfdde094f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5173790436a29fa9947346d711da1a2ddb32bf62
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184919"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451073"
 ---
-# <a name="log-analytics-and-kusto-language-differences"></a>Diferenças de idioma do log Analytics e Kusto
-[Consultas de análise de registo](../log-analytics-queries.md) são escritos com o [Kusto linguagem](/azure/kusto/query). No entanto, tal como descrito neste artigo, existem algumas diferenças de idioma padrão e a implementação do Log Analytics.
+# <a name="log-analytics-query-language-reference"></a>Referência de linguagem de consulta de análise de registo
+[Consultas de análise de registo](../log-analytics-queries.md) utilizar o mesmo idioma de consulta e o mecanismo utilizado pelo [Explorador de dados do Azure](/azure/data-explorer/). Pode acessar a referência de linguagem e outros detalhes sobre a linguagem da seguinte localização: [referência de linguagem de Kusto](/azure/kusto/query)
 
 
-## <a name="statements-not-supported-in-log-analytics"></a>Instruções não são suportadas no Log Analytics
-As seguintes instruções não são suportadas no Log Analytics.
+
+## <a name="kusto-elements-not-support-in-log-analytics"></a>Elementos de Kusto não suporte no Log Analytics
+Apesar de consultas do Log Analytics utilizam uma implementação do Kusto, existem alguns elementos de Kusto não suporta conforme descrito nas seções a seguir.
+
+### <a name="statements-not-supported-in-log-analytics"></a>Instruções não são suportadas no Log Analytics
 
 * [Alias](/kusto/query/aliasstatement)
 * [Parâmetros de consulta](/azure/kusto/query/queryparametersstatement)
 
-## <a name="functions-not-supported-in-log-analytics"></a>Funções não suportadas no Log Analytics
-As seguintes funções não são suportadas no Log Analytics.
+### <a name="functions-not-supported-in-log-analytics"></a>Funções não suportadas no Log Analytics
 
 * [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
@@ -44,18 +46,19 @@ As seguintes funções não são suportadas no Log Analytics.
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-## <a name="operators-not-supported-in-log-analytics"></a>Operadores não suportadas no Log Analytics
-Os seguintes operadores não são suportados no Log Analytics.
+### <a name="operators-not-supported-in-log-analytics"></a>Operadores não suportadas no Log Analytics
 
 * [Associação cruzada do Cluster](/azure/kusto/query/joincrosscluster)
 * [operador de externaldata](/azure/kusto/query/externaldata-operator)
 
-## <a name="plugins-not-supported-in-log-analytics"></a>Plug-ins não suportado no Log Analytics
-Os plug-ins seguintes não são suportados no Log Analytics.
+### <a name="plugins-not-supported-in-log-analytics"></a>Plug-ins não suportado no Log Analytics
+
 * [Plug-in do sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
-## <a name="log-analytics-specific-operators"></a>Operadores específicos do log Analytics
+## <a name="additional-operators-in-log-analytics"></a>Operadores adicionais no Log Analytics
+Para suportar funcionalidades específicas do Log Analytics, os seguintes operadores de Kusto adicionais são desde que não estão disponíveis fora do Log Analytics. 
+
 * [App()](app-expression.md)
 * [Workspace()](workspace-expression.md)
 

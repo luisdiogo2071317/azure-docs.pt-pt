@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: b32f388974f03ece206ae4eaece39f1a242d31e2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 25bec4bdbae5b206d23fa300f139f55f86b8167e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408548"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434386"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.
@@ -100,7 +100,7 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 | **Azure Active Directory** | https://graph.windows.net/ | Como parte da implementação do Azure File Sync, será criado um principal de serviço no Azure Active Directory da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar a um conjunto mínimo de direitos para o serviço de sincronização de ficheiros do Azure. O utilizador que executa a configuração inicial do Azure File Sync tem de ser um utilizador autenticado com privilégios de proprietário da subscrição. |
 | **Armazenamento do Azure** | &ast;.core.windows.net | Quando o servidor transfere um ficheiro, em seguida, o servidor executa esse movimento de dados com mais eficiência quando se fala diretamente para a partilha de ficheiros do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de partilha de ficheiros de destino. |
 | **Sincronização de ficheiros do Azure** | &ast;.one.microsoft.com | Após o registo do servidor inicial, o servidor recebe um URL regional para a instância do serviço Azure File Sync nessa região. O servidor pode utilizar o URL para se comunicar diretamente e eficiente com a instância de lidar com a sincronizar. |
-| **PKI da Microsoft** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
+| **PKI da Microsoft** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
 
 > [!Important]
 > Quando a permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos serviços da Microsoft mais disponíveis em subdomínios.

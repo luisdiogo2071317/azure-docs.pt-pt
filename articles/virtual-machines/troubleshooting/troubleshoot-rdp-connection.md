@@ -4,7 +4,7 @@ description: Resolver problemas quando não é possível ligar à sua máquina v
 keywords: Erro de área de trabalho remoto, erro de conexão de área de trabalho remoto, não é possível ligar à VM, resolução de problemas área de trabalho remoto
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: d08f5f5a553c0f7459aa8eed3b4e7658d0e6a4a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413855"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452463"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Resolver problemas de ligações de ambiente de trabalho remoto para uma máquina virtual do Azure
 A ligação de protocolo RDP (Remote Desktop) à sua baseado no Windows Azure máquina virtual (VM) pode falhar por várias razões, deixando-não é possível aceder à VM. O problema pode ser com o serviço de ambiente de trabalho remoto na VM, a ligação de rede ou o cliente de ambiente de trabalho remoto no computador anfitrião. Este artigo orienta-o através de alguns dos métodos mais comuns para resolver problemas de ligação de RDP. 

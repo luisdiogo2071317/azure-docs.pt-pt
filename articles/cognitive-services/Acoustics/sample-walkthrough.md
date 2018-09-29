@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227508"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434097"
 ---
 # <a name="unity-sample-walkthrough"></a>Instruções de exemplo do Unity
 Este é um passo a passo do exemplo Acoustics do projeto. Para obter mais informações sobre quais Acoustics de projeto são, consulte a [introdução ao projeto Acoustics](what-is-acoustics.md). Para obter ajuda na adicionar o pacote de projeto Acoustics para um projeto Unity já existente, utilize o [guia de introdução](getting-started.md).
@@ -29,13 +29,13 @@ Este é um passo a passo do exemplo Acoustics do projeto. Para obter mais inform
 Transferir e importar os **MicrosoftAcoustics.Sample.unitypackage**. Ao importar, incluindo de definições do projeto **Spatializer** e **versão de tempo de execução de scripts** são atualizados para atender aos requisitos do plug-in. Quando for concluído, verá um erro na consola do Unity partir **AcousticsGeometry.cs** sobre como alterar a versão de tempo de execução de scripts para **.NET 4.x equivalente**. Esta alteração de definições é feita como parte da importação do pacote, mas requer um reinício do Unity para entrar em vigor. Reinicie agora Unity.
 
 ## <a name="running-the-sample"></a>Executar o exemplo
-O exemplo inclui uma cena de demonstração **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Essa cena tem uma única origem áudio spatialized reprodução de um cubo de vírgula flutuante (com o nome **AudioHolder** no **hierarquia**). Para ajudar a fazer um script de navegação genérico, a câmera principal é um filho do objeto CameraHolder. 
+O exemplo inclui uma cena de demonstração **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Essa cena tem três origens de som. Por predefinição, apenas uma origem de som é jogar, e as outras duas estão em pausa. Eles estão localizados sob **origens de som** no **hierarquia**. Para ajudar a fazer um script de navegação genérico, a câmera principal é um filho do objeto CameraHolder. 
 
 ![Vista de hierarquia](media/SampleHierarchyView.png)
 
 A cena já foi integrada e tem um arquivo ACE associados com o **MicrosoftAcoustics** prefab no **hierarquia**. 
 
-Ouça a forma como a cena parece clicando no botão de reprodução no editor do Unity. Utilize W, A, S, D e o mouse para mover-se. Para comparar a forma como a cena parece com e sem acoustics, clique no botão esquerdo do mouse ou o botão de controlador primário. Para percorrer as várias origens de som, clique no botão direito do mouse ou o botão voltar no seu controlador.
+Ouça a forma como a cena parece clicando no botão de reprodução no editor do Unity. Na área de trabalho, utilize W, S, D e o mouse para mover-se. Para comparar a forma como a cena parece com e sem acoustics, prima a **R** botão até que o texto de sobreposição muda para vermelho e diz "Acoustics: desativado." Para ver os atalhos de teclado para obter mais controles, prima **F1**. Todos os controles são também pode ser utilizados com o botão direito clique para selecionar a ação a realizar, à esquerda, em seguida, clicar para executar a ação.
 
 ## <a name="targeting-other-platforms"></a>Filtragem de outras plataformas
 O exemplo contém definições para ser executado no ambiente de trabalho do Windows, UWP, realidade mista do Windows, Android e Oculus Go. Por predefinição, o projeto está configurado para o ambiente de trabalho do Windows. Para uma plataforma VR de destino, vá para as definições de leitor (**Editar > definições do projeto > Player**), localizar o **XR definições**e verificar o **suportado de realidade Virtual** caixa de verificação.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8ec0947d041dc0d4f5423a48a443ab2dd86949e2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782540"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434284"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -90,7 +90,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 
 | Propriedade | Requisitos |
 | --- | --- |
-| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes</li></ul> |
 | Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |

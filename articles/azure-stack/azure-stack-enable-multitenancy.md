@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720060"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451776"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Vários inquilinos no Azure Stack
 
@@ -101,7 +101,8 @@ Register-AzSWithMyDirectoryTenant `
 > Se o administrador do Azure Stack instalar novos serviços ou atualizações no futuro, terá de executar este script novamente.
 >
 > Execute este script novamente em qualquer altura para verificar o estado das aplicações no seu diretório do Azure Stack.
-
+> 
+> Se percebeu problemas com a criação de VMs em Managed Disks (introduzido na atualização 1808), uma nova **fornecedor de recursos de disco** foi adicionado, exigir que este script para ser executada novamente.
 
 ### <a name="activate-the-administrator-and-tenant-portals"></a>Ativar os portais de administrador e de inquilino
 Depois das implementações que utilizam o Azure AD, tem de ativar ambas do Azure Stack administrador portais e do inquilino. Esta ativação dá consentimento a que as permissões corretas (listadas na página de consentimento) para todos os utilizadores do diretório são o portal do Azure Stack e o Azure Resource Manager.

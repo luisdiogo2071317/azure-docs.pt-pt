@@ -3,7 +3,7 @@ title: Extensões de VM e recursos para Linux do Azure | Documentos da Microsoft
 description: Saiba que extensões estão disponíveis para máquinas virtuais do Azure, agrupadas pelo que fornecer ou melhorar.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971387"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452263"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões de máquina virtual e funcionalidades para Linux
 
@@ -407,7 +407,7 @@ Também pode remover uma extensão no portal do Azure da seguinte forma:
 | --- | --- | --- |
 | Extensão de Script personalizado para Linux |Executar scripts numa máquina virtual do Azure |[Extensão de Script personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso da VM |Recuperar o acesso a uma máquina virtual do Azure |[Extensão de acesso da VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Extensão de diagnóstico do Azure |Gerir o diagnóstico do Azure |[Extensão de diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Extensão do Diagnóstico do Azure |Gerir o diagnóstico do Azure |[Extensão de diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerir utilizadores e as credenciais |[Extensão de acesso da VM para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passos Seguintes

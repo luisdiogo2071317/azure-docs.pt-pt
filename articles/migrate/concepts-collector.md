@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 88bc0bdc29d1f578bd0d314c5c7425026dfd2d22
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160883"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434437"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -28,13 +28,13 @@ Implementar a aplicação Recoletora através de um modelo OVF:
 - Transfira o modelo OVF a partir de um projeto do Azure Migrate no portal do Azure. Importar o ficheiro transferido para o vCenter Server, para configurar a aplicação Recoletora VM.
 - Do OVF, VMware define uma VM com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional é Windows Server 2012 R2 (64 bits).
 - Ao executar o Recoletor, execute um número de verificações de pré-requisitos para se certificar de que o coletor pode ligar ao Azure Migrate.
- 
-- [Saiba mais](tutorial-assessment-vmware.md#create-the-collector-vm) sobre como criar o Recoletor. 
+
+- [Saiba mais](tutorial-assessment-vmware.md#create-the-collector-vm) sobre como criar o Recoletor.
 
 
 ## <a name="collector-prerequisites"></a>Pré-requisitos do recoletor
 
-O Recoletor tem de passar algumas verificações de pré-requisitos para garantir que pode estabelecer ligação ao serviço Azure Migrate através da internet e detetados de carregamento de dados. 
+O Recoletor tem de passar algumas verificações de pré-requisitos para garantir que pode estabelecer ligação ao serviço Azure Migrate através da internet e detetados de carregamento de dados.
 
 - **Verifique a ligação de internet**: O Recoletor pode ligar à internet diretamente ou através de um proxy.
     - A verificação de pré-requisitos verifica a conetividade à [URLs obrigatórios e opcionais](#connect-to-urls).
@@ -71,12 +71,12 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
     ![Localização do arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
     6. Selecione **colocar todos os certificados no seguinte arquivo** > **procurar** > **fabricantes fidedignos**. Clique em **concluir** para importar o certificado.
-    
+
     ![Arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
 
     7. Verifique que o certificado é importado conforme esperado e verifique que a verificação de pré-requisitos a conectividade internet funcionar conforme esperado.
 
-    
+
 
 
 ### <a name="connect-to-urls"></a>Ligar a URLs
@@ -87,7 +87,7 @@ A verificação de conectividade é validada ao ligar a uma lista de URLs.
 --- | --- | ---
 *.portal.azure.com | Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar manualmente o módulo.
- 
+
 
 ### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente o módulo de VMware PowerCLI
 
@@ -104,7 +104,7 @@ O Recoletor liga-se ao vCenter Server e consultas de metadados da VM e contadore
 - Por predefinição, vai ligar ao vCenter Server com um endereço IP ou FQDN. Se o vCenter Server escuta numa porta diferente, se conectar a ela utilizando a forma *IPAddress:Port_Number* ou *FQDN:Port_Number*.
 - Para recolher dados de desempenho de rede e armazenamento, as definições de estatísticas do vCenter Server pode ser definido como nível três.
 - Se o nível é menor do que funciona a deteção de três, mas não serão recolhidos os dados de desempenho. Alguns contadores podem ser recolhidas, mas outros será definido como zero.
-- Se não são recolhidos dados de desempenho de rede e armazenamento, recomendações de tamanho de avaliação são dados de desempenho com base para a CPU e memória e nos dados de configuração para os adaptadores de rede e disco. 
+- Se não são recolhidos dados de desempenho de rede e armazenamento, recomendações de tamanho de avaliação são dados de desempenho com base para a CPU e memória e nos dados de configuração para os adaptadores de rede e disco.
 - O Recoletor deve ter uma rede linha Visual para o servidor vCenter.
 
 #### <a name="account-permissions"></a>Permissões de conta
@@ -125,13 +125,10 @@ O recoletor comunica conforme resumido no diagrama e a tabela seguinte.
 --- | --- | ---
 Serviço do Azure Migrate | TCP 443 | Recoletor se comunica com o serviço Azure Migrate através de SSL 443.
 vCenter Server | TCP 443 | O Recoletor tem de ser capaz de comunicar com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter em 443.<br/><br/> Se o vCenter Server escuta numa porta diferente, essa porta deve estar disponível como porta de saída no Recoletor.
-RDP | TCP 3389 | 
-
-
+RDP | TCP 3389 |
 
 
 ## <a name="securing-the-collector-appliance"></a>Proteger a aplicação Recoletora
-
 
 Recomendamos os seguintes passos para proteger a aplicação Recoletora:
 
@@ -141,19 +138,23 @@ Recomendamos os seguintes passos para proteger a aplicação Recoletora:
 - Após a migração estiver concluída, elimine a instância da aplicação.
 - Além disso, após a migração, também elimine os ficheiros de cópia de segurança de discos (VMDKs), como os discos podem ter as credenciais do vCenter em cache nos mesmos.
 
-## <a name="updating-the-collector-vm"></a>A atualizar a VM do Recoletor
+## <a name="os-license-in-the-collector-vm"></a>Licença de SO na VM do recoletor
 
-Recomendamos a execução contínuas atualizações do Windows em que a aplicação Recoletora.
+O recoletor vem com uma licença de avaliação do Windows Server 2012 R2 que é válida por 180 dias. Se o período de avaliação está prestes a expirar para a sua VM do recoletor, recomenda-se para transferir uma nova OVA e criar um novo dispositivo.
+
+## <a name="updating-the-os-of-the-collector-vm"></a>A atualizar o SO da VM do Recoletor
+
+Apesar da aplicação recoletora ter uma licença de avaliação de 180 dias, precisa atualizar continuamente o sistema operacional na aplicação para evitar desligar automaticamente para baixo da aplicação.
 
 - Se o Recoletor não é atualizado nos últimos 60 dias, este começa a encerrar a máquina automaticamente.
 - Se estiver a executar uma deteção, a máquina não ser desativada, mesmo se passaram 60 dias. A máquina será desativada depois de concluída a deteção.
-- Se já usou o coletor de mais de 45 dias, recomendamos que mantenha a máquina de atualização em todo o tempo pela atualização do Windows em execução.
+- Se já usou o Recoletor durante mais de 60 dias, recomendamos que mantenha a máquina de atualização em todo o tempo pela atualização do Windows em execução.
 
 ## <a name="upgrading-the-collector-appliance-version"></a>Atualizar a versão da aplicação de Recoletor
 
 Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA novamente.
 
-1. Transferir o [mais recente listado o pacote de atualização](concepts-collector-upgrade.md) 
+1. Transferir o [mais recente listado o pacote de atualização](concepts-collector-upgrade.md)
 2. Para garantir que a correção transferida é segura, abra a janela de comando de administrador e execute o seguinte comando para gerar o hash para o ficheiro ZIP. O hash gerado deve corresponder com o hash mencionado em relação a versão específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -179,8 +180,6 @@ O Recoletor comunica de forma única com o vCenter Server para recolher os metad
 - Depois de definir o nível a três, demoram até um dia para gerar os contadores de desempenho. Como tal, recomendamos que execute a deteção depois de um dia.
 - Aquando da recolha de dados de desempenho para uma VM, a aplicação da conta com os dados de desempenho do histórico armazenados no vCenter Server. Recolhe o histórico de desempenho para o último mês.
 - O Azure Migrate recolhe um contador médio (em vez de um contador de pico) para cada uma.
-     
-
 
 ### <a name="continuous-discovery"></a>Deteção contínua
 
@@ -191,12 +190,12 @@ A aplicação Recoletora fica continuamente conectada ao projeto do Azure Migrat
 - A aplicação agrega os exemplos de 20 segundos e cria um único ponto de dados a cada 15 minutos.
 - Para criar os dados ponto a aplicação da seleciona o valor de pico de exemplos de 20 segundos e envia-os para o Azure.
 - Pode parar contínua de criação de perfis em qualquer altura do Recoletor.
-     
+
 > [!NOTE]
 > A funcionalidade de deteção contínua está em pré-visualização. Se as definições de estatísticas do vCenter Server não está definida como nível 3, recomendamos que utilize este método.
 
 
-## <a name="discovery-process"></a>Processo de deteção 
+## <a name="discovery-process"></a>Processo de deteção
 
 Depois de configurar a aplicação, pode executar a deteção. Eis como funciona:
 
@@ -208,7 +207,6 @@ Depois de configurar a aplicação, pode executar a deteção. Eis como funciona
 - Deteção das VMs e seus dados de desempenho e de metadados são enviados para o Azure. Estas ações fazem parte de uma tarefa de coleção.
     - A aplicação Recoletora é atribuída um ID específico do Recoletor que é persistente para um determinado computador entre deteções.
     - Uma tarefa em execução é fornecida um ID de sessão específicos. O ID é alterado para cada tarefa de coleção e pode ser utilizado para resolução de problemas.
-
 
 ### <a name="collected-metadata"></a>Metadados recolhidos
 
@@ -223,13 +221,10 @@ A aplicação recoletora Deteta os seguintes metadados estático para VMs:
 - Tamanho da memória, tamanhos de disco
 - Contadores de desempenho da VM, disco e rede.
 
-
-
 #### <a name="performance-counters"></a>Contadores de desempenho
 
+- **Deteção única**: ao contadores são recolhidos para uma deteção única, tenha em atenção o seguinte:
 
-- **Deteção única**: ao contadores são recolhidos para uma deteção única, tenha em atenção o seguinte: 
-        
     - Pode demorar até 15 minutos para recolher e enviar metadados de configuração para o projeto.
     - Depois de recolhidos, os dados de configuração pode demorar até uma hora para dados de desempenho estejam disponíveis no portal.
     - Depois dos metadados estão disponível no portal, é apresentada a lista de VMs e pode começar a criar grupos para avaliação.
@@ -237,10 +232,8 @@ A aplicação recoletora Deteta os seguintes metadados estático para VMs:
     - Dados de configuração para a VM estão disponíveis uma hora depois de Iniciar deteção
     - Dados de desempenho começaram a se tornarem disponíveis após 2 horas.
     - Depois de iniciar a deteção, aguarde pelo menos um dia para a aplicação para criar um perfil do ambiente, antes de criar avaliações.
-    
-   
 
-**Contador** | **Nível** | **Nível de por dispositivo** | **Impacto na avaliação** 
+**Contador** | **Nível** | **Nível de por dispositivo** | **Impacto na avaliação**
 --- | --- | --- | ---
 cpu.usage.average | 1 | ND | Tamanho VM recomendados e os custos  
 Mem.Usage.Average | 1 | ND | Tamanho VM recomendados e os custos  
@@ -250,9 +243,6 @@ virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula o tamanho do disco, o 
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 NET.Received.Average | 2 | 3 |  Calcula o custo de tamanho e a rede VM                        |
 net.transmitted.average | 2 | 3 | Calcula o custo de tamanho e a rede VM    
-
-
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

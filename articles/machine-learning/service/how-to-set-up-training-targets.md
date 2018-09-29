@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952414"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452311"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
 
@@ -23,7 +23,7 @@ Com o serviço Azure Machine Learning, pode preparar o seu modelo em vários amb
 
 Um destino de computação é o recurso que executa o script de treinamento ou anfitriões seu modelo quando for implementada como um serviço web. Eles podem ser criados e geridos com o SDK do Azure Machine Learning ou a CLI. Se tiver de destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
 
-Pode começar com execuções locais na sua máquina e, em seguida, aumentar verticalmente e horizontalmente para outros ambientes, tais como máquinas de virtuais de ciência de dados remotas com GPU ou do Azure Batch AI. 
+Pode começar com execuções locais no seu computador e, em seguida, aumentar verticalmente e horizontalmente para outros ambientes, tais como máquinas de virtuais de ciência de dados remotas com GPU ou do Azure Batch AI. 
 
 ## <a name="supported-compute-targets"></a>Destinos de computação suportados
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+Para um bloco de notas do Jupyter que demonstra o treinamento num ambiente gerenciado por utilizador, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Ambiente de sistema gerido
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+Para um bloco de notas do Jupyter que demonstra o treinamento num ambiente gerenciados pelo sistema, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Máquina de Virtual de ciência de dados
 
 Seu computador local não pode ter a computação ou de recursos GPU necessários para preparar o modelo. Nesta situação, pode aumentar ou destinos, como um máquinas virtuais de ciência de dados (DSVM) de computação de aumento horizontal o processo de treinamento, adicionando adicionais.
@@ -190,6 +195,8 @@ Os passos seguintes utilizam o SDK para configurar uma Máquina Virtual de ciên
     dsvm_compute.delete()
     ```
 
+Para um bloco de notas do Jupyter que demonstra o treinamento numa máquina de Virtual de ciência de dados, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>O Azure Batch AI
 
 Se ele demora muito tempo para preparar o seu modelo, pode utilizar o Azure Batch AI para distribuir o treinamento em clusters de recursos de computação na cloud. O batch AI também pode ser configurado para permitir que um recurso GPU.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-Para anexar um cluster do Batch AI existente como um destino de computação, tem de fornecer o id de recurso do Azure. Para obter o id de recurso no portal do Azure, precisará para:
+Para anexar um cluster do Batch AI existente como um destino de computação, tem de fornecer o ID de recurso do Azure. Para obter o ID de recurso no portal do Azure, utilize os seguintes passos:
 1. Procure `Batch AI` serviço sob **todos os serviços**
 1. Clique no nome da área de trabalho em que o seu cluster pertence
 1. Selecione o cluster
 1. Clique em **propriedades**
-1. Copiar o **Id**
+1. Copiar o **ID**
 
-O exemplo seguinte utiliza o SDK para anexar um cluster a sua área de trabalho. No exemplo, substitua `<name>` com qualquer nome para a computação. Isso não tem de corresponder ao nome do cluster. Substitua `<resource-id>` com o id de recurso do Azure detalhado acima:
+O exemplo seguinte utiliza o SDK para anexar um cluster a sua área de trabalho. No exemplo, substitua `<name>` com qualquer nome para a computação. O nome tem de corresponder ao nome do cluster. Substitua `<resource-id>` com o recurso do Azure ID detalhados acima:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ Também pode verificar o estado de cluster e de trabalho de IA do Batch com os c
 - Verifique o estado do cluster. Pode ver quantos nós estão em execução usando `az batchai cluster list`.
 - Verifique o estado da tarefa. Pode ver o número de tarefas estão executando utilizando `az batchai job list`.
 
-Demora cerca de 5 minutos para criar o cluster do Batch AI
+Demora cerca de 5 minutos para criar o cluster de IA do Batch.
+
+Para um bloco de notas do Jupyter que demonstra o treinamento num cluster do Batch AI, veja [ https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Instância de contentor do Azure (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 Pode demorar entre alguns segundos para alguns minutos para criar um destino de computação do ACI.
+
+Para um bloco de notas do Jupyter que demonstra o treinamento na instância de contentor do Azure, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Anexar um cluster do HDInsight 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Para um bloco de notas do Jupyter que demonstra o treinamento com o Spark no HDInsight, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Ver e configurar a computação no portal do Azure
 
 Pode ver o que a computação de destinos estão associados a sua área de trabalho do portal do Azure. Para obter a lista, utilize os seguintes passos:
@@ -403,6 +416,7 @@ Siga os passos acima para ver a lista de destinos de computação e, em seguida,
 Os seguintes blocos de notas demonstram os conceitos deste artigo:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

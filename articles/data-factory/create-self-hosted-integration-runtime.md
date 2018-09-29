@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 379dd0efb0c40cbab6e356f011938d3e6116117e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162275"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434199"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Runtime de integração autoalojado
 O Runtime de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do Runtime de integração](concepts-integration-runtime.md).
@@ -32,7 +32,7 @@ Este documento apresenta como pode criar e configurar a ir de autoalojado.
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2. Transferir e instalar o runtime de integração autoalojado (na máquina local).
+2. [Transferir](https://www.microsoft.com/download/details.aspx?id=39717) e instalar o runtime de integração autoalojado (na máquina local).
 3. Obter a chave de autenticação e registar o runtime de integração autoalojado com a chave. Eis um exemplo do PowerShell:
 
     ```powershell
@@ -95,7 +95,7 @@ Runtime de integração autoalojado que pode ser instalado baixando um pacote de
 9. Obtenha a chave de autenticação com o Azure PowerShell. Exemplo do PowerShell para obter a chave de autenticação:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Sobre o **registar o Integration Runtime (autoalojado)** página do Microsoft Integration Runtime Configuration Manager em execução no seu computador, siga os passos abaixo:
     1. Colar o **chave de autenticação** na área de texto.

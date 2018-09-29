@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ca35e13c502efadad07ef78077271923951ae4b1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038226"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451889"
 ---
 # <a name="edit-a-knowledge-base"></a>Editar uma base de dados de conhecimento
 
@@ -30,8 +30,24 @@ A ferramenta QnA Maker permite-lhe gerir o conteúdo da sua base de dados de con
     ![Meu Bases de dados de conhecimento](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Selecione uma base de dados de conhecimento específica para fazer edições ao mesmo.
+ 
+3. Clique em **Definições**.
 
-3. Quando tiver terminado de efetuar alterações para a base de dados de conhecimento, clique em **guardar e treinar** no canto superior direito da página para manter as alterações.    
+   Aqui pode editar o nome do serviço de campo obrigatório.
+  
+   Pode adicionar novos Urls para adicionar o novo conteúdo de perguntas frequentes sobre a base de conhecimento ao clicar em **Gerir base de dados de conhecimento da -> "+ Adicionar URL'** ligação.
+   
+   Pode eliminar URLs existentes ao clicar em **ícone Eliminar**.
+   
+   Se pretender que a base de conhecimento para pesquisar o conteúdo mais recente de URLs existentes, o nome de caixa de verificação de escala **'Atualizar'**, esta ação irá atualizar a base de conhecimento com conteúdo mais recente do URL.
+   
+Pode adicionar o documento de ficheiro suportados para fazer parte da base de conhecimento, ao clicar em **Gerir base de dados de conhecimento da -> "+ adicionar o ficheiro"**
+
+Também pode importar qualquer base de conhecimento existente clicando **base de Ímport conhecimento** botão. 
+   
+Depende da atualização da base de conhecimento **escalão de preço de gestão** a ser utilizado ao criar o serviço QnA Maker associado ao seu knowledgbase. Também pode atualizar o escalão de gestão a partir do portal do Azure, se necessário.
+
+4. Quando tiver terminado de efetuar alterações para a base de dados de conhecimento, clique em **guardar e treinar** no canto superior direito da página para manter as alterações.    
 
     ![Guardar e preparar](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

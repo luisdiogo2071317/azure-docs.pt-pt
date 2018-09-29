@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 5cde4dcbbaaeb56a539faec9b2888ac22f6dbaea
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.date: 09/28/2018
+ms.openlocfilehash: 2c4f772bbf4f0a5bb6eb2323eefa906fba0e5653
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182319"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451414"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados na base de dados do Azure SQL
 
@@ -35,7 +35,7 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>modelo de compra baseado em vCore: recursos de computação de alteração
 
-Após escolher inicialmente o número de vCores, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](/rest/api/sql/databases/update). 
+Após escolher inicialmente o número de vCores, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou a [REST API](/rest/api/sql/databases/update). 
 
 Alterar o serviço de camada e/ou tamanho de uma base de dados cria uma réplica da base de dados original com o novo tamanho de computação e, em seguida, troca ligações para a réplica de computação. Não são perdidos dados durante este processo mas durante o breve momento em que trocamos para a réplica, as ligações à base de dados são desativadas, pelo que algumas transações em voo poderão ser revertidas. O período de tempo para o comutador-over varia, mas é, geralmente, menos de 4 segundos é inferior a 30 segundos 99% do tempo. Se houver grandes números de transações em voo nas ligações do momento em que estão desativados, o período de tempo para o comutador-over pode demorar mais. 
 
@@ -53,7 +53,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>Modelo de compra baseado em DTU: alterar o tamanho de armazenamento
 
 - O preço DTU para bases de dados única inclui uma certa quantidade de armazenamento sem custos adicionais. Pode ser aprovisionado armazenamento extra para além da quantidade incluída por um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB a 1 TB e, em seguida, em incrementos de 256 GB a partir de 1 TB. Para quantidades de armazenamento incluído e limites de tamanho máximo, consulte [base de dados: tamanhos de armazenamento e tamanhos de computação](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Armazenamento extra para uma base de dados pode ser aprovisionado, aumentando a seu tamanho máximo do portal do Azure, [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](/rest/api/sql/databases/update).
+- Armazenamento extra para uma base de dados pode ser aprovisionado por seu tamanho máximo do portal do Azure, o aumento [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [da CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [ REST API](/rest/api/sql/databases/update).
 - O preço do armazenamento extra para uma base de dados é a quantidade de armazenamento extra multiplicada pelo preço de unidade de armazenamento extra da camada de serviços. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -61,7 +61,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>Modelo de compra baseado em DTU: recursos (DTUs) de computação de alteração
 
-Após escolher inicialmente um escalão de serviço, o tamanho de computação e a quantidade de armazenamento, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real com o portal do Azure, [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](/rest/api/sql/databases/update). 
+Após escolher inicialmente um escalão de serviço, o tamanho de computação e a quantidade de armazenamento, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real com o portal do Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](/rest/api/sql/databases/update). 
 
 Mostra o vídeo seguinte alterar dinamicamente o serviço de camada e tamanho de aumentar DTUs disponíveis para uma base de dados de computação.
 

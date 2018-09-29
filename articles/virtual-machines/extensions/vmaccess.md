@@ -3,7 +3,7 @@ title: Reponha o acesso a uma VM do Linux do Azure | Documentos da Microsoft
 description: Como gerir os utilizadores administrativos e reponha o acesso em VMs do Linux com a extensão VMAccess e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998632"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452059"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerir os utilizadores administrativos, SSH e verificar ou reparar discos em VMs do Linux com a extensão VMAccess com a CLI do Azure
 ## <a name="overview"></a>Descrição geral
 O disco na sua VM do Linux está a Mostrar erros. Alguma forma repor a palavra-passe de raiz para a sua VM do Linux ou eliminado acidentalmente a chave privada SSH. Se o que aconteceu na época do Data Center, precisaria para lá da unidade e, em seguida, abra o KVM para obter a consola do servidor. Considere a extensão VMAccess do Azure como esse comutador KVM que permite-lhe aceder à consola para repor o acesso ao Linux ou realizar a manutenção de nível de disco.
 
 Este artigo mostra-lhe como utilizar a extensão VMAccess do Azure para verificar ou reparar um disco, reponha o acesso de utilizador, gerir contas de utilizador administrativo ou atualizar a configuração de SSH no Linux, que são executados como máquinas de virtuais do Azure Resource Manager. Se precisar de gerir máquinas virtuais de clássico - pode seguir as instruções no [documentação da VM clássica](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> Se utilizar a extensão VMAccess para repor a palavra-passe da sua VM depois de instalar a extensão de início de sessão do AAD tem de executar novamente a extensão de início de sessão do AAD para voltar a ativar o início de sessão do AAD para a sua máquina.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="operating-system"></a>Sistema operativo

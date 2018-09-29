@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024114"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434947"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 Roaming de estado empresarial está disponível para qualquer organização com um Azure AD Premium ou Enterprise Mobility + licença Security (EMS). Para obter mais informações sobre como obter uma subscrição do Azure AD, consulte a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -45,9 +45,9 @@ Dados de Roaming de estado empresarial são hospedados num ou mais [regiões do 
 
 Valor de país/região | tem dos dados hospedados em
 ---------------------|-------------------------
-Um país EMEA, como "França" ou "Zâmbia" | uma ou das regiões do Azure dentro da Europa 
-Um país América do Norte, como "EUA" ou "Canadá" | uma ou mais das regiões do Azure nos E.U.A.
-Um país APAC, como "Australia" ou "Nova Zelândia" | uma ou mais das regiões do Azure na Ásia
+Um país EMEA como França ou Zâmbia | Uma ou mais das regiões do Azure dentro da Europa 
+Um país América do Norte, como Estados Unidos ou Canadá | uma ou mais das regiões do Azure nos E.U.A.
+Um país APAC, como Austrália e Nova Zelândia | uma ou mais das regiões do Azure na Ásia
 Regiões da América do Sul e Antárctica | um ou mais regiões do Azure nos E.U.A.
 
 O valor de país/região está definido como parte do processo de criação de diretório do Azure AD e não pode ser modificado posteriormente. Se precisar de obter mais detalhes na sua localização de armazenamento de dados, um ticket [suporte do Azure](https://azure.microsoft.com/support/options/).

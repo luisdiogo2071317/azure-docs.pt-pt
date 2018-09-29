@@ -9,18 +9,18 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5822c313cf0fb5848726cf85c46cda2a3a408264
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964109"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434624"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
 O serviço de voz fornece uma funcionalidade de texto em voz através de um pedido HTTP simples. `POST` o texto seja falado para o ponto final adequado e o serviço retorna um arquivo de áudio (`.wav`) que contém sintetizadas voz. Seu aplicativo, em seguida, pode utilizar este áudio como gosta.
 
-O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII ou UTF8) ou uma [SSML](speech-synthesis-markup.md) documento. Pedidos de texto sem formatação são ditas com uma voz de predefinição. Na maioria dos casos, queira usar um corpo SSML. O pedido HTTP tem de incluir uma [autorização](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII ou UTF8) ou uma [SSML](speech-synthesis-markup.md) documento. Pedidos de texto sem formatação são ditas com uma voz de predefinição. Na maioria dos casos, queira usar um corpo SSML. O pedido HTTP tem de incluir uma [autorização](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token.
 
 Os pontos de extremidade regional texto em voz são mostrados aqui. Utilize o que é adequado à sua subscrição.
 
@@ -38,11 +38,11 @@ Para especificar uma voz, utilize o `<voice>` [SSML](speech-synthesis-markup.md)
 </speak>
 ```
 
-Ver [vozes de texto em voz](supported-languages.md#text-to-speech) para obter uma lista das vozes disponíveis e seus nomes.
+Ver [vozes de texto em voz](language-support.md#text-to-speech) para obter uma lista das vozes disponíveis e seus nomes.
 
 ## <a name="make-a-request"></a>Fazer um pedido
 
-É efetuado um pedido de texto em voz HTTP no modo de mensagem com o texto seja falado no corpo do pedido. O comprimento máximo de corpo do pedido HTTP é de 1024 caracteres. O pedido tem de ter os seguintes cabeçalhos: 
+É efetuado um pedido de texto em voz HTTP no modo de mensagem com o texto seja falado no corpo do pedido. O comprimento máximo de corpo do pedido HTTP é de 1024 caracteres. O pedido tem de ter os seguintes cabeçalhos:
 
 Cabeçalho|Valores|Comentários
 -|-|-

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985886"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452552"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -68,7 +68,7 @@ Pode executar o direcionamento três classes de volumes de instantâneos de arma
 - Um instantâneo separado sobre/hana/logbackups.
 - Uma partição de sistema operativo.
 
-Obtenha as mais recentes scripts de instantâneo e documentação de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Obtenha as mais recentes scripts de instantâneo e documentação de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Ao baixar o pacote de script de instantâneo dos [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), também obtém a documentação de PDF para os scripts como parte do pacote do script. Cada pacote de script tem sua própria documentação de PDF.
 
 ## <a name="storage-snapshot-considerations"></a>Considerações de instantâneo de armazenamento
 
@@ -114,7 +114,7 @@ Para configurar a instantâneos de armazenamento com instâncias grandes do HANA
 1. Copiar os scripts e o ficheiro de configuração da [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) para a localização dos **hdbsql** na instalação do SAP HANA.
 1. Modificar a *HANABackupDetails.txt* ficheiro conforme necessário para as especificações de cliente adequado.
 
-Obtenha as mais recentes scripts de instantâneo e documentação de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Obtenha as mais recentes scripts de instantâneo e documentação de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Ao baixar o pacote de script de instantâneo dos [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), também obtém a documentação de PDF para os scripts como parte do pacote do script. Cada pacote de script tem sua própria documentação de PDF.
 
 ### <a name="consideration-for-mcod-scenarios"></a>Consideração para cenários MCOD
 Se estiver a executar uma [cenário MCOD](https://launchpad.support.sap.com/#/notes/1681092) com várias instâncias do SAP HANA numa só unidade de instância grande do HANA, tem volumes de armazenamento separada aprovisionados para cada uma das instâncias do SAP HANA. Na versão atual da automação de instantâneo de self-service, não pode iniciar instantâneos separados em todos os sistemas de instância HANA SID (identificador). A funcionalidade oferece verificações para o SAP HANA nas instâncias registado do servidor no ficheiro de configuração (consulte este artigo) e executa um instantâneo simultâneo dos volumes de todas as instâncias registadas na unidade.

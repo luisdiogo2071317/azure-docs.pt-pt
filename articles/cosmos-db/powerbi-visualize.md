@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057005"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452416"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial de BI de energia para o Azure Cosmos DB: visualizar dados utilizando o conector do Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) é um serviço online onde pode criar e partilhar dashboards e relatórios com dados que são importantes para e sua organização.  O ambiente de trabalho do Power BI é um ferramenta que permite-lhe recuperar dados de várias origens de dados, intercalar e transformar os dados, criar relatórios avançados e visualizações e publicar os relatórios no Power BI de criação de relatórios dedicado.  Com a versão mais recente do Power BI Desktop, pode agora ligar à sua conta do Azure Cosmos DB através do conector do Azure Cosmos DB para o Power BI.   
@@ -34,7 +34,7 @@ Depois de concluir este tutorial do Power BI, será capaz de responder às segui
 > O conector do Power BI para o Azure Cosmos DB liga-se ao Power BI Desktop para extração e a transformação de dados. Relatórios criados no Power BI Desktop, em seguida, podem ser publicados para o PowerBI.com. Extração direta e a transformação de dados do Azure Cosmos DB não não possível efetuar no PowerBI.com. 
 
 > [!NOTE]
-> Ligar ao Azure Cosmos DB com o conector do Power BI é atualmente suportada para o Azure Cosmos DB SQL e apenas para contas de API do MongoDB. Para ligar o Azure Cosmos DB para o Power BI com a API do MongoDB, tem de utilizar o [Simba MongoDB ODBC Driver](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> Ligar ao Azure Cosmos DB com o conector do Power BI é atualmente suportado para a API de SQL do Azure Cosmos DB e apenas para contas de API do Gremlin.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de seguir as instruções neste tutorial do Power BI, certifique-se de que tem acesso para os seguintes recursos:

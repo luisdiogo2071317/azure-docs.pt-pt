@@ -8,18 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: e8d12320eea1d0fa2dad7fffb8d29ae8b53cee14
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369395"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454506"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para bases de dados de grandes volumes de dados SQL e NoSQL. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
 A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.  As VMs da série ls são ideais para aplicações que requerem baixa latência, alto débito e armazenamento de disco local grandes. 
 
 Casos de utilização de exemplo incluem bases de dados NoSQL como Cassandra, MongoDB, Cloudera e Redis, o armazenamento de dados e grandes bancos de dados transacionais.
+
+> [!NOTE]
+> A série Ls é otimizada para utilização do disco temporário anexado para a máquina VM em vez de utilização de discos de dados durável. O alto débito e IOPS do disco temporário torna a série Ls ideal para arquivos de NoSQL, como o Apache Cassandra e MongoDB que replique dados em várias VMs para alcançar a persistência no caso de falha de uma única VM. A série Ls não suporta a criação de um cache local para aumentar o IOPS alcançável por discos de dados durável.
 
 ## <a name="ls-series"></a>Série Ls
 

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987004"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434930"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam utilizando um modelo do Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
@@ -83,7 +83,7 @@ Na máquina virtual recurso de conjunto de dimensionamento, localize a **virtual
 
 Na **extensionProfile**, adicionar uma nova extensão para o modelo, conforme exibido a **secção VMSS-WAD-extension**.  Esta secção é a extensão de identidade de serviço gerida (MSI) que garante que as métricas que está a ser emitidas são aceites pelo Azure Monitor. O **nome** campo pode conter qualquer nome. 
 
-O código abaixo abaixo a extensão MSI também adiciona a extensão de diagnóstico e a configuração como um recurso de extensão para o recurso de conjunto de dimensionamento de máquina virtual. Fique à vontade Adicionar/remover contadores de desempenho, conforme necessário. 
+O código por baixo do que a extensão MSI também adiciona a extensão de diagnóstico e a configuração como um recurso de extensão para o recurso de conjunto de dimensionamento de máquina virtual. Fique à vontade Adicionar/remover contadores de desempenho, conforme necessário. 
 
 ```json
           "extensionProfile": { 

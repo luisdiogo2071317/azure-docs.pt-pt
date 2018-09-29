@@ -8,18 +8,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6945e31825af46628c0945cdf579382b20bdcd68
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414568"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452569"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Saída de armazenamento (pré-visualização) de blob de padrões de caminho de DateTime personalizadas para o Azure Stream Analytics
 
 O Azure Stream Analytics suporta datas personalizadas e especificadores de formato de tempo no caminho de ficheiro para saídas de armazenamento de Blobs. Padrões de caminho de DateTime personalizadas permitem-lhe especificar um formato de saída que se alinha com convenções de ramo de registo de transmissão em fluxo, oferecendo a capacidade de enviar dados para o Azure HDInsight e o Azure Databricks para processar downstream de Azure Stream Analytics. Padrões de caminho de DateTime personalizados facilmente são implementados usando o `datetime` palavra-chave no campo de prefixo do caminho do seu blob de saída, juntamente com o especificador de formato. Por exemplo, `{datetime:yyyy}`.
 
-Utilize esta ligação para [Portal do Azure](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) para ativar/desativar o sinalizador de funcionalidade que permite que os padrões de caminho de DateTime personalizados para a pré-visualização de saída de armazenamento de Blobs. Esta funcionalidade será ativada em breve no portal do principal.
+Utilize esta ligação para [Portal do Azure](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) para ativar/desativar o sinalizador de funcionalidade que permite que os padrões de caminho de DateTime personalizados para a pré-visualização de saída de armazenamento de Blobs. Esta funcionalidade será ativada em breve no portal do principal.
 
 ## <a name="supported-tokens"></a>Tokens suportados
 

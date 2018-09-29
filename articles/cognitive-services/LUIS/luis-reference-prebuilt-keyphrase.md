@@ -10,15 +10,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4141c5aea93b308a7149b91001fbf1c88d629d79
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4133b7c7c3fabbe92a3208c567d7b4c6c2c27283
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037988"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434403"
 ---
 # <a name="keyphrase-entity"></a>Entidade keyPhrase
-keyPhrase extrai uma variedade de expressões-chave de uma expressão. Não é necessário adicionar expressões de exemplo que contém keyPhrase à aplicação. entidade keyPhrase é suportada no [várias culturas](luis-supported-languages.md#languages-supported) como parte do [análise de texto](../text-analytics/overview.md) funcionalidades. 
+keyPhrase extrai uma variedade de expressões-chave de uma expressão. Não é necessário adicionar expressões de exemplo que contém keyPhrase à aplicação. entidade keyPhrase é suportada no [várias culturas](luis-language-support.md#languages-supported) como parte do [análise de texto](../text-analytics/overview.md) funcionalidades. 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução de entidade keyPhrase pré-criados
 O exemplo seguinte mostra a resolução do **builtin.keyPhrase** entidade.
@@ -49,4 +49,4 @@ O exemplo seguinte mostra a resolução do **builtin.keyPhrase** entidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md), e [idade](luis-reference-prebuilt-age.md) entidades. 
+Saiba mais sobre o [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md), e [idade](luis-reference-prebuilt-age.md) entidades.

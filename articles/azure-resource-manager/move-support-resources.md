@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4ec09f5ed57dca89934efa750eed05e1ebcb1216
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298290"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434981"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -190,6 +190,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | registos | Sim | Sim |
 | registos/buildtasks | Sim | Sim |
 | replicações/registos | Não | Não |
+| registos/tarefas | Sim | Sim |
 | registos/webhooks | Sim | Sim |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
@@ -197,6 +198,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | containerservices | Não | Não |
 | managedclusters | Não | Não |
+| openshiftmanagedclusters | Não | Não |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -276,6 +278,15 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | servergroups | Não | Não |
 | servidores | Sim | Sim |
+
+## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+| Tipo de recurso | Grupo de recursos | Subscrição |
+| ------------- | -------------- | ------------ |
+| artifactsources | Não | Não |
+| Implementações | Não | Não |
+| servicetopologies | Não | Não |
+| servicetopologies/serviços | Não | Não |
+| servicetopologies/serviços/serviceunits | Não | Não |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -417,6 +428,11 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | accounts | Sim | Sim |
 
+## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
+| Tipo de recurso | Grupo de recursos | Subscrição |
+| ------------- | -------------- | ------------ |
+| áreas de trabalho | Sim | Sim |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
@@ -449,15 +465,22 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | applicationgateways | Não | Não |
 | applicationsecuritygroups | Sim | Sim |
+| azurefirewalls | Sim | Sim |
 | ligações | Sim | Sim |
 | ddosprotectionplans | Não | Não |
 | dnszones | Sim | Sim |
 | expressroutecircuits | Não | Não |
+| expressroutecrossconnections | Não | Não |
+| expressroutegateways | Não | Não |
 | expressrouteports | Não | Não |
+| frontdoors | Sim | Sim |
+| frontdoorwebapplicationfirewallpolicies | Sim | Sim |
+| interfaceendpoints | Não | Não |
 | balanceadores de carga | Sim | Sim |
 | localnetworkgateways | Sim | Sim |
 | networkintentpolicies | Sim | Sim |
 | networkinterfaces | Sim | Sim |
+| networkprofiles | Não | Não |
 | networksecuritygroups | Sim | Sim |
 | networkwatchers | Sim | Sim |
 | networkwatchers/connectionmonitors | Sim | Sim |
@@ -467,9 +490,16 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | publicipprefixes | Sim | Sim |
 | routefilters | Não | Não |
 | routetables | Sim | Sim |
+| serviceendpointpolicies | Sim | Sim |
 | trafficmanagerprofiles | Sim | Sim |
+| virtualhubs | Sim | Sim |
 | virtualnetworkgateways | Sim | Sim |
 | redes virtuais | Sim | Sim |
+| virtualnetworktaps | Não | Não |
+| virtualwans | Sim | Sim |
+| vpngateways | Sim | Sim |
+| vpnsites | Sim | Sim |
+| webapplicationfirewallpolicies | Sim | Sim |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -568,6 +598,8 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
+| managedinstances | Sim | Sim |
+| managedinstances/bases de dados | Sim | Sim |
 | servidores | Sim | Sim |
 | bases de dados/servidores | Sim | Sim |
 | servidores/elasticpools | Sim | Sim |

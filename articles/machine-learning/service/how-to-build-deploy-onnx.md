@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: acd5c1e1ae4aefa94ca4d1f6ef510ab1b028c3dd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164901"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434080"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e o Azure Machine Learning: crie e implemente modelos de IA interoperáveis
 
@@ -68,7 +68,7 @@ Com o serviço do Azure Machine Learning, pode implementar, gerir e monitorizar 
 
 ### <a name="install-and-configure-the-onnx-runtime"></a>Instalar e configurar o tempo de execução ONNX
 
-O tempo de execução ONNX são um motor de inferência de tipos de alto desempenho para modelos ONNX. Ele vem com uma API de Python e fornece a aceleração de hardware na CPU e GPU. Atualmente ele oferece suporte a modelos ONNX 1.2 e é executado no Ubuntu 16.04 Linux.
+O tempo de execução ONNX são um motor de inferência de tipos de alto desempenho para modelos ONNX. Ele vem com uma API de Python e fornece a aceleração de hardware na CPU e GPU. Atualmente ele oferece suporte a modelos ONNX 1.2 e é executado no Ubuntu 16.04 Linux. Ambos [CPU](https://pypi.org/project/onnxruntime) e [GPU](https://pypi.org/project/onnxruntime-gpu) pacotes estão disponíveis em [PyPi.org](https://pypi.org).
 
 Para instalar o tempo de execução ONNX, utilize:
 ```python
@@ -173,13 +173,14 @@ Eis um exemplo para implementar um modelo ONNX:
    O ficheiro `myenv.yml` descreve as dependências necessárias para a imagem. Ver isso [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) para obter instruções sobre como criar um arquivo de ambiente, como este ficheiro de exemplo:
 
    ```
-   name: myenv
-   channels:
-     - defaults
-   dependencies:
-     - pip:
-       - onnxruntime
-       - azureml-core
+   from azureml.core.conda_dependencies import CondaDependencies 
+
+   myenv = CondaDependencies()
+   myenv.add_pip_package("azureml-core")
+   myenv.add_pip_package("onnxruntime")
+
+   with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
    ```
 
 4. Implemente o seu modelo ONNX com o Azure Machine Learning para:

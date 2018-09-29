@@ -1,33 +1,41 @@
 ---
 title: Ligar ao armazenamento de Blobs do Azure - Azure Logic Apps | Documentos da Microsoft
 description: Criar e gerir os blobs no armazenamento do Azure com o Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d8658740772ed4a11fdfd70a0c925ac1b597dd69
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35294684"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452025"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerir os blobs no armazenamento de Blobs do Azure com o Azure Logic Apps
 
 Este artigo mostra como pode aceder e gerir ficheiros armazenados como blobs na sua conta de armazenamento do Azure de dentro de uma aplicação lógica com o conector do armazenamento de Blobs do Azure. Dessa forma, pode criar aplicações lógicas que automatizam as tarefas e fluxos de trabalho para gerir os seus ficheiros. Por exemplo, pode criar aplicações lógicas que criarem, obterem, atualizar e eliminar ficheiros na sua conta de armazenamento.
 
-Suponha que tenha uma ferramenta que é atualizada a um web site do Azure. que atua como o acionador da aplicação lógica. Quando ocorre este evento, pode ter a sua aplicação lógica atualizar alguns ficheiros no contentor de armazenamento de blob, que é uma ação na sua aplicação lógica. 
+Suponha que tenha uma ferramenta que é atualizada a um site do Azure. que atua como o acionador da aplicação lógica. Quando ocorre este evento, pode ter a sua aplicação lógica atualizar alguns ficheiros no contentor de armazenamento de blob, que é uma ação na sua aplicação lógica. 
 
-Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+> [!NOTE]
+> O Logic Apps não suporta a ligação direta para contas de armazenamento do Azure através de firewalls. Para aceder a estas contas de armazenamento, utilize uma das opções aqui: 
+>
+> * Criar uma [ambiente do serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode ligar aos recursos numa rede virtual do Azure. 
+> 
+> * Se já utilizar a gestão de API, pode utilizar este serviço para este cenário. Para mais informações, veja [arquitetura de integração empresarial simples](http://aka.ms/aisarch).
+
+Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">referência do conector do armazenamento de Blobs do Azure</a>.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+* Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
 
 * Um [conta de armazenamento do Azure e um contentor de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)
 

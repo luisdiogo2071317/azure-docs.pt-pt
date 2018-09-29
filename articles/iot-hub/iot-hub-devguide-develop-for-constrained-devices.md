@@ -1,79 +1,83 @@
 ---
-title: O Hub IoT do Azure desenvolver para dispositivos restritos | Documentos da Microsoft
+title: O Azure IoT Hub desenvolver para restrita dispositivos com o SDK de C do IoT Hub | Documentos da Microsoft
 description: Guia do desenvolvedor – documentação de orientação sobre como desenvolver com os SDKs do Azure para dispositivos restritos.
-services: iot-hub
-documentationcenter: c
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
-ms.openlocfilehash: 15fc5794c71428b5fb1036060af3e9c4a6890f4f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683f3ca88c349fef31f9647566dbed8a840f94dd
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969066"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451736"
 ---
-# <a name="develop-for-constrained-devices-using-azure-iot-sdks"></a>Desenvolver para dispositivos restritos com os SDKs do Azure
+# <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desenvolver para dispositivos restritos com o SDK de C do Azure IoT
 
-## <a name="develop-using-azure-iot-hub-c-sdk"></a>Programar com o SDK de C do Hub de IoT do Azure
-SDK de C de Hub IoT do Azure é escrito em ANSI C (C99), que a torna adequada para operar uma variedade de plataformas com pouco espaço de disco e memória.  A quantidade de RAM recomendada é de, pelo menos, de 64 KB, mas os requisitos de espaço de memória exato depende do protocolo utilizado, o número de ligações abertas, bem como a plataforma de destino.
+SDK de C de Hub IoT do Azure é escrito em ANSI C (C99), que a torna adequada para operar uma variedade de plataformas com pouco espaço de disco e memória. A quantidade de RAM recomendada é de, pelo menos, de 64 KB, mas os requisitos de espaço de memória exato depende do protocolo utilizado, o número de ligações abertas, bem como a plataforma de destino.
 
-SDK de C está disponível em formato de pacote do apt-get, NuGet e MBED.  Para filtrar dispositivos restritos, pode querer criar o SDK localmente para a sua plataforma de destino. Esta documentação demonstra como remover determinados recursos para reduzir os requisitos de espaço de utilizar o SDK de C [cmake][lnk-cmake].  Além disso, esta documentação descreve a melhor prática de modelos para trabalhar com dispositivos restritos de programação.
+SDK de C está disponível em formato de pacote do apt-get, NuGet e MBED. Para filtrar dispositivos restritos, pode querer criar o SDK localmente para a sua plataforma de destino. Esta documentação demonstra como remover determinados recursos para reduzir os requisitos de espaço de utilizar o SDK de C [cmake](https://cmake.org/). Além disso, esta documentação descreve a melhor prática de modelos para trabalhar com dispositivos restritos de programação.
 
-### <a name="building-the-c-sdk-for-constrained-devices"></a>Criar o SDK de C para dispositivos restritos
-#### <a name="prerequisites"></a>Pré-requisitos
-Siga este [guia de configuração] [ lnk-devbox-setup] para preparar o ambiente de desenvolvimento para criar o SDK de C.  Antes de obter para o passo para criar com cmake, é possível invocar sinalizadores de cmake para remover recursos não utilizados.
+## <a name="building-the-c-sdk-for-constrained-devices"></a>Criar o SDK de C para dispositivos restritos
 
-#### <a name="remove-additional-protocol-libraries"></a>Remover as bibliotecas de protocolo adicionais
-SDK de C hoje suporta os protocolos de cinco: MQTT, MQTT ao longo do WebSocket, AMQPs, AMQP sobre WebSocket e HTTPS.    A maioria dos cenários necessitam de protocolos de um ou dois em execução num cliente, por conseguinte, pode remover a biblioteca de protocolo que não estiver a utilizar o SDK.  Informações adicionais sobre como escolher o protocolo de comunicação apropriados para seu cenário pode ser encontrado neste [documento][lnk-choosing-protocol].  Por exemplo, MQTT é um protocolo simples que é, muitas vezes, mais adequado para dispositivos restritos.
+Crie o SDK de C para dispositivos restritos.
+
+### <a name="prerequisites"></a>Pré-requisitos
+
+Siga este [guia de configuração do SDK de C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) para preparar o ambiente de desenvolvimento para criar o SDK de C. Antes de obter para o passo para criar com cmake, é possível invocar sinalizadores de cmake para remover recursos não utilizados.
+
+### <a name="remove-additional-protocol-libraries"></a>Remover as bibliotecas de protocolo adicionais
+
+SDK de C hoje suporta os protocolos de cinco: MQTT, MQTT ao longo do WebSocket, AMQPs, AMQP sobre WebSocket e HTTPS. A maioria dos cenários necessitam de protocolos de um ou dois em execução num cliente, por conseguinte, pode remover a biblioteca de protocolo que não estiver a utilizar o SDK. Informações adicionais sobre como escolher o protocolo de comunicação apropriados para seu cenário pode ser encontrado na [escolher um protocolo de comunicação do IoT Hub](iot-hub-devguide-protocols.md). Por exemplo, MQTT é um protocolo simples que é, muitas vezes, mais adequado para dispositivos restritos.
 
 Pode remover as bibliotecas AMQP e HTTP com o seguinte comando de cmake:
+
 ```
 cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ```
 
-#### <a name="remove-sdk-logging-capability"></a>Remover o recurso de registro de SDK
+### <a name="remove-sdk-logging-capability"></a>Remover o recurso de registro de SDK
+
 O SDK de C mostra o log extenso em todo para ajudar na depuração. Pode remover o recurso de Registro para os dispositivos de produção com o seguinte comando de cmake:
+
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
 
-#### <a name="remove-upload-to-blob-capability"></a>Remover o carregamento para a capacidade de BLOBs
-Pode carregar ficheiros grandes para o armazenamento do Azure com o recurso interno no SDK.  O IoT Hub do Azure funciona como um dispatcher para uma conta de armazenamento do Azure associada.  Pode utilizar esta funcionalidade para enviar os ficheiros de multimédia, lotes grandes de telemetria e registos.  Saiba mais sobre como carregar ficheiros com o IoT Hub desta [documento][lnk-hub-file-upload].  Se seu aplicativo não exija essa funcionalidade, pode remover esta funcionalidade com o seguinte comando de cmake:
+### <a name="remove-upload-to-blob-capability"></a>Remover o carregamento para a capacidade de BLOBs
+
+Pode carregar ficheiros grandes para o armazenamento do Azure com o recurso interno no SDK. O IoT Hub do Azure funciona como um dispatcher para uma conta de armazenamento do Azure associada. Pode utilizar esta funcionalidade para enviar os ficheiros de multimédia, lotes grandes de telemetria e registos. Pode obter mais informações em [carregamento de ficheiros com o IoT Hub](iot-hub-devguide-file-upload.md). Se seu aplicativo não exija essa funcionalidade, pode remover esta funcionalidade com o seguinte comando de cmake:
+
 ```
 cmake -Ddont_use_uploadtoblob=ON <Path_to_cmake>
 ```
-#### <a name="running-strip-on-linux-environment"></a>Faixa em execução no ambiente do Linux
-Se executam seus binários no sistema Linux, poderá aproveitar a [comandos de faixa] [ lnk-strip] para reduzir o tamanho do aplicativo final após a compilação.
+
+### <a name="running-strip-on-linux-environment"></a>Faixa em execução no ambiente do Linux
+
+Se executam seus binários no sistema Linux, poderá aproveitar o [faixa comando](https://en.wikipedia.org/wiki/Strip_(Unix)) para reduzir o tamanho do aplicativo final após a compilação.
+
 ```
 strip -s <Path_to_executable>
 ```
 
-### <a name="programming-models-for-constrained-devices"></a>Modelos de programação para dispositivos restritos
-#### <a name="avoid-using-the-serializer"></a>Evite usar o serializador
-O SDK de C tem opcional [serializador][lnk-serializer], que permite que usar tabelas de mapeamento declarativo para definir métodos e propriedades de twin do dispositivo.  O serializador foi concebido para simplificar o desenvolvimento, mas acrescenta sobrecarga, que não é ideal para dispositivos restritos.  Neste caso, considere a utilização de APIs de cliente primitivas e analisar json utilizando um analisador simples, tal como [parson][lnk-parson].
+## <a name="programming-models-for-constrained-devices"></a>Modelos de programação para dispositivos restritos
 
-#### <a name="use-the-lower-layer-ll"></a>Utilizar a camada inferior (_odas_)
-O SDK de C suporta dois modelos de programação.  Um conjunto tem APIs com um _odas_ infix, que significa camada inferior.  Este conjunto de APIs são mais leve e não lance threads de trabalho, que significa que o utilizador tem manualmente de controle do agendamento.  Por exemplo, para o cliente de dispositivo, o _odas_ APIs que pode ser encontradas neste [arquivo de cabeçalho](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h).  Outro conjunto de APIs sem o _odas_ índice denomina-se a camada de conveniência, onde um thread de trabalho é preparado automaticamente.  Por exemplo, a camada de conveniência APIs para o cliente do dispositivo pode ser encontrada neste [arquivo de cabeçalho](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h).  Para dispositivos restritos em que cada thread adicional pode demorar uma porcentagem considerável de recursos do sistema, considere utilizar _odas_ APIs.
+Em seguida, ver modelos para dispositivos restritos de programação.
+
+### <a name="avoid-using-the-serializer"></a>Evite usar o serializador
+
+O SDK de C tem opcional [serializador do SDK de C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer), que permite que usar tabelas de mapeamento declarativo para definir métodos e propriedades de twin do dispositivo. O serializador foi concebido para simplificar o desenvolvimento, mas acrescenta sobrecarga, que não é ideal para dispositivos restritos. Neste caso, considere a utilização de APIs de cliente primitivas e analisar JSON utilizando um analisador simples, tal como [parson](https://github.com/kgabis/parson).
+
+### <a name="use-the-lower-layer-ll"></a>Utilizar a camada inferior (_odas_)
+
+O SDK de C suporta dois modelos de programação. Um conjunto tem APIs com um _odas_ infix, que significa camada inferior. Este conjunto de APIs é mais claro de importância e não criar threads de trabalho, que significa que o utilizador tem manualmente de controle do agendamento. Por exemplo, para o cliente de dispositivo, o _odas_ APIs que pode ser encontradas neste [arquivo de cabeçalho](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h). 
+
+Outro conjunto de APIs sem o _odas_ índice denomina-se a camada de conveniência, onde um thread de trabalho é preparado automaticamente. Por exemplo, a camada de conveniência APIs para o cliente do dispositivo pode ser encontrada neste [o arquivo de cabeçalho de cliente do dispositivo IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Para dispositivos restritos em que cada thread adicional pode demorar uma porcentagem considerável de recursos do sistema, considere utilizar _odas_ APIs.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para saber mais sobre a arquitetura do SDK de C do Azure IoT:
 -   [Código de origem do SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c/)
--   [O Azure IoT-device SDK para C introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-sdk-c-intro)
-
-------
-[lnk-cmake]: https://cmake.org/
-[lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
-[lnk-choosing-protocol]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols
-[lnk-hub-file-upload]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload
-[lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
-[lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
-[lnk-parson]: https://github.com/kgabis/parson
+-   [O Azure IoT-device SDK para C introdução](iot-hub-device-sdk-c-intro.md)

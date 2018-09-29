@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364606"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452535"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -94,6 +94,19 @@ Pode ser a sua implementação do Azure Stack *ligados* ou *desligado*.
  - **Desligado**  
  Com os que estão da opção de implementação do Azure, pode implementar e utilizar o Azure Stack sem uma ligação à Internet. No entanto, com uma implementação de desligado, está limitado a um repositório de identidades do AD FS e o modelo de faturação com base na capacidade.
     - [Registe-se de que um através do Azure Stack desligado a **capacidade** modelo de faturação ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>Determinar um nome de registo único para utilizar 
+Quando registar o Azure Stack com o Azure, tem de fornecer um nome de registo único. Uma forma fácil de associar a sua subscrição do Azure Stack com um registo do Azure está a utilizar do Azure Stack **ID de Cloud**. 
+
+> [!NOTE]
+> Registos de pilha do Azure com o modelo de faturação com base na capacidade tem de alterar o nome exclusivo ao registar novamente depois de expirarem nessas subscrições anuais.
+
+Para determinar o ID de Cloud para a sua implementação do Azure Stack, abra o PowerShell como administrador num computador pode acessar o ponto final com privilégios, execute os seguintes comandos e registe os **CloudID** valor: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registre-se conectado com a faturação pay as you go
 
@@ -257,7 +270,7 @@ Em seguida, terá de obter uma chave de ativação do recurso de registo criado 
 Para obter a chave de ativação, execute os seguintes cmdlets do PowerShell:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ Pode usar o token de registo utilizado para criar o recurso:
 Em alternativa, pode utilizar o nome do registo:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

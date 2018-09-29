@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056826"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434553"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -71,7 +71,7 @@ Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data
 | Base de Dados | O nome da base de dados em que estão a enviar a saída. |
 | Nome do servidor | O nome do servidor de base de dados SQL. |
 | Nome de utilizador | O nome de utilizador, que tem acesso de gravação no banco de dados. |
-| Palavra-passe | A palavra-passe para ligar para o databas.e |
+| Palavra-passe | A palavra-passe para ligar à base de dados |
 | Tabela | O nome da tabela em que o resultado é escrito. O nome da tabela diferencia maiúsculas de minúsculas e o esquema desta tabela deve corresponder exatamente ao número de campos e seus tipos gerados pelo seu resultado da tarefa. |
 
 > [!NOTE]

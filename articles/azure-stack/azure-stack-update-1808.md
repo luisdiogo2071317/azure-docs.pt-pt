@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395717"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452688"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -204,6 +204,17 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 
 ### <a name="compute"></a>Computação
+
+- <!-- 3090289 – IS, ASDK --> Depois de aplicar o 1808 de atualização, pode encontrar os seguintes problemas quando implementar VMs com discos geridos:
+
+   1. Se a subscrição tiver sido criada antes da atualização de 1808, implantação de VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
+      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
+   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
+      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4465859).
+      2. Siga os passos em [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
+
+
 - <!-- 2869209 – IS, ASDK --> Ao utilizar o [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), tem de utilizar o **- OsUri** parâmetro como a conta de armazenamento URI onde o disco é carregado. Se utilizar o caminho local do disco, o cmdlet falhar com o seguinte erro: *operação de longa execução falhou com o estado 'Com falhas'*. 
 
 - <!--  2966665 – IS, ASDK --> Anexar discos de dados SSD para tamanho premium geridos disco máquinas virtuais (DS, DSv2, Fs, Fs_V2) falha com um erro: *Falha ao atualizar discos para a máquina virtual "vmname" erro: pedida não é possível efetuar a operação porque o tipo de conta de armazenamento " Premium_LRS não é suportada para o tamanho da VM "Standard_DS/Ds_V2/FS/Fs_v2)*

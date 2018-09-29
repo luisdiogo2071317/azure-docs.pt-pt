@@ -1,6 +1,6 @@
 ---
-title: Proteger aplicações PaaS, utilizando o armazenamento do Azure | Microsoft Docs
-description: " Saiba mais sobre a segurança de armazenamento do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. "
+title: Proteger aplicações PaaS através do armazenamento do Azure | Documentos da Microsoft
+description: Saiba mais sobre segurança de armazenamento do Azure melhores práticas para proteger as suas aplicações móveis e web de PaaS.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,96 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295300"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451872"
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Proteger o PaaS web e aplicações móveis com o Storage do Azure
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger o PaaS web e móveis com o armazenamento do Azure
+Neste artigo, discutimos a uma coleção de segurança de armazenamento do Azure melhores práticas para proteger a sua plataforma-como-serviço (PaaS) aplicações web e móveis. Essas práticas recomendadas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como.
 
-Neste artigo, discutimos a uma coleção de segurança de armazenamento do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. Estas melhores práticas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como por si.
+O Azure torna possível implementar e utilizar o armazenamento de formas não facilmente realizáveis no local. Com o armazenamento do Azure, pode entrar altos níveis de escalabilidade e disponibilidade com relativamente pouco esforço. Não só é a base de armazenamento do Azure para Windows e máquinas virtuais do Linux do Azure, também pode suportar grandes aplicativos distribuídos.
 
-O [manual de segurança de armazenamento do Azure](../storage/common/storage-security-guide.md) é uma excelente origem para obter informações detalhadas sobre o Storage do Azure e segurança.  Este artigo aborda a um nível elevado alguns dos conceitos encontrados no guia de segurança e ligações para o guia de segurança, bem como outras origens, para obter mais informações.
+Armazenamento do Azure fornece os seguintes quatro serviços: BLOBs de armazenamento, o armazenamento de tabelas, armazenamento de filas e armazenamento de ficheiros. Para obter mais informações, consulte [introdução ao armazenamento do Microsoft Azure](../storage/storage-introduction.md).
 
-## <a name="azure-storage"></a>Storage do Azure
+O [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md) é uma ótima fonte para obter informações detalhadas sobre o armazenamento do Azure e segurança. Este artigo de melhores práticas de endereços num alto nível alguns dos conceitos encontrados na guia de segurança e ligações para o guia de segurança, bem como outras origens, para obter mais informações.
 
-Azure torna possível implementar e utilizar o armazenamento de formas não facilmente alcançável no local. Com o storage do Azure, pode aceder aos níveis elevados de escalabilidade e disponibilidade com relativamente poucas esforço. Não só é o alicerce de armazenamento do Azure para o Windows e máquinas virtuais do Linux do Azure, também pode suportar grande aplicações distribuídas.
+Este artigo aborda as melhores práticas seguintes:
 
-O Storage do Azure fornece os seguintes quatro serviços: Blob Storage, Table Storage, Armazenamento de filas e File Storage. Para obter mais informações, consulte [introdução ao Storage do Microsoft Azure](../storage/storage-introduction.md).
+- Assinaturas de acesso partilhado (SAS)
+- Controlo de acesso baseado em funções (RBAC)
+- Encriptação do lado do cliente para os dados de valor elevado
+- Encriptação do Serviço de Armazenamento
 
-## <a name="best-practices"></a>Melhores práticas
 
-Este artigo aborda os seguintes procedimentos recomendados:
+## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>Utilizar uma assinatura de acesso partilhado, em vez de uma chave de conta de armazenamento
+Controlo de acesso é essencial. Para o ajudar a controlar o acesso ao armazenamento do Azure, Azure gera duas chaves de conta de armazenamento de 512 bits (SAKs) quando criar uma conta de armazenamento. O nível de redundância chave torna possível para evitar interrupções do serviço durante a rotação de chaves de rotina. 
 
-- Proteção de acesso:
-   - Assinaturas de Acesso Partilhado (SAS)
-   - Controlo de Acesso Baseado em Funções (RBAC)
+Chaves de acesso de armazenamento são segredos de alta prioridade e só devem estar acessíveis para os responsáveis pela controlo de acesso de armazenamento. Se as pessoas erradas obtém acesso a essas chaves, eles serão têm controlo total de armazenamento e poderia substituir, eliminar ou adicionar ficheiros ao armazenamento. Isto inclui o software maligno e outros tipos de conteúdo que potencialmente podem comprometer a sua organização ou os seus clientes.
 
-- Encriptação de armazenamento:
-   - Encriptação do lado do cliente para os dados de valor elevado
-   - Encriptação do Serviço de Armazenamento
-
-## <a name="access-protection"></a>Proteção de acesso
-
-### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Utilize a assinatura de acesso partilhado em vez de uma chave de conta de armazenamento
-
-Uma solução de IaaS, normalmente com máquinas virtuais do Windows Server ou Linux, os ficheiros estão protegidos contra divulgação e ameaças de adulteração de mensagens em fila utilizando os mecanismos de controlo de acesso. No Windows que utilizaria [acesso (ACL) de listas de controlo](../virtual-network/virtual-networks-acl.md) e em Linux, provavelmente pretende utilizar [chmod](https://en.wikipedia.org/wiki/Chmod). Essencialmente, esta é exatamente o que deverá fazer se foram proteger ficheiros num servidor no seu próprio Centro de dados hoje.
-
-PaaS é diferente. Uma das formas mais comuns para armazenar os ficheiros no Microsoft Azure está a utilizar [Blob storage do Azure](../storage/storage-dotnet-how-to-use-blobs.md). É uma diferença entre o armazenamento de BLOBs e outros ficheiros de e/s de ficheiro e os métodos de proteção que vêm com e/s de ficheiro.
-
-Controlo de acesso é fundamental. Para o ajudar a controlar o acesso ao armazenamento do Azure, o sistema irá gerar duas chaves de conta de armazenamento de 512 bits (SAKs) quando é [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). O nível de redundância chave torna possível para que possa evitar a interrupção do serviço durante a rotação de chave de rotina.
-
-Chaves de acesso de armazenamento são segredos de alta prioridade e só devem estar acessíveis para esses responsável pelo controlo de acesso de armazenamento. Se as pessoas erradas obtém acesso a estas chaves, estes serão tem controlo total do armazenamento e foi substituir, eliminar ou adicionar ficheiros ao armazenamento. Isto inclui o software maligno e outros tipos de conteúdo que potencialmente pode comprometer a sua organização ou os seus clientes.
-
-Ainda precisa de uma forma de fornecer acesso a objetos no armazenamento. Para fornecer acesso mais granular, pode tirar partido de [assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). O SAS possibilita a partilha de objetos específicos no armazenamento para um intervalo de tempo predefinido e com permissões específicas. Uma assinatura de acesso partilhado permite-lhe definir:
+Ainda precisa de uma forma para fornecer acesso a objetos no armazenamento. Para fornecer acesso mais granular pode tirar partido de assinatura de acesso partilhado (SAS). A SAS torna possível para que possa partilhar objetos específicos no armazenamento durante um intervalo de tempo predefinido e com permissões específicas. Uma assinatura de acesso partilhado permite-lhe definir:
 
 - O intervalo durante o qual a SAS é válida, incluindo a hora de início e a hora de expiração.
-- As permissões concedidas à SAS. Por exemplo, um SAS num blob poderá conceder uma leitura de utilizador e permissões de escrita a esse blob, mas não eliminar as permissões.
-- Opcional endereço IP ou intervalo de endereços IP do que o armazenamento do Azure aceita a SAS. Por exemplo, poderá especificar um intervalo de endereços IP que pertençam a sua organização. Isto proporciona outra medida de segurança para a SAS.
-- O protocolo através do qual o Storage do Azure aceita a SAS. Pode utilizar este parâmetro opcional para restringir o acesso aos clientes que utilizam o HTTPS.
+- As permissões concedidas a SAs. Por exemplo, um SAS num blob poderá conceder uma leitura de utilizador e permissões de escrita a esse blob, mas não eliminar as permissões.
+- Um endereço IP opcional ou intervalo de endereços IP do qual o armazenamento do Azure aceita a SAS. Por exemplo, poderá especificar um intervalo de endereços IP que pertençam a sua organização. Isto proporciona outra medida de segurança para a SAS.
+- O protocolo através do qual o armazenamento do Azure aceita a SAS. Pode utilizar este parâmetro opcional para restringir o acesso aos clientes através de HTTPS.
 
-SAS permite-lhe partilhar conteúdo a forma como pretende partilhar sem ausente fornecer as chaves de conta de armazenamento. Sempre através da SAS na sua aplicação é uma forma segura para partilhar os seus recursos de armazenamento sem comprometer as chaves de conta de armazenamento.
+SAS permite-lhe partilhar conteúdo a forma como pretende partilhá-lo sem dar as chaves de conta de armazenamento. Sempre através da SAS em seu aplicativo é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves de conta de armazenamento.
 
-Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Para saber mais sobre potenciais riscos e as recomendações para mitigar os riscos, consulte o artigo [de melhores práticas quando através da SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre a assinatura de acesso partilhado, veja [assinaturas de acesso partilhado do Using](../storage/common/storage-dotnet-shared-access-signature-part-1.md). 
 
-### <a name="use-role-based-access-control"></a>Utilizar o controlo de acesso baseado em funções
+## <a name="use-role-based-access-control"></a>Utilizar o controlo de acesso baseado em funções
+Outra forma de gerir o acesso é usar [controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC). Com o RBAC, pode concentrar-se em dar aos funcionários as exatas permissões necessárias, com base na necessidade de conhecer e princípios de segurança de privilégio mínimo. Demasiadas permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter a trabalhar com eficiência. RBAC Ajuda a resolver esse problema, oferecendo a gestão de acessos detalhada para o Azure. Isso é fundamental para as organizações que desejam aplicar políticas de segurança para acesso a dados.
 
-Anteriormente discutimos utilizando a assinatura de acesso partilhado (SAS) para conceder acesso limitado a objetos da sua conta do storage para outros clientes, sem a chave de conta de armazenamento de conta a exposição. Por vezes, os riscos associados uma operação específica em relação a sua conta do storage suplantam as vantagens de SAS. Por vezes, é mais simples gerir o acesso de outras formas.
+Pode utilizar funções RBAC incorporadas no Azure para atribuir privilégios a utilizadores. Por exemplo, utilize contribuinte de conta de armazenamento para os operadores de cloud que precisam de gerir contas de armazenamento e a função de contribuinte de conta de armazenamento clássica para gerir contas de armazenamento clássicas. Para os operadores de cloud que precisam de gerir VMs, mas não a rede virtual ou a conta de armazenamento ao qual estão ligados, pode adicioná-los para a função de contribuinte de Máquina Virtual.
 
-Outra forma de gerir o acesso é utilizar [controlo de acesso em funções do Azure](../role-based-access-control/overview.md) (RBAC). Utilizar o RBAC, foco no dar aos funcionários as permissões exatas que necessitam, com base na necessidade de conhecer e princípios de segurança do menor privilégio. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. RBAC Ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure. Este é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados.
+As organizações que não é impor o controlo de acesso de dados ao utilizar as capacidades, como o RBAC podem ser a dar mais privilégios do que o necessário para os seus utilizadores. Isto pode levar ao comprometimento de dados ao permitir que alguns usuários acesso aos dados que não devem ter em primeiro lugar.
 
-Pode tirar partido das funções incorporadas do RBAC do Azure para atribuir os privilégios aos utilizadores. Considere a utilização de contribuinte de conta de armazenamento para os operadores da nuvem que necessitam de gerir contas de armazenamento e a função de contribuinte de conta de armazenamento clássico para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessitam de gerir VMs, mas não o armazenamento de rede ou conta virtual ao qual estão ligados, considere a adicioná-los para a função de contribuinte de Máquina Virtual.
+Para saber mais sobre o RBAC, veja:
 
-As organizações que não a impor controlo de acesso de dados ao tirar partido das capacidades, tal como o RBAC podem ser dá ao mais privilégios que necessários para os respetivos utilizadores. Isto pode levar ao comprometimento de dados, permitindo que alguns utilizadores acesso a dados que não devem ter em primeiro lugar.
+- [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Funções incorporadas para recursos do Azure](../role-based-access-control/built-in-roles.md)
+- [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md) 
 
-Para saber mais sobre RBAC, consulte:
+## <a name="use-client-side-encryption-for-high-value-data"></a>Utilizar a encriptação do lado do cliente para os dados de valor elevado
+Encriptação do lado do cliente permite-lhe encriptar programaticamente os dados em trânsito antes de carregar para o armazenamento do Azure e, por meio de programação desencriptar dados quando recuperá-lo. Isso fornece encriptação de dados em trânsito, mas também fornece encriptação de dados em repouso. Encriptação do lado do cliente é o método mais seguro de criptografar seus dados, mas ele exige que faça alterações programáticas ao seu aplicativo e colocar os processos de gestão de chaves no local.
 
-- [Controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md)
-- [Funções incorporadas para controlo de acesso baseado em funções do Azure](../role-based-access-control/built-in-roles.md)
-- [Guia de segurança de armazenamento do Azure](../storage/common/storage-security-guide.md) para detalhes sobre como proteger a sua conta de armazenamento com o RBAC
+Encriptação do lado do cliente também lhe permite ter controlo exclusivo sobre as suas chaves de encriptação. Pode gerar e gerir as suas próprias chaves de encriptação. Ele usa uma técnica de envelope em que a biblioteca de cliente de armazenamento do Azure gera uma conteúdo chave de encriptação (CEK) que, em seguida, é encapsulada (encriptada) com a chave de encriptação de chaves (KEK). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e podem ser gerenciada localmente ou armazenada no [do Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-## <a name="storage-encryption"></a>Encriptação do armazenamento
+Encriptação do lado do cliente está incorporada no Java e as bibliotecas de cliente de armazenamento do .NET. Ver [encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure](../storage/storage-client-side-encryption.md) para obter informações sobre a encriptação de dados dentro de aplicativos de cliente e a gerar e gerir as suas próprias chaves de encriptação.
 
-### <a name="use-client-side-encryption-for-high-value-data"></a>Utilizar encriptação do lado do cliente para os dados de valor elevado
-
-Encriptação do lado do cliente permite-lhe programaticamente encriptar dados em trânsito antes de carregar para o armazenamento do Azure e através de programação desencriptar dados ao obtê-lo a partir do armazenamento.  Isto fornece encriptação de dados em trânsito, mas também fornece encriptação de dados inativos.  A encriptação do lado do cliente é o método mais seguro de encriptar os dados, mas que é necessário efetuar alterações programáticas à sua aplicação e colocar os processos de gestão de chaves no local.
-
-Encriptação do lado do cliente também lhe permite ter controlo único as suas chaves de encriptação.  Pode gerar e gerir as suas próprias chaves de encriptação.  A encriptação do lado do cliente utiliza uma técnica de envelope em que a biblioteca de clientes do storage do Azure gera uma conteúdo chave de encriptação (CEK) que, em seguida, é moldada (encriptada) utilizando a chave de encriptação de chaves (KEK). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e pode ser gerida localmente ou armazenada no [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md).
-
-Encriptação do lado do cliente está incorporada no Java e as bibliotecas de cliente do armazenamento de .NET.  Consulte [encriptação do lado do cliente e o Cofre de chaves do Azure para armazenamento do Microsoft Azure](../storage/storage-client-side-encryption.md) para obter informações sobre a encriptação de dados dentro de aplicações de cliente e gerar e gerir as suas próprias chaves de encriptação.
-
-### <a name="storage-service-encryption"></a>Encriptação do Serviço de Armazenamento
-
-Quando [encriptação do serviço de armazenamento](../storage/storage-service-encryption.md) para armazenamento de ficheiros está ativado, os dados são encriptados automaticamente utilizando a encriptação AES 256. A Microsoft lida com todos os encriptação, desencriptação e gestão de chaves. Esta funcionalidade está disponível para tipos de redundância do LRS e GRS.
+## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Ativar a encriptação do serviço de armazenamento para dados Inativos
+Quando [Storage Service Encryption](../storage/storage-service-encryption.md) para armazenamento de ficheiros é ativado, os dados são encriptados automaticamente com a encriptação de AES-256. Microsoft lida com todos os a encriptação, desencriptação e gestão de chaves. Esta funcionalidade está disponível para tipos de redundância LRS e GRS.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo introduzidos uma coleção de segurança de armazenamento do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. Para obter mais informações sobre como proteger as suas implementações PaaS, consulte:
+Este artigo apresentou-a uma coleção de segurança de armazenamento do Azure melhores práticas para proteger as aplicações móveis e web de PaaS. Para saber mais sobre como proteger as suas implementações de PaaS, consulte:
 
 - [Proteger implementações PaaS](security-paas-deployments.md)
-- [Proteger o PaaS web e aplicações móveis com o serviços de aplicações do Azure](security-paas-applications-using-app-services.md)
-- [Proteger bases de dados PaaS no Azure](security-paas-applications-using-sql.md)
+- [Proteger web de PaaS e aplicativos móveis usando os serviços de aplicações do Azure](security-paas-applications-using-app-services.md)
+- [Protegendo bancos de dados de PaaS no Azure](security-paas-applications-using-sql.md)

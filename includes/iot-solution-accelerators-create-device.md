@@ -5,15 +5,15 @@ services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44754474"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47435117"
 ---
 No primeiro cenário, vai adicionar um novo tipo de telemetria para a Contoso existentes **Chiller** tipo de dispositivo.
 
@@ -90,7 +90,9 @@ As instruções neste artigo partem do princípio de que está a utilizar o Wind
 
 ### <a name="download-the-microservices"></a>Transferir os microsserviços
 
-Transfira e deszipe o [microsserviços de monitorização remota](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local.
+Transfira e deszipe o [microsserviços de monitorização remota](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local. O artigo pressupõe que o nome desta pasta está **remote-monitoring-serviços-dotnet-mestre**.
+
+Transfira e deszipe o [microsserviços de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local. O artigo pressupõe que o nome desta pasta está **dispositivo-simulação-dotnet-mestre**.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Execute os microsserviços de placa de armazenamento
 
@@ -116,20 +118,14 @@ Nesta secção, adiciona um novo **temperatura interna** tipo de telemetria para
 
     | Origem | Destino |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\Data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\Data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
+    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
+    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
 
 1. Abra o **C:\temp\devicemodels\chiller-01.json** ficheiro.
-
-1. Atualização do **SchemaVersion** valor da seguinte forma:
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. Na **InitialState** secção, adicione as seguintes duas definições:
 
@@ -419,9 +415,9 @@ Nesta secção, vai testar os tipos de dispositivo que criou nas secções anter
 
 ### <a name="run-the-device-simulation-microservice"></a>Execute os microsserviços de simulação do dispositivo
 
-Abra o **remote-monitoring-services-dotnet-master\device-simulation** pasta transferiu a partir do GitHub numa nova instância do Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
+Abra o **dispositivo-simulação-dotnet-mestre** pasta transferiu a partir do GitHub numa nova instância do Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
 
-Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do IoT Hub para o **PCS_IOTHUB_CONNSTRING** variável de ambiente.
+Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do IoT Hub para o **PCS_IOTHUB_CONNSTRING** variável de ambiente. No mesmo ficheiro, adicione a **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** variável de ambiente e atribuir a cadeia de ligação da base de dados do Cosmos DB.
 
 Abra o **WebService/Properties/launchSettings.json** do ficheiro e atribuir a cadeia de ligação do IoT Hub para o **PCS_IOTHUB_CONNSTRING** variável de ambiente.
 
@@ -465,7 +461,7 @@ Para configurar o Postman:
 
 1. Clique em **ficheiro > importar**. Em seguida, clique em **escolher ficheiros**.
 
-1. Navegue para o **dispositivo-simulação-dotnet/docs/postman** pasta. Selecione **accelerator.postman_collection de solução de simulação de dispositivo do Azure IoT** e **accelerator.postman_environment de solução de simulação de dispositivo do IoT do Azure** e clique em **abra**.
+1. Navegue para o **dispositivo-simulação-dotnet-master/docs/postman** pasta. Selecione **accelerator.postman_collection de solução de simulação de dispositivo do Azure IoT** e **accelerator.postman_environment de solução de simulação de dispositivo do IoT do Azure** e clique em **abra**.
 
 1. Expanda a **acelerador de solução de simulação de dispositivo do IoT do Azure** aos pedidos de pode enviar.
 
