@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971011"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434043"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -100,7 +100,7 @@ Se existirem panes, falhas ou problemas de desempenho, pode pesquisar através d
 O log Analytics pode ser uma ferramenta útil na análise de segurança forense e de outros, como a ferramenta permite-lhe procurar rapidamente por meio de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexíveis. Além disso, no local [registos de firewall e proxy podem ser exportados para o Azure e disponibilizados para análise a utilizar o Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
-[O Assistente do Azure](https://docs.microsoft.com/azure/advisor/) é consultor da cloud personalizado que ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Depois, recomenda soluções para ajudar a melhorar a [desempenho](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), e [elevada disponibilidade](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) dos seus recursos durante a procura de oportunidades para [reduzir sua gerais com o Azure gastar](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). O Assistente do Azure fornece recomendações de segurança, que pode significativo melhorar a sua postura de segurança geral para soluções de que implementar no Azure. Estas recomendações são obtidas de análise de segurança executada pelo [Centro de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-intro)
+[O Assistente do Azure](https://docs.microsoft.com/azure/advisor/) é consultor da cloud personalizado que ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Depois, recomenda soluções para ajudar a melhorar a [desempenho](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), e [elevada disponibilidade](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) dos seus recursos durante a procura de oportunidades para [reduzir sua gerais com o Azure gastar](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). O Assistente do Azure fornece recomendações de segurança, que podem significativamente melhorar a sua postura de segurança geral para soluções de que implementar no Azure. Estas recomendações são obtidas de análise de segurança executada pelo [Centro de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 O [Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -272,7 +272,7 @@ Uma firewall de aplicações Web centralizada contra ataques Web simplifica em m
 ### <a name="traffic-manager"></a>Gestor de Tráfego
 Microsoft [Gestor de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) permite-lhe controlar a distribuição do tráfego de utilizador para pontos finais de serviço nos centros de dados diferentes. Pontos finais de serviço suportados pelo Gestor de tráfego incluem as VMs do Azure, aplicações Web e serviços Cloud. Também pode utilizar o Gestor de Tráfego com pontos finais externos, não pertencentes ao Azure. O Gestor de tráfego utiliza o sistema de nomes de domínio (DNS) para direcionar os pedidos de cliente para o ponto de final mais adequado com base numa [método de encaminhamento de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) e o estado de funcionamento dos pontos finais.
 
-Gestor de tráfego oferece uma variedade de métodos de encaminhamento de tráfego de mensagens em fila para atender às necessidades de aplicação diferente, o estado de funcionamento do ponto de extremidade [monitorização](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)e a ativação pós-falha automática. Gestor de tráfego é resiliente a falhas, incluindo a falha de toda uma região do Azure.
+Gestor de tráfego oferece uma variedade de métodos de encaminhamento de tráfego de mensagens em fila para atender às necessidades de aplicação diferente, o estado de funcionamento do ponto de extremidade [monitorização](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)e a ativação pós-falha automática. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 O [Balanceador de Carga do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) oferece elevada disponibilidade e elevado desempenho de rede às suas aplicações. É um balanceador de carga de camada 4 (TCP, UDP) que distribui o tráfego de entrada entre instâncias de bom estado de funcionamento dos serviços definidos num conjunto com balanceamento de carga. O Balanceador de carga do Azure pode ser configurado para:
 
@@ -364,7 +364,7 @@ A Microsoft utiliza várias tecnologias e práticas de segurança em seus produt
 -   [Gestão de identidade (identidade híbrida) integrada](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) permite-lhe manter o controlo de acesso dos utilizadores internas plataformas de datacenters e na cloud, criação de uma única identidade de utilizador para autenticação e autorização para todos os recursos.
 
 ### <a name="secure-apps-and-data"></a>Proteger aplicações e dados
-[O Azure Active Directory](https://azure.microsoft.com/services/active-directory/), uma abrangente identidades e acessos na cloud solução de gestão, ajuda a proteger o acesso aos dados em aplicativos no site e na cloud e simplifica a gestão de utilizadores e grupos. Ele combina serviços de diretório centrais, avançada governação de identidade, segurança e gestão de acesso de aplicações e torna mais fácil para os desenvolvedores criem a gestão de identidades baseada em políticas nas aplicações. Para melhorar o Azure Active Directory, pode adicionar funcionalidades pagas usando as edições do Azure Active Directory básico, Premium P1 e Premium P2.
+[O Azure Active Directory](https://azure.microsoft.com/services/active-directory/), uma abrangente identidades e acessos na cloud solução de gestão, ajuda a proteger o acesso aos dados em aplicativos no site e na cloud e simplifica a gestão de utilizadores e grupos. Ele combina serviços de diretório centrais, avançada governação de identidade, segurança e gestão de acesso de aplicações e torna mais fácil para os desenvolvedores criem a gestão de identidades baseada em políticas nas aplicações. Para otimizar o Azure Active Directory, pode adicionar capacidades pagas com as edições Azure Active Directory Básico, Premium P1 e Premium P2.
 
 | Recursos gratuitos / comuns     | Funcionalidades básicas    |Funcionalidades Premium P1 |Funcionalidades Premium P2 | Associação do Azure Active Directory – funcionalidades apenas relacionadas do Windows 10|
 | :------------- | :------------- |:------------- |:------------- |:------------- |

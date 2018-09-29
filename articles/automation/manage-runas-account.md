@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544282"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433706"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
 Contas Run As de automatização do Azure são utilizadas para fornecer autenticação para gerir recursos no Azure com os cmdlets do Azure.
 
-Quando cria uma conta Run As, ele cria um novo utilizador principal de serviço no Azure Active Directory e atribui a função de contribuinte a este utilizador ao nível da subscrição.
+Quando cria uma conta Run As, ele cria um novo utilizador principal de serviço no Azure Active Directory e atribui a função de contribuinte a este utilizador ao nível da subscrição. Para runbooks que utilizam os Runbook Workers híbridos em máquinas virtuais do Azure, pode utilizar [geridos identidades para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez de contas Run As para autenticar-se aos seus recursos do Azure.
 
 Existem dois tipos de contas Run as:
 

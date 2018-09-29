@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222102"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432890"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -39,7 +39,7 @@ A tabela seguinte descreve os tipos de contas de armazenamento e as respetivas f
 
 <sup>1</sup>é recomendado utilizar o modelo de implementação Azure Resource Manager. Contas de armazenamento com o modelo de implementação clássica ainda podem ser criadas em alguns locais e contas clássicas existentes continuarão a ter suporte. Para obter mais informações, consulte [vs. de implementação clássica do Azure Resource Manager: compreender os modelos de implementação e o estado dos seus recursos](../../azure-resource-manager/resource-manager-deployment-model.md).
 
-<sup>2</sup>todas as contas de armazenamento são encriptação através da encriptação de serviço de armazenamento (SSE) para dados inativos. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](storage-service-encryption.md).
+<sup>2</sup>todas as contas de armazenamento são encriptadas utilizando encriptação de serviço de armazenamento (SSE) para dados inativos. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](storage-service-encryption.md).
 
 <sup>3</sup>a camada de arquivo está disponível no nível de um blob individual só, não ao nível da conta de armazenamento. Apenas blobs de blocos e de acréscimo blobs podem ser arquivados. Para obter mais informações, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
 

@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301298"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432228"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicações
 O Serviço de Aplicações do Azure permitem-lhe criar e alojar aplicações Web na linguagem de programação da sua preferência sem ter de gerir infraestrutura nem a linguagem ou o runtime do framework da Web. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Serviços de DevOps do Azure ou de qualquer repositório de Git. Saiba como utilizar o Serviço de Aplicações do Azure com os nossos guias de introdução, tutoriais e amostras.
@@ -40,7 +40,7 @@ Saiba como implementar, gerir e monitorizar aplicações Web seguras no Azure.
   - [.NET com BD SQL do Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js com MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java com MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python com PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [Python com PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Mapeie um domínio personalizado existente na sua aplicação](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Vincule um certificado SSL existente à aplicação](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

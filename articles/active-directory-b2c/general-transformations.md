@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a13cb0360a33c301129f2975ce67580204602d9a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381487"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431331"
 ---
 # <a name="general-claims-transformations"></a>Transformações de afirmações geral
 
@@ -61,7 +61,7 @@ O texto sem formatação fornecido com o salt e um segredo de hash.
 | InputClaim | texto sem formatação | cadeia | A afirmação de entrada sejam encriptados |
 | InputClaim | Salt | cadeia | O parâmetro de salt. Pode criar um aleatório de valor, usando `CreateRandomString` transformação de afirmações. |
 | InputParameter | randomizerSecret | cadeia | Aponta para um existente do Azure AD B2C **chaves de política**. Para criar um novo: no seu inquilino do Azure AD B2C, selecione **definições do B2C > Framework de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções**, selecione **Manual**. Forneça um nome (prefixo B2C_1A_ podem ser adicionados automaticamente.). Na caixa de segredo, introduza qualquer segredo que pretende utilizar, como 1234567890. Para utilização de chave, selecione **segredo**. Selecione **Criar**. |
-| outputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. A afirmação configurada no `plaintext` inputClaim. |
+| outputClaim | Hash | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. A afirmação configurada no `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

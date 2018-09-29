@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 7282734b3524d7dfa80c54d074aac2268e38c5ab
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419394"
+ms.locfileid: "47432091"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Propriedades padrão nos registos do Log Analytics
 Dados no [do Log Analytics](../log-analytics/log-analytics-queries.md) é armazenado como um conjunto de registos, cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
@@ -53,8 +53,8 @@ search *
 | summarize count() by Type 
 ```
 
-## <a name="resourceid"></a>_ResourceId
-O **_ResourceId** propriedade contém um identificador exclusivo para o recurso que o registo está associado. Isto dá-lhe uma propriedade padrão para utilizar para definir o âmbito sua consulta para apenas os registos de um recurso específico ou para associar dados relacionados em várias tabelas.
+## <a name="resourceid"></a>\_ResourceId
+O  **\_ResourceId** propriedade contém um identificador exclusivo para o recurso que o registo está associado. Isto dá-lhe uma propriedade padrão para utilizar para definir o âmbito sua consulta para apenas os registos de um recurso específico ou para associar dados relacionados em várias tabelas.
 
 Para obter recursos do Azure, o valor de **_ResourceId** é o [URL de ID de recurso do Azure](../azure-resource-manager/resource-group-template-functions-resource.md). A propriedade está limitada aos recursos do Azure, mas ele será expandido para recursos fora do Azure, tais como computadores no local.
 

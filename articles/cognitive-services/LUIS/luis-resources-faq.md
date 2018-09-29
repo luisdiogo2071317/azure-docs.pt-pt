@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0edb7b27df03541421e27f14b65b78eded2e8c96
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032313"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432467"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -23,12 +23,12 @@ Este artigo contém respostas para perguntas mais frequentes sobre a compreensã
 
 ## <a name="luis-authoring"></a>Criação de LUIS
 
-### <a name="what-are-the-luis-best-practices"></a>Quais são as práticas recomendadas do LUIS? 
-Começar com o [ciclo de criação](luis-concept-app-iteration.md), em seguida, leia o [melhores práticas](luis-concept-best-practices.md). 
+### <a name="what-are-the-luis-best-practices"></a>Quais são as práticas recomendadas do LUIS?
+Começar com o [ciclo de criação](luis-concept-app-iteration.md), em seguida, leia o [melhores práticas](luis-concept-best-practices.md).
 
 ### <a name="what-is-the-best-way-to-start-building-my-app-in-luis"></a>O que é a melhor maneira de começar a criar meu aplicativo em LUIS?
 
-A melhor forma de criar a sua aplicação é por meio de um [processo incremental](luis-concept-app-iteration.md). 
+A melhor forma de criar a sua aplicação é por meio de um [processo incremental](luis-concept-app-iteration.md).
 
 ### <a name="what-is-a-good-practice-to-model-the-intents-of-my-app-should-i-create-more-specific-or-more-generic-intents"></a>O que é uma boa prática para modelar dos objetivos do meu aplicativo? Deve criar objetivos mais genéricos ou mais específicos?
 
@@ -40,44 +40,44 @@ Sim, é bom preparar sua **None** intenção com mais expressões com à medida 
 
 ### <a name="how-can-i-correct-spelling-mistakes-in-utterances"></a>Como pode corrigir os erros de ortografia em expressões com?
 
-Consulte a [Bing ortográfica verificar a API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS impõe limites impostos pelo Bing ortográfica verificar a API V7. 
+Consulte a [Bing ortográfica verificar a API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS impõe limites impostos pelo Bing ortográfica verificar a API V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Como faço para editar a minha aplicação LUIS por meio de programação?
 Para editar a sua aplicação do LUIS programaticamente, utilize o [criação API](https://aka.ms/luis-authoring-apis). Ver [LUIS chamar a API de criação](./luis-quickstart-node-add-utterance.md) e [criar uma aplicação do LUIS por meio de programação com node. js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de criação. A API de criação é necessário utilizar um [chave de criação](luis-concept-keys.md#authoring-key) em vez de uma chave de ponto final. A criação programática permite até 1 000 000 chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves a utilizar com os LUIS, consulte [gerir chaves](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Qual é a funcionalidade padrão que fornecia a expressão regular que corresponda?
-Anterior **funcionalidade de padrão** atualmente é preterido, substituídos pelos  **[padrões](luis-concept-patterns.md)**. 
+Anterior **funcionalidade de padrão** atualmente é preterido, substituídos pelos  **[padrões](luis-concept-patterns.md)**.
 
-### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Como utilizo uma entidade para extrair os dados corretos? 
+### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Como utilizo uma entidade para extrair os dados corretos?
 Ver [entidades](luis-concept-entity-types.md) e [extração de dados](luis-concept-data-extraction.md).
 
-### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variações de uma expressão de exemplo devem incluir a pontuação? 
-Adicione as diferentes variações como expressões de exemplo para a intenção ou adicionar o padrão de expressão de exemplo com o [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação. 
+### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variações de uma expressão de exemplo devem incluir a pontuação?
+Adicione as diferentes variações como expressões de exemplo para a intenção ou adicionar o padrão de expressão de exemplo com o [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
 
 ### <a name="does-luis-currently-support-cortana"></a>O LUIS suporta atualmente Cortana?
 
-Cortana criados previamente as aplicações foram preteridas em 2017. Já não são suportadas. 
+Cortana criados previamente as aplicações foram preteridas em 2017. Já não são suportadas.
 
 ## <a name="luis-endpoint"></a>Ponto final de LUIS
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Porquê o LUIS adiciona espaços para a consulta em torno ou no meio de palavras?
-LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-supported-languages.md#tokenization). O valor original e o valor tokenized estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
+LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor tokenized estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como criar e atribuir um LUIS chave de ponto final?
 [Criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) sobre o **[chaves e os pontos finais](luis-how-to-manage-keys.md)** página. Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
 
-### <a name="how-do-i-interpret-luis-scores"></a>Como posso interpretar as pontuações de LUIS? 
+### <a name="how-do-i-interpret-luis-scores"></a>Como posso interpretar as pontuações de LUIS?
 O sistema deve utilizar a intenção de classificação mais elevada, independentemente de seu valor. Por exemplo, uma pontuação inferior a 0,5 (menos de 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a pontuação da maioria provavelmente intenção.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que motivo não vejo minhas acertos de ponto final no Dashboard da minha aplicação?
-As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência. 
+As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência.
 
 Se não vir os resultados de ponto final atualizadas no Dashboard, inicie sessão no portal do Azure e localize o recurso associado à sua chave de ponto final de LUIS e, abra **métricas** para selecionar o **Total de chamadas** métrica. Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
 
-### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>A minha aplicação LUIS estava trabalhando ontem, mas hoje em dia, eu tenho 403 erros. Eu não alterou a aplicação. Como posso corrigi-lo? 
+### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>A minha aplicação LUIS estava trabalhando ontem, mas hoje em dia, eu tenho 403 erros. Eu não alterou a aplicação. Como posso corrigi-lo?
 A seguir a [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) nas perguntas frequentes seguintes para criar uma chave de ponto final do LUIS e atribuí-la para a aplicação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
 
-### <a name="how-do-i-secure-my-luis-endpoint"></a>Como posso proteger meu ponto de final do LUIS? 
+### <a name="how-do-i-secure-my-luis-endpoint"></a>Como posso proteger meu ponto de final do LUIS?
 Ver [proteger o ponto final](luis-concept-security.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Trabalhar dentro dos limites de LUIS
@@ -109,7 +109,7 @@ Os erros indicam que não há alguma discrepância entre as etiquetas e as previ
 
 Consulte a [testes de Batch](luis-tutorial-batch-testing.md) tutorial.
 
-### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando uma aplicação é exportada, em seguida, novamente importada para uma nova aplicação (com um novo ID de aplicação), as pontuações de predição de LUIS são diferentes. Por que isso acontece? 
+### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando uma aplicação é exportada, em seguida, novamente importada para uma nova aplicação (com um novo ID de aplicação), as pontuações de predição de LUIS são diferentes. Por que isso acontece?
 
 Ver [diferenças de predição entre cópias da mesma aplicação](luis-concept-prediction-score.md#differences-with-predictions).
 
@@ -124,15 +124,15 @@ No Azure, um inquilino representa o cliente ou de uma organização que está as
 <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
 
 
-### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Por que há mais chaves de ponto final atribuídas à minha aplicação que atribuí? 
+### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Por que há mais chaves de ponto final atribuídas à minha aplicação que atribuí?
 Cada aplicação LUIS tem a chave de criação/starter na lista de ponto de extremidade como uma conveniência. Esta chave permite apenas alguns cliques de ponto final para que pode experimentar o LUIS.  
 
-Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as chaves de ponto final do LUIS na sua subscrição são atribuídas automaticamente. Isso foi feito para facilitar a migração de disponibilidade geral. Quaisquer novas chaves de ponto final de LUIS no portal do Azure são _não_ atribuída automaticamente aos LUIS. 
+Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as chaves de ponto final do LUIS na sua subscrição são atribuídas automaticamente. Isso foi feito para facilitar a migração de disponibilidade geral. Quaisquer novas chaves de ponto final de LUIS no portal do Azure são _não_ atribuída automaticamente aos LUIS.
 
 ## <a name="app-management"></a>Gestão de aplicações
 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como transferir a propriedade de uma aplicação do LUIS?
-Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original. 
+Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como posso transferir um log de expressões de utilizador?
 Por predefinição, a sua aplicação LUIS regista expressões com dos utilizadores. Para transferir um log das expressões com que os utilizadores enviar para a sua aplicação LUIS, aceda a **as minhas aplicações**e clique nas reticências (***...*** ) na listagem para a sua aplicação. Em seguida, clique em **exportar registos de ponto final**. O registo é formatado como um ficheiro de valores separados por vírgulas (CSV).
@@ -140,26 +140,26 @@ Por predefinição, a sua aplicação LUIS regista expressões com dos utilizado
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como posso desativar o registo de expressões com?
 Pode desativar o registo de expressões do utilizador através da definição `log=false` no URL do ponto final que a aplicação cliente utiliza para consulta LUIS. No entanto, a desativação do registo desativa a capacidade da sua aplicação LUIS para sugerir discursos ou melhorar o desempenho com base no [aprendizagem ativa](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se definir `log=false` devido a problemas de privacidade de dados, não é possível transferir um registo dessas expressões de utilizador do LUIS ou utilizar essas expressões de com para melhorar a sua aplicação.
 
-O registo é o armazenamento apenas de expressões. 
+O registo é o armazenamento apenas de expressões.
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Por que não quero que todos os meus expressões com ponto final com sessão iniciadas?
 Se estiver a utilizar o início de sessão para análise de previsão, não capture expressões de teste no seu registo.
 
 ## <a name="data-management"></a>Gestão de dados
 
-### <a name="can-i-delete-data-from-luis"></a>Pode eliminar dados do LUIS? 
+### <a name="can-i-delete-data-from-luis"></a>Pode eliminar dados do LUIS?
 
 * Pode sempre eliminar as expressões de exemplo usadas para treinar o LUIS. Se eliminar uma expressão de exemplo da sua aplicação LUIS, ele é removido do serviço web LUIS e não está disponível para exportação.
 * Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no **rever expressões de ponto final** página. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
 * Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com os seus registos e as expressões de exemplo. Os dados são mantidos nos servidores durante 60 dias antes de ser eliminado permanentemente.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft aceder aos meus dados de aplicação do LUIS para suas próprias finalidades, por exemplo, para melhorar o LUIS ou a Microsoft em geral? 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft aceder aos meus dados de aplicação do LUIS para suas próprias finalidades, por exemplo, para melhorar o LUIS ou a Microsoft em geral?
 
-Não. Modelo de dados da aplicação LUIS não é utilizado pelo LUIS para melhorar o LUIS como uma plataforma ou utilizado pela Microsoft de qualquer forma. Dados de cada aplicação são separada e pertencentes à empresa apenas pelo utilizador e colaboradores. 
+Não. Modelo de dados da aplicação LUIS não é utilizado pelo LUIS para melhorar o LUIS como uma plataforma ou utilizado pela Microsoft de qualquer forma. Dados de cada aplicação são separada e pertencentes à empresa apenas pelo utilizador e colaboradores.
 
 Saiba mais sobre [privacidade do utilizador](luis-user-privacy.md), [conformidade de segurança adicional](luis-concept-security.md#security-compliance), e [armazenamento de dados](luis-concept-data-storage.md).
 
-## <a name="language-and-translation-support"></a>Suporte de idioma e de tradução 
+## <a name="language-and-translation-support"></a>Suporte de idioma e de tradução
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Tenho uma aplicação numa linguagem e pretende criar uma aplicação paralela em outro idioma. O que é a maneira mais fácil de fazê-lo?
 1. Exporte a sua aplicação.
@@ -170,7 +170,7 @@ Saiba mais sobre [privacidade do utilizador](luis-user-privacy.md), [conformidad
 ## <a name="app-notification"></a>Notificação de aplicação
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Por que recebi uma mensagem de e-mail dizendo, estou quase fora da quota?
-A chave de criação/starter só é permitida a 1000 consulta o ponto final de um mês. Crie uma chave de ponto final do LUIS (gratuita ou paga) e utilizar essa chave ao efetuar consultas de ponto final. Se estiver a efetuar consultas de ponto final de um bot ou outra aplicação de cliente, terá de alterar a chave de ponto final de LUIS lá. 
+A chave de criação/starter só é permitida a 1000 consulta o ponto final de um mês. Crie uma chave de ponto final do LUIS (gratuita ou paga) e utilizar essa chave ao efetuar consultas de ponto final. Se estiver a efetuar consultas de ponto final de um bot ou outra aplicação de cliente, terá de alterar a chave de ponto final de LUIS lá.
 
 ## <a name="integrating-luis"></a>Integrar o LUIS
 
@@ -180,15 +180,15 @@ Se selecionar um modelo do LUIS e selecionar a **selecione** botão no painel de
 ![Região do LUIS modelo web app bot](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões do LUIS suportam priming de voz de Bot Framework?
-[Priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) apenas é suportada para aplicações de LUIS na instância da central (E.U.A.). 
+[Priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) apenas é suportada para aplicações de LUIS na instância da central (E.U.A.).
 
-## <a name="luis-service"></a>Serviço de LUIS 
+## <a name="luis-service"></a>Serviço de LUIS
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>É LUIS disponível no local ou na nuvem privada?
-Não. 
+Não.
 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na conferência Build 2018, ouvi sobre um recurso de compreensão de idiomas ou uma demonstração, mas eu não se lembrar de que foi chamado? 
+### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na conferência Build 2018, ouvi sobre um recurso de compreensão de idiomas ou uma demonstração, mas eu não se lembrar de que foi chamado?
 
 As seguintes funcionalidades foram lançadas na conferência Build 2018:
 
@@ -199,19 +199,19 @@ As seguintes funcionalidades foram lançadas na conferência Build 2018:
 |Integrações|[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) a integração do [análise de sentimentos](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Voz](https://docs.microsoft.com/azure/cognitive-services/speech) a integração do priming de voz em conjunto com [SDK de voz](https://aka.ms/SpeechSDK)|
 |Ferramenta de distribuição|Parte [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), linha de comandos de expedição [ferramenta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) para combinar vários LUIS e QnA Maker aplicações numa única aplicação LUIS para melhor reconhecimento da intenção de um Bot
 
-Criação adicionais [as rotas API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) foram incluídos. 
+Criação adicionais [as rotas API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) foram incluídos.
 
-Vídeos: 
+Vídeos:
 * [Azure Friday na compilação 2018: Serviços cognitivos-idiomas (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Compilação de 2018 IA Mostrar - o que há de novo com o serviço de compreensão de idiomas](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [Sessão do Build 2018 - Inteligência de bots, Capacidades de Voz e melhores práticas do NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Compilação de 2018 - atualizações de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
-Projetos: 
+Projetos:
 * [Bot de contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) demonstração - código-fonte no Github
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
 * [Perguntas de estouro de pilha etiquetadas com os LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Fórum de (LUIS) de serviços de compreensão inteligentes de idiomas do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
+* [Fórum de (LUIS) de serviços de compreensão inteligentes de idiomas do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

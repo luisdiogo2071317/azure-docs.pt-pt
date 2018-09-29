@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629938"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432628"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -109,11 +109,6 @@ Um Superutilizador tem mais direitos entre todos os utilizadores na conta de ger
 * Pode alterar o utilizador proprietário ou grupo proprietário de qualquer ficheiro ou pasta.
 
 Todos os utilizadores que fazem parte do **proprietários** função para uma conta de geração 1 de armazenamento do Data Lake são automaticamente um Superutilizador.
-
-Se quiser criar uma função de controlo de acesso baseado em funções (RBAC) com permissões de superutilizador, esta tem de ter as permissões seguintes:
-- Microsoft.DataLakeStore/accounts/Superuser/action
-- Microsoft.Authorization/roleAssignments/write
-
 
 ### <a name="the-owning-user"></a>O utilizador proprietário
 

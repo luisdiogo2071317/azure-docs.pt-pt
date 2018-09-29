@@ -9,26 +9,26 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181651"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431793"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-## <a name="what-is-project-acoustics"></a>O que é o projeto Acoustics?
+## <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 
-O plug-in do projeto Acoustics Unity é um sistema de acoustics que calcula o comportamento de som wave antes do tempo de execução, semelhante a iluminação estático. A cloud faz o trabalho pesado da física de onda em tempo de design, portanto, o custo de tempo de execução da CPU é baixo.  
+O plug-in do projeto Acoustics Unity é um sistema de acoustics que calcula o comportamento de som wave antes do tempo de execução, semelhante a iluminação estático. A cloud faz o trabalho pesado de onda computações de física, para que o custo de tempo de execução da CPU é baixo.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Onde posso transferir o plug-in?
 
-Se tiver interesse em avaliar o plug-in de acoustics, registrar [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para aderir à pré-visualização do Designer.
+Se tiver interesse em avaliar o plug-in de acústica, registe-se [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para aderir à Pré-visualização do Designer.
 
 ## <a name="is-azure-used-at-runtime"></a>O Azure é utilizado no tempo de execução?
 
-Não, a integração na cloud é utilizada apenas durante a fase de precompute em tempo de design.
+Não, integração na cloud é utilizada apenas durante a fase de precompute como parte da configuração da cena.
  
 ## <a name="what-is-simulation-input"></a>O que é a entrada de simulação? 
 

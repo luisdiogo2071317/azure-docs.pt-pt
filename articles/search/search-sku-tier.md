@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221763"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434038"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
@@ -64,7 +64,7 @@ No Azure Search, a capacidade está estruturada como *réplicas* e *partições*
 + As partições armazenar índices e automaticamente dividir dados pesquisáveis: dividir seu índice no meio, três partições em terços duas partições e assim por diante. Em termos de capacidade *tamanho de partição* é o recurso diferenciador principal entre camadas.
 
 > [!NOTE]
-> Todos os **padrão** camadas suporte [réplica combinações flexível e partições](search-capacity-planning.md#chart) para que possa [seu sistema de armazenamento ou de velocidade de importância](search-performance-optimization.md) alterando o saldo. **Básico** oferece segurança de três réplicas para elevada disponibilidade, mas tem apenas uma partição. **Gratuito** camadas não fornece recursos dedicados: recursos são partilhados por vários serviços gratuitos de computação.
+> Todos os **padrão** camadas suporte [réplica combinações flexível e partições](search-capacity-planning.md#chart) para que possa [seu sistema de armazenamento ou de velocidade de importância](search-performance-optimization.md) alterando o saldo. **Básico** oferece segurança de três réplicas para elevada disponibilidade, mas tem apenas uma partição. **Gratuito** camadas não fornece recursos dedicados: computação recursos são partilhados por vários subscritores.
 
 ### <a name="more-about-service-limits"></a>Mais informações sobre limites de serviço
 

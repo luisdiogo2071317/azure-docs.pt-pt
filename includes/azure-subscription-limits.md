@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: fdb05f48478d22eea90c3a2c0264e9c4c8640eb0
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979329"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454566"
 ---
 | Recurso | Limite Predefinido | Limite Máximo |
 | --- | --- | --- |
 | vCPUs por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10,000 |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por subscrição |200 |200 |
-| [Contas de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) por região por subscrição<sup>2</sup> |200 |250 |
+| [Contas de armazenamento](../articles/storage/common/storage-create-storage-account.md) por subscrição <sup>2</sup> |100 |100 |
 | [Serviços cloud](../articles/cloud-services/cloud-services-choose-me.md) por subscrição |20 |200 |
 | [Redes locais](http://msdn.microsoft.com/library/jj157100.aspx) por subscrição |10 |500 |
 | Servidores de base de dados SQL por subscrição |6 |200 |
@@ -31,5 +31,5 @@ ms.locfileid: "45979329"
 
 <sup>1</sup>muito pequenas contagem de instâncias como um vCPU para o limite de vCPU, apesar de a utilizar um núcleo de CPU parcial.
 
-<sup>2</sup>o limite de conta de armazenamento inclui contas de armazenamento Standard e Premium. Se necessitar de mais de 200 contas de armazenamento numa determinada região, efetue um pedido através de [suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa do armazenamento do Azure analisará o seu caso comercial e pode aprovar até 250 contas de armazenamento para uma determinada região. 
+<sup>2</sup>o limite de conta de armazenamento inclui contas de armazenamento Standard e Premium. 
 

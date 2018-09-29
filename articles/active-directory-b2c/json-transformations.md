@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b6a00719fea78d5872dc00a874951c4760d9207f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d712286cb4ea5e67474ec11d56d99eaf2cabec3e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381531"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433077"
 ---
 # <a name="json-claims-transformations"></a>Transformações de afirmações de JSON
 
@@ -75,7 +75,7 @@ Obter uma lista de elementos especificados a partir dos dados Json.
 No exemplo seguinte, a transformação de declarações extrai as seguintes declarações: e-mail (cadeia), displayName (cadeia), membershipNum (int), Active Directory (boolean) e data de nascimento (datetime) dos dados JSON.
 
 ```JSON
-[{"key":"email","value":"someone@example.com"}, "key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+[{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
 ```XML
@@ -86,7 +86,7 @@ No exemplo seguinte, a transformação de declarações extrai as seguintes decl
   <InputParameters>
     <InputParameter Id="errorOnMissingClaims" DataType="boolean" Value="false" />
     <InputParameter Id="includeEmptyClaims" DataType="boolean" Value="false" />
-    <InputParameter Id="jsonSourceKeyName" DataType="string" Value="type" />
+    <InputParameter Id="jsonSourceKeyName" DataType="string" Value="key" />
     <InputParameter Id="jsonSourceValueName" DataType="string" Value="value" />
   </InputParameters>
   <OutputClaims>
@@ -100,7 +100,7 @@ No exemplo seguinte, a transformação de declarações extrai as seguintes decl
 ```    
 
 - Afirmações de entrada:
-    - **jsonSourceClaim**: [{"chave": "email", "value": "someone@example.com"}, "chaves": "displayName", "value": "Alguém"}, {"chave": "membershipNum", "value": 6353399}, {"chave": "ativo", "value": true}, {"chave": "data de nascimento", "valor": "1980-09-23T00:0 0:00Z"}]
+    - **jsonSourceClaim**: [{"chave": "email", "value": "someone@example.com"}, {"chave": "displayName", "value": "Alguém"}, {"chave": "membershipNum", "value": 6353399}, {"chave": "ativo", "value": true}, {"chave": "data de nascimento", "value": "1980-09-23T00:0 0:00Z"}]
 - Parâmetros de entrada:
     - **errorOnMissingClaims**: Falso
     - **includeEmptyClaims**: Falso
@@ -221,11 +221,9 @@ Afirmações de saída:
 
 ```JSON
 {
-  {
-    "user": {
-      "name":"Someone",
-      "email":"someone@example.com"
-    }
+  "user": {
+    "name":"Someone",
+    "email":"someone@example.com"
   }
 }
 ```

@@ -9,14 +9,14 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181696"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431997"
 ---
-# <a name="known-issues"></a>Problemas conhecidos
+# <a name="known-issues"></a>Problemas Conhecidos
 Poderá encontrar os seguintes problemas conhecidos ao utilizar a pré-visualização do Designer para Acoustics do projeto.
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Parâmetros acústicos são perdidos quando mudar o nome de uma cena
@@ -27,7 +27,7 @@ Se renomear uma cena, todos os parâmetros acústicos que pertencem a essa cena 
 
 Isso deverá ser predefinido para um caminho relativo para que seja mais fácil de compartilhar projetos entre funcionários. Como solução, altere o caminho relativa ao diretório do projeto.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Tempo de execução voxels são um tamanho diferente que o tempo de design voxels
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Tempo de execução voxels são um tamanho diferente de cena voxels de pré-visualização
 
 Se o fizer um **Calculate** sobre o **sondas** separador e vista voxels, em seguida, efetue um voxels criar e ver em tempo de execução para a cena da mesma, os voxels têm tamanhos diferentes. Voxels mostrados pré-criar são voxels utilizado na simulação. Voxels mostrados em tempo de execução são utilizados para a interpolação entre pontos de sonda. Isso pode causar uma inconsistência onde portais aparecerá abertos no tempo de execução que não são, na verdade, aberto.
 
@@ -51,5 +51,5 @@ Certifique-se de que a versão de tempo de execução de scripts nas definiçõe
 Verificar novamente já utilizou as credenciais corretas para a sua conta do Azure, que a sua conta suporta o tipo de nó solicitado na criar e que o relógio do seu sistema está correta.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Introdução ao [integrar acoustics no seu projeto Unity](getting-started.md)
+* Introdução à [integração de acústica no projeto do Unity](getting-started.md)
 

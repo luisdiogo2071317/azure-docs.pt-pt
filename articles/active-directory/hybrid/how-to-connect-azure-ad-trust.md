@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314665"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432059"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerir a confiança do AD FS com o Azure AD com o Azure AD Connect
 
@@ -41,7 +41,7 @@ O Azure AD Connect gerencia **apenas** as definições relacionadas com a confia
 | Definição | Descrição |
 | :--- | :--- |
 | Certificado de assinatura de tokens | O Azure AD Connect pode servir-se para repor e recriar a confiança com o Azure AD. O Azure AD Connect não um rollover de imediato única de certificados de assinatura de tokens do AD FS e atualiza as definições de Federação do domínio do Azure AD.|
-| Algoritmo de assinatura de token | A Microsoft recomenda utilizar SHA-256 como o algoritmo de assinatura de tokens. O Azure AD Connect pode detectar se o algoritmo de assinatura de token é definido como um valor menos seguro do que o SHA-256. Ele irá atualizar a definição para SHA-256 na próxima operação de configuração possíveis. |
+| Algoritmo de assinatura de token | A Microsoft recomenda utilizar SHA-256 como o algoritmo de assinatura de tokens. O Azure AD Connect pode detectar se o algoritmo de assinatura de token é definido como um valor menos seguro do que o SHA-256. Ele irá atualizar a definição para SHA-256 na próxima operação de configuração possíveis. Outra fidedignidade de entidade confiadora tem de ser atualizada para utilizar o novo certificado de assinatura de token. |
 | Identificador de fidedignidade do Azure AD | O Azure AD Connect define o valor de identificador correto para a fidedignidade do Azure AD. AD FS identifica exclusivamente a confiança do Azure AD com o valor do identificador. |
 | Pontos finais de AD do Azure | O Azure AD Connect certifica-se de que os pontos finais configurados para a fidedignidade do Azure AD são sempre de acordo com os valores recomendados mais recente para resiliência e desempenho. |
 | Regras de transformação de emissão | Há um número de regras de afirmação que são necessários para otimizar o desempenho dos recursos do Azure AD numa configuração federada. O Azure AD Connect certifica-se de que a fidedignidade do Azure AD é sempre configurada com o conjunto certo de regras de afirmação recomendada. |

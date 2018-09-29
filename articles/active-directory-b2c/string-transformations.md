@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159895"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433451"
 ---
 # <a name="string-claims-transformations"></a>Transformações de afirmações de cadeia de caracteres
 
@@ -156,7 +156,7 @@ Determine se uma afirmação de cadeia de caracteres é igual para outro. O resu
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | cadeia | Tipo, o que está a ser comparada de afirmação pela primeira vez. |
 | InputClaim | inputClaim2 | cadeia | Tipo, o que está a ser comparada de afirmação em segundo lugar. |
-| InputParameter | Operador | cadeia | Valores possíveis: `Equal` ou `Not Equal`. |
+| InputParameter | Operador | cadeia | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cadeias de caracteres está a ser comparado. |
 | outputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
 
@@ -196,7 +196,7 @@ Determina se um valor de afirmação é igual ao valor de parâmetro de entrada.
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | cadeia | Tipo da afirmação, que é ser comparadas. |
-| InputParameter | Operador | cadeia | Valores possíveis: `Equal` ou `Not Equal`. |
+| InputParameter | Operador | cadeia | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | compareTo | cadeia | comparação, um dos valores de cadeias de caracteres: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cadeias de caracteres está a ser comparado. |
 | outputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
@@ -235,11 +235,11 @@ Cria uma cadeia de caracteres aleatória usando o gerador de números aleatório
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | cadeia | Especifica o valor aleatório sejam gerados `GUID` (ID exclusivo global) ou `integer` (um número). |
+| InputParameter | randomGeneratorType | cadeia | Especifica o valor aleatório sejam gerados `GUID` (ID exclusivo global) ou `INTEGER` (um número). |
 | InputParameter | stringFormat | cadeia | [Opcional] Formate o valor aleatório. |
 | InputParameter | base64 | boolean | [Opcional] Converta o valor aleatório para base64. Se o formato de cadeia de caracteres é aplicado, o valor depois de formato de cadeia está codificado para base64. |
-| InputParameter | maximumNumber | Int | [Opcional] Para `Integer` randomGeneratorType apenas. Especifique o número de maximute. |
-| InputParameter | seed  | Int | [Opcional] Para `Integer` randomGeneratorType apenas. Especifique a semente para o valor aleatório. Nota: a seed mesmo gera a mesma seqüência de números aleatórios. |
+| InputParameter | maximumNumber | Int | [Opcional] Para `INTEGER` randomGeneratorType apenas. Especifique o número de maximute. |
+| InputParameter | seed  | Int | [Opcional] Para `INTEGER` randomGeneratorType apenas. Especifique a semente para o valor aleatório. Nota: a seed mesmo gera a mesma seqüência de números aleatórios. |
 | outputClaim | outputClaim | cadeia | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado. O valor aleatório. |
 
 Exemplo a seguir gera um ID exclusivo global. Este afirmações de transformação é utilizada para criar o aleatório UPN (nome do principal de utilizador).
@@ -266,7 +266,7 @@ Exemplo a seguir gera um valor aleatório de número inteiro entre 0 e 1000. O v
 ```XML
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
-    <InputParameter Id="randomGeneratorType" DataType="string" Value="integer" />
+    <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
     <InputParameter Id="maximumNumber" DataType="int" Value="1000" />
     <InputParameter Id="stringFormat" DataType="string" Value="OTP_{0}" />
     <InputParameter Id="base64" DataType="boolean" Value="false" />

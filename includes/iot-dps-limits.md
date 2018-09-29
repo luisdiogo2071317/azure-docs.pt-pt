@@ -16,7 +16,8 @@ A tabela seguinte lista os limites que se aplicam aos recursos de serviço de ap
 
 O serviço de aprovisionamento de dispositivos limita os pedidos quando as quotas seguintes são ultrapassadas:
 
-| Limitação | Valor por serviço |
+| Limitação | Valor por unidade |
 | --- | --- |
-| Operações | 100 por minuto |
-| Registos de dispositivos | 100 por minuto |
+| Operações | 200/min/serviço |
+| Registos de dispositivos | 200/min/serviço |
+| Operação de consulta do dispositivo | 5/10 seg/dispositivo |

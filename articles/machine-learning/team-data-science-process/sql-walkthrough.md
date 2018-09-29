@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056416"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433723"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -582,7 +582,7 @@ Neste exercício, temos já explorou e desenvolvido os dados no SQL Server e dec
 2. Selecione **Azure SQL Database** como o **origem de dados** no **propriedades** painel.
 3. Introduza o nome DNS de base de dados na **nome do servidor de base de dados** campo. Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome da base de dados** o campo correspondente.
-5. Introduza o **nome de utilizador do SQL** no * * nome de aqccount de utilizador do servidor e a palavra-passe no **palavra-passe de conta de utilizador servidor**.
+5. Introduza o **nome de utilizador SQL** no **nome de conta de utilizador do servidor**e o **palavra-passe** no **palavra-passe de conta de utilizador servidor**.
 7. Na **consulta de base de dados** editar área de texto, cole a consulta que extrai os campos de banco de dados necessários (incluindo quaisquer campos calculados, como os rótulos) e baixo exemplos os dados para o tamanho da amostra pretendido.
 
 Um exemplo de uma experimentação de classificação binária ler os dados diretamente a partir da base de dados do SQL Server é na imagem abaixo. Experiências semelhantes podem ser construídas para a classificação de várias classes e problemas de regressão.

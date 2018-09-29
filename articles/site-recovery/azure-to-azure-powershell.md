@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: dbc092a9a6984a74cb59f287f12b06892c68fe4a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296894"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433434"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell
 
@@ -34,7 +34,6 @@ Saiba como:
 
 > [!NOTE]
 > Nem todas as capacidades de cenário disponíveis através do portal poderão estar disponíveis através do PowerShell do Azure. Algumas das capacidades de cenário não são atualmente suportadas através do PowerShell do Azure são:
-> - A capacidade de replicar máquinas virtuais do Azure que utilizam discos geridos.
 > - A capacidade de especificar que todos os discos numa máquina virtual devem ser replicados sem ter de especificar explicitamente cada disco da máquina virtual.  
 
 ## <a name="prerequisites"></a>Pré-requisitos

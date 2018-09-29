@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181693"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433229"
 ---
 # <a name="design-process-overview"></a>Descrição geral do processo de design
-Pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do projeto Acoustics: Inserir previamente o design, o posicionamento de som de origem e o design de pós-criar. O processo exige menos marcação associada com a colocação de reverberação volumes, mantendo o controle de designer sobre como pode parecer uma cena.
+Pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do projeto Acoustics: pré-inserir instalação de cena, Colocação de origem de som e design de pós-criar. O processo exige menos marcação associada com a colocação de reverberação volumes, mantendo o controle de designer sobre como pode parecer uma cena.
 
 ## <a name="pre-bake-design"></a>Design de pré-criar
-O processo de design de pré-criar produz a cena e os metadados que são utilizados para a simulação de som wave, que inclui a seleção que elementos de cena irão participar na simulação para fornecer occlusions, reflexo e reverberation. Os metadados para a cena são a seleção de materiais acústicos para cada elemento de cena. Os materiais acústicos controlam a quantidade de energia som refletida novamente a partir de cada superfície.
+O processo de configuração de pré-criar cena produz a cena e os metadados que são utilizados para a simulação de som wave, que inclui a seleção que elementos de cena irão participar na simulação para fornecer occlusions, reflexo e reverberation. Os metadados para a cena são a seleção de materiais acústicos para cada elemento de cena. Os materiais acústicos controlam a quantidade de energia som refletida novamente a partir de cada superfície.
 
 O coeficiente de absorption padrão para todas as superfícies é 0.04, que é altamente reflexiva. Pode conseguir efeitos estética e jogabilidade ajustando os coeficientes absorption de materiais diferentes em toda a cena, que são especialmente importantes para serviços de escuta quando elas ouvem as transições de uma área da cena para outro. Por exemplo, fazer a transição de uma sala reverberant escura para um brilhante, que não reverberant cena de equipamentos esportivos aprimora o impacto da transição. Para obter este efeito, Otimize os coeficientes absorption nos materiais a cena de equipamentos esportivos superior.
 

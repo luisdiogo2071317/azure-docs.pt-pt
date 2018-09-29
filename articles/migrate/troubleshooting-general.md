@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165302"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433502"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -92,9 +92,11 @@ Recoletor do Azure Migrate transfere PowerCLI e instala-o em que a aplicação. 
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu o erro interno UnhandledException: FileNotFoundException
 
-Este é um problema visto no Recoletor com versões anteriores à 1.0.9.5. Se tiver uma versão de Recoletor 1.0.9.2 ou versões de pré-GA como 1.0.8.59, irá deparar-se com este problema. Siga a ligação [aqui apresentada para os fóruns para obter uma resposta detalhada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Este problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga os passos abaixo para resolver o problema:
 
-[Atualize o Recoletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
+1. Se não estiver conectado a versão mais recente da aplicação de recoletor [atualizar o Recoletor para a versão mais recente](https://aka.ms/migrate/col/checkforupdates) e verifique se o problema está resolvido.
+2. Se já tiver a versão mais recente do recoletor, instalar manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema está resolvido.
+3. Se o procedimento acima não resolver o problema, navegue para a pasta C:\Program Files\ProfilerService e remover o VMware.dll e VimService65.dll ficheiros presentes na pasta e, em seguida, reinicie o serviço de "Recoletor do Azure Migrate" em gerir de serviços do Windows (Open ' Execute "e o tipo"Services. msc"para abrir o Gestor de serviço do Windows).
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
