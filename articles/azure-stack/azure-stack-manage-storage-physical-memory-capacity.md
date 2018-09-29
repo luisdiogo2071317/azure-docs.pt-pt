@@ -1,6 +1,6 @@
 ---
-title: Gerir a capacidade de memória física para a pilha do Azure | Microsoft Docs
-description: Monitorizar e gerir o espaço de armazenamento disponível para a pilha do Azure.
+title: Gerir a capacidade de memória física para o Azure Stack | Documentos da Microsoft
+description: Monitorizar e gerir o espaço de armazenamento disponível para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,44 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: dc572353c2e27ddfbae2398f1aece56586955e26
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074862"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452144"
 ---
-<!---Loc Comment: Please, check the comment in coversation section---> 
-# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerir a capacidade de memória física para a pilha do Azure
+# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerir a capacidade de memória física para o Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas*
+*Aplica-se a: sistemas integrados do Azure Stack*
 
-Para aumentar a capacidade de memória total disponível para a pilha do Azure, pode adicionar memória adicional. Na pilha do Azure o servidor físico é também referido como um *nó de unidade de escala*. Todos os nós de unidade de escala que são membros de uma unidade de escala único tem de ter a mesma quantidade de memória.
+Para aumentar a capacidade de memória total disponível para o Azure Stack, pode adicionar memória adicional. No Azure Stack seu servidor físico é também referido como um *nó de unidade de escala*. Todos os nós de unidade de escala que são membros de uma unidade de escala único tem de ter a mesma quantidade de memória.
 
 > [!note]  
-> Antes de continuar, consulte a documentação do fabricante de hardware para ver se uma o fabricante suporta uma atualização de memória física. O contrato de suporte de fornecedor de hardware do OEM pode exigir que o fornecedor de executar a colocação de bastidor de servidor físico e a atualização de firmware do dispositivo.
+> Antes de continuar, consulte a documentação do fabricante de hardware para ver se um fabricante do seu suporta uma atualização de memória física. Seu contrato de suporte do fornecedor de hardware OEM pode exigir que o fornecedor de efetuar a colocação de rack do servidor físico e a atualização de firmware do dispositivo.
 
-O diagrama de fluxo seguinte mostra o processo geral para adicionar memória para cada nó de unidade de escala.
+O diagrama de fluxo que se segue mostra o processo geral para adicionar memória a cada nó de unidade de escala.
 
-![Adicione memória em cada nó de unidade de escala](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Adicionar memória a cada nó de unidade de escala](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
 
-## <a name="add-memory-to-an-existing-node"></a>Adicione memória para um nó existente
-Os passos seguintes fornecem uma descrição do processo adicionar memória de alto nível. 
-
-> [!Warning]  
-Siga estes passos sem referir-se a sua documentação fornecida pelo OEM.
+## <a name="add-memory-to-an-existing-node"></a>Adicione memória a um nó existente
+Os passos seguintes fornecem uma visão geral sobre o processo de memória de adicionar. 
 
 > [!Warning]  
-Deve ser encerrada a unidade de escala completa como uma atualização sem interrupção de memória não é suportada.
+Não siga estes passos sem referir-se a sua documentação fornecida pelo OEM.
 
-1. Parar a pilha do Azure utilizando os passos documentados no [início e paragem do Azure pilha](azure-stack-start-and-stop.md) artigo.
-2. Atualize a memória em cada computador físico através de documentação do fabricante de hardware.
-3. Iniciar a pilha do Azure utilizando os passos a [início e paragem do Azure pilha](azure-stack-start-and-stop.md) artigo.
+> [!Warning]  
+A unidade de escala completa deve ser desligada como uma atualização sem interrupção de memória não é suportada.
+
+1. Parar o Azure Stack, utilizando os passos documentados no [início e fim do Azure Stack](azure-stack-start-and-stop.md) artigo.
+2. Atualize a memória em cada computador físico com a documentação do fabricante de hardware.
+3. Iniciar o Azure Stack, utilizando os passos a [início e fim do Azure Stack](azure-stack-start-and-stop.md) artigo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
- - Para saber como gerir contas de armazenamento na pilha do Azure para localizar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio, consulte [gerir contas de armazenamento na pilha de Azure](azure-stack-manage-storage-accounts.md).
- - Para saber o operador da nuvem do Azure pilha monitoriza e gere a capacidade de armazenamento da implementação deles pilha do Azure, consulte [gerir a capacidade de pilha do Azure armazenamento](azure-stack-manage-storage-shares.md). 
+ - Para saber como gerir contas de armazenamento no Azure Stack para encontrar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio, veja [gerir contas de armazenamento no Azure Stack](azure-stack-manage-storage-accounts.md).
+ - Para saber o operador de cloud do Azure Stack monitoriza e gere a capacidade de armazenamento da sua implementação do Azure Stack, veja [gerir a capacidade de armazenamento para o Azure Stack](azure-stack-manage-storage-shares.md). 

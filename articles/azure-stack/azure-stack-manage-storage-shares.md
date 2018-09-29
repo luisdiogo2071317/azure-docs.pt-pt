@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071390"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452331"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para o Azure Stack
+# <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para o Azure Stack 
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
@@ -86,10 +85,15 @@ Como um operador de cloud, pode monitorizar a capacidade de armazenamento de uma
 - **Utilizado capacidade** é a quantidade de dados em bytes, que é utilizado pelas todas as extensões dos arquivos que armazenam os dados de inquilino e metadados associados.
 
 ### <a name="use-the-administrator-portal"></a>Utilizar o portal de administrador
-Como um operador de cloud, pode utilizar o portal de administração para ver a capacidade de todas as partilhas de armazenamento. **Aceda ao armazenamento** > **partilhas de ficheiros** para abrir a lista de partilha de ficheiros onde pode ver as informações de utilização.
-![Exemplo: Partilhas de ficheiros de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **TOTAL** é o espaço total em bytes, que estão disponíveis na partilha. Este espaço é utilizado para dados e metadados que é mantido pelos serviços de armazenamento.
-- **UTILIZADO** é a quantidade de dados em bytes, que é utilizado pelas todas as extensões dos arquivos que armazenam os dados de inquilino e metadados associados.
+Como um operador de cloud, pode utilizar o portal de administração para ver a capacidade de todas as partilhas de armazenamento.
+
+1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
+2. Selecione **todos os serviços** > **armazenamento** para abrir a lista de partilha de ficheiros onde pode ver as informações de utilização. 
+
+  ![Exemplo: Partilhas de ficheiros de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **TOTAL** é o espaço total em bytes, que estão disponíveis na partilha. Este espaço é utilizado para dados e metadados que é mantido pelos serviços de armazenamento.
+  - **UTILIZADO** é a quantidade de dados em bytes, que é utilizado pelas todas as extensões dos arquivos que armazenam os dados de inquilino e metadados associados.
 
 ### <a name="storage-space-alerts"></a>Alertas de espaço de armazenamento
 Quando utiliza o portal de administração, receber alertas sobre partilhas que estão baixas no espaço.

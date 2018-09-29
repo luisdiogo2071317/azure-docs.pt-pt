@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139301"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452280"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento no Azure Stack
 Saiba como gerir contas de armazenamento no Azure Stack para encontrar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
@@ -28,19 +27,19 @@ Saiba como gerir contas de armazenamento no Azure Stack para encontrar, recupera
 ## <a name="find"></a>Localizar uma conta de armazenamento
 A lista de contas de armazenamento na região pode ser visualizada no Azure Stack por:
 
-1. Num browser da Internet, navegue para https://adminportal.local.azurestack.external.
-2. Inicie sessão no portal de administração do Azure Stack como um operador de cloud (usando as credenciais fornecidas durante a implementação)
-3. Encontrar no dashboard padrão – a **gestão da região** lista e selecione a região que deseja explorar, por exemplo **(local**).
+1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
+
+2. Selecione **todos os serviços** > **gestão da região** sob **administração**.
+
+3. Selecione **armazenamento** partir do **fornecedores de recursos** lista.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Selecione **armazenamento** partir do **fornecedores de recursos** lista.
+   ![Fornecedor de Recursos de Armazenamento](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Selecione **contas de armazenamento** na **armazenamento**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Agora, no painel de administrador do fornecedor de recursos de armazenamento – desloque para baixo para o **contas de armazenamento** separador e selecioná-lo.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   A página resultante é a lista de contas de armazenamento nessa região.
+   O painel apresenta a lista de contas de armazenamento nessa região.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,7 +75,7 @@ Pode estar numa situação em que precisar de recuperar uma conta eliminada.
 
 No Azure Stack, há uma forma simples de fazer isso:
 
-1. Navegue para a lista de contas de armazenamento. Ver [localizar uma conta de armazenamento](#find) neste tópico para obter mais informações.
+1. Navegue para a lista de contas de armazenamento. Ver [localizar uma conta de armazenamento](#find) neste artigo para obter mais informações.
 2. Localize essa conta específica na lista. Se pretender filtrar.
 3. Verifique os *estado* da conta. Deverá indicar **Deleted**.
 4. Selecione a conta, que abre o painel de detalhes da conta.
@@ -97,19 +96,18 @@ No Azure Stack, há uma forma simples de fazer isso:
   Fora de retenção significa que a conta eliminada excedeu o período de retenção e pode não ser recuperável.
 * Sua conta eliminada não mostra a lista de contas.
   
-  Conta de poderão não ser apresentados na lista conta quando a conta eliminada já foi coletados pelo lixo. Neste caso, não pode ser recuperado. Ver [recuperar a capacidade](#reclaim) neste tópico.
+  Conta de poderão não ser apresentados na lista conta quando a conta eliminada já foi coletados pelo lixo. Neste caso, não pode ser recuperado. Ver [recuperar a capacidade](#reclaim) neste artigo.
 
 ## <a name="set-the-retention-period"></a>Definir o período de retenção
 A definição de período de retenção permite que um operador da cloud especificar um período de tempo em dias (entre 0 e 9999 dias) durante o qual qualquer conta eliminada potencialmente pode ser recuperada. O período de retenção predefinido está definido como 0 dias. Definir o valor como "0" significa que qualquer conta eliminada é imediatamente fora de retenção e marcado para coleta de lixo periódica.
 
 **Para alterar o período de retenção:**
 
-1. Num browser da internet, navegue para https://adminportal.local.azurestack.external.
-2. Inicie sessão no portal de administração do Azure Stack como um operador de cloud (usando as credenciais fornecidas durante a implementação)
-3. Encontrar no dashboard padrão – a **gestão da região** lista e selecione a região que deseja explorar – por exemplo **(local**).
-4. Selecione **armazenamento** partir do **fornecedores de recursos** lista.
-5. Selecione **definições** na parte superior para abrir o painel de definição.
-6. Selecione **configuração** , em seguida, edite o valor do período de retenção.
+1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
+2. Selecione **todos os serviços** > **gestão da região** sob **administração**.
+3. Selecione **armazenamento** partir do **fornecedores de recursos** lista.
+4. Selecione **definições** na parte superior para abrir o painel de definição.
+5. Selecione **configuração** , em seguida, edite o valor do período de retenção.
 
    Definir o número de dias e, em seguida, guardá-lo.
    
@@ -142,7 +140,7 @@ Pode também utilizar o PowerShell explicitamente substituir o período de reten
    Para obter mais informações sobre os cmdlets do Azure Resource Manager, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Execute os seguintes cmdlets:
 
-> [!NOTE]
+> [!NOTE]  
 > Se executar estes cmdlets, eliminar permanentemente a conta e o respetivo conteúdo. Não é recuperável. Utilize esta opção com cuidado.
 
 ```PowerShell  
