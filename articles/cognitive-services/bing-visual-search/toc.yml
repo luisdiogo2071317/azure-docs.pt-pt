@@ -1,77 +1,84 @@
+items:
 - name: Documentação da Pesquisa Visual do Bing
   href: index.yml
 - name: Descrição geral
   items:
-    - name: O que é a API de Pesquisa Visual do Bing?
-      href: overview.md
+  - name: O que é a API de Pesquisa Visual do Bing?
+    href: overview.md
 - name: Inícios Rápidos da API REST
-  expanded: true
   items:
-    - name: 'Primeira consulta em C#'
-      href: quickstarts/csharp.md
-    - name: Primeira consulta em Java
-      href: quickstarts/java.md
-    - name: Primeira consulta para Node.js
-      href: quickstarts/nodejs.md
-    - name: Primeira consulta em Python
-      href: quickstarts/python.md
+  - name: Primeira consulta em C#
+    href: quickstarts/csharp.md
+  - name: Primeira consulta em Java
+    href: quickstarts/java.md
+  - name: Primeira consulta para Node.js
+    href: quickstarts/nodejs.md
+  - name: Primeira consulta em Python
+    href: quickstarts/python.md
+  expanded: true
 - name: SDK
-  expanded: true
   items:
-    - name: Descrição geral de exemplos de SDKs
-      href: sdk.md
-    - name: 'SDK em C#'
-      href: visual-search-sdk-c-sharp.md
-    - name: SDK em Node
-      href: visual-search-sdk-node.md
-    - name: SDK no Python
-      href: visual-search-sdk-python.md
+  - name: Descrição geral de exemplos de SDKs
+    href: sdk.md
+  - name: SDK em C#
+    href: visual-search-sdk-c-sharp.md
+  - name: SDK em Node
+    href: visual-search-sdk-node.md
+  - name: SDK no Python
+    href: visual-search-sdk-python.md
+  expanded: true
 - name: Tutoriais
   items:
-    - name: Aplicação Web de carregamento de imagens
-      href: tutorial-visual-search-image-upload.md
-    - name: Aplicação Web de página única
-      href: tutorial-bing-visual-search-single-page-app.md
-    - name: Aplicação Web de página única (código fonte)
-      href: tutorial-bing-visual-search-single-page-app-source.md
-    - name: Resultados e área de recorte de imagem do SDK da Pesquisa Visual do Bing
-      href: tutorial-visual-search-crop-area-results.md
-    - name: Resultados e ImageInsightsToken do SDK da Pesquisa Visual do Bing
-      href: tutorial-visual-search-insights-token.md
+  - name: Aplicação Web de carregamento de imagens
+    href: tutorial-visual-search-image-upload.md
+  - name: Aplicação Web de página única
+    href: tutorial-bing-visual-search-single-page-app.md
+  - name: Aplicação Web de página única (código fonte)
+    href: tutorial-bing-visual-search-single-page-app-source.md
+  - name: Resultados e área de recorte de imagem do SDK da Pesquisa Visual do Bing
+    href: tutorial-visual-search-crop-area-results.md
+  - name: Resultados e ImageInsightsToken do SDK da Pesquisa Visual do Bing
+    href: tutorial-visual-search-insights-token.md
 - name: Amostras
   items:
-    - name: Exemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Conceitos
   items:
-    - name: Informações de imagem predefinidas
-      href: default-insights-tag.md
-    - name: Utilização de informações do Bing
-      href: bing-insights-usage.md
-    - name: Países e mercados suportados
-      href: supported-countries-markets.md
-    - name: Análise da API de Pesquisa Visual
-      href: bing-visual-search-stats.md
+  - name: Informações de imagem predefinidas
+    href: default-insights-tag.md
+  - name: Utilização de informações do Bing
+    href: bing-insights-usage.md
+  - name: Análise da API de Pesquisa Visual
+    href: bing-visual-search-stats.md
 - name: Guias de procedimentos
   items:
-    - name: Obter informações através de tokens
-      href: use-insights-token.md
-    - name: Resultados de apresentação e utilização
-      href: use-and-display-requirements.md
-    - name: Redimensionar e recortar miniaturas
-      href: resize-and-crop-thumbnails.md
+  - name: Obter informações através de tokens
+    href: use-insights-token.md
+  - name: Resultados de apresentação e utilização
+    href: use-and-display-requirements.md
+  - name: Redimensionar e recortar miniaturas
+    href: resize-and-crop-thumbnails.md
 - name: Referência
-  expanded: true
   items:
-    - name: API REST v7
-      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+  - name: API REST v7
+    href: https://aka.ms/bingvisualsearchreferencedoc
+  expanded: true
 - name: Recursos
   items:
-    - name: Obter chave de acesso gratuita
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
-    - name: Experimente!
-      href: 'https://aka.ms/bingvisualsearchtryforfree'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/bing-search'
-    - name: Opinião do Utilizador
-      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
+  - name: Suporte de idioma e região
+    href: language-support.md
+  - name: Obter chave de acesso gratuita
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
+  - name: Experimente!
+    href: https://aka.ms/bingvisualsearchtryforfree
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: Opinião do Utilizador
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
+ms.openlocfilehash: f33e0fe7c13a7686c244d10297fd23e7ca59d452
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432431"
