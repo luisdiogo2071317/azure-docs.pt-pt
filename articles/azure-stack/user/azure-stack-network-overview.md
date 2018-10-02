@@ -1,45 +1,45 @@
 ---
-title: Introdução às redes de pilha do Azure | Microsoft Docs
-description: Saiba mais sobre redes de pilha do Azure
+title: Introdução ao sistema de rede do Azure Stack | Documentos da Microsoft
+description: Saiba mais sobre o funcionamento em rede do Azure Stack
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: ee94fd8a9dac17e4db180b05208df66f3d33b901
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ac842507cc52c9677e755d32b09758f787c5a1fb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604571"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584566"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Introdução ao funcionamento em rede do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pilha do Azure fornece uma variedade de capacidades de rede que podem ser utilizadas em conjunto ou separadamente:
+O Azure Stack oferece uma variedade de capacidades de rede que podem ser usados juntos ou separados:
 
-- **Conectividade entre os recursos de pilha do Azure**  
-    Ligar recursos do Azure em conjunto numa rede virtual privada, segura na nuvem.
+- **Conectividade entre os recursos do Azure Stack**  
+    Ligar recursos do Azure em conjunto numa rede virtual segura e privada na cloud.
 - **Ligação à Internet**  
-    Comunicar e de recursos de pilha do Azure através da Internet.
+    Comunica e para recursos do Azure Stack através da Internet.
 - **Conectividade no local**  
-    Ligar uma rede no local para recursos de pilha do Azure através de uma rede privada virtual (VPN) através da Internet ou através de uma ligação dedicada à pilha do Azure.
-- **Direção do tráfego e balanceamento de carga**  
-    Tráfego de balanceamento de carga para os servidores na mesma localização e o tráfego direto para servidores em diferentes localizações.
+    Ligar uma rede no local para recursos do Azure Stack através de uma rede privada virtual (VPN) através da Internet ou por meio de uma ligação dedicada ao Azure Stack.
+- **Direção do tráfego e de balanceamento de carga**  
+    Balancear carga de tráfego para servidores na mesma localização e direcionar o tráfego para servidores em diferentes localizações.
 - **Segurança**  
-    Filtre o tráfego de rede entre sub-redes da rede ou de máquinas virtuais individuais (VM).
+    Filtre o tráfego de rede entre sub-redes da rede ou máquinas virtuais individuais (VM).
 - **Encaminhamento**  
-    Utilizar o encaminhamento predefinido ou controlar totalmente o encaminhamento entre a pilha do Azure e recursos no local.
+    Utilize o encaminhamento predefinido ou controlar totalmente o encaminhamento entre o Azure Stack e recursos no local.
 - **Capacidade de gestão**  
-    Monitorizar e gerir a pilha do Azure, os recursos de rede.
-- **Ferramentas de configuração e implementação**  
-    Utilize um portal baseado na web ou ferramentas de linha de comandos de várias plataformas para implementar e configurar recursos de rede.
+    Monitorizar e gerir os seus recursos de rede do Azure Stack.
+- **Ferramentas de implantação e configuração**  
+    Utilize um portal baseado na web ou ferramentas de linha de comandos para várias plataformas para implementar e configurar recursos de rede.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Considerações para redes de pilha do Azure](azure-stack-network-differences.md)
+* [Considerações sobre o funcionamento em rede do Azure Stack](azure-stack-network-differences.md)
