@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 283d27e330b7e1defb34196279693b5b5a7221df
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/24/2018
+ms.openlocfilehash: 09238b75680658e9efef3a6a9aaa3c288d3d91a4
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160592"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585854"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Otimização do desempenho de base de dados do Azure SQL
 
@@ -30,29 +30,18 @@ Em não existem recomendações aplicável e ainda terá problemas de desempenho
 
 Esses são métodos manuais, uma vez que precisa decidir a quantidade de recursos cumprem suas necessidades. Caso contrário, seria necessário reescrever o aplicativo ou o código de base de dados e implementar as alterações.
 
-## <a name="increasing-servicce-tier-of-your-database"></a>Cada vez maior de servicce de escalão da base de dados
+## <a name="increasing-service-tier-of-your-database"></a>Aumentar o escalão de serviço da base de dados
 
-Base de dados SQL do Azure oferece dois modelos de compras, um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e uma [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) que pode escolher. Cada escalão de serviço estritamente isola os recursos que pode utilizar a base de dados do SQL e garante um desempenho previsível para essa camada de serviço. Neste artigo, oferecemos orientações que podem ajudar a escolher o escalão de serviço para a sua aplicação. Também tratamos de formas que pode otimizar a sua aplicação para tirar o máximo da base de dados do Azure SQL.
+Base de dados SQL do Azure oferece [dois modelos de compras](sql-database-service-tiers.md), uma [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e um [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) que pode escolher. Cada escalão de serviço estritamente isola os recursos que pode utilizar a base de dados do SQL e garante um desempenho previsível para essa camada de serviço. Neste artigo, oferecemos orientações que podem ajudar a escolher o escalão de serviço para a sua aplicação. Também tratamos de formas que pode otimizar a sua aplicação para tirar o máximo da base de dados do Azure SQL. Cada escalão de serviço tem seu próprio [limites de recursos](sql-database-resource-limits.md). Para obter mais informações, consulte [limites dos recursos baseados em vCore](sql-database-vcore-resource-limits-single-databases.md) e [limites dos recursos baseados em DTU](sql-database-dtu-resource-limits-single-databases.md).
 
 > [!NOTE]
 > Este artigo se concentra na documentação de orientação de desempenho para bases de dados individuais na base de dados do Azure SQL. Para obter orientações de desempenho relacionados com os conjuntos elásticos, veja [considerações sobre preço e desempenho para conjuntos elásticos](sql-database-elastic-pool-guidance.md). Observe, porém, que pode aplicar muitos das recomendações de otimização neste artigo para bases de dados num conjunto elástico e obter os benefícios de desempenho semelhantes.
-> 
-
-* **Básico**: O básico serviço escalão ofertas bom desempenho previsibilidade para cada base de dados, a hora em hora. Numa base de dados básica, recursos suficientes suportam o bom desempenho num pequeno banco de dados que não tem várias solicitações simultâneas. Casos de utilização típica quando usaria a camada de serviços Basic são:
-  * **Esteja apenas a começar com a base de dados do Azure SQL**. Aplicativos que estão em desenvolvimento, muitas vezes, não precisa de alta-compute tamanhos. Bases de dados básicas são um ambiente ideal para desenvolvimento de banco de dados ou de teste, num ponto de preço baixo.
-  * **Tem uma base de dados com um único utilizador**. Aplicativos que associa um utilizador único uma base de dados normalmente não têm requisitos de desempenho e simultaneidade elevados. Esses aplicativos são candidatos para a camada de serviço básico.
-* **Padrão**: escalão de serviço a Standard oferece desempenho melhorado previsibilidade e fornece o bom desempenho para bases de dados com várias solicitações simultâneas, como o grupo de trabalho e aplicações web. Ao escolher uma base de dados do escalão de serviço Standard, pode dimensionar a aplicação de base de dados com base no desempenho previsível, minuto ao longo de minuto.
-  * **A base de dados tem várias solicitações simultâneas**. Aplicativos de serviço mais do que um utilizador ao mesmo tempo, normalmente, tem de tamanhos de computação mais elevados. Por exemplo, os aplicativos do grupo de trabalho ou web que têm baixa de requisitos de tráfego de e/s médios suporta várias consultas em simultâneo são bons candidatos para a camada de serviço Standard.
-* **Premium**: escalão de serviço Premium a fornece um desempenho previsível, segundo em segundo lugar, para cada base de dados Premium ou críticas para a empresa. Ao escolher o escalão de serviço Premium, pode dimensionar a aplicação de base de dados com base na carga de pico para essa base de dados. O plano remove casos em que desempenho variação pode causar pequenas consultas demorar mais tempo do que o esperado nas operações sensíveis à latência. Esse modelo pode simplificar consideravelmente os ciclos de validação de desenvolvimento e produtos para aplicativos que precisam para fazer declarações fortes sobre necessidades de recursos de pico, variação de desempenho ou latência da consulta. A maioria dos casos de utilização do escalão de serviço do Premium têm um ou mais dessas características:
-  * **Alta de pico de carga**. Um aplicativo que requer substancial CPU, memória ou entrada/saída (e/s) para concluir as respetivas operações requer um tamanho de dedicado de computação de alto. Por exemplo, uma operação de base de dados conhecida de consumir vários núcleos de CPU para um período de tempo alargado é um candidato para o escalão de serviço Premium.
-  * **Muitos pedidos em simultâneo**. Alguns aplicativos de banco de dados serviço muitos pedidos em simultâneo, por exemplo, quando a servir um Web site que tem um volume de tráfego elevado. Básico e Standard escalões de serviço limitam o número de pedidos simultâneos por base de dados. Aplicativos que exigem mais conexões têm de escolher um tamanho de reserva apropriado para lidar com o número máximo de solicitações necessárias.
-  * **Baixa latência**. Alguns aplicativos precisam de garantir uma resposta da base de dados em tempo mínimo. Se um procedimento armazenado específico é chamado como parte de uma operação de cliente mais abrangente, poderá ter um requisito para que um retorno de chamada em mais do que 20 milissegundos, 99 por cento do tempo. Este tipo de aplicação se beneficia do escalão de serviço Premium, para se certificar de que o poder de computação necessário está disponível.
 
 O escalão de serviço que necessita para a base de dados SQL depende dos requisitos de carga de pico para cada dimensão de recursos. Algumas aplicações utilizam uma quantidade trivial de um único recurso, mas têm requisitos significativos para outros recursos.
 
 ### <a name="service-tier-capabilities-and-limits"></a>Capacidades de escalão de serviço e os limites
 
-Em cada escalão de serviço, defina o tamanho de computação, para que tenha a flexibilidade de pagar apenas a capacidade que necessária. Pode [ajuste a capacidade de](sql-database-service-tiers-dtu.md), ou reduz verticalmente, à medida que muda de carga de trabalho. Por exemplo, se a carga de trabalho de base de dados for alta durante a temporada de compra de back-para-instituição de ensino, poderá aumentar o tamanho de computação para a base de dados para uma hora definida, de Julho a Setembro. Pode reduzi-lo quando termina a temporada de pico. Pode minimizar o que pagará ao otimizar seu ambiente na cloud para a sazonalidade do seu negócio. Este modelo também funciona bem para garantir ciclos de lançamento de produto de software. Uma equipe de teste poderá atribuir capacidade enquanto de teste e, em seguida, essa capacidade de versão quando terminarem de teste. Num modelo de pedido de capacidade, paga pela capacidade à medida que precisa dele e evite gastar em recursos dedicados que poderá utilizar raramente.
+Em cada escalão de serviço, defina o tamanho de computação, para que tenha a flexibilidade de pagar apenas a capacidade que necessária. Pode [ajuste a capacidade de](sql-database-single-database-scale.md), ou reduz verticalmente, à medida que muda de carga de trabalho. Por exemplo, se a carga de trabalho de base de dados for alta durante a temporada de compra de back-para-instituição de ensino, poderá aumentar o tamanho de computação para a base de dados para uma hora definida, de Julho a Setembro. Pode reduzi-lo quando termina a temporada de pico. Pode minimizar o que pagará ao otimizar seu ambiente na cloud para a sazonalidade do seu negócio. Este modelo também funciona bem para garantir ciclos de lançamento de produto de software. Uma equipe de teste poderá atribuir capacidade enquanto de teste e, em seguida, essa capacidade de versão quando terminarem de teste. Num modelo de pedido de capacidade, paga pela capacidade à medida que precisa dele e evite gastar em recursos dedicados que poderá utilizar raramente.
 
 ### <a name="why-service-tiers"></a>Escalões de serviço por que?
 Embora cada carga de trabalho de base de dados pode ser diferentes, o objetivo de escalões de serviço é fornecer a previsibilidade do desempenho em vários tamanhos de computação. Os clientes com os requisitos de recursos da base de dados em grande escala podem funcionar num ambiente de computação mais dedicado.

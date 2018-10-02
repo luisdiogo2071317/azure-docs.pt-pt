@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ef2f349333592e05185c5502490828832cb6c24c
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434131"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018354"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 
@@ -26,7 +26,7 @@ O **conversão de voz em texto** API oferece as seguintes funcionalidades:
 
 - Reconhecimento contínuo em tempo real. **Conversão de voz em texto** permite que os usuários a transcrição de áudio em texto em tempo real. Também suporta a receber os resultados intermediários das palavras que tem sido reconhecidos até agora. O serviço reconhece automaticamente o final de voz. Os utilizadores também podem escolher opções de formatação adicionais, incluindo capitalização e pontuação, linguagem inapropriada máscara e normalização do texto inversa.
 
-- Otimizado **conversão de voz em texto** resultados para conversação interativo e cenários de ditado. Os resultados reconhecidos são retornados em formulários de apresentação e Lexical (para obter resultados Lexical, consulte DetailedSpeechRecognitionResult a exemplos ou a API).
+- Os resultados devolvidos em formulários de apresentação e Lexical (para obter resultados Lexical, consulte DetailedSpeechRecognitionResult a exemplos ou a API).
 
 - Suporte para vários idiomas e dialetos. Para obter a lista completa das linguagens suportadas em cada modo de reconhecimento, consulte [idiomas suportados](language-support.md#speech-to-text).
 

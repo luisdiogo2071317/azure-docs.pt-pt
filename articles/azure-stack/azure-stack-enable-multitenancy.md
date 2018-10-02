@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/28/2018
 ms.author: patricka
-ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c9b9e569cf643b85b41698bf29429d0b7ceec37e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451776"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585106"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Vários inquilinos no Azure Stack
 
@@ -103,17 +103,6 @@ Register-AzSWithMyDirectoryTenant `
 > Execute este script novamente em qualquer altura para verificar o estado das aplicações no seu diretório do Azure Stack.
 > 
 > Se percebeu problemas com a criação de VMs em Managed Disks (introduzido na atualização 1808), uma nova **fornecedor de recursos de disco** foi adicionado, exigir que este script para ser executada novamente.
-
-### <a name="activate-the-administrator-and-tenant-portals"></a>Ativar os portais de administrador e de inquilino
-Depois das implementações que utilizam o Azure AD, tem de ativar ambas do Azure Stack administrador portais e do inquilino. Esta ativação dá consentimento a que as permissões corretas (listadas na página de consentimento) para todos os utilizadores do diretório são o portal do Azure Stack e o Azure Resource Manager.
-
-- Para o portal de administrador, navegue para https://adminportal.local.azurestack.external/guest/signup, leia as informações e, em seguida, clique em aceitar. Depois de aceitar, pode adicionar os administradores de serviço que também não são administradores de inquilinos do diretório.
-- Para o portal de inquilinos, navegue para https://portal.local.azurestack.external/guest/signup, leia as informações e, em seguida, clique em aceitar. Depois de aceitar, os utilizadores no diretório podem iniciar sessão portal do inquilino. 
- 
-> [!NOTE] 
-> Se não forem ativados os portais, apenas o administrador do diretório pode iniciar sessão e utilizar os portais. Se outro utilizador inicia sessão, verá um erro que informa que o administrador não lhe concedeu permissões a outros utilizadores. Quando o administrador não pertence nativamente para o diretório que do Azure Stack está registado, o diretório do Azure Stack deve ser anexado ao URL de ativação. Por exemplo, se o Azure Stack está registado à fabrikam.onmicrosoft.com e o utilizador de admin é admin@contoso.com, navegue para https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com para ativar o portal.
-
-
 
 ### <a name="direct-users-to-sign-in"></a>Direcionar os utilizadores para iniciar sessão
 

@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 3989ff6e8ef600500f1c3dcc292d4385d6fb4a8b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 377f28f4798a1ffb6423c1f4d9f4e34b4fc60234
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162568"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018847"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
 ## <a name="quotas-and-throttling"></a>Quotas e limitação
+
 Cada subscrição do Azure pode ter no máximo, 50 hubs IoT e no máximo, 1 hub gratuito.
 
-Cada hub IoT é aprovisionada com um determinado número de unidades de um escalão específico. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar. O tamanho da mensagem utilizado para calcular que a quota diária é 0,5 KB para um hub de escalão gratuito e de 4KB para todos os outros escalões. Para obter mais informações, consulte [preços do Azure IoT Hub][lnk-pricing].
+Cada hub IoT é aprovisionada com um determinado número de unidades de um escalão específico. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar. O tamanho da mensagem utilizado para calcular que a quota diária é 0,5 KB para um hub de escalão gratuito e de 4KB para todos os outros escalões. Para obter mais informações, consulte [preços do Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 A camada também determina os limites de limitação que o IoT Hub impõe em todas as operações.
 
 ## <a name="operation-throttles"></a>Limitações de operação
+
 Limitações de operação são as limitações de taxa que são aplicadas em intervalos de minutos e foram concebidas para evitar abusos. IoT Hub tenta evitar a devolver erros sempre que possível, mas começa retornando `429 ThrottlingException` se a limitação é violada durante muito tempo.
 
 Em qualquer momento, pode aumentar as quotas ou limites de limitação do aumento do número de unidades aprovisionados num IoT hub.
@@ -53,10 +55,10 @@ O *ligações de dispositivos* limitação rege a taxa a que seja possível esta
 
 Por exemplo, se comprar uma única unidade de S1, obterá uma limitação de 100 conexões por segundo. Por conseguinte, para ligar a 100 000 dispositivos, demora, pelo menos, 1 000 segundos (aproximadamente 16 minutos). No entanto, pode ter quantos dispositivos ligados em simultâneo que tenha dispositivos registados no registo de identidade.
 
-Para uma visão detalhada do IoT Hub na limitação do comportamento, consulte a mensagem de blogue [IoT Hub, limitação e][lnk-throttle-blog].
+Para uma visão detalhada do IoT Hub na limitação do comportamento, consulte a mensagem de blogue [IoT Hub, limitação e](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 
 > [!IMPORTANT]
-> Operações de registo de identidade destinam-se a utilização de tempo de execução em cenários de aprovisionamento e gestão de dispositivos. Ler ou atualizar um grande número de identidades de dispositivos é suportada através dos [importar e exportar tarefas][lnk-importexport].
+> Operações de registo de identidade destinam-se a utilização de tempo de execução em cenários de aprovisionamento e gestão de dispositivos. Ler ou atualizar um grande número de identidades de dispositivos é suportada através dos [importar e exportar tarefas](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 > 
 > 
 
@@ -90,19 +92,11 @@ IoT Hub se esforça para fornecer a baixa latência para todas as operações. N
 * Considere utilizar o Azure IoT Edge para executar operações de sensíveis à latência no dispositivo ou num gateway perto do dispositivo.
 
 Várias unidades do IoT Hub afetam a limitação conforme descrito anteriormente, mas não fornece quaisquer garantias ou um benefícios de latência adicional.
+
 Se vir inesperados aumentos de latência da operação, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Outros tópicos de referência neste guia de programador do IoT Hub incluem:
 
-* [Pontos finais do IoT Hub][lnk-devguide-endpoints]
-* [Linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens][lnk-devguide-query]
-* [Suporte para MQTT de Hub IoT][lnk-devguide-mqtt]
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+* [Pontos finais do Hub IoT](iot-hub-devguide-endpoints.md)

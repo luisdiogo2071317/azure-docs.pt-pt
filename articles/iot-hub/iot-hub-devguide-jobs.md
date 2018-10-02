@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e2beec1308b9664d35ccd9d355403b7076567f2f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cb6afd04dacf3ae5c3d88293e2b96e180e69c33d
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745849"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585463"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
-O IoT Hub do Azure permite que um número de blocos de construção como [etiquetas e propriedades dos dispositivos duplos] [ lnk-twin-devguide] e [métodos diretos][lnk-dev-methods]. Normalmente, as aplicações de back-end permitem operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e num horário agendado.  Tarefas de atualizações de dispositivo duplo e métodos diretos em relação a um conjunto de dispositivos de execução num horário agendado.  Por exemplo, um operador utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na criação de 43 e andar 3 cada vez que não seria perturbador para as operações de compilação.
+O IoT Hub do Azure permite que um número de blocos de construção como [etiquetas e propriedades dos dispositivos duplos](iot-hub-devguide-device-twins.md) e [métodos diretos](iot-hub-devguide-direct-methods.md). Normalmente, as aplicações de back-end permitem operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e num horário agendado. Tarefas de atualizações de dispositivo duplo e métodos diretos em relação a um conjunto de dispositivos de execução num horário agendado. Por exemplo, um operador utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na criação de 43 e andar 3 cada vez que não seria perturbador para as operações de compilação.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,14 +28,18 @@ Considere a utilização de tarefas quando precisa para agendar e controlar o pr
 * Invocar métodos diretos
 
 ## <a name="job-lifecycle"></a>Ciclo de vida de tarefa
-Tarefas são iniciadas pela solução de back-end e mantidas pelo IoT Hub.  Pode iniciar uma tarefa através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e a consulta para o progresso numa tarefa de execução através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Para atualizar o estado de tarefas em execução depois de uma tarefa é iniciada, execute uma consulta da tarefa.
+
+Tarefas são iniciadas pela solução de back-end e mantidas pelo IoT Hub. Pode iniciar uma tarefa através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e a consulta para o progresso numa tarefa de execução através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Para atualizar o estado de tarefas em execução depois de uma tarefa é iniciada, execute uma consulta da tarefa.
 
 > [!NOTE]
-> Quando seleciona uma tarefa, os nomes das propriedades e valores podem apenas conter US-ASCII imprimível alfanumérico, exceto as no conjunto de seguinte: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
+> Quando seleciona uma tarefa, os nomes das propriedades e valores podem apenas conter US-ASCII imprimível alfanumérico, exceto as no conjunto de seguinte: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> 
 
 ## <a name="jobs-to-execute-direct-methods"></a>Tarefas para executar métodos diretos
-O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para a execução de um [método direto] [ lnk-dev-methods] num conjunto de dispositivos através de uma tarefa:
 
+O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para a execução de um [método direto](iot-hub-devguide-direct-methods.md) num conjunto de dispositivos através de uma tarefa:
+
+    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
@@ -55,6 +59,7 @@ O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para a execu�
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
+    ```
 
 A condição de consulta também pode ser um ID de dispositivo único ou numa lista de identificações, conforme mostrado nos exemplos seguintes de dispositivo:
 
@@ -63,12 +68,15 @@ queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
 queryCondition = "deviceId IN ['MyDevice1']
 ```
-[Linguagem de consulta do Hub IoT] [ lnk-query] aborda a linguagem de consulta do IoT Hub em detalhes adicionais.
+[Linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) aborda a linguagem de consulta do IoT Hub em detalhes adicionais.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Tarefas para atualizar as propriedades dos dispositivos duplos
+
 O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para atualizar as propriedades dos dispositivos duplos usar um trabalho de:
 
+    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
+    
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
@@ -82,22 +90,27 @@ O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para atualiza
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
+    ```
 
 ## <a name="querying-for-progress-on-jobs"></a>Consultar o progresso das tarefas de
+
 O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para consultar tarefas:
 
+    ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
+    ```
+    
+O continuationToken é fornecido da resposta.
 
-O continuationToken é fornecido da resposta.  
-
-Pode consultar o estado de execução da tarefa em cada dispositivo a utilizar o [linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens][lnk-query].
+Pode consultar o estado de execução da tarefa em cada dispositivo a utilizar o [linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens](iot-hub-devguide-query-language.md).
 
 ## <a name="jobs-properties"></a>Propriedades de tarefas
+
 A lista seguinte mostra as propriedades e as descrições correspondentes, que podem ser utilizadas ao consultar para tarefas ou resultados das tarefas.
 
 | Propriedade | Descrição |
@@ -124,28 +137,21 @@ A lista seguinte mostra as propriedades e as descrições correspondentes, que p
 | | **deviceJobStatistics.pendingCount**: número de dispositivos que estão pendentes para executar a tarefa. |
 
 ### <a name="additional-reference-material"></a>Material de referência adicionais
+
 Outros tópicos de referência no Guia do programador do IoT Hub incluem:
 
-* [Pontos finais do IoT Hub] [ lnk-endpoints] descreve vários pontos de extremidade que cada hub IoT expõe para operações de tempo de execução e gestão.
-* [Quotas e limitação] [ lnk-quotas] descreve as quotas que se aplicam ao serviço IoT Hub e o comportamento da limitação esperar ao utilizar o serviço.
-* [Azure SDKs de dispositivo e de serviços de IoT] [ lnk-sdks] indica o idioma de vários SDKs, pode utilizar ao desenvolver aplicações de dispositivos e de serviços que interagem com o IoT Hub.
-* [Linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens] [ lnk-query] descreve a linguagem de consulta do IoT Hub. Utilize essa linguagem de consulta para obter informações a partir do IoT Hub sobre os seus dispositivos duplos e trabalhos.
-* [Suporte para MQTT do IoT Hub] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
+* [Pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descreve vários pontos de extremidade que cada hub IoT expõe para operações de tempo de execução e gestão.
+
+* [Quotas e limitação](iot-hub-devguide-quotas-throttling.md) descreve as quotas que se aplicam ao serviço IoT Hub e o comportamento da limitação esperar ao utilizar o serviço.
+
+* [Azure SDKs de dispositivo e de serviços de IoT](iot-hub-devguide-sdks.md) indica o idioma de vários SDKs, pode utilizar ao desenvolver aplicações de dispositivos e de serviços que interagem com o IoT Hub.
+
+* [Linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens](iot-hub-devguide-query-language.md) descreve a linguagem de consulta do IoT Hub. Utilize essa linguagem de consulta para obter informações a partir do IoT Hub sobre os seus dispositivos duplos e trabalhos.
+
+* [Suporte para MQTT do IoT Hub](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial seguinte do IoT Hub:
 
-* [Agendar e difundir tarefas][lnk-jobs-tutorial]
-
-<!-- links and images -->
-
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: quickstart-control-device-node.md
-[lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-devguide]: iot-hub-devguide-device-twins.md
+* [Agendar e difundir tarefas](iot-hub-node-node-schedule-jobs.md)

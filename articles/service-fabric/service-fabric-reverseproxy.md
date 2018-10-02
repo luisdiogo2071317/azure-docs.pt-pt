@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 84869a93dfe2f979e207257ebac80773a172a776
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503524"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017929"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso no Azure Service Fabric
 Proxy inverso integrado do Azure Service Fabric ajuda a microsserviços em execução no cluster do Service Fabric detetar e comunicar com outros serviços que têm pontos finais de http.
@@ -159,6 +159,7 @@ Para o cluster local, `Fabric_NodeIPOrFQDN` está definido como "localhost" por 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Definir e configurar o proxy inverso num cluster](service-fabric-reverseproxy-setup.md).
 * [Configurar o encaminhamento para o serviço HTTP seguro com o proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)
+* [Eventos de proxy inverso Diagose](service-fabric-reverse-proxy-diagnostics.md)
 * Ver um exemplo de comunicação HTTP entre os serviços numa [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chamadas de procedimento remoto com a comunicação remota do Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que utiliza o OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)

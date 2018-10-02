@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/01/2018
+ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392827"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018290"
 ---
 # <a name="what-is-a-managed-instance"></a>O que é uma instância gerida?
 
@@ -75,7 +75,7 @@ Instância gerida está disponível em dois escalões de serviço:
 Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem-lhe selecionar o tamanho de armazenamento e a capacidade de computação de forma independente. Para obter mais informações sobre a arquitetura de elevada disponibilidade da base de dados do Azure SQL, consulte [elevada disponibilidade e a base de dados do Azure SQL](sql-database-high-availability.md).
 
 > [!IMPORTANT]
-> Alterar a camada de serviços de fins gerais para crítico para a empresa ou vice-versa não é suportado em pré-visualização pública. Se pretender migrar as bases de dados para uma instância na camada de serviço diferente, pode criar a nova instância, restaurar bases de dados com o ponto no tempo da instância original e, em seguida, remover a instância original se ela não é mais necessária. 
+> Alterar a camada de serviços de fins gerais para crítico para a empresa ou vice-versa não é suportado em pré-visualização pública. Se pretender migrar as bases de dados para uma instância na camada de serviço diferente, pode criar a nova instância, restaurar bases de dados com o ponto no tempo da instância original e, em seguida, remover a instância original se ela não é mais necessária. No entanto, pode aumentar o número de vCores e armazenamento para cima ou para baixo dentro de uma camada de serviço sem períodos de indisponibilidade.
 
 ### <a name="general-purpose-service-tier"></a>Escalão de serviço de fins geral
 
@@ -108,7 +108,7 @@ A lista seguinte descreve as principais características da camada de serviços 
 
 \* Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware. Geração 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2,4 GHz e de CPUs lógicas de geração 5 baseiam-se no Intel E5-2673 v4 (Broadwell) 2,3 GHz. 
 
-Para obter mais informações, consulte [disponibilidade de finalidade de Standard/geral e arquitetura](sql-database-high-availability.md#standardgeneral-purpose-availability) na base de dados do Azure SQL.
+Para obter mais informações, consulte [disponibilidade de finalidade de Standard/geral e arquitetura](sql-database-high-availability.md#standardgeneral-purpose-availability) na base de dados do Azure SQL e [práticas recomendadas de armazenamento e as considerações para o Azure SQL DB instância gerida (gerais Finalidade)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
 ### <a name="business-critical-service-tier-preview"></a>Camada de serviços críticos de negócios (pré-visualização)
 

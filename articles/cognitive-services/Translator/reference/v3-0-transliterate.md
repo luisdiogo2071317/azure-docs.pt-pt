@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d156d3cfd0afa463cdc18b73ad05d09e4159dae
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129493"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018626"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API 3.0 de texto de tradutor: Translitere
 
@@ -41,16 +41,16 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>*Parâmetro necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
-    <td>Idioma</td>
+    <td>language</td>
     <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto para converter a partir de um script para outro. Idiomas possíveis estão listados na `transliteration` âmbito de obteve consultando o serviço para o seu [idiomas suportados](.\v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script utilizado pelo texto de entrada. Pesquisa [idiomas suportados](.\v3-0-languages.md) usando o `transliteration` escopo, para localizar a entrada scripts disponíveis para o idioma seleccionado.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script utilizado pelo texto de entrada. Procure [idiomas suportados](.\v3-0-languages.md) usando o `transliteration` escopo, para localizar a entrada scripts disponíveis para o idioma seleccionado.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [idiomas suportados](.\v3-0-languages.md) usando o `transliteration` escopo, para encontrar scripts de saída disponíveis para a combinação selecionada de idioma de entrada e de entrada de script.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Procure [idiomas suportados](.\v3-0-languages.md) usando o `transliteration` escopo, para encontrar scripts de saída disponíveis para a combinação selecionada de idioma de entrada e de entrada de script.</td>
   </tr>
 </table> 
 
@@ -171,7 +171,7 @@ O payload JSON para o pedido neste exemplo:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Se estiver a utilizar o cUrl numa janela da linha de comandos que não suporta carateres Unicode, pegar o payload JSON seguinte e guarde-o para um ficheiro denominado `request.txt`. Certifique-se de que guarde o ficheiro com `UTF-8` codificação.
+Se estiver a utilizar o cURL numa janela da linha de comandos que não suporta carateres Unicode, pegar o payload JSON seguinte e guarde-o para um ficheiro denominado `request.txt`. Certifique-se de que guarde o ficheiro com `UTF-8` codificação.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

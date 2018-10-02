@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055544"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018983"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para clusters autónomos, personalizar definições ao atualizar o ficheiro de ClusterConfig.json e efetuar uma atualização de configuração no seu cluster. 
@@ -352,6 +352,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ApplicationUpgradeTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(360)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para a atualização da aplicação. Se o tempo limite é menor do que o implementador de "ActivationTimeout" irá falhar. |
 |ContainerServiceArguments|cadeia de caracteres, a predefinição é "-H localhost:2375 -H npipe: / /"|Estático|Service Fabric (SF) gere o daemon do docker (exceto em máquinas de cliente do windows, como o Win10). Esta configuração permite que o usuário especificar argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-los. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do Docker, exceto "– pidfile' argumento. Por conseguinte, os utilizadores não devem especificar "– pidfile' argumento como parte de seus argumentos de cliente. Além disso, os argumentos personalizados devem garantir que o docker daemon escuta no pipe de nome predefinido no Windows (ou o socket de domínio Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
 |ContainerServiceLogFileMaxSizeInKb|int, a predefinição é 32768|Estático|Tamanho máximo do ficheiro de registo gerado pelo contentores do docker.  Windows.|
+|ContainerImagesToSkip|cadeia de caracteres, nomes de imagem separados pelo caractere de linha vertical, a predefinição é ""|Estático|Nome de um ou mais imagens de contentor que não devem ser eliminados.  Utilizado com o parâmetro de PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|cadeia de caracteres, predefinido é "sfcontainerlogs"|Estático|Prefixo do nome de ficheiro para os ficheiros de registo gerado pelo contentores do docker.  Windows.|
 |ContainerServiceLogFileRetentionCount|Int, a predefinição é 10|Estático|Número de ficheiros de registo gerado pelo contentores do docker antes de ficheiros de registo é substituído.  Windows.|
 |CreateFabricRuntimeTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a sincronização FabricCreateRuntime chamada |
@@ -375,6 +376,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |NTLMAuthenticationPasswordSecret|SecureString, a predefinição é Common::SecureString("")|Estático|É que tem um encriptada que é utilizado para gerar a palavra-passe para utilizadores NTLM. Tem de ser definida se NTLMAuthenticationEnabled for verdadeira. Validado pelo deployer. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(3)|Dinâmica|Especifique o período de tempo em segundos. Definições específicas do ambiente o intervalo periódico no qual alojamento verifica a existência de novos certificados para ser utilizado para a configuração de FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(4)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para configurar utilizadores NTLM através de nomes comum do certificado. Os utilizadores NTLM são necessárias para partilhas de FileStoreService. |
+|PruneContainerImages|bool, a predefinição é falso|Dinâmica| Remova imagens de contentor de aplicações não utilizadas de nós. Quando um ApplicationType é anulado o registo do cluster do Service Fabric, as imagens de contentor que foram utilizadas por esta aplicação serão removidas em nós em que foi transferido pelo Service Fabric. A eliminação é executado a cada hora, pelo que poderá demorar até uma hora (mais tempo para eliminar a imagem) para imagens a ser removido do cluster.<br>Service Fabric nunca irá transferir ou remover imagens não relacionadas com uma aplicação.  Imagens não relacionadas que foram transferidas manualmente ou caso contrário, tem de ser explicitamente removidas.<br>Imagens que não devem ser eliminadas podem ser especificadas no parâmetro ContainerImagesToSkip.| 
 |RegisterCodePackageHostTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a chamada de sincronização FabricRegisterCodePackageHost. Isto é aplicável para apenas várias código pacote hosts de aplicativos, como FWP |
 |RequestTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(30)|Dinâmica| Especifique o período de tempo em segundos. Isso representa o tempo limite para a comunicação entre o processo de recursos de infraestrutura para várias operações relacionadas alojamento, como o registo de fábrica; e de anfitrião de aplicações do utilizador registo de tempo de execução. |
 |RunAsPolicyEnabled| bool, a predefinição é falso|Estático| Permite a execução de pacotes de código como um utilizador local que não seja o utilizador sob os recursos de infraestrutura processo está em execução. Para ativar esta política de recursos de infraestrutura tem de executar como sistema ou utilizador que tenha SeAssignPrimaryTokenPrivilege. |

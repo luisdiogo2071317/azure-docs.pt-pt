@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058158"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585379"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizar a implementação de máquinas virtuais do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef é uma ótima ferramenta para o fornecimento de automatização e assim o desejar configurações de estado.
 
-Api da cloud com a versão mais recente versão, Chef fornece uma integração perfeita com o Azure, dando-lhe a capacidade de aprovisionar e implementar os Estados de configuração através de um único comando.
+Com a versão mais recente do API na nuvem, a Chef fornece uma integração perfeita com o Azure, dando-lhe a capacidade de aprovisionar e implementar os Estados de configuração através de um único comando.
 
 Neste artigo, vai configurar o ambiente do Chef para aprovisionar máquinas virtuais do Azure e percorrer a criar uma política ou "Manual" e, em seguida, implementar este manual de uma máquina virtual do Azure.
 
@@ -42,7 +42,7 @@ O diagrama seguinte ilustra a arquitetura geral do Chef.
 
 O chef tem três componentes principais de arquiteturais: servidor do Chef, o cliente do Chef (node) e o Chef estação de trabalho.
 
-O servidor de Chef é o ponto de gestão e existem duas opções para o servidor do Chef: uma solução alojada ou uma solução no local. Usaremos uma solução alojada.
+O servidor de Chef é o ponto de gestão e existem duas opções para o servidor do Chef: uma solução alojada ou uma solução no local. Usaremos uma solução alojada para este tutorial.
 
 O cliente do Chef (node) é o agente que encontra-se nos servidores que está gerenciando.
 
@@ -94,7 +94,7 @@ Agora, deve ter quatro arquivos, incluindo o arquivo de publicação do Azure na
 
 Os ficheiros PEM contêm sua organização e as chaves privadas de administrador para a comunicação, enquanto o ficheiro de knife.rb contém a configuração de knife. Precisamos de editar o ficheiro de knife.rb.
 
-Abra o ficheiro no seu editor preferencial e modificar o "cookbook_path" ao remover o /.... / do caminho para que seja apresentado, conforme mostrado a seguir.
+Abra o ficheiro no seu editor preferencial e modificar o "cookbook_path" ao remover o /.... / do caminho para que seja apresentado como:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -109,7 +109,7 @@ O ficheiro de knife.rb deve agora ter um aspeto semelhante ao seguinte exemplo.
 Estas linhas garantirá que referencia o diretório de guias detalhados em c:\chef\cookbooks Knife e também utiliza o nosso arquivo de definições de publicação do Azure durante as operações do Azure.
 
 ## <a name="installing-the-chef-development-kit"></a>Instalar o Kit de desenvolvimento do Chef
-Próxima [transferir e instalar](http://downloads.getchef.com/chef-dk/windows) o ChefDK (Chef Development Kit) para configurar a sua estação de trabalho do Chef.
+Em seguida, [transferir e instalar](http://downloads.getchef.com/chef-dk/windows) o ChefDK (Chef Development Kit) para configurar a sua estação de trabalho do Chef.
 
 ![][7]
 
@@ -119,7 +119,9 @@ Confirme se que a variável de caminho contém entradas para C:\opscode\chefdk\b
 
 Se não estiverem lá, certifique-se de que adicionar estes caminhos!
 
-*TENHA EM ATENÇÃO DE QUE A ORDEM DO CAMINHO É IMPORTANTE!* Se seus caminhos de opscode não estão na ordem correta, que terá problemas.
+> [!NOTE]
+> A ordem do caminho é importante! Se seus caminhos de opscode não estão na ordem correta, que terá problemas. 
+> 
 
 Reinicie a sua estação de trabalho antes de continuar.
 

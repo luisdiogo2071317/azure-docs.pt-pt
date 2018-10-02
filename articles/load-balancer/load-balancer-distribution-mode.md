@@ -1,62 +1,70 @@
 ---
-title: Configurar o modo de distribuição do Balanceador de carga do Azure | Microsoft Docs
+title: Configurar o modo de distribuição de Balanceador de carga do Azure | Documentos da Microsoft
 description: Como configurar o modo de distribuição de Balanceador de carga do Azure suportar a afinidade do IP de origem.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 776621f9ef95867c6e3c25dd11c656d451b6730e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176980"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018133"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Balanceador de carga do Azure
 
-## <a name="hash-based-distribution-mode"></a>Modo de distribuição com base em hash
+## <a name="hash-based-distribution-mode"></a>Modo de distribuição baseados em hash
 
-O modo de distribuição predefinido para o Balanceador de carga do Azure é um hash de 5 cadeias de identificação. A cadeia de identificação é composta pelo IP de origem, porta de origem, IP de destino, porta de destino e tipo de protocolo. O hash é utilizado para mapear o tráfego para os servidores disponíveis e o algoritmo fornece retenções apenas dentro de uma sessão de transporte. Pacotes que estão na mesma sessão são direcionados para a mesma instância de IP (DIP) do Centro de dados por trás o ponto final com balanceamento de carga. Quando o cliente inicia uma nova sessão do mesmo IP de origem, a porta de origem é alterado e faz com que o tráfego Ir para um endpoint diferente do DIP.
+O modo de distribuição predefinido para o Balanceador de carga do Azure é um hash de 5 cadeias de identificação. A cadeia de identificação é composta pelo IP de origem, porta de origem, IP de destino, porta de destino e o tipo de protocolo. O hash é utilizado para mapear o tráfego para os servidores disponíveis e o algoritmo fornece persistência apenas dentro de uma sessão de transporte. Pacotes que estão na mesma sessão são direcionados para a mesma instância de IP (DIP) do Centro de dados por trás do ponto final com balanceamento de carga. Quando o cliente inicia uma nova sessão do mesmo IP de origem, a porta de origem é alterado e faz com que o tráfego Ir para um ponto de extremidade diferente do DIP.
 
 ![modo de distribuição com base em hash de 5 cadeias de identificação](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>Modo de afinidade do IP de origem
 
-Balanceador de carga também pode ser configurado utilizando o modo de distribuição de afinidade IP de origem. Este modo de distribuição também é conhecido como afinidade de sessão ou afinidade do IP de cliente. O modo utiliza uma 2 cadeias de identificação (IP de origem e destino IP) ou 3 cadeias de identificação (IP de origem, IP de destino e protocolo tipo) de hash para mapear o tráfego para os servidores disponíveis. Através da utilização de afinidade do IP de origem, ligações que são iniciadas no mesmo computador cliente, vá para o mesmo ponto final do DIP.
+Também pode ser configurado o Balanceador de carga utilizando o modo de distribuição de afinidade IP de origem. Esse modo de distribuição é também conhecido como afinidade de sessão ou a afinidade do IP de cliente. O modo utiliza uma 2 cadeias de identificação (IP de origem e destino IP) ou 3 cadeias de identificação (IP de origem, IP de destino e protocolo escreva) de hash para mapear o tráfego para os servidores disponíveis. Ao utilizar a afinidade do IP de origem, ligações sejam iniciadas a partir do mesmo computador de cliente, vá para o mesmo ponto de final do DIP.
 
-A figura seguinte ilustra uma configuração de 2 cadeias de identificação. Repare como de 2 cadeias de identificação é executada através do Balanceador de carga para a máquina virtual 1 (VM1). VM1, em seguida, é feita por VM2 e VM3.
+A figura seguinte ilustra uma configuração de 2 cadeias de identificação. Observe como cadeias de identificação 2 é executado através do Balanceador de carga para a máquina virtual 1 (VM1 a). VM1, em seguida, cópia de segurança, VM2 e VM3.
 
 ![modo de distribuição de afinidade de sessão de 2 cadeias de identificação](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-Modo de afinidade do IP de origem resolve uma incompatibilidade entre o Balanceador de carga do Azure e o Gateway de ambiente de trabalho remoto (Gateway de RD). Ao utilizar este modo, pode criar um farm de Gateway de RD num serviço em nuvem único.
+Modo de afinidade do IP de origem resolve uma incompatibilidade entre o Balanceador de carga do Azure e o Gateway de ambiente de trabalho remoto (Gateway de RD). Ao utilizar este modo, pode criar um farm de servidores de Gateway de RD num serviço cloud único.
 
-Outro cenário de utilização é carregamento de suporte de dados. O carregamento de dados ocorre através do UDP, mas o plane de controlo é conseguido através de TCP:
+Outro cenário de caso de uso é o carregamento de suporte de dados. O carregamento de dados ocorre por meio de UDP, mas o plano de controlo é alcançado através de TCP:
 
-* Um cliente inicia uma sessão TCP para o endereço público com balanceamento de carga e é direcionado para um DIP específico. O canal for deixado Active Directory para monitorizar o estado de funcionamento de ligação.
-* Uma nova sessão UDP no mesmo computador cliente é iniciada para o mesmo com balanceamento de carga ponto final público. A ligação é direcionada para o mesmo ponto final do DIP como a ligação de TCP anterior. O carregamento de suporte de dados pode ser executado no débito elevado, mantendo em simultâneo um canal de controlo através de TCP.
+* Um cliente inicia uma sessão TCP para o endereço com balanceamento de carga público e é direcionado para um DIP específico. O canal fica ativo para monitorizar o estado de funcionamento da ligação.
+* Uma nova sessão UDP no mesmo computador cliente é iniciada para o mesmo com balanceamento de carga ponto final público. A ligação é direcionada para o mesmo ponto final do DIP como a ligação de TCP anterior. O carregamento de suporte de dados pode ser executado em alto débito, mantendo um canal de controlo através de TCP.
 
 > [!NOTE]
-> Quando um conjunto com balanceamento de carga alterações feitas por remover ou adicionar uma máquina virtual, a distribuição de pedidos de cliente é recomputed. Não é possível dependem novas ligações de clientes existentes para terminar a cópia de segurança no mesmo servidor. Além disso, IP de origem a utilizar o modo de distribuição de afinidade pode causar uma distribuição unequal de tráfego. Clientes que executam o atrás proxies poderão ser vistos como uma aplicação de cliente exclusivos.
+> Quando altera um conjunto com balanceamento de carga através da remoção ou adicionar uma máquina virtual, a distribuição de pedidos de cliente é recalculada. Não é possível dependem novas ligações de clientes existentes para acabar no mesmo servidor. Além disso, IP de origem a utilizar o modo de distribuição de afinidade pode causar uma distribuição desiguais de tráfego. Os clientes que são executadas por trás de proxies podem ser vistos como um aplicativo de cliente exclusivos.
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configurar definições de afinidade do IP de origem
 
-Para máquinas virtuais, utilize o Azure PowerShell para alterar as definições de tempo limite. Adicionar um ponto final do Azure para uma máquina virtual e configurar o modo de distribuição do Balanceador de carga:
+Para máquinas virtuais implementadas com o Resource Manager, utilize o PowerShell para alterar as definições de distribuição de Balanceador de carga a regra de balanceamento de carga do Balanceador de carga.  Este procedimento atualiza o modo de distribuição de uma regra de Balanceador de carga existente:
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+``` 
+
+Para máquinas virtuais clássicas, utilize o Azure PowerShell para alterar as definições de distribuição. Adicionar um ponto de final do Azure a uma máquina virtual e configurar o modo de distribuição de Balanceador de carga:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-Defina o valor da `LoadBalancerDistribution` elemento para a quantidade de balanceamento de carga pretendida. Especifique sourceIP para balanceamento de carga de 2 cadeias de identificação (IP de origem e destino IP). Especifique sourceIPProtocol para 3 cadeias de identificação (IP de origem, IP de destino e protocolo tipo) balanceamento de carga. Especifique nenhum para o comportamento predefinido de balanceamento de carga de 5 cadeias de identificação.
+Defina o valor do `LoadBalancerDistribution` elemento para a quantidade desejada de balanceamento de carga. Especifique sourceIP para balanceamento de carga de 2 cadeias de identificação (IP de origem e destino IP). Especifique o sourceIPProtocol para 3 cadeias de identificação (IP de origem, IP de destino e protocolo escreva) balanceamento de carga. Especifique nenhum para o comportamento padrão do balanceamento de carga de 5 cadeias de identificação.
 
-Obter uma configuração de modo de distribuição do Balanceador de carga do ponto final utilizando estas definições:
+Obter uma configuração de modo de distribuição de Balanceador de carga de ponto final com estas definições:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -80,7 +88,7 @@ Obter uma configuração de modo de distribuição do Balanceador de carga do po
 
 Quando o `LoadBalancerDistribution` elemento não está presente, o Balanceador de carga do Azure utiliza o algoritmo de 5 cadeias de identificação predefinida.
 
-### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurar o modo de distribuição no conjunto de ponto final com balanceamento de carga
+### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurar o modo de distribuição no conjunto de pontos finais Balanceados de carga
 
 Quando os pontos finais fazem parte de um conjunto de ponto final com balanceamento de carga, o modo de distribuição tem de ser configurado no conjunto de ponto final com balanceamento de carga:
 
@@ -88,11 +96,11 @@ Quando os pontos finais fazem parte de um conjunto de ponto final com balanceame
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configurar o modo de distribuição para pontos finais de serviços Cloud
+### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configurar o modo de distribuição para pontos de extremidade de serviços Cloud
 
-Utilize o Azure SDK para .NET 2.5 para atualizar o seu serviço em nuvem. As definições de endpoint para serviços em nuvem que são efetuadas no ficheiro. csdef. Para atualizar o modo de distribuição do Balanceador de carga para uma implementação de serviços em nuvem, é necessária uma atualização da implementação.
+Utilize o Azure SDK para .NET 2.5 para atualizar o seu serviço cloud. As definições de ponto de extremidade para serviços em nuvem são efetuadas no ficheiro. csdef. Para atualizar o modo de distribuição de Balanceador de carga para uma implementação de serviços Cloud, uma atualização de implementação é necessária.
 
-Eis um exemplo de. csdef alterações para definições de ponto final:
+Eis um exemplo de alterações. csdef para definições de ponto final:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -114,11 +122,11 @@ Eis um exemplo de. csdef alterações para definições de ponto final:
 
 ## <a name="api-example"></a>Exemplo de API
 
-O exemplo seguinte mostra como reconfigurar o modo de distribuição do Balanceador de carga para um conjunto com balanceamento de carga especificado numa implementação. 
+O exemplo seguinte mostra como reconfigurar o modo de distribuição de Balanceador de carga para um conjunto com balanceamento de carga especificado numa implementação. 
 
 ### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Alterar o modo de distribuição para o conjunto com balanceamento de carga implementado
 
-Utilize o modelo de implementação clássico do Azure para alterar uma configuração de implementação existente. Adicionar o `x-ms-version` cabeçalho e defina o valor para a versão 2014-09-01 ou posterior.
+Utilize o modelo de implementação clássica do Azure para alterar uma configuração de implementação existente. Adicionar o `x-ms-version` cabeçalho e defina o valor para a versão 2014-09-01 ou posterior.
 
 #### <a name="request"></a>Pedir
 
@@ -143,7 +151,7 @@ Utilize o modelo de implementação clássico do Azure para alterar uma configur
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Como anteriormente descrito, defina o `LoadBalancerDistribution` elemento sourceIP afinidade de 2 cadeias de identificação, sourceIPProtocol para a afinidade de 3 cadeias de identificação ou none para sem afinidade de (5 cadeias de identificação afinidade).
+Como anteriormente descrito, defina o `LoadBalancerDistribution` elemento para sourceIP para a afinidade de 2 cadeias de identificação, sourceIPProtocol para a afinidade de cadeias de identificação 3 ou nenhum para sem afinidade (afinidade de 5 cadeias de identificação).
 
 #### <a name="response"></a>Resposta
 
@@ -158,5 +166,5 @@ Como anteriormente descrito, defina o `LoadBalancerDistribution` elemento source
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral do Balanceador de carga interno do Azure](load-balancer-internal-overview.md)
-* [Introdução ao configurar um balanceador de carga para a internet](load-balancer-get-started-internet-arm-ps.md)
+* [Introdução ao configurar um balanceador de carga com acesso à internet](load-balancer-get-started-internet-arm-ps.md)
 * [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

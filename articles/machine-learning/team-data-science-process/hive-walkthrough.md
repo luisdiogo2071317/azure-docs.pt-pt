@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060352"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586126"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
 Nestas instruções, utilizamos o [Team Data Science Process (TDSP)](overview.md) num cenário ponto-a-ponto. Utilizamos uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e os dados de engenharia da funcionalidade de publicamente disponíveis [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados e dimensionar os dados. Para lidar com classificação binária e várias classes e tarefas de previsão de regressão, desenvolvemos os modelos de dados com o Azure Machine Learning. 
@@ -30,9 +30,9 @@ Para obter instruções que mostra como lidar com um conjunto de dados maior, ve
 Também pode utilizar um IPython notebook para realizar as tarefas apresentadas no passo a passo que utiliza o conjunto de dados de 1 TB. Para obter mais informações, consulte [Criteo passo a passo através de uma ligação de ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>Descrição do conjunto de dados de viagens de táxis de NYC
-Os dados da viagem de táxis de NYC são cerca de 20 GB de arquivos de comprimido valores separados por vírgulas (CSV) (GB de ~ 48 descomprimido). Ele tem mais de 173 milhões de viagens individuais e inclui fares pagos para cada viagem. Cada registo de viagem inclui a pegada e entrega a localização e tempo, hack anónimo (driver) número de licença e o número de medallion (a táxis de ID exclusivo). Os dados abrange todas as viagens no ano de 2013 e são fornecidos nas seguintes dois conjuntos de dados para todos os meses:
+Os dados da viagem de táxis de NYC são cerca de 20 GB de arquivos de comprimido valores separados por vírgulas (CSV) (GB de ~ 48 descomprimido). Ele tem mais de 173 milhões de viagens individuais e inclui fares pagos para cada viagem. Cada registo de viagem inclui a pegada e redução de localização e tempo, hack anónimo (driver) número de licença e o número de medallion (a táxis de ID exclusivo). Os dados abrange todas as viagens no ano de 2013 e são fornecidos nas seguintes dois conjuntos de dados para todos os meses:
 
-- Os ficheiros CSV de trip_data contêm detalhes de viagem. Isto inclui o número de passageiros, pegada e pontos de entrega, duração de viagem e comprimento de viagem. Aqui estão alguns exemplos de registros:
+- Os ficheiros CSV de trip_data contêm detalhes de viagem. Isto inclui o número de passageiros, pegada e pontos de redução, duração de viagem e comprimento de viagem. Aqui estão alguns exemplos de registros:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -587,7 +587,7 @@ A consulta aplica-se as funções padrão do Hive diretamente para gerar o segui
 - semana do ano
 - dia da semana (1 representa segunda-feira e 7 representa Domingo)
 
-A consulta também gera a distância direta entre as localizações de pegada e entrega. Para obter uma lista completa de funções, consulte [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+A consulta também gera a distância direta entre as localizações de pegada e redução. Para obter uma lista completa de funções, consulte [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
 A consulta, em seguida, baixo-samples os dados para que os resultados da consulta se encaixa em Azure Machine Learning Studio. Apenas cerca de 1 por cento do conjunto de dados original é importado para o studio.
 

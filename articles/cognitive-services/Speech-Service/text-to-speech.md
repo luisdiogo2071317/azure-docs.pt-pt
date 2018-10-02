@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: eebe41ea879ad34defadd08ce3095f7f6edca4d8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4dafab089e6ac4bbf4fb9441d995983ce5b58150
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719805"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016879"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre o texto em voz, API
 
@@ -34,13 +34,13 @@ Os cenários em que fala síntese está a ser adotada incluem:
 
 ## <a name="voice-support"></a>Suporte de voz
 
-A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](language-support.md#text-to-speech). 
 
 Se desejar uma voz única para a sua aplicação, pode criar [tipos de voz personalizada](how-to-customize-voice-font.md) de seus próprios exemplos de voz.
 
 ## <a name="api-capabilities"></a>Capacidades de API
 
-Muitas das funcionalidades dos **texto em voz** API - sobretudo em torno da personalização - estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para uma lista completa de capacidades e a API de detalhes, consulte [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Muitas das funcionalidades do **texto em voz** API — especialmente em torno da personalização — estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para obter uma lista completa de capacidades e detalhes de API, consulte [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/),
 
 | Caso de utilização | REST | SDKs |
 |-----|-----|-----|----|

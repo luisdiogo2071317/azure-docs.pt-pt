@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f6a574f169310f2779fb20353fda748e6893a4bd
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163044"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016745"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Definir informações de segurança para utilizar o e-mail (pré-visualização)
 
@@ -46,7 +46,7 @@ Dependendo das definições da sua organização, poderá ser-lhe pedido para ad
 
 3. Na **manter a sua conta segura** página, selecione **feito**.
 
-    As informações de segurança é atualizada para utilizar o seu endereço de e-mail para verificar a sua identidade quando utilizar a verificação de dois passos.
+    As informações de segurança é atualizada para utilizar o seu endereço de e-mail para verificar a sua identidade quando utilizar a reposição de palavra-passe.
 
 ## <a name="additional-security-info-options"></a>Opções de informações de segurança adicionais
 

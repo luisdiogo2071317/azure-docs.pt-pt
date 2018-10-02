@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c30d531876ae7c69c164bc1d73103e493aaaa8fa
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165181"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018317"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -38,7 +38,7 @@ Engenheiro de gravação  |Supervisiona os aspectos técnicos da gravação e op
 Diretor            |Prepara o script e coaches desempenho o talento de voz.
 Editor              |Finaliza os arquivos de áudio e prepara-os para carregamento para o portal de voz personalizada.
 
-Um indivíduo pode preencher a mais de uma função. Este guia assume que irá ser principalmente preenchendo a função de diretor e contratação de talento uma voz e engenheiro de gravação. Se pretender disponibilizar as gravações por conta própria, este artigo inclui algumas informações sobre a função de engenheiro de gravação. A função de editor não é necessária após a sessão, pelo que podem ser efetuadas pelo engenheiro de gravação do diretor.
+Um indivíduo pode preencher a mais de uma função. Este guia assume que irá ser principalmente preenchendo a função de diretor e contratação de talento uma voz e engenheiro de gravação. Se pretender disponibilizar as gravações por conta própria, este artigo inclui algumas informações sobre a função de engenheiro de gravação. A função de editor não é necessária após a sessão, pelo que podem ser efetuadas pelo diretor ou o engenheiro de gravação.
 
 ## <a name="choose-your-voice-talent"></a>Escolha o seu talento de voz
 

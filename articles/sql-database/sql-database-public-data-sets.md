@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160422"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586262"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para teste e a criação de protótipos
 
@@ -40,7 +40,7 @@ Procure esta lista de conjuntos de dados públicos para os dados que pode utiliz
 
 | Origem de dados | Sobre os dados | Sobre os ficheiros |
 |---|---|---|
-| [Dados de táxis da cidade de nova York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Táxis viagem registos incluem campos capturar pegada e entrega de datas/horas locais pegada e entrega, distâncias de viagem, discriminados fares, tipos de taxa, os tipos de pagamento, e contagem de passageiros comunicada de driver." | São conjuntos de dados em arquivos CSV, por mês. |
+| [Dados de táxis da cidade de nova York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Táxis viagem registos incluem campos capturar pegada e redução datas/horas localizações pegada e redução, as distâncias de viagem, discriminados fares, tipos de taxa, os tipos de pagamento, e contagem de passageiros comunicada de driver." | São conjuntos de dados em arquivos CSV, por mês. |
 | [Conjuntos de dados do Microsoft Research - "Dados de ciência de pesquisa"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Conjuntos de dados de vários que cobre a interação homem — máquina, áudio e vídeo, obtenção de informações/mineração de dados, geoespacial/localização, processamento de linguagem natural e robotics/de imagem digitalizada. | Conjuntos de dados estão em vários formatos, comprimidos para download. |
 | [Dados de genoma pública](http://www.completegenomics.com/public-data/) | "Um conjunto de dados diversificado de genomas totalmente humanas são livremente disponíveis para utilização pública melhorar a qualquer estudo de genoma..." O fornecedor, Genomics concluída, é uma empresa com fins lucrativos privada. | Conjuntos de dados, após a extração, estão no formato de texto do UNIX. Ferramentas de análise também estão disponíveis. |
 | [Abrir dados de Cloud de dados de ciência](https://www.opensciencedatacloud.org/) | "A nuvem de dados de ciência aberto fornece a Comunidade científica com recursos de armazenamento, partilha e analisar conjuntos de dados científicos terabytes e à escala de petabytes."| São conjuntos de dados em vários formatos. |

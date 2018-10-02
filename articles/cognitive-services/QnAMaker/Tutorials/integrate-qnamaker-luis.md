@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/28/2018
 ms.author: tulasim
-ms.openlocfilehash: 53e46fa84bcd7b96403dcb0ec70b45b800bc4acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4cf9f114fe5cb52c71db5725470d6f875c52c1f2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042011"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017217"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrar o QnA Maker e o LUIS para distribuir a sua base de dados de conhecimento
 À medida que sua base de dados de conhecimento do QnA Maker cresce grandes, torna-se difícil mantê-lo como um único monolítico definido e há a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.
@@ -28,137 +28,197 @@ Embora seja fácil para criar várias bases de dados de conhecimento no Criador 
 
 No cenário acima, o QnA Maker obtém primeiro a intenção da pergunta recebida de um modelo do LUIS e, em seguida, usá-lo para encaminhar para a base de dados de conhecimento do QnA Maker correta.
 
-## <a name="prerequisites"></a>Pré-requisitos
-- Inicie sessão para o [LUIS](https://www.luis.ai/) portal e [criar uma aplicação](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
-- [Adicionar intenções](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) de acordo com o seu cenário.
-- [Train](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publicar](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) sua aplicação LUIS.
-- Inicie sessão no [QnA Maker](https://qnamaker.ai) e [criar](https://www.qnamaker.ai/Create) bases de dados de conhecimento de acordo com o seu cenário.
-- Testar e publicar as bases de dados de conhecimento.
+## <a name="create-a-luis-app"></a>Criar uma aplicação LUIS
 
-## <a name="qna-maker--luis-bot"></a>A ferramenta QnA Maker + Bot de LUIS
-1. Primeiro criar um bot de aplicação Web com o modelo do LUIS, ligá-lo com a aplicação do LUIS que criou acima e modificar as intenções. Veja os passos detalhados [aqui](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+1. Inicie sessão para o [LUIS](https://www.luis.ai/) portal.
+1. [Criar uma aplicação](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+1. [Adicionar uma intenção](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) para cada base de dados de conhecimento do QnA Maker. As expressões de exemplo devem corresponder a perguntas, as bases de dados de conhecimento do QnA Maker.
+1. [Preparar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publicar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) sua aplicação LUIS.
+1. Na **gerir** secção, anote o LUIS ID da aplicação, chave de ponto final do LUIS e região do anfitrião. Irá necessitar destes valores mais tarde. 
 
-2. Adicione as dependências na parte superior do arquivo, com as outras dependências:
+## <a name="create-qna-maker-knowledge-bases"></a>Criar bases de dados de conhecimento do QnA Maker
 
-    ```
-    using RestSharp;
-    using System.Collections.Generic;
-    using Newtonsoft.Json;
-    ```
-3. Adicionar a abaixo da classe para chamar o serviço QnA Maker:
+1. Inicie sessão no [QnA Maker](https://qnamaker.ai).
+1. [Criar](https://www.qnamaker.ai/Create) um bases de dados de conhecimento para cada objetivo na aplicação do LUIS.
+1. Testar e publicar as bases de dados de conhecimento. Quando publicar cada KB, anote o ID da BDC, hospedar (subdomínio antes _.azurewebsites.net/qnamaker_) e a chave de ponto final de autorização. Irá necessitar destes valores mais tarde. 
 
-    ```
-        /// <summary>
-        /// QnAMakerService is a wrapper over the QnA Maker REST endpoint
-        /// </summary>
-        [Serializable]
-        public class QnAMakerService
-        {
-            private string qnaServiceHostName;
-            private string knowledgeBaseId;
-            private string endpointKey;
-    
-            /// <summary>
-            /// Initialize a particular endpoint with it's details
-            /// </summary>
-            /// <param name="hostName">Hostname of the endpoint</param>
-            /// <param name="kbId">Knowledge base ID</param>
-            /// <param name="ek">Endpoint Key</param>
-            public QnAMakerService(string hostName, string kbId, string ek)
-            {
-                qnaServiceHostName = hostName;
-                knowledgeBaseId = kbId;
-                endpointKey = ek;
-            }
-    
-            /// <summary>
-            /// Call the QnA Maker endpoint and get a response
-            /// </summary>
-            /// <param name="query">User question</param>
-            /// <returns></returns>
-            public string GetAnswer(string query)
-            {
-                var client = new RestClient( qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer");
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("authorization", "EndpointKey " + endpointKey);
-                request.AddHeader("content-type", "application/json");
-                request.AddParameter("application/json", "{\"question\": \"" + query + "\"}", ParameterType.RequestBody);
-                IRestResponse response = client.Execute(request);
-    
-                // Deserialize the response JSON
-                QnAAnswer answer = JsonConvert.DeserializeObject<QnAAnswer>(response.Content);
-    
-                // Return the answer if present
-                if (answer.answers.Count > 0)
-                    return answer.answers[0].answer;
-                else
-                    return "No good match found.";
-            }
-        }
-    
-        /* START - QnA Maker Response Class */
-        public class Metadata
-        {
-            public string name { get; set; }
-            public string value { get; set; }
-        }
-    
-        public class Answer
-        {
-            public IList<string> questions { get; set; }
-            public string answer { get; set; }
-            public double score { get; set; }
-            public int id { get; set; }
-            public string source { get; set; }
-            public IList<object> keywords { get; set; }
-            public IList<Metadata> metadata { get; set; }
-        }
-    
-        public class QnAAnswer
-        {
-            public IList<Answer> answers { get; set; }
-        }
-        /* END - QnA Maker Response Class */
-    ```
-
-3. Aceda a https://qnamaker.ai -> meus bases de dados de conhecimento -> código do modo de exibição, da sua base de dados de conhecimento correspondente. Obter as seguintes informações:
+    Este artigo pressupõe que o KBs são criados na mesma subscrição do Azure QnA Maker.
 
     ![Pedido de HTTP do QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-4. Criar uma instância da classe QnAMakerService para cada uma das suas bases de dados de conhecimento:
-    ```
-            // Instantiate the knowledge bases
-            public QnAMakerService hrQnAService = new QnAMakerService("https://hrkb.azurewebsites.net", "<HR knowledge base id>", "<HR endpoint key>");
-            public QnAMakerService payrollQnAService = new QnAMakerService("https://payrollkb.azurewebsites.net", "<Payroll knowledge base id>", "<Payroll endpoint key>");
-            public QnAMakerService financeQnAService = new QnAMakerService("https://financekb.azurewebsites.net", "<Finance knowledge base id>", "<Finance endpoint key>");
+## <a name="web-app-bot"></a>Bot de funções
+
+1. [Criar um bot de aplicação Web](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) com o modelo do LUIS. Selecione o 3.x SDK e o linguagem de programação c#.
+
+1. Uma vez criado o bot de aplicação web, no portal do Azure, selecione o bot de aplicação web.
+1. Selecione **as configurações do aplicativo** na navegação de serviço da Web app bot, em seguida, desloque para baixo até **configurações de aplicativo** secção de definições disponíveis.
+1. Alteração da **LuisAppId** para o valor da aplicação LUIS criado na secção anterior, em seguida, selecione **guardar**.
+
+
+## <a name="change-code-in-basicluisdialogcs"></a>Alterar o código no BasicLuisDialog.cs
+1. Do **gestão de Bot** secção a navegação de bot de aplicação web no portal do Azure, selecione **criar**.
+2. Selecione **editor de código online aberto**. Um novo separador do browser abre-se com o ambiente de edição online. 
+3. Na **WWWROOT** secção, selecione a **caixas de diálogo** diretório, em seguida, abra **BasicLuisDialog.cs**.
+4. Adicionar dependências na parte superior dos **BasicLuisDialog.cs** ficheiro:
+
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+    using Microsoft.Bot.Builder.Dialogs;
+    using Microsoft.Bot.Builder.Luis;
+    using Microsoft.Bot.Builder.Luis.Models;
+    using Newtonsoft.Json;
+    using System.Text;
     ```
 
-5. Chame a base de dados de conhecimento correspondente para o objetivo.
+5. Adicionar o abaixo classes para anular a serialização da resposta do QnA Maker:
+
+    ```csharp
+    public class Metadata
+    {
+        public string name { get; set; }
+        public string value { get; set; }
+    }
+
+    public class Answer
+    {
+        public IList<string> questions { get; set; }
+        public string answer { get; set; }
+        public double score { get; set; }
+        public int id { get; set; }
+        public string source { get; set; }
+        public IList<object> keywords { get; set; }
+        public IList<Metadata> metadata { get; set; }
+    }
+
+    public class QnAAnswer
+    {
+        public IList<Answer> answers { get; set; }
+    }
     ```
-            // HR Intent
-            [LuisIntent("HR")]
-            public async Task CancelIntent(IDialogContext context, LuisResult result)
+
+
+6. Adicione a seguinte classe para fazer uma solicitação HTTP para o serviço QnA Maker. Tenha em atenção que o **autorização** valor do cabeçalho inclui word, `EndpointKey` com um espaço a palavra a seguir. O resultado JSON é desserializado para as classes anteriores e a primeira resposta é retornada.
+
+    ```csharp
+    [Serializable]
+    public class QnAMakerService
+    {
+        private string qnaServiceHostName;
+        private string knowledgeBaseId;
+        private string endpointKey;
+
+        public QnAMakerService(string hostName, string kbId, string endpointkey)
+        {
+            qnaServiceHostName = hostName;
+            knowledgeBaseId = kbId;
+            endpointKey = endpointkey;
+
+        }
+        async Task<string> Post(string uri, string body)
+        {
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage())
             {
-                // Ask the HR knowledge base
-                await context.PostAsync(hrQnAService.GetAnswer(result.Query));
+                request.Method = HttpMethod.Post;
+                request.RequestUri = new Uri(uri);
+                request.Content = new StringContent(body, Encoding.UTF8, "application/json");
+                request.Headers.Add("Authorization", "EndpointKey " + endpointKey);
+
+                var response = await client.SendAsync(request);
+                return  await response.Content.ReadAsStringAsync();
             }
-    
-            // Payroll intent
-            [LuisIntent("Payroll")]
-            public async Task GreetingIntent(IDialogContext context, LuisResult result)
+        }
+        public async Task<string> GetAnswer(string question)
+        {
+            string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
+            string questionJSON = @"{'question': '" + question + "'}";
+
+            var response = await Post(uri, questionJSON);
+
+            var answers = JsonConvert.DeserializeObject<QnAAnswer>(response);
+            if (answers.answers.Count > 0)
             {
-                // Ask the payroll knowledge base
-                await context.PostAsync(payrollQnAService.GetAnswer(result.Query));
+                return answers.answers[0].answer;
             }
-    
-            // Finance intent
-            [LuisIntent("Finance")]
-            public async Task HelpIntent(IDialogContext context, LuisResult result)
+            else
             {
-                // Ask the finance knowledge base
-                await context.PostAsync(financeQnAService.GetAnswer(result.Query));
+                return "No good match found.";
             }
+        }
+    }
     ```
+
+
+7. Modificar a classe BasicLuisDialog. Cada objetivo de LUIS deve ter um método decorado com **LuisIntent**. O parâmetro para a decoração é o nome de intenção de LUIS real. O nome do método que está decorado _deve_ ser o nome de intenção de LUIS para facilitar a leitura e a capacidade de manutenção, mas não tem de ser o mesmo design ou tempo de execução.  
+
+    ```csharp
+    [Serializable]
+    public class BasicLuisDialog : LuisDialog<object>
+    {
+        // LUIS Settings
+        static string LUIS_appId = "<LUIS APP ID>";
+        static string LUIS_apiKey = "<LUIS API KEY>";
+        static string LUIS_hostRegion = "westus.api.cognitive.microsoft.com";
+
+        // QnA Maker global settings
+        // assumes all KBs are created with same Azure service
+        static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
+        static string qnamaker_endpointDomain = "my-qnamaker-s0-s";
+        
+        // QnA Maker Human Resources Knowledge base
+        static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
+
+        // QnA Maker Finance Knowledge base
+        static string Finance_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
+
+        // Instantiate the knowledge bases
+        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
+        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
+
+        public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
+            LUIS_appId,
+            LUIS_apiKey,
+            domain: LUIS_hostRegion)))
+        {
+        }
+
+        [LuisIntent("None")]
+        public async Task NoneIntent(IDialogContext context, LuisResult result)
+        {
+            HttpClient client = new HttpClient();
+            await this.ShowLuisResult(context, result);
+        }
+
+        // HR Intent
+        [LuisIntent("HR")]
+        public async Task HumanResourcesIntent(IDialogContext context, LuisResult result)
+        {
+            // Ask the HR knowledge base
+            var qnaMakerAnswer = await hrQnAService.GetAnswer(result.Query);
+            await context.PostAsync($"{qnaMakerAnswer}");
+            context.Wait(MessageReceived);
+        }
+
+        // Finance intent
+        [LuisIntent("Finance")]
+        public async Task FinanceIntent(IDialogContext context, LuisResult result)
+        {
+            // Ask the finance knowledge base
+            var qnaMakerAnswer = await financeQnAService.GetAnswer(result.Query);
+            await context.PostAsync($"{qnaMakerAnswer}");
+            context.Wait(MessageReceived);
+        }
+        private async Task ShowLuisResult(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}");
+            context.Wait(MessageReceived);
+        }
+    }
+    ```
+
 
 ## <a name="build-the-bot"></a>Criar o bot
 1. No editor de código, faça duplo clique em `build.cmd` e selecione **executar consola**.

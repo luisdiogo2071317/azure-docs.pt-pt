@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842452"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018779"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -101,7 +101,7 @@ Para obter informações sobre como utilizar o gateway com outros serviços, vej
 
 ## <a name="install-data-gateway"></a>Instalar o gateway de dados
 
-1. [Transferir, guardar e executar o instalador do gateway num computador local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Transferir, guardar e executar o instalador do gateway num computador local](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Aceite o caminho de instalação predefinido ou especifique a localização no computador onde pretende instalar o gateway.
 
@@ -182,7 +182,7 @@ Se deve alterar a localização do seu gateway, mover a instalação de gateway 
 
 1. Do seu computador **painel de controlo**, aceda à **programas e funcionalidades**. Na lista de programas, selecione **gateway de dados no local**e, em seguida, escolha **desinstalação**.
 
-2. [Reinstale o gateway de dados no local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Reinstale o gateway de dados no local](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Depois de abre o instalador, inicie sessão com a mesma conta escolar ou que foi usada anteriormente para instalar o gateway.
 

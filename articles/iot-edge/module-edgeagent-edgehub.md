@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423142"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017709"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriedades do agente do Edge e duplos de módulo de hub do Edge
 
@@ -46,6 +46,7 @@ O módulo duplo do agente do Edge é chamado `$edgeAgent` e coordena as comunica
 | systemModules.edgeHub.configuration.id | O ID da implementação que implementadas neste módulo. | Esta propriedade é definida pelo IoT Hub quando esse manifesto é aplicado através de uma implementação. Não faça parte de um manifesto de implantação. |
 | módulos. .version {moduleId} | Uma cadeia definido pelo utilizador, que representa a versão deste módulo. | Sim |
 | módulos. .type {moduleId} | Tem de ser "docker" | Sim |
+| módulos. .status {moduleId} | {"a executar" \| "parada"} | Sim |
 | modules.{moduleId}.restartPolicy | {"nunca" \| "no-falhou" \| "no-mau estado de funcionamento" \| "sempre"} | Sim |
 | modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
 | modules.{moduleId}.settings.createOptions | Um JSON em cadeias de contentor que contém as opções para a criação do contentor de módulo. [Opções de criação de docker][lnk-docker-create-options] | Não |

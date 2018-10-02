@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: douglasl
-ms.openlocfilehash: ff112459ef23930329fc1959a633bd6f505893a1
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: aa8572ea0195891657baf3df1916ce0b4f36f788
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419604"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018813"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
 
@@ -112,6 +112,11 @@ Eis os passos para configurar uma versão de Pipelines do Azure, para que pode a
     f.  Selecione **...** junto a **substituir parâmetros de modelo** campo e preencher as informações para a fábrica de dados de destino. Para as credenciais do Cofre de chaves, utilize o mesmo nome para o segredo no seguinte formato: supondo que o nome do segredo é `cred1`, introduza `"$(cred1)"` (entre aspas).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
+
+    g. Selecione o **Incremental** modo de implementação.
+
+    > [!WARNING]
+    > Se selecionou **Complete** modo de implementação existente de recursos pode ser eliminado, incluindo o grupo de recursos de destino.
 
 1.  Guarde o pipeline de lançamento.
 

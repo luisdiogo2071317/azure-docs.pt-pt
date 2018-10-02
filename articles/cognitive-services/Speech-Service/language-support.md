@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435519"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018558"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
@@ -161,8 +161,6 @@ Personalização de voz está disponível para inglês Americano (em inglês), c
 ## <a name="speech-translation"></a>Tradução de Voz
 
 O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem tem de ser sempre partir da seguinte tabela de idiomas de voz. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto.
-
-Pode obter a lista de idiomas por meio de programação, utilizando o ponto final de idiomas da API REST. A lista apresenta cada código de idioma, bem como o nome do idioma em inglês, ou em qualquer outro idioma suportado. Esta lista é atualizada pelo serviço do Microsoft Translator, sempre que uma nova linguagem de fica disponível.
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

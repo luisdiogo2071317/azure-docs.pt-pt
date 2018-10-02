@@ -8,41 +8,44 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984046"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585516"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
-Por predefinição, as mensagens são roteadas para o ponto de final de serviço com acesso à incorporado (**mensagens/eventos**) que é compatível com [dos Hubs de eventos][lnk-event-hubs]. Este ponto final está apenas exposto a utilizar atualmente o [AMQP] [ lnk-amqp] protocolo na porta 5671. Um IoT hub expõe as propriedades seguintes para que possa controlar compatível com o Event Hub mensagens ponto final incorporado **mensagens/eventos**.
+Por predefinição, as mensagens são roteadas para o ponto de final de serviço com acesso à incorporado (**mensagens/eventos**) que é compatível com [dos Hubs de eventos](http://azure.microsoft.com/documentation/services/event-hubs/
+). Este ponto final está apenas exposto a utilizar atualmente o [AMQP](https://www.amqp.org/) protocolo na porta 5671. Um IoT hub expõe as propriedades seguintes para que possa controlar compatível com o Event Hub mensagens ponto final incorporado **mensagens/eventos**.
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |
-| **Contagem de partições** | Defina esta propriedade durante a criação para definir o número de [partições] [ lnk-event-hub-partitions] para ingestão de eventos do dispositivo para a cloud. |
+| **Contagem de partições** | Defina esta propriedade durante a criação para definir o número de [partições](../event-hubs/event-hubs-features.md#partitions) para ingestão de eventos do dispositivo para a cloud. |
 | **Período de retenção**  | Esta propriedade especifica o período de tempo em dias as mensagens são mantidas pelo IoT Hub. A predefinição é um dia, mas ele pode ser aumentado para sete dias. |
 
 IoT Hub também permite-lhe gerir grupos de consumidores sobre o dispositivo para cloud incorporado recebem o ponto final.
 
 Se estiver a utilizar [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e o [rota contingência](iot-hub-devguide-messages-d2c.md#fallback-route) é ativada, todas as mensagens que não correspondam a uma consulta em qualquer rota são escritas para o ponto final incorporado. Se desativar esta rota de contingência, as mensagens que não correspondam a qualquer consulta são ignoradas.
 
-Pode modificar o período de retenção, por meio de programação utilizando o [fornecedor de recursos do IoT Hub REST APIs][lnk-resource-provider-apis], ou com o [portal do Azure] [ lnk-management-portal].
+Pode modificar o período de retenção, por meio de programação utilizando o [fornecedor de recursos do IoT Hub REST APIs](/rest/api/iothub/iothubresource), ou com o [portal do Azure](https://portal.azure.com).
 
 IoT Hub expõe os **mensagens/eventos** ponto final incorporado para os seus serviços de back-end ler as mensagens de dispositivo-para-cloud recebidas pelo hub. Este ponto final é o evento compatível com o Hub, que permite-lhe utilizar qualquer um dos mecanismos do serviço de Hubs de eventos oferece suporte para a leitura de mensagens.
 
 ## <a name="read-from-the-built-in-endpoint"></a>Ler a partir do ponto final incorporado
 
-Quando utiliza a [SDK do Service Bus para .NET] [ lnk-servicebus-sdk] ou o [Hubs de eventos - anfitrião do processador de eventos][lnk-eventprocessorhost], pode utilizar qualquer ligação do IoT Hub cadeias de caracteres com as permissões corretas. Em seguida, utilize **mensagens/eventos** como o nome do Hub de eventos.
+Quando utiliza a [SDK do Service Bus para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) ou o [Hubs de eventos - anfitrião do processador de eventos](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), pode utilizar quaisquer cadeias de ligação do IoT Hub com as permissões corretas. Em seguida, utilize **mensagens/eventos** como o nome do Hub de eventos.
 
 Ao utilizar SDKs (ou integrações de produtos) que não estão cientes do IoT Hub, tem de obter um ponto de final compatível com o Event Hub e o nome compatível com o Event Hub:
 
-1. Inicie sessão para o [portal do Azure] [ lnk-management-portal] e navegue até ao seu hub IoT.
-1. Clique em **pontos finais incorporados**.
-1. O **eventos** secção contém os seguintes valores: **endpoint compatível com o Event Hub**, **nome compatível com o Event Hub**, **partições**, **Período de retenção**, e **grupos de consumidores**.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
 
-    ![Definições do dispositivo para a nuvem][img-eventhubcompatible]
+2. Clique em **pontos finais incorporados**.
+
+3. O **eventos** secção contém os seguintes valores: **endpoint compatível com o Event Hub**, **nome compatível com o Event Hub**, **partições**, **Período de retenção**, e **grupos de consumidores**.
+
+    ![Definições do dispositivo para a nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 O SDK do Hub IoT requer o nome de ponto final do IoT Hub, que é **mensagens/eventos** conforme mostrado na **pontos de extremidade**.
 
@@ -62,20 +65,10 @@ Os SDKs e integrações que pode utilizar com pontos finais de compatível com o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre pontos finais do IoT Hub, veja [pontos finais do IoT Hub][lnk-endpoints].
-* O [inícios Rápidos] [ lnk-get-started] mostram-lhe como enviar mensagens dispositivo-para-cloud a partir de dispositivos simulados e ler as mensagens a partir do ponto final incorporado. Para obter mais detalhes, consulte a [mensagens de dispositivo-para-cloud do Hub de IoT de processo utilizar rotas] [ lnk-d2c-tutorial] tutorial.
-* Se quiser encaminhe suas mensagens do dispositivo para a cloud para os pontos finais personalizados, veja [utilizar rotas de mensagens e os pontos finais personalizados para mensagens de dispositivo-para-cloud][lnk-custom].
+* Para obter mais informações sobre pontos finais do IoT Hub, veja [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
 
-[img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
+* O [inícios Rápidos](quickstart-send-telemetry-node.md) mostram-lhe como enviar mensagens dispositivo-para-cloud a partir de dispositivos simulados e ler as mensagens a partir do ponto final incorporado. 
 
-[lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-management-portal]: https://portal.azure.com
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
-[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-eventprocessorhost]: https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
-[lnk-amqp]: https://www.amqp.org/
+Para obter mais detalhes, consulte a [mensagens de dispositivo-para-cloud do Hub de IoT de processo utilizar rotas](tutorial-routing.md) tutorial.
+
+* Se quiser encaminhe suas mensagens do dispositivo para a cloud para os pontos finais personalizados, veja [utilizar rotas de mensagens e os pontos finais personalizados para mensagens de dispositivo-para-cloud](iot-hub-devguide-messages-read-custom.md).

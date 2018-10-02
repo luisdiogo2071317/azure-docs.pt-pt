@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032432"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018524"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
@@ -32,11 +32,11 @@ Esta API suporta apenas os discursos curtos. Os pedidos podem conter até 10 seg
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-Os seguintes parâmetros podem estar incluídos na cadeia de consulta da solicitação REST.
+Os seguintes parâmetros podem ser incluídos na cadeia de consulta da solicitação REST.
 
 |Nome do parâmetro|Obrigatório/opcional|Significado|
 |-|-|-|
-|`language`|Necessário|O identificador do idioma a ser reconhecido. Ver [idiomas suportados](supported-languages.md#speech-to-text).|
+|`language`|Necessário|O identificador do idioma a ser reconhecido. Ver [idiomas suportados](language-support.md#speech-to-text).|
 |`format`|Opcional<br>predefinição: `simple`|Formato de resultado `simple` ou `detailed`. Os resultados da simples incluem `RecognitionStatus`, `DisplayText`, `Offset`e a duração. Resultados detalhados incluem vários candidatos com valores de confiança e quatro diferentes representações.|
 |`profanity`|Opcional<br>predefinição: `masked`|Como lidar com linguagem inapropriada nos resultados de reconhecimento. Pode ser `masked` (substitui linguagem inapropriada por asteriscos), `removed` (Remove todos os profanidades), ou `raw` (inclui a linguagem inapropriada).
 
@@ -195,9 +195,6 @@ Seguem-se os pontos de extremidade REST API de voz para o serviço de voz texto.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Se tiver criado um tipo de voz personalizada, use o ponto de extremidade personalizado associado.
-
 O serviço de voz oferece suporte a saída de áudio de 24 KHz, além da saída de 16 Khz suportada por voz do Bing. Quatro formatos de saída de 24 KHz estão disponíveis para utilização no `X-Microsoft-OutputFormat` cabeçalho de HTTP, conforme são dois de 24 KHz vozes `Jessa24kRUS` e `Guy24kRUS`.
 
 Região | Idioma   | Género | Mapeamento de nome de serviço
@@ -205,7 +202,7 @@ Região | Idioma   | Género | Mapeamento de nome de serviço
 pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" 
 pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)"
 
-Uma lista completa de vozes disponíveis está disponível no [idiomas suportados](supported-languages.md#text-to-speech).
+Uma lista completa de vozes disponíveis está disponível no [idiomas suportados](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -265,7 +262,8 @@ Código de HTTP|Significado|Razão possível
 400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
 401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto.
 413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
-|502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
+429|Demasiados Pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
+502|Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que ele tem transferidos ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
 

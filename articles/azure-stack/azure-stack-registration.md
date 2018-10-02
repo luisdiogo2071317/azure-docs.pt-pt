@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452535"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586058"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -99,7 +99,7 @@ Pode ser a sua implementação do Azure Stack *ligados* ou *desligado*.
 Quando registar o Azure Stack com o Azure, tem de fornecer um nome de registo único. Uma forma fácil de associar a sua subscrição do Azure Stack com um registo do Azure está a utilizar do Azure Stack **ID de Cloud**. 
 
 > [!NOTE]
-> Registos de pilha do Azure com o modelo de faturação com base na capacidade tem de alterar o nome exclusivo ao registar novamente depois de expirarem nessas subscrições anuais.
+> Registos de pilha do Azure com o modelo de faturação com base na capacidade, terá de alterar o nome exclusivo ao registar novamente depois que essas subscrições anuais expirarem, a menos que [eliminar o registo expirado](azure-stack-registration.md#change-the-subscription-you-use) e voltar a registar com Azure.
 
 Para determinar o ID de Cloud para a sua implementação do Azure Stack, abra o PowerShell como administrador num computador pode acessar o ponto final com privilégios, execute os seguintes comandos e registe os **CloudID** valor: 
 
@@ -318,12 +318,12 @@ Terá de atualizar ou renovar o registo nas seguintes circunstâncias:
 
 #### <a name="change-the-subscription-you-use"></a>Alterar a subscrição que utilizar
 
-Se desejar alterar a subscrição que utilizar, tem de executar primeiro o **Remove-AzsRegistration** cmdlet, em seguida, certifique-se estiver conectado ao contexto correto do Azure PowerShell e, finalmente execute **AzsRegistration de conjunto**  com qualquer alterado parâmetros:
+Se desejar alterar a subscrição que utilizar, tem de executar primeiro o **Remove-AzsRegistration** cmdlet, em seguida, certifique-se estiver conectado ao contexto correto do Azure PowerShell e, finalmente execute **AzsRegistration de conjunto**  com quaisquer parâmetros alterados, incluindo \<modelo de faturação\>:
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>Alterar o modelo de faturação ou como oferecer funcionalidades
@@ -331,7 +331,7 @@ Se desejar alterar a subscrição que utilizar, tem de executar primeiro o **Rem
 Se quiser alterar o modelo de faturação ou como oferecer funcionalidades para a sua instalação, pode chamar a função de Registro para definir os valores novos. Não é necessário primeiro de remover o registo atual:
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Renovar ou alterar o registo em ambientes desligados

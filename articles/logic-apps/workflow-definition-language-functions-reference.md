@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0f2543ff10f19d6f1ccd656855dbb41cf42e6ae2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307118"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48019000"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -82,7 +82,7 @@ Para trabalhar com cadeias de caracteres, pode usar essas funções de cadeia de
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devolve a posição inicial para uma subcadeia. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devolve a posição inicial para a última ocorrência de uma subcadeia. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia com a cadeia especificada e retornar a cadeia de caracteres atualizada. | 
-| [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que tem todos os carateres de uma cadeia de caracteres e separa cada caractere com o caráter delimitador específico. | 
+| [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que contém subcadeias de caracteres, separadas por vírgulas, a partir de uma cadeia de caracteres maior com base num caractere delimitador especificado na cadeia de caracteres original. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia específica. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Devolva carateres de uma cadeia de caracteres, a partir da posição especificada. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retorne uma cadeia de caracteres no formato em minúsculas. | 
@@ -3016,32 +3016,32 @@ E retornará essa matriz com os itens restantes: `[1,2,3]`
 
 ### <a name="split"></a>dividir
 
-Devolver uma matriz que tem todos os carateres de uma cadeia de caracteres e tem a cada caractere separada por um *delimitador*.
+Devolva uma matriz que contém subcadeias de caracteres, separadas por vírgulas, com base no caráter delimitador especificado na cadeia de caracteres original. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia de caracteres que tem os carateres dividir |  
-| <*separador*> | Sim | Cadeia | O separador que aparece entre cada caractere na matriz resultante | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres para separar em subcadeias de carateres com base no delimitador especificado na cadeia de caracteres original |  
+| <*delimitador*> | Sim | Cadeia | O caractere da cadeia original para utilizar como o delimitador | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separador*><*char2*><*separador*>...] | Array | A matriz resultante criada a partir de todos os itens na cadeia de caracteres especificado |
+| [<*substring1*>, <*substring2*>,...] | Array | Uma matriz que contém subcadeias de carateres da cadeia de caracteres original, separados por vírgulas |
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma matriz de cadeia especificada, separando cada caractere com uma vírgula como delimitador:
+Este exemplo cria uma matriz com subcadeias de carateres da com base no caráter especificado como o delimitador de cadeia especificada: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-E devolve o resultado: `[a, b, c]`
+E retornará essa matriz como resultado: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

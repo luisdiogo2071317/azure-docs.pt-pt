@@ -8,12 +8,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eb24aa0471604696de99f4878baef764cfef0a8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6cfe587abadf8350fecc497b1af1cea9700f4f28
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408359"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018731"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services
 
@@ -45,7 +45,11 @@ Ver o estado de funcionamento do seu Azure Active Directory Domain Services, sel
 
 ## <a name="add-managed-identity"></a>Adicionar identidade gerida
 
-Depois de ativado o Azure AD-DS, criar uma identidade gerida atribuído ao utilizador e atribuí-lo para o **contribuinte de serviços de domínio do HDInsight** função no controlo de acesso do Azure AD DS.
+Crie uma identidade gerida atribuído ao utilizador se ainda não tiver um. Ver [Create, lista, delete ou o atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) para obter instruções. 
+
+A identidade gerida é usada para simplificar as operações de serviços de domínio. Esta identidade tem acesso para ler, criar, modificar e eliminar operações de serviços de domínio que são necessários para o HDInsight Enterprise Security Package como a criação de UOs e os princípios de serviço.
+
+Depois de ativar o Azure AD-DS, criar uma identidade gerida atribuído ao utilizador e atribuí-lo para o **contribuinte de serviços de domínio do HDInsight** função no controlo de acesso do Azure AD DS.
 
 ![Controlo de acesso de serviços de domínio do Active Directory do Azure](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 

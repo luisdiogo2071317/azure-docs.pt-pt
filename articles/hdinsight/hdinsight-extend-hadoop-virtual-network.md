@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4cbbfe5c40dd8686cf25ac31aa5db53b2a6415f7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972186"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018864"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -253,7 +253,7 @@ O túnel forçado é uma configuração de encaminhamento definido pelo utilizad
 >
 > Se não utilizar rotas definidas pelo utilizador ou grupos de segurança de rede para controlar o tráfego, pode ignorar esta secção.
 
-Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem de permitir o tráfego dos serviços do Azure de estado de funcionamento e gestão para alcançar o HDInsight. Utilize os seguintes passos para encontrar os endereços IP que têm de ser permitidos:
+Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem de permitir o tráfego dos serviços do Azure de estado de funcionamento e gestão para alcançar o HDInsight. Também tem de permitir tráfego entre VMs dentro da sub-rede. Utilize os seguintes passos para encontrar os endereços IP que têm de ser permitidos:
 
 1. Sempre têm de permitir tráfego a partir os seguintes endereços IP:
 

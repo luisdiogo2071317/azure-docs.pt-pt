@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357730"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018694"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o aprovisionamento automatizado do utilizador para aplicações SaaS?
@@ -129,8 +129,8 @@ Quando é iniciado o serviço de aprovisionamento, a primeira sincronização re
 1. Consultar todos os utilizadores e grupos do sistema de origem, obter todos os atributos definidos no [mapeamentos de atributo](customize-application-attributes.md).
 2. Filtrar os utilizadores e grupos retornados, usando qualquer configurado [atribuições](assign-user-or-group-access-portal.md) ou [filtros de âmbito baseadas em atributos](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Quando é encontrado um utilizador a ser atribuída ou no âmbito de aprovisionamento, o serviço consulta o sistema de destino para um utilizador correspondente usando designado [correspondência atributos](customize-application-attributes.md#understanding-attribute-mapping-properties). Exemplo: Se o nome de userPrincipal no sistema de origem é o atributo correspondente e mapeia para o nome de utilizador no sistema de destino, em seguida, o serviço de aprovisionamento consulta o sistema de destino para nomes de utilizador que correspondem aos valores de nome de userPrincipal no sistema de origem.
-4. Se um utilizador correspondente não for encontrado no sistema de destino, é criado usando os atributos devolvidos do sistema de origem.
-5. Se um utilizador correspondente for encontrado, ele é atualizado usando os atributos fornecidos pelo sistema de origem.
+4. Se um utilizador correspondente não for encontrado no sistema de destino, é criado usando os atributos devolvidos do sistema de origem. Depois de criar a conta de utilizador, o serviço de aprovisionamento detecta e armazena em cache o ID de sistema de destino para o novo utilizador, o que é utilizado para executar todas as operações futuras com esse utilizador.
+5. Se um utilizador correspondente for encontrado, ele é atualizado usando os atributos fornecidos pelo sistema de origem. Depois da conta de utilizador é correspondida, o serviço de aprovisionamento detecta e armazena em cache o ID de sistema de destino para o novo utilizador, o que é utilizado para executar todas as operações futuras com esse utilizador.
 6. Se os mapeamentos de atributos contém atributos de "referência", o serviço executa atualizações adicionais no sistema de destino para criar e ligar os objetos referenciados. Por exemplo, um utilizador pode ter um atributo "Manager" no sistema de destino, o que é ligado a outro utilizador criado no sistema de destino.
 7. Manter uma marca d'água no final da sincronização inicial, que fornece o ponto de partida para as sincronizações incrementais subsequentes.
 
@@ -142,8 +142,8 @@ Após a sincronização inicial, todas as sincronizações subsequentes irão:
 1. Consulte o sistema de origem para todos os utilizadores e grupos que foram atualizados desde a última marca d'água foi armazenada.
 2. Filtrar os utilizadores e grupos retornados, usando qualquer configurado [atribuições](assign-user-or-group-access-portal.md) ou [filtros de âmbito baseadas em atributos](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Quando é encontrado um utilizador a ser atribuída ou no âmbito de aprovisionamento, o serviço consulta o sistema de destino para um utilizador correspondente usando designado [correspondência atributos](customize-application-attributes.md#understanding-attribute-mapping-properties).
-4. Se um utilizador correspondente não for encontrado no sistema de destino, é criado usando os atributos devolvidos do sistema de origem.
-5. Se um utilizador correspondente for encontrado, ele é atualizado usando os atributos fornecidos pelo sistema de origem.
+4. Se um utilizador correspondente não for encontrado no sistema de destino, é criado usando os atributos devolvidos do sistema de origem. Depois de criar a conta de utilizador, o serviço de aprovisionamento detecta e armazena em cache o ID de sistema de destino para o novo utilizador, o que é utilizado para executar todas as operações futuras com esse utilizador.
+5. Se um utilizador correspondente for encontrado, ele é atualizado usando os atributos fornecidos pelo sistema de origem. Se for uma conta atribuída recentemente correspondente, o serviço de aprovisionamento detecta e armazena em cache o ID de sistema de destino para o novo utilizador, o que é utilizado para executar todas as operações futuras com esse utilizador.
 6. Se os mapeamentos de atributos contém atributos de "referência", o serviço executa atualizações adicionais no sistema de destino para criar e ligar os objetos referenciados. Por exemplo, um utilizador pode ter um atributo "Manager" no sistema de destino, o que é ligado a outro utilizador criado no sistema de destino.
 7. Se um utilizador que foi anteriormente no âmbito de aprovisionamento é removido do âmbito (incluindo a ser não atribuídos), o serviço desativa o utilizador no sistema de destino através de uma atualização.
 8. Se um utilizador que foi anteriormente no âmbito de aprovisionamento está desativado ou eliminado de forma recuperável no sistema de origem, o serviço desativa o utilizador no sistema de destino através de uma atualização.
@@ -237,6 +237,31 @@ Para orientação baseada em cenário sobre como resolver problemas de aprovisio
 
 Para um plano de implementação passo a passo de exemplo para o aprovisionamento de utilizador de saída a uma aplicação, consulte a [guia de implementação de identidade para o aprovisionamento de utilizadores](https://aka.ms/userprovisioningdeploymentplan).
 
+##<a name="more-frequenty-asked-questions"></a>Frequenty mais perguntas mais frequentes
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com utilizadores B2B no Azure AD?
+
+Sim, é possível utilizar o aprovisionamento de utilizadores do serviço para aprovisionar B2B (ou convidado) no Azure AD para aplicações SaaS de utilizador do Azure AD.
+
+No entanto, para os utilizadores B2B conseguir iniciar sessão na aplicação SaaS com o Azure AD, a aplicação SaaS tem de ter é baseado em SAML único recurso de logon configurado de forma específica. Para obter mais informações sobre como configurar aplicações de SaaS para oferecer suporte a inícios de sessão dos utilizadores B2B, consulte [aplicações de SaaS configurar colaboração B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com grupos dinâmicos no Azure AD?
+
+Sim. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD pode aprovisionar ou desaprovisionar utilizadores numa aplicação SaaS com base em se é ou não são membros de um [dynamic grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Grupos dinâmicos também funcionam com a opção "Sincronizar todos os utilizadores e grupos".
+
+No entanto, a utilização de grupos dinâmicos pode afetar o desempenho geral do aprovisionamento do Azure AD para aplicações SaaS de utilizadores de ponto-a-ponto. Quando utilizar grupos dinâmicos, mantenha estas limitações e recomendações em mente:
+
+* Como o fast um usuário num grupo dinâmico é provisionada ou desprovisionada numa aplicação SaaS depende da rapidez o grupo dinâmico pode avaliar as alterações na associação. Para obter informações sobre como verificar o estado de processamento de um grupo dinâmico, consulte [verificar o estado de processamento para uma regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* Quando utilizar grupos dinâmicos, as regras devem ser seriamente consideradas com utilizador aprovisionamento e desaprovisionamento em mente, como a perda de associação resultará num evento de desaprovisionamento.
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com grupos aninhados no Azure AD?
+
+Não. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD não é possível ler ou aprovisionar utilizadores que estão em grupos aninhados. Só é capaz de ler e disponibilize para os usuários que são membros imediatos do grupo atribuído explicitamente.
+
+Esta é uma limitação "baseado no grupo de atribuições de aplicações", que também se aplica ao início de sessão único e está descrito [com um grupo para gerir o acesso a aplicações SaaS](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+Como solução, deve explicitamente atribuir (ou, caso contrário [definir o âmbito no](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) os grupos que contêm os utilizadores que precisam de ser aprovisionado.
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)

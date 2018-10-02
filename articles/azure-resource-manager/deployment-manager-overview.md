@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8bc1165d131c593d5f4697b20166b72605ad488
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228533"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585803"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização pública)
 
@@ -144,7 +144,7 @@ O exemplo seguinte mostra o formato geral do recurso de serviços. Em cada servi
 
 Para obter mais informações, consulte [dos serviços de referência de modelo](/azure/templates/Microsoft.DeploymentManager/serviceTopologies/services).
 
-### <a name="service-units"></a>Unidades de serviço
+### <a name="service-units"></a>Unidades de Serviço
 
 O exemplo seguinte mostra o formato geral do recurso de unidades de serviço. Em cada unidade de serviço, especificar o grupo de recursos, o [modo de implementação](deployment-modes.md) a utilizar para a implementação e o caminho para o ficheiro de modelo e o parâmetro. Se especificar um caminho relativo para o modelo e parâmetros, o caminho completo é construído da pasta raiz na origem de artefactos. Pode especificar um caminho absoluto para o modelo e parâmetros, mas perde a capacidade para a versão facilmente seus lançamentos. A unidade de serviço depende do serviço.
 
@@ -220,7 +220,7 @@ Para obter mais informações, consulte [passos referência de modelo](/azure/te
 
 ### <a name="rollouts"></a>Implementações
 
-Para certificar-se de que a origem de artefato está disponível, a implementação depende da mesma. A implementação define os grupos de passos para cada unidade de serviço que é implementada. Pode definir as ações a efetuar antes ou após a implementação. Por exemplo, pode especificar que a implementação de espera após a unidade de serviço ter sido implementada. 
+Para certificar-se de que a origem de artefato está disponível, a implementação depende da mesma. A implementação define os grupos de passos para cada unidade de serviço que é implementada. Pode definir as ações a efetuar antes ou após a implementação. Por exemplo, pode especificar que a implementação de espera após a unidade de serviço ter sido implementada. Pode definir a ordem dos grupos de passo.
 
 Especifica o objeto de identidade a [atribuído ao utilizador a identidade gerida](#identity-and-access) que executa as ações de implementação.
 
@@ -248,6 +248,7 @@ O exemplo seguinte mostra o formato geral da implementação do.
         "stepGroups": [
             {
                 "name": "stepGroup1",
+                "dependsOnStepGroups": ["<step-group-name>"],
                 "preDeploymentSteps": ["<step-ID>"],
                 "deploymentTargetId":
                     "<service-unit-ID>",

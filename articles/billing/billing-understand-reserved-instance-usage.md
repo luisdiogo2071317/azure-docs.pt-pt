@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: c81db66637a4c56a36b6995ad8df0fe1967d08ef
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1edf87d9ec334845f82c3c0c20c958e27f01e87a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391678"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585225"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Compreender a utilização de reserva do Azure para a sua subscrição pay as you go
 
@@ -62,9 +62,11 @@ Filtre **informações adicionais** e escreva na sua **ID de reserva**. Captura 
 4. **ID do medidor** é o ID do medidor para a reserva. O custo deste medidor é US $0. Este id de medidor aparece para qualquer VM que é elegível para obter o desconto de reserva.
 5. Standard_DS1_v2 é vCPU de uma VM e a VM está implantado sem o benefício híbrido do Azure. Portanto, este medidor abrange o custo adicional do Windows software. Para obter o medidor correspondente, a série D, 1 núcleo de VM, veja [os custos de software do Windows de instâncias de VM do Azure reserva](billing-reserved-instance-windows-software-costs.md). Se tiver o benefício híbrido do Azure, este custo adicional não é aplicado.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Utilização da base de dados de SQL reservadas reservas de capacidade
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilização da base de dados do SQL & Cosmos DB reservado reservas de capacidade
 
-Para as secções seguintes, partem do princípio de que está a executar uma base de dados SQL Gen 4 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
+As secções seguintes utilizam o Azure SQL Database como exemplo para descrever o relatório de utilização. Pode utilizar os mesmos passos para obter a utilização do Azure Cosmos DB também. 
+
+Partem do princípio de que está a executar uma base de dados SQL Gen 4 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
 | Campo | Valor |
 |---| --- |
@@ -75,7 +77,7 @@ Para as secções seguintes, partem do princípio de que está a executar uma ba
 
 ### <a name="statement-section-of-csv-file"></a>Secção de instrução do ficheiro CSV
 
-Filtre **utilização da instância reservada** nome do medidor. Verá algo semelhante a captura de ecrã seguinte:
+Filtre **utilização da instância reservada** nome do medidor e escolha o necessário **categoria do medidor** -base de dados SQL do Azure ou do Azure Cosmos DB. Verá algo semelhante a captura de ecrã seguinte:
 
 ![Capacidade de reserva de ficheiro CSV para a base de dados SQL](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -106,3 +108,5 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
 Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+
+

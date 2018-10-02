@@ -1,6 +1,6 @@
 ---
-title: Portas e protocolos de comunicação do IoT Hub do Azure | Microsoft Docs
-description: Guia para programadores - descreve os protocolos de comunicação suportados para as comunicações de dispositivo para nuvem e da nuvem para o dispositivo e os números de porta tem de estar abertos.
+title: Portas e protocolos de comunicação do IoT Hub do Azure | Documentos da Microsoft
+description: Guia do desenvolvedor – descreve os protocolos de comunicação suportados para comunicações de dispositivo para a cloud e cloud-para-dispositivo e os números de porta tem de estar abertos.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,47 +8,51 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 0fe3dd719877dac23410ff1ca00d559636a5ed60
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3079b2414c44fc97bc8aff4b207e0943e94c7457
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633007"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584341"
 ---
-# <a name="reference---choose-a-communication-protocol"></a>Referenciar - escolher um protocolo de comunicação
+# <a name="reference---choose-a-communication-protocol"></a>Referência - escolher um protocolo de comunicação
 
 IoT Hub permite que os dispositivos utilizar os protocolos seguintes para comunicações de lado do dispositivo:
 
-* [MQTT][lnk-mqtt]
+* [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
 * MQTT através de WebSockets
-* [AMQP][lnk-amqp]
+* [AMQP](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 * AMQP através de WebSockets
 * HTTPS
 
-Para obter informações sobre como é que estes protocolos suportam funcionalidades específicas do IoT Hub, consulte [documentação de orientação do dispositivo para nuvem comunicações] [ lnk-d2c-guidance] e [orientações de comunicações da nuvem para o dispositivo] [lnk-c2d-guidance].
+Para obter informações sobre como esses protocolos suportam funcionalidades específicas do IoT Hub, veja [documentação de orientação do dispositivo-para-cloud comunicações](iot-hub-devguide-d2c-guidance.md) e [orientação de comunicações da Cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-A tabela seguinte fornece as recomendações de alto nível para à sua escolha de protocolo:
+A tabela seguinte fornece as recomendações de alto nível da sua preferência de protocolo:
 
 | Protocolo | Quando deve escolher este protocolo |
 | --- | --- |
-| MQTT <br> MQTT através de WebSocket |Utilizar em todos os dispositivos que não necessitam de ligar vários dispositivos (cada um com as suas próprias credenciais por dispositivo) através da ligação de TLS mesma. |
-| AMQP <br> AMQP através de WebSocket |Utilize nos gateways de campo e da nuvem para tirar partido da ligação de multiplexação em todos os dispositivos. |
-| HTTPS |Utilize para dispositivos que não é possível suportar outros protocolos. |
+| MQTT <br> MQTT sobre WebSocket |Utilize em todos os dispositivos que não necessitam para ligar vários dispositivos (cada um com suas próprias credenciais por dispositivo) através da mesma ligação de TLS. |
+| AMQP <br> AMQP sobre WebSocket |Utilize nos gateways de campo e na cloud para tirar partido da multiplexação em todos os dispositivos de ligação. |
+| HTTPS |Utilização para os dispositivos que não é possível suportar outros protocolos. |
 
-Quando escolher o protocolo para as comunicações do lado do dispositivo, considere os seguintes pontos:
+Considere os seguintes pontos ao escolher o seu protocolo de comunicações do lado do dispositivo:
 
-* **Padrão de nuvem para o dispositivo**. HTTPS não tem uma forma eficaz de implementar o push de servidor. Como tal, quando estiver a utilizar o HTTPS, os dispositivos consultam o IoT Hub para mensagens da nuvem para o dispositivo. Esta abordagem é ineficaz para o dispositivo e o IoT Hub. Em diretrizes atuais de HTTPS, cada dispositivo deve consultar mensagens cada 25 minutos ou mais. MQTT e AMQP suportam push de servidor ao receber mensagens da nuvem para o dispositivo. Ativar a pushes imediatas de mensagens do IoT Hub para o dispositivo. Se a latência de entrega for uma preocupação, MQTT ou AMQP são os protocolos melhor a utilizar. Para dispositivos ligados raramente, HTTPS funciona bem.
-* **Campo gateways**. Ao utilizar MQTT e HTTPS, não é possível ligar vários dispositivos (cada um com as suas próprias credenciais por dispositivo) utilizando a mesma ligação TLS. Para [cenários de gateway de campo] [ lnk-azure-gateway-guidance] que requerem uma ligação de TLS entre o gateway de campo e o IoT Hub para cada dispositivo ligado, estes protocolos são inferior ao ideal.
-* **Dispositivos de recursos de baixa**. As bibliotecas MQTT e HTTPS tem um requisitos de espaço de menor do que as bibliotecas AMQP. Como tal, se o dispositivo limitou recursos (por exemplo, menor que 1 MB de RAM), estes protocolos poderão estar a implementação de protocolo apenas disponível.
-* **Rede transversal**. O protocolo AMQP padrão utiliza a porta 5671 e MQTT escuta na porta 8883. Utilização destas portas pode causar problemas em redes que estão fechadas para protocolos de não-HTTPS. Utilizam MQTT sobre WebSockets, AMQP através de WebSockets ou HTTPS neste cenário.
-* **Tamanho do payload**. MQTT e AMQP são protocolos binários, que resultam em mais compacta payloads de HTTPS.
+* **Padrão de cloud-para-dispositivo**. HTTPS não tem uma maneira eficiente de implementar o push do servidor. Como tal, quando estiver a utilizar o HTTPS, os dispositivos consultar o IoT Hub para mensagens na cloud para o dispositivo. Essa abordagem é ineficiente para o dispositivo e o IoT Hub. Em diretrizes atuais de HTTPS, cada dispositivo deve consultar mensagens de cada 25 minutos ou mais. MQTT e AMQP suportam o push do servidor ao receber mensagens da cloud para o dispositivo. Elas permitem pushes imediatas de mensagens do IoT Hub no dispositivo. Se a latência de entrega é uma preocupação, MQTT ou AMQP são os protocolos melhores para utilizar. Para dispositivos ligados raramente, HTTPS funciona também.
+
+* **Gateways de campo**. Quando utiliza MQTT e HTTPS, não é possível ligar vários dispositivos (cada um com suas próprias credenciais por dispositivo) com a mesma ligação de TLS. Para [cenários de gateway de campo](iot-hub-devguide-endpoints.md#field-gateways) que exigem uma conexão TLS entre o gateway de campo e o IoT Hub para cada dispositivo ligado, esses protocolos são inferior ao ideal.
+
+* **Dispositivos de recursos de baixa**. As bibliotecas MQTT e HTTPS tem um requisito de espaço mais pequeno do que as bibliotecas AMQP. Assim, se o dispositivo é limitado a recursos (por exemplo, menor que 1 MB de RAM), esses protocolos podem ser a única implementação de protocolo disponível.
+
+* **Rede transversal**. O protocolo AMQP padrão utiliza a porta 5671 e MQTT escuta na porta 8883. A utilização destas portas poderia causar problemas em redes que estão fechadas para protocolos não-HTTPS. Utilize MQTT ao longo WebSockets, AMQP através de WebSockets ou HTTPS neste cenário.
+
+* **Tamanho da carga**. MQTT e AMQP são protocolos binários, que resultam em cargas mais compacta do que o HTTPS.
 
 > [!WARNING]
-> Quando utilizar HTTPS, cada dispositivo deve consultar mensagens da nuvem para o dispositivo de cada 25 minutos ou mais. No entanto, durante o desenvolvimento, é aceitável para consultar mais frequentemente do que a cada 25 minutos.
+> Ao utilizar o HTTPS, cada dispositivo deve consultar para mensagens na cloud para o dispositivo de cada 25 minutos ou mais. No entanto, durante o desenvolvimento, é aceitável para consultar mais frequentemente do que a cada 25 minutos.
 
 ## <a name="port-numbers"></a>Números de porta
 
-Dispositivos podem comunicar com o IoT Hub no Azure utilizando vários protocolos. Normalmente, a escolha do protocolo está condicionada pelos requisitos específicos da solução. A tabela seguinte lista as portas de saída que tem de estar abertas para um dispositivo para poder utilizar um protocolo específico:
+Dispositivos podem comunicar com o IoT Hub no Azure utilizando vários protocolos. Normalmente, a escolha do protocolo é orientada pelos requisitos específicos da solução. A tabela seguinte lista as portas de saída que tem de estar abertas para um dispositivo poder utilizar um protocolo específico:
 
 | Protocolo | Porta |
 | --- | --- |
@@ -58,16 +62,8 @@ Dispositivos podem comunicar com o IoT Hub no Azure utilizando vários protocolo
 | AMQP através de WebSockets |443 |
 | HTTPS |443 |
 
-Assim que tiver criado um IoT hub na região do Azure, o IoT hub mantém o mesmo endereço IP para a duração do que o IoT hub. No entanto, se Microsoft move o hub IoT para uma unidade de escala diferente para manter a qualidade de serviço, em seguida, este é atribuído um novo endereço IP.
-
+Depois de criar um hub IoT numa região do Azure, o hub IoT mantém o mesmo endereço IP para a vida útil de nesse hub IoT. No entanto, se Microsoft move o hub IoT para uma unidade de escala diferente para manter a qualidade de serviço, em seguida, ele será atribuído um novo endereço IP.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre como o IoT Hub implementa o protocolo MQTT, consulte o artigo [Communicate com o seu IoT hub, utilizando o protocolo MQTT][lnk-mqtt-support].
-
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-mqtt-support]: iot-hub-mqtt-support.md
-[lnk-amqp]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
-[lnk-mqtt]: http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf
-[lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
+Para saber mais sobre como o IoT Hub implementa o protocolo MQTT, veja [comunicar com o seu hub IoT com o protocolo MQTT](iot-hub-mqtt-support.md).

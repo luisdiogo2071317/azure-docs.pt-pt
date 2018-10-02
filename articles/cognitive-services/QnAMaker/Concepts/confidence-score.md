@@ -1,49 +1,69 @@
 ---
-title: Pontuação de confiança - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: Uma pontuação de confiança indica o grau de correspondência entre a pergunta de utilizador e a resposta devolvida.
+title: Pontuação de confiança - serviços cognitivos da Microsoft | Documentos da Microsoft
+titleSuffix: Azure
+description: Explicar a pontuação de confiança
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: pchoudh
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.component: QnAMaker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 33da5cf5724b8314ce813f12eb077d9a15ec1b2a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e878da5f6741b1a4c31874af05b7a37f6dee21df
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041528"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586228"
 ---
-# <a name="confidence-score"></a>Pontuação de Confiança
+# <a name="confidence-score"></a>Pontuação de confiança
+Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
 
-Uma pontuação de confiança indica o grau de correspondência entre a pergunta de utilizador e a resposta devolvida.
+A pontuação de confiança é um número entre 0 e 100. Uma pontuação igual a 100 provavelmente é uma correspondência exata, enquanto uma pontuação igual a 0 significa que nenhuma resposta correspondente foi encontrada. Quanto maior for a pontuação - maior confiança na resposta. Para uma determinada consulta, pode haver várias respostas devolvidas. Nesse caso, as respostas são devolvidas por ordem de diminuir a pontuação de confiança.
 
-Quando uma consulta de utilizador é comparada com conteúdo de base de dados de conhecimento, podem existir mais do que uma resposta devolvida. As respostas são retornadas numa ordem classificada de diminuir a pontuação de confiança.
+No exemplo a seguir, pode ver uma entidade do QnA, com perguntas de 2. 
 
-Uma pontuação de confiança é entre 0 e 100.
 
-|Valor de pontuação|Confiança|
-|--|--|
-|100|Uma correspondência exata de consulta de utilizador e uma pergunta KB|
-|90|A maioria das palavras de confiança elevada - corresponder|
-|40-60|Justo confiança - importante de correspondem de palavras|
-|10|Confiança baixa - palavras importantes não correspondem|
-|0|Nenhuma correspondência do word|
+![Par de QnA de exemplo](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
+
+O exemplo acima-podem esperar as pontuações como o intervalo de pontuação de exemplo abaixo-para diferentes tipos de consultas do utilizador:
+
+
+![Intervalo de pontuação classificador](../media/qnamaker-concepts-confidencescore/ranker-score-range.png)
+
+
+A tabela seguinte indica típica confiança associada para uma determinada classificação.
+
+|Valor de pontuação|Significado de pontuação|Consulta de exemplo|
+|--|--|--|
+|90 - 100|A perto de uma correspondência exata de consulta de utilizador e uma pergunta KB|"Minhas alterações não forem atualizadas na base de dados de conhecimento após a publicação"|
+|> 70|Alta confiança - normalmente, uma boa resposta que responde completamente a consulta do utilizador|"Publiquei meu KB, mas este não é atualizado"|
+|50 - 70|Confiança média - normalmente, uma resposta muito boa que deve responder a intenção principal a consulta do utilizador|"Deve salvo meu atualizações antes da publicação do meu KB?"|
+|30 - 50|Confiança de baixa - normalmente, uma resposta relacionada, que responde a parcialmente a intenção do usuário|"O que faz o salvamento e train?"|
+|< a 30|Muito baixa confiança - normalmente, não à consulta do utilizador, mas tem algumas palavras ou frases correspondente |"Em que posso adicionar sinónimos para a minha BDC"|
+|0|Nenhuma correspondência, para que a resposta não é devolvida.|"Quanto o serviço custa"|
+
+## <a name="choose-a-score-threshold"></a>Escolha um limiar de pontuação
+A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, uma vez que cada KB é diferente e tem diferentes tipos de palavras, objetivos e metas, que é recomendável testar e escolha o limiar que melhor funcione para si. É o predefinido e recomendado limiar que deve funcionar para a maioria dos KBs, **50**.
+
+Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cobertura e ajustar o limiar com base nos seus requisitos.
+
+- Se **precisão** (ou de precisão) é mais importante para o seu cenário, em seguida, aumente o limiar. Dessa forma, sempre que retornar alguma resposta, é um CONFIDENT muito mais maiúsculas e minúsculas e muito mais provável que os utilizadores de resposta estão procurando. Neste caso, poderá acabar deixando mais perguntas sem resposta. *Por exemplo:* se fizer o limiar **70**, que pode perder algumas gostos de exemplos ambígua "o que é salvar e treinar?".
+
+- Se **cobertura** (ou de solicitação de recolhimento) é mais importante – e deseja responder como tantas perguntas quanto possível, mesmo que haja apenas uma relação para pergunta - o usuário parcial, em seguida, o limiar inferior. Isso significa que lá pode ser mais casos em que a resposta não à consulta de real do usuário, mas oferece alguns outra resposta um pouco relacionada. *Por exemplo:* se fizer o limiar **30**, poderá dar respostas não muito relacionadas, como, responder com o exemplo acima, para consultas como "onde posso editar meu KB?"
+
+
+## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
+Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta.
 
 
 ## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes
 Quando várias respostas tem uma pontuação de confiança semelhante, é provável que a consulta era demasiado genérico e, portanto, correspondentes com probabilidade igual com várias respostas. Tente estruturar seu QnAs melhor para que cada entidade do QnA tem uma intenção distinta.
 
 
-## <a name="improving-confidence-scores"></a>Melhorar as pontuações de confiança
-Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta.
-   
 ## <a name="confidence-score-differences"></a>Diferenças de pontuação de confiança
 A pontuação de confiança de uma resposta pode ser alteradas negligibly o teste e a versão publicada da base de dados de conhecimento, mesmo que o conteúdo é o mesmo. Isto acontece porque o conteúdo de teste e a base de dados de conhecimento publicada estão localizados em diferentes índices da Azure Search.
-
 Veja aqui como a [publicar](../How-To/publish-knowledge-base.md) funciona a operação.
 
 
@@ -66,10 +86,7 @@ Quando for encontrada nenhuma correspondência de boa pelo classificador, é dev
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-
 > [!div class="nextstepaction"]
 > [Origens de dados suportadas](./data-sources-supported.md)
-
 ## <a name="see-also"></a>Consulte também 
-
 [Descrição geral do Criador de FAQ](../Overview/overview.md)

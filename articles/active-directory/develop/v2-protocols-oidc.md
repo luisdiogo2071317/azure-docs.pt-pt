@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c2ff5272fc6cdc4cc18b8d461a8fb7edeee9878
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971455"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017992"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>O Azure Active Directory v 2.0 e o protocolo OpenID Connect
 
@@ -111,7 +111,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | inquilino |Necessário |Pode utilizar o `{tenant}` valor no caminho do pedido para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais informações, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client_id |Necessário |ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
-| response_type |Necessário |Tem de incluir `id_token` OpenID Connect para início de sessão. Também pode incluir outros `response_types` valores, tais como `code`. |
+| response_type |Necessário |Tem de incluir `id_token` OpenID Connect para início de sessão. Também pode incluir outros `response_type` valores, tais como `code`. |
 | redirect_uri |Recomendado |O URI de redirecionamento de seu aplicativo, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos URIs que registou no portal de redirecionamento, exceto pelo fato de que tem de ser codificado de URL. |
 | scope |Necessário |Uma lista de âmbitos separadas por espaços. Para o OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Também pode incluir outros âmbitos neste pedido para pedir consentimento. |
 | Valor de uso único |Necessário |Um valor incluído na solicitação, gerada pela aplicação, que será incluída o valor de id_token resultante como uma afirmação. A aplicação pode verificar este valor para mitigar ataques de repetição de token. O valor normalmente é uma cadeia aleatória, exclusiva que pode ser utilizada para identificar a origem do pedido. |

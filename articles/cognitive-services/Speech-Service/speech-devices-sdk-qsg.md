@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 068f0a0d9202174faf5d54bebf5cf5f8fae86766
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: def8d8f9fc55aa6491799a134a554a8a7fe2884a
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721009"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017200"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Começar com o SDK de dispositivos de voz
 
@@ -45,7 +45,7 @@ Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as inf
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 
-1. Ligar o kit de desenvolvimento para um PC ou ligar o adaptador usando um cabo USB mini. Quando o kit de desenvolvimento está ligado, um indicador de power verde são realçadas em quadro superior.
+1. Ligar o kit de desenvolvimento para um PC ou ligar o adaptador usando um cabo USB mini. Quando o kit está ligado, um indicador de power verde são realçadas em quadro superior.
 
 1. Ligue o kit de desenvolvimento para um computador com uma segunda mini cabo USB.
 
@@ -72,7 +72,7 @@ Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as inf
    ```
 
     > [!NOTE]
-    > Estes comandos utilizem a ponte de depuração do Android, adb.exe, que faz parte da instalação do Android Studio. Esta ferramenta está localizada no C:\Users\[nome de utilizador] \AppData\Local\Android\Sdk\platform ferramentas. Pode adicionar esse diretório ao seu caminho para que seja mais conveniente para invocar `adb`. Caso contrário, tem de especificar o caminho completo para a instalação do adb.exe em todos os comandos que invoquem `adb`.
+    > Estes comandos utilizem a ponte de depuração do Android, `adb.exe`, que faz parte da instalação do Android Studio. Esta ferramenta está localizada no C:\Users\[nome de utilizador] \AppData\Local\Android\Sdk\platform ferramentas. Pode adicionar esse diretório ao seu caminho para que seja mais conveniente para invocar `adb`. Caso contrário, tem de especificar o caminho completo para a instalação do adb.exe em todos os comandos que invoquem `adb`.
 
     > [!TIP]
     > Mudo microfone e palestrante Certifique-se de que está a trabalhar com microfones o kit de desenvolvimento do seu PC. Dessa forma, não acidentalmente aciona o dispositivo com o áudio do PC.
@@ -110,7 +110,7 @@ Para executar os testes ROOBO e validar a configuração do kit de desenvolvimen
 
 1.  Inicie o Android Studio.
 
-1.  Selecione **abrir um projeto existente do Android Studio**.
+1.  Selecione **Open an existing Android Studio project** (Abrir um projeto existente do Android Studio).
 
     ![Android Studio - aberto um projeto existente](media/speech-devices-sdk/qsg-5.png)
  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737061"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585735"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -107,7 +107,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
     - Carregue os ficheiros de diário de unidade que obteve durante o passo de preparação de unidade. Se `waimportexport.exe version1` foi usado, carregar um ficheiro para cada unidade que preparou. Se o tamanho do ficheiro de diário excede 2 MB, em seguida, pode utilizar o `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também criou com o ficheiro de diário. 
     - Selecione a conta de armazenamento de destino onde os dados irão residir. 
-    - A localização da entrega é preenchida automaticamente com base na região da conta de armazenamento selecionada.
+    - A localização de redução é preenchida automaticamente com base na região da conta de armazenamento selecionada.
    
    ![Criar tarefa de importação - passo 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

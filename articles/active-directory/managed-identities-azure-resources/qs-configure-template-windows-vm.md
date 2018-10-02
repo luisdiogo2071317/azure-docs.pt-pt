@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223445"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018490"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurar identidades geridas para recursos do Azure na VM do Azure com um modelo
 
@@ -188,7 +188,7 @@ Se tiver uma VM que não precisa mais de uma identidade gerida atribuído de sis
 
    Se a VM tem o sistema e as identidades geridas atribuído ao utilizador, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com o `userAssignedIdentities` valores de dicionário.
 
-   **Microsoft.Compute/virtualMachines 2018-01 06 de versão de API e versões anteriores**
+   **Microsoft.Compute/virtualMachines 2018-01 06 de versão de API**
    
    Se sua `apiVersion` é `2017-12-01` e a VM tem o sistema e as identidades geridas atribuído ao utilizador, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com o `identityIds` matriz do atribuído ao utilizador gerida identidades.  
    
@@ -235,7 +235,7 @@ Nesta secção, atribua uma identidade gerida atribuído ao utilizador a uma VM 
    }
    ```
    
-   **Microsoft.Compute/virtualMachines versão 2017-12-01 de API e versões anteriores**
+   **Microsoft.Compute/virtualMachines versão 2017-12-01 de API**
     
    Se sua `apiVersion` é `2017-12-01`, suas identidades geridas atribuído ao utilizador são armazenadas no `identityIds` matriz e o `<USERASSIGNEDIDENTITYNAME>` valor deve ser armazenado numa variável definida no `variables` secção do seu modelo.
     
@@ -316,7 +316,7 @@ Nesta secção, atribua uma identidade gerida atribuído ao utilizador a uma VM 
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines versão 2017-12-01 de API e versões anteriores**
+   **Microsoft.Compute/virtualMachines versão 2017-12-01 de API**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Se tiver uma VM que não precisa mais de uma identidade gerida atribuído ao uti
     }
    ```
    
-   **Microsoft.Compute/virtualMachines 2018-01 06 de versão de API e versões anteriores**
+   **Microsoft.Compute/virtualMachines 2018-01 06 de versão de API**
     
    Para remover uma única identidade gerida atribuído ao utilizador a partir de uma VM, remova-a do `useraAssignedIdentities` dicionário.
 

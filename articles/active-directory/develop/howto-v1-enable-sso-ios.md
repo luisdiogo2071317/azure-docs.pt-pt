@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963037"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585922"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos iOS através da ADAL
 
@@ -250,7 +250,7 @@ Os passos a seguir são:
 1. Ative o modo de Mediador na chamada de seu código de aplicativo para o SDK MS.
 2. Estabelecer um novo URI de redirecionamento e fornecer que a aplicação e o registo de aplicação.
 3. Registrando um esquema de URL.
-4. Suporte de iOS9: adicionar uma permissão ao seu ficheiro info. plist.
+4. Adicione uma permissão ao seu ficheiro info. plist.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>Passo 1: Ativar o modo de mediador em seu aplicativo
 
@@ -307,12 +307,16 @@ A autenticação baseada em certificado de suporte um segundo "msauth" precisa d
 
 Por exemplo: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Passo 4: iOS9: adicionar um parâmetro de configuração para a sua aplicação
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Passo 4: Adicionar um parâmetro de configuração para a sua aplicação
 
-Utiliza a ADAL – canOpenURL: para verificar se o mediador é instalado no dispositivo. No iOS 9 Apple bloqueado o que podem consultar esquemas de uma aplicação. Terá de adicionar "msauth" para a secção de LSApplicationQueriesSchemes do seu `info.plist file`.
+Utiliza a ADAL – canOpenURL: para verificar se o mediador é instalado no dispositivo. No iOS 9 no, a Apple bloqueado o que podem consultar esquemas de uma aplicação. Terá de adicionar "msauth" para a secção de LSApplicationQueriesSchemes do seu `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### <a name="youve-configured-sso"></a>Configurar SSO!

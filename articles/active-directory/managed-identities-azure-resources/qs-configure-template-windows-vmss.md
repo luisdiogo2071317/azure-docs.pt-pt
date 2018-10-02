@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220924"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017521"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades geridas para recursos do Azure numa escala de máquina virtual do Azure através de um modelo
 
@@ -146,7 +146,7 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não necessi
 
    Se estiver a apiVersion `2018-06-01` e a VM tem o sistema e as identidades geridas atribuído ao utilizador, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com os valores de dicionário userAssignedIdentities.
 
-   **Compute/virtualmachinescalesets 2018-01 06 de versão de API e versões anteriores**
+   **Compute/virtualmachinescalesets 2018-01 06 de versão de API**
 
    Se estiver a apiVersion `2017-12-01` e o conjunto de dimensionamento de máquina virtual tem o sistema e as identidades geridas atribuído ao utilizador, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com o `identityIds` matriz do utilizador atribuído geridos identidades. 
    
@@ -279,7 +279,7 @@ Nesta secção, atribua uma identidade gerida atribuído ao utilizador a um conj
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API eand de versão 2017-12-01 anteriormente**
+   **Microsoft.Compute/virtualMachines versão 2017-12-01 de API**
 
    ```json
    "resources": [

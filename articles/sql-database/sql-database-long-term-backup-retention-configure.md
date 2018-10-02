@@ -7,24 +7,22 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/19/2018
+ms.openlocfilehash: 68746874ec01f44055421f0033acd0d485e1d230
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164995"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586092"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
 Pode configurar a base de dados SQL do Azure com um [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) política (LTR) para manter automaticamente cópias de segurança no armazenamento de Blobs do Azure para até 10 anos. Em seguida, pode recuperar uma base de dados com estas cópias de segurança com o portal do Azure ou o PowerShell.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o portal do Azure para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
-
 As secções seguintes mostram como utilizar o portal do Azure para configurar a retenção de longa duração, ver cópias de segurança em retenção de longo prazo e restaurar a cópia de segurança de retenção de longa duração.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurar políticas de retenção de longo prazo
@@ -78,6 +76,24 @@ As secções seguintes mostram como utilizar o PowerShell para configurar a rete
 - [Azurerm. SQL 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou mais recente
 - [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou mais recente
 > 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções do RBAC para gerir a retenção de longo prazo
+
+Para gerir cópias de segurança LTR, terá de ser 
+- Proprietário da subscrição ou
+- Função de contribuinte do SQL Server no **subscrição** âmbito ou
+- Função de contribuinte de base de dados do SQL no **subscrição** âmbito
+
+Se um controlo mais granular for necessário, pode criar funções personalizadas do RBAC e atribuí-las no **subscrição** âmbito. 
+
+Para **Get-AzureRmSqlDatabaseLongTermRetentionBackup** e **Restore-AzureRmSqlDatabase** a função tem de ter as seguintes permissões:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/leitura
+ 
+Para **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** a função tem de ter as seguintes permissões:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política LTR
 

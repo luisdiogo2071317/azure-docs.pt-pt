@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997442"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018389"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK de voz dos serviços cognitivos
 
@@ -36,6 +36,8 @@ A aplicação baseia-se o SDK de voz de serviços cognitivos da Microsoft ([tran
 Crie uma pasta nova e vazia. No caso de pretender alojar o exemplo num servidor web, certifique-se de que o servidor web pode aceder à pasta.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Descompactar o SDK de voz para JavaScript dentro dessa pasta
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Transferir o SDK de voz como uma [pacote. zip](https://aka.ms/csspeech/jsbrowserpackage) e Descompacte-o para a pasta recentemente criada. Isso deve resultar em dois arquivos, a ser descompactados, ou seja, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 O último arquivo é opcional e utilizados para ajudar a depuração no código do SDK, se necessário.

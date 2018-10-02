@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531531"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018718"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Descrição geral do Application Gateway health monitorização
 
@@ -96,7 +96,7 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de esta
 
 Se existir um grupo de segurança de rede (NSG) numa sub-rede de gateway de aplicação, intervalos de portas 65503 65534 têm de ser abertos na sub-rede de gateway de aplicação para tráfego de entrada. Estas portas são necessárias para o estado de funcionamento do back-end API para trabalhar.
 
-Além disso, conectividade de Internet de saída não pode ser bloqueada e o tráfego a partir da etiqueta AzureLoadBalancer têm de ser permitido.
+Além disso, conectividade de Internet de saída não pode ser bloqueada e o tráfego de entrada provenientes a etiqueta AzureLoadBalancer têm de ser permitido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Após a aprendizagem sobre a monitorização de estado de funcionamento do Gateway de aplicação, pode configurar uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-portal.md) no portal do Azure ou uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-ps.md) com o PowerShell e o Azure Resource Manager modelo de implementação.
