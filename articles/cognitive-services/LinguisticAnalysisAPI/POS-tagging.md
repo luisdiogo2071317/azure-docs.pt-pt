@@ -9,19 +9,23 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 636b8bc4ef41674d1e9ca12111aecee05870f381
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124573"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238529"
 ---
 # <a name="part-of-speech-tagging"></a>Identificação de parte da voz
+
+> [!IMPORTANT]
+> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
 
 ## <a name="background-and-motivation"></a>Em segundo plano e motivação
 
 Assim que uma mensagem de texto foi separada em frases e tokens, a próxima etapa de análise é identificar a categoria ou parte da voz de cada palavra.
-Estes incluem categorias, como *substantivo* (etc. em geral, que representa as pessoas, lugares, coisas, idéias,) e *verbo* (em geral, que representam ações, alterações de estado, etc. Para algumas palavras, a parte da voz é inequívoca (por exemplo, *quagmire* é realmente apenas um substantivo), mas para muitos outros, é difícil dizer.
+Estes incluem categorias, como *substantivo* (etc. em geral, que representa as pessoas, lugares, coisas, idéias,) e *verbo* (em geral, que representam ações, alterações de estado, etc. Para algumas palavras, a parte da voz é inequívoca (por exemplo, *quagmire* é apenas um substantivo), mas para muitos outros, é difícil dizer.
 *Tabela* poderia ser um lugar onde sentar-se (ou o esquema 2D números), mas pode também "tabela uma discussão sobre".
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista de etiquetas de parte da voz
@@ -45,7 +49,7 @@ Estes incluem categorias, como *substantivo* (etc. em geral, que representa as p
 | ÍNDIA | preposition ou subordinating conjunto| no interior se após se |
 | JJ | adjetivo ou romano, ordinal | nono multimodal bastante execrável |
 | JJR | adjetivo, comparativa | melhor com mais rapidez mais barato |
-| JJS | adjetivo, importantes | melhor mais rápida mais barato | 
+| JJS | adjetivo, importantes | melhor mais rápida mais barato |
 | LS | marcador do item de lista | (a) (b) 1 2 A B B. a. |
 | MD | auxiliar modal | Pode pode deverá será poderia poderá deve deve |
 | NN | nome próprio, comum, singular ou em massa | Calçado de dinheiro Potato |

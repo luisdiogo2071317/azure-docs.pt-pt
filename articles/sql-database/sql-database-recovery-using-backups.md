@@ -11,26 +11,28 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 31a423714154537cfc8d801b972869035aa61035
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161340"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042211"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
-Base de dados SQL fornece estas opções de recuperação de base de dados com [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) e [cópias de segurança em retenção de longo prazo](sql-database-long-term-retention.md). Pode restaurar a partir de uma cópia de segurança da base de dados para:
+Por predefinição, as cópias de segurança da base de dados SQL são armazenadas no armazenamento de BLOBs georreplicado (RA-GRS). As seguintes opções estão disponíveis para recuperação de base de dados com [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md):
 
-* Uma nova base de dados no mesmo servidor lógico recuperado para um determinado ponto no tempo dentro do período de retenção. 
-* Uma base de dados no mesmo servidor lógico recuperado para o tempo de eliminação de uma base de dados eliminada.
-* Uma nova base de dados em qualquer servidor lógico em qualquer região recuperado para o ponto das cópias de segurança diárias mais recentes no armazenamento de BLOBs georreplicado (RA-GRS).
+* Crie uma nova base de dados no mesmo servidor lógico recuperado para um determinado ponto no tempo dentro do período de retenção. 
+* Crie uma base de dados no mesmo servidor lógico recuperado para o tempo de eliminação de uma base de dados eliminada.
+* Crie uma nova base de dados em qualquer servidor lógico em qualquer região recuperado para o ponto de cópias de segurança mais recentes.
+
+Se configurou [retenção de longa duração de cópia de segurança](sql-database-long-term-retention.md) também pode criar uma nova base de dados a partir de qualquer cópia de segurança LTR em qualquer servidor lógico em qualquer região.  
 
 > [!IMPORTANT]
 > Não é possível substituir a base de dados existente durante o restauro.
 >
 
-Uma base de dados restaurada implica um custo de armazenamento extra nas seguintes condições: 
+Ao utilizar o escalão de serviço Standard ou Premium, uma base de dados restaurada implica um custo de armazenamento extra nas seguintes condições: 
 - Restauro de P11-P15 para S4-S12 ou P1 – P6 se o tamanho máximo da base de dados for superior a 500 GB.
 - Restauro de P1 – P6 para S4-S12 se o tamanho máximo da base de dados for superior a 250 GB.
 

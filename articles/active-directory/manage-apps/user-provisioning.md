@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018694"
+ms.locfileid: "48042790"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o aprovisionamento automatizado do utilizador para aplicações SaaS?
@@ -237,29 +237,29 @@ Para orientação baseada em cenário sobre como resolver problemas de aprovisio
 
 Para um plano de implementação passo a passo de exemplo para o aprovisionamento de utilizador de saída a uma aplicação, consulte a [guia de implementação de identidade para o aprovisionamento de utilizadores](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequenty-asked-questions"></a>Frequenty mais perguntas mais frequentes
+##<a name="more-frequently-asked-questions"></a>Perguntas mais frequentes
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com utilizadores B2B no Azure AD?
 
 Sim, é possível utilizar o aprovisionamento de utilizadores do serviço para aprovisionar B2B (ou convidado) no Azure AD para aplicações SaaS de utilizador do Azure AD.
 
-No entanto, para os utilizadores B2B conseguir iniciar sessão na aplicação SaaS com o Azure AD, a aplicação SaaS tem de ter é baseado em SAML único recurso de logon configurado de forma específica. Para obter mais informações sobre como configurar aplicações de SaaS para oferecer suporte a inícios de sessão dos utilizadores B2B, consulte [aplicações de SaaS configurar colaboração B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+No entanto, para os utilizadores B2B poderá iniciar sessão aplicação SaaS com o Azure AD, a aplicação SaaS tem de ter seu baseado em SAML único recurso de logon configurado de forma específica. Para obter mais informações sobre como configurar aplicações de SaaS para oferecer suporte a inícios de sessão dos utilizadores B2B, consulte [aplicações de SaaS configurar colaboração B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com grupos dinâmicos no Azure AD?
 
-Sim. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD pode aprovisionar ou desaprovisionar utilizadores numa aplicação SaaS com base em se é ou não são membros de um [dynamic grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Grupos dinâmicos também funcionam com a opção "Sincronizar todos os utilizadores e grupos".
+Sim. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD pode aprovisionar ou desaprovisionar os utilizadores numa aplicação SaaS com base na ou não são membros de um [dynamic grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Grupos dinâmicos também funcionam com a opção "Sincronizar todos os utilizadores e grupos".
 
 No entanto, a utilização de grupos dinâmicos pode afetar o desempenho geral do aprovisionamento do Azure AD para aplicações SaaS de utilizadores de ponto-a-ponto. Quando utilizar grupos dinâmicos, mantenha estas limitações e recomendações em mente:
 
 * Como o fast um usuário num grupo dinâmico é provisionada ou desprovisionada numa aplicação SaaS depende da rapidez o grupo dinâmico pode avaliar as alterações na associação. Para obter informações sobre como verificar o estado de processamento de um grupo dinâmico, consulte [verificar o estado de processamento para uma regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
 
-* Quando utilizar grupos dinâmicos, as regras devem ser seriamente consideradas com utilizador aprovisionamento e desaprovisionamento em mente, como a perda de associação resultará num evento de desaprovisionamento.
+* Quando utilizar grupos dinâmicos, as regras devem ser seriamente consideradas com utilizador provisionamento e desprovisionamento em mente, como a perda de associação resultará num evento de desaprovisionamento.
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com grupos aninhados no Azure AD?
 
 Não. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD não é possível ler ou aprovisionar utilizadores que estão em grupos aninhados. Só é capaz de ler e disponibilize para os usuários que são membros imediatos do grupo atribuído explicitamente.
 
-Esta é uma limitação "baseado no grupo de atribuições de aplicações", que também se aplica ao início de sessão único e está descrito [com um grupo para gerir o acesso a aplicações SaaS](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Esta é uma limitação "baseado no grupo de atribuições de aplicações", que também afeta o início de sessão único e está descrito [com um grupo para gerir o acesso a aplicações SaaS](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Como solução, deve explicitamente atribuir (ou, caso contrário [definir o âmbito no](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) os grupos que contêm os utilizadores que precisam de ser aprovisionado.
 

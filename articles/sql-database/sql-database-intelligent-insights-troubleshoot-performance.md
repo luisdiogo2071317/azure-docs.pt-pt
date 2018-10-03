@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bbf94d53b24c4087e7212d56bd51131034e39212
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222459"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042993"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -73,7 +73,7 @@ O registo de diagnóstico produz hashes de consulta de consultas afetado o desem
 
 Se atingiu os limites de sessão disponíveis, pode otimizar seus aplicativos, reduzindo o número de inícios de sessão feitas no banco de dados. Se não for possível reduzir o número de inícios de sessão das suas aplicações para a base de dados, considere aumentar o escalão de preço da base de dados. Ou pode dividir e mover a base de dados em várias bases de dados para uma distribuição mais com balanceamento de carga de trabalho.
 
-Para obter mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Para obter os limites de recursos disponíveis para a camada de subscrição, veja [limites de recursos da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Para obter mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Ver [limita a visão geral dos recursos num servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
 
 ## <a name="workload-increase"></a>Aumento de carga de trabalho
 

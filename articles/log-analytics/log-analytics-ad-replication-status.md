@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o estado de replicação do Active Directory com o Log Analytics do Azure | Microsoft Docs
-description: O pacote de solução de estado de replicação do Active Directory monitoriza regularmente o ambiente do Active Directory para o eventuais falhas de replicação.
+title: Monitorizar o estado de replicação do Active Directory com o Azure Log Analytics | Documentos da Microsoft
+description: O pacote de solução de estado de replicação do Active Directory monitoriza regularmente o ambiente do Active Directory para qualquer falhas de replicação.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 0ccd457295584f871088bc20864ef103648f1654
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128729"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041906"
 ---
-# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com a análise de registos
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com o Log Analytics
 
 ![Símbolo de estado de replicação do AD](./media/log-analytics-ad-replication-status/ad-replication-status-symbol.png)
 
-Active Directory é um componente fundamental de uma empresa de ambiente de TI. Para garantir a elevada disponibilidade e elevado desempenho, cada controlador de domínio tem a respetiva cópia da base de dados do Active Directory. Os controladores de domínio replicar entre si para propagar as alterações em toda a empresa. Falhas neste processo de replicação podem causar uma variedade de problemas em toda a empresa.
+Active Directory é um componente fundamental de um ambiente de TI empresarial. Para garantir elevada disponibilidade e elevado desempenho, cada controlador de domínio tem sua própria cópia do banco de dados do Active Directory. Controladores de domínio, replicar entre si, para poder propagar alterações em toda a empresa. Falhas nesse processo de replicação podem causar uma variedade de problemas em toda a empresa.
 
-O pacote de solução de estado de replicação do AD monitoriza regularmente o ambiente do Active Directory para o eventuais falhas de replicação.
+O pacote de solução de estado de replicação do AD monitora regularmente o ambiente do Active Directory para qualquer falhas de replicação.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-* Tem de instalar agentes nos controladores de domínio que são membros do domínio a ser avaliada. Em alternativa, tem de instalar agentes em servidores membro e configurar os agentes para enviar dados de replicação do AD para análise de registos. Para compreender como ligar a computadores com o Windows a análise de registos, consulte [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md). Se o controlador de domínio já faz parte de um ambiente existente do System Center Operations Manager que pretende estabelecer ligação à análise de registos, consulte [estabelecer a ligação do Operations Manager ao Log Analytics](log-analytics-om-agents.md).
-* Adicionar a solução de estado de replicação do Active Directory para a sua área de trabalho de análise de registos com o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).  Não há nenhuma configuração adicional.
+* Tem de instalar agentes nos controladores de domínio que são membros do domínio a ser avaliada. Em alternativa, tem de instalar agentes nos servidores de membro e configurar os agentes para enviar dados de replicação do AD para o Log Analytics. Para compreender como ligar computadores Windows ao Log Analytics, veja [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md). Se o seu controlador de domínio já faz parte de um ambiente existente do System Center Operations Manager que pretende ligar ao Log Analytics, consulte [ligar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
+* Adicionar a solução de estado de replicação do Active Directory à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](log-analytics-add-solutions.md).  Não há nenhuma configuração adicional.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de recolha de dados de estado de replicação do AD
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o estado de replicação do AD.
@@ -43,12 +43,12 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |cada cinco dias |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Opcionalmente, ativar a um controlador de domínio enviar dados de AD para análise de registos
-Se não pretender ligar-se qualquer um dos seus controladores de domínio diretamente ao Log Analytics, pode utilizar qualquer outro computador no seu domínio ligado à análise de registos para recolher dados para o pacote de solução de estado de replicação do AD e tiver enviar os dados.
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Opcionalmente, ativar um controlador de domínio enviar dados de AD para o Log Analytics
+Se não pretender ligar-se a qualquer um dos seus controladores de domínio diretamente ao Log Analytics, pode utilizar qualquer outro computador no seu domínio ligado ao Log Analytics para recolher dados para o pacote de solução de estado de replicação do AD e fazê-lo a enviar os dados.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Para ativar um controlador de domínio enviar dados de AD para análise de registos
-1. Certifique-se de que o computador é um membro do domínio que pretende monitorizar utilizando a solução de estado de replicação do AD.
-2. [Ligue o computador do Windows ao Log Analytics](log-analytics-windows-agent.md) ou [ligá-lo utilizando o seu ambiente existente do Operations Manager ao Log Analytics](log-analytics-om-agents.md), se já não está ligado.
+### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Para permitir que um controlador de domínio enviar dados de AD para o Log Analytics
+1. Certifique-se de que o computador é membro do domínio que pretende monitorizar a utilização da solução de estado de replicação do AD.
+2. [Ligar o computador do Windows ao Log Analytics](log-analytics-windows-agent.md) ou [ligá-la com o seu ambiente existente do Operations Manager ao Log Analytics](log-analytics-om-agents.md), se já não está ligado.
 3. Nesse computador, defina a seguinte chave de registo:
 
    * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupos\<ManagementGroupName > \Solutions\ADReplication**
@@ -56,102 +56,102 @@ Se não pretender ligar-se qualquer um dos seus controladores de domínio direta
    * Dados do valor: **verdadeiro**
 
    > [!NOTE]
-   > Estas alterações não entram em vigor até que o reinício do serviço Microsoft Monitoring Agent (HealthService.exe).
+   > Estas alterações não entrem em vigor até a reiniciar o serviço Microsoft Monitoring Agent (HealthService.exe).
    >
    >
 
-## <a name="understanding-replication-errors"></a>Noções sobre erros de replicação
-Depois de ter enviados para análise de registos de dados de estado de replicação de AD, verá um mosaico semelhante para a imagem seguinte na análise de registos que indica o número de erros de replicação tem atualmente.  
-![Mosaico estado de replicação do AD](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
+## <a name="understanding-replication-errors"></a>Compreender erros de replicação
+Assim que tiver dados de estado de replicação de AD enviados para o Log Analytics, verá um mosaico semelhante à seguinte imagem no Log Analytics, que indica o número de erros de replicação já existe.  
+![Mosaico de estado de replicação do AD](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
-**Erros críticos de replicação** erros que são igual ou superior 75% do [duração tombstone](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) para a sua floresta do Active Directory.
+**Erros críticos de replicação** erros que são igual ou superior a 75% do valor de [duração do tombstone](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) para sua floresta do Active Directory.
 
 Quando clica no mosaico, pode ver mais informações sobre os erros.
 ![Dashboard de estado de replicação do AD](./media/log-analytics-ad-replication-status/oms-ad-replication-dash.png)
 
 ### <a name="destination-server-status-and-source-server-status"></a>Estado do servidor de destino e o estado do servidor de origem
-Estas colunas mostram o estado dos servidores de destino e os servidores de origem que estão a experienciar erros de replicação. O número após cada nome de controlador de domínio indica o número de erros de replicação nesse controlador de domínio.
+Estas colunas mostram o estado dos servidores de destino e servidores de origem que ocorrerem erros de replicação. O número após cada nome de controlador de domínio indica o número de erros de replicação nesse controlador de domínio.
 
-Os erros para os servidores de origem e de servidores de destino são apresentados porque alguns problemas são mais fáceis de resolução de problemas da perspectiva do servidor de origem e outros perspectiva do servidor de destino.
+Os erros para servidores de destino e servidores de origem são mostrados porque alguns problemas são mais fáceis de solucionar problemas a partir da perspectiva do servidor de origem e de outras pessoas da perspectiva do servidor de destino.
 
-Neste exemplo, pode ver que muitos servidores de destino tem, aproximadamente, o mesmo número de erros, mas não existe um servidor de origem (ADDC35) que tem demasiados erros mais que todos os outros. É provável que há um problema no ADDC35 que está a causar a falha ao enviar dados para os respetivos parceiros de replicação. Corrigir os problemas em ADDC35 poderá resolver muitos dos erros que aparecem na área de servidor de destino.
+Neste exemplo, pode ver que muitos servidores de destino têm praticamente o mesmo número de erros, mas há um servidor de origem (ADDC35) que tenha muitos erros mais do que todos os outros. É provável que existe um problema no ADDC35 que está a causar que a falha ocorra enviar dados para seus parceiros de replicação. Corrigir os problemas em ADDC35 poderá resolver muitos dos erros que aparecem na área de servidor de destino.
 
-### <a name="replication-error-types"></a>Tipos de erro de replicação
-Esta área dá-lhe informações sobre os tipos de erros, detetados em toda a empresa. Cada erro tem um código numérico exclusivo e uma mensagem que pode ajudar a determinar a causa do erro.
+### <a name="replication-error-types"></a>Tipos de erros de replicação
+Esta área fornece informações sobre os tipos de erros detetados em toda a empresa. Cada erro tem um código numérico exclusivo e uma mensagem que pode ajudar a determinar a causa do erro.
 
-O anel na parte superior dá uma ideia do que erros aparecem mais e com menos frequência no seu ambiente.
+Anel na parte superior dá uma idéia de quais erros aparecem mais e com menos frequência no seu ambiente.
 
-Mostra quando o mesmo erro de replicação de experiência de vários controladores de domínio. Neste caso, poderá conseguir detetar ou identificar uma solução de um controlador de domínio, em seguida, repita-a em outros controladores de domínio afetados pelo mesmo erro.
+Ela mostra quando vários controladores de domínio experiência o mesmo erro de replicação. Neste caso, poderá ser capaz de detetar ou identificar uma solução num controlador de domínio, em seguida, repeti-lo em outros controladores de domínio afetados pelo mesmo erro.
 
-### <a name="tombstone-lifetime"></a>Duração tombstone
-A duração tombstone determina quanto tempo um objeto eliminado, referido como um tombstone, são retidas na base de dados do Active Directory. Quando um objeto eliminado passa a duração tombstone, um processo de recolha de lixo remove-automaticamente da base de dados do Active Directory.
+### <a name="tombstone-lifetime"></a>Duração do tombstone
+A duração do tombstone determina o tempo que um objeto eliminado, conhecido como uma marca para exclusão, são retidas na base de dados do Active Directory. Quando um objeto excluído transmite o tempo de vida da marca para exclusão, um processo de coleta de lixo remove-lo automaticamente da base de dados do Active Directory.
 
-A predefinição de duração tombstone é de 180 dias para versões mais recentes do Windows, mas foi 60 dias em versões anteriores e pode ser alterada explicitamente por um administrador do Active Directory.
+A duração do tombstone predefinido é de 180 dias para versões mais recentes do Windows, mas era 60 dias em versões mais antigas e pode ser alterada explicitamente por um administrador do Active Directory.
 
-É importante saber se está a ter erros de replicação que estão a aproximar-se ou passado a duração tombstone. Se dois controladores de domínio ocorre um erro de replicação que persistir após a duração tombstone, é desativar a replicação entre os controladores de dois domínio, mesmo se o erro de replicação subjacente estiver resolvido.
+É importante saber se estiver a ter erros de replicação que estão prestes a atingir ou passado o tempo de vida da marca para exclusão. Se dois controladores de domínio tiver um erro de replicação que persiste após o tempo de vida da marca para exclusão, é desativar a replicação entre os controladores de duas domínio, mesmo se o erro de replicação subjacente é fixo.
 
-A área de duração Tombstone ajuda-o a identificar os locais onde o desativado a replicação está em perigo de acontecer. Cada erro no **mais de 100% TSL** categoria representa uma partição que não foi replicado entre o servidor de origem e destino para, pelo menos, a duração tombstone da floresta.
+A área de duração do Tombstone ajuda a identificar os locais onde os replicação desativada está em perigo de acontecer. Cada erro no **mais de 100% TSL** categoria representa uma partição que não foi replicado entre o servidor de origem e de destino para, pelo menos, o tempo de vida da marca para exclusão para a floresta.
 
-Nesta situação, basta corrigir o erro de replicação não poderá ser suficiente. No mínimo, tem de investigar manualmente para identificar e limpar objetos remanescentes antes de reiniciar a replicação. Ainda poderá ter de desativar um controlador de domínio.
+Nesta situação, simplesmente corrigir o erro de replicação não será suficiente. No mínimo, precisa investigar manualmente para identificar e limpar objetos remanescentes, antes de reiniciar a replicação. Pode até mesmo terá de desativar um controlador de domínio.
 
-Para além de identificar quaisquer erros de replicação tem persistida passado a duração tombstone, também deve prestar atenção à erros baixar para o **50 75% TSL** ou **75 100% TSL** categorias.
+Além de identificar quaisquer erros de replicação que têm mantidos após o tempo de vida da marca para exclusão, também deve prestar atenção para quaisquer erros cair a **50 75% TSL** ou **75 a 100% TSL** categorias.
 
-Estes são os erros que são claramente remanescentes, não é transitório, pelo que, provavelmente, precisam de sua intervenção para resolver. Boas notícias é que estes não ainda atingiu a duração tombstone. Se corrigir estes problemas retomadas rapidamente e *antes* atingirem a duração tombstone, a replicação pode reiniciar com mínima intervenção manual.
+Esses são erros que estão claramente remanescentes, não é transitório, pelo que provavelmente precisam, de facto, a intervenção do utilizador para resolver. A boa notícia é que eles têm ainda não atingiu o tempo de vida da marca para exclusão. Se corrigir esses problemas imediatamente e *antes de* atingirem o tempo de vida da marca para exclusão, a replicação pode reiniciar com intervenção manual mínima.
 
-Conforme indicado anteriormente, no mosaico do dashboard para a solução de estado de replicação do AD mostra o número de *críticos* erros de replicação no seu ambiente, o que é definido como erros que são mais de 75% da duração tombstone (incluindo erros que são mais 100% de TSL). Esforçar-na manter este número em 0.
+Como observado anteriormente, o mosaico do dashboard, para a solução de estado de replicação do AD mostra o número de *críticos* erros de replicação no seu ambiente, o que é definido como erros que são mais de 75% da duração do tombstone (incluindo erros que são mais 100% de TSL). Se esforça manter este número em 0.
 
 > [!NOTE]
-> Todos os tombstone duração percentagem cálculos do baseiam-se de duração tombstone real para a sua floresta do Active Directory, pelo que pode confiar que esses percentagens estão corretas, mesmo que tenha um valor de duração tombstone personalizado definido.
+> Todos os marca para exclusão duração percentagem cálculos baseiam-se a ser a duração do tombstone real para a floresta do Active Directory, por isso, pode que essas porcentagens são precisas, mesmo que tenha um valor de tempo de vida da marca para exclusão personalizado definido.
 >
 >
 
 ### <a name="ad-replication-status-details"></a>Detalhes de estado de replicação do AD
-Ao clicar em qualquer item de uma das listas, pode ver detalhes adicionais sobre-la utilizando a pesquisa de registo. Os resultados são filtrados para mostrar apenas os erros relacionados com que o item. Por exemplo, se clicar no primeiro controlador de domínio listados na **o estado do servidor de destino (ADDC02)**, consulte os resultados da pesquisa filtrados para mostrar erros com esse controlador de domínio listado como o servidor de destino:
+Quando clicar em qualquer item em uma das listas, verá detalhes adicionais sobre ele usando a pesquisa de registos. Os resultados são filtrados para mostrar apenas os erros relacionados com esse item. Por exemplo, se clicar no primeiro controlador de domínio listados na **estado do servidor de destino (ADDC02)**, verá os resultados da pesquisa filtrados para mostrar erros com esse controlador de domínio listado como o servidor de destino:
 
-![Erros de estado de replicação AD nos resultados da pesquisa](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
+![Erros de estado de replicação de AD nos resultados da pesquisa](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Aqui, pode filtrar adicional, modifique a consulta de pesquisa e assim sucessivamente. Para obter mais informações sobre como utilizar a pesquisa de registo, consulte [pesquisas de registo](log-analytics-log-searches.md).
+A partir daqui, pode filtrar ainda mais, modifique a consulta de pesquisa e assim por diante. Para obter mais informações sobre como utilizar a pesquisa de registos, consulte [pesquisas de registos](log-analytics-log-searches.md).
 
-O **HelpLink** campo mostra o URL de uma página da TechNet com detalhes adicionais sobre este erro específico. Pode copiar e colar esta hiperligação para a janela do browser para ver informações sobre resolução de problemas e corrigir o erro.
+O **HelpLink** campo mostra o URL de uma página do TechNet com detalhes adicionais sobre esse erro específico. Pode copiar e colar esta ligação para a janela do browser para ver informações sobre resolução de problemas e corrigir o erro.
 
-Também pode clicar em **exportar** para exportar os resultados para o Excel. Exportar os dados pode ajudar a visualizar dados de erros de replicação de qualquer forma que gostaria de.
+Também pode clicar **exportar** para exportar os resultados para o Excel. Exportar os dados pode ajudá-lo a visualizar dados de erro de replicação de qualquer forma que quiser.
 
-![exportado erros de estado de replicação AD no Excel](./media/log-analytics-ad-replication-status/oms-ad-replication-export.png)
+![exportado erros de estado de replicação de AD no Excel](./media/log-analytics-ad-replication-status/oms-ad-replication-export.png)
 
-## <a name="ad-replication-status-faq"></a>Estado de replicação AD FAQ
-**P: como muitas vezes, são atualizados de dados de estado de replicação de AD?**
+## <a name="ad-replication-status-faq"></a>FAQ de estado de replicação do AD
+**P: qual a frequência são atualizados de dados de estado de replicação de AD?**
 R: as informações são atualizadas a cada cinco dias.
 
 **P: existe uma forma de configurar a frequência com que estes dados são atualizados?**
-R: neste momento, não.
+R: não neste momento.
 
-**P: é necessário adicionar todos os meus de controladores de domínio a minha área de trabalho de análise de registos para ver o estado de replicação?**
-R: não, apenas um único controlador de domínio tem de ser adicionado. Se tiver vários controladores de domínio na sua área de trabalho de análise de registos, dados de todos eles são enviados para análise de registos.
+**P: é necessário adicionar todos meus controladores de domínio para a minha área de trabalho do Log Analytics para ver o estado de replicação?**
+R: não, apenas um único controlador de domínio tem de ser adicionado. Se tiver vários controladores de domínio na sua área de trabalho do Log Analytics, os dados de todos eles são enviados para o Log Analytics.
 
-**P: Posso não quiser adicionar quaisquer controladores de domínio a minha área de trabalho de análise de registos. Posso continuar a utilizar a solução de estado de replicação do AD?**
-R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Consulte [para permitir que um controlador de domínio enviar dados de AD para análise de registos](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**P: não pretendo adicionar quaisquer controladores de domínio a minha área de trabalho do Log Analytics. Posso continuar a utilizar a solução de estado de replicação do AD?**
+R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Ver [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-**P: qual é o nome do processo de que a recolha de dados?**
+**P: qual é o nome do processo que faz a recolha de dados?**
 R: AdvisorAssessment.exe
 
-**P: quanto tempo demora para dados a serem recolhidos?**
-R: hora de recolha de dados de depende do tamanho do ambiente do Active Directory, mas normalmente demora menos de 15 minutos.
+**P: quanto tempo demora para recolher dados?**
+R: hora de recolha de dados do depende do tamanho do ambiente do Active Directory, mas, normalmente, demora menos de 15 minutos.
 
-**P: o tipo de dados é recolhido?**
-R: as informações de replicação de são recolhidas através de LDAP.
+**P: os tipos de dados são recolhidos?**
+R: informações de replicação de são recolhidas através de LDAP.
 
-**P: existe uma forma de configurar quando são recolhidos os dados?**
-R: neste momento, não.
+**P: existe uma forma de configurar quando os dados são recolhidos?**
+R: não neste momento.
 
-**P: que permissões precisa recolher dados?**
-R: permissões de utilizador normal de ao Active Directory são suficientes.
+**P: quais as permissões que é necessário recolher dados?**
+R: permissões de usuário normal de para o Active Directory são suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Resolução de problemas de recolha de dados
-Para recolher dados, o pacote de solução de estado de replicação do AD requer pelo menos um controlador de domínio estar ligados à sua área de trabalho de análise de registos. Até que o se liga um controlador de domínio, é apresentada uma mensagem indicando que **ainda estão a ser recolhidos dados**.
+Para recolher dados, o pacote de solução de estado de replicação do AD requer pelo menos um controlador de domínio a ser ligado à sua área de trabalho do Log Analytics. Até que se liga um controlador de domínio, é apresentada uma mensagem indicando que **ainda estão a ser recolhidos dados**.
 
-Se precisar de assistência para ligar um dos seus controladores de domínio, pode ver a documentação em [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md). Em alternativa, se o controlador de domínio já está ligado a um ambiente existente do System Center Operations Manager, pode ver documentação em [ligar o System Center Operations Manager ao Log Analytics](log-analytics-om-agents.md).
+Se precisar de assistência a ligar um dos seus controladores de domínio, pode ver a documentação em [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md). Em alternativa, se o seu controlador de domínio já está ligado a um ambiente existente do System Center Operations Manager, pode ver documentação em [ligar o System Center Operations Manager ao Log Analytics](log-analytics-om-agents.md).
 
-Se não pretender ligar qualquer um dos seus controladores de domínio diretamente ao Log Analytics ou para o System Center Operations Manager, consulte o artigo [para permitir que um controlador de domínio enviar dados de AD para análise de registos](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Se não pretender ligar qualquer um dos seus controladores de domínio diretamente ao Log Analytics ou para o System Center Operations Manager, veja [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados de estado de replicação do Active Directory detalhados.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para ver os dados detalhados de estado de replicação do Active Directory.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716122"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043633"
 ---
 # <a name="using-gpus-on-aks"></a>Utilizar GPUs no AKS
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Descreva um de nós para confirmar que as GPUs são pode ser agendadas. Isso pode ser encontrado no `Capacity` secção. Por exemplo, `alpha.kubernetes.io/nvidia-gpu:  1`.
+Descreva um de nós para confirmar que as GPUs são pode ser agendadas. Isso pode ser encontrado no `Capacity` secção. Por exemplo, `nvidia.com/gpu:  1`. Se não vir as GPUs, consulte a **resolução de problemas** secção abaixo.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -96,12 +96,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -135,7 +135,7 @@ Events:         <none>
 
 Para demonstrar que as GPUs, de fato, estão a funcionar, agenda uma GPU ativada a carga de trabalho com o pedido de recurso adequado. Neste exemplo será executado um [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) da tarefa em relação a [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/).
 
-O manifesto de trabalho seguinte inclui um limite de recursos de `alpha.kubernetes.io/nvidia-gpu: 1`. Bibliotecas CUDA apropriadas e ferramentas de depuração que estarão disponíveis no nó em `/usr/local/nvidia` e devem estar montadas no pod com a especificação de volume adequado, como mostrado abaixo.
+O manifesto de trabalho seguinte inclui um limite de recursos de `nvidia.com/gpu: 1`. 
 
 Copie o manifesto e guardar como **exemplos-tf-mnist-demo.yaml**.
 ```
@@ -158,15 +158,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 Utilize o [aplicam-se de kubectl] [ kubectl-apply] comando para executar a tarefa. Este comando analisa o ficheiro de manifesto e cria os objetos de Kubernetes definidos.
