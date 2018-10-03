@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ea7782f09902fe96c858cb30fc671d6503b56ba1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158908"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236434"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>O que é da CLI do Azure Machine Learning?
 
@@ -65,7 +65,7 @@ Eis um exemplo dos comandos comuns:
 
 ### <a name="workspace-creation--compute-setup"></a>Configuração de criação e a computação da área de trabalho
 
-+ Crie um Azure Machine Learning área de trabalho o recurso de nível superior para o machine learning.
++ Crie uma área de serviço Azure Machine Learning, o recurso de nível superior para o machine learning.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```

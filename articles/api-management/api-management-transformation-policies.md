@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f3dddd72ab8858a1e60389417cc0c7630df302f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621658"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044727"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](http://go.microsoft.com/fwlink/?LinkID=398186).
@@ -652,7 +652,7 @@ OriginalUrl.
 
 -   **As secções de política:** entrada
 
--   **Âmbitos de política:** operação de produto, API,
+-   **Âmbitos de política:** global, produto, API, operação
 
 ##  <a name="XSLTransform"></a> Transformar XML usando um XSLT
  O `Transform XML using an XSLT` política se aplica uma transformação XSL XML no corpo da solicitação ou resposta.

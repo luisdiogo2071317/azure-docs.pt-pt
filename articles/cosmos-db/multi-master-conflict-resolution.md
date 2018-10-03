@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393932"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041192"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Resolução de conflitos de vários mestres no Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ O procedimento tem quatro parâmetros:
 
 * **conflictingDocuments:** Especifica uma coleção da versão consolidada de todos os documentos na base de dados, que estão em conflito com incomingDocument na coluna de ID ou quaisquer outros campos de índice exclusivo. Estes documentos terá o valor diferentes "eliminar" em comparação com o incomingDocument.
 
-O procedimento definido pelo utilizador tem acesso total para a chave de partição do Cosmos DB e executa qualquer operação de armazenamento para resolver conflitos. Se o procedimento definido pelo utilizador não Consolide a versão de conflito, o sistema irá diminuir o conflito e será permanecem confirmado, a existingDocument. Se o procedimento definido pelo utilizador falha ou não existe, Azure Cosmos DB todos adicionará o conflito para os conflitos de só de leitura do feed onde ele pode processar de forma assíncrona como mostrado na [modo de resolução de conflito assíncrona](). 
+O procedimento definido pelo utilizador tem acesso total para a chave de partição do Cosmos DB e executa qualquer operação de armazenamento para resolver conflitos. Se o procedimento definido pelo utilizador não Consolide a versão de conflito, o sistema irá diminuir o conflito e será permanecem confirmado, a existingDocument. Se o procedimento definido pelo utilizador falha ou não existe, Azure Cosmos DB todos adicionará o conflito para os conflitos de só de leitura do feed onde ele pode processar de forma assíncrona como mostrado na [modo de resolução de conflito assíncrona](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Personalizada – assíncrona  
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a79c09df7d5fec5884a6810b82b7c174042a4c93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054568"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041701"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Azure multi-factor Authentication
 
@@ -57,8 +57,7 @@ Uma vez que a maioria dos usuários estão acostumados a utilizar apenas as pala
 
 * Treine sua equipe de suporte para manipular os cenários em que o utilizador não pode iniciar sessão uma vez que não têm acesso aos seus métodos de autenticação ou que não estão a funcionar corretamente.
    * Utilizar políticas de acesso condicional para o serviço de MFA do Azure, a equipe de suporte pode adicionar um utilizador a um grupo que esteja excluído de uma política que exija a MFA.
-   * A equipe de suporte pode ativar uma omissão de uso individual temporária para os utilizadores do servidor MFA do Azure permitir que um utilizador sejam autenticados sem verificação de dois passos. A omissão é temporária e expira após um número de segundos especificado.
-   * Utilizar políticas de acesso condicional para o serviço de MFA do Azure sua equipe pode adicionar um utilizador a um grupo que esteja excluído de uma política que exija a MFA.
+   * A equipe de suporte pode ativar uma omissão de uso individual temporária para os utilizadores do servidor MFA do Azure permitir que um utilizador sejam autenticados sem verificação de dois passos. A omissão é temporária e expira após um número de segundos especificado.   
 * Considere a utilização de IPs fidedignos ou localizações com nome como uma forma para minimizar os pedidos de verificação de dois passos. Com esta funcionalidade, os administradores de um inquilino gerido ou Federado podem ignorar a verificação de dois passos para os utilizadores que a sessão iniciada a partir de uma localização de rede fidedigna, como na intranet da organização.
 * Implementar [do Azure AD Identity Protection](../active-directory-identityprotection.md) e acionar a verificação de dois passos com base em eventos de risco.
 

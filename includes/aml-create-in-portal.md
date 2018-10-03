@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 6d6e6a2aea867c5b603d950a4bbaa33f14695f45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4b4f926009f94162b43dcbb8934e44c1924e91df
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47011037"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239548"
 ---
 Inicie sessão no [portal do Azure](https://portal.azure.com/) com as credenciais da subscrição do Azure que vai utilizar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
@@ -26,15 +26,15 @@ Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do porta
 
    ![Criar um recurso no portal do Azure](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Introduza **Machine Learning** na barra de pesquisa. Selecione o resultado da pesquisa com o nome **área de trabalho do Machine Learning**.
+Introduza **Machine Learning** na barra de pesquisa. Selecione o resultado da pesquisa com o nome **área de trabalho do Machine Learning serviço**.
 
    ![Procure a área de trabalho](./media/aml-create-in-portal/allservices-search.PNG)
 
-Na **área de trabalho do Machine Learning** painel, desloque-se para baixo e selecione **criar** para começar.
+Na **área de trabalho de serviço de Machine Learning** painel, desloque-se para baixo e selecione **criar** para começar.
 
    ![criar](./media/aml-create-in-portal/portal-create-button.png)
 
-Na **área de trabalho do ML** painel, configurar a sua área de trabalho.
+Na **área de trabalho do ML service** painel, configurar a sua área de trabalho.
 
    Campo|Descrição
    ---|---

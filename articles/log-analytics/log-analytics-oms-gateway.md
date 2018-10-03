@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 74da7e96ed52b441bc63d5fb5a032db9c6d57774
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494281"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042834"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar computadores sem acesso à Internet através do Gateway de OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e ligadas do Log Analytics com o Gateway do OMS quando direto ou computadores monitorizados do Operations Manager não tem acesso à Internet.  O Gateway de OMS, que é um proxy de encaminhamento de HTTP que suporte a HTTP com o comando de ligação HTTP de túnel, pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em seu nome.  

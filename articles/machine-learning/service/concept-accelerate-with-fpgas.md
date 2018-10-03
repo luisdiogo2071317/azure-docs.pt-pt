@@ -1,6 +1,6 @@
 ---
-title: O que é um FPGA e Project Brainwave? -As do azure Machine Learning
-description: Saiba como acelerar as redes neurais profundas com FPGAs e modelos no Azure. Este artigo fornece uma introdução sobre matrizes de porta de campos programáveis (FPGA) e como o Azure Machine Learning fornece em tempo real de inteligência artificial (IA) ao implementar o seu modelo para um FPGA do Azure.
+title: O que é um FPGA e Project Brainwave? -As do azure Machine Learning de serviço
+description: Saiba como acelerar as redes neurais profundas com FPGAs e modelos no Azure. Este artigo fornece uma introdução sobre matrizes de porta de campos programáveis (FPGA) e como o serviço do Azure Machine Learning fornece em tempo real de inteligência artificial (IA) ao implementar o seu modelo para um FPGA do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,22 +9,22 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158692"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238860"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>O que é FPGA e Project Brainwave?
 
-Este artigo fornece uma introdução sobre matrizes de porta de campos programáveis (FPGA) e como o Azure Machine Learning fornece em tempo real de inteligência artificial (IA) ao implementar o seu modelo para um FPGA do Azure.
+Este artigo fornece uma introdução sobre matrizes de porta de campos programáveis (FPGA) e como o serviço Azure Machine Learning fornece em tempo real de inteligência artificial (IA) ao implementar o seu modelo para um FPGA do Azure.
 
 FPGAs contêm uma matriz de blocos de lógica programável e uma hierarquia de reconfiguráveis interconexões. O interconexões permitir que esses blocos de ser configurada em pós-fabricação e várias formas. FPGAs oferecem uma combinação de programação e desempenho em comparação comparada outros chips.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGAs vs. CPU, GPU e ASIC
 
-![Comparação de Machine Learning FPGA do Azure](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Comparação FPGA de serviço do Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processador||Descrição|
 |---|:-------:|------|

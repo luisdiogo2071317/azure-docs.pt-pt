@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 887e3361f5cb472d7a105558684d156826f89eab
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144130"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237252"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 
@@ -191,9 +191,12 @@ São suportados os seguintes ambientes:
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-Os proprietários da subscrição do Azure podem inspecionar instantâneos. Outros utilizadores devem ser concedidos permissão por um proprietário.
+Acesso a instantâneos está protegido pelo controlo de acesso baseado em funções (RBAC). Para inspecionar um instantâneo, deve primeiro ser adicionado à função necessária por um proprietário da subscrição.
 
-Para conceder permissão, atribua o `Application Insights Snapshot Debugger` função aos utilizadores que fará uma checagem instantâneos. Esta função pode ser atribuída a utilizadores individuais ou grupos por proprietários de subscrições para o destino do recurso do Application Insights ou o grupo de recursos ou subscrição.
+> [!NOTE]
+> Os proprietários e contribuintes não têm automaticamente esta função. Se pretende ver instantâneos, têm de adicionar-se para a função.
+
+Proprietários de subscrições devem atribuir a `Application Insights Snapshot Debugger` função aos utilizadores que fará uma checagem instantâneos. Esta função pode ser atribuída a utilizadores individuais ou grupos por proprietários de subscrições para o destino do recurso do Application Insights ou o grupo de recursos ou subscrição.
 
 1. Navegue para o recurso do Application Insights no portal do Azure.
 1. Clique em **controlo de acesso (IAM)**.

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 6aaf9b42677064b31c56be96775692c75812e145
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984590"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044625"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Operations Management Suite (OMS).  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -329,7 +329,7 @@ Notificações por e-mail enviam um e-mail para um ou mais destinatários.  Eles
 | Propriedade | Descrição |
 |:--- |:--- |
 | Destinatários |Lista de endereços de correio. |
-| Assunto |O assunto da mensagem. |
+| Requerente |O assunto da mensagem. |
 | Anexo |Anexos não são atualmente suportados, para que isso sempre terá um valor de "None". |
 
 Segue-se uma resposta de exemplo para uma ação de notificação de e-mail com um limiar.  

@@ -1,6 +1,6 @@
 ---
-title: Monitorizar com a análise de registos do Azure de Surface Hubs | Microsoft Docs
-description: Utilize a solução de Surface Hub para controlar o estado de funcionamento do seu Surface Hubs e compreender como estão a ser utilizados.
+title: Monitorizar os Surface Hubs com o Log Analytics do Azure | Documentos da Microsoft
+description: Utilize a solução do Surface Hub para controlar o estado de funcionamento do Surface Hubs e compreender como estão sendo usados.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: dfbcdce293d6d47267892487d0760410665af94a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130775"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041486"
 ---
-# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorizar Surface Hubs com a análise de registos para controlar o respetivo estado de funcionamento
+# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorizar o Surface Hubs com o Log Analytics para controlar o respetivo estado de funcionamento
 
-![Símbolo de Hub de superfície](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
+![Símbolo do Surface Hub](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
-Este artigo descreve como pode utilizar a solução de Surface Hub na análise de registos para monitorizar dispositivos Microsoft Surface Hub. Análise de registos ajuda-o a controlar o estado de funcionamento do seu Surface Hubs, bem como a compreender como estão a ser utilizados.
+Este artigo descreve como pode utilizar a solução do Surface Hub no Log Analytics para monitorizar dispositivos Microsoft Surface Hub. O log Analytics ajuda a monitorizar o estado de funcionamento do Surface Hubs, bem como a compreender como estão sendo usados.
 
-Cada Surface Hub tem o Microsoft Monitoring Agent instalada. O através do agente que pode enviar dados a partir do seu Surface Hub à análise de registos. Ficheiros de registo são lidos a partir do seu Surface Hubs e estão, em seguida, são enviados para a análise de registos. Problemas, como servidores estar offline, o calendário a sincronização não, ou se a conta de dispositivo não é possível iniciar sessão no Skype são apresentados no dashboard do Surface Hub na análise de registos. Ao utilizar os dados no dashboard, pode identificar dispositivos que não estão em execução, ou que estão a ter outros problemas e potencialmente aplicar correções para os problemas detetados.
+Cada Surface Hub tem o Microsoft Monitoring Agent instalado. Seu através do agente que pode enviar dados de sua Surface Hub para o Log Analytics. Ficheiros de registo são lidos a partir do Surface Hubs e são, em seguida, são enviados para o Log Analytics. Problemas como servidores de estado offline, o calendário não sincronizar, ou se a conta do dispositivo for não é possível iniciar sessão no Skype são apresentados no dashboard do Surface Hub no Log Analytics. Ao utilizar os dados no dashboard, pode identificar dispositivos que não estão em execução ou que estão a ter outros problemas e potencialmente aplicar correções para os problemas detetados.
 
 ## <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
-Utilize as seguintes informações para instalar e configurar a solução. Para gerir o Surface Hubs na análise de registos, irá precisar do seguinte:
+Utilize as seguintes informações para instalar e configurar a solução. Para gerir os Hubs de superfície do Log Analytics, precisará do seguinte:
 
-* A [subscrição de análise de registos](https://azure.microsoft.com/pricing/details/log-analytics/) nível que irão suportar o número de dispositivos que pretende monitorizar. Preços de análise do registo variam consoante o número de dispositivos inscritos e a quantidade de dados-processos. Poderá ser útil tem isto em consideração ao planear a sua implementação Surface Hub.
+* R [subscrição do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) nível que irá suportar o número de dispositivos que pretende monitorizar. Preços do log Analytics variam consoante o número de dispositivos é inscritos e a quantidade de dados-processos. Vai querer ter isto em consideração ao planejar sua implementação do Surface Hub.
 
-Em seguida, irá adicionar uma área de trabalho de análise de registos existente ou crie um novo. Instruções detalhadas para utilizando um dos métodos é [introdução à análise de registos](log-analytics-get-started.md). Depois de ter configurada a área de trabalho de análise de registos, existem duas formas de inscrever os dispositivos Surface Hub:
+Em seguida, irá adicionar uma área de trabalho do Log Analytics existente ou crie um novo. Encontrará instruções detalhadas para utilizando um dos métodos tenha [introdução ao Log Analytics](log-analytics-get-started.md). Uma vez que a área de trabalho do Log Analytics é configurada, existem duas formas de inscrever os dispositivos Surface Hub:
 
 * Automaticamente através do Intune
 * Manualmente através de **definições** no seu dispositivo Surface Hub.
 
 ## <a name="set-up-monitoring"></a>Configurar a monitorização
-Pode monitorizar o estado de funcionamento e a atividade do seu Hub a superfície de através da análise do registo. Pode inscrever o Surface Hub, utilizando o Intune ou localmente ao utilizar **definições** no Surface Hub.
+Pode monitorizar o estado de funcionamento e a atividade do seu Hub de superfície de utilizar o Log Analytics. Pode inscrever o Surface Hub com o Intune ou localmente usando **definições** no Surface Hub.
 
-## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Ligar de Surface Hubs ao Log Analytics através do Intune
-Terá do ID da área de trabalho e a chave de área de trabalho para a área de trabalho de análise de registos que irão gerir a sua Surface Hubs. Pode obter os das definições da área de trabalho no portal do Azure.
+## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Ligar os Surface Hubs ao Log Analytics através do Intune
+Precisará do ID e chave da área de trabalho para a área de trabalho do Log Analytics que irão gerir o Surface Hubs. Pode aceder das definições da área de trabalho no portal do Azure.
 
-O Intune é um produto Microsoft que lhe permite gerir centralmente as definições de configuração de análise de registos que são aplicadas a um ou mais dos seus dispositivos. Siga estes passos para configurar os seus dispositivos através do Intune:
+O Intune é um produto da Microsoft que lhe permite gerir centralmente as definições de configuração do Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estes passos para configurar os seus dispositivos através do Intune:
 
 1. Iniciar sessão no Intune.
-2. Navegue para **definições** > **ligado origens**.
+2. Navegue para **configurações** > **ligado a origens**.
 3. Criar ou editar uma política baseada no modelo de Surface Hub.
-4. Navegue para a secção do OMS (informações operacionais do Azure) da política e adicionar a análise de registos *ID da área de trabalho* e *chave da área de trabalho* para a política.
+4. Navegue para a secção OMS (informações operacionais do Azure) da política e adicione o Log Analytics *ID da área de trabalho* e *chave de área de trabalho* à política.
 5. Guarde a política.
-6. Associe a política de grupo adequado de dispositivos.
+6. Associe a política com o grupo adequado de dispositivos.
 
    ![Política do Intune](./media/log-analytics-surface-hubs/intune.png)
 
-Intune, em seguida, sincroniza-se as definições de análise de registos com os dispositivos no grupo de destino, inscrevendo-os na sua área de trabalho de análise de registos.
+Em seguida, o Intune sincroniza as definições do Log Analytics com os dispositivos no grupo de destino, inscrevê-los na sua área de trabalho do Log Analytics.
 
-## <a name="connect-surface-hubs-to-log-analytics-using-the-settings-app"></a>Ligar Surface Hubs ao utilizar a aplicação de definições de análise de registos
-Terá do ID da área de trabalho e a chave de área de trabalho para a área de trabalho de análise de registos que irão gerir a sua Surface Hubs. Pode obter os das definições para a área de trabalho de análise de registos no portal do Azure.
+## <a name="connect-surface-hubs-to-log-analytics-using-the-settings-app"></a>Ligar o Surface Hubs ao Log Analytics a utilizar a aplicação de definições
+Precisará do ID e chave da área de trabalho para a área de trabalho do Log Analytics que irão gerir o Surface Hubs. Pode aceder das configurações para a área de trabalho do Log Analytics no portal do Azure.
 
-Se não utilizar o Intune para gerir o ambiente, pode inscrever dispositivos manualmente através de **definições** em cada Surface Hub:
+Se não utilizar o Intune para gerir o seu ambiente, pode inscrever dispositivos através do manualmente **definições** em cada Surface Hub:
 
 1. A partir do seu Surface Hub, abra **definições**.
 2. Introduza as credenciais de administrador do dispositivo quando lhe for pedido.
-3. Clique em **este dispositivo**e em **monitorização**, clique em **configurar definições do OMS**.
-4. Selecione **Ativar monitorização**.
-5. Na caixa de diálogo de definições de OMS, escreva a análise de registos **ID da área de trabalho** e escreva o **chave da área de trabalho**.  
+3. Clique em **este dispositivo**e o sob **monitorização**, clique em **configurar definições de OMS**.
+4. Selecione **ativar a monitorização**.
+5. Na caixa de diálogo de configurações de OMS, escreva o Log Analytics **ID da área de trabalho** e escreva o **chave de área de trabalho**.  
    ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Clique em **OK** para concluir a configuração.
 
-Uma confirmação é apresentado a informar se pretende ou não a configuração foi aplicada com êxito para o dispositivo. Se tiver sido, é apresentada uma mensagem a indicar que o agente ligado com êxito à análise de registos. O dispositivo, em seguida, começa a enviar dados para análise de registos, onde pode ver e atuar no mesmo.
+É apresentada uma mensagem de confirmação a informá-lo ou não a configuração foi aplicada com êxito no dispositivo. Caso tenha sido, é apresentada uma mensagem a indicar que o agente ligado com êxito para o Log Analytics. O dispositivo, em seguida, começa a enviar dados para o Log Analytics, onde pode ver e agir sobre ele.
 
-## <a name="monitor-surface-hubs"></a>Monitor de Surface Hubs
-Monitorização do seu Surface Hubs através da análise do registo são idêntica à monitorização de todos os outros dispositivos inscritos.
+## <a name="monitor-surface-hubs"></a>Surface Hubs monitor
+Monitorização do Surface Hubs utilizar o Log Analytics é muito parecida com a monitorização de todos os outros dispositivos inscritos.
 
 1. Inicie sessão no Portal do Azure.
-2. Navegue até à sua área de trabalho de análise de registos e selecione **descrição geral**.
-2. Clique no mosaico Surface Hub.
+2. Navegue para a área de trabalho do Log Analytics e selecione **descrição geral**.
+2. Clique no mosaico do Surface Hub.
 3. É apresentado o estado de funcionamento do seu dispositivo.
 
-   ![Dashboard de Hub de superfície](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
+   ![Painel do Surface Hub](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-Pode criar [alertas](log-analytics-alerts.md) com base na procura de registo existentes ou personalizados. Utilizar os dados que recolhe de análise de registos do seu Surface Hubs, pode procurar problemas e alerta nas condições que definem para os seus dispositivos.
+Pode criar [alertas](log-analytics-alerts.md) com base em pesquisas de registos existentes ou personalizados. Utilizar os dados que do Log Analytics recolhe a partir de seu Surface Hubs, pode procurar problemas e alerta nas condições que definem para os seus dispositivos.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados detalhados de Surface Hub.
-* Criar [alertas](log-analytics-alerts.md) para ser notificado quando ocorrem problemas com o Surface Hubs.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para ver os dados detalhados do Surface Hub.
+* Crie [alertas](log-analytics-alerts.md) para ser notificado quando ocorrer problemas no seu Surface Hubs.

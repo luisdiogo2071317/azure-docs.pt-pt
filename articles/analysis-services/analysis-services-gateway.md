@@ -1,5 +1,5 @@
 ---
-title: Gateway de dados no local | Documentos da Microsoft
+title: Gateway de dados no local
 description: Um gateway no local é necessário se o seu servidor do Analysis Services no Azure que irá ligar a origens de dados no local.
 author: minewiskan
 manager: kfile
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9ed2614969952eab90dfec572d9b61071981c4bf
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 3b731d44348c506f09f0d30d6d42b9cbdc623936
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391628"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041940"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ligar a origens de dados no local com o Gateway de dados do Azure no local
 O gateway de dados no local atua como uma ponte, fornecendo a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma subscrição e na mesma região com um único gateway. 
@@ -172,8 +172,6 @@ Ficheiros de registo são um recurso importante quando a resolução de problema
 #### <a name="configuration-logs"></a>Registos de configuração
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### <a name="event-logs"></a>Registos de eventos

@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: dc28263fca5c6854ffad12678b472804f074addd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c4529948a0a1b165945de78de97cc2470c6b431e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035747"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237556"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Como: adicionar o seu nome de domínio personalizado com o portal do Azure Active Directory
 Cada novo Azure inquilino AD vem com um nome de domínio inicial *domainname*. onmicrosoft.com. Não é possível alterar ou eliminar o nome de domínio inicial, mas pode adicionar nomes da sua organização para a lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizador que estão familiarizados para seus usuários, como *alain@contoso.com*.
@@ -92,7 +92,8 @@ Depois de registar o seu nome de domínio personalizado, terá de certificar-se 
 
     Se não é possível atualizar o registo no site da entidade de registo, tem de partilhar a entrada com alguém que tenha as permissões corretas para adicionar a entrada e certifique-se de que ela está correta.
 
-- **Certifique-se de que o nome de domínio não está já em utilização de outro diretório.** Um nome de domínio só pode ser verificado num diretório, o que significa que se o seu nome de domínio estiver atualmente verificado noutro diretório, ele não pode também ser verificado no novo diretório. Para corrigir esse problema de duplicação, tem de eliminar o nome de domínio do diretório antigo. Para obter mais informações sobre como eliminar nomes de domínio, consulte [gerir nomes de domínio personalizado](../users-groups-roles/domains-manage.md). 
+- **Certifique-se de que o nome de domínio não está já em utilização de outro diretório.** Um nome de domínio só pode ser verificado num diretório, o que significa que se o seu nome de domínio estiver atualmente verificado noutro diretório, ele não pode também ser verificado no novo diretório. Para corrigir esse problema de duplicação, tem de eliminar o nome de domínio do diretório antigo. Para obter mais informações sobre como eliminar nomes de domínio, consulte [gerir nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
+    - Se os utilizadores ativaram o PowerBI através de inscrição self-service e criaram um inquilino não gerido para a sua organização, o administrador de TI pode gerir este inquilino através da aquisição ou pode continuar a adicionar o domínio com opção de aquisição de força no PowerShell. Para saber mais sobre a aquisição de domínio administrador, veja [assumir um diretório não gerido como administrador no Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

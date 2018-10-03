@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.component: ''
+ms.openlocfilehash: 3851bfef71aab6553e109bb8108edd7bec182f0e
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160934"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041957"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros em modos de exibição do Log Analytics
 R **filtro** num [ver do Log Analytics](log-analytics-view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma determinada propriedade sem modificar a própria exibição.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um determinado computador ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir que os utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma para uma vista personalizada.

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/02/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 8c943b9ec8114699a7fad487c7d669b58942c019
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055588"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042534"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V para o Azure
 
@@ -59,16 +59,16 @@ Adicionar o disco na VM de Hyper-V replicada | Não suportado. Desative a replic
 
 **Componente** | **Hyper-V com o Virtual Machine Manager** | **Hyper-V sem o Virtual Machine Manager**
 --- | --- | ---
-Rede de anfitrião: agrupamento NIC | Sim
-Rede de anfitrião: VLAN | Sim
-Rede de anfitrião: IPv4 | Sim
-Rede de anfitrião: IPv6 | Não
-Rede de VM do convidado: agrupamento NIC | Não
-Rede de VM do convidado: IPv4 | Sim
-Rede de VM do convidado: IPv6 | Não
-Rede de VM do convidado: IP estático (Windows) | Sim
-Rede de VM do convidado: IP estático (Linux) | Não
-Rede de VM do convidado: Multi-NIC | Sim
+Rede de anfitrião: agrupamento NIC | Sim | Sim
+Rede de anfitrião: VLAN | Sim | Sim
+Rede de anfitrião: IPv4 | Sim | Sim
+Rede de anfitrião: IPv6 | Não | Não
+Rede de VM do convidado: agrupamento NIC | Não | Não
+Rede de VM do convidado: IPv4 | Sim | Sim
+Rede de VM do convidado: IPv6 | Não | Sim
+Rede de VM do convidado: IP estático (Windows) | Sim | Sim
+Rede de VM do convidado: IP estático (Linux) | Não | Não
+Rede de VM do convidado: Multi-NIC | Sim | Sim
 
 
 

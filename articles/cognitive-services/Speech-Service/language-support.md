@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018558"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237743"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
@@ -31,16 +31,16 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
  ES de AC | Catalão | Não | Não | Não
  da-DK | Dinamarquês (Dinamarca) | Não | Não | Não
  de-DE | Alemão (Alemanha) | Sim | Sim | Não
- EN-AU | Inglês (Austrália) | Sim | Sim | Sim
- en-CA | Inglês (Canadá) | Sim | Sim | Sim
- en-GB | Inglês (Reino Unido) | Sim | Sim | Sim
- EN-IN | English (India) | Não | Sim | Sim
- EN-NZ | Inglês (Nova Zelândia) | Sim | Sim | Sim  
+ EN-AU | Inglês (Austrália) | Não | Sim | Sim
+ en-CA | Inglês (Canadá) | Não | Sim | Sim
+ en-GB | Inglês (Reino Unido) | Não | Sim | Sim
+ EN-IN | English (India) | Sim | Sim | Sim
+ EN-NZ | Inglês (Nova Zelândia) | Não | Sim | Sim  
  pt-PT | Inglês (Estados Unidos) | Sim | Sim | Sim
- es-ES | Espanhol (Espanha) | Sim | Sim | Não
- es-MX | Espanhol (México) | Sim | Sim | Não
+ es-ES | Espanhol (Espanha) | Não | Sim | Não
+ es-MX | Espanhol (México) | Não | Sim | Não
  fi-FI | Finlandês (Finlândia) | Não | Não | Não
- fr-CA | Francês (Canadá) | Sim | Sim | Não
+ fr-CA | Francês (Canadá) | Não | Sim | Não
  FR-FR | Francês (França) | Sim | Sim | Não
  IN | Hindi (Índia) | Não | Sim | Não
  it-IT | Italiano (Itália) | Sim | Sim | Não
@@ -51,7 +51,7 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
  pl-PL | Polaco (Polónia) | Não | Não | Não
  pt-BR | Português (Brasil) | Não | Sim | Não
  pt-PT | Português (Portugal) | Não | Sim | Não
- ru-RU | Russo (Rússia) | Não | Sim | Não
+ ru-RU | Russo (Rússia) | Sim | Sim | Não
  SV-SE | Sueco (Suécia) | Não | Não | Não
  zh-CN | Chinês (simplificado Mandarim) | Sim | Sim | Não
  zh-HK | Chinês (Mandarim, tradicional) | Não | Sim | Não

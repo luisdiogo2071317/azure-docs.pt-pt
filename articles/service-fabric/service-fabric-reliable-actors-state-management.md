@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d5bc6877aa353ae37ba3ada53ee620a0230357e9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585174"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041167"
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado do Reliable Actors
 Reliable Actors são objetos de thread único de mensagens em fila que podem encapsular a lógica e estado. Porque os atores são executados no Reliable Services, eles podem manter o estado da forma fiável com o mesmo persistência e mecanismos de replicação. Dessa forma, atores não perdem o seu estado após falhas, após a reativação após a coleta de lixo, ou quando são movidas em torno de entre nós num cluster devido ao balanceamento de recursos ou atualizações.
@@ -121,7 +121,7 @@ Eis algumas sugestões práticas e resolução de problemas para gerir o seu est
 Isto é fundamental para o desempenho e utilização de recursos de seu aplicativo. Sempre que houver qualquer escrita/atualizar para o "Estado o nome" de um ator, o valor inteiro correspondente a esse Estado"com o nome" é serializado e enviado através da rede para as réplicas secundárias.  As bases de dados secundárias escrevê-lo para o disco local e de resposta de volta para a réplica primária. Quando o principal recebe as confirmações de um quórum de réplicas secundárias, escreve o estado do seu disco local. Por exemplo, suponha que o valor é uma classe que tem 20 membros e um tamanho de 1 MB. Mesmo que apenas modificado um dos membros de classe que é de tamanho de 1 KB, final pelo custo de serialização e a escritas de disco e rede de 1 MB completo. Da mesma forma, se o valor é uma coleção (por exemplo, uma lista, uma matriz ou um dicionário), paga o custo pela coleção completa, mesmo se modificar um dos membros do mesmo. A interface de StateManager da classe de ator é como um dicionário. Sempre deve modelar a estrutura de dados que representa o estado do ator sobre nesse dictionary.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gerir corretamente o ciclo de vida do ator
-Deve ter uma política clara sobre como gerir o tamanho do Estado de cada partição de um serviço de ator. O serviço de ator deve ter um número fixo de atores e reutilizá-los um tanto quanto possível. Se criar continuamente novas actors, tem de as eliminar assim que elas são feitas com o seu trabalho. Actor framework armazena alguns metadados sobre cada ator que existe. A eliminar todos os Estados de um ator não remove os metadados sobre esse ator. Tem de eliminar o ator (consulte [eliminar atores e o respetivo estado](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) para remover todas as informações cerca ele armazenado no sistema. Como uma verificação adicional, deve consultar o serviço de ator (consulte [enumerar atores](service-fabric-reliable-actors-enumerate.md)) uma vez em quando para se certificar de que os atores número estão dentro do intervalo esperado.
+Deve ter uma política clara sobre como gerir o tamanho do Estado de cada partição de um serviço de ator. O serviço de ator deve ter um número fixo de atores e reutilizá-los tanto quanto possível. Se criar continuamente novas actors, tem de as eliminar assim que elas são feitas com o seu trabalho. Actor framework armazena alguns metadados sobre cada ator que existe. A eliminar todos os Estados de um ator não remove os metadados sobre esse ator. Tem de eliminar o ator (consulte [eliminar atores e o respetivo estado](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) para remover todas as informações cerca ele armazenado no sistema. Como uma verificação adicional, deve consultar o serviço de ator (consulte [enumerar atores](service-fabric-reliable-actors-enumerate.md)) uma vez em quando para se certificar de que o número de atores está dentro do intervalo esperado.
  
 Se já viu que o tamanho de ficheiro de base de dados de um serviço de Ator é aumentar o tamanho esperado, certifique-se de que está a seguir as diretrizes anteriores. Se estiver a seguir estas diretrizes e continuam a base de dados problemas de tamanho de arquivo, deve [abra um pedido de suporte](service-fabric-support.md) com a equipe de produto para obter ajuda.
 

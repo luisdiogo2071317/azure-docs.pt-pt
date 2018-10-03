@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ee03d8dc8dba08994715ace940875980c4f21bb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998936"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041548"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o pacote de segurança empresarial no HDInsight
 
@@ -26,26 +26,20 @@ HDInsight depende de um fornecedor de identidade populares--Active Directory –
 
 As máquinas virtuais (VMs) no HDInsight são associados ao seu domínio fornecido a um domínio. Para isso, todos os serviços em execução no HDInsight (Ambari, do Hive thrift de Spark do servidor, Ranger, servidor e outros) funcionam de forma totalmente integrada para o usuário autenticado. Os administradores podem, em seguida, criar políticas de autorização segura com o Apache Ranger para fornecer controlo de acesso baseado em funções para recursos no cluster.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrar o HDInsight no Active Directory
 
 Código aberto Hadoop depende de Kerberos para autenticação e segurança. Por conseguinte, nós de cluster do HDInsight com o pacote de segurança da empresa (ESP) estão associados a um domínio gerido pelo Azure AD DS. Segurança do Kerberos está configurada para os componentes do Hadoop no cluster. 
 
-Para cada componente do Hadoop, é criado automaticamente um principal de serviço. Uma máquina correspondente principal também é criada para cada máquina que está associada ao domínio. Para armazenar estes serviços e entidades de segurança do computador, tem de fornecer uma unidade organizacional (UO) no controlador de domínio (Azure AD DS), onde essas entidades são colocadas. 
+Os itens seguintes são criados automaticamente:
+- um principal de serviço para cada componente do Hadoop 
+- um principal de máquina para cada máquina que está associado ao domínio
+- uma unidade organizacional (UO) para cada cluster para armazenar estas principais de serviços e da máquinas 
 
 Para resumir, terá de configurar um ambiente com:
 
 - Um domínio do Active Directory (gerenciado pelo Azure AD DS).
 - Secure LDAP (LDAPS) ativado no Azure AD DS.
 - Funcionamento em rede conectividade apropriada da rede virtual do HDInsight para a rede virtual do Azure AD DS, se escolher as redes virtuais separadas para os mesmos. Uma VM dentro da rede virtual do HDInsight deve ter uma linha Visual para o Azure AD DS através do peering da rede virtual. Se o HDInsight e Azure AD DS é implementado na mesma rede virtual, a conectividade é fornecida automaticamente e é necessária nenhuma ação adicional.
-- Uma unidade Organizacional [criado no Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Uma conta de serviço que tem permissões para:
-    - Crie principais de serviço na UO.
-    - Associar máquinas ao domínio e criar principais de máquina na UO.
-
-Captura de ecrã seguinte mostra uma UO criada em contoso.com. Também mostra alguns dos principais de serviço e entidades de segurança da máquina.
-
-![Unidade de organização para os clusters do HDInsight com ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Configurar controladores de domínio diferente
 Atualmente, o HDInsight suporta apenas o Azure AD DS como controlador de domínio principal que o cluster utiliza para a comunicação de Kerberos. Mas outras configurações complexas do Active Directory são possíveis, desde que essa configuração leva a ativar o Azure AD DS para o acesso do HDInsight.

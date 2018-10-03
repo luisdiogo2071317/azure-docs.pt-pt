@@ -1,6 +1,6 @@
 ---
-title: Um guia de referência para os mosaicos do estruturador de vistas no Log Analytics do Azure | Microsoft Docs
-description: Ao utilizar o estruturador de vistas da análise de registos, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis no seu vistas personalizadas.
+title: Um guia de referência para os mosaicos do estruturador de vistas no Log Analytics do Azure | Documentos da Microsoft
+description: Ao utilizar o estruturador de vistas no Log Analytics, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: fc5dc00a05486c1f781016df63877f40d21b0205
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131275"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042191"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para os mosaicos do estruturador de vistas na análise de registos
-Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis no seu vistas personalizadas.
+# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para mosaicos do estruturador de vistas no Log Analytics
+Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
-* [Ver Designer](log-analytics-view-designer.md): fornece uma descrição geral do estruturador de vistas e procedimentos para criar e editar vistas personalizadas.
-* [Referência de parte de visualização](log-analytics-view-designer-parts.md): Fornece um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.
+* [Exibir Designer](log-analytics-view-designer.md): fornece uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+* [Referência de parte da visualização](log-analytics-view-designer-parts.md): Fornece um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
 
 
-Os mosaicos do estruturador de vistas disponíveis são descritos na tabela seguinte:  
+Os mosaicos do estruturador de vistas disponíveis são descritos na tabela a seguir:  
 
 | Mosaico | Descrição |
 |:--- |:--- |
-| [Número](#number-tile) |A contagem de registos por uma consulta. |
-| [Dois números](#two-numbers-tile) |O número de registos de duas consultas diferentes. |
-| [Anel](#donut-tile) | Um gráfico que é baseado numa consulta, com um valor de resumo no Centro de mensagens em fila. |
-| [Gráfico de linhas e de chamada](#line-chart-amp-callout-tile) | Um gráfico de linhas com base na consulta e uma chamada com um valor de resumo. |
-| [Gráfico de linhas](#line-chart-tile) |Um gráfico de linhas que é baseado numa consulta. |
-| [Duas linhas cronológicas](#two-timelines-tile) | Um gráfico de colunas com duas séries, cada baseada numa consulta separada. |
+| [Número](#number-tile) |A contagem de registos de uma consulta. |
+| [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
+| [Anel](#donut-tile) | Um gráfico que se baseia numa consulta, com um valor de resumo no Centro de mensagens em fila. |
+| [Gráfico de linhas e nota de aviso](#line-chart-amp-callout-tile) | Um gráfico de linhas que se baseia numa consulta e uma nota de aviso com um valor de resumo. |
+| [Gráfico de linhas](#line-chart-tile) |Um gráfico de linhas que se baseia numa consulta. |
+| [Duas linhas cronológicas](#two-timelines-tile) | Um gráfico de colunas com dois da série, cada um com base numa consulta separada. |
 
-As secções seguintes descrevem os tipos de mosaico e as respetivas propriedades em detalhe.
+As secções seguintes descrevem os tipos de mosaico e as respetivas propriedades em detalhes.
 
 ## <a name="number-tile"></a>Mosaico de número
-O **número** mosaico mostra ambas a contagem de registos a partir de uma consulta de registo e uma etiqueta.
+O **número** mosaico mostra ambas as a contagem de registos a partir de uma consulta de registo e um rótulo.
 
 ![Mosaico de número](media/log-analytics-view-designer/tile-number.png)
 
@@ -54,16 +54,16 @@ O **número** mosaico mostra ambas a contagem de registos a partir de uma consul
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **mosaico** | |
-| Legenda |O texto que é apresentado sob o valor. |
-| Consulta |A consulta que é executada. É apresentada a contagem de registos que são devolvidos pela consulta. |
-| **Avançadas** |**> Verificação de-fluxo de dados** |
-| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve ser ativada para o mosaico. Esta abordagem fornece uma mensagem alternativa se os dados estão disponíveis. Normalmente utiliza a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
-| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta devolve não existem resultados, é apresentada uma mensagem em vez do valor da consulta principal. |
-| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados devolver sem dados. Não se fornecer nenhuma mensagem, um *efetuar avaliação* é apresentada a mensagem de estado. |
+| Legenda |O texto que é apresentado no valor. |
+| Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
+| **Avançadas** |**> Verificação de fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
+| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
 
 
 ## <a name="two-numbers-tile"></a>Mosaico de dois números
-Este mosaico mostra a contagem de registos de duas consultas de registo diferentes e uma etiqueta para cada.
+Este mosaico apresenta a contagem de registos de duas consultas de registo diferentes e uma etiqueta para cada um.
 
 ![Mosaico de dois números](media/log-analytics-view-designer/tile-two-numbers.png)
 
@@ -72,19 +72,19 @@ Este mosaico mostra a contagem de registos de duas consultas de registo diferent
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Primeiro mosaico** | |
-| Legenda |O texto que é apresentado sob o valor. |
-| Consulta |A consulta que é executada. É apresentada a contagem de registos que são devolvidos pela consulta. |
-| **Mosaico segundo** | |
-| Legenda |O texto que é apresentado sob o valor. |
-| Consulta |A consulta que é executada. É apresentada a contagem de registos que são devolvidos pela consulta. |
-| **Avançadas** |**> Verificação de-fluxo de dados** |
-| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve ser ativada para o mosaico. Esta abordagem fornece uma mensagem alternativa se os dados estão disponíveis. Normalmente utiliza a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
-| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta devolve não existem resultados, é apresentada uma mensagem em vez do valor da consulta principal. |
-| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados devolver sem dados. Não se fornecer nenhuma mensagem, um *efetuar avaliação* é apresentada a mensagem de estado. |
+| Legenda |O texto que é apresentado no valor. |
+| Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
+| **Segundo mosaico** | |
+| Legenda |O texto que é apresentado no valor. |
+| Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
+| **Avançadas** |**> Verificação de fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
+| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
 
 
 ## <a name="donut-tile"></a>Mosaico de anel
-O **anel** mosaico apresenta um número único que resume uma coluna de valor de uma consulta de registo. O anel graficamente apresenta resultados dos registos de três principais.
+O **anel** mosaico apresenta um único número que resume uma coluna de valor numa consulta de registo. Anel apresenta graficamente os resultados dos registos de três principais.
 
 ![Mosaico de anel](media/log-analytics-view-designer/tile-donut.png)
 
@@ -93,68 +93,68 @@ O **anel** mosaico apresenta um número único que resume uma coluna de valor de
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Anel** | |
-| Consulta |A consulta que está a ser executada para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. |
+| Consulta |A consulta que está a ser executada para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. |
 | **Anel** |**> Center** |
-| Texto |O texto que é apresentado sob o valor de anel. |
-| Operação |A operação é efetuada a propriedade value para resumi-lo como um valor único.<ul><li>Soma: Adicione os valores de todos os registos com o valor da propriedade.</li><li>Percentagem: Percentagem dos valores summed de registos com o valor da propriedade em comparação comparada os valores summed de todos os registos.</li></ul> |
-| Valores dos resultados utilizados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta estão limitados a registos com os valores de propriedade que especificar. Se não existem valores são adicionados, todos os registos estão incluídos na consulta. |
+| Texto |O texto que é apresentado no valor dentro do anel. |
+| Operação |A operação é executada na propriedade de valor para resumi-lo como um único valor.<ul><li>Soma: Adicione os valores de todos os registos com o valor da propriedade.</li><li>Percentagem: Percentagem dos valores summed de registos com o valor da propriedade em comparação comparada os valores summed de todos os registos.</li></ul> |
+| Valores dos resultados utilizados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que especificar. Se não os valores são adicionados, todos os registos estão incluídos na consulta. |
 | **Anel** |**> Opções adicionais** |
-| Cores |A cor que é apresentada para cada um dos três propriedades superiores. Para especificar cores alternativas para os valores de propriedade específica, utilize *avançadas mapeamento de cor*. |
-| Mapeamento de Cores Avançadas |Apresenta uma cor que representa valores de propriedade específica. Se tiver o valor que especifica três parte superior, a cor alternativa é apresentada em vez da cor do padrão. Se a propriedade não está a ser três parte superior, a cor não é apresentada. |
-| **Avançadas** |**> Verificação de-fluxo de dados** |
-| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve ser ativada para o mosaico. Esta abordagem fornece uma mensagem alternativa se os dados estão disponíveis. Normalmente utiliza a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
-| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta devolve não existem resultados, é apresentada uma mensagem em vez do valor da consulta principal. |
-| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados devolver sem dados. Não se fornecer nenhuma mensagem, um *efetuar avaliação* é apresentada a mensagem de estado. |
+| Cores |A cor que é apresentada para cada uma das três propriedades principais. Para especificar alternativas cores dos valores de propriedade específica, utilize *Advanced mapeamento de cor*. |
+| Mapeamento de Cores Avançadas |Apresenta uma cor que representa valores de propriedade específicos. Se o valor que especificar nas três principais, a cor alternativa é apresentada em vez da cor padrão. Se a propriedade não estiver a ser os três principais, a cor não é apresentada. |
+| **Avançadas** |**> Verificação de fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
+| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
 
 
 ## <a name="line-chart-tile"></a>Mosaico de gráfico de linha
-Este mosaico está um gráfico de linhas que apresenta várias séries por uma consulta de registo ao longo do tempo. 
+Este mosaico é um gráfico de linhas que exibe várias séries de uma consulta de registo ao longo do tempo. 
 
-![Mosaico de gráfico e da chamada de linha](media/log-analytics-view-designer/tile-line-chart.png)
-
-| Definição | Descrição |
-|:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
-| Descrição |O texto que é apresentado sob o nome do mosaico. |
-| **Gráfico de linhas** | |
-| Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
-| **Gráfico de linhas** |**> Eixo y** |
-| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
-| Unidades |Especifique as unidades para os valores devolvidos pela consulta. Estas informações são utilizadas para apresentar as etiquetas no gráfico indicar os tipos de valor e, opcionalmente, para converter os valores. O **um tipo de unidade** Especifica a categoria da unidade e define o **atual um tipo de unidade** valores que estão disponíveis. Se selecionar um valor na **converter** , em seguida, os valores numéricos são convertidos do **unidade atual** escreva para a **converter** tipo. |
-| Etiqueta personalizada |O texto que é apresentado para o eixo y junto a etiqueta para o *unidade* tipo. Não se for especificada nenhuma etiqueta, apenas o *unidade* tipo é apresentado. |
-| **Avançadas** |**> Verificação de-fluxo de dados** |
-| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve ser ativada para o mosaico. Esta abordagem fornece uma mensagem alternativa se os dados estão disponíveis. Normalmente utiliza a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
-| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta devolve não existem resultados, é apresentada uma mensagem em vez do valor da consulta principal. |
-| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados devolver sem dados. Não se fornecer nenhuma mensagem, um *efetuar avaliação* é apresentada a mensagem de estado. |
-
-
-## <a name="line-chart-and-callout-tile"></a>Mosaico de gráfico e da chamada de linha
-Este mosaico tem ambos os uma linha que apresenta várias séries de um registo de consulta ao longo do tempo e uma chamada com um valor resumido do gráfico. 
-
-![Mosaico de gráfico e da chamada de linha](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Mosaico de gráfico e nota de aviso da linha](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Definição | Descrição |
 |:--- |:--- |
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Gráfico de linhas** | |
-| Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
-| **Gráfico de linhas** |**> Chamada** |
-| Título da chamada | O texto que é apresentado acima o valor da chamada. |
-| Nome da série |O valor da propriedade séries a ser utilizado como o valor da chamada. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
-| Operação |A operação é efetuada a propriedade value para resumi-lo como um valor único para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo de que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico.</li><li>Mínimo: O valor mínimo de intervalos que estão incluídos no gráfico.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
+| Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
 | **Gráfico de linhas** |**> Eixo y** |
-| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
-| Unidades |Especifique as unidades para os valores devem ser devolvidos pela consulta. Estas informações são utilizadas para apresentar gráfico rótulos que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos do *unidade atual* escreva para a *converter* tipo. |
-| Etiqueta personalizada |O texto que é apresentado para o eixo y junto a etiqueta para o *unidade* tipo. Não se for especificada nenhuma etiqueta, apenas o *unidade* tipo é apresentado. |
-| **Avançadas** |**> Verificação de-fluxo de dados** |
-| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve ser ativada para o mosaico. Esta abordagem fornece uma mensagem alternativa se os dados estão disponíveis. Normalmente utiliza a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
-| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta devolve não existem resultados, é apresentada uma mensagem em vez do valor da consulta principal. |
-| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados devolver sem dados. Não se fornecer nenhuma mensagem, um *efetuar avaliação* é apresentada a mensagem de estado. |
+| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para os valores devolvidos pela consulta. Estas informações são utilizadas para apresentar as etiquetas no gráfico que indica os tipos de valor e, opcionalmente, para converter os valores. O **tipo de unidade** Especifica a categoria da unidade e define a **tipo de unidade atual** valores que estão disponíveis. Se selecionar um valor na **converter** , em seguida, os valores numéricos são convertidos da **unidade atual** escreva para o **converter** tipo. |
+| Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
+| **Avançadas** |**> Verificação de fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
+| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
+
+
+## <a name="line-chart-and-callout-tile"></a>Mosaico de gráfico e nota de aviso da linha
+Este mosaico tem tanto de uma linha do gráfico que apresenta várias séries de um log de consulta ao longo do tempo e uma nota de aviso com um valor resumido. 
+
+![Mosaico de gráfico e nota de aviso da linha](media/log-analytics-view-designer/tile-line-chart-callout.png)
+
+| Definição | Descrição |
+|:--- |:--- |
+| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Descrição |O texto que é apresentado sob o nome do mosaico. |
+| **Gráfico de linhas** | |
+| Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
+| **Gráfico de linhas** |**> Texto explicativo** |
+| Título da nota de aviso | O texto que é apresentado acima do valor da nota de aviso. |
+| Nome da série |O valor de propriedade de série a ser utilizado como o valor da nota de aviso. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
+| Operação |A operação é executada na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico.</li><li>Mínimo: O valor mínimo de intervalos que estão incluídos no gráfico.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
+| **Gráfico de linhas** |**> Eixo y** |
+| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Estas informações são utilizadas para rótulos de gráficos de apresentação que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define o disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos da *unidade atual* escreva para o *converter* tipo. |
+| Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
+| **Avançadas** |**> Verificação de fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
+| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
 
 
 ## <a name="two-timelines-tile"></a>Mosaico de duas linhas cronológicas
-O **duas linhas cronológicas** mosaico apresenta os resultados das duas consultas de registo ao longo do tempo como gráficos de colunas. É apresentada uma chamada para cada série. 
+O **duas linhas cronológicas** mosaico apresenta os resultados de duas consultas de registo ao longo do tempo, como gráficos de colunas. Uma nota de aviso é apresentada para cada série. 
 
 ![Mosaico de duas linhas cronológicas](media/log-analytics-view-designer/tile-two-timelines.png)
 
@@ -163,21 +163,21 @@ O **duas linhas cronológicas** mosaico apresenta os resultados das duas consult
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | Primeiro Gráfico | |
-| Legenda |O texto que é apresentado em chamada para a série primeiro. |
-| Cor |A cor que é utilizada para as colunas da série primeiro. |
-| Consulta de gráfico |A consulta que é executada para a série primeiro. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas de gráfico. |
-| Operação |A operação é efetuada a propriedade value para resumi-lo como um valor único para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo de que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico.</li></ul> |
+| Legenda |O texto que é apresentado em nota de aviso para a primeira série. |
+| Cor |A cor que é utilizada para as colunas da primeira série. |
+| Consulta de gráfico |A consulta que está a ser executada para a primeira série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
+| Operação |A operação é executada na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico.</li></ul> |
 | **Segundo gráfico** | |
-| Legenda |O texto que é apresentado em chamada para a série segundo. |
-| Cor |A cor que é utilizada para as colunas na série de segundo. |
-| Consulta do Gráfico |A consulta que é executada para a série segundo. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas de gráfico. |
-| Operação |A operação é efetuada a propriedade value para resumi-lo como um valor único para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo de que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico. |
-| **Avançadas** |**> Verificação de-fluxo de dados** |
-| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve ser ativada para o mosaico. Esta abordagem fornece uma mensagem alternativa se os dados estão disponíveis. Normalmente utiliza a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
-| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta devolve não existem resultados, é apresentada uma mensagem em vez do valor da consulta principal. |
-| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados devolver sem dados. Não se fornecer nenhuma mensagem, um *efetuar avaliação* é apresentada a mensagem de estado. |
+| Legenda |O texto que é apresentado em nota de aviso para a segunda série. |
+| Cor |A cor utilizada para as colunas na segunda série. |
+| Consulta do Gráfico |A consulta que está a ser executada para a segunda série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
+| Operação |A operação é executada na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico. |
+| **Avançadas** |**> Verificação de fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
+| Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para suportar as consultas de mosaicos.
-* Adicionar [partes de visualização](log-analytics-view-designer-parts.md) à vista personalizada.
+* Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para oferecer suporte as consultas em mosaicos.
+* Adicione [partes de visualização](log-analytics-view-designer-parts.md) à sua vista personalizada.

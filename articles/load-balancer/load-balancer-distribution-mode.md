@@ -4,21 +4,21 @@ description: Como configurar o modo de distribuição de Balanceador de carga do
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
+manager: timlt
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 776621f9ef95867c6e3c25dd11c656d451b6730e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: cfca7361831734baaf150b3e19b14c7dc88def36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018133"
+ms.locfileid: "48043648"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Balanceador de carga do Azure
 
@@ -48,13 +48,13 @@ Outro cenário de caso de uso é o carregamento de suporte de dados. O carregame
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configurar definições de afinidade do IP de origem
 
-Para máquinas virtuais implementadas com o Resource Manager, utilize o PowerShell para alterar as definições de distribuição de Balanceador de carga a regra de balanceamento de carga do Balanceador de carga.  Este procedimento atualiza o modo de distribuição de uma regra de Balanceador de carga existente:
+Para máquinas virtuais implementadas com o Resource Manager, utilize o PowerShell para alterar as definições de distribuição de Balanceador de carga numa regra de balanceamento de carga existente. Este procedimento atualiza o modo de distribuição: 
 
 ```powershell 
 $lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
 Set-AzureRmLoadBalancer -LoadBalancer $lb 
-``` 
+```
 
 Para máquinas virtuais clássicas, utilize o Azure PowerShell para alterar as definições de distribuição. Adicionar um ponto de final do Azure a uma máquina virtual e configurar o modo de distribuição de Balanceador de carga:
 

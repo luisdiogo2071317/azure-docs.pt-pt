@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221154"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237675"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -45,7 +45,7 @@ Em seguida, pode aprender sobre os mecanismos adicionais que pode utilizar para 
  - [Incorporado de cópias de segurança automatizadas](sql-database-automated-backups.md) e [um ponto anterior no tempo de restauro](sql-database-recovery-using-backups.md#point-in-time-restore) permite-lhe restaurar o banco de dados completo para algum ponto no tempo nos últimos 35 dias.
  - Pode [restaurar uma base de dados eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) para o ponto em que tiver sido eliminado se a **servidor lógico não foi eliminado**.
  - [Retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) permite-lhe acompanhar as cópias de segurança para os 10 anos.
- - [Replicação geográfica](sql-database-geo-replication-overview.md) permite que o aplicativo efetuar a recuperação após desastre rápida no caso de uma falha de dimensionamento do Centro de dados.
+ - [Grupo de ativação pós-falha automática](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) permite que o aplicativo automaticamente a recuperação em caso de uma falha de dimensionamento do Centro de dados.
 
 Cada uma possui características diferentes para o tempo de recuperação estimado (ERT) e a potencial perda de dados de transações recentes. Assim que compreender estas opções, pode escolher entre elas - e, na maioria dos cenários, utilizá-las em conjunto para cenários diferentes. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após o evento problemático. O tempo necessário para a aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de Atualizações recentes de dados (intervalo de tempo) da aplicação pode tolerar perder ao recuperar após o evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
 
@@ -54,9 +54,8 @@ A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os tr�
 | Capacidade | Básica | Standard | Premium  | Fins Gerais | Crítico para a Empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro dentro de sete dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro no período configurado (até 35 dias)|Qualquer ponto de restauro no período configurado (até 35 dias)|
-| Georrestauro a partir de cópias de segurança georreplicado |ERT < 12h, RPO < 1 hora |ERT < 12h, RPO < 1 hora |ERT < 12h, RPO < 1 hora |ERT < 12h, RPO < 1 hora|ERT < 12h, RPO < 1 hora|
-| Restaurar a partir de retenção de longa duração de SQL |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem|ERT < 12h, RPO < 1 sem|
-| Georreplicação ativa |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
+| Georrestauro a partir de cópias de segurança georreplicado |ERT < 12h<br> RPO < 1 hora |ERT < 12h<br>RPO < 1 hora |ERT < 12h<br>RPO < 1 hora |ERT < 12h<br>RPO < 1 hora|ERT < 12h<br>RPO < 1 hora|
+| Grupos de ativação pós-falha automática |RTO = 1 hora<br>RPO < 5s |RTO = 1 hora<br>RPO < 5 s |RTO = 1 hora<br>RPO < 5 s |RTO = 1 hora<br>RPO < 5 s|RTO = 1 hora<br>RPO < 5 s|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
 
@@ -73,7 +72,8 @@ Utilizar cópias de segurança automáticas e [restauro de ponto no tempo](sql-d
 * Tiver uma taxa reduzida de alteração de dados (poucas transações por hora) e perder até uma hora de alterações é uma perda de dados aceitável.
 * For sensível aos custos.
 
-Se precisar de uma recuperação mais rápida, utilize [georreplicação ativa](sql-database-geo-replication-overview.md) (abordada a seguir). Se tiver de ser capaz de recuperar dados de um período com mais de 35 dias, utilize [retenção a longo prazo](sql-database-long-term-retention.md). 
+Se precisar de uma recuperação mais rápida, utilize [grupos de ativação pós-falha](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (abordada a seguir). Se tiver de ser capaz de recuperar dados de um período com mais de 35 dias, utilize [retenção a longo prazo](sql-database-long-term-retention.md). 
 
 ## <a name="recover-a-database-to-another-region"></a>Recuperar uma base de dados para outra região
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando o
 
 * Uma opção é aguardar que a base de dados volte a ficar online quando a indisponibilidade do centro de dados terminar. Isto funciona para as aplicações que podem dar-se ao luxo de ter a base de dados offline. Por exemplo, um projeto de desenvolvimento ou uma versão de avaliação gratuita nos quais não tem de trabalhar constantemente. Quando um centro de dados fica indisponível, não sabe quanto pode durar a indisponibilidade, pelo que esta opção só funciona se não precisar de sua base de dados durante algum tempo.
 * Outra opção consiste em restaurar uma base de dados em qualquer servidor em qualquer região do Azure, utilizando [cópias de segurança da base de dados georredundante](sql-database-recovery-using-backups.md#geo-restore) (georrestauro). O restauro geográfico utiliza uma cópia de segurança georredundante como origem e pode ser usado para recuperar uma base de dados, mesmo que a base de dados ou o Centro de dados não está acessível devido a uma falha.
-* Por fim, pode promover rapidamente uma secundária em outra região de dados primária (também chamado de ativação pós-falha) e configurar aplicações para ligar para o primário promovido se estiver a utilizar a georreplicação ativa. Pode haver uma pequena quantidade de perda de dados de transações recentes devido à natureza da replicação assíncrona. Utilizar grupos de ativação pós-falha automática, pode personalizar a política de ativação pós-falha para minimizar a potencial perda de dados. Em todos os casos, os utilizadores passam por um pequeno período de indisponibilidade e têm de restabelecer a ligação. A ativação pós-falha demora apenas alguns segundos enquanto a recuperação de base de dados de cópias de segurança demora horas.
-
-Para efetuar a ativação pós-falha para outra região, pode usar [georreplicação ativa](sql-database-geo-replication-overview.md) para configurar um banco de dados para até quatro secundárias bases de dados legíveis em regiões da sua preferência. Estas bases de dados secundárias são mantidas sincronizadas com a base de dados primária através de um mecanismo de replicação assíncrona. 
+* Por fim, pode recuperar rapidamente de uma falha se tiver configurado uma [grupo de ativação pós-falha automática](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) para a sua base de dados ou bases de dados. Pode personalizar a política de ativação pós-falha a utilizar a ativação pós-falha automática ou manual. Embora a ativação pós-falha em si demora apenas alguns segundos, o serviço irá demorar, pelo menos, 1 hora para ativá-lo. Isso é necessário para se certificar de que a ativação pós-falha é justificada pela escala da falha. Além disso, a ativação pós-falha pode resultar em perda de dados pequeno devido à natureza da replicação assíncrona. Consulte a tabela apresentada anteriormente neste artigo para obter detalhes da ativação pós-falha automática RTO e RPO.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,12 +92,12 @@ Para efetuar a ativação pós-falha para outra região, pode usar [georreplica�
 > Para utilizar a georreplicação ativa e grupos de ativação pós-falha automática, tem de ser o proprietário da subscrição ou ter permissões administrativas no SQL Server. Pode configurar e efetuar a ativação pós-falha utilizando o Azure portal, PowerShell ou a API de REST com permissões de subscrição do Azure ou com o Transact-SQL com permissões do SQL Server.
 > 
 
-Esta funcionalidade é utilizada para proteger contra interrupções de negócio se ocorrer uma indisponibilidade do Centro de dados ou durante uma atualização da aplicação. Para ativar automatizado e ativação pós-falha transparente deve organizar seus bancos de dados de georreplicação em grupos com o [grupo de ativação pós-falha automática](sql-database-geo-replication-overview.md) funcionalidade de base de dados SQL. Utilize grupos de georreplicação e ativação pós-falha automática Active Directory se a sua aplicação cumprir qualquer um dos seguintes critérios:
+Utilize grupos do Active Directory de ativação pós-falha automática se a sua aplicação cumprir qualquer um dos seguintes critérios:
 
 * É fundamental para a atividade crítica.
-* Tem um contrato de nível de serviço (SLA) que não permite 24 horas ou mais de períodos de indisponibilidade.
+* Tem um contrato de nível de serviço (SLA) que não permite para 12 horas ou mais de tempo de inatividade.
 * Tempo de inatividade pode resultar em encargos financeiros.
-* Tem uma taxa elevada de alteração de dados e perder uma hora não é aceitável.
+* Tem uma taxa elevada de dados, alterar e 1 hora de perda de dados não é aceitável.
 * O custo adicional da georreplicação ativa é inferior aos potenciais encargos financeiros e perda empresarial associada.
 
 Quando tomar medidas, o período de tempo que demora a recuperar e a perda de dados incorrida depende de como optar por utilizar estas funcionalidades de continuidade de negócio na sua aplicação. Na verdade, pode optar por utilizar uma combinação de cópias de segurança da base de dados e a georreplicação ativa consoante os requisitos da aplicação. Para ver um debate das considerações de design do aplicativo para bases de dados autónomas e para conjuntos elásticos com estas funcionalidades de continuidade de negócio, veja [estruturar uma aplicação para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [elástico estratégias de recuperação após desastre do conjunto](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
@@ -136,6 +134,11 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 * Certificar-se de que estão implementados inícios de sessão e permissões ao nível da base de dados mestra no local adequados (ou utilizar [utilizadores contidos](https://msdn.microsoft.com/library/ff929188.aspx))
 * Configurar auditorias, conforme adequado
 * Configurar alertas, conforme adequado
+
+> [!NOTE]
+> Se estiver a utilizar um grupo de ativação pós-falha e ligar às bases de dados usando o lstener de leitura / escrita, o redirecionamento após a ativação pós-falha acontecerá automática e transparente com a aplicação.  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Atualizar uma aplicação com um período de indisponibilidade mínimo
 Por vezes, um aplicativo deve ser colocado offline devido a manutenção planeada, como uma atualização da aplicação. [Gerir atualizações de aplicações](sql-database-manage-application-rolling-upgrade.md) descreve como utilizar a georreplicação ativa para permitir a implementação de atualizações da sua aplicação na cloud para minimizar o período de indisponibilidade durante as atualizações e fornecer um caminho de recuperação caso algo corra mal. 

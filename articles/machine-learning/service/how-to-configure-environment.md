@@ -9,16 +9,16 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220300"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239239"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning
 
-Saiba como configurar o ambiente de desenvolvimento para trabalhar com o serviço Azure Machine Learning. Aprenderá como criar um ficheiro de configuração que associa o seu ambiente de uma área de trabalho do Azure Machine Learning. Também aprenderá como configurar os seguintes ambientes de desenvolvimento:
+Saiba como configurar o ambiente de desenvolvimento para trabalhar com o serviço Azure Machine Learning. Aprenderá como criar um ficheiro de configuração que associa o seu ambiente de uma área de trabalho do serviço do Azure Machine Learning. Também aprenderá como configurar os seguintes ambientes de desenvolvimento:
 
 * Blocos de notas do Jupyter no seu computador
 * Visual Studio Code
@@ -35,6 +35,9 @@ A abordagem recomendada é usar o Continuum Anaconda [ambientes virtuais de cond
 
  * Para o ambiente do Visual Studio Code, o [extensão Python](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Comandos de shell utilizados neste documento são testados com o bash no Linux e macOS. Os comandos também são testados com cmd.exe no Windows.
+
 ## <a name="create-workspace-configuration-file"></a>Criar ficheiro de configuração da área de trabalho
 
 O ficheiro de configuração da área de trabalho é utilizado pelo SDK para comunicar com a sua área de trabalho do serviço do Azure Machine Learning.  Existem duas formas de obter este ficheiro:
@@ -49,7 +52,8 @@ O ficheiro de configuração da área de trabalho é utilizado pelo SDK para com
         ![Portal do Azure](./media/how-to-configure-environment/configure.png) 
     
     1. Crie o ficheiro com este código de Python. Execute o código no mesmo diretório que os scripts ou blocos de notas que fazem referência a área de trabalho:
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'

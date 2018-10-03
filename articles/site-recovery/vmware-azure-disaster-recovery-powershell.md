@@ -2,17 +2,18 @@
 title: Replicar e efetuar a ativação pós-falha de VMs de VMware para o Azure com o PowerShell no Azure Site Recovery | Documentos da Microsoft
 description: Saiba como configurar a replicação e ativação pós-falha para o Azure das VMs de VMware com o PowerShell no Azure Site Recovery.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917817"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042807"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicar e efetuar a ativação pós-falha de VMs de VMware para o Azure com o PowerShell
 
@@ -25,7 +26,7 @@ Saiba como:
 > - Valide o registo do servidor no cofre.
 > - Configure a replicação, incluindo uma política de replicação. Adicione o servidor vCenter e detetar VMs. > - Adicionar um servidor vCenter e detetar 
 > - Criar contas de armazenamento para armazenar dados de replicação e replicar as VMs.
-> - Execute uma ativação pós-falha. Configurar definições de ativação pós-falha, efetue uma definição de e para replicar máquinas virtuais.
+> - Executar uma ativação pós-falha. Configurar definições de ativação pós-falha, efetue uma definição de e para replicar máquinas virtuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

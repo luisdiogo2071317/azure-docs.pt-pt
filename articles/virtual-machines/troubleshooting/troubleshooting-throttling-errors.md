@@ -13,16 +13,16 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 53d94d8674a064960b3447374f68af0d3fdf6e0c
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7a1c283820b1ddef0c85899d9b56b6dcc3ea4b95
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414661"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043140"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolução de problemas de erros de limitação de API 
 
-Pedidos de computação do Azure podem ser otimizados numa subscrição e numa base por região para ajudar com o desempenho geral do serviço. Podemos assegurar que todas as chamadas para o Azure de computação Resource Provider (CRP) que gere os recursos no espaço de nomes Microsoft. Compute não excederem a velocidade máxima de pedido de API permitida. Este documento descreve a API de limitação, detalhes sobre como resolver problemas de limitação, e as melhores práticas para evitar a ser limitada.  
+Pedidos de computação do Azure podem ser otimizados numa subscrição e numa base por região para ajudar com o desempenho geral do serviço. Podemos assegurar que todas as chamadas para o Azure computação fornecedor de recursos (CRP), que gere os recursos no espaço de nomes Microsoft. Compute não excederem a velocidade máxima de pedido de API permitida. Este documento descreve a API de limitação, detalhes sobre como resolver problemas de limitação, e as melhores práticas para evitar a ser limitada.  
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitação de fornecedores de recursos do Azure Resource Manager vs  
 
@@ -40,7 +40,7 @@ Quando um cliente de API do Azure obtém um erro de limitação, o estado HTTP �
 
 Tenha em atenção que um pedido de API pode estar sujeitos a múltiplas políticas de limitação. Haverá um separado `x-ms-ratelimit-remaining-resource` cabeçalho para cada política. 
 
-Aqui está uma resposta de exemplo para eliminar uma VM num pedido de conjunto de dimensionamento de máquina virtual.
+Aqui está uma resposta de exemplo para eliminar o pedido de conjunto de dimensionamento de máquina virtual.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -73,17 +73,18 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-A política com o restante de chamada de contagem de 0 é o que é devolvido o erro de limitação. Nesse caso, que é `HighCostGet30Min`. O formato geral do corpo da resposta é o formato de erro de API do Azure Resource Manager geral (compatível com o OData). O código de erro principal, `OperationNotAllowed`, é um fornecedor de recursos de computação utiliza para comunicar a limitação de erros (entre outros tipos de erros do cliente). 
+A política com o restante de chamada de contagem de 0 é o que é devolvido o erro de limitação. Nesse caso, que é `HighCostGet30Min`. O formato geral do corpo da resposta é o formato de erro de API do Azure Resource Manager geral (compatível com o OData). O código de erro principal, `OperationNotAllowed`, é um fornecedor de recursos de computação utiliza para comunicar a limitação de erros (entre outros tipos de erros do cliente). O `message` propriedade de erros internos contém uma estrutura JSON serializada com os detalhes da violação limitação.
 
 Conforme ilustrado acima, todos os erros de limitação incluem o `Retry-After` cabeçalho, que fornece o número mínimo de segundos, o cliente deve aguardar antes de repetir o pedido. 
 
 ## <a name="best-practices"></a>Melhores práticas 
 
-- Repete incondicionalmente erros de API do serviço do Azure. É uma ocorrência comum para o código de cliente obter num loop de repetição rápida quando encontrar um erro que não é capaz de repetição. As repetições, eventualmente, irão esgotar o limite permitido de chamada para o grupo da operação de destino e afetar outros clientes da subscrição. 
+- Não repetir a erros de API de serviço do Azure, incondicionalmente e/ou imediatamente. É uma ocorrência comum para o código de cliente obter num loop de repetição rápida quando encontrar um erro que não é capaz de repetição. As repetições, eventualmente, irão esgotar o limite permitido de chamada para o grupo da operação de destino e afetar outros clientes da subscrição. 
 - Em casos de automatização de API de grande volume, considere a implementação proativa de cliente personalizada limitação quando a contagem de chamada disponíveis para um grupo de operação do destino cai abaixo alguns limiar inferior. 
 - Se a monitorização de operações assíncronas, respeitem as sugestões de cabeçalho Retry-After. 
-- Se o código de cliente precisa obter informações sobre uma determinada máquina Virtual, uma consulta nessa VM diretamente em vez de listagem de todas as VMs no que contém o grupo de recursos ou a subscrição completa e, em seguida, escolher a VM necessária no lado do cliente. 
-- Se o código de cliente tem de VMs, discos e instantâneos de uma localização do Azure específica, utilize o formulário com base na localização da consulta em vez de consulta de subscrição de todas as VMs e, em seguida, filtrar por localização no lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` e `/subscriptions/<subId>/providers/Microsoft.Compute/virtualMachines` consulta para computação Fornecedor regionais pontos finais do recurso. • Quando criar ou atualizar recursos da API em particular, VMs e máquina virtual de conjuntos de dimensionamento, é muito mais eficiente para controlar a operação assíncrona retornado até à conclusão que a consulta no URL de recurso em si (com base no `provisioningState`).
+- Se o código de cliente precisa obter informações sobre uma Máquina Virtual específica, consulte essa VM diretamente em vez de listagem de todas as VMs no grupo de recursos que contém ou a subscrição completa e, em seguida, escolher a VM necessária no lado do cliente. 
+- Se o código de cliente tem de VMs, discos e instantâneos de uma localização do Azure específica, utilize o formulário com base na localização da consulta em vez de consulta de subscrição de todas as VMs e, em seguida, filtrar por localização no lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta para o fornecedor de recursos de computação regionais pontos de extremidade. 
+-   Quando criar ou atualizar recursos da API em particular, VMs e conjuntos de dimensionamento de máquina virtual, é muito mais eficiente para controlar a operação assíncrona retornado até à conclusão que a consulta no URL de recurso em si (com base no `provisioningState`).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

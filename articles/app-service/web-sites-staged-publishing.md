@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ecd58779262f6580287e6c72d3aa2aecf237a562
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983114"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044319"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -84,7 +84,7 @@ Quando clona configuração a partir de outro bloco de implementação, a config
 * Definições de dimensionamento
 * Agendadores de WebJobs
 
-Para configurar uma cadeia de ligação ou definição de aplicação de adotar uma ranhura (não trocada), aceda a **as definições da aplicação** painel para um bloco específico, em seguida, selecione a **definição de ranhura** caixa para a configuração elementos que devem inserir a ranhura. Marcando um elemento de configuração como ranhura específica tem o efeito de estabelecer esse elemento como não-swap em todas as ranhuras de implementação associadas à aplicação.
+Para configurar uma cadeia de ligação ou definição de aplicação de adotar uma ranhura (não trocada), aceda a **as definições da aplicação** painel para um bloco específico, em seguida, selecione a **definição de ranhura** caixa para a configuração elementos que devem adotar o bloco. Marcando um elemento de configuração como ranhura específica tem o efeito de estabelecer esse elemento como não-swap em todas as ranhuras de implementação associadas à aplicação.
 
 ![Definições de ranhura][SlotSettings]
 

@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093623"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044778"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de Acionador e ação para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -62,7 +62,7 @@ Os acionadores têm esses elementos de nível superior, apesar de alguns são op
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*matriz com condições*> | Array | Uma matriz que contém um ou mais [condições](#trigger-conditions) que determinar se deve executar o fluxo de trabalho | 
+| <*matriz com condições*> | Array | Uma matriz que contém um ou mais [condições](#trigger-conditions) que determinar se deve executar o fluxo de trabalho. Disponível apenas para acionadores. | 
 | <*Opções de configuração de tempo de execução*> | Objeto JSON | Pode alterar o comportamento de tempo de execução do acionador definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
 | <*expressão de splitOn*> | Cadeia | Para acionadores que retornam uma matriz, pode especificar uma expressão que [divide ou *debatches* ](#split-on-debatch) matriz de itens em várias instâncias de fluxo de trabalho para processamento. | 
 | <*opção de operação*> | Cadeia | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
@@ -657,7 +657,7 @@ Este acionador Especifica que uma solicitação de entrada tem de utilizar o mé
 
 ## <a name="trigger-conditions"></a>Condições de acionamento
 
-Para qualquer acionador, pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar o `conditions` propriedade à sua aplicação lógica, abrir a aplicação lógica no editor de vista de código.
+Para qualquer acionador e apenas acionadores, pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar o `conditions` propriedade a um acionador na sua aplicação lógica, abrir a aplicação lógica no editor de vista de código.
 
 Por exemplo, pode especificar que um acionador é acionado quando um Web site retorna apenas um erro de servidor interno referenciando o código de estado do acionador no `conditions` propriedade:
 
@@ -1340,7 +1340,7 @@ Esta ação cria uma matriz de itens na outra matriz com base numa condição es
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
 | <*Matriz*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. |
-| <*condição ou filtro*> | Cadeia | A condição utilizada para filtrar itens na matriz de origem <p>**Tenha em atenção**: Se não existem valores satisfaçam a condição, a ação cria uma matriz vazia. |
+| <*condição ou filtro*> | Cadeia | A condição utilizada para filtrar itens na matriz de origem <p>**Tenha em atenção**: Se não existem valores satisfaçam a condição, em seguida, a ação cria uma matriz vazia. |
 |||| 
 
 *Exemplo*
@@ -2318,7 +2318,7 @@ Pode alterar o comportamento predefinido para acionadores e ações com o `opera
 
 ### <a name="change-trigger-concurrency"></a>Simultaneidade de Acionador de alteração
 
-Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de Acionador é acionado antes da instância da aplicação lógica anteriormente ativo termina a respetiva execução. Este limite ajuda a controlar o número de pedidos a receber de sistemas back-end. 
+Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de Acionador é acionado antes da instância anterior da aplicação lógica termina a respetiva execução. Este limite ajuda a controlar o número de pedidos a receber de sistemas back-end. 
 
 Para alterar o limite predefinido, pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas como alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. Esta propriedade controla o número máximo de instâncias de aplicações lógicas que podem ser executadas em paralelo. 
 
@@ -2385,7 +2385,7 @@ Eis um exemplo que limita as execuções simultâneas para 10 iterações:
 
 #### <a name="edit-in-logic-apps-designer"></a>Editar no estruturador de aplicações lógicas
 
-1. Na **para cada** canto do canto superior direito da ação, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
+1. Na **para cada** ação, no canto superior direito, selecione o botão de reticências (...) e, em seguida, escolha **definições**.
 
 2. Sob **controlo de simultaneidade**, defina **substituir predefinido** para **no**. 
 
@@ -2399,7 +2399,7 @@ Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tem
 
 O número de execuções que pode aguardar também tem um [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que pode alterar. No entanto, depois que a aplicação lógica atinge o limite de execuções de espera, o motor do Logic Apps aceita já não novas execuções. Os acionadores de pedido e webhook devolvem 429 erros e acionadores recorrentes começar a ignorar tentativas de consulta.
 
-Para alterar o limite predefinido no execuções de espera, em subjacentes definição do acionador, adicione e defina a `runtimeConfiguration.concurency.maximumWaitingRuns` propriedade para um valor entre `0` e `100`. 
+Para alterar o limite predefinido no execuções de espera, em subjacentes definição do acionador, adicione a `runtimeConfiguration.concurency.maximumWaitingRuns` propriedade com um valor entre `0` e `100`. 
 
 ```json
 "<trigger-name>": {

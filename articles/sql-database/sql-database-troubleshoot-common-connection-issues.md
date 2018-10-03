@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 276a2d6d717497538a6633a9b0926bb89b9e875c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161102"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041735"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Resolver problemas de ligação à base de dados do Azure SQL
 Quando a ligação à base de dados do Azure SQL falhar, receberá [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que o ajuda a resolver problemas de conectividade da base de dados do Azure SQL. Ele introduz [as causas comuns](#cause) dos problemas de ligação, recomenda [uma ferramenta de resolução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identidade do problema e fornece passos de resolução de problemas para resolver [transitório erros](#troubleshoot-transient-errors) e [persistentes ou não transitórias erros](#troubleshoot-persistent-errors). 
@@ -62,7 +62,7 @@ Este erro ocorre quando a base de dados do Azure está a ser movido (ou reconfig
 
 1. Verifique os [Dashboard de serviço do Microsoft Azure](https://azure.microsoft.com/status) para qualquer falhas conhecidas que ocorreram durante o tempo durante o qual o erro foi comunicado pelo aplicativo.
 2. Aplicações que se ligam a um serviço cloud como base de dados do Azure SQL deve esperar que os eventos de reconfiguração periódica e implementar novamente a lógica para lidar com esses erros, em vez de analisar como erros de aplicações aos utilizadores. Reveja a [erros transitórios](sql-database-connectivity-issues.md) secção e as práticas recomendadas e diretrizes de design em [descrição geral do desenvolvimento de banco de dados SQL](sql-database-develop-overview.md) estratégias de repetição para obter mais informações e geral. Em seguida, veja exemplos de código em [bibliotecas de ligação para base de dados SQL e SQL Server](sql-database-libraries.md) para obter informações específicas.
-3. Como seus limites de recursos se aproxima de uma base de dados, ele pode parecer ser um problema de conectividade transitório. Ver [limites de recursos](sql-database-resource-limits.md).
+3. Como seus limites de recursos se aproxima de uma base de dados, ele pode parecer ser um problema de conectividade transitório. Ver [limites de recursos](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Se continuar a problemas de conectividade, ou se a duração para os quais seu aplicativo encontrar o erro exceder 60 segundos, ou se observar várias ocorrências do erro num determinado dia, ficheiro um pedido de suporte do Azure ao selecionar **obter suportar**sobre o [suporte do Azure](https://azure.microsoft.com/support/options) site.
 
 ## <a name="troubleshoot-persistent-errors"></a>Resolver erros persistentes

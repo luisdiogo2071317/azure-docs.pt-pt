@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 09/24/2018
-ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/01/2018
+ms.openlocfilehash: df6637f1a52b679ba9ad0a49fb37d4e4b72f35e4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971489"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237828"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Implementar um modelo como um serviço web num FPGA com o Azure Machine Learning
 
@@ -24,7 +24,9 @@ Pode implementar um modelo como um serviço web no [campo matrizes de porta prog
 
 - Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Uma área de trabalho do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
+- Tem de pedir e ser aprovado para a quota FPGA. Para pedir acesso, preencha o formulário de pedido de quota: https://aka.ms/aml-real-time-ai
+
+- Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
  
   - Deverá estar na sua área de trabalho do *E.U.A. Leste 2* região.
 
@@ -47,11 +49,7 @@ Siga as instruções para:
 > [!IMPORTANT]
 > Para otimizar o débito e latência, o cliente deve ser na mesma região do Azure como o ponto final.  Atualmente as APIs são criadas na região do Azure do Leste-nos.
 
-### <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, neste tutorial está disponível como um bloco de notas do Jupyter. Utilizar um dos seguintes métodos para executar o `project-brainwave/project-brainwave-quickstart.ipynb` bloco de notas:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### <a name="preprocess-image"></a>Pré-processar a imagem
 O primeiro estágio do pipeline é pré-processar as imagens.
@@ -66,6 +64,7 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
+
 ### <a name="add-featurizer"></a>Adicionar Featurizer
 Inicializar o modelo e transfira um ponto de verificação do TensorFlow da versão quantificada do ResNet50 para ser utilizado como um featurizer.
 
@@ -317,3 +316,11 @@ Utilizando um dos métodos faz com que o gRPC utilizar o certificado como o cert
 
 > [!IMPORTANT]
 > gRPC não aceita certificados não fidedignos. Utilizando um certificado não fidedigno irá falhar com um `Unavailable` código de estado. Os detalhes da falha contêm `Connection Failed`.
+
+## <a name="sample-notebook"></a>Bloco de notas de exemplo
+
+Conceitos neste artigo são demonstrados a `project-brainwave/project-brainwave-quickstart.ipynb` bloco de notas.
+
+Obter este bloco de notas:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

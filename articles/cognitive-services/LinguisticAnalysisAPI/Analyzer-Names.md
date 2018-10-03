@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: a998bdf32be948448131ea12db1b7d4204e6722d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127470"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237237"
 ---
 # <a name="analyzer-names"></a>Nomes de analisador
+
+> [!IMPORTANT]
+> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
 
 Uma estrutura de nomenclatura um pouco complicada para analisadores são utilizadas para permitir que os dois flexibilidade no analisadores e precisão em compreender o que significa que um nome.
 Nomes de analisador consistem em quatro partes: um ID, um tipo, uma especificação e uma implementação.

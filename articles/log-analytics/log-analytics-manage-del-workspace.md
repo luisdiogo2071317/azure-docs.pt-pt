@@ -1,6 +1,6 @@
 ---
-title: Eliminar uma área de trabalho do Log Analytics do Azure | Microsoft Docs
-description: Saiba como eliminar a sua área de trabalho de análise de registos, se tiver criado uma numa subscrição pessoal ou reestruturar o seu modelo da área de trabalho.
+title: Eliminar uma área de trabalho do Log Analytics do Azure | Documentos da Microsoft
+description: Saiba como eliminar a área de trabalho do Log Analytics, se tiver criado uma numa subscrição de pessoa ou reestruturar seu modelo de área de trabalho.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 54f2af60751ed0d9c64e71efad6fa9aa3ef06589
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: c04cc601152001dabc0cf152918c8d0ec884c7ed
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129120"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041141"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure
-Este artigo mostra como utilizar o portal do Azure para eliminar uma área de trabalho de análise de registos que poderá deixar de necessitar. 
+Este artigo mostra como utilizar o portal do Azure para eliminar uma área de trabalho do Log Analytics, poderá já não precisar. 
 
 ## <a name="to-delete-a-workspace"></a>Para eliminar uma área de trabalho 
-Quando elimina uma área de trabalho de análise de registos, todos os dados relacionados com a sua área de trabalho é eliminado do serviço no prazo de 30 dias.  Quer tenha cuidado quando elimina uma área de trabalho porque poderá haver dados importantes e de configuração que pode afetar negativamente as operações de serviço. Considere a outros serviços do Azure e as origens que armazenam os dados na análise de registos, tais como:
+Quando elimina uma área de trabalho do Log Analytics, todos os dados relacionados com a sua área de trabalho é eliminado do serviço dentro de 30 dias.  Quer tenha cuidado ao eliminar uma área de trabalho, porque pode haver dados importantes e de configuração que pode afetar negativamente as operações de serviço. Considere a outros serviços do Azure e origens que armazenam os dados no Log Analytics, tais como:
 
 * Application Insights
 * Centro de Segurança do Azure
@@ -36,12 +36,12 @@ Quando elimina uma área de trabalho de análise de registos, todos os dados rel
 * System Center Operations Manager
 * Soluções de gestão 
 
-Quaisquer agentes e grupos de gestão do System Center Operations Manager configurados para o relatório para a área de trabalho continuam a num Estado órfão.  Os agentes, soluções, de inventário e outros serviços do Azure estão integrados com a área de trabalho antes de continuar.   
+Quaisquer agentes e os grupos de gestão do System Center Operations Manager configurados para reportar para a área de trabalho continuam num Estado órfão.  Inventariar os agentes, soluções, e outros serviços do Azure estão integrados com a área de trabalho antes de continuar.   
  
-Se for um administrador e existirem vários utilizadores associados à área de trabalho, a associação entre esses utilizadores e a área de trabalho é interrompida. Se os utilizadores estiverem associados a outras áreas de trabalho, podem continuar a utilizar o Log Analytics com essas áreas de trabalho. No entanto, se não estão associados com outras áreas de trabalho, em seguida, precisam de criar uma área de trabalho para utilizar a análise de registos. 
+Se for um administrador e existirem vários utilizadores associados à área de trabalho, a associação entre esses utilizadores e a área de trabalho é interrompida. Se os utilizadores estiverem associados a outras áreas de trabalho, podem continuar a utilizar o Log Analytics com essas áreas de trabalho. No entanto, se eles não estão associados a outras áreas de trabalho, em seguida, eles precisam criar uma área de trabalho para utilizar o Log Analytics. 
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com). 
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
-3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em **eliminar** da parte superior do painel do meio.<br><br> ![Eliminar a opção do painel de propriedades da área de trabalho](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace.png)<br>  
-4. Quando for apresentada a janela da mensagem de confirmação pedir-lhe para confirmar a eliminação da área de trabalho, clique em **Sim**.<br><br> ![Confirmar eliminação da área de trabalho](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace-confirm.png)
+3. No painel de subscrições do Log Analytics, selecione uma área de trabalho e, em seguida, clique em **eliminar** da parte superior do painel do meio.<br><br> ![Opção de eliminar a partir do painel de propriedades da área de trabalho](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace.png)<br>  
+4. Quando for apresentada a janela de mensagem de confirmação que lhe pede para confirmar a eliminação da área de trabalho, clique em **Sim**.<br><br> ![Confirmar a eliminação da área de trabalho](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace-confirm.png)
 

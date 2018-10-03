@@ -1,6 +1,6 @@
 ---
-title: Gerir e implementar modelos no Azure Machine Learning
-description: Saiba como utilizar o Azure Machine Learning para implementar, gerir e monitorizar os seus modelos para melhorar continuamente. Pode implementar os modelos treinados com o Azure Machine Learning, no seu computador local ou de outras origens.
+title: Gerir e implementar modelos de serviço do Azure Machine Learning
+description: Saiba como utilizar o serviço do Azure Machine Learning para implementar, gerir e monitorizar os seus modelos para melhorar continuamente. Pode implementar os modelos treinados com o serviço do Azure Machine Learning, no seu computador local ou de outras origens.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: afba483172bc34b9d54afc3af755f0967affc875
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166542"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239171"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Gerir, implementar e monitorizar os modelos com o Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
-Neste artigo, pode saber como utilizar o Azure Machine Learning para implementar, gerir e monitorizar os seus modelos para melhorar continuamente. Pode implementar os modelos treinados com o Azure Machine Learning, no seu computador local ou de outras origens. 
+Neste artigo, pode saber como utilizar o serviço do Azure Machine Learning para implementar, gerir e monitorizar os seus modelos para melhorar continuamente. Pode implementar os modelos treinados com o Azure Machine Learning, no seu computador local ou de outras origens. 
 
 O diagrama seguinte ilustra o fluxo de trabalho de implantação completa: [ ![fluxo de trabalho de implantação para o Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 O fluxo de trabalho de implantação inclui os seguintes passos:
-1. **Registe o modelo** num registo alojado na sua área de trabalho do Azure Machine Learning
+1. **Registe o modelo** num registo alojado na sua área de trabalho do serviço do Azure Machine Learning
 1. **Registe-se de uma imagem** que emparelha um modelo com um script de classificação e dependências num contêiner portátil 
 1. **Implementar** a imagem como um serviço da web na cloud ou para dispositivos de ponta
 1. **Monitorizar e recolher dados**
@@ -35,7 +35,7 @@ Cada passo pode ser efetuado de forma independente ou como parte de um comando d
 
 ## <a name="step-1-register-model"></a>Passo 1: Modelo de registro
 
-O registo de modelo mantém um registo de todos os modelos na sua área de trabalho do Azure Machine Learning.
+O registo de modelo mantém um registo de todos os modelos na sua área de trabalho do serviço do Azure Machine Learning.
 Modelos são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos.
 
 Não é possível eliminar modelos que estão a ser utilizados por uma imagem.

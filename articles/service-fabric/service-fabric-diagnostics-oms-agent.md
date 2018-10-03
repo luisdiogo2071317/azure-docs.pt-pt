@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d9d40a111faefee705c3ce1987c380ee2ba695ec
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993855"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040192"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitorização de desempenho com o Log Analytics
 
@@ -86,7 +86,7 @@ Agora que adicionou o agente do Log Analytics, head a ativação pós-falha para
 
 6. Feche o painel de definições avançadas.
 
-7. Sob o cabeçalho de geral, clique em **descrição geral**.
+7. Sob o cabeçalho de geral, clique em **resumo de área de trabalho**.
 
 8. Verá os mosaicos na forma de um gráfico para cada uma das soluções de ativadas, incluindo um para o Service Fabric. Clique nas **Service Fabric** gráfico para continuar para a solução de análise do Service Fabric.
 

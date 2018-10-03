@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1f7fc9916fc856d636b6ad850f831a3235b80632
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949847"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237760"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -108,60 +108,23 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="sizeondisk-versus-size"></a>
 **Por que não a *tamanho no disco* propriedade uma correspondência de ficheiro para o *tamanho* propriedade depois de utilizar o Azure File Sync?**  
-    Explorador de ficheiros do Windows expõe duas propriedades para representar o tamanho de um ficheiro: **tamanho** e **tamanho no disco**. Estas propriedades uma diferença sutil na significado. **Tamanho** representa o tamanho total do ficheiro. **Tamanho no disco** representa o tamanho do fluxo de ficheiros que está armazenado no disco. Os valores para estas propriedades podem ser diferentes para diversas razões, tais como compressão, utilize da eliminação de duplicados de dados ou na cloud em camadas com o Azure File Sync. Se um ficheiro é em camadas para uma partilha de ficheiros do Azure, o tamanho no disco for zero, uma vez que a sequência de ficheiros é armazenada na partilha de ficheiros do Azure e não no disco. Também é possível para um arquivo seja parcialmente em camadas (ou parcialmente recolhido). Num arquivo parcialmente em camadas, parte do arquivo é efetuada no disco. Esta situação pode ocorrer quando os ficheiros parcialmente são lidas pelas aplicações, como leitores de multimídia ou zip utilitários. 
+ Ver [compreensão em camada de Cloud](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
 **Como posso saber se um ficheiro tem sido em camadas?**  
-    Existem várias formas para verificar se um ficheiro tem sido em camadas para a partilha de ficheiros do Azure:
-    
-   *  **Verifique os atributos de ficheiro no ficheiro.**
-     Para tal, clique com o botão direito num arquivo, aceda a **detalhes**e, em seguida, desloque para baixo até o **atributos** propriedade. Um ficheiro em camadas tem os seguintes atributos definido:     
-        
-        | Letra de atributo | Atributo | Definição |
-        |:----------------:|-----------|------------|
-        | A | Arquivo | Indica que o ficheiro deve ser feito pelo software de cópia de segurança. Este atributo é sempre definido, independentemente se o ficheiro está em camadas ou totalmente armazenado no disco. |
-        | P | Ficheiro disperso | Indica que o ficheiro é um ficheiro disperso. Um ficheiro disperso é um tipo especializado de arquivos NTFS oferece para uma utilização eficaz quando o ficheiro no fluxo de disco é maioritariamente vazio. O Azure File Sync utiliza arquivos esparsos, porque um ficheiro é totalmente em camadas ou parcialmente recolhido. Num arquivo totalmente em camadas, a sequência de ficheiros é armazenada na cloud. Num arquivo parcialmente recolhido, que parte do arquivo já está no disco. Se um ficheiro é totalmente recuperados para o disco, Azure File Sync converte-o de um ficheiro disperso regulárním souborem. |
-        | L | Ponto de reanálise | Indica que o ficheiro tem um ponto de reanálise. Um ponto de reanálise é um ponteiro especial para utilização por um filtro de sistema de ficheiros. O Azure File Sync utiliza pontos de reanálise para definir para o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) a localização de cloud em que o ficheiro está armazenado. Isto suporta acesso totalmente integrado. Os utilizadores não precisam de saber que o Azure File Sync está sendo usado ou como obter acesso ao ficheiro na partilha de ficheiros do Azure. Quando um ficheiro é totalmente recuperado, o Azure File Sync remove o ponto de reanálise do ficheiro. |
-        | O | Offline | Indica que alguns ou todos os conteúdos do ficheiro não são armazenados no disco. Quando um ficheiro é totalmente recuperado, o Azure File Sync remove este atributo. |
-
-        ![A caixa de diálogo de propriedades de um arquivo, com o separador de detalhes selecionado](media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-        Pode ver os atributos para todos os ficheiros numa pasta ao adicionar o **atributos** campo para a exibição de tabela do Explorador de ficheiros. Para tal, faça duplo clique numa coluna existente (por exemplo, **tamanho**), selecione **mais**e, em seguida, selecione **atributos** na lista pendente.
-        
-   * **Utilize `fsutil` para verificar a existência de pontos de reanálise num ficheiro.**
-       Conforme descrito na opção anterior, um ficheiro em camadas sempre tem um conjunto de ponto de reanálise. Um ponteiro de reanálise é um ponteiro especial para o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys). Para verificar se um ficheiro tiver um ponto de reanálise, numa janela de Prompt de comando ou do PowerShell elevada, execute o `fsutil` utilitário:
-    
-        ```PowerShell
-        fsutil reparsepoint query <your-file-name>
-        ```
-
-        Se o ficheiro tiver um ponto de reanálise, que pode esperar **valor de etiqueta de reanálise: 0x8000001e**. Este valor hexadecimal é o valor do ponto de reanálise que é propriedade de sincronização de ficheiros do Azure. A saída também contém os dados de reanálise que representa o caminho para o ficheiro na partilha de ficheiros do Azure.
-
-        > [!WARNING]  
-        > O `fsutil reparsepoint` comando utilitário também tem a capacidade de eliminar um ponto de reanálise. Não execute este comando, a menos que a equipa de engenharia do Azure File Sync pede para. Executar este comando pode resultar na perda de dados. 
+ Ver [compreensão em camada de Cloud](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**Um ficheiro que pretende utilizar tem sido em camadas. Como posso recuperar o arquivo em disco para utilizá-lo localmente?**  
-    A maneira mais fácil de recuperar um arquivo em disco é abrir o ficheiro. O filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) transfere o ficheiro de forma totalmente integrada a partir da partilha de ficheiros do Azure sem qualquer trabalho de sua parte. Para tipos de ficheiro que podem ser parcialmente leitura, tais como ficheiros de multimédia ou. zip, abrir um ficheiro não é transferido o arquivo inteiro.
+ Ver [compreensão em camada de Cloud](storage-sync-cloud-tiering.md#afs-recall-file).
 
-    Também pode utilizar o PowerShell para forçar um ficheiro a ser recolhido. Esta opção poderá ser útil se quiser Lembre-se vários ficheiros ao mesmo tempo, por exemplo, todos os ficheiros numa pasta. Abra uma sessão do PowerShell para o nó de servidor em que o Azure File Sync está instalado e, em seguida, execute os seguintes comandos do PowerShell:
-    
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
 
 * <a id="afs-force-tiering"></a>
 **Como posso forçar um ficheiro ou diretório para ser colocado em camadas?**  
-    Quando a funcionalidade de camadas na cloud está ativada, disposição em camadas automaticamente os ficheiros de camadas de cloud com base no último acesso e modificar vezes para alcançar a percentagem de espaço livre de volume especificada no ponto final da cloud. Às vezes, no entanto, pode querer forçar manualmente um ficheiro a uma camada. Isso pode ser útil se salvar um arquivo grande que não pretende utilizar novamente durante muito tempo e pretende que o espaço livre no volume dos seus agora a utilizar para outros ficheiros e pastas. Pode forçar a disposição em camadas utilizando os seguintes comandos do PowerShell:
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+ Ver [compreensão em camada de Cloud](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
 **Como é *espaço livre do volume* interpretados quando eu tiver vários pontos de extremidade do servidor num volume?**  
-    Quando existe mais do que um ponto final de servidor num volume, o limite de espaço livre de volume em vigor é o maior espaço livre de volume especificado em qualquer ponto final do servidor nesse volume. Ficheiros serão dispostos em camadas, de acordo com seus padrões de utilização, independentemente de qual ponto final do servidor ao qual pertencem. Por exemplo, se tiver dois pontos de extremidade do servidor num volume, Endpoint1 e Endpoint2, onde Endpoint1 tem um limiar de espaço livre do volume de 25% e Endpoint2 tem um limiar de espaço livre do volume de 50%, o limite de espaço livre de volume para os dois pontos finais do servidor será 50%.
+ Ver [compreensão em camada de Cloud](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
 **Os ficheiros ou pastas são automaticamente excluídas pelo Azure File Sync?**  

@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: 83ea72e7c5c880ecab7d165e029f948144506271
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127705"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238629"
 ---
 # <a name="constituency-parsing"></a>Análise de grupos
+
+> [!IMPORTANT]
+> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
 
 O objetivo da análise (também conhecido como "frase estrutura análise") de grupos é identificar as frases no texto.
 Isso pode ser útil quando a extração de informações de texto.

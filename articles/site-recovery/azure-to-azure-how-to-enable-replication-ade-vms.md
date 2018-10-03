@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: d276098c951cb26a97906e6ac7e23c0ab2e4d137
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432584"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043282"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas de virtuais do Azure disk encryption (ADE) ativada para outra região do Azure
 
@@ -127,7 +127,7 @@ Na abaixo cenários, será necessário para atualizar as definições de encript
   - Ativar a replicação de recuperação de Site na VM e ativada a encriptação de disco do Azure (ADE) na VM de origem numa data posterior
   - Ativar a replicação de recuperação de Site na VM e alterar a chave de encriptação de disco e/ou a chave de encriptação de chave na VM de origem numa data posterior
 
-Pode usar [o script](#copy-ade-keys-to-dr-region-using-powerShell-script) para copiar as chaves de encriptação para a região de destino e, em seguida, Atualize as definições de encriptação de destino no **-> de Cofre de serviços de recuperação de item replicado -> propriedades -> computação e rede.**
+Pode usar [o script](#copy-ade-keys-to-dr-region-using-powershell-script) para copiar as chaves de encriptação para a região de destino e, em seguida, Atualize as definições de encriptação de destino no **-> de Cofre de serviços de recuperação de item replicado -> propriedades -> computação e rede.**
 
 ![ade-definições de atualização](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 

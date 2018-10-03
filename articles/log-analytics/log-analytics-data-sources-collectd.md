@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de CollectD na análise de registos do OMS | Microsoft Docs
-description: CollectD é um daemon de Linux de código aberto periodicamente recolhe dados das aplicações e informações de nível do sistema.  Este artigo fornece informações sobre a recolha de dados de CollectD na análise de registos.
+title: Recolher dados recolhidos no OMS Log Analytics | Documentos da Microsoft
+description: Recolhidos é um daemon de Linux do código-fonte aberto que periodicamente recolhe dados de aplicativos e suas informações de nível de sistema.  Este artigo fornece informações sobre a recolha de dados recolhidos no Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: eb053ef8fc66ff9d71a9576b71eb4edfcd688638
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127701"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041295"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recolher dados de CollectD nos agentes Linux na análise de registos
-[CollectD](https://collectd.org/) é um daemon de Linux de código aberto periodicamente recolhe métricas de desempenho de aplicações e informações de nível do sistema. Aplicações de exemplo incluem a Máquina Virtual de Java (JVM), servidor MySQL e Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho de CollectD na análise de registos.
+# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recolher dados de recolhidos nos agentes do Linux no Log Analytics
+[Recolhidos](https://collectd.org/) é um daemon de Linux do código-fonte aberto que periodicamente recolhe métricas de desempenho de aplicativos e suas informações de nível de sistema. Aplicativos de exemplo incluem a Máquina Virtual de Java (JVM), o servidor MySQL e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho recolhidos no Log Analytics.
 
 Uma lista completa de plug-ins disponíveis pode ser encontrada em [tabela de plug-ins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-![Descrição geral de CollectD](media/log-analytics-data-sources-collectd/overview.png)
+![Descrição geral de recolhidos](media/log-analytics-data-sources-collectd/overview.png)
 
-A seguinte configuração de CollectD está incluída no agente do OMS do Linux, a rota CollectD dados para o agente do OMS para Linux.
+A seguinte configuração recolhidos está incluída no agente do OMS para Linux, para encaminhar os dados recolhidos para o agente do OMS para Linux.
 
     LoadPlugin write_http
 
@@ -41,7 +41,7 @@ A seguinte configuração de CollectD está incluída no agente do OMS do Linux,
          </Node>
     </Plugin>
 
-Além disso, se utilizar um versões do collectD antes 5.5 em alternativa, utilize a seguinte configuração.
+Além disso, se utilizar um versões do recolhidos antes 5.5, utilize a seguinte configuração em vez disso.
 
     LoadPlugin write_http
 
@@ -52,12 +52,12 @@ Além disso, se utilizar um versões do collectD antes 5.5 em alternativa, utili
        </URL>
     </Plugin>
 
-A configuração de CollectD utiliza a predefinição`write_http` Plug-in para enviar dados de métrica de desempenho através da porta 26000 para o agente do OMS para Linux. 
+A configuração de recolhidos utiliza a predefinição`write_http` Plug-in para enviar dados de métrica de desempenho através da porta 26000 ao agente do OMS para Linux. 
 
 > [!NOTE]
-> Esta porta pode ser configurada para uma porta personalizada definida se for necessário.
+> Esta porta pode ser configurada para uma porta definida pelo personalizada, se necessário.
 
-O agente do OMS para Linux também escuta na porta 26000 CollectD com base nas métricas e, em seguida, converte-os para as métricas de esquema do OMS. Segue-se o agente do OMS para a configuração do Linux `collectd.conf`.
+O agente do OMS para Linux também escuta na porta 26000 para métricas recolhidos e, em seguida, converte-os para as métricas de esquema do OMS. Segue-se o agente do OMS para Linux configuração `collectd.conf`.
 
     <source>
       type http
@@ -71,46 +71,46 @@ O agente do OMS para Linux também escuta na porta 26000 CollectD com base nas m
 
 
 ## <a name="versions-supported"></a>Versões suportadas
-- Análise de registos suporta atualmente CollectD versão 4.8 e superior.
-- Agente do OMS para Linux v1.1.0-217 ou superior é necessário para a coleção de métrica de CollectD.
+- Atualmente, o log Analytics suporta recolhidos versão 4.8 e acima.
+- Agente do OMS para Linux v1.1.0-217 ou superior é necessário para a recolha de métrica recolhidos.
 
 
 ## <a name="configuration"></a>Configuração
-Seguem-se os passos básicos para configurar a recolha de dados de CollectD na análise de registos.
+Seguem-se passos básicos para configurar a recolha de dados recolhidos no Log Analytics.
 
-1. Configure CollectD para enviar dados para o agente do OMS para Linux utilizando o plug-in de write_http.  
-2. Configure o agente do OMS para Linux escutar os dados de CollectD na porta adequada.
-3. Reinicie CollectD e o agente do OMS para Linux.
+1. Configure recolhidos para enviar dados para o agente do OMS para Linux utilizar o plug-in de write_http.  
+2. Configure o agente do OMS para Linux escutar os dados recolhidos na porta adequada.
+3. Reinicie recolhidos e o agente do OMS para Linux.
 
-### <a name="configure-collectd-to-forward-data"></a>Configurar CollectD para reencaminhar dados 
+### <a name="configure-collectd-to-forward-data"></a>Configurar recolhidos para reencaminhar dados 
 
-1. A rota CollectD dados para o agente do OMS para Linux `oms.conf` tem de ser adicionado ao diretório de configuração do CollectD. O destino deste ficheiro depende do distro Linux da sua máquina.
+1. Para encaminhar os dados recolhidos para o agente do OMS para Linux, `oms.conf` precisa ser adicionado ao diretório de configuração do recolhidos. O destino deste ficheiro depende a distribuição Linux da sua máquina.
 
-    Se o diretório de configuração CollectD está localizado na /etc/collectd.d/:
+    Se o seu diretório de configuração recolhidos está localizado na /etc/collectd.d/:
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
 
-    Se o diretório de configuração CollectD está localizado na /etc/collectd/collectd.conf.d/:
+    Se o seu diretório de configuração recolhidos está localizado na /etc/collectd/collectd.conf.d/:
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    >Para versões de CollectD antes 5.5 terá de modificar as etiquetas na `oms.conf` conforme mostrado acima.
+    >Para versões de recolhidos antes 5.5 terá de modificar as etiquetas no `oms.conf` conforme mostrado acima.
     >
 
-2. Copie collectd.conf para o diretório de configuração de omsagent da área de trabalho pretendida.
+2. Copie collectd.conf para diretório de configuração da área de trabalho pretendida omsagent.
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. Reinicie CollectD e o agente do OMS para Linux com os seguintes comandos.
+3. Reinicie recolhidos e o agente do OMS para Linux com os seguintes comandos.
 
-    sudo collectd reinício sudo /opt/microsoft/omsagent/bin/service_control reiniciar o serviço do
+    sudo recolhidos reinício sudo /opt/microsoft/omsagent/bin/service_control reiniciar o serviço do
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Métricas de CollectD para conversão de esquema de análise de registos
-Para manter um modelo familiar entre as métricas de infraestrutura recolhidas pelo agente do OMS para Linux e a nova métrica recolhidos pelo CollectD o seguinte mapeamento de esquema é utilizado:
+## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Métricas de recolhidos para a conversão do esquema do Log Analytics
+Para manter um modelo familiar entre as métricas de infraestrutura recolhidas pelo agente do OMS para Linux e as novas métricas recolhidas pelo recolhidos o seguinte mapeamento do esquema é usado:
 
-| Campo de métrica de CollectD | Campo de análise do registo |
+| Campo de métrica recolhidos | Campo do log Analytics |
 |:--|:--|
 | anfitrião | Computador |
 | Plug-in | Nenhuma |
@@ -119,9 +119,9 @@ Para manter um modelo familiar entre as métricas de infraestrutura recolhidas p
 | type_instance | CounterName<br>Se **type_instance** é *nulo* , em seguida, CounterName =**em branco** |
 | dsnames [] | CounterName |
 | dstypes | Nenhuma |
-| os valores] | CounterValue |
+| valores [] | CounterValue |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
-* Utilize [campos personalizados](log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.
+* Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Uso [campos personalizados](log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.
 

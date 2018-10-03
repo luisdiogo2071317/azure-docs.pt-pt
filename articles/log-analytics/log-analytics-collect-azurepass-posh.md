@@ -1,6 +1,6 @@
 ---
-title: Recolher a métrica de recursos do Azure PaaS com Log Analytics | Microsoft Docs
-description: Saiba como ativar a recolha de métricas de recurso de PaaS do Azure através do PowerShell para retenção e a análise na análise de registos.
+title: Recolher métricas de recursos de PaaS do Azure com o Log Analytics | Documentos da Microsoft
+description: Saiba como ativar a recolha de métricas de recursos de PaaS do Azure com o PowerShell para a retenção e análises do Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128467"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044353"
 ---
-# <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurar a recolha de métricas de recurso do Azure PaaS com a análise de registos
+# <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurar a recolha de métricas de recursos de PaaS do Azure com o Log Analytics
 
-Plataforma do Azure como um recursos de serviço (PaaS), como SQL do Azure e Web Sites (aplicações Web), pode emitir dados de métricas de desempenho nativamente à análise de registos. Este script permite aos utilizadores ativar as métricas de registo de recursos de PaaS já implementados num grupo de recursos específico ou através de uma subscrição completa. 
+Plataforma do Azure como um recursos de serviço (PaaS), como o SQL do Azure e o Web Sites (aplicações Web), pode emitir dados de métricas de desempenho nativamente para o Log Analytics. Este script permite aos utilizadores ativar métricas de registo de recursos de PaaS já implementados num grupo de recursos específico ou numa subscrição completa. 
 
-Atualmente, não é possível ativar métricas de registo para o PaaS recursos através do portal do Azure. Por conseguinte, tem de utilizar um script do PowerShell. Esta capacidade de registo de métricas nativo juntamente com a monitorização de análise de registos, permitem-lhe monitorizar os recursos do Azure à escala. 
+Atualmente, não é possível ativar métricas de registo para PaaS recursos através do portal do Azure. Por conseguinte, tem de utilizar um script do PowerShell. Esta capacidade de registo de métricas nativo, juntamente com a monitorização do Log Analytics, permitem-lhe monitorizar recursos do Azure em escala. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que tem os seguintes módulos do Azure Resource Manager instalados no seu computador antes de continuar:
@@ -37,52 +37,52 @@ Certifique-se de que tem os seguintes módulos do Azure Resource Manager instala
 - AzureRM.profile
 
 >[!NOTE]
->Recomendamos que todos os módulos do Azure Resource Manager são a mesma versão para garantir a compatibilidade quando executar comandos do Azure Resource Manager a partir do PowerShell.
+>Recomendamos que todos os seus módulos do Azure Resource Manager são a mesma versão para garantir a compatibilidade, quando executa comandos do Azure Resource Manager no PowerShell.
 >
 Para instalar a versão mais recente dos módulos do Azure Resource Manager no seu computador, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Ativar o diagnóstico do Azure  
-Configurar diagnósticos do Azure para recursos de PaaS é conseguido ao executar o script, **ativar AzureRMDiagnostics.ps1**, que está disponível a partir de [galeria do PowerShell](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  O script suporta os seguintes cenários:
+Configurar os diagnósticos do Azure para os recursos de PaaS é conseguido ao executar o script, **Enable-AzureRMDiagnostics.ps1**, que está disponível a partir do [galeria do PowerShell](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  O script suporta os seguintes cenários:
   
-* Especificação de um recurso relacionado com um ou mais grupos de recursos de uma subscrição  
-* Especificação de um recurso relacionado com um grupo de recursos específico numa subscrição  
+* Especificar um recurso relacionado a um ou mais grupos de recursos numa subscrição  
+* Especificar um recurso relacionado a um grupo de recursos específico numa subscrição  
 * Reconfigurar um recurso para reencaminhar para uma área de trabalho diferente
 
-Apenas os recursos que suportam as métricas de recolher com diagnóstico do Azure e enviam diretamente ao Log Analytics são suportados.  Para obter uma lista detalhada, consulte [métricas para utilização na análise de registos e registos do serviço de recolha do Azure](log-analytics-azure-storage.md) 
+São suportados os únicos recursos que suportam a coleta de métricas com os diagnósticos do Azure e enviam diretamente ao Log Analytics.  Para obter uma lista detalhada, consulte [Azure recolher registos do serviço e as métricas de utilização do Log Analytics](log-analytics-azure-storage.md) 
 
 Execute os seguintes passos para transferir e executar o script.
 
-1.  A partir do ecrã de início de Windows, escreva **PowerShell** e com o botão direito do PowerShell de resultados da pesquisa.  Selecione o menu **executar como administrador**.   
-2. Guardar o **ativar AzureRMDiagnostics.ps1** ficheiro de script localmente, executando o seguinte comando e fornecer um caminho para armazenar o script.    
+1.  No ecrã Iniciar do Windows, escreva **PowerShell** e com o botão direito do PowerShell resultados da pesquisa.  Selecione no menu **executar como administrador**.   
+2. Guardar a **Enable-AzureRMDiagnostics.ps1** ficheiro de script localmente ao executar o seguinte comando e fornecendo um caminho para armazenar o script.    
 
     ```
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
 3. Execute `Connect-AzureRmAccount` para criar uma ligação com o Azure.   
-4. Execute o seguinte script `.\Enable-AzureRmDiagnostics.ps1` sem quaisquer parâmetros para ativar a recolha de dados de um recurso específico na sua subscrição ou com o parâmetro `-ResourceGroup <myResourceGroup>` para especificar um recurso num grupo de recursos específico.   
-5. Selecione a subscrição adequada na lista se tiver mais do que uma, introduzindo o valor correto.<br><br> ![Selecione a subscrição devolvida pelo script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Caso contrário, seleciona automaticamente a subscrição único disponível.
-6. Em seguida, o script devolve uma lista de áreas de trabalho de análise de registos registado na subscrição.  Selecione a adequado na lista.<br><br> ![Selecione a área de trabalho devolvida pelo script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
-7. Selecione o recurso do Azure que gostaria de ativar a recolha do. Por exemplo, se escrever 5, ativar a recolha de dados para bases de dados do SQL do Azure.<br><br> ![Tipo de recurso selecione devolvido pelo script](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
-   Pode selecionar apenas os recursos que suportam as métricas de recolher com o diagnóstico do Azure e o envio de diretamente para uma análise de registos.  O script irá mostrar um valor de **verdadeiro** sob o **métricas** coluna para a lista de recursos que Deteta na sua subscrição ou grupo de recursos especificado.    
-8. Lhe for pedido para confirmar a sua seleção.  Introduza **Y** ativar o registo de métricas para todos os selecionados recursos para o âmbito definido, que, no nosso exemplo, todas as bases de dados do SQL Server na subscrição.  
+4. Execute o seguinte script `.\Enable-AzureRmDiagnostics.ps1` sem quaisquer parâmetros para ativar a recolha de dados de um recurso específico na sua subscrição ou com o parâmetro `-ResourceGroup <myResourceGroup>` para especificar um recurso no grupo de recursos específico.   
+5. Selecione a subscrição adequada na lista se tiver mais do que uma, ao introduzir o valor correto.<br><br> ![Selecione a subscrição devolvida pelo script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Caso contrário, seleciona automaticamente a subscrição única disponível.
+6. Em seguida, o script devolve uma lista de áreas de trabalho do Log Analytics registado na subscrição.  Selecione a adequada na lista.<br><br> ![Selecione a área de trabalho devolvida pelo script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
+7. Selecione o recurso do Azure que gostaria de ativar a recolha de. Por exemplo, se digitar 5, ativa a recolha de dados para bases de dados do SQL Azure.<br><br> ![Tipo de recurso selecione devolvido pelo script](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
+   Pode selecionar apenas os recursos que suportam a coleta de métricas com o diagnóstico do Azure e o envio de diretamente para um Log Analytics.  O script irá mostrar um valor de **True** sob a **métricas** coluna para a lista de recursos que Deteta na sua subscrição ou grupo de recursos especificado.    
+8. São-lhe pedido para confirmar a sua seleção.  Introduza **Y** ativar o registo de métricas para todos os recursos para o âmbito definido, o que, no nosso exemplo, são todas as bases de dados do SQL na subscrição selecionada.  
 
-O script irá executar todas as recursos que correspondam aos critérios selecionados e ativar a recolha de métricas para os mesmos. Depois de concluído, verá uma mensagem a indicar a configuração está concluída.  
+O script será executado em todos os recursos correspondentes aos critérios selecionados e ativar a recolha de métricas para os mesmos. Depois de terminar, verá uma mensagem a indicar a configuração está concluída.  
 
-Em breve após a conclusão, será iniciado ver os dados de recursos Azure PaaS no seu repositório de análise de registos.  Um registo com o tipo `AzureMetrics` é criado e analisar estes registos são suportadas pelo [análise do Azure SQL](log-analytics-azure-sql.md) e [análise de aplicações Web do Azure](log-analytics-azure-web-apps-analytics.md) soluções de gestão.   
+Logo após a conclusão, começará a ver os dados do recurso de PaaS do Azure no seu repositório do Log Analytics.  Um registo com o tipo `AzureMetrics` é criado e analisar estes registos são suportados pela [análise de SQL do Azure](log-analytics-azure-sql.md) e [análise de aplicações Web do Azure](log-analytics-azure-web-apps-analytics.md) soluções de gestão.   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Atualizar um recurso para enviar dados para outra área de trabalho
-Se tiver um recurso que já está a enviar dados para uma área de trabalho de análise de registos e, posteriormente, decidir reconfigurá-lo para fazer referência a outra área de trabalho, pode executar o script com o `-Update` parâmetro.  
+Se tiver um recurso que já está a enviar dados para uma área de trabalho do Log Analytics e, posteriormente, decidir reconfigurá-lo para fazer referência a outra área de trabalho, pode executar o script com o `-Update` parâmetro.  
 
 **Exemplo:** 
 `PS C:\users\<username>\Desktop\temp> .\Enable-AzureRMDiagnostics.ps1 -Update`
 
-Será solicitado para atender as mesmas informações que quando executou o script para executar a configuração inicial.  
+Será solicitado para responder as mesmas informações que, quando executou o script para executar a configuração inicial.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 
-* Utilize [campos personalizados](log-analytics-custom-fields.md)(para analisar os registos de eventos em campos individuais.
+* Uso [campos personalizados](log-analytics-custom-fields.md)(para analisar os registos de eventos em campos individuais.
 
-* Reveja [criar um dashboard personalizado para ser utilizado na análise de registos](log-analytics-dashboards.md) compreender como visualizar o início de sessão procura uma forma lógica para a organização.
+* Revisão [criar um dashboard personalizado para uso no Log Analytics](log-analytics-dashboards.md) compreender como visualizar o seu registo de procura de formas significativas para a organização.

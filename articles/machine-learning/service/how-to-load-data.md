@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221334"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237590"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
 Utilize o [SDK do Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) para carregar diferentes tipos de dados de entrada. 
 
-Para carregar os seus dados, tem duas abordagens:
-+ Especifique o tipo de ficheiro de dados e seus parâmetros
-+ Utilizar a funcionalidade de leitura inteligente do SDK para detetar automaticamente o tipo de um ficheiro
+Para carregar os dados, especifique o tipo de ficheiro de dados e seus parâmetros
 
 ## <a name="use-text-line-data"></a>Utilizar dados de linha de texto 
 Uma das formas mais simples para carregar dados é lê-lo a forma de linhas de texto.
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|Mercado de quilómetro 100|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street agricultores mercado|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Seis quilómetro|||
 |4|1010691|10 de mercado de agricultores Steet Comunidade|http://agrimissouri.com/mo-grown/grodetail.php... |Rua 10th e Poplar|Lamar|Barton|
-
-## <a name="use-smart-reading"></a>Utilize "leitura inteligente"
-
-Utilize a funcionalidade de leitura inteligente do SDK para detetar automaticamente o tipo de um ficheiro.

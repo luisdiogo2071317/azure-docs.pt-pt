@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225230"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239205"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparar a implementação de modelos do IoT Edge
 
@@ -43,7 +43,7 @@ Para saber como instalar o runtime do IoT e registar o seu dispositivo, siga os 
 
 ## <a name="register-the-model"></a>Registe o modelo
 
-Módulos do IoT Edge do Azure são baseados em imagens de contentor. Para implementar o seu modelo para um dispositivo IoT Edge, utilize os seguintes passos para registar o seu modelo numa área de trabalho do Azure Machine Learning e criar uma imagem do Docker. 
+Módulos do IoT Edge do Azure são baseados em imagens de contentor. Para implementar o seu modelo para um dispositivo IoT Edge, utilize os seguintes passos para registar o seu modelo numa área de trabalho do serviço do Azure Machine Learning e criar uma imagem do Docker. 
 
 > [!IMPORTANT]
 > Se utilizou o Azure Machine Learning para preparar o seu modelo que pode já estar registado na sua área de trabalho, neste caso, ignore o passo 3.
@@ -122,7 +122,7 @@ IoT do Azure tem as credenciais para que o serviço Azure Machine Learning armaz
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/signin/index).
 
-1. Aceda à sua área de trabalho do Azure Machine Learning e selecione __descrição geral__. Para ir para as definições de registo de contentor, selecione o __Registro__ ligação.
+1. Aceda à sua área de trabalho do serviço do Azure Machine Learning e selecione __descrição geral__. Para ir para as definições de registo de contentor, selecione o __Registro__ ligação.
 
     ![Uma imagem da entrada de registo de contentor](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

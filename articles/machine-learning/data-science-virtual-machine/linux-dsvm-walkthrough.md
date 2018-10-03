@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116168"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044659"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -483,7 +483,7 @@ Para começar, inicie o Squirrel SQL no menu de aplicações. Para configurar o 
 * Com o botão direito no **PostgreSQL** e selecione **modificar Driver**.
 * Selecione **Extra classe caminho**, em seguida, **adicionar**.
 * Introduza ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** para o **nome do ficheiro** e
-* Selecione **aberto**.
+* Selecione **Open** (Abrir).
 * Escolha a lista de Drivers, em seguida, selecione **org.postgresql.Driver** na **nome da classe**e selecione **OK**.
 
 Para configurar a ligação ao servidor local:
@@ -544,6 +544,6 @@ E consultar com sqlcmd:
 Também pode consultar com o Squirrel SQL. Siga os passos semelhantes para o PostgreSQL, com o Microsoft MSSQL Server JDBC Driver, que pode ser encontrado na ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [Team Data Science Process](http://aka.ms/datascienceprocess).
+Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 Para obter uma descrição de outras instruções ponto a ponto que demonstram os passos no Team Data Science Process para cenários específicos, consulte [instruções passo a passo do processo de ciência de dados de equipa](../team-data-science-process/walkthroughs.md). A instruções passo a passo também mostram como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.

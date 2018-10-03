@@ -2,21 +2,21 @@
 title: O Azure Site Recovery - configuração e testar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell | Documentos da Microsoft
 description: Saiba como configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure Site Recovery com o Azure PowerShell.
 services: site-recovery
-author: bsiva
-manager: abhemraj
-editor: raynew
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/02/2018
+ms.author: sutalasi
+ms.openlocfilehash: 9b7200dab0351b6cd00aef05bf27c5c71a049d76
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433434"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044512"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell
+
 
 Neste artigo, verá como configurar e testar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell.
 
@@ -159,12 +159,15 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Preparar o cofre para iniciar a replicação de máquinas virtuais do Azure
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Criar um objeto de recursos de infraestrutura do Site Recovery para representar a região de primary(source)
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Criar um objeto de recursos de infraestrutura do Site Recovery para representar a região primária (origem)
 
-O objeto de recursos de infraestrutura no cofre representa uma região do Azure. O objeto de recursos de infraestrutura principal, é o objeto de recursos de infraestrutura criado para representar a região do Azure que as máquinas virtuais que está a ser protegidas para o Cofre pertencem a. O exemplo neste artigo, a máquina virtual que está a ser protegida está na região E.U.A. Leste.
+O objeto de recursos de infraestrutura no cofre representa uma região do Azure. O objeto de recursos de infraestrutura principal é criado para representar a região do Azure que as máquinas virtuais que está a ser protegidas para o Cofre pertencem a. O exemplo neste artigo, a máquina virtual que está a ser protegida está na região E.U.A. Leste.
 
-> [!NOTE]
-> Operações de recuperação de sites do Azure são executadas de forma assíncrona. Quando iniciar uma operação, é submetida uma tarefa de recuperação de sites do Azure e uma tarefa de objeto de controle é devolvida. Utilize a tarefa de objeto de controle para obter o estado mais recente para a tarefa (Get-ASRJob) e para monitorizar o estado da operação.
+- Objeto de apenas um dos recursos de infraestrutura pode ser criado por região. 
+- Se ativou anteriormente a replicação para uma VM no portal do Azure Site Recovery, o Site Recovery cria automaticamente um objeto de recursos de infraestrutura. Se existir um objeto de recursos de infraestrutura para uma região, não é possível criar um novo.
+
+
+Antes de começar, tenha em atenção que as operações de recuperação de Site são executadas de forma assíncrona. Quando iniciar uma operação, é submetida uma tarefa de recuperação de sites do Azure e uma tarefa de objeto de controle é devolvida. Utilize a tarefa de objeto de controle para obter o estado mais recente para a tarefa (Get-ASRJob) e para monitorizar o estado da operação.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -184,7 +187,7 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 Se as máquinas virtuais de várias regiões do Azure estão a ser protegidas no mesmo cofre, crie um objeto de recursos de infraestrutura para cada região do Azure de origem.
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Criar um objeto de recursos de infraestrutura do Site Recovery para representar a região de recuperação
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Criar um objeto de recursos de infraestrutura do Site Recovery para representar a região de recuperação
 
 O objeto de recursos de infraestrutura de recuperação representa a recuperação de localização do Azure. Máquinas virtuais serão replicadas e recuperado (no caso de uma ativação pós-falha) a região de recuperação, representada pelos recursos de infraestrutura de recuperação. A região do Azure utilizado neste exemplo de recuperação é E.U.A. oeste 2.
 
@@ -205,7 +208,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Criar um contentor de proteção de recuperação de sites nos recursos de infraestrutura principal
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Criar um contentor de proteção de recuperação de sites nos recursos de infraestrutura principal
 
 O contentor de proteção é contentores utilizado para agrupar itens replicados dentro de um recurso de infraestrutura.
 
@@ -223,7 +226,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Criar um contentor de proteção de recuperação de sites nos recursos de infraestrutura de recuperação
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Criar um contentor de proteção de recuperação de sites nos recursos de infraestrutura de recuperação
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -242,7 +245,7 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####<a name="5-create-a-replication-policy"></a>5. Criar uma política de replicação
+### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
 ```azurepowershell
 #Create replication policy
@@ -259,7 +262,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Criar um mapeamento de contentor de proteção entre o contentor de proteção principal e de recuperação
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Criar um mapeamento de contentor de proteção entre o contentor de proteção principal e de recuperação
 
 Um mapeamento de contentor de proteção mapeia o contentor de proteção principal com um contentor de proteção de recuperação e uma política de replicação. Crie um mapeamento para cada política de replicação que irá utilizar para replicar máquinas virtuais entre um par de contentor de proteção.
 
@@ -279,7 +282,7 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7. Criar um mapeamento de contentor de proteção para a reativação pós-falha (a replicação inversa após uma ativação pós-falha)
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Criar um mapeamento de contentor de proteção para a reativação pós-falha (a replicação inversa após uma ativação pós-falha)
 
 Após uma ativação pós-falha, quando estiver pronto para que a máquina virtual com ativação pós-falha voltem a região do Azure original, executar a reativação pós-falha. A reativação pós-falha, a máquina virtual com ativação pós-falha é inversa replicadas a partir da falha por região para a região original. Para a replicação inversa alternar as funções de região original e a região de recuperação. A região original torna-se agora a nova região de recuperação e o que foi originalmente a região de recuperação agora torna-se a região primária. O mapeamento de contentor de proteção para a replicação inversa representa as funções comutadas das regiões original e a recuperação.
 

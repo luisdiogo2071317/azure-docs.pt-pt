@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: b31ca8f88d1e8d5710c3a6a6cfccbb167fdd762a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126280"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237879"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separação e atomização
+
+> [!IMPORTANT]
+> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
 
 ## <a name="background-and-motivation"></a>Em segundo plano e motivação
 
@@ -53,7 +57,8 @@ A primeira frase pode ser escrita como "Whatdidyousay?")
 
 Existem alguns casos difícil.
 Em primeiro lugar, pontuação normalmente (mas não sempre) deve ser dividida afastado disso em torno de contexto.
-Em segundo lugar, tem o inglês *contrações*, como "não" ou "é", em que as palavras foram comprimidas e abreviadas em partes mais pequenas. O objetivo do atomizador é dividir a seqüência de caracteres em palavras.
+Em segundo lugar, tem o inglês *contrações*, como "não" ou "é", em que as palavras foram comprimidas e abreviadas em partes mais pequenas.
+O objetivo do atomizador é dividir a seqüência de caracteres em palavras.
 
 Vamos voltar para as frases de exemplo acima.
 Agora, colocamos um ponto"center" (&middot;) entre cada token distinto.
@@ -64,7 +69,8 @@ Agora, colocamos um ponto"center" (&middot;) entre cada token distinto.
 
 Observe como a maioria dos tokens são palavras que encontraria no dicionário (por exemplo, *importantes*, *diretor*).
 Outros são compostos por unicamente de pontuação.
-Por fim, existem mais incomuns tokens para representar contrações como *n't* para *não*, como o possessives *do*, etc. Este atomização nos permite lidar com a palavra *não* e a frase *não* de forma mais consistente, por exemplo.
+Por fim, existem mais incomuns tokens para representar contrações como *n't* para *não*, e, como o possessives *do*.
+Este atomização nos permite lidar com a palavra *não* e a frase *não* de forma mais consistente.
 
 ## <a name="specification"></a>Especificação
 

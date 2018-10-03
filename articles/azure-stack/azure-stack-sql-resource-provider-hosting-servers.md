@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407914"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238738"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
 Pode alojar uma instância do SQL numa máquina virtual (VM) no [do Azure Stack](azure-stack-poc.md), ou numa VM fora do seu ambiente do Azure Stack, desde que o fornecedor de recursos do SQL pode ligar-se à instância.
 
 > [!NOTE]
-> Bases de dados SQL deve ser criado no servidor do fornecedor de recursos de SQL. O fornecedor de recursos do SQL deve ser criado na subscrição de fornecedor padrão enquanto os servidores de alojamento de SQL devem ser criados numa subscrição faturável, do utilizador. O servidor do fornecedor de recursos não deve ser utilizados para alojar bases de dados do utilizador.
+> Bases de dados SQL devem ser criados no servidor do fornecedor de recursos de SQL. O fornecedor de recursos do SQL deve ser criado na subscrição de fornecedor padrão enquanto os servidores de alojamento de SQL devem ser criados numa subscrição faturável, do utilizador. O servidor do fornecedor de recursos não deve ser utilizados para alojar bases de dados do utilizador.
 
 ## <a name="overview"></a>Descrição geral
 

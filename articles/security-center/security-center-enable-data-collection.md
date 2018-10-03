@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127096"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044081"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
@@ -62,8 +62,8 @@ Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
 > - Para obter instruções sobre como aprovisionar uma instalação já existente, consulte [aprovisionamento automático em casos de uma instalação de agente preexistente](#preexisting).
 > - Para obter instruções sobre o serviço de aprovisionamento manual, consulte [instalar manualmente a extensão do Microsoft Monitoring Agent](#manualagent).
 > - Para obter instruções sobre como desativar aprovisionamento automático, consulte [desativar aprovisionamento automático](#offprovisioning).
+> - Para obter instruções sobre como integrar o Centro de segurança com o PowerShell, consulte [automatizar a inclusão do Centro de segurança do Azure com o PowerShell](security-center-powershell-onboarding.md).
 >
-
 
 ## <a name="workspace-configuration"></a>Configuração de área de trabalho
 Dados recolhidos pelo centro de segurança são armazenados nas áreas de trabalho do Log Analytics.  Pode optar por ter dados recolhidos das VMs do Azure armazenados em áreas de trabalho criadas pelo centro de segurança ou numa área de trabalho existente que criou. 
@@ -147,12 +147,17 @@ Quando seleciona uma área de trabalho para armazenar seus dados, todas as área
 
 
 ## <a name="data-collection-tier"></a>Camada de recolha de dados
-Centro de segurança pode reduzir o volume de eventos, mantendo o suficiente de eventos investigação, auditoria e deteção de ameaças. Pode escolher o direito de filtragem de política para as suas subscrições e áreas de trabalho do quatro conjuntos de eventos a serem recolhidos pelo agente.
+Selecionar um escalão de recolha de dados no Centro de segurança do Azure só afetarão o armazenamento de eventos de segurança na sua área de trabalho do Log Analytics. O Microsoft Monitoring Agent ainda irá recolher e analisar os eventos de segurança necessários para deteções de ameaças do Centro de segurança do Azure, independentemente de qual dos escalões de eventos de segurança optar por armazenar na sua área de trabalho do Log Analytics (se houver). Selecionar a opção para armazenar eventos de segurança na sua área de trabalho irá permitir a investigação, a pesquisa e a auditoria desses eventos na sua área de trabalho. 
+> [!NOTE]
+> Armazenamento de dados no Log Analytics, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
+>
+Pode escolher o direito de política para as suas subscrições e áreas de trabalho do quatro conjuntos de eventos de filtragem para serem armazenados na sua área de trabalho: 
 
-- **Todos os eventos** – para os clientes que pretendem para se certificar de que todos os eventos são recolhidos. Esta é a predefinição.
-- **Comuns** – este é um conjunto de eventos que satisfaça a maioria dos clientes e permite-lhes uma trilha de auditoria completa.
+- **Nenhum** – desativar o armazenamento de eventos de segurança. Esta é a predefinição.
 - **Mínimo** – um conjunto menor de eventos para os clientes que desejam minimizar o volume de eventos.
-- **Nenhum** – desativar a recolha de eventos de segurança de segurança e do App Locker registos. Para os clientes que escolha esta opção, os seus dashboards de segurança tem apenas os registos da Firewall do Windows e avaliações proativas como antimalware, linha de base e atualização.
+- **Comuns** – este é um conjunto de eventos que satisfaça a maioria dos clientes e permite-lhes uma trilha de auditoria completa.
+- **Todos os eventos** – para os clientes que pretendem para se certificar de que todos os eventos são armazenados.
+
 
 > [!NOTE]
 > Estes conjuntos de eventos de segurança estão disponíveis apenas no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
@@ -261,7 +266,7 @@ Pode instalar manualmente o agente de monitorização Microsoft, para que o Cent
   > [!NOTE]
   > A secção **recolher dados de eventos e desempenho** é opcional.
   >
-6. Para utilizar o PowerShell para implementar a extensão: Utilize o seguinte exemplo de PowerShell:
+6. Para utilizar o PowerShell para implementar a extensão, utilize o seguinte exemplo do PowerShell:
     1.  Aceda a **do Log Analytics** e clique em **definições avançadas**.
     
         ![Conjunto o log analytics][11]
@@ -289,8 +294,8 @@ Pode instalar manualmente o agente de monitorização Microsoft, para que o Cent
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Para obter instruções sobre como integrar o Centro de segurança com o PowerShell, consulte [automatizar a inclusão do Centro de segurança do Azure com o PowerShell](security-center-powershell-onboarding.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

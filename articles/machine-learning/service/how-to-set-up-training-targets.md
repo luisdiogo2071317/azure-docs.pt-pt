@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99d85c769b876baa360628bfc20ad5b1563a0a3f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018507"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237335"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
 
@@ -27,7 +27,7 @@ Pode começar com execuções locais no seu computador e, em seguida, aumentar v
 
 ## <a name="supported-compute-targets"></a>Destinos de computação suportados
 
-O Azure Machine Learning suporta os seguintes destinos de computação:
+Serviço de Machine Learning do Azure suporta os seguintes destinos de computação:
 
 |Destino de computação| Aceleração por GPU | A otimização de hiper-parâmetros automatizado | Seleção de modelo automatizada | Pode ser utilizado nos pipelines|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +41,8 @@ __[O Azure Container Instances (ACI)](#aci)__  também pode ser utilizado para f
 Os principais diferenciais entre os destinos de computação são:
 * __Aceleração por GPU__: GPUs estão disponíveis com a máquina de Virtual de ciência de dados e o Azure Batch AI. Poderá ter acesso a uma GPU no seu computador local, consoante o hardware, drivers e estruturas que são instaladas.
 * __Automatizada de otimização de hiper-parâmetros__: Azure Machine Learning automatizada hiper-parâmetros otimização ajuda-o a encontrar os hiperparâmetros melhor para seu modelo.
-* __Automatizada de seleção de modelo__: Azure Machine Learning inteligentemente pode recomendar seleção de algoritmo e hiper-parâmetros ao criar um modelo. Seleção de modelo automatizada ajuda-o a convergir mais rapidamente do que tentar manualmente diferentes combinações para um modelo de alta qualidade. Para obter mais informações, consulte a [Tutorial: preparar automaticamente um modelo de classificação com o Azure automatizada Machine Learning](tutorial-auto-train-models.md) documento.
-* __Pipelines__: Azure Machine Learning permite-lhe combinar diferentes tarefas, como o treinamento e a implementação num pipeline. Pipelines podem ser executado em paralelo ou na sequência e fornecem um mecanismo de automação fiável. Para obter mais informações, consulte a [Criar pipelines de aprendizado de máquina com o serviço Azure Machine Learning](concept-ml-pipelines.md) documento.
+* __Automatizada de seleção de modelo__: serviço Azure Machine Learning pode recomendar inteligentemente seleção de algoritmo e hiper-parâmetros ao criar um modelo. Seleção de modelo automatizada ajuda-o a convergir mais rapidamente do que tentar manualmente diferentes combinações para um modelo de alta qualidade. Para obter mais informações, consulte a [Tutorial: preparar automaticamente um modelo de classificação com o Azure automatizada Machine Learning](tutorial-auto-train-models.md) documento.
+* __Pipelines__: serviço Azure Machine Learning permite-lhe combinar diferentes tarefas, como o treinamento e a implementação num pipeline. Pipelines podem ser executado em paralelo ou na sequência e fornecem um mecanismo de automação fiável. Para obter mais informações, consulte a [Criar pipelines de aprendizado de máquina com o serviço Azure Machine Learning](concept-ml-pipelines.md) documento.
 
 Pode utilizar o SDK do Azure Machine Learning, a CLI do Azure ou o portal do Azure para criar destinos de computação. Também pode usar destinos de computação existentes ao adicionar (anexar)-os para a área de trabalho.
 

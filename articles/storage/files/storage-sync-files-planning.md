@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382259"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237902"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -62,10 +62,7 @@ Um ponto final da cloud é uma partilha de ficheiros do Azure que faz parte de u
 > O Azure File Sync suporta diretamente a efetuar alterações à partilha de ficheiros do Azure. No entanto, todas as alterações feitas na partilha de ficheiros do Azure primeiro tem de ser detetado por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração de início de um ponto final da cloud apenas uma vez a cada 24 horas. Além disso, as alterações feitas para uma partilha de ficheiros do Azure através do protocolo REST não atualizará a hora da última modificação de SMB e não irão ser vistas como uma alteração por sincronização. Para obter mais informações, consulte [ficheiros do Azure, perguntas mais frequentes sobre](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud 
-Criação de camadas da cloud é uma funcionalidade opcional do Azure File Sync em que raramente utilizadas ou aceder a ficheiros superiores a 64 KiB tamanho pode ser colocado em camadas para ficheiros do Azure. Quando um ficheiro é em camadas, o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" definido no NTFS, para que aplicações de terceiros podem identificar ficheiros em camadas. Quando um utilizador abre um ficheiro em camadas, o Azure File Sync solicitar forma totalmente integrada os dados de arquivo de ficheiros do Azure sem o necessidade de saber que não é armazenado o ficheiro localmente no sistema do usuário. Essa funcionalidade também é conhecido como gerenciamento de armazenamento hierárquico (HSM).
-
-> [!Important]  
-> Na cloud em camadas não é suportada para pontos de extremidade nos volumes de sistema do Windows server.
+Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que frequentemente ficheiros acedidos são colocadas em cache localmente no servidor, enquanto todos os outros ficheiros são dispostos em camadas para ficheiros do Azure com base nas definições de política. Para obter mais informações, consulte [camada de Cloud de compreensão](storage-sync-cloud-tiering.md).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos de sistema de sincronização de ficheiros do Azure e interoperabilidade 
 Esta secção abrange os requisitos de sistema do agente de sincronização de ficheiros do Azure e a interoperabilidade com recursos do Windows Server e funções e soluções de terceiros.

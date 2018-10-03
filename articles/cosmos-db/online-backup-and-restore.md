@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: a2c52844e09daf42418b4e548f7185e31dcf4ae9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053538"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043231"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e restauro com o Azure Cosmos DB
 O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados ou uma solução de recuperação após desastre.  
@@ -53,11 +53,15 @@ Para a API de SQL, se pretender manter o seu próprio instantâneos, pode usar a
 > Se "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Terá também de Certifique-se em contacto dentro de 8 horas para a equipa de suporte se acidentalmente eliminou seu contentor. Não não possível restaurar dados se não contactar a equipa de suporte dentro de 8 horas. 
 
 
+
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restaurar uma base de dados a partir de uma cópia de segurança online
 
 Se eliminar acidentalmente a base de dados ou o contentor, pode [enviar um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure](https://azure.microsoft.com/support/options/) para restaurar os dados da última cópia de segurança automática. Suporte do Azure está disponível para planos selecionados apenas como padrão, o desenvolvedor, o suporte não está disponível com o plano básico. Para saber mais sobre os planos de suporte a diferentes, veja [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
 
 Se tiver de restaurar a base de dados devido a problema de Corrupção de dados (inclui casos em que são eliminados os documentos dentro de um contêiner), consulte [lidar com danos nos dados](#handling-data-corruption) que precisar de efetuar passos adicionais para impedir que os dados danificados substitua as cópias de segurança existentes. Para um instantâneo específico da cópia de segurança seja restaurado, o Cosmos DB requer que os dados estavam disponíveis durante o ciclo de cópia de segurança para que o instantâneo.
+
+> [!NOTE]
+> Coleções ou bases de dados podem ser restauradas apenas depois de um pedidos de cliente para restaurar. É responsbility do cliente para eliminar o contentor ou a base de dados imediatamente depois de restaurar os dados. Se não eliminar as bases de dados restauradas ou coleções, eles incorre em custos à taxa de base de dados ou coleção restaurada. Por isso, é muito importante para eliminá-los imediatamente. 
 
 ## <a name="handling-data-corruption"></a>Manipulação de Corrupção de dados
 

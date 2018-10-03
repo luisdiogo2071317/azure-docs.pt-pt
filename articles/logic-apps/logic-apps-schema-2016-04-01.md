@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126207"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043206"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações do esquema para o Azure Logic Apps - 1 de Junho de 2016
 
@@ -33,23 +33,23 @@ Para atualizar as aplicações lógicas do esquema de pré-visualização de 1 d
 
 Esse esquema inclui os escopos, que lhe permite ações de grupo em conjunto, ou ações de aninhamento dentro uns dos outros. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [definir o âmbito sintaxe](../logic-apps/logic-apps-loops-and-scopes.md), ou reveja este exemplo básico de âmbito:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Esse esquema inclui os escopos, que lhe permite ações de grupo em conjunto, ou
 
 ## <a name="conditions-and-loops-changes"></a>Alterações de condições e loops
 
-No esquema anterior versões, condições e loops foram parâmetros associados uma única ação. Esse esquema ascende esta limitação, para que as condições e loops são agora apresentados como tipos de ação. Saiba mais sobre [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md), ou reveja este exemplo básico para uma ação de condição:
+No esquema anterior versões, condições e loops foram parâmetros associados uma única ação. Esse esquema ascende esta limitação, para que as condições e loops estão agora disponíveis como tipos de ação. Saiba mais sobre [loops e os âmbitos](../logic-apps/logic-apps-loops-and-scopes.md), [condições](../logic-apps/logic-apps-control-flow-conditional-statement.md), ou reveja este exemplo básico que mostra uma ação de condição:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ No esquema anterior versões, condições e loops foram parâmetros associados u
 
 ## <a name="runafter-property"></a>propriedade "runAfter"
 
-O `runAfter` propriedade substitui `dependsOn`, fornecendo maior precisão quando especifica a ordem de execução de ações com base no status de ações anteriores.
+O `runAfter` propriedade substitui `dependsOn`, fornecendo maior precisão quando especifica a ordem de execução de ações com base no status de ações anteriores. O `dependsOn` propriedade indicado se "a ação foi executada e foi concluída com êxito", com base em se a ação anterior foi concluída com êxito, falha, ou como ignorado - não o número de vezes que quiser executar a ação. O `runAfter` propriedade fornece flexibilidade como um objeto que especifica todos os a ação nomes depois que o objeto é executada. Esta propriedade também define uma matriz de Estados aceitáveis como disparadores. Por exemplo, se pretender que uma ação para execução após a ação A for concluída com êxito e também após ação B tiver sucesso ou falha, configurar isto `runAfter` propriedade:
 
-O `dependsOn` propriedade foi sinônimo de "a ação foi executada e foi concluída com êxito", não importa quantas vezes desejar executar uma ação, com base em se a ação anterior foi concluída com êxito, falhou ou foi ignorada. O `runAfter` propriedade oferece essa flexibilidade como um objeto que especifica todos os nomes de ação após o qual o objeto é executado. Esta propriedade também define uma matriz de Estados aceitáveis como disparadores. Por exemplo, se quiser executar após A do passo será bem-sucedido e também após passo B tiver sucesso ou falha, constrói isso `runAfter` propriedade:
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Para atualizar para o [esquema mais recente](https://schema.management.azure.com
 
 2. Aceda a **descrição geral**. Na barra de ferramentas da aplicação lógica, escolha **atualizar esquema**.
    
-    ![Escolha atualizar esquema][1]
+   ![Escolha atualizar esquema][1]
    
-    A definição atualizada é retornada, que pode copiar e colar uma definição do recurso, se necessário. 
-    No entanto, podemos **altamente recomendável** escolher **guardar como** para se certificar de que todas as referências de ligação são válidas na aplicação lógica atualizada.
+   A definição atualizada é retornada, que pode copiar e colar uma definição do recurso, se necessário. 
+
+   > [!IMPORTANT]
+   > *Certifique-se* escolher **guardar como** para que todas as referências de ligação mantêm-se válidas na aplicação lógica atualizada.
 
 3. Na barra de ferramentas da painel de atualização, escolha **guardar como**.
 
@@ -125,17 +125,17 @@ Para atualizar para o [esquema mais recente](https://schema.management.azure.com
 
 6. *Opcional* para substituir a sua aplicação lógica anterior com a nova versão de esquema, na barra de ferramentas, escolha **Clone**, junto a **atualizar esquema**. Este passo é necessário apenas se pretender manter o mesmo ID de recurso ou acionador URL da sua aplicação lógica do pedido.
 
-### <a name="upgrade-tool-notes"></a>Notas de ferramenta de atualização
+## <a name="upgrade-tool-notes"></a>Notas de ferramenta de atualização
 
-#### <a name="mapping-conditions"></a>Mapeamento de condições
+### <a name="mapping-conditions"></a>Mapeamento de condições
 
-A definição atualizada, a ferramenta faz dentro dos melhor esforços em conjunto como um âmbito de agrupamento ações de ramo de VERDADEIRO ou FALSO. Especificamente, o padrão de designer `@equals(actions('a').status, 'Skipped')` deve aparecer como um `else` ação. No entanto, se a ferramenta Deteta padrões irreconhecível, a ferramenta pode criar condições separadas para o verdadeiro e o ramo FALSO. É possível remapear ações após a atualização, se necessário.
+Na definição atualizada, a ferramenta faz o melhor esforço em conjunto como um âmbito de agrupamento ações de ramo de VERDADEIRO ou FALSO. Especificamente, o padrão de designer `@equals(actions('a').status, 'Skipped')` é apresentado como um `else` ação. No entanto, se a ferramenta Deteta padrões irreconhecível, a ferramenta pode criar condições separadas para o verdadeiro e o ramo FALSO. É possível remapear ações após a atualização, se necessário.
 
 #### <a name="foreach-loop-with-condition"></a>ciclo de "foreach" com a condição
 
-No novo esquema, pode utilizar a ação de filtro para replicar o padrão de um `foreach` loop com uma condição por item, mas esta alteração automaticamente deve acontecer durante a atualização. A condição se torne uma ação de filtro antes do loop foreach para devolver apenas uma matriz de itens que correspondem à condição e essa matriz é passada para a ação de foreach. Por exemplo, veja [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md).
+No novo esquema, pode utilizar a ação de filtro para replicar o padrão que utiliza um **para cada** ciclo com uma condição por item. No entanto, a alteração ocorre automaticamente quando fizer a atualização. A condição se torne uma ação de filtro que aparece antes do **para cada** loop, retornando apenas uma matriz de itens que correspondem à condição e passar essa matriz para **para cada** ação. Por exemplo, veja [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Etiquetas de recursos
+### <a name="resource-tags"></a>Etiquetas de recursos
 
 Após a atualização, as etiquetas de recursos são removidas, pelo que tem de repô-los para o fluxo de trabalho atualizado.
 
@@ -157,20 +157,20 @@ O `foreach` e `until` loop estão limitadas a uma única ação.
 
 Ações agora podem ter uma propriedade adicional chamada `trackedProperties`, que é colateral para o `runAfter` e `type` propriedades. Este objeto Especifica determinados entradas de ação ou saídas que pretende incluir na telemetria de diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo:
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

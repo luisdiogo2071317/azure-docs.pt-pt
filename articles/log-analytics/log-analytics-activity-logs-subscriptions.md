@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: richrund; bwren
-ms.component: na
-ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: magoedte
+ms.component: ''
+ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127446"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042866"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -63,13 +63,13 @@ Seguem-se os requisitos para os recursos do Azure utilizados neste cenário.
 
    ![imagem da caixa de diálogo “criar hub de eventos”](media/log-analytics-activity-logs-subscriptions/create-event-hub1.png)
 
-4. Escolha o escalão de preço (Básico ou Standard) e uma subscrição, um grupo de recursos e uma localização do Azure para o recurso novo.  Clique em **Criar** para criar o espaço de nome. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
+4. Escolha o escalão de preço (Básico ou Standard) e uma subscrição, um grupo de recursos e uma localização do Azure para o recurso novo.  Clique em **Criar** para criar o espaço de nomes. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
 6. Clique no nome do espaço de nomes que acabou de criar na lista.
 7. Selecione **Políticas de acesso partilhado** e clique em **RootManageSharedAccessKey**.
 
    ![Imagem das políticas de acesso partilhado do hub de eventos](media/log-analytics-activity-logs-subscriptions/create-event-hub7.png)
    
-8. Clique no botão copiar para copiar a cadeia de ligação **RootManageSharedAccessKey** para a área de transferência. 
+8. Clique no botão Copiar para copiar a cadeia de ligação **RootManageSharedAccessKey** para a área de transferência. 
 
    ![imagem da chave de acesso partilhado do hub de eventos](media/log-analytics-activity-logs-subscriptions/create-event-hub8.png)
 
