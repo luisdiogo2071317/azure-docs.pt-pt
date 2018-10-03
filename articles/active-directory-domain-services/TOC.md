@@ -22,6 +22,8 @@
 ## [Verificar o estado de funcionamento de um domínio gerido](active-directory-ds-check-health.md)
 ## [Utilizar os Azure AD Domain Services nas subscrições do Azure CSP](active-directory-ds-csp.md)
 ## [Ativar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Configurar a sincronização de âmbito do Azure AD para um domínio gerido](active-directory-ds-scoped-synchronization.md)
+## [Proteja o seu domínio gerido](active-directory-ds-secure-your-domain.md)
 ## Aderir a um domínio gerido
 ### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)
@@ -44,7 +46,6 @@
 ### [Criar uma conta de serviço gerida num domínio gerido](active-directory-ds-create-gmsa.md)
 ### [Administrar política de grupo num domínio gerido](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Configurar políticas de palavra-passe num domínio gerido](active-directory-ds-password-policy.md)
-### [Configurar a sincronização de âmbito do Azure AD para um domínio gerido](active-directory-ds-scoped-synchronization.md)
 ## [Selecionar uma rede virtual](active-directory-ds-networking.md)
 ## Implementar aplicações
 ### [Configurar o suporte de sincronização de perfis do SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)

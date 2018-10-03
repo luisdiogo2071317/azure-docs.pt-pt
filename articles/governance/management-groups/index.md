@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045354"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017658"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -62,19 +62,30 @@ Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os 
   - Todos os utilizadores com acesso a uma subscrição podem ver o contexto em que essa subscrição se insere na hierarquia.  
   - Ninguém recebe acesso predefinido ao grupo de gestão de raiz. Os Administradores Globais do Diretório são os únicos utilizadores que se podem elevar para obter acesso.  Assim que tiverem acesso, os administradores do diretório podem atribuir qualquer função RBAC a outros utilizadores para os encarregar da gestão.  
 
-> [!NOTE]
-> Se o seu diretório tiver começado a utilizar o serviço de grupos de gestão antes de 25/06/2018, o seu diretório poderá não estar configurado com todas as subscrições na hierarquia. A equipa dos grupos de gestão está a atualizar retroativamente cada diretório que começou a utilizar os grupos de gestão na Pré-visualização Pública anterior a essa data em julho/agosto de 2018. Todas as subscrições nos diretórios irão passar a ser elementos subordinados no grupo de gestão de raiz anterior.
->
-> Se tiver dúvidas sobre este processo retroativo, contacte: managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gestão
-
-Quando um utilizador começa a utilizar grupos de gestão, ocorre um processo de configuração inicial. Na primeira etapa, o grupo de gestão de raiz é criado no diretório. Uma vez criado este grupo, todas as subscrições existentes no diretório tornam-se elementos subordinados do grupo de gestão de raiz. Este processo existe para garantir que existe apenas uma hierarquia de grupo de gestão num diretório. A única hierarquia dentro do diretório permite aos clientes administrativos aplicar o acesso global e políticas que os outros clientes não podem ignorar. Todas as atribuições feitas ao nível da raiz serão aplicadas a todos os grupos de gestão, subscrições, grupos de recursos e recursos dentro do diretório, ao ter uma hierarquia dentro do diretório.
-
 > [!IMPORTANT]
 > Qualquer atribuição de acesso de utilizador ou atribuição de política no grupo de gestão de raiz **aplica-se a todos os recursos dentro do diretório**.
 > Por este motivo, todos os clientes devem avaliar a necessidade de ter itens definidos neste âmbito.
 > O acesso de utilizador e as atribuições de política devem ser "Obrigatório" apenas neste âmbito.  
+
+## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gestão
+
+Quando um utilizador começa a utilizar grupos de gestão, ocorre um processo de configuração inicial. Na primeira etapa, o grupo de gestão de raiz é criado no diretório. Uma vez criado este grupo, todas as subscrições existentes no diretório tornam-se elementos subordinados do grupo de gestão de raiz. Este processo existe para garantir que existe apenas uma hierarquia de grupo de gestão num diretório. A única hierarquia dentro do diretório permite aos clientes administrativos aplicar o acesso global e políticas que os outros clientes não podem ignorar. Todas as atribuições feitas ao nível da raiz serão aplicadas a todos os grupos de gestão, subscrições, grupos de recursos e recursos dentro do diretório, ao ter uma hierarquia dentro do diretório.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Problemas ao ver todas as subscrições
+
+Alguns diretórios que começaram a utilizar os grupos de gestão numa fase inicial da pré-visualização (25 de junho de 2018) podem ter um problema em que todas as subscrições não foram impostas na hierarquia.  Este motivo ocorre porque os processos para imporem as subscrições na hierarquia foram implementados após uma atribuição de função ou política realizada no grupo de gestão de raiz no diretório.
+
+### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
+
+Há duas opções personalizadas para resolver o problema.
+
+1. Remover todas as atribuições de Função e de Política do grupo de gestão de raiz
+    1. Ao remover quaisquer atribuições de política e de função do grupo de gestão de raiz, o serviço preenche quaisquer subscrições na hierarquia para o ciclo do próximo dia.  O motivo para esta verificação consiste em garantir que não é concedido acesso de forma acidente ou uma atribuição de política a todas as subscrições de inquilinos.
+    1. A melhora forma de realizar este processo sem afetar os seus serviços consiste em basicamente aplicar as atribuições de função ou de política um nível abaixo do Grupo de gestão de raiz. Então pode remover todas as atribuições do âmbito de raiz.
+1. Chame a API diretamente para iniciar o processo de preenchimento
+    1. Qualquer cliente autorizada no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, lança o processo inicial de configuração de mover todas as subscrições para a hierarquia. Este processo também inicia a imposição de todas as novas subscrições como sendo um filho do grupo de gestão de raiz. Este processo pode ser realizado sem alterar quaisquer atribuições ao nível raiz dado que está a confirmar que qualquer atribuição de política ou de acesso na raiz pode ser aplicada a todas as subscrições.
+
+Se tiver dúvidas sobre este processo de preenchimento, contacte: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Acesso de grupo de gestão
 
