@@ -11,13 +11,13 @@ author: giladmit
 ms.author: giladm
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/10/2018
-ms.openlocfilehash: 8ba07b22d247cb9263890a747bd166d63af27e3b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 02/10/2018
+ms.openlocfilehash: bf6757e4a31cf072a5d7395223df588be7ec49c2
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395752"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248487"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. Auditoria também:

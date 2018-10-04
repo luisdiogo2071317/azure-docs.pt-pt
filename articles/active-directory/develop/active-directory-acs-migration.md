@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036546"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249439"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: migrar a partir do serviço de controlo de acesso do Azure
 
@@ -116,6 +116,9 @@ Aqui está o agendamento para descontinuar os componentes de controlo de acesso:
 - **Novembro de 2017**: os administradores do Azure AD experiência no portal clássico do Azure [foi extinto](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste momento, a gestão de espaço de nomes para controlo de acesso está disponível um URL dedicado, novos: `http://manage.windowsazure.com?restoreClassic=true`. Utilize este URl para ver os espaços de nomes existentes, ativar e desativar espaços de nomes e eliminar espaços de nomes, caso pretenda.
 - **2 de Abril de 2018**: portal clássico do Azure completamente é extinguido, o que significa que a gestão de espaço de nomes do controlo de acesso já não está disponível através de qualquer URL. Neste momento, não é possível desativar ou ativar, eliminar ou enumerar os espaços de nomes do controlo de acesso. No entanto, o portal de gestão de controlo de acesso será totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes de controlo de acesso continuam a funcionar normalmente.
 - **7 de Novembro de 2018**: componentes de controlo de acesso de todos os permanentemente são encerrados. Isto inclui o portal de gestão de controlo de acesso, o serviço de gestão, STS e o motor de regras de transformação de token. Neste momento, todos os pedidos enviados para o controlo de acesso (localizado em \<espaço de nomes\>. accesscontrol.windows.net) falhar. Deve migração todas as aplicações e serviços existentes para outras tecnologias bem antes desta data.
+
+> [!NOTE]
+> Desativa a uma política de espaços de nomes não pediu um token para um período de tempo. A partir do início de Setembro de 2018, este período de tempo está atualmente em 14 dias de inatividade, mas isso vai ser baixou para 7 dias de inatividade nas próximas semanas. Se tiver espaços de nomes do controlo de acesso que estão atualmente desativados, pode [transferir e instalar o ACS PowerShell](#download-and-install-acs-powershell) para reativar o namespace(s).
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 
@@ -347,6 +350,10 @@ Nestes casos, pode optar por migrar a sua aplicação web para outro serviço de
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é um produto semelhante de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo no trabalho com a Ping Identity e Auth0 é garantir que todos os clientes de controlo de acesso tem um caminho de migração das respetivas aplicações e serviços que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
+
+#### <a name="passthrough-authentication"></a>Autenticação pass-through
+
+Para autenticação pass-through com a transformação de token arbitrária, não existe nenhuma tecnologia Microsoft equivalente no ACS. Se for esse que seus clientes necessitam, Auth0 seja o que oferece a solução de aproximação mais próxima.
 
 ## <a name="questions-concerns-and-feedback"></a>Perguntas, questões e comentários
 

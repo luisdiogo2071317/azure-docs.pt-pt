@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393082"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267992"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento aborda a estrutura de um dashboard do Azure, utilizando o dashboard seguinte como exemplo:
@@ -326,7 +326,7 @@ O __partes__ objeto contém uma propriedade para cada parte, em que o nome da pr
 Cada objeto de parte individual tem um __posição__, e __metadados__.
 
 ### <a name="the-position-object"></a>O objeto de posição
-O __posição__ propriedade contém as informações de tamanho e localização para a parte expressa __x__, __y__, __rowSpan__e o __colSpan__. Os valores são em termos de unidades de grade. Estas unidades de grelha estão visíveis quando o dashboard está no modo de personalizar, conforme mostrado aqui. Se pretender que um mosaico para ter uma largura de duas unidades de grade, uma altura de unidade de uma grade e uma localização no canto superior esquerdo do dashboard, em seguida, a posição obejct tem esta aparência:
+O __posição__ propriedade contém as informações de tamanho e localização para a parte expressa __x__, __y__, __rowSpan__e o __colSpan__. Os valores são em termos de unidades de grade. Estas unidades de grelha estão visíveis quando o dashboard está no modo de personalizar, conforme mostrado aqui. Se pretender que um mosaico para ter uma largura de duas unidades de grade, uma altura de unidade de uma grade e uma localização no canto superior esquerdo do dashboard, em seguida, o objeto de posição tem o seguinte aspeto:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedad
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Utilizada para mostrar métricas de monitorização
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Utilizada para mostrar com texto ou imagens com formatação básicos para listas, ligações, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Utilizado para mostrar o vídeos do YouTube, do Channel 9 e qualquer outro tipo de vídeo que funciona numa etiqueta de vídeo de html.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Utilizado para mostrar o vídeos do YouTube, do Channel 9 e qualquer outro tipo de vídeo que funciona numa etiqueta de vídeo de HTML.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Utilizado para mostrar o nome e o estado de uma máquina virtual do Azure.
 
 Cada tipo de parte tem sua própria configuração. As propriedades de configuração possíveis são chamadas __entradas__, __definições__, e __asset__. 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 94b8b935728110cd5dd07b2066e8320274e3b082
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d28e28a2c4f8144da16c4838f07c9b8bb5ce67f0
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428422"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integração do Azure Active Directory com o Jamf Pro
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o Jamf Pro, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Jamf Pro logon único habilitado subscrição
 
 > [!NOTE]
@@ -50,31 +50,34 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Jamf Pro da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-jamf-pro-from-the-gallery"></a>Adicionando o Jamf Pro da Galeria
+
 Para configurar a integração do Jamf Pro com o Azure AD, terá de adicionar o Jamf Pro a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar o Jamf Pro a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
-    ![O botão do Azure Active Directory][1]
+    ![image](./media/jamfprosamlconnector-tutorial/selectazuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais][2]
+    ![image](./media/jamfprosamlconnector-tutorial/a_select_app.png)
     
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicativo][3]
+    ![image](./media/jamfprosamlconnector-tutorial/a_new_app.png)
 
-1. Na caixa de pesquisa, escreva **Jamf Pro**, selecione **Jamf Pro** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Jamf Pro**, selecione **Jamf Pro** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![O Jamf Pro na lista de resultados](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_addfromgallery.png)
+     ![image](./media/jamfprosamlconnector-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -85,10 +88,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com o Jamf Pro, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste do Jamf Pro](#create-a-jamf-pro-test-user)**  - para ter um equivalente da Eduarda Almeida no Jamf Pro que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste do Jamf Pro](#create-a-jamf-pro-test-user)**  - para ter um equivalente da Eduarda Almeida no Jamf Pro que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -96,50 +99,62 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 **Para configurar o Azure AD início de sessão único com o Jamf Pro, execute os seguintes passos:**
 
-1. No portal do Azure, sobre o **Jamf Pro** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Jamf Pro** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_select_sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_samlbase.png)
+2. Clique em **modo de início de sessão único de alteração** na parte superior do ecrã para selecionar o **SAML** modo.
 
-1. Na **domínio de Jamf Pro e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação na **IDP** iniciada pelo modo:
+      ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_ssso.png)
 
-    ![Domínio de Jamf Pro e URLs únicas início de sessão em informações](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url.png)
+3. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
 
-    a. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_sso.png)
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/SSO`
+4. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **configuração básica de SAML** caixa de diálogo.
 
-1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+    ![image](./media/jamfprosamlconnector-tutorial/b1-domains_and_urlsedit.png)
 
-    ![Domínio de Jamf Pro e URLs únicas início de sessão em informações](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url1.png)
+5. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.jamfcloud.com`
-     
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`.
+
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/SSO`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b2-domains_and_urls.png)
+
+    c. Clique em **definir URLs adicionais**.
+
+    d. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.jamfcloud.com`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b4-domains_and_urls.png)
+
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Obterá o valor do identificador real da **Single Sign-On** secção no portal do Jamf Pro, que é explicado mais tarde no tutorial. É possível extrair o real **subdomínio** valor do valor de identificador e usá-lo **subdomínio** informações no URL de início de sessão e o URL de resposta.
 
-1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+6. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
 
-    ![O link de download de certificado](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_certificate.png) 
+    ![image](./media/jamfprosamlconnector-tutorial/C2_certificate.png)
 
-1. Clique em **guardar** botão.
+7. Para automatizar a configuração no Jamf Pro, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/jamfprosamlconnector-tutorial/tutorial_general_400.png)
-    
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Jamf Pro como um administrador.
+    ![image](./media/jamfprosamlconnector-tutorial/install_extension.png)
+ 
+8. Depois de adicionar a extensão para o navegador, clique em **configurar o Jamf Pro** irá direcioná-lo para a aplicação do Jamf Pro. A partir daí, forneça as credenciais de administrador para iniciar sessão no Jamf Pro. A extensão do browser irá configurar o aplicativo para e automatizar as etapas 9 a 12 automaticamente.
 
-1. Clique nas **ícone de definições** do canto superior direito da página.
+    ![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
+
+9. Se desejar configurar manualmente o Jamf Pro, abra uma nova janela de browser e o registo no site da sua empresa Jamf Pro como administrador e execute os seguintes passos:
+
+10. Clique nas **ícone de definições** do canto superior direito da página.
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Clique em **início de sessão único**.
+11. Clique em **início de sessão único**.
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-1. Sobre o **Single Sign-On** página execute os seguintes passos:
+12. Sobre o **Single Sign-On** página execute os seguintes passos:
 
     ![O Jamf Pro único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -152,8 +167,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     d. Selecione **E-Mail** para **mapeamento de utilizador: o JAMF PRO**. O Jamf Pro mapeia os atributos SAML enviados pelo IdP das seguintes formas: por utilizadores e grupos. Quando um usuário tenta acessar o Jamf Pro, por predefinição o Jamf Pro obtém informações sobre o utilizador a partir do fornecedor de identidade e compara com algo de contas de utilizador do Jamf Pro. Se a conta de utilizador de entrada não existir no Jamf Pro, em seguida, a correspondência de nomes de grupo ocorre.
 
     e. Cole o valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` no **o nome de ATRIBUTO de grupo** caixa de texto.
- 
-1. Sobre o mesmo desloque-se de página para baixo até **fornecedor de identidade** sob a **Single Sign-On** secção e execute os seguintes passos:
+
+13. Sobre o mesmo desloque-se de página para baixo até **fornecedor de identidade** sob a **Single Sign-On** secção e execute os seguintes passos:
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -170,38 +185,31 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     e. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_users_and_groups.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/jamfprosamlconnector-tutorial/create_aaduser_01.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_adduser.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/jamfprosamlconnector-tutorial/create_aaduser_02.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_userproperties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/jamfprosamlconnector-tutorial/create_aaduser_03.png)
+    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
+    d. Selecione **Criar**.
 
-    ![A caixa de diálogo de utilizador](./media/jamfprosamlconnector-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
-
-    d. Clique em **Criar**.
- 
 ### <a name="create-a-jamf-pro-test-user"></a>Criar um utilizador de teste do Jamf Pro
 
 Para ativar a utilizadores do Azure AD iniciar sessão no Jamf Pro, tem de ser aprovisionados no Jamf Pro. No caso do Jamf Pro, o aprovisionamento é uma tarefa manual.
@@ -210,30 +218,30 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Jamf Pro, tem de ser a
 
 1. Inicie sessão no site da sua empresa Jamf Pro como administrador.
 
-1. Clique nas **ícone de definições** do canto superior direito da página.
+2. Clique nas **ícone de definições** do canto superior direito da página.
 
     ![Adicionar o funcionário](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Clique em **contas de utilizador do Jamf Pro & grupos**.
+3. Clique em **contas de utilizador do Jamf Pro & grupos**.
 
     ![Adicionar o funcionário](./media/jamfprosamlconnector-tutorial/user1.png)
 
-1. Clique em **Novo**.
+4. Clique em **Novo**.
 
     ![Adicionar o funcionário](./media/jamfprosamlconnector-tutorial/user2.png)
 
-1. Selecione **criar conta Standard**.
+5. Selecione **criar conta Standard**.
 
     ![Adicionar o funcionário](./media/jamfprosamlconnector-tutorial/user3.png)
 
-1. Sobre o **nova conta** dailog, execute os seguintes passos:
+6. Sobre o **nova conta** dailog, execute os seguintes passos:
 
     ![Adicionar o funcionário](./media/jamfprosamlconnector-tutorial/user4.png)
 
     a. Na **nome de utilizador** caixa de texto, escreva o nome completo do BrittaSimon.
 
     b. Selecione as opções apropriadas de acordo com a sua organização para o **nível de acesso**, **PRIVILÉGIO definir**e para **estado de acesso**.
-    
+
     c. Na **FULLNAME** caixa de texto, escreva o nome completo da Eduarda Almeida.
 
     d. Na **endereço de E-Mail** caixa de texto, escreva o endereço de e-mail da conta da Eduarda Almeida.
@@ -248,55 +256,34 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Jamf Pro, tem de ser a
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para o Jamf Pro.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Jamf Pro**.
 
-**Para atribuir a Eduarda Almeida para Jamf Pro, execute os seguintes passos:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **Jamf Pro**.
 
-    ![Atribuir utilizador][201] 
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_proapplications.png)
 
-1. Na lista de aplicações, selecione **Jamf Pro**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação do Jamf Pro na lista de aplicações](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_app.png)  
+    ![image](./media/jamfprosamlconnector-tutorial/d_leftpaneusers.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Selecione o **Add** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![image](./media/jamfprosamlconnector-tutorial/d_assign_user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+4. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+5. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico do Jamf Pro no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do Jamf Pro.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-<!--Image references-->
-
-[1]: ./media/jamfprosamlconnector-tutorial/tutorial_general_01.png
-[2]: ./media/jamfprosamlconnector-tutorial/tutorial_general_02.png
-[3]: ./media/jamfprosamlconnector-tutorial/tutorial_general_03.png
-[4]: ./media/jamfprosamlconnector-tutorial/tutorial_general_04.png
-
-[100]: ./media/jamfprosamlconnector-tutorial/tutorial_general_100.png
-
-[200]: ./media/jamfprosamlconnector-tutorial/tutorial_general_200.png
-[201]: ./media/jamfprosamlconnector-tutorial/tutorial_general_201.png
-[202]: ./media/jamfprosamlconnector-tutorial/tutorial_general_202.png
-[203]: ./media/jamfprosamlconnector-tutorial/tutorial_general_203.png
-

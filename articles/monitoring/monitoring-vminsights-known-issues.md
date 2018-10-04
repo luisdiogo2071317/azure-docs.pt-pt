@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 43000993c6a26ef8d44e941f5235ebad7aeee66f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062773"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248068"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problemas conhecidos com o Azure Monitor para VMs
 
 Os seguintes são problemas conhecidos com a funcionalidade de estado de funcionamento do Monitor do Azure para VMs:
 
+- Se uma VM do Azure não existe mais porque foi removido ou eliminado, irá aparecer na vista de lista de VM para três a sete dias. Além disso, ao clicar no estado de uma VM removida ou eliminada iniciaria o **diagnóstico de estado de funcionamento** exibição para ela, que, em seguida, entra num loop de carregamento. Selecionar o nome de uma VM eliminada inicia um painel com uma mensagem a indicar que a VM tiver sido eliminada.
 - Com esta versão, não não possível modificar o período de tempo e a frequência dos critérios de estado de funcionamento. 
 - Critérios de estado de funcionamento não podem ser desativados. 
 - Após a integração, pode demorar tempo antes de dados são apresentados no Azure Monitor -> máquinas virtuais -> Estado de funcionamento ou a partir do painel de recursos do VM -> Insights
@@ -36,9 +37,26 @@ Os seguintes são problemas conhecidos com a funcionalidade de estado de funcion
 - Encerrar as VMs serão atualizados alguns dos respetivos critérios de estado de funcionamento para um estado crítico e outras pessoas para um bom estado de funcionamento com o estado de rede da VM num estado crítico.
 - Não é possível alterar a gravidade do alerta de estado de funcionamento, eles só podem ser ativados ou desativados.  Além disso, algumas actualizações gravidades com base no estado de critérios de estado de funcionamento.
 - Modificar qualquer definição de uma instância de critério de estado de funcionamento, levará a modificação da mesma definição de todas as instâncias de critérios de estado de funcionamento do mesmo tipo na VM. Por exemplo, se o limiar do disco livre de instância de critério de estado de funcionamento do espaço correspondente ao disco lógico é modificado c:, então este limiar será aplicada a todos os outros discos lógicos detetados e monitorizados para a mesma VM.   
-- Os limites de alguns critérios de estado de funcionamento do Windows, como o estado de funcionamento de serviço de cliente de DNS não são fáceis de serem modificados, uma vez que o respetivo bom estado de funcionamento já está bloqueado para o **em execução**, **disponível** estado do serviço ou da entidade consoante o contexto.  Em vez disso, o valor é representado pelo número 4, ela será convertida para a cadeia de apresentação real numa versão futura.  
-- Os limites de alguns critérios de estado de funcionamento do Linux não são fáceis de serem modificados, como o estado de funcionamento de disco lógico, como eles já estão definidos para acionar em mau estado de funcionamento.  Estas marcas indicam se algo está online/offline, ou ativada ou desativada e são representados e indicam o mesmo, mostrando o valor de 1 ou 0.
-- A atualizar o filtro de grupo de recursos em qualquer grupo de recursos, ao utilizar a escala do Azure monitor -> máquinas virtuais -> Estado de funcionamento -> qualquer vista de lista com o grupo de recursos e subscrição pré-selecionados, fará com que a vista de lista para mostrar **nenhum resultado**.  Vá para o Azure Monitor -> máquinas virtuais -> separador de estado de funcionamento, selecione a subscrição pretendida e um grupo de recursos e, em seguida, navegue para a vista de lista.
+- Limiares para os seguintes critérios de estado de funcionamento visando uma VM do Windows não são fáceis de serem modificados, desde o seu estado de bom estado de funcionamento já estão definidos para **em execução** ou **disponível**. Quando consultados a partir do [API do Monitor de carga de trabalho](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), o mostra de estado de funcionamento a *comparisonOperator* valor de **LessThan** ou **GreaterThan**com um *limiar* valor de **4** para a entidade ou o serviço se:
+   - Integridade do serviço cliente DNS – serviço não está em execução 
+   - Integridade do serviço cliente DHCP – serviço não está em execução 
+   - Estado de funcionamento do serviço RPC – serviço não está em execução 
+   - Estado de funcionamento do serviço do firewall de Windows – serviço não está em execução
+   - Estado de funcionamento do serviço do registo de eventos de Windows – serviço não está em execução 
+   - Estado de funcionamento do servidor service – serviço não está em execução 
+   - Funcionamento de serviço de gestão remota do Windows – serviço não está em execução 
+   - Erro de sistema de ficheiros ou corrupção – disco lógico não está disponível
+
+- Limiares para os seguintes critérios de estado de funcionamento do Linux não são fáceis de serem modificados, desde o respetivo estado de funcionamento já estão definidos para **true**.  O mostra de estado de funcionamento a *comparisonOperator* com um valor **LessThan** e *limiar* valor **1** quando consultados a partir da carga de trabalho API de monitorização para a entidade dependendo de seu contexto:
+   - Estado do disco lógico – disco lógico não está online / disponíveis
+   - Estado do disco – disco não está online / disponíveis
+   - Estado do adaptador de rede - placa de rede está desativado  
+
+- **Total de utilização da CPU** critério de estado de funcionamento no Windows mostra um limiar de **não é igual a 4** do portal e quando consultados a partir da API de monitorização da carga de trabalho quando a utilização da CPU é superior a 95% e é o comprimento da fila de sistema maior do que 15. Não é possível modificar este critério de estado de funcionamento nesta versão.  
+- Alterações de configuração, como atualizar um limite, demora até 30 minutos para entrar em vigor mesmo que o portal ou a API de Monitor da carga de trabalho pode atualizar imediatamente.  
+- Processador individual e os critérios de estado de funcionamento ao nível do processador lógico não estão disponíveis no Windows, só **utilização da CPU Total** está disponível para VMs do Windows.  
+- Regras de alertas definidas para cada critério de estado de funcionamento não são expostas no portal do Azure. Apenas são configuráveis a partir da [API do Monitor de carga de trabalho](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) para ativar ou desativar uma regra de alerta de estado de funcionamento.  
+- Atribuir um [grupo de ação do Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) para Estado de funcionamento alertas não é possível a partir do portal do Azure. Tem de utilizar a API de definição de notificação para configurar um grupo de ação para ser acionada sempre que é acionado um alerta de estado de funcionamento. Atualmente, os grupos de ação podem ser atribuídos numa VM, que todos os *alertas de estado de funcionamento* disparado em relação a VM acionado o mesmo grupo ou grupos de ação. Não há nenhum conceito de um grupo de ação separada para cada regra de alerta de estado de funcionamento, como o tradicionais de alertas do Azure. Além disso, apenas os grupos de ação configurados para enviar notificações, enviando um e-mail ou SMS são suportados quando são acionados alertas de estado de funcionamento. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Revisão [carregar Monitor do Azure para VMs](monitoring-vminsights-onboard.md) para compreender os requisitos e métodos para ativar a monitorização das suas máquinas virtuais.

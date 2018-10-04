@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 093124432314472da06065fad3a7cdff0f558d22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d1c90c5b74fd7f27335fbc0f7d5e8016d61ab8c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999822"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249405"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights num projeto Web em Java
 
@@ -233,7 +233,6 @@ Esta classe irá configurar o `WebRequestTrackingFilter` para ser o primeiro fil
 
 > Estamos a utilizar a configuração de filtro de http da Web em vez da configuração Spring MVC porque esta é uma aplicação Spring Boot e tem a suas própria configuração Spring MVC. Consulte as secções abaixo para uma configuração especial Spring MVC.
 
-
 ### <a name="applications-using-webxml"></a>Aplicações que Utilizam Web.xml
 Localize e abra o ficheiro web.xml no seu projeto e intercale o seguinte código no nó da aplicação Web, onde os filtros da aplicação estão configurados.
 
@@ -251,6 +250,11 @@ Para obter resultados mais exatos, o filtro deve ser mapeado antes de todos os o
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
+    <listener>
+      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
+    </listener>
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Se estiver a utilizar o Spring Web MVC 3.1 ou posterior

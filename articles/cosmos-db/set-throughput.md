@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734476"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247999"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
-Pode definir o débito para um contentor do Azure Cosmos DB ou um conjunto de contentores com o portal do Azure ou ao utilizar os SDKs do cliente. 
-
-**Débito de aprovisionamento para um contentor individual:** quando aprovisionar o débito para um conjunto de contentores, todos os contentores partilham o débito aprovisionado. Aprovisionamento de débito de contentores individuais irá garantir que a reserva de débito para esse contentor específico. Ao atribuir RU/seg ao nível do contentor individual, os contentores podem ser criados como *fixo* ou *ilimitado*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado, tem de especificar um débito mínimo de 1000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os seus dados poderão ter de ser divididas em várias partições, é necessário escolher uma chave de partição que tenha uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, garante que seu contentor/tabela/gráfico e os pedidos podem ser dimensionados de maneira uniforme pelo Azure Cosmos DB. 
-
-**Débito de aprovisionamento de um conjunto de contentores ou uma base de dados:** débito de aprovisionamento para uma base de dados permite que Compartilhe a taxa de transferência entre todos os contentores que pertencem a essa base de dados. Dentro de uma base de dados do Azure Cosmos DB, pode ter um conjunto de contentores que compartilha o débito, bem como os contentores, que tem dedicado a taxa de transferência. Ao atribuir RU/seg num conjunto de contentores, os contentores pertencentes a este conjunto são tratados como *ilimitado* contentores e tem de especificar uma chave de partição.
-
-Com base no débito aprovisionado, Azure Cosmos DB irá alocar partições físicas para alojar os dados de contentor (es) e divisões/rebalances entre partições à medida que ele aumenta. Contentor e o aprovisionamento de débito de nível de base de dados são ofertas distintas e alterar entre qualquer um destes requerer a migrar dados de origem para destino. Que significa que precisa criar uma nova base de dados ou uma nova coleção e, em seguida, migrar dados, utilizando [biblioteca de executor em massa](bulk-executor-overview.md) ou [do Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). A imagem seguinte ilustra o aprovisionamento de débito em níveis diferentes:
-
-![Unidades de pedido de aprovisionamento para contentores individuais e o conjunto de contentores](./media/request-units/provisioning_set_containers.png)
-
-As secções seguintes, irá aprender os passos necessários para configurar o débito em diferentes níveis de uma conta do Azure Cosmos DB. 
+Pode definir o débito para um contentor do Azure Cosmos DB ou um conjunto de contentores com o portal do Azure ou ao utilizar os SDKs do cliente. Este artigo descreve os passos necessários para configurar o débito em diferentes nas duas granularidades para uma conta do Azure Cosmos DB.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Débito de aprovisionamento através do portal do Azure
 

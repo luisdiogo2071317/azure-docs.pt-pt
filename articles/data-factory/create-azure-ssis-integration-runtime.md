@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a7ba62a28b65d1cd7152c793bc303e747057cdf8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ace95d39cf7c2d183249b0b6c4094835132b3198
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991475"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249388"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar o runtime de integração Azure-SSIS no Azure Data Factory
 Este artigo fornece os passos para aprovisionar um runtime de integração Azure-SSIS no Azure Data Factory. Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou o SQL Server Management Studio (SSMS) para implementar e executar pacotes de SQL Server Integration Services (SSIS) neste runtime no Azure. 
@@ -27,7 +27,7 @@ O tutorial [Tutorial: implementar pacotes do SQL Server Integration Services (SS
 
 - Opcionalmente, utilize a base de dados do Azure SQL com pontos finais do serviço de rede virtual/gerida instância que o servidor de base de dados para alojar o catálogo SSIS (base de dados SSISDB). Para obter orientações sobre como escolher o tipo de servidor de base de dados para alojar o SSISDB, consulte [servidor lógico de comparar a base de dados do SQL e SQL Database Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Como pré-requisito, tem de associar o runtime de integração Azure-SSIS a uma rede virtual e configurar permissões de rede virtual e as definições conforme necessário. Ver [associar a IR Azure-SSIS a uma rede virtual](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-- Opcionalmente, utilize autenticação do Azure Active Directory (AAD) com sua do Azure Data Factory geridos Service Identity (MSI) para IR Azure-SSIS para ligar ao servidor da base de dados. Como pré-requisito, terá de adicionar o MSI da fábrica de dados num grupo do AAD com permissões de acesso para o servidor de base de dados, consulte [autenticação do AAD ativar para IR Azure-SSIS](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+- Opcionalmente, utilize a autenticação do Azure Active Directory (AAD) com as identidades do Azure Data Factory geridos para recursos do Azure para o runtime de integração Azure-SSIS para ligar ao servidor da base de dados. Como pré-requisito, terá de adicionar o MSI da fábrica de dados num grupo do AAD com permissões de acesso para o servidor de base de dados, consulte [autenticação do AAD ativar para IR Azure-SSIS](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
 ## <a name="overview"></a>Descrição geral
 Este artigo mostra-lhe várias formas de aprovisionar um IR Azure-SSIS: 
@@ -146,7 +146,7 @@ Nesta secção, vai utilizar o portal do Azure, especificamente a IU do Data Fac
 
     c. Em **Ponto Final do Servidor de Base de Dados do Catálogo**, selecione o ponto final do seu servidor de base de dados para alojar a SSISDB. Com base no servidor de base de dados selecionada, SSISDB pode ser criado em seu nome como uma base de dados, parte de um conjunto elástico, ou numa instância gerida e acessível na rede pública ou ao associar uma rede virtual. 
 
-    d. No **autenticação do AAD de utilização...**  caixa de verificação, selecione o método de autenticação para o seu servidor de base de dados para alojar o SSISDB: SQL ou o Azure Active Directory (AAD) com o seu Azure dados Factory Managed Service Identity (MSI). Se o confira, terá de adicionar o MSI da fábrica de dados num grupo do AAD com permissões de acesso para o servidor de base de dados, consulte [autenticação do AAD ativar para IR Azure-SSIS](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+    d. No **autenticação do AAD de utilização...**  caixa de verificação, selecione o método de autenticação para o seu servidor de base de dados para alojar o SSISDB: a identidade de recursos do Azure gerido de SQL ou o Azure Active Directory (AAD) com a fábrica de dados do Azure. Se o confira, terá de adicionar o MSI da fábrica de dados num grupo do AAD com permissões de acesso para o servidor de base de dados, consulte [autenticação do AAD ativar para IR Azure-SSIS](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
     e. Em **Nome de Utilizador Administrador**, introduza o nome de utilizador de autenticação SQL Server do servidor de base de dados para alojar a SSISDB. 
 
@@ -333,7 +333,7 @@ Se não utilizar a SQL Database do Azure com rede virtual serviço pontos finais
 
 Se utilizar a instância gerida para alojar o SSISDB, pode omitir o parâmetro de CatalogPricingTier ou passar um valor vazio para o mesmo. Caso contrário, não é possível omiti-lo e tem passar um valor válido na lista de suportadas escalões de preço para a base de dados do Azure SQL, consulte [limites de recursos da base de dados SQL](../sql-database/sql-database-resource-limits.md). 
 
-Se utilizar a autenticação do Azure Active Directory (AAD) com o seu Azure dados Factory Managed Service Identity (MSI) para ligar ao servidor da base de dados, pode omitir o parâmetro CatalogAdminCredential, mas tem de adicionar o MSI da fábrica de dados num grupo do AAD com o acesso permissões para o servidor de base de dados, consulte [autenticação do AAD ativar para IR Azure-SSIS](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Caso contrário, não é possível omiti-lo e tem de passar um objeto válido formado a partir de seu nome de utilizador de administrador de servidor e a palavra-passe para a autenticação SQL.
+Se utilizar a identidade de recursos do Azure ligar ao servidor da base de dados gerido de autenticação do Azure Active Directory (AAD) com a fábrica de dados do Azure, pode omitir o parâmetro de CatalogAdminCredential, mas tem de adicionar o MSI da fábrica de dados num grupo do AAD com permissões para o servidor de base de dados de acesso, consulte [autenticação do AAD ativar para IR Azure-SSIS](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Caso contrário, não é possível omiti-lo e tem de passar um objeto válido formado a partir de seu nome de utilizador de administrador de servidor e a palavra-passe para a autenticação SQL.
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

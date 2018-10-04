@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967647"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269399"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar os registos do Azure Monitor para VMs
 O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
@@ -37,9 +37,9 @@ Uma vez que vários registos podem existir num processo especificado e o computa
 ### <a name="connections"></a>Ligações
 Métricas de ligação são escritas para uma nova tabela no Log Analytics - VMConnection. Esta tabela fornece informações sobre as ligações para uma máquina (entrada e saída). Métricas de ligação também são expostas com APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo.  Ligações de TCP resultantes de "*aceitar*ing - num soquete de escuta são entrada, enquanto os criados por *ligar*, ing para um determinado IP e porta são saída. A direção de uma conexão é representada pela propriedade de direção, o que pode ser definida para o **entrada** ou **saída**. 
 
-Registos nestas tabelas são gerados a partir de dados reportados pelo agente de dependência. Cada registo representa uma observação ao longo de um intervalo de tempo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a entidade respectiva, ou seja, ligação ou porta, bem como as métricas associadas com essa entidade. Atualmente, apenas as atividades de rede que ocorre usando TCP sobre IPv4 é comunicada.
+Registos nestas tabelas são gerados a partir de dados reportados pelo agente de dependência. Cada registo representa uma observação sobre um intervalo de tempo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a entidade respectiva, ou seja, ligação ou porta, bem como as métricas associadas com essa entidade. Atualmente, apenas as atividades de rede que ocorre usando TCP sobre IPv4 é comunicada.
 
-Para gerir o custo e a complexidade, registos de ligação não representam conexões de rede físico individuais. Várias ligações de rede física são agrupadas numa conexão lógica, que, em seguida, é refletida na respetiva tabela.  Significado, regista na *VMConnection* tabela representam um agrupamento lógico e não as individuais físicas ligações que estão a ser observadas. Ligação de rede física que partilham o mesmo valor para os seguintes atributos durante um intervalo específico de um minuto, são agregados num único registo lógico na *VMConnection*. 
+Para gerir o custo e a complexidade, registos de ligação não representam conexões de rede físico individuais. Várias ligações de rede física são agrupadas numa conexão lógica, que, em seguida, é refletida na respetiva tabela.  Significado, regista na *VMConnection* tabela representam um agrupamento lógico e não as individuais físicas ligações que estão a ser observadas. Ligação de rede física que partilham o mesmo valor para os seguintes atributos durante um determinado intervalo de um minuto, são agregados num único registo lógico na *VMConnection*. 
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -69,9 +69,9 @@ Para além das métricas de contagem de ligação, informações sobre o volume 
 |BytesSent |Número total de bytes que foram enviados durante a janela de tempo de criação de relatórios |
 |BytesReceived |Número total de bytes que foram recebidos durante a janela de tempo de criação de relatórios |
 |Respostas |O número de respostas foi observada durante a janela de tempo de criação de relatórios. 
-|ResponseTimeMax |O maior tempo de resposta (milissegundos) foi observado durante a janela de tempo de criação de relatórios.  Se nenhum valor, a propriedade está em branco.|
-|ResponseTimeMin |O menor tempo de resposta (milissegundos) foi observado durante a janela de tempo de criação de relatórios.  Se nenhum valor, a propriedade está em branco.|
-|ResponseTimeSum |A soma de todos os tempos de resposta (milissegundos) foi observada durante a janela de tempo de criação de relatórios.  Se nenhum valor, a propriedade está em branco|
+|ResponseTimeMax |O maior tempo de resposta (milissegundos) foi observado durante a janela de tempo de criação de relatórios. Se nenhum valor, a propriedade está em branco.|
+|ResponseTimeMin |O menor tempo de resposta (milissegundos) foi observado durante a janela de tempo de criação de relatórios. Se nenhum valor, a propriedade está em branco.|
+|ResponseTimeSum |A soma de todos os tempos de resposta (milissegundos) foi observada durante a janela de tempo de criação de relatórios. Se nenhum valor, a propriedade está em branco.|
 
 O terceiro tipo de dados está a ser comunicados é o tempo de resposta - quanto um chamador passa aguardando para um pedido enviado através de uma ligação para serem processados e emitida por ponto final remoto. O tempo de resposta reportado é uma estimativa do tempo de resposta verdadeiro do protocolo subjacente do aplicativo. É calculada usando a heurística com base na observação do fluxo de dados entre o final de origem e de destino de uma ligação de rede física. Conceitualmente, ele é a diferença entre a hora que do último byte de um pedido deixa o remetente e a hora ao último byte de resposta receber retorne a ele. Estes dois carimbos de data / é usados para delinear a pedido e resposta a eventos numa determinada ligação física. A diferença entre eles representa o tempo de resposta de um único pedido. 
 
@@ -93,8 +93,8 @@ Para sua comodidade, o endereço IP do final de uma conexão remota está inclu�
 | Propriedade | Descrição |
 |:--|:--|
 |RemoteCountry |O nome do país RemoteIp de alojamento.  Por exemplo, *dos Estados Unidos* |
-|RemoteLatitude |A latitude da localização geográfica.  Por exemplo, *47.68* |
-|RemoteLongitude |A longitude da localização geográfica.  Por exemplo, *-122.12* |
+|RemoteLatitude |A latitude da localização geográfica. Por exemplo, *47.68* |
+|RemoteLongitude |A longitude da localização geográfica. Por exemplo, *-122.12* |
 
 #### <a name="malicious-ip"></a>IP malicioso
 Cada propriedade RemoteIp *VMConnection* tabela é comparada com um conjunto de IPs com atividades maliciosas conhecidas. Se o RemoteIp é identificado como malicioso as seguintes propriedades serão preenchidas (elas estiverem vazias, quando o IP não é considerado malicioso) nas seguintes propriedades do registo:
@@ -102,16 +102,16 @@ Cada propriedade RemoteIp *VMConnection* tabela é comparada com um conjunto de 
 | Propriedade | Descrição |
 |:--|:--|
 |MaliciousIp |O endereço de RemoteIp |
-|IndicatorThreadType | |
-|Descrição | |
-|TLPLevel | |
-|Confiança | |
-|Gravidade | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Indicador de ameaça detetada é um dos seguintes valores *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *software maligno*, *Phishing*, *Proxy*, *PUA*, *Lista de observação*.   |
+|Descrição |Descrição da ameaça observada. |
+|TLPLevel |Nível de protocolo de semáforo (TLP) é um dos valores definidos, *White*, *verde*, *Amber*, *Red*. |
+|Confiança |Os valores são *0 – 100*. |
+|Gravidade |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não for grave em todos os. Valor predefinido é *3*.  |
+|FirstReportedDateTime |Na primeira vez que o fornecedor reportou o indicador. |
+|LastReportedDateTime |A última vez que o indicador foi visto por Interflow. |
+|IsActive |Indica a indicadores são desativados com *True* ou *falso* valor. |
+|ReportReferenceLink |Links para relatórios relacionados com um determinado observable. |
+|AdditionalInformation |Fornece informações adicionais, se aplicável, sobre a ameaça observada. |
 
 ### <a name="servicemapcomputercl-records"></a>Registos de ServiceMapComputer_CL
 Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para servidores com o agente de dependência. Estes registos têm as propriedades na tabela a seguir:
@@ -166,34 +166,34 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 
 ### <a name="list-all-known-machines"></a>Listar todas as máquinas conhecidas
-ServiceMapComputer_CL | resumir arg_max(TimeGenerated, *) por ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Liste a capacidade de memória física de todos os computadores geridos.
-ServiceMapComputer_CL | resumir arg_max(TimeGenerated, *) por ResourceId | projeto PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Nome de computador da lista, o DNS, o IP e o sistema operacional.
-ServiceMapComputer_CL | resumir arg_max(TimeGenerated, *) por ResourceId | projeto ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Localizar todos os processos com "sql" na linha de comandos
-ServiceMapProcess_CL | onde CommandLine_s contains_cs "sql" | resumir arg_max(TimeGenerated, *) por ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Encontrar uma máquina (registo mais recente) ao nome do recurso
-pesquisa no "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" (ServiceMapComputer_CL) | resumir arg_max(TimeGenerated, *) por ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Localizar uma máquina (registo mais recente) por endereço IP
-pesquisa no "10.229.243.232" (ServiceMapComputer_CL) | resumir arg_max(TimeGenerated, *) por ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista de todos os processos num computador especificado
-ServiceMapProcess_CL | onde MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | resumir arg_max(TimeGenerated, *) por ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Lista de todos os computadores que executam o SQL
-ServiceMapComputer_CL | onde ResourceName_s no ((pesquisa no (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | ComputerName_s distintos
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produto exclusiva de curl em meu datacenter
-ServiceMapProcess_CL | onde ExecutableName_s = = "curl" | ProductVersion_s distintos
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computadores de todos os computadores em execução no CentOS
-ServiceMapComputer_CL | onde OperatingSystemFullName_s contains_cs "CentOS" | ComputerName_s distintos
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as ligações de saída de um grupo de máquinas
 ```

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd8ba47e8fb0d591fab7717117329357b74f907a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585973"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269535"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -84,7 +84,7 @@ Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 | consulta | Consulta seja executada. |
 
 > [!NOTE]
-> Poderá ter de utilizar os carateres de escape na consulta, se ele inclui carateres que poderão ser interpretados como JSON.  Por exemplo, se a consulta foi **tipo: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, deve ser gravado no arquivo de solução conforme **tipo: AzureActivity OperationName:\\" Microsoft.Compute/virtualMachines/write\\"**.
+> Poderá ter de utilizar os carateres de escape na consulta, se ele inclui carateres que poderão ser interpretados como JSON.  Por exemplo, se a consulta foi **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, deve ser gravado no arquivo da solução como **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alertas
 [Alertas de registo do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) são criados pelas regras de alertas do Azure que executam consultas de registo especificado em intervalos regulares.  Se os resultados da consulta corresponderem a critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas usando [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).  

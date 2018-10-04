@@ -7,37 +7,37 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286770"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248759"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Unidades de pedido no Azure Cosmos DB
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Unidades de débito e o pedido no Azure Cosmos DB
 
-[O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é a base de dados Microsoft globalmente distribuída vários modelos. Com o Azure Cosmos DB, não tem de alugar máquinas virtuais, implementar software ou monitorizar bases de dados. O Azure Cosmos DB é operado e monitorizado continuamente por engenheiros de topo da Microsoft para garantir a proteção de disponibilidade, desempenho e dados de classe mundial. Pode aceder aos dados através de APIs à sua escolha, como o [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), e [tabela](table-introduction.md) APIs e gráficos por meio do [Gremlin API](graph-introduction.md). Todas as APIs são suportadas todos nativamente. 
+Recursos do Azure Cosmos DB são faturados com base no débito aprovisionado e armazenamento. Débito do Azure Cosmos DB é expresso em termos de **unidades de pedido por segundo (RU/s)**. Azure Cosmos DB suporta várias APIs que possuem operações diferentes, desde simples lê e escreve consultas de gráficos complexos. Cada solicitação consome com base na quantidade de computação necessária para atender à solicitação de unidades de pedido. O número de unidades de pedido para uma operação é determinístico. Pode controlar o número de unidades de pedido são consumidas por qualquer operação no Azure Cosmos DB com o cabeçalho de resposta. Para fornecer um desempenho previsível, deve reservar débito em unidades de 100 RU/segundo. Pode estimar as suas necessidades de débito ao utilizar o Azure Cosmos DB [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
 
-A moeda do Azure Cosmos DB é o *unidade de pedido (RU)*. Com unidades de pedido, não terá de reservar as capacidades de leitura/gravação ou aprovisionar da CPU, memória e IOPS. Azure Cosmos DB suporta várias APIs que possuem operações diferentes, desde simples lê e escreve consultas de gráficos complexos. Uma vez que nem todos os pedidos são iguais, pedidos recebem uma quantidade normalizada de unidades de pedido com base na quantidade de computação necessária para atender à solicitação. O número de unidades de pedido para uma operação é determinístico. Pode controlar o número de unidades de pedido são consumidas por qualquer operação no Azure Cosmos DB através de um cabeçalho de resposta. 
+No Azure Cosmos DB, pode aprovisionar o débito em duas granularidades: 
 
-Para fornecer um desempenho previsível, reserve débito em unidades de 100 RU/segundo. Pode [calcular as necessidades de débito da sua](request-units.md#estimating-throughput-needs) ao utilizar o Azure Cosmos DB [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
+1. **O contentor do Azure Cosmos DB:** o débito aprovisionado para um contentor está reservado para apenas nesse contentor específico. Ao atribuir throughput(RU/s) ao nível do contentor, os contentores podem ser criados como **Fixed** ou **ilimitado**. 
 
-![Calculadora de débito][5]
+  Os contentores de tamanho fixo têm um limite de débito máximo de 10 000 RU/s e um limite de armazenamento de 10 GB. Para criar um contentor ilimitado, tem de especificar um débito mínimo de 1000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados podem ser divididos em várias partições, terá de escolher uma chave de partição que tenha uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, o Azure Cosmos DB garante que os pedidos para uma coleção, tabela e gráficos são dimensionados de maneira uniforme. 
 
-Depois de ler este artigo, será capaz de responder às seguintes perguntas:
+2. **Base de dados do Azure Cosmos DB:** o débito aprovisionado para um banco de dados é compartilhado entre todos os contentores dentro dessa base de dados. Quando aprovisionar o débito ao nível da base de dados, pode optar por excluir explicitamente certos contêineres e aprovisionar em vez disso, o débito para os contentores no nível do contentor. Débito de nível de base de dados requer que todas as coleções a ser criado com uma chave de partição. Ao atribuir o débito ao nível da base de dados, os contentores que pertencem a esta base de dados devem ser criados com uma chave de partição porque cada coleção é um **ilimitado** contentor.  
 
-* O que são unidades de pedido e os encargos de pedido no Azure Cosmos DB?
-* Como posso especificar capacidade de unidade de pedido para um contentor ou o conjunto de contentores no Azure Cosmos DB?
-* Como estimar a que unidade de pedido do meu aplicativo precisa?
-* O que acontece se exceder a capacidade de unidade de pedido para um contentor ou o conjunto de contentores no Azure Cosmos DB?
+Com base no débito aprovisionado, Azure Cosmos DB irá alocar partições físicas para alojar os dados de contentor (es) e divisões entre partições à medida que ele aumenta. A imagem seguinte ilustra o aprovisionamento de débito em níveis diferentes:
 
-Como o Azure Cosmos DB é uma base de dados de vários modelos, é importante observar que este artigo é aplicável a todos os modelos de dados e APIs no Azure Cosmos DB. Este artigo usa termos genéricos, como *contentor* para se referir genericamente para um gráfico ou uma coleção e *item* para se referir genericamente para uma tabela, o documento, o nó ou a entidade.
+  ![Unidades de pedido de aprovisionamento para contentores individuais e o conjunto de contentores](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> Aprovisionamento de débito com o nível de contêiner e o nível de base de dados são ofertas distintas e alternar entre qualquer um destes exigem migrar dados de origem para destino. Que significa que precisa criar uma nova base de dados ou uma nova coleção e, em seguida, migrar dados, utilizando [biblioteca de executor em massa](bulk-executor-overview.md) ou [do Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>Unidades de pedido e os encargos de pedido
 
-O Azure Cosmos DB rápidas e proporciona um desempenho previsível ao reservar recursos para satisfazer as necessidades de débito da sua aplicação. Padrões de carga e de acesso à aplicação alteram ao longo do tempo. O Azure Cosmos DB lhe permite facilmente aumentar ou diminuir a quantidade de débito reservado disponível para a aplicação.
+O Azure Cosmos DB proporciona um desempenho rápido e previsível ao reservar recursos para satisfazer as necessidades de débito da sua aplicação. Os padrões de acesso e carregamento da aplicação mudam ao longo do tempo. O Azure Cosmos DB pode ajudar a aumentar ou diminuir facilmente a quantidade de débito reservado disponível para a aplicação.
 
 Com o Azure Cosmos DB, o débito reservado é especificado em termos de unidades de pedido de processamento por segundo. Pode pensar unidades de pedido como moeda de débito. Reservar um número de unidades de pedido garantida estejam disponíveis para a sua aplicação numa base por segundo. Cada operação no Azure Cosmos DB, incluindo a criação de um documento, executar uma consulta e atualização de um documento, consome CPU, memória e IOPS. Ou seja, cada operação incorre um encargo de pedido, o que é expressa em unidades de pedido. Quando compreender os fatores que afetam os custos da unidade de pedido e requisitos de débito da sua aplicação, pode executar a aplicação como o custo com eficiência possível. 
 
@@ -57,7 +57,7 @@ Ao calcular o número de unidades de pedido para aprovisionar, é importante con
 * **Utilização do script**. Tal como acontece com consultas, procedimentos armazenados e acionadores consumam unidades de pedido com base na complexidade das operações que está a ser executadas. Ao desenvolver seu aplicativo, Inspecione o cabeçalho de cobrança do pedido para compreender melhor como cada operação consome a capacidade de unidade de pedido.
 
 ## <a name="estimating-throughput-needs"></a>Estimando necessidades de débito
-Uma unidade de pedido é uma medida normalizada de custo de processamento de solicitação. Uma unidade de pedido único representa a capacidade de processamento necessária para ler (via ligação automática ou ID), um único item de 1 KB, que consiste em 10 valores de propriedade única (excluindo as propriedades do sistema). Um pedido para criar (inserir), substituir ou eliminar o mesmo item consome mais processamento do serviço e, portanto, requer mais unidades de pedido. 
+Uma unidade de pedido é uma medida normalizada de custo de processamento de solicitação. Uma unidade de pedido único representa a capacidade de processamento necessária para ler (por meio de ligação personalizada ou ID) um único item de 1KB, que consiste em 10 valores de propriedade única (excluindo as propriedades do sistema). Um pedido para criar (inserir), substituir ou eliminar o mesmo item consome mais processamento do serviço e, portanto, requer mais unidades de pedido. 
 
 > [!NOTE]
 > Linha de base da unidade de 1 pedido para um item de 1 KB corresponde a um GET simple pela ligação automática ou ID do item.
@@ -74,7 +74,6 @@ Por exemplo, aqui está uma tabela que mostra o número de unidades de pedido pa
 | 4 KB | 500 | 500 | (500 * 1.3) + (500 * 7) = 4,150 RU/s
 | 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9,800 RU/s
 | 64 KB | 500 | 500 | (500 * 10) + (500 * 48) = 29,000 RU/s
-
 
 ### <a name="use-the-request-unit-calculator"></a>Utilizar a Calculadora de unidade de pedido
 Para ajudar a otimizar suas estimativas de débito, pode utilizar uma conta baseada na web [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). A Calculadora pode ajudar a sua estimativa os requisitos de unidade de pedido para operações comuns, incluindo:
@@ -237,4 +236,5 @@ Se tiver mais do que um cliente cumulativamente e operacional acima a taxa de pe
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

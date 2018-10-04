@@ -1,6 +1,6 @@
 ---
-title: Como utilizar a API de LCA anomalias com o Python - serviços cognitivos Microsoft | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar anomalias LCA com o Python nos serviços cognitivos.
+title: Como utilizar a API de localizador de anomalias com Python - serviços cognitivos da Microsoft | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar o Explorador de anomalias com Python nos serviços cognitivos.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,35 +9,37 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c14916b0644edab613b298d6e71f8bbb9a6bb804
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c9fd96bf4a9bdc9dfe5baf52aa742e19d5436708
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353311"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247356"
 ---
-# <a name="use-the-anomaly-finder-api-with-python"></a>Utilizar a API de LCA anomalias com o Python
+# <a name="use-the-anomaly-finder-api-with-python"></a>Utilizar o Explorador de anomalias API com Python
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar a API de LCA anomalias com o Python para realizar tarefas de obter o resultado de anomalias para dados de séries de tempo.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de localizador de anomalias com o Python para realizar a tarefa de obter o resultado de anomalias para dados de séries de tempo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-python"></a>Ao obter pontos de anomalias com anomalias LCA API com o Python 
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-python"></a>Obtendo pontos de anomalias com a API de localizador de anomalias com Python 
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemplo de dados de séries de tempo
 
-Segue-se ao exemplo de tempo de pontos de dados de série.
+Segue-se o exemplo do tempo de pontos de dados de série.
 
 [!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-python-example"></a>Analisar dados e obter o exemplo de Python de pontos de anomalias
 
-Certifique-se de que instalou python3, em seguida, crie um ficheiro executável do python com o nome detect.py. No detect.py, deve incluir o código abaixo. Antes de executar o código, não se esqueça de substituir o `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
-Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com os pontos de dados.
+Certifique-se de ter instalado o python3, em seguida, crie um ficheiro executável de python com o nome detect.py. No detect.py, deve incluir o código abaixo. Antes de executar o código, não se esqueça de substituir o `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
+Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com seus pontos de dados.
 
 ```python
 import requests
@@ -65,7 +67,7 @@ print(result)
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito é devolvida em JSON. Segue-se a resposta de amostra.
+O JSON devolve uma resposta de êxito. Segue-se a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes

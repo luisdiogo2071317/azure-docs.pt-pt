@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378674"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268026"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como utilizar a propriedade "Esperado entidade" das ações
 
@@ -63,9 +63,10 @@ Concretamente, se o campo "esperado entidade" de uma ação estiver definido par
 2. Em resposta, escreva "O que é o seu nome?".
 3. Nas entidades esperado, introduza $name. Clique em Guardar.
     - Este valor significa que se essa pergunta é solicitada e a resposta do utilizador não tem qualquer entidades detetadas, o bot deve presumir que o todo de resposta do usuário é esta entidade.
+    - A entidade é adicionada automaticamente como uma entidade disqualifying. 
 2. Clique em ações, em seguida, nova ação para criar uma segunda ação.
 3. Em resposta, escreva 'Hello $name'.
-    - Tenha em atenção que a entidade é automaticamente adicionada como uma entidade necessária. 
+    - A entidade é adicionada automaticamente como uma entidade necessária.
 4. Clique em Guardar.
 
 Agora tem duas ações.
@@ -111,7 +112,7 @@ Nos exemplos a seguir, a heurística "esperado entidade" aciona, mas está incor
 2. Introduza "hello".
 3. Em resposta a "o que é o nome", introduza 'Eu sou chamado frank'.
     - A frase inteira é realçada. Isto acontece porque o modelo de estatístico não foi encontrado um nome, para que a heurística disparado e selecionado a resposta inteira como a entidade de nome.
-2. Para corrigi-lo, clique na frase realçado, e clique no x vermelho. 
+2. Para corrigi-lo, clique a frase realçado, em seguida, clique em do red caixote do lixo ícone. 
 3. Clique para selecionar o frank, em seguida, clique no nome.
 2. Clique em ações de pontuação
 3. Selecione 'Hello $name'.

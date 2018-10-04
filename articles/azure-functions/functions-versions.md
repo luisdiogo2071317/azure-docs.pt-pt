@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: glenga
-ms.openlocfilehash: a601ea42549abad84d6cab5c429cf94147776436
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978629"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249065"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 
@@ -98,7 +98,7 @@ Para o VS Code também poderá ter de atualizar a definição de utilizador para
 
 ### <a name="changing-version-of-apps-in-azure"></a>Alterar versão das aplicações no Azure
 
-Versões da aplicação publicada são definidas através da definição de aplicação `FUNCTIONS_RUNTIME_VERSION`.  Ele é definido como `~2` para aplicações v2, e `~1` para aplicações v1.  É recomendável usar para alterar a versão de tempo de execução de uma aplicação que tenha publicadas sem também alterar o código de uma dessas funções de funções existentes.  O caminho recomendado é criar uma nova aplicação de função e definido para a versão adequada, testar as alterações e, em seguida, desativar ou eliminar a aplicação anterior.
+Versões da aplicação publicada são definidas através da definição de aplicação `FUNCTIONS_EXTENSION_VERSION`.  Ele é definido como `~2` para aplicações v2, e `~1` para aplicações v1.  É recomendável usar para alterar a versão de tempo de execução de uma aplicação que tenha publicadas sem também alterar o código de uma dessas funções de funções existentes.  O caminho recomendado é criar uma nova aplicação de função e definido para a versão adequada, testar as alterações e, em seguida, desativar ou eliminar a aplicação anterior.
 
 ## <a name="bindings"></a>Enlaces 
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978680"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247457"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar o encaminhamento de mensagens e o Event Grid para o IoT Hub
 
@@ -22,6 +22,7 @@ O IoT Hub do Azure fornece a capacidade de transmitir dados dos seus dispositivo
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[Roteamento de mensagens do IoT Hub](iot-hub-devguide-messages-d2c.md)**: o IoT Hub esta funcionalidade permite aos utilizadores encaminhar mensagens do dispositivo para a cloud para pontos finais de serviço, como contentores de armazenamento do Azure, os Hubs de eventos, filas do Service Bus e tópicos do Service Bus. Também encaminhamento fornece um recurso de consulta para filtrar os dados antes de encaminhamento para os pontos de extremidade. Além de dados de telemetria do dispositivo, também pode enviar [eventos sem ser de telemetria](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que pode ser utilizado para acionar ações. 
+
 * **Integração do IoT Hub com o Event Grid**: Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que utiliza um publicar-subscrever o modelo. IoT Hub e o Event Grid que funcionam em conjunto para [integrar eventos do IoT Hub no Azure e serviços não pertencente ao Azure](iot-hub-event-grid.md), em tempo quase real. 
 
 ## <a name="similarities-and-differences"></a>Semelhanças e diferenças
@@ -34,7 +35,7 @@ Embora o roteamento de mensagens e o Event Grid ativar a configuração de alert
 | **Tipo de evento** | Sim, roteamento de mensagens pode reportar alterações duplo e eventos de ciclo de vida do dispositivo. | Sim, o Event Grid pode reportar quando os dispositivos são criados, eliminados, ligados e desligados a partir do IoT Hub |
 | **Ordenação** | Sim, é mantida ordenação de eventos.  | Não, a ordem de eventos não é garantido. | 
 | **Tamanho máximo da mensagem** | 256 KB, dispositivo para a cloud | 64 KB |
-| **Filtragem** | Avançados de filtragem de propriedades da mensagem de aplicação, as propriedades do sistema de mensagem, corpo da mensagem, etiquetas de twin do dispositivo e dispositivo duplo propriedades. Para obter exemplos, consulte [sintaxe de consulta de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem baseada no sufixo/prefixo identificações de dispositivo, que funciona bem para serviços hierárquicos, como o armazenamento. |
+| **Filtragem** | Avançados de filtragem nas propriedades da aplicação de mensagem, propriedades do sistema de mensagem, o corpo da mensagem, o etiquetas do dispositivo duplo e o dispositivo duplo propriedades. Para obter exemplos, consulte [sintaxe de consulta de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem baseada no sufixo/prefixo identificações de dispositivo, que funciona bem para serviços hierárquicos, como o armazenamento. |
 | **Pontos finais** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos do Service Bus</li></ul><br>IoT Hub aos SKUs pagos (S1, S2 e S3) estão limitados a 10 pontos de extremidade personalizados. 100 rotas podem ser criadas por IoT Hub. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>Para obter a lista mais atualizada dos pontos finais, consulte [manipuladores de eventos do Event Grid](../event-grid/overview.md#event-handlers). |
 | **Custo** | Não existe cobrança separada para o encaminhamento de mensagens. Apenas uma entrada de telemetria no IoT Hub é cobrada. Por exemplo, se tiver uma mensagem encaminhada para três diferentes pontos de extremidade, é cobrada apenas uma mensagem. | Não há nenhum custo do IoT Hub. Grelha de eventos oferece as primeiro 100.000 operações por mês gratuitamente e, em seguida, 0,60 us $ por milhão de operações depois disso. |
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 797f97b9c1548484d72f518ae1d2c56633b7b5b3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126773"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248929"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -105,7 +105,7 @@ Quando um perfil está configurado para encaminhamento geográfico, cada ponto d
 - Mundo – qualquer região
 - Regional agrupamento – por exemplo, África, Médio Oriente, Austrália/Pacífico etc. 
 - País/região – por exemplo, Irlanda, Peru, RAE de Hong Kong etc. 
-- Estado/província – por exemplo, EUA Califórnia, Austrália-Queensland, etc. do Canadá-Alberta (Nota: este nível de granularidade é suportada apenas para Estados / províncias na Austrália, Canadá, Reino Unido e EUA).
+- Estado/província – por exemplo, EUA Califórnia, Austrália-Queensland, etc. do Canadá-Alberta (Nota: este nível de granularidade é suportada apenas para Estados / províncias na Austrália, Canadá e EUA).
 
 Quando uma região ou um conjunto de regiões é atribuído a um ponto de extremidade, quaisquer pedidos dessas regiões é encaminhado apenas para esse ponto final. O Gestor de tráfego utiliza o endereço IP de origem da consulta DNS para determinar a região a partir do qual é a consulta de um utilizador – normalmente, é o endereço IP do resolvedor DNS local, fazer a consulta em nome do utilizador.  
 

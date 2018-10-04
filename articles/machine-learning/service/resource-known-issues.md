@@ -9,16 +9,25 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: d4910eb3dfacb46efe3f85aea3a441bdaaeb1392
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236417"
+ms.locfileid: "48249422"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
  
 Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados ao utilizar o serviço Azure Machine Learning. 
+
+## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
+
+**Mensagem de erro: não é possível desinstalar 'PyYAML'** 
+
+PyYAML é um projeto instalado distutils. Por conseguinte, não é possível com precisão determinar quais os ficheiros que pertencem ao mesmo em caso de uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar este erro, utilize:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
 
 ## <a name="image-building-failure"></a>Falha de criação de imagem
 
@@ -45,7 +54,7 @@ Problemas de Databricks e o Azure Machine Learning.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>Recolher informações de diagnóstico
+## <a name="diagnostic-logs"></a>Registos de diagnósticos
 Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. É aqui onde residem os ficheiros de registo:
 
 ## <a name="resource-quotas"></a>Quotas de recursos

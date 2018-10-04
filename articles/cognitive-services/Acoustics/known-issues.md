@@ -9,31 +9,23 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e42a2f854d5d4fa72e17a0b75ffef55069ccb626
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431997"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267874"
 ---
-# <a name="known-issues"></a>Problemas Conhecidos
+# <a name="known-issues"></a>Problemas conhecidos
 Poderá encontrar os seguintes problemas conhecidos ao utilizar a pré-visualização do Designer para Acoustics do projeto.
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Parâmetros acústicos são perdidos quando mudar o nome de uma cena
 
 Se renomear uma cena, todos os parâmetros acústicos que pertencem a essa cena não irão transferir automaticamente para a cena nova. Eles continuarão a existir no ficheiro de elemento antigo no entanto. Procure o **SceneName_AcousticParameters.asset** dentro do ficheiro a **Editor** diretório junto ao seu ficheiro de cena. Mudar o nome do ficheiro para refletir o novo nome de cena.
 
-## <a name="the-default-path-for-the-acousticsdata-folder-in-probes-tab-is-an-absolute-path"></a>O caminho padrão para a pasta de AcousticsData no separador de sondas é um caminho absoluto
-
-Isso deverá ser predefinido para um caminho relativo para que seja mais fácil de compartilhar projetos entre funcionários. Como solução, altere o caminho relativa ao diretório do projeto.
-
 ## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Tempo de execução voxels são um tamanho diferente de cena voxels de pré-visualização
 
 Se o fizer um **Calculate** sobre o **sondas** separador e vista voxels, em seguida, efetue um voxels criar e ver em tempo de execução para a cena da mesma, os voxels têm tamanhos diferentes. Voxels mostrados pré-criar são voxels utilizado na simulação. Voxels mostrados em tempo de execução são utilizados para a interpolação entre pontos de sonda. Isso pode causar uma inconsistência onde portais aparecerá abertos no tempo de execução que não são, na verdade, aberto.
-
-## <a name="uwp-builds-not-working"></a>UWP baseia-se não funcionar
-
-Nas versões mais recentes do Unity (2018.2 +), UWP compilações são não que os sucedem. A fase de execução da compilação irá manipulação de compartimento e obterá erros "extensões Unity são ainda não inicializadas". Isso é controlado [nesta edição do Unity](https://fogbugz.unity3d.com/default.asp?1070491_1rgf14bakv5u779d).
 
 ## <a name="unity-crashes-when-closing-project"></a>Unity é interrompida ao fechar o projeto
 
@@ -49,6 +41,9 @@ Certifique-se de que a versão de tempo de execução de scripts nas definiçõe
 ## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Estou a ter problemas de autenticação ao ligar ao Azure
 
 Verificar novamente já utilizou as credenciais corretas para a sua conta do Azure, que a sua conta suporta o tipo de nó solicitado na criar e que o relógio do seu sistema está correta.
+
+## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>A cancelar uma criar deixa o separador de criar no estado de "eliminação"
+Projeto Acoustics irá limpar todos os recursos do Azure para uma tarefa na conclusão com êxito ou cancelamento que pode demorar até 5 minutos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Introdução à [integração de acústica no projeto do Unity](getting-started.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: e0c2ad2385b5c8a54b4d8a743cc4f081e5ff6703
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127300"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248290"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).
@@ -37,8 +37,9 @@ As secções seguintes descrevem cada tipo de ponto final mais detalhadamente.
 
 Pontos finais do Azure são utilizados para serviços baseados no Azure no Gestor de tráfego. São suportados os seguintes tipos de recursos do Azure:
 
-* Serviços cloud "Clássico" VMs de IaaS e PaaS.
+* Serviços de cloud de PaaS.
 * Aplicações Web
+* Ranhuras de aplicação Web
 * Recursos PublicIPAddress (que podem ser ligado a VMs diretamente ou através de um balanceador de carga do Azure). O publicIpAddress tem de ter um nome DNS atribuído para ser usado num perfil do Gestor de tráfego.
 
 Recursos PublicIPAddress são recursos do Azure Resource Manager. Eles não existem no modelo de implementação clássica. Portanto, elas são apenas suportadas no Gestor de tráfego do Azure Resource Manager experiências. Os outros tipos de ponto de extremidade são suportados através do Resource Manager e o modelo de implementação clássica.

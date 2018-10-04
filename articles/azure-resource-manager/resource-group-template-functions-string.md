@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e0578572de53fefddb88e163520d2bf5f580012
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 578d078550daaae54c63bf91da1fa5590bb8fdf6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434318"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249150"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos Azure Resource Manager
 
@@ -1680,15 +1680,15 @@ Devolve uma subcadeia que começa com a posição do caráter especificado e con
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sim |cadeia |A cadeia de caracteres original do qual a subcadeia é extraída. |
 | startIndex |Não |Int |A baseado em zero caractere posição inicial para a subcadeia. |
-| Comprimento |Não |Int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia. |
+| Comprimento |Não |Int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia. Tem de ser zero ou superior. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A subcadeia.
+A subcadeia. Em alternativa, uma cadeia vazia se o comprimento for igual a zero.
 
 ### <a name="remarks"></a>Observações
 
-A função falhar quando a subcadeia ultrapassa o fim da cadeia. O exemplo a seguir falha com o erro "os parâmetros de índice e o comprimento devem referir-se para uma localização na cadeia. O parâmetro de índice: '0', o parâmetro de comprimento: "11", o comprimento do parâmetro de cadeia: "10". ".
+A função falhar quando a subcadeia ultrapassa o fim da cadeia, ou quando o comprimento é inferior a zero. O exemplo a seguir falha com o erro "os parâmetros de índice e o comprimento devem referir-se para uma localização na cadeia. O parâmetro de índice: '0', o parâmetro de comprimento: "11", o comprimento do parâmetro de cadeia: "10". ".
 
 ```json
 "parameters": {

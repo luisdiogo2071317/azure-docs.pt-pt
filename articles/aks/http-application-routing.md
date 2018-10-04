@@ -8,16 +8,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa9c9416a8a1f80a62a21e5d9041e750b1debb98
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345884"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269382"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
-A solução de encaminhamento de aplicações de HTTP torna mais fácil de aceder a aplicações que são implementadas ao seu cluster do Azure Kubernetes Service (AKS). Quando a solução ativada, configura um controlador de entradas no seu cluster do AKS. Como os aplicativos são implantados, a solução também cria publicamente acessíveis nomes DNS para pontos finais da aplicação.
+A solução de encaminhamento de aplicações de HTTP torna mais fácil de aceder a aplicações que são implementadas ao seu cluster do Azure Kubernetes Service (AKS). Quando a solução ativada, configura um controlador de entradas no seu cluster do AKS. Como os aplicativos são implantados, a solução também cria acessíveis publicamente nomes DNS para pontos finais da aplicação.
 
 Quando o suplemento estiver ativado, cria uma zona DNS na sua subscrição. Para obter mais informações sobre o custo DNS, consulte [preços de DNS][dns-pricing].
 

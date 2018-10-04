@@ -12,16 +12,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 234fb5af55565602d283539c63076adebad1ed25
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576634"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248980"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o runtime de integração Azure-SSIS
 
-Este artigo mostra-lhe como criar um IR Azure-SSIS com a identidade de serviço do Azure Data Factory. Autenticação do Active Directory (Azure AD) do Azure com o Managed Service Identity (MSI) para o runtime de integração Azure-SSIS permite-lhe utilizar o MSI da fábrica de dados em vez da autenticação de SQL para criar um runtime de integração Azure-SSIS.
+Este artigo mostra-lhe como criar um IR Azure-SSIS com a identidade de serviço do Azure Data Factory. Autenticação do Active Directory (Azure AD) do Azure com a identidade gerida para recursos do Azure para o runtime de integração Azure-SSIS permite-lhe utilizar o MSI da fábrica de dados em vez da autenticação de SQL para criar um runtime de integração Azure-SSIS.
 
 Para mais informações sobre o MSI da fábrica de dados, veja [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 

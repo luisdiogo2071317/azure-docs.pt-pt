@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 003fb667177bbf7f532946d34a06da757646ade3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c513ef76174507f1ea78b265b1882266b8473737
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578587"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248946"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,7 +33,7 @@ Pode copiar dados de ou para a base de dados do Azure SQL para qualquer arquivo 
 
 Especificamente, este conector SQL Database do Azure oferece suporte a essas funções:
 
-- Copie dados utilizando autenticação do SQL e autenticação de token de aplicação do Azure Active Directory (Azure AD) com um principal de serviço ou uma identidade de serviço gerida (MSI).
+- Copie dados utilizando autenticação do SQL e autenticação de token de aplicação do Azure Active Directory (Azure AD) com identidades de gerido ou principal de serviço para recursos do Azure.
 - Como uma origem, obter dados através de uma consulta SQL ou o procedimento armazenado.
 - Como um sink, acrescentar dados a uma tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
@@ -64,7 +64,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 - [Autenticação do SQL](#sql-authentication)
 - [Autenticação de token do Azure AD application: principal de serviço](#service-principal-authentication)
-- [Autenticação de token do Azure AD application: identidade do serviço gerido](#managed-service-identity-authentication)
+- [Autenticação de token do Azure AD application: geridos identidades para recursos do Azure](#managed-service-identity-authentication)
 
 >[!TIP]
 >Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
@@ -146,9 +146,9 @@ Para usar uma autenticação de token de aplicação de serviço baseada em prin
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticação de identidade de serviço gerida
+### <a name="managed-identities-for-azure-resources-authentication"></a>Identidades geridas para a autenticação de recursos do Azure
 
-Pode ser associada uma fábrica de dados com um [identidade do serviço gerido](data-factory-service-identity.md) que representa a fábrica de dados específicos. Pode utilizar esta identidade de serviço para a autenticação de base de dados do Azure SQL. A fábrica designada pode aceder e copiar dados de ou para a base de dados com esta identidade.
+Pode ser associada uma fábrica de dados com um [identidade de recursos do Azure gerida](data-factory-service-identity.md) que representa a fábrica de dados específicos. Pode utilizar esta identidade de serviço para a autenticação de base de dados do Azure SQL. A fábrica designada pode aceder e copiar dados de ou para a base de dados com esta identidade.
 
 Para utilizar a autenticação de token de aplicação baseada em MSI do Azure AD, siga estes passos:
 

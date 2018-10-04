@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 99e9edf0bb31ec0eab96e22e866d9602a26c2693
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 64cd440947c95de92ea156c14e4c524ecdc8e76c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47179923"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268821"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurar contas de início de sessão no Azure Active Directory uma política incorporada no Azure Active Directory B2C
 
@@ -32,10 +32,10 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
 >`Contoso.com` é utilizado o organizacional para inquilino do Azure AD e `fabrikamb2c.onmicrosoft.com` é utilizado como o inquilino do Azure AD B2C nas instruções seguintes.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o Azure organizacional inquilino do AD (contoso.com) ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C (fabrikamb2c.onmicrosoft.com) ao clicar no filtro de diretório e subscrição no menu superior e escolher o diretório que contém o seu inquilino do Azure AD B2C.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
 4. Selecione **Novo registo de aplicação**.
-5. Introduza um nome para a sua aplicação. Por exemplo, `Azure AD B2C App`.
+5. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 6. Para o **tipo de aplicação**, selecione `Web app / API`.
 7. Para o **URL de início de sessão**, introduza o seguinte URL em todas as letras minúsculas, onde `your-tenant` é substituído pelo nome do inquilino do Azure AD B2C (fabrikamb2c.onmicrosoft.com):
 

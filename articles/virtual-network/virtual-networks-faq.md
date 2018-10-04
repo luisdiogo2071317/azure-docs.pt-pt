@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999873"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269484"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -230,7 +230,7 @@ VNet peering (ou peering da rede virtual) permite-lhe ligar redes virtuais. Uma 
 Sim. Global VNet peering permite-lhe configurar o peering entre VNets em diferentes regiões. Global VNet peering está disponível em todas as regiões públicas do Azure. Não é possível globalmente emparelhamento de regiões públicas do Azure para nuvens nacionais. Global peering não está atualmente disponível em clouds nacionais.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Posso habilitar o VNet Peering se meu redes virtuais pertencem a subscrições dentro de diferentes inquilinos do Azure Active Directory?
-Atualmente não é possível estabelecer o VNet Peering (sejam locais ou globais) se as suas subscrições pertencem a diferentes inquilinos do Azure Active Directory.
+Sim. É possível estabelecer o VNet Peering (sejam locais ou globais) se as suas subscrições pertencem a diferentes inquilinos do Azure Active Directory. Pode fazê-lo através do PowerShell ou CLI. Portal ainda não é suportado.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Minha pertença a ligação de peering de VNet *iniciado* Estado, por que não posso ligar?
 Se a sua ligação de peering está num estado iniciado, isso significa que criou apenas uma ligação. Tem de ser criada uma ligação bidirecional para estabelecer uma ligação com êxito. Por exemplo, para se ligar a VNet A VNet b, tem de ser criada uma ligação de também a Vneta e de Vneta para também. Criação de ambas as ligações alterará o estado para *ligado.*
@@ -259,7 +259,7 @@ Não. Peering transitivo não é suportada. Deve configurar o peering também e 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Existem limitações de largura de banda para ligações de peering?
 Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições de largura de banda. Largura de banda é apenas limites pelo recurso VM ou de computação.
 
-## <a name="virtual-network-tap"></a>TESTE de rede virtual
+## <a name="virtual-network-tap"></a>TAP de rede virtual
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Que regiões do Azure estão disponíveis para teste de rede virtual?
 Durante a pré-visualização de programador, a capacidade está disponível na região e.u.a. Centro-Oeste. As interfaces de rede monitorizado, o recurso TAP da rede virtual e a solução de recoletor ou análise tem de ser implementados na mesma região.

@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 72a9d476b5e5dfc55c6a28dff7e09a20faab332c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181663"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246995"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Introdução ao projeto Acoustics
 Este guia de início rápido mostram como integrar o plug-in no seu projeto Unity, inserir sua cena e aplicar o acoustics a origens de som. Neste início rápido, terá primeiro de criar uma [conta do Azure batch](create-azure-account.md). Este guia assume um pouco familiarizado com o Unity.
@@ -93,9 +93,9 @@ Crie uma origem de áudio. Clique na caixa de verificação na parte inferior do
 ![Origem de áudio](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Aplicar o design de pós-criar
-Pode anexar o script **AcousticsSourceCustomization** a uma origem de som em seu cenário para habilitar os parâmetros de design de origem adicionais, clicando em **Add Component** e escolhendo **Scripts > Personalização de origem acoustics**:
+Pode anexar o script **AcousticsDesign** a uma origem de som em seu cenário para habilitar os parâmetros de design de origem adicionais, clicando em **Add Component** e escolhendo **Scripts > Acoustics Design**:
 
-![Personalização de origem](media/SourceCustomization.png)
+![Personalização de origem](media/AcousticsDesign.png)
 
 Também há parâmetros nos **Microsoft Acoustics Mixer**. Para obter mais informações sobre o design de pós-criar, ver [parâmetros de design](design-process.md).
 

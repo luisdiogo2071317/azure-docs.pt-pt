@@ -12,19 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 30a03fd5df9d4119e61698cfe1e5fc612e2cfd3f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 10/03/2018
+ms.author: magoedte
+ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297831"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269263"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
 
 Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço. Para obter informações sobre como configurar o mapa de serviço e o carregamento de agentes, consulte [solução mapa de serviço de configuração no Azure]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](monitoring-vminsights-overview.md).
+
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -230,6 +234,7 @@ Para abrir o item na sua solução ITSM ligada, clique em **vista de Item de tra
 
 Para ver os detalhes do item na pesquisa de registos, clique em **Mostrar na pesquisa de registos**.
 Métricas de ligação são escritas para duas novas tabelas no Log Analytics 
+
 ## <a name="change-tracking-integration"></a>Alterar a integração de controlo
 Integração de mapa de serviço com o controlo de alterações é automática quando ambas as soluções são ativadas e configuradas na sua área de trabalho do Log Analytics.
 
@@ -359,16 +364,16 @@ Cada propriedade RemoteIp *VMConnection* tabela é comparada com um conjunto de 
 | Propriedade | Descrição |
 |:--|:--|
 |MaliciousIp |O endereço de RemoteIp |
-|IndicatorThreadType | |
-|Descrição | |
-|TLPLevel | |
-|Confiança | |
-|Gravidade | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Indicador de ameaça detetada é um dos seguintes valores *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *software maligno*, *Phishing*, *Proxy*, *PUA*, *Lista de observação*.   |
+|Descrição |Descrição da ameaça observada. |
+|TLPLevel |Nível de protocolo de semáforo (TLP) é um dos valores definidos, *White*, *verde*, *Amber*, *Red*. |
+|Confiança |Os valores são *0 – 100*. |
+|Gravidade |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não for grave em todos os. Valor predefinido é *3*.  |
+|FirstReportedDateTime |Na primeira vez que o fornecedor reportou o indicador. |
+|LastReportedDateTime |A última vez que o indicador foi visto por Interflow. |
+|IsActive |Indica a indicadores são desativados com *True* ou *falso* valor. |
+|ReportReferenceLink |Links para relatórios relacionados com um determinado observable. |
+|AdditionalInformation |Fornece informações adicionais, se aplicável, sobre a ameaça observada. |
 
 ### <a name="servicemapcomputercl-records"></a>Registos de ServiceMapComputer_CL
 Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para servidores com os agentes de mapa de serviço. Estes registos têm as propriedades na tabela a seguir:

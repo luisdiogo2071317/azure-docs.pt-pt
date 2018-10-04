@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171440"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248386"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação
 
@@ -76,7 +76,7 @@ Tem agora duas ações.
 
 Adicione outra caixa de diálogo de exemplo:
 
-1. Clique em nova ação, em seguida, nova caixa de diálogo de comboio.
+1. Clique em Train caixas de diálogo e, em seguida, nova caixa de diálogo de comboio.
 2. Escreva "o que é o clima em Seattle?". Observe que Seattle é identificado como uma entidade.
 5. Clique em ações de pontuação 
 6. Selecione "o clima em $city é provavelmente ensolarado".
@@ -86,7 +86,7 @@ Adicione outra caixa de diálogo de exemplo:
 Vamos imaginar que Implementámos este bot aos utilizadores.
 
 1. Clique em caixas de diálogo de registo.
-2. Clique em nova sessão de bate-papo.
+2. Clique em nova caixa de diálogo de registo.
     - Isso apresenta o bot, conforme o usuário teria Experimente-o no controle de bate-papo da web do lado esquerdo da interface do Usuário. Pode ignorar a área de espaço em branco à direita.
 3. Escreva "hello".
 4. Resposta de bot: "qual cidade?"
@@ -97,10 +97,10 @@ Vamos imaginar que Implementámos este bot aos utilizadores.
 
 Vamos começar uma nova sessão:
 
-2. Clique em nova sessão de bate-papo.
+2. Clique em nova caixa de diálogo de registo.
 3. Tipo de "previsão de Boston".
 4. Resposta de bot: "qual cidade?"
-2. Clique em concluído ensino.
+2. Clique em teste concluído.
 
 Agora vamos fazer correções para a segunda caixa de diálogo:
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/3/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 50b567b298406b936a11ad5a8737ce4b1e21c0c7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163023"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248729"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -180,10 +180,10 @@ Definir um balanceador de carga Standard público, coloque as VMs em conjunto de
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de saída para cenários de Balanceador de carga internos
 
-Ao usar um Standard Balanceador de carga interno, NAT de saída não está disponível, até um balanceador de carga Standard público também foi configurado. Pode alterar isto usando e regra de saída para criar a conectividade de saída para VMs por trás de um Standard Balanceador de carga interno.
+Ao usar um Standard Balanceador de carga interno, NAT de saída não está disponível até que a conectividade de saída foi declarada explicitamente. Pode definir a conectividade de saída utilizando uma regra de saída para criar a conectividade de saída para VMs por trás de um balanceador de carga interno padrão com estes passos:
 
 1. Crie um balanceador de carga Standard público.
-2. Criar um conjunto de back-end e coloque as VMs num conjunto de back-end de Balanceador de carga público.
+2. Criar um conjunto de back-end e coloque as VMs num conjunto de back-end de Balanceador de carga público, além do Balanceador de carga interno.
 3. Configure uma regra de saída no balanceador de carga público programar NAT de saída para estas VMs.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Ativar protocolos TCP e UDP para NAT de saída com um balanceador de carga Standard público

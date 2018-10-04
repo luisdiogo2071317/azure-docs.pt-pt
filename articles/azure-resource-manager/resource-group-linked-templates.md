@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b09170c31691be34cea577eb82c8cce3402be96
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1d116b96abab89f08546d3c2d5d7bff3234ecbc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294670"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249235"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -49,7 +49,7 @@ Para ligar a outro modelo, adicione uma **implementações** recursos ao seu mod
 ]
 ```
 
-As propriedades que fornecer para o recurso de implantação variam consoante se estiver a criar uma ligação para um modelo externo ou aninhar um modelo inline no modelo principal.
+As propriedades que fornecer para o recurso de implantação variam consoante quer esteja a criar uma ligação para um modelo externo ou aninhar um modelo inline no modelo principal.
 
 Para ambos ligados e aninhados modelos, só pode utilizar [Incremental](deployment-modes.md) modo de implementação.
 
@@ -121,7 +121,9 @@ Não é necessário fornecer o `contentVersion` propriedade do modelo ou parâme
 
 ### <a name="external-template-and-inline-parameters"></a>Parâmetros de modelo e inline externos
 
-Em alternativa, pode fornecer o parâmetro inline. Transmita um valor a partir do modelo de principal para o modelo ligado, utilize **parâmetros**.
+Em alternativa, pode fornecer o parâmetro inline. Não é possível utilizar parâmetros inline e uma ligação para um ficheiro de parâmetros. A implementação falhar com um erro quando ambos `parametersLink` e `parameters` são especificados.
+
+Transmita um valor a partir do modelo de principal para o modelo ligado, utilize **parâmetros**.
 
 ```json
 "resources": [

@@ -1,6 +1,6 @@
 ---
-title: Como utilizar a API de LCA anomalias com Java - serviços cognitivos Microsoft | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar o Java e a deteção de anomalias nos serviços cognitivos.
+title: Como utilizar a API de localizador de anomalias com Java - serviços cognitivos da Microsoft | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar o Java e a deteção de anomalias nos serviços cognitivos.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,41 +9,43 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 8152c23e6c5332d243d851be56bab1e4085dbe5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353347"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249190"
 ---
-# <a name="use-the-anomaly-finder-api-with-java"></a>Utilizar a API de LCA anomalias com Java
+# <a name="use-the-anomaly-finder-api-with-java"></a>Utilizar o Explorador de anomalias API com Java
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar a API de deteção de anomalias com o Java para realizar tarefas de obter o resultado de deteção de anomalias para dados de séries de tempo.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de deteção de anomalias com o Java para realizar a tarefa de obter o resultado da deteção de anomalias para dados de séries de tempo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Ao obter pontos de anomalias com a API de deteção de anomalias linguagem Java
+## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Obtendo pontos de anomalias com a API de deteção de anomalias com Java
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemplo de dados de séries de tempo
 
-Segue-se ao exemplo de tempo de pontos de dados de série.
+Segue-se o exemplo do tempo de pontos de dados de série.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Analisar dados e obter os pontos de anomalias exemplo de Java
+### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Analisar dados e obter pontos de anomalias de exemplo de Java
 
 Para executar o exemplo, execute os seguintes passos:
 1. Crie uma nova aplicação de linha de comandos.
-2. Substitua a classe principal com o seguinte código (manter qualquer `package` instruções).
-3. Substitua o `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
-4. Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com o exemplo ou os seus pontos de dados.
-5. Transferir estas bibliotecas global a partir do repositório Maven à `lib` diretório no seu projeto:
+2. Substitua a classe Main pelo seguinte código (mantenha as instruções `package`).
+3. Substitua o valor `[YOUR_SUBSCRIPTION_KEY]` pela sua chave de subscrição válida.
+4. Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com o exemplo ou seus próprios pontos de dados.
+5. Baixe essas bibliotecas global do repositório Maven para o `lib` diretório no seu projeto:
    * `org.apache.httpcomponents:httpclient:4.5.2`
-6. Execute 'Main'.
+6. Execute "Main".
 
 ```java
 
@@ -113,10 +115,10 @@ public class Main {
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito é devolvida em JSON. Exemplo de resposta é a seguinte.
+O JSON devolve uma resposta de êxito. Segue-se a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Aplicação de Java](../tutorials/java-tutorial.md)
+> [Aplicação Java](../tutorials/java-tutorial.md)

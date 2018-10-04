@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 79bb3042af6a42b4a8c33e9a19c80d117c3216e7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444593"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248861"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Pode copiar dados de qualquer arquivo de dados de origem suportada para o armaze
 Especificamente, este conector de armazenamento de BLOBs suporta:
 
 - Copiar blobs entre contas de armazenamento do Azure para fins gerais e de armazenamento de BLOBs de acesso frequente/esporádico. 
-- Copiar blobs ao utilizar a chave da conta, assinatura de acesso partilhado do serviço, as autenticações de identidade de serviço gerida ou principal de serviço.
+- Copiar blobs ao utilizar a chave da conta, assinatura de acesso partilhado do serviço, as identidades de serviço principal ou gerenciado para autenticações de recursos do Azure.
 - Copiar blobs de bloco, acrescentar ou blobs de páginas e copiar os dados apenas para blobs de blocos. Armazenamento Premium do Azure não é suportado como sink, porque ele é apoiado por blobs de página.
 - Copiar blobs, tal como estão ou análise ou gerar blobs com [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ Conector de Blobs do Azure suporta os seguintes tipos de autenticação, consult
 - [Autenticação de chave de conta](#account-key-authentication)
 - [Autenticação da assinatura de acesso partilhado](#shared-access-signature-authentication)
 - [Autenticação do principal de serviço](#service-principal-authentication)
-- [Autenticação de identidade do serviço gerido](#managed-service-identity-authentication)
+- [Identidades geridas para a autenticação de recursos do Azure](#managed-service-identity-authentication)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning e carga do Azure SQL Data Warehouse PolyBase suportam apenas a autenticação de chave de conta de armazenamento de Blobs do Azure.
@@ -191,13 +191,13 @@ Estas propriedades são suportadas para um serviço ligado do armazenamento de B
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticação de identidade do serviço gerido
+### <a name="managed-identity"></a> Identidades geridas para a autenticação de recursos do Azure
 
-Uma fábrica de dados pode ser associada com um [identidade do serviço gerido](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Pode utilizar diretamente esta identidade de serviço para a autenticação de armazenamento de BLOBs semelhante à utilização da sua própria principal de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de/para o seu armazenamento de Blobs.
+Uma fábrica de dados pode ser associada com um [identidade de recursos do Azure gerida](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Pode utilizar diretamente esta identidade de serviço para a autenticação de armazenamento de BLOBs semelhante à utilização da sua própria principal de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de/para o seu armazenamento de Blobs.
 
 Para autenticação de MSI de armazenamento do Azure em geral, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Para utilizar a autenticação de identidade (MSI) do serviço gerido, siga estes passos:
+Para utilizar identidades geridas para a autenticação de recursos do Azure, siga estes passos:
 
 1. [Obter a identidade de serviço do data factory](data-factory-service-identity.md#retrieve-service-identity) ao copiar o valor de "Serviço de ID da IDENTITY APPLICATION" gerada juntamente com sua fábrica.
 
@@ -214,8 +214,8 @@ Estas propriedades são suportadas para um serviço ligado do armazenamento de B
 | serviceEndpoint | Especifique o ponto de final de serviço de armazenamento de Blobs do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
->[!NOTE]
->Autenticação de identidade do serviço gerido só é suportada pelo serviço ligado do tipo de "AzureBlobStorage" mas o serviço ligado de tipo de não anterior "AzureStorage". 
+> [!NOTE]
+> Serviço ligado de tipo de identidades geridas para recursos do Azure, a autenticação só é suportada pelo "AzureBlobStorage", mas não anterior "AzureStorage" tipo de serviço ligado. 
 
 **Exemplo:**
 

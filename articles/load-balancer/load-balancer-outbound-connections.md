@@ -4,7 +4,7 @@ description: Este artigo explica como o Azure permite às VMs comunicarem com os
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036995"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249133"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -67,7 +67,7 @@ Quando a VM com balanceamento de carga cria um fluxo de saída, Azure traduz-se 
 
 Portas efêmeras de frontend de endereço IP público do Balanceador de carga são utilizadas para distinguir os fluxos individuais originados pela VM. Utiliza o SNAT dinamicamente [pré-alocado portas efêmeras](#preallocatedports) quando são criados os fluxos de saída. Neste contexto, as portas efémeras utilizadas para SNAT são chamadas de portas SNAT.
 
-Portas SNAT são pré-alocado conforme descrito no [SNAT de compreensão e PAT](#snat) secção. Eles são um recurso finito que pode esgotar-se. É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
+Portas SNAT previamente são alocadas, conforme descrito no [SNAT de compreensão e PAT](#snat) secção. Eles são um recurso finito que pode esgotar-se. É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
 Quando [vários endereços IP públicos estão associados com o Balanceador de carga básico](load-balancer-multivip-overview.md), qualquer de IP público destes endereços são um [candidato para fluxos de saída](#multivipsnat), e um é selecionado aleatoriamente.  
 
@@ -75,7 +75,7 @@ Para monitorizar o estado de funcionamento das ligações de saída com o Balanc
 
 ### <a name="defaultsnat"></a>Cenário 3: Autónomo VM sem um endereço IP público de nível de instância
 
-Neste cenário, a VM não é parte de um conjunto de Balanceador de carga público (e não faz parte de um conjunto de Balanceador de carga interno) e não tem um endereço ILPIP atribuído a ele. Quando a VM cria um fluxo de saída, Azure traduz-se o endereço IP de origem privados do fluxo de saída para um endereço IP público de origem. O endereço IP público utilizado para este fluxo de saída não é configurável e não contam para o limite de recursos IP público da subscrição.
+Neste cenário, a VM não é parte de um conjunto de Balanceador de carga público (e não faz parte de um conjunto de Balanceador de carga interno) e não tem um endereço ILPIP atribuído a ele. Quando a VM cria um fluxo de saída, Azure traduz-se o endereço IP de origem privados do fluxo de saída para um endereço IP público de origem. O endereço IP público utilizado para este fluxo de saída não é configurável e não contam para o limite de recursos IP público da subscrição. Este endereço IP público não pertence ao utilizador e não pode ser reservado. Se voltar a implementar a VM ou o conjunto de disponibilidade ou a VMSS, este endereço IP público será liberado e um novo endereço IP público pedida. Não utilize este cenário para endereços IP da lista de permissões. Em vez disso, utilize um dos outros dois cenários em que declara explicitamente o cenário de saída e o endereço IP público a utilizar para conectividade de saída.
 
 >[!IMPORTANT] 
 >Este cenário também se aplica quando __apenas__ está ligado um balanceador de carga básico interno. Cenário 3 é __não está disponível__ quando um Standard Balanceador de carga interno está ligado a uma VM.  Tem de criar explicitamente [cenário 1](#ilpip) ou [cenário 2](#lb) além de utilizar um Standard Balanceador de carga interno.

@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181805"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249303"
 ---
 # <a name="bake-acoustics"></a>Inserir acoustics
 
@@ -199,15 +199,19 @@ Assim que estiver satisfeito com os dados de pré-visualização, utilize o **in
 1. O botão de separador Inserir usado para exibir esta página.
 2. Uma breve descrição do que fazer nesta página.
 3. Campos para introduzir as suas credenciais do Azure quando tiver sido criada a sua conta do Azure. Para obter mais informações, consulte [criar uma conta do Azure Batch](create-azure-account.md).
-4. Tipo de nó a utilizar para o cálculo de computação do batch do Azure. O tipo de nó tem de ser suportado pela sua localização do Datacenter do Azure. Se não tem a certeza, deixe **Standard_F8**.
-5. Número de nós a utilizar para este cálculo. O número que introduzir aqui afeta o tempo de execução a criar e é limitado pela sua alocação de núcleos do Azure Batch. A alocação padrão apenas permite que para nós de duas de 8 núcleos ou nó de uma de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de núcleos, consulte [criar uma conta do Azure Batch](create-azure-account.md).
-6. A contagem de sonda para sua cena calculado em como o **sondas** separador. O número de sondas determina o número de simulações que devem ser executados na cloud. Não é possível especificar mais nós do que existem sondas.
-7. A quantidade de tempo decorrido, que espera-se a tomar para sua tarefa para ser executada na cloud. Isso não inclui o tempo de inicialização do nó. Assim que a tarefa é iniciada em execução, isso é quanto deve estar antes de obtém os resultados. Tenha em atenção que se trata de apenas uma estimativa.
-8. A quantidade total de tempo de computação necessário para executar simulações. Esta é a quantidade total de tempo de computação de nó que será utilizado no Azure. Ver [estimativa criar custo](#Estimating-bake-cost) abaixo para obter mais informações sobre como utilizar este valor.
-9. Esta mensagem indica onde os resultados do criar serão guardados depois da tarefa é concluída.
-10. (Apenas a utilização avançada) Se por algum motivo precisar impor Unity a esquecer um criar submetido (por exemplo, que transferiu os resultados usando outra máquina), clique nas **Limpar estado** botão esquecer sobre a tarefa que foi submetida. Observe que isso significa que o ficheiro de resultado, quando estiver pronto, serão **não** ser transferido, e **não é o mesmo que a cancelar a tarefa**. A tarefa, se executar, irá continuar a executar na cloud.
-11. Clique no botão Criar para submeter a criar para a cloud. Enquanto uma tarefa está em execução, isso mostra **Cancelar tarefa** em vez disso.
-12. Esta área apresenta o estado do criar. Quando concluída, deve ser apresentado **Downloaded**.
+4. Etiqueta de imagem do docker para o conjunto de ferramentas de acoustics.
+5. Inicie o portal do Azure para gerir as subscrições, monitorizar a utilização e ver informações de faturação etc. 
+6. Tipo de nó a utilizar para o cálculo de computação do batch do Azure. O tipo de nó tem de ser suportado pela sua localização do Datacenter do Azure. Se não tem a certeza, deixe **Standard_F8s_v2**.
+7. Número de nós a utilizar para este cálculo. O número que introduzir aqui afeta o tempo de execução a criar e é limitado pela sua alocação de núcleos do Azure Batch. A alocação padrão apenas permite que para nós de duas de 8 núcleos ou nó de uma de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de núcleos, consulte [criar uma conta do Azure Batch](create-azure-account.md).
+8. Selecione esta caixa de verificação para configurar o conjunto de computação para utilizar [nós de baixa prioridade](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Os nós de computação de baixa prioridade têm muito custo mais baixo, mas nem sempre é disponíveis ou podem ser suplantadas em qualquer altura.
+9. A contagem de sonda para sua cena calculado em como o **sondas** separador. O número de sondas determina o número de simulações que devem ser executados na cloud. Não é possível especificar mais nós do que existem sondas.
+10. A quantidade de tempo decorrido, que espera-se a tomar para sua tarefa para ser executada na cloud. Isso não inclui o tempo de inicialização do nó. Assim que a tarefa é iniciada em execução, isso é quanto deve estar antes de obtém os resultados. Tenha em atenção que se trata de apenas uma estimativa.
+11. A quantidade total de tempo de computação necessário para executar simulações. Esta é a quantidade total de tempo de computação de nó que será utilizado no Azure. Ver [estimativa criar custo](#Estimating-bake-cost) abaixo para obter mais informações sobre como utilizar este valor.
+12. Esta mensagem indica onde os resultados do criar serão guardados depois da tarefa é concluída.
+13. (Apenas a utilização avançada) Se por algum motivo precisar impor Unity a esquecer um criar submetido (por exemplo, que transferiu os resultados usando outra máquina), clique nas **Limpar estado** botão esquecer sobre a tarefa que foi submetida. Observe que isso significa que o ficheiro de resultado, quando estiver pronto, serão **não** ser transferido, e **não é o mesmo que a cancelar a tarefa**. A tarefa, se executar, irá continuar a executar na cloud.
+14. Clique no botão Criar para submeter a criar para a cloud. Enquanto uma tarefa está em execução, isso mostra **Cancelar tarefa** em vez disso.
+15. Prepara para o processamento de simulação de acoustics num local máquinas. Ver [criar Local](#Local-bake) para obter mais informações.  
+16. Esta área apresenta o estado do criar. Quando concluída, deve ser apresentado **Downloaded**.
 
 Sempre pode obter informações completas sobre tarefas ativas, conjuntos de computação e armazenamento no [Portal do Azure](https://portal.azure.com).
 
@@ -217,13 +221,34 @@ Assim que tiver iniciado um criar, pode fechar o Unity. Dependendo do projeto, o
 
 As credenciais do Azure são armazenadas em segurança no seu computador local e associadas com o seu editor de Unity. Eles são usados unicamente para estabelecer uma ligação segura para o Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimar o custo de criar
+### <a name="Estimating-bake-cost"></a> Estimar o custo de criar o Azure
 
-Para estimar o que um determinado criar terão um custo, pegamos o valor mostrado para **custo estimado de computação**, que é um período de tempo e multiply que, pela hora a hora de custos na sua moeda local do **tipo de nó de VM** que selecionou. O resultado não incluirá o tempo de nó necessário colocar os nós e em execução. Por exemplo, se selecionar **Standard_F8** para o seu tipo de nó, que tem um custo de US $ 0,75/h e o custo estimado de computação é de 3 horas e 57 minutos, o custo estimado para executar a tarefa será de US $0,75 * ~ 4 horas = ~ us $3,00. O custo real provavelmente será um pouco maior devido ao tempo adicional para obter os nós iniciado. Pode encontrar o nó por hora de custos no [preços do Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) página (selecione "com otimização de computação" ou "computação de elevado desempenho" para a categoria).
+Para estimar o que um determinado criar terão um custo, pegamos o valor mostrado para **custo estimado de computação**, que é um período de tempo e multiply que, pela hora a hora de custos na sua moeda local do **tipo de nó de VM** que selecionou. O resultado não incluirá o tempo de nó necessário colocar os nós e em execução. Por exemplo, se selecionar **Standard_F8s_v2** para o seu tipo de nó, que tem um custo de US $ 0,40/h e o custo estimado de computação é de 3 horas e 57 minutos, o custo estimado para executar a tarefa será de US $0,40 * ~ 4 horas = ~ $1.60. O custo real provavelmente será um pouco maior devido ao tempo adicional para obter os nós iniciado. Pode encontrar o nó por hora de custos no [preços do Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) página (selecione "com otimização de computação" ou "computação de elevado desempenho" para a categoria).
 
 ### <a name="reviewing-the-bake-results"></a>Rever os resultados de criar
 
 Depois de concluída a criar, verifique que os pontos de voxels e sonda são em seus locais esperados ao executar o plug-in de tempo de execução. Obter mais informações estão no [visão geral do processo de Design de Acoustics](design-process.md).
+
+## <a name="Local-bake"></a>Criar local
+Criar local executa simulação acoustics em seu próprio computador local em vez de descarregá-los para o cluster de computação do Azure Batch. Isso pode ser uma boa opção para fazer experiências com acoustics sem a necessidade de uma subscrição do Azure, mas tenha em atenção que a simulação de Acoustics computacionalmente está exigindo e pode demorar algum tempo dependendo do tamanho da cena, configuração de simulação e não processados poder da computação da máquina de processamento.
+
+### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
+processador Intel de 64 bits com, pelo menos, 8 núcleos e 32 GB de RAM ou superior.
+
+Por exemplo, numa máquina de 8 núcleos com o Intel Xeon E5-1660 @ 3 GHz e 32 GB de memória-
+* Pequena cena com 100 sondas demora aproximadamente 2 horas para um criar genérico e horas de aproximadamente 32 para criar uma resolução fina.
+* Cenário maior com 1000 sondas pode demorar até cerca de 20 horas para uma resolução genérico e ~ 21 dias para criar uma resolução fina.
+
+### <a name="setup-docker"></a>Configurar Docker
+Instalar e configurar o Docker no PC que irá processar a simulação-
+1. Instalar o [conjunto de ferramentas do Docker](https://www.docker.com/products/docker-desktop).
+2. Inicie as definições do Docker, navegue para as opções de "Advanced" e configurar recursos, conforme mostrado abaixo. ![Recursos de docker](media/DockerSettings.png)
+3. Navegue para "Unidades partilhado" opções e ativar partilha para a unidade utilizada para processamento.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Executar criar local
+1. Clique no botão "Preparar Local inserir" na guia criar e selecione uma pasta onde serão guardados os ficheiros de entrada e scripts de execução. Em seguida, pode executar a criar em qualquer máquina, desde que cumprem os requisitos mínimos de hardware e tem o Docker instalado ao copiar a pasta para que a máquina.
+2. Inicie a simulação usando o script de "runlocalbake.bat", que irá buscar a imagem do Docker de Acoustics de projeto com o conjunto de ferramentas necessário para processamento de simulação e inicia a simulação. 
+3. Quando tiver terminado de simulação, copie o ficheiro de .ace resultante para seu projeto Unity para a mesma localização que foi especificada no separador de sondas. Certifique-se de que o nome de ficheiro de destino está em conformidade com requisitos do Unity, acrescentando ".bytes" para a extensão de ficheiro. Os registos detalhados para a simulação são armazenados no ficheiro de "AcousticsLog.txt". Caso se depare com quaisquer problemas, partilhe este ficheiro para ajudar com diagnóstico.
 
 ## <a name="Data-Files"></a>Ficheiros de dados
 

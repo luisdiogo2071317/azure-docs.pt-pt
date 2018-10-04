@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 73cc346e882acab1c2c00cc49738a388927d3ccf
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239239"
+ms.locfileid: "48248249"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning
 
@@ -117,6 +117,11 @@ Para obter um exemplo do uso de blocos de notas do Azure com o serviço Azure Ma
      ```shell
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > Se receber uma mensagem que `PyYAML` não pode ser desinstalado, utilize o seguinte comando em vez disso:
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
     Pode demorar vários minutos para instalar o SDK.
 

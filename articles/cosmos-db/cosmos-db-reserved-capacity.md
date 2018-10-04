@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1be2d67d8a1ee51c4883ae1f50b80ad3a9691c2d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291b2429e6c5c25e051c8f3eca30e1cc3f64611
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981972"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247334"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Efetue o pré-pagamento do recursos do Azure Cosmos DB com a capacidade de reserva
 
@@ -32,11 +32,11 @@ Pode comprar o Azure Cosmos DB reservado capacidade dos [portal do Azure](https:
 
 O tamanho da reserva deve basear-se na quantidade total de débito utilizado pelos recursos de Azure Cosmos DB existentes ou em breve-em--implementado (por exemplo, bancos de dados ou de contentores - coleções, tabelas, gráficos). É possível determinar a taxa de transferência necessária das seguintes formas:
 
-* Navegue para [Portal do Azure](https://portal.azure.com), localize a conta do Azure Cosmos DB, abra o painel de métricas e obtenha os detalhes de média de débito por segundo da **débito** separador durante um período de 3 a 6 meses. Forneça este tamanho como as unidades de capacidade de reserva ao comprar.
+* Obtenha os dados históricos para o débito aprovisionado total em suas contas do Azure Cosmos DB, bases de dados e coleções em todas as regiões. Por exemplo, pode avaliar o débito aprovisionado médio diário baixando o seu extrato de utilização diária do `https://account.azure.com`
 
-Em alternativa, se for um Enterprise Agreement (EA), pode transferir o ficheiro de utilização e consultar **tipo de serviço** valor no **informações adicionais** secção do ficheiro de utilização para obter o Azure Cosmos DB detalhes de débito.
+* Em alternativa, se for um Enterprise Agreement (EA), pode transferir o ficheiro de utilização e consultar **tipo de serviço** valor no **informações adicionais** secção do ficheiro de utilização para obter o Azure Cosmos DB detalhes de débito.
 
-Também pode somar o débito médio para todas as cargas de trabalho em suas contas do Azure Cosmos DB, que prevê em execução para os em seguida um ou três anos e utilizar essa quantidade de reserva.
+* Também pode somar o débito médio para todas as cargas de trabalho em suas contas do Azure Cosmos DB, que prevê em execução para os em seguida um ou três anos e utilizar essa quantidade de reserva.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Comprar capacidade reservada do Azure Cosmos DB
 

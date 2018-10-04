@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7984d156c1f8d1c29bda57ae39991876341ea0ac
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 56f1769d601df6292decc46c9470768eac29102c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127249"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249082"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados para geração 1 de armazenamento do Azure Data Lake ao utilizar o Azure Data Factory
 
@@ -85,7 +85,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
    2. Especifique a **chave de acesso secreta** valor.
    3. Selecione **Concluir**.
    
-   ![Especifique a conta do Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+     ![Especifique a conta do Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. Verá uma nova ligação. Selecione **Seguinte**.
    
@@ -110,7 +110,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
    3. Selecione **Seguinte**.
    
    > [!IMPORTANT]
-   > Este passo a passo, vai utilizar um _identidade do serviço gerido_ para autenticar a sua conta de geração 1 de armazenamento do Data Lake. Certifique-se de que conceder o MSI as permissões adequadas na geração 1 de armazenamento do Data Lake, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Este passo a passo, vai utilizar uma identidade gerida para recursos do Azure para autenticar a sua conta de geração 1 de armazenamento do Data Lake. Certifique-se de que conceder o MSI as permissões adequadas na geração 1 de armazenamento do Data Lake, seguindo [estas instruções](connector-azure-data-lake-store.md#managed-identity).
    
    ![Especifique a conta de geração 1 de armazenamento do Data Lake](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 

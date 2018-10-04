@@ -11,22 +11,55 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: f2b1a8e18917c1c045c715bd3424d0bbfc0cdc67
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/03/2018
+ms.openlocfilehash: 6ae9b3f71cb5328c7f4a7ee8e43ec0aff8b5fcec
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045405"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267789"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
-Este artigo fornece uma visão geral dos limites de recursos de instância gerida da base de dados SQL do Azure e fornece informações como criar o pedido para aumentar os limites de subscrição predefinidos. 
+Este artigo fornece uma visão geral dos limites de recursos de instância gerida da base de dados SQL do Azure e fornece informações como criar o pedido para aumentar os limites de subscrição regional predefinidos. 
 
 > [!NOTE]
-> Para outras limitações de instância gerida, não é específicas para uma subscrição individual, veja [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [escalões de serviço da instância gerida](sql-database-managed-instance.md#managed-instance-service-tiers).
+> Para outras limitações de instância gerida, veja [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [escalões de serviço da instância gerida](sql-database-managed-instance.md#managed-instance-service-tiers).
 
-## <a name="default-subscription-level-limits-per-region"></a>Limites de nível de assinatura de predefinidos por região
+## <a name="instance-level-resource-limits"></a>Limites de recursos de nível de instância
+
+A instância gerida tem características e os limites de recursos que depende da infraestrutura e a arquitetura subjacente. Os limites dependem do escalão de serviço de geração e de hardware.
+
+### <a name="hardware-generation-characteristics"></a>Características de geração de hardware
+
+Instância de gerida de base de dados de SQL do Azure pode ser implementada na geração de hardware de dois (Gen4 e Gen5). Gerações de hardware têm diferentes características que são descritas na tabela a seguir:
+
+|   | **Geração 4** | **Geração 5** |
+| --- | --- | --- |
+| Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida eNVM SSD, vCore = 1 LP (hyper-thread) |
+| Computação | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| Memória | 7 GB por vCore | 5,5 GB por vCore |
+| Armazenamento máximo (crítico para a empresa) | 1TB | 1TB, 2TB, 4TB, dependendo do número de núcleos |
+
+### <a name="service-tier-characteristics"></a>Características de camada de serviço
+
+A instância gerida tem dois escalões de serviço - fins gerais e crítico para a empresa (pré-visualização pública). Estes escalões oferecem recursos diferentes, conforme descrito na tabela abaixo:
+
+| **Funcionalidade** | **Fins gerais** | **Crítico para empresas (pré-visualização)** |
+| --- | --- | --- |
+| Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
+| Memória | Gen4: 56GB a 156GB<br/>Gen5: 44GB a de 440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB a 156GB <br/> Gen5: 44GB a de 440GB<br/>\*Proporcional ao número de vCores |
+| Tamanho máximo de armazenamento | 8 TB | Gen 4: 1 TB <br/> Geração 5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
+| Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
+| Número máx. de bases de dados por instância | 100 | 100 |
+| Ficheiros de base de dados máximo por instância | Até 280 | Ilimitado |
+| Era esperado o IOPS de armazenamento máximo | IOPS de 500-7500 por ficheiro de dados ([depende do tamanho do ficheiro de dados](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depende da velocidade SSD subjacente. |
+
+## <a name="supported-regions"></a>Regiões suportadas
+
+Instanced gerido pode ser criado apenas no [regiões suportadas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+
+## <a name="supported-subscription-types"></a>Tipos de subscrição de suporte
 
 Atualmente, a instância gerida suporta implementação apenas nos seguintes tipos de subscrições:
 
@@ -35,17 +68,16 @@ Atualmente, a instância gerida suporta implementação apenas nos seguintes tip
 - [Fornecedor de serviços cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 
 > [!NOTE]
-> Esta limitação sobre o suporte para apenas alguns tipos de subscrição é temporária.
+> Esta limitação é temporária. Novos tipos de subscrição vão ser ativados no futuro.
 
-Instâncias geridas tem dois predefinido limites de nível de subscrição por região do Azure. Tipos de subscrição diferente têm limites regionais diferentes. Estes limites podem ser aumentados ao criar pedido de suporte especial no portal do Azure para a subscrição com o tipo de problema **Quota**:
+## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
-- **Limite de sub-redes**: O número máximo de sub-redes em que são implementadas instâncias geridas
-- **Limite de número de instância**: O número máximo de instâncias por região
+Tipos de subscrição de suporte podem conter um número limitado de recursos por região. A instância gerida tem dois limites padrão por região do Azure, dependendo de um tipo de tipo de subscrição:
 
-> [!IMPORTANT]
-> Quando planear as suas implementações, considere que uma instância de negócio críticos (BC) (devido a redundância adicionada) geralmente consome 4 x de uma instância de finalidade geral (GP) mais capacidade. Assim, para seus cálculos, 1 instância GP = 1 instância de unidade e a instância de 1 BC = 4 unidades de instância. Para simplificar a análise de consumo contra os limites predefinidos, resumir as unidades de instância em todas as sub-redes na região em que estão implementadas instâncias geridas e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição.
+- **Limite de sub-redes**: O número máximo de sub-redes em que as instâncias geridas são implementadas numa única região.
+- **Limite de número de instância**: O número máximo de instâncias que podem ser implementados numa única região.
 
-## <a name="default-limits-by-subscription-type"></a>Padrão de limites por tipo de subscrição
+Na tabela a seguir são apresentados limites regionais predefinidos para subscrições de suporte:
 
 |Tipo de subscrição| Número máx. de sub-redes de instância gerida | Número máximo de instâncias |Número máx. de GP geridos instâncias *|Número máx. de BC geridos instâncias *|
 | :---| :--- | :--- |:--- |:--- |
@@ -53,11 +85,16 @@ Instâncias geridas tem dois predefinido limites de nível de subscrição por r
 |CSP |1 *|4 *|4 *|1 *|
 |EA|3 * *|12 * *|12 * *|3 * *|
 
-\* Pode optar por implementar 1 BC ou 4 instâncias GP numa sub-rede, para que o número total de "unidades de instância" numa região nunca exceda 4.
+\* Pode optar por implementar 1 BC ou 4 instâncias GP numa sub-rede, para que o número total de "unidades de instância" na sub-rede nunca exceda 4.
 
 * * Máximo número de instâncias numa camada de serviço aplica-se se não houver nenhuma instância da outra camada de serviço. No caso de pretender ao combinar as instâncias de GP e BC na mesma sub-rede, utilize a secção seguinte como uma referência para as combinações permitidas. Como regra simple, o número total de sub-redes não pode exceder os 3 e o número total de unidades de instância não pode exceder os 12.
 
-## <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Opções de implementação para implementações de GP e BC dentro da mesma sub-rede
+Estes limites podem ser aumentados ao criar especial [pedido de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se precisar de mais instâncias geridas na região atual. Como alternativa, pode criar novas instâncias geridas noutra região do Azure sem enviar pedidos de suporte.
+
+> [!IMPORTANT]
+> Quando planear as suas implementações, considere que uma instância de negócio críticos (BC) (devido a redundância adicionada) geralmente consome 4 x de uma instância de finalidade geral (GP) mais capacidade. Assim, para seus cálculos, 1 instância GP = 1 instância de unidade e a instância de 1 BC = 4 unidades de instância. Para simplificar a análise de consumo contra os limites predefinidos, resumir as unidades de instância em todas as sub-redes na região em que estão implementadas instâncias geridas e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição.
+
+### <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Opções de implementação para implementações de GP e BC dentro da mesma sub-rede
 
 Os exemplos seguintes abrangem casos de implantação com sub-redes de não vazios e misto GP e BC escalões de serviço.
 
@@ -71,7 +108,7 @@ Os exemplos seguintes abrangem casos de implantação com sub-redes de não vazi
 |3|1BC, 0 GP|BC 0, até 4 GP|C. 1, 0 GP|
 |3|BC 0, até 4 GP|C. 1, 0 GP|1BC, 0 GP|
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma quota maior para a instância gerida SQL
+### <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma quota maior para a instância gerida SQL
 
 Para iniciar o processo de obtenção de uma quota maior:
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: a04ca0c405cb61079f496b637a8ebd348112e676
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 297ba626d8b80d9362476ca4578e34140df5f91a
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042228"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248658"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Log Analytics.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -228,8 +228,8 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a field with the created time for the records
-$TimeStampField = "DateValue"
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create

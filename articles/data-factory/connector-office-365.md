@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: dc5f6c8c12dc10d135eaaf26d83236b2287bf059
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2229a8a01d29fc167eb3696423224f1d2ef0df4e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223123"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248470"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
 
@@ -33,8 +33,8 @@ Por agora, dentro de uma atividade de cópia única só é possível **copiar da
 >[!IMPORTANT]
 >- A subscrição do Azure que contém a fábrica de dados e o arquivo de dados de sink tem de estar no mesmo inquilino do Azure Active Directory (Azure AD) como inquilino do Office 365.
 >- Certifique-se a região do Runtime de integração do Azure utilizada para atividade de cópia, bem como o destino está na mesma região onde está localizada a caixa de correio dos utilizadores de inquilino do Office 365. Consultar [aqui](concepts-integration-runtime.md#integration-runtime-location) para compreender como é determinada a localização do Runtime de integração do Azure. Consulte a [aqui de tabela](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) para a lista de regiões suportadas do Office e regiões do Azure correspondentes.
->-  Se estiver a carregar dados do Office 365 em **armazenamento de Blobs do Azure** como destino, certifique-se de que está a utilizar **[autenticação do principal de serviço](connector-azure-blob-storage.md#service-principal-authentication)** ao definir o ligado Serviço para o armazenamento de Blobs do Azure e não a utilizar [chave da conta](connector-azure-blob-storage.md#account-key-authentication), [assinatura de acesso partilhado](connector-azure-blob-storage.md#shared-access-signature-authentication) ou [identidade de serviço gerida ](connector-azure-blob-storage.md#managed-service-identity-authentication) autenticações.
->-  Se estiver a carregar dados do Office 365 em **Gen1 de armazenamento do Azure Data Lake** como destino, certifique-se de que está a utilizar [ **autenticação do principal de serviço** ](connector-azure-data-lake-store.md#using-service-principal-authentication) ao definir o Serviço ligado para geração 1 de armazenamento do Azure Data Lake e não a utilizar [geridos a autenticação de identidade de serviço](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+>-  Se estiver a carregar dados do Office 365 em **armazenamento de Blobs do Azure** como destino, certifique-se de que está a utilizar **[autenticação do principal de serviço](connector-azure-blob-storage.md#service-principal-authentication)** ao definir o ligado Serviço para o armazenamento de Blobs do Azure e não a utilizar [chave da conta](connector-azure-blob-storage.md#account-key-authentication), [assinatura de acesso partilhado](connector-azure-blob-storage.md#shared-access-signature-authentication) ou [geridos identidades para recursos do Azure](connector-azure-blob-storage.md#managed-identity) autenticações.
+>-  Se estiver a carregar dados do Office 365 em **Gen1 de armazenamento do Azure Data Lake** como destino, certifique-se de que está a utilizar [ **autenticação do principal de serviço** ](connector-azure-data-lake-store.md#using-service-principal-authentication) ao definir o Serviço ligado para geração 1 de armazenamento do Azure Data Lake e não a utilizar [geridos identidades para autenticação de recursos do Azure](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

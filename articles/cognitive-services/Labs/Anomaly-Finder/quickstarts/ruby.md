@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ef85b82adf3b177678cc8175a7fb2d0eb44323fa
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41987536"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246864"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Utilizar o Explorador de anomalias API com Ruby
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de localizador de anomalias com Ruby para realizar a tarefa de obter o resultado da deteção de anomalias de dados de séries de tempo.
 
@@ -38,7 +40,7 @@ Seguem-se os passos para utilizar o exemplo.
 
 1. Instale [cliente rest](https://github.com/rest-client/rest-client) ao executar "gem cliente rest de instalação".
 2. Guarde abaixo código como um ficheiro. RB.
-3. Substitua o `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
+3. Substitua o valor `[YOUR_SUBSCRIPTION_KEY]` pela sua chave de subscrição válida.
 4. Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com o exemplo ou seus próprios pontos de dados.
 5. Execute e verificar a resposta.
 
@@ -76,7 +78,7 @@ puts response.body
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito, é devolvida em JSON. Segue-se a resposta de exemplo.
+O JSON devolve uma resposta de êxito. Segue-se a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes

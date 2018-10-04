@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239205"
+ms.locfileid: "48248590"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparar a implementação de modelos do IoT Edge
 
@@ -35,7 +35,7 @@ Antes de implementar um modelo para um dispositivo do edge, utilize os passos ne
 
 * Uma [IoT Hub do Azure](../../iot-hub/iot-hub-create-through-portal.md) na sua subscrição do Azure. 
 
-* Um modelo preparado. Para obter um exemplo de como preparar um modelo, consulte a [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md) documento.
+* Um modelo preparado. Para obter um exemplo de como preparar um modelo, consulte a [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md) documento. Um modelo com formação prévia está disponível na [ferramentas de ia para o repositório do GitHub do Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ## <a name="prepare-the-iot-device"></a>Preparar o dispositivo de IoT
 

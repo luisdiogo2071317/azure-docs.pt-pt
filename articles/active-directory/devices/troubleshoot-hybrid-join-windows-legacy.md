@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2c50ba1abfe3681a39b39bf52f127efd9d518aef
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041873"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268974"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
 
@@ -39,23 +39,18 @@ Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrid
 
 - Acesso condicional com base no dispositivo
 
-- [Definições de roaming empresarial](../active-directory-windows-enterprise-state-roaming-overview.md)
-
-- [Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) 
-
-
-
-
 
 Este artigo fornece orientações sobre como resolver problemas potenciais de resolução de problemas.  
 
 **O que deve saber:** 
 
-- O número máximo de dispositivos por utilizador é centrada nos dispositivos. Por exemplo, se *jdoe* e *jharnett* início de sessão a um dispositivo, um registo separados (DeviceID) é criada para cada uma no **utilizador** separador informações.  
+- O número máximo de dispositivos por utilizador atualmente também se aplica a dispositivos de associados ao Azure AD híbrido de nível inferior. 
+
+- É apresentada no mesmo dispositivo físico várias vezes no Azure AD quando vários usuários de domínio início de sessão os dispositivos de associados ao Azure AD híbrido nível inferior.  Por exemplo, se *jdoe* e *jharnett* início de sessão a um dispositivo, um registo separados (DeviceID) é criada para cada uma no **utilizador** separador informações. 
+
+- Também pode obter várias entradas para um dispositivo no separador de informações de utilizador devido a uma reinstalação do sistema operativo ou um novo registo manual.
 
 - O registo inicial / associação de dispositivos é configurada para executar uma tentativa de início de sessão ou bloqueio / desbloqueio. Pode haver atraso de 5 minutos, acionado por uma tarefa do agendador de tarefas. 
-
-- Pode obter várias entradas para um dispositivo no separador de informações de utilizador devido a uma reinstalação do sistema operativo ou um novo registo manual. 
 
 - Certifique-se [KB4284842](https://support.microsoft.com/help/4284842) estiver instalado, no caso do Windows 7 SP1 ou Windows Server 2008 R2 SP1. Esta atualização impede que as falhas de autenticação de futuras devido a perda de acesso do cliente para chaves protegidas depois de alterar a palavra-passe.
 
@@ -65,24 +60,39 @@ Este artigo fornece orientações sobre como resolver problemas potenciais de re
 
 1. Início de sessão com a conta de utilizador que efetuou a associação do Azure AD híbrido.
 
-2. Abra a linha de comandos como administrador 
+2. Abra a linha de comandos 
 
 3. Tipo `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
-Este comando apresenta uma caixa de diálogo que lhe fornece mais detalhes sobre o estado de associação.
+Este comando apresenta uma caixa de diálogo que lhe fornece detalhes sobre o estado de associação.
 
 ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Passo 2: Avaliar a Estado de associação ao Azure AD de híbrida 
 
-Se a associação do Azure AD híbrido não foi concluída com êxito, a caixa de diálogo fornece detalhes sobre o problema que ocorreu.
+Se o dispositivo não tiver sido associado ao Azure AD híbrido, pode tentar fazer a associação ao Azure AD híbrido ao clicar no botão "Associar". Se a tentativa de fazer a associação do híbrida do Azure AD falhar, os detalhes sobre a falha serão apresentados.
+
 
 **Os problemas mais comuns são:**
 
-- Uma configuração incorreta do AD FS ou o Azure AD
+- Um configurado incorretamente do AD FS ou o Azure AD ou problemas de rede
 
     ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    
+    - Autoworkplace.exe não conseguiu autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se em falta ou configurado incorretamente o AD FS (para domínios federados) ou em falta ou incorrectamente configurado do Azure AD totalmente integrada início de sessão único (para domínios geridos) ou problemas de rede. 
+    
+     - É possível que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor do AD FS. 
+     
+     - Outra possibilidade é essa página de deteção (HRD) de realm inicial está a aguardar interação do usuário, que impede **autoworkplace.exe** silenciosamente solicitem um token.
+     
+     - É possível que o AD FS e URLs do Azure AD estão em falta na zona de intranet do IE no cliente.
+     
+     - Problemas de conectividade de rede podem estar a impedir **autoworkplace.exe** chegue do AD FS ou os URLs de AD do Azure. 
+     
+     - **Autoworkplace.exe** exige que o cliente ter direta linha de visão do cliente com local o orgnanization do controlador de domínio do AD, que significa que essa associação do Azure AD híbrido é bem-sucedida apenas quando o cliente está ligado à intranet da organização .
+     
+     - Sua organização utiliza o Azure AD totalmente integrada início de sessão único, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estão presentes nas definições de intranet de IE do dispositivo, e **permitir atualizações à barra de estado por meio de script** não está ativada para a zona da Intranet.
 
 - Não tem sessão iniciada como um utilizador de domínio
 
@@ -92,9 +102,7 @@ Se a associação do Azure AD híbrido não foi concluída com êxito, a caixa d
     
     - O utilizador com sessão iniciada não é um utilizador de domínio (por exemplo, um utilizador local). Associação do Azure AD híbrido em dispositivos de nível inferior é suportada apenas para utilizadores de domínio.
     
-    - Autoworkplace.exe não conseguiu autenticar silenciosamente com o Azure AD ou AD FS. Isto pode ser causado por problemas de conectividade de rede out-vinculado aos URLs do Azure AD. Também pode ser que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMUTLIAUTHN não está configurado para o servidor de Federação. Outra possibilidade é essa página de deteção (HRD) de realm inicial está a aguardar interação do usuário, que impede **autoworkplace.exe** silenciosamente solicitem um token.
-    
-    - Sua organização utiliza o Azure AD totalmente integrada início de sessão único, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estão presentes nas definições de intranet de IE do dispositivo, e **permitir atualizações à barra de estado por meio de script** não está ativada para a zona da Intranet.
+    - O cliente não é possível estabelecer ligação com um controlador de domínio.    
 
 - Foi atingida uma quota
 
@@ -114,9 +122,11 @@ Também pode encontrar as informações de estado no registo de eventos em: **ap
 
 - Problemas de configuração do serviço: 
 
-  - O servidor de Federação foi configurado para suportar **WIAORMULTIAUTHN**. 
+  - Servidor do AD FS não foi configurado para suportar **WIAORMULTIAUTHN**. 
 
   - Floresta do seu computador não tem qualquer objeto de ponto de ligação de serviço que aponta para o seu nome de domínio verificado no Azure AD 
+  
+  - Ou se o seu domínio gerido, não foi configurado o SSO totalmente integrado ou está a funcionar.
 
   - Um utilizador atingir o limite de dispositivos. 
 

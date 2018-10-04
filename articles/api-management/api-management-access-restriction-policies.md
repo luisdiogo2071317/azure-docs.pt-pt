@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865938"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269523"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -216,7 +216,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |filtro de IP|Elemento raiz.|Sim|  
-|endereço|Especifica um endereço IP único no qual pretende filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
+|Endereço|Especifica um endereço IP único no qual pretende filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
 |intervalo de endereços de = "endereço" para "endereço" de =|Especifica um intervalo de endereços IP em que pretende filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
   
 ### <a name="attributes"></a>Atributos  
@@ -277,7 +277,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |nome|O nome da API ou operação para os quais se aplica a quota.|Sim|N/A|  
-|largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
+|Largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |período de renovação|O período de tempo em segundos após o qual repõe a quota.|Sim|N/A|  
   
@@ -288,7 +288,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **Âmbitos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Definir quota de utilização por chave  
- O `quota-by-key` política impõe uma renovável ou tempo de vida volume e/ou de largura de banda de quota de chamadas, numa base por chave. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados em direção a quota.  
+ O `quota-by-key` política impõe uma renovável ou tempo de vida volume e/ou de largura de banda de quota de chamadas, numa base por chave. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados em direção a quota. Quando esta política é acionada o autor da chamada recebe um `403 Forbidden` código de estado de resposta.
   
  Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -335,7 +335,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
+|Largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chave contra-argumentação|A chave a utilizar para a política de quota.|Sim|N/A|  
 |condição de incremento|Expressão booleana, especificando se a solicitação deve ser contada em direção a quota (`true`)|Não|N/A|  
@@ -508,7 +508,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |exigir--hora de expiração|Valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
 |esquema de exigir|O nome do token de esquema, por exemplo "Bearer". Quando este atributo estiver definido, a política irá garantir que o esquema especificado está presente no valor de cabeçalho de autorização.|Não|N/A|
 |exigir-assinados-tokens|Valor booleano. Especifica se um token é necessário ter sessão iniciada.|Não|true|  
-|separador|Cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/A| 
+|separador|cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/A| 
 |url|Abra o URL de ponto final de configuração de ID de onde os metadados de configuração de Open ID podem ser obtidos. A resposta deve ser de acordo com especificações conforme definido no URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do inquilino do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: e3296430cd58c8ba33f7cc9acd4cded2925b5be9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: bd224317ba777939a1db4edeb7cb5df728fc434c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166287"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249014"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory
 
@@ -90,6 +90,10 @@ A funcionalidade de georreplicação ativa proporciona as seguintes capacidades 
 ## <a name="auto-failover-group-capabilities"></a>Capacidades do grupo de ativação pós-falha automática
 
 Funcionalidade de grupos de ativação pós-falha automática fornece uma abstração eficaz de georreplicação ativa, suporte de replicação de nível de grupo e a ativação pós-falha automática. Além disso, ele remove a necessidade de alterar a cadeia de ligação de SQL após a ativação pós-falha, fornecendo os pontos finais de serviço de escuta adicionais. 
+
+> [!NOTE]
+> Ativação pós-falha automática não está disponível na instância gerida.
+>  
 
 * **Grupo de ativação pós-falha**: um ou vários grupos de ativação pós-falha podem ser criados entre dois servidores em diferentes regiões (servidores primário e secundário). Cada grupo pode conter uma ou várias bases de dados que são recuperados como uma unidade no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária.  
 * **Servidor primário**: um servidor que aloja as bases de dados primárias do grupo de ativação pós-falha.

@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 92db6442352242d5c7f25d39442d208d6007621b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984349"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249033"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de dados do Azure para MariaDB escalões de preço
 
@@ -21,7 +21,7 @@ Pode criar uma base de dados do Azure para MariaDB servidor das três escalões 
 
 |    | **Básica** | **Fins gerais** | **Com otimização de memória** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração de computação | <!--Gen 4,--> Geração 5 |<!--Gen 4,-->Geração 5 |<!--Gen 4,--> Geração 5 |
+| Geração de computação | Geração 5 |Geração 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB e 4 TB | 5 GB e 4 TB |
@@ -40,40 +40,7 @@ Depois de criar um servidor, o número de vCores e escalão de preço (exceto pa
 
 ## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
 
-Computação foram fornecidos recursos como vCores, que representam a CPU lógica do hardware subjacente.<!--Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.--> Geração 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
-
-<!--
-| **Azure region** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US | X | X |
-| East US | X | X |
-| East US 2 | X | X |
-| North Central US | X | X |
-| South Central US | X | X |
-| West US | X | X |
-| West US 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
-| Brazil South | X | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK West |  | X |
-| UK South |  | X |
-| East Asia | X | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India | X | X |
-| West India | X | X |
-| South India |  | X |
-| Japan East | X | X |
-| Japan West | X | X |
-| Korea Central |  | X |
-| Korea South |  | X |
--->
+Computação foram fornecidos recursos como vCores, que representam a CPU lógica do hardware subjacente. Geração 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
 
 ## <a name="storage"></a>Armazenamento
 
@@ -97,7 +64,9 @@ O servidor está marcado como só de leitura quando a quantidade de armazenament
 
 Embora o serviço tenta tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e transações ativas existentes continuarão a executar. Quando o servidor está definido como só de leitura, todas as operações de gravação subseqüentes de transação consolida a ativação. Consultas de leitura irão continuar a funcionar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor estará pronto para aceitar transações de escrita novamente.
 
-Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. <!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. 
+
+<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
 
 ## <a name="backup"></a>Cópia de segurança
 
@@ -105,9 +74,11 @@ O serviço tira automaticamente cópias de segurança do seu servidor. O períod
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 
-Depois de criar o seu servidor, pode alterar os vCores, independentemente <!--the hardware generation,--> o escalão de preço (exceto para e do Basic), a quantidade de armazenamento e o período de retenção de cópia de segurança. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. O número de vCores pode ser aumentado vertical ou horizontalmente. O período de retenção de cópia de segurança pode ser aumentado vertical ou horizontalmente de 7 35 dias. Só é possível aumentar o tamanho de armazenamento. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. <!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+Depois de criar o seu servidor, pode alterar os vCores, o escalão de preço independentemente (exceto para e do Basic), a quantidade de armazenamento e o período de retenção de cópia de segurança. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. O número de vCores pode ser aumentado vertical ou horizontalmente. O período de retenção de cópia de segurança pode ser aumentado vertical ou horizontalmente de 7 35 dias. Só é possível aumentar o tamanho de armazenamento. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. 
 
-Quando altera o número de vCores, <!--the hardware generation,--> ou o escalão de preço, é criada uma cópia do servidor original com a nova alocação de computação. Depois do novo servidor em execução, as ligações estão no modo ao longo para o novo servidor. Durante o momento em que quando o sistema muda ao longo para o novo servidor, podem ser estabelecidas sem ligações novas e todas as transações não confirmadas são revertidas. Esta janela varia, mas na maioria dos casos, é menos de um minuto.
+<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+
+Quando altera o número de vCores, ou o escalão de preço, é criada uma cópia do servidor original com a nova alocação de computação. Depois do novo servidor em execução, as ligações estão no modo ao longo para o novo servidor. Durante o momento em que quando o sistema muda ao longo para o novo servidor, podem ser estabelecidas sem ligações novas e todas as transações não confirmadas são revertidas. Esta janela varia, mas na maioria dos casos, é menos de um minuto.
 
 Dimensionar o armazenamento e alterar o período de retenção de cópia de segurança são verdadeiras operações online. Não existe nenhum tempo de inatividade e seu aplicativo não é afetado. IOPS aumentar o tamanho do armazenamento de aprovisionamento, pode aumentar o IOPS disponível para o seu servidor, aumente verticalmente o armazenamento.
 

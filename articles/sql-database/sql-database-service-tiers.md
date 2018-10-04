@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8f1c16aba3a3c082091707e33d3341e6eb6dc31e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/02/2018
+ms.openlocfilehash: 99914fd1fbfb2647f54c8257145132db2c7bf045
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158724"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249116"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Base de dados do SQL do Azure compra de modelos e recursos 
 
@@ -26,7 +26,7 @@ Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dad
  - [Instâncias geridas](sql-database-managed-instance.md) na oferta de base de dados do Azure SQL única a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Bases de dados de grande escala (pré-visualização)](sql-database-hyperscale.md) só estão disponíveis com o modelo de compra baseado em vCore para bases de dados individuais com um servidor lógico ou dentro de uma instância gerida. 
+> [Bases de dados de grande escala (pré-visualização)](sql-database-hyperscale.md) estão em pré-visualização pública apenas para bases de dados individuais, utilizando o modelo de compra de vCore. 
 
 O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compras.
 

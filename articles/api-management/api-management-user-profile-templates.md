@@ -1,6 +1,6 @@
 ---
-title: Modelos de perfil de utilizador na API Management do Azure | Microsoft Docs
-description: Saiba como personalizar o conteúdo das páginas de perfil de utilizador no portal do programador na API Management do Azure.
+title: Modelos de perfil do usuário na gestão de API do Azure | Documentos da Microsoft
+description: Saiba como personalizar o conteúdo das páginas de perfil de utilizador no portal do programador na gestão de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c56cefb3c62787f1bc2561aecec719cdbbc3b1c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4128c4c643b1410faf3753f8178cfcda654b2ae
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23835203"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268959"
 ---
-# <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de utilizador na API Management do Azure
-Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos que configurar o respetivo conteúdo. Utilizando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto de fornecido localizado [recursos de cadeia](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar utilizando estes modelos.  
+# <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil do usuário na gestão de API do Azure
+Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
   
- Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas de perfil de utilizador no portal do programador.  
+ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas de perfil de utilizador no portal do programador.  
   
 -   [Perfil](#Profile)  
   
@@ -32,15 +32,15 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
   
 -   [Aplicações](#Applications)  
   
--   [Atualizar as informações da conta](#UpdateAccountInfo)  
+-   [Atualizar as informações de conta](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitos a alterações devido a melhoramentos contínuos. Pode ver os modelos predefinidos em direto no portal do programador, navegando para os modelos de individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitas a alterações devido a melhorias contínuas. Pode ver os modelos predefinidos em direto no portal do programador ao navegar para os modelos individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="Profile"></a>Perfil  
- O **perfil** modelo permite-lhe personalizar a secção de perfil de utilizador da página de perfis de utilizador no portal do programador.  
+##  <a name="Profile"></a> Perfil  
+ O **perfil** modelo permite-lhe personalizar a seção de perfil do usuário da página de perfil de utilizador no portal do programador.  
   
- ![Página de perfil de utilizador](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "perfil de utilizador APIM página")  
+ ![Página de perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "página de perfil do usuário do APIM")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -95,28 +95,28 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo não pode utilizar qualquer [página controlos](api-management-page-controls.md).  
+ Este modelo não pode utilizar qualquer [controlos de página](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  O [perfil](#Profile), [aplicações](#Applications), e [subscrições](#Subscriptions) modelos partilhar o mesmo modelo de dados e receber os dados do mesmo modelo.  
+>  O [perfil](#Profile), [aplicativos](#Applications), e [subscrições](#Subscriptions) modelos compartilham o mesmo modelo de dados e receber os mesmos dados de modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Nome próprio|Cadeia|Nome próprio do utilizador atual.|  
-|Apelido|Cadeia|Apelido do utilizador atual.|  
-|companyName|Cadeia|O nome da empresa do utilizador atual.|  
-|addresserEmail|Cadeia|Endereço de e-mail do utilizador atual.|  
-|developersUsageStatisticsLinkk|Cadeia|URL relativo para ver análises para o utilizador atual.|  
+|firstName|cadeia|Nome próprio do utilizador atual.|  
+|Apelido|cadeia|Apelido do utilizador atual.|  
+|CompanyName|cadeia|O nome da empresa do utilizador atual.|  
+|addresserEmail|cadeia|Endereço de e-mail do utilizador atual.|  
+|developersUsageStatisticsLinkk|cadeia|URL relativo para ver análises para o utilizador atual.|  
 |subscrições|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
-|aplicações|Coleção de [aplicação](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
-|changePasswordUrl|Cadeia|O URL relativo para alterar a palavra-passe do utilizador atual.|  
-|changeNameOrEmailUrl|Cadeia|O URL relativo para alterar o nome e o e-mail para o utilizador atual.|  
-|canChangePassword|Valor booleano|Indica se o utilizador atual pode alterar a palavra-passe.|  
-|isSystemUser|Valor booleano|Indica se o utilizador atual é um membro de um dos incorporada [grupos](api-management-key-concepts.md#groups).|  
+|aplicações|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
+|changePasswordUrl|cadeia|A URL relativa para alterar a palavra-passe do utilizador atual.|  
+|changeNameOrEmailUrl|cadeia|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
+|canChangePassword|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
+|isSystemUser|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
   
-### <a name="sample-template-data"></a>Dados de exemplo do modelo  
+### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
 ```json  
 {  
@@ -182,10 +182,10 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 }  
 ```  
   
-##  <a name="Subscriptions"></a>Subscrições  
- O **subscrições** modelo permite-lhe personalizar a secção de subscrições da página de perfis de utilizador no portal do programador.  
+##  <a name="Subscriptions"></a> Subscrições  
+ O **subscrições** modelo permite-lhe personalizar a secção de subscrições da página de perfil de utilizador no portal do programador.  
   
- ![Página de subscrição de utilizador](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM página de subscrição de utilizador")  
+ ![Página de subscrição de utilizador](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "página de subscrição de utilizador do APIM")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -314,30 +314,30 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo, pode utilizar o seguinte [página controlos](api-management-page-controls.md).  
+ Este modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
 -   [Cancelar subscrição](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  O [perfil](#Profile), [aplicações](#Applications), e [subscrições](#Subscriptions) modelos partilhar o mesmo modelo de dados e receber os dados do mesmo modelo.  
+>  O [perfil](#Profile), [aplicativos](#Applications), e [subscrições](#Subscriptions) modelos compartilham o mesmo modelo de dados e receber os mesmos dados de modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Nome próprio|Cadeia|Nome próprio do utilizador atual.|  
-|Apelido|Cadeia|Apelido do utilizador atual.|  
-|companyName|Cadeia|O nome da empresa do utilizador atual.|  
-|addresserEmail|Cadeia|Endereço de e-mail do utilizador atual.|  
-|developersUsageStatisticsLinkk|Cadeia|URL relativo para ver análises para o utilizador atual.|  
+|firstName|cadeia|Nome próprio do utilizador atual.|  
+|Apelido|cadeia|Apelido do utilizador atual.|  
+|CompanyName|cadeia|O nome da empresa do utilizador atual.|  
+|addresserEmail|cadeia|Endereço de e-mail do utilizador atual.|  
+|developersUsageStatisticsLinkk|cadeia|URL relativo para ver análises para o utilizador atual.|  
 |subscrições|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
-|aplicações|Coleção de [aplicação](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
-|changePasswordUrl|Cadeia|O URL relativo para alterar a palavra-passe do utilizador atual.|  
-|changeNameOrEmailUrl|Cadeia|O URL relativo para alterar o nome e o e-mail para o utilizador atual.|  
-|canChangePassword|Valor booleano|Indica se o utilizador atual pode alterar a palavra-passe.|  
-|isSystemUser|Valor booleano|Indica se o utilizador atual é um membro de um dos incorporada [grupos](api-management-key-concepts.md#groups).|  
+|aplicações|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
+|changePasswordUrl|cadeia|A URL relativa para alterar a palavra-passe do utilizador atual.|  
+|changeNameOrEmailUrl|cadeia|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
+|canChangePassword|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
+|isSystemUser|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
   
-### <a name="sample-template-data"></a>Dados de exemplo do modelo  
+### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
 ```json  
 {  
@@ -403,10 +403,10 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 }  
 ```  
   
-##  <a name="Applications"></a>Aplicações  
- O **aplicações** modelo permite-lhe personalizar a secção de subscrições da página de perfis de utilizador no portal do programador.  
+##  <a name="Applications"></a> Aplicações  
+ O **aplicativos** modelo permite-lhe personalizar a secção de subscrições da página de perfil de utilizador no portal do programador.  
   
- ![Página de aplicações de conta de utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "página aplicações da conta de utilizador APIM")  
+ ![Página de aplicações de conta de utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "aplicações de página de conta de utilizador do APIM")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -477,30 +477,30 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo, pode utilizar o seguinte [página controlos](api-management-page-controls.md).  
+ Este modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [ações de aplicações](api-management-page-controls.md#app-actions)  
+-   [ações de aplicação](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  O [perfil](#Profile), [aplicações](#Applications), e [subscrições](#Subscriptions) modelos partilhar o mesmo modelo de dados e receber os dados do mesmo modelo.  
+>  O [perfil](#Profile), [aplicativos](#Applications), e [subscrições](#Subscriptions) modelos compartilham o mesmo modelo de dados e receber os mesmos dados de modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Nome próprio|Cadeia|Nome próprio do utilizador atual.|  
-|Apelido|Cadeia|Apelido do utilizador atual.|  
-|companyName|Cadeia|O nome da empresa do utilizador atual.|  
-|addresserEmail|Cadeia|Endereço de e-mail do utilizador atual.|  
-|developersUsageStatisticsLinkk|Cadeia|URL relativo para ver análises para o utilizador atual.|  
+|firstName|cadeia|Nome próprio do utilizador atual.|  
+|Apelido|cadeia|Apelido do utilizador atual.|  
+|CompanyName|cadeia|O nome da empresa do utilizador atual.|  
+|addresserEmail|cadeia|Endereço de e-mail do utilizador atual.|  
+|developersUsageStatisticsLinkk|cadeia|URL relativo para ver análises para o utilizador atual.|  
 |subscrições|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
-|aplicações|Coleção de [aplicação](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
-|changePasswordUrl|Cadeia|O URL relativo para alterar a palavra-passe do utilizador atual.|  
-|changeNameOrEmailUrl|Cadeia|O URL relativo para alterar o nome e o e-mail para o utilizador atual.|  
-|canChangePassword|Valor booleano|Indica se o utilizador atual pode alterar a palavra-passe.|  
-|isSystemUser|Valor booleano|Indica se o utilizador atual é um membro de um dos incorporada [grupos](api-management-key-concepts.md#groups).|  
+|aplicações|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
+|changePasswordUrl|cadeia|A URL relativa para alterar a palavra-passe do utilizador atual.|  
+|changeNameOrEmailUrl|cadeia|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
+|canChangePassword|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
+|isSystemUser|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
   
-### <a name="sample-template-data"></a>Dados de exemplo do modelo  
+### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
 ```json  
 {  
@@ -566,10 +566,10 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a>Atualizar as informações da conta  
- O **as informações da conta Uodate** modelo permite-lhe personalizar a **atualizar informações de conta** página no portal do programador.  
+##  <a name="UpdateAccountInfo"></a> Atualizar as informações de conta  
+ O **atualizar as informações de conta** modelo permite-lhe personalizar a **atualizar as informações de conta** página no portal do programador.  
   
- ![Modelos Portal de programador da página informações de conta utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM utilizador informações para programadores de página Portal modelos de contas")  
+ ![Modelos de desenvolvedor da página de informações conta do utilizador portais](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM utilizador conta informações desenvolvedor da página modelos de portais")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -604,12 +604,12 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo não pode utilizar qualquer [página controlos](api-management-page-controls.md).  
+ Este modelo não pode utilizar qualquer [controlos de página](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
- [As informações da conta de utilizador](api-management-template-data-model-reference.md#UserAccountInfo) entidade.  
+ [Informações da conta de utilizador](api-management-template-data-model-reference.md#UserAccountInfo) entidade.  
   
-### <a name="sample-template-data"></a>Dados de exemplo do modelo  
+### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
 ```json  
 {  
@@ -623,5 +623,5 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](api-management-developer-portal-templates.md).

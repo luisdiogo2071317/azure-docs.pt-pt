@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 205a1e399eadd268ffaa390a7ebb4397fda9feff
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444658"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268281"
 ---
-# <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Configuração DPDK numa máquina virtual do Linux
+# <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar DPDK numa máquina virtual do Linux
 
-Dados plano Development Kit (DPDK) no Azure oferece uma arquitetura de processamento de pacotes de espaço num mais rápida do utilizador para aplicações intensivas em termos de desempenho que se ignorar a pilha de rede de kernel da máquina virtual.
+Dados plano Development Kit (DPDK) no Azure oferece uma arquitetura de processamento de pacotes de espaço do usuário mais rápida para aplicações intensivas de desempenho. Essa estrutura ignora a pilha de rede de kernel da máquina virtual.
 
-O pacote típico processamento usando a pilha de rede de kernel é controlado por interrupção. Sempre que a interface de rede recebe pacotes de entrada, há uma interrupção de kernel para processar a mudança de pacote e o contexto do espaço de kernel para o espaço do usuário. DPDK elimina a alternância de contexto e a interrupção controlado por método em prol de uma implementação de espaço de utilizador com drivers de modo de consulta para processamento de pacotes rápida.
+Processamento de pacotes típicos que utiliza a pilha de rede do kernel, o processo é controlado por interrupção. Quando a interface de rede recebe pacotes de entrada, há uma interrupção de kernel para processar que o pacote e um contexto de mudar a partir do espaço de kernel para o espaço de utilizador. DPDK elimina a alternância de contexto e o método controlado por interrupção em prol de uma implementação de espaço do utilizador que utiliza consultar drivers no modo de processamento de pacotes rápida.
 
-DPDK é composta por conjunto de bibliotecas de espaço de utilizador fornecer acesso a recursos, tais como o hardware, núcleos lógicos, gerenciamento de memória de nível inferior e consultar os drivers no modo para placas de interface de rede.
+DPDK consiste em conjuntos de bibliotecas de espaço do usuário que fornecem acesso a recursos de nível inferior. Estes recursos podem incluir o hardware, núcleos lógicos, gerenciamento de memória e drivers de modo de consulta para placas de interface de rede.
 
-DPDK pode ser executado em máquinas virtuais do Azure, que suporta várias distribuições de sistema operativo. DPDK fornece uma diferenciação de chave de desempenho na função de rede motriz implementações de virtualização, na forma de aplicações virtuais de rede (NVA) como um virtual router, firewall, VPN, Balanceador de carga, núcleos de pacote evoluído e denial-of-service ( Aplicações de DDoS).
+DPDK podem ser executados em máquinas virtuais do Azure que estiver dando suporte a várias distribuições de sistema operativo. DPDK fornece diferenciação de chave de desempenho nos dirigir implementações de virtualização da função de rede. Essas implementações podem assumir a forma de aplicações virtuais de rede (NVAs), como virtual routers, firewalls, VPNs, balanceadores de carga, pacote evoluído núcleos e aplicativos de denial-of-service (DDoS).
 
 ## <a name="benefit"></a>Vantagem
 
-**Superior pacotes por segundo (PPS)**: ignorando o kernel e ter o controle de pacotes no espaço do usuário reduz a contagem de ciclo, eliminando a alternância de contexto e melhora a taxa de pacotes processados por segundo em máquinas de virtuais de Linux do Azure.
+**Superior pacotes por segundo (PPS)**: Ignorar o kernel e ter o controle de pacotes no espaço do usuário reduz a contagem de ciclo, eliminando Alternâncias de contexto. Ele também melhora a taxa de pacotes que são processados por segundo em máquinas virtuais do Linux do Azure.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
@@ -50,7 +50,7 @@ São suportadas as seguintes distribuições da galeria do Azure:
 
 **Suporte de kernel personalizado**
 
-Consulte a [Patches para a criação de um kernel do Linux do Azure otimizados](https://github.com/microsoft/azure-linux-kernel) em qualquer versão de kernel de Linux não listada, ou para obter mais informações, contacte [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
+Para qualquer versão de kernel de Linux que não esteja listado, consulte [Patches para a criação de um kernel do Linux do Azure otimizados](https://github.com/microsoft/azure-linux-kernel). Para obter mais informações, também pode contactar [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Suporte de região
 
@@ -105,17 +105,17 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-## <a name="setup-virtual-machine-environment-once"></a>Configurar o ambiente de máquina virtual (uma vez)
+## <a name="set-up-the-virtual-machine-environment-once"></a>Configurar o ambiente de máquina virtual (uma vez)
 
 1. [Transferir o mais recente DPDK](https://core.dpdk.org/download). Versão 18.02 ou superior é necessário para o Azure.
-2. Primeiro, crie a configuração padrão com `make config T=x86_64-native-linuxapp-gcc`.
+2. Criar a configuração padrão com `make config T=x86_64-native-linuxapp-gcc`.
 3. Ativar Mellanox PMDs a configuração gerada com `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. A compilação com `make`.
 5. Instalar com `make install DESTDIR=<output folder>`.
 
-# <a name="configure-runtime-environment"></a>Configurar o ambiente de tempo de execução
+## <a name="configure-the-runtime-environment"></a>Configurar o ambiente de tempo de execução
 
-Execute os seguintes comandos uma vez, após reiniciar:
+Após o reinício, execute os seguintes comandos uma vez:
 
 1. Hugepages
 
@@ -128,27 +128,29 @@ Execute os seguintes comandos uma vez, após reiniciar:
 
    *  Criar um diretório para a montagem com `mkdir /mnt/huge`.
    *  Hugepages de montagem com `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Verificação hugepages estão reservados com `grep Huge /proc/meminfo`.
+   *  Verifique que hugepages estão reservados com `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Existe uma forma de modificar o ficheiro de grub para que as páginas enormes estão reservadas no arranque ao seguir a [instruções](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para DPDK. É a instrução na parte inferior da página. Quando em execução numa máquina virtual Linux do Azure, modificar arquivos em /etc/config/grub.d em vez disso, para reservar hugepages entre reinícios.
+     > Existe uma forma de modificar o ficheiro de grub para que hugepages estão reservados no arranque ao seguir a [instruções](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções são na parte inferior da página. Quando estiver a utilizar uma máquina virtual Linux do Azure, modificar arquivos sob **/etc/config/grub.d** em vez disso, para reservar hugepages entre reinícios.
 
-2. Endereços MAC e IP: utilizar `ifconfig –a` para ver o endereço MAC e IP das interfaces de rede. O *VF* interface de rede e *NETVSC* interface de rede têm o mesmo endereço MAC, mas apenas o *NETVSC* interface de rede tem um endereço IP. Interfaces de VF estão em execução como interfaces de subordinado de NETVSC interfaces.
+2. Endereços MAC e IP: utilizar `ifconfig –a` para ver o endereço MAC e IP das interfaces de rede. O *VF* interface de rede e *NETVSC* interface de rede têm o mesmo endereço MAC, mas apenas o *NETVSC* interface de rede tem um endereço IP. Interfaces de VF estão em execução como interfaces subordinadas NETVSC interfaces.
 
 3. Endereços PCI
 
-   * Descubra qual a utilizar para o endereço PCI *VF* com `ethtool -i <vf interface name>`.
-   * Certifique-se de que testpmd acidentalmente não assuma o dispositivo de pci VF para *eth0*, se *eth0* tenha o accelerated networking ativada. Se aplicação DPDK acidentalmente está a ser utilizado sobre a interface de rede de gestão e provoca a perda da sua ligação de SSH, utilize a consola de série para interromper o aplicativo DPDK, ou para parar ou iniciar a máquina virtual.
+   * Utilizar `ethtool -i <vf interface name>` para saber qual a utilizar para o endereço PCI *VF*.
+   * Se *eth0* tenha o accelerated networking ativada, certifique-se de que testpmd acidentalmente não assuma o dispositivo de pci VF para *eth0*. Se o aplicativo DPDK acidentalmente tem sobre a interface de rede de gestão e faz com que a perder a ligação de SSH, utilize a consola de série para parar a aplicação de DPDK. Também pode utilizar a consola de série para interromper ou iniciar a máquina virtual.
 
 4. Carga *ibuverbs* em cada reinício com `modprobe -a ib_uverbs`. Para apenas a 15 de SLES, também carregar *mlx4_ib* com `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>PMD contra falhas
 
-Tem de executar aplicativos de DPDK sobre a segurança contra falhas PMD exposto no Azure. Se a aplicação é executada diretamente através do PMD VF, não receberá **todos os** pacotes destinados à VM, uma vez que alguns pacotes aparecerá sobre a interface sintética. Executar através de segurança contra falhas que PMD garante que o aplicativo recebe todos os pacotes destinados a ele e também garante que o aplicativo continuará a ser executado no modo DPDK, mesmo que o VF é revogado quando o anfitrião está em manutenção. Para obter mais informações sobre segurança contra falhas PMD, consulte [biblioteca de drivers do modo de consulta isento de falhas](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Tem de executar aplicativos de DPDK sobre a segurança contra falhas PMD exposto no Azure. Se a aplicação é executada diretamente através do PMD VF, não receber **todos os** pacotes que estão destinados à VM, uma vez que alguns pacotes apresentados pela interface do sintética. 
+
+Se executar um aplicativo de DPDK sobre a segurança contra falhas PMD, esta ação garante que o aplicativo recebe todos os pacotes que estão destinados a ele. Ele também torna-se de que o aplicativo permanece em execução no modo DPDK, mesmo que o VF é revogado quando o anfitrião está em manutenção. Para obter mais informações sobre segurança contra falhas PMD, consulte [biblioteca de drivers do modo de consulta isento de falhas](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Executar testpmd
 
-Uso `sudo` antes do *testpmd* comando a ser executado no modo de raiz.
+Para executar testpmd no modo de raiz, utilize `sudo` antes do *testpmd* comando.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Verificação da funcionalidade de inicialização de adaptador de segurança contra falhas
 
@@ -171,12 +173,12 @@ Uso `sudo` antes do *testpmd* comando a ser executado no modo de raiz.
    -- -i
    ```
 
-   Se executar com mais de 2 NICs, o `--vdev` argumento segue este padrão: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+   Se estiver a executar o testpmd com mais de duas NICs, o `--vdev` argumento segue este padrão: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
-3.  Depois de iniciar, executar `show port info all` para verificar as informações da porta. Deverá ver uma ou duas portas DPDK que são net_failsafe (não *net_mlx4*).
+3.  Depois de ser iniciada, executar `show port info all` para verificar as informações da porta. Deverá ver uma ou duas portas DPDK que são net_failsafe (não *net_mlx4*).
 4.  Utilize `start <port> /stop <port>` para iniciar o tráfego.
 
-Iniciar os comandos anteriores *testpmd* no modo interativo, que é recomendado, para experimentar alguns comandos testpmd.
+Iniciar os comandos anteriores *testpmd* no modo interativo, que é recomendado para experimentar testpmd comandos.
 
 ### <a name="basic-single-sendersingle-receiver"></a>Básico: Recetor de remetente único ou um só
 
@@ -188,7 +190,7 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -203,7 +205,7 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -212,7 +214,7 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
      --stats-period <display interval in seconds>
    ```
 
-Ao executar os comandos anteriores numa máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* no `app/test-pmd/txonly.c` para corresponder o endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são largados antes de atingir o recetor.
+Quando estiver a executar os comandos anteriores numa máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* no `app/test-pmd/txonly.c` para corresponder o endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são largados antes de atingir o recetor.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>Avançado: Reencaminhador de remetente único ou um só
 Os seguintes comandos periodicamente os pacotes por segundo estatísticas de impressão:
@@ -223,7 +225,7 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -248,7 +250,7 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
      --stats-period <display interval in seconds>
     ```
 
-Ao executar os comandos anteriores numa máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* no `app/test-pmd/txonly.c` para corresponder o endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são largados antes de atingir o reencaminhador. Não será possível ter uma terceira máquina receber tráfego reencaminhado, porque o *testpmd* reencaminhador não modifica os endereços de camada 3, a menos que faça algumas alterações de código.
+Quando estiver a executar os comandos anteriores numa máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* no `app/test-pmd/txonly.c` para corresponder o endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são largados antes de atingir o reencaminhador. Não será possível ter uma terceira máquina receber tráfego reencaminhado, porque o *testpmd* reencaminhador não modifica os endereços de camada 3, a menos que faça algumas alterações de código.
 
 ## <a name="references"></a>Referências
 

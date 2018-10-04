@@ -1,6 +1,6 @@
 ---
-title: Como utilizar a API de LCA anomalias com c# - serviços cognitivos Microsoft | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar c# e a API de LCA anomalias nos serviços cognitivos.
+title: Como utilizar a API de localizador de anomalias com c# - serviços cognitivos da Microsoft | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar o c# e a API de localizador de anomalias nos serviços cognitivos.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,38 +9,40 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 867ce4d0262c94de8da0dadeb8de71c28a8295d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353335"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246453"
 ---
-# <a name="use-the-anomaly-finder-api-with-c"></a>Utilize a API de LCA anomalias com c#
+# <a name="use-the-anomaly-finder-api-with-c"></a>Utilizar o Explorador de anomalias API com c#
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar a API de LCA anomalias com c# para realizar tarefas de obter o resultado de anomalias de dados de séries de tempo.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de localizador de anomalias com c# para realizar a tarefa de obter o resultado de anomalias de dados de séries de tempo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Ao obter pontos de anomalias com anomalias LCA API com c#
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Obtendo pontos de anomalias com a API de localizador de anomalias com c#
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data-points"></a>Exemplo de pontos de dados de séries de tempo
 
-Segue-se ao exemplo de tempo de pontos de dados de série.
+Segue-se o exemplo do tempo de pontos de dados de série.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Analisar dados e obter pontos c# exemplo de anomalias
+### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Analisar dados e obter o exemplo c# pontos de anomalias
 
-Os passos da utilização de exemplo são os seguintes.
+Seguem-se os passos para utilizar o exemplo.
 
 1. Crie uma nova solução de consola no Visual Studio.
-2. Substitua Program.cs pelo seguinte código e adicione a referência ao System.Net.Http.
+2. Substitua Program.cs pelo código seguinte e adicione a referência ao System.Net.Http.
 3. Substitua `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
-4. Substitua `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com os pontos de dados.
+4. Substitua `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com seus pontos de dados.
 
 ```csharp
 using System;
@@ -119,10 +121,10 @@ namespace Console
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito é devolvida em JSON. Segue-se a resposta de exemplo.
+O JSON devolve uma resposta de êxito. Segue-se a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Aplicação c#](../tutorials/csharp-tutorial.md)
+> [Aplicação de c#](../tutorials/csharp-tutorial.md)

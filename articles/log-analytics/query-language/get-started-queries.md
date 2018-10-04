@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982989"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267703"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Introdução às consultas no Log Analytics
 
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumindo: agregar a grupos de linhas
-Uso **resumir** para identificar os grupos de registos, de acordo com uma ou mais colunas e aplicar-lhes agregações. O uso mais comum SO **resumir** é *contagem*, que retorna o número de resultados em cada grupo.
+Uso **resumir** para identificar os grupos de registos, de acordo com uma ou mais colunas e aplicar-lhes agregações. O uso mais comum de **resumir** é *contagem*, que retorna o número de resultados em cada grupo.
 
 A seguinte consulta analisa todos os *Perf* registos da última hora, agrupa por *ObjectName*e conta os registos em cada grupo: 
 ```Kusto

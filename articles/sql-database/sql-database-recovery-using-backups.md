@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 31a423714154537cfc8d801b972869035aa61035
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bdd3f5c5304cec0a562945ffaf412771e15b6031
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042211"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248266"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 Por predefinição, as cópias de segurança da base de dados SQL são armazenadas no armazenamento de BLOBs georreplicado (RA-GRS). As seguintes opções estão disponíveis para recuperação de base de dados com [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md):
@@ -92,6 +92,9 @@ Para recuperar para um ponto no tempo, com o portal do Azure, abra a página da 
 ## <a name="deleted-database-restore"></a>Restauro de base de dados eliminada
 Pode restaurar uma base de dados eliminada para a hora de eliminação de uma base de dados eliminada no mesmo servidor lógico no portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), ou o [REST (createMode = restaurar)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Pode restaurar uma base de dados eliminada para um ponto anterior no tempo durante a utilização de retenção [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
+> [!Note]
+> Restaurar base de dados eliminada não está disponível na instância gerida.
+
 > [!TIP]
 > Para um script do PowerShell de exemplo que mostra como restaurar uma base de dados eliminada, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
@@ -111,6 +114,9 @@ Para recuperar uma base de dados eliminada durante sua [período de retenção d
 
 ## <a name="geo-restore"></a>Georrestauro
 Pode restaurar uma base de dados SQL em qualquer servidor em qualquer região do Azure a partir as mais recentes georreplicado completas e diferenciais cópias de segurança. O restauro geográfico utiliza uma cópia de segurança georredundante como origem e pode ser usado para recuperar uma base de dados, mesmo que a base de dados ou o Centro de dados não está acessível devido a uma falha. 
+
+> [!Note]
+> Restauro de Georreplicação não está disponível na instância gerida.
 
 Georrestauro encontra-se a opção de recuperação predefinida quando a sua base de dados está indisponível devido a um incidente na região onde está hospedado o banco de dados. Se um incidente em grande escala nos resultados da região na indisponibilidade da sua aplicação de base de dados, pode restaurar uma base de dados das cópias de segurança georreplicado para um servidor em qualquer outra região. Existe um atraso entre quando é feita uma cópia de segurança diferencial e quando é georreplicado a Azure blob numa região diferente. Este atraso pode demorar até uma hora, por isso, se ocorrer um desastre, pode haver até à perda de dados de uma hora. A ilustração seguinte mostra o restauro da base de dados da cópia de segurança disponível última noutra região.
 

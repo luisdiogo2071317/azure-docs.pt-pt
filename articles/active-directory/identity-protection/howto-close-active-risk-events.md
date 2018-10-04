@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057965"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267475"
 ---
 # <a name="how-to-close-active-risk-events"></a>Como: Fechar eventos de risco de Active Directory
 
@@ -51,7 +51,7 @@ Ao configurar o [política de acesso condicional de risco do utilizador](howto-u
 
 ![Repor palavra-passe](./media/howto-close-active-risk-events/13.png)
 
-Uma reposição de palavra-passe fecha todos os eventos de riscos do Active Directory do utilizador relacionado e recupera a identidade para um estado seguro. Através de uma política de risco do utilizador é o método preferencial para fechar eventos de risco de Active Directory, porque este método é automatizado. Agora é necessária entre o suporte técnico ajuda e o utilizador afetado ou um administrador de interação.
+Uma reposição de palavra-passe fecha todos os eventos de riscos do Active Directory do utilizador relacionado e recupera a identidade para um estado seguro. Através de uma política de risco do utilizador é o método preferencial para fechar eventos de risco de Active Directory, porque este método é automatizado. Não há nenhuma interação necessária entre o suporte técnico ajuda e o utilizador afetado ou um administrador.
 
 No entanto, através de uma política de risco de utilizador nem sempre é aplicável. Isto aplica-se, por exemplo, para:
 

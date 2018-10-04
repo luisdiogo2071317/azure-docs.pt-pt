@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: a7e137c864d216b6b936181c3482358bd10f175a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8e6c32eca932803acfe0e7854de885e7ab129fc
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037274"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267669"
 ---
-# <a name="plan-your-luis-app"></a>Planear a sua aplicação LUIS
+# <a name="plan-your-luis-app"></a>Planear a aplicação LUIS
 
 É importante planear a sua aplicação. Identifica o seu domínio, incluindo possíveis intenções e entidades que são relevantes para a sua aplicação.  
 

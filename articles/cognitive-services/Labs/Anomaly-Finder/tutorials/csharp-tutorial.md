@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fb434bd668b065fbdbaac39f2926676bcc90e794
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41987963"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247829"
 ---
 # <a name="anomaly-detection-c-application"></a>Aplicação de anomalias deteção c#
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore uma aplicação básica do Windows que utiliza a API de deteção de anomalias para detetar anomalias da entrada. O exemplo envia os dados de séries de tempo para a API de deteção de anomalias com a sua chave de subscrição, em seguida, obtém todos os pontos de anomalias e valor esperado para cada ponto de dados a partir da API.
 

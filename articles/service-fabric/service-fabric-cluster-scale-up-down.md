@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d9ac3334d790c1844993c7d95bc24ce6690bed19
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057009"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248505"
 ---
 # <a name="read-before-you-scale"></a>Leia antes de aumentar
 Dimensionar recursos de computação para a origem a carga de trabalho de aplicação requer um planejamento intencional, quase sempre irá demorar mais de uma hora para concluir para um ambiente de produção e exige que compreender a sua carga de trabalho e o contexto de negócios; na verdade se nunca tiver feito essa atividade antes, recomenda-se começar por ler e entender [considerações de planeamento de capacidade do cluster de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), antes de continuar o restante deste documento. Esta recomendação é evitar problemas de LiveSite indesejados, e também é recomendável que testar com êxito as operações que decidir executar em relação a um ambiente de não produção. Em qualquer altura, pode [comunicar problemas de produção ou pedido de suporte pago para o Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Para os engenheiros alocados para executar estas operações que possuem o contexto apropriado, este artigo descreverá as operações de dimensionamento, mas tem de decidir e compreender as operações são adequadas para seu caso de utilização; Por exemplo, quais recursos para dimensionamento (CPU, armazenamento, memória), que direção de dimensionamento (vertical ou horizontalmente) e quais operações a serem executadas (modelo do Resource a implementação, do Portal, o PowerShell/CLI).
@@ -33,7 +33,7 @@ Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computa
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Escolha o nó tipo/Virtual conjunto de dimensionamento de dimensionamento de máquina
-Atualmente, não é possível especificar as regras de dimensionamento automático para conjuntos de dimensionamento de máquina virtual com o portal, então, vamos utilizar o Azure PowerShell (1.0 +) para listar os tipos de nó e, em seguida, adicionar regras de dimensionamento automático aos mesmos.
+Atualmente, não é possível especificar as regras de dimensionamento automático para conjuntos de dimensionamento de máquina virtual com o portal para criar um Cluster do Service Fabric, então, vamos utilizar o Azure PowerShell (1.0 +) para listar os tipos de nó e, em seguida, adicionar regras de dimensionamento automático aos mesmos.
 
 Para obter a lista de conjunto de dimensionamento de máquinas virtuais que compõem o cluster, execute os seguintes cmdlets:
 

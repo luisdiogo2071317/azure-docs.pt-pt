@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 3242f683fd6190209e3395bd8410dd1b2cd36960
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc322857a459f9417ed7c89a6e4df7ce5c41c3f0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043356"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246486"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utilizar réplicas só de leitura para carregar saldo consulta só de leitura cargas de trabalho (pré-visualização)
 
@@ -75,7 +75,11 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > Em qualquer momento, apenas uma das réplicas AlwaysON está acessível às sessões de só de leitura.
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Ativar e desativar leitura aumentar horizontalmente com o Azure PowerShell
+## <a name="enable-and-disable-read-scale-out"></a>Ativar e desativar a expansão de leitura
+
+Escalamento de leitura é ativado por predefinição no [instância gerida](sql-database-managed-instance.md) tier(Preview) críticas para a empresa. Deve ser explicitamente ativada na [base de dados colocada no servidor lógico](sql-database-logical-servers.md) escalões Premium e crítico para a empresa. Os métodos para ativar e desativar a expansão de leitura é descrito aqui. 
+
+### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Ativar e desativar leitura aumentar horizontalmente com o Azure PowerShell
 
 A gestão de escalamento de leitura no Azure PowerShell requer a Dezembro de 2016 do Azure PowerShell versão ou mais recente. Para a versão mais recente do PowerShell, consulte [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -99,7 +103,7 @@ Para criar uma nova base de dados com aumento horizontal leitura ativado (substi
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Ativar e desativar a leitura aumentar horizontalmente com a API de REST de base de dados de SQL do Azure
+### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Ativar e desativar a leitura aumentar horizontalmente com a API de REST de base de dados de SQL do Azure
 
 Para criar uma base de dados com leitura Escalamento ativado, ou para ativar ou desativar a leitura Escalamento horizontal para uma base de dados existente, criar ou atualizar a entidade de base de dados correspondente com o `readScale` definida como `Enabled` ou `Disabled` como no abaixo de exemplo pedido.
 

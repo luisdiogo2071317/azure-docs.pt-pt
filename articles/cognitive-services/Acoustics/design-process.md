@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b6bb04d9cec690198de663189dacd41fcbe960eb
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433229"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248609"
 ---
 # <a name="design-process-overview"></a>Descrição geral do processo de design
 Pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do projeto Acoustics: pré-inserir instalação de cena, Colocação de origem de som e design de pós-criar. O processo exige menos marcação associada com a colocação de reverberação volumes, mantendo o controle de designer sobre como pode parecer uma cena.
@@ -45,18 +45,30 @@ O áudio DSP fornecida pelos **Microsoft Acoustics** Plug-in do Unity spatialize
 
 ![Atenuação de distância](media/distanceattenuation.png)
 
+Acoustics executa o cálculo numa caixa "região de simulação" centrada a localização de player. Se uma origem de som é distante do jogador, localizado fora desta região de simulação, apenas a geometria na caixa de afetará a propagação de som (por exemplo, fazendo com que oclusão) que funciona razoavelmente bem quando occluders estão perto o jogador. No entanto, em casos quando o jogador está no espaço aberto, mas os occluders estão próximos da origem de som distante, o som pode se tornar inacreditavelmente disoccluded. Nossa solução sugerida é Certifique-se nestes casos que a atenuação de som recai como 0 em cerca de 45m, a distância de horizontal padrão do player na periferia da caixa.
+
 ### <a name="tuning-scene-parameters"></a>Ajuste os parâmetros de cenas
 Para ajustar os parâmetros para todas as origens, clique na faixa do canal do Unity **Mixer de áudio**e ajustar os parâmetros na **Acoustics Mixer** efeito.
 
 ![Personalização do Mixer](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>Ajuste os parâmetros de origem
-A anexar o **AcousticsSourceCustomization** script para uma origem permite parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics origem personalização**. O script tem três parâmetros:
+A anexar o **AcousticsDesign** script para uma origem permite parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics Design**. O script tem seis controles:
 
-![Personalização de origem](media/SourceCustomization.png)
+![AcousticsDesign](media/AcousticsDesign.png)
 
-* **Reverberação Power ajustar** -ajusta o poder de reverberação no dB. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry.
+* **Fator de oclusão** -aplicar um multiplicador para o nível de dB oclusão calculado pelo sistema acoustics. Se este multiplicador for superior a 1, irá ser exagerada oclusão, enquanto valores inferior a 1 fazer o efeito de oclusão mais sutil e um valor de 0 desativa oclusão.
+* **Transmissão (dB)** -definir a atenuação (no dB) causada por transmissão por meio de geometria. Defina este controlo de deslize para o nível mais baixo para desativar a transmissão. Acoustics spatializes o áudio de dry inicial como que chegam em torno de geometria da cena (portaling). Transmissão fornece uma chegada de dry adicional que é spatialized na direção de linha de visão. Tenha em atenção que a curva de atenuação de distância para a origem também é aplicada.
+* **Ajustar de umidade (dB)** -ajusta o poder de reverberação no dB, de acordo com a distância da origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curva. Modificar a curva left-clicking para adicionar pontos e arrastando esses pontos para formar a função que pretende. O eixo x é a distância de origem e o eixo y é o ajuste de reverberação no dB. Ver isso [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html) para obter mais detalhes sobre a edição de curvas. Repor a curva predefinido, clique em **Umidade ajustar** e selecione **repor**.
 * **Win32/decay escala de tempo** -ajusta um multiplicador para a hora de Win32/decay. Por exemplo, se o resultado de criar Especifica um tempo de Win32/decay de 750 milissegundos, mas este valor é definido como 1,5, o tempo de Win32/decay aplicado para a origem é 1.125 milissegundos.
 * **Ativar Acoustics** -controla se acoustics se aplica a esta origem. Quando desmarcado, a origem será spatialized com HRTFs, mas sem acoustics, ou seja, sem obstrução, oclusão e parâmetros de reverberation dinâmica, como o tempo de nível e Win32/decay. Reverberation ainda está a ser aplicada com um nível fixo e tempo de Win32/decay.
+* **Ajuste de outdoorness** -um ajuste aditiva na estimativa do sistema acoustics do como "pessoas" reverberation numa origem deve parecer. Definir este para 1 fará com que uma origem sempre som completamente pessoas, durante a definição-como -1 fará com que uma origem de som indoors.
 
-Origens diferentes podem requerer diferentes configurações alcançar certos efeitos estética ou jogo. Caixa de diálogo é um exemplo de possíveis. O ouvido humano é mais attuned para reverberation na conversão de voz, enquanto a caixa de diálogo, muitas vezes, tem de ser inteligível para o jogo. Pode justificar isso sem ter que fazer a caixa de diálogo não-diegetic ao ajustar o poder de reverberação baixo.
+Origens diferentes podem requerer diferentes configurações alcançar certos efeitos estética ou jogo. Caixa de diálogo é um exemplo de possíveis. O ouvido humano é mais attuned para reverberation na conversão de voz, enquanto a caixa de diálogo, muitas vezes, tem de ser inteligível para o jogo. Pode justificar isso sem ter que fazer a caixa de diálogo não-diegetic ao mover o **Umidade ajustar** baixo, ajustar a **Warp de distância Percetual** parâmetro descrito a seguir, adicionando alguns **Transmissão** para alguns boost áudio dry se propaguem por intermédio de paredes de e/ou reduzindo o **oclusão fator** de 1 para ter mais som chegam através de portais.
+
+A anexar o **AcousticsDesignExperimental** script para uma origem permite parâmetros de ajuste experimentais adicionais para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics Design Experimental**. Atualmente, existe um controlo experimental:
+
+![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+
+* **Warp de distância percetual** -aplicar um distorcendo exponencial para a distância usada para calcular o rácio de dry wet. O sistema de acoustics calcula wet níveis por todo o espaço, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Distorcendo valores maiores que 1 exaggerate esse efeito, aumentando os níveis de reverberation relacionados com a distância, tornando o som "distantes", enquanto distorcendo valores marca menos de 1 a alteração com base na distância reverberation mais sutil, tornando o som mais "apresentam".
+

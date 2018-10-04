@@ -1,5 +1,5 @@
 ---
-title: As variáveis de ambiente do Azure Service Fabric | Microsoft Docs
+title: As variáveis de ambiente do Azure Service Fabric | Documentos da Microsoft
 description: Documentação de referência para as variáveis de ambiente do Service Fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -12,33 +12,34 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268009"
 ---
 # <a name="service-fabric-environment-variables"></a>Variáveis de ambiente do Service Fabric
 
-Service Fabric tem variáveis de ambiente incorporada definido para cada instância de serviço. A lista completa de variáveis de ambiente abaixo é:
+Service Fabric tem variáveis de ambiente incorporada definido para cada instância de serviço. A lista completa de variáveis de ambiente está ilustrado abaixo:
 
 | Variável de ambiente                         | Descrição                                                            | Exemplo                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
-| Fabric_ApplicationName                       | O nome de uri do recurso de infraestrutura da aplicação                                 | fabric:/MyApplication                                                |
-| Fabric_CodePackageName                       | O nome do pacote do código a que pertence o processo              | Código                                                                 |
+| Fabric_ApplicationName                       | O nome de uri de recursos de infraestrutura da aplicação                                 | fabric:/MyApplication                                                |
+| Fabric_CodePackageName                       | O nome do pacote de código ao qual pertence o processo              | Código                                                                 |
 | Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | O endereço ip ou FQDN do ponto final                                 | 10.0.0.1                                                     |
 | Fabric\_Endpoint\_*ServiceEndpointName*              | Número de porta para o ponto final                                  | 8234                                                                 |
 | Fabric_Folder_App_Log                        | Pasta de registo                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
 | Fabric_Folder_App_Temp                       | Pasta temporária                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
-| Fabric_Folder_App_Work                       | Pastas de trabalho                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
-| Fabric_Folder_Application                    | Na pasta raiz de aplicações                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
-| Fabric_IsContainerHost                       | Um booleano que especifica se o processo é um contentor                   | false                                                                |
-| Fabric_NodeId                                | O ID de nó do nó de execução do processo                            | bf865279ba277deb864a976fbf4c200e                                     |
-| Fabric_NodeIPOrFQDN                          | O IP ou FQDN do nó, conforme especificado no cluster do manifesto do ficheiro. | localhost ou 10.0.0.1                                                |
-| Fabric_NodeName                              | O nome de nó do nó de execução do processo                          | _Node_0                                                              |
-| Fabric_ServiceName                           | O nome do serviço, se o serviço está alojado no modo de ExclusiveProcess. Este valor da variável só está disponível se criar o serviço com ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
+| Fabric_Folder_App_Work                       | Pasta de trabalho                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
+| Fabric_Folder_Application                    | Na pasta raiz de aplicativos                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
+| Fabric_IsContainerHost                       | Um bool especificar se o processo é um contentor                   | false                                                                |
+| Fabric_NodeId                                | A ID do nó de execução do processo                            | bf865279ba277deb864a976fbf4c200e                                     |
+| Fabric_NodeIPOrFQDN                          | O IP ou FQDN do nó, conforme especificado no cluster de arquivo de manifesto. | localhost ou 10.0.0.1                                                |
+| Fabric_NodeName                              | O nome do nó do nó de execução do processo                          | _Node_0                                                              |
+| Fabric_ServiceName                           | O nome de uri de recursos de infraestrutura do serviço, se o serviço estiver alojado no modo de ExclusiveProcess. Este valor da variável só está disponível se criar o serviço com ServicePackageActivationMode ExclusiveProcess.  | Fabric: / MyApplication/Meuserviço                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | UM GUID                                                               |
-| Fabric_ServicePackageName                    | Nome do pacote de serviço do processo faz parte                     | Web1Pkg                                                              |
+| Fabric_ServicePackageName                    | Nome do pacote de serviço o processo faz parte do                     | Web1Pkg                                                              |
 
 Variáveis de ambiente interno utilizadas pelo tempo de execução do Service Fabric:
 

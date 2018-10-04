@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c06a028df098874a1ec12d83a362e01a5f4a711
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161901"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247724"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -56,7 +56,7 @@ No modelo de premium, base de dados SQL do Azure integra-se de computação e ar
 
 O processo de motor de base de dados do SQL Server e subjacentes arquivos mdf/ldf são colocados no mesmo nó, com armazenamento SSD localmente ao fornecimento de baixa latência para a sua carga de trabalho. Elevada disponibilidade é implementada com o padrão [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Cada base de dados é um cluster de nós de base de dados com uma base de dados principal que está acessível para a carga de trabalho do cliente e um três processos secundário que contêm cópias dos dados. O nó principal constantemente envia as alterações para nós secundários para garantir que os dados estão disponíveis em réplicas secundárias, no caso de falha de nó primário por qualquer motivo. Ativação pós-falha é processada pelo motor de base de dados do SQL Server – uma réplica secundária torna-se o nó principal e uma nova réplica secundária é criada para garantir que o suficiente nós do cluster. A carga de trabalho é automaticamente redirecionada para o novo nó primário.
 
-Além disso, o cluster de crítico para a empresa fornece nó só de leitura incorporada que pode ser utilizada para executar consultas somente leitura (por exemplo, relatórios) que não devem afetar o desempenho da carga de trabalho principal. 
+Além disso, o cluster de crítico para a empresa tem incorporado [Escalamento leitura](sql-database-read-scale-out.md) capacidade proporcionada pelo livre de cobrar nó só de leitura incorporada que pode ser utilizada para executar consultas somente leitura (por exemplo, relatórios) que não devem afetar o desempenho da sua carga de trabalho principal.
 
 ## <a name="zone-redundant-configuration-preview"></a>Configuração com redundância de zona (pré-visualização)
 
@@ -70,15 +70,6 @@ Uma vez que o quórum com redundância de zona-conjunto tem réplicas em datacen
 A versão com redundância de zona da arquitetura de elevada disponibilidade é ilustrada pelo diagrama seguinte:
  
 ![redundância de zona de arquitetura elevada disponibilidade](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
-
-## <a name="read-scale-out"></a>Leia o Escalamento horizontal
-Conforme descrito, escalões de serviço Premium e crítico para a empresa tirar partido de conjuntos de quórum e tecnologia Always On para elevada disponibilidade no única zona e configurações com redundância de zona. Uma das vantagens do AlwaysOn é que as réplicas estão sempre no Estado transacionalmente consistente. Como as réplicas têm o mesmo tamanho de computação como principal, o aplicativo pode aproveitar essa capacidade extra para a manutenção de cargas de trabalho só de leitura não adicionais Custo (leitura Escalamento horizontal). Desta forma, as consultas só de leitura serão isoladas de carga de trabalho de leitura / escrita principal e não irão afetar o desempenho dele. Leitura destina-se a funcionalidade de escalamento horizontal para as aplicações que incluem logicamente separados só de leitura cargas de trabalho, tais como análise e, portanto, poderia usar essa capacidade adicional sem ligar para o primário. 
-
-Para utilizar a funcionalidade de expansão de leitura com um banco de dados específico, deve explicitamente ativá-lo ao criar a base de dados ou, depois, alterando a respetiva configuração com o PowerShell, invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou por meio da API de REST do Azure Resource Manager com o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método.
-
-Depois de leitura horizontal é ativada para uma base de dados, ligar a esse banco de dados de aplicações serão direcionadas para a réplica de leitura / escrita ou para uma réplica só de leitura dessa base de dados em conformidade com o `ApplicationIntent` propriedade configurada do aplicativo cadeia de ligação. Para obter informações sobre o `ApplicationIntent` propriedade, veja [especificação de tipo de aplicação](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
-
-Se o Escalamento de leitura está desabilitado ou defina a propriedade ReadScale numa camada de serviço não suportado, todas as ligações sejam direcionadas para a réplica de leitura / escrita, independentemente do `ApplicationIntent` propriedade.
 
 ## <a name="conclusion"></a>Conclusão
 Base de dados SQL do Azure está profundamente integrado com a plataforma Azure e é altamente dependente no Service Fabric para deteção de falhas e recuperação, em Blobs de armazenamento do Azure para proteção de dados e as zonas de disponibilidade para maior tolerância de falhas. Ao mesmo tempo, a base de dados SQL do Azure aproveita totalmente a tecnologia do grupo de Disponibilidade AlwaysOn do produto de caixa de SQL Server para a replicação e ativação pós-falha. A combinação dessas tecnologias permite que os aplicativos a serem totalmente perceber os benefícios de um modelo de armazenamento misto e suporta os SLAs mais exigentes. 

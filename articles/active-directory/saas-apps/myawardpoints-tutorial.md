@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184883"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Azure Active Directory com meus pontos principais Sub/superior a equipa do prémio
 
@@ -50,7 +50,8 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando My pontos principais Sub/superior a equipa do prémio da Galeria
 2. Configuração e teste do Azure AD início de sessão único
@@ -112,7 +113,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > Valor do URL de início de sessão não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte do meu prémio pontos principais Sub/superior equipe cliente](mailto:myawardpoints@biworldwide.com) para obter este valor.
+    > Obterá o `<SAMLENTITYID>` valor nos passos mais adiante neste tutorial.
 
 4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -122,7 +123,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o botão único início de sessão em Guardar](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único num **meus pontos principais Sub/superior a equipa do prémio** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de meus pontos principais Sub/superior a equipa do prémio](mailto:myawardpoints@biworldwide.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+6. Na **My prémio pontos superior Sub/superior equipe configuração** secção, selecione **configurar meus pontos principais Sub/superior a equipa do prémio** para abrir a janela de início de sessão em configurar. Copie o ID de entidade de SAML do **referência rápida** secção e acrescente o valor de ID de entidade de SAML com a URL em vez de início de sessão `<SAMLENTITYID>` no **My prémio pontos superior Sub/superior equipe domínio e URLs** secção no portal do Azure.
+
+7. Para configurar o início de sessão único num **meus pontos principais Sub/superior a equipa do prémio** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de meus pontos principais Sub/superior a equipa do prémio](mailto:myawardpoints@biworldwide.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

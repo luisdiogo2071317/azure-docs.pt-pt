@@ -1,35 +1,71 @@
 ---
-title: Utilizar a entidade de ligação com a API de análise de texto
+title: Utilizar o reconhecimento de entidades com a API de análise de texto
 titleSuffix: Azure Cognitive Services
-description: Saiba como identificar e resolver entidades usando a API de REST de análise de texto.
+description: Aprenda a reconhecer entidades usando a API de REST de análise de texto.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: ad2168806f9ddd124faf66cdb5a0f51ed13dfadc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604744"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248079"
 ---
-# <a name="how-to-identify-linked-entities-in-text-analytics-preview"></a>Como identificar as entidades associadas na análise de texto (pré-visualização)
+# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 
-O [API do Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) usa texto não estruturado e, para cada documento JSON, retorna uma lista de entidades a ambigüidade removidas com ligações para obter mais informações na web (Wikipédia e Bing). 
+O [a API de reconhecimento de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) usa texto não estruturado e, para cada documento JSON, retorna uma lista de entidades a ambigüidade removidas com ligações para obter mais informações na web (Wikipédia e Bing). 
 
-## <a name="entity-linking-vs-named-entity-recognition"></a>Entity Linking vs. Reconhecimento de Entidades Nomeadas
+## <a name="entity-linking-and-named-entity-recognition"></a>Ligação de entidades e o reconhecimento de entidades
 
-No processamento de linguagem natural, podem facilmente ser confundidos os conceitos de ligação de entidades e o reconhecimento de entidades (NER). Na versão de pré-visualização de análise de texto `entities` ponto final, do entity linking apenas é suportado.
+Análise de texto `entities` supprts ponto final com o nome de reconhecimento de entidades (NER) e ligação de entidades.
 
+### <a name="entity-linking"></a>Ligar à Entidade
 Entidade de ligação é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada no texto (por exemplo, determinar se o "Mars" está a ser utilizado como o planeta ou como o Deus Roman da war). Este processo requer a presença de um conhecimento base para a qual reconhecido entidades são vinculadas - Wikipedia é utilizada como a base de dados de conhecimento para o `entities` ponto final de análise de texto.
+
+Na análise de texto [versão 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), apenas a ligação de entidades está disponível.
+
+### <a name="named-entity-recognition-ner"></a>O reconhecimento de entidades (NER)
+Com o nome de entidades (NER) é a capacidade de identificar as diferentes entidades em texto e categorize-as em classes predefinidas. As classes de entidades de suportados estão listadas abaixo.
+
+Na pré-visualização de análise de texto versão 2.1 (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), ligação de entidades e o reconhecimento de entidades (NER) estão disponíveis.
 
 ### <a name="language-support"></a>Suporte de idiomas
 
 Através do entity linking em várias linguagens requer a utilização de uma base de dados de conhecimento correspondente em cada linguagem. Para a entidade de ligação na análise de texto, isso significa que todos os idiomas que é suportado pelo `entities` ponto final de ligações para o corpo da Wikipedia correspondente nesse idioma. Uma vez que o tamanho do conjunto de documentos de varia entre as linguagens, espera-se que a entidade de recolhimento da funcionalidade de ligação também podem variar.
+
+## <a name="supported-types-for-named-entity-recognition"></a>Tipos suportados para o reconhecimento de entidades
+
+| Tipo  | Subtipo | Exemplo |
+|:-----------   |:------------- |:---------|
+| Pessoa        | N/D\*         | "Jeff", "Bill Gates"     |
+| Localização      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Organização  | N/D\*         | "Microsoft"   |
+| Quantidade      | Number        | "6", "seis"     | 
+| Quantidade      | Percentagem    | "50%", "cinquenta por cento"| 
+| Quantidade      | Ordinal       | "2", "segunda"     | 
+| Quantidade      | NumberRange   | "4 a 8"     | 
+| Quantidade      | Idade           | 90 dias antigos"", "30 anos de idade"    | 
+| Quantidade      | Moeda      | "$10.99"     | 
+| Quantidade      | Dimensão     | "milhas 10", "40 cm"     | 
+| Quantidade      | Temperatura   | "32 graus"    |
+| DateTime      | N/D\*         | "6 17:30, 4 de Fevereiro de 2012"      | 
+| DateTime      | Date          | "2nd de Maio de 2017", "05/02/2017"   | 
+| Data Hora     | Hora          | "8 am", "8:00"  | 
+| DateTime      | DateRange     | "2nd de Maio para 5 de Maio"    | 
+| DateTime      | timeRange     | "pm de 6 a 7 pm"     | 
+| DateTime      | Duração      | "1 minuto e 45 segundos"   | 
+| DateTime      | Definir           | "cada terça-feira"     | 
+| DateTime      | TimeZone      |    | 
+| do IdP           | N/D\*         | "http://www.bing.com"    |
+| Email         | N/D\*         | "support@contoso.com" |
+\* Consoante as entidades de entrada e extraídas, determinadas entidades podem omitir o `SubType`.
+
 
 
 ## <a name="preparation"></a>Preparação
@@ -43,11 +79,11 @@ Tamanho do documento tem de ter menos de 5000 carateres por documento e pode ter
 ```
 {"documents": [{"id": "1",
                 "language": "en",
-                "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."
+                "text": "Jeff bought three dozen eggs because there was a 50% discount."
                 },
                {"id": "2",
                 "language": "en",
-                "text": "The Seattle Seahawks won the Super Bowl in 2014."
+                "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
                 }
                ]
 }
@@ -59,14 +95,14 @@ Obter detalhes sobre a definição de pedido podem ser encontrados na [como cham
 
 + Criar uma **POST** pedido. Reveja a documentação da API para este pedido: [API do Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Defina o ponto de final HTTP para extração de expressões-chave. Tem de incluir o `/entities` recursos: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
++ Defina o ponto de final HTTP para extração de expressões-chave. Tem de incluir o `/entities` recursos: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Defina um cabeçalho de pedido para incluir a chave de acesso para operações de análise de texto. Para obter mais informações, consulte [como encontrar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise
 
 > [!Tip]
-> Uso [Postman](text-analytics-how-to-call-api.md) ou abrir o **consola de teste de API** no [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) para estruturar uma solicitação e POSTÁ-lo para o serviço.
+> Uso [Postman](text-analytics-how-to-call-api.md) ou abrir o **consola de teste de API** no [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estruturar uma solicitação e POSTÁ-lo para o serviço.
 
 ## <a name="step-2-post-the-request"></a>Passo 2: Publicar o pedido
 
@@ -82,74 +118,168 @@ Saída é retornada imediatamente. Pode transmitir os resultados para uma aplica
 
 Um exemplo da saída para a entidade de ligação é mostrado a seguir:
 
-```
+```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
-
-Se estiver disponível, a resposta inclui o ID da Wikipedia, o URL da Wikipédia e o ID de Bing para cada entidade detetada. Estes podem ser utilizados para melhorar ainda mais a sua aplicação com informações sobre a entidade ligada.
 
 
 ## <a name="summary"></a>Resumo
 
 Neste artigo, aprendeu conceitos e fluxo de trabalho para a ligação de entidades com a análise de texto nos serviços cognitivos. Em Resumo:
 
-+ [API do Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) está disponível para os idiomas selecionados.
++ [Entidades API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) está disponível para os idiomas selecionados.
 + Documentos JSON no corpo do pedido incluem um código de id, texto e idiomas.
 + É uma solicitação POST para um `/entities` ponto de extremidade, usando um personalizadas [aceder a chave e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para a sua subscrição.
 + Saída de resposta, que consiste em entidades associadas (incluindo confiança pontuações, deslocamentos e ligações web, para cada ID de documento) pode ser utilizada em qualquer aplicação
@@ -163,4 +293,4 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para a ligação de entidad
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [API de análise de texto](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [API de análise de texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

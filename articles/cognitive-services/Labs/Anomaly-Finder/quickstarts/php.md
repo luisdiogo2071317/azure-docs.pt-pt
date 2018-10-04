@@ -1,6 +1,6 @@
 ---
-title: Como utilizar a API de LCA anomalias com PHP - serviços cognitivos Microsoft | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar anomalias LCA com o PHP nos serviços cognitivos.
+title: Como utilizar a API de localizador de anomalias com PHP - serviços cognitivos da Microsoft | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar o Explorador de anomalias com PHP nos serviços cognitivos.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,32 +9,34 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353329"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246400"
 ---
-# <a name="use-the-anomaly-finder-api-with-php"></a>Utilize a API de LCA anomalias com o PHP
+# <a name="use-the-anomaly-finder-api-with-php"></a>Utilizar o Explorador de anomalias API com PHP
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar a API de LCA anomalias com o PHP para realizar a tarefa de obter o resultado de anomalias para dados de séries de tempo.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de localizador de anomalias com o PHP para realizar a tarefa de obter o resultado de anomalias para dados de séries de tempo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Obter os pontos de anomalias com anomalias LCA API linguagem PHP
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Obtendo pontos de anomalias com a API de localizador de anomalias com PHP
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemplo de dados de séries de tempo
-Segue-se ao exemplo dos dados de séries de tempo.
+Segue-se o exemplo de dados de séries de tempo.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Analisar dados e obter os pontos de anomalias exemplo do PHP
-1. Substitua o `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
-2. Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com o exemplo ou os seus pontos de dados.
-3. Executar e verificar a resposta.
+### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Analisar dados e obter pontos de anomalias de exemplo PHP
+1. Substitua o valor `[YOUR_SUBSCRIPTION_KEY]` pela sua chave de subscrição válida.
+2. Substitua o `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` com o exemplo ou seus próprios pontos de dados.
+3. Execute e verificar a resposta.
 
 ```PHP
 <?php
@@ -74,7 +76,7 @@ catch (HttpException $ex)
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito é devolvida em JSON. Segue-se a resposta de amostra.
+O JSON devolve uma resposta de êxito. Segue-se a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes

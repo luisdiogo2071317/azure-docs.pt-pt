@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128600"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267958"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell na sua VM do Windows com o comando de execução
 
@@ -21,7 +21,7 @@ Execute o agente da VM para executar scripts do PowerShell dentro de uma VM do W
 
 ## <a name="benefits"></a>Benefícios
 
-Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Execute o comando pode executar scripts em suas máquinas virtuais utilizando remotamente o agente da VM. Execute o comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Execute o comando pode executar scripts em suas máquinas virtuais utilizando remotamente o agente da VM. Execute o comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) para VMs do Windows.
 
 Esta funcionalidade é útil em todos os cenários em que pretende executar um script dentro de uma máquina virtual e, é um das únicas formas de resolver problemas e remediar uma máquina virtual que não tem o RDP ou abrir o porta SSH devido a rede impróprias ou utilizador administrativo configuração.
 
@@ -33,6 +33,7 @@ As seguintes restrições aplicam-se ao utilizar o comando executar:
 * O tempo mínimo para executar um script é cerca de 20 segundos
 * Scripts executados como sistema no Windows
 * Pode executar um script ao mesmo tempo
+* Scripts que pedem informações (modo interativo) não são suportadas.
 * Não é possível cancelar um script em execução
 * O tempo máximo que pode executar um script é 90 minutos, após o qual será o tempo limite
 * Conectividade de saída da VM é necessário para devolver os resultados do script.

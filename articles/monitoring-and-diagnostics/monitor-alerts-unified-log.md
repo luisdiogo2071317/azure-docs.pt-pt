@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1490e60f3c6537a661fc1e76907b502a586547c9
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994008"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248885"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
@@ -106,7 +106,7 @@ Agora vamos supor que temos uma regra de alerta de registo denominada *Contoso-a
 - Em 1 às 15:15 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 2 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](monitoring-action-groups.md) associados.
 - Agora na próxima iteração em 1:20 PM quando o alerta de registo de Contoso foi executada pelo alerta do Azure, o resultado de pesquisa de registo fornecida novamente 0 registros; abaixo do limiar e, por conseguinte, não disparando o alerta.
 
-Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue determinar que os problemas subjacentes vistos em 1:10 manter e se houver falhas novo net; como a consulta fornecida pelo utilizador pode ser tendo em conta registos anteriores - podem Certifique-se os alertas do Azure. Por conseguinte, para err com cautela, Contoso-Log-alerta é acionado novamente em 1 às 15:15 via configurado [grupo de ação](monitoring-action-groups.md). Agora em 1:20 PM quando não existem registos são vistos: alertas do Azure não podem ser-se de que foi resolvida a causa dos registos; Por conseguinte, o alerta de registo de Contoso será não alterados como resolvido no dashboard de alerta do Azure e/ou notificações enviadas informando a resolução do alerta.
+Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue determinar que os problemas subjacentes vistos em 1:10 manter e se houver falhas novo net; como a consulta fornecida pelo utilizador pode ser tendo em conta registos anteriores - não é possível Certifique-se os alertas do Azure. Por conseguinte, para err com cautela, Contoso-Log-alerta é acionado novamente em 1 às 15:15 via configurado [grupo de ação](monitoring-action-groups.md). Agora em 1:20 PM quando não existem registos são vistos: alertas do Azure não podem ser-se de que foi resolvida a causa dos registos; Por conseguinte, o alerta de registo de Contoso será não alterados como resolvido no dashboard de alerta do Azure e/ou notificações enviadas informando a resolução do alerta.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e faturação de alertas de registo

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046384"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268534"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure
 
@@ -74,7 +74,7 @@ Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser a
 
 7. Clique em **permissões delegadas** junto a aplicação recentemente adicionada, marque a caixa **gestão de serviço de acesso do Azure (pré-visualização)**.
 8. Prima **selecione**.
-9. Clique em **concessão que**.
+9. Clique em **conceder permissões**.
 
 ### <a name="configuring-your-app"></a>Configurar a sua aplicação
 
@@ -204,7 +204,7 @@ Restauro é uma operação de longa execução que poderá demorar até 30 ou ma
 > **As alterações** efetuadas à configuração do serviço (por exemplo, APIs, as políticas, o aspeto do portal do programador) ao restauro operação está em curso **podem ser substituídos**.
 
 > [!NOTE]
-> Operações de backup e restauração também podem ser realizadas com o Powershell *Backup-AzureRmApiManagement* e *restauro-AzureRmApiManagement* comandos, respetivamente.
+> Operações de backup e restauração também podem ser realizadas com o PowerShell *Backup-AzureRmApiManagement* e *restauro-AzureRmApiManagement* comandos, respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
