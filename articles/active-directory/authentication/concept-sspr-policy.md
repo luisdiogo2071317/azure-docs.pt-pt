@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434284"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804179"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -119,27 +119,27 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Para ver os **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Para ver os **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Definir uma palavra-passe a expirar
 
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para definir a palavra-passe de um utilizador para que a palavra-passe expirar, execute o seguinte cmdlet com o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Para definir as palavras-passe de todos os utilizadores na organização, de modo a que esta expira, utilize o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Para definir a palavra-passe de um utilizador para que a palavra-passe expirar, execute o seguinte cmdlet com o UPN ou o ID de utilizador do utilizador: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
+   * Para definir as palavras-passe de todos os utilizadores na organização, de modo a que esta expira, utilize o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma palavra-passe para nunca expirar
 
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para definir a palavra-passe de um utilizador para nunca expirar, execute o cmdlet seguinte ao utilizar o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Para definir as palavras-passe de todos os usuários numa organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Para definir a palavra-passe de um utilizador para nunca expirar, execute o cmdlet seguinte ao utilizar o UPN ou o ID de utilizador do utilizador: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
+   * Para definir as palavras-passe de todos os usuários numa organização para nunca expirar, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
 
    > [!WARNING]
-   > As palavras-passe definida como `-PasswordNeverExpires $true` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e vão 90 dias, as palavras-passe expirarem. Com base na `pwdLastSet` atributo, se alterar a expiração para `-PasswordNeverExpires $false`, todas as palavras-passe que têm um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciarem sessão. Esta alteração pode afetar um grande número de utilizadores. 
+   > As palavras-passe definida como `-PasswordPolicies DisablePasswordExpiration` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e vão 90 dias, as palavras-passe expirarem. Com base na `pwdLastSet` atributo, se alterar a expiração para `-PasswordPolicies None`, todas as palavras-passe que têm um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciarem sessão. Esta alteração pode afetar um grande número de utilizadores. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

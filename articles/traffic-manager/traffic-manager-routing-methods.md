@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248929"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785414"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -39,7 +39,7 @@ Todos os perfis do Gestor de tráfego incluem a monitorização de estado de fun
 
 Muitas vezes, uma organização deseja fornecer confiabilidade para seus serviços ao implementar um ou mais serviços de cópia de segurança no caso de seus principais do serviço ficar inativo. O método de encaminhamento de tráfego de 'Priority' permite que os clientes do Azure facilmente implementar este padrão de ativação pós-falha.
 
-! [Gestor de tráfego do azure 'Priority' método de encaminhamento de tráfego] [1]
+![O Gestor de tráfego do Azure 'Priority' método de encaminhamento de tráfego](media/traffic-manager-routing-methods/priority.png)
 
 O perfil do Gestor de tráfego contém uma lista prioritária de pontos finais de serviço. Por predefinição, o Gestor de tráfego envia o tráfego para o ponto final (prioridade mais alta) primário. Se o ponto final primário não estiver disponível, o Gestor de tráfego encaminha o tráfego para o segundo ponto de extremidade. Se os pontos de extremidade primários e secundários não estiverem disponíveis, o tráfego passa para o terceiro e assim por diante. Disponibilidade do ponto de extremidade baseia-se sobre o estado configurado (ativada ou desativada) e a monitorização do ponto final em curso.
 
@@ -47,10 +47,10 @@ O perfil do Gestor de tráfego contém uma lista prioritária de pontos finais d
 
 Com o Azure Resource Manager, pode configurar a prioridade de ponto final explicitamente usando a propriedade de 'priority' para cada ponto de extremidade. Esta propriedade é um valor entre 1 e 1000. Valores mais baixos representam uma prioridade mais alta. Pontos finais não podem partilhar os valores de prioridade. Definir a propriedade é opcional. Quando for omitido, é utilizada uma prioridade padrão com base na ordem de ponto final.
 
-##<a name = "weighted"></a>Método de encaminhamento de tráfego ponderado
+## <a name = "weighted"></a>Método de encaminhamento de tráfego ponderado
 O método de encaminhamento de tráfego de mensagens em fila "Ponderado" permite-lhe para distribuir o tráfego de forma uniforme ou para utilizar um peso predefinido.
 
-! [Gestor de tráfego do azure 'Ponderado' Encaminhamento de tráfego método] [2]
+![O Azure Traffic Manager método da 'Ponderado' Encaminhamento de tráfego](media/traffic-manager-routing-methods/weighted.png)
 
 O método de encaminhamento de tráfego ponderado, vai atribuir uma ponderação para cada ponto de extremidade na configuração de perfil do Gestor de tráfego. O peso é um número inteiro entre 1 a 1000. Este parâmetro é opcional. Se for omitido, os gestores de tráfego utiliza um peso padrão de '1'. O peso mais alto, maior será a prioridade.
 
@@ -78,7 +78,7 @@ Esses efeitos de colocação em cache DNS são comuns a todos os tráfego basead
 
 Implementar pontos de extremidade em duas ou mais localizações em todo o mundo pode melhorar a capacidade de resposta de vários aplicativos ao encaminhar o tráfego para a localização que esteja "mais perto" de si. O método de encaminhamento de tráfego de "Performance" fornece esta capacidade.
 
-! [Gestor de tráfego do azure "Performance" método de encaminhamento de tráfego] [3]
+![O Gestor de tráfego do Azure "Performance" método de encaminhamento de tráfego](media/traffic-manager-routing-methods/performance.png)
 
 O ponto final "mais próximo" não é necessariamente mais próximo, medido pela distância geográfica. Em vez disso, o método de encaminhamento de tráfego de "Performance" determina o ponto final mais próximo ao medir a latência de rede. O Gestor de tráfego mantém uma tabela de latência de Internet para controlar o tempo de ida e volta entre intervalos de endereços IP e cada datacenter do Azure.
 

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 73cc346e882acab1c2c00cc49738a388927d3ccf
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40a74af4f71fe649e5e4c6e67d4fdcb9751cc06e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248249"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800762"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning
 
@@ -188,7 +188,7 @@ Para obter um exemplo do uso de blocos de notas do Azure com o serviço Azure Ma
     conda install <new package>
     ```
 
-6. Inicie o Visual Studio Code e, em seguida, utilize __CTRL-SHIFT-P__ para obter o __paleta de comandos__. Introduza *Python: selecione o interpretador*e selecione o ambiente de conda que criou.
+6. Inicie o Visual Studio Code e, em seguida, utilize __CTRL-SHIFT-P__ para Windows ou __comando-SHIFT-P__ para Mac obter o __paleta de comandos__. Introduza *Python: selecione o interpretador*e selecione o ambiente de conda que criou.
 
     > [!NOTE]
     > Visual Studio Code é automaticamente com suporte para ambientes de conda no seu computador. Para obter mais informações, consulte [documentação de código do Visual Studio](https://code.visualstudio.com/docs/python/environments#_conda-environments).

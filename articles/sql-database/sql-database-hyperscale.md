@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: 18f354f931995731bf4f0da47e830a575e96fc7c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: be7c0b80b8f735a5eefe4e8345cd4d4a16885ec4
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237777"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803567"
 ---
 # <a name="what-is-the-hyperscale-service-tier-preview-in-azure-sql-database"></a>O que é a camada de serviços de Hiperescala (pré-visualização) na base de dados do Azure SQL?
 
@@ -25,6 +25,9 @@ A camada de serviços de Hiperescala na base de dados do Azure SQL é a camada d
 
 > [!IMPORTANT]
 > Camada de serviços de Hiperescala está atualmente em pré-visualização pública e disponível em regiões do Azure limitados. Para obter a lista completa de região, consulte [regiões disponíveis da camada de serviços de Hiperescala](#hyperscale-regions)
+
+> [!IMPORTANT]
+> Camada de serviços de Hiperescala está atualmente em pré-visualização pública. Não recomendamos a execução de qualquer carga de trabalho de produção nos bancos de dados de Hiperescala ainda. Não é possível atualizar uma base de dados de Hiperescala para outros escalões de serviço. Para fins de teste, recomendamos que faça uma cópia da base de dados atual e atualizar a cópia para a camada de serviços de Hiperescala.
 
 ## <a name="what-are-the-capabilities-of-the-hyperscale-service-tier"></a>Quais são os recursos da camada de serviços de Hiperescala
 

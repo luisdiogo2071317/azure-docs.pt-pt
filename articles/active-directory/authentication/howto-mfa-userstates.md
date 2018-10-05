@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c39b78995aaa7e6754b180142c03cf3aa25199a5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2927521a76e74686592fbc4b3ccb931ece7981fd
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574281"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803312"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
 
@@ -87,8 +87,17 @@ Alterar o estado do utilizador utilizando [do Azure AD PowerShell](/powershell/a
 
 Não é necessário mover os utilizadores diretamente para o *imposto* estado. Se o fizer, aplicações não baseadas no browser deixam de funcionar porque o utilizador não passou pelo registo do Azure MFA nem obteve uma [palavra-passe de aplicação](howto-mfa-mfasettings.md#app-passwords).
 
+Instale o módulo em primeiro lugar, com:
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> Não se esqueça de ligar pela primeira vez com **Connect-MsolService**
+
+
 Com o PowerShell é uma boa opção quando precisa ativar utilizadores em massa. Crie um script do PowerShell que executa um loop através de uma lista de utilizadores e ativa-as:
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -106,6 +115,14 @@ O script seguinte é um exemplo:
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+A MFA desativado, utilizados este script:
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+em alternativa, também é possível reduzir para:
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>Passos Seguintes
 

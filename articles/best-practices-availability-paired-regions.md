@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721268"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801918"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure
 
@@ -34,6 +34,7 @@ Figura 1 – pares regionais do Azure
 | Canadá |Canadá Central |Leste do Canadá |
 | China |China Norte |Leste da China|
 | Europa |Europa do Norte |Europa Ocidental |
+| França |França Central|Sul de França|
 | Alemanha |Alemanha Central |Alemanha Nordeste |
 | Índia |Índia Central |Sul da Índia |
 | Índia |Índia Ocidental (1) |Sul da Índia |
@@ -69,7 +70,7 @@ Figura 2 – hipotético par regional do Azure
 ## <a name="cross-region-activities"></a>Atividades em várias regiões
 Como referido na figura 2.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **(PaaS) de computação do Azure** – terá de aprovisionar recursos de computação adicionais com antecedência para garantir que recursos estão disponíveis noutra região durante um desastre. Para obter mais informações, consulte [orientações técnicas sobre resiliência do Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **computação do Azure (IaaS)** – terá de aprovisionar recursos de computação adicionais com antecedência para garantir que recursos estão disponíveis noutra região durante um desastre. Para obter mais informações, consulte [orientações técnicas sobre resiliência do Azure](resiliency/resiliency-technical-guidance.md).
 
 ![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** -armazenamento Georredundante (GRS) está configurado por predefinição, quando é criada uma conta de armazenamento do Azure. Com a GRS, os dados automaticamente são replicados três vezes numa região principal e três vezes na região associada. Para obter mais informações, consulte [opções de redundância de armazenamento do Azure](storage/common/storage-redundancy.md).
 

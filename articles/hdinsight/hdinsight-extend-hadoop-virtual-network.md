@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 4cbbfe5c40dd8686cf25ac31aa5db53b2a6415f7
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6df64afa5e99ea5fe3d3c6531e6e50425520286b
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018864"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801969"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -280,6 +280,7 @@ Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem
     | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 | 443 | Entrada |
     | China | China Norte | 42.159.96.170</br>139.217.2.219 | 443 | Entrada |
     | &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157 | 443 | Entrada |
+    | &nbsp; | Norte da China 2 | 40.73.37.141</br>40.73.38.172 | 443 | Entrada |
     | Europa | Europa do Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
     | &nbsp; | Europa Ocidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrada |
     | Alemanha | Alemanha Central | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |

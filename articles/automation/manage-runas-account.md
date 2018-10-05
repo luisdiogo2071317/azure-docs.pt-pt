@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 5e8e8d1923caf5f51cffedd6b918dbc617b5c3a9
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433706"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785482"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -35,7 +35,7 @@ Existem dois tipos de contas Run as:
 
 ## <a name="permissions"></a>Permissões para configurar contas Run as
 
-Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e as permissões. Um Global/Coadministrador administrador pode concluir todas as tarefas. Numa situação em que tem seperation de funções, a tabela seguinte mostra uma lista das tarefas, o cmdlet equivalente e as permissões necessárias:
+Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e as permissões. Um Global/Coadministrador administrador pode concluir todas as tarefas. Numa situação em que tem a separação de funções, a tabela seguinte mostra uma lista das tarefas, o cmdlet equivalente e as permissões necessárias:
 
 |Tarefa|Cmdlet  |Permissões mínimas  |
 |---|---------|---------|
@@ -49,18 +49,18 @@ Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e
 * Uma conta de utilizador do AD com permissões equivalentes à função de Contribuidor para recursos de Microsoft conforme descrito no artigo [controlo de acesso baseado em funções na automatização do Azure](automation-role-based-access-control.md#contributor).  
 * Os utilizadores não administradores no seu inquilino do Azure AD podem [registar aplicações AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os utilizadores podem registar aplicações** do inquilino do Azure AD na página **Definições de utilizadores** está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
 
-Se não for membro da instância do Active Directory da subscrição antes de ser adicionado à função de administrador global/coadministrador da mesma, é adicionado ao Active Directory como convidado. Nesta situação, recebe uma `You do not have permissions to create…` aviso sobre a **adicionar conta de automatização** página. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
+Se não é um membro de instância do Active Directory da subscrição antes de serão adicionados para a global/coadministrador função de administrador da subscrição, é adicionado como convidado. Nesta situação, recebe uma `You do not have permissions to create…` aviso sobre a **adicionar conta de automatização** página. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Criar uma conta Run As no Portal
 
 Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure. Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.  
 
 1. Inicie sessão no portal do Azure com uma conta que seja membro da função Administradores da Subscrição e coadministrador da subscrição.
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
-1. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
-1. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.  
-1. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**. Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.  
-1. Enquanto o Azure cria a conta Run As, pode acompanhar o progresso em **Notificações** a partir do menu. Também é apresentada uma faixa a indicar que a conta está a ser criada. Este processo pode demorar alguns minutos a concluir.  
+2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+3. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
+4. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.  
+5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**. Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.  
+6. Enquanto o Azure cria a conta Run As, pode acompanhar o progresso em **Notificações** a partir do menu. Também é apresentada uma faixa a indicar que a conta está a ser criada. Este processo pode demorar alguns minutos a concluir.  
 
 ## <a name="create-run-as-account-using-powershell"></a>Criar conta Run As com o PowerShell
 
@@ -73,7 +73,7 @@ A lista seguinte fornece os requisitos para criar uma conta Run As no PowerShell
 * Uma conta de Automatização, que é referenciada como o valor para os parâmetros *–AutomationAccountName* e *-ApplicationDisplayName*.
 * Permissões equivalentes à que está listado no [permissões necessárias para configurar contas Run as](#permissions)
 
-Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros necessários para o script, faça o seguinte:
+Para obter os valores para *SubscriptionID*, *ResourceGroup*, e *AutomationAccountName*, que são parâmetros necessários para o script, conclua os seguintes passos:
 
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 1. Na página da conta de Automatização, selecione a sua conta de Automatização e, em **Definições da Conta** selecione **Propriedades**.  
@@ -306,7 +306,7 @@ Depois de o script ser executado com êxito, tenha em conta o seguinte:
 
 * Se tiver criado uma conta Run As Clássica com um certificado público autoassinado (ficheiro .cer), o script cria-o e guarda-o na pasta de ficheiros temporários no seu computador, no perfil de utilizador *%USERPROFILE%\AppData\Local\Temp* que utilizou para executar a sessão do PowerShell.
 
-* Se tiver criado uma conta Run As Clássica com um certificado público empresarial (ficheiro .cer), utilize esse certificado. Siga as instruções para [carregar um certificado de gestão de API para o portal do Azure](../azure-api-management-certs.md). ( Automation-VERIFY-runas-Authentication.md#Classic-Run-as-Authentication).
+* Se tiver criado uma conta Run As Clássica com um certificado público empresarial (ficheiro .cer), utilize esse certificado. Siga as instruções para [carregar um certificado de gestão de API para o portal do Azure](../azure-api-management-certs.md).
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Eliminar uma conta Run As ou Run As Clássica
 
@@ -314,9 +314,9 @@ Esta secção descreve como eliminar e recriar uma conta Run As ou Run As Cláss
 
 1. No portal do Azure, abra a conta de Automatização.
 
-1. Na página **Conta de automatização**, selecione **Contas Run as**.
+2. Na página **Conta de automatização**, selecione **Contas Run as**.
 
-1. Nas propriedades **Contas Run As**, selecione a conta Run As ou a conta Run As Clássica que quer eliminar. Em seguida, no painel **Propriedades** da conta selecionada, clique em **Eliminar**.
+3. Nas propriedades **Contas Run As**, selecione a conta Run As ou a conta Run As Clássica que quer eliminar. Em seguida, no painel **Propriedades** da conta selecionada, clique em **Eliminar**.
 
  ![Eliminar a conta Run As](media/manage-runas-account/automation-account-delete-runas.png)
 
@@ -330,7 +330,7 @@ Esta secção descreve como eliminar e recriar uma conta Run As ou Run As Cláss
 
 Em algum momento antes de expira a sua conta Run As, terá de renovar o certificado. Se considerar que a conta Run As tiver sido comprometida, pode eliminá-la e voltar a criá-la. Esta secção mostra como executar estas operações.
 
-O certificado autoassinado que criou para a conta Run As expira ao fim de um ano após a data de criação. Pode renová-lo em qualquer altura antes de expirar. Quando o renovar, o certificado atual válido é mantido, para garantir que todos os runbooks que se encontram em fila ou ativamente em execução, e que se autenticam com a conta Run As, não são afetados negativamente. O certificado permanece válido até à data de expiração.
+O certificado autoassinado que criou para a conta Run As expira ao fim de um ano após a data de criação. Pode renová-lo em qualquer altura antes de expirar. Quando o renovar, o certificado atual válido é mantido, para garantir que todos os runbooks que são colocados em fila ou ativamente em execução e que se autenticam com a conta Run As, não são afetados negativamente. O certificado permanece válido até à data de expiração.
 
 > [!NOTE]
 > Se tiver configurado a sua conta Run As de Automatização para utilizar um certificado emitido pela sua autoridade de certificação empresarial e utilizar esta opção, esse certificado empresarial é substituído por um certificado autoassinado.
@@ -359,7 +359,7 @@ No portal do Azure, selecione **subscrições** e escolha a subscrição da sua 
 
 ![Contribuintes de subscrição](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)**. Selecione **Add**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Fazer isso para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
+Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)**. Selecione **Add**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Conclua estes passos para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
 
 ## <a name="misconfiguration"></a>Configuração incorreta
 

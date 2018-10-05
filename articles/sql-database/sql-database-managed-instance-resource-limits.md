@@ -11,20 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 10/03/2018
-ms.openlocfilehash: 6ae9b3f71cb5328c7f4a7ee8e43ec0aff8b5fcec
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.date: 10/04/2018
+ms.openlocfilehash: 3f571a8d8a138656fc8bae5d6f45d183a8819bc3
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267789"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803210"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
 Este artigo fornece uma visão geral dos limites de recursos de instância gerida da base de dados SQL do Azure e fornece informações como criar o pedido para aumentar os limites de subscrição regional predefinidos. 
 
 > [!NOTE]
-> Para outras limitações de instância gerida, veja [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [escalões de serviço da instância gerida](sql-database-managed-instance.md#managed-instance-service-tiers).
+> Para outras limitações de instância gerida, veja [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [escalões de serviço da instância gerida](sql-database-managed-instance.md#managed-instance-service-tiers). Para diferenças em funcionalidades suportadas e T-SQL Consulte instruções [diferenças de funcionalidades](sql-database-features.md) e [suporte de instrução de T-SQL](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Limites de recursos de nível de instância
 
@@ -38,8 +38,8 @@ Instância de gerida de base de dados de SQL do Azure pode ser implementada na g
 | --- | --- | --- |
 | Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida eNVM SSD, vCore = 1 LP (hyper-thread) |
 | Computação | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
-| Memória | 7 GB por vCore | 5,5 GB por vCore |
-| Armazenamento máximo (crítico para a empresa) | 1TB | 1TB, 2TB, 4TB, dependendo do número de núcleos |
+| Memória | 7 GB por vCore | 5.1 GB por vCore |
+| Armazenamento máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 
@@ -53,11 +53,11 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | Ilimitado |
-| Era esperado o IOPS de armazenamento máximo | IOPS de 500-7500 por ficheiro de dados ([depende do tamanho do ficheiro de dados](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depende da velocidade SSD subjacente. |
+| Era esperado o IOPS de armazenamento máximo | 500-5000 ([depende do tamanho do ficheiro de dados](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depende da velocidade SSD subjacente. |
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Instanced gerido pode ser criado apenas no [regiões suportadas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+Instanced gerido pode ser criado apenas no [regiões suportadas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
 
 ## <a name="supported-subscription-types"></a>Tipos de subscrição de suporte
 
@@ -94,23 +94,27 @@ Estes limites podem ser aumentados ao criar especial [pedido de suporte no porta
 > [!IMPORTANT]
 > Quando planear as suas implementações, considere que uma instância de negócio críticos (BC) (devido a redundância adicionada) geralmente consome 4 x de uma instância de finalidade geral (GP) mais capacidade. Assim, para seus cálculos, 1 instância GP = 1 instância de unidade e a instância de 1 BC = 4 unidades de instância. Para simplificar a análise de consumo contra os limites predefinidos, resumir as unidades de instância em todas as sub-redes na região em que estão implementadas instâncias geridas e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição.
 
-### <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Opções de implementação para implementações de GP e BC dentro da mesma sub-rede
+## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Estratégias para implementar instâncias de fins gerais e crítico para a empresa mistas
+
+[Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscrições podem tem combinações de instâncias GP e BC. No entanto, existem algumas restrições sobre a colocação das instâncias nas sub-redes.
+
+> [!Note] 
+> [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) e [fornecedor de serviços Cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) tipos de subscrição podem ter qualquer um de um críticos de negócios ou até 4 instâncias para fins gerais.
 
 Os exemplos seguintes abrangem casos de implantação com sub-redes de não vazios e misto GP e BC escalões de serviço.
 
 |Número de sub-redes|sub-rede 1|Sub-rede 2|Sub-rede 3|
 |:---|:---|:---|:---|
-|1|0 BC e até 12 GP<br>1 BC e até 8 GP<br>2 BC e até 4 GP<br>3 BC|N/A| N/A|
-|2|BC 0, até 4 GP|BC 0, até 8 GP<br>C. 1, até 4 GP<br>2 BC|N/A|
-|2|1 BC|BC 0, até 8 GP<br>C. 1, até 4 GP<br>2 BC|N/A|
-|2|2 BC|BC 0, até 8 GP<br>C. 1, até 4 GP<br>2 BC|N/A|
+|1|1 BC e até 8 GP<br>2 BC e até 4 GP|N/A| N/A|
+|2|BC 0, até 4 GP|C. 1, até 4 GP<br>2 BC, 0 GP|N/A|
+|2|C. 1, 0 GP|BC 0, até 8 GP<br>C. 1, até 4 GP|N/A|
+|2|2 BC, 0 GP|BC 0, até 4 GP|N/A|
 |3|C. 1, 0 GP|C. 1, 0 GP|BC 0, até 4 GP|
-|3|1BC, 0 GP|BC 0, até 4 GP|C. 1, 0 GP|
-|3|BC 0, até 4 GP|C. 1, 0 GP|1BC, 0 GP|
+|3|C. 1, 0 GP|BC 0, até 4 GP|BC 0, até 4 GP|
 
-### <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma quota maior para a instância gerida SQL
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma quota maior para a instância gerida SQL
 
-Para iniciar o processo de obtenção de uma quota maior:
+Se precisar de mais instâncias geridas em suas regiões atuais, pode enviar o pedido de suporte para aumentar a quota com o portal do Azure. Para iniciar o processo de obtenção de uma quota maior:
 
 1. Open **ajuda + suporte**e clique em **novo pedido de suporte**. 
 

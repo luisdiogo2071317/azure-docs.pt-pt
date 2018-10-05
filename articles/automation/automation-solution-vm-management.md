@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/1/2018
+ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9abdb17c7b1cf0662913a4c9cd59c49efc91e419
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409849"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785499"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -24,7 +24,7 @@ Esta solução fornece uma opção de automatização descentralizada de baixo c
 
 - Agendar VMs para iniciar e parar.
 - Agendar VMs para iniciar e parar em ordem ascendente através de etiquetas do Azure (não suportado para VMs clássicas).
-- Auto-parar VMs com base na utilização de CPU baixa.
+- VMs de AUTOSTOP com base na utilização de CPU baixa.
 
 Seguem-se limitações para a solução atual:
 
@@ -42,7 +42,7 @@ Os runbooks para esta solução funcionam com um [conta Run As do Azure](automat
 
 Execute os seguintes passos para adicionar a iniciar/parar VMs durante a solução de horário comercial à sua conta de automatização e, em seguida, configure as variáveis para personalizar a solução.
 
-1. No, selecione conta de automatização **iniciar/parar VM** sob **recursos relacionados**. A partir daqui, pode clicar **Saiba mais sobre e ative a solução**. Se já tiver uma solução iniciar/parar VM implementada, pode clicar **gerir a solução** para ser direcionado para uma lista das soluções implantadas e selecione-a partir daí.
+1. A partir de uma conta de automatização, selecione **iniciar/parar VM** sob **recursos relacionados**. A partir daqui, pode clicar **Saiba mais sobre e ative a solução**. Se já tiver uma solução iniciar/parar VM implementada, pode selecioná-lo ao clicar em **gerir a solução** e procurá-la na lista.
 
    ![Ativar a partir de conta de automatização](./media/automation-solution-vm-management/enable-from-automation-account.png)
 
@@ -64,7 +64,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Atualizou o log Analytics [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
 
 5. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
-6. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho de análise de registo. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
+6. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho do Log Analytics. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
    - No campo **Nome**, introduza o nome da conta de Automatização.
 
     Todas as outras opções são preenchidas automaticamente com base na área de trabalho da Log Analytics selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.
@@ -74,9 +74,9 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    ![Página de parâmetros para a solução](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    Aqui, lhe for pedido para:
-   - Especifique a **nomes de ResourceGroup de destino**. Estes são os nomes de grupo de recursos que contêm as VMs a ser geridas por esta solução. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). Se quiser segmentar todas as VMs em todos os grupos de recursos da subscrição, a utilização de um caráter universal é suportada. Este valor é armazenado no **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** variáveis.
-   - Especifique a **lista de exclusões de VM (cadeia)**. Este é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). A utilização de um caráter universal é suportada. Este valor é armazenado no **External_ExcludeVMNames** variável.
-   - Selecione um **agenda**. Esta é uma data e hora recorrente para iniciar e parar as VMs em grupos de recursos de destino. Por predefinição, a agenda está configurada para 30 minutos a partir de agora. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedule).
+   - Especifique a **nomes de ResourceGroup de destino**. Estes valores são os nomes de grupo de recursos que contêm as VMs a ser geridas por esta solução. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). Se quiser segmentar todas as VMs em todos os grupos de recursos da subscrição, a utilização de um caráter universal é suportada. Este valor é armazenado no **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** variáveis.
+   - Especifique a **lista de exclusões de VM (cadeia)**. Este valor é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). A utilização de um caráter universal é suportada. Este valor é armazenado no **External_ExcludeVMNames** variável.
+   - Selecione um **agenda**. Este valor é uma data e hora recorrente para iniciar e parar as VMs em grupos de recursos de destino. Por predefinição, a agenda está configurada para 30 minutos a partir de agora. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedule).
    - Para receber **notificações por E-Mail** de um grupo de ação, aceite o valor predefinido **Sim** e fornecer um endereço de e-mail válido. Se selecionou **não** mas decidir posteriormente que pretende receber notificações por e-mail, pode atualizar o [grupo de ação](../monitoring-and-diagnostics/monitoring-action-groups.md) que é criada com endereços de e-mail válidos separados por vírgulas. Também tem de ativar as seguintes regras de alerta:
 
      - AutoStop_VM_Child
@@ -94,7 +94,7 @@ A solução contém três cenários distintos. Estes cenários são:
 
 ### <a name="scenario-1-startstop-vms-on-a-schedule"></a>Cenário 1: Iniciar/parar VMs com base numa agenda
 
-Esta é a configuração predefinida quando implantar a solução pela primeira vez. Por exemplo, pode configurar a sua paragem todas as VMs numa subscrição quando deixar de trabalho durante a noite e iniciá-los da manhã, quando estiver no escritório. Ao configurar as agendas **agendada-StartVM** e **agendada StopVM** durante a implementação, iniciar e parar as VMs de destinadas. Configurar esta solução para parar a VMs apenas é suportado, consulte [modificar as agendas de inicialização e desligamento](#modify-the-startup-and-shutdown-schedules) para saber como configurar uma agenda personalizada.
+Este cenário é a configuração predefinida quando implantar a solução pela primeira vez. Por exemplo, pode configurar a sua paragem todas as VMs numa subscrição quando deixar de trabalho durante a noite e iniciá-los da manhã, quando estiver no escritório. Ao configurar as agendas **agendada-StartVM** e **agendada StopVM** durante a implementação, iniciar e parar as VMs de destinadas. Configurar esta solução para parar a VMs apenas é suportado, consulte [modificar as agendas de inicialização e desligamento](#modify-the-startup-and-shutdown-schedules) para saber como configurar uma agenda personalizada.
 
 > [!NOTE]
 > O fuso horário é seu fuso horário atual quando configurar o parâmetro de tempo da agenda. No entanto, ele é armazenado no formato UTC na automatização do Azure. Não tem de fazer qualquer conversão do fuso horário como isso é manipulado durante a implantação.
@@ -120,18 +120,18 @@ Pode habilitar o direcionamento a ação em relação a uma subscrição e grupo
 
 ### <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a>Cenário 2: Iniciar/parar VMS em sequência através de etiquetas
 
-Num ambiente que inclua dois ou mais componentes em várias VMs suportar uma carga de trabalho distribuída, que suporta a sequência em que os componentes são iniciados e parados na ordem é importante. Para tal, efetuando os seguintes passos:
+Num ambiente que inclua dois ou mais componentes em várias VMs suportar uma carga de trabalho distribuída, que suporta a sequência em que os componentes são iniciados e parados na ordem é importante. Este cenário pode ser feito, efetuando os seguintes passos:
 
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>As ações de início e fim em relação a um grupo de recursos e subscrição de destino
 
-1. Adicionar uma **SequenceStart** e uma **SequenceStop** etiqueta com um valor de número inteiro positivo para VMs que são visados **External_Start_ResourceGroupNames** e  **External_Stop_ResourceGroupNames** variáveis. As ações de início e fim são efetuadas por ordem ascendente. Para saber como Etiquetar uma VM, veja [Etiquetar uma Máquina Virtual do Windows no Azure](../virtual-machines/windows/tag.md) e [Etiquetar uma Máquina Virtual Linux no Azure](../virtual-machines/linux/tag.md).
+1. Adicionar uma **sequencestart** e uma **sequencestop** etiqueta com um valor de número inteiro positivo para VMs que são visados **External_Start_ResourceGroupNames** e  **External_Stop_ResourceGroupNames** variáveis. As ações de início e fim são efetuadas por ordem ascendente. Para saber como Etiquetar uma VM, veja [Etiquetar uma Máquina Virtual do Windows no Azure](../virtual-machines/windows/tag.md) e [Etiquetar uma Máquina Virtual Linux no Azure](../virtual-machines/linux/tag.md).
 1. Modificar as agendas **Sequenced-StartVM** e **Sequenced StopVM** para a data e hora que cumprem os requisitos e ativar o agendamento.
 1. Executar o **SequencedStartStop_Parent** runbook com o parâmetro de ação definido como **iniciar** e o parâmetro WHATIF definido como **verdadeiro** para pré-visualizar as alterações.
 1. A ação de pré-visualização e faça as alterações necessárias antes de implementar em VMs de produção. Quando pronto, manualmente executar o runbook com o parâmetro definido como **False**, ou permitir que a agenda da automatização **Sequenced-StartVM** e **Sequenced StopVM** executar automaticamente após a sua agenda prescrita.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>A ação de início e fim de destino pela lista VM
 
-1. Adicionar uma **SequenceStart** e uma **SequenceStop** etiqueta com um valor de número inteiro positivo para VMs que planeia adicionar para o **VMList** variável. 
+1. Adicionar uma **sequencestart** e uma **sequencestop** etiqueta com um valor de número inteiro positivo para VMs que planeia adicionar para o **VMList** variável. 
 1. Executar o **SequencedStartStop_Parent** runbook com o parâmetro de ação definido como **iniciar**, adicione uma lista separada por vírgulas de VMs no *VMList* parâmetro e, em seguida, defina o Parâmetro WHATIF **True**. Pré-visualize as suas alterações.
 1. Configurar o **External_ExcludeVMNames** parâmetro com uma lista separada por vírgulas de VMs (VM1, VM2, VM3).
 1. Este cenário não considera os **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupnames** variáveis. Para este cenário, terá de criar seu próprio plano de automatização. Para obter detalhes, consulte [agendar um runbook na automatização do Azure](../automation/automation-schedules.md).
@@ -141,7 +141,7 @@ Num ambiente que inclua dois ou mais componentes em várias VMs suportar uma car
 
 Esta solução pode ajudar a gerenciar os custos de máquinas virtuais em execução na sua subscrição ao avaliar as VMs do Azure que não são utilizadas durante períodos de pico, tal como após horas, e automaticamente encerrá-los se a utilização do processador é less than x %.
 
-Por predefinição, a solução é pré-configurado para avaliar a métrica de CPU de percentagem para ver se a utilização média é 5 por cento ou menos. Isso é controlado pelas seguintes variáveis e pode ser modificado se os valores predefinidos não cumprem os requisitos:
+Por predefinição, a solução é pré-configurado para avaliar a métrica de CPU de percentagem para ver se a utilização média é 5 por cento ou menos. Este cenário é controlado pelas seguintes variáveis e pode ser modificado se os valores predefinidos não cumprem os requisitos:
 
 - External_AutoStop_MetricName
 - External_AutoStop_Threshold
@@ -173,7 +173,7 @@ Esta solução inclui pré-configurada runbooks, agendas e integração com o Lo
 
 ### <a name="runbooks"></a>Runbooks
 
-A tabela seguinte lista os runbooks implementados à sua conta de automatização por esta solução. Não deve fazer alterações ao código do runbook. Em vez disso, escreva seu próprio runbook, a nova funcionalidade.
+A tabela seguinte lista os runbooks implementados à sua conta de automatização por esta solução. Não faça alterações ao código do runbook. Em vez disso, escreva seu próprio runbook, a nova funcionalidade.
 
 > [!IMPORTANT]
 > Não diretamente execute qualquer runbook com "subordinado" anexado ao respetivo nome.
@@ -188,12 +188,12 @@ Incluir todos os runbooks do principal do _WhatIf_ parâmetro. Quando definido c
 |AutoStop_StopVM_Child | WebHookData | Chamada do runbook principal. Regras de alerta chamam este runbook para parar a VM.|
 |Bootstrap_Main | nenhum | Utilizado uma vez para definir configurações de arranque do sistema, tais como webhookURI, que normalmente não são acessíveis a partir do Azure Resource Manager. Este runbook é removido automaticamente após a implementação com êxito.|
 |ScheduledStartStop_Child | VMName <br> Ação: Iniciar ou parar <br> ResourceGroupName | Chamada do runbook principal. Executa uma ação iniciar ou parar para a parada agendada.|
-|ScheduledStartStop_Parent | Ação: Iniciar ou parar <br>VMList <br> WhatIf: VERDADEIRO ou FALSO | Esta ação afeta todas as VMs na subscrição. Editar a **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** ser executado somente sobre esses grupos de recursos de destino. Também pode excluir VMs específicas ao atualizar o **External_ExcludeVMNames** variável.<br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida a lógica de runbook sem executar.|
-|SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: VERDADEIRO ou FALSO<br>VMList| Criar etiquetas com o nome **SequenceStart** e **SequenceStop** em cada VM para o qual pretende que a atividade de início/paragem de sequência. O valor da etiqueta deve ser um número inteiro positivo (1, 2, 3) que corresponde à ordem na qual pretende iniciar ou parar. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida a lógica de runbook sem executar. <br> **Tenha em atenção**: as VMs devem estar em grupos de recursos definidos como External_Start_ResourceGroupNames External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Têm de ter as etiquetas adequadas para ações entrem em vigor.|
+|ScheduledStartStop_Parent | Ação: Iniciar ou parar <br>VMList <br> WhatIf: VERDADEIRO ou FALSO | Esta definição afeta todas as VMs na subscrição. Editar a **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** ser executado somente sobre esses grupos de recursos de destino. Também pode excluir VMs específicas ao atualizar o **External_ExcludeVMNames** variável.<br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida a lógica de runbook sem executar.|
+|SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: VERDADEIRO ou FALSO<br>VMList| Criar etiquetas com o nome **sequencestart** e **sequencestop** em cada VM para o qual pretende que a atividade de início/paragem de sequência. Esses nomes de marca diferenciam maiúsculas de minúsculas. O valor da etiqueta deve ser um número inteiro positivo (1, 2, 3) que corresponde à ordem na qual pretende iniciar ou parar. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida a lógica de runbook sem executar. <br> **Tenha em atenção**: as VMs devem estar em grupos de recursos definidos como External_Start_ResourceGroupNames External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Têm de ter as etiquetas adequadas para ações entrem em vigor.|
 
 ### <a name="variables"></a>Variáveis
 
-A tabela seguinte lista as variáveis criadas na sua conta de automatização. Deve modificar apenas as variáveis com **externo**. Modificar variáveis com prefixo **interno** faz com que os efeitos indesejáveis.
+A tabela seguinte lista as variáveis criadas na sua conta de automatização. Só deve modificar variáveis com prefixo **externo**. Modificar variáveis com prefixo **interno** faz com que os efeitos indesejáveis.
 
 |Variável | Descrição|
 |---------|------------|
@@ -215,17 +215,17 @@ Em todos os cenários, o **External_Start_ResourceGroupNames**, **External_Stop_
 
 ### <a name="schedules"></a>Agendas
 
-A tabela seguinte lista cada uma das agendas predefinidas criadas na sua conta de automatização. Pode modificá-las ou criar seu próprio agendamentos personalizados. Por predefinição, cada um deles estão desativadas, exceto para **Scheduled_StartVM** e **Scheduled_StopVM**.
+A tabela seguinte lista cada uma das agendas predefinidas criadas na sua conta de automatização. Pode modificá-las ou criar seu próprio agendamentos personalizados. Por predefinição, todas as agendas estão desativadas, exceto para **Scheduled_StartVM** e **Scheduled_StopVM**.
 
 Não deve ativar todas as agendas, porque isso pode criar ações de agenda sobrepostos. É melhor determinar quais otimizações que pretende executar e modificar de acordo. Ver os cenários de exemplo na secção Descrição geral para obter mais explicações.
 
 |Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Cada 8 horas | Executa o runbook AutoStop_CreateAlert_Parent a cada 8 horas, que por sua vez, para os valores baseados em VM em External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Em alternativa, pode especificar uma lista separada por vírgulas de VMs ao utilizar o parâmetro VMList.|
-|Scheduled_StopVM | Utilizador definido diariamente | Executa o runbook Scheduled_Parent com um parâmetro de _parar_ todos os dias, o período de tempo especificado. Para automaticamente todas as VMs que cumpram as regras definidas por meio de variáveis de recurso. Deve ativar o agendamento de relacionados **agendada-StartVM**.|
-|Scheduled_StartVM | Utilizador definido diariamente | Executa o runbook Scheduled_Parent com um parâmetro de _iniciar_ todos os dias, o período de tempo especificado. Inicia automaticamente todas as VMs que cumpram as regras definidas pelas variáveis apropriadas. Deve ativar o agendamento de relacionados **agendada StopVM**.|
-|StopVM sequenciada | 1:00 (UTC), toda sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de _parar_ toda sexta-feira num momento especificado. Sequencialmente (ascendente) interrompe todas as VMs com uma etiqueta de **SequenceStop** definido por variáveis apropriadas. Consulte a seção de Runbooks para obter mais detalhes sobre os valores de etiqueta e variáveis de recurso. Deve ativar o agendamento de relacionados **Sequenced-StartVM**.|
-|StartVM sequenciada | 1:21 horas (UTC), sempre de segunda a | Executa o runbook Sequenced_Parent com um parâmetro de _iniciar_ sempre de segunda num momento especificado. Sequencialmente (descendente) inicia todas as VMs com uma etiqueta de **SequenceStart** definido por variáveis apropriadas. Consulte a seção de Runbooks para obter mais detalhes sobre os valores de etiqueta e variáveis de recurso. Deve ativar o agendamento de relacionados **Sequenced StopVM**.|
+|Scheduled_StopVM | Utilizador definido diariamente | Executa o runbook Scheduled_Parent com um parâmetro de _parar_ todos os dias, o período de tempo especificado. Para automaticamente todas as VMs que cumpram as regras definidas por meio de variáveis de recurso. Ativar o agendamento de relacionados **agendada-StartVM**.|
+|Scheduled_StartVM | Utilizador definido diariamente | Executa o runbook Scheduled_Parent com um parâmetro de _iniciar_ todos os dias, o período de tempo especificado. Inicia automaticamente todas as VMs que cumpram as regras definidas pelas variáveis apropriadas. Ativar o agendamento de relacionados **agendada StopVM**.|
+|StopVM sequenciada | 1:00 (UTC), toda sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de _parar_ toda sexta-feira num momento especificado. Sequencialmente (ascendente) interrompe todas as VMs com uma etiqueta de **SequenceStop** definido por variáveis apropriadas. Para obter mais informações sobre os valores de etiqueta e variáveis de recurso, consulte a secção de Runbooks. Ativar o agendamento de relacionados **Sequenced-StartVM**.|
+|StartVM sequenciada | 1:21 horas (UTC), sempre de segunda a | Executa o runbook Sequenced_Parent com um parâmetro de _iniciar_ sempre de segunda num momento especificado. Sequencialmente (descendente) inicia todas as VMs com uma etiqueta de **SequenceStart** definido por variáveis apropriadas. Para obter mais informações sobre os valores de etiqueta e variáveis de recurso, consulte a secção de Runbooks. Ativar o agendamento de relacionados **Sequenced StopVM**.|
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
 
@@ -279,8 +279,8 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 |Consulta | Descrição|
 |----------|----------|
-|Localizar trabalhos para o runbook ScheduledStartStop_Parent que tiver concluído com êxito | Pesquisar categoria = = "JobLogs" &#124; onde (RunbookName_s = = "ScheduledStartStop_Parent") &#124; onde (ResultType = = "Concluído") &#124; resumir |AggregatedValue = count () by ResultType, bin (TimeGenerated, 1 hora) &#124; ordenar por TimeGenerated desc|
-|Localizar trabalhos para o runbook SequencedStartStop_Parent que tiver concluído com êxito | Pesquisar categoria = = "JobLogs" &#124; onde (RunbookName_s = = "SequencedStartStop_Parent") &#124; onde (ResultType = = "Concluído") &#124; resumir |AggregatedValue = count () by ResultType, bin (TimeGenerated, 1 hora) &#124; ordenar por TimeGenerated desc
+|Localizar trabalhos para o runbook ScheduledStartStop_Parent que tiver concluído com êxito | ' ' Pesquisar categoria = = "JobLogs" | onde (RunbookName_s = = "ScheduledStartStop_Parent") | onde (ResultType = = "Concluído")  | resumir |AggregatedValue = count () by ResultType, bin (TimeGenerated, 1 hora) | Ordenar por TimeGenerated desc ' '|
+|Localizar trabalhos para o runbook SequencedStartStop_Parent que tiver concluído com êxito | ' ' Pesquisar categoria = = "JobLogs" | onde (RunbookName_s = = "SequencedStartStop_Parent") | onde (ResultType = = "Concluído") | resumir |AggregatedValue = count () by ResultType, bin (TimeGenerated, 1 hora) | Ordenar por TimeGenerated desc ' '|
 
 ## <a name="viewing-the-solution"></a>Visualizar a solução
 
@@ -317,10 +317,10 @@ Gerir os agendamentos de arranque e encerramento nesta solução segue os mesmos
 Configuração da solução para simplesmente parar VMs num determinado período de tempo é suportada. Para efetuar este procedimento, tem de:
 
 1. Certifique-se de ter adicionado os grupos de recursos para as VMs encerrar dentro de **External_Start_ResourceGroupNames** variável.
-1. Crie seu próprio agendamento para o tempo que pretende encerrar as VMs.
-1. Navegue para o **ScheduledStartStop_Parent** runbook e clique em **agenda**. Isto permite-lhe selecionar a agenda que criou no passo anterior.
-1. Selecione **parâmetros e definições de execução** e defina o parâmetro de ação para "Stop".
-1. Clique em **OK** para guardar as alterações.
+2. Crie seu próprio agendamento para o tempo que pretende encerrar as VMs.
+3. Navegue para o **ScheduledStartStop_Parent** runbook e clique em **agenda**. Isto permite-lhe selecionar a agenda que criou no passo anterior.
+4. Selecione **parâmetros e definições de execução** e defina o parâmetro de ação para "Stop".
+5. Clique em **OK** para guardar as alterações.
 
 ## <a name="update-the-solution"></a>Atualizar a solução
 

@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c4529948a0a1b165945de78de97cc2470c6b431e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237556"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785262"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Como: adicionar o seu nome de domínio personalizado com o portal do Azure Active Directory
 Cada novo Azure inquilino AD vem com um nome de domínio inicial *domainname*. onmicrosoft.com. Não é possível alterar ou eliminar o nome de domínio inicial, mas pode adicionar nomes da sua organização para a lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizador que estão familiarizados para seus usuários, como *alain@contoso.com*.
@@ -84,7 +84,7 @@ Depois de registar o seu nome de domínio personalizado, terá de certificar-se 
 
     ![Página de contoso com informações de entrada DNS e no botão verificar](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### <a name="common-verification-issues"></a>Problemas comuns de verificação
+## <a name="common-verification-issues"></a>Problemas comuns de verificação
 - Se o Azure AD não é possível verificar um nome de domínio personalizado, experimente as sugestões seguintes:
     - **Aguarde, pelo menos, uma hora e tente novamente**. Registos DNS devem propagar antes do Azure AD pode verificar que o domínio e este processo podem demorar uma hora ou mais.
 
@@ -93,7 +93,8 @@ Depois de registar o seu nome de domínio personalizado, terá de certificar-se 
     Se não é possível atualizar o registo no site da entidade de registo, tem de partilhar a entrada com alguém que tenha as permissões corretas para adicionar a entrada e certifique-se de que ela está correta.
 
 - **Certifique-se de que o nome de domínio não está já em utilização de outro diretório.** Um nome de domínio só pode ser verificado num diretório, o que significa que se o seu nome de domínio estiver atualmente verificado noutro diretório, ele não pode também ser verificado no novo diretório. Para corrigir esse problema de duplicação, tem de eliminar o nome de domínio do diretório antigo. Para obter mais informações sobre como eliminar nomes de domínio, consulte [gerir nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
-    - Se os utilizadores ativaram o PowerBI através de inscrição self-service e criaram um inquilino não gerido para a sua organização, o administrador de TI pode gerir este inquilino através da aquisição ou pode continuar a adicionar o domínio com opção de aquisição de força no PowerShell. Para saber mais sobre a aquisição de domínio administrador, veja [assumir um diretório não gerido como administrador no Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+
+- **Certifique-se de que não tem quaisquer inquilinos do Power BI não geridos.** Se os utilizadores ativaram o Power BI através de inscrição Self-Service e criado um inquilino não gerido para a sua organização, deve assumir a gestão como um administrador interno ou externo, com o PowerShell. Para saber mais sobre como assumir um diretório não gerido, veja [assumir um diretório não gerido como administrador no Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

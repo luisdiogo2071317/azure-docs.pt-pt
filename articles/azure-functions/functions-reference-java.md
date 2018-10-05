@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123492"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802122"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -115,9 +115,15 @@ com o correspondente `function.json`:
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>Disponibilidade de tempo de execução do JDK e suporte 
+
+Transferir e utilizar o [Azul Zulu para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs partir [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para o local de desenvolvimento de aplicações de funções do Java. JDKs estão disponíveis para Windows, Linux e macOS e [suporte do Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) está disponível para problemas encontrados durante o desenvolvimento com uma [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
+
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 
 As funções do Azure suporta a utilização de bibliotecas de terceiros. Por predefinição, todas as dependências especificado no seu projeto `pom.xml` ficheiro serão automaticamente agrupado durante o `mvn package` objetivo. Para bibliotecas não especificadas como dependências a `pom.xml` de ficheiros, colocá-los num `lib` diretório no diretório de raiz da função. Dependências colocadas o `lib` directory será adicionado ao carregador de classe do sistema no tempo de execução.
+
+O `com.microsoft.azure.functions:azure-functions-java-library` dependência é fornecida no classpath por predefinição e não precisa de ser incluídos no `lib` diretório.
 
 ## <a name="data-type-support"></a>Tipo de dados de suporte
 

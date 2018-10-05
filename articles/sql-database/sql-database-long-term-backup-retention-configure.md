@@ -10,17 +10,20 @@ ms.topic: conceptual
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 68746874ec01f44055421f0033acd0d485e1d230
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.date: 10/04/2018
+ms.openlocfilehash: fd747eb66a91a1ac9fe3b1c0d2ef7ac50a08faea
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586092"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801125"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
-Pode configurar a base de dados SQL do Azure com um [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) política (LTR) para manter automaticamente cópias de segurança no armazenamento de Blobs do Azure para até 10 anos. Em seguida, pode recuperar uma base de dados com estas cópias de segurança com o portal do Azure ou o PowerShell.
+Na base de dados SQL do Azure, pode configurar um único ou uma base de dados agrupado com um [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) política (LTR) para manter automaticamente cópias de segurança no armazenamento de Blobs do Azure para até 10 anos. Em seguida, pode recuperar uma base de dados com estas cópias de segurança com o portal do Azure ou o PowerShell.
+
+> [!IMPORTANT]
+> [O Azure SQL Database Managed Instance](sql-database-managed-instance.md) não suporta atualmente a retenção de cópia de segurança de longo prazo.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o portal do Azure para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
 As secções seguintes mostram como utilizar o portal do Azure para configurar a retenção de longa duração, ver cópias de segurança em retenção de longo prazo e restaurar a cópia de segurança de retenção de longa duração.

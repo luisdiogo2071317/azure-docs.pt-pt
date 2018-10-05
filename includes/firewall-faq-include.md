@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 9/14/2018
+ms.date: 10/4/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1242cf80ffd283471eb507612949a81d4b3fd594
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: fa2542d530c37876de38a510a6771144043aae77
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401564"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48812309"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -69,7 +69,7 @@ Firewall do Azure é um serviço de firewall básica que pode atender a determin
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>O que é a diferença entre o WAF do Gateway de aplicação e o Firewall do Azure?
 
-A Firewall de aplicações Web (WAF) é um recurso do Gateway de aplicação que fornece proteção centralizada de entrada de seus aplicativos web de exploits e vulnerabilidades comuns. Firewall do Azure fornece proteção de nível de rede de saída para todas as portas e protocolos e a proteção de nível de aplicativo para saída HTTP/S. Proteção de entrada para os protocolos de não-HTTP/S (por exemplo, o protocolo RDP, SSH, FTP) provisoriamente o envio está planejada para GA do Firewall do Azure.
+A Firewall de aplicações Web (WAF) é um recurso do Gateway de aplicação que fornece proteção centralizada de entrada de seus aplicativos web de exploits e vulnerabilidades comuns. Firewall do Azure fornece proteção de entrada para os protocolos não-HTTP/S (por exemplo, RDP, SSH, FTP), a proteção de nível de rede de saída para todas as portas e protocolos e a proteção de ao nível da aplicação de saída HTTP/S.
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>O que é a diferença entre grupos de segurança de rede (NSGs) e o Firewall do Azure?
 

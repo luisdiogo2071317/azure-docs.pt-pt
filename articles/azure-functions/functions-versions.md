@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 372cf445e518ccdb287ce23ade6a3d92ddc5bc2b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249065"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784904"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 
@@ -63,6 +63,7 @@ Além das alterações em idiomas e enlaces, existem algumas funcionalidades que
 * Definições da aplicação (`local.settings.json`) requer um valor para a propriedade `FUNCTIONS_WORKER_RUNTIME` que mapeia para o idioma da aplicação `dotnet | node | java | python`.
     * Para melhorar o tempo de requisitos de espaço e arranque, as aplicações estão limitadas a um único idioma. Pode publicar várias aplicações para que as funções em idiomas diferentes para a mesma solução.
 * Tempo limite predefinido para funções num plano do serviço de aplicações é de 30 minutos.  Ele pode ainda ser definido manualmente ilimitado.
+* Limitações de simultaneidade HTTP são implementadas por predefinição para as funções do plano de consumo (100 solicitações simultâneas por instância).  Estas definições podem ser modificadas por meio do `host.json` ficheiro.
 * [Devido ao .NET core limitações](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` scripts para funções do F # foram removidas. As funções do F # compiladas ainda são suportadas.
 * O formato de acionadores baseados em webhooks (por exemplo, o Event Grid) foi alterado para `https://{app}/runtime/webhooks/{triggerName}`
 

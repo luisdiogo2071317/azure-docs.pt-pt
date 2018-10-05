@@ -1,42 +1,43 @@
 ---
-title: Perguntas mais frequentes perguntas sobre o Bing ortográfica verificação API - serviços cognitivos do Azure | Microsoft Docs
-description: Obtenha respostas a questões recorrentes sobre a API de verificação ortográfica do Bing no Azure.
+title: Perguntas mais frequentes perguntas sobre a ortografia do Bing a API de verificação
+titlesuffix: Azure Cognitive Services
+description: Obtenha respostas a perguntas comuns sobre a API de verificação de ortografia do Bing no Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 87b1f3ed3e0aaa9f3c3c804dc9eac3ee60b4a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6662ffcbab9ea274a67bc4437ca1600f1625ff1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354949"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801510"
 ---
-# <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Perguntas mais frequentes perguntas sobre a ortográfica do Bing verifique API
+# <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Perguntas mais frequentes perguntas sobre a ortografia do Bing a API de verificação
 
- Encontrar respostas a perguntas mais comuns sobre conceitos, código e cenários relacionados com a API de verificação ortográfica do Bing cognitivos nos serviços da Microsoft no Azure.
+ Encontre respostas para perguntas freqüentes sobre conceitos, código e cenários relacionados à API de verificação de ortografia do Bing nos serviços cognitivos da Microsoft no Azure.
 
-## <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-spell-check-api-from-javascript"></a>Como obter os cabeçalhos de cliente opcional ao chamar a API de verificação ortográfica do Bing de JavaScript?
+## <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-spell-check-api-from-javascript"></a>Como posso obter os cabeçalhos de cliente opcional ao chamar a API de verificação de ortografia do Bing a partir de JavaScript?
 
-Os seguintes cabeçalhos são opcionais, mas recomendamos que tratá-los conforme necessário. Estes cabeçalhos ajudam os resultados de retorno mais exatos a API de verificação ortográfica do Bing.
+Os seguintes cabeçalhos são opcionais, mas recomendamos tratá-los conforme necessário. Esses cabeçalhos ajudam os resultados de retornados mais precisos a API de verificação ortográfica do Bing.
 
-- Localização de pesquisa X
-- X-MSEdge-ClientID
+- Localização de pesquisa de X
+- X-MSEdge-ID de cliente
 - X-MSEdge-ClientIP
 
-No entanto, quando chamar a API de verificação ortográfica do Bing do JavaScript, funcionalidades de segurança incorporada do seu browser poderão impedir os valores destes cabeçalhos a aceder.
+No entanto, quando chama a API de verificação de ortografia do Bing do JavaScript, funcionalidades de segurança incorporadas do seu browser podem impedir que os valores desses cabeçalhos a aceder.
 
-Para resolver este problema, pode efetuar o pedido de API de verificação ortográfica do Bing através de um proxy CORS. A resposta de um proxy essa tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta whitelists e disponibiliza-los JavaScript.
+Para resolver este problema, pode fazer o pedido de API de verificação de ortografia do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta de listas de permissões e disponibiliza-os para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que o [aplicação tutorial](tutorials/spellcheck.md) para aceder os cabeçalhos de cliente opcional. Primeiro, se ainda não tiver, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando numa linha de comandos.
+É fácil de instalar um proxy CORS para permitir que o [tutorial de aplicação](tutorials/spellcheck.md) para acessar os cabeçalhos de opcional do cliente. Primeiro, se ainda não o tiver, [instalar node. js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto final de API de verificação ortográfica do Bing no ficheiro HTML para:
+Em seguida, altere o ponto final de API de verificação de ortografia do Bing no arquivo HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
 
@@ -44,11 +45,11 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela de comandos aberta e, ao utilizar a aplicação tutorial; fechar a janela interrompe o proxy. Na secção de cabeçalhos de HTTP expansível abaixo os resultados da pesquisa, agora, pode ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada pedido.
+Deixe a janela de comando aberta e, embora usar o tutorial de aplicação; fechar a janela será interrompido o proxy. Na secção de cabeçalhos HTTP expansível abaixo os resultados da pesquisa, pode agora ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-É a sua pergunta sobre uma funcionalidade ou funcionalidade em falta? Considere solicitar ou votá-lo [UserVoice web site](https://cognitive.uservoice.com/).
+É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para o mesmo no [web site do UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="see-also"></a>Consulte também
 

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 4ec0433fe2bc1447344ea7b3b7ec296c7cbb583f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368740"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803363"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Receber eventos dos Hubs de eventos do Azure com node. js
 
@@ -73,7 +73,6 @@ O SDK tem um clone contém vários exemplos que lhe mostram como receber eventos
 ## <a name="review-the-sample-code"></a>Reveja o código de exemplo 
 Aqui está o código de exemplo para receber eventos de um hub de eventos com o node. js. Manualmente pode criar um ficheiro de sampleEph.js e execute-o para receber eventos para um hub de eventos. 
 
-
   ```nodejs
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
@@ -124,6 +123,19 @@ Aqui está o código de exemplo para receber eventos de um hub de eventos com o 
   });
       
   ```
+
+Não se esqueça de definir as variáveis de ambiente antes de executar o script. Pode configurar esta opção na linha de comandos, conforme mostrado no exemplo seguinte, ou utilizar o [dotenv pacote](https://www.npmjs.com/package/dotenv#dotenv). 
+
+```
+// For windows
+set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+set EVENTHUB_NAME="<your-event-hub-name>"
+
+// For linux or macos
+export EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+export EVENTHUB_NAME="<your-event-hub-name>"
+```
+
 Pode encontrar mais exemplos [aqui](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples).
 
 

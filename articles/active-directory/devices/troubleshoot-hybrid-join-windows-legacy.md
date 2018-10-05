@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268974"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800864"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
 
@@ -43,6 +43,10 @@ Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrid
 Este artigo fornece orientações sobre como resolver problemas potenciais de resolução de problemas.  
 
 **O que deve saber:** 
+
+- Associação do Azure AD híbrido de nível inferior funciona de dispositivos do Windows forma um pouco diferente do que faz no Windows 10. Muitos clientes não perceber que precisam do AD FS (para domínios federados) ou o SSO totalmente integrado configurado (para domínios geridos).
+
+- Para clientes com domínios federados, se o ponto de ligação de serviço (SCP) tiver sido configurado, de modo a que aponte para o nome de domínio geridos (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), em seguida, híbrido do Azure AD Join para dispositivos do Windows de nível inferior será não funcionam.
 
 - O número máximo de dispositivos por utilizador atualmente também se aplica a dispositivos de associados ao Azure AD híbrido de nível inferior. 
 

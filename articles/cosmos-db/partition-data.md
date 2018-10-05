@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055510"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785652"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Particionar e dimensionar no Azure Cosmos DB
 
@@ -32,7 +32,7 @@ O Azure Cosmos DB fornece contentores para armazenar dados designados coleções
 
 ### <a name="physical-partition"></a>Partição física
 
-R *físico* partição é uma quantidade fixa de armazenamento reservada apoiadas por SSD combinada com a variável quantidade de recursos de computação (CPU e memória). Cada partição física é replicada para elevada disponibilidade. Cada conjunto de contentores pode partilhar uma ou mais partições físicas. Gestão de partição física totalmente gerido pelo Azure Cosmos DB, e não precisa escrever código complexo ou gerenciar suas partições. Contentores do Azure Cosmos DB são ilimitadas em termos de armazenamento e débito. Partições físicas são um conceito interno do Azure Cosmos DB e são transitórias. O Azure Cosmos DB irá dimensionar automaticamente o número de partições físicas com base na carga de trabalho. Portanto, não deve corelate seu design de banco de dados com base no número de partições físicas em vez disso, deve verificar se escolher a chave de partição correta que determina as partições lógicas. 
+R *físico* partição é uma quantidade fixa de armazenamento reservada apoiadas por SSD combinada com a variável quantidade de recursos de computação (CPU e memória). Cada partição física é replicada para elevada disponibilidade. Cada conjunto de contentores pode partilhar uma ou mais partições físicas. Gestão de partição física totalmente gerido pelo Azure Cosmos DB, e não precisa escrever código complexo ou gerenciar suas partições. Contentores do Azure Cosmos DB são ilimitadas em termos de armazenamento e débito. Partições físicas são um conceito interno do Azure Cosmos DB e são transitórias. O Azure Cosmos DB irá dimensionar automaticamente o número de partições físicas com base na sua carga de trabalho. Portanto, não deve corelate seu design de banco de dados com base no número de partições físicas em vez disso, deve verificar se escolher a chave de partição correta que determina as partições lógicas. 
 
 ### <a name="logical-partition"></a>Partição lógica
 
@@ -93,11 +93,13 @@ Quando escolher uma chave de partição com acima considerações, não precisa 
 
 ## <a name="prerequisites"></a>Pré-requisitos para a criação de partições
 
-Contentores do Azure Cosmos DB podem ser criados como fixas ou ilimitado no portal do Azure. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor como ilimitado, tem de especificar uma chave de partição e um débito mínimo de 1000 RU/s. Contentores do Azure Cosmos DB também podem ser configurados para partilhar a taxa de transferência entre um conjunto de contentores, em que cada contentor deve especificar uma partição da chave e pode chegar ilimitado. Seguem-se os pré-requisitos a serem considerados para a criação de partições e dimensionamento:
+Contentores do Azure Cosmos DB podem ser criados como fixas ou ilimitado. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor como ilimitado, tem de especificar uma chave de partição e um débito mínimo de 1000 RU/s. Também pode criar contentores do Azure Cosmos DB, de modo que eles compartilham o débito. Nesses casos, a cada contentor deve especificar uma chave de partição e ele podem crescer ilimitados. 
 
-* Ao criar um contentor (por exemplo, uma coleção, um gráfico ou uma tabela) no portal do Azure, selecione o **ilimitado** opção de capacidade de armazenamento para tirar partido do dimensionamento ilimitado. Para as partições físicas para auto-divisão em **p1** e **p2** conforme descrito na [como funciona a criação de partições](#how-does-partitioning-work), o contentor tem de ser criado com um débito de 1000 RU/s ou mais (ou partilha de débito num conjunto de contentores), e uma chave de partição tem de ser fornecida. 
+Seguem-se os pré-requisitos a serem considerados para a criação de partições e dimensionamento:
 
-* Se criou um contentor no portal do Azure ou através de programação e a taxa de transferência inicial foi 1000 RU/s ou mais e forneceu uma chave de partição, pode tirar partido do dimensionamento ilimitado sem alterações ao seu contentor. Isto inclui **Fixed** contentores, desde que o contentor inicial foi criado com, pelo menos, 1000 RU/s de débito e uma chave de partição for especificada.
+* Ao criar um contentor (por exemplo, uma coleção, um gráfico ou uma tabela) no portal do Azure, selecione o **ilimitado** opção de capacidade de armazenamento para tirar partido do dimensionamento ilimitado. Para as partições físicas de divisão de automática para **p1** e **p2** conforme descrito na [como funciona a criação de partições](#how-does-partitioning-work) artigo, o contentor tem de ser criado com um débito de 1000 RU/s ou mais (ou partilha de débito num conjunto de contentores), e uma chave de partição tem de ser fornecida. 
+
+* Se criar um contentor com a taxa de transferência inicial maior que ou igual a 1.000 RU/s e fornece uma chave de partição, em seguida, pode tirar partido do dimensionamento ilimitado sem quaisquer alterações ao seu contentor. Que significa que mesmo que cria um **Fixed** contentor, se o contentor inicial é criado com um débito de, pelo menos, 1.000 RU/s e se uma chave de partição for especificada, o contentor age como um contentor ilimitado.
 
 * Todos os contentores configurados para partilhar a taxa de transferência como parte de um conjunto de contentores são tratados como **ilimitado** contentores.
 

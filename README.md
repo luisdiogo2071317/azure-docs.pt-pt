@@ -26,7 +26,7 @@ Siga as instruções fornecidas no [ferramentas de criação de conteúdo de ins
 
 ## <a name="license"></a>Licença
 
-Consulte a [licença](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) e [ThirdPartyNotices](.github/ThirdPartyNotices) para todas as informações de licenciamento.
+Consulte a [licença](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) e [ThirdPartyNotices](.github/ThirdPartyNotices.md) para todas as informações de licenciamento.
 
 ## <a name="code-of-conduct"></a>Código de conduta
 

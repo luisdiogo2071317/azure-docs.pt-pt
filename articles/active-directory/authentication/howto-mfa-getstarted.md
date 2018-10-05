@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e8d4286e282ebbe727941712f3f3c4d3ea749cb5
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 07e9126b73b0282f61567fe8d06f785bf9a04fef
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366595"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803482"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementar com base na cloud do Azure multi-factor Authentication
 
@@ -30,9 +30,9 @@ Antes de começar, certifique-se de que tem os seguintes pré-requisitos:
 
 **Ativado pela política de acesso condicional** -este método é discutido neste artigo. É a maneira mais flexível para ativar a verificação de dois passos para os seus utilizadores. Ativar através da política de acesso condicional só funciona para o Azure MFA na cloud e é uma funcionalidade premium do Azure AD.
 
-Ativada pelo Azure AD Identity Protection – este método utiliza a política de risco do Azure AD Identity Protection para exigir verificação de dois passos com base apenas em risco de início de sessão para todas as aplicações na cloud. Este método requer licenciamento do Azure Active Directory P2. Obter mais informações sobre este método podem ser encontradas na [como configurar a política de risco do utilizador](../identity-protection/howto-user-risk-policy.md).
+**Ativada pelo Azure AD Identity Protection** -este método utiliza a política de risco do Azure AD Identity Protection, para exigir verificação de dois passos com base apenas em risco de início de sessão para todas as aplicações na cloud. Este método requer licenciamento do Azure Active Directory P2. Obter mais informações sobre este método podem ser encontradas na [como configurar a política de risco do utilizador](../identity-protection/howto-user-risk-policy.md).
 
-Ativado por utilizador de alterar estado - este é o método tradicional para exigir a verificação de dois passos. Ele funciona com ambos os Azure MFA na cloud e o servidor MFA do Azure. Ao utilizar este método requer que os usuários realizem a verificação de dois passos **sempre que** que iniciar sessão e substitui as políticas de acesso condicional. Obter mais informações sobre este método podem ser encontradas na [como requerer verificação de dois passos para um utilizador](howto-mfa-userstates.md).
+**Ativado, alterando o estado do utilizador** -este é o método tradicional para exigir a verificação de dois passos. Ele funciona com ambos os Azure MFA na cloud e o servidor MFA do Azure. Ao utilizar este método requer que os usuários realizem a verificação de dois passos **sempre que** que iniciar sessão e substitui as políticas de acesso condicional. Obter mais informações sobre este método podem ser encontradas na [como requerer verificação de dois passos para um utilizador](howto-mfa-userstates.md).
 
 > [!Note]
 > Podem encontrar mais informações sobre preços e licenças no [do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ef2f349333592e05185c5502490828832cb6c24c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 456b60ee44f3e47bc04da341fd0e3df86662d16b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018354"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785448"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 
@@ -34,9 +34,11 @@ O **conversão de voz em texto** API oferece as seguintes funcionalidades:
 
 - Compreensão de linguagem natural. Através da integração com [compreensão de idiomas](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), pode derivar intenções e entidades de voz. Os utilizadores não precisam conhecer o vocabulário da sua aplicação, mas podem descrever o que eles querem em suas próprias palavras.
 
+- Pontuação de confiança é devolvida a resposta do serviço se especificar uma saída detalhada no objeto de configuração de voz (SpeechConfig.OutputFormat propriedade). Em seguida, pode utilizar qualquer um dos métodos de Best() no resultado ou obtê-lo diretamente a pontuação de JSON devolvido do serviço (algo como resultado. Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+
 ## <a name="api-capabilities"></a>Capacidades de API
 
-Muitas das funcionalidades dos **conversão de voz em texto** API - sobretudo em torno da personalização - estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para uma lista completa de capacidades e a API de detalhes, consulte [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Algumas das capacidades do **conversão de voz em texto** API - sobretudo em torno da personalização - estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. 
 
 | Caso de utilização | REST | SDKs |
 |-----|-----|-----|----|

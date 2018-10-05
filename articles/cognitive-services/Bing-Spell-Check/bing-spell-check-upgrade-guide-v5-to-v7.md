@@ -1,21 +1,21 @@
 ---
-title: Atualizar do Bing descrever a API de verificação v5 para v7 | Documentos da Microsoft
+title: Atualizar do Bing descrever a API de verificação v5 para v7
+titlesuffix: Azure Cognitive Services
 description: Identifica as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7DC8FB29-4732-47D8-824B-CF2D7AEBA07B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 305139e45ee93614eab17c5798cb1105e3e8f8cb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcbba21d367b3d40eca72d84a7e2447f78fa57f
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41988480"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801583"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guia de atualização de API de verificação ortográfica
 

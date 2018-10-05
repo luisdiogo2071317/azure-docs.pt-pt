@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434038"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785312"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
@@ -41,19 +41,21 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 No Azure Search, é o conceito de faturação mais importante para compreender um *unidade de pesquisa* (SU). Porque o Azure Search depende de réplicas e partições para a função, ele não faz sentido são faturadas ao apenas um ou outro. Em vez disso, a faturação baseia-se numa composição de ambos. 
 
-Formulaically, um SU é o produto da *réplica* e *partições* utilizado por um serviço: **`(R X P = SU)`**
+SU é o produto da *réplica* e *partições* utilizado por um serviço: **`(R X P = SU)`**
 
-No mínimo, cada serviço é iniciado com 1 SU (uma réplica multiplicada por partição), mas para cargas de trabalho maiores, um modelo mais realista pode ser um serviço de réplica de 3, 3-partition cobrado como 9 SUs. 
+Cada serviço é iniciado com 1 SU (uma réplica multiplicada por partição) como o mínimo. O máximo para qualquer serviço é 36 SUs, o que podem ser conseguidos de várias formas: réplicas de 6 partições x 6 ou réplicas de 3 partições x 12, para citar alguns. 
+
+É comum usar menos do que a capacidade total. Por exemplo, uma réplica de 3, 3-partition service, cobrada como 9 SUs. 
 
 É a taxa de faturação **por hora por SU**, com cada escalão de ter uma taxa de cada vez maior. Escalões superiores são fornecidos com partições maiores e mais veloz, que contribuem para uma taxa por hora geral maior para essa camada. As tarifas baixas para cada camada pode ser encontrada no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/). 
 
-Embora cada escalão oferece a capacidade de cada vez mais elevada, pode colocar um *parte* da capacidade total online, que contém o resto em reserva. Em termos de faturação, é o número de partições e réplicas que colocar online, calculada utilizando a fórmula SU, que determina o que, na verdade, paga.
+A maioria dos clientes trazer apenas uma parte da capacidade total online, que contém o resto em reserva. Em termos de faturação, é o número de partições e réplicas que colocar online, calculada utilizando a fórmula SU, que determina o que pagará, na verdade, numa base horária.
 
 ### <a name="tips-for-reducing-costs"></a>Dicas para reduzir os custos
 
-Não pode encerrar o serviço para reduzir a fatura. Recursos dedicados para as partições e réplicas estão operacionais 24x7, alocado para seu uso exclusivo, durante o ciclo de vida do seu serviço. A única forma de reduzir uma fatura está reduzindo as réplicas e partições para um nível baixo que ainda fornece um desempenho aceitável e [conformidade SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Não pode encerrar o serviço para reduzir a fatura. Recursos dedicados são operacionais 24x7, alocado para seu uso exclusivo, durante o ciclo de vida do seu serviço. A única forma de reduzir uma fatura está reduzindo as réplicas e partições para um nível baixo que ainda fornece um desempenho aceitável e [conformidade SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Outro alavanca para reduzir os custos é escolher uma camada de uma taxa por hora mais baixo. Tarifas à hora de S1 são mais baixas que as taxas de S2 ou S3. Pode aprovisionar um serviço que visa a extremidade inferior do seu projeções de carga. Se ser excedida do serviço, criar um segundo serviço maiores em camadas, recriação dos índices nesse serviço segundo e, em seguida, elimine primeiro. Nos servidores de site, é comum "comprar se" para que pode manipular o crescimento previsto. Mas com um serviço cloud, pode obter poupança de custos de forma mais agressiva, sabendo que pode sempre mudar para um serviço em camadas superior se a atual é insuficiente.
+Uma alavanca para reduzir os custos é escolher uma camada de uma taxa por hora mais baixo. Tarifas à hora de S1 são mais baixas que as taxas de S2 ou S3. Pode aprovisionar um serviço que visa a extremidade inferior do seu projeções de carga. Se ser excedida do serviço, criar um segundo serviço maiores em camadas, recriação dos índices nesse serviço segundo e, em seguida, elimine primeiro. Se o tiver feito planeamento de capacidade nos servidores locais, sabe que é comum "comprar se" para que pode manipular o crescimento previsto. Mas com um serviço em nuvem, pode buscar economias de custo mais agressivamente porque não está limitado a compra de específica. Pode sempre mudar para um serviço em camadas superiores, se o atual não é suficiente.
 
 ### <a name="capacity-drill-down"></a>Capacidade de desagregação
 
@@ -92,7 +94,7 @@ Páginas de portais e preços colocar o foco no tamanho da partição e o armaze
 **S3** e **S3 HD** são apoiadas pela infra-estrutura de capacidade de elevada idênticos, mas cada um atinge o limite máximo de formas diferentes. **S3** destina-se um número menor de índices muito grandes. Como tal, o limite máximo é ligado a recursos (2,4 TB para cada serviço). **S3 HD** destina-se um grande número de índices muito pequenos. Em 1000 índices, **S3 HD** atingir os limites na forma de restrições de índice. Se for um **S3 HD** cliente que requer mais de 1000 índices, entre em contato com Support da Microsoft para obter informações sobre como proceder.
 
 > [!NOTE]
-> Anteriormente, os limites de documento eram uma consideração mas já não são aplicáveis para a maioria dos serviços do Azure Search aprovisionados depois de Janeiro de 2018. Para obter mais informações sobre as condições para os quais os limites de documento ainda se aplicam, consulte [limites de serviço: Documente limites](search-limits-quotas-capacity.md#document-limits).
+> Anteriormente, os limites de documento eram uma consideração mas já não são aplicáveis para os novos serviços. Para obter mais informações sobre as condições sob as quais os limites de documento ainda se aplicam, consulte [limites de serviço: Documente limites](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## <a name="evaluate-capacity"></a>Avaliação da capacidade

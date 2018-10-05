@@ -9,14 +9,14 @@ keywords: funções do azure, funções, processamento de eventos, webhooks, com
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969432"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801310"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
@@ -168,7 +168,7 @@ Esta secção aplica-se apenas às funções 2.x. Extensões de enlace não tem 
 
 Quando criar uma função ou adicionar um enlace, é solicitado quando a extensão para o acionador ou enlace requer o registo. Responder à solicitação clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos num plano de consumo.
 
-Precisa apenas instalar cada extensão de uma vez para uma aplicação de função especificada. 
+Precisa apenas instalar cada extensão de uma vez para uma aplicação de função especificada. Para ligações suportadas que não estão disponíveis no portal ou para atualizar a uma extensão instalada, também pode [manualmente instalar ou atualizar as funções do Azure enlace extensões a partir do portal do](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Local de desenvolvimento de ferramentas de núcleo de funções do Azure
 

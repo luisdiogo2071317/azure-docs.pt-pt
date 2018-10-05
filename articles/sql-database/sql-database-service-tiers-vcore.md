@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 10/04/2018
+ms.openlocfilehash: 9056eb6d93b0ead2a62dc5f58984fa6342af2d8e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407660"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801664"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
@@ -25,7 +25,7 @@ O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computa�
 - Gen 4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
 - Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, o rápido eNVM SSD
 
-modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) para obter poupanças de custos.
+modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos.
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 

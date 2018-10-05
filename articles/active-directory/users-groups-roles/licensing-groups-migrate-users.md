@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 01/14/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 10851990f26124ae89945d4b56058115cacb81ee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37862062"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800745"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Como adicionar os utilizadores licenciados para um grupo para o licenciamento no Azure Active Directory
 
@@ -47,7 +47,7 @@ A coisa mais importante a lembrar é que deve evitar uma situação em que a mig
 
 6. Considere remover as atribuições de diretas originais; poderá fazê-lo gradualmente, em "fases", para monitorizar o resultado num subconjunto de utilizadores em primeiro lugar.
 
-  Poderia deixar as atribuições de diretas originais em utilizadores, mas quando os utilizadores deixam seus grupos licenciados que continua a ter a licença original, o que é, possivelmente, não pretendem que desejar.
+  Poderia deixar as atribuições de diretas originais em utilizadores, mas quando os utilizadores deixam seus grupos licenciados ainda irá reter a licença original, o que é, possivelmente, não o que deseja.
 
 ## <a name="an-example"></a>Um exemplo
 
@@ -87,4 +87,4 @@ Para saber mais sobre outros cenários para gestão de licenças através de gru
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [O Azure Active Directory cenários adicionais de licenciamento baseado no grupo](licensing-group-advanced.md)
+* [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)

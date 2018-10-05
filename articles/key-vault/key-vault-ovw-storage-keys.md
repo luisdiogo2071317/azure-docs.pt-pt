@@ -8,19 +8,19 @@ ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
-ms.date: 08/21/2017
-ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/03/2018
+ms.openlocfilehash: 38717fed9f3877dfd0aa9819571ef0f32befc117
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304327"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785516"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Azure Key Vault
 
-Antes do Azure Key Vault Storage Account Keys, os desenvolvedores tinham de gerir as suas próprias chaves de conta de armazenamento do Azure (ASA) e girá-las manualmente ou através de uma automatização externa. Agora, a chave de Cofre de chaves de conta de armazenamento são implementadas como [segredos do Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticar com uma conta de armazenamento do Azure.
+Antes de chaves de conta de armazenamento do Azure Key Vault, os desenvolvedores tinham de gerenciar suas próprias chaves de conta de armazenamento do Azure (ASA) e girá-las manualmente ou através de uma automatização externa. Agora, a chave de Cofre de chaves de conta de armazenamento são implementadas como [segredos do Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticar com uma conta de armazenamento do Azure.
 
-A funcionalidade de chave de conta de armazenamento do Azure (ASA) gere rotação secreta para. Também remove a necessidade de seu contacto direto com uma chave ASA oferecendo partilhado assinaturas de acesso (SAS) como um método.
+A funcionalidade de chave de conta de armazenamento do Azure (ASA) gere rotação secreta para. Esta operação também remove a necessidade de contacto direto com uma chave ASA, oferecendo partilhado assinaturas de acesso (SAS) como um método.
 
 Para obter mais informações sobre as contas de armazenamento do Azure, consulte [sobre as contas de armazenamento](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -95,28 +95,38 @@ accountSasCredential.UpdateSASToken(sasToken);
 - Não permitir que as chaves do ASA para serem geridas por mais de um objeto do Cofre de chaves.
 - Se precisar de voltar a gerar as chaves ASA manualmente, é recomendável que regenere-los através do Key Vault.
 
-## <a name="getting-started"></a>Introdução
+## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorizar o Key Vault para aceder à sua conta de armazenamento
 
-### <a name="give-key-vault-access-to-your-storage-account"></a>Conceder acesso do Key Vault a sua conta de armazenamento 
+Antes de Key Vault pode aceder e gerir as chaves de conta de armazenamento, tem de autorizar o acesso da sua conta de armazenamento.  Como muitos aplicativos, o Key Vault se integra com o Azure AD para os serviços de gestão de identidades e acessos. 
 
-Como muitos aplicativos, o Cofre de chaves está registado com o Azure AD para utilizar o OAuth para aceder a outros serviços. Durante o registo, [um principal de serviço](/azure/active-directory/develop/app-objects-and-service-principals) objeto for criado, o que é utilizado para representar a identidade da aplicação em tempo de execução. O principal de serviço também é utilizado para autorizar a identidade da aplicação para aceder a outro recurso, por meio do controle de acesso baseado em funções (RBAC).
+Uma vez que o Key Vault é um aplicativo da Microsoft, previamente está registado em todos os inquilinos do Azure AD com o ID de aplicação `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`. E como todos os aplicativos registrados com o Azure AD, uma [principal de serviço](/azure/active-directory/develop/app-objects-and-service-principals) objeto fornece propriedades de identidade da aplicação. O principal de serviço, em seguida, pode ser atribuído da autorização para aceder a outro recurso, por meio do controle de acesso baseado em funções (RBAC).  
 
-A identidade da aplicação do Azure Key Vault tem permissões para *lista* e *voltar a gerar* chaves para a sua conta de armazenamento. Configure estas permissões através dos seguintes passos:
+A aplicação do Azure Key Vault requer permissões para *lista* e *voltar a gerar* chaves para a sua conta de armazenamento. Estas permissões são habilitadas pelo incorporada [serviço de operador de chave de conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role) função RBAC. O principal de serviço de Key Vault é atribuir a esta função através dos seguintes passos:
 
 ```powershell
-# Get the resource ID of the Azure Storage Account you want to manage.
-# Below, we are fetching a storage account using Azure Resource Manager
+# Get the resource ID of the Azure Storage Account you want Key Vault to manage
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get Application ID of Azure Key Vault's service principal
-$servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
-
 # Assign Storage Key Operator role to Azure Key Vault Identity
-New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
+New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
 ```
 
-    >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
+> [!NOTE]
+> Para um tipo de conta clássica, defina o parâmetro de função como *"Clássico conta chave operador função do serviço armazenamento."*
+
+Após a atribuição de função efetuada com êxito, deverá ver um resultado semelhante ao seguinte
+
+```console
+RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
+Scope              : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest
+DisplayName        : Azure Key Vault
+SignInName         :
+RoleDefinitionName : Storage Account Key Operator Service Role
+RoleDefinitionId   : 81a9blll-bebf-436f-a333-f67b29880f1z
+ObjectId           : c730c8da-blll-4032-8ad5-945e9dc8262z
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
 
 ## <a name="working-example"></a>Exemplo de trabalho
 
@@ -124,7 +134,7 @@ O exemplo seguinte demonstra a criação de um cofre de chaves geridas conta de 
 
 ### <a name="prerequisite"></a>Pré-requisito
 
-Certifique-se de que concluiu [configurar permissões de controlo (RBAC) de acesso baseado em funções de](#setup-for-role-based-access-control-rbac-permissions).
+Antes de começar, certifique-se de que [autorizar o Key Vault para aceder à sua conta de armazenamento](#authorize-key-vault-to-access-to-your-storage-account).
 
 ### <a name="setup"></a>Configurar
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: ef70d3d3dd2a806ea978be8e996b7d5ba0fbc96b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586364"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802241"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -319,6 +319,16 @@ Este erro ocorre porque o agente de sincronização de ficheiros do Azure não �
 | **Remediação necessária** | Sim |
 
 Este erro ocorre quando existe um problema com a base de dados interno utilizado pelo Azure File Sync. Quando ocorre este problema, crie um pedido de suporte e Entraremos em contacto consigo para o ajudar a resolver este problema.
+
+<a id="-2134364053"></a>**Não é suportada a versão do agente de sincronização de ficheiros do Azure instalada no servidor.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Cadeia de erro** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Remediação necessária** | Sim |
+
+Este erro ocorre se a versão do agente de sincronização de ficheiros do Azure instalada no servidor não é suportada. Para resolver este problema, [atualizar]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) para um [suportada a versão do agente]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Atingiu o limite de armazenamento da partilha de ficheiros do Azure.**  
 | | |

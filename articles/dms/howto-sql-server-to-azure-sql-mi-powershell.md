@@ -3,7 +3,7 @@ title: Módulo de serviço de migração de base de dados do Azure de utilizaç�
 description: Aprenda a migrar do SQL Server no local ao Azure SQL DB MI com o Azure PowerShell.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 08/13/2018
-ms.openlocfilehash: 7bd7e7a4cb78cf8a9f818936c980b47a2e7865e7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: c8747b7b8125f097fab3752693f4f14440ed7ce7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099953"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804383"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrar o SQL Server no local para a BD SQL do Azure com o Azure PowerShell
 Neste artigo, migra os **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2005 ou superior para uma base de dados do SQL do Azure com o Microsoft Azure PowerShell. Pode migrar bases de dados de uma instância do SQL Server no local para a base de dados do Azure SQL usando o `AzureRM.DataMigration` módulo no Microsoft Azure PowerShell.
@@ -24,9 +24,9 @@ Neste artigo, migra os **Adventureworks2012** base de dados restaurada para uma 
 Neste artigo, vai aprender a:
 > [!div class="checklist"]
 > * Crie um grupo de recursos.
-> * Crie uma instância do serviço de migração de base de dados do Azure.
+> * Criar uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração numa instância de serviço de migração de base de dados do Azure.
-> * Execute a migração.
+> * Executar a migração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir estes passos, terá de:
@@ -175,7 +175,7 @@ Crie a variável que contém o URI de SAS que fornece o serviço de migração d
 $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%3A33Z&se=2019-07-14T18%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=qKlSA512EVtest3xYjvUg139tYSDrasbftY%3D"
 ```
 
-### <a name="select-logins"></a>Selecione os inícios de sessão
+### <a name="select-logins"></a>Selecionar os inícios de sessão
 Criar lista de inícios de sessão a ser migrada, conforme mostrado no exemplo abaixo: tenha em atenção que atualmente suporta DMS migrar apenas inícios de sessão SQL. 
 
 ```powershell

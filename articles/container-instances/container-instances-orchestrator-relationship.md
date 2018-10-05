@@ -1,74 +1,70 @@
 ---
-title: Orquestração de contentor e instâncias de contentor do Azure
-description: Compreenda como Azure contentor de instâncias interajam com orchestrators do contentor.
+title: O Azure Container Instances e orquestração de contentores
+description: Compreenda como o Azure container instâncias interagem com os orquestradores de contentor.
 services: container-instances
 author: seanmck
-manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 10/05/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e1455cba004facfa03dca21544eec754f5dc60be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165566"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803516"
 ---
-# <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contentor do Azure e orchestrators de contentor
+# <a name="azure-container-instances-and-container-orchestrators"></a>O Azure Container Instances e orquestradores de contentor
 
-Devido ao respetivo tamanho pequeno e a orientação de aplicação, os contentores são adequados para ambientes de entrega seja ágil e arquiteturas de microsserviço. A tarefa de automatizar e gerir um grande número de contentores e como eles interagem é conhecida como *orchestration*. Orchestrators contentor populares incluem Kubernetes, DC/OS e Docker Swarm.
+Devido a seu tamanho de pequeno e orientação da aplicação, os contentores são bastante adequados para ambientes de entrega ágil e arquiteturas baseadas em microsserviços. A tarefa de automatizar e gerir um grande número de contentores e como eles interagem é conhecida como *orquestração*. Orquestradores de contentores populares incluem o Kubernetes, DC/OS e Docker Swarm.
 
-Instâncias de contentor do Azure fornece algumas das funcionalidades básicas agendamento das plataformas de orquestração. E, apesar de não abrange os serviços do valor mais alto que fornecem essas plataformas, instâncias de contentor do Azure pode ser complementares aos mesmos. Este artigo descreve o âmbito do que processa as instâncias de contentor do Azure e como completa orchestrators contentor podem interagir com ele.
+O Azure Container Instances oferece algumas das capacidades básicas de agendamento de plataformas de orquestração. E enquanto não abrange os serviços de maior valor que fornecem essas plataformas, o Azure Container Instances pode ser complementar aos mesmos. Este artigo descreve o escopo do que lida com Azure Container Instances e cheio de orquestradores de contentor podem interagir com ele.
 
 ## <a name="traditional-orchestration"></a>Orquestração tradicional
 
-A definição do padrão de orquestração inclui as seguintes tarefas:
+A definição padrão de orquestração inclui as seguintes tarefas:
 
-- **Agendamento**: dada uma imagem de contentor e um pedido de recurso, localizar uma máquina adequada para executar o contentor.
-- **Afinidade/Anti-affinity**: especificar que um conjunto de contentores deverão ser executadas próximas entre si (para um desempenho) ou suficientemente até que ponto apart (para disponibilidade).
-- **Monitorização de estado de funcionamento**: ver para as falhas de contentor e automaticamente reprogramá-los.
-- **Ativação pós-falha**: monitorizar o que está a ser executado em cada máquina e Reprogramar contentores máquinas falhada a nós em bom estado.
-- **Dimensionamento**: Adicionar ou remover instâncias de contentor para corresponder a pedido, manualmente ou automaticamente.
-- **Rede**: forneça uma rede de sobreposição para coordenar a contentores para comunicar entre várias máquinas de anfitrião.
-- **Deteção do serviço**: Ativar contentores localizar entre si automaticamente, mesmo que tal como mover entre computadores anfitriões e alterar os endereços IP.
-- **Coordenado as atualizações de aplicações**: Gerir atualizações do contentor para evitar períodos de indisponibilidade de aplicações e ativar a reversão se algo não bate certo.
+- **Agendamento**: devido uma imagem de contentor e um pedido de recurso, encontrar uma máquina adequada para executar o contentor.
+- **Afinidade/anti-script-affinity**: Especifique que um conjunto de contentores deve ser executado nas proximidades entre si (para o desempenho) ou até o momento suficientemente diferença (para disponibilidade).
+- **Monitorização de estado de funcionamento**: Assista para falhas de contentor e automaticamente reagendá-los.
+- **Ativação pós-falha**: controlar o que está a ser executado em cada máquina e reagendar contentores a partir de máquinas com falhas para nós em bom estado.
+- **Dimensionamento**: Adicionar ou remover instâncias de contentor para corresponder a pedido, manual ou automaticamente.
+- **Funcionamento em rede**: forneça uma rede de sobreposição para a coordenação de contentores para comunicar em várias máquinas de host.
+- **Deteção do serviço**: ativa contentores localizar uns aos outros automaticamente, mesmo quando eles mover entre computadores anfitrião e alterar os endereços IP.
+- **As atualizações de aplicações de coordenada**: Gerir atualizações de contentor para evitar períodos de indisponibilidade de aplicação e ativar a reversão, caso algo corra mal.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com instâncias de contentor do Azure: uma abordagem em camadas
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com o Azure Container Instances: uma abordagem em camadas
 
-Instâncias de contentor do Azure permite uma abordagem em camadas a orquestração, fornecendo todas as capacidades de agendamento e de gestão necessárias para executar um único contentor, permitindo que as plataformas do orchestrator gerir as tarefas de contentor multi seguir.
+Azure Container Instances permite uma abordagem em camadas de orquestração, fornecendo todas as capacidades de agendamento e gestão necessárias para executar um único contentor, permitindo que plataformas do orchestrator gerir as tarefas de vários contentores com base no mesmo.
 
-Porque a infraestrutura subjacente para instâncias de contentor é gerida pelo Azure, uma plataforma do orchestrator não precisa de concern próprio com localizar uma máquina de anfitrião adequado para executar um único contentor. A elasticidade da nuvem garante que uma está sempre disponível. Em vez disso, o orchestrator pode concentrar-se nas tarefas que simplificam o desenvolvimento de arquiteturas de contentor multi, incluindo o dimensionamento e atualizações coordenadas.
+Uma vez que a infraestrutura subjacente para as instâncias de contentor é gerida pelo Azure, uma plataforma do orchestrator não precisa de preocupar com a localização de uma máquina de anfitrião adequado para executar um único contentor. A elasticidade da cloud garante que uma está sempre disponível. Em vez disso, o orchestrator pode concentrar-se nas tarefas que simplificam o desenvolvimento de arquiteturas de vários contentores, incluindo o dimensionamento e atualizações coordenadas.
 
-## <a name="potential-scenarios"></a>Potenciais cenários
+## <a name="potential-scenarios"></a>Cenários potenciais
 
-Enquanto a integração do orchestrator com instâncias de contentor do Azure é ainda nascent, iremos prevê que podem surgir alguns ambientes diferentes:
+Embora seja ainda ser a integração do orchestrator com o Azure Container Instances, prevemos que alguns ambientes diferentes podem surgir:
 
-### <a name="orchestration-of-container-instances-exclusively"></a>Orquestração do contentor de instâncias de forma exclusiva
+### <a name="orchestration-of-container-instances-exclusively"></a>Orquestração do contentor de instâncias exclusivamente
 
-Uma vez que iniciar rapidamente e cobrar pelo segundo, um ambiente com base exclusivamente nas instâncias de contentor do Azure oferece a forma mais rápida para começar a utilizar e para lidar com cargas de trabalho altamente variáveis.
+Porque eles começar rapidamente e são faturadas ao segundo, um ambiente com base exclusivamente no Azure Container Instances oferece a forma mais rápida para começar a utilizar e lidar com cargas de trabalho altamente variáveis.
 
-### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinação de instâncias de contentor e contentores nas máquinas virtuais
+### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinação de instâncias de contentor e contentores em máquinas virtuais
 
-Para cargas de trabalho de longa execução, estáveis, da orquestração contentores num cluster de máquinas virtuais dedicadas é normalmente mais barata que executar os mesmos contentores com instâncias de contentor do Azure. No entanto, as instâncias de contentor oferecem uma excelente solução para rápida expansão e contracting a capacidade de lidar com picos inesperados ou curta duração em utilização geral.
+Para cargas de trabalho de longa execução, estáveis, orquestração de contentores num cluster de máquinas virtuais dedicadas, é normalmente mais barato do que executar os mesmos contentores com o Azure Container Instances. No entanto, as instâncias de contentor proporcionam uma excelente solução para rapidamente expandir e contratar sua capacidade geral para lidar com picos inesperados ou curta duração de utilização.
 
-Em vez de aumentar horizontalmente o número de máquinas virtuais no seu cluster, em seguida, implementar contentores adicionais dessas máquinas, o orchestrator pode simplesmente agendar os contentores adicionais em instâncias de contentor do Azure e eliminá-las quando já não estiverem necessária.
+Em vez de aumentar horizontalmente o número de máquinas virtuais no seu cluster, em seguida, implementar contentores adicionais para essas máquinas, o orchestrator pode simplesmente agendar os contentores adicionais no Azure Container Instances e eliminá-los quando não estiverem mais necessário.
 
-## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Implementação de exemplo: conector de instâncias de contentor do Azure para Kubernetes
+## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Implementação de exemplo: Virtual Kubelet para Kubernetes
 
-Para demonstrar como plataformas de orquestração do contentor podem integrar com instâncias de contentor do Azure, ter iniciamos edifício um [conector de exemplo para Kubernetes][aci-connector-k8s].
+O [Virtual Kubelet] [ aci-connector-k8s] projeto demonstra como integrar as plataformas de orquestração de contentores com o Azure Container Instances.
 
-O conector para Kubernetes mimics o [kubelet] [ kubelet-doc] ao registar como um nó com capacidade ilimitada e emissão a criação de [pods] [ pod-doc] como grupos de contentor em instâncias de contentor do Azure.
+Virtual Kubelet imita do Kubernetes [kubelet] [ kubelet-doc] registrando-se como um nó com capacidade ilimitada e expedir a criação de [pods] [ pod-doc] como grupos de contentores no Azure Container Instances.
 
-Pode ser criados conectores para outras orchestrators que se integram da mesma forma primitivos de plataforma para combinar o poder do orchestrator API com a velocidade e na simplicidade da gestão de contentores em instâncias de contentor do Azure.
-
-> [!WARNING]
-> O conector do ACI para Kubernetes *experimental* e não deve ser utilizado em produção.
+Poderiam ser compilados conectores para outros orquestradores que da mesma forma se integram com primitivos de plataforma para combinar o poder do orquestrador API com a velocidade e a simplicidade da gestão de contentores no Azure Container Instances.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criar o contentor do primeiro com instâncias de contentor Azure utilizando o [guia de introdução ao](container-instances-quickstart.md).
+Crie seu primeiro contentor com o Azure Container Instances utilizando o [guia de início rápido](container-instances-quickstart.md).
 
 <!-- IMAGES -->
 

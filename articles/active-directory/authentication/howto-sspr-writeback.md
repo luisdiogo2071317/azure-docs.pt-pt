@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295823"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801935"
 ---
 # <a name="how-to-configure-password-writeback"></a>Como: Configurar a repetição de escrita de palavra-passe
 
@@ -34,6 +34,12 @@ Os passos seguintes partem do princípio de já ter configurado o Azure AD Conne
 8. Quando vir a configuração a concluir, selecione **Sair**.
 
 Para tarefas de resolução de problemas comuns relacionados com a repetição de escrita de palavra-passe, consulte a secção [resolver problemas de repetição de escrita de palavra-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) no nosso artigo de resolução de problemas.
+
+> [!WARNING]
+> Repetição de escrita de palavra-passe deixarão de funcionar para os clientes que estão a utilizar o Azure AD Connect versões 1.0.8641.0 e mais antigo quando o [o serviço de controlo de acesso do Azure (ACS) é descontinuado a 7 de Novembro de 2018](../develop/active-directory-acs-migration.md). O Azure AD Connect versões 1.0.8641.0 e mais antigos deixará de permitir repetição de escrita de palavra-passe neste momento porque dependem de ACS para obter essa funcionalidade.
+>
+> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## <a name="active-directory-permissions"></a>Permissões do Active Directory
 
@@ -67,7 +73,7 @@ Para configurar as permissões adequadas para a repetição de escrita de palavr
 4. Partir do **permissões** separador, selecione **Add**.
 5. Escolha a conta que as permissões estão a ser aplicadas a (a partir do programa de configuração do Azure AD Connect).
 6. Na **aplica-se ao** na lista pendente, selecione **utilizadores descendentes** objetos.
-7. Sob **permissões**, selecione as caixas para o seguinte:
+7. Sob **permissões**, selecione as caixas para as seguintes opções:
     * **Repor palavra-passe**
     * **Alterar palavra-passe**
     * **Escrever lockoutTime**

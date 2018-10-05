@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 8a26491acc7215598e57ce6074fffe26a4374a96
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251086"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801017"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Proteger serviços da web do Azure Machine Learning com SSL
 
@@ -81,7 +81,7 @@ Para implementar (ou voltar a implementar) o serviço com SSL ativado, defina o 
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Implementar nas matrizes de gama programável de campo (FPGAs)**
++ **Implementar nas matrizes de porta programável por campo (FPGAs)**
 
   A resposta do `create_service` operação contém o endereço IP do serviço. O endereço IP é utilizado quando for mapear o nome DNS para o endereço IP do serviço. A resposta também contém um __chave primária__ e __chave secundária__ que são utilizados para consumir o serviço. Fornece valores para parâmetros relacionados com SSL, conforme mostrado no fragmento de código:
 
@@ -119,7 +119,7 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
   Atualize o DNS no separador "Configuração" das "Endereço IP público" do cluster AKS conforme mostrado na imagem. Pode encontrar o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
-  [ ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png) ] ((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="consume-authenticated-services"></a>Consumir serviços autenticados
 
@@ -131,7 +131,7 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
   + [Como implementar no AKS](how-to-deploy-to-aks.md)
 
-+ **Para o ACI e FPGA**:  
++ **Para FPGA**:  
 
   Os exemplos seguintes demonstram como consumir um serviço FPGA autenticado em Python e c#.
   Substitua `authkey` com a chave primária ou secundária que foi retornada quando o serviço foi implementado.

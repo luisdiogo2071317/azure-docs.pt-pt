@@ -12,19 +12,19 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 698fafac771c79bf014d6e9492c8ca22d1c31b47
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018290"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784983"
 ---
 # <a name="what-is-a-managed-instance"></a>O que é uma instância gerida?
 
 Instância de gerida de base de dados de SQL do Azure é um novo modelo de implementação do Azure SQL Database, fornecendo quase 100% de compatibilidade com o mais recente do SQL Server no local (Enterprise Edition) motor de base de dados, fornecendo um nativo [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) implementação que resolva problemas de segurança comuns, e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server levantar e deslocar as suas aplicações no local para a cloud com alterações mínimas de aplicativo e a base de dados. Ao mesmo tempo, a instância gerida preserva todos os recursos de PaaS (atualizações automáticas de aplicação de patches e de versão, [cópias de segurança automatizadas](sql-database-automated-backups.md), [elevada disponibilidade](sql-database-high-availability.md) ), que reduz significativamente a sobrecarga de gerenciamento e o custo total de propriedade.
 
 > [!IMPORTANT]
-> Para obter uma lista das regiões nas quais a Instância Gerida está atualmente disponível, consulte [Migrar as bases de dados para um serviço completamente gerido com Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> Para obter uma lista de regiões em que a instância gerida está atualmente disponível, consulte [regiões suportadas](sql-database-managed-instance-resource-limits.md#supported-regions).
  
 O diagrama seguinte descreve as principais funcionalidades de instância gerida:
 
@@ -41,7 +41,7 @@ Para decidir entre o Azure SQL da base de dados única base de dados, instância
 Instância de gerida de base de dados de SQL do Azure combina os melhores recursos que estão disponíveis no Azure SQL Database e o motor de base de dados do SQL Server.
 
 > [!IMPORTANT]
-> Executa uma instância gerida com todas as funcionalidades da versão mais recente do SQL Server, incluindo operações online, correções de planos automática e outros aprimoramentos de desempenho do enterprise. 
+> Executa uma instância gerida com todas as funcionalidades da versão mais recente do SQL Server, incluindo operações online, correções de planos automática e outros aprimoramentos de desempenho do enterprise. Uma comparação dos recursos disponíveis é explicada na [comparação de funcionalidades: base de dados do Azure SQL em comparação com o SQL Server](sql-database-features.md).
 
 | **Vantagens de PaaS** | **Continuidade do negócio** |
 | --- | --- |
@@ -49,22 +49,34 @@ Instância de gerida de base de dados de SQL do Azure combina os melhores recurs
 |**Segurança e conformidade** | **Gestão**|
 |Ambiente isolado ([integração VNet](sql-database-managed-instance-vnet-configuration.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados 
 
+Os principais recursos de instância gerida são mostrados na tabela a seguir:
+
+|Funcionalidade | Descrição|
+|---|---|
+| Versão do SQL Server / criar | Motor de base de dados do SQL Server (estável mais recente) |
+| Gerido cópias de segurança automáticas | Sim |
+| Instância incorporada e monitorização de base de dados e métricas | Sim |
+| Aplicação de patches de software automáticas | Sim |
+| As funcionalidades do motor de base de dados mais recentes | Sim | 
+| Número de ficheiros de dados (linhas) pela base de dados | Vários | 
+| Número de ficheiros de registo (registo) por base de dados | 1 | 
+| VNet - implementação do Azure Resource Manager | Sim |
+| VNet - modelo de implementação clássica | Não |
+| Suporte do portal | Sim|
+| Serviço de integração incorporada (SSIS) | Não, o SSIS é uma parte do [PaaS de fábrica de dados do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| Serviço de análise incorporada (SSAS) | Não, o SSAS está separado [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Serviço de relatórios incorporado (SSRS) | Não, utilizar o Power BI ou do IaaS do SSRS |
+|||
+
 ## <a name="vcore-based-purchasing-model"></a>modelo de compra baseado em vCore
 
-O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na instância gerida dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe alterar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware.
-- As CPUs Lógicas de Geração 4 baseiam-se nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz.
-- Geração 5 de CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2,3 GHz.
+No modelo de vCore, pode escolher entre gerações de hardware.
+- **Geração 4** CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) físicas de processadores de 2,4 GHz, SSD anexado, núcleos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
+- **Fins gerais 5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida eNVM SSD, core com hyper-threading de lógica e tamanhos entre 8 e 80 núcleos de computação.
 
-A tabela seguinte ajuda-o a compreender como selecionar a configuração ideal de sua computação, memória, armazenamento e recursos de e/s.
-
-||Geração 4|Geração 5|
-|----|------|-----|
-|Hardware|Intel E5-2673 v3 (Haswell) 2,4 GHz, anexado SSD vCore = 1 PP (núcleos físicos)|Intel E5-2673 v4 (Broadwell) rápida de 2,3 GHz, eNVM SSD, vCore = 1 LP (hyper-thread)|
-|Tamanhos de computação|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
-|Memória|7 GB por vCore|5,5 GB por vCore|
-||||
+Encontrar mais informações sobre a diferença entre gerações de hardware no [limites de recursos de instância gerida](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 ## <a name="managed-instance-service-tiers"></a>Gerido escalões de serviço da instância
 
@@ -83,32 +95,11 @@ A lista seguinte descreve característica-chave da camada de serviços de fins g
 
 - Design para a maioria dos aplicativos de negócios com requisitos de desempenho típico 
 - Armazenamento Premium do Azure de alto desempenho (8 TB) 
-- 100 bases de dados por instância 
+- Incorporado [elevada disponibilidade](sql-database-high-availability.md#standardgeneral-purpose-availability) com base em fiável o armazenamento Premium do Azure e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-A lista seguinte descreve as principais características da camada de serviços de fins gerais:
+Para obter mais informações, consulte [Storate camada no escalão fins gerais](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e [práticas recomendadas de armazenamento e as considerações para o Azure SQL DB instância gerida (fins gerais)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-|Funcionalidade | Descrição|
-|---|---|
-| Número de vCores * | 8, 16, 24 (geração 4)<br>8, 16, 24, 32, 40, 64, 80 (fins 5)|
-| Versão do SQL Server / criar | Motor de base de dados do SQL Server (estável mais recente) |
-| Tamanho de armazenamento min | 32 GB |
-| Tamanho máximo de armazenamento | 8 TB |
-| Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância |
-| IOPS de armazenamento esperado | IOPS de 500-7500 por ficheiro de dados (depende do ficheiro de dados). Consulte [o armazenamento Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
-| Número de ficheiros de dados (linhas) pela base de dados | Vários | 
-| Número de ficheiros de registo (registo) por base de dados | 1 | 
-| Gerido cópias de segurança automáticas | Sim |
-| HA | Dados armazenados no armazenamento do Azure e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Instância incorporada e monitorização de base de dados e métricas | Sim |
-| Aplicação de patches de software automáticas | Sim |
-| VNet - implementação do Azure Resource Manager | Sim |
-| VNet - modelo de implementação clássica | Não |
-| Suporte do portal | Sim|
-|||
-
-\* Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware. Geração 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2,4 GHz e de CPUs lógicas de geração 5 baseiam-se no Intel E5-2673 v4 (Broadwell) 2,3 GHz. 
-
-Para obter mais informações, consulte [disponibilidade de finalidade de Standard/geral e arquitetura](sql-database-high-availability.md#standardgeneral-purpose-availability) na base de dados do Azure SQL e [práticas recomendadas de armazenamento e as considerações para o Azure SQL DB instância gerida (gerais Finalidade)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Encontrar mais informações sobre a diferença entre os escalões de serviço no [limites de recursos de instância gerida](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="business-critical-service-tier-preview"></a>Camada de serviços críticos de negócios (pré-visualização)
 
@@ -117,33 +108,14 @@ Camada de serviços críticos de negócios foi concebida para aplicações com r
 A lista seguinte descreve as principais características da camada de serviços críticos de negócio: 
 -   Concebido para aplicações de negócio com mais elevado desempenho e requisitos de HA 
 -   É fornecido com o armazenamento SSD extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)
--   Suporta até 100 bases de dados por instância 
-- Incorporado só de leitura instância adicional que pode ser utilizada em relatórios e outras cargas de trabalho só de leitura
+- Incorporado [elevada disponibilidade](sql-database-high-availability.md#premiumbusiness-critical-availability) com base nos [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Incorporado adicional [réplica de base de dados só de leitura](sql-database-read-scale-out.md) que pode ser utilizado em relatórios e outras cargas de trabalho só de leitura
 - [OLTP dentro da memória](sql-database-in-memory.md) que podem ser utilizados para a carga de trabalho com requisitos de alta-prefrmance  
-
-|Funcionalidade | Descrição|
-|---|---|
-| Número de vCores * | 8, 16, 24, 32 (geração 4)<br>8, 16, 24, 32, 40, 64, 80 (fins 5)|
-| Versão do SQL Server / criar | SQL Server mais recente (disponível) |
-| Funcionalidades adicionais | [OLTP dentro da memória](sql-database-in-memory.md)<br> 1 réplica só de leitura adicional ([Escalamento leitura](sql-database-read-scale-out.md))
-| Tamanho de armazenamento min | 32 GB |
-| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os tamanhos de vCore)<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 32, 40, 64, 80 vCores</ul>|
-| Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância |
-| Número de ficheiros de dados (linhas) pela base de dados | Vários | 
-| Número de ficheiros de registo (registo) por base de dados | 1 | 
-| Gerido cópias de segurança automáticas | Sim |
-| HA | Dados armazenados em SSD local e o uso [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Instância incorporada e monitorização de base de dados e métricas | Sim |
-| Aplicação de patches de software automáticas | Sim |
-| VNet - implementação do Azure Resource Manager | Sim |
-| VNet - modelo de implementação clássica | Não |
-| Suporte do portal | Sim|
-|||
-
-Para obter mais informações, consulte [disponibilidade Premium comercial crítica e arquitetura](sql-database-high-availability.md#premiumbusiness-critical-availability) na base de dados do Azure SQL.
 
 > [!IMPORTANT]
 > O **críticas para a empresa** escalão de serviço está em pré-visualização.
+
+Encontrar mais informações sobre a diferença entre os escalões de serviço no [limites de recursos de instância gerida](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas 
 

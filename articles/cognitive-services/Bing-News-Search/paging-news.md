@@ -1,27 +1,27 @@
 ---
-title: Como a página através dos artigos de notícias disponíveis | Microsoft Docs
-description: Mostra como a página através de todos os artigos de notícias de última hora que o Bing pode devolver.
+title: Como paginar os artigos de notícias disponíveis - pesquisa de notícias do Bing
+titlesuffix: Azure Cognitive Services
+description: Mostra como paginar através de todos os artigos de notícias nova pesquisa do Bing pode devolver.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2c90d468536f0864d7deac073667e29e9a54692f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fff1da15df2e690cd0b37bb82654a4d30159325a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351464"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803397"
 ---
 # <a name="paging-news"></a>Notícias de paginação
 
-Quando chamar a API de pesquisa de notícias, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número estimado de total de resultados disponíveis, aceder ao objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) campo.  
+Quando chama a API de pesquisa de notícias, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) campo.  
   
-O seguinte exemplo mostra o `totalEstimatedMatches` campo que inclui uma resposta de notícias de última hora.  
+A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma resposta de notícias.  
   
 ```  
 {  
@@ -32,15 +32,15 @@ O seguinte exemplo mostra o `totalEstimatedMatches` campo que inclui uma respost
 }  
 ```  
   
-A página através de artigos disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) e [desvio](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) parâmetros de consulta.  
+Para a página por meio dos artigos disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) parâmetros de consulta.  
   
-O `count` parâmetro especifica o número de resultados para devolver na resposta. O número máximo de resultados pode solicitar na resposta é 100. A predefinição é 10. O número real entregar pode ser inferior a pedido.
+O `count` parâmetro especifica o número de resultados a devolver na resposta. O número máximo de resultados que pode solicitar na resposta é 100. A predefinição é 10. O número real entregue pode ser menor do que o pedido.
 
-O `offset` parâmetro especifica o número de resultados para ignorar. O `offset` é baseado em zero e deve ser inferior a (`totalEstimatedMatches` - `count`).  
+O `offset` parâmetro especifica o número de resultados a ignorar. O `offset` é baseado em zero e deve ser inferior a (`totalEstimatedMatches` - `count`).  
 
-Se pretender apresentar 20 artigos por página, iria definir `count` 20 e `offset` como 0 para obter a primeira página de resultados. Para todas as páginas subsequentes, seria incrementar `offset` por 20 (por exemplo, 20, 40).  
+Se deseja exibir 20 artigos por página, definiria `count` para 20 e `offset` como 0 para obter a primeira página de resultados. Para cada página subsequente, teria de incrementar `offset` por 20 (por exemplo, 20, 40).  
   
-O seguinte mostra um exemplo que os pedidos de 20 novos artigos, começando no desvio 40.  
+O código a seguir mostra um exemplo que solicite 20 artigos de notícias, começando no desvio 40.  
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
@@ -48,7 +48,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
   
-Se a predefinição `count` valor funciona para a implementação, especifique apenas o `offset` parâmetro de consulta, conforme mostrado no exemplo seguinte:  
+Se a predefinição `count` valor funciona para a sua implementação, especifique apenas o `offset` parâmetro de consulta, conforme mostrado no exemplo a seguir:  
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -57,4 +57,4 @@ Host: api.cognitive.microsoft.com
 ```  
   
 > [!NOTE]
-> A paginação aplica-se apenas a pesquisa de notícias (/ notícias de última hora de pesquisa) e não tópicos tendências (notícias/trendingtopics) ou categorias de notícias (/ notícias de última hora).
+> Paginação aplica-se apenas a pesquisa de notícias (/ notícias/search) e não para tópicos em destaque (/ notícias/trendingtopics) ou categorias de notícias (/ notícias).

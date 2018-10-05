@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295840"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804536"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
-Ter o utilitário de redefinir uma senha de com base na cloud é ótimo, mas a maioria das empresas ainda tem um diretório no local em que existem a seus usuários. Como a manutenção de suporte Microsoft tradicional no local do Active Directory (AD) em sincronia com as alterações de palavra-passe na cloud? Repetição de escrita de palavra-passe é uma funcionalidade ativada com [do Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavra-passe na cloud para a repetição de escrita para um diretório no local existente em tempo real.
+Ter uma senha com base na cloud, repor o utilitário é ótimo, mas a maioria das empresas ainda tem um diretório no local em que existem a seus usuários. Como a manutenção de suporte Microsoft tradicional no local do Active Directory (AD) em sincronia com as alterações de palavra-passe na cloud? Repetição de escrita de palavra-passe é uma funcionalidade ativada com [do Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavra-passe na cloud para a repetição de escrita para um diretório no local existente em tempo real.
 
 Repetição de escrita de palavra-passe é suportada em ambientes que usam:
 
 * [Serviços de Federação do Active Directory (AD FS)](../hybrid/how-to-connect-fed-management.md)
 * [Sincronização de hash de palavra-passe](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticação pass-through](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> Repetição de escrita de palavra-passe deixarão de funcionar para os clientes que estão a utilizar o Azure AD Connect versões 1.0.8641.0 e mais antigo quando o [o serviço de controlo de acesso do Azure (ACS) é descontinuado a 7 de Novembro de 2018](../develop/active-directory-acs-migration.md). O Azure AD Connect versões 1.0.8641.0 e mais antigos deixará de permitir repetição de escrita de palavra-passe neste momento porque dependem de ACS para obter essa funcionalidade.
+>
+> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 Fornece a repetição de escrita de palavra-passe:
 

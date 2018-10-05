@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2d13a409d095bca64da781e5c5ca58553f9710c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048012"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785329"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
-Controlo de origem permite-lhe manter os runbooks na sua automação de conta são atualizados com seus scripts no seu repositório de controle de origem GitHub ou operações de programação do Azure. Controlo de origem permite-lhe facilmente colaborar com sua equipe, controlar as alterações e reverta para versões anteriores dos seus runbooks. Por exemplo, o controle de origem permite-lhe sincronizar ramificações diferentes no controle de origem para os desenvolvimento, teste ou produção as contas de automatização, que facilita a promover o código que foi testado no seu ambiente de desenvolvimento para a produção de automatização conta.
+Controlo de origem permite-lhe manter os runbooks na sua automação de conta são atualizados com seus scripts no seu repositório de controle de origem GitHub ou operações de programação do Azure. Controlo de origem permite-lhe facilmente colaborar com sua equipe, controlar as alterações e reverta para versões anteriores dos seus runbooks. Por exemplo, o controlo de origem permite-lhe sincronizar ramificações diferentes no controle de origem para as contas de automatização de desenvolvimento, teste ou produção. Isto torna mais fácil promover o código que foi testado em seu ambiente de desenvolvimento para a sua conta de automatização de produção.
 
 A automatização do Azure suporta 3 tipos de controle de origem:
 
@@ -29,6 +29,7 @@ A automatização do Azure suporta 3 tipos de controle de origem:
 ## <a name="pre-requisites"></a>Pré-requisitos
 
 * Um repositório de controle de origem (GitHub ou o Visual Studio Team Services)
+* O correto [permissões](#personal-access-token-permissions) para o repositório de controle de origem
 * A [Run-As contas e de conexão](manage-runas-account.md)
 
 > [!NOTE]
@@ -40,7 +41,7 @@ Na sua conta de automatização, selecione **controlo de origem (pré-visualiza�
 
 ![Selecione o controlo de origem](./media/source-control-integration/select-source-control.png)
 
-Escolher **tipo de controlo de origem** , clique em **Authenticate**.
+Escolher **tipo de controlo de origem**, clique em **Authenticate**.
 
 Reveja a página de permissões de pedido de aplicação e clique em **Accept**.
 
@@ -49,8 +50,8 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 |Propriedade  |Descrição  |
 |---------|---------|
 |Nome do controlo de origem     | Um nome amigável para o controle de origem        |
-|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (TFVC)        |
-|Repositório     | O nome do repositório ou projeto. Isso é obtido a partir do repositório de controle de origem. Exemplo: $/ ContosoFinanceTFVCExample         |
+|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Repositório     | O nome do repositório ou projeto. Este valor é extraído do repositório de controle de origem. Exemplo: $/ ContosoFinanceTFVCExample         |
 |Ramo     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks para sincronizar. Exemplo: /Runbooks         |
 |Sincronização automática     | Folheio ou desativar a sincronização automática quando uma consolidação é efetuada no repositório de controle de origem         |
@@ -61,13 +62,13 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 
 ## <a name="syncing"></a>A sincronizar
 
-Se a sincronização automática foi definida durante a configuração de integração de controlo de origem, a sincronização inicial seria iniciado automaticamente. Se não foi definida a sincronização automática, selecione a origem da tabela no **(pré-visualização) de controle de fonte** página. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.  
+Configurar autosync quando configurar a integração do controlo de origem, a sincronização inicial é iniciado automaticamente. Se não foi definida a sincronização automática, selecione a origem da tabela no **(pré-visualização) de controle de fonte** página. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.  
 
 Pode ver o estado da tarefa de sincronização atual ou aqueles anteriores ao clicar o **tarefas de sincronização** separador. Sobre o **controlo de origem** pendente, selecione um controlo de origem.
 
 ![Estado da sincronização](./media/source-control-integration/sync-status.png)
 
-Clicar numa tarefa permite-lhe ver o resultado da tarefa. Segue-se um exemplo da saída de uma tarefa de sincronização de controlo de origem.
+Clicar numa tarefa permite-lhe ver o resultado da tarefa. O exemplo seguinte é a saída de uma tarefa de sincronização de controlo de origem.
 
 ```output
 ========================================================================================================
@@ -101,6 +102,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## <a name="personal-access-token-permissions"></a>Permissões de token de acesso pessoal
+
+Controlo de origem requer algumas permissões mínimas para tokens de acesso pessoal. As tabelas seguintes incluem as permissões mínimas necessárias para o GitHub e do Azure DevOps.
+
+### <a name="github"></a>GitHub
+
+|Âmbito  |Descrição  |
+|---------|---------|
+|**repo** (repositório)     |         |
+|Estado de repositório:     | Estado de consolidação de acesso         |
+|repo_deployment      | Estado de implementação de acesso         |
+|public_repo     | Repositórios públicos de acesso         |
+|**Admin: repo_hook**     |         |
+|escrita: repo_hook     | Escrever ganchos de repositório         |
+|leitura: repo_hook|Leia os ganchos de repositório|
+
+### <a name="azure-devops"></a>DevOps do Azure
+
+|Âmbito  |
+|---------|
+|Código (ler)     |
+|Projeto e a equipa (ler)|
+|Identidade (ler)      |
+|Perfil de utilizador (leitura)     |
+|Itens de trabalho (ler)    |
+|Ligações de serviço (leitura, consultar e gerir)<sup>1</sup>    |
+
+<sup>1</sup>a permissão de ligações de serviço só é necessário se tiver ativado o autosync.
 
 ## <a name="disconnecting-source-control"></a>A desligar o controlo de origem
 
