@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036961"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830995"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Apresenta uma lista de frase de utilização para o sinal de aumento de lista de palavras
 
@@ -46,7 +46,7 @@ Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a precisão
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Pode editar, eliminar ou desativar uma lista de frase nas reticências (***...*** ) botão no final da linha da lista de frase eac.
+> Pode eliminar ou desativar uma lista de frase da barra de ferramentas contextual sobre o **frase listas** página.
 
 ## <a name="pattern-regular-expression-feature"></a>Funcionalidade do padrão (expressão regular) 
 **Esta funcionalidade foi preterida**. Não não possível adicionar novos recursos de padrão LUIS. Todos os recursos padrão existentes são suportados até Maio de 2018. Contribuir para a expressão regular padrão do LUIS, correspondência com um pedido Pull para o [repositório do Github de texto reconhecedores](https://github.com/Microsoft/Recognizers-Text). 

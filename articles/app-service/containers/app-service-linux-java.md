@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803040"
+ms.locfileid: "48815176"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -216,14 +216,18 @@ Para recursos partilhados de ao nível do servidor:
 
 4. Certifique-se de que os ficheiros de controlador JDBC estão disponíveis para o classloader Tomcat, colocando-os no `/home/tomcat/lib` diretório. Para carregar esses arquivos à sua instância do serviço de aplicações, execute os seguintes passos:  
     1. Instale a extensão de webpp do App Service do Azure:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Execute o seguinte comando da CLI para criar um túnel SSH do seu sistema local no serviço de aplicações:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Ligue à porta de túnel local com o cliente SFTP e carregar os ficheiros `/home/tomcat/lib`.
+
+    3. Ligue à porta de túnel local com o cliente SFTP e carregar os ficheiros para o `/home/tomcat/lib` pasta.
 
 5. Reinicie a aplicação do Linux do serviço de aplicações. Tomcat redefinirá `CATALINA_HOME` para `/home/tomcat` e usar as classes e a configuração atualizada.
 

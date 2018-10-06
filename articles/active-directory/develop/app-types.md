@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959959"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816349"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na versão 1.0
 
@@ -69,7 +69,7 @@ Para obter detalhes, saiba como [registar uma aplicação com o ponto de final d
 Aprovisionamento ficará mais claro quando compreender o que há duas categorias de aplicações que podem ser desenvolvidas e integradas com o Azure AD:
 
 * **Única aplicação de inquilino** -uma aplicação de inquilino único destina-se a utilização de uma organização. São, normalmente, linha de negócio (LoB) aplicativos escritos por um programador empresarial. Uma aplicação de inquilino individual apenas tem de ser acedidos por utilizadores num diretório e, assim, ele só precisa ser aprovisionado num diretório. Esses aplicativos são, normalmente, registados por um desenvolvedor na organização.
-* **Aplicação multi-inquilino** -uma aplicação multi-inquilino destina-se para uso em muitas organizações, não apenas uma organização. Estas são normalmente software-como-serviço (SaaS) aplicações escritas por um fabricante de software independente (ISV). Aplicações de multi-inquilinos tem de ser aprovisionado em cada diretório em que serão utilizadas, necessita de consentimento do utilizador ou administrador para registá-los. Este processo de consentimento é iniciado quando uma aplicação foi registrada no diretório e é dado acesso para a Graph API ou talvez outro web API. Quando um utilizador ou administrador a partir de uma organização diferente se inscreve para utilizar a aplicação, é-lhes apresentada uma caixa de diálogo que apresenta as permissões que o aplicativo requer. O utilizador ou administrador pode, em seguida, autorizar o aplicativo, que dá à aplicação acesso aos dados declarados e, finalmente, regista o aplicativo em seu diretório. Para obter mais informações, consulte [descrição geral da estrutura de consentimento](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework).
+* **Aplicação multi-inquilino** -uma aplicação multi-inquilino destina-se para uso em muitas organizações, não apenas uma organização. Estas são normalmente software-como-serviço (SaaS) aplicações escritas por um fabricante de software independente (ISV). Aplicações de multi-inquilinos tem de ser aprovisionado em cada diretório em que serão utilizadas, necessita de consentimento do utilizador ou administrador para registá-los. Este processo de consentimento é iniciado quando uma aplicação foi registrada no diretório e é dado acesso para a Graph API ou talvez outro web API. Quando um utilizador ou administrador a partir de uma organização diferente se inscreve para utilizar a aplicação, é-lhes apresentada uma caixa de diálogo que apresenta as permissões que o aplicativo requer. O utilizador ou administrador pode, em seguida, autorizar o aplicativo, que dá à aplicação acesso aos dados declarados e, finalmente, regista o aplicativo em seu diretório. Para obter mais informações, consulte [descrição geral da estrutura de consentimento](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais durante o desenvolvimento de aplicações de inquilino ou multi-inquilino de único
 

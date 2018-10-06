@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397531"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830978"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O serviço DNS é um serviço de sistema opcional que pode ativar no seu cluster para detetar a outros serviços que utilizam o protocolo DNS. 
@@ -132,7 +132,7 @@ Assim que a aplicação é implementada, a instância de serviço no Explorador 
 
 ![pontos finais de serviço](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-O exemplo seguinte define o nome DNS para um serviço com monitorização de estado para `statefulsvc.app`. O serviço utiliza um esquema de partições com nome. Tenha em atenção que os nomes de partição são minúsculas. Este é um requisito para as partições que vão ser alvo de consultas de DNS Para obter mais informações, consulte [partição de serviço de consultas de DNS de fazer com um estado](#making-dns-queries-on-a-stateful-service-partition).
+O exemplo seguinte define o nome DNS para um serviço com monitorização de estado para `statefulsvc.app`. O serviço utiliza um esquema de partições com nome. Tenha em atenção que os nomes de partição são minúsculas. Este é um requisito para as partições que vão ser alvo de consultas de DNS Para obter mais informações, consulte [partição de serviço de consultas de DNS de fazer com um estado](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -249,7 +249,7 @@ public class ValuesController : Controller
 }
 ```
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 * Para versões de Service Fabric 6.3 e superiores, existe um problema com pesquisas de DNS para nomes de serviço que contém um hífen, o nome de DNS. Para obter mais informações sobre este problema, controlar as seguintes [problema do GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). A atualização em seguida 6.3 surgem uma correção para isso. 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 3c18478fb2996178ee0b75870ce63dfc79ad4c4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054728"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817111"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação de lado do servidor do Azure Cosmos DB: procedimentos armazenados, acionadores de base de dados e UDFs
 
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-O objeto context fornece acesso a todas as operações que podem ser executadas no armazenamento do Cosmos DB, bem como acesso a objetos de solicitação e resposta. Neste caso, utilize o objeto de resposta para definir o corpo de resposta que foi enviado ao cliente. Para obter mais informações, consulte a [documentação do SDK do Azure Cosmos DB JavaScript servidor](https://azure.github.io/azure-cosmosdb-js-server/).  
+O objeto context fornece acesso a todas as operações que podem ser executadas no armazenamento do Cosmos DB, bem como acesso a objetos de solicitação e resposta. Neste caso, utilize o objeto de resposta para definir o corpo de resposta que foi enviado ao cliente. Para obter mais informações, consulte a [referência da API do Azure Cosmos DB JavaScript do lado do servidor](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Vamos expandir este exemplo e adicionar mais funcionalidades relacionadas com a base de dados para o procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e eliminar documentos e anexos na coleção.    
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>Consulta integrada à linguagem JavaScript API
-Além de emitir consultas com a gramática SQL do Azure Cosmos DB, o SDK do lado do servidor permite-lhe executar consultas otimizadas através de uma interface Fluente do JavaScript sem qualquer conhecimento de SQL. A consulta de JavaScript que API permite-lhe criar programaticamente consultas ao transmitir as funções de predicado em função chainable chama, com uma sintaxe familiar do ECMAScript5 built-ins de matriz e bibliotecas JavaScript populares, como Lodash. Consultas são analisadas pelo tempo de execução JavaScript a ser executada com eficiência usando índices do Azure Cosmos DB.
+Para além de emissão de consultas com a gramática SQL do Azure Cosmos DB, o [SDK do lado do servidor](https://azure.github.io/azure-cosmosdb-js-server/) permite-lhe efetuar consultas otimizadas através de uma interface Fluente do JavaScript sem qualquer conhecimento de SQL. A consulta de JavaScript que API permite-lhe criar programaticamente consultas ao transmitir as funções de predicado em função chainable chama, com uma sintaxe familiar do ECMAScript5 built-ins de matriz e bibliotecas JavaScript populares, como Lodash. Consultas são analisadas pelo tempo de execução JavaScript a ser executada com eficiência usando índices do Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (valor de duplo sublinhado) é um alias para `getContext().getCollection()`.
@@ -831,9 +831,8 @@ Depois de ter um ou mais procedimentos armazenados, acionadores e funções defi
 
 Podem também ser as seguintes referências e recursos úteis no seu caminho para saber mais sobre a programação de lado do servidor do Azure Cosmos dB:
 
-* [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Referência da API do Cosmos DB JavaScript do lado do servidor do Azure](https://azure.github.io/azure-cosmosdb-js-server/)
 * [Studio do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Extensibilidade de base de dados seguras e portáteis](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitetura de base de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

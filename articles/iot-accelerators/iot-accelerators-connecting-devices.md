@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: cc2b813efe31822b273a98d21d0dcf0b62385b92
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734306"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829415"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Ligar o seu dispositivo para o acelerador de solução de monitorização remota (Windows)
 
@@ -29,15 +29,15 @@ Para concluir os passos neste guia de procedimentos siga os passos em [configura
 
 ## <a name="view-the-code"></a>Ver o código
 
-O [código de exemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) utilizados neste guia está disponível no repositório do GitHub de SDKs do Azure IoT C.
+O [código de exemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) utilizados neste guia está disponível no repositório do GitHub de SDKs do Azure IoT C.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Baixe o código-fonte e preparar o projeto
 
 Para preparar o projeto, clonar ou transferir os [repositório Azure IoT SDKs de C](https://github.com/Azure/azure-iot-sdk-c) do GitHub.
 
-O exemplo está localizado no **amostras/soluções/remote_monitoring** pasta.
+O exemplo está localizado no **amostras/soluções/remote_monitoring_client** pasta.
 
-Abra o **remote_monitoring.c** de ficheiros a **exemplos/soluções/remote_monitoring** pasta num editor de texto.
+Abra o **remote_monitoring.c** de ficheiros a **exemplos/soluções/remote_monitoring_client** pasta num editor de texto.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -50,7 +50,7 @@ Abra o **remote_monitoring.c** de ficheiros a **exemplos/soluções/remote_monit
 1. No prompt de comando que utilizou para criar a solução, execute:
 
     ```cmd
-    samples\solutions\remote_monitoring\Release\remote_monitoring_client.exe
+    samples\solutions\remote_monitoring_client\Release\remote_monitoring_client.exe
     ```
 
     A consola apresenta as mensagens como:

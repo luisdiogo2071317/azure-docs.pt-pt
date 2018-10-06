@@ -5,21 +5,24 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f1afcbef873e1af4346199c00ee2fadb1ad858
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977303"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830249"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ligar uma conta do Google Cloud Platform
 
 Pode ligar a sua conta do Google Cloud Platform existente ao Cloudyn. Depois de ligar a sua conta ao Cloudyn, dados de utilização e custos estão disponíveis nos relatórios do Cloudyn. Este artigo ajuda-o a configurar e ligar a sua conta Google no Cloudyn.
+
+> [!NOTE]
+> Google modificou a segurança de conta, o que impede que novas ligações de que está a ser estabelecido entre o Cloudyn e Google. Cloudyn continua a recolher dados do Google para os utilizadores que já têm Cloudyn ligado para a Google. No entanto, é possível adicionar novas contas do Google ao Cloudyn atualmente. A equipe do Cloudyn não sabe quando o suporte para adicionar novas contas do Google ao Cloudyn será retomada. Vamos remover esta nota quando sai de suporte.
 
 ## <a name="collect-project-information"></a>Recolher informações do projeto
 

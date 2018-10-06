@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/19/2018
+ms.date: 10/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 903074c78180ab2cd755abcf4207232f2851804e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2dc0f2dea752dd44ab2805a0d6fc0e5517f5c6c
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019698"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48831709"
 ---
 [Os ficheiros do Azure](../articles/storage/files/storage-files-introduction.md) suporta a autenticação com base na identidade através de SMB (Server Message Block) (pré-visualização) por meio [serviços de domínio do Azure Active Directory (Azure AD)](../articles/active-directory-domain-services/active-directory-ds-overview.md). Máquinas de virtuais de Windows (VMs) do seu associados a um domínio podem aceder a partilhas de ficheiros do Azure com [do Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) credenciais. 
 
@@ -23,5 +23,7 @@ Como parte da pré-visualização, ficheiros do Azure também suporta preservand
 
 > [!NOTE]
 > Autenticação do Azure AD através de SMB não é suportada para VMs do Linux para a versão de pré-visualização. Apenas VMs do Windows Server são suportadas.
->
+
+> Autenticação do Azure AD através de SMB não é suportada para máquinas no local a aceder a ficheiros do Azure com o AD ou credenciais do AAD.
+
 > Autenticação do Azure AD está disponível apenas para contas de armazenamento criadas após 24 de Setembro de 2018.

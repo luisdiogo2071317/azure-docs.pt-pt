@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 03f02d9d36ffc6a14334cdcccf2d1455db34e2bc
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249626"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815811"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -70,7 +70,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 - [Autenticação do SQL](#sql-authentication)
 - Autenticação de token do Azure AD application: [principal de serviço](#service-principal-authentication)
-- Autenticação de token do Azure AD application: [geridos identidades para recursos do Azure](#managed-service-identity-authentication)
+- Autenticação de token do Azure AD application: [geridos identidades para recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
@@ -152,7 +152,7 @@ Para utilizar a autenticação de token de aplicação de serviço baseada em pr
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Identidades geridas para a autenticação de recursos do Azure
+### <a name="managed-identity"></a> Identidades geridas para a autenticação de recursos do Azure
 
 Pode ser associada uma fábrica de dados com um [identidade de recursos do Azure gerida](data-factory-service-identity.md) que representa a fábrica específica. Pode utilizar esta identidade de serviço para a autenticação do Azure SQL Data Warehouse. A fábrica designada pode aceder e do armazém de dados de cópia de ou para os seus dados ao utilizar esta identidade.
 

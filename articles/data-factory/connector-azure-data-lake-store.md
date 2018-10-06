@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 932ddf5f377556e815205b7ad34a735815317ac0
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249048"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817029"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Azure Data L
 Consulte as secções seguintes em mais propriedades e exemplos JSON para tipos de autenticação diferentes, respectivamente:
 
 - [Utilizar a autenticação principal de serviço](#using-service-principal-authentication)
-- [Utilizar identidades geridas para a autenticação de recursos do Azure](#using-managed-service-identity-authentication)
+- [Utilizar identidades geridas para a autenticação de recursos do Azure](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>Utilizar a autenticação principal de serviço
 

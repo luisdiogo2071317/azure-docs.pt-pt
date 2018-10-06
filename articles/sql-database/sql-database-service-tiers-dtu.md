@@ -1,6 +1,6 @@
 ---
 title: Escalões de serviço de base de dados SQL do Azure - DTU | Documentos da Microsoft
-description: Saiba mais sobre escalões de serviço para único e de bases de dados do conjunto para fornecer os tamanhos de computação e tamanhos de armazenamento.
+description: Saiba mais sobre escalões de serviço para bases de dados individuais e em pool fornecer os tamanhos de computação e tamanhos de armazenamento.
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,22 +11,25 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162377"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831318"
 ---
-# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Escolher uma camada de serviço baseado em DTU, computação, o tamanho e recursos de armazenamento 
+# <a name="dtu-based-service-tiers"></a>Escalões de serviço baseado em DTU
 
-Escalões de serviço são diferenciados por uma variedade de tamanhos de computação com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Os escalões de serviço oferecem a flexibilidade de alterar os tamanhos de computação sem tempo de inatividade. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
+Escalões de serviço baseado em DTU são diferenciadas por uma variedade de tamanhos de computação com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Os escalões de serviço oferecem a flexibilidade de alterar os tamanhos de computação sem tempo de inatividade. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
 
 > [!IMPORTANT]
-> Instância de gerida de base de dados de SQL, atualmente em pré-visualização pública não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). 
+> Instância de gerida de base de dados de SQL, atualmente em pré-visualização pública não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
 
-## <a name="choosing-a-dtu-based-service-tier"></a>Escolher uma camada de serviço baseado em DTU
+> [!NOTE]
+> Para obter informações sobre escalões de serviço baseado em vCore, consulte [escalões de serviço baseado em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-service-tiers.md).
+
+## <a name="compare-the-dtu-based-service-tiers"></a>Compare os escalões de serviço baseado em DTU
 
 Escolher uma camada de serviço depende principalmente continuidade do negócio, armazenamento e requisitos de desempenho.
 ||Básica|Standard|Premium|
@@ -43,7 +46,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Base de dados DTUS e limites de armazenamento
 
-Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [modelo de compra baseado em DTU](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Básica|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -76,14 +79,17 @@ Computação tamanhos são expressos em termos de unidades de transação de bas
 Características físicas (CPU, memória, e/s) associadas a cada medida DTU são calibradas usando um parâmetro de comparação que simula a carga de trabalho de base de dados do mundo real.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlacionando os resultados do benchmark do desempenho de base de dados do mundo real
+
 É importante compreender que todos os benchmarks são representativas e indicativos apenas. As taxas de transação obtidas com a aplicação de parâmetro de comparação não serão iguais aos que pode ser alcançado com outros aplicativos. O parâmetro de comparação é composto por uma coleção de transação diferentes tipos de executam num esquema que contém uma série de tabelas e os tipos de dados. Embora o benchmark exercita as mesmas operações básicas que são comuns a todas as cargas de trabalho OLTP, não representam qualquer classe específica de banco de dados ou aplicação. O objetivo do parâmetro de comparação é fornecer um guia razoável para o desempenho relativo de uma base de dados que pode ser esperado quando aumentando ou reduzindo entre tamanhos de computação. Na realidade, bases de dados são de tamanhos diferentes e a complexidade, encontram mixes diferentes de cargas de trabalho e irão responder de formas diferentes. Por exemplo, um aplicativo de e/s intensiva pode atingir os limites de e/s mais cedo ou um aplicativo de uso intenso da CPU pode atingir os limites de CPU mais cedo. Não é garantido que qualquer banco de dados específico dimensionará da mesma forma como o parâmetro de comparação em aumento de carga.
 
 O parâmetro de comparação e a sua metodologia são descritas em mais detalhes abaixo.
 
 ### <a name="benchmark-summary"></a>Resumo de benchmark
+
 ASDB mede o desempenho de uma combinação de operações de base de dados básica que ocorrem mais frequentemente em cargas de trabalho (OLTP) de processamento de transações online. Embora o benchmark destina-se com computação de nuvem em mente, o esquema de base de dados, a população de dados e transações foram concebidas para ser amplamente representa os elementos básicos, geralmente utilizados em cargas de trabalho OLTP.
 
 ### <a name="schema"></a>Esquema
+
 O esquema foi concebido para ter suficiente variedade e complexidade para oferecer suporte a uma ampla gama de operações. O parâmetro de comparação é executado numa base de dados composto por seis tabelas. As tabelas caem em três categorias: tamanho fixo, dimensionar e crescer. Existem duas tabelas de tamanho fixo; três tabelas dimensionamento; e uma tabela de cada vez maior. Tabelas de tamanho fixo têm um número constante de linhas. Dimensionamento tabelas têm uma cardinalidade que é proporcional ao desempenho da base de dados, mas não muda durante o benchmark. A tabela de cada vez maior é o tamanho como uma tabela de dimensionamento no carregamento inicial, mas, em seguida, as alterações de cardinalidade no decorrer de executar o benchmark como linhas são inseridas e eliminadas.
 
 O esquema inclui uma combinação de tipos de dados, incluindo o número inteiro, numéricos, de caracteres e de data/hora. O esquema inclui chaves primárias e secundárias, mas não quaisquer chaves externas - ou seja, existem sem restrições de integridade referencial entre tabelas.
@@ -93,6 +99,7 @@ Um programa de geração de dados gera os dados da base de dados inicial. Dados 
 A base de dados tem o tamanho com base no "fator de escala". O fator de dimensionamento (abreviado como SF) determina a cardinalidade da dimensionar e crescer tabelas. Conforme descrito abaixo na secção utilizadores e Pacing, o tamanho da base de dados, número de utilizadores e o desempenho máximo todos Dimensionar em proporção entre si.
 
 ### <a name="transactions"></a>Transações
+
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela abaixo. Cada transação foi concebida para destacar um determinado conjunto de características de sistema na base de dados sistema e de motor de hardware, com alto contraste das outras transações. Essa abordagem torna mais fácil avaliar o impacto de diferentes componentes para o desempenho geral. Por exemplo, a transação "Leitura pesado" produz um número significativo de operações de leitura do disco.
 
 | Tipo de Transação | Descrição |
@@ -108,6 +115,7 @@ A carga de trabalho consiste em nove tipos de transação, conforme mostrado na 
 | Pesado de CPU |SELECIONAR; dentro da memória; carga de CPU relativamente pesada; só de leitura |
 
 ### <a name="workload-mix"></a>Combinação de carga de trabalho
+
 Transações são selecionadas aleatoriamente entre uma distribuição ponderada com a mistura geral seguinte. A mistura geral tem um rácio de leitura/escrita de aproximadamente 2:1.
 
 | Tipo de Transação | % de combinação |
@@ -123,38 +131,41 @@ Transações são selecionadas aleatoriamente entre uma distribuição ponderada
 | Pesado de CPU |10 |
 
 ### <a name="users-and-pacing"></a>Os utilizadores e o ritmo de processamento
+
 A carga de trabalho de parâmetro de comparação é orientada a partir de uma ferramenta que submete transações num conjunto de ligações para simular o comportamento de um número de utilizadores em simultâneo. Embora todas as ligações e transações sejam máquina gerada, para manter a simplicidade nos Referimos a estas ligações como "utilizadores". Embora cada usuário funciona independentemente todos os outros utilizadores, todos os utilizadores executam o mesmo ciclo de passos abaixo:
 
 1. Estabelece uma ligação de base de dados.
 2. Repita até que o indicado para sair:
-   * Selecione uma transação aleatoriamente (a partir de uma distribuição ponderada).
-   * Executar a transação selecionada e medir o tempo de resposta.
-   * Aguarde um atraso de ritmo de processamento.
+   - Selecione uma transação aleatoriamente (a partir de uma distribuição ponderada).
+   - Executar a transação selecionada e medir o tempo de resposta.
+   - Aguarde um atraso de ritmo de processamento.
 3. Feche a ligação de base de dados.
 4. Saída.
 
 O atraso ritmo de processamento (no passo c de 2) está selecionado aleatoriamente, mas com uma distribuição que tenha uma média de segundo 1.0. Assim, a cada utilizador pode, a gerar em média, no máximo uma transação por segundo.
 
 ### <a name="scaling-rules"></a>Regras de dimensionamento
+
 O número de utilizadores é determinado pelo tamanho da base de dados (em unidades de fator de escala). Existe um utilizador para todos os cinco unidades de fator de escala. Devido a atraso o ritmo de processamento, um usuário pode gerar um máximo de uma transação por segundo, em média.
 
 Por exemplo, um-fator de escala de 500 (SF = 500) base de dados terão de 100 utilizadores e pode chegar um ritmo máximo de 100 TPS. Para orientar um TPS maior taxa requer mais usuários e uma base de dados maior.
 
 ### <a name="measurement-duration"></a>Duração de medida
+
 Um parâmetro de comparação válido executar requer uma duração de medição do estado estável de, pelo menos, uma hora.
 
 ### <a name="metrics"></a>Métricas
+
 As métricas chave no benchmark são débito e tempo de resposta.
 
-* O débito é a medida de desempenho essenciais no benchmark. Taxa de transferência é reportada no transações por unidade-de-time, contagem de todos os tipos de transação.
-* Tempo de resposta é uma medida de previsibilidade do desempenho. A restrição de tempo de resposta varia de acordo com a classe de serviço, com mais classes de serviço com um requisito de tempo de resposta mais rigoroso, conforme mostrado abaixo.
+- O débito é a medida de desempenho essenciais no benchmark. Taxa de transferência é reportada no transações por unidade-de-time, contagem de todos os tipos de transação.
+- Tempo de resposta é uma medida de previsibilidade do desempenho. A restrição de tempo de resposta varia de acordo com a classe de serviço, com mais classes de serviço com um requisito de tempo de resposta mais rigoroso, conforme mostrado abaixo.
 
 | Classe de serviço | Medida de débito | Requisito de tempo de resposta |
 | --- | --- | --- |
 | Premium |Transações por segundo |é o percentil 95 0,5 segundos |
 | Standard |Transações por minuto |percentil 90th em segundos 1.0 |
 | Básica |Transações por hora |percentil 80th em segundos 2.0 |
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

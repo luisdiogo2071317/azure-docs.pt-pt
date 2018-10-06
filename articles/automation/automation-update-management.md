@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498543"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816043"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -36,6 +36,8 @@ O diagrama seguinte mostra uma vista conceptual do comportamento e fluxo de dado
 ![Atualizar o fluxo do processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino. Para gerir máquinas num inquilino diferente, tem de integrá-los como [máquinas não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+
+Assim que um CVE versão, demora 2 a 3 horas para o patch seja apresentado para computadores Linux para avaliação.  Para máquinas Windows demora de 12 a 15 horas para o patch a aparecer para avaliação, após ele foi lançado.
 
 Depois que um computador executa uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é realizada a cada 12 horas por predefinição.
 

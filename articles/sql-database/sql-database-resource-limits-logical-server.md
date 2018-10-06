@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: cc18d230850166391bf8135bb0571d14575d51a7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b48c090cc67d4557140b5734f1a5e1f763b271ab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045406"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829568"
 ---
 # <a name="sql-database-resource-limits-for-single-and-pooled-databases-on-a-logical-server"></a>Limites de recursos de base de dados SQL para bases de dados únicos e agrupados num servidor lógico 
 
@@ -78,5 +78,5 @@ Quando se deparar com alta utilização de sessão ou de trabalho, as opções d
 
 - Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
-- Para obter informações sobre DTUs e eDTUs, veja [DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+- Para obter informações sobre DTUs e eDTUs, veja [DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Para obter informações sobre limites de tamanho de tempdb, consulte [TempDB na base de dados do Azure SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

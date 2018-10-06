@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5e8e8d1923caf5f51cffedd6b918dbc617b5c3a9
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785482"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816621"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -32,6 +32,9 @@ Existem dois tipos de contas Run as:
 * **Do Azure conta Run as clássica** -esta conta é utilizada para gerir os recursos de modelo de implementação clássico.
   * Cria um recurso de certificado da Automatização com o nome *AzureClassicRunAsCertificate* na conta de Automatização especificada. O recurso do certificado contém a chave privada do certificado que o certificado de gestão utiliza.
   * Cria um recurso de ligação da Automatização com o nome *AzureClassicRunAsConnection* na conta de Automatização especificada. O recurso de ligação contém o nome da subscrição, o subscriptionid e o nome de recurso do certificado.
+  
+  > [!NOTE]
+  > Subscrições do fornecedor de soluções Cloud (Azure CSP) do Azure suportam apenas o modelo Azure Resource Manager, serviços de não - Azure Resource Manager não estão disponíveis no programa. Quando utilizar uma subscrição do CSP do Azure clássico a conta Run as não criada. A conta Run as Azure ainda é criada. Para saber mais sobre as subscrições de CSP, veja [serviços disponíveis em subscrições de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="permissions"></a>Permissões para configurar contas Run as
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: f3bc64bd010bed9e177fd18cc6cb238b94669248
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8577f8d682ab1d9d60078d246cbced7722116b72
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990240"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829975"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O SDK de .NET do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
@@ -234,19 +234,20 @@ Determina o tamanho máximo em MB é alocado para o armazenamento persistente no
 
 #### <a name="local-forwarder"></a>Reencaminhador local
 
-[Local reencaminhador](https://docs.microsoft.com/azure/application-insights/local-forwarder) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux. 
+[Local reencaminhador](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux. Quando combinadas com o SDK de Java do Application Insights o reencaminhador local fornece suporte completo para [métricas em direto](app-insights-live-stream.md) e amostragem adaptável.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
 <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
 <!-- The properties below are optional. The values shown are the defaults for each property -->
+
 <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
 <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
 </Channel>
 ```
 
-Se estiver a utilizar SpringBoot starter, adicione o seguinte ao ficheiro de configuração (application.properies):
+Se estiver a utilizar SpringBoot starter, adicione o seguinte ao ficheiro de configuração (Application):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

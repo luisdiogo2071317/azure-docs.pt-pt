@@ -12,26 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 2b989fbebe237e4e3746ef2f237193587173dfe4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 12a8b1f43fd822035417096bc21e0e44f574448d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963411"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830640"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) do Azure Monitor para contentores
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
-Se, depois de ativar a monitorização do seu cluster do AKS, decida que já não pretende monitorizá-lo, pode *para anular* utilizando modelos do Azure Resource Manager fornecidos com o cmdlet do PowerShell  **Novo-AzureRmResourceGroupDeployment** ou a CLI do Azure. Um modelo JSON Especifica a configuração para *para anular*. A outra contém valores de parâmetros que pode configurar para especificar o grupo de recurso e o ID de recurso de cluster para AKS que o cluster é implementado no. 
+Se, depois de ativar a monitorização do seu cluster do AKS, decida que já não pretende monitorizá-lo, pode *para anular*.  Este artigo mostra como efetuar este procedimento utilizando a CLI do Azure ou com modelos do Azure Resource Manager fornecidos.  
+
+
+## <a name="azure-cli"></a>CLI do Azure
+Utilize o [az aks disable-complementos](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) comando para desativar o Monitor do Azure para contentores. O comando remove o agente de nós do cluster, não remove a solução ou os dados já recolhidos e armazenados no seu recurso do Log Analytics.  
+
+```azurecli
+az aks disable -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+```
+
+Para voltar a Ativar monitorização do seu cluster, veja [ativar a monitorização com a CLI do Azure](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).
+
+## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
+São fornecido dois modelo Azure Resource Manager para suportar a remoção os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON especificar a configuração para *para anular* e a outra contém valores de parâmetros que pode configurar para especificar o grupo de recurso e o ID de recurso de cluster para AKS que o cluster é implementado no. 
 
 Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
+>[!NOTE]
+>O modelo precisa ser implantado no mesmo grupo de recursos do cluster.
+>
+
 Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.27 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="create-template"></a>Criar o modelo
+### <a name="create-template"></a>Criar o modelo
 
 1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -101,7 +118,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
 5. Guarde este ficheiro como **OptOutParam.json** para uma pasta local.
 6. Está pronto para implementar este modelo. 
 
-## <a name="remove-the-solution-using-azure-cli"></a>Remover a solução com a CLI do Azure
+### <a name="remove-the-solution-using-azure-cli"></a>Remover a solução com a CLI do Azure
 Execute o seguinte comando com a CLI do Azure no Linux para remover a solução e limpar a configuração do seu cluster do AKS.
 
 ```azurecli
@@ -116,7 +133,7 @@ A alteração de configuração pode demorar alguns minutos a concluir. Quando f
 ProvisioningState       : Succeeded
 ```
 
-## <a name="remove-the-solution-using-powershell"></a>Remover a solução com o PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Remover a solução com o PowerShell
 
 Execute os seguintes comandos do PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do seu cluster do AKS.    
 

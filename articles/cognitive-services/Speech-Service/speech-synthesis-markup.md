@@ -1,7 +1,7 @@
 ---
-title: A linguagem de marcação de síntese de voz
+title: Linguagem de marcação de síntese de voz
 description: Usando a linguagem de marcação de síntese de voz para controlar pronúncia e prosody em voz.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a353328983c9a1e9cce2847d600d8bcf409a56f6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 08a09d2091cdf72b6daf8d238eb995d9f4fb8ff8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017470"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814817"
 ---
 # <a name="speech-synthesis-markup-language"></a>Linguagem de marcação de síntese de voz
 
@@ -22,7 +22,7 @@ O Speech Synthesis Markup Language (SSML) é uma linguagem de marcação baseada
 
 Para obter mais informações, consulte [Speech Synthesis Markup Language (SSML) versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) no W3C.
 
-Os exemplos seguintes mostram como utilizar SSML para necessidades comuns de síntese de fala.
+Os exemplos seguintes mostram como utilizar SSML para necessidades comuns de síntese de voz:
 
 ## <a name="add-a-break"></a>Adicionar uma quebra de
 ```xml

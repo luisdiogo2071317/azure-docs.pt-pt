@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2cfdd5b903b8ffd9702745df150fe578d42e5a11
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735837"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816689"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Directory
 
@@ -29,6 +29,10 @@ ms.locfileid: "45735837"
 |  |
 
 Como um administrador de TI, precisa entender como os utilizadores adotam e utilizam as funcionalidades do Azure Active Directory. Isto permite-lhe planear a sua infraestrutura de TI e comunicação para aumentar a utilização e tirar o máximo partido de funcionalidades do Azure AD. Pacote de conteúdos Power BI para o Azure Active Directory dá-lhe a capacidade de analisar mais aprofundadamente os dados para recolher informações mais ricas sobre o que está acontecendo com o seu diretório. Com a integração de APIs do Azure Active Directory para o Power BI, pode transferir o pacote de conteúdos criado previamente e obtenha informações detalhadas sobre todas as atividades dentro do seu Azure Active Directory com a experiência de visualização avançada que o Power BI oferece facilmente. Pode criar o seu próprio dashboard e partilhá-lo facilmente com qualquer pessoa da sua organização. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Precisa de uma licença de premium (P1/P2) do Azure AD para utilizar o pacote de conteúdos. 
 
 ## <a name="install-the-content-pack"></a>Instalar o pacote de conteúdos
 

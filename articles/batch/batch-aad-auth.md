@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577123"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816972"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
@@ -68,7 +68,7 @@ O primeiro passo para utilizar o Azure AD para autenticar está a registar a apl
 
 Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. Em seguida, do Azure AD fornece um ID de aplicação (também chamado de um *ID de cliente*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registar a aplicação do Batch, siga os passos a [adicionar uma aplicação](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) secção [integrar aplicações com o Azure Active Directory][aad_integrate]. Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. Não é necessário ser um ponto final real.
+Para registar a aplicação do Batch, siga os passos a [adicionar uma aplicação](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) secção [integrar aplicações com o Azure Active Directory][aad_integrate]. Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. Não é necessário ser um ponto final real.
 
 Depois de registar a aplicação, verá o ID da aplicação:
 

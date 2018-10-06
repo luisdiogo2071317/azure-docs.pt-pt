@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e604138c35e476d1635cb695923bb7d2b83de82
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432467"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831267"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -135,7 +135,7 @@ Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as
 Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como posso transferir um log de expressões de utilizador?
-Por predefinição, a sua aplicação LUIS regista expressões com dos utilizadores. Para transferir um log das expressões com que os utilizadores enviar para a sua aplicação LUIS, aceda a **as minhas aplicações**e clique nas reticências (***...*** ) na listagem para a sua aplicação. Em seguida, clique em **exportar registos de ponto final**. O registo é formatado como um ficheiro de valores separados por vírgulas (CSV).
+Por predefinição, a sua aplicação LUIS regista expressões com dos utilizadores. Para transferir um log das expressões com que os utilizadores enviar para a sua aplicação LUIS, aceda a **as minhas aplicações**e selecione a aplicação. Na barra de ferramentas contextual, selecione **exportar registos de ponto final**. O registo é formatado como um ficheiro de valores separados por vírgulas (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como posso desativar o registo de expressões com?
 Pode desativar o registo de expressões do utilizador através da definição `log=false` no URL do ponto final que a aplicação cliente utiliza para consulta LUIS. No entanto, a desativação do registo desativa a capacidade da sua aplicação LUIS para sugerir discursos ou melhorar o desempenho com base no [aprendizagem ativa](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se definir `log=false` devido a problemas de privacidade de dados, não é possível transferir um registo dessas expressões de utilizador do LUIS ou utilizar essas expressões de com para melhorar a sua aplicação.

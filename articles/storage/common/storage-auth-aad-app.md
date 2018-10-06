@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1cb66c475f1d0c1b6606db03bfdf4746eeb1bf6b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295777"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816383"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autenticar com o Azure Active Directory a partir de uma aplicação de armazenamento do Azure (pré-visualização)
 
@@ -33,7 +33,7 @@ O primeiro passo para utilizar o Azure AD para autorizar o acesso aos recursos d
 
 Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. O Azure AD, em seguida, fornece um ID de cliente (também chamado de um *ID da aplicação*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID de cliente, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registar a aplicação de armazenamento do Azure, siga os passos a [adicionar uma aplicação](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) secção [integrar aplicações com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. O valor não precisa de ser um ponto final real.
+Para registar a aplicação de armazenamento do Azure, siga os passos a [adicionar uma aplicação](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) secção [integrar aplicações com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. O valor não precisa de ser um ponto final real.
 
 ![Captura de ecrã que mostra como registar a sua aplicação de armazenamento com o Azure AD](./media/storage-auth-aad-app/app-registration.png)
 

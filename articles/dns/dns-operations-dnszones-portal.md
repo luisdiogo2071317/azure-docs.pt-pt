@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954386"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829687"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerir zonas DNS no portal do Azure
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como gerir as suas zonas DNS com o portal do Azure. Tamb�
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Iniciar sessão no portal do Azure
-2. No Hub menu, clique e clique em **criar um recurso > redes >** e, em seguida, clique em **zona DNS** para abrir o painel criar zona DNS.
+2. No Hub menu, navegue para **criar um recurso > redes > zona DNS** para abrir o **criar zona DNS** painel.
 
     ![Zona DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,13 +51,13 @@ Este artigo mostra-lhe como gerir as suas zonas DNS com o portal do Azure. Tamb�
 
 ## <a name="list-dns-zones"></a>Listar zonas DNS
 
-No portal do Azure, navegue até **mais serviços** > **rede** > **zonas DNS**. Cada zona DNS é é próprios recursos, informações como o número de conjuntos de registos e servidores de nomes são visíveis a partir desta vista. A coluna **servidores de nomes** não está na vista predefinida, adicioná-lo clique **colunas**, selecione **servidores de nomes** e clique em **feito**.
+No portal do Azure, navegue até **mais serviços** > **rede** > **zonas DNS**. Cada zona DNS é o seu próprio de recursos e informações como o número de conjuntos de registos e servidores de nomes são visíveis a partir desta vista. A coluna **servidores de nomes** não está no modo de exibição padrão. Para adicioná-lo, clique em **colunas**, selecione **servidores de nomes**e, em seguida, clique em **feito**.
 
 ![listar zonas DNS](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Eliminar uma zona DNS
 
-Navegue para uma zona DNS no portal. Sobre o **zona DNS** painel, clique em **eliminar zona**. São-lhe pedido para confirmar que pretende eliminar a zona DNS. Eliminar uma zona DNS também elimina a todos os registos que estão contidos na zona.
+Navegue para uma zona DNS no portal. Sobre o **zona DNS** painel, clique em **eliminar zona**. Em seguida, é-lhe pedido para confirmar que pretende eliminar a zona DNS. Eliminar uma zona DNS também elimina a todos os registos que estão contidos na zona.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

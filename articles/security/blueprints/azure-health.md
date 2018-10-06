@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214946"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831624"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
 ## <a name="overview"></a>Descrição geral
 
-**O Azure no Security and Compliance Blueprint - dados de estado de funcionamento HIPAA/HITRUST e AI oferece uma implementação de chave na mão de uma solução de PaaS do Azure para demonstrar como em segurança ingerir, armazenar, analisar e interagir com dados de estado de funcionamento enquanto a capacidade de cumprir a conformidade do setor requisitos. O plano gráfico ajuda a acelerar a adoção da cloud e a utilização para os clientes com dados que são controlados.**
+**O Azure no Security and Compliance Blueprint - dados de estado de funcionamento HIPAA/HITRUST e AI oferece uma implementação de chave na mão de uma solução de IaaS e PaaS do Azure para demonstrar como ingerir, armazenar, analisar, interagir, identidade e implantar com segurança soluções com dados de estado de funcionamento ao mesmo tempo a capacidade de cumprir requisitos de conformidade do setor. O plano gráfico ajuda a acelerar a adoção da cloud e a utilização para os clientes com dados que são controlados.**
 
-O Azure no Security and Compliance Blueprint - dados de estado de funcionamento HIPAA/HITRUST e AI esquema fornece ferramentas e orientações para ajudar a implementar um seguro, Health Insurance Portability e Accountability Act (HIPAA) e estado de funcionamento informações Trust Alliance (HITRUST) pronto ambiente de plataforma-como-serviço (PaaS) para ingerir, armazenar, analisar e interagir com os registos médicos pessoais e não pessoais num ambiente de cloud segura e com várias camadas, implementado como uma solução ponto-a-ponto. Ele demonstra uma arquitetura de referência comuns e foi projetado para simplificar a adoção do Microsoft Azure. Esta arquitetura fornecida ilustra uma solução para satisfazer as necessidades das organizações que procuram uma abordagem com base na cloud para reduzir a carga e o custo da implementação.
+O Azure no Security and Compliance Blueprint - dados de estado de funcionamento HIPAA/HITRUST e AI esquema fornece ferramentas e orientações para ajudar a implementar um seguro, Health Insurance Portability e Accountability Act (HIPAA) e estado de funcionamento informações Trust Alliance (HITRUST) pronto ambiente de plataforma-como-serviço (PaaS) para ingerir, armazenar, analisar e interagir com os registos médicos pessoais e não pessoais num ambiente de cloud segura e com várias camadas, implementado como uma solução ponto-a-ponto. 
+
+Solução IaaS demonstrará como migrar uma solução SQL com base no local para o Azure e implementar uma estação de trabalho de acesso privilegiado (PAW) para gerir de forma segura soluções e serviços baseados na nuvem. A base de dados do SQL Server do IaaS adiciona experimentação potencial dados são importados para uma VM de IaaS do SQL e que a VM utiliza MSI autenticados o acesso ao interagir um serviço PaaS de SQL Azure. Ambos os estes demonstra uma arquitetura de referência comuns e foi projetado para simplificar a adoção do Microsoft Azure. Esta arquitetura fornecida ilustra uma solução para satisfazer as necessidades das organizações que procuram uma abordagem com base na cloud para reduzir a carga e o custo da implementação.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Este esquema deve ser usado como uma base modular para os clientes que se ajusta
 
 ## <a name="deploying-the-automation"></a>Implementar a automatização
 
-- Para implementar a solução, siga as instruções fornecidas as orientações de implantação. 
+- Para implementar a solução, siga as instruções fornecidas a [orientações de implantação](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Para obter uma descrição geral de como funciona esta solução, veja este [vídeo](https://aka.ms/healthblueprintvideo) explicar e demonstrar a implementação.
+- Para obter uma descrição geral de como funciona esta solução, veja este [vídeo](https://aka.ms/healthblueprintvideo) explicar e demonstrar a implementação.
 
 - Perguntas frequentes podem ser encontrada na [FAQ](https://aka.ms/healthblueprintfaq) orientações.
 
 -   **Diagrama da arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o esquema e o exemplo a utilizar o cenário de caso.
 
--   **Modelos de implementação**. Nesta implementação, [modelos Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são utilizados para implementar automaticamente os componentes da arquitetura para o Microsoft Azure, especificando os parâmetros de configuração durante a configuração.
-
--   **[Automatizada scripts de implantação](https://aka.ms/healthblueprintdeploy)**. Estes scripts ajudar a implementar a solução. Os scripts são compostas por:
-
-
--   Uma instalação do módulo e [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) script de configuração é utilizada para instalar e certifique-se de que funções de administrador global e de módulos do PowerShell necessários estão configuradas corretamente. 
--   Uma instalação de script do PowerShell é utilizada para implementar a solução, fornecida por meio de um ficheiro. zip que contém um funções pré-criados de demonstração.
+-   [Extensão de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) esta solução demonstra como migrar uma solução SQL com base no local para o Azure e implementar uma estação de trabalho de acesso de Privieged para gerir serviços cloud-bsed e soluções de forma segura. 
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -70,7 +64,7 @@ A arquitetura básica é composta pelos seguintes componentes:
 # <a name="architectural-diagram"></a>Diagrama da arquitetura
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Funções
 

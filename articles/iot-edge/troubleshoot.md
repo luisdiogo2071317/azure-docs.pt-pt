@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6102a6bc28486c24134bbc172b9e8a7e1a61244
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 413b94c1f1845e0dcda54b04882e5d6664b81380
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308042"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815499"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -310,6 +310,20 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Falha do módulo do IoT Edge enviar uma mensagem para o edgeHub com o erro 404
+
+Um personalizado ocorre uma falha do módulo de IoT Edge para enviar uma mensagem para o edgeHub com um 404 `Module not found` erro. O daemon de IoT Edge imprime a mensagem seguinte nos registos: 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### <a name="root-cause"></a>Causa raiz
+O daemon de IoT Edge impõe a identificação de processo para ligar ao edgeHub por motivos de segurança de todos os módulos. Verifica que todas as mensagens sendo enviadas por um módulo é proveniente do id de processo principal do módulo. Se uma mensagem está a ser enviada por um módulo de um id de processo diferente do que inicialmente estabelecido, ele rejeitará a mensagem com uma mensagem de 404 erro.
+
+### <a name="resolution"></a>Resolução
+Certifique-se de que o mesmo id de processo é sempre usado pelo módulo do IoT Edge personalizado para enviar mensagens para o edgeHub. Por exemplo, certifique-se de que `ENTRYPOINT` em vez de `CMD` comando no seu ficheiro do Docker, uma vez que `CMD` irá conduzir a id de um processo para o módulo e outro id de processo para o comando de bash, ao passo que a executar o programa principal `ENTRYPOINT` levará a um id de processo único.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

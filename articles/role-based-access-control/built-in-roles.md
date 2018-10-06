@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410277"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816620"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -786,14 +786,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Descrição** | Permite-lhe gerir fábricas de dados, mas não aceder-lhes. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de função |
+> | Microsoft.Authorization/*/read | Leia as funções e as atribuições de funções. |
 > | Microsoft.DataFactory/dataFactories/* | Criar e gerir fábricas de dados e recursos subordinados dentro dos mesmos. |
 > | Microsoft.DataFactory/factories/* | Criar e gerir fábricas de dados e recursos subordinados dentro dos mesmos. |
-> | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os Estados de disponibilidade para todos os recursos no âmbito especificado. |
+> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtenha ou liste os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte. |
 
 ## <a name="data-lake-analytics-developer"></a>Programador do Data Lake Analytics
 > [!div class="mx-tableFixed"]

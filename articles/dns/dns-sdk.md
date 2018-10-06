@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 14860ae48e520f86ce9d5bea739605d1a4baf0c7
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173198"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829774"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registos com o SDK .NET
 
@@ -33,7 +33,7 @@ Normalmente, o acesso programático a recursos do Azure é concedido através de
 3. Utilizar o Azure RBAC para conceder permissões de "Contribuinte de zona DNS" para o grupo de recursos da conta do principal de serviço ([aqui está como](../role-based-access-control/role-assignments-portal.md).)
 4. Se utilizar o projeto de exemplo do SDK do DNS do Azure, edite o ficheiro de "program.cs" da seguinte forma:
 
-   * Insira os valores corretos para o tenantId, ID de cliente (também conhecido como ID de conta), o segredo (senha da conta do principal de serviço) e subscriptionId conforme descrito no passo 1.
+   * Inserir os valores corretos para o `tenantId`, `clientId` (também conhecido como ID de conta), `secret` (senha da conta do principal de serviço) e `subscriptionId` conforme descrito no passo 1.
    * Introduza o nome do grupo de recursos selecionado na etapa 2.
    * Introduza um nome de zona DNS da sua preferência.
 
@@ -59,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>Inicializar o cliente de gestão de DNS
 
-O *DnsManagementClient* contém os métodos e propriedades necessárias para gerir zonas DNS e conjuntos de registros.  O código a seguir inicia sessão a conta do principal de serviço e cria um objeto de DnsManagementClient.
+O `DnsManagementClient` contém os métodos e propriedades necessárias para gerir zonas DNS e conjuntos de registos.  O código a seguir inicia sessão na conta de principal de serviço e cria um `DnsManagementClient` objeto.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -72,7 +72,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 Para criar uma zona DNS, primeiro um "Zona" objeto é criado para conter os parâmetros de zona DNS. Uma vez que as zonas de DNS não estão ligadas a uma região específica, a localização está definida como 'global'. Neste exemplo, um [do Azure Resource Manager "tag"](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) também é adicionado à zona.
 
-Para realmente criar ou atualizar a zona no DNS do Azure, o objeto de zona que contém os parâmetros de zona é passado para o *DnsManagementClient.Zones.CreateOrUpdateAsyc* método.
+Para realmente criar ou atualizar a zona no DNS do Azure, o objeto de zona que contém os parâmetros de zona é passado para o `DnsManagementClient.Zones.CreateOrUpdateAsyc` método.
 
 > [!NOTE]
 > DnsManagementClient suporta três modos de operação: síncrona ('CreateOrUpdate"), assíncrona ('CreateOrUpdateAsync"), ou assíncronos com acesso à resposta de HTTP ('CreateOrUpdateWithHttpMessagesAsync').  Pode escolher qualquer um desses modos, consoante as suas necessidades de aplicação.
@@ -98,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 Registos DNS são geridos como um conjunto de registos. Um conjunto de registos é um conjunto de registos com o mesmo nome e tipo de registo dentro de uma zona.  O nome do conjunto de registos é relativo ao nome da zona, não o nome DNS completamente qualificado.
 
-Para criar ou atualizar um conjunto de registos, é criado e transmitido para um objeto de parâmetros de "Conjunto de registros" *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. Como com zonas DNS, existem três modos de operação: síncrona ('CreateOrUpdate"), assíncrona ('CreateOrUpdateAsync"), ou assíncronos com acesso à resposta de HTTP ('CreateOrUpdateWithHttpMessagesAsync').
+Para criar ou atualizar um conjunto de registos, é criado e transmitido para um objeto de parâmetros de "Conjunto de registros" `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Como com zonas DNS, existem três modos de operação: síncrona ('CreateOrUpdate"), assíncrona ('CreateOrUpdateAsync"), ou assíncronos com acesso à resposta de HTTP ('CreateOrUpdateWithHttpMessagesAsync').
 
 Tal como acontece com zonas DNS, operações em conjuntos de registos incluem suporte para a simultaneidade otimista.  Neste exemplo, uma vez que forem especificados nem 'If-Match' nem "If-None-Match", o conjunto de registos é sempre criado.  Esta chamada substitui qualquer conjunto com o mesmo nome e tipo de registo nesta zona DNS de registos existente.
 
@@ -122,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>Obtenha as zonas e conjuntos de registos
 
-O *DnsManagementClient.Zones.Get* e *DnsManagementClient.RecordSets.Get* métodos obter zonas individuais e conjuntos de registos, respectivamente. Conjuntos de registros são identificados pelo respetivo tipo, nome e o grupo de recursos e de zona existam na. As zonas são identificadas pelo respetivo nome e o grupo de recursos que existam na.
+O `DnsManagementClient.Zones.Get` e `DnsManagementClient.RecordSets.Get` métodos obter zonas individuais e conjuntos de registos, respectivamente. Conjuntos de registros são identificados pelo respetivo tipo, nome e o grupo de recursos e de zona existam na. As zonas são identificadas pelo respetivo nome e o grupo de recursos que existam na.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
@@ -165,4 +165,4 @@ while (page.NextPageLink != null)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Transfira o [projeto de exemplo do SDK de .NET de DNS do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos de como utilizar o SDK de .NET de DNS do Azure, incluindo exemplos para outros tipos de registos de DNS.
+Transfira o [projeto de exemplo do SDK de .NET de DNS do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos sobre como utilizar o SDK de .NET de DNS do Azure, incluindo exemplos para outros tipos de registos de DNS.

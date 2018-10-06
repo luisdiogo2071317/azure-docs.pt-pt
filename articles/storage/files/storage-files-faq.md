@@ -4,15 +4,15 @@ description: Encontre respostas para perguntas mais frequentes sobre os ficheiro
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1f7fc9916fc856d636b6ad850f831a3235b80632
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 725aa5ff0d5ac0d6760656fc596fe44ca8661d1f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237760"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816128"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -179,7 +179,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="ad-support-regions"></a>
 **É a pré-visualização do Azure AD através de SMB para ficheiros do Azure disponível em todas as regiões do Azure?**
 
-    A pré-visualização está disponível em todas as regiões públicas, exceto para: E.U.A. oeste, E.U.A. oeste 2, Centro-Sul, E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, e.u.a. Centro-Norte, leste da Austrália, Europa Ocidental, Europa do Norte.
+    A pré-visualização está disponível em todas as regiões públicas, exceto para: oeste dos E.U.A., Centro-Sul, E.U.A. Central, Europa Ocidental, Europa do Norte.
 
 * <a id="ad-support-on-premises"></a>
 **Autenticação do Azure AD através de SMB para ficheiros do Azure (pré-visualização) suporta a autenticação com o Azure AD a partir de máquinas no local?**

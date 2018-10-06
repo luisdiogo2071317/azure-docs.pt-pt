@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bf55f4f4aa91efaf1c4512339a6d54f893788bae
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395649"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816757"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de carga com a reposição TCP em inatividade (pré-visualização pública)
 
@@ -43,7 +43,7 @@ Examine cuidadosamente todo o cenário de ponta a ponta para decidir se se benef
 
 ## <a name="enabling-tcp-reset-on-idle-timeout"></a>Ativar a reposição de TCP de mensagens em fila no tempo limite de inatividade
 
-Utilizar a versão 2018-01 07 de API, pode permitir o envio de bidirecional TCP redefine no tempo limite de inatividade numa base por regra:
+A utilizar a versão de 2018-08-01 de API, pode permitir o envio de bidirecional TCP redefine no tempo limite de inatividade numa base por regra:
 
 ```json
       "loadBalancingRules": [

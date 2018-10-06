@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c345235fa16a28877a46d5eaef54093d89ffcdd0
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247999"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815839"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
@@ -35,7 +35,7 @@ Pode definir o débito para um contentor do Azure Cosmos DB ou um conjunto de co
    |Id da base de dados  |  Forneça um nome exclusivo para identificar a sua base de dados. Base de dados é um contentor lógico de uma ou mais coleções. Os nomes das bases de dados devem conter de 1 a 255 carateres e não podem conter /, \\, #, ?, ou um espaço à direita. |
    |ID da coleção  | Forneça um nome exclusivo para identificar a sua coleção. Os IDs das coleções têm os mesmos requisitos em termos de carateres do que os nomes das bases de dados. |
    |Capacidade de armazenamento   | Este valor representa a capacidade de armazenamento da base de dados. Quando aprovisionar o débito de uma coleção individual, a capacidade de armazenamento pode ser **fixo (10 GB)** ou **ilimitado**. Capacidade de armazenamento ilimitada requer que defina uma chave de partição para os seus dados.  |
-   |Débito   | Cada coleção e a base de dados podem ter débito em unidades de pedido por segundo.  Capacidade de armazenamento fixa, débito mínimo é de 400 unidades de pedido por segundo (RU/s), para armazenamento ilimitado mínimo, capacidade de débito é definido para 1000 RU/s.|
+   |Débito   | Cada coleção e a base de dados podem ter débito em unidades de pedido por segundo.  E uma coleção pode corrigir ou capacidade de armazenamento ilimitado. |
 
 6. Depois de introduzir valores para estes campos, selecione **OK** para guardar as definições.  
 

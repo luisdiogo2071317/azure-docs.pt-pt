@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 51dc1280dcc8c47c3cb3ad46fc720e0a38e04b69
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162292"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814445"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Azure Cloud Shell
 
@@ -60,13 +60,13 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 |Categoria   |Nome   |
 |---|---|
 |Ferramentas do Linux            |Bash<br> zsh<br> SH<br> tmux<br> aprofundar<br>               |
-|Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |VIM<br> Nano<br> emacs       |
 |Controlo de origem         |git                    |
 |Ferramentas de compilação            |Tornar<br> Maven<br> npm<br> PIP         |
 |Contentores             |[CLI do docker](https://github.com/docker/cli)/[máquina do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bases de Dados              |Cliente de MySQL<br> PostgreSql client<br> [Utilitário de SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |iPython cliente<br> [Cloud Foundry da CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
+|Outros                  |iPython cliente<br> [Cloud Foundry da CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
 
 ## <a name="language-support"></a>Suporte de idiomas
 

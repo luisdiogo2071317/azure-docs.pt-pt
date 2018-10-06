@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 4f296e2a7e7e205715ab232ef137493adf02e0f1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f14fee349f5b5d88d628d0322e32bedeacd0562f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295619"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816264"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -43,6 +43,13 @@ Para obter resultados mais rápidos, definir o âmbito da pesquisa para Stack Ov
 ```
 
 Em que *{Your termos de pesquisa}* é suas palavras-chave de pesquisa.
+
+## <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
+
+Os clientes do Azure podem criar e gerir pedidos de suporte no portal do Azure.
+
+* [Portal do Azure](https://portal.azure.com)
+* [Portal do Azure para o Governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Publique uma pergunta do Stack Overflow
 

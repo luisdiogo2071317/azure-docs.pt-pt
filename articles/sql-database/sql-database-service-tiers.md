@@ -12,27 +12,28 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/02/2018
-ms.openlocfilehash: 99914fd1fbfb2647f54c8257145132db2c7bf045
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 1bcaceb0f4d96b66d7fd25b1733b3f505316fe5a
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249116"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830560"
 ---
-# <a name="azure-sql-database-purchasing-models-and-resources"></a>Base de dados do SQL do Azure compra de modelos e recursos 
+# <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
-Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dados de PaaS totalmente gerido que se adeque às suas necessidades de desempenho e custo. Consoante o modelo de implementação de base de dados do Azure SQL, pode selecionar o modelo de compra que atende às suas necessidades: 
- - [Servidores lógicos](sql-database-logical-servers.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e um [baseado em vCore modelo de compra](sql-database-service-tiers-vcore.md). Dentro desse modelo de compra, pode escolher [bases de dados únicas](sql-database-single-databases-manage.md) ou [conjuntos elásticos](sql-database-elastic-pool.md).
- - [Instâncias geridas](sql-database-managed-instance.md) na oferta de base de dados do Azure SQL única a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dados de PaaS totalmente gerido que se adeque às suas necessidades de desempenho e custo. Consoante o modelo de implementação de base de dados do Azure SQL, pode selecionar o modelo de compra que atende às suas necessidades:
+
+- [Servidores lógicos](sql-database-logical-servers.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e um [baseado em vCore modelo de compra](sql-database-service-tiers-vcore.md). Dentro desse modelo de compra, pode escolher [bases de dados únicas](sql-database-single-databases-manage.md) ou [conjuntos elásticos](sql-database-elastic-pool.md).
+- [Instâncias geridas](sql-database-managed-instance.md) na oferta de base de dados do Azure SQL única a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Bases de dados de grande escala (pré-visualização)](sql-database-hyperscale.md) estão em pré-visualização pública apenas para bases de dados individuais, utilizando o modelo de compra de vCore. 
+> [Bases de dados de grande escala (pré-visualização)](sql-database-service-tier-hyperscale.md) estão em pré-visualização pública apenas para bases de dados individuais, utilizando o modelo de compra de vCore.
 
 O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compras.
 
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
-|modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Ideal para clientes que desejam simples, pré-configurado opções de recursos.| 
+|modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Ideal para clientes que desejam simples, pré-configurado opções de recursos.| 
 |modelo baseado em vCore|Este modelo permite-lhe escolher independentemente a recursos de computação e armazenamento. Ele também permite-lhe utilizar o Azure Hybrid Benefit para o SQL Server para obter poupanças de custos.|Melhor para os clientes que o valor de flexibilidade, controlo e transparência.|
 ||||  
 
@@ -40,9 +41,10 @@ O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compra
 
 ## <a name="vcore-based-purchasing-model"></a>modelo de compra baseado em vCore 
 
-Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore oferece a flexibilidade, o controle, a transparência de consumo de recursos individuais e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#standardgeneral-purpose-availability) e [crítico para a empresa](sql-database-high-availability.md#premiumbusiness-critical-availability) escalões de serviço para ambos [bases de dados únicas](sql-database-single-database-scale.md), [ instâncias geridas](sql-database-managed-instance.md), e [conjuntos elásticos](sql-database-elastic-pool.md). Para bases de dados individuais, também pode escolher o [Hiperescala (pré-visualização)](sql-database-hyperscale.md) escalão de serviço.
+Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore oferece a flexibilidade, o controle, a transparência de consumo de recursos individuais e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#standardgeneral-purpose-availability) e [crítico para a empresa](sql-database-high-availability.md#premiumbusiness-critical-availability) escalões de serviço para ambos [bases de dados únicas](sql-database-single-database-scale.md), [ instâncias geridas](sql-database-managed-instance.md), e [conjuntos elásticos](sql-database-elastic-pool.md). Para bases de dados individuais, também pode escolher o [Hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md) escalão de serviço.
 
 O modelo de compra baseado em vCore permite que escolha os recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. No modelo de compra baseado em vCore, os clientes pagam pelo:
+
 - Computação (camada de serviços + número de vCores e a quantidade de memória + geração de hardware)
 - Tipo e a quantidade de armazenamento de dados e de registo 
 - Armazenamento de cópias de segurança (RA-GRS) 
@@ -57,7 +59,8 @@ Se a sua base de dados ou conjunto elástico consome mais de 300 conversão de D
 
 As unidades de transação de base de dados (DTU) representa uma medida combinada de CPU, memória, lê e escreve. O modelo de compra baseado em DTU oferece um conjunto de pacotes de recursos de computação pré-configurados e armazenamento para impulsionar diferentes níveis de desempenho do aplicativo incluído. Os clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos a cada mês, pode encontrar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre **básica**, **padrão**, e **Premium** escalões de serviço para ambos [bases de dadosúnicas](sql-database-single-database-scale.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Este modelo de compra não está disponível no [instâncias geridas](sql-database-managed-instance.md).
 
-### <a name="what-are-database-transaction-units-dtus"></a>O que são unidades de transação de base de dados (DTUs)?
+### <a name="database-transaction-units-dtus"></a>Unidades de transação de base de dados (DTUs)
+
 Para uma base de dados SQL do Azure em específico de computação tamanho dentro de um [escalão de serviço](sql-database-single-database-scale.md), Microsoft garante um determinado nível de recursos para essa base de dados (independentemente de qualquer outro banco de dados na cloud do Azure), fornecendo um previsível nível de desempenho. A quantidade de recursos é calculada como um número de unidades de transação de base de dados ou DTUs e é uma medida integrados em recursos de computação, armazenamento e e/s. A relação entre estes recursos foi originalmente determinada por uma [carga de trabalho do OLTP benchmark](sql-database-benchmark-overview.md), projetado para ser típica das cargas de trabalho do mundo real OLTP. Quando a carga de trabalho excede a quantidade de qualquer um desses recursos, o débito é limitados - resultante no tempos limite e desempenho mais lento. Os recursos utilizados pela sua carga de trabalho não afetam os recursos disponíveis para outros bancos de dados do SQL na cloud do Azure e os recursos utilizados por outras cargas de trabalho não afetam os recursos disponíveis para a base de dados SQL.
 
 ![caixa delimitadora](./media/sql-database-what-is-a-dtu/bounding-box.png)
@@ -70,7 +73,8 @@ Para obter informações mais aprofundadas sobre o consumo de recursos (DTUS) da
 - Desagregar os detalhes de uma consulta, ver o texto e o histórico de utilização de recursos.
 - Recomendações que mostram as ações realizadas por de otimização de desempenho de acesso [Assistente de base de dados SQL](sql-database-advisor.md).
 
-### <a name="what-are-elastic-database-transaction-units-edtus"></a>O que são unidades de transação de base de dados elástica (eDTUs)?
+### <a name="elastic-database-transaction-units-edtus"></a>Unidades de transação de base de dados elástica (eDTUs)
+
 Em vez disso, apenas fornecer um conjunto dedicado de recursos (DTUs) que pode não ser sempre necessária para uma base de dados do SQL que estará sempre disponível, pode colocar as bases de dados num [conjunto elástico](sql-database-elastic-pool.md) num servidor de base de dados SQL que partilham um conjunto de recursos entre essas bases de dados. Os recursos partilhados num conjunto elástico são avaliados por unidades de transação de base de dados de elásticas ou eDTUs. Os conjuntos elásticos fornecem uma solução rentável simples para gerir os objetivos de desempenho de várias bases de dados ter variáveis e padrões de utilização imprevisíveis. Um conjunto elástico garante recursos não podem ser consumidos por um banco de dados no agrupamento, enquanto garantir que cada base de dados no conjunto sempre tem uma quantidade mínima de recursos necessários disponíveis. 
 
 ![Introdução à Base de Dados SQL: eDTUs por camada e nível](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
@@ -79,12 +83,13 @@ Um conjunto é atribuído um número definido de eDTUs por um preço definido. D
 
 Podem ser adicionais mais eDTUs a um conjunto existente sem qualquer período de indisponibilidade da base de dados e sem impacto nas bases de dados do conjunto. Do mesmo modo, se as eDTUs adicionais já não forem necessárias, podem ser removidas de um conjunto existente em qualquer momento. Pode adicionar ou subtrair bases de dados para o pool ou limitar a quantidade de eDTUs que uma base de dados pode utilizar com muita carga para reservar eDTUs para outras bases de dados. Se uma base de dados estiver a subutilizar recursos, pode movê-lo para fora do conjunto e configurá-la como uma base de dados com uma quantidade previsível dos recursos necessários.
 
-### <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>Como posso determinar o número de DTUs necessárias para a minha carga de trabalho?
+### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar o número de DTUs necessárias para uma carga de trabalho
+
 Se pretender migrar a carga de trabalho de uma máquina virtual do SQL Server ou no local existente para a Base de Dados SQL do Azure, pode utilizar a [Calculadora de DTUs](http://dtucalculator.azurewebsites.net/) para se aproximar do número de DTUs necessárias. Para uma carga de trabalho de base de dados do Azure SQL existente, pode usar [SQL Database Query Performance Insight](sql-database-query-performance.md) para compreender o consumo de recursos de base de dados (DTUs) para obter informações mais aprofundadas sobre para otimizar a sua carga de trabalho. Também pode utilizar o [sys resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV para ver o consumo de recursos para a última hora. Em alternativa, a exibição de catálogo [resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) mostra o consumo de recursos para os últimos 14 dias, mas a uma fidelidade inferior das médias de cinco minutos.
 
-### <a name="how-do-i-know-if-i-could-benefit-from-an-elastic-pool-of-resources"></a>Como posso saber se poderia beneficiar de um conjunto elástico de recursos?
-Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para um determinado banco de dados, este padrão é caracterizado por uma média de utilização baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
+### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que tiram partido de um conjunto elástico de recursos
 
+Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para um determinado banco de dados, este padrão é caracterizado por uma média de utilização baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

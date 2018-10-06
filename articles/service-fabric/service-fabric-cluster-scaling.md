@@ -1,6 +1,6 @@
 ---
-title: Dimensionamento de clusters Service Fabric do Azure | Microsoft Docs
-description: Saiba mais sobre o dimensionamento de clusters de Service Fabric no ou enviados e ou reduzir verticalmente.
+title: Dimensionamento do Azure Service Fabric cluster | Documentos da Microsoft
+description: Saiba mais sobre o dimensionamento de clusters do Service Fabric no ou horizontalmente e ou reduzir verticalmente.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,96 +14,101 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815652"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Clusters de dimensionamento do Service Fabric
-Um cluster do Service Fabric é um conjunto de ligados à rede de máquinas virtuais ou físicos para o qual os micro-serviços são implementados e geridos. Um computador ou a VM que faz parte de um cluster é designado por um nó. Clusters podem conter potencialmente milhares de nós. Depois de criar um cluster do Service Fabric, pode dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos de nós).  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como o cluster dimensiona, as suas aplicações, dimensionar bem.
+Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Clusters podem conter potencialmente milhares de nós. Depois de criar um cluster do Service Fabric, pode dimensionar o cluster horizontalmente (alterar o número de nós) ou na vertical (alterar os recursos de nós).  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
 
-Dimensionar por que razão o cluster? Aplicações transaccionais alteram ao longo do tempo.  Poderá ter de aumentar os recursos de cluster para cumprir o tráfego de rede ou de carga de trabalho de aplicação maior ou diminuir os recursos do cluster quando ignora a pedido.
+Por que motivo a dimensionar o cluster? Alteram pedidos de aplicações ao longo do tempo.  Poderá ter de aumentar os recursos do cluster para corresponder ao tráfego de rede ou de carga de trabalho de aplicações mais ou diminuir recursos do cluster quando a procura cair.
 
-### <a name="scaling-in-and-out-or-horizontal-scaling"></a>Dimensionamento e terminar ou dimensionamento horizontal
-Altera o número de nós no cluster.  Assim que os novos nós aderirem ao cluster, o [Gestor de recursos do Cluster](service-fabric-cluster-resource-manager-introduction.md) move serviços-lhes que reduz a carga de nós existentes.  Também pode reduzir o número de nós de recursos do cluster não estão a ser utilizado de forma eficiente.  Como nós deixam o cluster, os serviços mover desativar os nós e carga aumenta nos restantes nós.  Reduzir o número de nós num cluster em execução no Azure pode poupar dinheiro, uma vez que lhe pagar para o número de VMs, utilização e não a carga de trabalho nessas VMs.  
+### <a name="scaling-in-and-out-or-horizontal-scaling"></a>Dimensionamento e reduzir ou dimensionamento horizontal
+Altera o número de nós do cluster.  Depois dos novos nós aderirem ao cluster, o [Resource Manager de Cluster](service-fabric-cluster-resource-manager-introduction.md) move serviços-lhes que reduz a carga em nós existentes.  Também pode diminuir o número de nós se não a recursos do cluster estão a ser utilizados com eficiência.  Como nós de deixam o cluster, os serviços sair de nós e carga aumenta em nós restantes.  Reduzindo o número de nós num cluster em execução no Azure pode economizar dinheiro, uma vez que paga o número de VMs que não a carga de trabalho nessas VMS e de utilização.  
 
-- Vantagens: Infinita escala, em teoria.  Se a aplicação foi concebida para escalabilidade, pode ativar o crescimento ilimitado ao adicionar mais nós.  A ferramentas em ambientes de nuvem torna mais fácil adicionar ou remover nós, para que seja fácil ajustar a capacidade e paga apenas os recursos que utilizar.  
-- Desvantagens: Aplicações tem de ser [concebida para escalabilidade](service-fabric-concepts-scalability.md).  Bases de dados de aplicação e persistência podem necessitar de trabalho da arquitetura adicional, bem como dimensionar.  [Coleções fiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços de monitorização de estado de Service Fabric, no entanto, torna mais fácil e dimensionar os dados da aplicação.
+- Vantagens: Dimensionamento infinito, na teoria.  Se seu aplicativo for desenvolvido para escalabilidade, pode ativar o crescimento ilimitado ao adicionar mais nós.  As ferramentas em ambientes de cloud torna mais fácil adicionar ou remover nós, portanto, é fácil de ajustar a capacidade e paga apenas pelos recursos que utilizar.  
+- Desvantagens: Aplicações têm de ser [concebida para escalabilidade e](service-fabric-concepts-scalability.md).  Bases de dados do aplicativo e persistência, podem exigir trabalho adicional de arquitetura para dimensionar também.  [As coleções fiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços de monitorização de estado do Service Fabric, no entanto, torná-lo muito mais fácil de dimensionar os dados da aplicação.
 
 ### <a name="scaling-up-and-down-or-vertical-scaling"></a>Aumentar e reduzir verticalmente ou dimensionamento vertical 
 Altera os recursos (CPU, memória ou armazenamento) de nós no cluster.
-- Vantagens: Software e arquitetura da aplicação permanece igual.
-- Desvantagens: Finita escala, uma vez que existe um limite de quanto pode aumentar os recursos em nós individuais. Período de inatividade, dado que precisará colocar máquinas físicas ou virtuais offline para adicionar ou remover recursos.
+- Vantagens: Software e arquitetura do aplicativo permanece o mesmo.
+- Desvantagens: Finita escala, uma vez que existe um limite quanto pode aumentar os recursos em nós individuais. Tempo de inatividade, uma vez que precisará executar máquinas físicas ou virtuais offline para adicionar ou remover recursos.
 
-## <a name="scaling-an-azure-cluster-in-or-out"></a>Dimensionamento de um cluster do Azure ou reduzir
-Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó, em seguida, pode ser ampliado na ou saída de forma independente, têm conjuntos diferentes de portas abertas e pode ter as métricas de capacidade diferentes. 
+## <a name="scaling-an-azure-cluster-in-or-out"></a>Dimensionar um cluster do Azure dentro ou para fora
+Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó, em seguida, pode ser reduzido horizontalmente ou horizontalmente de forma independente, têm conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. 
 
-Quando o dimensionamento de um cluster do Azure, mantenha as seguintes diretrizes em mente:
-- tipos de nó principal executar cargas de trabalho de produção sempre devem ter cinco ou mais nós.
-- executar cargas de trabalho de produção com monitorização de estado de tipos de nó principal não devem ter sempre cinco ou mais nós.
-- executar cargas de trabalho de produção sem monitorização de estado de tipos de nó principal não devem ter sempre dois ou mais nós.
-- Qualquer tipo de nó de [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de ouro ou Silver deve ter sempre cinco ou mais nós.
-- Não remover aleatórios VM instâncias/nós de um tipo de nó, utilize sempre o conjunto de dimensionamento da máquina virtual escala para baixo de funcionalidade. A eliminação de instâncias de VM aleatórias negativamente pode afetar a capacidade de sistemas de balanceamento de carga corretamente.
-- Se utilizar regras de dimensionamento automático, defina as regras de modo a que o dimensionamento da (remoção de instâncias de VM) é feito um nó de cada vez. Não é seguro dimensionamento pendente mais de uma instância de cada vez.
+Quando dimensionar um cluster do Azure, mantenha as seguintes diretrizes em mente:
+- tipos de nó primário executar cargas de trabalho de produção sempre devem ter cinco ou mais nós.
+- executar cargas de trabalho de produção com monitorização de estado de tipos de nó não primário sempre devem ter cinco ou mais nós.
+- executar cargas de trabalho de produção sem monitoração de estado de tipos de nó não primário devem ter sempre dois ou mais nós.
+- Qualquer tipo de nó de [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Gold ou Silver sempre deve ter cinco ou mais nós.
+- Não remover aleatórios VM instâncias/nós de um tipo de nó, utilize sempre o dimensionamento do conjunto de dimensionamento da máquina virtual para baixo de funcionalidade. A eliminação aleatórias de instâncias de VM pode afetar negativamente a capacidade de sistemas de balanceamento de carga corretamente.
+- Se utilizar regras de dimensionamento automático, defina as regras para que o dimensionamento em (remover instâncias de VM) é feito um nó por vez. Não é seguro reduzir verticalmente mais de uma instância de cada vez.
 
-Uma vez que os tipos de nó de Service Fabric no seu cluster são constituídos por conjuntos de dimensionamento de máquina virtual no back-end, pode [configurar regras de dimensionamento automático ou dimensionar manualmente](service-fabric-cluster-scale-up-down.md) cada conjunto de dimensionamento de máquina virtual/tipo do nó.
+Uma vez que os tipos de nós no cluster do Service Fabric são constituídos por conjuntos de dimensionamento de máquina virtual no back-end, pode [configurar regras de dimensionamento automático ou dimensionar manualmente](service-fabric-cluster-scale-up-down.md) cada conjunto de dimensionamento de máquinas virtuais/tipo do nó.
 
-### <a name="programmatic-scaling"></a>Dimensionamento programático
-Em vários cenários, [dimensionamento de um cluster manualmente ou com regras de dimensionamento automático](service-fabric-cluster-scale-up-down.md) são boas soluções. Para cenários mais avançados, no entanto, estes não podem ser a opção adequada. Desvantagens potenciais para estas abordagens incluem:
+### <a name="programmatic-scaling"></a>Dimensionamento programática
+Em muitos cenários, [um cluster de dimensionamento manualmente ou com regras de dimensionamento automático](service-fabric-cluster-scale-up-down.md) são soluções boa. Para cenários mais avançados, no entanto, podem não ser adequado. Potenciais desvantagens para essas abordagens incluem:
 
-- Dimensionar Manualmente requer a iniciar sessão e explicitamente pedir operações de dimensionamento. Se operações de dimensionamento forem necessárias com frequência, ou em alturas imprevisíveis, esta abordagem não pode ser uma boa solução.
-- Quando as regras de dimensionamento automático remover uma instância de um conjunto de dimensionamento de máquina virtual, estes não remove automaticamente dados de conhecimento desse nó do cluster de Service Fabric associado, a menos que o tipo de nó tem um nível de durabilidade de Silver ou Gold. Porque as regras de dimensionamento automático funcionam em escala definido ao nível (e não ao nível do Service Fabric), as regras de dimensionamento automático podem remover nós de Service Fabric sem encerrado-las sem problemas. Esta remoção de nó grosseiro sair "fantasma" Estado do nó de Service Fabric após operações de escala. Uma pessoa (ou um serviço) teria de limpar periodicamente o estado do nó removido no cluster de Service Fabric.
-- Um tipo de nó com um nível de durabilidade de ouro ou Silver limpa automaticamente removidas nós, pelo que não é necessária nenhuma limpar adicional.
-- Apesar de existirem [métricas muitos](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) suportado pelas regras de dimensionamento automático, é ainda um conjunto limitado. Se o seu cenário chama-se em algum métrica não abrangida desse conjunto de dimensionamento, em seguida, as regras de dimensionamento automático não podem ser uma boa opção.
+- Dimensionar Manualmente requer que inicie sessão e solicitar explicitamente as operações de dimensionamento. Se as operações de dimensionamento são necessárias com frequência, ou em momentos imprevisíveis, essa abordagem pode não ser uma boa solução.
+- Quando as regras de dimensionamento automático remover uma instância de um conjunto de dimensionamento de máquinas virtuais, eles não remove automaticamente conhecimento desse nó de cluster do Service Fabric associado, a menos que o tipo de nó tem um nível de durabilidade de Gold ou Silver. Como regras de dimensionamento automático funcionam no nível de conjunto de dimensionamento (e não ao nível do Service Fabric), regras de dimensionamento automático podem remover nós do Service Fabric sem encerrá-los corretamente. Esta remoção do nó rude deixar "fantasma" Estado de nó do Service Fabric por trás após operações de dimensionamento. Uma pessoa (ou um serviço), seria necessário limpar periodicamente o estado do nó removido no cluster do Service Fabric.
+- Um tipo de nó com um nível de durabilidade de Gold ou Silver limpa automaticamente removidos nós, pelo que não existem limpeza adicional é necessária.
+- Apesar de existirem [diversas métricas](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) suportados pelas regras de dimensionamento automático, ainda é um conjunto limitado. Se o seu cenário chama-se para dimensionamento com base em algumas métrica não abrangida nesse conjunto, em seguida, regras de dimensionamento automático podem não ser uma boa opção.
 
-Como deve abordar o dimensionamento do Service Fabric depende do seu cenário. Se o dimensionamento é invulgar, a capacidade de adicionar ou remover nós manualmente é provavelmente suficiente. Para cenários mais complexos, regras de dimensionamento automático e SDKs exposição a capacidade de dimensionar programaticamente oferecem alternativas poderosas.
+Como deve abordar o dimensionamento do Service Fabric depende do seu cenário. Se o dimensionamento é incomum, a capacidade de adicionar ou remover nós manualmente é provavelmente suficiente. Para cenários mais complexos, regras de dimensionamento automático e SDKs expor a capacidade de dimensionar de forma programática oferecem alternativas poderosas.
 
-As APIs do Azure existem que permitem conjuntos de dimensionamento de aplicações para trabalhar programaticamente com a máquina virtual e clusters do Service Fabric. Se as opções de dimensionamento automático existente não funcionam para o seu cenário, estas APIs possibilitam a implementação da lógica de dimensionamento personalizada. 
+APIs do Azure existem que permitem a clusters do Service Fabric e conjuntos de dimensionamento de aplicações para trabalhar programaticamente com a máquina virtual. Se as opções de dimensionamento automático existente não funcionarem para o seu cenário, essas APIs tornam possível implementar a lógica de dimensionamento personalizada. 
 
-Uma abordagem para implementar esta funcionalidade de dimensionamento automático efetuadas home consiste em Adicionar um novo serviço sem monitorização de estado para a aplicação de Service Fabric para gerir as operações de dimensionamento. A criar os seus próprios de dimensionamento serviço fornece que o mais elevado grau de controlo e customizability através da aplicação do dimensionamento comportamento. Isto pode ser útil para cenários que requerem controlo preciso sobre quando ou como uma aplicação dimensiona de entrada ou saída. No entanto, este controlo é fornecido com um compromisso de complexidade de código. Através desta abordagem significa que terá de próprio código dimensionamento, que é não trivial. No âmbito do serviço `RunAsync` método, um conjunto de acionadores pode determinar se o dimensionamento é necessário (incluindo a verificação de parâmetros, tais como o tamanho máximo do cluster e dimensionamento cooldowns).   
+Uma abordagem para implementar essa funcionalidade de dimensionamento automático feitas home é adicionar um novo serviço sem monitoração de estado para a aplicação do Service Fabric para gerir operações de dimensionamento. Criar a sua própria a dimensionar o serviço fornece que o nível mais alto de controle e capacidade de personalização ao longo do seu aplicativo do dimensionamento comportamento. Isso pode ser útil para cenários que exigem um controlo preciso sobre o quando ou como um aplicativo é dimensionado dentro ou para fora. No entanto, esse controle gera uma compensação de complexidade de código. Usando essa abordagem, significa que precisa para o próprio código dimensionamento, o que não é simples. Dentro do serviço `RunAsync` método, um conjunto de acionadores pode determinar se o dimensionamento é necessário (incluindo a verificação de parâmetros, como o tamanho máximo de cluster e dimensionamento cooldowns).   
 
-A API utilizada para o conjunto de interações de dimensionamento de máquina virtual (ambos para verificar o número atual de instâncias de máquina virtual e modificá-lo) está a [biblioteca de computação de gestão do Azure fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). A biblioteca de computação fluent fornece uma API de fácil utilização para interagir com conjuntos de dimensionamento de máquina virtual.  Para interagir com o próprio cluster do Service Fabric, utilize [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
+A API utilizada para interações de conjunto de dimensionamento de máquina virtual (ambos para verificar o número atual de instâncias de máquina virtual e modificá-la) é o [biblioteca de computação do Azure gestão fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). A biblioteca de computação fluent fornece uma API fácil de usar para interagir com conjuntos de dimensionamento de máquina virtual.  Para interagir com o próprio cluster do Service Fabric, utilize [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
-O código de dimensionamento não tem de ser executado como um serviço no cluster para ser ampliada, embora. Ambos `IAzure` e `FabricClient` pode ligar-se aos respetivos recursos do Azure associados remotamente, pelo que o serviço de dimensionamento pode facilmente uma aplicação de consola ou o serviço Windows, executando a partir de fora da aplicação de Service Fabric.
+O código de dimensionamento não precisa ser executado como um serviço no cluster para ser dimensionada, no entanto. Ambos `IAzure` e `FabricClient` pode ligar-se aos seus recursos do Azure associados remotamente, para que o serviço de dimensionamento pode ser facilmente um aplicativo de console ou o serviço de Windows em execução de fora da aplicação do Service Fabric.
 
-Com base nestas limitações, pode pretender [implementar mais personalizada modelos de dimensionamento automáticos](service-fabric-cluster-programmatic-scaling.md).
+Com base nessas limitações, pode desejar [implemente mais adaptadas modelos de dimensionamento automáticos](service-fabric-cluster-programmatic-scaling.md).
 
 
-## <a name="scaling-a-standalone-cluster-in-or-out"></a>Um cluster autónomo entrada ou saída de dimensionamento
-Clusters autónomos permitem implementar recursos de infraestrutura do serviço cluster no local ou no fornecedor de nuvem da sua preferência.  Tipos de nó são compostos por computadores físicos ou máquinas virtuais, dependendo da sua implementação. Em comparação com clusters em execução no Azure, o processo de dimensionamento de um cluster autónomo é ligeiramente mais envolvido.  Tem de alterar manualmente o número de nós no cluster e, em seguida, executar uma atualização da configuração de cluster.
+## <a name="scaling-a-standalone-cluster-in-or-out"></a>Dimensionar um cluster autónomo dentro ou para fora
+Clusters autónomos permitem implementar o Service Fabric cluster no local ou no fornecedor de cloud à sua escolha.  Tipos de nó são constituídos por máquinas físicas ou máquinas virtuais, dependendo da sua implementação. Em comparação com clusters em execução no Azure, o processo de dimensionar um cluster autónomo é um pouco mais envolvido.  Tem de alterar manualmente o número de nós do cluster e, em seguida, executar uma atualização de configuração de cluster.
 
-Remoção de nós, pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` Etiquetar e podem ser identificados consultando o cluster de manifesto utilizando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Remoção de nós pode demorar mais do que outras pessoas, uma vez que os nós seed tem de ser movidos em torno no tais cenários. O cluster tem de manter um mínimo de três nós de tipo de nó principal.
+Remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` Etiquetar e podem ser identificados através da consulta do cluster através do manifesto [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Remoção desses nós pode demorar mais tempo do que outras pessoas, visto que os nós de semente tem de ser movidos em torno em tais cenários. O cluster tem de manter um mínimo de três nós de tipo de nó primário.
 
-Quando o dimensionamento de um cluster autónomo, mantenha as seguintes diretrizes em mente:
-- A substituição de nós principais deve ser executado um nó após a outra, em vez de remover e, em seguida, adicionar em lotes.
-- Antes de remover um tipo de nó, verifique se existem quaisquer nós a referenciar o tipo de nó. Remova estes nós antes de remover o tipo de nó correspondente. Depois de todos os nós correspondentes são removidos, pode remover o NodeType da configuração do cluster e iniciar uma configuração de fazer a actualização utilizando [início ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
+> [!WARNING]
+> Recomendamos que não a reduzir a contagem de nós seguir a [tamanho do Cluster do escalão de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) para o cluster. Isto irá interferir com a ablility dos serviços de sistema de recursos de infraestrutura do serviço ao ser replicada no cluster e que serão desestabilizar ou, possivelmente, destrua o cluster.
+>
+
+Quando dimensionar um cluster autónomo, mantenha as seguintes diretrizes em mente:
+- A substituição de nós principal deve ser efetuado um nó após a outra, em vez de remover e, em seguida, adicionar em lotes.
+- Antes de remover um tipo de nó, verifique se existem quaisquer nós a referenciar o tipo de nó. Remova estes nós antes de remover o tipo de nó correspondente. Depois de todos os nós correspondentes são removidos, pode remover o NodeType da configuração do cluster e começar a uma configuração de atualizar com o [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
 
 Para obter mais informações, consulte [dimensionar um cluster autónomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
-## <a name="scaling-an-azure-cluster-up-or-down"></a>Aumentar um cluster do Azure ou para baixo
-Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Em seguida, pode ser gerido a cada tipo de nó em separado.  Dimensionamento de um tipo de nó ou reduzir verticalmente envolve a alterar o SKU de instâncias da máquina virtual no conjunto de dimensionamento. 
+## <a name="scaling-an-azure-cluster-up-or-down"></a>Aumentando ou reduzindo, num cluster do Azure
+Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerido separadamente.  Aumentando ou reduzindo, um tipo de nó envolve a alterar o SKU de instâncias da máquina virtual no conjunto de dimensionamento. 
 
 > [!WARNING]
-> Recomendamos que altere o SKU de VM de um tipo de nó/conjunto de dimensionamento, a menos que está a ser executado em [Silver durabilidade ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Alterar tamanho da VM SKU é uma operação de infraestrutura do destrutivas de dados no local. Sem capacidade algum atraso ou monitorizar esta alteração, é possível que a operação pode causar a perda de dados para os serviços com monitorização de estado ou fazer com que outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem monitorização de estado. 
+> Recomendamos que não altere o SKU de VM de um tipo de nó/conjunto de dimensionamento, a menos que ele está em execução no [durabilidade de Silver ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Alterar tamanho da SKU de VM é uma operação de infraestrutura do destrutiva dados no local. Sem capacidade algum atraso ou monitorizar esta alteração, é possível que a operação pode causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem monitorização de estado. 
 >
 
-Quando o dimensionamento de um cluster do Azure, mantenha a orientação seguinte em mente:
-- Se o dimensionamento para baixo de um tipo de nó principal, deve nunca reduzir-verticalmente mais de que o [escalão de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) permite.
+Quando dimensionar um cluster do Azure, considere a diretriz seguinte:
+- Se reduzir verticalmente um tipo de nó principal, deve nunca dimensioná-lo para baixo mais do que o que o [escalão de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) permite.
 
-O processo de dimensionamento de um tipo de nó ou reduzir verticalmente é diferente consoante se é um tipo de nó não principal ou primária.
+O processo de aumentando ou reduzindo, um tipo de nó é diferente consoante seja um tipo de nó não principal ou primária.
 
-### <a name="scaling-non-primary-node-types"></a>Tipos de nó não primário dimensionamento
-Crie um novo tipo de nó com os recursos que necessita.  Atualize as restrições de posicionamento de executar os serviços para incluir o novo tipo de nó.  Gradualmente (um de cada vez), reduzir a contagem de instâncias de contagem de instâncias de tipo de nó antigo para zero, para que a fiabilidade do cluster não é afetada.  Serviços gradualmente irão migrar para o novo tipo de nó, como o tipo de nó antigo é decommisioned.
+### <a name="scaling-non-primary-node-types"></a>Tipos de nós não primário de dimensionamento
+Crie um novo tipo de nó com os recursos que necessários.  Atualize as restrições de posicionamento de serviços para incluir o novo tipo de nó em execução.  Gradualmente (um por vez), reduzir a contagem de instâncias de contagem de instâncias de tipo de nó antigo para zero, para que a confiabilidade do cluster não é afetada.  Serviços gradualmente serão migrados para o novo tipo de nó, como o tipo de nó antigo é decommisioned.
 
-### <a name="scaling-the-primary-node-type"></a>O tipo de nó principal de dimensionamento
-Recomendamos que altere o SKU de VM do tipo de nó principal. Se precisar de mais capacidade de cluster, recomendamos adicionar mais instâncias. 
+### <a name="scaling-the-primary-node-type"></a>Dimensionar o tipo de nó primário
+Recomendamos que não altere o SKU de VM do tipo de nó primário. Se precisar de mais capacidade de cluster, recomendamos que adicione mais instâncias. 
 
-Se que não é possível, pode criar um novo cluster e [restaurar o estado da aplicação](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Não é necessário restaurar o estado do serviço qualquer sistema, são recriadas quando implementa as aplicações para o novo cluster. Se foram apenas aplicações em execução sem monitorização de estado no seu cluster, em seguida, tudo o que fazer é implementar aplicações para o novo cluster, não tem nada para restaurar. Se optar por voltar a rota não suportada e pretender alterar o SKU de VM, em seguida, marca modificações para o dimensionamento da máquina virtual definição do conjunto de modelo para refletir o SKU de novo. Se o cluster tem apenas um tipo de nó, em seguida, certifique-se de que todas as suas aplicações com monitorização de estado respondem a todos os [Service eventos de ciclo de vida de réplica](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está encravada) em tempo útil e se a réplica de serviço reconstruir duração é inferior a cinco minutos (nível de durabilidade prata). 
+Se que não é possível, pode criar um novo cluster e [restaurar estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Não é necessário restaurar o estado do serviço qualquer sistema, eles são recriados quando implanta aplicativos para o novo cluster. Se fosse apenas executar aplicativos sem monitoração de estado no seu cluster, então tudo o que fazer é implementar as suas aplicações para o novo cluster, não têm nada a restaurar. Se optar por seguir o caminho não suportado e quiser alterar o SKU de VM, em seguida, fazer modificações para o dimensionamento de máquinas virtuais definição de modelo para refletir o novo SKU do conjunto. Se o cluster tem apenas um tipo de nó, em seguida, certifique-se de que todas as suas aplicações com monitorização de estado a responder a todos [eventos de ciclo de vida de réplica do serviço](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está bloqueada) na forma oportuna e que a réplica de serviço reconstruir duração é menos de cinco minutos (para o nível de durabilidade Silver). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [escalabilidade de aplicação](service-fabric-concepts-scalability.md).
-* [Dimensionar um cluster do Azure ou reduzir](service-fabric-tutorial-scale-cluster.md).
+* Saiba mais sobre [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
+* [Dimensionar um cluster do Azure e reduzir](service-fabric-tutorial-scale-cluster.md).
 * [Dimensionar um cluster do Azure através de programação](service-fabric-cluster-programmatic-scaling.md) através do Azure fluent computação SDK.
-* [Um cluster de standaone entrada ou saída de escala](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Dimensionar um cluster autónomo e reduzir](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

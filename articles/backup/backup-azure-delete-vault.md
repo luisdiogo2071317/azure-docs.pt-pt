@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5bc68b55fdefc07b9764b8393ea6f4062468252
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422948"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816468"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -90,6 +90,12 @@ Para eliminar um cofre dos serviços de recuperação:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+   O Cofre tem de estar vazio antes de poder eliminá-lo. Caso contrário, receberá um erro de citação de "Cofre não pode ser eliminado porque existem recursos existentes dentro deste cofre". O comando seguinte demonstra como remover um contentor de dentro de um cofre:
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ```
+   
 1. Inicie sessão na sua subscrição no portal do Azure e certifique-se de que o Cofre é eliminado.
 
 

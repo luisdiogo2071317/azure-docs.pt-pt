@@ -1,42 +1,43 @@
 ---
-title: Perguntas mais frequentes (FAQ) dúvidas Azure API de sugestão automática | Microsoft Docs
-description: Obtenha respostas a questões recorrentes sobre o Azure cognitivos API dos serviços de sugestão automática no Azure.
+title: Perguntas mais frequentes (FAQ) - perguntas de sugestão automática do Bing API
+titlesuffix: Azure Cognitive Services
+description: Obtenha respostas a perguntas comuns sobre a API de sugestão automática do Bing.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 00b91728bcfec52ff30697f080d5c2619bab79a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354475"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831369"
 ---
-# <a name="frequently-asked-questions-faq-about-autosuggest-api-cognitive-services"></a>Perguntas mais frequentes perguntas (FAQ) sobre API (serviços cognitivos) de sugestão automática
+# <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Perguntas mais frequentes (FAQ) de perguntas sobre o Bing API de sugestão automática
  
- Encontrar respostas a perguntas mais comuns sobre conceitos, código e cenários relacionados com a API de sugestão automática para serviços cognitivos do Azure.
+ Encontre respostas para perguntas freqüentes sobre conceitos, código e cenários relacionados com a API de sugestão automática para os serviços cognitivos do Azure.
 
-### <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-autosuggest-api-from-javascript"></a>Como obter os cabeçalhos de cliente opcional ao chamar a API de sugestão automática do Bing de JavaScript?
+### <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-autosuggest-api-from-javascript"></a>Como posso obter os cabeçalhos de cliente opcional ao chamar a API de sugestão automática do Bing a partir de JavaScript?
 
-Os seguintes cabeçalhos são opcionais, mas recomendamos que tratá-los conforme necessário. Estes cabeçalhos ajudam a API de sugestão automática do Bing devolver resultados mais exatos.
+Os seguintes cabeçalhos são opcionais, mas recomendamos tratá-los conforme necessário. Esses cabeçalhos ajudam a API de sugestão automática do Bing devolver resultados mais precisos.
 
-- Localização de pesquisa X
-- X-MSEdge-ClientID
+- Localização de pesquisa de X
+- X-MSEdge-ID de cliente
 - X-MSEdge-ClientIP
 
-No entanto, quando chamar a API de sugestão automática do Bing do JavaScript, funcionalidades de segurança incorporada do seu browser poderão impedir os valores destes cabeçalhos a aceder.
+No entanto, quando chama a API de sugestão automática do Bing do JavaScript, funcionalidades de segurança incorporadas do seu browser podem impedir que os valores desses cabeçalhos a aceder.
 
-Para resolver este problema, pode efetuar o pedido de API de sugestão automática do Bing através de um proxy CORS. A resposta de um proxy essa tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta whitelists e disponibiliza-los JavaScript.
+Para resolver este problema, pode fazer o pedido de API de sugestão automática do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta de listas de permissões e disponibiliza-os para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir a nossa [aplicação tutorial](tutorials/autosuggest.md) para aceder os cabeçalhos de cliente opcional. Primeiro, se ainda não tiver, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando numa linha de comandos.
+É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorials/autosuggest.md) para acessar os cabeçalhos de opcional do cliente. Primeiro, se ainda não o tiver, [instalar node. js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto final de API de sugestão automática do Bing no ficheiro HTML para:
+Em seguida, altere o ponto final de API de sugestão automática do Bing no arquivo HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
@@ -44,12 +45,12 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela de comandos aberta e, ao utilizar a aplicação tutorial; fechar a janela interrompe o proxy. Na secção de cabeçalhos de HTTP expansível abaixo os resultados da pesquisa, agora, pode ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada pedido.
+Deixe a janela de comando aberta e, embora usar o tutorial de aplicação; fechar a janela será interrompido o proxy. Na secção de cabeçalhos HTTP expansível abaixo os resultados da pesquisa, pode agora ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-É a sua pergunta sobre uma funcionalidade ou funcionalidade em falta? Considere solicitar ou votá-lo nosso [voz do utilizador web site](https://cognitive.uservoice.com/).
+É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para ele em nosso [web site do Uservoice](https://cognitive.uservoice.com/).
 
 ## <a name="see-also"></a>Consulte também
 
-- [Capacidade excedida da pilha: Serviços cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+- [Estouro de pilha: Serviços cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

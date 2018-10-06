@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7f1e06fba76b833d4a344af1163ef7ef2c29bdb6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954028"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816859"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gerir permissões de base de dados do Explorador de dados do Azure
 
@@ -31,7 +31,6 @@ O Explorador de dados do Azure tem as seguintes funções:
 |Utilizador de base de dados              |Pode ler todos os dados e metadados no banco de dados. Além disso, pode criar tabelas (tornando-se o administrador de tabela para a tabela) e as funções na base de dados.|
 |Visualizador de base de dados            |Pode ler todos os dados e metadados no banco de dados.|
 |Ingestor de base de dados          |Pode ingerir dados para todas as tabelas existentes na base de dados, mas não consultar os dados.|
-|Unrestrictedviewer de base de dados|Pode consultar tabelas que têm o **RestrictedViewAccess** política ativada. Não é possível consultar a outras tabelas.|
 |Monitor da base de dados           |Pode executar comandos de ".show..." no contexto da base de dados e as entidades filhas.|
 |Administrador de tabela                |Pode fazer qualquer coisa no âmbito de uma determinada tabela. |
 |Ingestor de tabela             |Pode ingerir dados no âmbito de uma tabela específica, mas não consultar os dados.|

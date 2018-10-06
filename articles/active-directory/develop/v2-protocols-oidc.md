@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c2ff5272fc6cdc4cc18b8d461a8fb7edeee9878
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 91979d46a341f0892d4e5774246bac5a7897f698
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017992"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815618"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>O Azure Active Directory v 2.0 e o protocolo OpenID Connect
 
@@ -177,7 +177,7 @@ A tabela seguinte descreve os códigos de erro que podem ser devolvidos no `erro
 
 Não é suficiente para autenticar o usuário; apenas receber uma id_token tem de validar a assinatura o id_token e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Utiliza o ponto final v2.0 [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
-Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [validar Tokens](id-tokens.md#validating-idtokens) e [importante informações sobre como assinar Rollover de chave](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
+Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [validar Tokens](id-tokens.md#validating-an-idtoken) e [importante informações sobre como assinar Rollover de chave](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
 <!--TODO: Improve the information on this-->
 
 Também pode pretender validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
@@ -278,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para obter uma descrição de códigos de erro possíveis e respostas de cliente recomendado, consulte [códigos de erro para erros de autorização do ponto de extremidade](#error-codes-for-authorization-endpoint-errors).
 
-Quando tiver um código de autorização e um token de ID, pode iniciar sessão do utilizador e obter os tokens de acesso em nome deles. Iniciar a sessão do utilizador no, tem de validar o token de ID [exatamente como descrito](id-tokens.md#validating-idtokens). Para obter os tokens de acesso, siga os passos descritos em [documentação de fluxo de código do OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Quando tiver um código de autorização e um token de ID, pode iniciar sessão do utilizador e obter os tokens de acesso em nome deles. Iniciar a sessão do utilizador no, tem de validar o token de ID [exatamente como descrito](id-tokens.md#validating-an-idtoken). Para obter os tokens de acesso, siga os passos descritos em [documentação de fluxo de código do OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

@@ -9,19 +9,19 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e569b63f676fb750bcbab88dda6cda39156d41f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 281fafe858f2000a19fe3c6a26a4ffd587557361
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977037"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816026"
 ---
 # <a name="how-to-train-pytorch-models"></a>Como criar modelos de PyTorch
 
-Para treinamento de rede neurais profundas (DNN) usando PyTorch, o Azure Machine Learning oferece uma classe de PyTorch personalizada do avaliador de. O Azure SDK PyTorch Estimator permite-lhe submeter facilmente trabalhos de treinamento de PyTorch para execuções de nó único e distribuídos na computação do Azure.
+Para aprender de rede neurais profundas (DNN) com o PyTorch, o Azure Machine Learning fornece um personalizado `PyTorch` classe do `Estimator`. O Azure SDK `PyTorch` estimator permite-lhe submeter facilmente trabalhos de treinamento de PyTorch para execuções de nó único e distribuídos na computação do Azure.
 
 ## <a name="single-node-training"></a>Treinamento de nó único
-Treinamento com o avaliador de PyTorch é semelhante à utilização a [estimador de base](how-to-train-ml-models.md), leia o artigo que mostra como primeiro e certifique-se de que compreende os conceitos apresentados aqui.
+Treinamento com o `PyTorch` estimator é semelhante à utilização do [base `Estimator` ](how-to-train-ml-models.md), leia o artigo que mostra como primeiro e certifique-se de que compreende os conceitos apresentados aqui.
   
 Para executar uma tarefa de PyTorch, instanciar um `PyTorch` objeto. Deverá ter já criado seu [destino de computação](how-to-set-up-training-targets.md#batch) objeto `compute_target` e a sua [arquivo de dados](how-to-access-data.md) objeto `ds`.
 
@@ -40,15 +40,16 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Aqui, podemos especificar os parâmetros seguintes para o construtor de PyTorch:
-* `source_directory`: O diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota
-* `script_params`: Um dicionário especificando os argumentos da linha de comandos para o script de treinamento `entry_script`, na forma de < argumento da linha de comandos, valor > pares
-* `compute_target`: A computação remota que o script de treinamento serão executados nesse caso, um [Batch AI](how-to-set-up-training-targets.md#batch) cluster
-* `entry_script`: O caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
-* `conda_packages`: A lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento.
-O construtor tem outro parâmetro chamado `pip_packages` que pode utilizar quaisquer pacotes de pip necessário
-* `use_gpu`: Definir este sinalizador `True` para tirar partido de GPU para treinamento. Assume a predefinição `False`
+Parâmetro | Descrição
+--|--
+`source_directory` |  Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota
+`script_params` |  Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares
+`compute_target` |  Computação remota que o script de treinamento serão executados nesse caso, um [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`entry_script` |  Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
+`conda_packages` |  Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento. O construtor tem outro parâmetro chamado `pip_packages` que pode utilizar quaisquer pacotes de pip necessário
+`use_gpu` |  Definir este sinalizador `True` para tirar partido de GPU para treinamento. Assume a predefinição `False`
 
-Uma vez que estiver a utilizar o avaliador de PyTorch, o contentor usado para treinamento usará como padrão incluem o pacote de PyTorch e dependências relacionadas necessárias para treinamento em CPUs e GPUs.
+Como está usando o `PyTorch` estimator, o contentor usado para treinamento irão incluir o pacote de PyTorch e dependências relacionadas necessárias para treinamento em CPUs e GPUs.
 
 Em seguida, submeta a tarefa de PyTorch:
 ```Python
@@ -56,7 +57,7 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="distributed-training"></a>Formação distribuída
-O avaliador de PyTorch também permite-lhe preparar seus modelos à escala em clusters GPU e CPU de VMs do Azure. Pode facilmente executar distribuído PyTorch treinamento com algumas chamadas de API, enquanto o Azure Machine Learning gerenciará em segundo plano, a infraestrutura e o necessário para executar estas cargas de trabalho de orquestração.
+O `PyTorch` estimator também permite-lhe treinar seus modelos à escala em clusters GPU e CPU de VMs do Azure. Pode facilmente executar distribuído PyTorch treinamento com algumas chamadas de API, enquanto o Azure Machine Learning gerenciará em segundo plano, a infraestrutura e o necessário para executar estas cargas de trabalho de orquestração.
 
 O Azure Machine Learning suporta, atualmente, com base em MPI formação distribuída de PyTorch usando a estrutura de Horovod.
 
@@ -78,10 +79,12 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
                  use_gpu=True)
 ```
 
-O código acima expõe os seguintes novos parâmetros para o construtor de PyTorch:
-* `node_count`: O número de nós a utilizar para a tarefa de preparação. Este argumento assume a predefinição `1`
-* `process_count_per_node`: O número de processos (ou "funcionários") para executar em cada nó. Este argumento assume a predefinição `1`
-* `distributed_backend`: O back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI. Este argumento é predefinido para `None`. Se deseja realizar treinamento paralelo ou distribuído (por exemplo, `node_count`> 1 ou `process_count_per_node`> 1 ou ambos) com MPI (e Horovod), defina `distributed_backend='mpi'`. A implementação de MPI utilizada pelo Azure Machine Learning é [MPI aberto](https://www.open-mpi.org/).
+Este código expõe os seguintes novos parâmetros para o construtor de PyTorch:
+Parâmetro | Descrição | Predefinição
+--|--|--
+`node_count` |  Número de nós a utilizar para a tarefa de preparação. | `1`
+`process_count_per_node` |  Número de processos (ou "funcionários") para executar em cada nó. | `1`
+`distributed_backend` |  Back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI.  Para a realização do treinamento paralelo ou distribuído (por exemplo, `node_count`> 1 ou `process_count_per_node`> 1 ou ambos) com MPI (e Horovod), defina `distributed_backend='mpi'`. A implementação de MPI utilizada pelo Azure Machine Learning é [MPI aberto](https://www.open-mpi.org/). | `None`
 
 O exemplo acima executará formação distribuída com duas funções de trabalho, um operador por nó.
 
@@ -98,10 +101,10 @@ run = exp.submit(pt_est)
 
 ## <a name="examples"></a>Exemplos
 Para um tutorial sobre o treinamento de PyTorch de nó único, consulte:
-* `training/01.train-tune-deploy-pytorch/01.train-tune-deploy-pytorch.ipynb`
+* `training/01.train-hyperparameter-tune-deploy-with-pytorch`
 
 Para um tutorial sobre PyTorch distribuído com Horovod, consulte:
-* `training/02.distributed-pytorch-with-horovod/02.distributed-pytorch-with-horovod.ipynb`
+* `training/02.distributed-pytorch-with-horovod`
 
 Obtenha estes blocos de notas:
 

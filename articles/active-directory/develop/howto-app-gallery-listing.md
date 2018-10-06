@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980275"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815224"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: listar a sua aplicação na Galeria de aplicações do Azure Active Directory
 
@@ -39,7 +39,7 @@ ms.locfileid: "46980275"
 
 - Para aplicativos de federados (ID de aberto e SAML/WS-Fed), a aplicação tem de suportar o modelo de SaaS para ser listado na galeria do Azure AD. As aplicações de galeria enterprise devem suportar várias configurações de cliente e não qualquer cliente específico.
 
-- Para abrir ID Connect, a aplicação deve estar vários inquilinos e [framework de consentimento do Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) devem ser implementadas corretamente para a aplicação. O utilizador pode enviar o pedido de início de sessão para um ponto de extremidade comum para que todos os clientes podem fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e o UPN do utilizador recebido no token.
+- Para abrir ID Connect, a aplicação deve estar vários inquilinos e [framework de consentimento do Azure AD](consent-framework.md) devem ser implementadas corretamente para a aplicação. O utilizador pode enviar o pedido de início de sessão para um ponto de extremidade comum para que todos os clientes podem fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e o UPN do utilizador recebido no token.
 
 - Para SAML 2.0/WS-Fed, a aplicação tem de ter a capacidade de fazer a integração de SSO SAML/WS-Fed no modo de SP ou IDP. Certifique-se de que isso está funcionando corretamente antes de submeter o pedido.
 

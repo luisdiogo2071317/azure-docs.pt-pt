@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405925"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816435"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
@@ -93,7 +93,43 @@ Para alertas de métricas, normalmente, será notificado em menos de 5 minutos s
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recurso suportados para alertas de métricas
 
-Pode encontrar a lista completa dos tipos de recurso suportados neste [artigo](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+Pode encontrar a lista completa dos tipos de recurso suportados desta [artigo](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à procura para ver se os alertas de métricas suportam os todos os tipos de recurso que está a utilizar, a tabela seguinte mostra os recursos, tipos suportados através de alertas de métrica clássicas e se são suportados por alertas de métricas hoje ou não.
+
+|Tipo de recurso suportado através de alertas de métrica clássicas | Suportado por alertas de métricas |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Sim |
+| Microsoft.Batch/batchAccounts| Sim|
+|Microsoft.Cache/redis| Sim
+|Microsoft.ClassicCompute/virtualMachines | Não |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Não|
+|Microsoft.CognitiveServices/accounts | Não |
+|Microsoft.Compute/virtualMachines | Sim|
+|Microsoft.Compute/virtualMachineScaleSets| Sim|
+|Microsoft.ClassicStorage/storageAccounts| Não |
+|Microsoft.DataFactory/datafactories | Sim|
+|Microsoft.DBforMySQL/servers| Sim|
+|Microsoft.DBforPostgreSQL/servers| Sim|
+|Microsoft.Devices/IotHubs | Não|
+|Microsoft.DocumentDB/databaseAccounts| Não|
+|Microsoft.EventHub/namespaces | Sim|
+|Microsoft.Logic/workflows | Sim|
+|Microsoft.Network/loadBalancers |Sim|
+|Microsoft.Network/publicIPAddresses| Sim|
+|Microsoft.Network/applicationGateways| Sim|
+|Microsoft.Network/expressRouteCircuits| Sim|
+|Microsoft.Network/trafficManagerProfiles | Sim|
+|Microsoft.Search/searchServices | Não|
+|Microsoft.ServiceBus/namespaces| Não|
+|Microsoft.Storage/storageAccounts | Sim|
+|Microsoft.StreamAnalytics/streamingjobs| Sim|
+|Microsoft.TimeSeriesInsights/environments | Sim|
+|Microsoft. Web/serverfarms | Sim |
+|Microsoft. / Sites da Web (excluindo as funções) | Sim|
+|Microsoft. HostingEnvironments/Web/multiRolePools | Não|
+|Microsoft. HostingEnvironments/Web/workerPools| Não
+|Microsoft.SQL/Servers | Não|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391849"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817131"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -111,17 +111,33 @@ Antes de começar, tenha em atenção as seguintes restrições:
 * O limite de tamanho de ficheiro é 5 MB.
 * Mensagens de autenticação devem ser menores do que 20 segundos. Mensagens com mais de 20 segundos podem fazer com que a verificação falhe. O utilizador não responder antes de concluir a mensagem e a verificação de exceder o tempo limite.
 
+### <a name="custom-message-language-behavior"></a>Comportamento de idioma de mensagem personalizada
+
+Quando uma mensagem de voz personalizada é reproduzida para o usuário, o idioma da mensagem depende desses fatores:
+
+* O idioma do utilizador atual.
+   * O idioma detetado pelo navegador do usuário.
+   * Outros cenários de autenticação podem ter um comportamento diferente.
+* O idioma de quaisquer mensagens personalizadas disponíveis.
+   * Este idioma é escolhido pelo administrador, quando é adicionada uma mensagem personalizada.
+
+Por exemplo, se existir apenas uma mensagem personalizada, com um idioma de alemão:
+
+* Um utilizador que efetua a autenticação de idioma alemão saberá a mensagem alemão personalizada.
+* Um utilizador que efetua a autenticação em inglês saberá a mensagem de inglês padrão.
+
 ### <a name="set-up-a-custom-message"></a>Configurar uma mensagem personalizada
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **do Azure Active Directory** > **servidor MFA** > **definições de chamada telefónica**.
+1. Navegue até **do Azure Active Directory** > **servidor MFA** > **definições de chamada telefónica**.
 
    ![Mensagens de telefone personalizado de registo](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Selecione **adicionar saudação**.
-4. Escolha o tipo de saudação. Escolha o idioma.
-5. Selecione um ficheiro de som. mp3 ou. wav para carregar.
-6. Selecione **Adicionar**.
+1. Selecione **adicionar saudação**.
+1. Escolha o tipo de saudação. 
+1. Escolha o idioma.
+1. Selecione um ficheiro de som. mp3 ou. wav para carregar.
+1. Selecione **Adicionar**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Colocação em cache em autenticação Multifator do Azure
 
