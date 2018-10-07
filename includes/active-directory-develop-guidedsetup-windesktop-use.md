@@ -3,24 +3,23 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d4ba15e4ad46044c04c242c8805af9f320e95150
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368455"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843333"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar a MSAL para obter um token para o Microsoft Graph API
 
@@ -98,11 +97,11 @@ Nesta secção, vai utilizar a MSAL para obter um token para o Microsoft Graph A
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
-#### <a name="get-a-user-token-interactively"></a>Obter um utilizador token interativamente
+#### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
 Chamar o `AcquireTokenAsync` método resulta numa janela que solicita aos utilizadores iniciar sessão. Aplicativos exigem, normalmente, os utilizadores iniciem sessão interativamente na primeira vez que precisam acessar um recurso protegido. Também poderá ter de iniciar sessão quando uma operação silenciosa para adquirir um token falha (por exemplo, quando a senha de um usuário tenha expirada).
 
-#### <a name="get-a-user-token-silently"></a>Obter um utilizador token silenciosamente
+#### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
 O `AcquireTokenSilentAsync` método processa a aquisições de token e as renovações sem qualquer interação do utilizador. Após `AcquireTokenAsync` é executado pela primeira vez, `AcquireTokenSilentAsync` é o método habitual a utilizar para obter os tokens que acedem a recursos protegidos por chamadas subsequentes, uma vez que chamadas para pedir ou renovar os tokens são efetuadas automaticamente.
 

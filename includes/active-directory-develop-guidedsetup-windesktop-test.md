@@ -1,37 +1,60 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
+ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843300"
+---
 ## <a name="test-your-code"></a>Testar o seu código
 
-Para executar o projeto no Visual Studio, selecione **F5**. A aplicação **MainWindow** é apresentada, conforme mostrado aqui:
+Para executar o seu projeto, no Visual Studio, selecione **F5**. Seu aplicativo **MainWindow** é apresentada, conforme mostrado aqui:
 
-![Testar a aplicação](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
+![Testar a sua aplicação](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
-Na primeira vez que executar a aplicação e selecione o **chamar Microsoft Graph API** no botão lhe for pedida a sessão. Utilize uma conta do Azure Active Directory (conta escolar ou profissional) ou uma conta Microsoft (live.com, outlook.com) para testá-lo.
+A primeira vez que executa a aplicação e selecione o **chamar o Microsoft Graph API** botão, lhe for pedido para iniciar sessão. Utilize uma conta do Azure Active Directory (conta escolar ou profissional) ou uma conta Microsoft (live.com, outlook.com) para testá-lo.
 
-![Iniciar sessão para a aplicação](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
+![Entrar para a aplicação](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
-### <a name="provide-consent-for-application-access"></a>Fornecer consentimento de acesso à aplicação
-Na primeira vez que iniciar sessão na sua aplicação, está também lhe para fornecer consentimento para permitir que a aplicação para aceder ao seu perfil e inicie sessão no, conforme mostrado aqui: 
+### <a name="provide-consent-for-application-access"></a>Forneça o consentimento para acesso à aplicação
+A primeira vez que iniciar sessão na sua aplicação, também será avisado para fornecer o consentimento para permitir que a aplicação aceder ao seu perfil e iniciar a sessão in, como mostrado aqui: 
 
-![Forneça o seu consentimento para acesso de aplicação](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
+![Forneça o seu consentimento para acesso à aplicação](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
-### <a name="view-application-results"></a>Ver os resultados da aplicação
-Depois de iniciar sessão, deverá ver as informações de perfil de utilizador que são devolvidas pela chamada para a Microsoft Graph API. Os resultados são apresentados no **resultados de chamada de API** caixa. Informações básicas sobre o token que foi adquirido através de uma chamada para `AcquireTokenAsync` ou `AcquireTokenSilentAsync` devem ser visíveis na **informações do Token** caixa. Os resultados contêm as seguintes propriedades:
+### <a name="view-application-results"></a>Ver resultados da aplicação
+Depois de iniciar sessão, deverá ver as informações de perfil de utilizador que são devolvidas pela chamada para o Microsoft Graph API. Os resultados são exibidos no **os resultados da chamada API** caixa. Informações básicas sobre o token que foi adquirido através de uma chamada para `AcquireTokenAsync` ou `AcquireTokenSilentAsync` devem estar visíveis na **informações sobre o Token** caixa. Os resultados contêm as seguintes propriedades:
 
 |Propriedade  |Formato  |Descrição |
 |---------|---------|---------|
 |**Nome** |Nome completo do utilizador |O utilizador do primeiro e último nome.|
 |**Nome de Utilizador** |<span>user@domain.com</span> |O nome de utilizador que é utilizado para identificar o utilizador.|
-|**Token expira** |DateTime |A hora em que o token expira. MSAL expande a data de expiração renovando o token, conforme necessário.|
-|**Token de acesso** |Cadeia |A cadeia do token que é enviada para HTTP pedidos que necessitam de um *cabeçalho de autorização*.|
+|**Token expira** |DateTime |A hora em que o token expira. A MSAL expande a data de expiração ao renovar o token, se necessário.|
+|**Token de acesso** |Cadeia |A cadeia de caracteres de token que é enviada para HTTP solicita que requerem uma *cabeçalho de autorização*.|
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e as permissões delegadas
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Obter mais informações sobre âmbitos e permissões delegadas
 
-Requer o Microsoft Graph API do *user.read* âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todas as aplicações que está registada no Portal de registo de aplicação. Outras APIs para o Microsoft Graph, bem como as APIs personalizadas para o servidor de back-end, poderá necessitar de âmbitos adicionais. Requer o Microsoft Graph API do *Calendars.Read* âmbito lista de calendários do utilizador.
+O Microsoft Graph API requer a *user.read* âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todos os aplicativos que está registado no Portal de registo de aplicação. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor de back-end, pode necessitar de âmbitos adicionais. O Microsoft Graph API requer a *Calendars.Read* âmbito para listar calendários do utilizador.
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione o *Calendars.Read* delegado permissão para as informações de registo de aplicação. Em seguida, adicione o *Calendars.Read* âmbito para o `acquireTokenSilent` chamada. 
+Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a *Calendars.Read* delegado permissão para as informações de registo de aplicação. Em seguida, adicione a *Calendars.Read* definir o âmbito para o `acquireTokenSilent` chamar. 
 
 >[!NOTE]
->O utilizador pode ser pedido para consents adicionais como aumentar o número de âmbitos.
+>O utilizador pode ser pedido para consentimentos adicionais à medida que aumenta o número de âmbitos.
 
 <!--end-collapse-->
 

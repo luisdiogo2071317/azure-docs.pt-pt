@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293565"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843519"
 ---
 ## <a name="use-msal-to-get-a-token"></a>Utilizar a MSAL para obter um token 
 
@@ -242,10 +241,10 @@ ms.locfileid: "46293565"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
-#### <a name="get-a-user-token-interactively"></a>Obter um utilizador token interativamente
+#### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 Chamar o `AcquireTokenAsync` método inicia uma janela que solicita aos usuários para iniciar sessão ou selecionar a conta. Aplicativos em geral, terá de pedir ao usuário uma interação inicial, mas pode operar silenciosamente em partir desse ponto. 
 
-#### <a name="get-a-user-token-silently"></a>Obter um utilizador token silenciosamente
+#### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 O `AcquireTokenSilentAsync` método obtém um token sem qualquer interação do utilizador.  `AcquireTokenSilentAsync` pode ser tratada como um pedido de melhor esforço, com uma contingência para `AcquireTokenAsync` quando o utilizador tem de iniciar sessão novamente ou fazer algumas autorização adicional, como autenticação multifator 
 
 Quando `AcquireTokenSilentAsync` falhar, ele irá gerar um `MsalUiRequiredException`. Seu aplicativo pode manipular essa exceção de duas formas:

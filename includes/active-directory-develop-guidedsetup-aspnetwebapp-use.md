@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,22 +14,22 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943594"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843305"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Adicionar um controlador para processar pedidos de início de sessão e fim de sessão
 
-Este passo mostra como criar um novo controlador para expor os métodos de início de sessão e fim de sessão.
+Este passo mostra como criar um novo controlador para expor métodos de início de sessão e fim de sessão.
 
-1.  Clique com o botão direito do `Controllers` pastas e selecione `Add` > `Controller`
+1.  Clique com botão direito do `Controllers` pasta e selecione `Add` > `Controller`
 2.  Selecione `MVC (.NET version) Controller – Empty`.
 3.  Clique em *adicionar*
-4.  Nome `HomeController` e clique em *adicionar*
-5.  Adicionar *OWIN* referências para a classe:
+4.  Atribua o nome `HomeController` e clique em *adicionar*
+5.  Adicione *OWIN* referências à classe:
 
     ```csharp
     using Microsoft.Owin.Security;
@@ -38,7 +37,7 @@ Este passo mostra como criar um novo controlador para expor os métodos de iníc
     using Microsoft.Owin.Security.OpenIdConnect;
     ```
     
-6. Adicione os dois métodos abaixo para lidar com início de sessão e fim de sessão para o seu controlador iniciando um desafio de autenticação através de código:
+6. Adicione os dois métodos abaixo para lidar com início de sessão e fim de sessão para o seu controlador, iniciando um desafio de autenticação por meio do código:
     
     ```csharp
     /// <summary>
@@ -66,13 +65,13 @@ Este passo mostra como criar um novo controlador para expor os métodos de iníc
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Criar a home page a aplicação para iniciar sessão de utilizadores através de um botão de início de sessão
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Criar home page a aplicação para iniciar sessão dos utilizadores através de um botão de início de sessão
 
-No Visual Studio, crie uma nova vista para adicionar o botão de início de sessão e apresentar informações de utilizador após a autenticação:
+No Visual Studio, crie uma nova vista para adicionar o botão de início de sessão e apresentar informações do utilizador após a autenticação:
 
-1.  Clique com o botão direito do `Views\Home` pastas e selecione `Add View`
+1.  Clique com botão direito do `Views\Home` pasta e selecione `Add View`
 2.  Dê-lhe o nome `Index`.
-3.  Adicione o seguinte HTML, que inclui o botão de início de sessão, para o ficheiro:
+3.  Adicione o seguinte HTML, que inclui o botão de início de sessão, ao ficheiro:
 
     ```html
     <html>
@@ -114,17 +113,17 @@ No Visual Studio, crie uma nova vista para adicionar o botão de início de sess
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mais Informações
-> Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Inicie sessão com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais início de sessão botões, visite o [nesta página](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "diretrizes de imagem corporativa").
+> Esta página adiciona um botão de início de sessão no formato SVG com um plano de fundo preto:<br/>![Inicie sessão com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais início de sessão botões, vá para o [esta página](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "diretrizes de imagem corporativa").
 <!--end-collapse-->
 
-## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para apresentar afirmações do utilizador
-Este controlador demonstra as utilizações do `[Authorize]` atributo para proteger um controlador. Este atributo restringe o acesso para o controlador, permitindo apenas que os utilizadores autenticados. O código abaixo utilizam o atributo para apresentar as afirmações de utilizador que foram obtidas como parte de início de sessão.
+## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para apresentar as afirmações do utilizador
+Este controlador demonstra as utilizações do atributo `[Authorize]` para proteger um controlador. Este atributo restringe o acesso ao controlador, permitindo apenas utilizadores autenticados. O código a seguir faz uso do atributo para apresentar as afirmações de utilizador que foram obtidas como parte da entrada.
 
-1.  Clique com o botão direito do `Controllers` pasta: `Add` > `Controller`
+1.  Clique com botão direito do `Controllers` pasta: `Add` > `Controller`
 2.  Selecione `MVC {version} Controller – Empty`.
 3.  Clique em *adicionar*
-4.  Nome `ClaimsController`
-5.  Substitua o código da sua classe de controlador com o código abaixo - esta ação adiciona a `[Authorize]` atributo para a classe:
+4.  Dê-lhe o nome `ClaimsController`
+5.  Substitua o código da sua classe de controlador com o código abaixo - esta ação adiciona o `[Authorize]` à classe de atributo:
 
     ```csharp
     [Authorize]
@@ -157,16 +156,16 @@ Este controlador demonstra as utilizações do `[Authorize]` atributo para prote
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mais Informações
-> Devido à utilização do `[Authorize]` atributo, todos os métodos deste controlador só pode ser executado se o utilizador ser autenticado. Se o utilizador não é autenticado e tenta aceder ao controlador de, OWIN irá iniciar um desafio de autenticação e forçar o utilizador a autenticar. O código acima analisa a lista de afirmações para os atributos de utilizador específico incluídas no token de Id do utilizador. Estes atributos incluem o nome do utilizador completo e nome de utilizador, bem como o assunto de identificador do utilizador global. Também contém a *ID do inquilino*, que representa o ID de organização do utilizador. 
+> Devido à utilização do atributo `[Authorize]`, todos os métodos deste controlador só podem ser executados se o utilizador estiver autenticado. Se o utilizador não é autenticado e tenta acessar o controlador, OWIN irá iniciar um desafio de autenticação e forçar o utilizador a autenticar. O código acima mostra a lista de afirmações para os atributos de utilizador específico incluídas no token de Id do utilizador. Estes atributos incluem o nome completo do utilizador e o nome de utilizador, bem como o assunto do identificador de utilizador global. Também contém o *ID de inquilino*, que representa o ID da organização do utilizador. 
 <!--end-collapse-->
 
-## <a name="create-a-view-to-display-the-users-claims"></a>Criar uma vista para apresentar afirmações do utilizador
+## <a name="create-a-view-to-display-the-users-claims"></a>Criar uma vista para apresentar as afirmações do utilizador
 
-No Visual Studio, crie uma nova vista para apresentar afirmações do utilizador numa página web:
+No Visual Studio, crie uma nova vista para apresentar as afirmações do utilizador numa página Web:
 
-1.  Clique com o botão direito do `Views\Claims` pasta e: `Add View`
+1.  Clique com botão direito do `Views\Claims` pasta e: `Add View`
 2.  Dê-lhe o nome `Index`.
-3.  Adicione o seguinte HTML para o ficheiro:
+3.  Adicione o seguinte HTML ao ficheiro:
 
     ```html
     <html>

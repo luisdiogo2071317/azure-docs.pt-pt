@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: navyasric
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 07aac49e7aed7c95863a2058a9de3d1e8f2cd1ad
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 038ea48bedeb31416627f99b38ebb083846747e4
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060359"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843268"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
@@ -36,7 +35,7 @@ Agora precisa de registar a aplicação no *Portal de registo de aplicação do 
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>Opção 2: Registar a sua aplicação (modo avançado)
 
-1. Vá para o [Portal de registo de aplicação do Microsoft](https://apps.dev.microsoft.com/portal/register-app) registar uma aplicação.
+1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) para registar uma aplicação.
 2. Introduza um nome para o seu e-mail e a sua aplicação.
 3. Certifique-se a opção **orientada configuração** está desmarcada.
 4.  Clique em **adicionar plataforma**, em seguida, selecione **Web**.

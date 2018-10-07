@@ -2,36 +2,42 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
+documentationcenter: dev-center-name
 author: andretms
+manager: mtillman
+editor: ''
 ms.service: active-directory
+ms.devlang: na
 ms.topic: include
-ms.date: 05/08/2018
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9c7daf7bc947b08835148f6d09c58b47c9e0186b
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36204925"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842903"
 ---
-## <a name="set-up-your-project"></a>Configurar o projeto
+## <a name="set-up-your-project"></a>Configurar seu projeto
 
-Esta secção mostra os passos para instalar e configurar o pipeline de autenticação através da OWIN middleware num projeto ASP.NET com OpenID Connect. 
+Esta secção mostra os passos para instalar e configurar o pipeline de autenticação por meio de middleware da OWIN num projeto do ASP.NET através do OpenID Connect. 
 
-> Prefere transferir o projeto do Visual Studio este exemplo em vez disso? [Transferir um projeto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e avance para o [passo da configuração](#register-your-application) para configurar o exemplo de código antes de executar.
+> Prefere transferir o projeto do Visual Studio este exemplo em vez disso? [Transfira um projeto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e avance para o [passo de configuração](#register-your-application) para configurar o exemplo de código antes de executar.
 
-### <a name="create-your-aspnet-project"></a>Criar o projeto ASP.NET
+### <a name="create-your-aspnet-project"></a>Criar o seu projeto ASP.NET
 
 1. No Visual Studio: `File` > `New` > `Project`
-2. Em *Visual C# \Web*, selecione `ASP.NET Web Application (.NET Framework)`.
-3. Nome da aplicação e clique em *OK*
+2. Sob *Visual C# \Web*, selecione `ASP.NET Web Application (.NET Framework)`.
+3. Nome da sua aplicação e clique em *OK*
 4. Selecione `Empty` e selecione a caixa de verificação para adicionar `MVC` referências
 
 ## <a name="add-authentication-components"></a>Adicionar componentes de autenticação
 
 1. No Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Adicionar *pacotes de NuGet OWIN middleware* , escrevendo o seguinte na janela da consola do Gestor de pacotes:
+2. Adicione *Pacotes NuGet de middleware OWIN*, escrevendo o seguinte na janela da Consola do Gestor de Pacotes:
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -40,21 +46,21 @@ Esta secção mostra os passos para instalar e configurar o pipeline de autentic
     ```
 
 <!--start-collapse-->
-> ### <a name="about-these-libraries"></a>Sobre estas bibliotecas
->Ative as bibliotecas acima-início de sessão único (SSO) utilizando o OpenID Connect através da autenticação baseada no cookie. Após a autenticação é concluída e o token que representa o utilizador é enviado para a sua aplicação, o OWIN middleware cria um cookie de sessão. O browser, em seguida, utiliza este cookie nos pedidos subsequentes para que o utilizador não tem de introduzir a palavra-passe e não é necessária nenhuma verificação adicional.
+> ### <a name="about-these-libraries"></a>Sobre essas bibliotecas
+>As bibliotecas acima ativam o início de sessão único (SSO) com o OpenID Connect através da autenticação baseada em cookies. Depois de a autenticação estar concluída e o token que representa o utilizador ser enviado para a sua aplicação, o middleware OWIN cria um cookie de sessão. O browser, em seguida, utiliza esse cookie em solicitações subsequentes para que o usuário não precise escrever novamente a palavra-passe, e nenhuma verificação adicional é necessária.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Configurar o pipeline de autenticação
-Os passos abaixo são utilizados para criar uma classe de Startup para configurar a autenticação OpenID Connect de middleware OWIN. Esta classe será executada automaticamente quando inicia o processo IIS.
+Os passos abaixo são utilizados para criar uma classe de inicialização para configurar a autenticação OpenID Connect middleware da OWIN. Essa classe será executada automaticamente quando o processo do IIS é iniciado.
 
 > [!TIP]
-> Se o seu projeto não tem um `Startup.cs` ficheiro na pasta raiz:
-> 1. Clique com o botão direito na pasta de raiz do projeto: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nome `Startup.cs`
+> Se o projeto não tiver um ficheiro `Startup.cs` na pasta raiz:
+> 1. Com o botão direito na pasta raiz do projeto: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Dê-lhe o nome `Startup.cs`
 >
->> Certifique-se a classe selecionada uma classe de Startup da OWIN e não uma padrão c# classe. Confirmar isto, verificando se vir `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` acima o espaço de nomes.
+>> Certifique-se de que a classe selecionada é uma Classe de Arranque do OWIN e não uma classe C# padrão. Para confirmar, verifique se vê `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` por cima do espaço de nomes.
 
-1. Adicionar *OWIN* e *IdentityModel* referências a `Startup.cs`:
+1. Adicione *OWIN* e *IdentityModel* referencia a `Startup.cs`:
 
     ```csharp
     using Microsoft.Owin;
@@ -67,7 +73,7 @@ Os passos abaixo são utilizados para criar uma classe de Startup para configura
     using Microsoft.Owin.Security.Notifications;
     ```
 
-2. Substitua a classe de Startup com o código abaixo:
+2. Substitua a classe de inicialização com o código abaixo:
 
     ```csharp
     public class Startup
@@ -137,6 +143,6 @@ Os passos abaixo são utilizados para criar uma classe de Startup para configura
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mais Informações
-> Os parâmetros que fornece *OpenIDConnectAuthenticationOptions* servir como coordenadas para a aplicação comunicar com o Azure AD. Uma vez que o middleware OpenID Connect utiliza cookies em segundo plano, terá também de configurar a autenticação de cookie como o código acima mostra. O *ValidateIssuer* valor indica OpenIdConnect não restringir o acesso a uma organização específica.
+> Os parâmetros que fornecer em *OpenIDConnectAuthenticationOptions* servem de coordenadas para a aplicação comunicar com o Azure AD. Uma vez que o middleware de OpenID Connect utiliza cookies em segundo plano, terá também de configurar a autenticação de cookie, como o código acima mostra. O valor *ValidateIssuer* diz ao OpenIdConnect para não restringir o acesso a uma organização específica.
 <!--end-collapse-->
 
