@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983519"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221661"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -31,9 +31,7 @@ O tráfego de rede está sujeito às regras de firewall configuradas quando enca
 
 As regras de aplicação e de rede são armazenadas em *coleções de regras*. Uma coleção de regras é uma lista de regras que partilham a mesma ação e prioridade.  Uma coleção de regras de rede é uma lista de regras de rede, e uma coleção de regras de aplicação é uma lista de regras de aplicação.
 
-O Azure Firewall não tem um conceito de regras de entrada e de saída. Existem regras de aplicação e regras de redes que são aplicadas a qualquer tráfego que entra na firewall. As regras das redes são aplicadas primeiro, em seguida as regras de aplicações e as regras estão a terminar.
-
-Por exemplo, se uma regra de rede for correspondida, o pacote não é avaliado pelas regras de aplicações. Se não houver uma correspondência de regra de rede e o protocolo de pacotes for HTTP/HTTPS, o pacote é então avaliado pelas regras de aplicações. Se ainda não for encontrada uma correspondência, o pacote é avaliado em relação à coleção de regras de infraestruturas. Se ainda não houver correspondência, então o pacote é negado por predefinição.
+O Azure Firewall tem regras NAT, regras de rede e regras de aplicações. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -215,9 +213,6 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 11. Clique em **Adicionar**.
 
 O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição. Estes FQDNs são específicos da plataforma e não podem ser utilizados para outros fins. Para obter mais informações, veja [FQDNs de Infraestrutura](infrastructure-fqdns.md).
-
-> [!Note]
-> As Etiquetas de FQDN podem ser atualmente configuradas pelo Azure PowerShell e REST. Clique [aqui](https://aka.ms/firewallapplicationrule) para saber mais. 
 
 ## <a name="configure-network-rules"></a>Configurar regras de rede
 

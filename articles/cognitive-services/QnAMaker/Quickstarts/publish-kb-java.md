@@ -1,24 +1,27 @@
 ---
-title: Início rápido do Java – Publicar Base de Dados de Conhecimento – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Início Rápido: Publicar a Base de Dados de Conhecimento no Java – Criador de FAQ'
+titleSuffix: Azure Cognitive Services
 description: Como publicar uma base de dados de conhecimento em Java para o Criador de FAQ.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770812"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036927"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>Publicar uma base de dados de conhecimento em Java
 
 O código seguinte publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. Criar um novo projeto do Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -133,7 +136,7 @@ public class PublishKB {
 
 ## <a name="the-publish-a-knowledge-base-response"></a>Resposta da publicação de uma base de dados de conhecimento
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -144,4 +147,4 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

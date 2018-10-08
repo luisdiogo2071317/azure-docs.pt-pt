@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be61695cc57eca3ddf2c03aeb4912348e9535741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193487"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060747"
 ---
 Tem de cumprir os requisitos seguintes para concluir este tutorial:
 
-**CLI do Azure**: Tem de ter a CLI do Azure versão 2.0.29 ou posterior instalada no computador local. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
+**CLI do Azure**: Tem de ter a CLI do Azure versão 2.0.29 ou posterior instalada no computador local. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 **Docker**: Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos básicos do `docker`. Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker][docker-get-started].
 

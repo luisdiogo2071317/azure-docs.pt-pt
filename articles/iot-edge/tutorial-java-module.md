@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 370fe646ca23ad5f364536ef9d9e05d042d2ed15
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9c4ad2275339b3aeb21258041a96840c76732687
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337368"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423466"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge em Java e implementar no seu dispositivo simulado
 
@@ -36,11 +36,12 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 Um dispositivo Azure IoT Edge:
 
-* Pode seguir os passos no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
+* Pode seguir os passos no início rápido para [Linux](quickstart-linux.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
+* Os módulos Java para o IoT Edge não suportam dispositivos Windows.
 
 Recursos da cloud:
 
-* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão standard no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito no Azure. 
 
 Recursos de desenvolvimento:
 

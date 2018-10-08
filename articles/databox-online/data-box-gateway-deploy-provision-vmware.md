@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989860"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419547"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Aprovisionar o Azure Data Box Gateway em VMware (Pré-visualização)
 
@@ -28,13 +28,13 @@ ms.locfileid: "46989860"
 
 Este tutorial descreve como aprovisionar um Data Box Gateway num sistema anfitrião com o VMware ESXi 6.0 ou 6.5. 
 
-Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
+Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de dez minutos a concluir.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
-> * Aprovisionar um dispositivo virtual no hipervisor
+> * Confirmar que o anfitrião cumpre os requisitos mínimos do dispositivo.
+> * Aprovisionar um dispositivo virtual no VMware
 > * Iniciar o dispositivo virtual e obter o endereço IP
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -50,7 +50,7 @@ Os pré-requisitos para aprovisionar um dispositivo virtual num sistema anfitri�
 
 Antes de começar, certifique-se de que:
 
-* Concluiu todos os passos descritos em [Preparar o portal para o Data Box Gateway](data-box-gateway-deploy-prep.md).
+* Concluiu todos os passos descritos em [Prepare the portal for Data Box Gateway](data-box-gateway-deploy-prep.md) (Preparar o portal para o Data Box Gateway).
 * Transferiu a imagem do dispositivo virtual para VMware no portal do Azure, conforme descrito em [Preparar o portal para o Data Box Gateway](data-box-gateway-deploy-prep.md).
 
   > [!IMPORTANT]
@@ -74,7 +74,7 @@ Antes de implementar um dispositivo virtual, certifique-se de que:
 Antes de começar:
 
 - Reveja os requisitos de rede para implementar um Data Box Gateway e configurar a rede do datacenter de acordo com os requisitos. Para obter mais informações, veja [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
-- Certifique-se de que a largura de banda mínima de Internet é 20 Mbps para permitir o funcionamento otimizado do dispositivo.
+- Certifique-se de que a largura de banda mínima de Internet é 20 Mbps, para permitir o funcionamento otimizado do dispositivo.
 
 ## <a name="check-the-host-system"></a>Verificar o sistema anfitrião
 
@@ -198,7 +198,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
 6. Os passos de 5 a 7 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 8. Se iniciou o seu dispositivo num ambiente não DHCP, verá a mensagem: **Use the Set-HcsIPAddress cmdlet to configure the network** (Utilize o cmdlet Set-HcsIPAddress para configurar a rede). 
    
-7. Para configurar a rede, na linha de comandos, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a esta interface é `DATA1`.
+7. Para configurar a rede, na linha de comandos, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a esta interface é `Ethernet`.
 
 8. Utilize o cmdlet `Set-HcsIpAddress` para configurar a rede. Apresentamos um exemplo abaixo:
 
@@ -208,7 +208,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa (apresentado abaixo). Terá de modificar a configuração do dispositivo de modo a que tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração no [Passo 1: Certificar-se de que o sistema anfitrião cumpre os requisitos mínimos de dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa (apresentado abaixo). Terá de modificar a configuração do dispositivo de modo a que tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração em [verificar se o sistema anfitrião cumpre os requisitos mínimos do dispositivo virtual](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -220,8 +220,8 @@ Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 
 > [!div class="checklist"]
-> * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
-> * Aprovisionar um dispositivo virtual no hipervisor
+> * Confirmar que o anfitrião cumpre os requisitos mínimos do dispositivo.
+> * Aprovisionar um dispositivo virtual no VMware
 > * Iniciar o dispositivo virtual e obter o endereço IP
 
 Avance para o próximo tutorial para aprender a ligar, configurar e ativar o dispositivo virtual.

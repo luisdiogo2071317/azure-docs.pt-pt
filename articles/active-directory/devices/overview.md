@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048867"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224635"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é a gestão de dispositivos no Azure Active Directory?
 
@@ -121,7 +121,7 @@ Muitas organizações utilizam há mais de uma década a associação a um domí
 
 Geralmente, as organizações que têm uma infraestrutura no local utilizam métodos de imagens para aprovisionar os dispositivos e, muitas vezes utilizam o **System Center Configuration Manager (SCCM)** ou a **política de grupo (GP)** para os gerir.
 
-Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Estes são dispositivos associados tanto ao Active Directory no local, como ao Azure Active Directory.
+Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Estes são dispositivos associados ao Active Directory no local e são registados no Azure Active Directory.
 
 ![Dispositivos registados no Azure AD](./media/overview/01.png)
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919183"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166882"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavra-passe do Azure AD no ecrã de início de sessão
 
@@ -45,8 +45,6 @@ Implementar a alteração da configuração para ativar a reposição de palavra
    * Opcionalmente, indique uma descrição relevante do perfil
    * Plataforma **Windows 10 e posterior**
    * Tipo de perfil **Personalizado**
-
-   ![CreateProfile][CreateProfile]
 
 3. Configure as **Definições**
    * **Adicione** a Definição de OMA-URI seguinte para ativar a ligação Repor palavra-passe
@@ -100,7 +98,6 @@ Agora que a política está configurada e atribuída, que alterações há para 
 ![LoginScreen][LoginScreen]
 
 Quando os utilizadores tentam iniciar sessão, veem agora a ligação Repor palavra-passe, a qual abre a experiência de reposição personalizada de palavra-passe no ecrã de início de sessão. Com esta funcionalidade, os utilizadores podem repor as palavras-passe sem terem de utilizar outro dispositivo para aceder a um browser.
-Quando os utilizadores tentam iniciar sessão, veem agora a ligação Repor palavra-passe, a qual abre a experiência de reposição personalizada de palavra-passe no ecrã de início de sessão. Com esta funcionalidade, os utilizadores podem repor as palavras-passe sem terem de utilizar outro dispositivo para aceder a um browser.
 
 Os seus utilizadores podem obter orientações sobre como utilizar esta funcionalidade em [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Repor a palavra-passe da conta escolar ou profissional)
 
@@ -116,6 +113,10 @@ Quando testar esta funcionalidade com o Ambiente de Trabalho Remoto, a ligação
 
 Se o ecrã de bloqueio do Windows for desativado com uma chave de registo ou uma política de grupo, **Repor palavra-passe** não estará disponível.
 
+O registo de auditoria do Azure AD irá incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
+
+![Ecrã de exemplo de início de sessão com reposição de palavra-passe no registo de auditoria do Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se decidir que já não quer utilizar a funcionalidade que configurou como parte deste tutorial, elimine o perfil de configuração de dispositivos do Intune que criou ou a chave de registo.
@@ -127,6 +128,5 @@ Neste tutorial, permitiu aos utilizadores repor as respetivas palavras-passe no 
 > [!div class="nextstepaction"]
 > [Avaliar o risco de início de sessão](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Criar perfil de configuração de dispositivos do Intune para ativar a ligação Repor palavra-passe no ecrã de início de sessão do Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Atribuir a política de configuração de dispositivos do Intune a um grupo de dispositivos Windows 10"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Ligação Repor palavra-passe no ecrã de início de sessão do Windows 10"

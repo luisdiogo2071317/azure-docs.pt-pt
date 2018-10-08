@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b1f1c85cea9aa7c48478ef6ee1c9a4609a3df8e0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045131"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222172"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -68,9 +68,9 @@ A associação do Azure AD híbrido requer que os dispositivos tenham acesso aos
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (Se estiver a utilizar ou planear utilizar o SSO totalmente integrado)
 
-Se sua organização precisar de acesso à Internet através de um proxy de saída, a partir do Windows 10 1709, pode configurar as definições de proxy no seu computador utilizando um objeto de política de grupo (GPO). Se o seu computador estiver a executar uma versão mais antiga do que o Windows 10 1709, tem de implementar a identificação automática do proxy Web (WPAD) para permitir que os computadores com Windows 10 façam o registo de dispositivos com o Azure AD. 
+Se sua organização precisar de acesso à Internet através de um proxy de saída, a partir do Windows 10 1709, pode configurar as definições de proxy no seu computador utilizando um objeto de política de grupo (GPO). Se o seu computador estiver a executar uma versão mais antiga do que o Windows 10 1709, tem de implementar o Web Proxy Auto-Discovery (WPAD) para permitir que os computadores com Windows 10 façam o registo de dispositivos com o Azure AD. 
 
-Se sua organização necessita de acesso à internet através de um proxy de saída autenticado, tem de se certificar de que os seus computadores com Windows 10 podem autenticar com êxito para o proxy de saída. Uma vez que os computadores com Windows 10 executam o registo de dispositivos utilizando o contexto da máquina, é necessário configurar a autenticação de proxy de saída utilizando o contexto da máquina. Consulte o seu fornecedor de proxy de saída sobre os requisitos de configuração. 
+Se sua organização precisar de acesso à Internet através de um proxy de saída autenticado, tem de se certificar de que os seus computadores com Windows 10 podem ser autenticados com êxito no proxy de saída. Uma vez que os computadores com Windows 10 executam o registo de dispositivos utilizando o contexto da máquina, é necessário configurar a autenticação de proxy de saída utilizando o contexto da máquina. Consulte o seu fornecedor de proxy de saída sobre os requisitos de configuração. 
 
 
 
@@ -101,7 +101,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
     ![Ligar ao Azure AD](./media/hybrid-azuread-join-managed-domains/14.png)
 
-5. Na página **Opções do dispositivo**, selecione **Configurar associação ao Azure AD Híbrido** e, em seguida, clique em **Seguinte**. 
+5. Na página **Opções do dispositivo**, selecione **Configurar a associação ao Azure AD Híbrido** e, em seguida, clique em **Seguinte**. 
 
     ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
 
@@ -116,7 +116,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
     c. Clique em **Adicionar** para introduzir as credenciais de administrador da empresa.
 
 
-7. Na página **Sistemas operativos de dispositivos**, selecione os sistemas operativos utilizados pelos dispositivos no seu ambiente do Active Directory e, em seguida, clique em **Seguinte**. 
+7. Na página **Sistemas operativos dos dispositivos**, selecione os sistemas operativos utilizados pelos dispositivos no seu ambiente do Active Directory e, em seguida, clique em **Seguinte**. 
 
     ![Sistema operativo do dispositivo](./media/hybrid-azuread-join-managed-domains/17.png)
 
@@ -156,7 +156,7 @@ A seguinte política tem de ser definida como **Todos**: **os utilizadores podem
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar as definições de intranet local para o registo de dispositivos
 
-Para concluir com êxito a associação ao Azure AD híbrido dos seus dispositivos de nível inferior do Windows e para evitar avisos de certificado quando os dispositivos são autenticados para o Azure AD, pode aplicar uma política aos seus dispositivos associados a um domínio para adicionar os seguintes URLs à zona de intranet local no Internet Explorer:
+Para concluir com êxito a associação ao Azure AD híbrido dos seus dispositivos de nível inferior do Windows e para evitar avisos de certificado quando os dispositivos são autenticados no Azure AD, pode aplicar uma política aos seus dispositivos associados a um domínio para adicionar os seguintes URLs à zona de intranet local no Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 
@@ -166,11 +166,11 @@ Além disso, tem de ativar **Permitir atualizações à barra de estado por meio
 
 ## <a name="verify-the-registration"></a>Verificar o registo
 
-Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** no **[módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** no **[módulo PowerShell do Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Ao utilizar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
-- Tem de existir um objeto com um **id d dispositivo** que corresponda ao ID do cliente do Windows.
+- Tem de existir um objeto com um **id de dispositivo** que corresponda ao ID do cliente Windows.
 - O valor de **DeviceTrustType** tem de ser **Associados a um domínio**. Isto é equivalente ao estado **Associado ao Azure AD híbrido** na página Dispositivos no portal do Azure AD.
 - O valor de **Ativado** tem de ser **Verdadeiro** para dispositivos que são utilizados no acesso condicional. 
 
@@ -183,7 +183,7 @@ Ao utilizar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 3. Digite `get-msoldevice -deviceId <deviceId>`.
 
-6. Certifique-se de que **Ativado** está definida como **Verdadeiro**.
+6. Certifique-se de que **Ativado** está definido como **Verdadeiro**.
 
 
 
@@ -191,7 +191,7 @@ Ao utilizar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 ## <a name="troubleshoot-your-implementation"></a>Resolver problemas relacionados com a implementação
 
-Se estiver a ter problemas a completar a associação ao Azure AD híbrido dos dispositivos Windows de domínio associado, consulte:
+Se estiver a ter problemas a completar a associação ao Azure AD híbrido dos dispositivos Windows de domínio associado, veja:
 
 - [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows atuais)
 - [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)

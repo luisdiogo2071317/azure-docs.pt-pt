@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975249"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419700"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Tutorial: Aprovisionar o Azure Data Box Gateway no Hyper-V (Pré-visualização)
 
@@ -73,8 +73,8 @@ Antes de implementar um dispositivo, certifique-se de que:
 
 Antes de começar:
 
-- Reveja os requisitos de rede para implementar um Data Box Gateway e configurar a rede do datacenter de acordo com os requisitos. Para obter mais informações, veja [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements) (Requisitos de rede do Data Box Gateway).
-- Confirme que a largura de banda mínima da Internet é 20 Mbps para permitir o funcionamento otimizado do dispositivo.
+- Reveja os requisitos de rede para implementar um Data Box Gateway e configurar a rede do datacenter de acordo com os requisitos. Para obter mais informações, veja [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Certifique-se de que a largura de banda mínima de Internet é 20 Mbps, para permitir o funcionamento otimizado do dispositivo.
 
 
 ## <a name="check-the-host-system"></a>Verificar o sistema anfitrião
@@ -87,7 +87,7 @@ Para criar um dispositivo virtual, precisa:
 
     * Um mínimo de 4 núcleos.
     * Pelos menos 8 GB de RAM.
-    * Uma interface de rede ligada à rede com capacidade para encaminhar o tráfego para a Internet. .
+    * Uma interface de rede ligada à rede com capacidade para encaminhar o tráfego para a Internet. 
     * Um disco de SO de 250 GB.
     * Um disco virtual de 2 TB para dados do sistema.
 
@@ -104,10 +104,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Na página **Before you begin** (Antes de começar) do New Virtual Machine Wizard (Assistente de Nova Máquina Virtual), clique em **Next** (Seguinte).
-5. Na página **Specify name and location** (Especificar nome e localização), indique **Name** (Nome) para o dispositivo virtual. Clique em **Next** (Seguinte).
-   
-   > [!IMPORTANT]
-   > Nesta versão, só pode utilizar letras maiúsculas no nome do dispositivo virtual.
+5. Na página **Specify name and location** (Especificar nome e localização), indique **Name** (Nome) para o dispositivo virtual. Clique em **Seguinte**.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Na página **Specify generation** (Especificar geração), escolha **Generation 2** para o tipo de imagem do dispositivo .vhdx e clique em **Next** (Seguinte).    
@@ -128,7 +125,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 11. Para cumprir os requisitos mínimos, precisa de quatro núcleos. Para adicionar quatro processadores virtuais, selecione o seu sistema anfitrião, na janela **Hyper-V Manager**. No painel do lado direito, na lista **Virtual Machines** (Máquinas Virtuais), localize a máquina virtual que acabou de criar. Selecione e clique com o botão direito do rato no nome da máquina e selecione **Settings** (Definições).
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
-12. Na página **Settings** (Definições), no painel do lado esquerdo, clique em **Processor** (Processador). No painel do lado direito, defina **number of virtual processors** (número de processadores virtuais) como quatro (ou mais). Clique em **Apply** (Aplicar).
+12. Na página **Settings** (Definições), no painel do lado esquerdo, clique em **Processor** (Processador). No painel do lado direito, defina **number of virtual processors** (número de processadores virtuais) como quatro (ou mais). Clique em **Aplicar**.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
 13. Para cumprir os requisitos mínimos, também precisa de adicionar um disco de dados virtual de 2 TB. Na página **Settings** (Definições):
@@ -141,7 +138,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
 1. Na página **Before you begin** (Antes de começar) do New Virtual Hard Disk Wizard (Assistente de Novo Disco Rígido Virtual), clique em **Next** (Seguinte).
-2. Na página **Choose Disk Format** (Escolher Formato do Disco), aceite a opção predefinida, que é o formato **VHDX**. Clique em **Next** (Seguinte).
+2. Na página **Choose Disk Format** (Escolher Formato do Disco), aceite a opção predefinida, que é o formato **VHDX**. Clique em **Seguinte**.
    
 17. Na página **Choose Disk Type page** (Escolher Tipo de Disco), defina o tipo do disco rígido virtual como **Dynamically expanding** (Expansão dinâmica), que é a recomendação. **Fixed size disk** (Disco de tamanho fixo) também funcionaria, mas teria de esperar muito tempo. Não recomendamos a utilização da opção **Differencing** (Diferenciação). Clique em **Seguinte**. 
 
@@ -149,7 +146,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 18. Na página **Specify Name and Location** (Especificar Nome e Localização), indique **name** (nome) e **location** (localização, para a qual pode navegar) para o disco de dados. Clique em **Seguinte**.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Na página **Configure Disk** (Configurar Disco), selecione a opção **Create a new blank virtual hard disk** (Criar um disco rígido virtual vazio novo) e especifique o tamanho como **2 TB** (ou mais). Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não pode encolher o disco depois de aprovisionado.  No entanto, pode adicionar um disco de dados e expandi-lo. Clique em **Next** (Seguinte).
+19. Na página **Configure Disk** (Configurar Disco), selecione a opção **Create a new blank virtual hard disk** (Criar um disco rígido virtual vazio novo) e especifique o tamanho como **2 TB** (ou mais). Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não pode encolher o disco depois de aprovisionado.  No entanto, pode adicionar um disco de dados e expandi-lo. Clique em **Seguinte**.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Na página **Summary** (Resumo), reveja os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Finish** (Concluir) para criar o disco. O assistente fecha-se e é adicionado um disco rígido virtual à sua máquina.
@@ -171,17 +168,10 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 3. Poderá ter de esperar entre 10 a 15 minutos para que o dispositivo esteja pronto. É apresentada uma mensagem de estado na consola, para indicar o progresso. Quando o dispositivo estiver pronto, aceda a **Action** (Ação). Prima `Ctrl + Alt + Delete` para iniciar sessão no dispositivo virtual. O utilizador predefinido é *EdgeUser* e a palavra-passe predefinida é *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após o primeiro início de sessão. É-lhe pedido que altere a palavra-passe.
-
-   Introduza uma palavra-passe com, pelo menos, 8 carateres. A palavra-passe tem de satisfazer, pelo menos, três dos quatro requisitos seguintes: letras maiúsculas, letras minúsculas, números e carateres especiais. Reintroduza a palavra-passe para a confirmar. É notificado de que a palavra-passe foi alterada.
    
-5. Após a alteração bem-sucedida da palavra-passe, o dispositivo virtual pode ser reiniciado. Aguarde pelo início do dispositivo.  É apresentada a consola Windows PowerShell do dispositivo, juntamente com uma barra de progresso.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. Os passos 6 a 8 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 9. Se tiver iniciado o dispositivo num ambiente não DHCP, verá uma mensagem a informar do mesmo.
+6. Os passos de 5 a 7 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos. Se tiver iniciado o dispositivo num ambiente não DHCP, verá uma mensagem a informar do mesmo.
     
-7. Para configurar a rede, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `DATA1`.
+7. Para configurar a rede, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 
 8. Utilize o cmdlet `Set-HcsIpAddress` para configurar a rede. Veja o seguinte exemplo:
 
@@ -192,7 +182,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa. Modifique a configuração do dispositivo de modo a que a máquina tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Veja os requisitos mínimos de configuração no [Passo 1: Confirmar que o sistema anfitrião cumpre os requisitos mínimos do dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa. Modifique a configuração do dispositivo de modo a que a máquina tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração em [Verificar se o sistema anfitrião cumpre os requisitos mínimos do dispositivo virtual](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -204,7 +194,7 @@ Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 
 > [!div class="checklist"]
-> * Confirmar que o anfitrião cumpre os requisitos mínimos do dispositivo.
+> * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
 > * Aprovisionar um dispositivo virtual no hipervisor
 > * Iniciar o dispositivo virtual e obter o endereço IP
 

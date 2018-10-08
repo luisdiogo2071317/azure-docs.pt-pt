@@ -1,24 +1,26 @@
 ---
-title: Guia de introdução do Node.js – Criar uma nova base de dados de conhecimento – para a API do Criador de FAQ da Microsoft (V4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento em Node.js para manter as suas FAQs e manuais de produtos para que possa começar a utilizar o Criador de FAQ.
+title: 'Início Rápido: API Node.js - Criar base de dados de conhecimento - Criador de FAQ'
+description: Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: cbf89aa3a10012ea2d99972c6a83dd351739c5a6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43771398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037308"
 ---
 # <a name="create-a-new-knowledge-base-in-nodejs"></a>Criar uma nova base de dados de conhecimento em Node.js
 
 Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 Abaixo, indicamos dois URLs de FAQs de exemplo (em "urls" de **req={}**) que irão fornecer conteúdos. O Criador de FAQ extrai automaticamente perguntas e respostas destes conteúdos semiestruturados, como é explicado neste documento de [origens de dados](../Concepts/data-sources-supported.md). Também pode utilizar os seus próprios URLs de FAQs neste guia de introdução.
 

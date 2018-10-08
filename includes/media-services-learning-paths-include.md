@@ -1,4 +1,9 @@
-Leia mais sobre os percursos de aprendizagem dos Serviços de Multimédia do Azure:
+Veja a versão mais recente dos Serviços de Multimédia do Azure: [Serviços de Multimédia do Azure v3](https://docs.microsoft.com/azure/media-services/latest/).
 
-* [Fluxo de trabalho da transmissão em direto dos Serviços de Multimédia](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Fluxo de trabalho da transmissão a pedido dos Serviços de Multimédia](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+Pode começar com os seguintes temas: 
+
+* [Descrição geral](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Carregar, codificar e transmitir vídeos com as APIs](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
+* [Analisar](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
+* [Transmissão em direto](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
+* [Proteja os seus conteúdos](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)

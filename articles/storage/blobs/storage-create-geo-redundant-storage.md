@@ -9,14 +9,14 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: b3916fb0de48f30bd4809d1fc42dde6ac78c07b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023271"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180886"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados das suas aplicações altamente disponíveis com o Armazenamento do Azure
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Tutorial: tornar os dados das suas aplicações altamente disponíveis com o Armazenamento do Azure
 
 Este tutorial é a primeira parte de uma série, que mostra como tornar os dados das suas aplicações altamente disponíveis no Azure. Quando tiver terminado, terá uma aplicação de consola que carrega e obtém um blob para uma conta de armazenamento [geograficamente redundante de acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação utiliza o padrão [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar. A aplicação muda para o ponto final secundário quando uma falha é simulada.
 

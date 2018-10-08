@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702532"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433995"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Criar uma tarefa do Stream Analytics para analisar dados de chamadas telefónicas e visualizar os resultados num dashboard do Power BI
  
@@ -101,12 +101,12 @@ Antes de iniciar a aplicação TelcoGenerator, deve configurá-la para enviar da
 5. Em seguida, abra uma janela de comando, mude para a pasta onde deszipou a aplicação TelcoGenerator e introduza o seguinte comando:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Este comando recebe os seguintes parâmetros:
    * **Número de registos de dados de chamada por hora**.  
-   * **Percentagem de probabilidade de fraude** - ou seja, a frequência com que a aplicação deve simular uma chamada fraudulenta. O valor .2 significa que cerca de 20% dos registos de chamada parecerão fraudulentos.  
+   * **Percentagem de probabilidade de fraude** - ou seja, a frequência com que a aplicação deve simular uma chamada fraudulenta. O valor 0.2 significa que cerca de 20% dos registos de chamada parecerão fraudulentos.  
    * **Duração em horas** - o número de horas que a aplicação deve ser executada. Também pode parar a aplicação em qualquer altura, terminando o processo (Ctrl + C) na linha de comandos.
 
    Após alguns segundos, a aplicação começa a apresentar registos de chamadas telefónicas no ecrã, à medida que os envia para o hub de eventos. Os dados das chamadas telefónicas contêm os seguintes campos:
@@ -228,7 +228,7 @@ Pode testar uma consulta do editor de consultas e precisa de dados de exemplo pa
 
 3. Defina **Minutos** como 3 e selecione **OK**. Três minutos de dados são utilizados como amostra do fluxo de entrada e receberá uma notificação quando os dados de exemplo estiverem prontos. Pode ver o estado da amostragem na barra de notificação. 
 
-   Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto a janela de consulta estiver aberta. Se fechar a janela de consulta, os dados de exemplo são eliminados e terá de criar um novo conjunto de dados de exemplo. Em alternativa, pode obter um ficheiro .json que inclua dados de exemplo a partir do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json) e, em seguida, carregar esse ficheiro .json para utilizar como dados de exemplo para a entrada CallStream.  
+   Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto a janela de consulta estiver aberta. Se fechar a janela de consulta, os dados de exemplo são eliminados e terá de criar um novo conjunto de dados de exemplo. Em alternativa, pode obter um ficheiro .json que inclua dados de exemplo a partir do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) e, em seguida, carregar esse ficheiro .json para utilizar como dados de exemplo para a entrada CallStream.  
 
 4. Selecione **Testar** para testar a consulta. Deverá ver resultados de saída, conforme mostra esta captura de ecrã:  
 
@@ -262,7 +262,7 @@ Pode testar uma consulta do editor de consultas e precisa de dados de exemplo pa
 
 Para esta parte do tutorial, vai utilizar uma aplicação Web [ASP.NET](http://asp.net/) de exemplo, criada pela equipa do Power BI para incorporar o seu dashboard. Para obter mais informações sobre a incorporação de dashboards, veja o artigo [Incorporação com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Neste tutorial, vamos seguir os passos para o utilizador que tem a aplicação de dados. Para configurar a aplicação, aceda ao repositório do Github [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e siga as instruções da secção **User Owns Data** (utilize os URLs de redirecionamento e da home page indicados na subsecção **integrate-dashboard-web-app**). Uma vez que estamos a utilizar o exemplo de Dashboard, utilize o código de exemplo integrate-dashboard-web-app localizado no [repositório do GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+Neste tutorial, vamos seguir os passos para o utilizador que tem a aplicação de dados. Para configurar a aplicação, aceda ao repositório do Github [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e siga as instruções da secção **User Owns Data** (utilize os URLs de redirecionamento e da home page indicados na subsecção **integrate-dashboard-web-app**). Uma vez que estamos a utilizar o exemplo de Dashboard, utilize o código de exemplo integrate-dashboard-web-app localizado no [repositório do GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Quando a aplicação estiver em execução no browser, siga estes passos para incorporar o dashboard que criou anteriormente na página Web:
 
 1. Selecione **Iniciar sessão no Power BI**, que concede à aplicação acesso aos dashboards na sua conta do Power BI.  

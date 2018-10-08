@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957676"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161935"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Tutorial: Copiar dados para o Azure Data Box 
 
@@ -45,7 +45,7 @@ Antes de começar, certifique-se de que:
 ## <a name="connect-to-data-box"></a>Ligar ao Data Box
 
 Com base na conta de armazenamento selecionada, o Data Box cria até:
-- Três partilhas para cada conta de armazenamento associada (GPv1 e GPv2).
+- Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
 - Uma partilha para uma conta de armazenamento de blobs ou premium. 
 
 Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro nível são os contentores e as de segundo nível são os blobs. Nas partilhas de ficheiros do Azure, as entidades de primeiro nível são as partilhas e as de segundo nível são os ficheiros.
@@ -233,7 +233,7 @@ Para garantir a integridade dos dados, a soma de verificação é calculada inli
 
 Se estiver a utilizar um computador anfitrião do Linux, utilize um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
 
-O comando cp é uma das melhores opções para copiar um diretório. Para obter mais informações sobre a utilização, aceda a [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+O comando `cp` é uma das melhores opções para copiar um diretório. Para obter mais informações sobre a utilização, aceda a [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Se estiver a utilizar a opção rsync para uma cópia de múltiplos threads, siga estas diretrizes:
 
@@ -273,7 +273,7 @@ O passo final é preparar o dispositivo para envio. Neste passo, todas as partil
    
     ![Preparar para enviar 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Se a soma de verificação não estiver ativada, é apresentada a opção para ativá-la. Recomendamos que efetue a validação da soma de verificação para integridade dos dados. A seleção de **Ativar soma de verificação** irá acionar o cálculo da soma de verificação e pode demorar algum tempo consoante o tamanho dos dados. Clique em **Iniciar preparação**.
+2. Por predefinição, as somas de verificação são calculadas inline durante a preparação para envio. O cálculo de soma de verificação pode demorar algum tempo, consoante o tamanho dos seus dados. Clique em **Iniciar preparação**.
     1. As partilhas do dispositivo ficam offline e o dispositivo é bloqueado enquanto é feita a preparação para envio.
         
         ![Preparar para enviar 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

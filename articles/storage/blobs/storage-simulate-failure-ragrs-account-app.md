@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: e242395df1ffb16897b73c0330f24de4857ede13
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398454"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180948"
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simular uma falha ao aceder ao armazenamento redundante com acesso de leitura
+# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: simular uma falha ao aceder ao armazenamento redundante com acesso de leitura
 
 Este tutorial é a segunda parte de uma série.  Neste tutorial, pode utilizar o [Fiddler](#simulate-a-failure-with-fiddler) ou o [Encaminhamento Estático](#simulate-a-failure-with-an-invalid-static-route) para simular a falha de pedidos para o ponto final primário da sua conta de armazenamento [ georredundante com acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) e fazer com que a aplicação leia do ponto final secundário.
 

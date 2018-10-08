@@ -1,5 +1,5 @@
 1. Inicie sessão no [Portal do Azure][Azure portal].
-2. No menu do lado esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Enterprise Integration** > **Reencaminhamento**.
+2. No menu do lado esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Reencaminhamento**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito. 
 3. Em **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
 4. Na caixa **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
 5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.  

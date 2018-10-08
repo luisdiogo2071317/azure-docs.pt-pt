@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047347"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391815"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -122,7 +122,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
     a. Selecione a floresta.
 
-    b. Selecione o serviço de autenticação.
+    b. Selecione o serviço de autenticação. Tem de selecionar o servidor AD FS, a menos que a sua organização tenha exclusivamente clientes do Windows 10.
 
     c. Clique em **Adicionar** para introduzir as credenciais de administrador da empresa.
 

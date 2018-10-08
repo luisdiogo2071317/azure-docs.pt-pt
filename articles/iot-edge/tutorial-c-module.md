@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b7589652f5b180a826f3c0b1fcbe040ff3d386d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b9cebfa9c826c5be7c84feb5953b8d2c446953aa
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41921047"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423260"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge em C e implementar no seu dispositivo simulado
 
@@ -41,7 +41,7 @@ Um dispositivo Azure IoT Edge:
 
 Recursos da cloud:
 
-* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão standard no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito no Azure. 
 
 Recursos de desenvolvimento:
 

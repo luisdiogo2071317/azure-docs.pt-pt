@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 367528353d5849a64ed1924d1b1e02a9b2c38252
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007938"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405469"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
@@ -42,14 +42,14 @@ Nesta série de tutoriais, ficará a saber como:
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protegidos no Azure utilizando um modelo
 > * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
 > * Atualizar o runtime de um cluster
-> * [Implementar a Gestão de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou a [CLI do Azure 2.0](/cli/azure/install-azure-cli).
+* Instale o [módulo do Azure PowerShell na versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou a [CLI do Azure ](/cli/azure/install-azure-cli).
 * Crie um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protegidos no Azure
 * Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2017](http://www.visualstudio.com) e as cargas de trabalho **desenvolvimento no Azure**, **desenvolvimento em ASP.NET e na Web** e **desenvolvimento em várias plataformas .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 * Se implementar um cluster do Linux, configure um ambiente de desenvolvimento Java no [Linux](service-fabric-get-started-linux.md) ou no [MacOS](service-fabric-get-started-mac.md).  Instale a [CLI do Service Fabric](service-fabric-cli.md).
@@ -204,6 +204,3 @@ Neste tutorial, ficou a saber como:
 > * Atualizar o runtime do cluster
 > * Monitorizar a atualização
 
-Em seguida, avance para o tutorial seguinte para saber como implementar a Gestão de API com um cluster do Service Fabric.
-> [!div class="nextstepaction"]
-> [Implementar a Gestão de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
