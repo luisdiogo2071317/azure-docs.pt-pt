@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 293d8376d83d729588aab0aeaa1040d9b3e5e0b5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 722a9ada338420cc1ed55eb7c4400f946d58ebac
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182285"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831658"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -84,11 +84,15 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Suporte de escalão 2 de parceiros](#partner-tier2-support)**: não utilize. Esta função foi preterida e será removida do Azure AD no futuro. Esta função é destinada à utilização por um pequeno número de parceiros de revenda da Microsoft e não se destina a utilização geral.
 
-* **[Palavra-passe de administrador / administrador de suporte técnico](#helpdesk-administrator)**: os utilizadores com esta função podem alterar palavras-passe, invalidar os tokens de atualização, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Os administradores de suporte técnico podem alterar as palavras-passe e invalidar os tokens de atualização apenas para utilizadores e outros administradores de suporte técnico. Invalidar um token de atualização força o utilizador iniciar sessão novamente.
-
+* **[Palavra-passe de administrador / administrador de suporte técnico](#helpdesk-administrator)**: os utilizadores com esta função podem alterar palavras-passe, invalidar os tokens de atualização, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Invalidar um token de atualização força o utilizador iniciar sessão novamente. Os administradores de suporte técnico podem repor palavras-passe e invalidar os tokens de atualização de outros utilizadores que são não-administradores ou membros de apenas as seguintes funções:
+  * Leitores de Diretório
+  * Utilizador Que Convida Convidados
+  * Administrador de Suporte Técnico
+  * Leitor do Centro de Mensagens
+  * Leitor de Relatórios
+  
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "Administrador de suporte técnico". É "Administrador de palavras-passe" na [portal do Azure](https://portal.azure.com/).
-  >
   >
   
 * **[Administrador de serviço do Power BI](#power-bi-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -132,11 +136,13 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[As equipes de administrador de serviços](#teams-service-administrator)**: os utilizadores nesta função podem gerir todos os aspetos da carga de trabalho Microsoft Teams através do Skype e Microsoft Teams para o Centro de administração de negócios e os respectivos módulos do PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionados com a telefonia, mensagens, reuniões e as equipes propriamente ditas. Esta função também concede a capacidade para gerir grupos do Office 365.
 
-* **[Administrador de conta de utilizador](#user-account-administrator)**: os utilizadores com esta função podem criar e gerir todos os aspetos de utilizadores e grupos. Além disso, esta função inclui a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Aplicam-se algumas restrições. Por exemplo, esta função não permite a eliminação de um administrador global. Os administradores de conta de utilizador podem alterar as palavras-passe e invalidar os tokens de atualização para os utilizadores, administradores de suporte técnico e outros administradores de conta de utilizador apenas. Invalidar um token de atualização força o utilizador iniciar sessão novamente.
+* **[Administrador de conta de utilizador](#user-account-administrator)**: os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos de utilizadores com algumas restrições (ver abaixo). Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função também inclui a capacidade de criar e gerir vistas de utilizador, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço.
 
-| Pode fazer | Não é possível fazer |
-| --- | --- |
-| <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Alterar palavras-passe para utilizadores, administradores de suporte técnico e outros administradores de conta de utilizador apenas</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador, com limitações. Ele não pode eliminar um administrador global nem criar outros administradores.</p> |<p>Efetuar operações de faturas e compras de produtos do Office</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ativar ou desativar a autenticação multifator</p><p>Ver registos de auditoria</p> |
+  | | |
+  | --- | --- |
+  |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir pedidos de suporte do Office|
+  |<p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades de utilizador, exceto o nome Principal de utilizador</p>
+  |Apenas em utilizadores que são não-administradores ou em qualquer um dos seguintes limitada funções de administrador:<ul><li>Leitores de Diretório<li>Utilizador Que Convida Convidados<li>Administrador de Suporte Técnico<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Conta de Utilizador|<p>Eliminar e restauro</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerir todas as propriedades de utilizador, incluindo o nome Principal de utilizador</p><p>Repor palavra-passe</p><p>Atualizar as chaves de dispositivo (FIDO)</p>
 
 As tabelas seguintes descrevem as permissões específicas no Azure Active Directory tendo em conta a cada função. Algumas funções podem ter permissões adicionais no Microsoft outide de serviços do Azure Active Directory.
 

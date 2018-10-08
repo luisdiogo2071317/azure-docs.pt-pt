@@ -1,7 +1,7 @@
 ---
-title: Transferir dados de utilização de nota fiscal e diário de faturação do Azure | Documentos da Microsoft
-description: Descreve como transferir ou visualizar seus dados do Azure faturas da nota fiscal e diário utilização.
-keywords: cobrança de nota fiscal, a transferência de faturas, a fatura do azure, utilização do azure
+title: Transferir fatura do Azure e dados de uso diário | Microsoft Docs
+description: Descreve como transferir ou visualizar seus dados do Azure faturas da fatura e diário utilização.
+keywords: cobrança de fatura, a transferência de faturas, a fatura do azure, utilização do azure
 services: billing
 documentationcenter: ''
 author: genlin
@@ -33,9 +33,9 @@ Este artigo não é aplicável a clientes Enterprise Agreement (EA). Se for um c
 > [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obter a fatura por correio eletrónico (. pdf)
-Pode optar ativamente por participar no e configurar os destinatários adicionais para receber o seu Azure notas fiscais numa mensagem de e-mail. Esta funcionalidade não pode estar disponível para determinadas subscrições como ofertas de suporte, contratos de empresa ou do Azure no Open.
+Pode optar ativamente e configurar os destinatários principais para receber sua fatura do Azure por email. Esta funcionalidade não pode estar disponível para determinadas subscrições como ofertas de suporte, contratos de empresa ou do Azure no Open.
 
-1. Selecione a sua subscrição a partir da [página subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Participar para cada subscrição que for o proprietário. Clique em **notas fiscais** , em seguida, **minha nota fiscal de E-Mail**. 
+1. Selecione a sua subscrição a partir da [página subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Participar para cada subscrição que for o proprietário. Clique em **Faturas** , em seguida, **Enviar minha fatura por email**. 
 
     ![Captura de ecrã que mostra o fluxo de participação ativa](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -56,13 +56,13 @@ Se não quiser receber sua fatura no e-mail, clique em opcional horizontalmente 
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Transferir fatura a partir do portal do Azure (. pdf)
 
-1. Selecione a sua subscrição do [página subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure como [um utilizador com acesso às notas fiscais](billing-manage-access.md).
+1. Selecione a sua subscrição a partir da [página Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure como [um utilizador com acesso às faturas](billing-manage-access.md).
 
-2. Selecione **notas fiscais**. 
+2. Selecione **Faturas**. 
 
     ![Captura de ecrã que mostra a opção de faturação e utilização](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png) 
 
-3. Clique em **transferir fatura** para visualizar uma cópia da sua fatura em PDF. Se disser **não está disponível**, consulte [por que motivo não vejo uma nota fiscal para o último período de faturação?](#noinvoice)
+3. Clique em **transferir fatura** para visualizar uma cópia da sua fatura em PDF. Se disser **Não disponível**, confira [Por que motivo não vejo uma fatura para o último período de faturação?](#noinvoice)
 
     ![Captura de ecrã que mostra períodos de faturação, a opção de transferência e o total das cobranças para cada período de faturação](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
@@ -98,15 +98,15 @@ Apenas o administrador de conta pode aceder ao centro de contas do Azure. Outros
 
 Para obter mais informações sobre a sua utilização diária, veja [Compreender a fatura do Microsoft Azure](billing-understand-your-bill.md). Para ajudar a gerir os custos, veja [evitar custos inesperados com a faturação do Azure e a gestão de custos](billing-getting-started.md).
 
-## <a name="noinvoice"></a> Por que motivo não vejo uma nota fiscal para o último período de faturação?
+## <a name="noinvoice"></a> Por que motivo não vejo uma fatura para o último período de faturação?
 
-Pode haver vários motivos que não vê uma nota fiscal:
+Pode haver vários motivos para não ver uma fatura:
 
-- Tem um montante de crédito mensal com a sua subscrição que não foi excedido ou tiver uma avaliação gratuita. Uma nota fiscal é gerada apenas quando merece ter dinheiro.
+- Tem um montante de crédito mensal com a sua subscrição que não foi excedido ou tiver uma avaliação gratuita. Uma fatura é gerada apenas quando deve dinheiro.
 
 - É menos de 30 dias a partir do dia que subscrito para o Azure.
 
-- A nota fiscal não forem gerada ainda. Aguarde até ao fim do período de faturação.
+- A fatura ainda não foi gerada. Aguarde até ao fim do período de faturação.
 
 - Se não for o administrador de conta, as faturas mais antigas podem não estar disponíveis para.
 

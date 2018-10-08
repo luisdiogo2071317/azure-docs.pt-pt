@@ -1,69 +1,70 @@
 ---
-title: Aplicação de pesquisa de vídeo de página única Bing | Microsoft Docs
-description: Explica como utilizar a API de pesquisa do Bing vídeo numa aplicação Web de página única.
+title: 'Tutorial: Compilar uma aplicação de página única da Pesquisa de Vídeos do Bing'
+titlesuffix: Azure Cognitive Services
+description: Explica como utilizar a API de Pesquisa de Vídeos do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354619"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226607"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicação de pesquisa de vídeo de página única
-A API do Bing vídeo pesquisa permite pesquisar Web e obter resultados vídeos relevantes para uma consulta de pesquisa. Neste tutorial, iremos criar uma aplicação de Web de página única que utiliza a API de pesquisa do Bing para apresentar os resultados da procura na página. A aplicação inclui os componentes HTML, CSS e JavaScript.
+# <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicação de página única da Pesquisa de Vídeos
+A API de Pesquisa de Vídeos do Bing permite-lhe pesquisar na Web e obter resultados de vídeos relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
 ![Single-page Bing Video Search app](./media/video-search-singlepage.png)
 -->
 
 > [!NOTE]
-> Os cabeçalhos de JSON e HTTP na parte inferior da página quando clicado mostram as informações de pedido HTTP e a resposta JSON. Estes detalhes podem ser útil quando explorar o serviço.
+> Clicar nos cabeçalhos JSON e HTTP na parte inferior da página mostra a resposta JSON e as informações do pedido HTTP. Estes detalhes podem ser úteis para explorar o serviço.
 
-![JSON, os resultados em bruto de HTTP](./media/json-http-raw-results.png)
+![Resultados não processados de JSON e HTTP](./media/json-http-raw-results.png)
 
-Esta aplicação tutorial ilustra como:
+Esta aplicação de tutorial ilustra como:
 > [!div class="checklist"]
-> * Efetuar uma chamada de API de pesquisa do Bing vídeo em JavaScript
-> * Opções de pesquisa de passar para a API de pesquisa do Bing
-> * Apresentar os resultados da pesquisa de vídeo ou, opcionalmente, inclui páginas Web, notícias de última hora ou imagens
-> * Tempo de pesquisa-frames de 24 horas, da última semana, mês ou tempo disponível
-> * Página percorrer os resultados de pesquisa
-> * Identificador do Bing cliente ID e a API chave de subscrição
-> * Processar erros que possam ocorrer
+> * Fazer uma chamada à API de Pesquisa de Vídeos do Bing em JavaScript
+> * Transmitir opções de pesquisa à API de Pesquisa do Bing
+> * Apresentar resultados da pesquisa de vídeo ou, opcionalmente, incluir páginas Web, notícias ou imagens
+> * Procurar intervalos de tempo de 24 horas, semana passada, mês ou todo o tempo disponível
+> * Navegar pelos resultados da pesquisa
+> * Gerir o ID de cliente do Bing e a chave de subscrição da API
+> * Resolver erros que possam aparecer
 
-A página tutorial é inteiramente autónomo; Não utilize qualquer estruturas externas, folhas de estilo ou ficheiros de imagem. Utiliza apenas funcionalidades de linguagem JavaScript amplamente suportadas e funciona com versões atuais dos todos os principais browsers.
+A página do tutorial é completamente independente. Não utiliza arquiteturas, folhas de estilo nem ficheiros de imagens externos. Só utiliza funcionalidades da linguagem JavaScript amplamente suportadas e funciona com as versões atuais dos principais browsers.
 
-Neste tutorial, vamos discutir selecionadas partes do código fonte. A concluir [código fonte](tutorial-bing-video-search-single-page-app-source.md) está disponível. Para executar o exemplo, copie e cole o código de origem para um editor de texto e guarde-o como `bing.html`.
+Neste tutorial, vamos abordar determinadas partes do código de origem. O [código de origem](tutorial-bing-video-search-single-page-app-source.md) completo está disponível. Para executar o exemplo, copie e cole o código de origem num editor de texto e guarde-o como `bing.html`.
 
-## <a name="app-components"></a>Componentes de aplicação
-Como qualquer aplicação Web de página única, este tutorial da aplicação inclui três partes:
+## <a name="app-components"></a>Componentes da aplicação
+Tal como qualquer aplicação Web de página única, esta aplicação de tutorial tem três partes:
 
 > [!div class="checklist"]
-> * HTML - define a estrutura e conteúdo da página
-> * CSS - define o aspecto da página
+> * HTML - define a estrutura e os conteúdos da página
+> * CSS - define o aspeto da página
 > * JavaScript - define o comportamento da página
 
-A maioria dos HTML e CSS é convencionais, para que o tutorial não discuti-lo. No código HTML contém o formulário de pesquisa na qual o utilizador introduz uma consulta e escolhe opções de pesquisa. O formulário está ligado à JavaScript que suporta a procura utilizando o `onsubmit` atributo do `<form>` etiqueta:
+A maioria do código HTML e do CSS é convencional, pelo que não são abordados no tutorial. O HTML contém o formulário de pesquisa no qual o utilizador introduz uma consulta e escolhe as opções de pesquisa. O formulário está ligado ao JavaScript que faz a pesquisa com o atributo `onsubmit` da tag `<form>`:
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this)">
 ```
-O `onsubmit` processador devolve `false`, que mantém o formulário sejam submetidas ao servidor. O código JavaScript efetua o trabalho de recolher as informações necessárias do formulário e efetuar a pesquisa.
+O processador `onsubmit` devolve `false`, que impede o formulário de ser submetido para um servidor. O código JavaScript recolhe as informações necessárias do formulário e executa a pesquisa.
 
-No código HTML também contém de divisões (HTML `<div>` etiquetas) onde os resultados de pesquisa são apresentados.
+O HTML também inclui as divisões (tags `<div>` de HTML) nas quais os resultados da pesquisa aparecem.
 
-## <a name="managing-subscription-key"></a>Gestão da chave de subscrição
+## <a name="managing-subscription-key"></a>Gerir a chave de subscrição
 
-Para evitar ter de incluir a chave de subscrição de API de pesquisa do Bing no código, iremos utilizar o armazenamento persistente do browser para armazenar a chave. Antes da chave é armazenada, iremos solicitar a chave do utilizador. Se a chave mais tarde é rejeitada pela API, iremos invalidar a chave armazenada para que o utilizador será avisado novamente.
+Para evitar ter de incluir a chave de subscrição da API de Pesquisa do Bing no código, armazenamo-la no armazenamento persistente do browser. Antes de a chave ser armazenada, pedimos a chave do utilizador. Se a API rejeitar a chave mais tarde, invalidamos a chave armazenada e voltamos a pedi-la ao utilizador.
 
-Iremos definir `storeValue` e `retrieveValue` funções que utilizam o `localStorage` objeto (nem todos os browsers suportam) ou um cookie. O `getSubscriptionKey()` função utiliza estas funções para armazenar e obter a chave do utilizador.
+Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (não suportada em todos os browsers) ou um cookie. A função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador.
 
 ``` javascript
 // Cookie names for data we store
@@ -86,31 +87,31 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-No código HTML `<form>` tag `onsubmit` chamadas a `bingWebSearch` função devolver resultados da pesquisa. `bingWebSearch` utiliza `getSubscriptionKey()` para autenticar cada consulta. Conforme mostrado na definição do anterior, `getSubscriptionKey` pede ao utilizador para a chave, se a chave ainda não foi introduzida. A chave é armazenada, em seguida, para continuar a utilizar a aplicação.
+A tag `<form>` de HTML `onsubmit` chama a função `bingWebSearch`, para devolver os resultados da pesquisa. `bingWebSearch` utiliza `getSubscriptionKey()` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` pede a chave ao utilizador caso a mesma não tenha sido introduzida. Depois, a chave é armazenada e utilizada continuamente pela aplicação.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">
 ```
-## <a name="selecting-search-options"></a>Selecionar opções de pesquisa
-A figura seguinte mostra a caixa de texto de consulta e as opções que definem uma pesquisa.
+## <a name="selecting-search-options"></a>Selecionar as opções de pesquisa
+A imagem abaixo mostra a caixa de texto da consulta e as opções que definem a pesquisa.
 
-![Opções de pesquisa do Bing notícias de última hora](media/video-search-options.png)
+![Opções de Pesquisa de Notícias do Bing](media/video-search-options.png)
 
-O formulário HTML inclui elementos com os nomes seguintes:
+O formulário HTML inclui elementos com os nomes abaixo:
 
 |Elemento|Descrição|
 |-|-|
-| `where` | Um menu pendente para selecionar o mercado (localização e de idioma) utilizado para a pesquisa. |
-| `query` | O campo de texto para introduzir os termos de pesquisa. |
+| `where` | Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa. |
+| `query` | O campo de texto no qual introduzir os termos da pesquisa. |
 | `modules` | Caixas de verificação para promover módulos específicos de resultados, todos os resultados ou vídeos relacionados. |
-| `when` | Menu pendente para, opcionalmente, limitar a pesquisa para o dia, semana ou mês mais recente. |
-| `safe` | Uma caixa de verificação que indica se deve utilizar a funcionalidade de Bing SafeSearch para filtrar os resultados "para adultos". |
-| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere para apresentar resultados mais ou menos por página. |
-| `offset`|  Campo oculto. O deslocamento do resultado da pesquisa primeiro no pedido; utilizado para paginação. Este é reposto a `0` num pedido de novo. |
+| `when` | Menu pendente para limitar, opcionalmente, a pesquisa ao dia, semana ou mês mais recente. |
+| `safe` | Uma caixa de verificação que indica se deve ser utilizada a funcionalidade SafeSearch do Bing para filtrar resultados de conteúdos para adultos. |
+| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
+| `offset`|  Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido; utilizado para paginação. É reposto para `0` nos pedidos novos. |
 
 > [!NOTE]
-> Pesquisa na Web Bing oferece outros parâmetros de consulta. Estamos a utilizar apenas alguns dos mesmos.
+> A Pesquisa na Web do Bing disponibiliza outros parâmetros de consulta. Só vamos utilizar alguns desses parâmetros.
 
 ``` javascript
 // build query options from the HTML form
@@ -137,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Por exemplo, o `SafeSearch` parâmetro uma chamada à API real pode ser `strict`, `moderate`, ou `off`, com `moderate` a ser a predefinição. No entanto, o nosso formulário, utiliza uma caixa de verificação, que tem apenas dois Estados. O código JavaScript converte esta definição para o `strict` ou `off` (`moderate` não for utilizado).
+Por exemplo, o parâmetro `SafeSearch` numa chamada à API real pode ser `strict`, `moderate` ou `off`, sendo `moderate` a predefinição. Contudo, o formulário utiliza uma caixa de verificação, que só tem dois estados. O código JavaScript converte esta definição em `strict` ou em `off` (`moderate` não é utilizado).
 
-## <a name="performing-the-request"></a>Executar o pedido
-A consulta, a cadeia de opções e a chave de API, o `BingWebSearch` funcionar utiliza um `XMLHttpRequest` objeto para efetuar o pedido para o ponto final de pesquisa do Bing.
+## <a name="performing-the-request"></a>Fazer o pedido
+Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -189,7 +190,7 @@ function bingWebSearch(query, options, key) {
     return false;
 }
 ```
-Após a conclusão com êxito do pedido HTTP, chamadas JavaScript a `load` processador de eventos, `handleOnLoad()`, para processar um pedido de HTTP GET com êxito para a API. 
+Após a conclusão do pedido HTTP, o JavaScript chama o processador de eventos `load`, `handleOnLoad()`, para processar um pedido HTTP GET bem-sucedido à API. 
 
 ```javascript
 // handle Bing search request results
@@ -255,21 +256,21 @@ function handleOnLoad() {
 ```
 
 > [!IMPORTANT]
-> Se ocorrer um erro na operação de pesquisa, a API de pesquisa do Bing notícias devolve um código de estado de HTTP não 200 e inclui informações de erro na resposta JSON. Além disso, se o pedido foi taxa limitado, a API devolve uma resposta vazia.
-Um pedido HTTP com êxito *não* significam necessariamente que que a pesquisa próprio foi concluída com êxito. 
+> Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Além disso, se o pedido tiver uma limitação de frequência, a API devolve uma resposta vazia.
+Um pedido HTTP bem-sucedido *não* significa necessariamente que a pesquisa em si foi concluída com êxito. 
 
-Muito do código em ambas as funções anteriores se encontra dedicada para processamento de erros. Poderão ocorrer erros nas seguintes fases:
+Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Podem ocorrer erros nas fases seguintes:
 
-|Fase|Potenciais erros|Processado pelo|
+|Fase|Potencial erro(s)|Resolvido por|
 |-|-|-|
-|Criar o objeto de pedido de JavaScript|URL inválido|`try`/`catch` Bloco|
-|Efetuar o pedido|Erros de rede, ligações abortadas|`error` e `abort` processadores de eventos|
-|Efetuar a pesquisa|Inválido limites de velocidade do pedido, JSON inválido,|os testes no `load` processador de eventos|
+|Criar o objeto de pedido JavaScript|URL inválido|bloco `try`/`catch`|
+|Fazer o pedido|Erros de rede, ligações abortadas|Processadores de eventos `error` e `abort`|
+|Fazer a pesquisa|Pedido inválido, JSON inválido, limites de frequência|testes no processador de eventos `load`|
 
-São processados os erros ao chamar `renderErrorMessage()` com os detalhes sobre o erro. Se a resposta passar o gauntlet completo de testes de erro, chamamos `renderSearchResults()` para apresentar os resultados da procura na página.
+Os erros são processados mediante a chamada de `renderErrorMessage()` com todos os detalhes dos mesmos conhecidos. Se a resposta passar todos os testes de erros, chamamos `renderSearchResults()` para apresentar os resultados da pesquisa na página.
 
 ## <a name="displaying-search-results"></a>Apresentar os resultados da pesquisa
-A função principal para apresentar os resultados da pesquisa é `renderSearchResults()`. Esta função aceita JSON devolvido pelo serviço de pesquisa do Bing notícias e apresenta os resultados de notícias e pesquisas relacionadas, se aplicável.
+A principal função para apresentar os resultados da pesquisa é `renderSearchResults()`. Esta função utiliza o JSON que o serviço Pesquisa de Notícias do Bing devolve e compõe os resultados de notícias e as pesquisas relacionadas, se existirem.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -286,7 +287,7 @@ function renderSearchResults(results) {
     }
 }
 ```
-Os resultados da pesquisa são devolvidos como de nível superior `value` objeto na resposta JSON. Iremos os passar para a nossa função `renderResultsItems()`, que itera através de-los e chama uma função para compor cada item no HTML. O HTML resultante é devolvido ao `renderSearchResults()`, onde é inserido o `results` divisão na página.
+Os resultados da pesquisa são devolvidos como o objeto `value` de nível superior na resposta JSON. Transmitimo-los à nossa função `renderResultsItems()`, que itera pelos mesmos e chama uma função para compor cada item em HTML. O HTML resultante é devolvido a `renderSearchResults()`, onde é inserido na divisão `results` da página.
 
 ```javascript
 // render search results
@@ -305,20 +306,20 @@ Os resultados da pesquisa são devolvidos como de nível superior `value` objeto
 }
 ```
 
-Devolve a API de pesquisa do Bing notícias até quatro diferentes tipos de resultados relacionados, cada uma no seu próprio objeto de nível superior. São:
+A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São os seguintes:
 
 |Relação|Descrição|
 |-|-|
-|`pivotSuggestions`|Consultas que substituir uma palavra pivot na pesquisa original com outro. Por exemplo, se procurar "red flowers", uma palavra dinâmica pode ser "red" e uma sugestão de dinâmica pode ser "amarelo flowers."|
-|`queryExpansions`|Consultas que limitar a pesquisa original adicionando mais termos. Por exemplo, se procurar "Microsoft superfície", uma expansão de consulta pode ser "Microsoft Surface Pro."|
-|`relatedSearches`|Consultas que também tenham sido introduzidas por outros utilizadores que introduziu a pesquisa original. Por exemplo, se procurar "Montagem Rainier", uma pesquisa relacionada poderão "Mt. São Helens."|
-|`similarTerms`|Consultas que são semelhantes na significado da procura original. Por exemplo, se procurar "escolas", um termo semelhante poderão "education."|
+|`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se pesquisar por “flores vermelhas”, uma palavra “pivô” poderá ser “vermelhas” e uma sugestão “pivô” “flores amarelas”.|
+|`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se pesquisar por “Microsoft Surface”, uma expansão da consulta poderá ser “Microsoft Surface Pro”.|
+|`relatedSearches`|Consultas que também foram introduzidas por outros utilizadores que introduziram a pesquisa original. Por exemplo, se pesquisar por “Mount Rainier”, uma consulta relacionada poderá ser “Monte de Santa Helena”.|
+|`similarTerms`|Consultas cujo significado é semelhante ao da pesquisa original. Por exemplo, se pesquisar por “escolas”, um termo semelhante poderá ser “educação”.|
 
-Como anteriormente visto na `renderSearchResults()`, iremos compor apenas o `relatedItems` sugestões e coloque resultante hiperligações na barra lateral da página.
+Conforme vimos anteriormente em `renderSearchResults()`, só convertermos as sugestões `relatedItems` e colocamos as ligações resultantes na barra lateral da página.
 
-## <a name="rendering-result-items"></a>Itens do resultado composição
+## <a name="rendering-result-items"></a>Compor os itens dos resultados
 
-No JavaScript code o objeto, `searchItemRenderers`, pode contém *compositores:* funções que geram HTML para cada tipos de resultados de pesquisa. A pesquisa de vídeo página utiliza apenas `videos`. Consulte os outros tutoriais de vários tipos de compositores.
+No código JavaScript, o objeto `searchItemRenderers` pode conter *compositores*, funções que geram o HTML de cada tipo de resultado da pesquisa. A página da pesquisa de vídeo só utiliza `videos`. Relativamente aos diversos tipos de compositores, veja os outros tutoriais.
 
 ```javascript
 searchItemRenderers = {
@@ -333,13 +334,13 @@ Uma função de compositor pode aceitar os seguintes parâmetros:
 
 |Parâmetro|Descrição|
 |-|-|
-|`item`| O objecto de JavaScript que contém propriedades do item, tal como o respetivo URL e a respetiva descrição.|
-|`index`| O índice do item de resultado dentro da respetiva coleção.|
-|`count`| O número de itens na coleção de itens de resultado de pesquisa.|
+|`item`| O objeto JavaScript que contém as propriedades do item, como o URL e a descrição.|
+|`index`| O índice do item do resultado dentro da respetiva coleção.|
+|`count`| O número de itens na coleção do item do resultado da pesquisa.|
 
-O `index` e `count` parâmetros podem ser utilizados para resultados número, para gerar HTML especial para o início ou fim de uma coleção para inserir quebras de linha depois de um determinado número de itens e assim sucessivamente. Se a um compositor não precisa desta funcionalidade, não é necessário aceitar estes dois parâmetros.
+Os parâmetros `index` e `count` podem ser utilizados para numerar os resultados, para gerar código HTML especial para o início ou o fim de uma coleção, para inserir quebras de linha após um determinado número de itens, etc. Se um compositor não precisar desta funcionalidade, não tem de aceitar estes dois parâmetros.
 
-O `video` compositor é apresentado na excerpt de javascript seguinte. Utilizar o ponto final de vídeos, todos os resultados são do tipo `Videos`. O `searchItemRenderers` são apresentadas no segmento de código seguinte.
+O compositor `video` é mostrado no seguinte fragmento de JavaScript. Ao utilizar o ponto final dos Vídeos, todos os resultados são do tipo `Videos`. `searchItemRenderers` são apresentados no segmento de código seguinte.
 
 ```javascript
 // render functions for various types of search results
@@ -366,44 +367,44 @@ O `video` compositor é apresentado na excerpt de javascript seguinte. Utilizar 
 
 A função de compositor:
 > [!div class="checklist"]
-> * Cria uma etiqueta de parágrafo, atribui-o para o `images` classe e envia-a para a matriz de html.
-> * Calcula o tamanho das miniaturas de imagem (largura corrigida em 60 pixels, altura calculado proportionately).
-> * Baseia-se no código HTML `<img>` etiquetas para apresentar a miniatura de imagem. 
-> * Baseia-se no código HTML `<a>` etiquetas com ligação para a imagem e a página que o contém.
-> * Baseia-se a descrição que apresenta informações sobre a imagem e o site que está ativada.
+> * Cria uma tag de parágrafo, atribui-a à classe `images` e envia-a para a matriz html.
+> * Calcula o tamanho da miniatura de imagem (a largura é fixa, com 60 pixéis, e a altura é calculada proporcionalmente).
+> * Cria a tag `<img>` de HTML para apresentar a miniatura de imagem. 
+> * Cria as tags `<a>` de HTML que ligam à imagem e à página que a contém.
+> * Cria a descrição que apresenta as informações sobre a imagem e o site no qual a imagem se encontra.
 
-O tamanho das miniaturas é utilizado em ambos os `<img>` etiqueta e o `h` e `w` campos no URL a miniatura. O [serviço em miniatura do Bing](resize-and-crop-thumbnails.md) , em seguida, fornece uma miniatura do exatamente esse tamanho.
+O tamanho da miniatura é utilizado na tag `<img>` e nos campos `h` e `w` do respetivo URL. Depois, o [serviço de miniaturas do Bing](resize-and-crop-thumbnails.md) entrega uma miniatura com exatamente esse tamanho.
 
-## <a name="persisting-client-id"></a>ID de cliente persistentes
-As respostas a partir de APIs de pesquisa do Bing podem incluir um `X-MSEdge-ClientID` cabeçalho que deve ser enviado para a API com os pedidos sucessivos. Se estão a ser utilizadas várias APIs de pesquisa do Bing, o mesmo ID de cliente deve utilizado com todos eles, se possível.
+## <a name="persisting-client-id"></a>ID de cliente persistente
+As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se estiverem a ser utilizadas várias APIs de Pesquisa do Bing, deve ser utilizado o mesmo ID de cliente em todas as APIs, se possível.
 
-Fornecer o `X-MSEdge-ClientID` cabeçalho permite que as APIs do Bing para associar todas as pesquisas de um utilizador, que tem duas vantagens importantes.
+Fornecer o cabeçalho `X-MSEdge-ClientID` permite às APIs do Bing associarem todas as pesquisas de um determinado utilizador, o que tem duas importantes vantagens.
 
-Em primeiro lugar, permite que o Bing motor de busca aplicar passado contexto a procura para localizar os resultados que melhor satisfazem o utilizador. Se um utilizador tem procurado anteriormente para os termos relacionados com sailing, por exemplo, uma pesquisa posterior para "knots" poderá preferentially devolver informações sobre knots utilizado no sailing.
+Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver pesquisado por termos relacionados com vela, por exemplo, no passado, uma pesquisa posterior por “nós” poderá devolver, preferencialmente, informações sobre os nós utilizados na vela.
 
-Segundo, o Bing aleatoriamente pode selecionar os utilizadores a experiência de novas funcionalidades antes de serem efetuadas amplamente disponíveis. Fornecer o mesmo ID de cliente com cada pedido garante que os utilizadores que ver a funcionalidade sempre veem-lo. Sem o ID de cliente, o utilizador poderá ver uma funcionalidade são apresentados e desaparecer, seemingly aleatória, os resultados da procura.
+Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-Políticas de segurança do browser (CORS) poderão impedir o `X-MSEdge-ClientID` cabeçalho estejam disponíveis para JavaScript. Esta limitação ocorre quando a resposta de pesquisa tem uma origem diferente da página de pedido-lo. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faz a chamada de API no mesmo domínio que a página Web. Uma vez que o script tem a mesma origem como a página Web, o `X-MSEdge-ClientID` cabeçalho, em seguida, está disponível para JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio que a página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
 
 > [!NOTE]
-> Uma aplicação Web de produção, deve executar o pedido lado do servidor. Caso contrário, a chave de API de pesquisa do Bing têm de ser incluída na página Web, onde se encontram disponíveis para qualquer pessoa que vistas de origem. É-lhe faturado para utilização de todas as sob a chave de subscrição de API, mesmo pedidos efetuados por entidades confiadoras não autorizadas, pelo que é importante não para expor a sua chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas na sua chave de subscrição da API, inclusive pedidos feitos por partes não autorizadas, pelo que é importante não expor a chave.
 
-Para fins de desenvolvimento, pode efetuar o pedido de API de pesquisa do Bing Web através de um proxy CORS. A resposta de um proxy essa tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta whitelists e disponibiliza-los JavaScript.
+Para fins de desenvolvimento, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza ao JavaScript.
 
-É fácil instalar um proxy CORS para permitir que a nossa aplicação tutorial para o cliente de acesso cabeçalho de ID. Primeiro, se ainda não tiver, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando numa janela de comandos:
+É fácil instalar um proxy CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho de ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto final de pesquisa na Web Bing no ficheiro HTML para:
+Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Por fim, inicie o proxy CORS com o seguinte comando:
+Por fim, inicie o proxy CORS com o comando seguinte:
 
     cors-proxy-server
 
-Deixe a janela de comandos aberta e, ao utilizar a aplicação tutorial; fechar a janela interrompe o proxy. Na secção de cabeçalhos de HTTP expansível abaixo os resultados da pesquisa, agora, pode ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada pedido.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial; se a fechar, o proxy para. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Referência da API de pesquisa do Bing vídeo](//docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)
+> [Bing Video Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) (Referência da API de Pesquisa de Vídeos do Bing)
