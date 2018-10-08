@@ -1,25 +1,25 @@
 ---
-title: Aplicação de Web de página única de pesquisa Visual do Bing (código de origem) | Documentos da Microsoft
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Código-fonte para o tutorial que mostra como utilizar a API de pesquisa Visual do Bing num aplicativo da Web de página única.
+title: 'Tutorial: criar uma aplicação Web de página única (código-fonte) - Pesquisa Visual do Bing'
+titleSuffix: Azure Cognitive Services
+description: Código-fonte do tutorial que mostra como utilizar a API de Pesquisa Visual do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 9b6164b811f897ec5cd8a67d27d3aa4f3d250f2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: a908bdcf447039ad3a27ceae04f0a6cfff890d21
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002597"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225757"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Tutorial: Aplicação Web de página única de pesquisa Visual
+# <a name="tutorial-visual-search-single-page-web-app"></a>Tutorial: aplicação Web de página única de Pesquisa Visual
 
-Este é o código-fonte completo discutido a [aplicação Web de página única de pesquisa Visual](tutorial-bing-visual-search-single-page-app.md) para pesquisa Visual do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing-visual-search.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro navegador popular.
+Este é o código-fonte completo discutido no tutorial [Aplicação Web de página única de Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md) para a Pesquisa Visual do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing-visual-search.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
 
 ```html
 <!DOCTYPE html>

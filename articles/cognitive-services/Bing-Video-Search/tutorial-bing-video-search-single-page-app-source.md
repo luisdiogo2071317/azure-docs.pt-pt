@@ -1,24 +1,25 @@
 ---
-title: Aplicação de Web de página única de pesquisa de vídeos do Bing (código de origem) | Documentos da Microsoft
-description: Código-fonte para o tutorial que mostra como utilizar a API de pesquisa de vídeos do Bing num aplicativo da Web de página única.
+title: 'Tutorial: criar uma aplicação Web de página única - Pesquisa de Vídeos do Bing'
+titlesuffix: Azure Cognitive Services
+description: Código-fonte do tutorial que mostra como utilizar a API da Pesquisa de Vídeos do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112465"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223292"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicação de página única de pesquisa de vídeos
+# <a name="tutorial-single-page-bing-video-search-app"></a>Tutorial: aplicação de Pesquisa de Vídeos do Bing de página única
 
-Este é o código-fonte completo discutido a [tutorial de aplicação de página única](tutorial-bing-video-search-single-page-app.md) para pesquisa de vídeos do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro navegador popular.
+Este é o código-fonte completo discutido no [tutorial de aplicação de página única](tutorial-bing-video-search-single-page-app.md) para a Pesquisa de Vídeos do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
 
 ```html
 <!DOCTYPE html>

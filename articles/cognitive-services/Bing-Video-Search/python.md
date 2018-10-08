@@ -1,35 +1,37 @@
 ---
-title: Guia de introdução do Python para os serviços do Azure cognitivos, pesquisa de vídeo do Bing API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing vídeo no Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: Pesquisa de Vídeos do Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente a API da Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352340"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220020"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Início rápido para pesquisa de vídeo do Bing API com o Python
+# <a name="quickstart-bing-video-search-api-with-python"></a>Início Rápido: API da Pesquisa de Vídeos do Bing com o Python
 
-Estas instruções mostram como utilizar a API do Bing vídeo de pesquisa, parte dos serviços cognitivos da Microsoft no Azure. Consulte o [referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para detalhes técnicos sobre as APIs.
+Estas instruções mostram como utilizar a API da Pesquisa de Vídeos do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Consulte a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
-Pode executar este exemplo como um bloco de notas do Jupyter [MyBinder](https://mybinder.org) ao clicar no início do Gestor de enlaces de destaque: 
+Pode executar este exemplo como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org), ao clicar no destaque de lançamento do Binder: 
 
-[![Gestor de enlaces](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
 ## <a name="running-the-walkthrough"></a>Executar as instruções
 
-Em primeiro lugar, defina `subscription_key` a sua chave de API para o serviço de API do Bing.
+Em primeiro lugar, defina `subscription_key` para a sua chave de API para o serviço de API do Bing.
 
 
 ```python
@@ -37,21 +39,21 @@ subscription_key = None
 assert subscription_key
 ```
 
-Em seguida, certifique-se de que o `search_url` ponto final está correta. Desta redação, apenas um ponto final é utilizado para a pesquisa do Bing APIs. Se ocorrerem erros de autorização, verificar este valor contra o ponto final da pesquisa Bing no dashboard do Azure.
+Em seguida, verifique se que o ponto final `search_url` está correto. Até ao momento, apenas um ponto final é utilizado para as APIs de Pesquisa do Bing. Caso se depare com erros de autorização, verifique novamente este valor relativamente ao ponto final da pesquisa do Bing no dashboard do Azure.
 
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search"
 ```
 
-Definir `search_term` serve para vídeos do kittens
+Definir `search_term` para procurar vídeos de gatinhos
 
 
 ```python
 search_term = "kittens"
 ```
 
-O seguinte bloquear utiliza o `requests` biblioteca do Python para a chamada para a pesquisa do Bing APIs e devolvem os resultados como um objeto JSON. Observe que podemos passa a chave de API através de `headers` dicionário e a pesquisa termo através o `params` dicionário. Para obter uma lista completa das opções que podem ser utilizadas para filtrar os resultados da pesquisa, consulte o [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) documentação.
+O bloco seguinte utiliza a biblioteca `requests` em Python para chamar as APIs de Pesquisa do Bing e devolver os resultados como um objeto JSON. Note que passamos a chave de API através do dicionário `headers` e o termo de pesquisa através do dicionário `params`. Para ver a lista completa de opções que podem ser utilizadas para filtrar os resultados da pesquisa, veja a documentação da [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
 
 ```python
@@ -64,7 +66,7 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-O `search_results` objeto contém os vídeos relevantes, juntamente com metadados avançado. Para ver um dos vídeos, utilize o `embedHtml` propriedade e insira-o para um `IFrame`.
+O objeto `search_results` contém os vídeos relevantes, juntamente com metadados detalhados. Para ver um dos vídeos, utilize a respetiva propriedade `embedHtml` e insira-o num `IFrame`.
 
 
 ```python
@@ -72,12 +74,12 @@ from IPython.display import HTML
 HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Vídeos de paginação](paging-videos.md)
-> [Resizing e cropping imagens em miniatura](resize-and-crop-thumbnails.md)
+> [Paginar vídeos](paging-videos.md)
+> [Redimensionar e recortar imagens em miniatura](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Consulte também 
 
- [Pesquisa na web vídeos](search-the-web.md) [experimente](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Pesquisar vídeos na Web](search-the-web.md) [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

@@ -1,75 +1,76 @@
 ---
-title: Azure Content Moderator - das tarefas de moderação de início com o .NET | Documentos da Microsoft
-description: Como iniciar trabalhos de moderação utilizando o SDK de moderador de conteúdos do Azure para .NET
+title: 'Início Rápido: iniciar tarefas de moderação com .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Como iniciar trabalhos de moderação com o SDK do Azure Content Moderator para .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3761552f81bd733f9c93fab40db07ef6f5a6a7f6
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181605"
+ms.locfileid: "47227443"
 ---
-# <a name="start-moderation-jobs-using-net"></a>Iniciar tarefas de moderação usando o .NET
+# <a name="quickstart-start-moderation-jobs-using-net"></a>Início Rápido: iniciar tarefas de moderação com .NET
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
  
-- Iniciar uma tarefa de moderação para analisar e criar as revisões de moderadores humanos
+- Iniciar uma tarefa de moderação para analisar e criar as revisões para moderadores humanos
 - Obter o estado da revisão pendente
 - Monitorizar e obter o estado final da revisão
-- Submeter o resultado para o Url de retorno de chamada
+- Submeter o resultado ao Url de chamada de retorno
 
-Este artigo pressupõe que já está familiarizado com o Visual Studio e c#.
+Este artigo pressupõe que já está familiarizado com o Visual Studio e C#.
 
-## <a name="sign-up-for-content-moderator"></a>Inscreva-se o Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Inscrever-se no Content Moderator
 
-Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
-Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços do Content Moderator através da API REST ou do SDK, precisa de uma chave de subscrição.
+Consulte o [Início Rápido](quick-start.md) para saber como pode obter a chave.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se para uma conta da ferramenta de revisão se não foi concluída no passo anterior
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se numa conta da ferramenta de revisão, se não o tiver feito no passo anterior
 
-Se recebeu o Content Moderator do portal do Azure, também [Inscreva-se a conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipa de revisão. Terá da equipe de Id e a ferramenta de revisão para chamar a API de revisão para iniciar uma tarefa e ver as críticas na ferramenta de revisão.
+Se chegou ao Content Moderator a partir do portal do Azure, [inscreva-se na conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e crie uma equipa de revisão. Irá precisar do ID da equipa e da ferramenta de revisão para chamar a API de revisão, para iniciar uma Tarefa e ver as revisões na ferramenta de revisão.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisão
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisões
 
-Depois de concluir os passos anteriores, pode acabar com duas chaves do Content Moderator se tiver iniciado a partir do portal do Azure. 
+Depois de concluir os passos anteriores, pode ficar com duas chaves do Content Moderator, se tiver iniciado a partir do portal do Azure. 
 
-Se planear utilizar a chave de API fornecida pelo Azure no seu exemplo SDK, siga os passos mencionados na [chave de utilizar o Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) secção para permitir que a aplicação chamar a API de revisão e criar as revisões.
+Se planear utilizar a chave de API fornecida pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita, gerada pela ferramenta de revisão, sua conta da ferramenta de revisão já sabe sobre a chave e por isso, não existem passos adicionais necessários.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são necessários passos adicionais.
 
 ## <a name="define-a-custom-moderation-workflow"></a>Definir um fluxo de trabalho de moderação personalizado
 
-Uma tarefa de moderação analisa o conteúdo usando as APIs e utiliza um **fluxo de trabalho** para determinar se deve criar revisões ou não.
-Embora a ferramenta de revisão contém um fluxo de trabalho predefinida, vamos [definir um fluxo de trabalho personalizado](Review-Tool-User-Guide/Workflows.md) para este início rápido.
+Uma tarefa de moderação analisa o conteúdo com as APIs e utiliza um **fluxo de trabalho** para determinar se deve ou não criar revisões.
+Embora a ferramenta de revisão contenha um fluxo de trabalho predefinido, vamos [definir um fluxo de trabalho personalizado](Review-Tool-User-Guide/Workflows.md) para este início rápido.
 
-Utilize o nome do fluxo de trabalho no seu código que inicia a tarefa de moderação.
+Utilize o nome do fluxo de trabalho no código que inicia a tarefa de moderação.
 
-## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
+1. Adicione um novo projeto **Aplicação de consola (.NET Framework)** à sua solução.
 
-   No código de exemplo, nomeie o projeto **CreateReviews**.
+   No código de exemplo, dê ao projeto o nome **CreateReviews**.
 
 1. Selecione este projeto como o projeto de arranque único para a solução.
 
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
-Instale os seguintes pacotes de NuGet:
+Instale os seguintes pacotes NuGet:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
+### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
-Modifique o programa usando instruções.
+Modifique as instruções de utilização do programa.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -85,7 +86,7 @@ Modifique o programa usando instruções.
 Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição.
 
 > [!IMPORTANT]
-> Atualização do **AzureRegion** e **CMSubscriptionKey** campos com os valores da sua chave de subscrição e o identificador de região.
+> Atualize os campos **AzureRegion** e **CMSubscriptionKey** com os valores do identificador da região e da chave de subscrição.
 
 
     /// <summary>
@@ -130,15 +131,15 @@ Adicione o seguinte código para criar um cliente do Content Moderator para a su
         }
     }
 
-### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicializar definições específicas da aplicação
 
-Adicione as seguintes constantes e campos estáticos para o **programa** classe no Program.cs.
+Adicione as seguintes constantes e campos estáticos à classe **Programa** em Program.cs.
 
 > [!NOTE]
-> Definir a constante TeamName para o nome que utilizou quando criou a sua subscrição do Content Moderator. Obter o TeamName do [web site do Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
-> Depois de iniciar sessão, selecione **credenciais** partir a **definições** menu (engrenagem).
+> Defina a constante TeamName com o nome que utilizou quando criou a sua subscrição do Content Moderator. Pode obter o TeamName do [site do Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Depois de iniciar sessão, selecione **Credenciais** no menu **Definições** (ícone de roda dentada).
 >
-> O nome da sua equipe é o valor do **Id** campo na **API** secção.
+> O nome da sua equipa é o valor do campo **Id** na secção **API**.
 
 
     /// <summary>
@@ -182,12 +183,12 @@ Adicione as seguintes constantes e campos estáticos para o **programa** classe 
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
 
-## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Adicione o código a moderado de automática, criar uma revisão e obter os detalhes da tarefa
+## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Adicionar código para moderar automaticamente, criar uma revisão e obter os detalhes da tarefa
 
 > [!Note]
-> Na prática, define o URL de chamada de retorno **CallbackEndpoint** para o URL que recebe os resultados da revisão manual (por meio de um pedido de HTTP POST).
+> Na prática, vai definir o URL de chamada de retorno **CallbackEndpoint** para o URL que recebe os resultados da revisão manual (por meio de um pedido HTTP POST).
 
-Comece por adicionar o seguinte código para o **Main** método.
+Comece por adicionar o seguinte código ao método **Principal**.
 
     using (TextWriter writer = new StreamWriter(OutputFile, false))
     {
@@ -241,27 +242,27 @@ Comece por adicionar o seguinte código para o **Main** método.
     }
 
 > [!NOTE]
-> A chave de serviço do Content Moderator tem um pedidos por segundo (RPS) para o limite de velocidade. Se ultrapassar o limite, o SDK lançará uma exceção com um código de 429 erro. 
+> A chave de serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS). Se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429. 
 >
-> Uma chave de escalão gratuito tem um limite de taxa de um RPS.
+> Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
-## <a name="run-the-program-and-review-the-output"></a>Execute o programa e reveja o resultado
+## <a name="run-the-program-and-review-the-output"></a>Executar o programa e rever o resultado
 
-Verá a saída de exemplo seguintes na consola do:
+Verá a seguinte saída de exemplo na consola:
 
     Perform manual reviews on the Content Moderator site.
     Then, press any key to continue.
 
-Ferramenta para ver a imagem pendente rever de revisão de início de sessão para o Content Moderator.
+Inicie sessão na ferramenta de revisão do Content Moderator para ver a revisão da imagem pendente.
 
-Utilize o **seguinte** botão para submeter.
+Utilize o botão **Seguinte** para submeter.
 
 ![Revisão de imagem para moderadores humanos](images/ocr-sample-image.PNG)
 
 ## <a name="see-the-sample-output-in-the-log-file"></a>Ver a saída de exemplo no ficheiro de registo
 
 > [!NOTE]
-> No seu ficheiro de saída, as cadeias de caracteres **Teamname**, **ContentId**, **CallBackEndpoint**, e **WorkflowId** refletir os valores que utilizou anteriormente.
+> No ficheiro de saída, as cadeias de carateres **Teamname**, **ContentId**, **CallBackEndpoint** e **WorkflowId** refletem os valores que utilizou anteriormente.
 
     Create moderation job for an image.
     {
@@ -295,12 +296,12 @@ Utilize o **seguinte** botão para submeter.
     }
 
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>Se for fornecido, o Url de retorno de chamada recebe esta resposta.
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Se tiver sido fornecido, o Url da chamada de retorno recebe esta resposta.
 
 Verá uma resposta semelhante ao seguinte exemplo:
 
 > [!NOTE]
-> Em sua resposta de retorno de chamada, as cadeias de caracteres **ContentId** e **WorkflowId** refletir os valores que utilizou anteriormente.
+> Na resposta à chamada de retorno, as cadeias de carateres **ContentId** e **WorkflowId** refletem os valores que utilizou anteriormente.
 
     {
         "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
@@ -318,6 +319,6 @@ Verá uma resposta semelhante ao seguinte exemplo:
     }
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Obter o [SDK de .NET do conteúdo moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.
+Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

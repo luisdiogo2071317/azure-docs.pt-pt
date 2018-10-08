@@ -1,44 +1,44 @@
 ---
-title: Guia de introdução de pesquisa SDK nó vídeo | Microsoft Docs
-description: Configuração de aplicação de consola do SDK de pesquisa de vídeo.
-titleSuffix: Azure cognitive services
+title: 'Início Rápido: SDK de Pesquisa de Vídeos do Bing, Node'
+titleSuffix: Azure Cognitive Services
+description: Configure a aplicação de consola do SDK de Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
-ms.openlocfilehash: 5718c750288e0a5605db3296d2911cca5e03375c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355748"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225621"
 ---
-# <a name="video-search-sdk-node-quickstart"></a>Guia de introdução de pesquisa SDK nó vídeo
+# <a name="quickstart-bing-video-search-sdk-with-node"></a>Início Rápido: SDK de Pesquisa de Vídeos do Bing com Node
 
-O SDK de pesquisa de vídeo do Bing contém as funcionalidades da API REST para consultas de vídeos e resultados de análise. 
+O SDK de Pesquisa de Vídeos do Bing contém a funcionalidade da API REST para consultas de vídeo e resultados de análise. 
 
-O [origem código para exemplos do SDK de pesquisa de vídeo do nó Bing](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) está disponível no Hub de Git.
+O [código-fonte para os exemplos de SDK Node da Pesquisa de Vídeos do Bing](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) está disponível no Git Hub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing vídeo, execute `npm install azure-cognitiveservices-videosearch` no seu ambiente de desenvolvimento.
+Para configurar uma aplicação de consola com o SDK de Pesquisa de Vídeos do Bing, execute `npm install azure-cognitiveservices-videosearch` no seu ambiente de desenvolvimento.
 
-## <a name="video-search-client"></a>Cliente de pesquisa vídeo
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *pesquisa*. Criar uma instância do `CognitiveServicesCredentials`:
+## <a name="video-search-client"></a>Cliente de Pesquisa de Vídeos
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisa*. Crie uma instância do `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Em seguida, instanciar o cliente:
+Em seguida, inicie o cliente:
 ```
 const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
 let client = new VideoSearchAPIClient(credentials);
 ```
-Para obter os resultados de pesquisa.
+Pesquise os resultados.
 ```
 client.videosOperations.search('Interstellar Trailer').then((result) => {
     console.log(result.value);
@@ -55,6 +55,6 @@ The code prints `result.value` items to the console without parsing any text. Th
 ![Video results](media/video-search-sdk-node-results.png)
 -->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Serviços cognitivos amostras de Node.js SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Exemplos de SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

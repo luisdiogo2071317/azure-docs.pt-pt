@@ -1,40 +1,41 @@
 ---
-title: Início rápido Ruby para os serviços do Azure cognitivos, pesquisa de vídeo do Bing API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing vídeo no Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: Pesquisa de Vídeos do Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente a API da Pesquisa de Vídeos do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: d621944415ec376f11a45ea96c331138ec4d6cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354536"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223579"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-ruby"></a>Início rápido para pesquisa de vídeo do Bing API com Ruby
+# <a name="quickstart-bing-video-search-api-with-ruby"></a>Início Rápido: API da Pesquisa de Vídeos do Bing com Ruby
 
-Este artigo mostra como utilizar a API do Bing vídeo de pesquisa, parte dos serviços cognitivos da Microsoft no Azure. Embora este artigo emprega Ruby, a API é um serviço de RESTful Web compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON. 
+Este artigo mostra como utilizar a API da Pesquisa de Vídeos do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize Ruby, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
 
-O código de exemplo foi escrito para ser executado Ruby 2.4.
+O código de exemplo foi escrito para ser executado com Ruby 2.4.
 
-Consulte o [referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para detalhes técnicos sobre as APIs.
+Consulte a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Terá da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisará da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
-## <a name="bing-video-search"></a>Pesquisa de vídeo do Bing
+## <a name="bing-video-search"></a>Pesquisa de vídeos do Bing
 
-O [API de pesquisa do Bing vídeo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) devolve resultados de vídeos a partir do Bing motor de busca.
+A [API da Pesquisa de Vídeos do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) devolve resultados de vídeo a partir do motor de busca do Bing.
 
-1. Crie um novo projeto Ruby no seu IDE ou editor favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `accessKey` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Ruby no seu IDE ou editor favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```ruby
@@ -84,7 +85,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 **Resposta**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -193,12 +194,12 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo segui
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Vídeos de paginação](paging-videos.md)
-> [Resizing e cropping imagens em miniatura](resize-and-crop-thumbnails.md)
+> [Paginar vídeos](paging-videos.md)
+> [Redimensionar e recortar imagens em miniatura](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Consulte também 
 
- [Pesquisa na web vídeos](search-the-web.md) [experimente](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Pesquisar vídeos na Web](search-the-web.md) [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

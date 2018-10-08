@@ -1,57 +1,58 @@
 ---
-title: Descrição geral do Azure Moderator conteúdo | Microsoft Docs
-description: Saiba como utilizar conteúdo Moderator para acompanhar, sinalizador, avaliar e filtrar o conteúdo inadequado conteúdos gerados pelo utilizador.
+title: O que é o Content Moderator?
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar o Content Moderator para controlar, sinalizar, avaliar e filtrar conteúdo inadequado em conteúdos gerados pelo utilizador.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: overview
 ms.date: 06/15/2017
 ms.author: sajagtap
-ms.openlocfilehash: cd9e2e9c10e9dc5ba118c8319f76174bf6f0da9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: e109376f47d921fb18d7bb9a6252e80315419ec0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355142"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226046"
 ---
-# <a name="what-is-content-moderator"></a>O que é Moderator conteúdo?
+# <a name="what-is-content-moderator"></a>O que é o Content Moderator?
 
-Moderação de interrupção de conteúdo é o processo de monitorização para o conteúdo de risco, indesejável e ofensiva possíveis. O conteúdo moderated pode ser imagens, o texto e vídeos.
+A moderação de conteúdos é o processo de monitorização de possíveis conteúdos ofensivos, indesejáveis e de risco. O conteúdo moderado pode ser imagens, texto e vídeos.
 
-## <a name="where-it-is-used"></a>Em que é utilizado
+## <a name="where-it-is-used"></a>Onde é utilizado
 
-A lista seguinte mostra alguns cenários de exemplo em que é utilizado Moderator conteúdo:
+A lista seguinte mostra alguns cenários de exemplo onde o Content Moderator é utilizado:
 
-- Online marketplaces moderating catálogos de produto e conteúdos gerados pelo utilizador
-- As empresas de jogos moderating utilizador gerou artefactos jogos e gabinetes do chat
-- Plataforma de mensagens social moderating imagens, o texto e vídeos adicionados pelos seus utilizadores
-- Empresas de suporte de dados de empresa implementação centralizada moderação de interrupção de conteúdo para o respetivo conteúdo
-- Fornecedores de soluções de educação K-12 filtragem de conteúdo incorrecto e ofensiva para estudantes e educators
+- Mercados online que moderam catálogos de produtos e conteúdos gerados pelo utilizador
+- Empresas de jogos que moderam artefactos de jogo e salas de conversa gerados pelo utilizador
+- Plataforma de redes sociais que modera as imagens, o texto e os vídeos adicionados pelos utilizadores
+- Empresas multimédia empresariais que implementam a moderação de conteúdos centralizada dos respetivos conteúdos
+- Fornecedores de soluções de educação primária e secundária que filtram conteúdo ofensivo para estudantes e educadores
 
-## <a name="what-it-includes"></a>O que inclui:
+## <a name="what-it-includes"></a>O que inclui
 
-Conteúdo Moderator é composta por serviço web de várias APIs e incorporado humanos-na-a-ciclo reveja ferramenta que o ajudam a moderada imagens, texto e vídeos.
+O Content Moderator consiste em várias APIs de serviço Web e uma ferramenta de revisão com interação humana incorporada, que ajuda a moderar imagens, texto e vídeos.
 
-![Diagrama de blocos do conteúdo Moderator](images/content-moderator-block-diagram.png)
+![Diagrama de bloco do Content Moderator](images/content-moderator-block-diagram.png)
 
 ## <a name="apis"></a>APIs
 
-Conteúdo Moderator inclui as APIs seguintes:
-  - [**Moderação de interrupção do texto API**](text-moderation-api.md): Utilize esta API para análise de texto para profanity possíveis, explícito, suggestive, ofensivas e identificáveis informações (PII).
-  - [**Lista de termo personalizado API**](try-terms-list-api.md): utilizar esta API para correspondência listas personalizadas dos termos de licenciamento para além dos termos de licenciamento incorporados. Utilize estas listas para bloquear ou permitir que o conteúdo de acordo com as políticas de conteúdo.  
-  - [**Imagem moderação de interrupção API**](image-moderation-api.md): Utilize esta API para procurar as imagens para o conteúdo para adultos e racy, detetar texto nas imagens com a capacidade de reconhecimento de caráter Optical (OCR) e detetar faces.
-  - [**Lista de imagem personalizada API**](try-image-list-api.md): Utilize esta API para correspondência listas personalizadas de imagens, previamente identificado conteúdo que não precisa de classificar novamente.
-  - [**Moderação de interrupção gráfica API**](video-moderation-api.md): Utilize esta API para analisar vídeos para o conteúdo para adultos e racy potencial.
-  - [**Reveja as APIs**](try-review-api-job.md): Utilize o [tarefas](try-review-api-job.md), [revisões](try-review-api-review.md), e [fluxo de trabalho](try-review-api-workflow.md) operações para criar e automatizar fluxos de trabalho humanos em ciclo dentro do a ferramenta de revisão.
+O Content Moderator inclui as seguintes APIs:
+  - [**API de moderação de texto**](text-moderation-api.md): utilize esta API para analisar o texto relativamente a possível linguagem inapropriada, explícita, sugestiva, ofensiva e informação pessoal (PII).
+  - [**API de lista personalizada de termos**](try-terms-list-api.md): utilize esta API para comparar com listas personalizadas de termos, além dos termos incorporados. Utilize estas listas para bloquear ou permitir conteúdo de acordo com as suas políticas de conteúdo.  
+  - [**API de moderação de imagens**](image-moderation-api.md): utilize esta API para procurar imagens com conteúdos para adultos e indecorosos, detetar texto em imagens com a função de OCR (reconhecimento ótico de carateres) e detetar rostos.
+  - [**API de lista personalizada de imagens**](try-image-list-api.md): utilize esta API para comparar a listas personalizadas de imagens, que incluem conteúdo previamente identificado que não precisa de classificar novamente.
+  - [**API de moderação de vídeo**](video-moderation-api.md): utilize esta API para analisar vídeos relativamente a potenciais conteúdos para adultos e indecorosos.
+  - [**Reveja as APIs**](try-review-api-job.md): utilize as operações [Tarefas](try-review-api-job.md), [Revisões](try-review-api-review.md) e [Fluxo de Trabalho](try-review-api-workflow.md) para criar e automatizar fluxos de trabalho com interação humana na ferramenta de revisão.
 
 ## <a name="human-review-tool"></a>Ferramenta de revisão humana
 
-A subscrição de Moderator conteúdo inclui o incorporado [revisão humana ferramenta](Review-Tool-User-Guide/human-in-the-loop.md). Utilize a API de revisão mencionadas anteriormente para criar revisões de texto, imagens e vídeos para sua moderators humanos tomar decisões finais.
+A sua subscrição do Content Moderator inclui a [ferramenta de revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) incorporada. Utilize a API de Revisão mencionada anteriormente para criar revisões de texto, imagens e vídeos para que os seus moderadores humanos tomem as decisões finais.
 
-![Ferramenta de rever as vídeo de Moderator conteúda](images/video-review-default-view.png)
+![Ferramenta de revisão de vídeo do Content Moderator](images/video-review-default-view.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Utilize o [início rápido](quick-start.md) para começar com Moderator conteúdo.
+Utilize o [Início Rápido](quick-start.md) para começar a utilizar o Content Moderator.

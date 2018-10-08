@@ -1,50 +1,50 @@
 ---
-title: Pesquisa Visual guia de introdução do SDK Python | Microsoft Docs
-description: O programa de configuração para a pesquisa de Visual aplicação de consola SDK Python.
+title: 'Início Rápido: SDK de Pesquisa Visual do Bing, Python'
 titleSuffix: Azure Cognitive Services
+description: Configure a aplicação de consola Python do SDK de Pesquisa Visual.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939481"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222646"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Guia de introdução do Visual pesquisa SDK Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Início Rápido: Python com SDK de Pesquisa Visual do Bing
 
-O SDK do Bing Visual Search utiliza a funcionalidade da REST API para pedidos web e os resultados da análise.
-O [código para exemplos do SDK de pesquisa do Python Bing Visual de origem](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) está disponível no Hub de Git.
+O SDK de Pesquisa Visual do Bing utiliza a funcionalidade da API REST para pedidos Web e análise de resultados.
+O [código-fonte para exemplos de SDK Python de Pesquisa Visual do Bing](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) está disponível no GitHub.
 
-Cenários de código estão documentados nos cabeçalhos seguintes:
-* [Cliente de pesquisa Visual](#client)
-* [Aplicação de consola concluída](#complete-console)
-* [Post binário de imagem com cropArea](#binary-crop)
+Os cenários de código estão documentados nos cabeçalhos seguintes:
+* [Cliente de Pesquisa Visual](#client)
+* [Concluir a aplicação de consola](#complete-console)
+* [Mensagem binária de imagem com cropArea](#binary-crop)
 * [Parâmetro KnowledgeRequest](#knowledge-req)
-* [As etiquetas, ações e actionType](#tags-actions)
+* [Etiquetas, ações e actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-* É necessária uma chave de API de serviços cognitivos para autenticar chamadas SDK. Inscrever-se um [chave de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é boa durante sete dias com 1 chamada por segundo. Para o cenário de produção, [comprar a chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [obter informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* Se ainda não tivê-lo, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
-* As recomendações gerais para desenvolvimento do Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instalar e inicializar o ambiente virtual com o [venv módulo](https://pypi.python.org/pypi/virtualenv). Instale virtualenv para Python 2.7.
+* É necessária uma chave de API dos Serviços Cognitivos para autenticar as chamadas SDK. Inscreva-se numa [chave de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é válida durante sete dias, com 1 chamada por segundo. Para um cenário de produção, [compre a chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Veja também as [informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Se ainda não o tiver, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+* A recomendação geral para o desenvolvimento de Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Instale dependências do Bing Visual pesquisa SDK:
+Instale as dependências do SDK de Pesquisa Visual do Bing:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-visualsearch
 ```
 
 <a name="client"></a> 
-## <a name="visual-search-client"></a>Cliente de pesquisa Visual
-Para criar uma instância do `VisualSearchAPI` cliente, importe as bibliotecas seguintes:
+## <a name="visual-search-client"></a>Cliente de Pesquisa Visual
+Para criar uma instância do cliente de `VisualSearchAPI`, importe as seguintes bibliotecas:
 ```
 import http.client, urllib.parse
 import json
@@ -58,15 +58,15 @@ from azure.cognitiveservices.search.visualsearch.models import (
     KnowledgeRequest,
 )
 ```
-Substitua o valor da cadeia subscriptionKey a sua chave de subscrição válido.
+Substitua o valor da cadeia subscriptionKey pela sua chave de subscrição válida.
 ```
 subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
 ```
-Em seguida, instanciar o cliente:
+Em seguida, inicie o cliente:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
-Utilize o cliente para imagens de pesquisa e analisar resultados:
+Utilize o cliente para procurar imagens e analisar os resultados:
 ```
 PATH = 'C:\\Users\\USER\\azure-cognitive-samples\\mytestenv\\TestImages\\'
 image_path = os.path.join(PATH, "image.jpg")
@@ -106,7 +106,7 @@ with open(image_path, "rb") as image_fd:
 ```
 
 <a name="complete-console"></a> 
-## <a name="complete-console-application"></a>Aplicação de consola concluída
+## <a name="complete-console-application"></a>Concluir a aplicação de consola
 
 A aplicação de consola seguinte executa a consulta definida anteriormente e analisa os resultados:
 ```
@@ -173,12 +173,12 @@ with open(image_path, "rb") as image_fd:
 
 ```
 
-Os exemplos de pesquisa do Bing demonstram diversas funcionalidades do SDK.  Adicione as seguintes funções para definida anteriormente `VisualSrchSDK` classe.
+Os exemplos de pesquisa do Bing demonstram várias funcionalidades do SDK.  Adicione as seguintes funções à classe `VisualSrchSDK` anteriormente definida.
 
 <a name="binary-crop"></a>
-## <a name="image-binary-post-with-croparea"></a>Post binário de imagem com cropArea
+## <a name="image-binary-post-with-croparea"></a>Mensagem binária de imagem com cropArea
 
-O seguinte código envia uma imagem binário no corpo do pedido post, juntamente com um objeto de cropArea.  Em seguida, imprime o imageInsightsToken, o número de etiquetas, o número de ações e o actionType primeiro.
+O código seguinte envia uma imagem binária no corpo do pedido post, juntamente com um objeto de cropArea.  Em seguida, imprime o imageInsightsToken, o número de etiquetas, o número de ações e o primeiro actionType.
 
 ```
 def search_image_binary_with_crop_area(client, sub_key, file_path):
@@ -227,7 +227,7 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## <a name="knowledgerequest-parameter"></a>Parâmetro KnowledgeRequest
 
-O seguinte código envia um url de imagem `knowledgeRequest` parâmetro, juntamente com um \"site: www.bing.com\" filtro. Em seguida, imprime os `imageInsightsToken`, o número de etiquetas, o número de ações e o actionType primeiro.
+O código seguinte envia um url de imagem no parâmetro `knowledgeRequest`, juntamente com um filtro \"site:www.bing.com\". Em seguida, imprime o `imageInsightsToken`, o número de etiquetas, o número de ações e o primeiro actionType.
 ```
 def search_url_with_filters(client_in, sub_key):
 
@@ -274,9 +274,9 @@ def search_url_with_filters(client_in, sub_key):
 
 ```
 <a name="tags-actions"></a>
-## <a name="tags-actions-and-actiontype"></a>As etiquetas, ações e actionType
+## <a name="tags-actions-and-actiontype"></a>Etiquetas, ações e actionType
 
-O seguinte código envia um token de informações de imagem no parâmetro knowledgeRequest, juntamente com um objeto de cropArea. Em seguida, imprime o imageInsightsToken, o número de etiquetas, o número de ações e o actionType primeiro.
+O código seguinte envia um token de informações de imagem no parâmetro knowledgeRequest, juntamente com um objeto de cropArea. Em seguida, imprime o imageInsightsToken, o número de etiquetas, o número de ações e o primeiro actionType.
 
 ```
     client = client_in
@@ -323,6 +323,6 @@ O seguinte código envia um token de informações de imagem no parâmetro knowl
         print("Couldn't find image tags!")
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Serviços cognitivos amostras de SDK do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Exemplos de SDK .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

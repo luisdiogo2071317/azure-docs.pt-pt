@@ -3,7 +3,7 @@ title: Tutorial – Utilizar o Centro de Segurança do Azure para VMs do Linux n
 description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de Segurança do Azure para ajudar a proteger as suas máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/07/2017
-ms.author: iainfou
+ms.date: 06/11/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092616"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Linux
 
@@ -46,12 +47,13 @@ O Centro de Segurança vai mais além da deteção de dados para fornecer recome
 
 ## <a name="set-up-data-collection"></a>Configurar a recolha de dados
 
-Antes de poder obter visibilidade das configurações de segurança de VM, terá de configurar a recolha de dados do Centro de Segurança. Isto envolve a ativação da recolha de dados e criar uma conta de armazenamento do Azure para armazenar os dados recolhidos. 
+Antes de poder obter visibilidade das configurações de segurança de VM, terá de configurar a recolha de dados do Centro de Segurança. Isto implica ativar a recolha de dados, que instala automaticamente o MMA em todas as VMs na subscrição.
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição. 
-2. Em **Recolha de Dados**, selecione **Ligado**.
-3. Para criar uma conta de armazenamento, selecione **Escolher uma conta de armazenamento**. Em seguida, selecione **OK**.
-4. No painel **Política de Segurança**, selecione **Guardar**. 
+2. Em **Recolha de Dados**, em **Aprovisionamento Automático** selecione **Ativado**.
+3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)**.
+4. Em **Eventos de Segurança**, mantenha a opção predefinida **Comuns**.
+4. Clique em **Guardar** no início da página. 
 
 O agente de recolha de dados do Centro de Segurança é então instalado em todas as VMs, e a recolha de dados começa. 
 
@@ -59,26 +61,12 @@ O agente de recolha de dados do Centro de Segurança é então instalado em toda
 
 As políticas de segurança são utilizadas para definir os itens para os quais o Centro de Segurança recolhe dados e faz recomendações. Pode aplicar políticas de segurança diferentes a diferentes conjuntos de recursos do Azure. Embora, por predefinição, os recursos do Azure sejam avaliados em relação a todos os itens de política, pode desativar os itens de política individuais para todos os recursos do Azure ou para um grupo de recursos. Para obter informações aprofundadas sobre as políticas de segurança do Centro de Segurança, veja [Definir políticas de segurança no Centro de Segurança do Azure](../../security-center/security-center-policies.md). 
 
-Para configurar uma política de segurança para todos os recursos do Azure:
+Para configurar uma política de segurança para toda a subscrição:
 
 1. No dashboard Centro de Segurança, selecione **Política de Segurança** e, em seguida, selecione a sua subscrição.
-2. Selecione **Política de prevenção**.
-3. Ative ou desative os itens de política que pretende aplicar a todos os recursos do Azure.
-4. Quando tiver terminado de selecionar as definições, selecione **OK**.
-5. No painel **Política de segurança**, selecione **Guardar**. 
-
-Para configurar uma política para um grupo de recursos específico:
-
-1. No dashboard Centro de Segurança, selecione **Política de Segurança**e, em seguida, selecione um grupo de recursos.
-2. Selecione **Política de prevenção**.
-3. Ative ou desative os itens de política que pretende aplicar ao grupo de recursos.
-4. Em **HERANÇA**, selecione **Única**.
-5. Quando tiver terminado de selecionar as definições, selecione **OK**.
-6. No painel **Política de segurança**, selecione **Guardar**.  
-
-Também pode desativar a recolha de dados para um grupo de recursos específico nesta página.
-
-No exemplo seguinte, uma política exclusiva foi criada para um grupo de recursos com o nome *myResourceGroup*. Nesta política, as recomendações de disco de encriptação e firewall de aplicações Web estão desativadas.
+2. No painel **Política de Segurança**, selecione **Política de segurança**. 
+3. No painel ** Política de segurança - Política de segurança **, ative ou desative os itens de política que pretende aplicar à subscrição.
+4. Quando tiver terminado de selecionar as definições, selecione **Guardar** na parte superior do painel. 
 
 ![Política exclusiva](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,12 +78,12 @@ Depois de ter ativado a recolha de dados e definido uma política de segurança,
 
 Para ver o estados de funcionamento dos recursos:
 
-1.  No dashboard do Centro de Segurança, em **Estado de funcionamento de segurança de recursos**, selecione **Computação**. 
-2.  No painel **Computação**, selecione **Máquinas virtuais**. Esta vista fornece um resumo do estado de configuração de todas as suas VMs.
+1.  No dashboard do Centro de Segurança, em **Prevenção**, selecione **Computação**. 
+2.  No painel **Computação**, selecione **VMs e computadores**. Esta vista fornece um resumo do estado de configuração de todas as suas VMs.
 
 ![Estado de funcionamento da computação](./media/tutorial-azure-security/compute-health.png)
 
-Para ver todas as recomendações para uma VM, selecione a VM. As recomendações e a remediação são abordadas mais detalhadamente na secção seguinte deste tutorial.
+Para ver todas as recomendações para uma VM, selecione a VM. 
 
 ## <a name="remediate-configuration-issues"></a>Remediar problemas de configuração
 
@@ -105,7 +93,7 @@ Para ver uma lista de todas as recomendações:
 
 1. No dashboard Centro de Segurança, selecione **Recomendações**.
 2. Selecione uma recomendação específica. É apresentada uma lista de todos os recursos aos quais se aplica a recomendação.
-3. Para aplicar uma recomendação, selecione um recurso específico. 
+3. Para aplicar uma recomendação, selecione o recurso. 
 4. Siga as instruções dos passos de remediação. 
 
 Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode seguir para resolver uma recomendação sem sair do Centro de Segurança. No exemplo seguinte, o Centro de Segurança deteta um grupo de segurança de rede que tem uma regra de entrada sem restrições. Na página de recomendações, pode selecionar o botão **Editar regras de entrada**. A IU que é necessária para modificar a regra é apresentada. 
@@ -118,14 +106,14 @@ Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode segu
 
 Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção do Centro de Segurança, veja [Capacidades de deteção do Centro de Segurança do Azure](../../security-center/security-center-detection-capabilities.md).
 
-A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** de 30 dias está disponível quando passar para este escalão de preço superior. 
+A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** de 60 dias está disponível quando passar para este escalão de preço superior. 
 
 Para alterar o escalão de preço:  
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição.
 2. Selecione **Escalão de preço**.
-3. Selecione o novo escalão e, em seguida, selecione **Selecionar**.
-4. No painel **Política de segurança**, selecione **Guardar**. 
+3. Selecione **Standard** e, em seguida, clique em **Guardar** na parte superior do painel.
+
 
 Depois de alterar o escalão de preço, o gráfico de alertas de segurança começa a ser preenchido, à medida que são detetadas ameaças de segurança.
 

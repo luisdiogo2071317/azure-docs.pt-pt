@@ -1,32 +1,32 @@
 ---
-title: Tutorial de imagem de carregamento de pesquisa Visual do Bing | Documentos da Microsoft
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Divide o processo de carregamento de uma imagem para o Bing para obter informações sobre ele e, em seguida, analisar e apresentar a resposta.
+title: 'Tutorial: Como carregar uma imagem - Pesquisa Visual do Bing'
+titleSuffix: Azure Cognitive Services
+description: Discrimina o processo de carregamento de uma imagem para o Bing obter informações sobre a mesma e, depois, a análise e apresentação da resposta.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: a5bc5197ecd1f35b4d0026caa076a844c9d57c40
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068673"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221329"
 ---
-# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: A divisão de carregamento de pesquisa Visual do Bing
+# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: Discriminar o carregamento na Pesquisa Visual do Bing
 
-Este tutorial divide o processo de carregar uma imagem para o Bing e voltar a obter informações. Ela também mostra como acessar e exibir as informações na resposta JSON. Para obter exemplo completo de HTML e JavaScript, consulte [concluir código](#complete-code).
+Este tutorial discrimina o processo de carregamento de uma imagem para o Bing e da obtenção de informações. Também mostra como aceder e apresentar as informações na resposta JSON. Para obter um exemplo completo de HTML e JavaScript, veja [Código completo](#complete-code).
 
-Este tutorial é fornecido para o desenvolvedor que deseja explorar o conteúdo da resposta de pesquisa Visual do Bing. Não se aplicam a toda a utilização e apresentam os requisitos (por exemplo, ele não fornece uma ligação para a política de privacidade da Microsoft). Para todos os requisitos de utilização, consulte [requisitos de apresentação e utilização do Bing](./use-and-display-requirements.md).
+Este tutorial é disponibilizado aos programadores que querem explorar os conteúdo das respostas da Pesquisa Visual do Bing. Não aplica todos os requisitos de utilização e apresentação (por exemplo, não disponibiliza uma ligação para a política de privacidade da Microsoft). Para ver todos os requisitos de utilização, veja [Bing Use and Display Requirements](./use-and-display-requirements.md) (Requisitos de Utilização e Apresentação do Bing).
 
 
-## <a name="where-to-start"></a>Onde começar?
+## <a name="where-to-start"></a>Por onde começar?
 
-Vamos começar com uma página HTML que envia uma imagem de Bing e recebe de volta insights e apresenta-os. No seu editor favorito, crie um ficheiro com o nome, uploaddemo.html. Adicione a seguinte estrutura HTML básica para o ficheiro.
+Vamos começar com uma página HTML que envia uma imagem ao Bing e recebe informações, apresentando-as. No seu editor preferido, crie um ficheiro denominado uploaddemo.html. Adicione a seguinte estrutura de HTML básica ao ficheiro.
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ Vamos começar com uma página HTML que envia uma imagem de Bing e recebe de vol
 </html>      
 ```
 
-Para começar, vamos dividir a página numa seção de pedido, em que o utilizador fornece todas as informações necessárias para fazer o pedido, e uma seção de resposta em que as informações são apresentadas. Adicione as seguintes \<div\> etiquetas para o \<corpo\>. O \<RH\> marca visualmente delineia a secção de pedido da secção de resposta.
+Para começar, vamos dividir a página numa seção de pedido, na qual o utilizador fornece todas as informações necessárias para fazer o pedido, e numa secção de resposta, na qual as informações são apresentadas. Adicione as seguintes tags \<div\> ao \<corpo\>. A tag \<hr\> delimita visualmente a secção de pedido da de resposta.
 
 ```html
         <div id="requestSection"></div>
@@ -52,11 +52,11 @@ Para começar, vamos dividir a página numa seção de pedido, em que o utilizad
 
 ## <a name="get-the-file-to-upload"></a>Obter o ficheiro a carregar
 
-Para permitir que o usuário selecione a imagem para carregar, a demonstração utiliza a \<entrada\> etiqueta com o atributo de tipo definido no ficheiro. A interface do Usuário precisa para torná-lo claro que a demonstração usa o Bing para obter os resultados da pesquisa. 
+Para permitir que o utilizador selecione a imagem a carregar, a demonstração utiliza a tag \<input\> com o atributo de tipo definido como “file”. A IU tem de deixar claro que a demonstração utiliza o Bing para obter os resultados da pesquisa. 
 
-Adicione as seguintes \<div\> para a div requestSection. A entrada de ficheiro aceita um único arquivo de qualquer tipo de imagem (por exemplo,. jpg, GIF,. png). O `onchange` eventos Especifica o manipulador de que é chamado quando um usuário selecionar um ficheiro.
+Adicione a seguinte tag \<div\> à tag div requestSection. A entrada de ficheiro aceita um ficheiro individual de qualquer tipo de imagem (por exemplo, .jpg, .gif, .png). O evento `onchange` especifica o processador que é chamado quando um utilizador seleciona um ficheiro.
 
-O \<saída\> marca é usada para exibir uma miniatura da imagem selecionada.
+A tag \<output\> é utilizada para apresentar uma miniatura da imagem selecionada.
 
 
 ```html
@@ -69,14 +69,14 @@ O \<saída\> marca é usada para exibir uma miniatura da imagem selecionada.
             </div>
 ```
 
-Antes de adicionar o manipulador, adicione uma \<script\> etiqueta para o \<head\> marca.
+Antes de adicionar o processador, adicione uma tag \<script\> à tag \<head\>.
 
 ```html
         <script>
         <\script>
 ```
 
-O código a seguir mostra o manipulador que captura a imagem selecionada. O manipulador inclui lógica para se certificar-se de que o ficheiro selecionado é um ficheiro de imagem e que seu tamanho é de 1 MB ou menos. Pode permitir que o usuário selecione ficheiros maiores, mas precisa reduzir o tamanho da imagem de menos de 1 MB antes de o carregar para o Bing. A última coisa que o manipulador é exibir uma miniatura da imagem, para que o utilizador tem um lembrete visual do ficheiro selecionado.
+A imagem abaixo mostra o processador que captura a imagem selecionada. O processador inclui lógica para garantir que o ficheiro selecionado é um ficheiro de imagem e que o tamanho do mesmo é 1 MB ou menos. Pode permitir que o utilizador selecione ficheiros maiores, mas tem de reduzir o tamanho da imagem para menos de 1 MB antes de a carregar para o Bing. A última coisa que o processador faz é apresentar uma miniatura da imagem, para que o utilizador tenha um lembrete visual do ficheiro que selecionou.
 
 ```javascript
         function handleFileSelect(selector) {
@@ -126,9 +126,9 @@ O código a seguir mostra o manipulador que captura a imagem selecionada. O mani
 ```
 
 
-## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>O que mais é necessário antes de efetuar a chamada para o Bing?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>O que mais é necessário antes de fazer a chamada para o Bing?
 
-A demonstração continua a precisar de uma chave de subscrição. Na prática, provavelmente obteria a chave de subscrição de armazenamento seguro, mas por razões de simplicidade desta demonstração, terá de fornecê-lo na interface do Usuário. Adicione as seguintes \<entrada\> Etiquetar (com o atributo de tipo definido como texto) para o \<corpo\> logo abaixo do ficheiro \<saída\> marca.
+A demonstração ainda precisa de uma chave de subscrição. Na prática, deveria receber a chave de subscrição a partir do armazenamento protegido. Contudo, por uma questão de simplicidade da demonstração, tem de a indicar na IU. Adicione a seguinte tag \<input\> (com o atributo de tipo definido como “text”) a \<corpo\>, imediatamente abaixo da tag \<output\>.
 
 ```html
         <div>
@@ -138,9 +138,9 @@ A demonstração continua a precisar de uma chave de subscrição. Na prática, 
         </div>
 ```
 
-Com a imagem e a chave de subscrição em mãos, pode fazer a chamada para pesquisa Visual do Bing para obter informações sobre a imagem. A chamada usaria o mercado de padrão e os valores de pesquisa segura (en-us e moderada, respectivamente).
+Tendo a imagem e a chave de subscrição à mão, pode fazer a chamada para a Pesquisa Visual do Bing obter informações sobre a imagem. A chamada utilizará os valores predefinidos de mercado e safesearch (en-us e moderado respetivamente).
 
-Esta demonstração fornece ao utilizador a opção para alterar esses valores. Adicione as seguintes \<div\> abaixo a Div. chave de subscrição A demonstração usa um \<selecione\> etiqueta para fornecer uma lista pendente para o mercado e os valores de pesquisa segura. Duas listas apresentam o valor predefinido do Bing.
+Esta demonstração dá ao utilizador a opção de mudar esses valores. Adicione a seguinte tag \<div\> abaixo da tag div da chave de subscrição. A demonstração utiliza uma tag \<select\> para fornecer uma lista pendente de valores de mercado e safesearch. Ambas as listas apresentam o valor predefinido do Bing.
 
  
 ```html
@@ -203,7 +203,7 @@ Esta demonstração fornece ao utilizador a opção para alterar esses valores. 
         </div>
 ```
 
-A demonstração oculta as listas num div recolhível que é controlado através da ligação de opções de consulta. Ao clicar na ligação de opções de consulta, a div expande para que possa ver e modificar as opções de consulta. Se clicar as opções de consulta mais uma vez, associar a div colapsa e está oculto. O código a seguir mostra o manipulador de onclick do link de opções de consulta. O manipulador controla se o div é expandido ou fechado. Adicionar esse manipulador para o \<script\> secção. O manipulador é utilizado por todos os divs recolhíveis na demonstração.
+A demonstração oculta as listas numa tag div expansível que é controlada pela ligação Opções de consulta. Se clicar na ligação Opções de consulta, a tag div expande-se e pode ver e modificar as opções de consulta. Se clicar outra vez na ligação, a tag fecha-se e fica oculta. A imagem abaixo mostra o processador onclick da ligação Opções de consulta. O processador controla se a tag div é expandida ou fechada. Adicione o processador à secção \<script\>. Todas as tags div expansíveis nesta demonstração utilizam o processador.
 
 ```javascript
         // Contains the toggle state of divs.
@@ -226,15 +226,15 @@ A demonstração oculta as listas num div recolhível que é controlado através
 ```
 
 
-## <a name="making-the-call"></a>Efetuar a chamada de
+## <a name="making-the-call"></a>Fazer a chamada
 
-Adicione o botão de informações de Get seguinte abaixo a div de opções no corpo. O botão permite que o utilizador iniciar a chamada. Quando o usuário clica no botão, o cursor é alterado para o cursor de espera de rotação e o manipulador onclick é chamado.
+Adicione o seguinte botão “Get insights” (“Obter informações”) abaixo da tag div options no corpo. O botão permite ao utilizador iniciar a chamada. Quando o utilizador clica no botão, o cursor muda para o cursor de espera giratório e o processador onclick é chamado.
 
 ```html
         <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Adicionar o manipulador de onclick do botão para o \<script\> marca. O manipulador certifica-se de que a chave de subscrição está presente e é de 32 carateres de comprimento e que uma imagem tiver sido selecionada. Também limpara quaisquer informações a partir de uma consulta anterior. Se tudo estiver OK, ele chama a função de sendRequest para fazer a chamada.
+Adicione o processador onclick do botão à tag \<script\>. O processador garante que a chave de subscrição está presente e que tem 32 carateres de comprimento e, ainda, que foi selecionada uma imagem. Também limpa todas as informações relativas a uma consulta anterior. Se estiver tudo bem, chama a função sendRequest para fazer a chamada.
 
 ```javascript
         function handleQuery() {
@@ -271,7 +271,7 @@ Adicionar o manipulador de onclick do botão para o \<script\> marca. O manipula
         }
 ```
 
-A função de sendRequest formatos de URL do ponto final, define o cabeçalho de Ocp-Apim-Subscription-Key para a chave de subscrição, acrescenta o binário da imagem para carregar, especifica o manipulador de resposta e faz a chamada. 
+A função sendRequest formata o URL do ponto final, define o cabeçalho Ocp-Apim-Subscription-Key como a chave de subscrição, anexa o binário da imagem que vai ser carregada, especifica o processador de resposta e faz a chamada. 
 
 ```javascript
         function sendRequest(file, key) {
@@ -291,13 +291,13 @@ A função de sendRequest formatos de URL do ponto final, define o cabeçalho de
         }
 ```
 
-## <a name="handling-the-response"></a>Manipulando a resposta
+## <a name="handling-the-response"></a>Processar a resposta
 
-A função de handleResponse processa a resposta da chamada para pesquisa Visual do Bing. Se a chamada for bem-sucedida, analisa a resposta JSON para as etiquetas individuais, que contêm as informações. Em seguida, ele adiciona a cadeia de caracteres, os resultados da pesquisa do Bing internet, para a página para permitir que o utilizador saber que os dados de origem do Bing.
+A função handleResponse processa a resposta da chamada para a Pesquisa Visual do Bing. Se a chamada for bem-sucedida, a função analisa a resposta JSON nas tags individuais, as quais contêm as informações. Depois, adiciona a cadeia, os resultados da pesquisa de Internet do Bing, à página, para que o utilizador saiba que os dados vêm do Bing.
 
-A demonstração foi despeja todas as informações na página, mas algumas imagens retornam uma grande quantidade de dados, o que poderiam dificultar a consumir. Em vez disso, a demonstração cria uma div recolhível para cada etiqueta, para que o utilizador pode gerir a quantidade de dados Verão.
+A demonstração poderia largar todas as informações na página, mas algumas imagens devolvem muitos dados, o que dificultaria o consumo. Em vez disso, a demonstração cria uma tag div expansível para cada tag, para que o utilizador possa gerir a quantidade de dados que vê.
 
-Adicione o manipulador para o \<script\> secção.
+Adicione o processador à secção \<script\>.
 
 ```javascript
         function handleResponse() {
@@ -334,7 +334,7 @@ Adicione o manipulador para o \<script\> secção.
         }
 ```
 
-A função de buildTagSections itera através de etiquetas JSON analisadas e chama a função de buildDiv para criar um div para cada marca. Assim como com a opção de consulta, cada etiqueta é apresentada como um link. Quando o utilizador clica na ligação, se expande a etiqueta que mostra as informações associadas com a marca. Se o usuário clica no link novamente, a seção reduz ocultar as informações do usuário.
+A função buildTagSections itera nas tags JSON analisadas e chamada a função buildDiv para criar uma tag div para cada tag. Tal como com a Opção de consulta, cada tag é apresentada como uma ligação. Quando um utilizador clica na ligação, a tag expande-se e mostra as informações associadas à mesma. Se o utilizador clicar outra vez na ligação, a secção fecha-se e oculta as informações.
 
 ```javascript
         function buildTagSections(tags) {
@@ -372,11 +372,11 @@ A função de buildTagSections itera através de etiquetas JSON analisadas e cha
         }
 ```
 
-A função de buildDiv chama a função de addDivContent para criar o conteúdo de Div. recolhíveis cada marca
+A função buildDiv chama a função addDivContent para criar os conteúdos da tag div expansível de cada tag.
 
-Conteúdo de uma etiqueta inclui o JSON da resposta para a marca. A demonstração inclui o JSON para os desenvolvedores que desejam ver o JSON por trás a resposta. Inicialmente, apenas os primeiros 100 caracteres do JSON é mostrado, mas pode clicar na cadeia de caracteres do JSON para mostrar todos os o JSON. Se clicar nele novamente, reduz a cadeia de caracteres do JSON para 100 carateres.
+Os conteúdos das tags incluem o JSON das resposta das mesmas. A demonstração inclui o JSON para os programadores que querem ver o JSON atrás da resposta. Inicialmente, só são mostrados os primeiros cem carateres do JSON, mas pode clicar na cadeia JSON para o ver na íntegra. Se clicar outra vez, a cadeia JSON retrai-se novamente para os cem carateres.
 
-Em seguida, adicione os tipos de ação encontrados na marca. Para cada tipo de ação, chame as várias funções para adicionar as suas informações.
+Em seguida, adicione os tipos de ações que estão na tag. Para cada tipo de ação, chame as várias funções para adicionar as informações correspondentes.
 
 ```javascript
         function addDivContent(div, tag, json) {
@@ -451,9 +451,9 @@ Em seguida, adicione os tipos de ação encontrados na marca. Para cada tipo de 
         }
 ```
 
-Seguem-se todas as funções que apresentam informações para as diferentes ações. A maioria dessas funções é diretas &mdash; fornecem uma imagem clicável ou um link clicável que direciona o utilizador para uma página Web onde pode obter mais informações sobre a imagem (Bing.com ou página Web de anfitrião da imagem). O tutorial não apresenta todos os dados associados a informação. Para ver todos os campos disponíveis para uma informação, consulte [referência de pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc).
+As funções abaixo são todas as funções que apresentam informações das diferentes ações. A maioria destas funções são bastante simples &mdash; ou disponibilizam uma imagem clicável ou uma ligação clicável que encaminham o utilizador para uma página Web onde ele pode obter mais informações sobre a imagem (em Bing.com ou na página Web do anfitrião da imagem). O tutorial não apresenta todos os dados associados às informações. Para ver todos os campos disponíveis para uma informação, veja [Bing Visual Search Reference](https://aka.ms/bingvisualsearchreferencedoc) (Referência da Pesquisa Visual do Bing).
 
-Lembre-se que existe uma quantidade mínima de dados deve apresentar, o resto cabe a. Para certificar-se de que está em conformidade, veja [requisitos de apresentação e utilização do Bing](./use-and-display-requirements.md).
+Não se esqueça de que tem de mostrar uma quantidade mínima de dados; o resto é consigo. Para garantir que está em conformidade, veja [Bing Use and Display Requirements](./use-and-display-requirements.md) (Requisitos de Utilização e Apresentação do Bing).
 
 
 ```javascript
@@ -676,9 +676,9 @@ Lembre-se que existe uma quantidade mínima de dados deve apresentar, o resto ca
 
 
 
-## <a name="adding-styles-to-make-the-page-display-correctly"></a>Adicionar estilos para tornar a página ser mostrados corretamente
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Adicionar estilos para apresentar a página corretamente
 
-Adicione as seguintes \<estilo\> secção para o \<head\> marca.
+Adicione a seguinte secção \<style\> à tag \<head\>.
 
 ```html
         <style>
@@ -715,7 +715,7 @@ Adicione as seguintes \<estilo\> secção para o \<head\> marca.
 
 ## <a name="complete-code"></a>Código completo
 
-Eis o exemplo completo de HTML e JavaScript.
+Segue-se o exemplo completo do HTML e do JavaScript.
 
 ```html
 <!DOCTYPE html>
@@ -1329,6 +1329,6 @@ Eis o exemplo completo de HTML e JavaScript.
 </html>      
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para ver como obter informações funciona visto de token, utilizar e insights [ImageInsightsToken SDK da pesquisa Visual do Bing tutorial](.\tutorial-visual-search-insights-token.md).
+Para saber como utilizar um token de informações para as obter veja [Bing Visual Search SDK ImageInsightsToken tutorial](.\tutorial-visual-search-insights-token.md) (Tutorial de ImageInsightsToken do SDK da Pesquisa Visual do Bing).

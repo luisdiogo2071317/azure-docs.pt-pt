@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205446"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452306"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Alojar o seu domínio no DNS do Azure
 
@@ -70,6 +70,9 @@ O DNS do Azure cria automaticamente registos NS autoritativos na sua zona para o
 Agora que a zona DNS está criada e que já tem os servidores de nomes, tem de atualizar o domínio principal com os servidores de nomes DNS do Azure. Cada entidade de registo tem as suas próprias ferramentas de gestão de DNS para alterar os registos do servidor de nomes de um domínio. Na página de gestão do DNS da entidade de registo, edite os registos NS e substitua-os pelos servidores de nomes do DNS do Azure.
 
 Quando estiver a delegar um domínio ao DNS do Azure, tem de utilizar os servidores de nomes fornecidos por esse DNS do Azure. Recomendamos que utilize os quatro servidores de nomes, independentemente do seu domínio. A delegação de domínio não necessita que um servidor de nomes utilize o mesmo domínio de nível superior que o seu domínio.
+
+> [!NOTE]
+> Quando copiar cada endereço do servidor de nomes, certifique-se de que copia o ponto à direita no fim do endereço. O ponto à direita indica o fim de um nome de domínio completamente qualificado. Algumas entidades de registo poderão anexar o período, se o nome de NS não o tiver no final. No entanto, para ser conforme à a RFC de DNS, deve incluir o ponto à direita, pois não pode pressupor que todas as entidades de registo o façam por si.
 
 As delegações que utilizam servidores de nomes de nome na sua própria zona, por vezes denominados *servidores de nomes personalizados*, não são atualmente suportadas no DNS do Azure.
 

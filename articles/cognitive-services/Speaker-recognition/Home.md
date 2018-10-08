@@ -1,60 +1,61 @@
 ---
-title: API de reconhecimento de orador | Microsoft Docs
-description: Utilize algoritmos avançados para verificação de orador e identificação de orador com a API de reconhecimento de orador nos serviços cognitivos.
+title: O que é o Reconhecimento de Orador?
+titlesuffix: Azure Cognitive Services
+description: Utilize algoritmos avançados para verificação de orador e identificação de orador com a API de Reconhecimento de Orador.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
-ms.openlocfilehash: 6d5e4e4bbe0cb5e57d2556f680ffcf8d16ee1818
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352166"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227338"
 ---
 # <a name="speaker-recognition-api"></a>API de Reconhecimento de Orador
 
-Bem-vindo às APIs de reconhecimento de orador da Microsoft. APIs de reconhecimento de orador são APIs baseado na nuvem que fornecem os algoritmos mais avançados para verificação de orador e identificação de orador. Reconhecimento de orador pode ser dividido em duas categorias: verificação de orador e identificação de orador.
+Bem-vindo às APIs de Reconhecimento de Orador. As APIs de Reconhecimento de Orador são APIs com base na cloud que fornecem os algoritmos mais avançados para verificação de orador e identificação de orador. O Reconhecimento de Orador pode ser dividido em duas categorias: verificação de orador e identificação de orador.
 
 
 ## <a name="speaker-verification"></a>Verificação de Orador
 
 
-Voz tem características exclusivas que podem ser utilizadas para identificar uma pessoa, tal como uma identificação digital.  Utilização de voz como um sinal para cenários de autenticação e controlo de acesso tem emerged como uma nova ferramenta inovadora – essencialmente de oferta um nível de em segurança que simplifica a experiência de autenticação para os clientes.
+A voz tem caraterísticas únicas que podem ser utilizadas para identificar uma pessoa, tal como uma impressão digital.  A utilização da voz como um sinal para cenários de autenticação e controlo de acesso surgiu como uma nova ferramenta inovadora – oferecendo basicamente um nível de segurança que simplifica a experiência de autenticação para os clientes.
 
-APIs de verificação de orador automaticamente possa verificar e autenticar utilizadores que utilizam os respetivos voz ou reconhecimento de voz.
+As APIs de Verificação de Orador podem verificar e autenticar os utilizadores com a voz deles automaticamente.
 
 ### <a name="enrollment"></a>Inscrição
 
-A inscrição para a verificação de orador é texto dependentes, que significa speakers tem de escolher uma frase de acesso específica a utilizar durante a inscrição e verificação fases. 
+A inscrição na verificação de orador é dependente de texto, o que significa que os oradores têm de escolher uma frase de acesso específica a utilizar durante as fases de inscrição e verificação. 
 
-No registo, voz de orador é registada indicar uma expressão específica, em seguida, são extraídas de diversas funcionalidades e o frase de acesso que escolheu é reconhecido. Em conjunto, extraídas funcionalidades e a escolhida frase formulário uma assinatura de voz exclusivo.
+Na inscrição, a voz do orador é registada a enunciar uma frase específica e, em seguida, várias caraterísticas são extraídas e a frase escolhida é reconhecida. Em conjunto, as caraterísticas extraídas e a frase escolhida forma uma assinatura de voz única.
 
 ### <a name="verification"></a>Verificação
 ###
-Na verificação, uma entrada de voz e o frase são comparados com a inscrição assinatura de voz e frase – para verificar se são ou não são da mesma pessoa e se estes estão indicar o frase de acesso correto.
+Na verificação, a voz de entrada e a frase são comparadas em relação à assinatura e frase da voz de inscrição – para verificar se são ou não da mesma pessoa, e se está a enunciar a frase correta.
 
-Para obter mais detalhes sobre a verificação de orador, consulte a API [orador - verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Para obter mais detalhes sobre a verificação de orador, consulte a API [Orador - Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identificação de Orador
 
-APIs de identificação de orador pode identificar automaticamente a pessoa falando num ficheiro de áudio, atribuído um grupo de speakers potenciais. O entrada de áudio se encontra emparelhado em relação ao grupo fornecido de speakers e, no caso de que existe uma correspondência localizada, é devolvida a identidade de orador.
+As APIs de Identificação de Orador podem identificar automaticamente a pessoa que fala num ficheiro de áudio, tendo em conta um grupo de oradores potenciais. O áudio de entrada é comparado ao grupo fornecido de oradores e, caso seja encontrada uma correspondência, a identidade do orador é devolvida.
 
-Speakers todos os devem passar por um processo de inscrição primeiro para obter as respetivas voz registado para o sistema e tem uma impressão de voz criada.
+Todos os oradores devem passar primeiro por um processo de inscrição para registarem a voz no sistema e ser criada uma impressão de voz.
 
 
 ### <a name="enrollment"></a>Inscrição
 
-A inscrição para fins de identificação de orador é texto independentes, que significa que não existem sem restrições no que diz altifalante do áudio. Voz de orador é registada e várias funcionalidades são extraídas para formar uma assinatura de voz exclusivo. 
+A inscrição na identificação de orador é independente de texto, o que significa que não existem restrições ao que o orador diz no áudio. A voz do orador é registada e várias caraterísticas são extraídas para formar uma assinatura de voz única. 
 
 
 ### <a name="recognition"></a>Reconhecimento
 
-Áudio de altifalante desconhecido, juntamente com o grupo de potencial de speakers, é fornecido durante reconhecimento. A entrada de voz é comparada em relação a todos os speakers para determinar cujo voz é e, se existir uma correspondência encontrada, a identidade do altifalante é devolvida.
+O áudio do orador desconhecido, juntamente com o grupo potencial de oradores, é fornecido durante o reconhecimento. A voz de entrada é comparada em relação a todos os oradores para determinar de quem é a voz e, se for encontrada uma correspondência, a identidade do orador é devolvida.
 
 
-Para obter mais detalhes sobre a identificação de orador, consulte a API [orador - identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Para obter mais detalhes sobre a identificação de orador, consulte a API [Orador - Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

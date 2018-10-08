@@ -1,51 +1,51 @@
 ---
-title: Guia de introdução de pesquisa SDK Python vídeo | Microsoft Docs
-description: Configuração de aplicação de consola do SDK de pesquisa de vídeo.
-titleSuffix: Azure Video Search SDK Python quickstart
+title: 'Início Rápido: SDK de Pesquisa de Vídeos, Python'
+titleSuffix: Azure Cognitive Services
+description: Configure a aplicação de consola do SDK de Pesquisa de Vídeos.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355280"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225655"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Guia de introdução de pesquisa SDK Python vídeo
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Início Rápido: SDK de Pesquisa de Vídeos do Bing com Python
 
-O SDK de pesquisa do Bing imagem contém as funcionalidades da API REST para consultas de web e os resultados da análise.
+O SDK de Pesquisa de Imagens do Bing contém a funcionalidade da API REST para consultas Web e resultados de análise.
 
-O [origem código para exemplos do SDK de pesquisa de vídeo do Python Bing](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) está disponível no Hub de Git.
+O [código-fonte para exemplos de SDK Python da Pesquisa de Vídeos do Bing](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) está disponível no GitHub.
 
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-Se ainda não tivê-lo, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+Se ainda não o tiver, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
-As recomendações gerais para desenvolvimento do Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instalar e inicializar o ambiente virtual com o [venv módulo](https://pypi.python.org/pypi/virtualenv). Instale virtualenv para Python 2.7.
+A recomendação geral para o desenvolvimento de Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Instale dependências do SDK de pesquisa do Bing vídeos:
+Instale as dependências do SDK da Pesquisa de Vídeos do Bing:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-videosearch
 ```
-## <a name="video-search-client"></a>Cliente de pesquisa vídeo
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *pesquisa*. Adicione importações:
+## <a name="video-search-client"></a>Cliente de Pesquisa de Vídeos
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisa*. Adicione as importações:
 ```
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Criar uma instância do `CognitiveServicesCredentials`e criar o cliente:
+Crie uma instância do `CognitiveServicesCredentials`e instancie o cliente:
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Procurar vídeos (SwiftKey), em seguida, verifique o número de resultados. Impressão saída `ID`, `name` e `URL` do resultado de vídeo primeiro.
+Procure vídeos (SwiftKey) e verifique o número de resultados. Imprima `ID`, `name` e `URL` do primeiro resultado de vídeo.
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 
@@ -66,7 +66,7 @@ except Exception as err:
     print("Encountered exception. {}".format(err))
 
 ```
-Procurar vídeos para (Bellevue Trailer) que é gratuito, ou seja e a resolução de 1080p. Verifique o número de resultados e imprimir `ID`, `name` e `URL` do resultado de vídeo primeiro.
+Procure vídeos de (Bellevue Trailer) que sejam gratuitos, curtos e com resolução de 1080p. Verifique o número de resultados e imprima o `ID`, `name` e `URL` primeiro resultado de vídeo.
 ```
 def video_search_with_filtering(subscription_key):
 
@@ -95,7 +95,7 @@ def video_search_with_filtering(subscription_key):
 
 ```
 
-Obter resultados tendências. Certifique-se de que os mosaicos de faixa e categorias:
+Obtenha resultados populares. Verifique os mosaicos de faixa e as categorias:
 ```
 def video_trending(subscription_key):
 
@@ -139,7 +139,7 @@ def video_trending(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Procure vídeos (Bellevue Trailer) e, em seguida, procure informações detalhadas do vídeo primeiro.
+Procure vídeos de (Bellevue Trailer) e, em seguida, procure informações detalhadas do primeiro vídeo.
 ```
 def video_detail(subscription_key):
 
@@ -179,7 +179,7 @@ def video_detail(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Exemplos de SDK Python de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

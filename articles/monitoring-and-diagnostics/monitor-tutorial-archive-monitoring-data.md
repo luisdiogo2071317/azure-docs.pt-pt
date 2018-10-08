@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918276"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409495"
 ---
-# <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitorização do Azure
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
-Várias camadas do seu ambiente do Azure produzem dados de registos e de métricas que podem ser arquivados numa Conta de Armazenamento do Azure. Poderá arquivá-los para preservar o histórico de dados de monitorização ao longo do tempo num arquivo não pesquisável e económico depois de o período de retenção dessas dados ter passado no Log Analytics ou no Azure Monitor. Este tutorial mostra o processo de configuração do seu ambiente do Azure para arquivar dados numa conta de armazenamento.
+Várias camadas do seu ambiente do Azure produzem dados de registos e de métricas que podem ser arquivados numa conta de Armazenamento do Azure. Poderá arquivá-los para preservar o histórico de dados de monitorização ao longo do tempo num arquivo não pesquisável e económico depois de o período de retenção. 
+
+- As métricas da plataforma do Azure Monitor são mantidas durante 93 dias. 
+- Os registos de diagnóstico de recursos só são apresentados se forem encaminhados para o Log Analytics, onde têm um período de retenção configurável com um mínimo de 30 dias. 
+- As entradas de registo de atividades são mantidas durante 90 dias.  
+
+Este tutorial mostra o processo de configuração do seu ambiente do Azure para arquivar dados numa conta de armazenamento.
 
 > [!div class="checklist"]
 > * Criar uma conta de armazenamento para armazenar os dados de monitorização

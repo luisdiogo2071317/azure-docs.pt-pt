@@ -1,65 +1,66 @@
 ---
-title: Moderada com listas de imagens personalizadas no Azure Content Moderator | Documentos da Microsoft
-description: Como a moderadas com imagem personalizada apresenta uma lista com o SDK de moderador de conteúdos do Azure para .NET.
+title: 'Início Rápido: moderar com uma lista personalizada de imagens - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Como moderar com uma lista personalizada de imagens através do SDK do Content Moderator para .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: sajagtap
-ms.openlocfilehash: 855d89af70e080e2837fe2c0b66ea66c188dbd61
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: 094542bad7ea8e9283d9a07fe620e363be1d0c2e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182693"
+ms.locfileid: "47226464"
 ---
-# <a name="moderate-with-custom-image-lists-in-net"></a>Moderar com listas de imagens personalizadas no .NET
+# <a name="quickstart-moderate-with-custom-image-lists-in-net"></a>Início Rápido: moderar com uma lista personalizada de imagens em .NET
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
-- Criar uma lista de imagem personalizada
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+- Criar uma lista de imagens personalizadas
 - Adicionar e remover imagens da lista
-- Obter os IDs de todas as imagens na lista
-- Obter e atualizar os metadados de lista
-- Atualizar o índice de pesquisa de lista
-- Imagens de ecrã em relação a imagens na lista
+- Obter os IDs de todas as imagens da lista
+- Obter e atualizar os metadados da lista
+- Atualizar o índice de pesquisa da lista
+- Analisar imagens no ecrã em relação a imagens na lista
 - Eliminar todas as imagens da lista
-- Eliminar lista personalizada
+- Eliminar a lista personalizada
 
 > [!NOTE]
-> Existe um limite máximo de **listas de imagem de 5** cada lista para **não pode exceder 10 000 imagens**.
+> Existe um limite máximo de **5 listas de imagens**, sendo que cada lista **não pode exceder 10 000 imagens**.
 >
 
 A aplicação de consola para este início rápido simula algumas das tarefas que pode realizar com a API de lista de imagens.
 
-Este artigo pressupõe que já está familiarizado com o Visual Studio e c#.
+Este artigo pressupõe que já está familiarizado com o Visual Studio e C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para os serviços do Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Inscrever-se nos serviços do Content Moderator
 
-Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
-Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços do Content Moderator através da API REST ou do SDK, precisa de uma chave de subscrição.
+Consulte o [Início Rápido](quick-start.md) para saber como pode obter a chave.
 
-## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
+1. Adicione um novo projeto **Aplicação de consola (.NET Framework)** à sua solução.
 
-   No código de exemplo, nomeie o projeto **ImageLists**.
+   No código de exemplo, dê ao projeto o nome **ImageLists**.
 
 1. Selecione este projeto como o projeto de arranque único para a solução.
 
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
-Instale os seguintes pacotes de NuGet:
+Instale os seguintes pacotes NuGet:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
+### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
-Modifique o programa usando instruções.
+Modifique as instruções de utilização do programa.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -75,7 +76,7 @@ Modifique o programa usando instruções.
 Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição.
 
 > [!IMPORTANT]
-> Atualização do **AzureRegion** e **CMSubscriptionKey** campos com os valores da sua chave de subscrição e o identificador de região.
+> Atualize os campos **AzureRegion** e **CMSubscriptionKey** com os valores do identificador da região e da chave de subscrição.
 
 
     /// <summary>
@@ -121,9 +122,9 @@ Adicione o seguinte código para criar um cliente do Content Moderator para a su
     }
 
 
-### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicializar definições específicas da aplicação
 
-Adicione as seguintes classes e campos estáticos para o **programa** classe no Program.cs.
+Adicione as seguintes classes e campos estáticos à classe **Programa** em Program.cs.
 
     /// <summary>
     /// The minimum amount of time, im milliseconds, to wait between calls
@@ -245,12 +246,12 @@ Adicione as seguintes classes e campos estáticos para o **programa** classe no 
    
 
 > [!NOTE]
-> A chave de serviço do Content Moderator tem um pedidos por segundo limite de taxa (RPS) e, se exceder o limite, o SDK lançará uma exceção com um código de 429 erro. 
+> A chave de serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS) e, se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429. 
 >
-> Uma chave de escalão gratuito tem um limite de taxa de um RPS.
+> Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
 
-## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Criar um método para escrever mensagens para o ficheiro de registo
+## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Criar um método para escrever mensagens no ficheiro de registo
 
 Adicione o seguinte método à classe **Programa**. 
 
@@ -300,7 +301,7 @@ Adicione o seguinte método à classe **Programa**.
 
 Adicione o seguinte método à classe **Programa**.
 
-Este guia de introdução não demonstram como aplicar etiquetas a imagens na lista. 
+Este início rápido não demonstra como aplicar etiquetas a imagens na lista. 
 
     /// <summary>
     /// Adds images to an image list.
@@ -340,7 +341,7 @@ Este guia de introdução não demonstram como aplicar etiquetas a imagens na li
         }
     }
 
-## <a name="create-a-method-to-remove-images-from-the-list"></a>Criar um método para remover as imagens a partir da lista
+## <a name="create-a-method-to-remove-images-from-the-list"></a>Criar um método para remover imagens da lista
 
 Adicione o seguinte método à classe **Programa**. 
 
@@ -375,7 +376,7 @@ Adicione o seguinte método à classe **Programa**.
         }
     }
 
-## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Criar um método para obter todo o conteúdo de IDs de imagens na lista
+## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Criar um método para obter todo os IDs de conteúdo de imagens na lista
 
 Adicione o seguinte método à classe **Programa**. 
 
@@ -457,7 +458,7 @@ Adicione o seguinte método à classe **Programa**.
 
 Adicione o seguinte método à classe **Programa**.
 
-Sempre que atualizar uma lista, terá de atualizar o índice de pesquisa antes de utilizar a lista de imagens de ecrã.
+Sempre que atualiza uma lista, tem de atualizar o índice de pesquisa antes de utilizar a lista para analisar imagens.
 
     /// <summary>
     /// Refreshes the search index for an image list.
@@ -480,7 +481,7 @@ Sempre que atualizar uma lista, terá de atualizar o índice de pesquisa antes d
         return result;
     }
 
-## <a name="create-a-method-to-match-images-against-the-list"></a>Criar um método para corresponder ao imagens face à lista
+## <a name="create-a-method-to-match-images-against-the-list"></a>Criar um método para corresponder imagens em relação à lista
 
 Adicione o seguinte método à classe **Programa**. 
 
@@ -552,7 +553,7 @@ Adicione o seguinte método à classe **Programa**.
         WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
     }
 
-## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Criar um método para obter IDs para todas as listas de imagens
+## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Criar um método para obter os IDs de todas as listas de imagens
 
 Adicione o seguinte método à classe **Programa**. 
 
@@ -577,9 +578,9 @@ Adicione o seguinte método à classe **Programa**.
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Adicionar código para simular a utilização de uma lista de imagens
 
-Adicione o seguinte código para o **Main** método.
+Adicione o seguinte código ao método **Principal**.
 
-Esse código simula várias das operações que executaria na definir e gerir a lista, bem como através da lista para imagens de ecrã. Os recursos de log permitem-lhe ver os objetos de resposta gerados pelas chamadas SDK para o serviço do Content Moderator.
+Este código simula várias operações que executaria ao definir e gerir a lista, bem como ao utilizar a lista para analisar imagens. As funcionalidades de registo permitem ver os objetos de resposta gerados pelas chamadas do SDK ao serviço do Content Moderator.
 
     // Create the text writer to use for logging, and cache a static reference to it.
     using (StreamWriter outputWriter = new StreamWriter(OutputFile))
@@ -647,9 +648,9 @@ Esse código simula várias das operações que executaria na definir e gerir a 
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
 
-## <a name="run-the-program-and-review-the-output"></a>Execute o programa e reveja o resultado
+## <a name="run-the-program-and-review-the-output"></a>Executar o programa e rever o resultado
 
-O ID de lista e a imagem de conteúdo de que IDs são diferentes sempre que executar a aplicação.
+O ID da lista e os IDs de conteúdo de imagens são diferentes sempre que executar a aplicação.
 O ficheiro de registo escrito pelo programa tem a seguinte saída:
 
     Creating list MyList.
@@ -1067,6 +1068,6 @@ O ficheiro de registo escrito pelo programa tem a seguinte saída:
     []
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Obter o [SDK de .NET do conteúdo moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.
+Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

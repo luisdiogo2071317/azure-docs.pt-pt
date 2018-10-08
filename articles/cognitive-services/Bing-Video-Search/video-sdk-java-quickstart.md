@@ -1,30 +1,30 @@
 ---
-title: Guia de introdução do Bing vídeo pesquisa SDK Java | Microsoft Docs
-description: Saiba como configurar a aplicação de consola do SDK de pesquisa do Bing vídeo.
+title: 'Início Rápido: SDK de Pesquisa de Vídeos do Bing, Java'
 titleSuffix: Azure Cognitive Services
+description: Saiba como configurar a aplicação de consola do SDK de Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1d9ccd88de4b91060861c39ab20f6a203c820384
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355279"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223431"
 ---
-# <a name="bing-video-search-sdk-java-quickstart"></a>Guia de introdução do Bing vídeo pesquisa SDK Java
+# <a name="quickstart-bing-video-search-sdk-java"></a>Início Rápido: Java SDK de Pesquisa de Vídeos do Bing
 
-O SDK de pesquisa de vídeo do Bing fornece a funcionalidade de REST API para consultas de vídeos e os resultados da análise.
+O SDK de Pesquisa de Vídeos do Bing disponibiliza a funcionalidade de API REST para consultas de vídeo e resultados de análise.
 
-O [origem código para exemplos de Java Bing vídeo pesquisa SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) está disponível no Hub de Git.
+O [código-fonte para os exemplos de SDK Java da Pesquisa de Vídeos do Bing](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) está disponível no Git Hub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **pesquisa**. Instale as dependências do SDK de pesquisa do Bing vídeo com o Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro de Maven POM requer a declaração:
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**. Instale as dependências de SDK de Pesquisa de Vídeos do Bing com o Maven, Gradle ou outro sistema de gestão de dependências. O ficheiro POM do Maven requer a declaração:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/t
     </dependency>
   </dependencies> 
 ```
-## <a name="video-search-client"></a>Cliente de pesquisa vídeo
-Adicione importações para a implementação de classe.
+## <a name="video-search-client"></a>Cliente de Pesquisa de Vídeos
+Adicione as importações à implementação da classe.
 ```
 import com.microsoft.azure.cognitiveservices.videosearch.*;
 import com.microsoft.azure.cognitiveservices.videosearch.Freshness;
@@ -54,7 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 ```
-Implementar o **VideoSearchAPIImpl** cliente, que requer uma instância do **ServiceClientCredentials** classe.
+Implemente o cliente **VideoSearchAPIImpl**, que requer uma instância da classe **ServiceClientCredentials**.
 ```
 public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
     return new VideoSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -78,7 +78,7 @@ public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
             });
 }
 ```
-Procurar vídeos sobre "SwiftKey." Verifique o número de resultados. Imprima o ID, o nome e o URL para o resultado de vídeo primeiro.
+Procure vídeos sobre "SwiftKey". Verifique o número de resultados. Imprima o ID, o nome e o URL do primeiro resultado de vídeo.
 ```
 public static void VideoSearch(String subscriptionKey)
 {
@@ -120,7 +120,7 @@ public static void VideoSearch(String subscriptionKey)
 
 
 ```
-Procurar vídeos sobre "Bellevue Trailer." Filtrar a pesquisa com o *livre*, *curto*, e *resolução 1080p* parâmetros. Verifique o número de resultados. Imprima o ID, o nome e o URL para o resultado de vídeo primeiro.
+Procure vídeos sobre "Bellevue Trailer". Filtre a pesquisa com os parâmetros *gratuito*, *curto* e *resolução 1080p*. Verifique o número de resultados. Imprima o ID, o nome e o URL do primeiro resultado de vídeo.
 ```
 public static void VideoSearchWithFilters(String subscriptionKey)
 {
@@ -160,7 +160,7 @@ public static void VideoSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Procure vídeos tendências. Certifique-se a **bannerTiles** e **categorias** parâmetros.
+Procure vídeos populares. Verifique os parâmetros **bannerTiles** e **categorias**.
 ```
 public static void VideoTrending(String subscriptionKey)
 {
@@ -245,7 +245,7 @@ public static void VideoTrending(String subscriptionKey)
 }
 
 ```
-Procure vídeos sobre "Bellevue Trailer" e, em seguida, procure detalhes sobre o resultado de vídeo primeiro.
+Procure vídeos sobre "Bellevue Trailer" e, em seguida, pesquise detalhes sobre o primeiro resultado de vídeo.
 ```
 public static void VideoDetail(String subscriptionKey)
 {
@@ -315,7 +315,7 @@ public static void VideoDetail(String subscriptionKey)
     }
 }
 ```
-Adicione os métodos descritos neste artigo para uma classe com uma função principal para executar o código.
+Adicione os métodos descritos neste artigo a uma classe com uma função principal para executar o código.
 ```
 package videoSDK;
 import com.microsoft.azure.cognitiveservices.videosearch.*;
@@ -335,6 +335,6 @@ public class VideoSDK {
     // Include the methods described in this article.
 }
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Amostras do SDK de Java serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

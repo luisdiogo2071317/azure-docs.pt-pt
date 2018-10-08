@@ -1,59 +1,59 @@
 ---
-title: Pesquisa de vídeo início rápido SDK c# | Microsoft Docs
-description: O programa de configuração para a pesquisa de vídeo aplicação de consola do SDK.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: 'Início Rápido: SDK de Pesquisa de Vídeos do Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Configure a aplicação de consola do SDK de Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355292"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219945"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Vídeo pesquisa SDK c# início rápido
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>Início Rápido: SDK de Pesquisa de Vídeos do Bing com C# 
 
-O SDK de pesquisa do Bing vídeo contém as funcionalidades da API REST para pedidos web e os resultados da análise.
+O SDK de Pesquisa de Vídeos do Bing contém a funcionalidade da API REST para pedidos Web e análise de resultados.
 
-O [origem código para amostras de c# Bing vídeo SDK Search](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) está disponível no Hub de Git.
+O [código-fonte para os exemplos de SDK C# da Pesquisa de Vídeos do Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) está disponível no Git Hub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing vídeo, navegue para o `Manage NuGet Packages` opção do Explorador de soluções no Visual Studio.  Adicionar o `Microsoft.Azure.CognitiveServices.Search.VideoSearch` pacote.
+Para configurar a aplicação de consola através do SDK de Pesquisa de Vídeos do Bing, aceda à opção `Manage NuGet Packages` a partir do Explorador de Soluções no Visual Studio.  Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
-Instalar o [[pacote do SDK de pesquisa de vídeo do NuGet]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) também instala as dependências, incluindo:
+A instalação do [pacote do SDK de Pesquisa de Vídeos do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) também instala as dependências, que incluem:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft
+* Newtonsoft.Json
 
 
-## <a name="video-search-client"></a>Cliente de pesquisa vídeo
-Para criar uma instância do `VideoSearchAPI` cliente, adicione as diretivas de a utilizar:
+## <a name="video-search-client"></a>Cliente de Pesquisa de Vídeos
+Para criar uma instância do cliente `VideoSearchAPI`, adicione através das diretivas:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
 
 ```
-Em seguida, instanciar o cliente:
+Em seguida, inicie o cliente:
 ```
 var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-Utilize o cliente para procurar com um texto de consulta "SwiftKey" para vídeos.
+Utilize o cliente para pesquisar com um texto de consulta "SwiftKey" para vídeos.
 ```
 var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
 Console.WriteLine("Search videos for query \"SwiftKey\"");
 
 ```
 
-Analisar os resultados, em seguida, verifique o número de resultados e imprimir o ID, o nome e o url do resultado de vídeo primeiro.
+Analise os resultados, verifique o número de resultados e imprima o ID, nome e url do primeiro resultado de vídeo.
 ```
 if (videoResults == null)
 {
@@ -77,7 +77,7 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Aplicação de consola concluída
+## <a name="complete-console-application"></a>Concluir a aplicação de consola
 
 A aplicação de consola seguinte executa a consulta definida anteriormente e analisa os resultados.
 
@@ -142,7 +142,7 @@ namespace VideoSrchSDK
 ```
 ## <a name="url-parameters"></a>Parâmetros de URL
 
-Pesquisa em texto da consulta "Bellevue Trailer" para vídeos que são inalterados, curto e resolução de 1080p.  Verifique o número de resultados e imprimir o ID, o nome e o url do resultado de vídeo primeiro.
+No texto da consulta "Bellevue Trailer", procure vídeos que sejam inalterados, curtos e com resolução de 1080p.  Verifique o número de resultados e imprima o ID, nome e url do primeiro resultado de vídeo.
 
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
@@ -184,7 +184,7 @@ Pesquisa em texto da consulta "Bellevue Trailer" para vídeos que são inalterad
 
 ```
 ## <a name="trending-videos"></a>Vídeos populares
-Procurar vídeos tendências e, em seguida, certifique-se os mosaicos de faixa e categorias.
+Procure vídeos populares e verifique os mosaicos de faixa e as categorias.
 ```
         public static void VideoTrending(VideoSearchAPI client)
         {
@@ -259,7 +259,7 @@ Procurar vídeos tendências e, em seguida, certifique-se os mosaicos de faixa e
 
 ```
 ## <a name="details"></a>Detalhes
-Procure vídeos "Bellevue Trailer" e, em seguida, procure informações detalhadas do vídeo primeiro.
+Procure vídeos de "Bellevue Trailer" e, em seguida, procure informações detalhadas do primeiro vídeo.
 ```
         public static void VideoDetail(VideoSearchAPI client)
         {
@@ -321,6 +321,6 @@ Procure vídeos "Bellevue Trailer" e, em seguida, procure informações detalhad
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Serviços cognitivos amostras de SDK do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
