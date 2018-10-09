@@ -3,29 +3,34 @@ title: 'SSMS: ligar e consultar dados na Base de Dados SQL do Azure | Microsoft 
 description: Saiba como ligar à Base de Dados SQL no Azure, utilizando o SQL Server Management Studio (SSMS). Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados sql, sql server management studio
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412819"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063222"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Base de Dados SQL do Azure: utilize o SQL Server Management Studio para ligar e consultar dados
 
-O [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) é um ambiente integrado para gerir qualquer infraestrutura SQL, do SQL Server à Base de Dados SQL do Microsoft Windows. Este guia de introdução demonstra como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, utilizar as declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados. 
+O [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) é um ambiente integrado para gerir qualquer infraestrutura SQL, do SQL Server à Base de Dados SQL do Microsoft Windows. Este início rápido demonstra como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, utilizar as declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido o utiliza como ponto de partida os recursos criados num dos inícios rápidos seguintes:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+Este guia de início rápido também necessita que configure uma regra de firewall ao nível do servidor. Para ver um guia de início rápido que mostre como fazer isto, veja [Criar regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
 
 #### <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 
@@ -45,7 +50,7 @@ Utilize o SQL Server Management Studio para estabelecer uma ligação ao servido
 
 1. Abra o SQL Server Management Studio.
 
-2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
+2. Na caixa de diálogo **Ligar ao Servidor**, introduza as seguintes informações:
 
    | Definição      | Valor sugerido    | Descrição | 
    | ------------ | ------------------ | ----------- | 

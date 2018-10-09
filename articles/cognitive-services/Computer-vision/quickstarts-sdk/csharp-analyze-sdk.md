@@ -1,29 +1,31 @@
 ---
-title: Início rápido SDK de análise de uma imagem local de API de Imagem Digitalizada com C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá analisar uma imagem através da biblioteca de cliente da Imagem Digitalizada do Windows com C# nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem – SDK, C# – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá analisar uma imagem através da biblioteca de cliente da Imagem Digitalizada do Windows com C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 3ff3a4702ab0b1fb663ee896f268065caf043809
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772327"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056089"
 ---
-# <a name="quickstart-analyze-an-image---sdk-c35"></a>Início rápido: Analisar uma imagem – SDK, C&#35;
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Guia de Início Rápido: Analisar uma imagem com o SDK de Imagem Digitalizada e C#
 
 Neste início rápido, analisa tanto uma imagem local como uma remota para extrair funcionalidades visuais através da biblioteca de cliente da Imagem Digitalizada do Windows.
 
+O código fonte para este exemplo está disponível no [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obter Chaves de Subscrição).
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de cliente [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário transferir o pacote. Abaixo, são fornecidas as instruções de instalação.
 
@@ -34,7 +36,7 @@ Os métodos `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` encapsulam a [API 
 * Uma lista detalhada das etiquetas relacionadas com o conteúdo da imagem.
 * Uma descrição do conteúdo da imagem numa frase completa.
 * As coordenadas, o sexo e a idade de qualquer rosto que a imagem contenha.
-* O ImageType (ClipArt ou um desenho de linha).
+* O ImageType (ClipArt ou um desenho).
 * A cor dominante, a cor de destaque ou se uma imagem é a preto e branco.
 * A categoria definida nesta [taxonomia](../Category-Taxonomy.md).
 * A imagem contém conteúdo para adultos ou é sexualmente sugestiva?
@@ -48,7 +50,7 @@ Para executar o exemplo, siga os passos seguintes:
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do projeto e em **Instalar**.
 1. Substitua `Program.cs` pelo código abaixo.
 1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere `computerVision.AzureRegion = AzureRegions.Westcentralus` para a localização onde obteve as suas chaves de subscrição, se necessário.
+1. Altere `computerVision.Endpoint` para a região do Azure associada às chaves de subscrição, se necessário.
 1. Substitua `<LocalImage>` pelo caminho e o nome de ficheiro de uma imagem local.
 1. Opcionalmente, defina `remoteImageUrl` para uma imagem diferente.
 1. Execute o programa.
@@ -86,33 +88,33 @@ namespace ImageAnalyze
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
-                new ApiKeyServiceClientCredentials(subscriptionKey), 
+            ComputerVisionClient computerVision = new ComputerVisionClient(
+                new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
             var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Analyze a remote image
         private static async Task AnalyzeRemoteAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -128,7 +130,7 @@ namespace ImageAnalyze
 
         // Analyze a local image
         private static async Task AnalyzeLocalAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -159,9 +161,9 @@ namespace ImageAnalyze
 
 Uma resposta de êxito apresenta a legenda mais relevante para cada imagem.
 
-Consulte [Inícios Rápidos da API: Analisar uma imagem local com C#](../QuickStarts/CSharp-analyze.md#analyze-image-response) para obter um exemplo de uma saída JSON não processada.
+Consulte [Inícios Rápidos da API: Analisar uma imagem local com C#](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de uma saída JSON não processada.
 
-```cmd
+```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```

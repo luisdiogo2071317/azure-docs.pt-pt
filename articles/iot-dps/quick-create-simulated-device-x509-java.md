@@ -1,6 +1,6 @@
 ---
 title: Aprovisionar um dispositivo X.509 simulado no Hub IoT do Azure com Java | Microsoft Docs
-description: Manual de Início Rápido do Azure - Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo Java com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
+description: Guia de Início Rápido do Azure - Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo Java com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0c5eefbd6d7758ad2a7640a1fbff3435fcd1d315
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091702"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040742"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo Java com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -54,7 +54,7 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 Nesta secção, vai utilizar um certificado X.509 autoassinado e é importante ter em consideração o seguinte:
 
-* Os certificados autoassinados são apenas para teste e não devem ser utilizados na produção.
+* os certificados autoassinados são apenas para teste e não devem ser utilizados na produção.
 * A data de expiração predefinida para um certificado autoassinado é de 1 ano.
 
 Vai utilizar o código de exemplo do [SDK do Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java.git) para criar o certificado a ser utilizado na entrada de inscrição individual do dispositivo simulado.
@@ -73,13 +73,13 @@ Vai utilizar o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 3. Crie um ficheiro com o nome **_X509individual.pem_** no seu computador Windows, abra-o num editor à sua escolha e copie os conteúdos da área de transferência para este ficheiro. Guarde o ficheiro e feche o editor.
 
-4. Na linha de comandos, introduza **N** para _Do you want to input Verification Code_ e mantenha a saída do programa aberta para referência mais à frente no Manual de Início Rápido. Depois, copie os valores `Client Cert` e `Client Cert Private Key`, para utilização na secção seguinte.
+4. Na linha de comandos, introduza **N** para _Do you want to input Verification Code_ e mantenha a saída do programa aberta para referência mais à frente no Guia de Início Rápido. Depois, copie os valores `Client Cert` e `Client Cert Private Key`, para utilização na secção seguinte.
 
 5. Inicie sessão no [portal do Azure](https://portal.azure.com), clique no botão **Todos os recursos** no menu do lado esquerdo e abra a instância do Serviço Aprovisionamento de Dispositivos.
 
-6. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar**, na parte superior. 
+6. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar inscrição individual** na parte superior. 
 
-7. No painel **Adicionar inscrição**, introduza as informações seguintes:
+7. No painel **Adicionar Inscrição**, introduza as seguintes informações:
     - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
     - Em *Ficheiro de certificado primário .pem ou .cer*, clique em *Selecionar um ficheiro* para selecionar o ficheiro de certificado **X509individual.pem** criado nos passos anteriores.  
     - Opcionalmente, pode fornecer as seguintes informações:
@@ -88,7 +88,7 @@ Vai utilizar o código de exemplo do [SDK do Azure IoT para Java](https://github
       - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
    - Quando tiver terminado, clique no botão **Guardar**. 
 
-    [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+    [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Quando a inscrição for bem-sucedida, o seu dispositivo X.509 aparece como **microsoftriotcore** na coluna *ID de Registo* no separador *Inscrições Individuais*. 
 
@@ -145,7 +145,7 @@ Vai utilizar o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 5. No portal do Azure, navegue para o IoT hub ligado ao seu serviço de aprovisionamento e abra o painel **Explorador de Dispositivos**. Após o aprovisionamento bem-sucedido do dispositivo X.509 simulado no hub, o ID de dispositivo aparece no painel **Explorador de Dispositivos**, com o *ESTADO* **ativado**.  Poderá ter de clicar no botão **Atualizar**, na parte superior, se já tiver aberto o painel antes de executar a aplicação de dispositivo de exemplo. 
 
-    ![O dispositivo é registado no hub IoT](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
+    ![O dispositivo é registado no hub IoT](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 
 > [!NOTE]
 > Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, veja [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT).
@@ -154,16 +154,16 @@ Vai utilizar o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
+Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia de Início Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia de Início Rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-2. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra o painel **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Início Rápido e clique no botão **Eliminar** na parte superior. 
-3. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
+2. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra o painel **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Guia de Início Rápido e clique no botão **Eliminar** na parte superior. 
+3. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Guia de Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste Início Rápido, criou um dispositivo X.509 simulado no seu computador Windows. Configurou a sua inscrição no Aprovisionamento de Dispositivos no Hub IoT e, depois, aprovisionou automaticamente o dispositivo para o seu hub IoT. Para saber como inscrever o seu dispositivo X.509 programaticamente, continue para o Manual de Início Rápido para inscrição programática de dispositivos X.509. 
+Neste Guia de Início Rápido, criou um dispositivo X.509 simulado no seu computador Windows. Configurou a sua inscrição no Aprovisionamento de Dispositivos no Hub IoT e, depois, aprovisionou automaticamente o dispositivo para o seu hub IoT. Para saber como inscrever o seu dispositivo X.509 programaticamente, continue para o Guia de Início Rápido para inscrição programática de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Manual de Início Rápido do Azure - Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)
+> [Guia de Início Rápido do Azure - Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)

@@ -3,21 +3,21 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: e14f29593d588a8b13162b374372b723c50db8e9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: ec178827a2f27a4566f509fe76b58e451329efd4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044148"
 ---
-O `response` matriz para adicionar as expressões de exemplo indica êxito ou falha para cada ocorrência de pronunciação de exemplo com o `hasError` propriedade. A resposta JSON seguinte mostra que ambas as expressões de com foram adicionados com êxito. 
+A matriz `response` para adicionar as expressões de exemplo indica êxito ou falha para cada ocorrência de exemplo com a propriedade `hasError`. A seguinte resposta JSON mostra que ambas as expressões foram adicionadas com êxito. 
 
 ```json
     "response": [
@@ -50,7 +50,7 @@ O JSON seguinte mostra o resultado de um pedido para preparar com êxito:
 }
 ```
 
-O JSON seguinte mostra o resultado de um pedido com êxito para o estado de treinamento. Cada modelID é um objetivo. Cada objetivo deve ser treinados em todas as expressões para identificar corretamente a expressões com pertencem à intenção, bem como expressões que não pertencem à intenção. 
+O seguinte JSON mostra o resultado de um pedido com êxito para o estado de preparação. Cada modelID é uma intenção. Cada intenção tem de ser preparada em todas as expressões para identificar corretamente as expressões que pertencem à intenção, bem como expressões que não pertencem à intenção. 
 
 ```JSON
 [

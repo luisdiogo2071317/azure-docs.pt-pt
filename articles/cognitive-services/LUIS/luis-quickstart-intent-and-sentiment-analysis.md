@@ -1,40 +1,25 @@
 ---
-title: Tutorial para criar uma aplicação LUIS que devolva análise de sentimentos - Azure | Microsoft Docs
-description: Neste tutorial, aprenda a adicionar a análise de sentimentos à sua aplicação LUIS para analisar expressões para sentimentos positivos, negativos e neutros.
+title: 'Tutorial 9: análise de sentimentos incluindo positivos, negativos e neutros no LUIS'
+titleSuffix: Azure Cognitive Services
+description: Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões. O sentimento é determinado a partir da expressão inteira.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a89755bcc0ed5ef8bee4ed00b99c73993a57bcb9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163027"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031463"
 ---
-# <a name="tutorial-9--add-sentiment-analysis"></a>Tutorial: 9.  Adicionar análise de sentimentos
-Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões.
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9: extrair o sentimento da expressão geral
+Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões. O sentimento é determinado a partir da expressão inteira.
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Compreender a análise de sentimentos
-> * Utilizar a aplicação LUIS no domínio de Recursos Humanos (RH) 
-> * Adicionar análise de sentimentos
-> * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS 
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [entidade de keyPhrase pré-concebida](luis-quickstart-intent-and-key-phrase.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `sentiment`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-## <a name="sentiment-analysis"></a>Análise de sentimentos
 A análise de sentimentos é a capacidade de determinar se a expressão de um utilizador é positiva, negativa ou neutra. 
 
 As expressões seguintes mostram exemplos de sentimentos:
@@ -44,18 +29,40 @@ As expressões seguintes mostram exemplos de sentimentos:
 |positiva|0,91 |John W. Smith fez um excelente trabalho na apresentação em Paris.|
 |positiva|0,84 |jill-jones@mycompany.com fez um excelente trabalho no pitch de vendas da Parker.|
 
-A análise de sentimentos é uma definição da aplicação que se aplica a cada expressão. Não precisa de encontrar as palavras que indicam o sentimento na expressão e rotulá-las porque a análise de sentimento aplica-se a toda a expressão. 
+A análise de sentimentos é uma definição de publicação que se aplica a cada expressão. Não precisa de encontrar as palavras que indicam o sentimento na expressão e rotulá-las porque a análise de sentimento aplica-se a toda a expressão. 
 
-## <a name="add-employeefeedback-intent"></a>Adicionar intenção EmployeeFeedback 
+Como é uma definição de publicação, não o vê nas páginas de intenções ou entidades. Pode vê-lo no painel [teste interativo](luis-interactive-test.md#view-sentiment-results) ou quando testar o URL de ponto final. 
+
+**Neste tutorial, ficará a saber como:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utilizar a aplicação de tutorial existente 
+> * Adicionar a análise de sentimentos como definição de publicação
+> * Preparar
+> * Publicar
+> * Obter o sentimento da expressão a partir do ponto final
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
+
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `sentiment`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+
+## <a name="employeefeedback-intent"></a>Intenção EmployeeFeedback 
 Adicione uma nova intenção para capturar os comentários dos colaboradores membros da empresa. 
 
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
-
-    [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Create new intent** (Criar nova intenção).
-
-    [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
 3. Nomeie a nova intenção `EmployeeFeedback`.
 
@@ -78,135 +85,126 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
     [ ![Captura de ecrã da aplicação LUIS com expressões de exemplo na intenção EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurar a aplicação para incluir análise de sentimentos
-Configurar análise de sentimentos na página **Publicar**. 
+1. Selecione **Gerir** no painel de navegação superior direito e, em seguida, selecione **Definições de publicação** no menu à esquerda.
 
-1. Selecione **Publicar** no painel de navegação superior direito.
+2. Selecione **Análise de Sentimentos** para ativar/desativar esta definição. 
 
-    ![Captura de ecrã da página Intenção com o botão Publicar expandido ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
+    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-2. Selecione **Ativar Análise de Sentimentos**. 
-
-## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Consultar o ponto final com uma expressão
+## <a name="get-sentiment-of-utterance-from-endpoint"></a>Obter o sentimento da expressão a partir do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá para o final do URL no endereço e introduza `Jill Jones work with the media team on the public portal was amazing`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `EmployeeFeedback` com a análise de sentimentos extraída.
-
-```
-{
-  "query": "Jill Jones work with the media team on the public portal was amazing",
-  "topScoringIntent": {
-    "intent": "EmployeeFeedback",
-    "score": 0.4983256
-  },
-  "intents": [
+    
+    ```JSON
     {
-      "intent": "EmployeeFeedback",
-      "score": 0.4983256
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.06617523
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.04631853
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.0103248553
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.007531875
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00344597152
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00337914471
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0026357458
-    },
-    {
-      "intent": "None",
-      "score": 0.00214573368
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00157622492
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 7.379545E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "jill jones",
-      "type": "Employee",
-      "startIndex": 0,
-      "endIndex": 9,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
+      "query": "Jill Jones work with the media team on the public portal was amazing",
+      "topScoringIntent": {
+        "intent": "EmployeeFeedback",
+        "score": 0.4983256
+      },
+      "intents": [
+        {
+          "intent": "EmployeeFeedback",
+          "score": 0.4983256
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.06617523
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.04631853
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.0103248553
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.007531875
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00344597152
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00337914471
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0026357458
+        },
+        {
+          "intent": "None",
+          "score": 0.00214573368
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00157622492
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 7.379545E-05
+        }
+      ],
+      "entities": [
+        {
+          "entity": "jill jones",
+          "type": "Employee",
+          "startIndex": 0,
+          "endIndex": 9,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
+        },
+        {
+          "entity": "media team",
+          "type": "builtin.keyPhrase",
+          "startIndex": 25,
+          "endIndex": 34
+        },
+        {
+          "entity": "public portal",
+          "type": "builtin.keyPhrase",
+          "startIndex": 43,
+          "endIndex": 55
+        },
+        {
+          "entity": "jill jones",
+          "type": "builtin.keyPhrase",
+          "startIndex": 0,
+          "endIndex": 9
+        }
+      ],
+      "sentimentAnalysis": {
+        "label": "positive",
+        "score": 0.8694164
       }
-    },
-    {
-      "entity": "media team",
-      "type": "builtin.keyPhrase",
-      "startIndex": 25,
-      "endIndex": 34
-    },
-    {
-      "entity": "public portal",
-      "type": "builtin.keyPhrase",
-      "startIndex": 43,
-      "endIndex": 55
-    },
-    {
-      "entity": "jill jones",
-      "type": "builtin.keyPhrase",
-      "startIndex": 0,
-      "endIndex": 9
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "positive",
-    "score": 0.8694164
-  }
-}
-```
+    ```
 
-O sentimentAnalysis é positivo com uma pontuação de 0,86. 
-
-## <a name="what-has-this-luis-app-accomplished"></a>O que conseguiu esta aplicação LUIS?
-Esta aplicação, com a análise de sentimentos ativada, identificou uma intenção de consulta de linguagem natural e devolveu os dados extraídos, incluindo o sentimento geral como uma pontuação. 
-
-O chatbot tem agora informações suficientes para determinar o passo seguinte na conversação. 
-
-## <a name="where-is-this-luis-data-used"></a>Onde são utilizados estes dados do LUIS? 
-O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados de sentimento da expressão para efetuar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
+    O sentimentAnalysis é positivo com uma pontuação de 0,86. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, adicione a análise de sentimentos como uma definição de publicação para extrair valores de sentimentos da expressão como um todo.
 
 > [!div class="nextstepaction"] 
 > [Rever expressões de ponto final na aplicação de RH](luis-tutorial-review-endpoint-utterances.md) 

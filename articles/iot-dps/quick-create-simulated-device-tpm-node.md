@@ -1,6 +1,6 @@
 ---
 title: Aprovisionar um dispositivo TPM simulado no Hub IoT do Azure com Node.js | Microsoft Docs
-description: Início Rápido do Azure - Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
+description: Guia de Início Rápido do Azure - Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef3cfb77a47face18ea5f3b75cbbf08d3e275d2e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 956bdf4770bd2a42a9ede6f59c2aa80d44d9429a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023165"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041596"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 
@@ -125,16 +125,16 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
     node ExtractDevice.js
     ```
 
-1. A janela de saída apresenta a **_Chave de Endossamento_** e o **_ID de Registo_** necessários à inscrição do dispositivo. Anote estes valores. 
+1. A janela de saída apresenta a **_Chave de Endossamento_** e o **_ID de Registo_** necessários para a inscrição do dispositivo. Anote estes valores. 
 
 
-## <a name="create-a-device-entry"></a>Criar um entrada de dispositivo
+## <a name="create-a-device-entry"></a>Criar uma entrada de dispositivo
 
 1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço Aprovisionamento de Dispositivos.
 
-1. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar**, na parte superior. 
+1. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar inscrição individual** na parte superior. 
 
-1. Em **Adicionar entrada da lista de inscrições**, introduza as informações seguintes:
+1. Em **Adicionar Inscrição**, introduza as seguintes informações:
     - Selecione **TPM** como o *Mecanismo* de atestado de identidades.
     - Introduza o *ID de Registo* e a *Chave de endossamento* do seu dispositivo TPM.
     - Opcionalmente, pode fornecer as seguintes informações:
@@ -238,17 +238,17 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
+Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia de Início Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia de Início Rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. Feche a janela do simulador TPM no seu computador.
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra o painel **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Início Rápido e clique no botão **Eliminar** na parte superior. 
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra o painel **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Guia de Início Rápido e clique no botão **Eliminar** na parte superior. 
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Guia de Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, criou um dispositivo simulado TPM no seu computador e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Para saber como inscrever o seu dispositivo TPM programaticamente, continue para o Manual de Início Rápido para inscrição programática de um dispositivo TPM. 
+Neste Início Rápido, criou um dispositivo simulado TPM no seu computador e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Para saber como inscrever o seu dispositivo TPM programaticamente, continue para o Início Rápido para inscrição programática de um dispositivo TPM. 
 
 > [!div class="nextstepaction"]
-> [Manual de Início Rápido do Azure - Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-tpm-node.md)
+> [Guia de Início Rápido do Azure - Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-tpm-node.md)

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700343"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422971"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: criar, consultar e percorrer gráficos na consola Gremlin
 
@@ -38,7 +38,7 @@ A consola Gremlin é baseada em Groovy/Java e é executada em Linux, Mac e Windo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma subscrição do Azure para criar uma conta do Azure Cosmos DB neste guia de introdução.
+Precisa de uma subscrição do Azure para criar uma conta do Azure Cosmos DB neste início rápido.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. Em seguida, execute `:remote console` para redirecionar todos os comandos da consola para o servidor remoto.
 
+   > [!NOTE]
+   > Se não executar o comando `:remote console`, mas quiser redirecionar todos os comandos da consola para o servidor remoto, deve incluir o prefixo `:>` no comando. Por exemplo, deve executar o comando como `:> g.V().count()`. Este prefixo faz parte do comando e é importante ao utilizar a consola do Gremlin com o Azure Cosmos DB. Omitir este prefixo ensina a consola a executar o comando localmente, muitas vezes num grafo dentro da memória. A utilização deste prefixo `:>` diz à consola para executar um comando remoto, neste caso no Azure Cosmos DB (o emulador do localhost ou uma instância do Azure).
+
 Ótimo! Agora que concluímos a configuração, comecemos a executar alguns comandos da consola.
 
 Vamos tentar um comando de contagem() simples. Escreva o seguinte na consola, na linha de comandos:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> Repare no `:>` que precede o texto `g.V().count()`. 
->
-> Isto faz parte do comando que tem de escrever. É importante ao utilizar a consola do Gremlin, com o Azure Cosmos DB.  
->
-> Omitir este prefixo `:>` ensina a consola a executar o comando de forma local, geralmente num gráfico dentro da memória.
-> A utilização deste `:>` diz à consola para executar um comando remoto, neste caso na Cosmos DB (o emulador do localhost ou uma instância do Azure >).
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>Criar vértices e margens
 
@@ -113,7 +108,7 @@ Vamos começar por adicionar cinco vértices de pessoas, para *Thomas*, *Mary Ka
 Entrada (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Saída:
@@ -124,7 +119,7 @@ Saída:
 Entrada (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ Saída:
 Entrada (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Saída:
@@ -150,7 +145,7 @@ Saída:
 Entrada (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ Saída:
 Entrada (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Saída:
@@ -178,7 +173,7 @@ Em seguida, vamos adicionar margens para as relações entre estas quatro pessoa
 Entrada (Thomas -> Mary Kay):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Saída:
@@ -190,7 +185,7 @@ Saída:
 Entrada (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Saída:
@@ -202,7 +197,7 @@ Saída:
 Entrada (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Saída:
@@ -217,7 +212,7 @@ Vamos atualizar o vértice *Thomas* com uma nova idade de *45*.
 
 Entrada:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Saída:
 
@@ -234,7 +229,7 @@ Em primeiro lugar, vamos tentar uma consulta com um filtro para devolver apenas 
 Entrada (consulta de filtro):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Saída:
@@ -248,7 +243,7 @@ Depois, vamos projetor o nome próprio das pessoas que têm mais de 40 anos.
 Entrada (consulta de filtro + projeção):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Saída:
@@ -264,7 +259,7 @@ Vamos percorrer o gráfico para devolver todos os amigos do Thomas.
 Entrada (amigos do Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Saída: 
@@ -279,7 +274,7 @@ Em seguida, vamos obter a próxima camada de vértices. Percorra o gráfico para
 Entrada (amigos dos amigos do Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Saída:
 
@@ -294,7 +289,7 @@ Vamos agora eliminar um vértice da base de dados do gráfico.
 Entrada (eliminar vértice do Jack):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Limpar o gráfico
@@ -304,8 +299,8 @@ Por fim, vamos limpar todos os vértices e margens da base de dados.
 Entrada:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
@@ -320,7 +315,7 @@ Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
 
 ## <a name="next-steps"></a>Passos seguintes
 
-No guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer, a criar vértices e margens e a percorrer o gráfico com a consola Gremlin. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
+No início rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer, a criar vértices e margens e a percorrer o gráfico com a consola Gremlin. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md) (Utilizar Gremlin para consultar)

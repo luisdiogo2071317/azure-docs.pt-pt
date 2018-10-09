@@ -1,24 +1,25 @@
 ---
-title: Início rápido do Go – Publicar Base de Dados de Conhecimento – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Guia de Início Rápido: atualizar a base de dados de conhecimento em Go – Criador de FAQ'
+titleSuffix: Azure Cognitive Services
 description: Como atualizar uma base de dados de conhecimento em Go para o Criador de FAQ.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 613bcd67f766497c9dca49f2ac2dd7a9f7b1cacf
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 03287a2c7a79f0a19d12d7246b2aba679f4ae1a9
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43770775"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040164"
 ---
 # <a name="update-a-knowledge-base"></a>Atualizar uma base de dados de conhecimento
 
-O código seguinte atualiza uma base de dados de conhecimento existente através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -166,7 +167,7 @@ func main() {
 
 ## <a name="the-update-knowledge-base-response"></a>A resposta da atualização de uma base de dados de conhecimento
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -195,4 +196,4 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

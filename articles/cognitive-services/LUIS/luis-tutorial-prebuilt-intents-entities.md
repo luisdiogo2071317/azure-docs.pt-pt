@@ -1,47 +1,56 @@
 ---
-title: Adicionar intenções pré-concebidas e entidades para extrair dados comuns no Language Understanding - Azure | Microsoft Docs
-description: Saiba como utilizar intenções pré-concebidas e entidades para extrair diferentes tipos de dados de entidade.
+title: 'Tutorial 2: intenções e entidades pré-concebidas – utilizar expressões comuns pré-concebidas – extrair dados comuns no LUIS'
+titleSuffix: Azure Cognitive Services
+description: Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 0e45b659508c71a9f1220ef5e76b9a95438fa1e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034438"
 ---
-# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Adicionar intenções e entidades pré-concebidas
-Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. 
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: identificar intenções e entidades comuns
+Neste tutorial, vai modificar a aplicação de Recursos Humanos. Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. Não é necessário etiquetar expressões com entidades pré-concebidas porque a entidade é detetada automaticamente.
 
-Neste tutorial, ficará a saber como:
+Os modelos pré-concebidos de domínios de assunto e tipos de dados comuns ajudam-no a criar rapidamente o modelo, bem como a fornecer um exemplo do aspeto do modelo. 
+
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
-* Adicionar intenções pré-concebidas 
-* Adicionar datetimeV2 e número de entidades pré-concebidas
-* Preparar e publicar
-* Consultar o LUIS e receber a resposta de predição
+> * Utilizar a aplicação de tutorial existente
+> * Adicionar intenções pré-concebidas 
+> * Adicionar entidades pré-concebidas 
+> * Preparar 
+> * Publicar 
+> * Obter as intenções e as entidades do ponto final
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de [Recursos Humanos](luis-quickstart-intents-only.md) do tutorial anterior, [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website) a partir do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `prebuilts`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `prebuilts`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL. 
 
 ## <a name="add-prebuilt-intents"></a>Adicionar intenções pré-concebidas
 O LUIS oferece várias intenções pré-concebidas para ajudar com intenções comuns do utilizador.  
 
-1. Certifique-se de que a aplicação está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecione **Adicionar intenção de domínio pré-concebido**. 
-
-    [ ![Captura de ecrã da página Intenções com o botão Adicionar intenção de domínio pré-concebido realçado](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+2. Selecione **Adicionar intenção pré-concebida**. 
 
 3. Procurar `Utilities`. 
 
@@ -61,33 +70,27 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 1. Selecione **Entidades** no menu de navegação esquerdo.
 
-    [ ![Captura de ecrã da lista Intenções com Entidades destacadas na navegação esquerda](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
-
-2. Selecione o botão **Gerir entidades pré-concebidas**.
-
-    [ ![Captura de ecrã da Lista de entidades com Gerir entidades pré-concebidas realçado](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+2. Selecione o botão **Gerir entidade pré-concebida**.
 
 3. Selecione **número** e **datetimeV2** na lista de entidades pré-concebidas e, em seguida, selecione **Concluído**.
 
     ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-endpoint-with-an-utterance"></a>Consultar ponto final com uma expressão
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL no endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
+2. Vá para o final do URL na barra de endereço do browser e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
 
-    O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março e o número 3. 
-
-    ```
+    ```JSON
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {
@@ -162,15 +165,17 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
     }
     ```
 
-    Existem dois valores de 3 de março porque a expressão não indicou se 3 de março é no passado ou no futuro. Cabe à aplicação de chamadas do LUIS fazer uma suposição ou pedir esclarecimentos, se assim for preciso. 
+    O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março e o número 3. 
 
-    Ao adicionar rápida e facilmente intenções e entidades pré-concebidas, a aplicação cliente pode adicionar gestão de conversação e extrair tipos de dados comuns. 
+    Existem dois valores de 3 de março porque a expressão não indicou se 3 de março é no passado ou no futuro. Cabe à aplicação cliente fazer uma suposição ou pedir esclarecimentos, se assim for preciso. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+
+Ao adicionar intenções e entidades pré-concebidas, a aplicação cliente pode determinar as intenções de utilizador comuns e extrair tipos de dados comuns. 
 
 > [!div class="nextstepaction"]
 > [Adicionar uma entidade de expressão regular à aplicação](luis-quickstart-intents-regex-entity.md)

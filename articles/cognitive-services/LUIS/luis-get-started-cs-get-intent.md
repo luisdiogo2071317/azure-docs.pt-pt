@@ -1,22 +1,23 @@
 ---
-title: Analisar texto de linguagem natural em Language Understanding (LUIS) com C# – Serviços Cognitivos do Azure | Microsoft Docs
-description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com C#, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+title: Guia de Início Rápido do C# – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com C#, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b6ddd48fc6bfa5c099e42f3717a2113f871b4f9a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035849"
 ---
-# <a name="quickstart-analyze-text-using-c"></a>Guia de introdução: analisar texto com C#
+# <a name="quickstart-get-intent-using-c"></a>Guia de Início Rápido: Obter a intenção com C#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44163265"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analisar texto com um browser
+## <a name="get-intent-with-browser"></a>Obter a intenção com o browser
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-c"></a>Analisar texto com C# 
+## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
 Utilize a linguagem C# para consultar o ponto final de predição [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) GET e obter os mesmos resultados que viu na janela do browser na secção anterior. 
 
@@ -67,7 +68,7 @@ Utilize a linguagem C# para consultar o ponto final de predição [API](https://
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este guia de introdução, feche o projeto do Visual Studio e remova o diretório do projeto do sistema de ficheiros. 
+Quando terminar este início rápido, feche o projeto do Visual Studio e remova o diretório do projeto do sistema de ficheiros. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

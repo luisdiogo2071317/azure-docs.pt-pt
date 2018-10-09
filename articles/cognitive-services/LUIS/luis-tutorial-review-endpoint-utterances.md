@@ -1,71 +1,81 @@
 ---
-title: Tutorial para rever expressões de ponto final no Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Neste tutorial, saiba como rever as expressões de ponto final no domínio de Recursos Humanos (RH) do LUIS.
+title: 'Tutorial 1: rever as expressões de ponto final com a aprendizagem ativa'
+titleSuffix: Azure Cognitive Services
+description: Melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTP que o LUIS não pode assegurar. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160086"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042281"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Tutorial: rever expressões de ponto final
-Neste tutorial, melhore as predições da aplicação ao validar ou corrigir expressões recebidas através do ponto final de HTTP do LUIS. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: corrigir predições inseguras
+Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Compreender a revisão de expressões de ponto final 
-> * Utilizar a aplicação LUIS para o domínio de Recursos Humanos (RH) 
-> * Rever pronunciações de ponto final
-> * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [sentimento](luis-quickstart-intent-and-sentiment-analysis.md), importe a aplicação do repositório [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) do Github. Se utilizar este tutorial como uma aplicação nova e importada, também terá de preparar, publicar e, então, adicionar as expressões ao ponto final com um [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto final num browser. As expressões a adicionar são:
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `review`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-Se tiver todas as versões da aplicação, através da série de tutoriais, pode ficar surpreendido ao constatar que a lista para **Rever expressões de ponto final** não é alterada, com base na versão. Há um único conjunto de expressões para rever, independentemente da versão da expressão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Objetivo da revisão de expressões de ponto final
-Este processo de revisão é outra maneira de o LUIS saber qual é o domínio da aplicação. O LUIS selecionou as expressões da lista de revisão. Esta lista é:
+Este processo de revisão é outra maneira de o LUIS saber qual é o domínio da aplicação. O LUIS selecionou as expressões apresentadas na lista de revisão. Esta lista é:
 
 * Específica da aplicação.
 * Destina-se a melhorar a precisão de predição da aplicação. 
 * Deve ser revista periodicamente. 
 
-Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão. Além disso, identifica as entidades personalizadas que não foram previstas. 
+Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão. Além disso, identifica as entidades personalizadas que não foram previstas ou foram previstas incorretamente. 
+
+**Neste tutorial, ficará a saber como:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utilizar a aplicação de tutorial existente
+> * Rever pronunciações de ponto final
+> * Atualizar a lista de expressões
+> * Preparar a aplicação
+> * Publicar aplicação
+> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
+
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+
+    Se utilizar este tutorial como uma aplicação nova e importada, também terá de preparar, publicar e, então, adicionar as expressões ao ponto final com um [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto final num browser. As expressões a adicionar são:
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Se tiver todas as versões da aplicação, através da série de tutoriais, pode ficar surpreendido ao constatar que a lista para **Rever expressões de ponto final** não é alterada, com base na versão. Existe um único conjunto de expressões para rever, independentemente da versão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final. 
 
 ## <a name="review-endpoint-utterances"></a>Rever pronunciações de ponto final
 
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Rever expressões de ponto final** na navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**. 
 
-    [ ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Alterne a **Vista de entidades** para ver as entidades identificadas. 
     
-    [ ![Captura de ecrã de Rever expressões de ponto final com o botão para alternar a Vista de entidades realçado](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Captura de ecrã de Rever expressões de ponto final com o botão para alternar a Vista de entidades realçado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Expressão|Intenção correta|Entidades em falta|
     |:--|:--|:--|
     |Estou à procura de uma tarefa com o Processamento de Linguagem Natural|GetJobInfo|Tarefa - "Processo de Linguagem Natural"|
 
     Esta expressão não está na intenção correta e tem uma classificação inferior a 50%. A intenção **ApplyForJob** tem 21 expressões, em comparação com as sete expressões na **GetJobInformation**. Juntamente com o alinhamento correto das expressões de ponto final, devem ser adicionadas mais expressões à intenção **GetJobInformation**. Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
-
-    Quando estiver na **Vista de Tokens**, pode colocar o cursor sobre qualquer texto azul da expressão para ver o nome da entidade prevista. 
 
 4. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta, **GetJobInformation** na coluna **Intenção alinhada**. 
 
@@ -87,11 +97,13 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
     [ ![Captura de ecrã de finalização das restantes expressões com a intenção alinhada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. A lista já não deve ter essas expressões. Se surgirem mais expressões, continue a trabalhar na lista, corrigindo as intenções e identificando quaisquer entidades em falta, até que a lista esteja vazia. Selecione a intenção seguinte na lista Filtro e, em seguida, continue a corrigir as expressões e a identificar as entidades. Lembre-se de que o último passo de cada intenção é selecionar **Adicionar a intenção alinhada** na linha da expressão ou marcar a caixa ao lado de cada intenção e selecionar **Adicionar seleção**, acima da tabela. 
+9. A lista já não deve ter essas expressões. Se surgirem mais expressões, continue a trabalhar na lista ao corrigir as intenções e ao identificar quaisquer entidades em falta, até que a lista esteja vazia. 
 
-    Esta aplicação é muito pequena. O processo de revisão demora apenas alguns minutos.
+10. Selecione a intenção seguinte na lista Filtro e, em seguida, continue a corrigir as expressões e a identificar as entidades. Lembre-se de que o último passo de cada intenção é selecionar **Adicionar a intenção alinhada** na linha da expressão ou marcar a caixa ao lado de cada intenção e selecionar **Adicionar seleção**, acima da tabela.
 
-## <a name="add-new-job-name-to-phrase-list"></a>Adicionar o nome da nova tarefa à lista de expressões
+    Continue até que todas as intenções e entidades na lista de filtro tenham uma lista vazia. Esta aplicação é muito pequena. O processo de revisão demora apenas alguns minutos. 
+
+## <a name="update-phrase-list"></a>Atualizar a lista de expressões
 Mantenha a lista de expressões atualizada com quaisquer nomes de tarefas recentemente detetadas. 
 
 1. Selecione **Listas de expressões** na navegação à esquerda.
@@ -100,19 +112,19 @@ Mantenha a lista de expressões atualizada com quaisquer nomes de tarefas recent
 
 3. Adicione `Natural Language Processing` como um valor e selecione **Guardar**. 
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 O LUIS desconhece as alterações até estar preparado. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+## <a name="publish"></a>Publicar
 
 Se tiver importado esta aplicação, tem de selecionar a **Análise de sentimentos**.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Consultar o ponto final com uma expressão
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
 
 Experimente uma expressão próxima da expressão corrigida. 
 
@@ -223,16 +235,14 @@ Experimente uma expressão próxima da expressão corrigida.
 Pode questionar-se sobre o motivo pelo qual não deve adicionar mais expressões de exemplo. Qual é o objetivo da revisão de expressões de ponto final? Numa aplicação LUIS do mundo real, as expressões de ponto final são provenientes de utilizadores com uma escolha e disposição de palavras que ainda não utilizou. Se tivesse utilizado a mesma escolha e disposição de palavras, a predição original teria uma percentagem mais elevada. 
 
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Por que motivo a intenção principal está na lista de expressões? 
-Algumas expressões de ponto final terão uma percentagem elevada na lista de revisão. Ainda tem de rever e validar essas expressões. Estão na lista porque a intenção mais alta seguinte tinha uma classificação demasiado próxima da classificação da intenção principal. 
-
-## <a name="what-has-this-tutorial-accomplished"></a>O que conseguiu este tutorial?
-A precisão de predição desta aplicação aumentou ao rever as expressões do ponto final. 
+Algumas expressões de ponto final terão uma classificação de predição elevada na lista de revisão. Ainda tem de rever e validar essas expressões. Estão na lista porque a intenção mais alta seguinte tinha uma classificação demasiado próxima da classificação da intenção principal. Pretende ter cerca de 15% de diferença entre as duas intenções principais.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, reviu as expressões submetidas ao ponto final, que o LUIS não conseguiu assegurar. Depois destas expressões terem sido validadas e movidas para as intenções corretas como expressões de exemplo, o LUIS irá melhorar a exatidão da predição.
 
 > [!div class="nextstepaction"]
 > [Saiba como utilizar padrões](luis-tutorial-pattern.md)

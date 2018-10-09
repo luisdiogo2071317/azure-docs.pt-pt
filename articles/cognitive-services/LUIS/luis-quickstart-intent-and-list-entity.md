@@ -1,81 +1,69 @@
 ---
-title: Tutorial para criar uma aplicação LUIS para obter dados listados de correspondência exata de texto - Azure | Microsoft Docs
-description: Neste tutorial, saiba como criar uma aplicação LUIS simples com intenções e entidades de lista para extrair dados.
+title: 'Tutorial 4: correspondência de texto exata – entidade de lista do LUIS'
+titleSuffix: Azure Cognitive Services
+description: Obtenha dados que correspondam a uma lista de itens predefinida. Cada item na lista pode ter sinónimos também com correspondência exata
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162203"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162088"
 ---
-# <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Adicionar entidade de lista
-Neste tutorial, vai criar uma aplicação que demonstra como obter dados que correspondem a uma lista predefinida. 
+# <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: extrair correspondências de texto exatas
+Neste tutorial, vai aprender a obter dados que correspondam a uma lista de itens predefinida. Cada item na lista pode incluir uma lista de sinónimos. Para a aplicação de recursos humanos, um colaborador pode ser identificado através de várias informações cruciais, como o nome, e-mail, número de telefone e número de contribuinte. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Compreender as entidades de lista 
-> * Criar nova aplicação LUIS para o domínio de Recursos Humanos (RH) com a intenção MoveEmployee
-> * Adicionar a entidade de lista para extrair Colaboradores da expressão
-> * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
+A aplicação Recursos Humanos precisa de determinar que colaborador está a mudar de um edifício para outro. Para uma expressão sobre uma mudança de colaborador, o LUIS determina a intenção e extrai o colaborador para que a aplicação cliente crie uma ordem padrão para o mover.
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [entidade regex](luis-quickstart-intents-regex-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `list`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-## <a name="purpose-of-the-list-entity"></a>Objetivo da entidade de lista
-Esta aplicação prevê expressões sobre como mover um colaborador de um edifício para outro. Esta aplicação utiliza uma entidade de lista para extrair um colaborador. O colaborador pode ser referenciado pelo nome, número de telefone, e-mail ou número de segurança social federal dos E.U.A.. 
-
-Uma entidade de lista pode conter muitos itens com sinónimos para cada item. Para uma pequena a média empresa, a entidade de lista é utilizada para extrair as informações do colaborador. 
-
-O nome canónico para cada item é o número de colaborador. Para este domínio, os exemplos dos sinónimos são: 
-
-|Objetivo do sinónimo|Valor do sinónimo|
-|--|--|
-|Nome|John W. Smith|
-|Endereço de e-mail|john.w.smith@mycompany.com|
-|Extensão do telefone|x12345|
-|Número do telemóvel pessoal|425-555-1212|
-|Número de segurança social federal dos E.U.A.|123-45-6789|
+Esta aplicação utiliza uma entidade de lista para extrair o colaborador. O colaborador pode ser referenciado pelo nome, extensão da empresa, número de telemóvel, e-mail ou número da segurança social. 
 
 Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
 * Os valores dos dados são um conjunto conhecido.
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
-* O texto na expressão é uma correspondência exata com um sinónimo. 
+* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. 
 
-O LUIS extrai o colaborador de tal forma que pode ser criada uma ordem padrão para mover o colaborador pela aplicação do cliente.
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**Neste tutorial, ficará a saber como:**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utilizar a aplicação de tutorial existente
+> * Adicionar intenção MoveEmployee
+> * Adicionar entidade de lista 
+> * Preparar 
+> * Publicar
+> * Obter as intenções e as entidades do ponto final
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="add-moveemployee-intent"></a>Adicionar intenção MoveEmployee
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `list`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL. 
+
+
+## <a name="moveemployee-intent"></a>Intenção MoveEmployee
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Create new intent** (Criar nova intenção). 
 
 3. Introduza `MoveEmployee` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**. 
 
-    ![Captura de ecrã da caixa de diálogo Criar nova de intenção com](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
+    ![Captura de ecrã da caixa de diálogo Criar nova intenção com](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
 4. Adicione expressões de exemplo à intenção.
 
@@ -94,8 +82,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Captura de ecrã da página Intenção com as novas expressões realçadas](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="create-an-employee-list-entity"></a>Criar uma entidade de lista de colaborador
-Agora que a intenção **MoveEmployee** tem expressões, o LUIS tem de compreender o que é um colaborador. 
+    Lembre-se de que o número e datetimeV2 foram adicionados num tutorial anterior e serão etiquetados automaticamente quando forem encontrados nas expressões de exemplo.
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="employee-list-entity"></a>Entidade de lista de colaboradores
+Agora que a intenção **MoveEmployee** tem expressões de exemplo, o LUIS tem de compreender o que é um colaborador. 
+
+O nome _canónico_ principal para cada item é o número de colaborador. Para este domínio, os exemplos dos sinónimos de cada nome canónico são: 
+
+|Objetivo do sinónimo|Valor do sinónimo|
+|--|--|
+|Nome|John W. Smith|
+|Endereço de e-mail|john.w.smith@mycompany.com|
+|Extensão do telefone|x12345|
+|Número do telemóvel pessoal|425-555-1212|
+|Número de segurança social federal dos E.U.A.|123-45-6789|
+
 
 1. Selecione **Entidades** no painel esquerdo.
 
@@ -133,15 +136,15 @@ Agora que a intenção **MoveEmployee** tem expressões, o LUIS tem de compreend
     |Número do telemóvel pessoal|425-555-0000|
     |Número de segurança social federal dos E.U.A.|234-56-7891|
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto final com uma expressão diferente
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -259,22 +262,12 @@ Agora que a intenção **MoveEmployee** tem expressões, o LUIS tem de compreend
 
   O colaborador foi encontrado e devolvido como o tipo `Employee` com um valor de resolução de `Employee-24612`.
 
-## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Onde está o processamento da linguagem natural na entidade de lista? 
-Uma vez que a entidade de lista é uma correspondência exata de texto, não depende do processamento de linguagem natural (ou aprendizagem automática). O LUIS utiliza o processamento de linguagem natural (ou aprendizagem automática) para selecionar a intenção correta com a melhor classificação. Além disso, uma expressão pode ser uma mistura de mais de uma entidade ou mesmo de mais do que um tipo de entidade. Cada expressão é processada para todas as entidades na aplicação, incluindo as entidades de processamento de linguagem natural (ou aprendizagem automática).
-
-## <a name="what-has-this-luis-app-accomplished"></a>O que conseguiu esta aplicação LUIS?
-Esta aplicação, com uma entidade de lista, extraiu o colaborador correto. 
-
-O chatbot tem agora informações suficientes para determinar a ação principal, `MoveEmployee`, e qual colaborador deve mover. 
-
-## <a name="where-is-this-luis-data-used"></a>Onde são utilizados estes dados do LUIS? 
-O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados da entidade para executar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, criou uma nova intenção, adicionou expressões de exemplo e criou uma entidade de lista para extrair correspondências de texto exatas a partir de expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 > [!div class="nextstepaction"]
 > [Adicione uma entidade hierárquica à aplicação](luis-quickstart-intent-and-hier-entity.md)

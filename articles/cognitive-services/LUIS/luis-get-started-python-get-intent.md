@@ -1,64 +1,43 @@
 ---
-title: Início Rápido para aprender a chamar uma aplicação Language Understanding (LUIS) com Python | Microsoft Docs
+title: Guia de Início Rápido de Python – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a chamar uma aplicação LUIS com Python.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bc7ae912d762a98c34b9a1b2d6a82d5630c4794b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e560aeffecf63f63966a49053e0f79d012b4a0a3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43771753"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038277"
 ---
-# <a name="quickstart-call-a-luis-endpoint-using-python"></a>Início Rápido: chamar um ponto final de LUIS com Python
+# <a name="quickstart-get-intent-using-python"></a>Guia de Início Rápido: Obter a intenção com Python
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 
-<!-- green checkmark -->
-<!--
-> [!div class="checklist"]
-> * Create LUIS subscription and copy key value for later use
-> * View LUIS endpoint results from browser to public sample IoT app
-> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
--->
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
+## <a name="prerequisites"></a>Pré-requisitos
 
-<a name="create-luis-subscription-key"></a>
-## <a name="create-luis-endpoint-key"></a>Criar uma chave de ponto final de LUIS
-Precisa de uma chave de API dos Serviços Cognitivos para efetuar chamadas para a aplicação LUIS de exemplo utilizada nestas instruções. 
+* [Python 3.6](https://www.python.org/downloads/) ou posterior.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-Para obter uma chave de API, siga estes passos: 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-1. Primeiro tem de criar uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) no portal do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="get-luis-key"></a>Obter chave LUIS
 
-2. Inicie sessão no portal do Azure em https://portal.azure.com. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-3. Siga os passos em [Criar Chaves de Ponto Final com o Azure](./luis-how-to-azure-subscription.md) para obter uma chave.
+## <a name="get-intent-with-browser"></a>Obter a intenção com o browser
 
-4. Regresse ao site do [LUIS](luis-reference-regions.md) e inicie sessão com a sua conta do Azure. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-    [![](media/luis-get-started-node-get-intent/app-list.png "Captura de ecrã da lista de aplicações")](media/luis-get-started-node-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Compreender o que o LUIS devolve
-
-Para compreender o que uma aplicação LUIS devolve, pode colar o URL de uma aplicação LUIS de exemplo numa janela do browser. A aplicação de exemplo é uma aplicação de IoT que deteta se o utilizador quer ligar ou desligar as luzes.
-
-1. O ponto final da aplicação de exemplo está neste formato: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copie o URL e substitua a chave de ponto final pelo valor do campo `subscription-key`.
-2. Cole o URL numa janela do browser e prima Enter. O browser apresenta um resultado JSON que indica que o LUIS deteta a intenção `HomeAutomation.TurnOn` e a entidade `HomeAutomation.Room` com o valor `bedroom`.
-
-    ![O resultado JSON deteta a intenção TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-3. Altere o valor do parâmetro `q=` no URL para `turn off the living room light` e prima Enter. O resultado indica agora que o LUIS detetou a intenção `HomeAutomation.TurnOff` e a entidade `HomeAutomation.Room` com o valor `living room`. 
-
-    ![O resultado JSON deteta a intenção TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
-
-
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-python"></a>Consumir um resultado do LUIS com a API de ponto final com Python
+## <a name="get-intent--programmatically"></a>Obter a intenção através de programação
 
 Pode utilizar o Python para aceder aos mesmos resultados que viu na janela do browser no passo anterior.
 
@@ -73,13 +52,15 @@ Pode utilizar o Python para aceder aos mesmos resultados que viu na janela do br
 3. Instale dependências com `pip install requests`.
 
 4. Execute o script com `python ./quickstart-call-endpoint.py`. Apresenta o mesmo JSON que viu anteriormente na janela do browser.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
--->
+
+## <a name="luis-keys"></a>Chaves LUIS
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Os dois recursos criados neste tutorial são a chave de ponto final de LUIS e o projeto C#. Elimine a chave de ponto final de LUIS do portal do Azure. Feche o projeto do Visual Studio e remova o diretório do sistema de ficheiros. 
+Elimine o ficheiro python. 
 
 ## <a name="next-steps"></a>Passos seguintes
+
 > [!div class="nextstepaction"]
 > [Adicionar expressões](luis-get-started-python-add-utterance.md)

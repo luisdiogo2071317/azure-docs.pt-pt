@@ -1,41 +1,24 @@
 ---
-title: Tutorial para criar uma aplicação LUIS que devolva expressões-chave - Azure | Microsoft Docs
-description: Neste tutorial, aprenda a adicionar e devolver a entidade keyPhrase para a sua aplicação LUIS para analisar expressões para o assunto-chave.
+title: 'Tutorial 8: extração de expressões-chave no LUIS'
+titleSuffix: Azure Cognitive Services
+description: Utilize a entidade keyPhrase pré-concebida para extrair o assunto-chave das expressões. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ef7a1c81f453a8d4ff9526a4844518782e152c4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159491"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166525"
 ---
-# <a name="tutorial-8-add-keyphrase-entity"></a>Tutorial: 8. Adicionar a entidade KeyPhrase 
-Neste tutorial, vai utilizar uma aplicação que demonstra como extrair o assunto-chave de expressões.
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Compreender as entidades keyPhrase 
-> * Utilizar a aplicação LUIS no domínio de Recursos Humanos (RH) 
-> * Adicionar a entidade keyPhrase para extrair conteúdo da expressão
-> * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS incluindo expressões-chave
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [entidade simples](luis-quickstart-primary-and-secondary-data.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `keyphrase`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-## <a name="keyphrase-entity-extraction"></a>Extração da entidade keyPhrase
-O assunto-chave é indicado pela entidade previamente criada, **keyPhrase**. Esta entidade devolve o assunto-chave na expressão.
+# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: extrair expressões-chave da expressão
+Neste tutorial, vai utilizar a entidade keyPhrase pré-concebida para extrair o assunto-chave das expressões. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 
 As expressões seguintes mostram exemplos de expressões-chave:
 
@@ -46,147 +29,157 @@ As expressões seguintes mostram exemplos de expressões-chave:
 
 A sua aplicação cliente pode utilizar estes valores, juntamente com outras entidades extraídas, para decidir o próximo passo da conversa.
 
+**Neste tutorial, ficará a saber como:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utilizar a aplicação de tutorial existente
+> * Adicionar a entidade KeyPhrase 
+> * Preparar
+> * Publicar
+> * Obter as intenções e as entidades do ponto final
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
+
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `keyphrase`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+
 ## <a name="add-keyphrase-entity"></a>Adicionar a entidade KeyPhrase 
 Adicione a entidade pré-concebida keyPhrase para extrair o assunto das expressões.
 
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Entidades** no menu esquerdo.
 
-    [ ![Captura de ecrã de Entidades realçado no painel de navegação esquerdo da secção Criar](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
-
 3. Selecione **Gerir entidades pré-concebidas**.
-
-    [ ![Captura de ecrã da caixa de diálogo de pop-up Lista de entidades](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
 
 4. Na caixa de diálogo de pop-up, selecione **keyPhrase** e, em seguida, **Concluído**. 
 
     [ ![Captura de ecrã da caixa de diálogo de pop-up Lista de entidades](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
 
-    <!-- TBD: asking Carol
-    You won't see these entities labeled in utterances on the intents pages. 
-    -->
 5. Selecione **Intenções** no menu do lado esquerdo e, em seguida, selecione a intenção **Utilities.Confirm**. A entidade keyPhrase está etiquetada em várias expressões. 
 
     [ ![Captura de ecrã da intenção Utilities.Confirm com keyPhrases etiquetada nas expressões](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-
-## <a name="query-the-endpoint-with-an-utterance"></a>Consultar o ponto final com uma expressão
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá para o final do URL no endereço e introduza `does form hrf-123456 cover the new dental benefits and medical plan`. O último parâmetro querystring é `q`, a expressão **query**. 
-
-```
-{
-  "query": "does form hrf-123456 cover the new dental benefits and medical plan",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9300641
-  },
-  "intents": [
+    
+    ```JSON
     {
-      "intent": "FindForm",
-      "score": 0.9300641
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.0359598845
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0141798034
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0112197418
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00507669244
-    },
-    {
-      "intent": "None",
-      "score": 0.00238501839
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00202810857
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00102957746
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0008688423
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 3.557994E-05
+      "query": "does form hrf-123456 cover the new dental benefits and medical plan",
+      "topScoringIntent": {
+        "intent": "FindForm",
+        "score": 0.9300641
+      },
+      "intents": [
+        {
+          "intent": "FindForm",
+          "score": 0.9300641
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.0359598845
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0141798034
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.0112197418
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00507669244
+        },
+        {
+          "intent": "None",
+          "score": 0.00238501839
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00202810857
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00102957746
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0008688423
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 3.557994E-05
+        }
+      ],
+      "entities": [
+        {
+          "entity": "hrf-123456",
+          "type": "HRF-number",git 
+          "startIndex": 10,
+          "endIndex": 19
+        },
+        {
+          "entity": "new dental benefits",
+          "type": "builtin.keyPhrase",
+          "startIndex": 31,
+          "endIndex": 49
+        },
+        {
+          "entity": "medical plan",
+          "type": "builtin.keyPhrase",
+          "startIndex": 55,
+          "endIndex": 66
+        },
+        {
+          "entity": "hrf",
+          "type": "builtin.keyPhrase",
+          "startIndex": 10,
+          "endIndex": 12
+        },
+        {
+          "entity": "-123456",
+          "type": "builtin.number",
+          "startIndex": 13,
+          "endIndex": 19,
+          "resolution": {
+            "value": "-123456"
+          }
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "hrf-123456",
-      "type": "HRF-number",git 
-      "startIndex": 10,
-      "endIndex": 19
-    },
-    {
-      "entity": "new dental benefits",
-      "type": "builtin.keyPhrase",
-      "startIndex": 31,
-      "endIndex": 49
-    },
-    {
-      "entity": "medical plan",
-      "type": "builtin.keyPhrase",
-      "startIndex": 55,
-      "endIndex": 66
-    },
-    {
-      "entity": "hrf",
-      "type": "builtin.keyPhrase",
-      "startIndex": 10,
-      "endIndex": 12
-    },
-    {
-      "entity": "-123456",
-      "type": "builtin.number",
-      "startIndex": 13,
-      "endIndex": 19,
-      "resolution": {
-        "value": "-123456"
-      }
-    }
-  ]
-}
-```
+    ```
 
-Ao pesquisar por um formulário, o utilizador deu mais informações do que era preciso para o encontrar. A informação adicional é devolvida como **builtin.keyPhrase**. A aplicação cliente pode utilizar estas informações adicionais para uma pergunta de seguimento, como "Gostaria de falar com um representante dos Recursos Humanos sobre os novos benefícios dentários" ou oferecer um menu com mais opções, incluindo "Mais informações sobre novos benefícios dentários ou plano médico."
-
-## <a name="what-has-this-luis-app-accomplished"></a>O que conseguiu esta aplicação LUIS?
-Esta aplicação, com a deteção da entidade keyPhrase, identificou uma intenção de consulta de linguagem natural e devolveu os dados extraídos, incluindo o assunto principal. 
-
-O chatbot tem agora informações suficientes para determinar o passo seguinte na conversação. 
-
-## <a name="where-is-this-luis-data-used"></a>Onde são utilizados estes dados do LUIS? 
-O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados de keyPhrase da expressão para efetuar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
+    Ao pesquisar por um formulário, o utilizador deu mais informações do que era preciso para o encontrar. A informação adicional é devolvida como **builtin.keyPhrase**. A aplicação cliente pode utilizar estas informações adicionais para uma pergunta de seguimento, como "Gostaria de falar com um representante dos Recursos Humanos sobre os novos benefícios dentários" ou oferecer um menu com mais opções, incluindo "Mais informações sobre novos benefícios dentários ou plano médico."
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, adicionou a entidade keyPhrase pré-concebida, fornecendo rapidamente expressões-chave em expressões sem ter de etiquetar as expressões. 
 
 > [!div class="nextstepaction"]
 > [Adicionar análise de sentimentos a uma aplicação](luis-quickstart-intent-and-sentiment-analysis.md)

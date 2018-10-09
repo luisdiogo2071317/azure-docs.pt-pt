@@ -2,18 +2,22 @@
 title: Tarefas de Base de Dados Elástica SQL do Azure | Microsoft Docs
 description: Utilizar Tarefas de Base de Dados Elástica para executar scripts Transact-SQL (T-SQL) num conjunto de uma ou mais bases de dados SQL do Azure
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
-ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309049"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054732"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gerir grupos de bases de dados com Tarefas de Base de Dados Elástica
 
@@ -206,7 +210,7 @@ Para garantir que os recursos não são sobrecarregados quando executar tarefas 
 
 |  |Tarefas Elásticas  |SQL Server Agent |
 |---------|---------|---------|
-|Âmbito     |  Qualquer número de Bases de Dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Os destinos podem estar em diferentes servidores lógicos, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual na mesma instância do SQL Server do que o agente SQL. |
+|Âmbito     |  Qualquer número de bases de dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Os destinos podem estar em diferentes servidores lógicos, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual na mesma instância do SQL Server do que o agente SQL. |
 |APIs e Ferramentas suportadas     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

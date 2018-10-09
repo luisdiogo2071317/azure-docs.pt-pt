@@ -1,22 +1,23 @@
 ---
-title: Início rápido para aprender a adicionar expressões a uma aplicação LUIS com JavaScript - Serviços Cognitivos do Azure | Microsoft Docs
+title: Guia de Início Rápido de JavaScript – alterar o modelo e preparar a aplicação LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a chamar uma aplicação LUIS com JavaScript.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0920a194d3e9c93883b88b7131f7e81dc8fb3302
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 38e25b0634b53f4fcc0507091e78ab49b29c8d38
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159695"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033401"
 ---
-# <a name="quickstart-change-model-using-javascript"></a>Início rápido: Alterar o modelo com JavaScript
+# <a name="quickstart-change-model-using-javascript"></a>Início Rápido: Alterar o modelo com JavaScript
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

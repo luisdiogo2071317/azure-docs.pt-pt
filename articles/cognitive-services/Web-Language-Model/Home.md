@@ -1,0 +1,50 @@
+---
+title: Descrição geral da Web Language Model API – Serviços Cognitivos do Azure | Microsoft Docs
+description: A Web Language Model API nos Serviços Cognitivos da Microsoft fornece ferramentas topo de gama para processamento de linguagem natural.
+services: cognitive-services
+author: piyushbehre
+manager: yanbo
+ms.service: cognitive-services
+ms.component: web-language-model
+ms.topic: overview
+ms.date: 08/12/2016
+ms.author: pibehre
+ms.openlocfilehash: dc5dc0519e33e024014033ac5260004482b419c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096960"
+---
+# <a name="what-is-the-web-language-model-api-preview"></a>O que é a Web Language Model API? (Pré-visualização)
+
+A Microsoft Web Language Model API é um serviço cloud baseado em REST que fornece ferramentas topo de gama para processamento de linguagem natural. Com esta API, a sua aplicação pode tirar partido do poder dos macrodados através de modelos de linguagem preparados com base no corpora à escala da Web recolhido pelo Bing no mercado en-US.
+
+Estes modelos de linguagem de grama-N de backoff suavizados, que suportam cadeias de Markov até à 5ª ordem, são preparados no seguinte corpora:
+
+- Texto do corpo da página Web
+- Texto do título da página Web
+- Texto da âncora da página Web
+- Texto da consulta da pesquisa Web
+
+A Web Language Model API suporta quatro operações de pesquisa:
+
+1. Probabilidade conjunta (log10) de uma sequência de palavras.
+2. Probabilidade condicional (log10) de uma palavra numa sequência de palavras anteriores.
+3. Lista de palavras (conclusões) com maior probabilidade de concluir uma sequência de palavras.
+4. Separação de palavras de cadeias de carateres sem espaços.
+
+## <a name="getting-started"></a>Introdução
+
+1. Subscreva o serviço.
+2. Transfira o [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
+3. Execute o código de exemplo do SDK.
+4. Veja a [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104) para obter detalhes completos sobre os pontos finais, incluindo fragmentos de código em várias linguagens.
+
+## <a name="underlying-technology"></a>Tecnologia Subjacente
+
+O documento seguinte fornece detalhes sobre o desenvolvimento destes modelos de linguagem e deve ser citado nas publicações de investigação que utilizam este serviço:
+
+- [Descrição geral do Microsoft Web N-gram Corpus e Aplicações](http://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
+
+Clique [aqui](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) para obter uma lista atualizada de documentos que citam este trabalho.

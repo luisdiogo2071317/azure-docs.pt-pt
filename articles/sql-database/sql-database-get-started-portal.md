@@ -1,25 +1,27 @@
 ---
 title: 'Portal do Azure: Criar uma única base de dados SQL | Microsoft Docs'
 description: Crie um servidor lógico da Base de Dados SQL, regras de firewall ao nível do servidor e uma base de dados no portal do Azure e realize consultas à mesma.
-keywords: tutorial de base de dados sql, criar uma base de dados sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090535"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165012"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar uma base de dados SQL do Azure no portal do Azure
 
-Este início rápido explica como criar uma base de dados SQL no Azure com o [modelo de compra com base na DTU](sql-database-service-tiers-dtu.md). A Base de Dados SQL do Azure é uma oferta de "Base de dados como Serviço" que lhe permite executar e dimensionar bases de dados do SQL Server altamente disponíveis na cloud. Este início rápido mostra-lhe como começar a criar uma base de dados SQL através do Portal do Azure.
+Este início rápido explica como criar uma base de dados SQL no Azure com o [modelo de compra com base na DTU](sql-database-service-tiers-dtu.md). A Base de Dados SQL do Azure é uma oferta de "Base de dados como Serviço" que lhe permite executar e dimensionar bases de dados do SQL Server altamente disponíveis na cloud. Este guia de início rápido mostra-lhe como começar a criar e a consultar uma base de dados SQL através do portal do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-database"></a>Criar uma base de dados SQL
 
@@ -83,7 +85,7 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
 
    ![criar base de dados-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-8. Aceitd os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**.
+8. Aceite os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**.
 
    > [!IMPORTANT]
    > No escalão Premium, está atualmente disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, E.U.A. Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, US DoD – Centro, US DoD – Leste, US Gov – Iowa, US Gov – Sudoeste. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
@@ -95,36 +97,6 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
 11. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
 
      ![notificação](./media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
-
-O serviço da Base de Dados SQL cria uma firewall ao nível do servidor, impedindo que as aplicações e ferramentas externas estabeleçam uma ligação ao servidor ou a quaisquer bases de dados no servidor, a menos que seja criada uma regra de firewall para abrir a firewall para endereços IP específicos. Siga estes passos para criar uma [regra de firewall ao nível do servidor da Base de Dados SQL](sql-database-firewall-configure.md) para o endereço IP do seu cliente, para permitir a conectividade externa através da firewall da Base de Dados SQL apenas para o seu endereço IP.
-
-> [!NOTE]
-> A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
->
-
-1. Depois de concluída a implementação, clique em **Bases de dados SQL** no menu do lado esquerdo e, em seguida, clique em **mySampleDatabase** na página **Bases de dados SQL**. É aberta uma página de descrição geral para a base de dados que mostra o nome de servidor completamente qualificado (como **mynewserver-20170824.database.windows.net**) e oferece opções para configuração adicional.
-
-2. Copie este nome de servidor totalmente qualificado para utilizar para ligar ao seu servidor e às respetivas bases de dados nos seguintes inícios rápidos.
-
-   ![nome do servidor](./media/sql-database-get-started-portal/server-name.png)
-
-3. Clique em **Configurar firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL.
-
-   ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Clique em **Adicionar IP de cliente**, na barra de ferramentas, para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
-
-5. Clique em **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
-
-6. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
-
-Pode agora ligar ao servidor da Base de Dados SQL e às respetivas bases de dados com o SQL Server Management Studio ou outra ferramenta à sua escolha a partir deste endereço IP com a conta de administrador de servidor criada anteriormente.
-
-> [!IMPORTANT]
-> Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desativar todos os serviços do Azure.
->
 
 ## <a name="query-the-sql-database"></a>Consultar a base de dados SQL
 
@@ -161,7 +133,9 @@ Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Agora que tem uma base de dados, pode [ligar e consultar](sql-database-connect-query.md) com uma das suas ferramentas ou idiomas favoritos. 
-- Para saber como criar a sua primeira base de dados, criar tabelas e inserir dados, veja um destes tutoriais:
- - [Criar a sua primeira base de dados SQL do Azure com o SSMS](sql-database-design-first-database.md)
-  - [Criar uma base de dados SQL do Azure e estabelecer ligação com C# e ADO.NET](sql-database-design-first-database-csharp.md)
+- Agora que tem uma base de dados, tem de criar uma regra de firewall ao nível do servidor para ligar à mesma a partir das suas ferramentas no local. Veja [Criar uma regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md)
+- Se criar uma regra de firewall ao nível do servidor, pode [ligar e consultar](sql-database-connect-query.md) através de uma das suas ferramentas ou linguagens favoritas, incluindo
+  - [Ligar e consultar com o SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Ligar e consultar com o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- Para criar bases de dados com a CLI do Azure, veja [Exemplos da CLI do Azure](sql-database-cli-samples.md)
+- Para criar bases de dados com o Azure PowerShell, veja [Exemplos do Azure PowerShell](sql-database-powershell-samples.md)

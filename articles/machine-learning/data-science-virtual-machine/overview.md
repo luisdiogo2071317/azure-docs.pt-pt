@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022717"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032236"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -137,3 +137,5 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 * Para obter mais informações sobre como criar e utilizar uma DSVM do Ubuntu, veja [Provision the Data Science Virtual Machine for Linux (Ubuntu)](dsvm-ubuntu-intro.md) (Aprovisionar a Máquina Virtual de Ciência de Dados do Linux [Ubuntu]). Para obter mais informações sobre como criar e utilizar uma DSVM do CentOS, veja [Provision a Linux CentOS Data Science Virtual Machine on Azure](linux-dsvm-intro.md) (Aprovisionar uma Máquina Virtual de Ciência de Dados de CentOS do Linux).
 * Para obter instruções que lhe mostram como fazer várias tarefas de ciência de dados comuns com a VM do Linux, tanto para CentOS, como para Ubuntu, veja [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) (Ciência de dados na Máquina Virtual de Ciência de Dados do Linux).
 
+## <a name="next-steps"></a>Passos seguintes
+[Guia do programador em R para o Azure](../r-developers-guide.md)

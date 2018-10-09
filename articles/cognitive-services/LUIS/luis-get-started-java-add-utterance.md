@@ -1,22 +1,23 @@
 ---
-title: Início rápido - alterar o modelo e treinar a aplicação LUIS com Java - Serviços Cognitivos do Azure | Microsoft Docs
+title: Guia de Início Rápido de Java – alterar o modelo e preparar a aplicação LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido do Java, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042029"
 ---
-# <a name="quickstart-change-model-using-java"></a>Início rápido: Alterar o modelo com Java 
+# <a name="quickstart-change-model-using-java"></a>Início Rápido: Alterar o modelo com Java 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

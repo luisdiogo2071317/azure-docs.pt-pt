@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar uma VM do Linux no portal do Azure | Microsoft Docs
+title: Guia de Início Rápido - Criar uma VM do Linux no portal do Azure | Microsoft Docs
 description: Neste início rápido, vai aprender a utilizar o portal do Azure para criar uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108811"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227287"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guia de Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
 As máquinas virtuais do Azure (VMs) podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar VMs e os respetivos recursos associados. Este início rápido mostra como utilizar o portal do Azure para implementar uma máquina virtual (VM) do Linux no Azure que executa o Ubuntu. Para ver a VM em ação, estabeleça o SSH para a VM e instale o servidor Web NGINX.
 
@@ -49,26 +49,27 @@ Inicie sessão no portal do Azure em http://portal.azure.com
 
 1. Selecione **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
-2. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione **Ubuntu Server 16.04 LTS** da Canonical e, em seguida, selecione **Criar**.
+1. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione **Ubuntu Server 16.04 LTS** da Canonical e, em seguida, selecione **Criar**.
 
-3. Indique um nome para a VM, como *myVM*, deixe o tipo de disco como *SSD* e forneça um nome de utilizador, como *azureuser*.
+1. No separador **Informações básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** em **Grupo de recursos**. No pop-up, escreva *myResourceGroup* para o nome do grupo de recursos e, em seguida, selecione **OK*. 
 
-4. Para **Tipo de autenticação**, selecione **Chave pública SSH** e, em seguida, cole a chave pública na caixa de texto. Remova quaisquer espaços em branco à esquerda ou à direita na chave pública.
+    ![Criar um novo grupo de recursos para a VM](./media/quick-create-portal/project-details.png)
 
-    ![Introduza as informações básicas sobre a VM no painel do portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. Em **Detalhes da instância**, escreva *myVM* para o **Nome da máquina virtual** e selecione *E.U.A. Leste* para a **Região**. Mantenha as restantes predefinições inalteradas.
 
-5. Selecione **Criar novo grupo de recursos** e forneça um nome, como *myResourceGroup*. Selecione a **Localização** que quer e, em seguida, **OK**.
+    ![Secção de detalhes da instância](./media/quick-create-portal/instance-details.png)
 
-4. Selecione um tamanho para a VM. Pode filtrar por *Tipo de computação* ou *Tipo de disco*, por exemplo. Um tamanho de VM sugerido é *D2s_v3*.
+1. Em **Conta de administrador**, selecione **Chave pública SSH**, escreva o seu nome de utilizador e, em seguida, cole a chave pública na caixa de texto. Remova quaisquer espaços em branco à esquerda ou à direita na chave pública.
 
-    ![Captura de ecrã que mostra os tamanhos de VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
 
-5. Na página **Definições**, em **Rede** > **Grupo de Segurança de Rede** > **Selecionar portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o resto das predefinições e selecione **OK**.
+1. Em **Regras da porta de entrada** > **Portas de entrada públicas**, selecione **Permitir portas selecionadas** e, em seguida, selecione **SSH (22)** e **HTTP (80)** na lista pendente. 
 
-6. Na página de resumo, selecione **Criar** para iniciar a implementação da VM.
+    ![Abrir portas para RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. A VM é afixada ao dashboard do portal do Azure. Depois de concluída a implementação, o resumo da VM abre-se automaticamente.
+1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 
 Crie uma ligação SSH à VM.

@@ -1,26 +1,29 @@
 ---
-title: Guia de introdução sobre como atualizar uma Base de Dados de Conhecimento, C# – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Guia de Início Rápido: Atualização da base de dados de conhecimento em C# – Criador de FAQ'
+titleSuffix: Azure Cognitive Services
 description: Como atualizar uma base de dados de conhecimento em C# para o Criador de FAQ.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: bac699461e07afc813844bfd59337275a0bbca79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: c07f2272ed370060fc7334dfe3c52514a726dc33
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "43771421"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035832"
 ---
 # <a name="update-a-knowledge-base-in-c"></a>Atualizar uma base de dados de conhecimento em C#
 
 O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
-Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
+Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
 
 1. Crie uma nova aplicação de consola C# do .NET Framework no seu IDE favorito.
 1. Adicione o código indicado abaixo.
@@ -298,7 +301,7 @@ namespace QnAMaker
 Press any key to continue.
 ```
 
-Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas base de dados de conhecimento). Repare que o nome da sua base de dados de conhecimento foi alterado. Por exemplo, Criador de FAQ (ou o nome da sua base de dados de conhecimento existente anteriormente) agora tem a designação de New KB Name.
+Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas bases de dados de conhecimento). Repare que o nome da sua base de dados de conhecimento foi alterado. Por exemplo, Criador de FAQ (ou o nome da sua base de dados de conhecimento existente anteriormente) agora tem a designação de New KB Name.
 
 Para modificar outros elementos da sua base de dados de conhecimento, aceda ao [esquema JSON](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) no Criador de FAQ e modifique a cadeia `new_kb`.
 

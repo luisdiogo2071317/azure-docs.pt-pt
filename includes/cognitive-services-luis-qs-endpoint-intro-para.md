@@ -3,22 +3,22 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 07336184179aed1d32ee217bdbc9378b196e68f9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: MT
+ms.openlocfilehash: 2d8f994313f68c6b055df12465eb45075d01267f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820068"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044059"
 ---
-Neste início rápido, utilize uma aplicação do LUIS pública disponível para determinar a intenção de um utilizador de texto de conversação. Envie intenção do usuário como texto para o ponto de extremidade de predição de HTTP da aplicação pública. No ponto final, LUIS aplica-se o modelo da aplicação pública para analisar o texto de linguagem natural para o que significa que, determinar a intenção geral e extração de dados relevantes para o domínio de assunto da aplicação. 
+Neste início rápido, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação. 
 
-Este início rápido utiliza o ponto final de REST API. Para obter mais informações, consulte a [ponto final de documentação da API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
+Este guia de início rápido utiliza a API REST de ponto final. Para obter mais informações, veja a [documentação de APIs de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
 
-Neste artigo, terá um livre [LUIS](http://www.luis.ai) conta. 
+Para este artigo, precisa de uma conta gratuita do [LUIS](http://www.luis.ai). 

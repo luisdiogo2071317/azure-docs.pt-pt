@@ -1,22 +1,23 @@
 ---
-title: Analisar texto de linguagem natural em Language Understanding (LUIS) com o Go – Serviços Cognitivos do Azure | Microsoft Docs
-description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Go, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+title: Guia de Início Rápido da linguagem Go – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Go, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b00d815b712d98136b474d1e73afe7e35d1c7ef4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032738"
 ---
-# <a name="quickstart-call-a-luis-endpoint-using-go"></a>Guia de introdução: chamar um ponto final do LUIS com o Go
+# <a name="quickstart-get-intent-using-go"></a>Guia de Início Rápido: Obter a intenção com Go
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -32,11 +33,11 @@ ms.locfileid: "44160171"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analisar texto com um browser
+## <a name="get-intent-with-browser"></a>Obter a intenção com o browser
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-go"></a>Analisar texto com o Go
+## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
 Pode utilizar o Go para aceder aos mesmos resultados que viu na janela do browser no passo anterior. 
 
@@ -46,7 +47,7 @@ Pode utilizar o Go para aceder aos mesmos resultados que viu na janela do browse
 
 2. Numa linha de comandos, no mesmo diretório onde criou o ficheiro, introduza `go build endpoint.go` para compilar o ficheiro Go. A linha de comandos não devolve informações para uma compilação bem-sucedida.
 
-3. Execute a aplicação Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
+3. Execute a aplicação do Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
 
     ```CMD
     go run endpoint.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -region westus

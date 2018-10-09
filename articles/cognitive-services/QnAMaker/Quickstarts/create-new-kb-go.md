@@ -1,20 +1,21 @@
 ---
-title: Criar uma nova base de dados de conhecimento – início rápido Go – para a API do Criador de FAQ da Microsoft (v4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento no Go para conservar as suas FAQ ou manuais de produtos para poder começar a utilizar o Criador de FAQ.
+title: 'Guia de Início Rápido: API Go – criar uma base de dados de conhecimento – Criador de FAQ'
+titlesuffix: Azure Cognitive Services
+description: Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: fe763dada6d40822148423443be12df7c1626687
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43770780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034064"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Criar uma nova base de dados de conhecimento em Go
 
@@ -26,7 +27,7 @@ Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.co
 
 ## <a name="create-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-O código seguinte cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+O seguinte código cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -169,7 +170,7 @@ func main() {
 
 ## <a name="the-create-knowledge-base-response"></a>A resposta da criação de uma base de dados de conhecimento
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -201,4 +202,4 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

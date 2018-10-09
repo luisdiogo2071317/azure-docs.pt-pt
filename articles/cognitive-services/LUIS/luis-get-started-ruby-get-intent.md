@@ -1,22 +1,23 @@
 ---
-title: Analisar texto de linguagem natural em Language Understanding (LUIS) com Ruby – Serviços Cognitivos – Serviços Cognitivos do Azure | Microsoft Docs
-description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com Ruby, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+title: Guia de Início Rápido do Ruby – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com Ruby, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0909c1dd056570a275b3042674d251c637413cae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b8ef763a0b2379115150c88becc2ad43ba9cde89
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157706"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030936"
 ---
-# <a name="quickstart-analyze-text-using-ruby"></a>Guia de introdução: analisar texto com Ruby
+# <a name="quickstart-get-intent-using-ruby"></a>Guia de Início Rápido: obter a intenção com Ruby
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44157706"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analisar texto com um browser
+## <a name="get-intent-with-browser"></a>Obter a intenção com o browser
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-ruby"></a>Analisar texto com Ruby 
+## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
 Pode utilizar o Ruby para aceder aos mesmos resultados que viu na janela do browser no passo anterior. 
 

@@ -1,82 +1,83 @@
 ---
-title: Azure Content Moderator - vídeos moderadas e transcrições no .NET | Documentos da Microsoft
-description: Como utilizar o Content Moderator moderar vídeos e transcrições no .NET.
+title: 'Tutorial: Moderar vídeos e transcrições no .NET – Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Como utilizar o Content Moderator para moderar vídeos e transcrições no .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: MT
+ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865476"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227576"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>Tutorial de moderação de vídeo e transcrição
+# <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
-APIs de vídeo do Content Moderator permitem-lhe moderada de vídeos e criar as revisões de vídeo na ferramenta de revisão humana. 
+As APIs de vídeo do Content Moderator permitem-lhe moderar vídeos e criar revisões de vídeos na ferramenta de revisão manual. 
 
-Detalhadas este tutorial ajuda para compreender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e a criação de revisão humana no loop.
+Este tutorial detalhado ajuda a compreender como criar uma solução completa de moderação de vídeos e transcrições por meio de moderação assistida por computador e criação de revisões com interação humana.
 
-Transfira o [aplicação de consola c#](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) para este tutorial. O aplicativo de console usa o SDK e os pacotes relacionados para realizar as seguintes tarefas:
+Transfira a [aplicação de consola C#](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) para este tutorial. A aplicação de consola utiliza o SDK e os pacotes associados para realizar as seguintes tarefas:
 
-- Comprimir a entrada video(s) para processamento mais rápido
-- Moderar o vídeo para obter capturas e quadros com informações
-- Utilize os carimbos de data / intervalo para criar miniaturas (imagens)
-- Submeter carimbos e miniaturas para criar as revisões de vídeo
-- Converter o vídeo de voz em texto (transcrição) com a API do indexador de multimédia
-- Moderar transcrição com o serviço de moderação de texto
-- Adicionar a transcrição de moderadas a análise de vídeo
+- Comprimir o(s) vídeo(s) de entrada para acelerar o processamento
+- Moderar o vídeo para obter imagens e fotogramas com informações
+- Utilizar os carimbos de data/hora de fotogramas para criar miniaturas (imagens)
+- Submeter carimbos de data/hora e miniaturas para criar revisões de vídeo
+- Converter voz em texto (transcrição) com a API do Media Indexer
+- Moderar a transcrição com o serviço de moderação de textos
+- Adicionar a transcrição moderada à revisão de vídeo
 
-## <a name="sample-program-outputs"></a>Saídas de programa de exemplo
+## <a name="sample-program-outputs"></a>Saídas de exemplo do programa
 
-Antes de continuarmos, vamos examinar as saídas de exemplo follwing do programa:
+Antes de continuar, vejamos as saídas de exemplo do programa:
 
-- [Resultado da consola](#program-output)
+- [Saída da consola](#program-output)
 - [Revisão de vídeo](#video-review-default-view)
 - [Vista de transcrição](#video-review-transcript-view)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Inscreva-se a [ferramenta de revisão do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) site da web e [criar etiquetas personalizadas](Review-Tool-User-Guide/tags.md) que a aplicação de consola c# atribui a partir de dentro do código. O ecrã seguinte mostra as etiquetas personalizadas.
+1. Inscreva-se no site da [ferramenta de revisão Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e [crie etiquetas personalizadas](Review-Tool-User-Guide/tags.md) que a aplicação de consola C# atribui a partir do código. O seguinte ecrã mostra as etiquetas personalizadas.
 
   ![Etiquetas personalizadas de moderação de vídeos](images/video-tutorial-custom-tags.png)
 
-1. Para executar o aplicativo de exemplo, precisa de uma conta do Azure e uma conta de Media Services do Azure. Além disso, precisa de acesso para a pré-visualização privada do Content Moderator. Por fim, precisa de credenciais de autenticação do Azure Active Directory. Para obter detalhes sobre a obtenção dessas informações, consulte [o guia de introdução da API de moderação de vídeo](video-moderation-api.md).
+1. Para executar a aplicação de exemplo, precisa de uma conta do Azure e de uma conta dos Serviços de Multimédia do Azure. Além disso, precisa de ter acesso à pré-visualização privada do Content Moderator. Por fim, precisa de credenciais de autenticação do Azure Active Directory. Para obter mais detalhes sobre estas informações, veja [o guia de início rápido da API de Moderação de Vídeos](video-moderation-api.md).
 
-1. Edite o ficheiro `App.config` e adicione o nome de inquilino do Active Directory, pontos finais de serviço e chaves de subscrição indicaram pelo `#####`. Terá das seguintes informações:
+1. Edite o ficheiro `App.config` e adicione os pontos finais de serviço, as chaves de subscrição e o nome de inquilino do Active Directory indicados por `#####`. Precisará das seguintes informações:
 
 |Chave|Descrição|
 |-|-|
-|`AzureMediaServiceRestApiEndpoint`|Ponto final para a API de serviços (AMS) de multimédia do Azure|
-|`ClientSecret`|Chave de subscrição para os serviços de multimédia do Azure|
-|`ClientId`|ID de cliente para serviços de multimédia do Azure|
-|`AzureAdTenantName`|Nome de inquilino do Active Directory, que representa a sua organização|
-|`ContentModeratorReviewApiSubscriptionKey`|Chave de subscrição para o Content Moderator rever API|
-|`ContentModeratorApiEndpoint`|Ponto final para a API do Content Moderator|
-|`ContentModeratorTeamId`|ID da equipa o Content moderator|
+|`AzureMediaServiceRestApiEndpoint`|Ponto final da API dos Serviços de Multimédia do Azure (AMS)|
+|`ClientSecret`|Chave de subscrição dos Serviços de Multimédia do Azure|
+|`ClientId`|ID de cliente dos Serviços de Multimédia do Azure|
+|`AzureAdTenantName`|Nome de inquilino do Active Directory que representa a sua organização|
+|`ContentModeratorReviewApiSubscriptionKey`|Chave de subscrição da API de revisão do Content Moderator|
+|`ContentModeratorApiEndpoint`|Ponto final da API do Content Moderator|
+|`ContentModeratorTeamId`|ID de equipa do Content Moderator|
 
 ## <a name="getting-started"></a>Introdução
 
-A classe `Program` em `Program.cs` é o principal ponto de entrada para a aplicação de moderação de vídeo.
+A classe `Program` em `Program.cs` é o principal ponto de entrada da aplicação de moderação de vídeos.
 
-### <a name="methods-of-class-program"></a>Métodos da classe de programa
+### <a name="methods-of-class-program"></a>Métodos da classe Program
 
 |Método|Descrição|
 |-|-|
-|`Main`|Analisa a linha de comandos, reúne a entrada do usuário e começa a processar.|
-|`ProcessVideo`|Compacta, carrega, moderates e cria as revisões de vídeo.|
+|`Main`|Analisa a linha de comandos, reúne as introduções dos utilizadores e dá início ao processamento.|
+|`ProcessVideo`|Comprime, carrega, modera e cria revisões de vídeo.|
 |`CreateVideoStreamingRequest`|Cria um fluxo para carregar um vídeo|
-|`GetUserInputs`|Recolhe a entrada do usuário; utilizado quando não existem opções de linha de comandos estão presentes|
+|`GetUserInputs`|Reúne as introduções dos utilizadores; utilizado quando não estão presentes opções de linha de comandos|
 |`Initialize`|Inicializa os objetos necessários para o processo de moderação|
 
 ### <a name="the-main-method"></a>O método Main
 
-`Main()` é onde começa a execução, pelo que é o lugar para começar a compreender o processo de moderação de vídeo.
+`Main()` é onde começa a execução, pelo que é o lugar onde se deve começar a compreender o processo de moderação de vídeos.
 
     static void Main(string[] args)
     {
@@ -117,30 +118,30 @@ A classe `Program` em `Program.cs` é o principal ponto de entrada para a aplica
         }
     }
 
-`Main()` processa os argumentos da linha de comandos a seguir:
+`Main()` lida com os seguintes argumentos de linha de comandos:
 
-- O caminho para um diretório que contém ficheiros de vídeo de MPEG-4 para serem submetidas para moderação. Todos os `*.mp4` ficheiros neste diretório e respetivos subdiretórios são submetidos para moderação.
-- Opcionalmente, um booleano (verdadeiro/falso) sinalizador que indica se as transcrições de texto devem ser geradas para efeitos de áudio moderadores.
+- O caminho para um diretório que contém ficheiros de vídeo MPEG-4 que serão submetidos para moderação. Todos os ficheiros `*.mp4` neste diretório e respetivos subdiretórios são submetidos para moderação.
+- Opcionalmente, um sinalizador booleano (verdadeiro/falso) que indica se as transcrições de texto devem ser geradas para efeitos de moderação de áudio.
 
-Se nenhum argumento da linha de comandos estiverem presente, `Main()` chamadas `GetUserInputs()`. Este método pede ao utilizador para introduzir o caminho para um único ficheiro de vídeo e especificar se uma transcrição de texto deve ser gerada.
+Se não estiver presente nenhum argumento de linha de comandos, `Main()` chamará `GetUserInputs()`. Este método pede ao utilizador para introduzir o caminho para um único ficheiro de vídeo e para especificar se deve ser gerada uma transcrição de texto.
 
 > [!NOTE]
-> Utiliza a aplicação de consola do [API de indexador de multimédia do Azure](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições de faixa de áudio o vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, consulte [formato de faixas de texto de vídeo de Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> A aplicação de consola utiliza a [API do Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições a partir da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Métodos Initialize e ProcessVideo
 
-Independentemente de se as opções do programa vem da linha de comando ou de entrada do usuário interativo, `Main()` chamadas seguintes `Initialize()` para criar as seguintes instâncias:
+Independentemente de as opções do programa provirem da linha de comandos ou das introduções interativas dos utilizadores, `Main()` chama em seguida `Initialize()` para criar as seguintes instâncias:
 
 |Classe|Descrição|
 |-|-|
-|`AMSComponent`|Comprimir ficheiros de vídeo antes de submetê-los para moderação.|
-|`AMSconfigurations`|Interface para dados de configuração do aplicativo, encontrados no `App.config`.|
-|`VideoModerator`| A carregar, codificação, encriptação e moderação com o SDK do AMS|
-|`VideoReviewApi`|Gere as revisões de vídeo no serviço do Content Moderator|
+|`AMSComponent`|Comprime ficheiros de vídeo antes de os submeter para moderação.|
+|`AMSconfigurations`|Interface para os dados de configuração da aplicação encontrados em `App.config`.|
+|`VideoModerator`| Carregamento, codificação, encriptação e moderação com o SDK dos Serviços de Multimédia do Azure|
+|`VideoReviewApi`|Gere revisões de vídeo no serviço do Content Moderator|
 
-Essas classes (dos caracteres `AMSConfigurations`, que é muito simples) são abordadas mais detalhadamente nas próximas secções deste tutorial.
+Estas classes (exceto `AMSConfigurations`, que é simples) são abordadas mais detalhadamente nas próximas secções deste tutorial.
 
-Por fim, os arquivos de vídeo são processado um de cada vez ao chamar `ProcessVideo()` para cada um.
+Por fim, os ficheiros de vídeo são processados um de cada vez ao chamar `ProcessVideo()` para cada um.
 
     private static async Task ProcessVideo(string videoPath)
     {
@@ -188,23 +189,23 @@ Por fim, os arquivos de vídeo são processado um de cada vez ao chamar `Process
     }
 
 
-O `ProcessVideo()` método é bem simples. Ele realiza as seguintes operações pela ordem:
+O método `ProcessVideo()` é relativamente simples. Permite realizar as seguintes operações pela ordem apresentada:
 
 - Comprime o vídeo
-- Carrega o vídeo para um recurso de serviços de multimédia do Azure
-- Cria uma tarefa de AMS modere o vídeo
+- Carrega o vídeo para um elemento dos Serviços de Multimédia do Azure
+- Cria uma tarefa dos Serviços de Multimédia do Azure para moderar o vídeo
 - Cria uma revisão de vídeo no Content Moderator
 
-As seções a seguir, considere mais detalhadamente alguns dos processos individuais invocados pelo `ProcessVideo()`. 
+As seguintes secções abordam mais detalhadamente alguns dos processos individuais invocados por `ProcessVideo()`. 
 
-## <a name="compressing-the-video"></a>A compressão do vídeo
+## <a name="compressing-the-video"></a>Comprimir o vídeo
 
-Para minimizar o tráfego de rede, o aplicativo converte os arquivos de vídeo para o formato H.264 (MPEG-4 AVC) e pode ser dimensionada para uma largura máxima de 640 pixels. O codec H.264 é recomendado devido a sua eficiência elevada (taxa de compressão). A compressão é feita usando o gratuito `ffmpeg` ferramenta da linha de comandos, o que está incluída no `Lib` pasta da solução do Visual Studio. Os ficheiros de entrada podem ser de qualquer formato suportado por `ffmpeg`, incluindo o uso mais comum de arquivo de vídeo de formatos e codecs.
+Para minimizar o tráfego de rede, a aplicação converte os ficheiros de vídeo no formato H.264 (MPEG-4 AVC) e dimensiona-os até estes ficarem com uma largura máxima de 640 píxeis. O codec H.264 é recomendado devido à sua elevada eficiência (taxa de compressão). A compressão é realizada com recurso à ferramenta de linha de comandos `ffmpeg` gratuita que está incluída na pasta `Lib` da solução Visual Studio. O formato dos ficheiros de entrada pode ser qualquer formato suportado por `ffmpeg`, incluindo os codecs e formatos de ficheiros de vídeo mais comuns.
 
 > [!NOTE]
-> Quando inicia o programa usando opções da linha de comandos, especificar um diretório que contém os arquivos sejam submetidos para moderação de vídeo. Todos os ficheiros neste diretório que o `.mp4` extensão de nome de ficheiro são processados. Para processar outras extensões de nome de ficheiro, atualize o `Main()` método na `Program.cs` para incluir as extensões pretendidas.
+> Quando iniciar o programa com as opções da linha de comandos, especificará um diretório que contém os ficheiros de vídeo que serão submetidos para moderação. Todos os ficheiros neste diretório com a extensão de nome de ficheiro `.mp4` serão processados. Para processar outras extensões de nome de ficheiro, atualize o método `Main()` em `Program.cs` de forma a incluir as extensões pretendidas.
 
-O código que compacta um único ficheiro de vídeo é o `AmsComponent` classe na `AMSComponent.cs`. O método responsável por esta funcionalidade é `CompressVideo()`, mostrado aqui.
+O código que comprime um único ficheiro de vídeo é a classe `AmsComponent` em `AMSComponent.cs`. O método responsável por esta funcionalidade é `CompressVideo()`, apresentado aqui.
 
     public string CompressVideo(string videoPath)
     {
@@ -236,23 +237,23 @@ O código que compacta um único ficheiro de vídeo é o `AmsComponent` classe n
         return videoFilePathCom;
     }
 
-O código executa as seguintes etapas:
+O código realiza os seguintes passos:
 
-- Verificações de certificar-se de que a configuração no `App.config` contém todos os dados necessários
-- Verificações para garantir que o `ffmpeg` binário está presente
-- Baseia-se o nome de ficheiro de saída, acrescentando `_c.mp4` para o nome de base do ficheiro (tal como `Example.mp4`  ->  `E>xample_c.mp4`)
-- Cria uma cadeia de caracteres para realizar a conversão da linha de comandos
-- Inicia um `ffmpeg` processamento usando a linha de comandos
-- Aguarda que o vídeo para serem processados
+- Efetua verificações para garantir que a configuração em `App.config` contém todos os dados necessários
+- Efetua verificações para garantir que o binário `ffmpeg` está presente
+- Compila o nome de ficheiro de saída ao anexar `_c.mp4` ao nome de base do ficheiro (tal como `Example.mp4` -> `E>xample_c.mp4`)
+- Cria uma cadeia de linha de comandos para realizar a conversão
+- Inicia um processo `ffmpeg` com recurso à linha de comandos
+- Aguarda que o vídeo seja processado
 
 > [!NOTE]
-> Se conhece os seus vídeos já estão comprimidos com H.264 e têm dimensões adequadas, pode reescrever `CompressVideo()` para ignorar a compressão.
+> Se souber que os seus vídeos já foram comprimidos com o codec H.264 e têm as dimensões adequadas, pode reescrever `CompressVideo()` para ignorar a compressão.
 
-O método retorna o nome de ficheiro do ficheiro de saída comprimido.
+O método devolve o nome de ficheiro do ficheiro de saída comprimido.
 
-## <a name="uploading-and-moderating-the-video"></a>A carregar e moderating o vídeo
+## <a name="uploading-and-moderating-the-video"></a>Carregar e moderar o vídeo
 
-O vídeo deve ser armazenado nos serviços de multimédia do Azure antes de ele possa ser processado pelo serviço de moderação de conteúdos. O `Program` classe na `Program.cs` possui um método curto `CreateVideoStreamingRequest()` que retorna um objeto que representa o pedido de transmissão em fluxo utilizado para carregar o vídeo.
+É necessário armazenar o vídeo nos Serviços de Multimédia do Azure antes de o serviço do Content Moderator o processar. A classe `Program` em `Program.cs` dispõe de um método `CreateVideoStreamingRequest()` curto que devolve um objeto que representa o pedido de transmissão em fluxo para carregar o vídeo.
 
     private static UploadVideoStreamRequest CreateVideoStreamingRequest(string compressedVideoFilePath)
     {
@@ -269,7 +270,7 @@ O vídeo deve ser armazenado nos serviços de multimédia do Azure antes de ele 
             };
     }
 
-Resultante `UploadVideoStreamRequest` objeto é definido em `UploadVideoStreamRequest.cs` (e o respetivo principal `UploadVideoRequest`, na `UploadVideoRequest.cs`). Essas classes não são apresentadas aqui; estão a curtos e servem apenas para conter os dados comprimidos de vídeo e as informações sobre ele. Outra classe só de dados `UploadAssetResult` (`UploadAssetResult.cs`) é utilizada para armazenar os resultados do processo de carregamento. Agora é possível compreender estas linhas no `ProcessVideo()`:
+O objeto `UploadVideoStreamRequest` resultante é definido em `UploadVideoStreamRequest.cs` (e o respetivo principal `UploadVideoRequest` é definido em `UploadVideoRequest.cs`). Estas classes não são apresentadas aqui, dado serem curtas e servirem apenas para armazenar os dados de vídeo comprimidos e as informações sobre os mesmos. `UploadAssetResult` (`UploadAssetResult.cs`) é outra classe apenas de dados que é utilizada para armazenar os resultados do processo de carregamento. Agora é possível compreender estas linhas em `ProcessVideo()`:
 
     UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
     UploadAssetResult uploadResult = new UploadAssetResult();
@@ -286,15 +287,15 @@ Resultante `UploadVideoStreamRequest` objeto é definido em `UploadVideoStreamRe
         Console.WriteLine("Video Review process failed.");
     }
 
-Estas linhas realizar as seguintes tarefas:
+Estas linhas realizam as seguintes tarefas:
 
-- Criar um `UploadVideoStreamRequest` para carregar o vídeo compactado
-- Definiu a solicitação `GenerateVTT` sinalizar se o utilizador solicitou uma transcrição de texto
-- Chamadas `CreateAzureMediaServicesJobToModerateVideo()` para efetuar o carregamento e receber o resultado
+- Criar um `UploadVideoStreamRequest` para carregar o vídeo comprimido
+- Definir o sinalizador `GenerateVTT` do pedido se o utilizador tiver pedido uma transcrição de texto
+- Chamar `CreateAzureMediaServicesJobToModerateVideo()` para realizar o carregamento e receber o resultado
 
-## <a name="deep-dive-into-video-moderation"></a>Descrição aprofundada moderação de vídeos
+## <a name="deep-dive-into-video-moderation"></a>Descrição aprofundada da moderação de vídeos
 
-O método `CreateAzureMediaServicesJobToModerateVideo()` está em `VideoModerator.cs`, que contém a maior parte do código que interage com os serviços de multimédia do Azure. Código-fonte do método é mostrado no extrair seguinte.
+O método `CreateAzureMediaServicesJobToModerateVideo()` está em `VideoModerator.cs`, que contém a maior parte do código que interage com os Serviços de Multimédia do Azure. O código fonte do método é apresentado no seguinte excerto.
 
     public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
     {
@@ -355,16 +356,16 @@ O método `CreateAzureMediaServicesJobToModerateVideo()` está em `VideoModerato
         return true;
     }
 
-Esse código realiza as seguintes tarefas:
+Este código realiza as seguintes tarefas:
 
-- Cria uma tarefa de AMS para o processamento ser feita
-- Adiciona tarefas para codificar o ficheiro de vídeo, moderating-lo e gerar uma transcrição de texto
-- Submete o trabalho, carregar o ficheiro e o processamento de início
-- Obtém os resultados de moderação, a transcrição de texto (se requerido) e outras informações
+- Cria uma tarefa dos Serviços de Multimédia do Azure para concluir o processamento
+- Adiciona tarefas para codificar o ficheiro de vídeo, para o moderar e para gerar uma transcrição texto
+- Submete a tarefa ao carregar o ficheiro e iniciar o processamento
+- Obtém os resultados da moderação, a transcrição de texto (se for pedida) e outras informações
 
 ## <a name="sample-video-moderation-response"></a>Resposta de moderação de vídeos de exemplo
 
-O resultado da tarefa de moderação de vídeo (veja [guia de introdução de moderação de vídeos](video-moderation-api.md) é uma estrutura de dados JSON que contém os resultados de moderação. Esses resultados incluem uma análise detalhada dos fragmentos (capturas) no vídeo, cada eventos que contêm (clips) com quadros-chave que tenha sido sinalizados para revisão. Cada quadro-chave é classificado pela probabilidade de que ele contém conteúdo adultos. O exemplo seguinte mostra uma resposta JSON:
+O resultado da tarefa de moderação de vídeos (veja [o guia de início rápido da moderação de vídeos](video-moderation-api.md)) é uma estrutura de dados JSON que contém os resultados de moderação. Estes resultados incluem uma discriminação dos fragmentos (imagens) que compõem o vídeo, cada um dos quais com eventos (clipes) que têm fotogramas chave que foram sinalizados para revisão. Cada fotograma chave é classificado em função da probabilidade de conter conteúdos inadequados ou para adultos. O seguinte exemplo mostra uma resposta JSON:
 
     {
         "version": 2,
@@ -416,15 +417,15 @@ O resultado da tarefa de moderação de vídeo (veja [guia de introdução de mo
     ]
     }
 
-Também é uma transcrição de áudio do vídeo produzido quando o `GenerateVTT` sinalizador está definido.
+Também é produzida uma transcrição de áudio a partir do vídeo quando o sinalizador `GenerateVTT` é definido.
 
 > [!NOTE]
-> Utiliza a aplicação de consola do [API de indexador de multimédia do Azure](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições de faixa de áudio o vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, consulte [formato de faixas de texto de vídeo de Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> A aplicação de consola utiliza a [API do Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições a partir da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 
-## <a name="creating-the-human-in-the-loop-review"></a>Criar a revisão de humanos em loop
+## <a name="creating-the-human-in-the-loop-review"></a>Criar a revisão com interação humana
 
-O processo de moderação devolve uma lista de quadros-chave do vídeo, juntamente com uma transcrição dos respetivas faixas de áudio. A próxima etapa é criar uma revisão na ferramenta de revisão do Content Moderator para moderadores humanos. Voltando para o `ProcessVideo()` método na `Program.cs`, consulte a chamada para o `CreateVideoReviewInContentModerator()` método. Este método é no `videoReviewApi` classe, que está no `VideoReviewAPI.cs`e é mostrada aqui.
+O processo de moderação devolve uma lista de fotogramas chave do vídeo, juntamente com uma transcrição das respetivas faixas de áudio. O próximo passo consiste em criar uma revisão na ferramenta de revisão do Content Moderator para moderadores humanos. Se regressar ao método `ProcessVideo()` em `Program.cs`, verá a chamada para o método `CreateVideoReviewInContentModerator()`. Este método está na classe `videoReviewApi`, que está em `VideoReviewAPI.cs` e é apresentada aqui.
 
     public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
     {
@@ -461,37 +462,37 @@ O processo de moderação devolve uma lista de quadros-chave do vídeo, juntamen
 `CreateVideoReviewInContentModerator()` chama vários outros métodos para realizar as seguintes tarefas:
 
 > [!NOTE]
-> Utiliza a aplicação de consola do [FFmpeg](https://ffmpeg.org/) biblioteca para gerar miniaturas. Dessas miniaturas (imagens) correspondem aos carimbos quadro na [saída de moderação de vídeos](#sample-video-moderation-response).
+> A aplicação de consola utiliza a biblioteca [FFmpeg](https://ffmpeg.org/) para gerar miniaturas. Estas miniaturas (imagens) correspondem aos carimbos de data/hora dos fotogramas na [saída de moderação de vídeos](#sample-video-moderation-response).
 
 |Tarefa|Métodos|Ficheiro|
 |-|-|-|
-|Extrair a chave de quadros-do vídeo e cria imagens em miniatura dos mesmos|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
-|Analisar a transcrição de texto, se estiver disponível, para localizar o áudio de adultos|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
-|Preparar e envia uma solicitação de revisão de vídeo para inspeção humana|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
+|Extrair os fotogramas chave do vídeo e criar imagens em miniatura dos mesmos|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
+|Analisar a transcrição de texto (se esta estiver disponível) para localizar áudio inadequado ou para adultos|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
+|Preparar e submeter um pedido de revisão de vídeo para efeitos de inspeção manual|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
-## <a name="video-review-default-view"></a>Modo de exibição de padrão de revisão de vídeo
+## <a name="video-review-default-view"></a>Vista predefinida de revisão de vídeo
 
-O ecrã seguinte mostra os resultados dos passos anteriores.
+O seguinte ecrã mostra os resultados dos passos anteriores.
 
-![Modo de exibição de padrão de revisão de vídeo](images/video-tutorial-default-view.PNG)
+![Vista predefinida de revisão de vídeo](images/video-tutorial-default-view.PNG)
 
-## <a name="transcript-generation"></a>Geração de transcrição
+## <a name="transcript-generation"></a>Geração de transcrições
 
-Até agora, o código apresentado neste tutorial tem se concentrado no conteúdo visual. Revisão do conteúdo de voz é um processo separado e opcional que, como mencionado, utiliza uma transcrição gerada a partir de áudio. Chegou a hora agora dar uma olhada em como transcrições de texto são criadas e usadas no processo de revisão. A tarefa de gerar a transcrição passa para o [indexador de multimédia do Azure](https://docs.microsoft.com/azure/media-services/media-services-index-content) serviço.
+Até agora, o código apresentado neste tutorial incidiu nos conteúdos visuais. A revisão dos conteúdos de voz é um processo separado e opcional que, conforme mencionado anteriormente, utiliza uma transcrição gerada a partir do áudio. Agora é altura de ver como é que as transcrições de texto são criadas e utilizadas no processo de revisão. É o serviço do [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) que realiza a tarefa de geração da transcrição.
 
 A aplicação realiza as seguintes tarefas:
 
 |Tarefa|Métodos|Ficheiro|
 |-|-|-|
-|Determinar se são de transcrições de texto a ser gerado|`Main()`<br>`GetUserInputs()`|`Program.cs`|
-|Se assim for, submeter uma tarefa de transcrição como parte da moderação|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
-|Obtenha uma cópia local da transcrição|`GenerateTranscript()`|`VideoModerator.cs`|
-|Sinalizador de fotogramas do vídeo que contêm áudio inadequado|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
+|Determinar se serão geradas transcrições de texto|`Main()`<br>`GetUserInputs()`|`Program.cs`|
+|Se forem, submeter uma tarefa de transcrição como parte da moderação|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
+|Obter uma cópia local da transcrição|`GenerateTranscript()`|`VideoModerator.cs`|
+|Sinalizar fotogramas do vídeo que contenham áudio inadequado|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
 |Adicionar os resultados à revisão|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
 
-### <a name="task-configuration"></a>Configuração da tarefa
+### <a name="task-configuration"></a>Configuração das tarefas
 
-Vamos entrar de cabeça em submeter a tarefa de transcrição. `CreateAzureMediaServicesJobToModerateVideo()` (já foi descritas) chamadas `ConfigureTranscriptTask()`.
+Vamos avançar para a submissão da tarefa de transcrição. `CreateAzureMediaServicesJobToModerateVideo()` (descrito anteriormente) chama `ConfigureTranscriptTask()`.
 
     private void ConfigureTranscriptTask(IJob job)
     {
@@ -504,14 +505,14 @@ Vamos entrar de cabeça em submeter a tarefa de transcrição. `CreateAzureMedia
         task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
     }
 
-A configuração para a tarefa de transcrição é lidos a partir do ficheiro `MediaIndexerConfig.json` da solução `Lib` pasta. Ativos de AMS são criados para o ficheiro de configuração e para a saída do processo de transcrição. Quando é executada a tarefa de AMS, esta tarefa cria uma transcrição de texto da faixa de áudio do ficheiro de vídeo.
+A configuração da tarefa de transcrição é lida a partir do ficheiro `MediaIndexerConfig.json` que se encontra na pasta `Lib` da solução. Os elementos dos Serviços de Multimédia do Azure são criados para o ficheiro de configuração e para a saída do processo de transcrição. Quando a tarefa dos Serviços de Multimédia do Azure é executada, cria uma transcrição de texto a partir da faixa de áudio do ficheiro de vídeo.
 
 > [!NOTE]
-> O aplicativo de exemplo reconhece voz apenas em inglês Americano.
+> O exemplo de aplicação só reconhece voz em inglês dos E.U.A.
 
-### <a name="transcript-generation"></a>Geração de transcrição
+### <a name="transcript-generation"></a>Geração de transcrições
 
-A transcrição for publicada como um recurso de AMS. Para analisar a transcrição para conteúdo objetáveis, o aplicativo transfere o elemento a partir dos serviços de multimédia do Azure. `CreateAzureMediaServicesJobToModerateVideo()` chamadas `GenerateTranscript()`, conforme apresentado aqui, para recuperar o arquivo.
+A transcrição é publicada sob a forma de elemento dos Serviços de Multimédia do Azure. Para analisar a transcrição de forma a identificar eventuais conteúdos ofensivos, a aplicação transfere o elemento a partir dos Serviços de Multimédia do Azure. `CreateAzureMediaServicesJobToModerateVideo()` chama `GenerateTranscript()`, conforme mostrado aqui, para obter o ficheiro.
 
     public bool GenerateTranscript(IAsset asset)
     {
@@ -534,23 +535,23 @@ A transcrição for publicada como um recurso de AMS. Para analisar a transcriç
         }
     }
 
-Depois de algum programa de configuração do AMS necessário, a transferência real é executada chamando `DownloadAssetToLocal()`, uma função genérica que copia um ativo de AMS para um ficheiro local.
+Após alguma configuração necessária dos Serviços de Multimédia do Azure, a transferência efetiva é realizada ao chamar `DownloadAssetToLocal()`, uma função genérica que copia um elemento dos AMS para um ficheiro local.
 
-## <a name="transcript-moderation"></a>Moderação de transcrição
+## <a name="transcript-moderation"></a>Moderação de transcrições
 
-Com a transcrição à disposição, ele é analisado e usado da revisão. Criar a revisão é da competência do `CreateVideoReviewInContentModerator()`, que chamadas `GenerateTextScreenProfanity()` para fazer o trabalho. Por sua vez, esse método chama `TextScreen()`, que contém a maior parte da funcionalidade. 
+Com a transcrição à disposição, esta é analisada e utilizada na revisão. Criar a revisão é da competência de `CreateVideoReviewInContentModerator()`, que chama `GenerateTextScreenProfanity()` para realizar a tarefa. Este método, por sua vez, chama `TextScreen()`, que contém a maior parte da funcionalidade. 
 
-`TextScreen()` executa as seguintes tarefas:
+`TextScreen()` realiza as seguintes tarefas:
 
-- Analisar a transcrição de tempo tamps e legendagem de áudio
-- Submeter a legenda de cada para moderação de texto
-- Sinalizador qualquer quadros que possam ter conteúdo de voz objetáveis
+- Analisar a transcrição para identificar carimbos de data/hora e legendas
+- Submeter todas a legendas para efeitos de moderação de textos
+- Sinalizar os fotogramas com conteúdos de voz ofensivos
 
-Vamos examinar cada uma dessas tarefas mais detalhadamente:
+Vamos agora examinar cada uma destas tarefas de forma mais detalhada:
 
 ### <a name="initialize-the-code"></a>Inicializar o código
 
-Primeiro, iniciar todas as coleções e variáveis.
+Em primeiro lugar, deve inicializar todas as variáveis e coleções.
 
     private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
     {
@@ -571,9 +572,9 @@ Primeiro, iniciar todas as coleções e variáveis.
         // Code from the next sections in the tutorial
     
 
-### <a name="parse-the-transcript-for-captions"></a>Analisar a transcrição de legendas de áudio
+### <a name="parse-the-transcript-for-captions"></a>Analisar a transcrição para identificar legendas
 
-Em seguida, analisar a transcrição VTT formatada para legendas e carimbos de data /. A ferramenta de revisão apresenta estas legendas no separador de transcrição no ecrã de revisão de vídeo. Os carimbos de data / é utilizados para sincronizar as legendas com quadros de vídeo correspondentes.
+Em seguida, deve analisar a transcrição em formato VTT para identificar legendas e carimbos de data/hora. A ferramenta de revisão apresenta estas legendas no separador Transcript (Transcrição) que se encontra no ecrã de revisão de vídeo. Os carimbos de data/hora são utilizados para sincronizar as legendas com os fotogramas do vídeo correspondentes.
 
         // Code from the previous section(s) in the tutorial
 
@@ -623,14 +624,14 @@ Em seguida, analisar a transcrição VTT formatada para legendas e carimbos de d
 
             // Code from the following section in the quickstart
 
-### <a name="moderate-captions-with-the-text-moderation-service"></a>Legendas moderadas com o serviço de moderação de texto
+### <a name="moderate-captions-with-the-text-moderation-service"></a>Moderar legendas através do serviço de moderação de textos
 
-Em seguida, vamos analisar as legendas de texto analisado com a API de texto de Content Moderator.
+Em seguida, é necessário analisar as legendas de texto analisadas com recurso à API de texto do Content Moderator.
 
 > [!NOTE]
-> A chave de serviço do Content Moderator tem um pedidos por segundo (RPS) para o limite de velocidade. Se ultrapassar o limite, o SDK lançará uma exceção com um código de 429 erro. 
+> A chave do serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS). Se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429. 
 >
-> Uma chave de escalão gratuito tem um limite de taxa de um RPS.
+> Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
     //
     // Moderate the captions or cues
@@ -722,29 +723,29 @@ Em seguida, vamos analisar as legendas de texto analisado com a API de texto de 
             return screenTextResult;
     }
 
-### <a name="breaking-down-the-text-moderation-step"></a>Rompendo a etapa de moderação de texto
+### <a name="breaking-down-the-text-moderation-step"></a>Analisar o passo de moderação de textos por partes
 
-`TextScreen()` é um método substancial, então, vamos dividi-la.
+`TextScreen()` é um método substancial, por isso vamos analisá-lo por partes.
 
-1. Em primeiro lugar, o método lê o arquivo de transcrição linha por linha. Ele ignora linhas em branco e as linhas que contêm um `NOTE` com uma pontuação de confiança. Extrai os carimbos de data / hora e itens de texto a partir do *indicações* no ficheiro. Uma indicação representa o texto de faixa de áudio e inclui horários de início e final. Uma indicação começa com a linha de carimbo de data / hora com a cadeia de caracteres `-->`. Ele é seguido por um ou mais linhas de texto.
+1. Em primeiro lugar, o método lê o ficheiro de transcrição linha por linha. O método ignora linhas em branco e as linhas que contêm uma `NOTE` com uma pontuação de confiança. Extrai os carimbos de data/hora e os itens de texto a partir de *pistas* que constam no ficheiro. As pistas representam o texto da faixa de áudio e incluem horas de início e fim. As pistas começam com a linha do carimbo de data/hora com a cadeia de caracteres `-->`. A isto segue-se uma ou mais linhas de texto.
 
-1. Instâncias de `CaptionScreentextResult` (definidos na `TranscriptProfanity.cs`) são utilizados para armazenar as informações analisadas a partir de cada indicação.  Quando é detetada uma nova linha de carimbo de data / hora, ou um comprimento de texto do máximo de 1024 carateres for atingido, um novo `CaptionScreentextResult` é adicionado ao `csrList`. 
+1. As instâncias de `CaptionScreentextResult` (definido em `TranscriptProfanity.cs`) são utilizadas para armazenar as informações analisadas de cada pista.  Quando se deteta uma nova linha de carimbo de data/hora ou se atinge um comprimento do texto máximo de 1024 carateres, é adicionado um novo `CaptionScreentextResult` a `csrList`. 
 
-1. O método submete, em seguida, cada sugestão para a API de moderação de texto. Ele chama ambas `ContentModeratorClient.TextModeration.DetectLanguageAsync()` e `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, que é definido no `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. Para evitar a ser limitado de taxa, o método coloca em pausa por um segundo antes de submeter cada indicação.
+1. Em seguida, o método submete cada pista à API de Moderação de Textos. O método chama `ContentModeratorClient.TextModeration.DetectLanguageAsync()` e `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, que são definidas na assemblagem `Microsoft.Azure.CognitiveServices.ContentModerator`. Para evitar o limite de velocidade, o método faz uma pausa durante um segundo antes de submeter cada pista.
 
-1. Depois de receber os resultados do serviço de moderação de texto, o método, em seguida, analisa-lhes para verem se cumprem os limites de confiança. Estes valores são estabelecidos `App.config` como `OffensiveTextThreshold`, `RacyTextThreshold`, e `AdultTextThreshold`. Por fim, os termos de objetáveis propriamente ditos também são armazenados. Todos os quadros dentro do intervalo de tempo a indicação são sinalizados como contendo ofensiva, para adultos e/ou texto para adultos.
+1. Após receber os resultados do serviço de Moderação de Textos, o método analisa-os para verificar se cumprem limiares de confiança. Estes valores são estabelecidos em `App.config` como `OffensiveTextThreshold`, `RacyTextThreshold` e `AdultTextThreshold`. Por fim, os termos ofensivos também são armazenados. Todos os fotogramas que se encontram dentro do intervalo de tempo da pista são sinalizados como contendo texto ofensivo, inadequado e/ou para adultos.
 
-1. `TextScreen()` Devolve um `TranscriptScreenTextResult` instância que contém o resultado de moderação de texto do vídeo como um todo. Este objeto inclui sinalizadores e as notas de vários tipos de conteúdo objetáveis, juntamente com uma lista de todos os objetáveis termos. O chamador `CreateVideoReviewInContentModerator()`, chamadas `UploadScreenTextResult()` anexar estas informações para a revisão, de modo está disponível para os revisores humanos.
+1. `TextScreen()` devolve uma instância `TranscriptScreenTextResult` que contém o resultado da moderação do texto do vídeo como um todo. Este objeto inclui sinalizadores e pontuações para os vários tipos de conteúdos ofensivos, juntamente com uma lista de todos os termos ofensivos. O chamador, `CreateVideoReviewInContentModerator()`, chama `UploadScreenTextResult()` para anexar estas informações à revisão de modo a estarem disponível aos revisores humanos.
  
-## <a name="video-review-transcript-view"></a>Vista de transcrição de vídeo de revisão
+## <a name="video-review-transcript-view"></a>Vista de transcrição da revisão de vídeo
 
-O ecrã seguinte mostra o resultado da transcrição passos geração e moderação.
+O seguinte ecrã mostra o resultado dos passos de geração de transcrições e de moderação.
 
-![Vista de transcrição de moderação de vídeos](images/video-tutorial-transcript-view.PNG)
+![Vista de transcrição da moderação de vídeos](images/video-tutorial-transcript-view.PNG)
 
 ## <a name="program-output"></a>Saída do programa
 
-A seguinte saída da linha de comandos do programa mostra as diversas tarefas à medida que estejam concluídos. Além disso, o resultado de moderação (no formato JSON) e a transcrição de voz estão disponíveis no mesmo diretório que os ficheiros de vídeo originais.
+A seguinte saída da linha de comandos do programa mostra as diversas tarefas à medida que são concluídas. Além disso, o resultado da moderação (em formato JSON) e a transcrição de voz estão disponíveis no mesmo diretório dos ficheiros de vídeo originais.
 
     Microsoft.ContentModerator.AMSComponentClient
     Enter the fully qualified local path for Uploading the video :
@@ -766,6 +767,6 @@ A seguinte saída da linha de comandos do programa mostra as diversas tarefas à
     Total Elapsed Time: 00:05:56.8420355
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Transferir a solução do Visual Studio](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) arquivos e as bibliotecas necessárias de exemplo para este tutorial e começar a trabalhar com sua integração.
+[Transfira a solução Visual Studio](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp), bem como os ficheiros de exemplo e as bibliotecas necessárias para este tutorial, e comece a sua integração.

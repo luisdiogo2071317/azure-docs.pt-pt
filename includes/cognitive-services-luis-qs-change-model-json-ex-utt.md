@@ -3,25 +3,25 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 419f15901b665b43b850922f77bd32d7aac8d3a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: a1b0afce31d7202c38b049addf546350ff347719
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920521"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044195"
 ---
-O ficheiro de expressões de exemplo **utterances.json**, segue um formato específico. 
+O ficheiro de expressões de exemplo, **utterances.json**, segue um formato específico. 
 
-O `text` campo contém o texto da expressão de exemplo. O `intentName` campo tem de corresponder ao nome de um objetivo existente na aplicação do LUIS. O campo `entityLabels` é obrigatório. Se não quiser que identifique qualquer entidades, forneça uma matriz vazia.
+O campo `text` contém o texto da expressão de exemplo. O campo `intentName` tem de corresponder ao nome de uma intenção existente na aplicação LUIS. O campo `entityLabels` é obrigatório. Se não quiser etiquetar entidades, forneça uma matriz vazia.
 
-Se a matriz de entityLabels não está vazia, o `startCharIndex` e `endCharIndex` tem de marcar a entidade referida no `entityName` campo. O índice é baseado em zero, que significa que a 6 no exemplo principal refere-se para o "S" de Seattle e não o espaço antes da capital S. Se começar ou terminar a etiqueta num espaço no texto, a chamada de API para adicionar as expressões falha.
+Se a matriz entityLabels não estiver vazia, `startCharIndex` e `endCharIndex` têm de marcar a entidade referida no campo `entityName`. O índice é baseado em zero, o que significa que o 6 no exemplo anterior se refere ao "S" de Seattle e não ao espaço antes do S maiúsculo. Se começar ou terminar a etiqueta num espaço no texto, a chamada à API para adicionar as expressões falha.
 
 ```JSON
 [

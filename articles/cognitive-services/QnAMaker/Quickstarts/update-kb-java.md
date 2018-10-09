@@ -1,26 +1,29 @@
 ---
-title: Guia de introdução do Java – Atualizar Base de Dados de Conhecimento – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Guia de Início Rápido: Atualização da base de dados de conhecimento em Java – Criador de FAQ'
+titleSuffix: Azure Cognitive Services
 description: Como atualizar uma base de dados de conhecimento em Java para o Criador de FAQ.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: ea55305479888e678166431123b9bd58188e2d78
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: f78e9bca7b1b4ce048826b887f99c6dc12f596b7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "43771622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040011"
 ---
 # <a name="update-a-knowledge-base-in-java"></a>Atualizar uma base de dados de conhecimento em Java
 
 O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
-Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-java.md).
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-java.md).
 
 1. Criar um novo projeto de Java no seu IDE favorito.
 1. Adicione o código indicado abaixo.
@@ -374,7 +377,7 @@ public class UpdateKB {
 Press any key to continue.
 ```
 
-Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas base de dados de conhecimento). Tenha em atenção que a sua base de dados de conhecimento foi alterada, segundo o seu pedido personalizado.
+Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas bases de dados de conhecimento). Tenha em atenção que a sua base de dados de conhecimento foi alterada, segundo o seu pedido personalizado.
 
 Para modificar outros elementos da sua base de dados de conhecimento, aceda ao [esquema JSON](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) no Criador de FAQ e modifique o objeto `req` no método `getRequest()`.
 

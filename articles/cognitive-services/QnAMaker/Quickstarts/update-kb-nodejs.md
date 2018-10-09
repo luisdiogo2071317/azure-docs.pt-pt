@@ -1,26 +1,29 @@
 ---
-title: Início Rápido Sobre Como Atualizar uma Base de dados de Conhecimento Node.js – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Guia de Início Rápido: Atualização da base de dados de conhecimento em Node.js – Criador de FAQ'
+titleSuffix: Azure Cognitive Services
 description: Como atualizar uma base de dados de conhecimento Node.js para o Criador de FAQ.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 7023230c8f71bbe6f12799cc8d8d7d47b9393ad2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a987993da5202abc9b543aa2dba0f080a622e199
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "43771580"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033623"
 ---
 # <a name="update-a-knowledge-base-in-nodejs"></a>Atualizar uma base de dados de conhecimento no Node.js
 
 O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
-Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-nodejs.md).
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
+Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-nodejs.md).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido. Utilize a versão ECMAScript 6+ do JavaScript.
 1. Adicione o código indicado abaixo.
@@ -215,7 +218,7 @@ update_kb(path, content, function (result) {
 Press any key to continue.
 ```
 
-Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas base de dados de conhecimento). Tenha em atenção que a sua base de dados de conhecimento agora tem um novo nome, "New KB Name", e um par de FAQs adicional.
+Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas bases de dados de conhecimento). Tenha em atenção que a sua base de dados de conhecimento agora tem um novo nome, "New KB Name", e um par de FAQs adicional.
 
 Para modificar outros elementos da sua base de dados de conhecimento, aceda ao [esquema JSON](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) no Criador de FAQ e modifique a cadeia `req`.
 

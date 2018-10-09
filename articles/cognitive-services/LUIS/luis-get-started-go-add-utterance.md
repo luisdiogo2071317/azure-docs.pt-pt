@@ -1,22 +1,22 @@
 ---
-title: Início rápido - alterar o modelo e treinar a aplicação LUIS com Go - Serviços Cognitivos do Azure | Microsoft Docs
-description: Neste início rápido do Go, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+title: Guia de Início Rápido da linguagem Go – alterar o modelo e preparar a aplicação LUIS
+description: Neste guia de início rápido da linguagem Go, adicione expressões de exemplo a uma aplicação de Automatização Doméstica e prepare a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 titleSuffix: Microsoft Cognitive Services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: da57a7e46cccbf0a9b34b3961a831e7982160e6b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157672"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031871"
 ---
-# <a name="quickstart-change-model-using-go"></a>Início rápido: Alterar o modelo com Go
+# <a name="quickstart-change-model-using-go"></a>Início Rápido: Alterar o modelo com Go
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -62,7 +62,7 @@ ms.locfileid: "44157672"
 
 ## <a name="add-an-utterance-from-the-command-line-train-and-get-status"></a>Adicionar uma expressão a partir da linha de comandos, treinar e obter o estado
 
-1. Numa linha de comandos, no diretório onde criou o ficheiro do Go, introduza `go build add-utterances.go` para compilar o ficheiro do Go. A linha de comandos não devolve quaisquer informações para uma compilação bem-sucedida.
+1. Numa linha de comandos, no diretório onde criou o ficheiro do Go, introduza `go build add-utterances.go` para compilar o ficheiro do Go. A linha de comandos não devolve informações para uma compilação bem-sucedida.
 
 2. Execute a aplicação do Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
 

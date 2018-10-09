@@ -1,71 +1,69 @@
 ---
-title: Tutorial para criar uma aplicação LUIS para obter correspondência de dados com a expressão regular - Azure | Microsoft Docs
-description: Neste tutorial, saiba como criar uma aplicação LUIS simples com intenções e uma entidade de expressão regular para extrair dados.
+title: 'Tutorial 3: Correspondência de dados com a expressão regular – extrair dados bem formatados'
+titleSuffix: Azure Cognitive Services
+description: Extraia dados formatados de forma consistente a partir de uma expressão com a entidade Expressão Regular.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9672215c8cc5f95775e3b7fba74b27379a58ff49
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162935"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159861"
 ---
-# <a name="tutorial-3-add-regular-expression-entity"></a>Tutorial: 3. Adicionar entidade de expressão regular
-Neste tutorial, vai criar uma aplicação que demonstra como extrair dados formatados de forma consistente a partir de uma expressão com a entidade **Expressão Regular**.
+# <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extrair dados bem formatados
+Neste tutorial, irá modificar a aplicação Recursos Humanos para extrair dados formatados de forma consistente a partir de uma expressão com a entidade **Expressão Regular**.
 
+O objetivo de uma entidade é extrair dados importantes contidos na expressão. A utilização da aplicação da entidade de expressão regular é extrair os números de formulário de Recursos Humanos (RH) formatados a partir de uma expressão. Embora a intenção da expressão seja sempre determinada por machine learning, este tipo de entidade específica não é de machine-learned. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Compreender entidades de expressão regular 
-> * Utilizar uma aplicação LUIS para um domínio de Recursos Humanos (RH) com a intenção FindForm
-> * Adicionar a entidade de expressão regular para extrair o número de Formulário da expressão
-> * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial das [entidades pré-concebidas](luis-tutorial-prebuilt-intents-entities.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website) a partir do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
-
-Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `regex`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
-
-
-## <a name="purpose-of-the-regular-expression-entity"></a>Objetivo da entidade de expressão regular
-O objetivo de uma entidade é obter dados importantes contidos na expressão. A utilização da aplicação da entidade de expressão regular é extrair os números de Formulário de Recursos Humanos (RH) formatados de uma expressão. Não se trata de aprendizagem automática. 
-
-As expressões de exemplo simples incluem:
+**As expressões de exemplo incluem:**
 
 ```
 Where is HRF-123456?
 Who authored HRF-123234?
 HRF-456098 is published in French?
-```
-
-As versões abreviadas ou de gíria das expressões incluem:
-
-```
 HRF-456098
 HRF-456098 date?
 HRF-456098 title?
 ```
  
-A entidade de expressão regular para corresponder ao número de formulário é `hrf-[0-9]{6}`. Esta expressão regular corresponde aos carateres literais `hrf -`, mas ignora as maiúsculas e minúsculas, e as variantes culturais. Corresponde aos dígitos 0 a 9, para exatamente 6 dígitos.
+Uma expressão regular é uma boa opção para este tipo de dados quando:
 
-HRF representa o formulário de recursos humanos.
+* Os dados estão bem formatados.
 
-### <a name="tokenization-with-hyphens"></a>Atomização com hífenes
-O LUIS automatiza a expressão quando esta é adicionada a uma intenção. A atomização para estas expressões adiciona espaços antes e depois do hífen, `Where is HRF - 123456?`. A expressão regular é aplicada à expressão no respetivo formato não processado, antes de ser atomizada. Uma vez que é aplicada ao formato _não processado_, a expressão regular não tem de lidar com limites de palavras. 
+**Neste tutorial, ficará a saber como:**
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utilizar a aplicação de tutorial existente
+> * Adicionar a intenção FindForm
+> * Adicionar entidade de expressão regular 
+> * Preparar
+> * Publicar
+> * Obter as intenções e as entidades do ponto final
 
-## <a name="add-findform-intent"></a>Adicionar a intenção FindForm
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+## <a name="use-existing-app"></a>Utilizar a aplicação existente
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
+
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
+
+1. Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json).
+
+2. Importe o JSON para uma nova aplicação.
+
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `regex`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL. 
+
+## <a name="findform-intent"></a>Intenção FindForm
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Create new intent** (Criar nova intenção). 
 
@@ -92,38 +90,46 @@ O LUIS automatiza a expressão quando esta é adicionada a uma intenção. A ato
 
     A aplicação tem a entidade de número pré-concebida adicionada do tutorial anterior, pelo que cada número de formulário está etiquetado. Isto pode ser suficiente para a sua aplicação cliente, mas o número não incluirá o tipo de número. Criar uma nova entidade com um nome adequado permite à aplicação cliente processar corretamente a entidade quando é devolvida pelo LUIS.
 
-## <a name="create-an-hrf-number-regular-expression-entity"></a>Criar uma entidade de expressão regular de número HRF 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="regular-expression-entity"></a>Entidade de expressão regular 
+A entidade de expressão regular para corresponder ao número de formulário é `hrf-[0-9]{6}`. Esta expressão regular corresponde aos carateres literais `hrf-`, mas ignora as maiúsculas e minúsculas, e as variantes culturais. Corresponde aos dígitos 0 a 9, para exatamente 6 dígitos.
+
+HRF significa `human resources form`.
+
+O LUIS divide a expressão em tokens quando esta é adicionada a uma intenção. A atomização para estas expressões adiciona espaços antes e depois do hífen, `Where is HRF - 123456?`. A expressão regular é aplicada à expressão no respetivo formato não processado, antes de ser atomizada. Uma vez que é aplicada ao formato _não processado_, a expressão regular não tem de lidar com limites de palavras. 
+
 Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato de número HRF nos passos seguintes:
 
 1. Selecione **Entidades** no painel esquerdo.
 
 2. Selecione o botão **Criar nova entidade** na página Entidades. 
 
-3. Na caixa de diálogo de pop-up, introduza o novo nome de entidade `HRF-number`, selecione **RegEx** como tipo de entidade, introduza `hrf-[0-9]{6}` como Regex e, em seguida, selecione **Concluído**.
+3. Na caixa de diálogo de pop-up, introduza o novo nome de entidade `HRF-number`, selecione **RegEx** como tipo de entidade, introduza `hrf-[0-9]{6}` como o valor **Regex** e, em seguida, selecione **Concluído**.
 
     ![Captura de ecrã da definição Propriedades da nova entidade da caixa de diálogo de pop-up](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. Selecione **Intenções** e, em seguida, a intenção **FindForm** para ver a expressão regular etiquetada nas expressões. 
+4. Selecione **Intenções** no menu à esquerda e, em seguida, a intenção **FindForm** para ver a expressão regular etiquetada nas expressões. 
 
     [![Captura de ecrã da expressão Etiqueta com o padrão de entidade e regex existente](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
     Uma vez que a entidade não é de aprendizagem automática, a etiqueta é aplicada às expressões e apresentada no site do LUIS assim que for criada.
 
-## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+## <a name="train"></a>Preparar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto final com uma expressão diferente
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá para o final do URL no endereço e introduza `When were HRF-123456 and hrf-234567 published in the last year?`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `FindForm` com os dois números de formulário de `HRF-123456` e `hrf-234567`.
 
-    ```
+    ```JSON
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
@@ -221,19 +227,13 @@ Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato
 
     Os números na expressão são devolvidos duas vezes, uma vez como a nova entidade `hrf-number` e outra como uma entidade pré-concebida, `number`. Uma expressão pode ter mais do que uma entidade e mais do que uma do mesmo tipo, como mostra este exemplo. Ao utilizar uma entidade de expressão regular, o LUIS extrai dados com nome, o que é mais útil programaticamente para a aplicação cliente receber a resposta JSON.
 
-## <a name="what-has-this-luis-app-accomplished"></a>O que conseguiu esta aplicação LUIS?
-Esta aplicação identificou a intenção e devolveu os dados extraídos. 
-
-O chatbot tem agora informações suficientes para determinar a ação principal, `FindForm`, e saber que números de formulário foram incluídos na pesquisa. 
-
-## <a name="where-is-this-luis-data-used"></a>Onde são utilizados estes dados do LUIS? 
-O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os números de formulário, e procurar uma API de terceiros. O LUIS não permite isso. O LUIS apenas determina a intenção do utilizador e extrai os dados sobre essa intenção. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+Este tutorial criou uma nova intenção, adicionou expressões de exemplo e criou uma entidade de expressão regular para extrair dados bem formatados das expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a entidade de lista](luis-quickstart-intent-and-list-entity.md)

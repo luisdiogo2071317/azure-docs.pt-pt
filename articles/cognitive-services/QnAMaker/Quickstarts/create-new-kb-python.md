@@ -1,32 +1,35 @@
 ---
-title: Início Rápido Sobre Como Criar uma Nova Base de Dados de Conhecimento no Python para a API do Criador de FAQ da Microsoft (V4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento no Python para guardar as suas FAQs e manuais de produtos de forma a começar a utilizar o Criador de FAQ.
+title: 'Guia de Início Rápido: API Python – Criar base de dados de conhecimento – Criador de FAQ'
+titlesuffix: Azure Cognitive Services
+description: Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: a8e3ae73c76c13d44267f221d37a07eea721a608
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 9a3b801058a2614b9b484a3ebf414a9225c5371e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43771384"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033299"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>Criar uma base de dados de conhecimento no Python
 
-Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 
-Apresentamos abaixo dois exemplos de URLs de FAQs (no item de dicionário **req** "urls"). O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, conforme explicado em mais detalhe neste documento sobre [origens de dados](../Concepts/data-sources-supported.md). Também pode utilizar os seus próprios URLs de FAQs neste guia de introdução.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+
+Apresentamos abaixo dois exemplos de URLs de FAQs (no item de dicionário **req** "urls"). O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, conforme explicado em mais detalhe neste documento sobre [origens de dados](../Concepts/data-sources-supported.md). Também pode utilizar os seus próprios URLs de FAQs neste guia de início rápido.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [Python 3.X](https://www.python.org/downloads/) para executar este código.
 
-Tem de utilizar uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o **Criador de FAQ** selecionado como o seu recurso. Tem de ter uma chave de subscrição paga a partir do seu [dashboard do Azure](https://ms.portal.azure.com/). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. Qualquer chave funciona neste guia de introdução.
+Tem de utilizar uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o **Criador de FAQ** selecionado como o seu recurso. Tem de ter uma chave de subscrição paga a partir do seu [dashboard do Azure](https://ms.portal.azure.com/). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. Qualquer chave funciona neste guia de início rápido.
 
 ![Chave de serviço do dashboard do Azure](../media/sub-key.png)
 

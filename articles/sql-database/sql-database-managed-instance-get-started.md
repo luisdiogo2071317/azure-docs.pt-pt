@@ -1,25 +1,27 @@
 ---
 title: 'Portal do Azure: Criar uma Instância Gerida do SQL | Microsoft Docs'
 description: Crie uma Instância Gerida do SQL, um ambiente de rede e uma VM cliente para acesso.
-keywords: tutorial de base de dados sql, criar uma instância gerida de sql
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/31/2018
-ms.author: jovanpop-msft
-ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: Carlrab
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382003"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160643"
 ---
-# <a name="create-an-azure-sql-managed-instance"></a>Criar uma Instância Gerida do SQL do Azure
+# <a name="create-an-azure-sql-database-managed-instance"></a>Criar uma Instância Gerida de Base de Dados SQL do Azure
 
-Este início rápido orienta-o ao longo da criação de uma Instância Gerida do SQL no Azure. A Instância Gerida da Base de Dados SQL do Azure é uma Instância de Motor de Bases de Dados do SQL Server de Plataforma como Serviço (PaaS) que lhe permite executar e dimensionar bases de dados de elevada disponibilidade do SQL Server na cloud do Azure. Este início rápido mostra-lhe como começar mediante a criação de uma Instância Gerida do SQL.
+Este guia de início rápido orienta-o ao longo da criação de uma [Instância Gerida](sql-database-managed-instance.md) de Base de Dados SQL do Azure no portal do Azure. 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -27,104 +29,63 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="prepare-network-environment"></a>Preparar o ambiente de rede
-
-A Instância Gerida do SQL é um serviço seguro colocado na sua própria Rede Virtual (VNet) do Azure. Para criar uma Instância Gerida, tem de preparar o ambiente de rede do Azure, que inclui:
- - A VNet do Azure na qual a Instância Gerida vai ser colocada.
- - A sub-rede na VNet do Azure na qual a Instância Gerida vai ser colocada.
- - A rota definida pelo utilizador que vai permitir à Instância Gerida comunicar com os serviços do Azure que controlam e gerem a instância.
-
-A sub-rede é dedicada à Instância Gerida e não pode criar outros recursos (por exemplo, Máquinas Virtuais do Azure) na mesma. Neste início rápido, vão ser criadas duas sub-redes na sua VNet do Azure, pelo que pode colocar a Instância Gerida na sub-rede dedicada à mesma e os outros recursos na sub-rede predefinida.
-
-1. Clique no botão abaixo para implementar o ambiente de rede do Azure preparado para a Instância Gerida da Base de Dados SQL do Azure:
-
-    <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
-
-    Este botão abre um formulário no portal do Azure, onde pode configurar o ambiente de rede antes de o implementar.
-
-2. Opcionalmente, altere os nomes da VNet e das sub-redes e ajuste os intervalos de IP associados aos seus recursos de rede. Em seguida, prima o botão “Comprar” para criar e configurar o ambiente:
-
-    ![criar ambiente de instância gerida](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
-
-    > [!Note]
-    > Esta implementação do Azure Resource Manager vai criar duas sub-redes na VNet, uma para a Instância Gerida, chamada **ManagedInstances**, e outra, denominada **Default**, para os outros recursos, como a máquina virtual cliente, que pode ser utilizada para ligar à Instância Gerida. Se não precisar de duas sub-redes, pode eliminar a predefinida (“Default”) mais tarde; no entanto, nesse caso, não poderá concluir o passo 3 deste guia de início rápido - [preparar a máquina cliente](#prepare-client-machine).
-
-    > [!Note]
-    > Se alterar o nome da VNet e das sub-redes, certifique-se de que se lembra dos nomes novos, pois vão ser precisos nas secções seguintes. No resto do tutorial, partir-se-á do princípio de que criou a VNet com o nome **MyNewVNet**, a sub-rede **ManagedInstances** para a Instância Gerida do SQL e a sub-rede **Default** para máquinas virtuais e outros recursos.
-
 ## <a name="create-a-managed-instance"></a>Criar uma Instância Gerida
 
-Os passos seguintes mostram como criar a sua Instância Gerida depois de a pré-visualização ter sido aprovada.
+Os passos seguintes mostram como criar uma Instância Gerida.
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-2. Localize **Instância Gerida** e, em seguida, selecione **MI (pré-visualização)**.
+2. Localize **Instância Gerida** e, em seguida, selecione **Instância Gerida do Azure SQL**.
 3. Clique em **Criar**.
 
    ![Criar instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Selecione a sua subscrição e certifique-se de que os termos de pré-visualização são apresentados como **Aceites**.
-
-   ![pré-visualização de instância gerida aceite](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
-
-5. Preencha o formulário da Instância Gerida com as informações pedidas, utilizando as informações da tabela seguinte:
+4. Preencha o formulário da Instância Gerida com as informações pedidas, utilizando as informações da tabela seguinte:
 
    | Definição| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
+   | **Subscrição** | A sua subscrição | Uma subscrição em que tenha permissão para criar novos recursos |
    |**Nome da instância gerida**|Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize “serveradmin”, que é uma função reservada a nível de servidor.| 
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Grupo de Recursos**|O grupo de recursos que criou anteriormente||
-   |**Localização**|A localização que selecionou anteriormente|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
-   |**Rede virtual**|A rede virtual que criou anteriormente| Escolha o item **MyNewVNet/ManagedInstances**, caso não tenha alterado os nomes no passo anterior. Caso contrário, escolha o nome da VNet e a sub-rede da instância gerida que introduziu na secção anterior. **Não utilize a sub-rede predefinida, porque a mesma não está configurada para alojar Instâncias Geridas**. |
+   |**Grupo de Recursos**|Um grupo de recursos novo ou existente|Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições).|
+   |**Localização**|A localização em que pretende criar a Instância Gerida|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
+   |**Rede virtual**|Selecione **Criar nova rede virtual** ou uma rede virtual criada anteriormente no grupo de recursos que forneceu anteriormente neste formulário| Para configurar uma rede virtual para uma Instância Gerida com definições personalizadas, veja [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) (Configurar modelo de ambiente de rede virtual de Instância Gerida SQL) no Github. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma Instância Gerida, veja [Configurar uma VNet para a Instância Gerida de Base de Dados SQL do Azure](sql-database-managed-instance-vnet-configuration.md) |
 
-   ![formulário de criação de instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
+   ![formulário da instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Clique em **Escalão de preço** para saber o tamanho dos recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. Por predefinição, a sua instância obtém 32 GB de espaço de armazenamento livre de encargos, **o que poderá não ser suficiente para as suas aplicações**.
-7. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-   ![escalão de preço de instâncias geridas](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
+5. Clique em **Escalão de preço** para saber o tamanho dos recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. O escalão de preço Fins Gerais com 32 GB de memória e 16 núcleos virtuais é o valor predefinido.
+6. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
+7. Quando terminar, clique em **Aplicar** para guardar a sua seleção.  
+8. Clique em **Criar** para implementar a Instância Gerida.
+9. Clique no ícone **Notificações** para ver o estado da implementação.
 
-8. Quando terminar, clique em **Aplicar** para guardar a sua seleção.  
-9. Clique em **Criar** para implementar a Instância Gerida.
-10. Clique no ícone **Notificações** para ver o estado da implementação.
-11. Clique em **Implementação em curso** para abrir a janela Instância Gerida, para monitorizar ainda mais o progresso da implementação.
+    ![progresso da implementação da instância gerida](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-Enquanto ocorre a implementação, avance para o procedimento seguinte.
+10. Clique em **Implementação em curso** para abrir a janela Instância Gerida, para monitorizar ainda mais o progresso da implementação. 
 
 > [!IMPORTANT]
-> Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito superior do que nas instâncias subsequentes. Não cancele a operação de implementação por estar a demorar mais do que o esperado. Criar a segunda Instância Gerida na sub-rede demora alguns minutos.
+> Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito superior do que nas instâncias subsequentes. Não cancele a operação de implementação por estar a demorar mais do que o esperado. Criar a segunda Instância Gerida na sub-rede demora apenas alguns minutos.
 
-## <a name="prepare-client-machine"></a>Preparar a máquina cliente
+## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Rever os recursos e obter o nome de servidor completamente qualificado
 
-Uma vez que a Instância Gerida do SQL é colocada na sua Rede Virtual privada, tem de criar uma VM do Azure com uma ferramenta de cliente do SQL instalada, como o SQL Server Management Studio ou o SQL Operations Studio, para ligar à Instância Gerida e executar consultas.
+Depois da implementação ser concluída com êxito, reveja os recursos criados e obtenha o nome de servidor completamente qualificado para utilização nos guias de início rápido posteriores.
 
-> [!Note]
-> Em vez da máquina virtual do Azure cliente, pode configurar uma ligação [Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) e ligar à Instância Gerida a partir do seu computador local.
+1. Abra o grupo de recursos da Instância Gerida e veja os respetivos recursos que foram criados no guia de início rápido [Criar uma Instância Gerida](sql-database-managed-instance-get-started.md).
 
-A forma mais fácil de criar uma máquina virtual cliente com todas as ferramentas necessárias é utilizar os modelos do Azure Resource Manager.
+   ![Recursos da Instância Gerida](./media/sql-database-managed-instance-get-started/resources.png)Abra o recurso da Instância Gerida no portal do Azure.
 
-1. Clique no botão seguinte (confirme que tem sessão iniciada no portal do Azure noutro separador do browser):
+2. Clique na Instância Gerida.
+3. No separador **Descrição geral**, localize a propriedade **Anfitrião** e copie endereço de anfitrião completamente qualificado para a Instância Gerida.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. No formulário que se abre, introduza o nome da máquina virtual, o nome de utilizador do administrador e a palavra-passe que vai utilizar para se ligar à VM.
+   ![Recursos da Instância Gerida](./media/sql-database-managed-instance-get-started/host-name.png)
 
-    ![criar a VM cliente](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
-
-    Se não tiver alterado o nome da VNet e a sub-rede predefinida, não é preciso alterar os dois últimos parâmetros; caso contrário, deve alterá-los para os valores que introduziu quando configurou o ambiente de rede.
-
-3. Clique no botão “Comprar” e a VM do Azure é implementada na rede que preparou.
-
-4. Utilize a ligação de Ambiente de Trabalho Remoto para ligar à VM e localize o SQL Server Management Studio ou o SQL Operation Studio que são instalados automaticamente na VM.
-
-5. Abra o SSMS e introduza o **nome do anfitrião** da sua Instância Gerida, na caixa **Nome do servidor**, selecione **Autenticação do SQL Server**, indique o início de sessão e a palavra-passe na caixa de diálogo **Ligar ao Servidor** e clique em **Ligar**.
-
-    ![ligação SSMS](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
-
-Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó de bases de dados e vários objetos em nós de Segurança, Objetos de Servidor, Replicação, Gestão, SQL Server Agent e Gerador de Perfis de XEvent.
+   O nome é semelhante ao seguinte: **nome_do_computador.neu15011648751ff.database.windows.net**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
- - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md) (Ligar as suas aplicações a uma Instância Gerida).
- - [Migrate your databases from on-premises to Managed Instance](sql-database-managed-instance-migrate.md) (Migrar as suas bases de dados do local para uma Instância Gerida).
-
-
+- Para saber mais sobre como ligar a uma Instância Gerida, veja:
+  - Para uma descrição geral das opções de ligação para aplicações, veja [Ligar as suas aplicações à Instância Gerida](sql-database-managed-instance-connect-app.md).
+  - Para obter um guia de início rápido que mostre como ligar a uma Instância Gerida a partir de uma máquina virtual do Azure, veja [Configurar uma ligação de máquina virtual do Azure](sql-database-managed-instance-configure-vm.md).
+  - Para um guia de início rápido que mostre como ligar a uma Instância Gerida a partir de um computador cliente no local através de uma ligação ponto a site, veja [Configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md).
+- Para restaurar uma base de dados do SQL Server existente do local para uma Instância Gerida, pode utilizar o [Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.

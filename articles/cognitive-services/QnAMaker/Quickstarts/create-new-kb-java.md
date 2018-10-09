@@ -1,32 +1,35 @@
 ---
-title: Criar uma nova base de dados de conhecimento – guia de introdução ao Java – para a API do Criador de FAQ da Microsoft (v4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento em Java para manter as suas FAQs e manuais de produtos para que possa começar a utilizar o Criador de FAQ.
+title: 'Guia de Início Rápido: API Java – Criar base de dados de conhecimento – Criador de FAQ'
+titlesuffix: Azure Cognitive Services
+description: Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta de API dos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43771370"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037614"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Criar uma nova base de dados de conhecimento em Java
 
-Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 
-Abaixo, indicamos dois URLs de FAQs de exemplo (em "kb.urls" de **getKB()**) que irão fornecer conteúdos. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, conforme explicado em mais detalhe neste documento sobre [origens de dados](../Concepts/data-sources-supported.md). Também pode utilizar os seus próprios URLs de FAQs neste guia de introdução.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+Abaixo, indicamos dois URLs de FAQs de exemplo (em "kb.urls" de **getKB()**) que irão fornecer conteúdos. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, conforme explicado em mais detalhe neste documento sobre [origens de dados](../Concepts/data-sources-supported.md). Também pode utilizar os seus próprios URLs de FAQs neste guia de início rápido.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java se tiver um favorito, mas um editor de texto também funciona.
 
-Tem de utilizar uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o **Criador de FAQ** selecionado como o seu recurso. Irá precisar de uma chave de subscrição paga a partir da sua nova conta da API no seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices). Qualquer chave funciona neste guia de introdução.
+Tem de utilizar uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o **Criador de FAQ** selecionado como o seu recurso. Irá precisar de uma chave de subscrição paga a partir da sua nova conta da API no seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices). Qualquer chave funciona neste guia de início rápido.
 
 ![Chave de serviço do dashboard do Azure](../media/sub-key.png)
 

@@ -1,35 +1,37 @@
 ---
-title: Início rápido SDK criar miniatura da API através da Imagem Digitalizada com C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá gerar uma miniatura a partir de uma imagem através da biblioteca de cliente da Imagem Digitalizada do Windows com C# nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: gerar uma miniatura – SDK, C# – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá gerar uma miniatura a partir de uma imagem através da biblioteca de cliente C# da Imagem Digitalizada do Windows.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: e26d2da8f068b3b23b8211dc88cd21ca4a049018
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772173"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054817"
 ---
-# <a name="quickstart-generate-a-thumbnail---sdk-c35"></a>Início rápido: Gerar uma miniatura – SDK, C&#35;
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Guia de Início Rápido: gerar uma miniatura com o SDK de Imagem Digitalizada e C#
 
 Neste início rápido, irá gerar uma miniatura a partir de uma imagem através da biblioteca de cliente da Imagem Digitalizada do Windows.
 
+O código fonte para este exemplo está disponível no [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obter Chaves de Subscrição).
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de cliente [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário transferir o pacote. Abaixo, são fornecidas as instruções de instalação.
 
 ## <a name="generatethumbnailasync-method"></a>Método GenerateThumbnailAsync
 
-Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens remotas e locais, respetivamente.  Pode utilizar estes métodos para gerar uma miniatura de uma imagem. Especifica a altura e a largura, que podem ser diferentes da proporção da imagem de entrada. A Imagem Digitalizada utiliza o recorte inteligente para identificar de forma inteligente a região de interesse e gerar coordenadas de recorte com base nessa região.
+Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens remotas e locais, respetivamente.  Pode utilizar estes métodos para gerar uma miniatura de uma imagem. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. A Imagem Digitalizada utiliza o recorte inteligente para identificar de forma inteligente a região de interesse e gerar coordenadas de recorte com base nessa região.
 
 Para executar o exemplo, siga os passos seguintes:
 
@@ -40,7 +42,7 @@ Para executar o exemplo, siga os passos seguintes:
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do projeto e em **Instalar**.
 1. Substitua `Program.cs` pelo código abaixo.
 1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere `computerVision.AzureRegion = AzureRegions.Westcentralus` para a localização onde obteve as suas chaves de subscrição, se necessário.
+1. Altere `computerVision.Endpoint` para a região do Azure associada às chaves de subscrição, se necessário.
 1. Opcionalmente, substitua `<LocalImage>` pelo caminho e pelo nome de ficheiro de uma imagem local (se não for definido, é ignorado).
 1. Opcionalmente, defina `remoteImageUrl` para uma imagem diferente.
 1. Opcionalmente, defina `writeThumbnailToDisk` para `true` para guardar a miniatura no disco.
@@ -48,7 +50,6 @@ Para executar o exemplo, siga os passos seguintes:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 using System;
 using System.IO;
@@ -74,33 +75,33 @@ namespace ImageThumbnail
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...\n");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Create a thumbnail from a remote image
         private static async Task GetRemoteThumbnailAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -124,7 +125,7 @@ namespace ImageThumbnail
 
         // Create a thumbnail from a local image
         private static async Task GetLocalThumbnailAsnc(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
