@@ -1,68 +1,69 @@
 ---
-title: Moderador de conteúdos do Azure - criar revisões usando o .NET | Documentos da Microsoft
-description: Como criar análises com o SDK de moderador de conteúdos do Azure para .NET
+title: 'Início Rápido: criar revisões com o .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Como criar revisões com o SDK do Content Moderator do Azure para .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: c5f301e7ed15100c39f0af77942147275b966ed9
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180778"
+ms.locfileid: "47226590"
 ---
-# <a name="create-reviews-using-net"></a>Criar análises com .NET
+# <a name="quickstart-create-reviews-using-net"></a>Início Rápido: criar revisões com o .NET
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Este artigo apresenta informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
  
 - Criar um conjunto de revisões para moderadores humanos
-- Obter o estado das revisões de existentes de moderadores humanos
+- Obter o estado das revisões existentes de moderadores humanos
 
-Em geral, o conteúdo vai alguns moderação automática antes de a ser agendada de revisão humana. Este artigo apenas aborda como criar a revisão para moderação humana. Para um cenário mais completo, consulte a [moderação de conteúdos do Facebook](facebook-post-moderation.md) e [moderação do catálogo de comércio eletrónico](ecommerce-retail-catalog-moderation.md) tutoriais.
+Geralmente, o conteúdo passa pela moderação automática antes de ser agendada a revisão humana. Este artigo aborda apenas como criar a revisão para moderação humana. Para um cenário mais completo, veja os tutoriais [Moderação de conteúdos do Facebook](facebook-post-moderation.md) e [Moderação do catálogo de comércio eletrónico](ecommerce-retail-catalog-moderation.md).
 
-Este artigo pressupõe que já está familiarizado com o Visual Studio e c#.
+Este artigo pressupõe que já está familiarizado com o Visual Studio e C#.
 
-## <a name="sign-up-for-content-moderator"></a>Inscreva-se o Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Inscrever-se no Content Moderator
 
-Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
-Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços do Content Moderator através da API REST ou do SDK, precisa de uma chave de subscrição.
+Veja o [Início Rápido](quick-start.md) para saber como pode obter a chave.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se para uma conta da ferramenta de revisão se não foi concluída no passo anterior
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscreva-se numa conta da ferramenta de revisão se não o tiver feito no passo anterior
 
-Se recebeu o Content Moderator do portal do Azure, também [Inscreva-se a conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipa de revisão. Terá da equipe de Id e a ferramenta de revisão para chamar a API de revisão para iniciar uma tarefa e ver as críticas na ferramenta de revisão.
+Se chegou ao Content Moderator a partir do portal do Azure, [inscreva-se na conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e crie uma equipa de revisão. Precisará do ID da equipa e da ferramenta de revisão para chamar a API de revisão, para que inicie uma Tarefa e veja as revisões na ferramenta de revisão.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisão
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisões
 
-Depois de concluir os passos anteriores, pode acabar com duas chaves do Content Moderator se tiver iniciado a partir do portal do Azure. 
+Depois de concluir os passos anteriores, pode ficar com duas chaves do Content Moderator, se tiver iniciado a partir do portal do Azure. 
 
-Se planear utilizar a chave de API fornecida pelo Azure no seu exemplo SDK, siga os passos mencionados na [chave de utilizar o Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) secção para permitir que a aplicação chamar a API de revisão e criar as revisões.
+Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita, gerada pela ferramenta de revisão, sua conta da ferramenta de revisão já sabe sobre a chave e por isso, não existem passos adicionais necessários.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são precisos passos adicionais.
 
-## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
+1. Adicione um novo projeto **Aplicação de consola (.NET Framework)** à sua solução.
 
-   No código de exemplo, nomeie o projeto **CreateReviews**.
+   No código de exemplo, dê ao projeto o nome **CreateReviews**.
 
 1. Selecione este projeto como o projeto de arranque único para a solução.
 
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
-Instale os seguintes pacotes de NuGet:
+Instale os seguintes pacotes NuGet:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
+### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
-Modifique o programa usando instruções.
+Modifique as instruções de utilização do programa.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -78,7 +79,7 @@ Modifique o programa usando instruções.
 Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição.
 
 > [!IMPORTANT]
-> Atualização do **AzureRegion** e **CMSubscriptionKey** campos com os valores da sua chave de subscrição e o identificador de região.
+> Atualize os campos **AzureRegion** e **CMSubscriptionKey** com os valores do identificador da região e da chave de subscrição.
 
 
     /// <summary>
@@ -123,9 +124,9 @@ Adicione o seguinte código para criar um cliente do Content Moderator para a su
         }
     }
 
-## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Criar uma classe para associar as informações dos conteúdos internas com um ID de revisão
+## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Criar uma classe para associar as informações dos conteúdos internos com um ID de revisão
 
-Adicione a seguinte classe para o **programa** classe.
+Adicione a seguinte classe à classe **Programa**.
 Utilize esta classe para associar o ID de revisão ao seu ID de conteúdo interno para o item.
 
     /// <summary>
@@ -155,14 +156,14 @@ Utilize esta classe para associar o ID de revisão ao seu ID de conteúdo intern
         public string ReviewId;
     }
 
-### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicializar definições específicas da aplicação
 
 > [!NOTE]
-> A chave de serviço do Content Moderator tem um pedidos por segundo limite de taxa (RPS) e, se exceder o limite, o SDK lançará uma exceção com um código de 429 erro. 
+> A chave de serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS) e, se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429. 
 >
-> Uma chave de escalão gratuito tem um limite de taxa de um RPS.
+> Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes para o **programa** classe no Program.cs.
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes à classe **Programa** em Program.cs.
     
     /// <summary>
     /// The minimum amount of time, in milliseconds, to wait between calls
@@ -182,14 +183,14 @@ Utilize esta classe para associar o ID de revisão ao seu ID de conteúdo intern
     /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes e campos estáticos para o **programa** classe no Program.cs.
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Adicione as seguintes constantes e campos estáticos à classe **Programa** em Program.cs.
 
-Atualize estes valores para conter informações específicas para a sua subscrição e a equipe.
+Atualize estes valores para conter informações específicas para a sua subscrição e equipa.
 
 > [!NOTE]
-> Definir a constante TeamName como o nome que utilizou quando criou sua [ferramenta de revisão do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) subscrição. Recupera o TeamName do **credenciais** secção a **definições** menu (engrenagem).
+> Defina a constante TeamName para o nome que utilizou quando criou a sua subscrição da [ferramenta de revisão do Content Moderator](https://contentmoderator.cognitive.microsoft.com/). Obtém o TeamName na secção **Credenciais** no menu **Definições** (engrenagem).
 >
-> O nome da sua equipe é o valor do **Id** campo na **API** secção.
+> O nome da sua equipa é o valor do campo **Id** na secção **API**.
 
     /// <summary>
     /// The name of the team to assign the review to.
@@ -237,7 +238,7 @@ Atualize estes valores para conter informações específicas para a sua subscri
     /// </summary>
     private const string MetadataValue = "true";
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Adicione os seguintes campos estáticos para o **programa** classe no Program.cs.
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Adicione os seguintes campos estáticos à classe **Programa** em Program.cs.
 
 Utilize estes campos para controlar o estado da aplicação.
 
@@ -253,7 +254,7 @@ Utilize estes campos para controlar o estado da aplicação.
     private static List<ReviewItem> reviewItems =
         new List<ReviewItem>();
 
-## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Criar um método para escrever mensagens para o ficheiro de registo
+## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Criar um método para escrever mensagens no ficheiro de registo
 
 Adicione o seguinte método à classe **Programa**. 
 
@@ -274,7 +275,7 @@ Adicione o seguinte método à classe **Programa**.
 
 ## <a name="create-a-method-to-create-a-set-of-reviews"></a>Criar um método para criar um conjunto de revisões
 
-Normalmente, tem alguma lógica de negócio para identificar a entrada imagens, texto, ou vídeo que tem de ser revisto. No entanto, aqui basta use uma lista fixa de imagens.
+Normalmente, tem alguma lógica de negócio para identificar imagens, texto ou vídeo a receber que tem de ser revisto. No entanto, aqui basta utilizar uma lista fixa de imagens.
 
 Adicione o seguinte método à classe **Programa**.
 
@@ -339,13 +340,13 @@ Adicione o seguinte método à classe **Programa**.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Criar um método para obter o estado das revisões de existentes
+## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Criar um método para obter o estado das revisões existentes
 
 Adicione o seguinte método à classe **Programa**. 
 
 > [!Note]
-> Na prática, seria definido o URL de retorno de chamada `CallbackEndpoint` para o URL que receberia os resultados da revisão manual (por meio de um pedido de HTTP POST).
-> Poderia modificar esse método para verificar o estado de pendente revisões.
+> Na prática, iria definir o URL de chamada de retorno `CallbackEndpoint` ao URL que iria receber os resultados da revisão manual (através de um pedido HTTP POST).
+> Poderia modificar este método para verificar o estado das revisões pendentes.
 
     /// <summary>
     /// Gets the review details from the server.
@@ -370,11 +371,11 @@ Adicione o seguinte método à classe **Programa**.
         }
     }
 
-## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Adicionar código para criar um conjunto de revisões e verifique o respetivo estado
+## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Adicionar código para criar um conjunto de revisões e verificar o respetivo estado
 
-Adicione o seguinte código para o **Main** método.
+Adicione o seguinte código ao método **Principal**.
 
-Esse código simula várias das operações que efetuar na definir e gerir a lista, bem como através da lista para imagens de ecrã. Os recursos de log permitem-lhe ver os objetos de resposta gerados pelas chamadas SDK para o serviço do Content Moderator.
+Este código simula várias operações que executa ao definir e gerir a lista, bem como ao utilizar a lista para analisar imagens. As funcionalidades de registo permitem ver os objetos de resposta gerados pelas chamadas do SDK ao serviço do Content Moderator.
 
     using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
     {
@@ -405,7 +406,7 @@ Esse código simula várias das operações que efetuar na definir e gerir a lis
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
 
-## <a name="run-the-program-and-review-the-output"></a>Execute o programa e reveja o resultado
+## <a name="run-the-program-and-review-the-output"></a>Executar o programa e rever o resultado
 
 Verá a saída de exemplo seguinte:
 
@@ -415,9 +416,9 @@ Verá a saída de exemplo seguinte:
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
-Inicie sessão no Content Moderator Rever ferramenta para ver a imagem pendente Reveja com o **sc** etiqueta definida como **verdadeiro**. Também pode ver a predefinição **um** e **r** etiquetas e quaisquer etiquetas personalizadas que pode ter definido dentro da ferramenta de revisão. 
+Inicie sessão na ferramentas de revisão do Content Moderator para ver a revisão da imagem pendente com a etiqueta **sc** definida como **true**. Também pode ver as etiquetas predefinidas **a** e **r** e quaisquer etiquetas personalizadas que pode ter definido na ferramenta de revisão. 
 
-Utilize o **seguinte** botão para submeter.
+Utilize o botão **Seguinte** para submeter.
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
@@ -430,12 +431,12 @@ Em seguida, prima qualquer tecla para continuar.
 
     Press any key to exit...
 
-## <a name="check-out-the-following-output-in-the-log-file"></a>Veja o seguinte no ficheiro de registo de saída.
+## <a name="check-out-the-following-output-in-the-log-file"></a>Veja o seguinte resultado no ficheiro de registo.
 
 > [!NOTE]
-> No seu ficheiro de saída, as cadeias de caracteres "\{teamname}" e "\{callbackUrl}" refletir os valores para o `TeamName` e `CallbackEndpoint` campos, respectivamente.
+> No seu ficheiro de saída, as cadeias "\{teamname}" e "\{callbackUrl}" refletem os valores para os campos `TeamName` e `CallbackEndpoint`, respetivamente.
 
-O IDs de revisão e a imagem de conteúdo de URLs são diferentes de cada vez que executar o aplicativo e, quando uma revisão é concluída, o `reviewerResultTags` campo reflete a forma como o revisor etiquetados o item.
+O IDs de revisão e os URLs de conteúdo de imagem são diferentes sempre que executar a aplicação e, quando uma revisão é concluída, o campo `reviewerResultTags` reflete a forma como o revisor etiquetou o item.
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
@@ -496,7 +497,7 @@ O IDs de revisão e a imagem de conteúdo de URLs são diferentes de cada vez qu
         "callbackEndpoint": "{callbackUrl}"
     }
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>O Url de retorno de chamada se for fornecido, recebe essa resposta
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Se tiver sido dado, o Url da chamada de retorno recebe esta resposta
 
 Verá uma resposta semelhante ao seguinte exemplo:
 
@@ -517,6 +518,6 @@ Verá uma resposta semelhante ao seguinte exemplo:
     }
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Obter o [SDK de .NET do conteúdo moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.
+Obtenha o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

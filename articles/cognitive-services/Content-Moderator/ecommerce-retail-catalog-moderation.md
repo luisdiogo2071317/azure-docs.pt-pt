@@ -1,69 +1,70 @@
 ---
-title: Moderação de interrupção do eCommerce catálogo com machine learning e AI com Moderator conteúdo do Azure | Microsoft Docs
-description: ECommerce automaticamente moderada catálogos com machine learning e AI
+title: 'Tutorial: moderação do catálogo de comércio eletrónico - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Moderar automaticamente catálogos de comércio eletrónico com aprendizagem automática e IA.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: MT
+ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095756"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227355"
 ---
-# <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Moderação de interrupção do eCommerce catálogo com machine learning
+# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Tutorial: moderação do catálogo de comércio eletrónico com aprendizagem automática
 
-Neste tutorial, vamos aprender a implementar a moderação de interrupção do machine learning baseada em inteligente ecommerce catálogo através da combinação de tecnologias de AI auxiliada a uma máquina com moderação de interrupção humana para fornecer um sistema de catálogo inteligente.
+Neste tutorial, iremos aprender a implementar moderação do catálogo de comércio eletrónico inteligente ao combinar tecnologias de IA assistida por máquina com moderação humana, para oferecer um sistema de catálogo inteligente.
 
-![Imagens de produto classificada](images/tutorial-ecommerce-content-moderator.PNG)
+![Imagens dos produtos classificados](images/tutorial-ecommerce-content-moderator.PNG)
 
 ## <a name="business-scenario"></a>Cenário de negócio
 
-Utilize tecnologias de assistida por máquina para classificar e moderada imagens de produto destas categorias:
+Utilize tecnologias assistidas por máquina para classificar e moderar as imagens de produtos nestas categorias:
 
-1. Adulto (Nudity)
-2. Racy (Suggestive)
-3. Celebridades para
-4. E.u. a sinalizadores
-5. Toys
-6. Pens
+1. Adulto (Nudez)
+2. Picante (Sugestivo)
+3. Celebridades
+4. Bandeiras dos E.U.A.
+5. Brinquedos
+6. Canetas
 
 ## <a name="tutorial-steps"></a>Passos do tutorial
 
-O tutorial orienta-o estes passos:
+Este tutorial explica como seguir estes passos:
 
-1. Inscrever-se e criar um agrupamento de conteúdo Moderator.
-2. Configure a moderação interrupção as etiquetas (etiquetas) para o conteúdo celebrity e sinalizador potencial.
-3. Utilize a API de imagem do conteúdo Moderator para analisar para o conteúdo para adultos e racy potencial.
-4. Utilize a API de visão do computador para procurar celebridades para potenciais.
-5. Utilize o serviço de visão personalizada para procurar a presença possível de sinalizadores.
-6. Apresente os resultados da análise nuanced para revisão humano e efetuar decisão final.
+1. Inscreva-se e crie uma equipa do Content Moderator.
+2. Configure sinalizadores de moderação (etiquetas) para potenciais conteúdos de celebridade e sinalizador.
+3. Utilize a API de imagem do Content Moderator para analisar potenciais conteúdos para adultos e picantes.
+4. Utilize a API de Imagem Digitalizada para analisar a existência de potenciais celebridades.
+5. Utilize o serviço de Visão Personalizada para analisar a possível presença de sinalizadores.
+6. Apresente os resultados da análise com nuances de revisão humana e a tomada de decisão final.
 
-## <a name="create-a-team"></a>Criar um agrupamento
+## <a name="create-a-team"></a>Criar uma equipa
 
-Consulte o [início rápido](quick-start.md) página inscreva Moderator conteúdo e criar um agrupamento. Tenha em atenção o **equipa ID** do **credenciais** página.
+Veja a página [Início Rápido](quick-start.md) para inscrever-se no Content Moderator e criar uma equipa. Observe o **ID da Equipa** na página **Credenciais**.
 
 
 ## <a name="define-custom-tags"></a>Definir etiquetas personalizadas
 
-Consulte o [etiquetas](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) artigo para adicionar etiquetas personalizadas. Para além de incorporada **para adultos** e **racy** etiquetas, a ferramenta de revisão visualizar os nomes descritivos para as etiquetas de permitir que as etiquetas de novo.
+Leia o artigo [Etiquetas](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) para adicionar etiquetas personalizadas. Além das etiquetas **adulto** e **picante**, as novas marcas permitem que a ferramenta de revisão apresente os nomes descritivos para as etiquetas.
 
-No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **sinalizador**, **nos**, **toy**, **caneta**):
+No nosso caso, definimos estas etiquetas personalizadas (**celebridade**, **sinalizador**, **eua**, **brinquedo**, **caneta**):
 
 ![Configurar etiquetas personalizadas](images/tutorial-ecommerce-tags2.PNG)
 
 ## <a name="list-your-api-keys-and-endpoints"></a>Listar as chaves de API e os pontos finais
 
-1. O tutorial utiliza três APIs e as correspondentes chaves e pontos finais de API.
-2. Os pontos finais de API são diferentes com base nas suas regiões de subscrição e o ID da equipa de revisão Moderator conteúdos.
+1. O tutorial utiliza três APIs e as chaves correspondentes e os pontos finais da API.
+2. Os pontos finais da API são diferentes com base nas suas regiões de subscrição e o ID da Equipa de Revisão do Content Moderator.
 
 > [!NOTE]
-> O tutorial foi concebido para utilizar chaves de subscrição nas regiões visíveis nos seguintes pontos finais. Lembre-se de que as chaves de API com a região Uris; caso contrário, as chaves podem não funcionar com os seguintes pontos finais de corresponder ao:
+> O tutorial foi criado para utilizar chaves de subscrição nas regiões visíveis nos seguintes pontos finais. Certifique-se de que corresponde as chaves da API com as Uris da região, caso contrário, as suas chaves poderão não funcionar com os seguintes pontos finais:
 
          // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -76,12 +77,12 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
         public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
         public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
 
-## <a name="scan-for-adult-and-racy-content"></a>Análise de conteúdo para adultos e racy
+## <a name="scan-for-adult-and-racy-content"></a>Analisar conteúdos para adultos e picantes
 
-1. A função aceita um URL de imagem e uma matriz de pares chave-valor como parâmetros.
-2. Chama o Moderator conteúdo imagem API para obter as pontuações adulto e Racy.
-3. Se a classificação é superior ao 0.4 (intervalo é de 0 a 1), define o valor no **ReviewTags** de matriz para **verdadeiro**.
-4. O **ReviewTags** matriz é utilizada para Realce a etiqueta correspondente na ferramenta de revisão.
+1. A função aceita um URL de imagem e uma matriz de pares chave-valor, como parâmetros.
+2. Ele chama a API de Imagem do Content Moderator para obter as classificações de Adulto e Picante.
+3. Se a classificação for superior a 0,4 (o intervalo é de 0 a 1), define o valor na matriz **ReviewTags** para **Verdadeiro**.
+4. A matriz **ReviewTags** é utilizada para destacar a etiqueta correspondente na ferramenta de revisão.
 
         public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
         {
@@ -119,17 +120,17 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
             return response.IsSuccessStatusCode;
         }
 
-## <a name="scan-for-celebrities"></a>Procurar celebridades para
+## <a name="scan-for-celebrities"></a>Analisar celebridades
 
-1. Inscrever-se um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) do [computador visão API](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
-2. Clique em de **obter chave de API** botão.
+1. Inscreva-se numa [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) da [API de Imagem Digitalizada](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
+2. Clique no botão **Obter Chave da API**.
 3. Aceite os termos.
-4. Para iniciar sessão, escolha na lista de contas da Internet disponíveis.
-5. Tenha em atenção as chaves de API apresentadas na página do seu serviço.
+4. Para iniciar sessão, escolha a partir da lista de contas da Internet disponíveis.
+5. Observe as chaves de API apresentadas na sua página de serviço.
     
-   ![Chaves de API de visão do computador](images/tutorial-computer-vision-keys.PNG)
+   ![Chaves de API de Imagem Digitalizada](images/tutorial-computer-vision-keys.PNG)
     
-6. Consulte o código de origem do projeto para a função que analisa a imagem com a API de visão do computador.
+6. Veja o código de origem do projeto para a função que analisa a imagem com a API de Imagem Digitalizada.
 
          public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
@@ -156,13 +157,13 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
             return Response.IsSuccessStatusCode;
         }
 
-## <a name="classify-into-flags-toys-and-pens"></a>Classificar sinalizadores, toys e pens
+## <a name="classify-into-flags-toys-and-pens"></a>Classifique em sinalizadores, brinquedos e canetas
 
-1. [Inicie sessão no](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) para o [pré-visualização de API de visão personalizada](https://www.customvision.ai/).
-2. Utilize o [início rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar o classificador personalizado para detetar a presença de sinalizadores, toys e pens potencial.
-   ![Imagens de formação de visão personalizada](images/tutorial-ecommerce-custom-vision.PNG)
-3. [Obter o URL de ponto final de predição](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) para sua classificador personalizado.
-4. Consulte o código de origem do projeto para ver a função que chama o ponto final da predição classificador personalizado para digitalizar a imagem.
+1. [Inicie sessão](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) na [pré-visualização da API de Visão Personalizada](https://www.customvision.ai/).
+2. Utilize o [Início Rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar o seu classificador personalizado para detetar a presença potencial de sinalizadores, brinquedos e canetas.
+   ![Imagens de Formação de Visão Personalizada](images/tutorial-ecommerce-custom-vision.PNG)
+3. [Obter o URL de ponto final de predição](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) para o seu classificador personalizado.
+4. Veja o código de origem do projeto para ver a função que chama o seu ponto de final de predição de classificador personalizado para analisar a sua imagem.
 
         public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
         {
@@ -180,11 +181,11 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
             return response.IsSuccessStatusCode;
         }       
  
-## <a name="reviews-for-human-in-the-loop"></a>Revisões humanos no ciclo for
+## <a name="reviews-for-human-in-the-loop"></a>Revisões de humanos em ciclo
 
-1. Nas secções anteriores, analisado as entrada imagens para adultos e racy (Moderator conteúdo), sinalizadores (visão personalizada) e celebridades para (visão de computador).
-2. Com base na nossa limiares de correspondência de cada análise, disponibilizar os casos nuanced para revisão humana na ferramenta de revisão.
-        bool estático público {CreateReview (cadeia ImageUrl, KeyValuePair [] metadados)
+1. Nas secções anteriores, analisou as imagens de entrada para adultos e picantes (Content Moderator), celebridades (Imagem Digitalizada) e de Sinalizadores (Visão Personalizada).
+2. Com base nos nossos limiares de correspondência para cada análise, disponibilize os casos com nuances para revisão humana na ferramenta de revisão.
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -202,11 +203,11 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
             return response.IsSuccessStatusCode;
         }
 
-## <a name="submit-batch-of-images"></a>Submeter o lote de imagens
+## <a name="submit-batch-of-images"></a>Submeter lote de imagens
 
-1. Este tutorial assume um diretório de "C:Test" com um ficheiro de texto que tem uma lista de Urls de imagem.
-2. O seguinte código verifica a existência do ficheiro e lê todos os Urls na memória.
-            Verifique a existência de um diretório de teste para um ficheiro de texto com a lista de URLs de imagem para analisar var topdir = @"C:\test\"; var Urlsfile = topdir +"Urls.txt";
+1. Este tutorial pressupõe um diretório "C:Test" com um ficheiro de texto que tem uma lista de Urls de imagem.
+2. O código a seguir verifica a existência do ficheiro e lê todos os Urls na memória.
+            // Verifique um diretório de teste num ficheiro de texto com a lista de URLs de Imagem para analisar var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -221,9 +222,9 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
 
 ## <a name="initiate-all-scans"></a>Iniciar todas as análises
 
-1. Esta função de nível superior repetido ao longo de todos os URLs de imagem no ficheiro de texto que foi mencionados anteriormente.
-2. Este analisa-os com cada API e se o modelo de pontuação de confiança correspondência está dentro do nosso critérios, cria uma revisão para moderators humanos.
-             para cada imagem de URL no ficheiro … foreach (var Url em Urls) {/ / Initiatize uma matriz de etiquetas de rever novos ReviewTags = KeyValuePair novo [MAXTAGSCOUNT];
+1. Esta função de nível superior circula todos os URLs de imagens no ficheiro de texto que mencionámos anteriormente.
+2. Ele analisa cada API e se a classificação de confiança de correspondência estiver dentro dos nossos critérios, cria uma revisão para moderadores humanos.
+             // para cada URL da imagem no ficheiro... foreach (var Url in Urls) { // Inicialize uma nova matriz de marcas de revisão ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -240,12 +241,12 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
 
 ## <a name="license"></a>Licença
 
-Todos os Microsoft cognitivos serviços SDKs e amostras são licenciadas com a licença MIT. Para obter mais detalhes, consulte [licença](https://microsoft.mit-license.org/).
+Todos os exemplos e SDKs dos Serviços Cognitivos da Microsoft estão licenciados com a Licença do MIT. Para obter mais detalhes, veja [LICENSE](https://microsoft.mit-license.org/) (LICENÇA).
 
 ## <a name="developer-code-of-conduct"></a>Código de Conduta do Programador
 
-Os programadores utilizando serviços cognitivos, incluindo esta biblioteca de cliente & exemplo, são esperados para seguir o "Programador código de conduta para Microsoft serviços cognitivos", encontrado em http://go.microsoft.com/fwlink/?LinkId=698895.
+Espera-se que os programadores que utilizam os Serviços Cognitivos, incluindo esta biblioteca de cliente e exemplo, sigam o "Código de Conduta do Programador dos Serviços Cognitivos da Microsoft", disponível em http://go.microsoft.com/fwlink/?LinkId=698895.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Criar e expandir o tutorial, utilizando o [ficheiros de origem do projeto](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) no Github.
+Crie e expanda o tutorial com os [ficheiros de origem do projeto](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) no Github.

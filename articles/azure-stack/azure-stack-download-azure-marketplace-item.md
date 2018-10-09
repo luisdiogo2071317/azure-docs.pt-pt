@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630284"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854835"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir itens do marketplace do Azure para o Azure Stack
 
@@ -121,15 +121,12 @@ Existem duas partes para este cenário:
 
    ```
 
-5. Importe o módulo de distribuição e, em seguida, inicie a ferramenta, executando o seguinte script. Substitua a *caminho da pasta de destino* com uma localização para armazenar os ficheiros que transfere do Azure Marketplace.   
+5. Importe o módulo de distribuição e, em seguida, inicie a ferramenta, executando os comandos seguintes. Substitua `Destination folder path` com uma localização para armazenar os ficheiros que transfere do Azure Marketplace.   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
    ```
 
 6. Quando a ferramenta é executada, são-lhe pedido que introduza as credenciais de conta do Azure. Inicie sessão na conta do Azure que utilizou para registar o Azure Stack. Depois do início de sessão for bem-sucedido, deverá ver uma tela semelhante à imagem seguinte, com a lista de itens do marketplace disponível.  

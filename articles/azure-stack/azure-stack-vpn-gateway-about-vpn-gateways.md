@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: brenduns
-ms.openlocfilehash: 0ff3402115ae9f4c736bf9058fc09de16eaefb1e
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ed405a0f8892b278d81f2494ad90f776ad5faa41
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347191"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857096"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -33,7 +33,7 @@ Quando cria um gateway de rede virtual, tem de especificar o tipo de gateway que
 
 Cada rede virtual pode ter dois gateways de rede virtual, mas apenas um de cada tipo. Dependendo das definições que escolher, pode criar várias ligações para um gateway de VPN individual. Um exemplo é uma configuração de ligação multilocal.
 
-Antes de criar e configurar Gateways de VPN para o Azure Stack, reveja os [considerações sobre o funcionamento em rede do Azure Stack](/azure/azure-stack/user/azure-stack-network-differences) para saber como as configurações para o Azure Stack são diferentes do Azure.
+Antes de criar e configurar Gateways de VPN para o Azure Stack, reveja os [considerações sobre o funcionamento em rede do Azure Stack](/articles/azure-stack/user/azure-stack-network-differences.md) para saber como as configurações para o Azure Stack são diferentes do Azure.
 
 >[!NOTE]
 >No Azure, o débito de largura de banda para o gateway de VPN SKU que escolher tem de ser dividido em todas as ligações que estão ligadas ao gateway. Mas, no Azure Stack, o valor de largura de banda para o SKU de gateway VPN é aplicado a cada recurso de ligação que está ligado ao gateway.
@@ -87,7 +87,7 @@ Este tipo de ligação é uma variação da ligação Rede de VPNs. Cria mais de
 
 Quando cria um gateway de rede virtual para o Azure Stack, especificar o SKU de gateway que pretende utilizar. Os SKUs de gateway VPN seguintes são suportados:
 
-* Básica
+* Básico
 * Standard
 * HighPerformance
 

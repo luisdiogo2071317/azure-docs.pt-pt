@@ -22,6 +22,7 @@
 #### [2 - Desenvolvimento em equipa](team-development-nodejs.md)
 
 ## Procedimento
+### [Criar um cluster do Kubernetes com o Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
 ### [Partilhar os Espaços de Programador do Azure](how-to/share-dev-spaces.md)
 ### [Gerir segredos](how-to/manage-secrets.md)
 ### [Utilize um feed personalizado do NuGet](how-to/use-custom-nuget-feed.md)
