@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: e878da5f6741b1a4c31874af05b7a37f6dee21df
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 9bcd2ccfc5fb8ddc71d2df178dd214be2a67160d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586228"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856858"
 ---
 # <a name="confidence-score"></a>Pontuação de confiança
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -70,7 +70,7 @@ Veja aqui como a [publicar](../How-To/publish-knowledge-base.md) funciona a oper
 ## <a name="no-match-found"></a>Nenhuma correspondência localizada
 Quando for encontrada nenhuma correspondência de boa pelo classificador, é devolvida a classificação de confiança de 0,0 ou "None" e a resposta padrão não é "Nenhuma boa correspondência encontrada no artigo do BDC". Pode substituir esta resposta predefinida no código de aplicação ou bot chamar o ponto final. Como alternativa, também pode definir a resposta de substituição no Azure, e isso muda a predefinição para todas as bases de dados de conhecimento implementado num determinado serviço QnA Maker.
 
-1. Vá para o [portal do Azure](http://portal.azure.com) e navegue para o grupo de recursos que representa o serviço QnA Maker que criou.
+1. Vá para o [portal do Azure](https://portal.azure.com) e navegue para o grupo de recursos que representa o serviço QnA Maker que criou.
 
 2. Clique para abrir o **serviço de aplicações**.
 

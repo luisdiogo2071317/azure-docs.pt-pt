@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7a409b1ecdd693a0f28d2303d55a27b177644eb0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249303"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855413"
 ---
 # <a name="bake-acoustics"></a>Inserir acoustics
 
@@ -230,25 +230,25 @@ Para estimar o que um determinado criar terão um custo, pegamos o valor mostrad
 Depois de concluída a criar, verifique que os pontos de voxels e sonda são em seus locais esperados ao executar o plug-in de tempo de execução. Obter mais informações estão no [visão geral do processo de Design de Acoustics](design-process.md).
 
 ## <a name="Local-bake"></a>Criar local
-Criar local executa simulação acoustics em seu próprio computador local em vez de descarregá-los para o cluster de computação do Azure Batch. Isso pode ser uma boa opção para fazer experiências com acoustics sem a necessidade de uma subscrição do Azure, mas tenha em atenção que a simulação de Acoustics computacionalmente está exigindo e pode demorar algum tempo dependendo do tamanho da cena, configuração de simulação e não processados poder da computação da máquina de processamento.
+Criar local executa simulação acoustics em seu próprio computador em vez de descarregá-los para o cluster de computação do Azure Batch. Isso pode ser uma boa opção para fazer experiências com acoustics sem a necessidade de uma subscrição do Azure. Tenha em atenção que a simulação de Acoustics computacionalmente está exigindo e pode demorar algum tempo dependendo do tamanho da cena, configuração de simulação e poder de computação não processado da máquina de processamento.
 
 ### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
 processador Intel de 64 bits com, pelo menos, 8 núcleos e 32 GB de RAM ou superior.
 
-Por exemplo, numa máquina de 8 núcleos com o Intel Xeon E5-1660 @ 3 GHz e 32 GB de memória-
+Por exemplo, numa máquina de 8 núcleos com o Intel Xeon E5-1660 @ 3 GHz e 32 GB de RAM-
 * Pequena cena com 100 sondas demora aproximadamente 2 horas para um criar genérico e horas de aproximadamente 32 para criar uma resolução fina.
-* Cenário maior com 1000 sondas pode demorar até cerca de 20 horas para uma resolução genérico e ~ 21 dias para criar uma resolução fina.
+* Cenário maior com 1000 sondas pode demorar até ~ 20 horas para uma resolução genérico e ~ 21 dias para criar uma resolução fina.
 
 ### <a name="setup-docker"></a>Configurar Docker
 Instalar e configurar o Docker no PC que irá processar a simulação-
 1. Instalar o [conjunto de ferramentas do Docker](https://www.docker.com/products/docker-desktop).
-2. Inicie as definições do Docker, navegue para as opções de "Advanced" e configurar recursos, conforme mostrado abaixo. ![Recursos de docker](media/DockerSettings.png)
-3. Navegue para "Unidades partilhado" opções e ativar partilha para a unidade utilizada para processamento.![DockerDriveSharing](media/DockerSharedDrives.png)
+2. Inicie as definições do Docker, navegue para as opções "Avançadas" e configurar recursos de ter ao leat 8 GB de RAM. As CPUs mais pode alocar a Docker, mais rapidamente a criar irá concluir. ![Definições de Docker de exemplo](media/DockerSettings.png)
+3. Navegue para "Unidades partilhadas" e ativar partilha para a unidade utilizada para processamento.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Executar criar local
-1. Clique no botão "Preparar Local inserir" na guia criar e selecione uma pasta onde serão guardados os ficheiros de entrada e scripts de execução. Em seguida, pode executar a criar em qualquer máquina, desde que cumprem os requisitos mínimos de hardware e tem o Docker instalado ao copiar a pasta para que a máquina.
-2. Inicie a simulação usando o script de "runlocalbake.bat", que irá buscar a imagem do Docker de Acoustics de projeto com o conjunto de ferramentas necessário para processamento de simulação e inicia a simulação. 
-3. Quando tiver terminado de simulação, copie o ficheiro de .ace resultante para seu projeto Unity para a mesma localização que foi especificada no separador de sondas. Certifique-se de que o nome de ficheiro de destino está em conformidade com requisitos do Unity, acrescentando ".bytes" para a extensão de ficheiro. Os registos detalhados para a simulação são armazenados no ficheiro de "AcousticsLog.txt". Caso se depare com quaisquer problemas, partilhe este ficheiro para ajudar com diagnóstico.
+1. Clique no botão "Preparar Local inserir" na guia criar e selecione uma pasta onde serão guardados os ficheiros de entrada e os scripts de execução. Em seguida, pode executar a criar em qualquer máquina, desde que cumprem os requisitos mínimos de hardware e tem o Docker instalado ao copiar a pasta para que a máquina.
+2. Inicie a simulação usando o script "runlocalbake.bat". Este script irá obter a imagem do Docker de Acoustics de projeto com o conjunto de ferramentas necessário para processamento de simulação e inicia a simulação. 
+3. Quando tiver terminado de simulação, copie o ficheiro de .ace resultante para seu projeto Unity. Para certificar-se de que Unity reconhece isso como um arquivo binário, acrescente ".bytes" para a extensão de ficheiro (por exemplo, "Scene1.ace.bytes"). Os registos detalhados para a simulação são armazenados em "AcousticsLog.txt." Caso se depare com quaisquer problemas, partilhe este ficheiro para ajudar com diagnóstico.
 
 ## <a name="Data-Files"></a>Ficheiros de dados
 

@@ -1,37 +1,38 @@
 ---
-title: Consulta de entidade de pesquisa de resposta de projeto - serviços cognitivos Microsoft | Microsoft Docs
-description: Consultas para entidades utilizando a pesquisa de resposta do projeto
+title: 'Início rápido: Consulta de entidade de pesquisa de resposta de projeto'
+titlesuffix: Azure Cognitive Services
+description: Consultas para entidades com a pesquisa de resposta de projeto
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
+ms.component: project-answer-search
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: efb46fc7064bcad69b5ea84f9bdfe923d95ccbe6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353978"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867583"
 ---
-# <a name="query-for-entities"></a>Consulta para entidades
+# <a name="quickstart-query-for-entities"></a>Início rápido: Consultar entidades
 
-Se a consulta solicitar informações sobre uma pessoa, local ou coisa, a resposta pode conter um `entities` resposta.  As consultas sempre devolvem páginas Web, [factos](fact-queries.md) e/ou [entidades](entity-queries.md) são consulta dependentes.
+Se a consulta solicita as informações sobre uma pessoa, local ou coisa, a resposta pode conter um `entities` resposta.  Páginas da Web, as consultas retornam sempre [fatos](fact-queries.md) e/ou [entidades](entity-queries.md) são consulta dependentes.
 
-Entidades suportam três cenários de consulta: 
--   DominantEntity — há apenas uma entidade que corresponde a consulta e a intenção do utilizador. Por exemplo, a consulta, espaço agulha, é um cenário de DominantEntity. 
--   Disambiguation — há mais de uma entidade que corresponda à consulta e a intenção do utilizador e é até ao utilizador selecionar a entidade correta. Por exemplo, a consulta de jogo de Thrones é um cenário de Disambiguation que devolve a mostrar televisão e a série de livro. 
--   Lista — existem várias entidades que correspondem à consulta e a intenção do utilizador. Por exemplo, a consulta "Lista de Especifica endangered" é um cenário de lista que devolve valores tabulares formatados para apresentação no linhas e de células. 
+Entidades de oferecer suporte a três cenários de consulta: 
+-   DominantEntity — há apenas uma entidade que corresponde à consulta e a intenção do utilizador. Por exemplo, a consulta, o Space Needle, é um cenário de DominantEntity. 
+-   Desambiguação — há mais de uma entidade que corresponde à consulta e a intenção do usuário e cabe ao utilizador selecionar a entidade correta. Por exemplo, a consulta de jogo de Thrones é um cenário de Desambiguação que retorna o programa de televisão e a série de livros. 
+-   Lista — existem várias entidades que correspondem à consulta e a intenção do utilizador. Por exemplo, a consulta "Lista de endangered species" é um cenário de lista que retorna valores de tabela formatadas para apresentar em linhas e células. 
  
-Para determinar o cenário de consulta, utilize o `queryScenario` campo a `entities` objeto. Os dados que inclui a entidade dependem do tipo da entidade. Apesar de entidades incluem as mesmas informações básicas, algumas entidades, tais como tourist attractions ou books incluem propriedades adicionais. As entidades que incluem propriedades adicionais incluem a `_type` campo contém uma sugestão utilizada pelo serializador. As seguintes entidades incluem propriedades adicionais: 
--   No livro 
+Para determinar o cenário de consulta, utilize o `queryScenario` campo o `entities` objeto. Os dados que inclui a entidade dependem do tipo da entidade. Embora as entidades incluem as mesmas informações básicas, algumas entidades como tourist attractions ou livros incluem propriedades adicionais. As entidades que incluem propriedades adicionais incluem a `_type` campo que contém uma sugestão utilizada pelo serializador. As seguintes entidades incluem propriedades adicionais: 
+-   Livro 
 -   MusicRecording 
 -   Pessoa 
 -   Attraction 
  
-Para determinar o tipo de entidade que contém a resposta, utilize o `entityTypeHints` campo conforme mostrado na consulta para portas fatura.
+Para determinar o tipo de entidade que contém a resposta, utilize o `entityTypeHints` campo conforme mostrado na consulta para Bill Gates.
 ````
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
@@ -44,11 +45,11 @@ Para determinar o tipo de entidade que contém a resposta, utilize o `entityType
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
 ````
-Segue-se uma consulta para agulha espaço:
+Segue-se uma consulta para o Space Needle:
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
 ````
-A resposta inclui o `entities` resposta. Tenha em atenção o `entityScenario` e `entityTypeHints` campos. 
+A resposta inclui a `entities` resposta. Tenha em atenção a `entityScenario` e `entityTypeHints` campos. 
 ````
   "entities": {
     "value": [
@@ -111,14 +112,14 @@ A resposta inclui o `entities` resposta. Tenha em atenção o `entityScenario` e
 
 Uma consulta pode devolver uma lista, se é relevante.
 
-**Consulta:** a consulta seguinte localiza uma lista de Especifica endangered:
+**Consulta:** a consulta seguinte localiza uma lista de endangered espécie:
 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
 ````
 
-**Resposta:** a resposta inclui uma lista formatada para apresentação como valores de tabela:
+**Resposta:** a resposta inclui uma lista formatada para apresentar como valores de tabela:
 ````
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
@@ -220,7 +221,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](c-sharp-quickstart.md)
-- [Guia de introdução do Java](java-quickstart.md)
+- [Início rápido em C#](c-sharp-quickstart.md)
+- [Início rápido de Java](java-quickstart.md)
 - [Guia de introdução do nó](node-quickstart.md)
 - [Guia de introdução do Python](python-quickstart.md)

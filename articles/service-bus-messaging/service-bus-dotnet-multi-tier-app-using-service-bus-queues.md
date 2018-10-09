@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ec59c8af290a9ff7b7d9640b2253a0f91886256
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394357"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855617"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -352,7 +352,6 @@ Agora criará a função de trabalho que processa as submissões de pedidos. Est
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o Service Bus, consulte os seguintes recursos:  
 
-* [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Introdução às filas do Service Bus][sbacomqhowto]
 * [Página do serviço do Service Bus][sbacom]  
 

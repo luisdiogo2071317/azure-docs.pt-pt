@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b15224a5be6c3c1df0778c35680836cbbfee2e48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810672"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870864"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurar a gestão de oportunidades potenciais para o Dynamics CRM online
 
@@ -95,7 +95,7 @@ Utilize os seguintes passos para configurar o Azure Active Directory para o Dyna
 
 ### <a name="office-365"></a>Office 365
 
-Se não quiser utilizar o Azure Active Directory, pode registar um novo utilizador no portal de administração do Office 365. Ser será solicitado para atualizar todos os 90 dias de seu nome de utilizador/palavra-passe para continuar a obter oportunidades potenciais.
+Se não quiser utilizar o Azure Active Directory, pode registar um novo utilizador no portal de administração do Office 365. Será solicitado a atualizar o seu nome de utilizador/palavra-passe todos os 90 dias para continuar a obter oportunidades potenciais.
 
 Utilize os seguintes passos para configurar o Office 365 para o Dynamics CRM.
 

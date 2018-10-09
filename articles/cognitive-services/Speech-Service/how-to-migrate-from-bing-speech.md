@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 432a17b1e3cd065bd6189ffa9f80ca5985629bb7
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2dc034ea28075019b74fe9d9be548cf9d355d20e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239966"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857487"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de voz do Bing para o serviço de voz
 
@@ -74,11 +74,11 @@ O serviço de voz atualmente não oferece um ponto final global. Terá de determ
 
 Se a sua aplicação utiliza ligações longa duração e não é possível utilizar um SDK disponível, pode utilizar uma ligação de WebsSockets e gerir o limite de tempo limite de 10 minutos, a restabelecer ligação nos momentos apropriados.
 
-Para começar a utilizar com o novo SDK de voz:
+Para começar a utilizar com o SDK de voz:
 
 1. Transfira o [SDK de voz](speech-sdk.md).
 1. Trabalho através do serviço de voz [guias de início rápido](quickstart-csharp-dotnet-windows.md), [tutoriais](how-to-recognize-intents-from-speech-csharp.md)e observe o [exemplos de código](samples.md) obter experiência com as novas APIs.
-1. Atualize a sua aplicação para utilizar o novo serviço de voz e APIs.
+1. Atualize a sua aplicação para utilizar o serviço de voz e APIs.
 
 ## <a name="support"></a>Suporte
 

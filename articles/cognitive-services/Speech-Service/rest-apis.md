@@ -8,20 +8,20 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a441f43a5d7ab3daa3c430dc715fab9ff8c63bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018524"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868314"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
-As APIs REST dos serviços cognitivos do Azure unified voz serviço são semelhantes às APIs fornecidas pelos [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz do Bing. Pontos finais regionais estão disponíveis e tem de utilizar uma chave de assinatura que corresponde ao ponto final que está a utilizar.
+As APIs REST do serviço de voz dos serviços cognitivos do Azure são semelhantes às APIs fornecidas pelos [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz do Bing. Pontos finais regionais estão disponíveis e tem de utilizar uma chave de assinatura que corresponde ao ponto final que está a utilizar.
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição.
+Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição. Referência a **modos de reconhecimento** secção abaixo para substituir `conversation` com o `interactive` ou `dictation` para sua sceanrio desejado numa chamada de API especificada.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,6 +29,53 @@ Os pontos finais para a conversão de voz em texto REST API são mostrados na ta
 > Se personalizou o modelo acústico ou modelo de idioma ou pronúncia, em vez disso, a utilizar o seu ponto final personalizado.
 
 Esta API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve resultados apenas finais, não resultados parciais ou provisórias. O serviço de voz também tem um [transcrição do batch](batch-transcription.md) API que pode transcrição de áudio mais tempo.
+
+### <a name="recognition-modes"></a>Modos de reconhecimento
+
+Quando utilizar o protocolo de REST API ou WebSocket diretamente, tem de especificar o modo de reconhecimento: `interactive`, `conversation`, ou `dictation`. O modo de reconhecimento ajusta o reconhecimento de voz com base na forma como os utilizadores têm probabilidades de falar. Escolha o modo de reconhecimento apropriado para a sua aplicação.
+
+> [!NOTE]
+> Modos de reconhecimento podem ter diferentes comportamentos no protocolo REST do que no protocolo WebSocket. Por exemplo, a API REST não suporta reconhecimento contínuo, até mesmo no modo de ditado ou da conversação.
+> [!NOTE]
+> Esses modos são aplicáveis quando utiliza o protocolo REST ou WebSocket diretamente. O [SDK de voz](speech-sdk.md) utiliza diferentes parâmetros para especificar a configuração de reconhecimento. Para obter mais informações, consulte a biblioteca de cliente da sua preferência.
+
+O serviço de voz de Microsoft devolve apenas um resultado de frase de reconhecimento para todos os modos de reconhecimento. Existe um limite de 15 segundos para qualquer expressão único, ao utilizar o protocolo de REST API ou WebSocket diretamente.
+
+#### <a name="interactive-mode"></a>Modo interativo
+
+No `interactive` modo, um usuário faz solicitações de curtas e espera que o aplicativo execute uma ação em resposta.
+
+As seguintes características são característicos de aplicativos do modo interativo:
+
+- Os utilizadores saibam que estão falando numa máquina e não por humanos de outro.
+- Utilizadores da aplicação sabem antecipadamente o que quer dizer, com base no que eles querem que o aplicativo para o fazer.
+- Expressões com normalmente da última sobre 2 a 3 segundos.
+
+#### <a name="conversation-mode"></a>Modo de conversação
+
+No `conversation` modo, os utilizadores fazem parte de uma conversa humanos.
+
+As seguintes características são típicas de aplicações do modo de conversa:
+
+- Os utilizadores saibam que estão a comunicar para outra pessoa.
+- Reconhecimento de fala melhora as conversas humanas, permitindo que um ou ambos os participantes ver o texto falado.
+- Os utilizadores não planear sempre o que quer dizer.
+- Os utilizadores usam com freqüência gíria e outro voz informal.
+
+#### <a name="dictation-mode"></a>Modo de ditado
+
+No `dictation` modo, os utilizadores recitar mais expressões com a aplicação para processamento adicional.
+
+As seguintes características são típicas de aplicações do modo de ditado:
+
+- Os utilizadores saibam que estão a comunicar a uma máquina.
+- Os utilizadores são mostrados os resultados de texto de reconhecimento de voz.
+- Os usuários muitas vezes, planeie o que quer dizer e utilizar uma linguagem mais formal.
+- Utilizadores empregam completa sentences que últimos 5 a 8 segundos.
+
+> [!NOTE]
+> Em modos de conversações e ditado, o serviço de voz de Microsoft não devolver resultados parciais. Em vez disso, o serviço devolve resultados de frase estável depois de limites de silêncio no fluxo de áudio. Microsoft pode melhorar o protocolo de voz para melhorar a experiência de utilizador nesses modos de reconhecimento contínuo.
+
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -55,13 +102,19 @@ Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
 ### <a name="audio-format"></a>Formato de áudio
 
-O áudio é enviado no corpo do HTTP `PUT` pedido. Deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz.
+O áudio é enviado no corpo do HTTP `PUT` pedido. Deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz da formatos/codificação seguinte.
+
+* Formato WAV com PCM codec
+* Formato de OGG com OPUS codec
+
+>[!NOTE]
+>Os formatos acima são suportados através da REST API e WebSocket no serviço de voz. O [SDK de voz](/index.yml) atualmente apenas suporta o WAV formatar com o codec PCM. 
 
 ### <a name="chunked-transfer"></a>Transferência em partes
 
 A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de voz para começar a processar o ficheiro de áudio, enquanto que está a ser transmitido. A API REST não fornece resultados parciais ou provisórias. Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
 
-O código a seguir ilustra como enviar áudio em blocos. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
+O código a seguir ilustra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -477,5 +530,5 @@ public class Authentication
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de linguagem](how-to-customize-language-model.md)
+- [Personalizar modelos de idioma](how-to-customize-language-model.md)
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228436"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869317"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Instância gerida de replicação de base de dados SQL
 
@@ -76,21 +76,22 @@ Suporta:
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configurar o exemplo de publicação e distribuição
 
-1. [Criar uma instância de gerida de base de dados do Azure SQL](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) no portal.
+1. [Criar uma instância de gerida de base de dados do Azure SQL](sql-database-managed-instance-create-tutorial-portal.md) no portal.
+2. [Criar uma conta de armazenamento do Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
 
-1. [Criar uma conta de armazenamento do Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho. Certifique-se de que copie as chaves de armazenamento. Ver [ver e copiar chaves de acesso de armazenamento](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys).
-
-1. Crie uma base de dados para o publicador.
+   Certifique-se de que copie as chaves de armazenamento. Ver [ver e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys
+).
+3. Crie uma base de dados para o publicador.
 
    Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` com o nome desta base de dados.
 
-1. Crie um utilizador de base de dados com a autenticação de SQL para o distribuidor. Ver, [criar utilizadores de base de dados](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilize uma palavra-passe segura.
+4. Crie um utilizador de base de dados com a autenticação de SQL para o distribuidor. Ver, [criar utilizadores de base de dados](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilize uma palavra-passe segura.
 
    Nos scripts de exemplo abaixo, utilize `<SQL_USER>` e `<PASSWORD>` com esta conta do SQL Server da base de dados utilizador e palavra-passe.
 
-1. [Ligue-se para a instância gerida da base de dados SQL](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Ligue-se para a instância gerida da base de dados SQL](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. Execute a consulta seguinte para adicionar o distribuidor e a base de dados de distribuição.
+6. Execute a consulta seguinte para adicionar o distribuidor e a base de dados de distribuição.
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Suporta:
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. Para configurar um publicador para utilizar uma base de dados de distribuição especificado, atualizar e executar a consulta de follwing.
+7. Para configurar um publicador para utilizar uma base de dados de distribuição especificado, atualize e execute a consulta seguinte.
 
    Substitua `<SQL_USER>` e `<PASSWORD>` com a conta do SQL Server e a palavra-passe.
 
@@ -107,7 +108,7 @@ Suporta:
 
    Substitua `<STORAGE_CONNECTION_STRING>` com a cadeia de ligação a partir de **chaves de acesso** separador da sua conta de armazenamento do Microsoft Azure.
 
-   Depois de atualizar a seguinte consulta, executá-lo. 
+   Depois de atualizar a seguinte consulta, executá-lo.
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Suporta:
    GO
    ```
 
-1. Configure o publicador para a replicação. 
+8. Configure o publicador para a replicação.
 
     Na consulta seguinte, substitua `<Publishing_DB>` com o nome da sua base de dados do publicador.
 
@@ -155,15 +156,13 @@ Suporta:
                 @job_password = N'<PASSWORD>'
    ```
 
-1. Adicione o artigo, a subscrição e o agente de subscrição de push. 
+9. Adicione o artigo, a subscrição e o agente de subscrição de push.
 
    Para adicionar esses objetos, atualize o seguinte script.
 
-   Substitua `<Object_Name>` com o nome do objeto de publicação.
-
-   Substitua `<Object_Schema>` com o nome do esquema de origem. 
-
-   Substitua os outros parâmetros parênteses angulares `<>` de acordo com os valores nos scripts do anteriores. 
+   - Substitua `<Object_Name>` com o nome do objeto de publicação.
+   - Substitua `<Object_Schema>` com o nome do esquema de origem.
+   - Substitua os outros parâmetros parênteses angulares `<>` de acordo com os valores nos scripts do anteriores.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Suporta:
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

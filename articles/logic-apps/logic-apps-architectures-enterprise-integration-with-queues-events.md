@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 2ffb1f7edef0cf92cbbf7adc4314967858bcfeb1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128648"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855379"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Arquitetura de integração empresarial com filas e eventos
 
@@ -81,7 +81,7 @@ Grelha de eventos utiliza um modelo sem servidor. A faturação é calculada com
 
 ### <a name="use-peeklock-to-consume-service-bus-messages"></a>Utilizar PeekLock para consumir mensagens do Service Bus
 
-Ao criar uma aplicação lógica para consumir mensagens do Service Bus, tem a aplicação lógica, utilize [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) para aceder a um grupo de mensagens. Quando utiliza PeekLock, a aplicação lógica pode realizar passos para validar cada mensagem antes de a conclusão ou abandono da mensagem. Essa abordagem protege contra a perda acidental de mensagens.
+Ao criar uma aplicação lógica para consumir mensagens do Service Bus, tem a aplicação lógica, utilize [PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) para aceder a um grupo de mensagens. Quando utiliza PeekLock, a aplicação lógica pode realizar passos para validar cada mensagem antes de a conclusão ou abandono da mensagem. Essa abordagem protege contra a perda acidental de mensagens.
 
 ### <a name="check-for-multiple-objects-when-an-event-grid-trigger-fires"></a>Verificar a existência de vários objetos quando é acionada de um acionador do Event Grid
 

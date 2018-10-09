@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/08/2018
-ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160729"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868238"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurar e restaurar a partir da base de dados do Azure SQL backup retenção a longo prazo com o Cofre dos serviços de recuperação do Azure
+# <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurar retenção de cópia de segurança de longa duração com o Cofre dos serviços de recuperação do Azure
 
 Pode configurar o Cofre de serviços de recuperação do Azure para armazenar cópias de segurança de base de dados de SQL do Azure e, em seguida, recuperar uma base de dados com cópias de segurança retidas no cofre com o portal do Azure ou o PowerShell.
 
 > [!NOTE]
-> Como parte da versão inicial de pré-visualização de retenção de cópia de segurança de longa duração, em Outubro de 2016, as cópias de segurança foram armazenadas no Cofre de serviços de recuperação do Azure. Esta atualização remove esta dependência, mas para compatibilidade com versões anteriores, a API original é suportada até 31 de Maio de 2018. Se precisar de interagir com as cópias de segurança no Cofre de recuperação de serviços do Azure, veja [retenção de cópia de segurança de longa duração com o Cofre de serviços de recuperação do Azure](sql-database-long-term-backup-retention-configure-vault.md). 
-
+> Como parte da versão inicial de pré-visualização de retenção de cópia de segurança de longa duração, em Outubro de 2016, as cópias de segurança foram armazenadas no Cofre de serviços de recuperação do Azure. Esta atualização remove esta dependência, mas para compatibilidade com versões anteriores, a API original é suportada até 31 de Maio de 2018. Se precisar de interagir com as cópias de segurança no Cofre de recuperação de serviços do Azure, veja [retenção de cópia de segurança de longa duração com o Cofre de serviços de recuperação do Azure](sql-database-long-term-backup-retention-configure-vault.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -33,7 +32,7 @@ As secções seguintes mostram como utilizar o portal do Azure para configurar o
 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configurar o cofre, registar o servidor e selecione bases de dados
 
-Configurar um cofre de serviços de recuperação do Azure para [reter cópias de segurança automáticas](sql-database-long-term-retention.md) durante um período maior do que o período de retenção para a camada de serviço. 
+Configurar um cofre de serviços de recuperação do Azure para [reter cópias de segurança automáticas](sql-database-long-term-retention.md) durante um período maior do que o período de retenção para a camada de serviço.
 
 1. Abra o **SQL Server** página do seu servidor.
 
@@ -62,7 +61,7 @@ Configurar um cofre de serviços de recuperação do Azure para [reter cópias d
 7. Sobre o **cofres dos serviços de recuperação** página, clique em **Add**.
 
    ![Adicionar ligação ao Cofre](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. Sobre o **cofre dos serviços de recuperação** , indique um nome válido para o Cofre dos serviços de recuperação.
 
    ![nome do novo cofre](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -73,7 +72,6 @@ Configurar um cofre de serviços de recuperação do Azure para [reter cópias d
 
    > [!IMPORTANT]
    > O cofre tem de estar localizado na mesma região do servidor lógico SQL do Azure e tem de utilizar o mesmo grupo de recursos do servidor lógico.
-   >
 
 10. Depois de criar o novo cofre, execute os passos necessários para voltar para o **cofre dos Recovery services** página.
 
@@ -84,9 +82,9 @@ Configurar um cofre de serviços de recuperação do Azure para [reter cópias d
 12. Sobre o **configurar** página, forneça um nome válido para a nova política de retenção, modificar a política de retenção predefinida conforme adequado e, em seguida, clique em **OK**.
 
    ![definir a política de retenção](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >Os nomes da política de retenção não permitem alguns caracteres, incluindo espaços.
+
+   > [!NOTE]
+   > Os nomes da política de retenção não permitem alguns caracteres, incluindo espaços.
 
 13. Na **retenção de cópia de segurança de longa duração** da base de dados, clique em **guardar** e, em seguida, clique em **OK** para aplicar a política de retenção de cópia de segurança de longo prazo para bases de dados de contas selecionadas.
 
@@ -98,11 +96,10 @@ Configurar um cofre de serviços de recuperação do Azure para [reter cópias d
 
 > [!IMPORTANT]
 > Depois de configuradas, as cópias de segurança aparecem no cofre nos próximos sete dias. Não continue este tutorial até que as cópias de segurança apareçam no cofre.
->
 
 ### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Ver cópias de segurança em retenção de longo prazo através do portal do Azure
 
-Ver informações sobre as cópias de segurança da base de dados no [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md). 
+Ver informações sobre as cópias de segurança da base de dados no [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
 
 1. No portal do Azure, abra o Cofre de serviços de recuperação do Azure para as cópias de segurança da base de dados (aceda a **todos os recursos** e selecione-o na lista de recursos para a sua subscrição) para ver a quantidade de armazenamento utilizado pelas suas cópias de segurança da base de dados no cofre.
 
@@ -167,7 +164,7 @@ Utilize o [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recovery
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
 $recoveryServiceVaultName = "{new-vault-name}"
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
@@ -176,18 +173,17 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 Utilize o [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet para associar um cofre dos serviços de recuperação anteriormente criado com um servidor SQL do Azure específico.
 
 ```PowerShell
-# Set your server to use the vault to for long-term backup retention 
+# Set your server to use the vault to for long-term backup retention
 
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>Criar uma política de retenção
 
-Uma política de retenção é onde define o período de tempo para manter uma cópia de segurança da base de dados. Utilizar o [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet para obter a política de retenção predefinido para utilizar como modelo para criar políticas. Neste modelo, o período de retenção é definido durante dois anos. Em seguida, execute o [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) finalmente criar a política. 
+Uma política de retenção é onde define o período de tempo para manter uma cópia de segurança da base de dados. Utilizar o [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet para obter a política de retenção predefinido para utilizar como modelo para criar políticas. Neste modelo, o período de retenção é definido durante dois anos. Em seguida, execute o [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) finalmente criar a política.
 
 > [!NOTE]
-> Alguns cmdlets precisam que defina o contexto do cofre antes de executar ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) para ver este cmdlet em alguns fragmentos relacionados. Definir o contexto porque a política faz parte do cofre. Pode criar várias políticas de retenção para cada cofre e, em seguida, aplicar a política pretendida para bases de dados específicas. 
-
+> Alguns cmdlets precisam que defina o contexto do cofre antes de executar ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) para ver este cmdlet em alguns fragmentos relacionados. Definir o contexto porque a política faz parte do cofre. Pode criar várias políticas de retenção para cada cofre e, em seguida, aplicar a política pretendida para bases de dados específicas.
 
 ```PowerShell
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
@@ -218,7 +214,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Ver informações da cópia de segurança e cópias de segurança em retenção de longa duração
 
-Ver informações sobre as cópias de segurança da base de dados no [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md). 
+Ver informações sobre as cópias de segurança da base de dados no [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
 
 Utilize os seguintes cmdlets para ver informações de cópia de segurança:
 
@@ -264,18 +260,17 @@ $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 $restoredDb
 ```
 
-
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada com o SQL Server Management Studio para efetuar tarefas necessárias, como para extrair um pouco de dados da base de dados restaurada para copiar para a base de dados existente ou para eliminar o existente da base de dados e mudar o nome do restaurada base de dados para o nome de base de dados existente. Ver [ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Como as cópias de segurança de limpeza no cofre dos serviços de recuperação
 
-A partir de 1 de Julho de 2018 foi preterida a API de V1 LTR e todas as suas cópias de segurança existentes em cofres de recuperação de serviço tiverem sido migradas para os contentores de armazenamento LTR geridos pela base de dados SQL. Para se certificar de que já não são cobrados para as cópias de segurança originais, eles foram removidos dos cofres após a migração. No entanto, se tiver colocado um bloqueio no seu Cofre de cópias de segurança serão mantida. Para evitar os custos desnecessários, pode remover manualmente as cópias de segurança antigas do cofre do serviço de recuperação com o seguinte script. 
+A partir de 1 de Julho de 2018 foi preterida a API de V1 LTR e todas as suas cópias de segurança existentes em cofres de recuperação de serviço tiverem sido migradas para os contentores de armazenamento LTR geridos pela base de dados SQL. Para se certificar de que já não são cobrados para as cópias de segurança originais, eles foram removidos dos cofres após a migração. No entanto, se tiver colocado um bloqueio no seu Cofre de cópias de segurança serão mantida. Para evitar os custos desnecessários, pode remover manualmente as cópias de segurança antigas do cofre do serviço de recuperação com o seguinte script.
 
 ```PowerShell
 <#
 .EXAMPLE
-    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}”
 #>
 [CmdletBinding()]
 Param (
@@ -302,14 +297,14 @@ $containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
 
 ForEach ($container in $containers)
 {
-   $canDeleteContainer = $true  
+   $canDeleteContainer = $true
    $ItemCount = 0
    Write-Host "Working on container" $container.Name
    $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
    ForEach ($item in $items)
    {
-          write-host "Deleting item" $item.name
-          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+    write-host "Deleting item" $item.name
+    Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
    }
 
    Write-Host "Deleting container" $container.Name

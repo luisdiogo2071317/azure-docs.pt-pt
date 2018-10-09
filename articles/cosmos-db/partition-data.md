@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785652"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870575"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Particionar e dimensionar no Azure Cosmos DB
 
@@ -119,6 +119,8 @@ Ao criar um contentor de gráficos particionada, considere os seguintes detalhes
 
 - **Consultas de gráficos, devem especificar uma chave de partição**. Para aproveitar ao máximo a criação de partições horizontais no Azure Cosmos DB, sempre que possível gráfico consultas devem incluir a chave de partição. Por exemplo quando um único vértice está selecionado. As consultas de exemplo seguintes mostram como incluir a chave de partição, ao selecionar um ou vários vértices num gráfico particionado:
 
+    - **Atualmente não é possível usar `/id` como chave de partição para um contentor na API do Gremlin**.
+
     - Selecionar um vértice por ID, em seguida, **utilizar o `.has()` passo para especificar a propriedade da chave de partição**: 
     
         ```
@@ -147,7 +149,7 @@ Ao criar um contentor de gráficos particionada, considere os seguintes detalhes
 
 * **Utilizar a direção de saída ao consultar as margens** sempre que é possível. Margens são armazenadas com seus vértices de origem na direção de saída. Isso significa que as possibilidades de recorrer a consultas entre partições são minimizadas quando os dados e as consultas são projetadas com esse padrão em mente.
 
-## <a name="designing-for-partitioning"></a> Criar chave de partição 
+## <a name="designing-for-partitioning"></a> Criar uma chave de partição 
 Pode utilizar o portal do Azure ou a CLI do Azure para criar contentores e dimensione-os em qualquer altura. Esta secção mostra como criar contentores e especificar a chave de partição e o débito aprovisionada com cada API.
 
 
@@ -225,6 +227,9 @@ Para obter mais informações, consulte [desenvolver com a API de tabela](tutori
 ### <a name="gremlin-api"></a>API do Gremlin
 
 Com a API do Gremlin, pode utilizar o portal do Azure ou a CLI do Azure para criar um contentor que representa um gráfico. Em alternativa, como o Azure Cosmos DB é com múltiplos modelo, pode utilizar uma das outros APIs para criar e dimensionar o seu contentor de gráficos.
+
+> [!NOTE]
+> Não é possível utilizar `/id` como chave de partição para um contentor na API do Gremlin. 
 
 É possível ler qualquer vértice ou de extremidade usando a chave de partição e ID no Gremlin. Por exemplo, para um gráfico com a região ("USA") como a chave de partição e o "Seattle" como a chave de linha, pode encontrar um vértice, utilizando a seguinte sintaxe:
 

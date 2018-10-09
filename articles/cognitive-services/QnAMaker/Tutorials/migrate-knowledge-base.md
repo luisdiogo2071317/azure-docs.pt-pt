@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a06a04ba992c8d7e9691e4838d38faaafd48de7a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031633"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853917"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
 A ferramenta QnA Maker anunciámos a disponibilidade geral de 7 de Maio de 2018 no \\\build\ conferência. Disponibilidade geral do QnA Maker tem uma nova arquitetura baseada no Azure. Criado com a pré-visualização gratuita do QnA Maker de bases de dados de conhecimento, terá de ser migrados para GA. do QnA Maker Pré-visualização do QnA Maker vão ser preterido em Novembro de 2018. Para obter mais informações sobre as alterações em disponibilidade geral do QnA Maker, veja o anúncio de disponibilidade geral do QnA Maker [mensagem de blogue](https://aka.ms/qnamakerga-blog).
@@ -38,9 +38,7 @@ Pré-requisitos
 
     ![Transferir a base de dados de conhecimento](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Iniciar sessão para o [portal do QnA Maker](https://qnamaker.ai) com as suas credenciais do azure e clique em **criar novo serviço**.
-
-    ![Criar KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Iniciar sessão para o [portal do QnA Maker](https://qnamaker.ai) com as suas credenciais do azure e clique em **criar uma base de dados de conhecimento**.
     
 5. Se ainda não tenha criado um serviço QnA Maker, selecione **criar um serviço QnA**. Caso contrário, escolha um serviço QnA Maker de listas pendentes no passo 2. Selecione o serviço QnA Maker que irá alojar a Base de dados de conhecimento.
 

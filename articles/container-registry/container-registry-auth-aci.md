@@ -1,39 +1,38 @@
 ---
-title: Autenticar com o registo de contentor do Azure de instâncias de contentor do Azure
-description: Saiba como fornecer acesso a imagens no seu registo de contentor privada das instâncias de contentor do Azure através da utilização de um principal de serviço do Azure Active Directory.
+title: Autenticar com o registo de contentores do Azure de instâncias de contentor do Azure
+description: Saiba como fornecer acesso a imagens no seu registo de contentor privado do Azure Container Instances ao utilizar um principal de serviço do Azure Active Directory.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: marsma
-ms.openlocfilehash: daa9c098de0c410bd4033cc62ee911631eb3b634
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: danlep
+ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768231"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855838"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registo de contentor do Azure de instâncias de contentor do Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registo de contentores do Azure de instâncias de contentor do Azure
 
-Pode utilizar um principal de serviço do Azure Active Directory (Azure AD) para fornecer acesso aos seus registos do contentor privada no registo de contentor do Azure.
+Pode utilizar um principal de serviço do Azure Active Directory (Azure AD) para fornecer acesso aos seus registos de contentor privado no Azure Container Registry.
 
-Neste artigo, saiba criar e configurar um principal de serviço do Azure AD com *solicitação* permissões para o registo. Em seguida, inicie um contentor no Azure contentor instâncias (ACI) que obtém a imagem a partir do seu registo privado, o principal de serviço a utilizar para autenticação.
+Neste artigo, vai aprender a criar e configurar um principal de serviço do Azure AD com *pull* permissões para o seu registo. Em seguida, iniciar um contentor no Azure Container Instances (ACI) que obtém a imagem do seu registo privado, com o principal de serviço para a autenticação.
 
 ## <a name="when-to-use-a-service-principal"></a>Quando utilizar um principal de serviço
 
-Deve utilizar um principal de serviço para a autenticação de ACI no **cenários sem interface**, tal como em aplicações ou serviços que criar instâncias do contentor de forma automática ou de outra forma automática.
+Deve utilizar um principal de serviço para a autenticação do ACI em **cenários sem periféricos**, como no caso de aplicações ou serviços que criar instâncias de contentor de forma autónoma automatizada ou de outra forma.
 
-Por exemplo, se tiver um script automatizado que é executada durante a noite e cria um [instância baseada em tarefas contentor](../container-instances/container-instances-restart-policy.md) para processar alguns dados, pode utilizar um principal de serviço com pull-only permissões de (leitor) para autenticar no registo. Em seguida, pode rodar credenciais o principal de serviço ou revogar o acesso totalmente sem afetar outros serviços e aplicações.
+Por exemplo, se tiver um script automatizado que é executada todas as noites e cria um [instância de contentor baseado em tarefas](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode utilizar um principal de serviço com permissões de (leitor) pull-only para autenticar para o registo. Em seguida, pode alternar credenciais do principal de serviço ou revogar o acesso totalmente sem afetar outros serviços e aplicações.
 
-Principais de serviço também devem ser utilizado quando o registo [utilizador de admin](container-registry-authentication.md#admin-account) está desativada.
+Principais de serviço também devem ser utilizado quando o Registro [utilizador de admin](container-registry-authentication.md#admin-account) está desativada.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
 ## <a name="authenticate-using-the-service-principal"></a>Autenticar com o principal de serviço
 
-Para iniciar um contentor em instâncias de contentor Azure utilizando um principal de serviço, especifique o respetivo ID para `--registry-username`e a palavra-passe para `--registry-password`.
+Para iniciar um contentor no Azure Container Instances com um principal de serviço, especificar sua ID para `--registry-username`e a respetiva palavra-passe para `--registry-password`.
 
 ```azurecli-interactive
 az container create \
@@ -47,17 +46,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Pode encontrar os scripts de exemplo anterior para a CLI do Azure no GitHub, como bem versões para o Azure PowerShell:
+Pode encontrar os scripts de exemplo anterior para a CLI do Azure no GitHub, como versões bem para o Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os seguintes artigos contém detalhes adicionais sobre como trabalhar com os principais de serviço e ACR:
+Detalhes adicionais sobre como trabalhar com os principais de serviço e o ACR de conter os seguintes artigos:
 
 * [Autenticação de registo de contentor do Azure com os principais de serviço](container-registry-auth-service-principal.md)
-* [Autenticar com o registo de contentor do Azure do serviço de Azure Kubernetes (AKS)](container-registry-auth-aks.md)
+* [Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure (AKS)](container-registry-auth-aks.md)
 
 <!-- IMAGES -->
 

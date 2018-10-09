@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413819"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856348"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -49,7 +49,7 @@ Para obter a documentação da consola de série para VMs do Windows, [clique aq
 
 
 ## <a name="get-started-with-serial-console"></a>Introdução à consola de série
-Consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Abaixo estão os passos para aceder à consola de série para máquinas virtuais através do portal 
+Consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Certifique-se de que cumpriu os [pré-requisitos](#prerequisites) acima. Seguem-se os passos para aceder à consola de série para máquinas virtuais através do portal:
 
   1. Abra o portal do Azure
   1. (Ignore este se a VM tem um utilizador que utiliza a autenticação de palavra-passe) Adicionar um utilizador com a autenticação de nome de utilizador/palavra-passe ao clicar no painel "Repor palavra-passe"

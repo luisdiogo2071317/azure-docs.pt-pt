@@ -4,7 +4,7 @@ description: Descreve as funções e as permissões necessárias para criar fáb
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10-04/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: cd6e28298b773f466ea317b7217af7709802aa12
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c915c6b102f3aeedb316048fad1c6dc238fa0ad
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817518"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868620"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -50,6 +50,9 @@ Para mais informações sobre esta função, veja [função de contribuinte do D
 ### <a name="resource-manager-template-deployment"></a>Implementação de modelo do Resource Manager
 
 O **contribuinte do Data Factory** função, ao nível do grupo de recursos ou superior, permite aos utilizadores implementar modelos do Resource Manager. Como resultado, os membros da função podem utilizar modelos do Resource Manager para implementar fábricas de dados e respetivos recursos subordinados, incluindo conjuntos de dados, serviços ligados, pipelines, acionadores e runtimes de integração. Membros desta função não permitir que o utilizador crie outros recursos, no entanto.
+
+> [!WARNING]
+> Implementação de modelo do Resource Manager com o **contribuinte do Data Factory** função não elevar as suas permissões. Por exemplo, se implementar um modelo que cria uma máquina virtual do Azure, e não tem permissão para criar máquinas virtuais, a implementação falhar com um erro de autorização.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 

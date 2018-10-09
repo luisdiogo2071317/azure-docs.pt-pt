@@ -1,7 +1,7 @@
 ---
 title: Segurança no serviço de aplicações do Azure e as funções do Azure | Documentos da Microsoft
 description: Saiba mais sobre como o serviço de aplicações ajuda a proteger seu aplicativo e como pode mais bloquear a aplicação de ameaças.
-keywords: serviço de aplicações do Azure, aplicação web, aplicação móvel, a aplicação de api, aplicação de funções, segurança, segura e protegida, conformidade, em conformidade, certificado, certificados, https, ftps, tls, confiança, encriptação, encriptar, encriptados, restrições de ip, autenticação, autorização, authn, autho, msi, identidade de serviço gerida, segredos, segredo, aplicação de patches, patch, patches, versão, isolamento, isolamento de rede, ddos, mitm
+keywords: serviço de aplicações do Azure, aplicação web, aplicação móvel, a aplicação de api, aplicação de funções, segurança, segura e protegida, conformidade, em conformidade, certificado, certificados, https, ftps, tls, confiança, encriptação, encriptar, encriptados, restrições de ip, autenticação, autorização, authn, autho, msi, identidade de serviço gerida, identidade gerida, segredos, segredo, aplicação de patches, patch, patches, versão, isolamento, isolamento de rede, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382121"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857504"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Segurança no serviço de aplicações do Azure e as funções do Azure
 
@@ -69,7 +69,7 @@ Autorização e autenticação de serviço de aplicações suportam vários forn
 
 Durante a autenticação em relação a um serviço de back-end, o serviço de aplicações fornece dois mecanismos diferentes dependendo da sua necessidade:
 
-- **Identidade de serviço** -iniciar sessão para o recurso remoto usando a identidade da aplicação em si. Serviço de aplicações permite-lhe criar facilmente um [identidade do serviço gerido](app-service-managed-service-identity.md), que pode ser usado para autenticar com outros serviços, como [base de dados do Azure SQL](/azure/sql-database/) ou [Azure Key Vault](/azure/key-vault/). Para obter um tutorial ponto-a-ponto dessa abordagem, veja [ligação de proteger a base de dados de SQL do Azure a partir do serviço de aplicações com a identidade do serviço gerido](app-service-web-tutorial-connect-msi.md).
+- **Identidade de serviço** -iniciar sessão para o recurso remoto usando a identidade da aplicação em si. Serviço de aplicações permite-lhe criar facilmente um [identidade gerida](app-service-managed-service-identity.md), que pode ser usado para autenticar com outros serviços, como [base de dados do Azure SQL](/azure/sql-database/) ou [Azure Key Vault](/azure/key-vault/). Para obter um tutorial ponto-a-ponto dessa abordagem, veja [ligação de proteger a base de dados de SQL do Azure a partir do serviço de aplicações com uma identidade gerida](app-service-web-tutorial-connect-msi.md).
 - **Em-nome-de (OBO)** -fazer o acesso delegado a recursos remotos em nome do utilizador. Com o Azure Active Directory como o fornecedor de autenticação, a aplicação de serviço de aplicações pode executar delegado início de sessão para um serviço remoto, como [do Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) ou uma aplicação de API remota no serviço de aplicações. Para obter um tutorial ponto-a-ponto dessa abordagem, veja [autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividade a recursos remotos
@@ -106,13 +106,13 @@ Pode aceder em segurança a recursos no local, como bases de dados, de três for
 
 Não armazene segredos da aplicação, como credenciais de base de dados, tokens de API e as chaves privadas em seus arquivos de código ou configuração. A abordagem mais aceita é acessá-los como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão na linguagem de sua escolha. No serviço de aplicações, a forma de definir as variáveis de ambiente é através de [as definições da aplicação](web-sites-configure.md#app-settings) (e, especialmente para aplicações de .NET [cadeias de ligação](web-sites-configure.md#connection-strings)). Definições de aplicações e as cadeias de ligação são armazenadas de forma encriptada no Azure, e eles são desencriptados apenas antes de a ser injetado na memória de processo da sua aplicação quando a aplicação for iniciada. As chaves de encriptação são revezadas regularmente.
 
-Em alternativa, pode integrar o seu serviço de aplicações com [do Azure Key Vault](/azure/key-vault/) para a gestão de segredos avançadas. Por [aceder ao Key Vault com uma identidade de serviço gerida](../key-vault/tutorial-web-application-keyvault.md), seu serviço de aplicações pode aceder em segurança os segredos que precisa.
+Em alternativa, pode integrar o seu serviço de aplicações com [do Azure Key Vault](/azure/key-vault/) para a gestão de segredos avançadas. Por [aceder ao Key Vault com uma identidade gerida](../key-vault/tutorial-web-application-keyvault.md), seu serviço de aplicações pode aceder em segurança os segredos que precisa.
 
 ## <a name="network-isolation"></a>Isolamento de rede
 
 Exceto para o **Isolated** escalão de preço, todos os escalões de executam as suas aplicações na infraestrutura de rede partilhado no serviço de aplicações. Por exemplo, os endereços IP públicos e Balanceadores de carga de front-end são partilhadas com outros inquilinos. O **Isolated** escalão dá-lhe isolamento de rede completa ao executar as suas aplicações dentro de um dedicado [ambiente de serviço de aplicações](environment/intro.md). Um ambiente de serviço de aplicações é executada na sua própria instância do [rede Virtual do Azure](/azure/virtual-network/). Permite-lhe: 
 
-- Restringir o acesso de rede com [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md). 
+- Restringir o acesso de rede com [grupos de segurança de rede](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Servir as suas aplicações através de um ponto final público dedicado, com dedicado front-ends.
 - Servir aplicação interna com um balanceador de carga interno (ILB), que permite o acesso apenas a partir de dentro da sua rede Virtual do Azure. O ILB tem um endereço IP do seu sub-rede privada, o que proporciona isolamento total das suas aplicações a partir da internet.
 - [Utilizar um ILB por trás de uma firewall de aplicações web (WAF)](environment/integrate-with-application-gateway.md). O WAF proporciona proteção de nível empresarial às suas aplicações de destinado ao público, como proteção contra DDoS, URI filtragem e prevenção de injeção de SQL.

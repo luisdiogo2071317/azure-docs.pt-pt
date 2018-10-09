@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008966"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857827"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Descrição geral dos serviços Cloud do Azure
 Serviços Cloud do Azure é um exemplo de um [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Como [App Service do Azure](../app-service/app-service-web-overview.md), esta tecnologia foi concebida para suportar aplicações que são escaláveis, fiáveis e de baixo custo operar. Da mesma forma que o serviço de aplicações é alojado em máquinas virtuais (VMs), portanto, é demasiado serviços Cloud do Azure. No entanto, tem mais controlo sobre as VMs. Pode instalar o seu próprio software nas VMs que utilizam serviços Cloud do Azure, e pode acessá-los remotamente.
@@ -33,7 +33,7 @@ Existem dois tipos de funções de serviços Cloud do Azure. A única diferença
 
 * **Função de trabalho**: não utiliza o IIS e executa sua autónomo de aplicação.
 
-Por exemplo, um aplicativo simples poderá utilizar apenas uma única função da web, que serve um Web site. Uma aplicação mais complexa pode utilizar uma função da web para processar pedidos recebidos de utilizadores e, em seguida, passar esses pedidos para uma função de trabalho para processamento. (Esta comunicação poderá utilizar [do Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou [armazenamento de filas do Azure](../storage/common/storage-introduction.md).)
+Por exemplo, um aplicativo simples poderá utilizar apenas uma única função da web, que serve um Web site. Uma aplicação mais complexa pode utilizar uma função da web para processar pedidos recebidos de utilizadores e, em seguida, passar esses pedidos para uma função de trabalho para processamento. (Esta comunicação poderá utilizar [do Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ou [armazenamento de filas do Azure](../storage/common/storage-introduction.md).)
 
 Como a figura anterior sugere, todas as VMs num único aplicativo executam no mesmo serviço cloud. Carregar automaticamente a aplicação através de um único endereço IP público, com pedidos de acesso de utilizadores balanceadas entre VMs da aplicação. A plataforma [dimensiona e implementa](cloud-services-how-to-scale-portal.md) as VMs num aplicativo de serviços Cloud do Azure de forma que evita um ponto único de falha de hardware.
 

@@ -2,17 +2,17 @@
 title: Automatizar o SO e aplicação de patches de estrutura com tarefas de registo de contentor do Azure (ACR tarefas)
 description: Uma introdução às tarefas do ACR, um conjunto de recursos do Azure Container Registry, que fornece a criação da imagem do contentor seguras e automatizadas e aplicação de patches na cloud.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: 3ba08a0c2422adcd987fa6ed601b666106e8503c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047940"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855769"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR
 

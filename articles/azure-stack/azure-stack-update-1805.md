@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816740"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870011"
 ---
 # <a name="azure-stack-1805-update"></a>Atualização de 1805 de pilha do Azure
 
@@ -72,8 +72,8 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 ## <a name="before-you-begin"></a>Antes de começar    
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- Instalar o Azure Stack [1804 atualizar](azure-stack-update-1804.md) antes de aplicar a atualização do Azure Stack 1805.  
-- Instalar o mais recente disponível [atualização ou correção para a versão 1804](azure-stack-update-1804.md#post-update-steps).   
+- Instale a atualização do Azure Stack 1804 antes de aplicar a atualização do Azure Stack 1805.  
+- Instale a atualização mais recente disponível ou a correção para a versão 1804.   
 - Antes de iniciar a instalação da atualização 1805, execute [AzureStack teste](azure-stack-diagnostic-test.md) para validar o status do seu Azure Stack e resolver quaisquer problemas operacionais encontrados. Também rever alertas ativos e resolver qualquer um que requerem uma ação. 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização   
@@ -117,7 +117,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
   Solução: Para resolver este problema depois de instalar esta atualização, utilize o passo 3 dos [acionar a automatização para configurar afirmações fidedignidade de fornecedor no Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedimento para repor o proprietário da subscrição do fornecedor de predefinição.   
 
 <!-- TBD - IS ASDK --> 
-- Alguns tipos de subscrição administrativos não estão disponíveis.  Quando atualizar o Azure Stack para esta versão, os tipos de duas subscrição que eram [introduzido com a versão 1804](azure-stack-update-1804.md#new-features) não estão visíveis na consola do. Isto era esperado. São os tipos de subscrição indisponível *medição subscrição*, e *subscrição de consumo*. Esses tipos de subscrição são visíveis no novos ambientes do Azure Stack a partir da versão 1804, mas ainda não estão prontos a utilizar. Deve continuar a utilizar o *fornecedor predefinido* tipo de subscrição.  
+- Alguns tipos de subscrição administrativos não estão disponíveis. Ao atualizar o Azure Stack para esta versão, os tipos de duas subscrição que foram introduzidos com versão 1804 não estão visíveis na consola. Isto era esperado. São os tipos de subscrição indisponível *medição subscrição*, e *subscrição de consumo*. Esses tipos de subscrição são visíveis no novos ambientes do Azure Stack a partir da versão 1804, mas ainda não estão prontos a utilizar. Deve continuar a utilizar o *fornecedor predefinido* tipo de subscrição.  
 
 <!-- 2403291 - IS ASDK --> 
 - Poderá não ter o uso da barra de deslocamento horizontal na parte inferior de portais de administrador e utilizador. Se não conseguir aceder a barra de deslocamento horizontal, utilize a estrutura de ligações para navegar até um painel anterior no portal ao selecionar o nome do painel pretende visualizar na lista de trilha encontrado na parte superior esquerda do portal.

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956902"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870830"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão de código do OAuth 2.0
 
@@ -274,7 +274,7 @@ A especificação RFC 6750 define os seguintes erros para os recursos que utiliz
 
 ## <a name="refreshing-the-access-tokens"></a>Atualizar os tokens de acesso
 
-Tokens de acesso são de curta duração e tem de ser atualizados depois de esta expira para continuar a aceder a recursos. Pode atualizar o `access_token` enviando outra `POST` pedido para o `/token` ponto final, mas este tempo, fornecer o `refresh_token` em vez do `code`.
+Tokens de acesso são de curta duração e tem de ser atualizados depois de esta expira para continuar a aceder a recursos. Pode atualizar o `access_token` enviando outra `POST` pedido para o `/token` ponto final, mas este tempo, fornecer o `refresh_token` em vez do `code`.  Tokens de atualização são válidos para todos os recursos que seu cliente já tenha sido dado consentimento para aceder - dessa forma, um token de atualização emitido um pedido para `resource=https://graph.microsoft.com` pode ser utilizado para pedir um novo token de acesso para `resource=https://contoso.com/api`. 
 
 Atualizar tokens não têm tempo de vida especificado. Normalmente, os tempos de vida de tokens de atualização são relativamente longos. No entanto, em alguns casos, tokens de atualização expirarem, são revogados ou não têm privilégios suficientes para a ação desejada. Seu aplicativo precisa esperar e lidar com erros devolvidos pelo ponto de final de emissão de token corretamente.
 

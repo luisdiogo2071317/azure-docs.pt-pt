@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 51dc1280dcc8c47c3cb3ad46fc720e0a38e04b69
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9a6f7aeea799787becf0bb99cdfa08bed4e9d355
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814445"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867464"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Azure Cloud Shell
 
@@ -33,12 +33,12 @@ O Azure Cloud Shell é executado no `Ubuntu 16.04 LTS`.
 
 Cloud Shell com segurança e automaticamente autentica o acesso de conta para a CLI do Azure e o Azure PowerShell.
 
-### <a name="home-persistence-across-sessions"></a>Persistência $Home entre sessões
+### <a name="home-persistence-across-sessions"></a>Persistência $HOME entre sessões
 
 Para manter os ficheiros em sessões, Cloud Shell explica como anexar uma partilha de ficheiros do Azure na primeira execução.
-Depois de concluído, o Cloud Shell ligará automaticamente o armazenamento (montado como `$Home\clouddrive`) para todas as futuras sessões.
-Além disso, seu `$Home` diretório é mantido como um. img na partilha de ficheiros do Azure.
-Ficheiros fora do `$Home` e o estado da máquina não são mantidas entre sessões. Utilize as melhores práticas ao armazenar segredos, como chaves SSH. Serviços, como [do Azure Key Vault tem tutoriais para a configuração](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+Depois de concluído, o Cloud Shell ligará automaticamente o armazenamento (montado como `$HOME\clouddrive`) para todas as futuras sessões.
+Além disso, seu `$HOME` diretório é mantido como um. img na partilha de ficheiros do Azure.
+Ficheiros fora do `$HOME` e o estado da máquina não são mantidas entre sessões. Utilize as melhores práticas ao armazenar segredos, como chaves SSH. Serviços, como [do Azure Key Vault tem tutoriais para a configuração](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Saiba mais sobre ficheiros persistentes no Cloud Shell.](persisting-shell-storage.md)
 
@@ -61,7 +61,7 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 |---|---|
 |Ferramentas do Linux            |Bash<br> zsh<br> SH<br> tmux<br> aprofundar<br>               |
 |Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Editores de texto           |VIM<br> Nano<br> emacs       |
+|Editores de texto           |VIM<br> Nano<br> emacs<br> Código       |
 |Controlo de origem         |git                    |
 |Ferramentas de compilação            |Tornar<br> Maven<br> npm<br> PIP         |
 |Contentores             |[CLI do docker](https://github.com/docker/cli)/[máquina do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DC/OS](https://github.com/dcos/dcos-cli)         |
@@ -76,7 +76,7 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 |Ir         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.0-Preview.4](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (predefinição)|
 
 ## <a name="next-steps"></a>Passos Seguintes

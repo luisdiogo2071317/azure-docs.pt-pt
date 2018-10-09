@@ -2,18 +2,17 @@
 title: Atualizar os contentores no Azure Container Instances
 description: Saiba como atualizar os contentores em execução nos seus grupos de contentor do Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432621"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854546"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar os contentores no Azure Container Instances
 
@@ -23,7 +22,7 @@ Durante o funcionamento normal das suas instâncias de contentor, pode ser neces
 
 Atualize os contentores num grupo de contentor, voltar a implementar um grupo existente pelo menos uma propriedade modificada. Quando atualizar um grupo de contentores, todos os contentores em execução no grupo são reiniciados no local.
 
-Voltar a implementar um grupo de contentor existente emitindo o comando create (ou utilize o portal do Azure) e especifique o nome de um grupo existente. Modificar pelo menos uma propriedade válida do grupo quando emitir o comando create para acionar a reimplementação. Nem todas as propriedades do grupo de contentor são válidas para a nova implementação. Ver [propriedades que necessitam de eliminação](#properties-that-require-delete) para obter uma lista de propriedades não suportadas.
+Voltar a implementar um grupo de contentor existente emitindo o comando create (ou utilize o portal do Azure) e especifique o nome de um grupo existente. Modificar pelo menos uma propriedade válida do grupo quando emitir o comando create para acionar a reimplementação. Nem todas as propriedades do grupo de contentor são válidas para a nova implementação. Ver [propriedades que necessitam de eliminação](#properties-that-require-container-delete) para obter uma lista de propriedades não suportadas.
 
 O exemplo seguinte da CLI do Azure atualiza um grupo de contentores com uma nova etiqueta de nome DNS. Porque a propriedade de etiqueta de nome DNS do grupo é modificada, o grupo de contentores é reimplementado, sendo reiniciada de seus contêineres.
 

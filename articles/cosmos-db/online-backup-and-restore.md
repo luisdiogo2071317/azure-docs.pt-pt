@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043231"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867804"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e restauro com o Azure Cosmos DB
-O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados ou uma solução de recuperação após desastre.  
+O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados.  
 
 Este artigo começa com uma recapitulação rápida da redundância de dados e a disponibilidade no Cosmos DB e, em seguida, aborda as cópias de segurança. 
 
@@ -67,14 +67,17 @@ Se tiver de restaurar a base de dados devido a problema de Corrupção de dados 
 
 O Azure Cosmos DB mantém as últimas duas cópias de segurança de cada partição na conta de base de dados. Esse modelo funciona bem quando um contentor (coleção de documentos, gráfico, tabela) ou uma base de dados sejam eliminado acidentalmente, uma vez que uma das versões do último pode ser restaurada. No entanto, no caso de quando os utilizadores podem introduzir um problema de Corrupção de dados, do Azure Cosmos DB pode não terem conhecimento da Corrupção de dados e é possível que a existência de danos pode ter substituído as cópias de segurança existentes. 
 
-Assim que for detetada corrupção, contacte o suporte ao cliente com informações de conta e contentor de base de dados com o tempo aproximado de corrupção. Outra ação que o utilizador pode fazer no caso de danificado (eliminação/atualização de dados) o utilizador deve eliminar o contentor danificado (coleção/gráfico/tabela) para que as cópias de segurança são protegidas contra a ser substituído pelos dados danificados.  
+Assim que for detetada corrupção, o utilizador deve eliminar o contentor danificado (coleção/gráfico/tabela) para que as cópias de segurança são protegidas contra a ser substituído pelos dados danificados. E mais importante é que contacte o Microsoft Support e emitir um pedido de solicitação específica de 2 de gravidade. 
 
 A imagem seguinte ilustra a criação do pedido de suporte para o restauro de container(collection/graph/table) através do portal do Azure para a eliminação acidental ou de atualização de dados dentro de um contêiner
 
 ![Restaurar um contentor para atualização errada ou eliminar de dados no Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Quando é efetuar um restauro para este tipo de cenários - os dados são restaurados para outra conta (com o sufixo do "-restaurado") e um contentor. Este restauro não é feito no local para fornecer uma chance ao cliente para fazer a validação de dados e mover os dados conforme necessário. O contentor de restaurada está na mesma região com o mesmo RUs e políticas de indexação. 
+Quando é efetuar um restauro para este tipo de cenários - os dados são restaurados para outra conta (com o sufixo do "-restaurado") e um contentor. Este restauro não é feito no local para fornecer uma chance ao cliente para fazer a validação de dados e mover os dados conforme necessário. O contentor de restaurada está na mesma região com o mesmo RUs e políticas de indexação. Utilizador que seja administrador da subscrição ou coadministrador, pode ver esta conta restaurada.
 
+
+> [!NOTE]
+> Se restaurar os dados para corrigir o problema de corrupção ou apenas para teste, tenha em conta para removê-los em breve como sua tarefa é feita como restaurado contentores ou uma base de dados terão um custo extra - com base no débito aprovisionado. 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para replicar a base de dados em vários datacenters, veja [distribuir dados globalmente com o Cosmos DB](distribute-data-globally.md). 

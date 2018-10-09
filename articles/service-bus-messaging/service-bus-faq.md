@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 312d92994e4932e854ec77681da2d4dbd14da2aa
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 87a6ccf61e10a6a8c7feeccad3690cdcb9b63641
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392006"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857861"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -115,7 +115,6 @@ Para saber mais sobre o Service Bus, consulte os artigos seguintes:
 * [Introdução ao Azure Service Bus Premium (mensagem de blogue)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Azure Premium do Service Bus) (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Descrição geral do Service Bus](service-bus-messaging-overview.md)
-* [Descrição geral da arquitetura do Service Bus do Azure](service-bus-fundamentals-hybrid-solutions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

@@ -4,41 +4,61 @@ description: Este artigo descreve como base de dados do Azure para PostgreSQL ge
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: bcca8ce8d11482dd8517992297b7e8a5b94ac8b1
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.topic: conceptual
+ms.date: 10/04/2018
+ms.openlocfilehash: 2a6744bdec48e59b820605bb4d1cc01d32702bcf
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435495"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867770"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registos do servidor na base de dados do Azure para PostgreSQL 
-Base de dados do Azure para PostgreSQL gera erro de consulta e registos. No entanto, o acesso aos logs de transação não é suportado. Registos de consulta e o erro podem ser utilizados para identificar, resolução de problemas e reparar erros de configuração e de desempenho inferior ao ideal. Para obter mais informações, consulte [relatório de erros e o registo](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
+Base de dados do Azure para PostgreSQL gera erro de consulta e registos. Registos de consulta e o erro podem ser utilizados para identificar, resolução de problemas e reparar erros de configuração e de desempenho inferior ao ideal. (O acesso aos logs de transação não está incluído.) 
 
-## <a name="access-server-logs"></a>Aceder a registos do servidor
-Pode listar e transferir registos de erros de servidor PostgreSQL do Azure com o portal do Azure, [CLI do Azure](howto-configure-server-logs-using-cli.md)e APIs REST do Azure.
+## <a name="configure-logging"></a>Configurar o registo 
+Pode configurar o registo no seu servidor com os parâmetros de servidor de Registro em log. Em cada novo servidor **log_checkpoints** e **log_connections** são ativados por padrão. Existem parâmetros adicionais, pode ajustar de acordo com as suas necessidades de registo: 
 
-## <a name="log-retention"></a>Retenção do registo
-Pode definir o período de retenção para registos de sistema com o **log\_retenção\_período** parâmetro associado ao servidor. A unidade para este parâmetro é dias. O valor predefinido é 3 dias. O valor máximo é de 7 dias. O servidor tem de ter suficiente alocado de armazenamento para incluir os ficheiros de registo retida.
-Rodar os ficheiros de registo para a cada uma hora ou 100 MB de tamanho, o que ocorrer primeiro.
+![Base de dados do Azure para PostgreSQL - parâmetros de registo](./media/concepts-server-logs/log-parameters.png)
 
-## <a name="configure-logging-for-azure-postgresql-server"></a>Configurar o registo para o servidor PostgreSQL do Azure
-Pode ativar o registo de consulta e o registo de erro para o seu servidor. Registos de erros podem conter informações aspirador automática, ligação e os pontos de verificação.
+Para obter mais informações sobre estes parâmetros, consulte do PostgreSQL [relatório de erros e o registo](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) documentação. Para saber como configurar a base de dados do Azure para PostgreSQL parâmetros, veja a [documentação do portal](howto-configure-server-parameters-using-portal.md) ou o [documentação da CLI](howto-configure-server-parameters-using-cli.md).
 
-Pode ativar o registo de consulta para a sua instância de BD de PostgreSQL ao definir os dois parâmetros de servidor: `log_statement` e `log_min_duration_statement`.
+## <a name="access-server-logs-through-portal-or-cli"></a>Registos do servidor de acesso através do portal ou a CLI
+Se ativou os registos, pode acessá-los da base de dados do Azure para PostgreSQL através de armazenamento de registo do [portal do Azure](howto-configure-server-logs-in-portal.md), [CLI do Azure](howto-configure-server-logs-using-cli.md)e APIs REST do Azure. Rodar os ficheiros de registo para a cada 1 hora ou 100MB de tamanho, o que ocorrer primeiro. Pode definir o período de retenção para este armazenamento de registo utilizando o **log\_retenção\_período** parâmetro associado ao servidor. O valor predefinido é 3 dias; o valor máximo é de 7 dias. O servidor tem de ter suficiente alocado de armazenamento para armazenar os ficheiros de registo. (Este parâmetro de retenção não regem os registos de diagnóstico do Azure.)
 
-O **log\_instrução** parâmetro controla quais instruções SQL são registadas. É recomendável definir esse parâmetro como ***todos os*** para registar todas as instruções; o valor predefinido é none.
 
-O **log\_min\_duração\_instrução** parâmetro define o limite em milissegundos de uma instrução de ter sessão iniciada. Todas as instruções SQL que são executadas mais do que a definição de parâmetro são registadas. Este parâmetro é desativado e definido para menos 1 (-1) por predefinição. Ativar este parâmetro pode ser útil para rastreamento de consultas não otimizadas em seus aplicativos.
+## <a name="diagnostic-logs"></a>Registos de diagnósticos
+Base de dados do Azure para PostgreSQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos no servidor PostgreSQL, pode optar por fazê-los emitidos para [do Log Analytics](../log-analytics/log-analytics-queries.md), os Hubs de eventos ou o armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte a seção de procedimentos do [documentação de registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
 
-O **log\_min\_mensagens** permite-lhe controlar que níveis de mensagens é escritos no registo de servidor. A predefinição é aviso. 
 
-Para obter mais informações sobre estas definições, consulte [relatório de erros e o registo](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) documentação. Para configurar particularmente o banco de dados do Azure para parâmetros do servidor PostgreSQL, consulte [personalizar os parâmetros de configuração de servidor com a CLI do Azure](howto-configure-server-parameters-using-cli.md).
+A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final de saída que escolher, os campos incluídos e a ordem em que aparecem pode variar. 
+
+|**Campo** | **Descrição** |
+|---|---|
+| TenantId | O ID de inquilino |
+| SourceSystem | `Azure` |
+| TimeGenerated [UTC] | Carimbo de hora quando o registo foi registado em UTC |
+| Tipo | Tipo do registo. Sempre `AzureDiagnostics` |
+| SubscriptionId | GUID da subscrição que o servidor pertence a |
+| ResourceGroup | Nome do grupo de recursos do servidor pertence a |
+| ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceType | `Servers` |
+| ResourceId | URI do recurso |
+| Recurso | Nome do servidor |
+| Categoria | `PostgreSQLLogs` |
+| OperationName | `LogEvent` |
+| nível de erro | Nível de registo, por exemplo: LOG, erro, aviso |
+| Mensagem | Mensagem do registo principal | 
+| Domain | Versão do servidor, por exemplo: postgres 10 |
+| Detalhe | Mensagem do registo secundário (se aplicável) |
+| columnName | Nome da coluna (se aplicável) |
+| SchemaName | Nome do esquema (se aplicável) |
+| DatatypeName | Nome do tipo de dados (se aplicável) |
+| LogicalServerName | Nome do servidor | 
+| _ResourceId | URI do recurso |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para aceder aos registos utilizando a interface de linha de comandos da CLI do Azure, veja [acesso e configurar os registos do servidor com a CLI do Azure](howto-configure-server-logs-using-cli.md).
-- Para obter mais informações sobre parâmetros do servidor, consulte [personalizar os parâmetros de configuração de servidor com a CLI do Azure](howto-configure-server-parameters-using-cli.md).
+- Saiba mais sobre como aceder aos registos a partir da [portal do Azure](howto-configure-server-logs-in-portal.md) ou [CLI do Azure](howto-configure-server-logs-using-cli.md).
+- Saiba mais sobre [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

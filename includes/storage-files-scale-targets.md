@@ -1,4 +1,4 @@
-| Recurso | Partilhas de partilhas de ficheiros padrão | Partilhas de ficheiros de Premium (pré-visualização) |
+| Recurso | Partilhas de ficheiros padrão | Partilhas de ficheiros de Premium (pré-visualização) |
 |----------|---------------|------------------------------------------|
 | Tamanho mínimo de uma partilha de ficheiros | (nenhum valor mínimo; opção pay as you go) | 100 GiB |
 | Tamanho máx. de uma partilha de ficheiros | De 5 TiB | De 5 TiB |

@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 65c3fa4c667fdb2d670ff259b190db140b4d968f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803924"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854920"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no Azure Active Directory
 
-Um nome de domínio é uma parte importante do identificador para muitos recursos de diretório: ele faz parte de um endereço de e-mail ou nome de utilizador para um utilizador, a parte do endereço de um grupo e podem fazer parte da URI de ID de aplicação para uma aplicação. Um recurso no Azure Active Directory (Azure AD) pode incluir um nome de domínio que já foi verificado como pertencentes ao diretório que contém o recurso. Apenas um administrador global pode efetuar tarefas de gestão de domínio no Azure AD.
+Um nome de domínio é uma parte importante do identificador para muitos recursos de diretório: ele faz parte de um endereço de e-mail ou nome de utilizador para um utilizador, a parte do endereço de um grupo e, às vezes, faz parte do URI de ID de aplicação para uma aplicação. Um recurso no Azure Active Directory (Azure AD) pode incluir um nome de domínio que é propriedade de diretório que contém o recurso. Apenas um Administrador Global pode gerir domínios no Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Defina o nome de domínio primário de diretório do Azure AD
 
@@ -38,19 +38,19 @@ Quando é criado o seu diretório, o nome de domínio inicial, como "contoso.onm
   
    ![Criar um nome de domínio primário](./media/domains-manage/make-primary-domain.png)
 
-Pode alterar o nome de domínio primário para o diretório para qualquer domínio personalizado verificado que não está federado. Alterar o domínio principal para o seu diretório não irá alterar os nomes de utilizador para todos os utilizadores existentes.
+Pode alterar o nome de domínio primário para o diretório para qualquer domínio personalizado verificado que não está federado. Alterar o domínio principal para o seu diretório não será alterado o nome de utilizador para todos os utilizadores existentes.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Adicionar nomes de domínio personalizado ao seu inquilino do Azure AD
 
-Pode adicionar um máximo de 900 nomes de domínio gerido. Se estiver a configurar todos os seus domínios para federação com o Active Directory no local, pode adicionar um máximo de 450 nomes de domínio em cada diretório. 
+Pode adicionar até 900 nomes de domínio gerido. Se estiver a configurar todos os seus domínios para federação com o Active Directory no local, pode adicionar até 450 nomes de domínio em cada diretório.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicionar subdomínios de um domínio personalizado
 
-Se pretender adicionar um nome de domínio de terceiro nível, como 'europe.contoso.com' para o seu diretório, deve primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio será verificado automaticamente pelo Azure AD. Para ver que o subdomínio que acabou de adicionar foi confirmado, atualize a página no navegador que lista os domínios.
+Se pretender adicionar um nome de domínio de terceiro nível, como 'europe.contoso.com' para o seu diretório, deve primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio automaticamente é verificado pelo Azure AD. Para ver que o subdomínio adicionou é verificado, atualize a lista de domínio no browser.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>O que fazer se alterar a entidade de registo DNS para o seu nome de domínio personalizado
 
-Se alterar a entidade de registo DNS para o nome de domínio personalizado, pode continuar a utilizar o seu nome de domínio personalizado com o Azure AD em si sem interrupção e sem as tarefas de configuração adicionais. Se utilizar o seu nome de domínio personalizado com o Office 365, Intune, ou outros serviços que dependem de nomes de domínio personalizados no Azure AD, consulte a documentação para os serviços.
+Se alterar as entidades de registo DNS, existem não existem tarefas de configuração adicionais no Azure AD. Pode continuar a utilizar o nome de domínio com o Azure AD sem interrupção. Se utilizar o seu nome de domínio personalizado com o Office 365, o Intune ou outros serviços que dependem de nomes de domínio personalizados no Azure AD, consulte a documentação para os serviços.
 
 ## <a name="delete-a-custom-domain-name"></a>Eliminar um nome de domínio personalizado
 
@@ -83,7 +83,7 @@ As seguintes ações são efetuadas como parte da **ForceDelete** operação:
 
 * O número de objetos a possível mudar o nome é superior a 1000
 * Um dos aplicativos para possível mudar o nome é uma aplicação multi-inquilino
-  
+
 ### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: por que a eliminação de domínio falha com um erro que indica que tenho de grupos do Exchange controlada neste nome de domínio?** <br>

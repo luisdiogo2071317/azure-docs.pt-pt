@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953230"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870558"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 
@@ -38,7 +38,7 @@ Antes de poder criar aplicativos ou usuários, precisa de um inquilino do Azure 
 Depois de ter um inquilino de B2C, tem de registar a sua aplicação utilizando o [portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para utilizar a Graph API com o seu inquilino do B2C, terá de registar uma aplicação com o *registos de aplicações* no portal do Azure, serviço **não** do Azure AD B2C *aplicativos*menu. As instruções seguintes levá-lo ao menu adequadas. Não é possível reutilizar os aplicativos existentes do B2C que registou do Azure AD B2C *aplicativos* menu.
+> Para utilizar a Graph API com o seu inquilino do B2C, terá de registar uma aplicação com o *registos de aplicações* no portal do Azure, serviço **não** do Azure AD B2C *aplicativos*menu. As instruções seguintes levá-lo ao menu apropriado. Não é possível reutilizar os aplicativos existentes do B2C que registou do Azure AD B2C *aplicativos* menu.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha o seu inquilino do Azure AD B2C ao selecionar a sua conta no canto superior direito da página.

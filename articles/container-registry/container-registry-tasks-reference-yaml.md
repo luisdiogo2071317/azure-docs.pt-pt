@@ -2,17 +2,17 @@
 title: Referência de tarefas de registo de contentor do Azure - YAML
 description: Referência para definir tarefas em YAML para tarefas de ACR, incluindo propriedades da tarefa, tipos de passo, propriedades do passo e variáveis incorporadas.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: a40c05b2775e32bd0932122245914951d42cf712
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048084"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854954"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência de tarefas do ACR: YAML
 
@@ -30,7 +30,7 @@ Tarefas de ACR oferece suporte a declaração de tarefa de várias etapas na sin
 O nível superior `acr-task.yaml` primitivos são **propriedades da tarefa**, **passo tipos**, e **passo propriedades**:
 
 * [Propriedades da tarefa](#task-properties) aplicam-se a todos os passos em toda a execução da tarefa. Existem três propriedades de tarefa global:
-  * versão
+  * version
   * stepTimeout
   * totalTimeout
 * [Passo tipos de tarefas](#task-step-types) representam os tipos de ações que podem ser executadas numa tarefa. Existem três tipos de passo:

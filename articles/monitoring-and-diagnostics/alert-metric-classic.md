@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 308ba7fd7635dc243d88b73b7785b747969bbbbb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410005"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854019"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
 
@@ -36,7 +36,7 @@ Alertas de métricas clássicas no Azure Monitor oferecem uma forma de ser notif
 
 6. Selecione **os proprietários de E-Mail...**  se pretender que os administradores e coadministradores para receber notificações por e-mail quando o alerta é acionado.
 
-7. Se pretender enviar notificações para os endereços de e-mail adicionais quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula, no seguinte formato:  *email@contoso.com; email2@contoso.com*
+7. Se pretender enviar notificações para os endereços de e-mail adicionais quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula, no seguinte formato:  *email@contoso.com;email2@contoso.com*
 
 8. Colocar num URI válido no **Webhook** campo se desejar que ela seja chamada quando o alerta é acionado.
 

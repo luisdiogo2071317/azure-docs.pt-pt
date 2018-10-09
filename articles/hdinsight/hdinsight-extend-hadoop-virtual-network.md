@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 6df64afa5e99ea5fe3d3c6531e6e50425520286b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/08/2018
+ms.openlocfilehash: 724d3d7fe8ff037b82bbce797e391c21060aa53d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801969"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870966"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -302,7 +302,7 @@ Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem
 
     Para obter informações sobre os endereços IP a utilizar para o Azure Government, consulte a [do Azure Government inteligência + análise](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) documento.
 
-3. Se utilizar um servidor DNS personalizado com a sua rede virtual, também tem de permitir acesso a partir __168.63.129.16__. Este endereço é o resolvedor recursivo do Azure. Para obter mais informações, consulte a [resolução de nomes para VMs e a função instâncias](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) documento.
+3. Também tem de permitir acesso a partir __168.63.129.16__. Este endereço é o resolvedor recursivo do Azure. Para obter mais informações, consulte a [resolução de nomes para VMs e a função instâncias](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) documento.
 
 Para obter mais informações, consulte a [controlar o tráfego da rede](#networktraffic) secção.
 

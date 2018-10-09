@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414880"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858014"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -28,7 +28,7 @@ A consola de série de Máquina Virtual no Azure fornece acesso a um console bas
 
 Para obter a documentação da consola de série para VMs do Linux [clique aqui](serial-console-linux.md).
 
-> [!Note] 
+> [!NOTE] 
 > Consola de série para máquinas virtuais está disponível em geral em regiões globais do Azure. Neste momento consola de série ainda não está disponível em clouds do Azure Government ou Azure China.
 
  
@@ -83,9 +83,12 @@ Se precisar de ativar o carregador de inicialização do Windows pede-lhe para m
 1. Ligar à máquina virtual Windows através de ambiente de trabalho remoto
 2. A partir de uma linha de comandos administrativa, execute os seguintes comandos 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 30`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reinicie o sistema para o menu de arranque seja ativado
+
+> [!NOTE] 
+> O tempo limite que definiu para o menu de Gestor de arranque a aparecer irá afetar o tempo de arranque de sistema operacional no futuro. Embora possa ser aceitável para algumas para adicionar o limite de tempo segundo 30 para garantir que o Gerenciador de inicialização é visível através da consola de série, outras pessoas poderá limite de tempo mais curto. Defina o valor de tempo limite como um valor que se sente confortável.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Utilizar a consola de série para chamadas de NMI em VMs do Windows
 Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não será ignorada. Historicamente, NMIs foram utilizadas para monitorizar a existência de problemas de hardware em sistemas que exigem tempos de resposta específica.  Hoje, os programadores e administradores de sistema utilizam frequentemente NMI como um mecanismo para depurar ou resolver problemas de sistemas que estão a ser suspenso.
@@ -99,7 +102,7 @@ Para obter informações sobre como configurar o Windows para criar um despejo d
 ## <a name="disable-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.
 
-> [!Note]       
+> [!NOTE]       
 > Para ativar ou desativar a consola de série para uma subscrição, tem de ter permissões de escrita para a subscrição. Isto inclui, mas não se limita às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 ### <a name="subscription-level-disable"></a>Desativar o nível de assinatura

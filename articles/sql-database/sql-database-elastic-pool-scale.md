@@ -12,22 +12,23 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 2b304ac26f9a18b0e98cb4c42de3ca386637d864
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 09f544495d90684384dfccfbb5655c2240f86755
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164724"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870390"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar recursos de conjunto elástico na base de dados do Azure SQL
 
-Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para conjuntos elásticos e bases de dados agrupadas na base de dados do Azure SQL. 
+Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para conjuntos elásticos e bases de dados agrupadas na base de dados do Azure SQL.
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>modelo de compra baseado em vCore: alterar o tamanho de armazenamento do conjunto elástico
 
-- Pode aprovisionar um armazenamento até ao limite de tamanho máximo: 
- - Para o armazenamento Standard, aumentar ou diminuir o tamanho em incrementos de 10 GB
- - Para armazenamento Premium, aumentar ou diminuir o tamanho em incrementos de 250 GB
+- Pode aprovisionar um armazenamento até ao limite de tamanho máximo:
+
+  - Para o armazenamento Standard, aumentar ou diminuir o tamanho em incrementos de 10 GB
+  - Para armazenamento Premium, aumentar ou diminuir o tamanho em incrementos de 250 GB
 - Armazenamento para um conjunto elástico pode ser aprovisionado por aumentar ou diminuir o tamanho máximo.
 - O preço do armazenamento de um conjunto elástico é a quantidade de armazenamento, multiplicada pelo preço de unidade de armazenamento da camada de serviços. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -36,9 +37,9 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>modelo de compra baseado em vCore: recursos (vCores) de computação do conjunto elástico de alteração
 
-Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](/rest/api/sql/elasticpools/update).
+Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](/rest/api/sql/elasticpools/update).
 
-- Quando ao redimensionar o conjunto vCores, ligações de base de dados rapidamente são ignoradas. Este é o mesmo comportamento, assim como ocorre quando ao redimensionar o DTUs para uma base de dados (não num conjunto de). Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [DTUs ao redimensionar o para uma base de dados](#single-database-change-storage-size). 
+- Quando ao redimensionar o vCores num conjunto elástico, ligações de base de dados rapidamente são ignoradas. Este comportamento é o mesmo comportamento que ocorre quando ao redimensionar o DTUs para uma base de dados. Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [(DTUs) de recursos de computação de alteração](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - A duração a redimensionar vCores de agrupamento pode depender da quantidade total de espaço de armazenamento utilizado por todas as bases de dados no conjunto. Em geral, a latência ao redimensionar calcula a média 90 minutos ou menos por 100 GB. Por exemplo, se o total de espaço utilizado por todas as bases de dados no conjunto é 200 GB, em seguida, a latência esperada ao redimensionar o conjunto é de 3 horas ou menos. Em alguns casos no escalão Standard ou Basic, a latência ao redimensionar pode ser menos de cinco minutos, independentemente da quantidade de espaço utilizado.
 - Em geral, a duração para alterar os vCores min por vCores de base de dados ou máximo por base de dados é de cinco minutos ou menos.
 - Quando downsizing vCores de agrupamento, o espaço do agrupamento utilizado tem de ser menor do que o tamanho máximo permitido dos vCores de escalão e o conjunto de serviço do destino.
@@ -46,7 +47,7 @@ Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra baseado em DTU: alterar o tamanho de armazenamento do conjunto elástico
 
 - O preço de eDTU de um conjunto elástico inclui uma certa quantidade de armazenamento sem custos adicionais. Pode ser aprovisionado armazenamento extra para além da quantidade incluída por um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB a 1 TB e, em seguida, em incrementos de 256 GB a partir de 1 TB. Para quantidades de armazenamento incluído e limites de tamanho máximo, consulte [conjunto elástico: tamanhos de armazenamento e tamanhos de computação](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Pode aprovisionar um armazenamento extra para um conjunto elástico aumente o seu tamanho máximo utilizando o [portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [REST API ](/rest/api/sql/elasticpools/update).
+- Pode aprovisionar um armazenamento extra para um conjunto elástico aumente o seu tamanho máximo utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [REST API ](/rest/api/sql/elasticpools/update).
 - O preço do armazenamento extra para um conjunto elástico é a quantidade de armazenamento extra multiplicada pelo preço de unidade de armazenamento extra da camada de serviços. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -54,13 +55,13 @@ Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com 
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra baseado em DTU: recursos (eDTUs) de computação do conjunto elástico de alteração
 
-Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](/rest/api/sql/elasticpools/update).
+Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](/rest/api/sql/elasticpools/update).
 
-- Quando ao redimensionar o conjunto de eDTUs, ligações de base de dados rapidamente são ignoradas. Este é o mesmo comportamento, assim como ocorre quando ao redimensionar o DTUs para uma base de dados (não num conjunto de). Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [DTUs ao redimensionar o para uma base de dados](#single-database-change-storage-size). 
+- Quando ao redimensionar o conjunto de eDTUs, ligações de base de dados rapidamente são ignoradas. Este comportamento é o mesmo comportamento que ocorre quando ao redimensionar o DTUs para uma base de dados. Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [(DTUs) de recursos de computação de alteração](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - A duração a redimensionar eDTUs do conjunto pode confiar na quantidade total de espaço de armazenamento utilizado por todas as bases de dados no conjunto. Em geral, a latência ao redimensionar calcula a média 90 minutos ou menos por 100 GB. Por exemplo, se o total de espaço utilizado por todas as bases de dados no conjunto é 200 GB, em seguida, a latência esperada ao redimensionar o conjunto é de 3 horas ou menos. Em alguns casos no escalão Standard ou Basic, a latência ao redimensionar pode ser menos de cinco minutos, independentemente da quantidade de espaço utilizado.
 - Em geral, a duração para alterar o mínimo de eDTUs por base de dados ou o número máximo de eDTUs por base de dados é de cinco minutos ou menos.
-- Quando downsizing eDTUs do conjunto, o espaço do agrupamento utilizado tem de ser menor do que o tamanho máximo permitido das eDTUs de escalão e o conjunto de serviço do destino.
-- Quando ao redimensionar o conjunto de eDTUs, aplicável um custo de armazenamento extra se (1) o tamanho máximo de armazenamento do conjunto é suportado pelo pool de destino e (2) o tamanho máximo de armazenamento excede a quantidade de armazenamento incluído de agrupamento de destino. Por exemplo, se um conjunto Standard com um tamanho máximo de 100 GB de 100 Edtus é downsized para um conjunto padrão de 50 Edtus, em seguida, um custo de armazenamento extra aplica-se uma vez que o agrupamento de destino suporta um tamanho máximo de 100 GB e a quantidade de armazenamento incluído é apenas 50 GB. Por isso, a quantidade de armazenamento extra é 100 GB – 50 GB = 50 GB. Para obter os preços do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizada é inferior à quantidade de armazenamento incluído, em seguida, isso encargos extra pode ser evitado ao reduzir o tamanho máximo da base de dados para o montante incluído. 
+- Quando downsizing eDTUs para um conjunto elástico, o espaço do agrupamento utilizado tem de ser menor do que o tamanho máximo permitido das eDTUs de escalão e o conjunto de serviço do destino.
+- Quando ao redimensionar o eDTUs para um conjunto elástico, aplicável um custo de armazenamento extra se (1) o tamanho máximo de armazenamento do conjunto é suportado pelo pool de destino e (2) o tamanho máximo de armazenamento excede a quantidade de armazenamento incluído de agrupamento de destino. Por exemplo, se um conjunto Standard com um tamanho máximo de 100 GB de 100 Edtus é downsized para um conjunto padrão de 50 Edtus, em seguida, um custo de armazenamento extra aplica-se uma vez que o agrupamento de destino suporta um tamanho máximo de 100 GB e a quantidade de armazenamento incluído é apenas 50 GB. Por isso, a quantidade de armazenamento extra é 100 GB – 50 GB = 50 GB. Para obter os preços do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizada é inferior à quantidade de armazenamento incluído, em seguida, isso encargos extra pode ser evitado ao reduzir o tamanho máximo da base de dados para o montante incluído.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

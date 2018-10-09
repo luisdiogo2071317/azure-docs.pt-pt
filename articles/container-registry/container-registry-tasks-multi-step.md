@@ -2,17 +2,17 @@
 title: Automatizar a criação da imagem, teste e patch com tarefas do Azure Container Registry com vários passos
 description: Um tarefas de vários passos de introdução, uma funcionalidade do ACR tarefas no Azure Container Registry fornece fluxos de trabalho baseados em tarefas para criar, testar e aplicar patches em imagens de contentor na cloud.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: b88fbf927cff51d78d95ed9501921d528b22b455
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047871"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856723"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Execução de vários passo compilação, teste e as tarefas de patch no ACR tarefas
 

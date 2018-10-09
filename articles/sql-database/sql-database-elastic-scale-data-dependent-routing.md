@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161827"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869623"
 ---
-# <a name="data-dependent-routing"></a>Encaminhamento dependente de dados
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento para encaminhar uma consulta para o banco de dados apropriado de dependente de dados
+
 **Encaminhamento dependente de dados** é a capacidade de utilizar os dados numa consulta para encaminhar a solicitação para um banco de dados apropriado. Encaminhamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dados em partição horizontal. O contexto de solicitação também pode ser utilizado para encaminhar a solicitação, especialmente se a chave de fragmentação não é parte da consulta. Cada consulta específica ou a transação num aplicativo com o encaminhamento dependente de dados está limitada a aceder a uma base de dados por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, esse roteamento é realizado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) classe.
 
 O aplicativo não precisa de controlar várias cadeias de ligação ou locais de DB associados diferentes setores de dados no ambiente em partição horizontal. Em vez disso, o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md) abre-se ligações às bases de dados corretos quando necessário, com base nos dados no mapa de partições horizontais e o valor da chave de fragmentação que é o destino do pedido da aplicação. A chave é, normalmente, o *customer_id*, *tenant_id*, *date_key*, ou um outro identificador específico, que é um parâmetro fundamental do pedido da base de dados. 

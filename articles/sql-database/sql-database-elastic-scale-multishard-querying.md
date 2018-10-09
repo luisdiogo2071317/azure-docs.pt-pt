@@ -11,16 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5af6779bfb6075aa3606cc32939ae715241afe8d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 93408b266a239e897b49ab2482818a5221742685
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166321"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870407"
 ---
-# <a name="multi-shard-querying"></a>Consultas de vários fragmentos
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Consultas de vários fragmentos usando ferramentas de bases de dados elásticas
+
 ## <a name="overview"></a>Descrição geral
+
 Com o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md), pode criar soluções de base de dados em partição horizontal. **Consultas de vários fragmentos** é utilizado para tarefas como coleção/relatórios de dados que requerem a execução de uma consulta que aproveita ao máximo através de vários shards. (Compare isso [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho numa única partição horizontal.) 
 
 1. Obter um **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) ou **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) com o **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), a **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), ou a **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) método. Ver **[construir um ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** e  **[receber um RangeShardMap ou ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
@@ -31,6 +33,7 @@ Com o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-intr
 6. Ver os resultados usando a **MultiShardResultSet ou MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) classe. 
 
 ## <a name="example"></a>Exemplo
+
 O código a seguir ilustra a utilização de vários fragmentos como consultar usando um determinado **ShardMap** com o nome *myShardMap*. 
 
 ```csharp
@@ -63,8 +66,7 @@ Observe a chamada para **myShardMap.GetShards()**. Esse método obtém todas as 
 Uma limitação com consultas de vários fragmentos atualmente é a falta de validação para as partições horizontais e shardlets que são consultados. Embora o encaminhamento dependente de dados verifica se o determinada partição horizontal é parte do mapa de partições horizontais no momento da consulta, consultas de vários fragmentos não executar esta verificação. Isso pode levar a consultas de vários fragmentos em execução nas bases de dados que foram removidos do mapa de partições horizontais.
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Consultas de vários fragmentos e operações de dividir / unir
+
 Consultas de vários fragmentos não verificar se shardlets na base de dados consultado está participando de operações de divisão / intercalação em curso. (Consulte [dimensionar com a ferramenta de dividir / unir da base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências em que as linhas a partir do mesmo shardlet mostram para várias bases de dados da mesma consulta de vários fragmentos. Lembre-se de que essas limitações e considere drenagem operações de divisão / intercalação em curso e as alterações para o mapa de partições horizontais ao efetuar consultas de vários fragmentos.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-

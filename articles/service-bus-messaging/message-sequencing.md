@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: a15e726e237bcdbd9d380aaf9232e5d16a2e648f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409140"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857691"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
 
@@ -26,7 +26,7 @@ Sequenciamento e carimbo são dois recursos que são sempre ativados em todas as
 
 Para os casos em que ordem absoluto das mensagens é significativo e/ou em que um consumidor tem um identificador exclusivo confiável para mensagens, as mensagens de carimbos de Mediador com uma lacuna e sem aumentar o número de sequência em relação a fila ou tópico. Para entidades particionadas, o número de sequência é emitido em relação a partição.
 
-O **SequenceNumber** valor é um inteiro de 64 bits exclusivo atribuído a uma mensagem à medida que ele é aceite e armazenado pela broker e funções como seu identificador interno. Para entidades particionadas, os mais alto 16 bits refletem o identificador de partição. Números de sequência acumulam para zero quando o intervalo de 48/64 bits se esgota.
+O **SequenceNumber** valor é um inteiro de 64 bits exclusivo atribuído a uma mensagem à medida que ele é aceite e armazenado pela broker e funções como seu identificador interno. Para entidades particionadas, os mais alto 16 bits refletem o identificador de partição. Números de sequência de rollover para zero quando o intervalo de 48/64 bits se esgota.
 
 O número de sequência de mensagens em fila pode ser fidedigno como um identificador exclusivo, uma vez que é atribuído por uma autoridade central e neutra e não pelos clientes. Ele também representa a ordem de chegada de verdadeira e é mais preciso que um carimbo de data / hora como um critério de ordem, porque os carimbos de data / hora não pode ter uma resolução alta o suficiente às taxas de mensagem extreme e poderá estar sujeito a (no entanto mínima) distorção em situações em que o Mediador propriedade faz a transição entre os nós.
 
@@ -50,7 +50,6 @@ Uma vez que a funcionalidade é ancorada nas mensagens individuais e as mensagen
 
 Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
 
-* [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

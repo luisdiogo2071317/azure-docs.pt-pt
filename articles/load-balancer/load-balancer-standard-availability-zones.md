@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: 308e085bf98dea179a81b3ac28c14de2994b5927
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390857"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869062"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
-De SKU o Azure do Balanceador de carga Standard suporta [zonas de disponibilidade](../availability-zones/az-overview.md) cenários. Vários novos conceitos estão disponíveis com o Balanceador de carga Standard, que permitem otimizar a disponibilidade no seu cenário de ponto-a-ponto, alinhando a recursos com zonas e distribuí-los em zonas.  Revisão [zonas de disponibilidade](../availability-zones/az-overview.md) para obter orientações sobre o que são zonas de disponibilidade, as regiões que suportam atualmente as zonas de disponibilidade e outros relacionados com conceitos e produtos. As zonas de disponibilidade em combinação com o Balanceador de carga Standard é um conjunto de recursos de abrangente e flexível que pode criar vários cenários diferentes.  Reveja este documento para compreender estas [conceitos](#concepts) e o cenário fundamental [documentação de orientação](#design).
+De SKU o Azure do Balanceador de carga Standard suporta [zonas de disponibilidade](../availability-zones/az-overview.md) cenários. Vários novos conceitos estão disponíveis com o Balanceador de carga Standard, que permitem otimizar a disponibilidade no seu cenário de ponto-a-ponto, alinhando a recursos com zonas e distribuí-los em zonas.  Revisão [zonas de disponibilidade](../availability-zones/az-overview.md) para obter orientações sobre o que são zonas de disponibilidade, as regiões que suportam atualmente as zonas de disponibilidade e outros relacionados com conceitos e produtos. As zonas de disponibilidade em combinação com o Balanceador de carga Standard são um conjunto de recursos de abrangente e flexível que pode criar vários cenários diferentes.  Reveja este documento para compreender estas [conceitos](#concepts) e o cenário fundamental [documentação de orientação](#design).
 
 >[!NOTE]
 >Revisão [zonas de disponibilidade](https://aka.ms/availabilityzones) para outros tópicos relacionados. 
@@ -54,7 +54,7 @@ Ao utilizar vários front-ends, reveja [vários front-ends de Balanceador de car
 
 #### <a name="zone-redundant-by-default"></a>Zona redundante por predefinição
 
-Numa região com zonas de disponibilidade, um front-end de Balanceador de carga Standard é com redundância de zona por predefinição.  Um endereço IP de front-end único pode sobreviver a falha de zona e pode ser utilizado para chegar a todos os membros do agrupamento de back-end, independentemente da zona. Isso não significa que o caminho de dados hitless, mas qualquer repetições ou reestablishment será concluída com êxito. Esquemas de redundância DNS não são necessárias. Endereço IP do front-end único é atendido em simultâneo por implementações de infraestrutura independentes em cada zona de disponibilidade.  Com redundância de zona significa que todos os fluxos de entrada ou saídos são servidos pelo todas as zonas de disponibilidade numa região simultaneamente com um único endereço IP.
+Numa região com zonas de disponibilidade, um front-end de Balanceador de carga Standard é com redundância de zona por predefinição.  Um endereço IP de front-end único pode sobreviver a falha de zona e pode ser utilizado para chegar a todos os membros do agrupamento de back-end, independentemente da zona. Isso não significa que o caminho de dados hitless, mas qualquer repetições ou reestablishment será concluída com êxito. Esquemas de redundância DNS não são necessárias. Endereço IP do front-end único é atendido em simultâneo por várias implementações de infraestrutura independentes em várias zonas de disponibilidade.  Com redundância de zona significa que todos os fluxos de entrada ou saídos são servidos por várias zonas de disponibilidade numa região simultaneamente com um único endereço IP.
 
 Um ou mais zonas de disponibilidade pode falhar e o caminho de dados, desde que uma zona no permanece região sobrevive a bom estado de funcionamento. Configuração com redundância de zona é a predefinição e requer que não existem ações adicionais.  Quando uma região ganha a capacidade para suportar as zonas de disponibilidade, um front-end existente torna-se com redundância de zona automaticamente.
 
@@ -99,7 +99,7 @@ Utilize o seguinte script para criar um endereço IP de front-end com redundânc
 
 #### <a name="optional-zone-guarantee"></a>Garantia de zona opcional
 
-Pode optar por ter um front-end garantido para uma única zona, que é conhecido como um *front-end zonal*.  Isso significa que qualquer fluxo de entrada ou saído é atendido por uma única zona de uma região.  O destino de partilhas de front-end com o estado de funcionamento da zona.  O caminho de dados não é afetado por falhas em horários diferentes onde foi garantida. Pode usar o front-ends zonal para expor um endereço IP por zona de disponibilidade.  Além disso, pode consumir o front-ends zonal diretamente ou, quando o front-end consiste em endereços IP públicos, integrá-las com uma produto como de balanceamento de carga DNS [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md) e utilizar um único nome DNS, que um cliente será resolvido para vários endereços IP zonais.  Pode também utilizar isso para expor por zona com balanceamento de carga pontos finais para monitorizar individualmente cada zona.  Se desejar misturar esses conceitos (com redundância de zona e zonais para o mesmo back-end), reveja [vários front-ends de Balanceador de carga do Azure](load-balancer-multivip-overview.md).
+Pode optar por ter um front-end garantido para uma única zona, que é conhecido como um *front-end zonal*.  Isso significa que qualquer fluxo de entrada ou saído é atendido por uma única zona de uma região.  O destino de partilhas de front-end com o estado de funcionamento da zona.  O caminho de dados não é afetado por falhas em horários diferentes onde foi garantida. Pode usar o front-ends zonal para expor um endereço IP por zona de disponibilidade.  Além disso, pode consumir o front-ends zonal diretamente ou, quando o front-end consiste em endereços IP públicos, integrá-las num produto de balanceamento de carga DNS como [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md) e utilizar um único nome DNS, que um cliente será resolvido para vários endereços IP zonais.  Pode também utilizar isso para expor por zona com balanceamento de carga pontos finais para monitorizar individualmente cada zona.  Se desejar misturar esses conceitos (com redundância de zona e zonais para o mesmo back-end), reveja [vários front-ends de Balanceador de carga do Azure](load-balancer-multivip-overview.md).
 
 Para um público Balanceador de carga front-end, adiciona um *zonas* parâmetro para o IP público, referenciado pela configuração de IP de front-end.  
 
@@ -201,7 +201,7 @@ Evite introduzir dependências de entre zonas indesejadas, que serão anula os g
   - Precisa de ter salvaguardas no seu serviço para forçar uma ativação pós-falha para um par de região, se necessário?
   - Como irá monitorizar, detetar e mitigar um cenário como esse? Poderá utilizar os diagnósticos do Balanceador de carga Standard para aumentar a monitorização do seu desempenho do serviço de ponto-a-ponto. Considere o que está disponível e o que poderá precisar do aumento de para uma visão completa.
 
-- Zonas podem tornar as falhas mais facilmente compreendido e contido.  No entanto, a falha de zona não é diferente de outras falhas quando se trata de conceitos, como tempos limite, as repetições e os algoritmos de término. Apesar do Balanceador de carga do Azure fornece caminhos com redundância de zona e tenta recuperar rapidamente, num nível de pacote em tempo real, retransmissões ou reestablishments poderão ocorrer durante o princípio de uma falha e é importante compreender como o seu aplicativo lida com falhas. Seu esquema de balanceamento de carga irão sobreviver, mas precisa planejar para o seguinte:
+- Zonas podem tornar as falhas mais facilmente compreendido e contido.  No entanto, a falha de zona não é diferente de outras falhas quando se trata de conceitos, como tempos limite, as repetições e os algoritmos de término. Apesar do Balanceador de carga do Azure fornece caminhos com redundância de zona e tenta recuperar rapidamente, num nível de pacote em tempo real, retransmissões ou reestablishments poderão ocorrer durante o princípio de uma falha e é importante compreender como o seu aplicativo lida com falhas. O esquema de balanceamento de carga irão sobreviver, mas precisa planejar para o seguinte:
   - Quando ocorre uma falha numa zona, seu serviço de ponto-a-ponto compreender isso e se o estado for perdido, como recuperará?
   - Quando uma zona retorna, a sua aplicação compreender como convergir com segurança?
 

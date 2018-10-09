@@ -1,20 +1,21 @@
 ---
-title: Referência de pré-visualização do URL - serviços cognitivos da Microsoft do projeto | Documentos da Microsoft
+title: Referência de pré-visualização do URL do projeto
+titlesuffix: Azure Cognitive Services
 description: Referência para o ponto final de pré-visualização de URL do projeto.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865880"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870813"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
 
@@ -63,11 +64,11 @@ Seguem-se os cabeçalhos que podem incluir uma solicitação e resposta.
   
 |Cabeçalho|Descrição|  
 |------------|-----------------|   
-|<a name="market" />Mercado de BingAPIs|Cabeçalho de resposta.<br /><br /> O mercado utilizado pelo pedido. O formulário é \<languageCode\>-\<indicativo do país\>. Por exemplo, en-US.|  
-|<a name="traceid" />BingAPIs TraceId|Cabeçalho de resposta.<br /><br /> O ID da entrada de log que contém os detalhes do pedido. Quando ocorre um erro, capturar este ID. Se não for capaz de determinar e resolver o problema, inclua essa identificação, juntamente com as outras informações que fornecer a equipa de suporte.|  
-|<a name="subscriptionkey" />OCP-Apim-Subscription-Key|Cabeçalho do pedido necessário.<br /><br /> A chave de subscrição que recebeu quando se inscreveu para este serviço no [dos serviços cognitivos](https://www.microsoft.com/cognitive-services/).|  
-|<a name="clientid" />X-MSEdge-ID de cliente|Cabeçalho de solicitação e resposta opcionais.<br /><br /> O Bing utiliza este cabeçalho para fornecer aos utilizadores um comportamento consistente em chamadas de API do Bing. Bing, muitas vezes, por vários voos novos recursos e aprimoramentos, e utiliza o ID de cliente como uma chave para atribuir o tráfego de voos diferentes. Se não utilizar o mesmo ID de cliente para um utilizador em vários pedidos, Bing pode atribuir o utilizador a vários voos em conflito. A ser atribuído a vários voos em conflito pode levar a uma experiência de usuário inconsistente. Por exemplo, se a segunda solicitação tiver uma atribuição de voo diferentes que o primeiro, a experiência poderão ser inesperada. Além disso, o Bing pode utilizar o ID de cliente para personalizar os resultados da web para que o cliente IDs de histórico de pesquisas, fornecendo uma experiência mais rica para o utilizador.<br /><br /> O Bing utiliza também este cabeçalho para ajudar a melhorar as classificações de resultado ao analisar a atividade gerada por um ID de cliente. Ajudam os aprimoramentos de relevância de melhor qualidade dos resultados fornecidos pelas APIs do Bing e, em seguida permite maior taxas de cliques para o consumidor de API.<br /><br />Seguem-se as regras de utilização básica que se aplicam a este cabeçalho.<br /><ul><li>Cada utilizador que utiliza a sua aplicação no dispositivo tem de ter um exclusivo, Bing gerados pelo ID de cliente.<br /><br/>Se não incluir este cabeçalho no pedido, o Bing gera um ID e devolve a mesma no cabeçalho de resposta de X-MSEdge-ID de cliente. O único momento em que não deve incluir esse cabeçalho num pedido é a primeira vez que o utilizador utiliza a sua aplicação nesse dispositivo.<br /><br/></li><li>Utilize o ID de cliente para cada pedido de API do Bing que torna a sua aplicação para este utilizador no dispositivo.<br /><br/></li><li>**Atenção:** tem de garantir que este ID de cliente não é vinculação para quaisquer informações de conta de utilizador authenticatable.</li><br/><li>Manter o ID de cliente. Para manter o ID de uma aplicação de browser, utilize um cookie HTTP persistente para garantir que o ID é utilizado em todas as sessões. Não utilize um cookie de sessão. Para outras aplicações, como as aplicações móveis, utilize o armazenamento persistente do dispositivo para manter o ID.<br /><br/>Da próxima vez que o utilizador utiliza a sua aplicação nesse dispositivo, obtenha o ID de cliente que manteve.</li></ul><br /> **Nota:** respostas Bing pode ou não pode incluir esse cabeçalho. Se a resposta inclui esse cabeçalho, capture o ID de cliente e usá-la para todos os pedidos subsequentes do Bing para o utilizador nesse dispositivo.<br /><br /> **Nota:** se incluir o ClientID de MSEdge X, não pode incluir os cookies no pedido.|  
-|<a name="clientip" />X-MSEdge-ClientIP|Cabeçalho do pedido opcional.<br /><br /> O endereço IPv4 ou IPv6 do dispositivo cliente. O endereço IP é utilizado para detetar a localização do utilizador. O Bing utiliza as informações de localização para determinar o comportamento de pesquisa segura.<br /><br />  Não é ofuscar o endereço (por exemplo, alterando o último octeto para 0). Ofuscar os resultados de endereço no local não estão sendo em qualquer lugar junto à localização do dispositivo real, que poderá resultar no Bing que serve os resultados de errado.|  
+|<a name="market" />BingAPIs-Market|O cabeçalho da resposta.<br /><br /> O mercado que o pedido utiliza. O formato é \<languageCode\>-\<códigodeidioma\>. Por exemplo: en-US.|  
+|<a name="traceid" />BingAPIs-TraceId|O cabeçalho da resposta.<br /><br /> O ID da entrada de registo que contém os detalhes do pedido. Quando ocorrer um erro, capture este ID. Se não conseguir determinar nem resolver o problema, inclua o ID juntamente com as outras informações que enviar à equipa de suporte.|  
+|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Cabeçalho de pedido obrigatório.<br /><br /> A chave de subscrição que recebeu quando se inscreveu neste serviço nos [Serviços Cognitivos](https://www.microsoft.com/cognitive-services/).|  
+|<a name="clientid" />X-MSEdge-ClientID|Cabeçalho de pedido e resposta opcional.<br /><br /> O Bing utiliza este cabeçalho para proporcionar um comportamento consistente nas chamada à API do Bing aos utilizadores. O Bing lança, muitas vezes, funcionalidades e melhorias novas e utiliza o ID de cliente como uma chave para atribuir tráfego aos diferentes lançamentos. Se não utilizar o mesmo ID de cliente para um utilizador em vários pedidos, o Bing poderá atribuir esse utilizador a vários lançamentos sobrepostos. A atribuição a vários lançamentos sobrepostos pode provocar uma experiência de utilizador inconsistente. Por exemplo, se a atribuição de lançamento do segundo pedido for diferente da do primeiro, a experiência poderá ser inesperada. Além disso, o Bing pode utilizar o ID de cliente para personalizar os resultados da Web o histórico de pesquisas desse ID, proporcionando uma experiência mais rica ao utilizador.<br /><br /> O Bing também utiliza este cabeçalho para ajudar a melhorar as classificações dos resultados ao analisar a atividade gerada por um ID de cliente. As melhorias à relevância ajudam a que as APIs do Bing devolvam resultados com melhor qualidade, o que, por sua vez, origina taxas de cliques mais altas para o consumidor da API.<br /><br />As regras abaixo são as regras de utilização básicas aplicáveis a este cabeçalho.<br /><ul><li>Cada utilizador que utilize a sua aplicação no dispositivo tem de ter um ID de cliente exclusivo e gerado pelo Bing.<br /><br/>Se não incluir este cabeçalho no pedido, o Bing gera um ID e devolve-o no cabeçalho da resposta X-MSEdge-ClientID. O único momento em que NÃO deve incluir este cabeçalho num pedido é na primeira vez que o utilizador utiliza a sua aplicação nesse dispositivo.<br /><br/></li><li>Utilize o ID de cliente para cada pedido da API do Bing que a sua aplicação fizer para este utilizador no dispositivo.<br /><br/></li><li>**Atenção:** tem de garantir que este ID de cliente não é vinculação para quaisquer informações de conta de utilizador authenticatable.</li><br/><li>Persista o ID de cliente. Para persistir o ID numa aplicação de browser, utilize um cookie HTTP persistente para garantir que esse ID é utilizado em todas as sessões. Não utilize um cookie de sessão. Relativamente a outras aplicações, como aplicações móveis, utilize o armazenamento persistente do dispositivo para persistir o ID.<br /><br/>Da próxima vez que o utilizador utilizar a aplicação nesse dispositivo, recebe o ID de cliente que foi persistido.</li></ul><br /> **NOTA:** as respostas do Bing podem incluir ou não este cabeçalho. Se a resposta incluir este cabeçalho, capture o ID de cliente e utilize-o em todos os pedidos do Bing subsequentes do utilizador nesse dispositivo.<br /><br /> **NOTA:** se incluir X-MSEdge-ClientID, não pode incluir cookies no pedido.|  
+|<a name="clientip" />X-MSEdge-ClientIP|Cabeçalho de pedido opcional.<br /><br /> O endereço IPv4 ou IPv6 do dispositivo cliente. O endereço IP é utilizado para detetar a localização do utilizador. O Bing utiliza as informações de localização para determinar o comportamento do safesearch.<br /><br />  Não ofusque a morada (por exemplo, ao alterar o último octeto para 0). Ofuscar a morada faz com que a localização não esteja perto da localização efetiva do dispositivo, o que pode fazer com que o Bing sirva resultados errados.|  
 <br /><br /></li></ul>   
 
 ## <a name="query-parameters"></a>Parâmetros de consulta  
@@ -76,10 +77,10 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
   
 |Nome|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|O mercado de onde vêm os resultados. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte [códigos de mercado](#market-codes).<br /><br /> **Nota:** a API de pré-visualização do URL atualmente suporta apenas geografia dos EUA e do idioma inglês.<br /><br />|Cadeia|Sim|  
+|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte [códigos de mercado](#market-codes).<br /><br /> **Nota:** a API de pré-visualização do URL atualmente suporta apenas geografia dos EUA e do idioma inglês.<br /><br />|Cadeia|Sim|  
 |<a name="query" />p|O URL para a pré-visualização|Cadeia|Sim|  
 |<a name="responseformat" />responseFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os valores possíveis de maiúsculas e minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> A predefinição é JSON. Para obter informações sobre o JSON de objetos que contém a resposta, consulte [objetos de resposta](#response-objects).<br /><br />  Se especificar JsonLd, o corpo da resposta inclui os objetos de JSON LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON LD](http://json-ld.org/).|Cadeia|Não|
-|<a name="safesearch"/>pesquisa segura|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>pesquisa segura = strict: título, descrição, URL e imagem não vão ser devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |Cadeia|Não é necessário. </br> O padrão é safeSearch = rigorosa.| 
+|<a name="safesearch"/>safeSearch|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>pesquisa segura = strict: título, descrição, URL e imagem não vão ser devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |Cadeia|Não é necessário. </br> O padrão é safeSearch = rigorosa.| 
 
 ## <a name="response-objects"></a>Objetos de resposta  
 O esquema de resposta é qualquer um de uma [página Web] ou byl vrácen Prvek, tal como a API de pesquisa na Web. Se o pedido falhar, o objeto de nível superior é o [byl vrácen Prvek](#errorresponse) objeto.
@@ -98,9 +99,9 @@ Define o erro ocorrido.
 |<a name="error-code" />Código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|Cadeia|  
 |<a name="error-message" />mensagem|Uma descrição do erro.|Cadeia|  
 |<a name="error-moredetails" />moreDetails|Uma descrição que fornece informações adicionais sobre o erro.|Cadeia|  
-|<a name="error-parameter" />parâmetro|O parâmetro de consulta no pedido que causou o erro.|Cadeia|  
-|<a name="error-subcode" />subCode|O código de erro que identifica o erro. Por exemplo, se `code` é InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|  
-|<a name="error-value" />valor|Valor do parâmetro de consulta que não era válido.|Cadeia|  
+|<a name="error-parameter" />Parâmetro|O parâmetro de consulta no pedido que causou o erro.|Cadeia|  
+|<a name="error-subcode" />SubCode|O código de erro que identifica o erro. Por exemplo, se `code` é InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|  
+|<a name="error-value" />Valor|Valor do parâmetro de consulta que não era válido.|Cadeia|  
   
 
 ### <a name="errorresponse"></a>Byl vrácen Prvek  
@@ -109,7 +110,7 @@ O objeto de nível superior que a resposta inclui quando o pedido falhar.
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |tipo|Dica de tipo.|Cadeia|  
-|<a name="errors" />erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Erro](#error)]|   
+|<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Erro](#error)]|   
   
 
 ### <a name="webpage"></a>Página Web  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: spelluru
-ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d4ecbb7101e7b1f0f3dd6978ae7d35bb5066126d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695413"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854937"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST do reencaminhamento WCF do Azure
 
@@ -561,7 +561,6 @@ Depois de compilar a solução, faça o seguinte procedimento para executar a ap
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que compilou uma aplicação que utiliza o serviço de reencaminhamento do Azure, veja os artigos seguintes para obter mais informações:
 
-* [Descrição de geral de arquitetura do Service Bus do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Descrição Geral do Reencaminhamento do Azure](relay-what-is-it.md)
 * [Como utilizar o serviço de reencaminhamento do WCF com .NET](relay-wcf-dotnet-get-started.md)
 

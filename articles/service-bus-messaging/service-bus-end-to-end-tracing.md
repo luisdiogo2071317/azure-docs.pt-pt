@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 59aa3ec8ee417bec68cfec181f63dc1910100c3f
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392782"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854886"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação por meio de mensagens do Service Bus
 
@@ -227,7 +227,6 @@ Na presença de vários `DiagnosticSource` serviços de escuta para a mesma orig
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlação de informações da aplicação](../application-insights/application-insights-correlation.md)
 * [Monitorizar dependências do Application Insights](../application-insights/app-insights-asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasar.
 * [Acompanhar operações personalizadas com o .NET SDK do Application Insights](../application-insights/application-insights-custom-operations-tracking.md)

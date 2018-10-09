@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/26/2018
-ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6d03a6016d26e7885bedd4a0b56cbab9dab4873e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394070"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869887"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância gerida da base de dados SQL do Azure
 
@@ -60,7 +60,7 @@ Pode selecionar a computação e recursos de armazenamento na implementação de
 Para saber como criar a infraestrutura VNet e uma instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> É importante manter o seu destino VNet e sub-rede sempre em acordo com o [requisitos de VNET de instância gerida](sql-database-managed-instance-vnet-configuration.md#requirements). Qualquer incompatibilidade pode impedi-lo de criar novas instâncias ou utilizando os que já criou.
+> É importante manter o seu destino VNet e sub-rede sempre em acordo com o [requisitos de VNet de instância gerida](sql-database-managed-instance-vnet-configuration.md#requirements). Qualquer incompatibilidade pode impedi-lo de criar novas instâncias ou utilizando os que já criou.
 
 ## <a name="select-migration-method-and-migrate"></a>Selecione o método de migração e migrar
 

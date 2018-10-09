@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166491"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870983"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -89,7 +89,7 @@ Não é suportada a autenticação tradicional do windows. O Azure Active Direct
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Como limitar ou controlar o acesso de conectividade ao meu banco de dados?
 Existem várias técnicas à sua disposição que pode utilizar para a competência de organização de conectividade ideal para a sua aplicação. 
 - Regras da Firewall
-- Pontos finais de serviço VNET
+- Pontos finais de serviço de VNet
 - IPs Reservados
 
 #### <a name="firewall"></a>Firewall
@@ -98,11 +98,11 @@ Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir
 Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall ao nível do servidor podem criada através do portal ou por meio do SSMS. Para saber mais sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [criar regras de firewall na base de dados SQL](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Pontos finais de serviço
-Por predefinição, a base de dados SQL está configurado para "Permitir que os serviços do Azure ao servidor de acesso" – que significa que qualquer máquina Virtual no Azure pode tentar ligar à base de dados. Estas tentativas ainda é necessário obter autenticado. No entanto, se não deseja sua base de dados acessíveis por qualquer IPs do Azure, pode desabilitar "Permitir que os serviços do Azure ao servidor de acesso". Além disso, pode configurar [pontos finais de serviço de VNET](sql-database-vnet-service-endpoint-rule-overview.md).
+Por predefinição, a base de dados SQL está configurado para "Permitir que os serviços do Azure ao servidor de acesso" – que significa que qualquer máquina Virtual no Azure pode tentar ligar à base de dados. Estas tentativas ainda é necessário obter autenticado. No entanto, se não deseja sua base de dados acessíveis por qualquer IPs do Azure, pode desabilitar "Permitir que os serviços do Azure ao servidor de acesso". Além disso, pode configurar [pontos finais de serviço de VNet](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Pontos finais de serviço (SE) permitem-lhe expor os seus recursos críticos do Azure apenas para sua própria rede privada virtual no Azure. Ao fazê-lo, eliminar, essencialmente, acesso público aos seus recursos. O tráfego entre a rede virtual para o Azure permanece na rede backbone do Azure. Sem SE obtém o encaminhamento de pacotes de imposição de túnel. A rede virtual força o tráfego de internet para a sua organização e o tráfego de serviço do Azure para go sobre a mesma rota. Com pontos finais de serviço, pode otimizá-lo desde o fluxo de pacotes diretamente a partir da sua rede virtual para o serviço na rede backbone do Azure.
 
-![Pontos finais de serviço VNET](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![Pontos finais de serviço de VNet](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>IPs Reservados
 Outra opção consiste em aprovisionar [reservado IPs](../virtual-network/virtual-networks-reserved-public-ip.md) para as suas VMs e a lista de permissões específicas aos endereços IP de VM no servidor de definições da firewall. Ao atribuir IPs reservados, guarde o trabalho de ter de atualizar as regras de firewall com a alteração dos endereços IP.

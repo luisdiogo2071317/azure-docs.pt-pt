@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: v-yijong
-ms.openlocfilehash: d484452e03110a71933f3c503f5bd06c93aac68c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.date: 10/05/2018
+ms.author: yijenj
+ms.openlocfilehash: 47333a7b5ad7d76ee8bbac19884ba8246eadc05e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047781"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855787"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Numa gestão para o marketplace da cloud
 
@@ -56,6 +56,42 @@ Assim que tiver configurado o destino da oportunidade potencial corretamente e t
 
 Assim que o técnico configurar estiver em vigor, deve incorporar destas oportunidades potenciais vendas atuais e estratégia de marketing e processos operacionais. Estamos interessados em compreender melhor o seu processo geral de venda e pretende trabalhar de perto com no fornecimento de oportunidades potenciais de alta qualidade e dados suficientes para torná-lo com êxito. Apreciamos os seus comentários sobre como podemos otimizar e melhorar as oportunidades potenciais que podemos enviar-lhe com dados adicionais para ajudar a tornar estes clientes com êxito. Queremos sabe se estiver interessado em fornecer comentários e sugestões para ativar a sua equipa de vendas ser mais bem sucedido com oportunidades potenciais do Marketplace.
 
+
+
+## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Erros comuns de configuração da oportunidade potencial durante a publicação no portal de parceiros da cloud 
+
+**Não foi possível guardar a liderança ao Dynamics CRM. Verifique as definições de conta do Dynamics CRM. LastCRMError: Não é possível iniciar sessão no Dynamics CRM, LastCRMException:** 
+
+> Se tiver sido selecionada a autenticação do O365, verifique se a conta de utilizador e palavra-passe é válido. Se AAD tiver sido selecionado, verifique se o ID de inquilino, ID da aplicação e correspondências de chave secreta de aplicativo o que foi configurado no AAD. Siga as instruções [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Se o nome de utilizador/palavra-passe conta for válido, certifique-se de que tem acesso ao Dynamics 365 e tem uma licença atribuída (passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office). 
+
+ 
+**Não foi possível guardar a liderança ao Dynamics CRM. Utilizador não tem permissões de criação para o atributo leadsourcecode na entidade oportunidade potencial** 
+
+> O aplicativo/usuário está em falta as funções de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga os passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
+
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Inquilino não foi encontrado. Esta instância pode acontecer se existirem não existem subscrições ativas para o inquilino.**  
+
+> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, de [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
+
+**Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser falha - não existem funções são atribuídas ao utilizador.**  
+
+> Resolução: Atribua a função de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga as instruções [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) em configurações de segurança 
+
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: A aplicação com o identificador não foi encontrada no diretório** 
+
+> O Id da aplicação na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 8 (em Azure Active Directory, partir [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: O identificador do inquilino pedido não é o formato de domínio externo válido e não é válido** 
+
+> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, partir [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Erro ao validar as credenciais.: segredo de cliente inválido fornecido.** 
+
+> Resolução: Inicie sessão no Portal do Azure, verifique se a chave da aplicação corresponde ao que está no Portal de parceiros de nuvem. Volte a gerar palavra-passe com base nas instruções no passo 10 (em Azure Active Directory), da [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: O canal de pedido excedido o tempo limite ao aguardar uma resposta após as 00:00 02:. Aumente o valor de tempo limite transmitido para a chamada a pedido ou aumente o valor de SendTimeout na associação. O tempo alocado para esta operação pode ter sido uma parte do limite de tempo mais longo.**  
+
+> Resolução: Início de sessão para a Cloud Partner Portal, consulte os detalhes de loja >> líder de destino >> URL, verifique se é uma instância válida do Dynamic CRM
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -201,41 +237,3 @@ Devido a políticas PII (informações de identificação privada), nós não po
 **Posso ter configurado o armazenamento do Azure (BLOBS/tabelas) como meu destino oportunidade potencial, quanto ele custará?** 
 
 Fins levar dados são baixos (< 1 GB para quase todos os publicadores). O custo será dependem do número de oportunidades potenciais recebido, se 1.000 oportunidades são recebidas por mês, custa cerca de 50 centavos. 
-
- 
-
-
-## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Erros comuns de configuração da oportunidade potencial durante a publicação no portal de parceiros da cloud 
-
-**Não foi possível guardar a liderança ao Dynamics CRM. Verifique as definições de conta do Dynamics CRM. LastCRMError: Não é possível iniciar sessão no Dynamics CRM, LastCRMException:** 
-
-> Se tiver sido selecionada a autenticação do O365, verifique se a conta de utilizador e palavra-passe é válido. Se AAD tiver sido selecionado, verifique se o ID de inquilino, ID da aplicação e correspondências de chave secreta de aplicativo o que foi configurado no AAD. Siga as instruções [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Se o nome de utilizador/palavra-passe conta for válido, certifique-se de que tem acesso ao Dynamics 365 e tem uma licença atribuída (passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office). 
-
- 
-**Não foi possível guardar a liderança ao Dynamics CRM. Utilizador não tem permissões de criação para o atributo leadsourcecode na entidade oportunidade potencial** 
-
-> O aplicativo/usuário está em falta as funções de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga os passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
-
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Inquilino não foi encontrado. Esta instância pode acontecer se existirem não existem subscrições ativas para o inquilino.**  
-
-> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, de [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
-
-**Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser falha - não existem funções são atribuídas ao utilizador.**  
-
-> Resolução: Atribua a função de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga as instruções [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) em configurações de segurança 
-
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: A aplicação com o identificador não foi encontrada no diretório** 
-
-> O Id da aplicação na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 8 (em Azure Active Directory, partir [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: O identificador do inquilino pedido não é o formato de domínio externo válido e não é válido** 
-
-> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, partir [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Erro ao validar as credenciais.: segredo de cliente inválido fornecido.** 
-
-> Resolução: Inicie sessão no Portal do Azure, verifique se a chave da aplicação corresponde ao que está no Portal de parceiros de nuvem. Volte a gerar palavra-passe com base nas instruções no passo 10 (em Azure Active Directory), da [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: O canal de pedido excedido o tempo limite ao aguardar uma resposta após as 00:00 02:. Aumente o valor de tempo limite transmitido para a chamada a pedido ou aumente o valor de SendTimeout na associação. O tempo alocado para esta operação pode ter sido uma parte do limite de tempo mais longo.**  
-
-> Resolução: Início de sessão para a Cloud Partner Portal, consulte os detalhes de loja >> líder de destino >> URL, verifique se é uma instância válida do Dynamic CRM

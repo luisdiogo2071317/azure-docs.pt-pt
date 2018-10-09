@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 1a02fd604d08e87c84a73657b7204ecb42b3498b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393184"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870881"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -106,19 +106,21 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 
 Quando uma instância de serviço de gestão de API está alojada numa VNET, as portas na tabela seguinte são utilizadas.
 
-| Origem / porta de destino (s) | Direção | Protocolo de transporte | Origem / destino | Finalidade (*) | Tipo de rede virtual |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente para gestão de API|Externo |
-| * / 3443 |Entrada |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Externo e interno |
-| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / armazenamento|**Dependência do armazenamento do Azure**|Externo e interno |
-| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET| O Azure Active Directory (quando aplicável)|Externo e interno |
-| * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso a pontos finais do SQL do Azure** |Externo e interno |
-| * / 5672 |Saída |TCP |VIRTUAL_NETWORK / EventHub |Dependência para o registo de política do Hub de eventos e o agente de monitorização |Externo e interno |
-| * / 445 |Saída |TCP |VIRTUAL_NETWORK / armazenamento |Dependência na partilha de ficheiros do Azure para o GIT |Externo e interno |
-| * / 1886 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Necessário para publicar o estado de funcionamento para Estado de funcionamento do recurso |Externo e interno |
-| * / 25028 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Ligar para o reencaminhamento de SMTP para enviar E-mails |Externo e interno |
-| * / 6381 - 6383 |Entrada e saída |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Instâncias de Cache de Redis de acesso entre RoleInstances |Externo e interno |
-| * / * | Entrada |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Balanceador de carga da infraestrutura do Azure |Externo e interno |
+| Origem / porta de destino (s) | Direção          | Protocolo de transporte | Origem / destino                  | Finalidade (*)                                                 | Tipo de rede virtual |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente para gestão de API                      | Externo             |
+| * / 3443                     | Entrada            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Ponto final de gestão para o portal do Azure e Powershell         | Externo e interno  |
+| * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / armazenamento             | **Dependência do armazenamento do Azure**                             | Externo e interno  |
+| * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | O Azure Active Directory (quando aplicável)                   | Externo e interno  |
+| * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso a pontos finais do SQL do Azure**                           | Externo e interno  |
+| * / 5672                     | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para o registo de política do Hub de eventos e o agente de monitorização | Externo e interno  |
+| * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / armazenamento             | Dependência na partilha de ficheiros do Azure para o GIT                      | Externo e interno  |
+| * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessário para publicar o estado de funcionamento para Estado de funcionamento do recurso          | Externo e interno  |
+| * / 25                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
+| * / 587                      | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
+| * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
+| * / 6381 - 6383              | Entrada e saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Instâncias de Cache de Redis de acesso entre RoleInstances          | Externo e interno  |
+| * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Balanceador de carga da infraestrutura do Azure                          | Externo e interno  |
 
 >[!IMPORTANT]
 > As portas para o qual o *finalidade* é **negrito** são necessárias para o serviço de gestão de API devem ser implantados com êxito. Bloquear as outras portas entretanto fará com que uma degradação na capacidade de utilizar e monitorizar o serviço em execução.
@@ -129,11 +131,13 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 
 * **Métricas e monitorização de estado de funcionamento**: conectividade de rede de saída para monitorização do Azure pontos finais, que resolver sob os seguintes domínios: 
 
-    | Ambiente do Azure | Pontos Finais |
-    | --- | --- |
-    | Público do Azure | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com onde `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
-    | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
+    | Ambiente do Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Público do Azure      | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com onde `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
+
+* **Reencaminhamento de SMTP**: conectividade de rede de saída para o reencaminhamento de SMTP, o qual resolve em anfitrião `ies.global.microsoft.com`.
 
 * **Portal do Azure Diagnostics**: para ativar o fluxo de registos de diagnóstico do portal do Azure ao utilizar a extensão de gestão de API de dentro de uma rede Virtual, o acesso de saída `dc.services.visualstudio.com` na porta 443 é necessária. Isto ajuda a resolução de problemas, que poderá deparar ao utilizar a extensão.
 

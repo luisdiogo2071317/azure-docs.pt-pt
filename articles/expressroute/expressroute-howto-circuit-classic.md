@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 820caf1ef1b5a92ccea066ef1b5fc8e20737ef21
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283576"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870424"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito do ExpressRoute com o PowerShell (clássico)
 
@@ -47,7 +47,7 @@ Para iniciar sessão sua conta do Azure, utilize o seguinte exemplo:
 
 1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. Verifique as subscrições da conta.
@@ -225,7 +225,7 @@ At line:1 char:1
 
 * Deve desassociar a todas as redes virtuais do circuito ExpressRoute para esta operação seja bem-sucedida. Verifique se tem quaisquer redes virtuais que estão ligadas ao circuito se esta operação falhar.
 * Se for o fornecedor de serviços de circuito do ExpressRoute estado de aprovisionamento **aprovisionamento** ou **aprovisionado** deve trabalhar com o fornecedor de serviços para desaprovisionar o circuito no seu lado. Continuamos a reservar recursos e a faturação é que o fornecedor de serviços seja concluída o circuito de desaprovisionamento e notifica-nos.
-* Se o fornecedor de serviços tiver desaprovisionado o circuito (fornecedor de serviços de estado de aprovisionamento está definido como **não aprovisionado**), em seguida, pode eliminar o circuito. Isso deixa de faturação para o circuito.
+* Se o fornecedor de serviços tiver desaprovisionado o circuito (fornecedor de serviços de estado de aprovisionamento está definido como **não aprovisionado**), em seguida, pode eliminar o circuito. Isto interrompe a faturação do circuito.
 
 #### <a name="delete-a-circuit"></a>Eliminar um circuito
 

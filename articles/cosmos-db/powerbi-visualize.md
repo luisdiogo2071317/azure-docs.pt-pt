@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 686f21aa805560bb4c2a7fbf9b0c61e1edef14bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: dfd66c1ac2e627b72d24a520fc37c6ebfb361556
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785533"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870006"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB ao utilizar o conector do Power BI
 
-[Power BI](https://powerbi.microsoft.com/) é um serviço online onde pode criar e partilhar dashboards e relatórios. O ambiente de trabalho do Power BI é um ferramenta que permite-lhe obter dados de várias origens de dados de criação de relatório. O Azure Cosmos DB é um uma origem de dados que pode utilizar com o Power BI Desktop. Pode ligar o Power BI Desktop para a conta do Azure Cosmos DB com o conector do Azure Cosmos DB para o Power BI.  Depois de importar dados do Azure Cosmos DB para o Power BI, pode transformá-los, criar relatórios e publicar os relatórios no Power BI.   
+[Power BI](https://powerbi.microsoft.com/) é um serviço online onde pode criar e partilhar dashboards e relatórios. O ambiente de trabalho do Power BI é um ferramenta que permite-lhe obter dados de várias origens de dados de criação de relatório. O Azure Cosmos DB é uma origem de dados que pode utilizar com o Power BI Desktop. Pode ligar o Power BI Desktop para a conta do Azure Cosmos DB com o conector do Azure Cosmos DB para o Power BI.  Depois de importar dados do Azure Cosmos DB para o Power BI, pode transformá-los, criar relatórios e publicar os relatórios no Power BI.   
 
 Este artigo descreve os passos necessários para ligar a conta do Azure Cosmos DB para o Power BI Desktop. Depois de ligar, navegue para uma coleção, extrair os dados, transformar os dados JSON em formato tabular e publicar um relatório no Power BI.
 

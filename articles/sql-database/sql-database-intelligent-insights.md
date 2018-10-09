@@ -11,21 +11,21 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6ccb29c9c464c21f09b1e547903a283201c52618
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159626"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870694"
 ---
-# <a name="intelligent-insights"></a>Informações Inteligentes
+# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Informações inteligentes com a inteligência artificial para monitorizar a utilização de base de dados
 
 Azure informações inteligentes de base de dados SQL permite-lhe saber o que acontece com o desempenho de base de dados SQL e a instância gerida da base de dados.
 
-Informações inteligentes utiliza inteligência incorporada para monitorizar a utilização da base de dados através de inteligência artificial e detetar eventos disruptivos que provocar um mau desempenho continuamente. Depois de detetada, é executada uma análise detalhada que gera um registo de diagnóstico com uma avaliação inteligente do problema. Essa avaliação é composta por uma análise da causa do problema de desempenho da base de dados e, sempre que possível, recomendações de melhorias de desempenho. 
+Informações inteligentes utiliza inteligência incorporada para monitorizar a utilização da base de dados através de inteligência artificial e detetar eventos disruptivos que provocar um mau desempenho continuamente. Depois de detetada, é executada uma análise detalhada que gera um registo de diagnóstico com uma avaliação inteligente do problema. Essa avaliação é composta por uma análise da causa do problema de desempenho da base de dados e, sempre que possível, recomendações de melhorias de desempenho.
 
-## <a name="what-can-intelligent-insights-do-for-you"></a>O que pode informações inteligentes fazer por?
+## <a name="what-can-intelligent-insights-do-for-you"></a>O que pode informações inteligentes fazer por
 
 Informações inteligentes é um recurso exclusivo de inteligência incorporada do Azure que fornece o seguinte valor:
 
@@ -37,11 +37,11 @@ Informações inteligentes é um recurso exclusivo de inteligência incorporada 
 - Aumentar horizontalmente a capacidade em centenas de milhares de bases de dados
 - Impacto positivo para recursos de DevOps e o custo total de propriedade
 
-## <a name="how-does-intelligent-insights-work"></a>Como funciona o Intelligent Insights?
+## <a name="how-does-intelligent-insights-work"></a>Como funciona o Intelligent Insights
 
 Informações inteligentes analisa o desempenho da base de dados ao comparar a carga de trabalho da base de dados de última hora com a carga de trabalho de linha de base de sete dias anteriores. Carga de trabalho de base de dados é composta por consultas identificadas como sendo o mais significativo para o desempenho de base de dados, tais como as consultas de maiores e mais repetidas. Uma vez que cada base de dados é exclusivo com base na sua estrutura, a dados, a utilização e a aplicação, cada linha de base de carga de trabalho que é gerada é específico e exclusivo para uma instância individual. Informações inteligentes, independentemente da linha de base de carga de trabalho, também monitora os limiares de operacionais absolutos e Deteta os problemas com tempos de espera excessivos, exceções críticas e problemas com parameterizations de consulta que podem afetar o desempenho.
 
-Depois de um problema de degradação do desempenho é detectado a partir de várias métricas observadas, ao utilizar a inteligência artificial, análise é executada. Um registo de diagnóstico é gerado com informações inteligentes sobre o que acontece com a base de dados. Informações inteligentes torna mais fácil controlar o problema de desempenho da base de dados da sua aparência primeiro até à resolução. Cada detetou o problema é controlado por meio do seu ciclo de vida de deteção inicial do problema e a verificação de melhoria de desempenho para a sua conclusão. As atualizações são fornecidas no registo de diagnóstico a cada 15 minutos. 
+Depois de um problema de degradação do desempenho é detectado a partir de várias métricas observadas, ao utilizar a inteligência artificial, análise é executada. Um registo de diagnóstico é gerado com informações inteligentes sobre o que acontece com a base de dados. Informações inteligentes torna mais fácil controlar o problema de desempenho da base de dados da sua aparência primeiro até à resolução. Cada detetou o problema é controlado por meio do seu ciclo de vida de deteção inicial do problema e a verificação de melhoria de desempenho para a sua conclusão. As atualizações são fornecidas no registo de diagnóstico a cada 15 minutos.
 
 ![Fluxo de trabalho de análise de desempenho de base de dados](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
@@ -62,7 +62,6 @@ Identificado a base de dados SQL degradações de desempenho são registradas no
 
 Para obter uma descrição geral prática sobre a utilização de informações inteligentes com a análise de SQL do Azure e para cenários de uso típico, veja o vídeo incorporado:
 
-
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -70,17 +69,17 @@ Informações inteligentes se destaca em descobrir e resolução de problemas de
 
 ## <a name="configure-intelligent-insights"></a>Configurar informações inteligentes
 
-O resultado das informações inteligentes é um registo de diagnóstico de desempenho inteligente. Este registo pode ser consumido de várias formas - por meio de transmissão em fluxo em-la para análise de SQL do Azure, os Hubs de eventos do Azure e o armazenamento do Azure, ou uma aplicação de produto de terceiros. 
+O resultado das informações inteligentes é um registo de diagnóstico de desempenho inteligente. Este registo pode ser consumido de várias formas - por meio de transmissão em fluxo em-la para análise de SQL do Azure, os Hubs de eventos do Azure e o armazenamento do Azure, ou uma aplicação de produto de terceiros.
 
-* Utilizar o produto com [a análise de SQL do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) para ver informações através da interface do usuário da porta do Azure. Esta é a solução do Azure integrada e a forma mais comum para ver informações.
-* Usar o produto com os Hubs de eventos do Azure para o desenvolvimento de cenários de alertas e monitorização personalizada
-* Utilizar o produto com o armazenamento do Azure para desenvolvimento de aplicativos personalizados, como por exemplo relatório personalizado, arquivo de dados de longo prazo e assim por diante.
+- Utilizar o produto com [a análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) para ver informações através da interface de utilizador do portal do Azure. Esta é a solução do Azure integrada e a forma mais comum para ver informações.
+- Usar o produto com os Hubs de eventos do Azure para o desenvolvimento de cenários de alertas e monitorização personalizada
+- Utilizar o produto com o armazenamento do Azure para desenvolvimento de aplicativos personalizados, como por exemplo relatório personalizado, arquivo de dados de longo prazo e assim por diante.
 
 Integração de informações inteligentes com outros produtos de análise de SQL do Azure, Hub de eventos do Azure, o armazenamento do Azure ou produtos de terceiros para consumo é realizada por meio do primeiro ativar informações inteligentes de registo (o registo de "SQLInsights") no diagnóstico Painel de definições de uma base de dados e, em seguida, configurar informações inteligentes registos de dados serão transmitidos para um dos dois.
 
-Para obter mais informações sobre como ativar o registo de informações inteligentes e configurar dados de registo para ser transmitido a um produto de consumo, consulte [métricas de base de dados do Azure SQL e o registo de diagnósticos](sql-database-metrics-diag-logging.md). 
+Para obter mais informações sobre como ativar o registo de informações inteligentes e configurar dados de registo para ser transmitido a um produto de consumo, consulte [métricas de base de dados do Azure SQL e o registo de diagnósticos](sql-database-metrics-diag-logging.md).
 
-### <a name="set-up-with-azure-sql-analytics"></a>Configurar a análise de SQL do Azure 
+### <a name="set-up-with-azure-sql-analytics"></a>Configurar a análise de SQL do Azure
 
 Solução de análise de SQL do Azure fornece a interface gráfica do usuário, relatórios e alertas de recursos sobre o desempenho da base de dados, juntamente com o Intelligent Insights dados de registo de diagnóstico.
 
@@ -88,9 +87,9 @@ Solução de análise de SQL do Azure fornece a interface gráfica do usuário, 
 > Introdução rápida: A forma mais fácil deixar o zero com a utilização de informações inteligentes é usá-lo juntamente com a análise de SQL do Azure que irá fornecer uma interface gráfica do usuário para problemas de desempenho da base de dados. Adicionar solução de análise de SQL do Azure a partir do marketplace, criar uma área de trabalho dentro desta solução e, em seguida, para cada base de dados que pretende ativar informações inteligentes em configurar a transmissão em fluxo do registo de "SQLInsights" no painel de definições de diagnóstico de uma base de dados para o área de trabalho da análise de SQL do Azure.
 >
 
-Pré-requisito é ter adicionado ao dashboard do portal do Azure do marketplace a análise de SQL do Azure e para criar uma área de trabalho, consulte [configure a análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md#configuration) 
+Pré-requisito é ter adicionado ao dashboard do portal do Azure do marketplace a análise de SQL do Azure e para criar uma área de trabalho, consulte [configure a análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md#configuration)
 
-Para utilizar informações inteligentes com a análise de SQL do Azure, configurar dados de registo de informações inteligentes para ser transmitido para a área de trabalho de análise de SQL do Azure que criou no passo anterior, consulte [métricas de base de dados do Azure SQL e o diagnóstico de registo](sql-database-metrics-diag-logging.md). 
+Para utilizar informações inteligentes com a análise de SQL do Azure, configurar dados de registo de informações inteligentes para ser transmitido para a área de trabalho de análise de SQL do Azure que criou no passo anterior, consulte [métricas de base de dados do Azure SQL e o diagnóstico de registo](sql-database-metrics-diag-logging.md).
 
 O exemplo seguinte mostra que um informações inteligentes exibida por meio de análise de SQL do Azure:
 
@@ -100,7 +99,7 @@ O exemplo seguinte mostra que um informações inteligentes exibida por meio de 
 
 Para utilizar informações inteligentes com os Hubs de eventos, configurar dados de registo de informações inteligentes para ser transmitido para os Hubs de eventos, consulte [registos de diagnóstico do Stream Azure para os Hubs de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 
-Para utilizar os Hubs de eventos para configurar a monitorização personalizada e os alertas, consulte o artigo [o que fazer com métricas e diagnósticos registos nos Hubs de eventos](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Para utilizar os Hubs de eventos para configurar a monitorização personalizada e os alertas, consulte o artigo [o que fazer com métricas e diagnósticos registos nos Hubs de eventos](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
 ### <a name="set-up-with-azure-storage"></a>Configurar o armazenamento do Azure
 
@@ -125,15 +124,15 @@ O sistema considera automaticamente as alterações à carga de trabalho e as al
 
 Todas as métricas são consideradas em conjunto em várias relações através de um modelo de dados derivados scientifically que categoriza cada problema de desempenho detetado. Incluem informações fornecidas por meio de uma informação inteligente:
 
-* Detalhes do problema de desempenho detetados. 
-* Uma análise da causa do problema detetado. 
-* Recomendações sobre como melhorar o desempenho da base de dados monitorizado do SQL, sempre que possível.
+- Detalhes do problema de desempenho detetados.
+- Uma análise da causa do problema detetado.
+- Recomendações sobre como melhorar o desempenho da base de dados monitorizado do SQL, sempre que possível.
 
 ## <a name="query-duration"></a>Duração da consulta
 
 O modelo de degradação de duração de consulta analisa consultas individuais e Deteta o aumento do tempo necessário para compilar e executar uma consulta em comparação comparada a linha de base de desempenho.
 
-Se a inteligência incorporada da base de dados SQL Deteta um aumento significativo na compilação de consulta ou tempo de execução de consulta que afeta o desempenho da carga de trabalho, estas consultas são sinalizadas como duração de consulta problemas de degradação do desempenho. 
+Se a inteligência incorporada da base de dados SQL Deteta um aumento significativo na compilação de consulta ou tempo de execução de consulta que afeta o desempenho da carga de trabalho, estas consultas são sinalizadas como duração de consulta problemas de degradação do desempenho.
 
 O registo de diagnóstico de informações inteligentes produz o hash de consulta da consulta degradada no desempenho. O hash de consulta indica se a degradação do desempenho estava relacionada a consulta compilação ou tempo de execução aumento, que aumenta o tempo de duração de consulta.
 
@@ -141,11 +140,11 @@ O registo de diagnóstico de informações inteligentes produz o hash de consult
 
 O modelo de degradação de pedidos de tempo limite analisa consultas individuais e Deteta um aumento em tempos limite no nível de execução da consulta e os tempos limite de pedido geral ao nível da base de dados em comparação comparado o período de linha de base de desempenho.
 
-Tempo limite algumas das consultas podem até mesmo antes de atingirem o estágio de execução. Por meio dos meios de trabalhadores abortados vs. os pedidos efetuados, inteligência incorporada da base de dados SQL avalia e analisa todas as consultas que chegaram a base de dados se eles poderiam o estágio de execução ou não. 
+Tempo limite algumas das consultas podem até mesmo antes de atingirem o estágio de execução. Por meio dos meios de trabalhadores abortados vs. os pedidos efetuados, inteligência incorporada da base de dados SQL avalia e analisa todas as consultas que chegaram a base de dados se eles poderiam o estágio de execução ou não.
 
 Depois do número de tempos limite para consultas executadas ou o número de trabalhadores de pedido abortadas ultrapassar o limiar gerenciados pelo sistema, um registo de diagnóstico é preenchido com informações inteligentes.
 
-As informações geradas contêm o número de pedidos excedeu o tempo e o número de consultas atingiu o limite. Indicação de que a degradação do desempenho está relacionado com o aumento do tempo limite na fase de execução ou o nível de base de dados geral é fornecido. Quando o aumento em tempos limite é considerado significativo para desempenho da base de dados, estas consultas são sinalizadas como problemas de degradação do desempenho de tempo limite. 
+As informações geradas contêm o número de pedidos excedeu o tempo e o número de consultas atingiu o limite. Indicação de que a degradação do desempenho está relacionado com o aumento do tempo limite na fase de execução ou o nível de base de dados geral é fornecido. Quando o aumento em tempos limite é considerado significativo para desempenho da base de dados, estas consultas são sinalizadas como problemas de degradação do desempenho de tempo limite.
 
 ## <a name="excessive-wait-times"></a>Tempos de espera excessivos
 
@@ -172,14 +171,13 @@ O modelo de degradação pedidos com erros, monitores indivíduo consulta e Dete
 
 Quando o aumento medido nos pedidos com erros relativamente ao número de pedidos efetuados geral é considerado significativo para desempenho da carga de trabalho, as consultas afetadas são sinalizadas como problemas de degradação do desempenho de pedidos com erros.
 
-O registo de informações inteligentes produz a contagem de pedidos com erros. Indica se a degradação do desempenho estava relacionada para um aumento de pedidos com erros ou para cruzar um limiar de exceção crítica monitorizado e a hora de medida da degradação do desempenho. 
+O registo de informações inteligentes produz a contagem de pedidos com erros. Indica se a degradação do desempenho estava relacionada para um aumento de pedidos com erros ou para cruzar um limiar de exceção crítica monitorizado e a hora de medida da degradação do desempenho.
 
 Se qualquer uma das exceções críticas monitorizadas cruzar os limiares absolutos gerenciados pelo sistema, é gerada uma informação inteligente com os detalhes da exceção crítica.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [resolver problemas de desempenho de base de dados SQL com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md).
-* Utilize o [registo de diagnóstico de desempenho de base de dados de SQL Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-* Saiba como [monitorizar base de dados SQL com a análise de SQL](../log-analytics/log-analytics-azure-sql.md).
-* Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
-
+- Saiba como [resolver problemas de desempenho de base de dados SQL com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Utilize o [registo de diagnóstico de desempenho de base de dados de SQL Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
+- Saiba como [monitorizar base de dados SQL com a análise de SQL](../log-analytics/log-analytics-azure-sql.md).
+- Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

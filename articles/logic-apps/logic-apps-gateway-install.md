@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018779"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855430"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -211,7 +211,7 @@ Para fornecer informações de proxy para o gateway, veja [configurar definiçõ
 > [!NOTE]
 > Este comando testa apenas a conectividade de rede e conectividade para o Azure Service Bus. O comando não faz nada com o gateway ou o serviço de nuvem de gateway que encripta e armazena as suas credenciais e detalhes do gateway. 
 >
-> Além disso, este comando só está disponível no Windows Server 2012 R2 ou posterior e o Windows 8.1 ou posterior. Em versões anteriores do sistema operacional, pode utilizar o Telnet para testar a conectividade. Saiba mais sobre [soluções do Azure Service Bus e híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Além disso, este comando só está disponível no Windows Server 2012 R2 ou posterior e o Windows 8.1 ou posterior. Em versões anteriores do sistema operacional, pode utilizar o Telnet para testar a conectividade. Saiba mais sobre [soluções do Azure Service Bus e híbridas](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Os resultados devem ter um aspeto semelhantes a este exemplo com **TcpTestSucceeded** definida como **verdadeiro**:
 
@@ -232,7 +232,7 @@ A firewall poderá bloquear ligações a que o Azure Service Bus facilita para o
 
 ## <a name="configure-ports"></a>Configurar portas
 
-O gateway cria uma ligação de saída para [do Azure Service Bus](https://azure.microsoft.com/services/service-bus/) e comunica com de portas de saída: TCP 443 (predefinição), 5671, 5672, 9350 através da 9354. O gateway não precisa de portas de entrada. Saiba mais sobre [soluções do Azure Service Bus e híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+O gateway cria uma ligação de saída para [do Azure Service Bus](https://azure.microsoft.com/services/service-bus/) e comunica com de portas de saída: TCP 443 (predefinição), 5671, 5672, 9350 através da 9354. O gateway não precisa de portas de entrada. Saiba mais sobre [soluções do Azure Service Bus e híbridas](../service-bus-messaging/service-bus-messaging-overview.md).
 
 O gateway utiliza esses nomes de domínio completamente qualificado:
 

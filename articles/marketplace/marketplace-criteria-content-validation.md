@@ -12,30 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 0b971535120e51a9aeec7b57da133c6b8db6a09e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 383f16bf0671e0bdec840afe1abe85e37ed32ce2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219419"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855362"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
 Este documento contém diretrizes de requisito, bem como uma lista de verificação para os revisores de novas ofertas e os serviços listados no Azure Marketplace.
 
-Todas as ofertas têm de cumprir os "requisitos de listagem de todos os". Requisitos adicionais e listas de verificação são fornecidas para tipos específicos de lista, incluindo: oferece com versões de avaliação anexados, ofertas, aplicações SaaS e contentores de consultoria.
-
-**Consulte as práticas recomendadas de listagem exemplos aqui:**
-| Tipo de Oferta | Ligação de oferta
-|:--- |:--- |
-| Geral | <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=Overview <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-altavault-cloud-integrated-storage-solution?tab=Overview |
-| Avaliação | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/intigua.intigua-agent-manager-trial?tab=Overview |
-| Aplicações SaaS | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/apptimized.isvtesting?tab=Overview |
-| Contentores |https://azuremarketplace.microsoft.com/en-us/marketplace/apps/couchbase.couchbase-server-enterprise-containercouchbase-enterprise-server-container-byol?tab=Overview |
-| Serviços de consultoria | https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/wipro-ltd.cmp-wipro?page=1 |
-
+Todas as ofertas têm de cumprir os [todos os requisitos de listagem](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) indicado abaixo. Requisitos adicionais e listas de verificação são fornecidas para tipos específicos de lista, incluindo: as ofertas anexado [avaliações](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [aplicações SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [contentores](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)e [ofertas de consultoria](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## <a name="all-listing-requirements"></a>Todos os requisitos de listagem
@@ -69,7 +59,7 @@ Todas as ofertas têm de cumprir os "requisitos de listagem de todos os". Requis
 |:--- |:--- |:--- |:--- |
 | 1 | Título da oferta |<br>• Deve consistir apenas em carateres em minúsculas, de alfanuméricos, travessões e carateres de sublinhado. Não é possível modificar a depois de publicado. <br>• Descritivo da oferta de solução.<br>• Corresponde a promoção online da solução no site do parceiro. | Contém palavras chave de pesquisa |
 | 2 | Informações técnicas: configuração |<br>• Para a aplicação SaaS, escolha se pretende apenas liste a sua aplicação ou se pretende permitir aos clientes comprar a sua aplicação através do Azure.<br>• Selecione o texto adequado que pretende no botão de aquisição da sua oferta: gratuito, versão de avaliação gratuita ou contactar-me<br>• Selecione única (caixa pop-up)-um dos dois aplicável se a sua aplicação utiliza a tecnologia: Cortana Intelligence, modelos de soluções do Power BI, Power Apps |  |
-| 3 | Test Drive | Selecione: Sim ou não | Aos clientes prontamente compreender quais são os passos seguintes disponíveis: <br>1. Experimente a versão de avaliação <br>2. Comprar Agora <br>3. Contacto por e-mail ou número de telefone para fazer com que prova de conceito, avaliação ou uma reunião. |
+| 3 | Versão de Teste | Selecione: Sim ou não | Aos clientes prontamente compreender quais são os passos seguintes disponíveis: <br>1. Experimente a versão de avaliação <br>2. Comprar Agora <br>3. Contacto por e-mail ou número de telefone para fazer com que prova de conceito, avaliação ou uma reunião. |
 | 4 | Detalhes vitrine: Resumo da oferta | Isto irá aparecer na página de pesquisa da sua aplicação com um máximo de 100 carateres | |
 | 5 | Detalhes vitrine: setores | Setores (máx. 2): Selecione setores que a aplicação está alinhado e aplicáveis a melhor. | |
 | 6 | Descrição da oferta | <br>• Simple HTML é permitido, incluindo p, em, ul e li, marcas ol e cabeçalho. Máximo de 3000 carateres. <br>• 2 a 3 parágrafos <br>• Oferta de solução pode é facilmente compreendida rapidamente <br>• Descrição é abrangente e captura: público-alvo de destino *, tipo de utilizador, por que é valioso (proposta de valor) <br>Descrição da oferta de • está no parágrafo forma de narrativa com frases curtas que é fácil de compreender. | <br>• Setor de destino é descrito (se relevante) <br>• De estilo boa formatação com cada cabeçalho de parágrafo ter uma frase de um ou a frase que resume os conteúdos que se segue e, inclusive de marca de lista de pontos (quando apropriado) para enfatizar os principais benefícios. O objetivo aqui é para o leitor a compreender a oferta num instante numa fácil ver o formato e não têm de ler parágrafos. <br>• Há espaçamento entre cada parágrafo e leituras, como um folheto de carro. O que significa funcionalidades não técnicas ou jargão mas descritivo da oferta em termos simples de código e é abrangente. | 
@@ -108,10 +98,8 @@ Todas as ofertas têm de cumprir os "requisitos de listagem de todos os". Requis
 | 12 | Saiba Mais  | <br>• Ligações na parte inferior (sob a descrição, não as ligações do marketplace no lado esquerdo) leva para obter mais informações sobre a solução e estão publicamente disponíveis e mostrando corretamente. <br>• Ligações tem de ter um nome"amigável" e não ser que aparece como o nome do ficheiro de qualquer downloads | |
 
 
-
-
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre os tipos de oferta diferente no marketplace <br>[Aplicações SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Contentores](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Serviços de consultoria](https://docs.microsoft.com/azure/marketplace/consulting-services)
+* Saiba mais sobre os tipos de oferta diferente no marketplace <br>[Aplicações SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Contentores](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Serviços de consultadoria](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Determinar o tipo de lista para a sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

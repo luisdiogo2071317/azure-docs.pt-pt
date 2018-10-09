@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 2f87c4a15ac21241b3304d1fdf0a5bd0ae715615
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 36f1bd9c11c8932968a3501ef22fdb7153411256
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430210"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o Salesforce, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Salesforce logon único habilitado subscrição
 
 > [!NOTE]
@@ -50,29 +50,31 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
+
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Salesforce a partir da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Adicionar Salesforce a partir da Galeria
+
 Para configurar a integração do Salesforce para o Azure AD, terá de adicionar Salesforce a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Salesforce a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
 
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-1. Na caixa de pesquisa, escreva **Salesforce**, selecione **Salesforce** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Salesforce**, selecione **Salesforce** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Salesforce na lista de resultados](./media/salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
 
@@ -87,10 +89,10 @@ No Salesforce, atribuir o valor do **nome de utilizador** no Azure AD como o val
 Para configurar e testar o Azure AD início de sessão único com o Salesforce, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste do Salesforce](#create-a-salesforce-test-user)**  - para ter um equivalente da Eduarda Almeida no Salesforce, que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste do Salesforce](#create-a-salesforce-test-user)**  - para ter um equivalente da Eduarda Almeida no Salesforce, que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +104,19 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+2. Clique em **modo de início de sessão único de alteração** na parte superior do ecrã para selecionar o **SAML** modo.
 
-    ![Caixa de diálogo de início de sessão único](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
+    ![Configurar a ligação de início de sessão única](./media/salesforce-tutorial/tutorial_general_300.png)
 
-1. Sobre o **Salesforce domínio e URLs** secção, execute os seguintes passos:
+3. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
+
+    ![Configurar a ligação de início de sessão única](./media/salesforce-tutorial/tutorial_general_301.png)
+
+4. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **configuração básica de SAML** caixa de diálogo.
+   
+    ![Configurar a ligação de início de sessão única](./media/salesforce-tutorial/tutorial_general_302.png)
+
+5. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
     ![URLs de domínio do Salesforce e únicas início de sessão em informações](./media/salesforce-tutorial/tutorial_salesforce_url.png)
 
@@ -125,82 +135,52 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente do Salesforce](https://help.salesforce.com/support) obter esses valores.
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado** e, em seguida, guarde o ficheiro de certificado no seu computador.
+6. Sobre o **certificado de assinatura SAML** secção, clique em **transferir** para transferir **XML de metadados de Federação** e, em seguida, guarde o ficheiro xml em seu computador.
 
     ![O link de download de certificado](./media/salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-1. Clique em **guardar** botão.
+7. Abra um novo separador no seu browser e inicie sessão na sua conta de administrador do Salesforce.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/salesforce-tutorial/tutorial_general_400.png)
-
-1. Sobre o **configuração do Salesforce** secção, clique em **configurar Salesforce** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
-
-    ![Configuração do Salesforce](./media/salesforce-tutorial/tutorial_salesforce_configure.png) 
-
-1. Abra um novo separador no seu browser e inicie sessão na sua conta de administrador do Salesforce.
-
-1. Clique nas **programa de configuração** sob **ícone de definições** no canto superior direito da página.
+8. Clique nas **programa de configuração** sob **ícone de definições** no canto superior direito da página.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/configure1.png)
 
-1. Desloque para baixo para o **configurações** no painel de navegação, clique em **identidade** para expandir a secção relacionada. Em seguida, clique em **definições de início de sessão único**.
+9. Desloque para baixo para o **configurações** no painel de navegação, clique em **identidade** para expandir a secção relacionada. Em seguida, clique em **definições de início de sessão único**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso.png)
 
-1. Sobre o **definições de início de sessão único** página, clique no **editar** botão.
+10. Sobre o **definições de início de sessão único** página, clique no **editar** botão.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso-edit.png)
-    
-    > [!NOTE]
-    > Se não conseguir ativar definições de início de sessão único para a sua conta do Salesforce, poderá ter de contactar [equipa de suporte de cliente do Salesforce](https://help.salesforce.com/support). 
 
-1. Selecione **ativada SAML**e, em seguida, clique em **guardar**.
+    > [!NOTE]
+    > Se não conseguir ativar definições de início de sessão único para a sua conta do Salesforce, poderá ter de contactar [equipa de suporte de cliente do Salesforce](https://help.salesforce.com/support).
+
+11. Selecione **ativada SAML**e, em seguida, clique em **guardar**.
 
       ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-enable-saml.png)
-1. Para configurar o seu únicas início de sessão em definições de SAML, clique em **New**.
+
+12. Para configurar o seu únicas início de sessão em definições de SAML, clique em **novo a partir do ficheiro de metadados**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-1. Sobre o **SAML único início de sessão definição editar** página, efetue as seguintes configurações:
+13. Clique em **Escolher ficheiro** para carregar o ficheiro XML de metadados que transferiu a partir do portal do Azure e clique em **criar**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-saml-config.png)
+    ![Configurar o início de sessão único](./media/salesforce-tutorial/xmlchoose.png)
 
-    a. Para o **nome** , digite um nome amigável para esta configuração. Fornecer um valor para **Name** preencher automaticamente o **nome da API** caixa de texto.
+14. Sobre o **SAML único configurações de logon** página, campos preencher automaticamente em clique em Guardar.
 
-    b. Na **emissor** campo, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
+    ![Configurar o início de sessão único](./media/salesforce-tutorial/salesforcexml.png)
 
-    c. Na **caixa de texto do Id de entidade**, escreva o seu nome de domínio do Salesforce com o seguinte padrão:
-
-      * Conta de empresa: `https://<subdomain>.my.salesforce.com`
-      * Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
-
-    d. Para carregar os **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado que transferiu a partir do portal do Azure.
-
-    e. Como **tipo de identidade de SAML**, escolha uma das seguintes opções:
-
-      * Selecione **asserção contém o nome do usuário Salesforce**, se o nome de utilizador do utilizador Salesforce está sendo passado na asserção de SAML
-
-      * Selecione **asserção contém o ID de Federação do objeto de utilizador**, se o ID de Federação do objeto de utilizador que está sendo passado na asserção de SAML
-
-      * Selecione **asserção contém o ID de uso do objeto de utilizador**, se o ID de utilizador do objeto de utilizador que está sendo passado na asserção de SAML
-
-    f. Para **localização de identidade de SAML**, selecione **identidade é no elemento NameIdentifier da declaração de assunto**.
-
-    g. Para **fornecedor iniciada solicitar vínculo de serviço**, selecione **redirecionamento de HTTP**.
-
-    h. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure
-
-    i. Por fim, clique em **guardar** para aplicar a suas SAML únicas início de sessão em definições.
-
-1. No painel de navegação esquerdo no Salesforce, clique em **definições da empresa** para expandir a secção relacionada e, em seguida, clique em **meu domínio**.
+15. No painel de navegação esquerdo no Salesforce, clique em **definições da empresa** para expandir a secção relacionada e, em seguida, clique em **meu domínio**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-my-domain.png)
 
-1. Desloque para baixo para o **configuração da autenticação** secção e clique nas **editar** botão.
+16. Desloque para baixo para o **configuração da autenticação** secção e clique nas **editar** botão.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-1. Na **configuração da autenticação** secção, verifique o **AzureSSO** como **serviço de autenticação** de sua configuração SAML SSO e clique em **guardar** .
+17. Na **configuração da autenticação** secção, verifique o **AzureSSO** como **serviço de autenticação** de sua configuração SAML SSO e clique em **guardar** .
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-auth-config.png)
 
@@ -211,33 +191,26 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    ![Criar utilizador do Azure AD][100]
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/salesforce-tutorial/create_aaduser_01.png)
+    ![Criar um utilizador de teste do Azure AD](./media/salesforce-tutorial/create_aaduser_01.png) 
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/salesforce-tutorial/create_aaduser_02.png)
+    ![Criar um utilizador de teste do Azure AD](./media/salesforce-tutorial/create_aaduser_02.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/salesforce-tutorial/create_aaduser_03.png)
+    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/salesforce-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
-
-    d. Clique em **Criar**.
+    d. Selecione **Criar**.
 
 ### <a name="create-a-salesforce-test-user"></a>Criar um utilizador de teste do Salesforce
 
@@ -255,30 +228,30 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201]
 
-1. Na lista de aplicações, selecione **Salesforce**.
+2. Na lista de aplicações, selecione **Salesforce**.
 
     ![A ligação de Salesforce na lista de aplicações](./media/salesforce-tutorial/tutorial_salesforce_app.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+3. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar utilizador** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico do Salesforce no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do Salesforce.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

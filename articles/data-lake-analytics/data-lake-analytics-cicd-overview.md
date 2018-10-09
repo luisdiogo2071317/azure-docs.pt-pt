@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 740549e1ed1447781707c5e4b9fdc6961075d017
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 974ef7a51736c2e2b0a0de3c13d23ddc37fa13b7
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364794"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855022"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para o Azure Data Lake Analytics  
 
@@ -311,7 +311,7 @@ Para adicionar a referência de pacote do NuGet, com o botão direito a soluçã
 
 ### <a name="build-u-sql-a-database-project-with-the-msbuild-command-line"></a>Criar um projeto de banco de dados com a linha de comando do MSBuild de U-SQL
 
-Para criar seu projeto de banco de dados U-SQL, chamar a linha de comando do MSBuild padrão e passar a referência de pacote NuGet do SDK U-SQL como um argumento adicional. Veja o exemplo seguinte: 
+Para criar seu projeto de banco de dados U-SQL, chamar a linha de comando do MSBuild padrão e passar a referência de pacote NuGet do SDK U-SQL como um argumento adicional. Veja o seguinte exemplo: 
 
 ```
 msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime
@@ -388,8 +388,8 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
     echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
     echo "Downloading required packages..."
 
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.2.3-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.3.3-preview -outf Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.5.1-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.4.1-preview -outf Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip
     iwr https://www.nuget.org/api/v2/package/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.3 -outf Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip
     iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime/2.3.11 -outf Microsoft.Rest.ClientRuntime.2.3.11.zip
     iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure/3.3.7 -outf Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip
@@ -399,8 +399,8 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
 
     echo "Extracting packages..."
 
-    Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview -Force
-    Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.3.3-preview -Force
+    Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview -Force
+    Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.4.1-preview -Force
     Expand-Archive Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip -DestinationPath Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3 -Force
     Expand-Archive Microsoft.Rest.ClientRuntime.2.3.11.zip -DestinationPath Microsoft.Rest.ClientRuntime.2.3.11 -Force
     Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.3.3.7 -Force
@@ -412,8 +412,8 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
 
     mkdir $AzureSDK -Force
     mkdir $DBDeploymentTool -Force
-    copy Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview\lib\net452\*.dll $AzureSDK
-    copy Microsoft.Azure.Management.DataLake.Store.2.3.3-preview\lib\net452\*.dll $AzureSDK
+    copy Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview\lib\net452\*.dll $AzureSDK
+    copy Microsoft.Azure.Management.DataLake.Store.2.4.1-preview\lib\net452\*.dll $AzureSDK
     copy Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\*.dll $AzureSDK
     copy Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\*.dll $AzureSDK
     copy Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\*.dll $AzureSDK
@@ -475,7 +475,7 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
 |Inquilino|O nome do inquilino é o nome de domínio do Azure Active Directory (Azure AD). Encontrá-lo na página de gestão da subscrição no portal do Azure.|Nulo|true|
 |AzureSDKPath|O caminho para pesquisar os conjuntos de módulos dependentes no SDK do Azure.|Nulo|true|
 |Interativo|Se deve ou não a utilizar o modo interativo para autenticação.|false|false|
-|ID de cliente|O ID da aplicação do Azure AD necessários para a autenticação não interativa.|Nulo|Necessário para a autenticação não interativa.|
+|ClientId|O ID da aplicação do Azure AD necessários para a autenticação não interativa.|Nulo|Necessário para a autenticação não interativa.|
 |Secrete|O secrete ou a palavra-passe para a autenticação não interativa. Ele deve ser usado apenas num ambiente seguro e fiável.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize SecreteFile.|
 |SecreteFile|O ficheiro salva o secrete ou a palavra-passe para a autenticação não interativa. Certifique-se de mantê-lo legíveis apenas pelo utilizador atual.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize Secrete.|
 |CertFile|O ficheiro guarda a certificação X.509 para a autenticação não interativa. A predefinição é utilizar o cliente secrete autenticação.|Nulo|false|

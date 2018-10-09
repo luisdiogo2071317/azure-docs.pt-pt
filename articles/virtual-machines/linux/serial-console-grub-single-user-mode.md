@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e3745efdd0d0ea159afcda177c306f5865ac2aad
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366839"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857912"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
-GRUB é o carregador de inicialização Unified geral. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas. 
+GRUB é o carregador de inicialização Unified geral. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
 
 Modo de utilizador único é um ambiente mínimo com a funcionalidade mínima. Pode ser útil para investigar problemas de arranque, problemas de sistema de ficheiros ou problemas de rede. Menos de serviços podem ser executadas em segundo plano e, consoante o runlevel, um sistema de ficheiros poderá não até mesmo ser automaticamente montado.
 
-Também é útil em situações em que a VM só pode ser configurada para aceitar as chaves SSH para iniciar sessão no modo de utilizador único. Neste caso, poderá utilizar o modo de utilizador único para criar uma conta com a autenticação de palavra-passe. 
+Também é útil em situações em que a VM só pode ser configurada para aceitar as chaves SSH para iniciar sessão no modo de utilizador único. Neste caso, poderá utilizar o modo de utilizador único para criar uma conta com a autenticação de palavra-passe.
 
 Para entrar no modo de utilizador único, terá de introduzir o GRUB quando a VM está a arrancar e modificar a configuração da inicialização no GRUB. Isso pode ser feito com a consola de série de VM.
 

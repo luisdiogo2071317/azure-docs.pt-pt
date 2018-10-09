@@ -8,16 +8,16 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e702cb6da3378e460ebb68542d82e736b9f57a52
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981377"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857793"
 ---
 # <a name="batch-transcription"></a>Transcrição em lote
 
-Transcrição de batch é ideal se tiver grandes quantidades de áudio. Pode apontar para arquivos de áudio e voltar transcrições no modo assíncrono.
+Transcrição de batch é ideal se tiver grandes quantidades de áudio. Pode apontar para arquivos de áudio pelo URI e voltar transcrições no modo assíncrono.
 
 ## <a name="batch-transcription-api"></a>API de transcrição de batch
 
@@ -59,7 +59,7 @@ Para fluxos de áudio estéreo, transcrição de Batch divide o canal do esquerd
 
 ## <a name="authorization-token"></a>Token de autorização
 
-Com todas as funcionalidades do serviço de voz unificação de mensagens em fila, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com) seguintes nossa [guia de introdução](get-started.md). Se pretender obter transcrições de nossos modelos de linha de base, em seguida, isso é tudo o que precisa fazer. 
+Com todas as funcionalidades do serviço de voz, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com) seguintes nossa [guia de introdução](get-started.md). Se pretender obter transcrições de nossos modelos de linha de base, em seguida, isso é tudo o que precisa fazer. 
 
 Se pretender personalizar e usando um modelo personalizado, em seguida, terá de adicionar esta chave subscritpion para o portal de voz personalizada da seguinte forma:
 

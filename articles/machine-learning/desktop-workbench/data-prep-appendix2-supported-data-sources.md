@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c4686bf01031e30bd9dc94f42d80da524db82931
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb84638e2996b0ee9bd5a580b7e827ea30d0ab21
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969262"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855991"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Origens de dados suportadas para preparação de dados do Azure Machine Learning 
 
@@ -115,7 +115,7 @@ A execução de escalamento horizontal baseia-se no Parquet do Spark capacidades
 Um disco rígido local ou uma localização de armazenamento de rede mapeadas.
 
 ### <a name="sql-server"></a>SQL Server
-Servidor SQL no local, ou a base de dados SQL do Azure.
+Servidor SQL no local, ou base de dados SQL do Azure.
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 Blob storage do Azure, que requer uma subscrição do Azure.

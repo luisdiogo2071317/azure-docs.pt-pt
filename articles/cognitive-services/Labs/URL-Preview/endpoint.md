@@ -1,27 +1,28 @@
 ---
-title: Ponto final de pré-visualização de URL - serviços cognitivos Microsoft do projeto | Microsoft Docs
-description: Resumo de ponto final do URL de pré-visualização.
+title: Ponto final de pré-visualização do URL do projeto
+titlesuffix: Azure Cognitive Services
+description: Resumo do ponto de extremidade de pré-visualização do URL.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ddd53aa49db01d7a6db397eb285d0854edc59388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0464ac80c451ada46561de78b5ba0860c59a9e34
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353996"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868654"
 ---
 # <a name="project-url-preview-endpoint"></a>Ponto final de pré-visualização do URL do projeto
 
-A API de pré-visualização do URL inclui um ponto final.
+A API de pré-visualização do URL contém um ponto final.
 
 ## <a name="endpoint"></a>Ponto Final
-Para obter uma pré-visualização de URL, envie um pedido para o seguinte ponto final. Utilize os cabeçalhos e os parâmetros de URL para outras especificações.
+Para obter uma pré-visualização de URL, envie um pedido para o seguinte ponto de extremidade. Utilize os cabeçalhos e os parâmetros de URL para outras especificações.
 
 GET:
 ````
@@ -32,12 +33,12 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ### <a name="query-parameters"></a>Parâmetros de consulta
 |Nome|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|  
-|Q|URL para pré-visualização|Cadeia |Sim|
-|safeSearch|Conteúdo para adultos ilegal ou pirated conteúdo, está bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não é devolvido. <p>É o comportamento para o conteúdo para adultos legal, abaixo. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador está definido como false.<ul><li>safeSearch = strict: título, a descrição, URL e imagem não serão devolvidos.</li><li>safeSearch = moderada; Obter o título, o URL e descrição mas não a imagem descritiva.</li><li>safeSearch = desativado; Obter todos os resposta objetos/elementos – título, o URL, descrição e imagem.</li></ul> |Cadeia|Não é necessária. </br> Por predefinição safeSearch = rigorosa.| 
+|p|URL para a pré-visualização|Cadeia |Sim|
+|pesquisa segura|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>pesquisa segura = strict: título, descrição, URL e imagem não vão ser devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |Cadeia|Não é necessário. </br> O padrão é safeSearch = rigorosa.| 
 
 ## <a name="response-object"></a>Objeto de resposta
 
-A resposta inclui os cabeçalhos de HTTP e o objeto de página Web com atributos, conforme mostrado no exemplo seguinte: `name`, `url`, `description`, `isFamilyFriendly`, e `primaryImageOfPage`.
+A resposta inclui cabeçalhos HTTP e o objeto de página Web com atributos, conforme mostrado no exemplo seguinte: `name`, `url`, `description`, `isFamilyFriendly`, e `primaryImageOfPage`.
 
 ````
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE
@@ -59,8 +60,8 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
 ````
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](csharp.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Início rápido de JavaScript](javascript.md)
+- [Início rápido em C#](csharp.md)
+- [Início rápido de Java](java-quickstart.md)
+- [Guia de introdução do JavaScript](javascript.md)
 - [Guia de introdução do nó](node-quickstart.md)
 - [Guia de introdução do Python](python-quickstart.md)

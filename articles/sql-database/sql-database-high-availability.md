@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/05/2018
+ms.openlocfilehash: 1c6fb3660f395e709207e788b4ef648a69cae48d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247724"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868580"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -31,9 +31,9 @@ Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do
 
 O Azure é atualizado e patches do sistema operacional subjacente, drivers e o motor de base de dados do SQL Server transparente com o mínimo de tempo de inatividade para os utilizadores finais. Base de dados SQL do Azure é executado na versão estável mais recente do motor de base de dados do SQL Server e o SO Windows e a maioria dos usuários não percebam que as atualizações são realizadas continuamente.
 
-## <a name="standardgeneral-purpose-availability"></a>Disponibilidade de fins gerais/Standard
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Básico, Standard e fins gerais de serviço de disponibilidade da camada
 
-Disponibilidade padrão refere-se para o SLA de 99,99%, que é aplicado em escalões fins básico/Standard/gerais. Elevada disponibilidade neste modelo de arquitetura é conseguida através da separação das camadas de computação e armazenamento e a replicação de dados na camada de armazenamento.
+Disponibilidade padrão refere-se para o SLA de 99,99%, que é aplicado nos escalões de serviço básico, Standard e fins gerais. Elevada disponibilidade neste modelo de arquitetura é conseguida através da separação das camadas de computação e armazenamento e a replicação de dados na camada de armazenamento.
 
 A figura seguinte mostra os quatro nós no modelo de arquitetura de padrão com as camadas de armazenamento e computação separados.
 
@@ -46,9 +46,9 @@ No modelo padrão de disponibilidade, existem duas camadas:
 
 Sempre que a atualização do motor de base de dados ou o sistema operativo, alguma parte da infraestrutura subjacente falha ou se detetar algum problema crítico no processo do Sql Server, o Azure Service Fabric moverá o processo do SQL Server sem monitoração de estado para outro nó de computação sem monitoração de estado. Existe um conjunto de nós de reserva que está à espera de executar o novo serviço de computação em caso de ativação pós-falha para minimizar o tempo de ativação pós-falha. Dados na camada de armazenamento do Azure não são afetados e arquivos de dados/do registo são anexados ao processo do SQL Server recentemente inicializado. Este processo garante 99,99% de disponibilidade, mas ele pode ter alguns impactos no desempenho na carga de trabalho pesada, que está a executar devido ao tempo de transição e o fato do novo nó do SQL Server é iniciado com a cache de frio.
 
-## <a name="premiumbusiness-critical-availability"></a>Disponibilidade Premium comercial crítica
+## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilidade da camada de serviço Premium e crítico para a empresa
 
-Disponibilidade de Premium está ativada no escalão Premium da base de dados do Azure SQL e foi concebido para cargas de trabalho intensivas que não toleram nenhum impacto no desempenho devido a operações de manutenção contínua.
+Disponibilidade de Premium está ativada nos escalões de serviço Premium e crítico para a empresa da base de dados do Azure SQL e foi concebido para cargas de trabalho intensivas que não toleram nenhum impacto no desempenho devido a operações de manutenção contínua.
 
 No modelo de premium, base de dados SQL do Azure integra-se de computação e armazenamento no nó único. Elevada disponibilidade neste modelo de arquitetura é conseguida através da replicação de computação (processo de motor de base de dados do SQL Server) e armazenamento (SSD ligado localmente) implementada no nó 4 [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) cluster.
 

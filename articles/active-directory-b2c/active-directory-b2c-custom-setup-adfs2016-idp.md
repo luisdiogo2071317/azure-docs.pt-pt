@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 50b4470ee1d958081f4dd090d20a810b88a40560
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 39b9c2d9eb982eaffa7cb6246fd0b22375939f52
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268128"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868699"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -144,7 +144,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
 Para utilizar o ADFS como um fornecedor de identidade no Azure AD B2C, terá de criar um ADFS entidade Confiadora com os metadados SAML do Azure AD B2C. O exemplo seguinte mostra um endereço de URL para os metadados SAML de um perfil técnico do Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Substitua os valores seguintes:

@@ -1,5 +1,5 @@
 ---
-title: Alojamento de alta densidade em utilização por aplicações de dimensionamento de App Service do Azure | Microsoft Docs
+title: Alojamento de alta densidade no serviço de aplicações do Azure com o dimensionamento por aplicação | Documentos da Microsoft
 description: Alojamento de alta densidade no App Service do Azure
 author: btardif
 manager: erikre
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 97e1efe34417c3bf2f23801b2112b718f55d3416
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961949"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856790"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Alojamento de alta densidade em utilização por aplicações de dimensionamento de App Service do Azure
-Por predefinição, pode dimensionar a aplicações do App Service ao aumentar a [plano do App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) são executados nos. Quando várias aplicações são executadas no mesmo plano de serviço de aplicações, cada instância de escalamento horizontal é executada todas as aplicações no plano.
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Alojamento de alta densidade no serviço de aplicações do Azure com o dimensionamento por aplicação
+Por predefinição, dimensionar aplicações de serviço de aplicações, tem de dimensionar os [plano do App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) que são executados. Quando várias aplicações são executadas no mesmo plano de serviço de aplicações, cada instância de escalamento horizontal é executada todas as aplicações no plano.
 
-Pode ativar *por aplicação dimensionamento* no App Service planear nível. Dimensiona de uma aplicação independentemente do plano de serviço de aplicações que aloja-lo. Desta forma, um plano do App Service pode ser escalado para 10 instâncias, mas uma aplicação pode ser definida para utilizar apenas cinco.
+Pode habilitar *dimensionamento por aplicação* no serviço de aplicações planear nível. Dimensiona-se uma aplicação, independentemente do plano de serviço de aplicações que o hospeda. Dessa forma, um plano do serviço de aplicações pode ser dimensionado até 10 instâncias, mas uma aplicação pode ser definida para utilizar apenas cinco.
 
 > [!NOTE]
-> Dimensionamento por aplicação só está disponível para **padrão**, **Premium**, **Premium V2** e **Isolated** escalões de preço.
+> Dimensionar por aplicação só está disponível para **padrão**, **Premium**, **Premium V2** e **Isolated** escalões de preço.
 >
 
-## <a name="per-app-scaling-using-powershell"></a>Por aplicação dimensionamento com o PowerShell
+## <a name="per-app-scaling-using-powershell"></a>Por aplicação de dimensionamento com o PowerShell
 
-Criar um plano com dimensionamento mediante a transmissão por aplicação o ```-perSiteScaling $true``` atributo para o ```New-AzureRmAppServicePlan``` commandlet
+Criar um plano com o dimensionamento, passando por aplicação a ```-PerSiteScaling $true``` parâmetro para o ```New-AzureRmAppServicePlan``` cmdlet.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,28 +41,17 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Para atualizar um plano de serviço de aplicações existente com dimensionamento por aplicação: 
-
-- obter o plano de destino ```Get-AzureRmAppServicePlan```
-- modificar a propriedade localmente ```$newASP.PerSiteScaling = $true```
-- publicar as suas alterações para o azure ```Set-AzureRmAppServicePlan``` 
+Ativar o dimensionamento com um plano de serviço de aplicações existentes, passando por aplicação a `-PerSiteScaling $true` parâmetro para o ```Set-AzureRmAppServicePlan``` cmdlet.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
-Ao nível da aplicação, configure o número de instâncias, que pode utilizar a aplicação no plano de serviço de aplicações.
+Ao nível da aplicação, configure o número de instâncias que a aplicação pode utilizar no plano do serviço de aplicações.
 
-No exemplo abaixo, a aplicação está limitada a duas instâncias, independentemente de quantas instâncias do plano do app service subjacente aumenta horizontalmente de forma a.
+No exemplo abaixo, a aplicação está limitada a duas instâncias, independentemente de quantas instâncias do plano de serviço de aplicações subjacente aumenta horizontalmente para.
 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
@@ -76,16 +65,16 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers` é diferente do `$newapp.MaxNumberOfWorkers`. Utiliza dimensionamento por aplicação `$newapp.SiteConfig.NumberOfWorkers` para determinar as características de dimensionamento da aplicação.
+> `$newapp.SiteConfig.NumberOfWorkers` é diferente do `$newapp.MaxNumberOfWorkers`. Utilizações de dimensionamento por aplicação `$newapp.SiteConfig.NumberOfWorkers` para determinar as características de dimensionamento da aplicação.
 
-## <a name="per-app-scaling-using-azure-resource-manager"></a>Por aplicação dimensionamento com o Azure Resource Manager
+## <a name="per-app-scaling-using-azure-resource-manager"></a>Por aplicação de dimensionamento com o Azure Resource Manager
 
 Cria o modelo Azure Resource Manager seguinte:
 
-- Um plano de serviço aplicacional ampliar a 10 instâncias
-- uma aplicação que está configurada para dimensionar para um máximo de cinco instâncias.
+- Um plano de serviço de aplicações é dimensionado para 10 instâncias
+- uma aplicação que está configurada para escalar até um máximo de cinco instâncias.
 
-O plano de serviço de aplicações é a definição de **PerSiteScaling** propriedade para verdadeiro `"perSiteScaling": true`. A aplicação é a definição de **número de funcionários** a utilizar para 5 `"properties": { "numberOfWorkers": "5" }`.
+O plano do serviço de aplicações é a configuração do **PerSiteScaling** propriedade como true `"perSiteScaling": true`. A aplicação é a configuração do **número de workers** a utilizar para 5 `"properties": { "numberOfWorkers": "5" }`.
 
 ```json
 {
@@ -135,19 +124,19 @@ O plano de serviço de aplicações é a definição de **PerSiteScaling** propr
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configuração recomendada para o alojamento de alta densidade
-Por aplicação da receção é uma funcionalidade que está ativada em ambas as regiões do Azure global e [ambientes do App Service](environment/app-service-app-service-environment-intro.md). No entanto, a estratégia de recomendada é utilizar ambientes do App Service para tirar partido das respetivas funcionalidades avançadas e os agrupamentos maiores da capacidade.  
+Por aplicação dimensionamento é uma funcionalidade que está ativada em ambas as regiões do Azure global e [ambientes de serviço de aplicações](environment/app-service-app-service-environment-intro.md). No entanto, a estratégia recomendada é utilizar ambientes do serviço de aplicações para tirar partido das respetivas funcionalidades avançadas e os maiores conjuntos de capacidade.  
 
-Siga estes passos para configurar alta densidade de alojamento para as suas aplicações:
+Siga estes passos para configurar de alta densidade para as suas aplicações de alojamento:
 
-1. Configurar o ambiente de serviço de aplicações e escolha um conjunto de trabalho que se encontra dedicado para o cenário de alojamento de alta densidade.
-1. Criar um único plano de serviço de aplicações e dimensione-a para utilizar a capacidade disponível no conjunto de trabalho.
+1. Configurar o ambiente de serviço de aplicações e escolha um conjunto de trabalho dedicado para o cenário de alojamento de alta densidade.
+1. Criar um único plano do serviço de aplicações e dimensioná-lo para utilizar a capacidade disponível no conjunto de trabalho.
 1. Definir o `PerSiteScaling` sinalizador como true no plano de serviço de aplicações.
-1. Novas aplicações são criadas e atribuídas a essa plano de serviço de aplicações com o **numberOfWorkers** propriedade definida como **1**. Utilizando esta configuração gera a densidade mais elevada possível neste conjunto de trabalho.
-1. O número de funcionários pode ser configurado de forma independente por aplicação para conceder recursos adicionais, conforme necessário. Por exemplo:
-    - Pode definir uma aplicação de utilização é elevado **numberOfWorkers** para **3** com mais capacidade de processamento para essa aplicação. 
-    - Baixa utilização aplicações iriam definir **numberOfWorkers** para **1**.
+1. Novas aplicações são criadas e atribuídas a esse plano de serviço de aplicações com o **numberOfWorkers** definida como **1**. Utilizando esta configuração produz a mais alta densidade possível neste conjunto de trabalho.
+1. O número de trabalhadores pode ser configurado de forma independente por aplicação para conceder recursos adicionais, conforme necessário. Por exemplo:
+    - Pode definir uma aplicação de uso intenso **numberOfWorkers** ao **3** tenham maior capacidade de processamento para essa aplicação. 
+    - Aplicações de baixa utilização definiria **numberOfWorkers** ao **1**.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- [Descrição geral dos planos do App Service do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+- [Descrição geral aprofundada dos planos do serviço de aplicações do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 - [Introdução ao Ambiente do Serviço de Aplicações](environment/app-service-app-service-environment-intro.md)

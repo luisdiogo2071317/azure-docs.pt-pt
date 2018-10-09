@@ -2,18 +2,17 @@
 title: Início rápido - eventos de registo de contentor do Azure de envio para o Event Grid
 description: Neste início rápido, ativar eventos do Event Grid para o seu registo de contentor, em seguida, enviar push de imagem de contentor e eliminar eventos para um aplicativo de exemplo.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
-ms.openlocfilehash: 4b29804690b951083810d4f75b68ff23fca44a44
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039620"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857368"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Início rápido: Enviar contentor eventos de registo para o Event Grid
 

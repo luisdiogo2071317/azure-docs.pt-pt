@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369422"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858082"
 ---
 Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
 
@@ -26,6 +26,8 @@ Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ide
 - A série Dv3 funcionalidades de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou de mais recente 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) de processador numa configuração de hyper-thread, fornecendo uma proposta de valor melhor para cargas de trabalho de fins mais gerais.  Memória foi expandida (a partir de ~3.5 GiB/Vcpus a 4 GiB/vCPU), enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hyperthreading.  O Dv3 já não tem os tamanhos VM de elevada da memória das famílias D/Dv2, aqueles foram movidos para a nova família Ev3.
 
   Casos de utilização de série D de exemplo incluem aplicações de nível empresarial, bases de dados relacionais, colocação em cache na memória e análise. 
+  
+- O [DC série](#dc-series) é uma nova família de máquinas virtuais no Azure que pode ajudar a proteger a confidencialidade e integridade dos seus dados e código enquanto ele é processado na cloud pública. Estas máquinas são apoiadas pela última geração de 3,7 GHz Intel XEON I - 2176G processadores com tecnologia SGX. Estas máquinas podem chegar aos 4.7 GHz com o Intel Turbo Boost Technology. Instâncias de série do controlador de domínio que os clientes possam criar aplicativos baseados no enclave seguros para proteger os seus dados e código enquanto está a ser utilizado
 
 ## <a name="b-series"></a>Série B
 
@@ -138,6 +140,7 @@ Armazenamento Premium: Não suportado
 
 Cache de armazenamento Premium: Não suportado
 
+
 | Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
@@ -149,6 +152,22 @@ Cache de armazenamento Premium: Não suportado
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
 
 <br>
+
+
+## <a name="dc-series"></a>Série de DC
+
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
+
+
+
+| Tamanho          | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+
 
 
 

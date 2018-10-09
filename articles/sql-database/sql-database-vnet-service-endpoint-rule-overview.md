@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166814"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870847"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 
@@ -187,7 +187,7 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL dw a par
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
 Auditoria de BLOBs envia por push de registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais de serviço de VNet, em seguida, irá interromper a conectividade da SQLDB do Azure para a conta de armazenamento.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall da VNET ao seu servidor sem ativar na VNET pontos finais de serviço
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall da VNet ao seu servidor sem ativar na VNet pontos finais de serviço
 
 Há muito tempo, antes desta funcionalidade foi melhorada, era necessário para ativar a pontos finais de serviço de VNet antes de poderia implementar uma regra de VNet em direto na Firewall. Os pontos finais relacionados com uma determinada sub-rede de VNet para uma base de dados do SQL do Azure. Mas agora a partir de Janeiro de 2018, pode contornar este requisito, definindo a **IgnoreMissingServiceEndpoint** sinalizador.
 
