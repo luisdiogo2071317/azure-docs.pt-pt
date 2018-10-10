@@ -1,5 +1,5 @@
 items:
-- name: O arranque da VM está preso em "A Preparar o Windows. Não desligue o computador."
+- name: A inicialização da VM está bloqueada
   href: troubleshoot-vm-boot-configure-update.md
 - name: Resolver problemas das VMs do Azure
   href: index.md
@@ -119,9 +119,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Entender o reinício do sistema
   href: understand-vm-reboot.md
-ms.openlocfilehash: 088840fcab2ae9d47098d9d2f06af87b88c93e4e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a4b8d8f089c17ec101e334afa62abc5d040bce46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857453"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901322"

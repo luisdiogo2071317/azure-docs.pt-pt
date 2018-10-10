@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: 52330d9f999676301e3a92487c0106f2fa59bc76
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e77e81624c93bf1189afd556a8257362197c6b60
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237949"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902965"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -180,7 +180,7 @@ Para obter mais informações, consulte [acionadores de funções do Azure e con
 
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 
-O ficheiro Settings armazena as definições da aplicação, as cadeias de ligação e as definições para as ferramentas de núcleo de funções do Azure. Ele tem a seguinte estrutura:
+O ficheiro Settings armazena as definições da aplicação, as cadeias de ligação e as definições para as ferramentas de núcleo de funções do Azure. Definições no arquivo Settings só são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` mude [ao publicar](#publish) para se certificar de que estas definições são adicionadas à aplicação de funções no Azure. Tenha em atenção que os valores na **ConnectionStrings** nunca são publicados. O ficheiro tem a seguinte estrutura:
 
 ```json
 {
@@ -214,11 +214,9 @@ Os valores de definições de aplicação de função também podem ser lidos em
 
 + [C# pré-compiladas](functions-dotnet-class-library.md#environment-variables)
 + [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#](functions-reference-fsharp.md#environment-variables)
++ [F # script (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
-
-Definições no arquivo Settings só são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` mude [ao publicar](#publish) para se certificar de que estas definições são adicionadas à aplicação de funções no Azure. Os valores na **ConnectionStrings** nunca são publicados.
 
 Quando nenhuma cadeia de ligação de armazenamento válida é definida para **AzureWebJobsStorage** e o emulador não está a ser utilizado, é apresentada a seguinte mensagem de erro:  
 
@@ -425,7 +423,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publicar no Azure
 
-Ferramentas de núcleo suporta dois tipos de implantação, implantação de arquivos de projeto de função diretamente para a aplicação de funções e implementar um contentor do Linux personalizado, que é suportado apenas na versão 2.x.
+Ferramentas de núcleo suporta dois tipos de implantação, implantação de arquivos de projeto de função diretamente para a aplicação de funções e implementar um contentor do Linux personalizado, que é suportado apenas na versão 2.x. Tem de ter já [criou uma aplicação de funções na sua subscrição do Azure](functions-cli-samples.md#create).
 
 Na versão 2.x, tem de ter [registado suas extensões](#register-extensions) no seu projeto antes da publicação. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados.
 
@@ -444,13 +442,8 @@ Este comando publica uma aplicação de função existente no Azure. Ocorre um e
 O `publish` comando carrega o conteúdo do diretório do projeto de funções. Se eliminar ficheiros localmente, o `publish` comando não exclui-los do Azure. Pode eliminar ficheiros no Azure com o [ferramenta de Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) no [portal do Azure].  
 
 >[!IMPORTANT]  
-> Quando cria uma aplicação de funções no Azure, utiliza a versão 2.x do runtime de função, por predefinição. Para tornar a função aplicação utilizar a versão 1.x do runtime, adicione a definição de aplicação `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Utilize o seguinte código de CLI do Azure para adicionar esta definição para a sua aplicação de função:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> Quando cria uma aplicação de funções no portal do Azure, utiliza a versão 2.x do runtime de função, por predefinição. Para tornar a função aplicação utilizar a versão 1.x do runtime, siga as instruções em [é executado na versão 1.x](functions-versions.md#creating-1x-apps).  
+> Não é possível alterar a versão de runtime para uma aplicação de função que tenha a funções existentes.
 
 Pode utilizar as seguintes opções de publicação, o que são aplicadas para as versões, 1.x e 2.x:
 
