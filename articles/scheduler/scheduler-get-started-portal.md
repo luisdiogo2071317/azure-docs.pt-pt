@@ -1,155 +1,152 @@
 ---
-title: Introdução ao Azure Scheduler no portal do Azure | Microsoft Docs
-description: Introdução ao Agendador do Azure no portal do Azure
+title: Criar tarefas agendadas com o Microsoft Azure Scheduler – portal do Azure | Microsoft Docs
+description: Saiba como criar, agendar e executar a sua primeira tarefa automatizada com o Microsoft Azure Scheduler no portal do Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/10/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949592"
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introdução ao Agendador do Azure no portal do Azure
-É fácil criar tarefas agendadas no Agendador do Azure. Neste tutorial, ficará a saber como criar uma tarefa. Também irá aprender capacidades de monitorização e gestão do Agendador.
+# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar a primeira tarefa com o Microsoft Azure Scheduler – portal do Azure
 
-## <a name="create-a-job"></a>Criar uma tarefa
+> [!IMPORTANT]
+> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Este tutorial mostra como pode criar e agendar facilmente uma tarefa e, em seguida, monitorizar e gerir essa tarefa. 
+
+Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
+
+## <a name="create-job"></a>Criar tarefa
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).  
-2. Clique em **+novo** > escreva *Agendador* na caixa de pesquisa > selecione **Agendador** nos resultados > clique **Criar**.
-   
-    ![][marketplace-create]
-3. Vamos criar uma tarefa que simplesmente chegue a http://www.microsoft.com/ com um pedido GET. No ecrã da **tarefa do Agendador**, introduza as seguintes informações:
-   
-   1. **Nome:** `getmicrosoft`  
-   2. **Subscrição:** a sua subscrição do Azure   
-   3. **Coleção de Tarefas:** selecione uma coleção de tarefas existente ou clique em **Criar novo** > introduza um nome.
-4. Em seguida, nas **Definições de Ação**, defina os seguintes valores:
-   
-   1. **Tipo de Ação:** ` HTTP`  
-   2. **Método:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Por fim, vamos definir uma agenda. A tarefa pode ser definida como uma única tarefa, mas vamos escolher uma agenda de periodicidade:
-   
-   1. **Periodicidade**: `Recurring`
-   2. **Iniciar**: data de hoje
-   3. **Recorrer a cada**: `12 Hours`
-   4. **Terminar a**: dois dias a partir da data de hoje  
-      
-      ![][recurrence-schedule]
-6. Clique em **Criar**.
 
-## <a name="manage-and-monitor-jobs"></a>Gerir e monitorizar tarefas
-Quando é criada uma tarefa, a mesma aparece no dashboard principal do Azure. Clique na tarefa e abre-se uma nova janela com as seguintes abas:
+1. No menu principal do Azure, selecione **Criar um recurso**. Na caixa de pesquisa, introduza “scheduler”. Na lista de resultados, selecione **Scheduler** e, em seguida, escolha **Criar**.
 
-1. Propriedades  
-2. Definições de Ação  
-3. Agenda  
-4. Histórico
-5. Utilizadores
+   ![Criar o recurso do Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
+
+   Agora, crie uma tarefa que envia um pedido GET para este URL: `http://www.microsoft.com/` 
+
+1. Em **Tarefa do Scheduler**, introduza estas informações:
+
+   | Propriedade | Valor de exemplo | Descrição |
+   |----------|---------------|-------------| 
+   | **Nome** | getMicrosoft | O nome da tarefa | 
+   | **Coleção de tarefas** | <*job-collection-name*> | Criar uma coleção de tarefas ou selecionar uma coleção existente | 
+   | **Subscrição** | <*Azure-subscription-name*> | O nome para a subscrição do Azure | 
+   |||| 
+
+1. Selecione **Definições da ação – Configurar**, forneça estas informações e, em seguida, escolha **OK** quando terminar:
+
+   | Propriedade | Valor de exemplo | Descrição |
+   |----------|---------------|-------------| 
+   | **Ação** | **Http** | O tipo de ação a executar | 
+   | **Método** | **Get** | O método a chamar | 
+   | **URL** | **http://www.microsoft.com** | O URL de destino | 
+   |||| 
    
-   ![][job-overview]
+   ![Definir a tarefa](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
+
+1. Selecione **Agendar – Configurar**, defina a agenda e, em seguida, selecione **OK** quando terminar:
+
+   Embora seja possível criar uma tarefa única, este exemplo configura uma agenda de periodicidade.
+
+   | Propriedade | Valor de exemplo | Descrição |
+   |----------|---------------|-------------| 
+   | **Periodicidade** | **Periódico** | Uma tarefa única ou periódica | 
+   | **Começar a** | <*data de hoje*> | A data de início da tarefa | 
+   | **Repetir a cada** | **hora** | O intervalo e a frequência da periodicidade | 
+   | **End** | **Terminar** dois dias depois da data de hoje | A data de fim da tarefa | 
+   | **Diferença para UTC** | **UTC +08:00** | A diferença de hora entre a Hora Universal Coordenada (UTC) e a hora observada na sua localização | 
+   |||| 
+
+   ![Definir a agenda](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
+
+1. Quando estiver preparado, escolha **Criar**.
+
+   Depois de criar a tarefa, o Azure implementa-a e, em seguida, é apresentada no dashboard do Azure. 
+
+1. Quando o Azure mostra uma notificação que a implementação foi concluída com êxito, escolha **Afixar no dashboard**. Caso contrário, escolha o ícone **Notificações** (campainha) na barra de ferramentas do Azure e, em seguida, escolha **Afixar no dashboard**.
+
+## <a name="monitor-and-manage-jobs"></a>Monitorizar e gerir tarefas
+
+Para rever, monitorizar e gerir a tarefa, no dashboard do Azure, escolha a sua tarefa. Em **Definições**, pode rever e gerir estas áreas da tarefa:
+
+![Definições da tarefa](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
+
+Para obter mais informações sobre estas áreas, selecione uma área:
+
+* [**Propriedades**](#properties)
+* [**Definições da ação**](#action-settings)
+* [**Agenda**](#schedule)
+* [**Histórico**](#history)
+* [**Utilizadores**](#users)
+
+<a name="properties"></a>
 
 ### <a name="properties"></a>Propriedades
-Estas propriedades só de leitura descrevem os metadados de gestão para a tarefa do Agendador.
 
-   ![][job-properties]
+Para ver as propriedades só de leitura que descrevem os metadados de gestão da tarefa, selecione **Propriedades**.
 
-### <a name="action-settings"></a>Definições de ação
-Clicar numa tarefa no ecrã **Tarefas** permite-lhe configurar essa tarefa. Isto permite-lhe fazer configurações avançadas, caso não as tenha feito no assistente de criação rápida.
+![Ver propriedades da tarefa](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
 
-Para todos os tipos de ação, pode alterar a política de repetição e a ação de erro.
+<a name="action-settings"></a>
 
-Para tipos de ação de tarefa HTTP e HTTPS, pode alterar o método para qualquer verbo HTTP permitido. Também pode adicionar, eliminar ou alterar os cabeçalhos e as informações de autenticação básica.
+### <a name="action-settings"></a>Definições da ação
 
-Para os tipos de ação de fila de armazenamento, pode alterar a conta de armazenamento, nome da fila, token SAS e corpo.
+Para alterar as definições avançadas da tarefa, selecione **Definições da ação**. 
 
-Para os tipos de ação de barramento de serviço, pode alterar o espaço de nomes, caminho do tópico/fila, definições de autenticação, tipo de transporte, propriedades de mensagem e o corpo da mensagem.
+![Definições da ação de revisão](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-   ![][job-action-settings]
+| Tipo de ação | Descrição | 
+|-------------|-------------| 
+| Todos os tipos | Pode alterar a **Política de repetição** e as definições da **Ação de erro**. | 
+| HTTP e HTTPS | Pode alterar o **Método** para qualquer método permitido. Também pode adicionar, eliminar ou alterar os cabeçalhos e as informações da autenticação básica. | 
+| Fila de armazenamento| Pode alterar a conta de armazenamento, o nome da fila, o token de SAS e o corpo. | 
+| Service Bus | Pode alterar o espaço de nomes, o caminho do tópico ou da fila, as definições de autenticação, o tipo de transporte, as propriedades e o corpo da mensagem. | 
+||| 
+
+<a name="schedule"></a>
 
 ### <a name="schedule"></a>Agenda
-Isto permite-lhe reconfigurar a agenda, caso gostaria de alterar a agenda que criou no assistente de criação rápida.
 
-Trata-se de uma oportunidade para criar [agendas complexas e periodicidade avançada na tarefa](scheduler-advanced-complexity.md)
+Se configurar uma agenda através do assistente de tarefas, poderá alterar essa agenda, tais como a data e hora de início, a agenda de periodicidade e a data e hora de fim das tarefas periódicas.
+Também pode criar [agendas mais complexas e periodicidades avançadas](scheduler-advanced-complexity.md).
 
-Pode alterar a data e hora de início, a agenda de periodicidade e a data e hora de fim (caso a tarefa seja recorrente).
+Para alterar a vista ou alterar a agenda da tarefa, selecione **Agenda**:
 
-   ![][job-schedule]
+![Ver a agenda de tarefas](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
+
+<a name="history"></a>
 
 ### <a name="history"></a>Histórico
-O separador **Histórico** exibe as métricas selecionadas para todas as execuções de tarefa no sistema para a tarefa selecionada. Estas métricas fornecem valores em tempo real sobre o estado de funcionamento do seu Agendador:
 
-1. Estado  
-2. Detalhes  
-3. Tentativas de repetição
-4. Ocorrência: 1ª, 2ª, 3ª, etc.
-5. Hora de início de execução  
-6. Hora de fim de execução
-   
-   ![][job-history]
+Para ver as métricas sobre cada execução de uma tarefa selecionada, selecione **Histórico**. Estas métricas fornecem valores em tempo real sobre o estado de funcionamento da tarefa, como o estado, o número de repetições, o número de ocorrências, a hora de início e a hora de fim.
 
-Pode clicar numa execução para visualizar os seus **Detalhes de Histórico**, incluindo a resposta completa para cada execução. Esta caixa de diálogo também lhe permite copiar a resposta para a área de transferência.
+![Ver histórico de tarefas e métricas](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-   ![][job-history-details]
+Para ver os detalhes do histórico de cada execução, tal como a resposta completa de cada execução, em **Histórico**, selecione cada execução. 
+
+![Ver detalhes do histórico de tarefas](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
+
+<a name="users"></a>
 
 ### <a name="users"></a>Utilizadores
-O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Agendador do Azure. Para saber como utilizar o separador de Utilizadores, consulte o [Controlo de Acesso Baseado em Funções do Azure](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="see-also"></a>Consulte também
- [O que é o Scheduler?](scheduler-intro.md)
+Pode gerir o acesso ao Azure Scheduler para cada utilizador num nível granular com o Controlo de Acesso Baseado em Funções (RBAC). Para saber como configurar o acesso baseado em funções, veja [Gerir o acesso através do RBAC](../role-based-access-control/role-assignments-portal.md)
 
- [Conceitos, terminologia e hierarquia de entidades do Scheduler](scheduler-concepts-terms.md)
+## <a name="next-steps"></a>Passos seguintes
 
- [Planos e faturação no Azure Scheduler](scheduler-plans-billing.md)
-
- [Como criar agendas complexas e periodicidade avançada com o Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Referência da API REST do Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Referência de cmdlets do PowerShell do Scheduler](scheduler-powershell-reference.md)
-
- [Elevada disponibilidade e fiabilidade do Scheduler](scheduler-high-availability-reliability.md)
-
- [Limites, predefinições e códigos de erro do Scheduler](scheduler-limits-defaults-errors.md)
-
- [Autenticação de saída do Scheduler](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* Saiba mais sobre [conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
+* [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
+* Saiba mais sobre [elevada disponibilidade e fiabilidade do Scheduler](scheduler-high-availability-reliability.md)
+* Saiba mais sobre [limites, quotas, valores predefinidos e códigos de erro](scheduler-limits-defaults-errors.md)

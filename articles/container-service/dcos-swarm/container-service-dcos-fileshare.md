@@ -1,6 +1,6 @@
 ---
-title: Partilha de ficheiros de cluster do Azure DC/OS
-description: Criar e montar uma partilha de ficheiros para um cluster DC/SO no serviço de contentor do Azure
+title: Partilha de ficheiros no cluster do DC/OS do Azure
+description: Criar e montar uma partilha de ficheiros num cluster DC/OS no Azure Container Service
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331207"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973509"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Criar e montar uma partilha de ficheiros para um cluster DC/OS
+# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Criar e montar uma partilha de ficheiros num cluster DC/OS
 
-Este tutorial fornece detalhes sobre como criar uma partilha de ficheiros no Azure e montá-la em cada agente e o mestre do cluster DC/OS. Configurar uma partilha de ficheiros torna mais fácil partilhar ficheiros em cluster, tais como a configuração, acesso, os registos e muito mais. As seguintes tarefas são concluídas neste tutorial:
+Este tutorial apresenta detalhes sobre como criar uma partilha de ficheiros no Azure e como montá-la em cada agente e mestre do cluster DC/OS. Configurar uma partilha de ficheiros facilita a partilha de ficheiros pelo cluster, como a configuração, o acesso, os registos e muito mais. Neste tutorial, vai concluir as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage do Azure
 > * Criar uma partilha de ficheiros
 > * Montar a partilha no cluster DC/OS
 
-Precisa de um cluster de ACS DC/OS para concluir os passos neste tutorial. Se for necessário, [este script de exemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pode criar uma por si.
+Precisa de um cluster DC/OS do ACS para concluir os passos neste tutorial. Se for necessário, [este script de exemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pode criar um para si.
 
-Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Criar uma partilha de ficheiros no Microsoft Azure
 
-Antes de utilizar uma partilha de ficheiros do Azure com um cluster DC/SO de ACS, tem de criar a partilha de ficheiros e de conta de armazenamento. Execute o script seguinte para criar a partilha de ficheiros e armazenamento. Atualize os parâmetros com thoes do seu ambiente.
+Para utilizar a partilha de ficheiros do Azure com um cluster DC/OS do ACS, tem de criar a conta de armazenamento e a partilha de ficheiros. Execute o seguinte script para criar o armazenamento e a partilha de ficheiros. Atualize os parâmetros com os do seu ambiente.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,13 +52,13 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 az storage share create -n $DCOS_PERS_SHARE_NAME
 ```
 
-## <a name="mount-the-share-in-your-cluster"></a>Montar a partilha do cluster
+## <a name="mount-the-share-in-your-cluster"></a>Montar a partilha no cluster
 
-Em seguida, a partilha de ficheiros tem de ser montado em cada máquina virtual no interior do seu cluster. Esta tarefa é concluída com o ferramenta/protocolo cifs. A operação de montagem pode ser concluída manualmente em cada nó do cluster, ou executando um script em relação a cada nó do cluster.
+Em seguida, a partilha de ficheiros tem de ser montada em todas as máquinas virtuais no cluster. Esta tarefa é concluída com o ferramenta/protocolo cifs. A operação de montagem pode ser concluída manualmente em cada nó do cluster ou através da execução de um script para cada nó do cluster.
 
-Neste exemplo, dois scripts são executados, um para montar a partilha de ficheiros do Azure e um segundo para executar este script em cada nó do cluster DC/OS.
+Neste exemplo, são executados dois scripts, um para montar a partilha de ficheiros do Azure e um segundo para executar este script em cada nó do cluster DC/OS.
 
-Em primeiro lugar, o nome da conta de armazenamento do Azure e a chave de acesso são necessárias. Execute os seguintes comandos para obter estas informações. Tome nota da cada, estes valores são utilizados num passo posterior.
+Em primeiro lugar, é necessário o nome da conta de armazenamento do Azure e a chave de acesso. Execute os seguintes comandos para obter essas informações. Anote cada um destes valores, pois serão utilizados num passo posterior.
 
 Nome da conta de armazenamento:
 
@@ -73,27 +73,27 @@ Chave de acesso da conta de armazenamento:
 az storage account keys list --resource-group $DCOS_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCT --query "[0].value" -o tsv
 ```
 
-Em seguida, obter o FQDN do mestre de DC/OS e armazene-o numa variável.
+Em seguida, obtenha o FQDN do mestre do DC/OS e armazene-o numa variável.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Copie a chave privada para o nó mestre. Esta chave é necessária para criar um ssh ligação com todos os nós do cluster. Se um valor predefinido não foi utilizado ao criar o cluster, atualize o nome de utilizador. 
+Copie a chave privada para o nó principal. Esta chave é necessária para criar uma ligação ssh com todos os nós do cluster. Atualize o nome de utilizador se tiver sido utilizado um valor não predefinido ao criar o cluster. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Crie uma ligação SSH com o mestre (ou o mestre de primeiro) do cluster baseado no DC/SO. Se um valor predefinido não foi utilizado ao criar o cluster, atualize o nome de utilizador.
+Crie uma ligação SSH com o mestre (ou o primeiro mestre) do cluster baseado em DC/SO. Atualize o nome de utilizador se tiver sido utilizado um valor não predefinido ao criar o cluster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Crie um ficheiro denominado **cifsMount.sh**e copie o seguinte conteúdo para a mesma. 
+Crie um ficheiro com o nome **cifsMount.sh** e copie o seguinte conteúdo para o mesmo. 
 
-Este script é utilizado para montar a partilha de ficheiros do Azure. Atualização do `STORAGE_ACCT_NAME` e `ACCESS_KEY` variáveis com as informações anteriormente recolhidas.
+Este script serve para montar a partilha de ficheiros do Azure. Atualize as variáveis `STORAGE_ACCT_NAME` e `ACCESS_KEY` com as informações recolhidas anteriormente.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -114,7 +114,7 @@ sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/$SHARE_NAME /mnt/s
 ```
 Crie um segundo ficheiro denominado **getNodesRunScript.sh** e copie o seguinte conteúdo para o ficheiro. 
 
-Este script Deteta todos os nós de cluster e, em seguida, executa a **cifsMount.sh** script para montar a partilha de ficheiros em cada um.
+Este script deteta todos os nós de cluster e, em seguida, executa o script **cifsMount.sh** para montar a partilha de ficheiros em cada um.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -142,14 +142,14 @@ A partilha de ficheiros está agora acessível em `/mnt/share/dcosshare` em cada
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial um Azure partilha de ficheiros foi disponibilizada para um cluster DC/OS, utilizando os passos:
+Neste tutorial, a partilha de ficheiros do Azure foi disponibilizada para um cluster DC/OS com os seguintes passos:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage do Azure
 > * Criar uma partilha de ficheiros
 > * Montar a partilha no cluster DC/OS
 
-Avançar para o próximo tutorial para saber mais sobre a integração de um registo de contentor do Azure com o DC/OS, no Azure.  
+Avance para o próximo tutorial para saber como integrar o Azure Container Registry no DC/OS, no Azure.  
 
 > [!div class="nextstepaction"]
 > [Fazer o balanceamento de carga de aplicações](container-service-dcos-acr.md)

@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493701"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950153"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
-A CLI 2.0 do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. A CLI 2.0 do Azure está otimizada para gerir e administrar recursos do Azure a partir da linha de comandos. Pode utilizar o Azure CLI para gerir as suas contas do Azure Batch e os seus recursos, como agrupamentos, trabalhos e tarefas. Com a CLI do Azure, pode criar scripts de muitas das mesmas tarefas que desempenha com as APIs do Batch, o portal do Azure e os cdmlets do Batch PowerShell.
+A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. A CLI do Azure está otimizada para gerir e administrar recursos do Azure a partir da linha de comandos. Pode utilizar o Azure CLI para gerir as suas contas do Azure Batch e os seus recursos, como agrupamentos, trabalhos e tarefas. Com a CLI do Azure, pode criar scripts de muitas das mesmas tarefas que desempenha com as APIs do Batch, o portal do Azure e os cdmlets do Batch PowerShell.
 
-Este artigo disponibiliza uma descrição geral da utilização da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure) com o Batch. Veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para obter uma descrição geral da utilização da CLI com o Azure.
+Este artigo disponibiliza uma descrição geral da utilização da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure) com o Batch. Veja [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para obter uma descrição geral da utilização da CLI com o Azure.
 
 ## <a name="set-up-the-azure-cli"></a>Configurar a CLI do Azure
 
@@ -47,12 +47,9 @@ Pode apresentar o texto de ajuda de cada comando na CLI do Azure, acrescentando 
 
 Em caso de dúvida, utilize a opção da linha de comandos `-h` para obter ajuda sobre qualquer comando da CLI do Azure.
 
-> [!NOTE]
-> As versões anteriores da CLI do Azure utilizavam `azure` para prefaciar os comandos da CLI. Na versão 2.0, os comandos são agora prefaciados com `az`. Confirme que atualiza os scripts, de modo a que utilizem a sintaxe nova com a versão 2.0.
->
->  
 
-Além disso, veja a documentação de referência da CLI do Azure para obter detalhes sobre [os comandos da CLI do Azure para o Batch](https://docs.microsoft.com/cli/azure/batch). 
+
+Além disso, veja a documentação de referência da CLI do Azure para obter detalhes sobre [os comandos da CLI do Azure para o Batch](/cli/azure/batch). 
 
 ## <a name="log-in-and-authenticate"></a>Iniciar sessão e autenticar
 
@@ -63,7 +60,7 @@ Para utilizar a CLI do Azure com o Batch, tem de iniciar sessão e autenticar-se
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Existem algumas formas diferentes de iniciar sessão no Azure, que estão descritas em detalhe no artigo [Iniciar sessão com a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+Existem algumas formas diferentes de iniciar sessão no Azure, descritas em detalhe em [Iniciar sessão com a CLI do Azure](/cli/azure/authenticate-azure-cli):
 
 1. [Iniciar sessão interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Inicie sessão interativamente se estiver a executar comandos da CLI do Azure manualmente a partir da linha de comandos.
 2. [Iniciar sessão com um principal de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Inicie sessão com um principal de serviço se estiver a executar comandos da CLI do Azure a partir de um script ou de uma aplicação.
@@ -87,7 +84,7 @@ Para gerir recursos do Batch, como agrupamentos, trabalhos e tarefas, com a CLI 
 
 Tem duas opções para se autenticar na conta do Batch:
 
-- **Com a autenticação do Azure Active Directory (Azure AD).** 
+- **Com a autenticação do Azure Active Directory (Azure AD)** 
 
     A autenticação com o Azure AD é a opção predefinida quando utiliza a CLI do Azure com o Batch e a recomendada para a maioria dos cenários. 
     
@@ -101,9 +98,9 @@ Tem duas opções para se autenticar na conta do Batch:
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Com a autenticação de chave partilhada.**
+- **Com a autenticação de Chave Partilhada**
 
-    A [autenticação de chave partilhada](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) utiliza as chaves de acesso da sua conta para autenticar comandos da CLI do Azure para o serviço do Batch.
+    A [autenticação de chave partilhada](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) utiliza as chaves de acesso da sua conta para autenticar comandos da CLI do Azure para o serviço do Batch.
 
     Se estiver a criar scripts da CLI do Azure para automatizar a chamada de comandos do Batch, pode utilizar a autenticação de Chave Partilhada ou um principal de serviço do Azure AD. Em alguns cenários, pode ser mais fácil utilizar a autenticação de Chave Partilhada do que um principal de serviço.  
 
@@ -173,7 +170,6 @@ As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 * Utilize `-v` e `-vv` para apresentar a saída de comandos **detalhadas**. Se o sinalizador `-vv` for incluído, a CLI do Azure apresenta os pedidos e as respostas REST propriamente ditos. Estes parâmetros são úteis para apresentar a saída de erro completa.
 * Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Em seguida, pode copiar e modificar esta saída para utilizar num `--json-file` (veja [ficheiros JSON](#json-files) anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

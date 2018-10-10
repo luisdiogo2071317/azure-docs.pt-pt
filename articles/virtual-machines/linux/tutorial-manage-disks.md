@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Gerir discos do Azure com a CLI do Azure | Microsoft Docs
-description: Neste tutorial, vai aprender a utilizar a CLI 2.0 do Azure para criar e gerir discos do Azure para máquinas virtuais
+description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir discos do Azure para máquinas virtuais
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704492"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978323"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Tutorial – Gerir discos do Azure com a CLI 2.0 do Azure
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
 As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados. Quando cria a VM, é importante escolher um tamanho de disco e configuração adequados para a carga de trabalho esperada. Este tutorial mostra como implementar e gerir discos de VM. Vai obter informações sobre:
 
@@ -38,7 +38,7 @@ As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema op
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Discos do Azure predefinidos
 

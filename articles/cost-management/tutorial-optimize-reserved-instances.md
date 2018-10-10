@@ -1,30 +1,30 @@
 ---
-title: Tutorial - otimizar os custos de instâncias de reserva com o Azure Cost Management | Microsoft Docs
+title: Tutorial – Otimizar os custos das instâncias reservadas com a Cloudyn no Azure | Microsoft Docs
 description: Neste tutorial, irá aprender a otimizar os custos de instâncias reservadas do Azure e Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177328"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987780"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Tutorial: otimizar instâncias reservadas
 
-Neste tutorial, irá aprender como o Cost Management pode ajudar a otimizar os custos e a utilização de instâncias reservadas para o Azure e o Amazon Web Services (AWS). Uma instância reservada com um dos fornecedores de serviços cloud é um compromisso para um contrato a longo prazo, em que há um compromisso prévio para a utilização futura da VM. Além disso, pode oferecer potencialmente poupanças consideráveis, em comparação com o modelo de preços de VM de pagamento por utilização padrão. As poupanças potenciais só são conseguidas quando utiliza totalmente a capacidade das suas instâncias reservadas.
+Neste tutorial, vai aprender como a Cloudyn pode ajudar a otimizar os custos e a utilização das instâncias reservadas do Azure e do Amazon Web Services (AWS). Uma instância reservada com um dos fornecedores de serviços cloud é um compromisso para um contrato a longo prazo, em que há um compromisso prévio para a utilização futura da VM. Além disso, pode oferecer potencialmente poupanças consideráveis, em comparação com o modelo de preços de VM de pagamento por utilização padrão. As poupanças potenciais só são conseguidas quando utiliza totalmente a capacidade das suas instâncias reservadas.
 
-Este tutorial explica como as Instâncias Reservadas do Azure e do AWS são suportadas pelo Cost Management. Também descreve como pode otimizar os custos de instâncias reservadas. Principalmente, ao garantir que as reservas são utilizadas totalmente. Neste tutorial, irá:
+Este tutorial explica como as Instâncias Reservadas (RIs) do Azure e do AWS são suportadas pela Cloudyn. Também descreve como pode otimizar os custos de instâncias reservadas. Principalmente, ao garantir que as reservas são utilizadas totalmente. Neste tutorial, irá:
 
 > [!div class="checklist"]
 > * Compreender os custos de RIs do Azure
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter uma conta do Azure.
-- Tem de ter um registo de avaliação ou uma subscrição paga do Azure Cost Management.
+- Tem de ter um registo de avaliação ou uma subscrição paga da Cloudyn.
 - Tem de ter comprado RIs do Azure ou AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Compreender os custos de RIs do Azure
@@ -85,7 +85,7 @@ O âmbito partilhado de compra é mais flexível e recomenda-se sempre que poss�
 
 ## <a name="optimize-azure-ri-costs"></a>Otimizar os custos de RIs do Azure
 
-O Azure Cost Management suporta instâncias reservadas e Benefícios Híbridos, ao:
+A Cloudyn suporta instâncias reservadas e Benefícios Híbridos, ao:
 
 - Mostrar os custos associados a modelos de preços
 - Controlar a utilização de RIs
@@ -116,7 +116,7 @@ No entanto, se for executada apenas 50% do tempo, o ponto de rentabilidade situa
 
 ## <a name="view-ri-costs"></a>Ver os custos de RIs
 
-Quando compra uma reserva, efetua um pagamento único. Existem duas formas de ver o pagamento no Cost Management:
+Quando compra uma reserva, efetua um pagamento único. Existem duas formas de ver o pagamento na Cloudyn:
 
 - Custo Real
 - Custo Amortizado

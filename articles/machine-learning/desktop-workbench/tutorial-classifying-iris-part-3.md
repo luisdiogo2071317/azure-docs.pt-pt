@@ -1,6 +1,6 @@
 ---
-title: Implementar um tutorial de modelo para os serviços do Azure Machine Learning
-description: Este tutorial completo mostra como utilizar os serviços do Azure Machine Learning ponto a ponto. Esta é a parte três e aborda o modelo de implementação.
+title: Tutorial para implementar um modelo para o serviço Azure Machine Learning
+description: Este tutorial completo mostra como utilizar o serviço Azure Machine Learning ponto a ponto. Esta é a parte três e aborda o modelo de implementação.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41920370"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946617"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: classificar Íris: implementar um modelo
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 O Azure Machine Learning (pré-visualização) é uma solução de análise avançada e ciência de dados completa e integrada para os cientistas de dados profissionais. Os cientistas de dados podem utilizá-los para preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
 
 Este tutorial é a **terceira parte de uma série composta por três partes**. Nesta parte do tutorial, vai utilizar o Machine Learning (pré-visualização) para:
@@ -38,7 +42,7 @@ Este tutorial utiliza o [conjunto de dados flor de Iris](https://en.wikipedia.or
 
 Para concluir este tutorial, precisa de:
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](../service/quickstart-installation.md)
+- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](quickstart-installation.md)
 - O modelo de classificação do [Tutorial parte 2](tutorial-classifying-iris-part-2.md)
 - Um motor de Docker instalado e em execução a nível local
 
@@ -224,9 +228,9 @@ Agora, está pronto para criar o serviço Web em tempo real.
 1. Para criar um serviço Web em tempo real, utilize o comando seguinte:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Este comando gera um ID de serviço Web que pode utilizar mais tarde.
+   Este comando gera um ID de serviço Web que pode utilizar mais tarde. Omita o diretório de saída se estiver a utilizar um bloco de notas.
 
    Os comutadores seguintes são utilizados com o comando **az ml service create realtime**:
 
@@ -276,9 +280,9 @@ Em primeiro lugar, registe o modelo. Em seguida, gere o manifesto, crie a imagem
    Para criar um manifesto, utilize o comando seguinte e indique a saída do ID de modelo do passo anterior:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Este comando gera um ID de manifesto.
+   Este comando gera um ID de manifesto.  Omita o diretório de saída se estiver a utilizar um bloco de notas.
 
 1. Crie uma imagem do Docker.
 

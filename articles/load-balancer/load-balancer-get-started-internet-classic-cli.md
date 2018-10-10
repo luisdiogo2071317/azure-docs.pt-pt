@@ -1,6 +1,6 @@
 ---
 title: Criar um balanceador de carga com acesso à Internet – CLI clássica do Azure | Microsoft Docs
-description: Saiba como criar um balanceador de carga com acesso à Internet num modelo de implementação clássica com a CLI do Azure
+description: Saiba como criar um balanceador de carga com acesso à Internet num modelo de implementação clássica com a CLI clássica do Azure
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -12,26 +12,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: bacf135da25a5315e61922179db9a29fa8a152f1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a91a53070985a24ccd87f16254f652fe48c42c5a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540013"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988160"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Introdução à criação de um balanceador de carga com acesso à Internet (modo clássico) na CLI do Azure
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Introdução à criação de um balanceador de carga com acesso à Internet (modo clássico) na CLI clássica do Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [CLI do Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
-> * [Serviços em Nuvem do Azure](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
+> * [CLI clássica do Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
 > Para trabalhar com recursos do Azure, é importante compreender que o Azure tem atualmente dois modelos de implementação: o Azure Resource Manager e a implementação clássica. Confirme que compreende os [modelos e ferramentas de implementação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Pode ver a documentação de diversas ferramentas clicando nos separadores na parte superior deste artigo. Este artigo abrange o modelo de implementação clássica. Também pode [saber como criar um balanceador de carga com acesso à Internet com o Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+
+[!INCLUDE [requires-classic-cli](../../includes/contains-classic-cli-content.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -39,7 +41,7 @@ ms.locfileid: "38540013"
 
 Este guia mostra como criar um balanceador de carga com acesso à Internet com base no cenário acima.
 
-1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
+1. Se nunca tiver utilizado a CLI clássica do Azure, veja [Instalar e Configurar a CLI clássica do Azure](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
 2. Execute o comando **azure config mode** para mudar para o modo clássico, como mostrado abaixo.
 
     ```azurecli

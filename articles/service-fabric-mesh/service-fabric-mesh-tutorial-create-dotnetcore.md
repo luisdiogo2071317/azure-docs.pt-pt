@@ -1,5 +1,5 @@
 ---
-title: Tutorial - criar, depurar e implementar uma aplicação Web com vários serviços no Service Fabric Mesh | Microsoft Docs
+title: Tutorial – Criar, depurar, implementar e monitorizar uma aplicação para vários serviços no Service Fabric Mesh | Microsoft Docs
 description: Neste tutorial, vai criar uma aplicação do Azure Service Fabric Mesh com vários serviços, que consiste num site ASP.NET Core que comunica com um serviço Web de back-end, depurá-lo localmente e publicá-lo no Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920896"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979199"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: criar, depurar e implementar uma aplicação Web com vários serviços no Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implementar e atualizar uma aplicação para vários serviços do Service Fabric Mesh
 
-Este tutorial é a primeira parte de uma série. Ficará a saber como criar uma aplicação do Azure Service Fabric Mesh com um serviço de front-end Web ASP.NET e um serviço de back-end de API Web ASP.NET Core. Em seguida, vai depurar a aplicação no seu cluster de desenvolvimento local e publicá-la no Azure. Quando tiver terminado, terá uma aplicação de tarefas simples que demonstra uma chamada serviço a serviço numa aplicação do Service Fabric Mesh em execução no Azure Service Fabric Mesh.
+Este tutorial é a primeira parte de uma série. Ficará a saber como utilizar o Visual Studio para criar uma aplicação do Azure Service Fabric Mesh com um serviço de front-end Web ASP.NET e um serviço de back-end de API Web ASP.NET Core. Em seguida, vai depurar a aplicação no cluster de desenvolvimento local. Vai publicar a aplicação no Azure e, em seguida, fazer alterações na configuração e no código e atualizar a aplicação. Por fim, vai limpar os recursos do Azure não utilizados, para não lhe serem cobrados.
+
+Quando tiver terminado, terá abordado a maioria das fases do ciclo de vida da gestão de aplicações e terá criado uma aplicação que demonstra uma chamada serviço a serviço numa aplicação do Service Fabric Mesh.
 
 Se não quiser criar manualmente a aplicação de tarefas, pode [transferir o código de origem](https://github.com/azure-samples/service-fabric-mesh) da aplicação concluída e avançar diretamente para o [Depurar a aplicação localmente](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma aplicação do Service Fabric Mesh que consiste num front-end Web ASP.NET.
+> * Utilize o Visual Studio para criar uma aplicação do Service Fabric Mesh que consiste num front-end Web ASP.NET.
 > * Criar um modelo para representar os itens a fazer.
 > * Criar um serviço de back-end e obter dados do mesmo.
 > * Adicionar um controlador e o DataContext como parte desse padrão Model View Controller para o serviço de back-end.
@@ -40,9 +42,11 @@ Na primeira parte da série, saiba como:
 
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
-> * Criar uma aplicação do Service Fabric Mesh
-> * [Depurar a aplicação localmente](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Publicar a aplicação no Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Criar uma aplicação do Service Fabric Mesh no Visual Studio
+> * [Depurar uma aplicação do Azure Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Implementar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Atualizar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
+> * [Limpar os recursos do Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Antes de começar este tutorial:
 
 * Certifique-se de que [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), que inclui a instalação do runtime do Service Fabric, o SDK, o Docker e o Visual Studio 2017.
 
-* A aplicação para este tutorial tem de ser, por agora, criada com o idioma inglês.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Criar um projeto do Service Fabric Mesh
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Criar um projeto do Service Fabric Mesh no Visual Studio
 
 Execute o Visual Studio e selecione **Ficheiro** > **Novo** > **Projeto...**
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ No ficheiro service.yaml, adicione as seguintes variáveis em `environmentVariab
 
 > [!IMPORTANT]
 > Devem ser utilizados espaços, e não separadores, para avançar as variáveis no ficheiro service.yaml; caso contrário, não será compilado. O Visual Studio pode inserir separadores, à medida que cria as variáveis de ambiente. Substitua todos os separadores por espaços. Embora vá ver erros na saída de depuração da **compilação**, a aplicação será iniciada na mesma. No entanto, não funcionará até que converta os separadores em espaços. Para garantir que não existem separadores no ficheiro service.yaml, pode tornar o espaço em branco visível no editor do Visual Studio com **Editar**  > **Avançado**  > **Ver Espaço em Branco**.
+> Observe que os ficheiros do service.yaml são processados com o idioma inglês.  Por exemplo, se precisar de utilizar um separador decimal, utilize um ponto em vez de uma vírgula.
 
 O ficheiro **service.yaml** do projeto **WebFrontEnd** deve ser semelhante ao seguinte, embora o seu valor `ApiHostPort` possa ser diferente:
 
@@ -389,4 +389,4 @@ Nesta parte do tutorial, ficou a saber como:
 
 Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]
-> [Depurar uma aplicação do Service Fabric Mesh em execução localmente](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Depurar uma aplicação do Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

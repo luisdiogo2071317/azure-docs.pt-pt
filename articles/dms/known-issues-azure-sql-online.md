@@ -2,7 +2,7 @@
 title: Artigo sobre as limitações de migração/problemas conhecidos com as migrações de online para a SQL Database do Azure | Documentos da Microsoft
 description: Saiba mais sobre as limitações de migração/problemas conhecidos com as migrações de online para a base de dados do Azure SQL.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: ''
@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/11/2018
-ms.openlocfilehash: a3db14b9cab23da8d7a5adcc8dd6edadcbc15dbb
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802564"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883827"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração/problemas conhecidos com as migrações de online para a BD SQL do Azure
 
@@ -28,7 +28,7 @@ Problemas conhecidos e limitações associadas a migrações online do SQL Serve
 
 Se a sua base de dados de origem é composta por um ou mais tabelas temporais, a migração de base de dados falha durante a operação de "carregamento de dados completa" e pode ver a seguinte mensagem:
 
-{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 mensagem: [Microsoft][SQL Server Native Client 11.0][SQL][SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema "[aplicativo. Cidades] "linha: 1 coluna: -1"] "}
+{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 mensagem: [Microsoft][SQL Server Native Client 11.0][SQL][SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema '[aplicativo. Cidades] "linha: 1 coluna: -1"] "}
  
  ![Exemplo de erros de tabela temporal](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
 

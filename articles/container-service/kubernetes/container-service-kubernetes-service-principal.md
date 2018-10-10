@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974872"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurar o principal de serviço do Azure AD para um cluster de Kubernetes no Container Service
 
@@ -23,7 +23,7 @@ ms.locfileid: "39576924"
 No Azure Container Service, um cluster de Kubernetes requer um [principal de serviço do Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) para interagir com APIs do Azure. O principal de serviço tem de gerir dinamicamente recursos, como [rotas definidas pelo utilizador](../../virtual-network/virtual-networks-udr-overview.md) e o [Balanceador de Carga do Azure de Camada 4](../../load-balancer/load-balancer-overview.md).
 
 
-Este artigo mostra as diferentes opções para configurar um principal de serviço para o cluster de Kubernetes. Por exemplo, se instalou e configurou o [CLI do Azure 2.0](/cli/azure/install-az-cli2), pode executar o comando [`az acs create`](/cli/azure/acs#az-acs-create), para criar o cluster de Kubernetes e o principal de serviço ao mesmo tempo.
+Este artigo mostra as diferentes opções para configurar um principal de serviço para o cluster de Kubernetes. Por exemplo, se tiver instalado e configurado a [CLI do Azure](/cli/azure/install-az-cli2), poderá executar o comando [`az acs create`](/cli/azure/acs#az_acs_create) para criar o cluster de Kubernetes e o principal de serviço ao mesmo tempo.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisitos para o principal de serviço
@@ -44,7 +44,7 @@ Pode utilizar um principal de serviço do Azure AD existente que cumpre os segui
 
 Se pretender criar um principal de serviço no Azure AD antes de implementar um cluster de Kubernetes, o Azure apresenta vários métodos.
 
-Os comandos de exemplo seguintes mostram-lhe como fazê-lo com o [CLI do Azure 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Em alternativa pode criar um principal de serviço através do [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), do [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ou de outros métodos.
+Os comandos de exemplo seguintes mostram-lhe como fazê-lo com a [CLI do Azure](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Em alternativa pode criar um principal de serviço através do [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), do [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ou de outros métodos.
 
 ```azurecli
 az login
@@ -67,13 +67,13 @@ São realçados o **ID de cliente** (`appId`) e o **segredo do cliente** (`passw
 
 Forneça o **ID de cliente** (também designado pelo `appId`, para o ID da Aplicação) e **segredo do cliente** (`password`) de um principal de serviço existente como parâmetros ao criar o cluster de Kubernetes. Certifique-se de que o principal de serviço cumpre os requisitos no início deste artigo.
 
-Pode especificar estes parâmetros quando implementar o cluster de Kubernetes com a [Interface de Linha de Comandos (CLI) do Azure 2.0](container-service-kubernetes-walkthrough.md), o [portal do Azure](../dcos-swarm/container-service-deployment.md) ou outros métodos.
+Pode especificar estes parâmetros quando implementar o cluster de Kubernetes com a [Interface de Linha de Comandos (CLI) do Azure](container-service-kubernetes-walkthrough.md), o [portal do Azure](../dcos-swarm/container-service-deployment.md) ou outros métodos.
 
 >[!TIP]
 >Quando especificar a **ID de cliente**, certifique-se de que utiliza o `appId`, e não o `ObjectId`, do principal de serviço.
 >
 
-O exemplo seguinte mostra uma forma de passar os parâmetros com a CLI do Azure 2.0. Este exemplo utiliza o [modelo de início rápido de Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+O exemplo seguinte mostra uma forma de passar os parâmetros com a CLI do Azure. Este exemplo utiliza o [modelo de início rápido de Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Transfira](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) o ficheiro de parâmetros do modelo `azuredeploy.parameters.json` a partir do GitHub.
 

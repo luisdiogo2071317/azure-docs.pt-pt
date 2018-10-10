@@ -1,25 +1,25 @@
 ---
-title: Tutorial - prever despesas do Azure Cost Management | Microsoft Docs
+title: Tutorial – Previsão de despesas com a Cloudyn no Azure | Microsoft Docs
 description: Neste tutorial, saiba como prever gastos através do histórico de dados de utilização e gastos.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162199"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953689"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutorial: prever despesas futuras
 
-O Azure Cost Management ajuda a prever futuros gastos, através do histórico dos dados de utilização e gastos. Utilize relatórios do Cloudyn para ver todos os dados de projeção de custo. Os exemplos neste tutorial explicam como rever projeções de custo através dos relatórios. Neste tutorial, ficará a saber como:
+A Cloudyn ajuda a prever despesas futuras, através do histórico dos dados de utilização e de despesas. Utilize relatórios do Cloudyn para ver todos os dados de projeção de custo. Os exemplos neste tutorial explicam como rever projeções de custo através dos relatórios. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Prever despesas futuras
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter uma conta do Azure.
-- Tem de ter um registo de avaliação ou uma subscrição paga do Azure Cost Management.
+- Tem de ter um registo de avaliação ou uma subscrição paga da Cloudyn.
 
 ## <a name="forecast-future-spending"></a>Prever despesas futuras
 
@@ -37,7 +37,7 @@ O Cloudyn inclui relatórios de projeção de custos para ajudar a prever despes
 
 O relatório de Custo Previsto do Mês Atual mostra os custos dos seus serviços. Utiliza os custos do início do mês e do mês anterior para mostrar o custo previsto. No menu de relatórios na parte superior do portal, clique em **Custo** > **Projeção e Orçamento** > **Custo Previsto do Mês Atual**. A imagem seguinte mostra um exemplo.
 
-![custo previsto do mês atual](./media/tutorial-forecast-spending/project-month01.png)
+![Custo previsto do mês atual](./media/tutorial-forecast-spending/project-month01.png)
 
 No exemplo, pode ver quais os serviços que mais gastam. Os custos do Azure foram inferiores aos custos dos AWS. Se quer ver os detalhes da previsão de custos para VMs do Azure, na lista **Filtrar**, selecione **Azure/VM**.
 
@@ -49,11 +49,11 @@ O relatório do Custo Previsto Anual mostra o custo extrapolado dos seus serviç
 
 No menu de relatórios na parte superior do portal, clique em **Custo** > **Projeção e Orçamento** > **Custo Previsto Anual**. A imagem seguinte mostra um exemplo.
 
-![relatório do custo previsto anual](./media/tutorial-forecast-spending/project-annual01.png)
+![Relatório do custo previsto anual](./media/tutorial-forecast-spending/project-annual01.png)
 
 No exemplo, pode ver quais os serviços que mais gastam. Semelhante ao exemplo mensal, os custos do Azure foram inferiores aos custos do AWS. Se quer ver os detalhes da previsão de custos para VMs do Azure, na lista **Filtrar**, selecione **Azure/VM**.
 
-![custo previsto anual das VMs](./media/tutorial-forecast-spending/project-annual02.png)
+![Custo previsto anual das VMs](./media/tutorial-forecast-spending/project-annual02.png)
 
 Na imagem acima, o custo previsto anual das VMs do Azure é de $ 28.374.
 

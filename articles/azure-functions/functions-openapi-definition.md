@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f2f4e7d96c4d8725d9d34314854665440d86ce8d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a085d7e25854a928778802d2b4ef50cf9e57eff9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960928"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 As APIs REST são muitas vezes descritas com uma definição de OpenAPI (anteriormente conhecida como um ficheiro [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados.
@@ -31,6 +31,9 @@ Neste tutorial, ficará a saber como:
 > * Gerar uma definição de OpenAPI com ferramentas OpenAPI
 > * Modificar a definição para fornecer metadados adicionais
 > * Testar a definição, chamando a função
+
+> [!IMPORTANT]
+> A funcionalidade de pré-visualização do OpenAPI está disponível atualmente apenas no runtime 1.x. [Pode encontrar aqui](./functions-versions.md#creating-1x-apps) informações sobre como criar uma aplicação de funções 1.x.
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 

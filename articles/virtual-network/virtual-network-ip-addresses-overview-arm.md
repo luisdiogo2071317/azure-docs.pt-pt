@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325290"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993600"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -28,6 +28,8 @@ Pode atribuir endereços IP a recursos do Azure para comunicar com outros recurs
 
 * **Endereços IP públicos**: utilizados para comunicação com a Internet, incluindo os serviços do Azure destinados ao público.
 * **Endereços IP privados**: utilizados para comunicação dentro de uma rede virtual do Azure (VNet) e da sua rede no local quando utiliza um gateway de VPN ou o circuito do ExpressRoute para expandir a sua rede para o Azure.
+
+Também pode criar um intervalo de endereços IP públicos estáticos contíguo, por meio de um prefixo IP público. [Saiba mais sobre o prefixo IP público](public-ip-address-prefix.md).
 
 > [!NOTE]
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo explica como utilizar o modelo de implementação Resource Manager, o que é recomendado pela Microsoft para a maioria das novas implementações em vez do [modelo de implementação clássica](virtual-network-ip-addresses-overview-classic.md).

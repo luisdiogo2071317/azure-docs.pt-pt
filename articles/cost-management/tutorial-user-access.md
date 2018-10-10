@@ -1,29 +1,29 @@
 ---
-title: Tutorial - atribuir acesso no Azure Cost Management | Microsoft Docs
-description: Neste tutorial, saiba como atribuir acesso a dados de gestão de custos com contas de utilizador que definem os níveis de acesso para as entidades.
+title: Tutorial – Atribuir acesso através da Cloudyn no Azure | Microsoft Docs
+description: Neste tutorial, ficará a saber como atribuir acesso a dados da Cloudyn com contas de utilizador que definem os níveis de acesso para as entidades.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188187"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957476"
 ---
-# <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: atribuir acesso a dados de gestão de custos
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: Atribuir acesso a dados da Cloudyn
 
-O acesso a dados de gestão de custos é fornecido pela gestão de utilizadores ou de entidades. As contas de utilizador do Cloudyn determinam o acesso às *entidades* e às funções administrativas. Existem dois tipos de acesso: administrador e utilizador. A menos que seja modificado pelo utilizador, o acesso de administrador permite a um utilizador utilizar sem restrições todas as funções no portal do Cloudyn, incluindo: gestão de utilizadores, gestão de listas de destinatários e acesso da entidade de raiz a todos os dados de entidade. O acesso de utilizador destina-se aos utilizadores finais para verem e criarem relatórios através do acesso que têm aos dados de entidade.
+O acesso a dados da Cloudyn é fornecido pela gestão de utilizadores ou de entidades. As contas de utilizador do Cloudyn determinam o acesso às *entidades* e às funções administrativas. Existem dois tipos de acesso: administrador e utilizador. A menos que seja modificado pelo utilizador, o acesso de administrador permite a um utilizador utilizar sem restrições todas as funções no portal do Cloudyn, incluindo: gestão de utilizadores, gestão de listas de destinatários e acesso da entidade de raiz a todos os dados de entidade. O acesso de utilizador destina-se aos utilizadores finais para verem e criarem relatórios através do acesso que têm aos dados de entidade.
 
 As entidades são utilizadas para refletir a estrutura hierárquica da sua organização empresarial. Identificam departamentos, divisões e equipas na sua organização no Cloudyn. A hierarquia de entidades ajuda a monitorizar eficazmente os gastos feitos pelas entidades.
 
-Quando registou o seu contrato ou conta do Azure, foi criada uma conta com permissões de administrador no Cloudyn, pelo que pode executar todos os passos neste tutorial. Este tutorial abrange o acesso a dados de gestão de custos, incluindo gestão de utilizadores e de entidades. Saiba como:
+Quando registou o seu contrato ou conta do Azure, foi criada uma conta com permissões de administrador no Cloudyn, pelo que pode executar todos os passos neste tutorial. Este tutorial abrange o acesso a dados da Cloudyn, incluindo gestão de utilizadores e de entidades. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um utilizador com acesso de administrador
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter uma conta do Azure.
-- Tem de ter um registo de avaliação ou uma subscrição paga do Azure Cost Management.
+- Tem de ter um registo de avaliação ou uma subscrição paga da Cloudyn.
 
 ## <a name="create-a-user-with-admin-access"></a>Criar um utilizador com acesso de administrador
 
@@ -50,7 +50,7 @@ Em **O utilizador tem acesso de administrador**, está selecionada a entidade de
   ![Adicionar novo utilizador com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Criar um utilizador com acesso de utilizador
-Os utilizadores típicos que precisem de acesso a dados de gestão de custos, como os dashboards e relatórios, devem ter acesso de utilizador para visualizá-los. Crie um novo utilizador com acesso de utilizador semelhante ao que criou com acesso de administrador, com as seguintes diferenças:
+Os utilizadores típicos que precisem de acesso à Cloudyn, como os dashboards e relatórios, devem ter acesso de utilizador para os visualizar. Crie um novo utilizador com acesso de utilizador semelhante ao que criou com acesso de administrador, com as seguintes diferenças:
 
 - Desmarque **Permitir Gestão de Utilizadores**, **Permitir Gestão de Listas de Destinatários** e desmarque tudo na lista **O utilizador tem acesso de administrador**.
 - Selecione as entidades que o utilizador precisa de aceder na lista **O utilizador tem acesso de utilizador**.
@@ -58,7 +58,7 @@ Os utilizadores típicos que precisem de acesso a dados de gestão de custos, co
 
 ![adicionar novo utilizador com acesso de utilizador](.\media\tutorial-user-access\new-user-access.png)
 
-Para ver um vídeo do tutorial sobre como adicionar utilizadores, veja [Adicionar Utilizadores ao Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+Para ver um tutorial em vídeo sobre como adicionar utilizadores, veja [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30) (Adicionar Utilizadores à Cloudyn).
 
 ## <a name="delete-a-user"></a>Eliminar um utilizador
 
@@ -88,11 +88,11 @@ Quando registou o seu contrato ou conta do Azure no Cloudyn, os dados dos recurs
 
 No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**. Começa por uma única entidade (raiz) e cria a árvore de entidades na raiz. Segue-se um exemplo de uma hierarquia de entidades que poderá assemelhar-se a muitas organizações de TI após a conclusão da árvore:
 
-![árvore de entidades](.\media\tutorial-user-access\entity-tree.png)
+![Árvore de entidades](.\media\tutorial-user-access\entity-tree.png)
 
 Junto a **Entidades**, clique em **Adicionar Entidade**. Introduza as informações sobre a pessoa ou o departamento que quer adicionar. Os campos **Nome Completo** e **E-mail** não têm de corresponder ao utilizadores existentes. Se quiser ver uma lista de níveis de acesso, procure *Adicionar uma entidade* na ajuda.
 
-![adicionar entidade](.\media\tutorial-user-access\add-entity.png)
+![Adicionar entidade](.\media\tutorial-user-access\add-entity.png)
 
 Quando tiver terminado, **guarde** a entidade.
 
@@ -114,9 +114,9 @@ No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita
 
 Também pode associar várias contas a uma entidade. Selecione as contas e, em seguida, clique em **Mover**. Na caixa Mover contas, selecione a entidade em que pretende mover a conta e, em seguida, clique em **Guardar**. A caixa Mover contas pede-lhe para confirmar que pretende mover as contas. Clique em **Sim** e, em seguida, em **OK**.
 
-Para ver um vídeo do tutorial sobre a criação de uma hierarquia de entidades de custo, veja [Criar uma Hierarquia de Entidades de Custo no Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
+Para ver um tutorial em vídeo sobre como criar uma hierarquia de entidades de custo, veja [Creating a Cost Entity Hierarchy in Cloudyn](https://youtu.be/dAd9G7u0FmU) (Criar uma Hierarquia de Entidades de Custo na Cloudyn).
 
-Se for um utilizador do Azure Enterprise Agreement, veja um vídeo do tutorial sobre a associação de contas e subscrições para entidades em [Ligar ao Azure Resource Manager com o Azure Cost Management](https://youtu.be/oCIwvfBB6kk).
+Se for um utilizador do Contrato Enterprise do Azure, veja o tutorial em vídeo [Connecting to Azure Resource Manager with Cloudyn](https://youtu.be/oCIwvfBB6kk) (Ligar ao Azure Resource Manager com a Cloudyn) sobre a associação de contas e subscrições a entidades.
 
 ## <a name="next-steps"></a>Passos seguintes
 

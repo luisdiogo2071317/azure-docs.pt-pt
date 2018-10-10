@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869593"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966865"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os scripts da CLI que executa neste tutorial utilizam a [Extensão do Microsoft Azure IoT para a CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Para instalar esta extensão, execute o seguinte comando da CLI:
+Os scripts da CLI que executa neste tutorial utilizam a [Extensão do Microsoft Azure IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Para instalar esta extensão, execute o seguinte comando da CLI:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -100,7 +100,7 @@ Para repor a chave primária do dispositivo **MyTestDevice**, execute os seguint
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice

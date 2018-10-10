@@ -1,6 +1,6 @@
 ---
-title: Criar um balanceador de carga interno – CLI clássica do Azure | Microsoft Docs
-description: Saiba como criar um balanceador de carga interno com a CLI do Azure no modelo de implementação clássica
+title: Criar um Balanceador de carga interno – CLI clássica do Azure | Microsoft Docs
+description: Saiba como criar um balanceador de carga interno com a CLI clássica do Azure no modelo de implementação clássica
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: 8f0ac03ff7b749e47692d03d65502df0a19bb758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb8929b31fa4325b996ddf4c5ec48e4acb0b930a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966924"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Introdução à criação de um balanceador de carga interno (modo clássico) com a CLI do Azure
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Introdução à criação de um balanceador de carga interno com a CLI clássica do Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -44,11 +44,11 @@ Para criar um conjunto de balanceadores de carga internos e os servidores que en
 2. Adicione os pontos finais correspondentes às máquinas virtuais que podem receber o tráfego de entrada.
 3. Configure os servidores para enviar o respetivo tráfego para o endereço IP virtual (VIP) da instância de Balanceamento de Carga Interno.
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Criação passo a passo de um balanceador de carga interno com a CLI
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>Criação passo a passo de um balanceador de carga interno com a CLI clássica
 
 Este guia mostra como criar um balanceador de carga interno com base no cenário acima.
 
-1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
+1. Se nunca tiver utilizado a CLI clássica, veja [Instalar e Configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
 2. Execute o comando **azure config mode** para mudar para o modo clássico, como mostrado abaixo.
 
     ```azurecli
