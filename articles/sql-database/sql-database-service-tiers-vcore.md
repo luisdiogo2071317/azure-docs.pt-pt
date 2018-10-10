@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 6321c1dab0ae9db231a5ba494c981f47aee3ee6b
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/09/2018
+ms.openlocfilehash: e93de9b3642e0b01bf65b6761d8832b0d4c2a431
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831358"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901690"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>escalões de serviço de vCore, o Azure Hybrid Use Benefit e migração
 
@@ -33,7 +33,7 @@ modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Ser
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-O modelo de vCore oferece dois escalões de serviço para fins gerais e crítico para a empresa. Escalões de serviço são diferenciados por uma variedade de tamanhos de computação, design de elevada disponibilidade, isolamento de falhas, tipos de armazenamento e o intervalo de e/s. O cliente tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança.
+O modelo de vCore oferece dois escalões de serviço para fins gerais e crítico para a empresa. Escalões de serviço são diferenciados por uma variedade de tamanhos de computação, design de elevada disponibilidade, isolamento de falhas, tipos de armazenamento e o intervalo de e/s. O cliente tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. Tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. No portal do Azure, aceda ao servidor (não a base de dados) > cópias de segurança gerida > configurar a política > ponto no tempo restaurar configuração > 7-35 dias.
 
 A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalões:
 

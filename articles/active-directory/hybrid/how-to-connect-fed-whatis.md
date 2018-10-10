@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85ae48a07e1d9d47ac50835f3bd7af5cf331ab74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 214dd95bb277053794656e1ba3dd148c085688ce
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312943"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900449"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação
 O Azure Active Directory (Azure AD) Connect permite que configura a Federação com locais serviços de Federação do Active Directory (AD FS) e o Azure AD. Com o Federação início de sessão, pode permitir aos utilizadores iniciar sessão para serviços do Azure baseada no AD com as palavras-passe no local – e, embora na rede da empresa, sem ter de introduzir as palavras-passe novamente. Ao utilizar a opção de federação com o AD FS, pode implementar uma nova instalação do AD FS ou pode especificar uma instalação existente num farm do Windows Server 2012 R2.

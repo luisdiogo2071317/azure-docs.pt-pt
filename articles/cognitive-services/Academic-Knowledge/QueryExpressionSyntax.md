@@ -1,90 +1,91 @@
 ---
-title: Consultar a sintaxe de expressão na API de conhecimento académico | Microsoft Docs
-description: Saiba como utilizar a sintaxe de expressão de consulta na API de conhecimento académico cognitivos nos serviços da Microsoft.
+title: Sintaxe de expressão de consulta - API de conhecimento académico
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar a sintaxe de expressão de consulta na API de conhecimento académico.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6ec338fff09954e2f14066ce2b83bc1228794af8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351434"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901282"
 ---
 # <a name="query-expression-syntax"></a>Sintaxe de expressão de consulta
 
-Podemos ter visto que a resposta a um **interpretar** pedido inclui uma expressão de consulta. A gramática interpretado consulta do utilizador criar uma expressão de consulta para cada interpretação. Uma expressão de consulta, em seguida, pode ser utilizada para emitir um **avaliar** pedido para obter os resultados da pesquisa de entidade.
+Temos visto que a resposta para uma **interpretar** pedido inclui uma expressão de consulta. A gramática que interpretados consulta do utilizador criar uma expressão de consulta para cada interpretação. Em seguida, pode ser utilizada uma expressão de consulta a emitir uma **avaliar** pedido para obter os resultados da pesquisa de entidades.
 
-Também pode construir as suas próprias expressões de consulta e utilizá-los num **avaliar** pedido. Isto pode ser útil se está a criar o seu próprio interface de utilizador que cria uma expressão de consulta em resposta a ações do utilizador. Para tal, terá de conhecer a sintaxe para expressões de consulta.  
+Também pode construir seu próprio expressões de consulta e utilizá-las num **avaliar** pedido. Isso pode ser útil se estiver a criar sua própria interface do usuário que cria uma expressão de consulta em resposta às ações do usuário. Para fazer isso, precisa saber a sintaxe para expressões de consulta.  
 
-Cada atributo de entidade que pode ser incluído numa expressão de consulta tem um tipo de dados específicos e um conjunto de operadores de consulta possíveis. O conjunto de atributos de entidade e operadores suportados para cada atributo especificado no [entidade atributos](EntityAttributes.md). Uma consulta de valor único requer o atributo para suportar o *é igual a* operação. Uma consulta de prefixo requer o atributo para suportar o *StartsWith* operação. Consultas de intervalo numérico requer o atributo para suportar o *IsBetween* operação.
+Cada atributo de entidade que pode ser incluído numa expressão de consulta tem um tipo de dados específico e um conjunto de operadores de consulta possível. O conjunto de atributos de entidade e os operadores suportados para cada atributo é especificado no [atributos de entidade](EntityAttributes.md). Uma consulta de valor único requer o atributo para suportar o *é igual a* operação. Uma consulta de prefixo requer o atributo para suportar o *StartsWith* operação. Consultas de intervalo numérico requer o atributo para suportar o *IsBetween* operação.
 
-Alguns dos dados de entidades são armazenados como atributos compostos, conforme indicado por um ponto '.' no nome do atributo. Por exemplo, as informações de autor/afiliação são representadas como um atributo composto. Contém 4 componentes: AuN, AuId, AfN, AfId. Estes componentes são peças separadas dos dados que formam um valor de atributo de entidade única.
+Alguns dos dados de entidade são armazenadas como atributos compostos, como indicado por um ponto "." no nome do atributo. Por exemplo, informações de autor/afiliação são representadas como um atributo composto. Contém 4 componentes: AuN, AuId, AfN, AfId. Esses componentes são partes separadas de dados que formam um valor de atributo de entidade única.
 
 
-**Atributo de cadeia: Único valor** (inclui correspondências contra sinónimos)  
-TI = 'Indexação por latentes analysis semântica'  
-Compostos (AA. AuN = 'sue dumais')
+**Atributo de cadeia de caracteres: Único valor** (inclui correspondências em relação a sinónimos)  
+Te = 'indexação pela análise semântico latente'  
+Composição (AA. AuN = "processar judicialmente dumais")
 
-**Atributo de cadeia: Exacta valor único** (corresponde à apenas valores canónicos)  
-TI = = 'Indexação por latentes analysis semântica'  
-Compostos (AA. AuN = = 'susan t dumais')
+**Atributo de cadeia de caracteres: Exact valor único** (corresponde apenas valores canónicos)  
+Te = = 'indexação pela análise semântico latente'  
+Composição (AA. AuN = = "susan t dumais")
      
-**Atributo de cadeia: O valor de prefixo**   
-TI = 'Indexação por seman latentes'...  
-Compostos (AA. AuN = 'sue du'...)
+**Atributo de cadeia de caracteres: Valor de prefixo**   
+Te = "indexação por seman latente"...  
+Composição (AA. AuN = "processar judicialmente du"...)
 
-**Atributo numérico: Valor único**  
+**Atributos numéricos: Valor único**  
 Y = 2010
  
-**Atributo numérico: O valor de intervalo**  
+**Numérico atributo: Valor de intervalo**  
 Y &GT; 2005  
 Y &GT; = 2005  
 Y &LT; 2010  
 Y &LT; = 2010  
-Y =\[2010, 2012\) (inclui o valor do limite esquerdo apenas: 2010, 2011)  
-Y =\[2010, 2012\] (inclui os dois valores de limite: 2010, 2011, 2012)
+Y =\[2010, 2012\) (inclui o valor de limite esquerdo apenas: 2010, 2011)  
+Y =\[2010, 2012\] (inclui ambos os valores de limite: 2010, 2011, 2012)
  
-**Atributo numérico: O valor de prefixo**  
+**Atributos numéricos: Valor de prefixo**  
 Y = '19'... (qualquer valor numérico que começa com 19) 
  
-**Atributo data: Valor único**  
-D = "2010-02-04'
+**Atributo de data: Valor único**  
+1!D ='2010-02-04'
 
-**Datas atributo: O valor de intervalo**  
-D &GT; "2010-02-03'  
-D = ["2010-02-03', ' 2010-02-05']
+**Atributo de data: Valor de intervalo**  
+1!D &GT;'2010-02-03'  
+1!D = ["2010-02-03', ' 2010-02-05']
 
 **E/ou consultas:**  
-E (Y = 1985, Ti = 'Eletrónicos disordered sistemas operativos')  
-Ou (Ti = 'disordered Eletrónicos sistemas operativos', Ti = 'princípios de tolerância a falhas e prática')  
-And(or(Y=1985,Y=2008), Ti = 'Eletrónicos disordered sistemas operativos')
+E (Y = 1985, te = 'disordered eletrônicos sistemas')  
+Ou (te 'disordered eletrônicos sistemas', te de = = "princípios de tolerância a falhas e prática")  
+And(or(Y=1985,Y=2008), te = 'disordered eletrônicos sistemas')
  
 **Consultas compostas:**  
-Componentes de consulta de um atributo composto, tem de incluir a parte da expressão de consulta que referencia o atributo na função Composite() composto. 
+Componentes de consulta de um atributo composto, tem de incluir a parte da expressão de consulta que se refere ao atributo composto na função Composite(). 
 
-Por exemplo, para consultar papers pelo nome do autor, utilize a seguinte consulta:
+Por exemplo, para consultar documentos por nome de autor, utilize a seguinte consulta:
 ```
 Composite(AA.AuN='mike smith')
 ```
-<br>Para consultar papers por um determinado autor enquanto o autor estava a uma instituição específica, utilize a seguinte consulta:
+<br>Para consultar documentos de um autor específico ao autor foi uma instituição específica, utilize a seguinte consulta:
 ```
 Composite(And(AA.AuN='mike smith',AA.AfN='harvard university'))
 ```
-<br>A função de Composite() vincula duas partes do atributo composto em conjunto. Isto significa que apenas obtemos papers onde um dos autores é "Mike Santos" durante a ele na Harvard. 
+<br>A função de Composite() junta as duas partes do atributo composto. Isso significa que podemos apenas obter documentos em que um dos autores é "Mike Smith" enquanto esteve na Harvard. 
 
-Para consultar papers por um autor específico no políticas com (outros) autores de uma instituição específico, utilize a seguinte consulta:
+Para consultar documentos de um autor específico no afiliações com (outros) os autores de uma instituição específica, utilize a seguinte consulta:
 ```
 And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
-<br>Nesta versão, porque Composite() é aplicada ao autor e afiliação individualmente antes And(), vamos obter todos os papers onde um dos autores é "Mike Santos", não sendo uma das políticas dos autores "Harvard". Isto SOA semelhante ao anterior exemplo de consulta, mas não é a mesma coisa.
+<br>Nesta versão, porque Composite() é aplicada ao autor e afiliação individualmente antes And(), obtemos todos os documentos em que é um dos autores "Mike Smith" e é um dos afiliações dos autores "Harvard". Isso parece semelhante ao exemplo anterior de consulta, mas não é a mesma coisa.
 
-Em geral, considere o seguinte exemplo: temos um atributo composto C tem dois componentes A e B. Uma entidade pode ter vários valores para C. Estes são os nossas entidades:
+Em geral, considere o exemplo a seguir: temos um atributo composto C que tem dois componentes A e B. Uma entidade pode ter vários valores para C. Esses são nossos entidades:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}
@@ -95,15 +96,15 @@ E2: C={A=1, B=3}  C={A=3,B=2}
 Composite(And(C.A=1, C.B=2))
 ```
 
-<br>corresponde à apenas as entidades que tenham um valor para C em que o componente C.A é 1 e o componente C.B é 2. Apenas E1 corresponde a esta consulta.
+<br>corresponde a apenas as entidades que tenham um valor para C em que o componente C.A é 1 e o componente C.B é 2. Apenas E1 corresponde a esta consulta.
 
 A consulta 
 ```
 And(Composite(C.A=1), Composite(C.B=2))
 ```
-<br>corresponde a entidades que tenham um valor para C onde C.A é 1 e também de ter um valor para C onde C.B é 2. E1 e E2 correspondem esta consulta.
+<br>corresponde a entidades que têm um valor para C onde C.A é 1 e também de ter um valor para C onde C.B é 2. E1 e E2 correspondem a esta consulta.
 
 Atenção:  
 - Não é possível referenciar uma parte de um atributo composto fora de uma função de Composite().
-- Não é possível referenciar partes dos dois atributos compostos diferentes dentro da mesma função Composite().
-- Não é possível referenciar um atributo que não faz parte de um atributo no interior de uma função de Composite() composto.
+- Não é possível referenciar a partes de dois atributos compostos diferentes dentro da mesma função de Composite().
+- Não é possível referenciar um atributo que não faz parte de um atributo composto dentro de uma função de Composite().

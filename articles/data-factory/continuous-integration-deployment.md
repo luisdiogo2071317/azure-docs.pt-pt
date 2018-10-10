@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8027b167481fd4e48e03b3c1ad3ed8c6adcb853e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5da9d4b33951e14df251fe4939c54cff822843aa
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815448"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901962"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
 
@@ -182,6 +182,9 @@ Se tentar atualizar os acionadores de Active Directory, a implementação pode f
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-AzureRmDataFactoryV2Trigger` função) para reiniciar os disparadores após a implementação.
+
+> [!IMPORTANT]
+> Em cenários de implementação e integração contínua, o tipo de Runtime de integração entre ambientes diferentes têm de ser iguais. Por exemplo, se tem um *Autoalojado* Runtime de integração (IR) no ambiente de desenvolvimento, o mesmo Runtime de integração tem de ser do tipo *Autoalojado* em outros ambientes, tais como teste e produção também. Da mesma forma, se estiver a partilhar runtimes de integração em várias fases, tem de configurar o IRs como *ligado Autoalojado* em todos os ambientes, como o desenvolvimento, teste e produção.
 
 ## <a name="sample-deployment-template"></a>Modelo de implementação de exemplo
 

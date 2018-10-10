@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 657b75e5e3bb5c35bb23221235e62298fc797046
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867804"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902676"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e restauro com o Azure Cosmos DB
 O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados.  
@@ -47,12 +47,18 @@ A imagem seguinte ilustra as cópias de segurança completas periódicas de toda
 ## <a name="backup-retention-period"></a>Período de retenção de cópia de segurança
 Conforme descrito acima, Azure Cosmos DB tira instantâneos dos seus dados a cada quatro horas no nível da partição. Em qualquer momento, apenas os últimos dois instantâneos são retidos. No entanto, se o contentor/base de dados é eliminada, o Azure Cosmos DB retém os instantâneos existentes para todas as partições eliminadas dentro de determinado contentor/base de dados durante 30 dias.
 
-Para a API de SQL, se pretender manter o seu próprio instantâneos, pode usar a opção Exportar para JSON no Azure Cosmos DB [ferramenta de migração de dados](import-data.md#export-to-json-file) para agendar cópias de segurança adicionais.
+Para a API de SQL, se pretender manter o seu próprio instantâneos, pode fazê-lo com as seguintes opções:
+
+* Utilize a opção Exportar para JSON no Azure Cosmos DB [ferramenta de migração de dados](import-data.md#export-to-json-file) para agendar cópias de segurança adicionais.
+
+* Uso [do Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) para mover dados periodicamente.
+
+* Utilizar o Azure Cosmos DB [feed de alterações](change-feed.md) para ler dados periodicamente para cópia de segurança completa e, em separado, para alteração de incremental e mover para o destino de Blobs. 
+
+* Para gerir as cópias de segurança de acesso pouco frequente, é possível ler dados periodicamente a partir do feed de alterações e atrasar sua escrita a outra coleção. Isto irá garantir que não é necessário que restaurar os dados e pode ver imediatamente os dados para o problema. 
 
 > [!NOTE]
-> Se "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Terá também de Certifique-se em contacto dentro de 8 horas para a equipa de suporte se acidentalmente eliminou seu contentor. Não não possível restaurar dados se não contactar a equipa de suporte dentro de 8 horas. 
-
-
+> Se "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Terá também de Certifique-se em contacto dentro de 8 horas para a equipa de suporte, se excluir acidentalmente o seu contentor. Não não possível restaurar dados se não contactar a equipa de suporte dentro de 8 horas.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restaurar uma base de dados a partir de uma cópia de segurança online
 
@@ -61,7 +67,7 @@ Se eliminar acidentalmente a base de dados ou o contentor, pode [enviar um pedid
 Se tiver de restaurar a base de dados devido a problema de Corrupção de dados (inclui casos em que são eliminados os documentos dentro de um contêiner), consulte [lidar com danos nos dados](#handling-data-corruption) que precisar de efetuar passos adicionais para impedir que os dados danificados substitua as cópias de segurança existentes. Para um instantâneo específico da cópia de segurança seja restaurado, o Cosmos DB requer que os dados estavam disponíveis durante o ciclo de cópia de segurança para que o instantâneo.
 
 > [!NOTE]
-> Coleções ou bases de dados podem ser restauradas apenas depois de um pedidos de cliente para restaurar. É responsbility do cliente para eliminar o contentor ou a base de dados imediatamente depois de restaurar os dados. Se não eliminar as bases de dados restauradas ou coleções, eles incorre em custos à taxa de base de dados ou coleção restaurada. Por isso, é muito importante para eliminá-los imediatamente. 
+> Coleções ou bases de dados podem ser restauradas apenas nos pedidos de cliente explícita. É responsabilidade do cliente para eliminar o contentor ou a base de dados imediatamente após reconciliar os dados. Se não eliminar as bases de dados restauradas ou coleções, eles incorre em custos para unidades de pedido, armazenamento e saída.
 
 ## <a name="handling-data-corruption"></a>Manipulação de Corrupção de dados
 
@@ -73,7 +79,7 @@ A imagem seguinte ilustra a criação do pedido de suporte para o restauro de co
 
 ![Restaurar um contentor para atualização errada ou eliminar de dados no Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Quando é efetuar um restauro para este tipo de cenários - os dados são restaurados para outra conta (com o sufixo do "-restaurado") e um contentor. Este restauro não é feito no local para fornecer uma chance ao cliente para fazer a validação de dados e mover os dados conforme necessário. O contentor de restaurada está na mesma região com o mesmo RUs e políticas de indexação. Utilizador que seja administrador da subscrição ou coadministrador, pode ver esta conta restaurada.
+Quando é efetuar um restauro para este tipo de cenários - os dados são restaurados para outra conta (com o sufixo do "-restaurado") e um contentor. Este restauro não é feito no local para fornecer uma chance ao cliente para fazer a validação de dados e mover os dados conforme necessário. O contentor de restaurada está na mesma região com o mesmo RUs e políticas de indexação. Utilizador que seja administrador de subscrição ou coadmin pode ver esta conta restaurada.
 
 
 > [!NOTE]

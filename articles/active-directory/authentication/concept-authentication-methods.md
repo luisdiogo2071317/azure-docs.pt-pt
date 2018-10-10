@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056125"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901996"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -31,6 +31,7 @@ A Microsoft recomenda administradores assegura aos usuários para selecionar mai
 | Perguntas de segurança | Apenas a SSPR |
 | Endereço de e-mail | Apenas a SSPR |
 | Aplicação Microsoft Authenticator | MFA e pré-visualização pública para SSPR |
+| Token OATH de Hardware | Pré-visualização pública para a MFA e o SSPR |
 | SMS | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
 | Palavras-passe de aplicações | MFA apenas em determinados casos |
@@ -39,7 +40,7 @@ A Microsoft recomenda administradores assegura aos usuários para selecionar mai
 
 |     |
 | --- |
-| Notificação de aplicação móvel e o código de aplicação móvel como métodos de palavra-passe self-service do Azure AD reposição são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Tokens de Hardware OATH para MFA e o SSPR e o Mobile notificação de aplicação ou código de aplicação móvel como métodos de palavra-passe self-service do Azure AD reposição são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Palavra-passe
@@ -146,6 +147,28 @@ A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem 
 > [!WARNING]
 > Palavra-passe self-service de reposição quando apenas um método é necessário para a reposição do código de verificação é a única opção disponível para os usuários **para garantir o nível mais elevado de segurança**.
 >
+
+## <a name="oath-hardware-tokens"></a>Tokens de hardware OATH
+
+OATH é um padrão aberto que especifica como uma única vez códigos de palavra-passe (OTP) são gerados. O Azure AD irá suportar a utilização de tokens OATH-TOTP SHA-1 da gama 30 segundos ou 60 segundos. Os clientes podem obter estes tokens do fornecedor de sua preferência. Tenha em atenção que as chaves secretas são limitadas a 128 carateres que podem não ser compatíveis com todos os tokens.
+
+![OATH tokens a carregar para o painel de tokens OATH de servidor de MFA no portal do Azure](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+Depois de tokens são adquiridos têm de ser carregados num formato de ficheiro de valores separados por vírgulas (CSV), incluindo o UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo do exemplo abaixo mostra.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Certifique-se de que incluir a linha de cabeçalho no seu ficheiro CSV, conforme mostrado acima.
+
+Uma vez corretamente formatado como um ficheiro CSV, um administrador pode, em seguida, inicie sessão no portal do Azure e navegue para **do Azure Active Directory**, **servidor MFA**, **OATH tokens**, e Carregue o ficheiro CSV resultante.
+
+Dependendo do tamanho do ficheiro CSV, pode demorar alguns minutos a processar. Clique nas **atualizar** botão para obter o estado atual. Se existirem quaisquer erros no ficheiro, terá a opção para transferir um ficheiro CSV a listagem de todos os erros para que possa resolver.
+
+Depois de todos os erros tiverem sido preparados, o administrador, em seguida, pode ativar cada chave clicando **Activate** para o token a ser ativado e inserindo a OTP apresentado no token.
 
 ## <a name="mobile-phone"></a>Número de telemóvel
 

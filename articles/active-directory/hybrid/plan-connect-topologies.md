@@ -12,18 +12,21 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bab18c5c36cf4ffbbe6268910bf9121bc351fdca
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 26049b1e7283d53be7214130ff64cf830935708c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311998"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901807"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve vários locais e topologias do Azure Active Directory (Azure AD) que utilizam o Azure AD Connect sync como a solução de integração principais. Este artigo inclui configurações suportadas e não suportadas.
+
+>[!IMPORTANT]
+>Utilizar uma solução que não seja o Azure AD Connect para sincronizar o Active Directory com o Azure AD pode resultar num estado inconsistente ou não suportado. Como resultado, a Microsoft não é possível fornecer suporte técnico para implementações deste tipo.
 
 Segue-se a legenda de imagens no artigo:
 

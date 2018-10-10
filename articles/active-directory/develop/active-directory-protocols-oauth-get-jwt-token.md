@@ -1,5 +1,5 @@
 ---
-title: Autenticar com o Azure AD e obter um Token JWT com OAuth 2.0
+title: Autenticar com o Azure AD e obter um token JWT com OAuth 2.0
 description: Código de exemplo que mostra como autenticar com o Azure Active Directory com o OAuth 2.0 para acessar aplicativos de web seguro e APIs web na sua organização.
 services: active-directory
 author: rloutlaw
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4bcbb2064a8f7fcdfd2002d2e8d6e0c4f679ffc
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981802"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902914"
 ---
-# <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Pedir um token de acesso com o OAuth 2.0 para APIs da web do acesso e de aplicativos a serem protegidos pelo Azure Active Directory
+# <a name="how-to-request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-ad"></a>Como: pedir um token de acesso com o OAuth 2.0 para APIs da web do acesso e de aplicativos a serem protegidos pelo Azure AD
 
 Este artigo mostra como obter um JSON Web Token (JWT) para aceder aos recursos protegidos pelo Azure AD. Parte do princípio que tem um [token de autorização](/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code) a partir de permissão concedido ao utilizador ou através uma [principal de serviço](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -45,7 +45,6 @@ Os seguintes cabeçalhos são necessários:
 |--------------------|-----------------|  
 | *Anfitrião:* | https://login.microsoftonline.com |
 | *Tipo de conteúdo:*| aplicação/x-www-form-urlencoded |
- 
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
@@ -59,6 +58,7 @@ Os seguintes cabeçalhos são necessários:
 | redirect_uri  | obrigatório              | O valor de redirect_uri mesmo que foi utilizado para adquirir o authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não utilize num aplicativo nativo, porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web.  Segredos do cliente tem de ser codificados de URL antes de serem enviados.                                                                                 |
 | code_verifier | opcional              | O code_verifier mesmo que foi utilizado para obter o authorization_code. Necessário se PKCE foi utilizada no pedido de concessão do código de autorização. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 ## <a name="handle-the-response"></a>Processar a resposta
 
 Uma resposta de token com êxito irá conter um token JWT e terá a seguinte aparência:
@@ -81,6 +81,3 @@ Uma resposta de token com êxito irá conter um token JWT e terá a seguinte apa
 | scope         | Os âmbitos que o access_token é válido para.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token adquirir os tokens de acesso adicionais depois do token de acesso atual expira. Refresh_tokens são vida longa e pode ser utilizado para manter o acesso aos recursos por longos períodos de tempo. Para obter mais detalhes, consulte a [referência de concessão de códigos de v2.0](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Nota:** só será fornecido se `offline_access` âmbito foi pedido.                                               |
 | id_token      | Um não assinados JSON Web Token (JWT). A aplicação pode decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [ `id_token reference` ](id-tokens.md). <br> **Nota:** só será fornecido se `openid` âmbito foi pedido. |
-
-
-

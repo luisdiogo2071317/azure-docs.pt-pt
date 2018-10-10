@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 6d319c09b8a935b5ca81a6d5815daa5d2f706f45
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: feb9547b004141a3c1d02ef4b356b9d00b74fc95
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854619"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902374"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
@@ -174,15 +174,85 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 A saída de registo deve mostrar que `wget` foi capaz de se ligar e transferir o ficheiro de índice a partir do primeiro contentor com o respetivo endereço IP privado na sub-rede local. Tráfego de rede entre os grupos de dois contentor permaneceu dentro da rede virtual.
 
+## <a name="deploy-to-existing-virtual-network---yaml"></a>Implementar a rede virtual existente - YAML
+
+Também pode implementar um grupo de contentores a uma rede virtual existente, utilizando um ficheiro YAML. Para implementar uma sub-rede numa rede virtual, especificar várias propriedades adicionais no YAML:
+
+* `ipAddress`: As definições do endereço IP para o grupo de contentores.
+  * `ports`: As portas para abrir, se aplicável.
+  * `protocol`: O protocolo (TCP ou UDP) para a porta aberta.
+* `networkProfile`: Especifica as definições de rede, como a rede virtual e uma sub-rede para um recurso do Azure.
+  * `id`: O ID de recurso do Resource Manager completo do `networkProfile`.
+
+Para implementar um grupo de contentores a uma rede virtual com um ficheiro YAML, tem primeiro de obter o ID do perfil de rede. Executar o [lista de perfil de rede de az] [ az-network-profile-list] comando, especificando o nome do grupo de recursos que contém a sua rede virtual e sub-rede delegado.
+
+``` azurecli
+az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+```
+
+A saída do comando apresenta o ID do recurso completo para o perfil de rede:
+
+```console
+$ az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
+```
+
+Depois de ter a rede de ID de perfil, copie o seguinte YAML para um novo ficheiro designado *aci.yaml vnet implementar*. Sob `networkProfile`, substitua o `id` valor com o ID que acabou obtido, em seguida, guarde o ficheiro. Este YAML cria um grupo de contentores com o nome *appcontaineryaml* na sua rede virtual.
+
+```YAML
+apiVersion: '2018-09-01'
+location: westus
+name: appcontaineryaml
+properties:
+  containers:
+  - name: appcontaineryaml
+    properties:
+      image: microsoft/aci-helloworld
+      ports:
+      - port: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    type: Private
+    ports:
+    - protocol: tcp
+      port: '80'
+  networkProfile:
+    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Implementar o grupo de contentores com o [criar contentor de az] [ az-container-create] comando, especificando o nome de ficheiro YAML para o `--file` parâmetro:
+
+```azurecli
+az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
+```
+
+Depois de concluída a implementação, execute o [show de contentor az] [ az-container-show] comando para apresentar o estado:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
+Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+```
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="delete-container-instances"></a>Eliminar instâncias de contentor
 
-Quando tiver terminado a trabalhar com as instâncias de contentor que criou, de eliminar com os seguintes comandos:
+Quando tiver terminado a trabalhar com as instâncias de contentor que criou, eliminá-los com os seguintes comandos:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
+az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Eliminar recursos de rede
@@ -239,4 +309,6 @@ Vários recursos de rede virtual e funcionalidades foram abordadas neste artigo,
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list

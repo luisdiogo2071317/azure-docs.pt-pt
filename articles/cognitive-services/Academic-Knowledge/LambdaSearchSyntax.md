@@ -1,44 +1,45 @@
 ---
-title: Sintaxe de pesquisa de lambda na API de conhecimento académico | Microsoft Docs
-description: Saiba mais sobre a sintaxe de pesquisa de Lambda que pode utilizar a API de conhecimento académico nos serviços cognitivos da Microsoft.
+title: Sintaxe de pesquisa lambda - API de conhecimento académico
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre a sintaxe de pesquisa Lambda, que pode utilizar a API de conhecimento académico.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f486368e1d0258087091acb846a84b125712db40
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351481"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902693"
 ---
-# <a name="lambda-search-syntax"></a>Sintaxe de pesquisa de lambda
+# <a name="lambda-search-syntax"></a>Sintaxe de pesquisa lambda
 
-Cada *lambda* cadeia descreve um padrão de gráfico de consulta de pesquisa. Uma consulta tem de ter pelo menos um nó de partida, especificando a partir do nó de gráfico que vamos iniciar a transversal. Para especificar um nó inicial, chame o *MAG. StartFrom()* método e passar no indicados de um ou mais nós ou uma consulta de objeto que especifica as restrições de pesquisa. O *StartFrom()* método tem três sobrecargas. Todos eles demorar dois argumentos com a segunda que está a ser opcionais. O primeiro argumento pode ser um número inteiro longo, uma coleção enumeráveis de número inteiro longo, ou uma cadeia representando um JSON object, com a mesma semântica do *json* pesquisa:
+Cada *lambda* cadeia descreve um padrão de grafo de consulta de pesquisa. Uma consulta tem de ter, pelo menos, um nó de partida, especificando a partir do nó de gráfico que começamos a passagem. Para especificar um nó de partida, chame o *MAG. StartFrom()* método e passe o IDs de um ou mais nós ou uma consulta de objeto que especifica as restrições de pesquisa. O *StartFrom()* método tem três sobrecargas. Todos eles usam dois argumentos com sendo que a segunda é opcionais. O primeiro argumento pode ser um número inteiro longo, uma coleção enumerável e de número inteiro longo, ou uma cadeia de caracteres que representa um JSON de objeto, com a mesma semântica como na *json* pesquisa:
 ```
 StartFrom(long cellid, IEnumerable<string> select = null)
 StartFrom(IEnumerable<long> cellid, IEnumerable<string> select = null)
 StartFrom(string queryObject, IEnumerable<string> select = null)
 ```
 
-O processo de escrever uma consulta de pesquisa de lambda é a guiá-lo de um nó para outro. Para especificar o tipo de limite para percorrer, utilize *FollowEdge()* e os tipos de limite pretendido. *FollowEdge()* demora um número de argumentos de cadeia arbitrário:
+O processo de criar uma consulta de pesquisa lambda é orientá-lo de um nó para outro. Para especificar o tipo de limite para percorrer, utilize *FollowEdge()* e passar os tipos de borda pretendido. *FollowEdge()* usa um número arbitrário de argumentos de cadeia de caracteres:
 ```
 FollowEdge(params string[] edgeTypes)
 ```
 > [!NOTE]
-> Se que não se preocupar com os tipos de edge(s) a seguir, basta omitir *FollowEdge()* entre dois nós: a consulta irá guiá-todas as extremidades possíveis entre estes dois nós.
+> Se não nos preocupamos o tipo ou tipos de edge(s) a seguir, basta omitir *FollowEdge()* entre dois nós: a consulta irá guiá-todas as margens possíveis entre estes dois nós.
 
-Iremos pode especificar as ações de transversal a ser executadas num nó através do *VisitNode()*, ou seja, se parar neste nó e devolver o caminho atual como o resultado ou continuar a explorar o gráfico.  O tipo de enumeração *ação* define dois tipos de ações: *Action.Return* e *Action.Continue*. Que podemos transmitir esse um valor de enumeração diretamente no *VisitNode()*, ou combiná-los com o bit a bit- e o operador '&'. Quando dois ação são combinados, significa que serão executadas ambas as ações. Nota: não utilize totalmente- ou o operador ' |' das ações. Se o fizer, irá fazer com que a consulta para terminar sem devolver nada. A ignorar *VisitNode()* entre duas *FollowEdge()* chamadas fará com que a consulta explorar incondicionalmente gráfico após a chegar ao nó.
+Podemos especificar as ações de transversal a tomar um nó através de *VisitNode()*, ou seja, se parar neste nó e retornar o caminho atual como o resultado ou continuar a explorar o gráfico.  O tipo de enumeração *ação* define dois tipos de ações: *Action.Return* e *Action.Continue*. Tal um valor de enumeração diretamente em que podemos transmitir *VisitNode()*, ou combiná-los com o bit a bit- e o operador "&". Quando a ação dois são combinados, significa que ambas as ações serão tomadas. Nota: não utilize totalmente- ou o operador ' |' em ações. Se o fizer, fará com que a consulta terminar sem devolver nada. A ignorar *VisitNode()* entre as duas *FollowEdge()* chamadas fará com que a consulta explorar incondicionalmente gráfico depois de chegar um nó.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-Para *VisitNode()*, que podemos também transmitir numa expressão lambda do tipo *expressão\<Func\<Inodes, ação\>\>*, que demora um *Inodes* e devolve uma ação de transversal:
+Para *VisitNode()*, também pode passar uma expressão lambda do tipo *expressão\<Func\<Inodes, ação\>\>*, que leva um *Inodes* e retorna uma ação de transversal:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -46,53 +47,53 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 ## <a name="inode"></a>*Inodes* 
 
-*Inodes* fornece *só de leitura* interfaces e algumas funções de ajuda incorporado num nó de acesso a dados. 
+*Inodes* fornece *só de leitura* interfaces e algumas funções auxiliares incorporada num nó de acesso a dados. 
 
-### <a name="basic-data-access-interfaces"></a>Interfaces de acesso de dados básicos
+### <a name="basic-data-access-interfaces"></a>Interfaces de acesso a dados básicos
 
-##### <a name="long-cellid"></a>CellID longo
+##### <a name="long-cellid"></a>CellID longa
 
 O ID de 64 bits do nó. 
 
-##### <a name="t-getfieldtstring-fieldname"></a>T GetField\<T\>(fieldName da cadeia)
+##### <a name="t-getfieldtstring-fieldname"></a>T GetField\<T\>(string fieldName)
 
-Obtém o valor da propriedade especificada. *T* é o tipo pretendido que o campo deve ser interpretado como. Conversão de tipo automática será tentada se o tipo pretendido não é possível converter implicitamente a partir do tipo do campo. Nota: quando a propriedade é com múltiplos valores, *GetField\<cadeia\>*  fará com que a lista ser serializado para uma cadeia Json ["val1", "val2",...]. Se a propriedade não existe, irá acionar uma excepção e abortar a exploração de gráfico atual.
+Obtém o valor da propriedade especificado. *T* é o tipo desejado, que o campo deve ser interpretado como. Conversão de tipo automática será tentada se o tipo desejado não é possível converter implicitamente do tipo do campo. Nota: quando a propriedade é com múltiplos valores *GetField\<cadeia\>*  fará com que a lista ser serializada para uma cadeia de caracteres do Json ["val1", "val2",...]. Se a propriedade não existir, ele irá lançar uma exceção e abortar a exploração de gráfico atual.
 
-##### <a name="bool-containsfieldstring-fieldname"></a>bool ContainsField (cadeia fieldName)
+##### <a name="bool-containsfieldstring-fieldname"></a>bool ContainsField (fieldName de cadeia de caracteres)
 
-Indica se um campo com o nome fornecido existe no nó atual.
+Informa se existe um campo com o nome fornecido no nó atual.
 
-##### <a name="string-getstring-fieldname"></a>cadeia obter (cadeia fieldName)
+##### <a name="string-getstring-fieldname"></a>cadeia de caracteres obter (fieldName de cadeia de caracteres)
 
-Como funciona *GetField\<cadeia\>(fieldName)*. No entanto, não inicia exceções quando o campo não for encontrado, devolve uma string("") vazio em vez disso.
+Como funciona *GetField\<cadeia\>(fieldName)*. No entanto, ele não emite exceções quando o campo não for encontrado, ele retorna um string("") vazio em vez disso.
 
-##### <a name="bool-hasstring-fieldname"></a>bool tem (cadeia fieldName)
+##### <a name="bool-hasstring-fieldname"></a>bool tem (fieldName de cadeia de caracteres)
 
-Indica se a propriedade especificada existe no nó atual. Igual ao *ContainsField(fieldName)*.
+Indica se a propriedade especificada existe no nó atual. Mesmo que *ContainsField(fieldName)*.
 
-##### <a name="bool-hasstring-fieldname-string-value"></a>bool tem (fieldName cadeia, o valor da cadeia)
+##### <a name="bool-hasstring-fieldname-string-value"></a>bool tem (fieldName de cadeia de caracteres, o valor de cadeia de caracteres)
 
-Indica se a propriedade tem um valor especificado. 
+Indica se a propriedade tem o valor especificado. 
 
-##### <a name="int-countstring-fieldname"></a>Contagem de INT (cadeia fieldname)
+##### <a name="int-countstring-fieldname"></a>Contagem de INT (fieldname de cadeia de caracteres)
 
-Obter a contagem de valores de uma propriedade indicado. Quando a propriedade não existe, devolve 0.
+Obter a contagem de valores de uma determinada propriedade. Quando a propriedade não existir, retorna 0.
 
-### <a name="built-in-helper-functions"></a>Funções de programa auxiliar incorporadas
+### <a name="built-in-helper-functions"></a>Funções auxiliares internos
 
-##### <a name="action-returnifbool-condition"></a>Ação return_if (bool condição)
+##### <a name="action-returnifbool-condition"></a>Ação return_if (condição bool)
 
-Devolve *Action.Return* se a condição for *verdadeiro*. Se a condição for *falso* e nesta expressão não foi associada com outras ações por um bit a bit- e operador, será abortada a exploração de gráfico.
+Devolve *Action.Return* se a condição for *verdadeiro*. Se a condição for *false* e esta expressão não está associada com outras ações por um bit a bit- e o operador, a exploração do gráfico será abortada.
 
-##### <a name="action-continueifbool-condition"></a>Ação continue_if (bool condição)
+##### <a name="action-continueifbool-condition"></a>Ação continue_if (condição bool)
 
-Devolve *Action.Continue* se a condição for *verdadeiro*. Se a condição for *falso* e nesta expressão não foi associada com outras ações por um bit a bit- e operador, será abortada a exploração de gráfico.
+Devolve *Action.Continue* se a condição for *verdadeiro*. Se a condição for *false* e esta expressão não está associada com outras ações por um bit a bit- e o operador, a exploração do gráfico será abortada.
 
-##### <a name="bool-dicedouble-p"></a>bool repartir (duplo p)
+##### <a name="bool-dicedouble-p"></a>bool dice (double p)
 
-Gera um número aleatório maior ou igual a 0,0 e menor que 1,0. Esta função devolve *verdadeiro* apenas se o número é inferior ou igual a *p*.
+Gera um número aleatório que é maior que ou igual a 0,0 e menor que 1,0. Esta função devolve *true* apenas se o número for menor ou igual a *p*.
 
-Comparado com *json* pesquisa, *lambda* pesquisa é mais expressivas: expressões lambda c# podem ser diretamente utilizadas para especificar os padrões de consulta. Seguem-se dois exemplos.
+Em comparação com *json* pesquisa, *lambda* pesquisa é mais expressiva: c# as expressões lambda podem ser utilizadas diretamente para especificar padrões de consulta. Aqui estão dois exemplos.
 
 ```
 MAG.StartFrom(@"{

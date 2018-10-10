@@ -9,14 +9,21 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 61fa0b1d2fc40daed8b3b99a0ab0d36de802ce3d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367989"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901333"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do serviço de visão personalizada
+
+## <a name="october-9-2018"></a>9 de Outubro de 2018
+- Deteção de objetos introduz a pré-visualização paga. Agora, pode criar projetos de deteção de objetos com um recurso do Azure.
+- Funcionalidade de "Mover para o Azure" foi adicionada ao site, para que seja mais fácil atualizar um projeto de versão de avaliação limitada para ligar a do Azure. projeto de ligado de recursos (F0 ou S0). Pode encontrar isto na página Definições do seu produto.  
+- Exportação foi adicionada para 1.2 ONNX, para suportar a versão de atualização de Outubro de 2018 do Windows do Windows ML.
+Exportar Bugfixes, incluindo para ONNX com carateres especiais. 
+
 
 ## <a name="august-14-2018"></a>14 de Agosto de 2018
 - Foi adicionado widget "Iniciar" para o site de customvision.ai orientar os usuários por meio de treinamento do project. 
@@ -24,12 +31,12 @@ ms.locfileid: "46367989"
 
 ## <a name="june-28-2018"></a>28 de Junho de 2018
 - Melhorias de Bugfixes & back-end.
-- Classificação de várias classes de Enabeled, para projetos em que as imagens têm exatamente uma etiqueta. Somam em previsões para o modo de várias classes, probabilidades para um (todas as imagens são classificadas entre as suas etiquetas especificadas).
+- Ativar a classificação de várias classes, para projetos em que as imagens têm exatamente uma etiqueta. Somam em previsões para o modo de várias classes, probabilidades para um (todas as imagens são classificadas entre as suas etiquetas especificadas).
 
 ## <a name="june-13-2018"></a>13 de junho de 2018
 - Atualização da experiência do Usuário, se concentrou na facilidade de utilização e acessibilidade. 
 - Melhorias para o pipeline de aprendizagem para se beneficiar multilabel projetos com um grande número de etiquetas.
-- Foi corrigido o erro na exportação do TensorFlow. Enabeled exportados de controle de versão do modelo, para que as iterações podem ser exportadas a mais de uma vez. 
+- Foi corrigido o erro na exportação do TensorFlow. Ativado o controle de versão do modelo exportado, para que as iterações podem ser exportadas a mais de uma vez. 
 
 ## <a name="may-7-2018"></a>7 de maio de 2018
 - Introduziu a funcionalidade de Deteção de Objeto de pré-visualização para projetos de Versão de Avaliação Limitada.
@@ -38,7 +45,7 @@ ms.locfileid: "46367989"
 - Melhorias de back-end significativas para o pipeline de aprendizagem automática para projetos de classificação de imagem. Os projetos que foram preparados depois de 27 de Abril de 2018 irão beneficiar destas atualizações.
 - Exportação de modelo adicionado a ONNX, para utilização com o Windows ML.
 - Exportação de modelo adicionado ao Dockerfile. Isto permite-lhe transferir os artefactos para criar os seus próprios contentores do Windows ou Linux, incluindo um DockerFile, modelo do TensorFlow e código de serviço. 
-- Para modelos recentemente preparados exportados para o TensorFlow nos Domínios Geral (Compacto) e de Ponto de Referência (Compacto), [os Valores Médios são agora (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), para manter a consistência em todos os projetos. 
+- Para recentemente Modelos exportados para o TensorFlow no geral (Compact) e domínios de ponto de referência (Compact), de aprendizagem [valores significa que agora estão (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), para manter a consistência em todos os projetos. 
 
 ## <a name="march-1-2018"></a>1 de março de 2018
 - Pré-visualização paga introduzida e carregada no Portal do Azure. Os projetos podem agora ser anexados a recursos do Azure com um escalão F0 (Gratuito) ou S0 (Standard). Os projetos de escalão S0 foram introduzidos, o que permite um máximo de 100 etiquetas e 25.000 imagens. 

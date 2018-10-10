@@ -5,16 +5,16 @@ services: cognitive-services
 author: nitinme
 manager: cgronlund
 ms.service: cognitive-services
-ms.component: cognitive-services
+ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: e0d60b655628f15cdaf5e1b8839bd4087ac30807
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719003"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901436"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Quais são os serviços cognitivos do Azure?
 
@@ -36,7 +36,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "serviço de voz") (pré-visualização)|Serviço de voz adiciona recursos habilitados para voz às aplicações.|
-|[Serviço de voz personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "serviço de voz personalizada") (pré-visualização)|O serviço de voz personalizada permite-lhe criar modelos de linguagem personalizados e modelos acústicos adaptados às suas aplicações e os seus utilizadores.|
+|[Serviço de voz personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "serviço de voz personalizada") (pré-visualização)|O Serviço de Voz Personalizada permite criar modelos de idioma personalizados e modelos acústicos adaptados às suas aplicações e aos seus utilizadores.|
 |[API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "API de voz do Bing")|A API de voz do Bing fornece uma forma fácil de criar os recursos habilitados para conversão de voz em seus aplicativos.|
 |[Voz do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "de voz do tradutor")|Voz do Translator é um serviço de tradução automática.|
 |[API de reconhecimento de orador](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de reconhecimento de orador") (pré-visualização)|A API de reconhecimento de orador fornece algoritmos para identificação de orador e a verificação.|

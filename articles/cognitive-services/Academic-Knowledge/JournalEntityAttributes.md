@@ -1,29 +1,30 @@
 ---
-title: Os atributos de entidade do diário de alterações na API de conhecimento académico | Microsoft Docs
-description: Saiba os atributos que pode utilizar com a entidade de diário de alterações na API de conhecimento académico nos serviços cognitivos.
+title: Atributos de entidade do diário - API de conhecimento académico
+titlesuffix: Azure Cognitive Services
+description: Saiba os atributos que pode utilizar com a entidade de diário na API de conhecimento académico nos serviços cognitivos.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: e782c57b8ac57028e070c16382c53ec76666e94d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45b2860b56e79c197d96998350131a142326157a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351344"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902812"
 ---
-# <a name="journal-entity"></a>Diário de alterações entidade
+# <a name="journal-entity"></a>Entidade de diário
 
-<sub> * Seguintes atributos são específicos para a entidade do diário de alterações. (Ty = '2') </sub>
+<sub> * Seguintes atributos são específicos para a entidade de diário. (Ty = '2') </sub>
 
 Nome    |Descrição                            |Tipo       | Operações
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |ID de entidade                              |Int64      |Igual a
-DJN     |Nome normalizado diário de alterações                |Cadeia     |nenhum
-JN      |Nome a apresentar do diário de alterações                   |Cadeia     |Igual a
-Cc      |Contagem de total de citação de diário de alterações           |Int32      |nenhum  
-ECC     |Contagem de total citação estimado do diário de alterações |Int32      |nenhum
+DJN     |Nome do diário normalizado                |Cadeia     |nenhum
+JN      |Nome a apresentar do diário                   |Cadeia     |Igual a
+Cc      |Contagem de total de citação de diário           |Int32      |nenhum  
+ECC     |Contagem de total de citação estimado de diário |Int32      |nenhum

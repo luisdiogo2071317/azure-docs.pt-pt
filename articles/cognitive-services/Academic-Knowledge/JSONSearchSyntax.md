@@ -1,22 +1,23 @@
 ---
-title: Sintaxe de pesquisa JSON na API de conhecimento académico | Microsoft Docs
-description: Saiba mais sobre a sintaxe de pesquisa JSON, que pode utilizar a API de conhecimento académico nos serviços cognitivos da Microsoft.
+title: Sintaxe de pesquisa JSON - API de conhecimento académico
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre a sintaxe de pesquisa JSON, que pode utilizar a API de conhecimento académico.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a4b9cf535dae60258d71c43bba6f9eec1444bd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5ece028f89ad9e93840211383db97a5d8a80069a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351367"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900415"
 ---
-# <a name="json-search-syntax"></a>Sintaxe de pesquisa JSON
+# <a name="json-search-syntax"></a>Sintaxe de Pesquisa JSON
 
 ```javascript
 /* Query Object:
@@ -32,9 +33,9 @@ ms.locfileid: "35351367"
 }
 ```
 
-Os nomes de nó num caminho de consulta (_v0, v1,..._ ) servir como identificadores de nó que podem ser referenciados no objeto da consulta; os nomes de periferia (_e0, e1,..._ ) no caminho representam os tipos de margens correspondentes. Podemos utilizar um asterisco _*_ como um nome de nó ou contorno (exceto para o nó inicial, que deve ser dada) para declarar que existem não existem restrições nesse elemento. Por exemplo, um caminho de consulta `/v0/*/v1/e1/*/` obtém os caminhos do gráfico sem restringir o tipo de limite _(v0, v1)_. Entretanto, a consulta não tem restrições no destino (o último nó) do caminho está.
+Os nomes de nó num caminho de consulta (_v0 ', ' v1,..._ ) servem como identificadores de nó que podem ser referenciados no objeto de consulta; os nomes de borda (_e0, e1,..._ ) no caminho representam os tipos das margens correspondentes. Podemos usar um asterisco _*_ como um nome de nó ou de extremidade (exceto para o nó inicial, que tem de obter) para declarar que existem não existem restrições sobre esse elemento. Por exemplo, um caminho de consulta `/v0/*/v1/e1/*/` obtém os caminhos do gráfico sem restringir o tipo de limite _(v0, v1)_. Enquanto isso, a consulta não tem restrições no destino (o último nó) do caminho seja.
 
-Quando um caminho contém apenas um nó, diga _v0_, a consulta devolverá simplesmente todas as entidades que satisfaçam as restrições. Um objeto de restrição aplicado para o nó inicial é chamado um *iniciar objeto da consulta*, cuja especificação é dado da seguinte forma.
+Quando um caminho contém apenas um nó, digamos _v0_, a consulta simplesmente retornará todas as entidades que satisfazem as restrições. Um objeto de restrição aplicadas para o nó inicial é chamado um *a partir de objeto de consulta*, cuja especificação é dado da seguinte forma.
 
 ```javascript
 /* Starting Query Object:
@@ -63,7 +64,7 @@ Quando um caminho contém apenas um nó, diga _v0_, a consulta devolverá simple
 }
 ```
 
-Quando um caminho contém mais do que apenas um nó inicial, o processador de consultas irá efetuar uma transversal de gráfico a seguir o padrão do caminho especificado. Quando chega de um nó, as ações de utilizador especificado transversal serão acionadas, ou seja, se parar o nó atual e devolver ou continuar a explorar o gráfico. Não se for especificada nenhuma ação transversal, serão executadas ações de predefinição. Para um nó intermédio, a ação predefinida é continuar a explorar o gráfico. Para o último nó de um caminho, a ação predefinida é parar e devolver. Um objeto de restrição que especifica ações transversal é chamado um *objecto de acção transversal*. É atribuída a sua especificação da seguinte forma:
+Quando um caminho contém mais do que apenas um nó inicial, o processador de consultas executará uma passagem de gráfico seguindo o padrão do caminho especificado. Quando ele chega a um nó, as ações especificadas pelo utilizador transversal serão acionadas, ou seja, se pretende parar no nó atual e retornar ou continuar a explorar o gráfico. Quando não é especificada nenhuma ação de passagem, serão conduzidas ações padrão. Para um nó intermediário, a ação predefinida é continuar a explorar o gráfico. Para o último nó de um caminho, a ação predefinida é de parar e retornar. Um objeto de restrição que especifica as ações de passagem é chamado um *objeto de ação de transversal*. A especificação é dado da seguinte forma:
 
 ```javascript
 /* Traversal Action Object:
@@ -106,7 +107,7 @@ Quando um caminho contém mais do que apenas um nó inicial, o processador de co
 }
 ```
 
-O corpo da mensagem de um *json* consulta deve conter, pelo menos, um *caminho* padrão. Objetos de ação passam são opcionais. Seguem-se dois exemplos.
+O corpo da POSTAGEM de um *json* consulta de pesquisa deve conter, pelo menos, uma *caminho* padrão. Objetos de ação de completas são opcionais. Aqui estão dois exemplos.
 
 ```JSON
 {

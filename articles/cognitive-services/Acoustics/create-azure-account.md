@@ -1,20 +1,21 @@
 ---
-title: Configurar contas do Azure para acoustics - serviços cognitivos
+title: Configurar contas do Azure para o projeto Acoustics
+titlesuffix: Azure Cognitive Services
 description: Siga este guia para configurar contas do Azure Batch e de armazenamento necessário para trabalhar com acoustics.
 services: cognitive-services
 author: ashtat
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: d5e78df2cb17e8275aef3694dda90a705ef4bdaa
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 05f7c435ca61930da6270c54e71c784f1b7aebcc
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181642"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900629"
 ---
 # <a name="create-an-azure-batch-account"></a>Criar uma conta do Azure Batch
 Siga este guia para configurar contas do Azure Batch e de armazenamento necessário para trabalhar com acoustics. Para obter informações sobre o plug-in de Unity desenvolvido como parte do projeto Acoustics, consulte [o que é acoustics](what-is-acoustics.md). Para obter informações sobre como incorporar acoustics em seu projeto Unity, consulte [introdução ao](getting-started.md).  

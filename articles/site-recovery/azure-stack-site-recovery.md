@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697701"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902829"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Replicar VMs do Azure Stack para o Azure (pré-visualização)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para o Azure
 
 Este artigo mostra-lhe como configurar a recuperação após desastre para o Azure para VMs do Azure Stack, utilizando o [serviço Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ Site Recovery contribui para a sua estratégia de recuperação (BCDR) de desast
 - Quando ocorre uma falha no seu site primário, utilize o Site Recovery para a ativação pós-falha para o Azure.
 - Na ativação pós-falha, as VMs do Azure são criadas a partir os dados da VM armazenados e os utilizadores podem continuar a aceder a cargas de trabalho em execução nessas VMS do Azure.
 - Quando tudo estiver em funcionamento novamente, pode efetuar a ativação de VMs atrás do Azure para o site primário e começar a replicar novamente para o armazenamento do Azure.
-
-
-> [!NOTE]
-> Recuperação de site para o Azure Stack está atualmente em pré-visualização pública.
 
 
 Neste artigo, vai aprender a:

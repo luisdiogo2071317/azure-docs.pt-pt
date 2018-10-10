@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/9/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0711b52b76a22e32d05f27e6aae6c981bd2c148a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125649"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902608"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Diagnóstico de estado de funcionamento e de métricas para o Balanceador de carga Standard
 
-Balanceador de carga Standard do Azure oferece as seguintes capacidades de diagnóstico de seus recursos:
-* **Métricas multidimensionais**: fornece novos recursos de diagnóstico multidimensionais de carga pública e interna, configurações de Balanceador. Pode monitorizar, gerir e resolver problemas de seus recursos do Balanceador de carga.
+Balanceador de carga Standard do Azure expõe o Balanceador de carga Standard do Azure oferece as seguintes capacidades de diagnóstico de recursos do:
+* **Métricas multidimensionais**: fornece novos recursos de diagnóstico multidimensionais através de [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para públicos e internos de configurações de Balanceador de carga. Pode monitorizar, gerir e resolver problemas de seus recursos do Balanceador de carga.
 
 * **Estado de funcionamento do recurso**: página do Balanceador de carga no portal do Azure e a página de estado de funcionamento do recurso (sob o Monitor) expõem a secção de estado de funcionamento do recurso para a configuração de Balanceador de carga público do Balanceador de carga Standard.
 
@@ -219,6 +219,7 @@ Os vários Estados de estado de funcionamento do recurso e suas descrições est
 
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre sua [conectividade de saída do Balanceador de carga](https://aka.ms/lboutbound).
+- Saiba mais sobre [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 - Saiba mais sobre o [do Azure de monitorizar as métricas de REST API](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

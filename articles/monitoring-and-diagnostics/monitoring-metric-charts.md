@@ -8,20 +8,14 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978429"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901418"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
-
-Nesta explicação de procedimento descreve a próxima geração do Azure Monitor métricas gráficos experiência que está atualmente em pré-visualização pública. A nova experiência oferece suporte a composição de gráficos para métricas multidimensionais e métricas básicas com nenhuma dimensão. Pode desenhar gráficos que sobrepor as métricas de diferentes tipos de recursos, vários grupos de recursos e subscrições. Os gráficos de métricas multidimensionais podem ser personalizados por aplicar os filtros de dimensão, bem como de agrupamento. Qualquer gráfico, incluindo gráficos personalizados pode ser afixado a dashboards.
-
-Se estiver procurando por informações sobre a experiência antiga, que suporta apenas a métricas básicas com nenhuma dimensão, consulte a secção intitulada "Aceder a métricas através do portal" no [guia de visão geral de métricas do Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## <a name="what-is-azure-monitor-metrics-explorer"></a>O que é o Explorador de métricas de Monitor do Azure?
 
 Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que lhe permite desenhar gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Explorador de métricas é um ponto de partida essencial para vários problemas de disponibilidade com as suas aplicações e infraestrutura alojados no Azure ou monitorizado pelos serviços do Azure Monitor de desempenho e a investigar. 
 
@@ -29,34 +23,29 @@ Explorador de métricas do Azure Monitor é um componente do portal do Microsoft
 
 As métricas no Microsoft Azure estão a série de valores de medida e contagens de que são recolhidas e armazenadas ao longo do tempo. Existem métricas standard (ou "plataforma") e métricas personalizadas. As métricas standard são fornecidas pela própria plataforma do Azure. Métricas padrão refletem as estatísticas de estado de funcionamento e a utilização de recursos do Azure. Ao passo que as métricas personalizadas são enviadas para o Azure pelas suas aplicações com o [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Métricas personalizadas são armazenadas nos recursos do Application Insights, juntamente com outras métricas específicas do aplicativo.
 
-
-
 ## <a name="how-do-i-create-a-new-chart"></a>Como posso criar um novo gráfico?
 
-   > [!NOTE]
-   > Alguns dos recursos da experiência antiga de métricas não estão disponíveis no Explorador de métricas de novo. Enquanto a nova experiência está em pré-visualização, pode continuar a utilizar a vista de métrica (não dimensionais) antiga do Azure Monitor. 
-
 1. Abra o portal do Azure
-2. Navegue para a nova **Monitor** separador e, em seguida, selecione **métricas (pré-visualização)**.
+2. Navegue para a nova **Monitor** separador e, em seguida, selecione **métricas**.
 
-   ![Imagem de visualização de métricas](./media/monitoring-metric-charts/0001.png)
+   ![Imagem de métricas](./media/monitoring-metric-charts/0001.png)
 
 3. O **Seletor de métrica** será automaticamente aberta para. Escolha um recurso a partir da lista para ver o respetiva das métricas associadas. Apenas os recursos com as métricas são apresentados na lista.
 
-   ![Imagem de visualização de métricas](./media/monitoring-metric-charts/0002.png)
+   ![Imagem de métricas](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Se tiver mais do que uma subscrição do Azure, o Explorador de métricas obtém os recursos em todas as subscrições selecionadas nas definições do Portal -> filtro por lista de subscrições. Para alterá-lo, clique no ícone de engrenagem de definições de Portal na parte superior do ecrã e selecione as subscrições que pretende utilizar.
 
-4. Para alguns tipos de recursos (ou seja, contas de armazenamento e máquinas virtuais), antes de selecionar uma métrica tem de escolher uma **espaço de nomes**. Cada espaço de nomes carrega seu próprio conjunto de métricas que são relevantes para este espaço de nomes apenas e não para outros namespaces.
+4. Para alguns tipos de recursos (contas de armazenamento e máquinas virtuais), antes de selecionar uma métrica tem de escolher uma **espaço de nomes**. Cada espaço de nomes carrega seu próprio conjunto de métricas que são relevantes para este espaço de nomes apenas e não para outros namespaces.
 
    Por exemplo, cada armazenamento do Azure tem as métricas para subservices "Blobs", "Ficheiros", "Filas" e "Tabelas", que são todas as partes da conta de armazenamento. No entanto, a métrica "contagem de mensagens da fila" é naturalmente aplicável para o subservice "Fila" e não para quaisquer outros subservices de conta de armazenamento.
 
-   ![Imagem de visualização de métricas](./media/monitoring-metric-charts/0003.png)
+   ![Imagem de métricas](./media/monitoring-metric-charts/0003.png)
 
 5. Selecione uma métrica da lista. Se souber o nome parcial da métrica que pretende, pode começar escrevendo-o para ver uma lista filtrada de métricas disponíveis:
 
-   ![Imagem de visualização de métricas](./media/monitoring-metric-charts/0004.png)
+   ![Imagem de métricas](./media/monitoring-metric-charts/0004.png)
 
 6. Depois de selecionar uma métrica, o gráfico serão compostos com a agregação predefinida para a métrica selecionada. Neste momento só precisa clicar em distância, a partir da **Seletor de métricas** para fechá-lo. Opcionalmente, também pode mudar o gráfico para uma agregação diferente. Para algumas métricas, alternância de agregação permite-lhe escolher qual o valor que pretende ver no gráfico. Por exemplo, pode alternar entre os valores de média, mínimos e máximo. 
 

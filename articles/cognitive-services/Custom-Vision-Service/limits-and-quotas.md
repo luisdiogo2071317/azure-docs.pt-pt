@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: anroth
-ms.openlocfilehash: 53884cfc2683832d9df2b215c92b6b683ba29d2c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363468"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902865"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
 
@@ -26,7 +26,8 @@ Recursos de projeto de avaliação limitados estão ligados ao seu início de se
 ||**Versão de avaliação limitada**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Projetos|2|2|100|
-|Imagens de formação por projeto|5.000|5.000|50,000|
+|Imagens de formação por projeto, classificação|5.000|5.000|50,000|
+|Imagens de formação por projeto, deteção de objetos|5.000|5.000|10,000|
 |Predições / mês|10,000 |10,000|Ilimitado|
 |Com as etiquetas /Project|50|50|250|
 |Iterações |10|10|10|

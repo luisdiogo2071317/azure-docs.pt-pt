@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605849"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901891"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir termos de utilização para ser aceite antes de aceder a aplicações na cloud 
 
@@ -193,7 +193,7 @@ Na sua política, defina:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto neste início de sessão tem em suas diretivas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
 Para inicializar o que se o conjunto de ferramentas de avaliação da política,:
 

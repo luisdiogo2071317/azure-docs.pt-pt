@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296482"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903033"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicações no local do AD FS para o Azure 
 
@@ -151,7 +151,7 @@ As aplicações que pode migrar facilmente hoje incluem aplicações SAML 2.0 qu
 - Nome próprio.
 - Apelido.
 - Atributo alternativo como **NameID** de SAML, incluindo o atributo de correio do Azure AD, o prefixo de correio, o ID de funcionário, os atributos de extensão 1-15 ou o atributo **SamAccountName**. Para obter mais informações, veja [Editing the NameIdentifier claim](../develop/active-directory-saml-claims-customization.md) (Editar a afirmação NameIdentifier).
-- Afirmações personalizadas. Para obter informações sobre os mapeamentos de afirmações suportadas, veja [Claims mapping in Azure Active Directory](../active-directory-claims-mapping.md) (Mapeamento de afirmações no Azure Active Directory) e [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md) (Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory).
+- Afirmações personalizadas. Para obter informações sobre os mapeamentos de afirmações suportadas, veja [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) (Mapeamento de afirmações no Azure Active Directory) e [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md) (Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory).
 
 Além das afirmações personalizadas e dos elementos **NameID**, as configurações que exigem passos adicionais no Azure AD como parte da migração são:
 - Regras de autorização personalizada ou de Multi-Factor Authentication no AD FS. Pode utilizar a funcionalidade de [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) para configurá-las.
@@ -171,7 +171,7 @@ As aplicações que requerem as capacidades seguintes não podem ser migradas at
 - Afirmações em capacidades de tokens:
     - Emissão de nomes de grupos no local como afirmações.
     - Afirmações de arquivos que não o Azure AD.
-    - Regras de transformação de emissão de afirmações complexas. Para obter informações sobre os mapeamentos de afirmações suportadas, veja [Claims mapping in Azure Active Directory](../active-directory-claims-mapping.md) (Mapeamento de afirmações no Azure Active Directory) e [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md) (Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory).
+    - Regras de transformação de emissão de afirmações complexas. Para obter informações sobre os mapeamentos de afirmações suportadas, veja [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) (Mapeamento de afirmações no Azure Active Directory) e [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md) (Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory).
     - Emissão de extensões de diretório como afirmações.
     - Especificação personalizada do formato **NameID**.
     - Emissão de atributos de vários valores.

@@ -3,17 +3,17 @@ title: Configurar um cluster do HDInsight com o Enterprise Security Package com 
 description: Saiba como definir e configurar um cluster do HDInsight Enterprise Security Package com o Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/3/2018
-ms.openlocfilehash: 84ee24b9002237d0993a30190944dbd6dd190ac8
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.date: 10/9/2018
+ms.openlocfilehash: c56158a5e8df2e8781ec8e4431c75beadd154297
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784946"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901656"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services
 
@@ -25,6 +25,9 @@ Neste artigo, irá aprender a configurar um cluster do HDInsight com ESP, utiliz
 >O ESP é GA no HDI 3.6 para Spark, interativo e Hadoop. O ESP para tipos de clusters de HBase e o Kafka está em pré-visualização.
 
 ## <a name="enable-azure-ad-ds"></a>Ativar o Azure AD DS
+
+> [!NOTE]
+> Apenas os administradores de inquilinos tem os privilégios para criar uma instância do Azure AD-DS. Se o armazenamento de cluster é o Azure Data Lake Store (ADLS) geração 1 ou geração 2, desabilitar o multi-factor Authentication (MFA) apenas para os utilizadores que irão aceder ao cluster. Se o armazenamento de cluster é o armazenamento de Blobs do Azure (WASB), não desative a MFA.
 
 Ativar AzureAD DS é um pré-requisito antes de poder criar um cluster do HDInsight com ESP. Para obter mais informações, consulte [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -40,8 +43,7 @@ Alterar a configuração dos servidores DNS na VNET do Azure AD DS para utilizar
 
 ![A atualizar a configuração de DNS da VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-> [!NOTE]
-> Apenas os administradores de inquilinos tem os privilégios para criar uma instância do Azure AD-DS. Autenticação multifator tem de ser desativada apenas para os utilizadores que irão aceder ao cluster.
+
 
 Quando ativar o LDAP seguro, coloque o nome de domínio no nome do requerente ou nome alternativo do requerente no certificado. Por exemplo, se o nome de domínio for *contoso.com*, certifique-se de que nome exato existe no seu nome de requerente do certificado ou nome alternativo do requerente. Para obter mais informações, consulte [configurar LDAP seguro para um Azure AD-DS o domínio gerido](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 

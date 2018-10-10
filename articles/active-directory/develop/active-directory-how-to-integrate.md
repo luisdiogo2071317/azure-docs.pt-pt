@@ -17,14 +17,15 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495344"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901554"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com o Azure Active Directory
+
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 O Azure Active Directory fornece às organizações com gestão de identidades de nível empresarial para aplicações na cloud. Integração do Azure AD fornece aos utilizadores uma experiência de início de sessão simplificada e ajuda a sua aplicação está em conformidade com a política de TI.

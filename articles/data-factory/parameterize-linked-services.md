@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 7bc603ceee1f85e6f00cdac9a6ac098abb39e217
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 287dcdedede5cab575aa0b9a73ec3e122556dc93
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251064"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900728"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar os serviços ligados no Azure Data Factory
 
@@ -27,6 +27,18 @@ Pode utilizar a IU do Data Factory no Portal do Azure ou uma interface de progra
 
 > [!TIP]
 > Recomendamos que não para parametrizar senhas ou segredos. Store em vez disso, todas as cadeias de ligação no Azure Key Vault e parametrizar os *nome do segredo*.
+
+## <a name="supported-data-stores"></a>Armazena os dados suportados
+
+Neste momento, a parametrização de serviço ligado é suportada na IU do Data Factory no portal do Azure para os seguintes arquivos de dados. Para todos os outros arquivos de dados, é possível parametrizar o serviço ligado ao selecionar o **código** ícone no separador do pipeline e usando o editor de JSON.
+- Base de Dados SQL do Azure
+- Azure SQL Data Warehouse
+- SQL Server
+- Oracle
+- BD do Cosmos
+- Amazon Redshift
+- MySQL
+- Base de Dados do Azure para MySQL
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
