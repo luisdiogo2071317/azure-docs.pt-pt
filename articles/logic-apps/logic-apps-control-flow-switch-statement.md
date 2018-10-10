@@ -1,101 +1,105 @@
 ---
-title: Adicionar declarações de comutador para fluxos de trabalho - Azure Logic Apps | Microsoft Docs
-description: Como criar instruções de comutador que controlam ações de fluxo de trabalho com base nos valores específicos do Azure Logic Apps
+title: Adicionar declarações do comutador para fluxos de trabalho - Azure Logic Apps | Documentos da Microsoft
+description: Como criar declarações do comutador que controlam as ações de fluxo de trabalho com base nos valores específicos nas Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/08/2018
+ms.openlocfilehash: 27a73bddc2e7fb613950d78967d3100c7adcae41
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299621"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883844"
 ---
-# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar as instruções de comutador que executam ações de fluxo de trabalho com base nos valores específicos do Azure Logic Apps
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar demonstrativos de comutador que executam ações de fluxo de trabalho com base nos valores específicos nas Azure Logic Apps
 
-Para executar ações específicas com base nos valores de objetos, expressões ou tokens, adicione um *comutador* instrução. Esta estrutura avalia o objeto, expressão ou token, escolhe o cenário que corresponde ao resultado e executa as ações específicas apenas para esse cenário. Quando é executada da instrução switch, apenas um cenário deve corresponder ao resultado.
+Para executar ações específicas com base nos valores dos objetos, expressões ou tokens, adicione uma *mudar* instrução. Esta estrutura avalia o objeto, expressão ou token, escolhe o caso que faz corresponder o resultado e executa as ações específicas apenas para esse caso. Quando é executada a instrução switch, apenas um cenário deve corresponder o resultado.
 
-Por exemplo, suponha que pretende que uma aplicação lógica que utiliza diferentes passos com base na opção selecionada no e-mail. Neste exemplo, a aplicação lógica verifica o feed para novo conteúdo RSS de um Web site. Quando um novo item é apresentado no feed RSS, a aplicação lógica envia e-mail para um aprovador. Com base em se o aprovador seleciona "Aprovar" ou "Rejeitar", a aplicação lógica segue vários passos.
+Por exemplo, suponha que pretende que uma aplicação lógica que toma as medidas diferentes com base numa opção selecionada no e-mail. Neste exemplo, a aplicação lógica verifica o RSS feed para o novo conteúdo de um Web site. Quando um novo item aparece no RSS feed, a aplicação lógica envia um e-mail para um aprovador. Com base em se o aprovador seleciona "Aprovar" ou "Rejeitar", a aplicação lógica segue os passos diferentes.
 
 > [!TIP]
-> Como todos os idiomas de programação, declarações de comutador suportam apenas os operadores de igualdade. Se precisar de outros operadores relacionais, tais como "superior", utilize um [instrução condicional](#conditions).
-> Para garantir um comportamento de execução determinista, casos tem de conter um valor exclusivo e estático em vez de tokens dinâmicos ou expressões.
+> Como todas as linguagens de programação, as declarações do comutador suportam apenas os operadores de igualdade. Se precisar de outros operadores relacionais, como "maior que", utilize um [instrução condicional](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+> Para garantir o comportamento de execução determinística, casos tem de conter um valor exclusivo e estático em vez de tokens dinâmicos ou expressões.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* A seguir o exemplo neste artigo, [criar esta aplicação de lógica de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou Outlook do Office 365.
+* A seguir o exemplo neste artigo, [criar esta aplicação de lógica de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou o Outlook do Office 365.
 
-  1. Quando adiciona a ação para enviar correio eletrónico, selecione **enviar um e-mail de aprovação** em vez disso.
+  1. Ao adicionar a ação para enviar correio eletrónico, localize e selecione a ação em vez disso: **enviar um e-mail de aprovação**
 
      ![Selecione "Enviar um e-mail de aprovação"](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
-  2. Forneça os campos obrigatórios, como o endereço de e-mail para a pessoa que obtém a mensagem de e-mail de aprovação. 
-  Em **User Options**, introduza "Aprovar, rejeitar".
+  1. Forneça os campos obrigatórios, como o endereço de e-mail da pessoa que obtém a mensagem de e-mail de aprovação. 
+  Sob **opções do utilizador**, introduza "Aprovar, rejeitar".
 
      ![Introduza os detalhes de e-mail](./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png)
 
-## <a name="add-a-switch-statement"></a>Adicione uma instrução de comutador
+## <a name="add-switch-statement"></a>Adicionar instrução
 
-1. No fim do fluxo de trabalho de exemplo, escolha **+ novo passo** > **... Mais** > **adicionar minúsculas**. 
+1. Neste exemplo, adicione uma instrução de comutador no final do fluxo de trabalho de exemplo. Após a última etapa, escolha **novo passo**.
 
-   ![Adicione uma instrução de comutador](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
+   Quando deseja adicionar uma instrução de comutador entre etapas, mova o ponteiro sobre a seta para onde pretende adicionar a instrução switch. Escolha o **sinal** (**+**) que aparece, em seguida, escolha **adicionar uma ação**.
 
-   Uma instrução de comutador é apresentada com um cenário e um caso de predefinição. 
-   Uma instrução requer, pelo menos, um cenário plus o caso de predefinição. 
+1. Na caixa de pesquisa, introduza "alternar" como o filtro. Selecione a ação: **mudar - controlar**
 
-   Quando pretender adicionar uma instrução de comutador entre os passos, mova o ponteiro sobre na seta para onde pretende adicionar a instrução de comutador. 
-   Escolha o **sinal** (**+**) que é apresentado, em seguida, escolha **adicionar minúsculas**.
+   ![Adicionar o comutador](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
-4. No **no** caixa, selecione o **SelectedOption** campo cuja saída determina a ação a executar. 
-   
-   Pode selecionar o campo do **adicionar conteúdo dinâmico** lista aparece.
+   Uma instrução switch é apresentada com um caso e um caso de predefinição. 
+   Por predefinição, uma instrução switch requer, pelo menos, um caso mais o caso de predefinição. 
 
-5. Para processar os casos em que seleciona o aprovador `Approve` ou `Reject`, adicione outro cenário entre **caso** e **predefinido**. 
-   
-6. Adicione estas ações para os casos correspondentes:
+   ![Falha da instrução vazia padrão](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
 
-   | # Maiúsculas | **SelectedOption** | Ação |
-   |:------ |:-------------------|:------ |
-   | Caso 1 | **Aprovar** | Adicionar o Outlook **enviar um e-mail** ação para o envio de detalhes sobre o item RSS apenas quando o aprovador selecionado **aprovar**. |
-   | Cenário 2 | **Rejeitar** | Adicionar o Outlook **enviar um e-mail** ação para notificar outros aprovadores que o item RSS foi rejeitado. |
-   | Predefinição | \<Nenhum\> | Nenhuma ação necessária. Neste exemplo, o **predefinido** maiúsculas e minúsculas estão vazia porque **SelectedOption** tem apenas duas opções. |
-   |         |          |
+1. Clique no interior da **no** caixa para que a lista de conteúdo dinâmico apareça. A partir dessa lista, selecione o **SelectedOption** campo cuja saída determina a ação a efetuar. 
 
-   ![Falha da instrução](./media/logic-apps-control-flow-switch-statement/switch.png)
+   ![Selecione "SelectedOption"](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-7. Guarde a aplicação lógica. 
+1. Para lidar com casos em que o aprovador seleciona `Approve` ou `Reject`, adicione outro caso entre **caso** e **predefinido**. 
 
-   Para testar manualmente neste exemplo, escolha **executar** até que a aplicação lógica localiza um novo item RSS e envia um e-mail de aprovação. 
+   ![Adicionar outro caso](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
+
+1. Adicione estas ações para os casos correspondentes:
+
+   | N. º maiúsculas | **SelectedOption** | Ação |
+   |--------|--------------------|--------|
+   | Caso 1 | **Aprovar** | Adicionar o Outlook **enviar um e-mail** ação para o envio de detalhes do item RSS apenas quando o aprovador selecionou **aprovar**. |
+   | Caso 2 | **Rejeitar** | Adicionar o Outlook **enviar um e-mail** ação para notificar os outros aprovadores que o item RSS foi rejeitado. |
+   | Predefinição | Nenhuma | Nenhuma ação necessária. Neste exemplo, o **predefinido** caso está vazio porque **SelectedOption** tem apenas duas opções. |
+   |||
+
+   ![Instrução concluído](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
+
+1. Guarde a aplicação lógica. 
+
+   Para testar manualmente neste exemplo, escolha **executar** até que a aplicação lógica encontrar um novo item RSS e envia um e-mail de aprovação. 
    Selecione **aprovar** para observar os resultados.
 
-## <a name="json-definition"></a>Definição JSON
+## <a name="json-definition"></a>Definição de JSON
 
-Vamos ver agora que criou uma aplicação lógica, utilizando uma instrução de comutador, a definição de alto nível código atrás da instrução switch.
+Agora que criou uma aplicação lógica com uma instrução switch, vamos analisar a definição de alto nível de código por trás da instrução switch.
 
 ``` json
 "Switch": {
    "type": "Switch",
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
-      "Case" : {
-         "actions" : {
-           "Send_an_email": { }
+      "Case": {
+         "actions": {
+           "Send_an_email": {}
          },
          "case" : "Approve"
       },
-      "Case_2" : {
-         "actions" : {
-           "Send_an_email_2": { }
+      "Case_2": {
+         "actions": {
+           "Send_an_email_2": {}
          },
-         "case" : "Reject"
+         "case": "Reject"
       }
    },
    "default": {
@@ -109,23 +113,23 @@ Vamos ver agora que criou uma aplicação lógica, utilizando uma instrução de
 }
 ```
 
-| Etiqueta              | Descrição |
-| :----------------- | :---------- |
-| `"Switch"`         | O nome da instrução switch, que pode mudar o nome de para legibilidade |
-| `"type": "Switch"` | Especifica que a ação de uma instrução de comutador |
-| `"expression"`     | Neste exemplo, especifica a opção de selecionado o aprovador que é avaliada em comparação com cada caso como declarada mais tarde na definição do |
-| `"cases"` | Define qualquer número de cenários. Para cada caso, `"Case_*"` é o nome predefinido para esse cenário, o que pode mudar o nome de para legibilidade |
-| `"case"` | Especifica o valor o caso, o que deve ser um valor de constante e é exclusivo e da instrução switch utiliza para comparação. Se nenhum casos correspondem o resultado da expressão de comutador, as ações no `"default"` secção são executados.
-|           |         |
+| Etiqueta | Descrição |
+|-------|-------------|
+| `"Switch"`         | O nome da instrução switch, que pode renomear para facilitar a leitura |
+| `"type": "Switch"` | Especifica que a ação é uma instrução switch |
+| `"expression"`     | Neste exemplo, especifica a opção selecionada do aprovador, o que é avaliada em comparação com cada caso, como declarado mais tarde na definição |
+| `"cases"` | Define a qualquer número de casos. Para cada caso, `"Case_*"` é o nome predefinido para esse caso, o que pode renomear para facilitar a leitura |
+| `"case"` | Especifica o valor do caso, o que deve ser um valor constante e é exclusivo e que a instrução switch utiliza para comparação. Se não existem casos correspondem o resultado da expressão de comutador, as ações no `"default"` secção são executados. | 
+| | | 
 
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em funcionalidades ou sugestões, visite o [site de comentários do utilizador do Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Para submeter ou votar em funcionalidades ou sugestões, visite o [site de comentários de utilizadores do Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Executar passos com base numa condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Executar e repita os passos (ciclos)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Executar ou merge passos paralelos (ramos)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Executar passos com base no estado da ação agrupada (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Execute os passos com base numa condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Executar e repita os passos (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Executar ou unir a passos paralelos (ramos)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Execute os passos com base no estado da ação agrupados (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

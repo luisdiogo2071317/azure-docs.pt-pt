@@ -1,99 +1,109 @@
 ---
-title: Aprovisionar conjuntos do Azure Batch de imagens personalizadas | Microsoft Docs
-description: Pode criar um lote de nós que contêm o software e os dados que precisa para a sua aplicação de computação do conjunto a partir de uma imagem personalizada para aprovisionar. Imagens personalizadas são uma forma eficaz para configurar nós de computação para executar as cargas de trabalho do Batch.
+title: Aprovisionar conjunto do Azure Batch a partir de uma imagem personalizada | Documentos da Microsoft
+description: Crie um lote de nós que contêm o software e os dados que precisa para a sua aplicação de computação do conjunto a partir de uma imagem personalizada para aprovisionar. Imagens personalizadas são uma forma eficiente para configurar nós de computação para executar as cargas de trabalho do Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 10/04/2018
 ms.author: danlep
-ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158617"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885218"
 ---
-# <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais 
+# <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais 
 
-Quando cria um conjunto do Azure Batch com a configuração de Máquina Virtual, especifique uma imagem de VM que fornece o sistema operativo para cada nó de computação no conjunto. Pode criar um conjunto de máquinas virtuais com uma imagem do Azure Marketplace ou com uma imagem personalizada (uma imagem de VM ter criado e configurado por si). A imagem personalizada tem de ser um *imagem gerida* recursos na mesma subscrição do Azure e região da conta de Batch.
+Quando cria um conjunto do Azure Batch através da configuração de Máquina Virtual, especifique uma imagem de VM que fornece o sistema operativo para cada nó de computação no conjunto. Pode criar um conjunto de máquinas virtuais com uma imagem suportados do Azure Marketplace ou com uma imagem personalizada (uma imagem de VM ter criado e configurado por conta própria). A imagem personalizada tem de ser um *imagem gerida* recursos na mesma subscrição do Azure e a região que a conta do Batch.
 
-## <a name="why-use-a-custom-image"></a>Porquê utilizar uma imagem personalizada?
-Quando fornecer uma imagem personalizada, tem controlo sobre a configuração do sistema operativo e o tipo de sistema operativo e os discos de dados a ser utilizado. A imagem personalizada pode incluir aplicações e dados de referência que fiquem disponíveis em todos os nós do conjunto de Batch, assim como terem sido aprovisionados.
+## <a name="why-use-a-custom-image"></a>Por que usar uma imagem personalizada?
 
-Utilizar uma imagem personalizada poupa tempo no preparar nós de computação do conjunto para executar a carga de trabalho do Batch. Apesar de poder utilizar uma imagem do Azure Marketplace e instalar software em cada nó de computação após o aprovisionamento, utilizar uma imagem personalizada poderá ser mais eficiente.
+Quando fornecer uma imagem personalizada, tem controle sobre a configuração do sistema operativo e o tipo de sistema operativo e discos de dados a serem utilizados. Sua imagem personalizada pode incluir aplicações e dados de referência que ficam disponíveis em todos os nós do conjunto de Batch assim que terem sido aprovisionados.
 
-Utilizar uma imagem personalizada configurada para o seu cenário, pode fornecer várias vantagens:
+Com uma imagem personalizada poupa tempo na preparação de nós de computação do seu agrupamento para executar a sua carga de trabalho do Batch. Apesar de poder utilizar uma imagem do Azure Marketplace e instalar software em cada nó de computação após o aprovisionamento, com uma imagem personalizada pode ser mais eficiente.
 
-- **Configurar o sistema operativo (SO)**. Pode efetuar uma configuração especial do sistema operativo no disco do sistema operativo da imagem personalizada. 
-- **Aplicações de pré-instalação.** Pode criar uma imagem personalizada com aplicações pré-instaladas no disco do SO, que é mais eficiente e menos propensas ao erro de instalação de aplicações após o aprovisionamento de nós de computação com o StartTask.
-- **Poupar tempo de reinício em VMs.** Instalação da aplicação requer, normalmente, reiniciar a VM, que é um processo demorado. Pode poupar tempo de reinício através da pré-instalação de aplicações. 
-- **Copie muito grandes quantidades de dados uma vez.** Pode fazer parte de dados estáticos da imagem personalizada gerida ao copiá-los para os discos de dados de uma imagem gerida. Isto só tem de ser feita uma vez e disponibiliza a cada nó do conjunto de dados.
-- **Escolha dos tipos de disco.** Pode criar uma imagem personalizada gerida a partir de um VHD, a partir de um disco gerido de uma VM do Azure, um instantâneo destes discos ou a seus próprios instalação Linux ou do Windows que tiver configurado. Tem a opção de utilizar o premium storage para o disco do SO e o disco de dados.
-- **Aumente os conjuntos de qualquer dimensão.** Quando utiliza uma imagem personalizada gerida para criar um conjunto, o conjunto pode crescer para qualquer dimensão que solicitar. Não é necessário efetuar cópias de blob de imagem VHDs para acomodar o número de VMs. 
+Com uma imagem personalizada configurada para o seu cenário, pode fornecer várias vantagens:
+
+- **Configurar o sistema operacional (SO)**. Pode personalizar a configuração do disco do sistema operativo da imagem. 
+- **Pré-instalação aplicações.** Pré-instale aplicações no disco do SO, o que é mais eficiente e menos propenso a erros de instalação de aplicativos depois de aprovisionar nós de computação através de uma tarefa de início.
+- **Economizar tempo de reinício de VMs.** Instalação de aplicativos normalmente requer a reinicialização da VM, que é um processo demorado. Pode salvar a hora de reinício através da pré-instalação de aplicativos. 
+- **Copie grandes quantidades de dados uma vez.** Fazer parte de dados estáticos da imagem personalizada gerida através de cópia para discos de dados de uma imagem gerida. Isso só precisa ser feito uma vez e disponibiliza a cada nó do conjunto de dados.
+- **Escolha de tipos de disco.** Tem a opção de usar o armazenamento premium para o disco do SO e o disco de dados.
+- **Aumente a conjuntos de tamanhos grandes.** Quando utiliza uma imagem personalizada gerida para criar um conjunto, o conjunto pode crescer sem necessidade de fazer cópias do blob de imagem VHDs. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Um recurso de imagem gerido**. Para criar um conjunto de máquinas virtuais utilizando uma imagem personalizada, terá de criar um recurso de imagem gerido na mesma subscrição do Azure e região da conta de Batch. Para obter opções preparar uma imagem gerida, consulte a secção seguinte.
-- **Autenticação do Azure Active Directory (AAD)**. O cliente de Batch API tem de utilizar a autenticação do AAD. Suporte de lote do Azure para o AAD está documentado na [soluções de serviço de Batch de autenticar com o Active Directory](batch-aad-auth.md).
+- **Um recurso de imagem gerida**. Para criar um conjunto de máquinas virtuais utilizando uma imagem personalizada, terá de ter ou criar um recurso de imagem gerida na mesma subscrição do Azure e a região que a conta do Batch. A imagem deve ser criada a partir de instantâneos do disco do SO da VM e, opcionalmente, seus discos de dados anexados. Para obter mais informações e passos para preparar uma imagem gerida, consulte a secção seguinte. 
+  - Utilize uma imagem personalizada individual para cada conjunto de que criar.
+  - Para criar um conjunto com a imagem usando as APIs do Batch, especifique a **ID de recurso** da imagem, que é o formato `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Para utilizar o portal, utilize o **nome** da imagem.  
+  - O recurso de imagem gerida deve existir durante a vida útil do conjunto para permitir que o vertical e pode ser removido depois do conjunto ser eliminado.
 
-    
+- **Autenticação do Azure Active Directory (AAD)**. A API do cliente do Batch tem de utilizar autenticação do AAD. Suporte do Azure Batch para AAD está documentado no [soluções de serviço do Batch de autenticar com o Active Directory](batch-aad-auth.md).
+
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
-Pode preparar uma imagem gerida a partir de um VHD, de uma VM do Azure com discos geridos ou de um instantâneo VM. Lote, é recomendável criar uma imagem gerida a partir de uma VM com discos geridos ou um instantâneo VM. A imagem gerida e o recurso subjacente devem existir para os conjuntos de aumentar verticalmente e podem ser removidos depois do conjunto ser eliminado. 
 
-Quando preparar a imagem, tenha em consideração os seguintes pontos:
+No Azure pode preparar uma imagem gerida a partir de instantâneos do SO de uma VM do Azure e discos de dados, a partir de uma VM generalizada do Azure com discos geridos ou a partir de um VHD generalizado no local que carrega. Para dimensionar conjuntos do Batch com confiança com uma imagem personalizada, recomendamos que crie uma imagem gerida utilizando *apenas* o primeiro método: utilizando instantâneos de discos da VM. Consulte os seguintes passos para preparar uma VM, tire um instantâneo e criar uma imagem a partir do instantâneo. 
 
-* Confirme que a imagem de SO base que vai utilizar para aprovisionar o conjunto do Batch não tem nenhuma extensão do Azure pré-instalada, como a extensão Custom Script. Se a imagem tiver uma extensão pré-instalada, o Azure poderá encontrar problemas durante a implementação da VM.
-* Certifique-se de que a imagem do SO base que fornece utiliza unidade temporária predefinida. O agente de nó do Batch atualmente espera unidade temporária predefinida.
-* Não é possível eliminar o recurso de imagem gerido referenciado por um conjunto do Batch para a duração do conjunto. Se o recurso de imagem gerido for eliminado, em seguida, o conjunto não é possível crescer qualquer ainda mais. 
+### <a name="prepare-a-vm"></a>Preparar uma VM 
 
-### <a name="to-create-a-managed-image"></a>Para criar uma imagem gerida
-Pode utilizar qualquer existente preparado Windows ou Linux disco do sistema operativo para criar uma imagem gerida. Por exemplo, se pretender utilizar uma imagem do local, em seguida, carregue o disco local para uma conta de armazenamento do Azure que está a ser a mesma subscrição e região da conta do Batch utilizar o AzCopy ou outra ferramenta de carregamento. Para obter passos detalhados para carregar um VHD e criar uma imagem gerida, consulte a documentação de orientação para [Windows](../virtual-machines/windows/upload-generalized-managed.md) ou [Linux](../virtual-machines/linux/upload-vhd.md) VMs.
+Se estiver a criar uma nova VM para a imagem, utilizar uma imagem do Azure Marketplace suportada pelo Batch, como a imagem de base para a sua imagem gerida e, em seguida, personalizá-lo.  Para obter uma lista de referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/rest/api/batchservice/account/listnodeagentskus) operação. Não é possível utilizar uma imagem de terceiros que sua imagem base.
 
-Também pode preparar uma imagem gerida de um novo ou existente VM do Azure, ou um instantâneo VM. 
+* Certifique-se de que a VM é criada com um disco gerido. Esta é a predefinição de armazenamento ao criar uma VM.
+* Não instale extensões do Azure, como a extensão de Script personalizado na VM. Se a imagem tiver uma extensão pré-instalada, o Azure pode encontrar problemas ao implementar o conjunto do Batch.
+* Certifique-se de que a imagem do SO base que indicar utiliza a unidade temp predefinida. O agente de nó do Batch espera, atualmente, a unidade temp predefinida.
+* Quando a VM estiver em execução, ligue ao mesmo através de RDP (para Windows) ou SSH (para Linux). Instalar qualquer software necessário ou copiar os dados desejados.  
 
-* Se estiver a criar uma nova VM, pode utilizar uma imagem do Azure Marketplace como a imagem de base para a imagem gerida e, em seguida, personalizá-lo. 
+### <a name="create-a-vm-snapshot"></a>Criar um instantâneo VM
 
-* Se planear capturar a imagem através do portal, certifique-se de que a VM é criada com um disco gerido. Esta é a predefinição de armazenamento ao criar uma VM.
+Um instantâneo é uma cópia completa, só de leitura de um VHD. Para criar um instantâneo de SO de uma VM ou discos de dados, pode utilizar o portal do Azure ou ferramentas da linha de comandos. Para passos e opções para criar um instantâneo, veja as orientações para [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) ou [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VMs.
 
-* Assim que a VM está em execução, ligue ao mesmo através de DRP (para Windows) ou SSH (para Linux). Instalar obrigatoriamente qualquer software necessário ou copiar dados pretendido e, em seguida, generalize a VM.  
+### <a name="create-an-image-from-one-or-more-snapshots"></a>Criar uma imagem a partir de instantâneos de um ou mais
 
-Para obter os passos generalizar uma VM do Azure e criar uma imagem gerida, consulte a documentação de orientação para [Windows](../virtual-machines/windows/capture-image-resource.md) ou [Linux](../virtual-machines/linux/capture-image.md) VMs.
-
-Dependendo de como pretende criar um conjunto do Batch com a imagem, é necessário o seguinte identificador para a imagem:
-
-* Se pretender criar um conjunto com a imagem com as APIs do Batch, o **ID de recurso** da imagem, que tem o formato `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. 
-* Se planeia utilizar o portal, o **nome** da imagem. 
-
-
-
-
+Para criar uma imagem gerida a partir de um instantâneo, utilize ferramentas de linha de comandos do Azure como o [criar imagem de az](/cli/azure/image#az_image_create) comando. Pode criar uma imagem, especificando um instantâneo do disco de SO e, opcionalmente, um ou mais instantâneos de disco de dados.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Criar um agrupamento de uma imagem personalizada no portal
 
-Depois de guardar a imagem personalizada e conhecer o respetivo ID de recurso ou o nome, pode criar um conjunto do Batch a partir dessa imagem. Os passos seguintes mostram como criar um conjunto a partir do portal do Azure.
+Depois de guardar sua imagem personalizada e sabe o ID de recurso ou o nome, crie um conjunto do Batch a partir dessa imagem. Os passos seguintes mostram como criar um conjunto a partir do portal do Azure.
 
 > [!NOTE]
-> Se estiver a criar o conjunto utilizar uma das APIs do Batch, certifique-se de que a identidade que utilizar para autenticação do AAD tem permissões para o recurso de imagem. Consulte [soluções de serviço de Batch de autenticar com o Active Directory](batch-aad-auth.md).
+> Se estiver a criar o conjunto utilizar uma das APIs do Batch, certifique-se de que a identidade utilizada para autenticação de AAD tem permissões para o recurso de imagem. Ver [soluções de serviço do Batch de autenticar com o Active Directory](batch-aad-auth.md).
 >
 
-1. No portal do Azure, navegue para a sua conta do Batch. Esta conta tem de ser na mesma subscrição e região como o grupo de recursos que contém a imagem personalizada. 
-2. No **definições** janela no lado esquerdo, selecione o **agrupamentos** item de menu.
-3. No **agrupamentos** janela, selecione o **adicionar** comando.
-4. No **adicionar conjunto** janela, selecione **imagem personalizada (Linux/Windows)** do **tipo de imagem** pendente. Do **imagem de VM personalizada** lista pendente, selecione o nome de imagem (ditada abreviada do ID do recurso).
-5. Selecione o correto **oferta/publicador/Sku** para a sua imagem personalizada.
-6. Especifique o restante necessário as definições, incluindo o **tamanho de nó**, **dedicados de nós de destino**, e **baixa nós prioridade**, bem como qualquer pretendido definições opcionais.
+1. No portal do Azure, navegue para a sua conta do Batch. Esta conta tem de ser na mesma subscrição e região que o grupo de recursos que contém a imagem personalizada. 
+2. Na **definições** janela à esquerda, selecione a **conjuntos** item de menu.
+3. Na **agrupamentos** janela, selecione a **Add** comando.
+4. Sobre o **adicionar conjunto** janela, selecione **imagem personalizada (Linux/Windows)** do **tipo de imagem** lista pendente. Partir do **imagem de VM personalizada** lista pendente, selecione o nome de imagem (ditada breve do ID do recurso).
+5. Selecione o correto **Editor/oferta/Sku** para sua imagem personalizada.
+6. Especifique as restantes definições, incluindo o **tamanho de nó**, **nós dedicados de destino**, e **nós de prioridade de baixa**, bem como qualquer pretendido definições opcionais.
 
-    Por exemplo, para uma imagem personalizada do Centro de dados do Microsoft Windows Server 2016, o **adicionar conjunto** surge a janela conforme mostrado abaixo:
+    Por exemplo, para uma imagem personalizada do Microsoft Windows Server 2016 de Datacenter, o **adicionar conjunto** é apresentada a janela conforme mostrado abaixo:
 
-    ![Adicionar o conjunto de imagem personalizada do Windows](media/batch-custom-images/add-pool-custom-image.png)
+    ![Adicionar conjunto de imagem personalizada do Windows](media/batch-custom-images/add-pool-custom-image.png)
   
-Para verificar se um conjunto existente é baseado numa imagem personalizada, consulte o **sistema operativo** propriedade na secção de resumo de recurso do **conjunto** janela. Se o conjunto foi criado a partir de uma imagem personalizada, está definida como **imagem de VM personalizada**.
+Para verificar se um conjunto existente se baseia numa imagem personalizada, consulte a **sistema operativo** na seção de resumo de recursos da **conjunto** janela. Se o conjunto foi criado a partir de uma imagem personalizada, ele é definido como **imagem de VM personalizada**.
 
-Todas as imagens personalizadas associadas um agrupamento são apresentadas no agrupamento de **propriedades** janela.
- 
+Todas as imagens personalizadas associadas um conjunto são apresentadas do conjunto **propriedades** janela.
+
+## <a name="considerations-for-large-pools"></a>Considerações sobre a grandes pools
+
+Se planeja criar um conjunto com centenas de VMs ou mais com uma imagem personalizada, é importante seguir as orientações anteriores para utilizar uma imagem criada a partir de um instantâneo VM.
+
+Tenha também em atenção o seguinte:
+
+- **Limites de tamanho** -Batch limita o tamanho do conjunto a 2500 nós de computação dedicados ou nós de baixa prioridade de 1000, quando utilizar uma imagem personalizada.
+
+  Se utilizar a mesma imagem (ou várias imagens com base no mesmo instantâneo subjacente) para criar múltiplos conjuntos, nós de computação total nos agrupamentos de não podem exceder os limites anteriores. Não é recomendado utilizar uma imagem ou o instantâneo subjacente durante mais de um único conjunto.
+
+  Limites podem ser reduzidos se configurar o conjunto com [conjuntos de NAT de entrada](pool-endpoint-configuration.md).
+
+- **Tempo limite de redimensionamento** - se o conjunto tiver fixa aumentar o número de nós (dimensionamento automático não), a propriedade resizeTimeout do conjunto para um valor como 20 a 30 minutos. Se o seu conjunto não chega ao seu tamanho de destino dentro do período de tempo limite, executar outra [redimensionar operação](/rest/api/batchservice/pool/resize).
+
+  Se pretender um conjunto com mais de 300 nós de computação, precisará de redimensionar o conjunto de várias vezes para alcançar o tamanho de destino.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).
+- Para uma descrição geral aprofundada do Batch, consulte [soluções com o Batch de computação paralelas em grande escala de desenvolver](batch-api-basics.md).

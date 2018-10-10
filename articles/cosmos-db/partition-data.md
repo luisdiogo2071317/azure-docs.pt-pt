@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870575"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886387"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Particionar e dimensionar no Azure Cosmos DB
 
@@ -104,50 +104,6 @@ Seguem-se os pré-requisitos a serem considerados para a criação de partiçõe
 * Todos os contentores configurados para partilhar a taxa de transferência como parte de um conjunto de contentores são tratados como **ilimitado** contentores.
 
 Se tiver criado uma **Fixed** contentor sem qualquer partição chave ou débito menos de 1000 RU/s, o contentor será não de dimensionamento automático. Para migrar os dados a partir de um contentor fixo para um contentor ilimitado, tem de utilizar o [ferramenta de migração de dados](import-data.md) ou o [biblioteca de Feed de alterações](change-feed.md). 
-
-## <a name="PartitionedGraph"></a>Requisitos para o graph particionada
-
-Ao criar um contentor de gráficos particionada, considere os seguintes detalhes:
-
-- **Configurar a criação de partições é necessário** se o contentor é esperado que seja mais de 10 GB de tamanho e/ou se a alocação de mais de 10.000 unidades de pedido por segundo (RU/s) será necessária.
-
-- **Vértices e margens são armazenadas como documentos JSON** no back-end de uma API de Gremlin do Azure Cosmos DB.
-
-- **Vértices requerem uma chave de partição**. Esta chave determina qual partição é utilizada para armazenar o vértice e este processo utiliza um algoritmo de hash. O nome desta chave de partição é uma cadeia de palavra única sem espaços ou carateres especiais, e ele é definido durante a criação de um novo contentor utilizando o formato `/partitioning-key-name`.
-
-- **Margens são armazenadas com seu vértice de origem**. Em outras palavras, para cada vértice a respetiva chave de partição define onde o vértice e bordas de saída são armazenadas. Isso é feito para evitar consultas entre partições quando utiliza o `out()` cardinalidade em consultas de gráficos.
-
-- **Consultas de gráficos, devem especificar uma chave de partição**. Para aproveitar ao máximo a criação de partições horizontais no Azure Cosmos DB, sempre que possível gráfico consultas devem incluir a chave de partição. Por exemplo quando um único vértice está selecionado. As consultas de exemplo seguintes mostram como incluir a chave de partição, ao selecionar um ou vários vértices num gráfico particionado:
-
-    - **Atualmente não é possível usar `/id` como chave de partição para um contentor na API do Gremlin**.
-
-    - Selecionar um vértice por ID, em seguida, **utilizar o `.has()` passo para especificar a propriedade da chave de partição**: 
-    
-        ```
-        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
-        ```
-    
-    - Selecionar um vértice pela **especificando uma tupla, incluindo o valor da chave de partição e ID**: 
-    
-        ```
-        g.V(['partitionKey_value', 'vertex_id'])
-        ```
-        
-    - Selecionar um vértice, especificando uma **matriz de cadeias de identificação que incluem valores de chave de partição e IDs**:
-    
-        ```
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
-        ```
-        
-    - Selecionar um conjunto de vértices pelos **especificando uma lista de valores de chave de partição**: 
-    
-        ```
-        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
-        ```
-
-* **Sempre especificar o valor da chave de partição ao consultar um vértice**. Obter um vértice a partir de uma partição conhecida é a maneira mais eficiente em termos de desempenho.
-
-* **Utilizar a direção de saída ao consultar as margens** sempre que é possível. Margens são armazenadas com seus vértices de origem na direção de saída. Isso significa que as possibilidades de recorrer a consultas entre partições são minimizadas quando os dados e as consultas são projetadas com esse padrão em mente.
 
 ## <a name="designing-for-partitioning"></a> Criar uma chave de partição 
 Pode utilizar o portal do Azure ou a CLI do Azure para criar contentores e dimensione-os em qualquer altura. Esta secção mostra como criar contentores e especificar a chave de partição e o débito aprovisionada com cada API.

@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985648"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884295"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
 > [!Note]
-> A API do Video Indexer V1 foi preterido no dia 1 de Agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções presentes [aqui](https://api-portal.videoindexer.ai/). 
+> A API do Video Indexer V1 foi preterida no dia 1 de agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções que se encontram [aqui](https://api-portal.videoindexer.ai/). 
 
 Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, ocrs, rostos, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 
@@ -115,7 +115,7 @@ Esta secção mostra o resumo das informações.
 |publishedUrlProxy|Um url para transmitir o vídeo de (para dispositivos da Apple).|
 |viewToken|Um token de vista de resumo de duração para o vídeo de transmissão em fluxo.|
 |sourceLanguage|Idioma de origem do vídeo.|
-|Idioma|Idioma da real do vídeo (tradução).|
+|language|Idioma da real do vídeo (tradução).|
 |indexingPreset|A configuração predefinida utilizada para o vídeo de índice.|
 |streamingPreset|A configuração predefinida utilizada para publicar o vídeo.|
 |linguisticModelId|O modelo CRIS utilizado de transcrever o vídeo.|
@@ -155,7 +155,7 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista da
 |Versão|A versão de código|
 |---|---|
 |sourceLanguage|Idioma de origem do vídeo (supondo que um idioma principal). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
-|Idioma|O idioma de informações (traduzido do idioma de origem). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
+|language|O idioma de informações (traduzido do idioma de origem). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |transcrição|O [transcrição](#transcript) dimensão.|
 |OCR|O [ocr](#ocr) dimensão.|
 |palavras-chave|O [palavras-chave](#keywords) dimensão.|
@@ -205,7 +205,7 @@ instâncias|Uma lista de intervalos de tempo deste bloco.|
 |---|---|
 |ID|O ID de linha.|
 |texto|A transcrição em si.|
-|Idioma|O idioma de transcrição. A finalidade oferecer suporte a transcrição em que cada linha pode ter um idioma diferente.|
+|language|O idioma de transcrição. A finalidade oferecer suporte a transcrição em que cada linha pode ter um idioma diferente.|
 |instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância de transcrição, ele terá apenas 1 instância.|
 
 Exemplo:
@@ -244,7 +244,7 @@ Exemplo:
 |ID|O ID de linha de OCR.|
 |texto|O texto de OCR.|
 |confiança|A confiança de reconhecimento.|
-|Idioma|O idioma de OCR.|
+|language|O idioma de OCR.|
 |instâncias|Uma lista de intervalos de tempo em que este OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 
 ```json
@@ -287,7 +287,7 @@ Exemplo:
 |ID|O ID de palavra-chave.|
 |texto|O texto de palavra-chave.|
 |confiança|Confiança de reconhecimento da palavra-chave.|
-|Idioma|O idioma de palavra-chave (quando traduzido).|
+|language|O idioma de palavra-chave (quando traduzido).|
 |instâncias|Uma lista de intervalos de tempo em que esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
@@ -332,13 +332,13 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |ID|O ID do rosto.|
-|nome|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
+|nome|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
 |descrição|Uma descrição da celebridade. |
 |thumbnalId|O ID da miniatura do que enfrentam.|
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
-|referenceType|Atualmente, apenas o Bing.|
+|referenceType|Atualmente, apenas Bing.|
 |título|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
 |imageUrl|Se for uma celebridade, o seu url da imagem.|
 |instâncias|Estes são instâncias de onde o mostrador apareceu no intervalo de tempo especificado. Cada instância tem também um thumbnailsId. |
@@ -378,7 +378,7 @@ Exemplo:
 |---|---|
 |ID|O ID da etiqueta.|
 |nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
-|Idioma|Idioma de nome etiqueta (quando traduzido). BCP 47|
+|language|Idioma de nome etiqueta (quando traduzido). BCP 47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
@@ -678,7 +678,7 @@ O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emo
 |Nome|Descrição|
 |---|---|
 |ID|O ID de emoções.|
-|tipo|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções poderiam ser: alegria, tristeza, raiva ou medo.|
+|tipo|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.|
 |instâncias|Uma lista de intervalos de tempo em que este emoções apareceram.|
 
 ```json
@@ -771,7 +771,7 @@ O Video Indexer torna a inferência de tipos de tópicos principais de transcri�
 |nome|Nome do tópico, por exemplo: "Farmacêutica".|
 |referenceId|A estrutura de ligações que reflete a hierarquia de tópicos. Por exemplo: "Estado de funcionamento e wellbeing / medicina e saúde / farmacêutica".|
 |confiança|A pontuação de confiança no intervalo [0,1]. Superior é mais confiança.|
-|Idioma|O idioma usado no tópico.|
+|language|O idioma usado no tópico.|
 |iptcName|O suporte de dados IPTC nome, de código detetada.|
 |instâncias |Atualmente, o indexador de vídeos não indexa um tópico para intervalos de tempo, para que o vídeo inteiro é utilizado como o intervalo.|
 

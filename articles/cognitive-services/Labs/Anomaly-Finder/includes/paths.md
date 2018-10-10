@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a806cac410eb57e59dacb42da9be954b2f962956
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb02496d9c107a2c21acca6c65ef69fdfceb4597
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353330"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904442"
 ---
 <a name="paths"></a>
 ## <a name="paths"></a>Caminhos
@@ -31,7 +31,7 @@ POST /anomalydetection
 
 |Tipo|Nome|Descrição|Esquema|
 |---|---|---|---|
-|**Corpo**|**Corpo**  <br>*Necessário*|A série de tempo pontos de dados e o período, se necessário.|[Pedido](#request)|
+|**Corpo**|**Corpo**  <br>*Necessário*|Série de tempo os pontos de dados e o período, se for necessário.|[Pedido](#request)|
 
 
 #### <a name="responses"></a>Respostas
@@ -39,7 +39,7 @@ POST /anomalydetection
 |Código de HTTP|Descrição|Esquema|
 |---|---|---|
 |**200**|Operação concluída com êxito.|< [resposta](#response) > matriz|
-|**400**|Não consegue analisar o pedido JSON.|Sem Conteúdo|
+|**400**|Não é possível analisar o pedido do JSON.|Sem Conteúdo|
 |**403**|O certificado que forneceu não é aceite pelo servidor.|Sem Conteúdo|
 |**405**|Método não permitido.|Sem Conteúdo|
 |**500**|Erro Interno do Servidor.|Sem Conteúdo|

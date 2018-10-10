@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: f5e23a5734f8451b99823f238b577a21a4752c18
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047817"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887217"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como resolver problemas de "o runtime das funções não está acessível"
 
@@ -28,7 +28,7 @@ Este documento destina-se para resolver o erro seguinte, quando apresentado no p
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### <a name="summary"></a>Resumo
-Este problema ocorre quando não é possível iniciar os tempo de execução de unctions do Azure. A razão mais comum para este erro ocorrer é a aplicação de função perder o acesso à sua conta de armazenamento. [Leia mais sobre os requisitos de conta de armazenamento aqui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Este problema ocorre quando não é possível iniciar o Runtime das funções do Azure. A razão mais comum para este erro ocorrer é a aplicação de função perder o acesso à sua conta de armazenamento. [Leia mais sobre os requisitos de conta de armazenamento aqui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 Vamos examinar os quatro casos de erro mais comuns, como identificar e como resolver cada caso.

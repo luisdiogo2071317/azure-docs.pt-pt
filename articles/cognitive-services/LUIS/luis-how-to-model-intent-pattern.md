@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030819"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885891"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão
 Depois de uma aplicação do LUIS recebe expressões de ponto de extremidade, utilize o [conceito](luis-concept-patterns.md) de padrões para melhorar a exatidão da previsão para expressões que revelam um padrão na ordem das palavras e a escolha do word. Padrões de utilização [entidades](luis-concept-entity-types.md) e as respetivas funções para extrair dados usando a sintaxe padrão específico. 

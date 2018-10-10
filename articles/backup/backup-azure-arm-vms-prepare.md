@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: ebfd879fcd619dab48e4a08130f86afc68f91207
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785431"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884938"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -62,6 +62,9 @@ Antes de preparar o seu ambiente, certifique-se de que compreender estas limita�
   * Máquinas virtuais em configuração de Balanceador de carga (interna e externa)
   * Máquinas virtuais com vários endereços IP reservados
   * Máquinas virtuais com vários adaptadores de rede
+
+  > [!NOTE]
+  > O Azure Backup suporta [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), um novo tipo de armazenamento durável para máquinas de virtuais do Microsoft Azure. É suportado para discos geridos num [pilha de cópia de segurança do Azure VM V2](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Criar um cofre dos serviços de recuperação para uma VM
 Um cofre dos serviços de recuperação é uma entidade que armazena as cópias de segurança e os pontos de recuperação que foram criados ao longo do tempo. O Cofre dos serviços de recuperação também contém as políticas de cópia de segurança que estão associadas a máquinas virtuais protegidas.

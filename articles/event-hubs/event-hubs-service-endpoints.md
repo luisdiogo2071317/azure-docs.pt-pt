@@ -10,16 +10,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745914"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888136"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilizar pontos finais de serviço de rede Virtual com o Event Hubs do Azure
 
 A integração do Hubs de eventos com [pontos finais de serviço de rede Virtual (VNet)] [ vnet-sep] permite o acesso seguro às capacidades de mensagens de cargas de trabalho como as máquinas virtuais que estão vinculadas a virtual redes, com o caminho do tráfego de rede que estão protegidas em ambas as extremidades. 
+
+> [!IMPORTANT]
+> Redes virtuais são suportadas no **padrão** e **dedicado** escalões de Hubs de eventos. Não é suportada no escalão básico. 
 
 Depois de configurado para ser associada a pelo menos um ponto final do serviço de sub-rede virtual de rede, o respetivo dos Hubs de eventos espaço de nomes já não aceita tráfego de qualquer lugar, mas autorizado da rede ou redes virtuais. Da perspectiva de rede virtual, ligando um espaço de nomes de Hubs de eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de mensagens.
 

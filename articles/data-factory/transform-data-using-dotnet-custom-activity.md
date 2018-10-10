@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043083"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888226"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,6 +293,23 @@ Se desejar consumir o conteúdo de stdout.txt em atividades downstream, pode obt
   > [!IMPORTANT]
   > - O activity.json linkedServices.json e datasets.json são armazenadas na pasta de tempo de execução da tarefa do Batch. Para este exemplo, o activity.json linkedServices.json e datasets.json são armazenados em "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" caminho. Se for necessário, terá de limpá-los separadamente. 
   > - Para os utilizadores de serviços ligados que Runtime de integração autoalojado, as informações confidenciais, como chaves ou palavras-passe são criptografadas pelo Runtime de integração autoalojado para garantir que a credencial permanece no cliente definido pelo ambiente de rede privada. Alguns campos confidenciais poderiam estar em falta quando referenciados pelo seu código de aplicativo personalizada dessa forma. Utilize SecureString extendedProperties em vez de utilizar a referência de serviço ligado, se necessário. 
+
+## <a name="retrieve-securestring-outputs"></a>Obter as saídas de SecureString
+
+Os valores de propriedade confidenciais designados como o tipo *SecureString*, como mostra alguns dos exemplos neste artigo, são mascarados no separador de monitorização na interface do usuário de fábrica de dados.  Na execução de pipeline real, no entanto, uma *SecureString* propriedade é serializada como JSON dentro do `activity.json` arquivo como texto simples. Por exemplo:
+
+```json
+"extendedProperties": {
+    "connectionString": {
+        "type": "SecureString",
+        "value": "aSampleSecureString"
+    }
+}
+```
+
+Esta serialização não é realmente protegida e não se destina a ser seguros. A intenção é sugestão à fábrica de dados para mascarar o valor no separador de monitorização.
+
+Para propriedades de tipo de acesso *SecureString* de uma atividade personalizada, leia o `activity.json` arquivo, o que é colocado na mesma pasta que sua. EXE, anular a serialização JSON e, em seguida, acessar a propriedade JSON (extendedProperties = > [propertyName] = > valor).
 
 ## <a name="compare-v2-v1"></a> Comparar a atividade personalizada v2 e a versão 1 (personalizado) atividade DotNet
 

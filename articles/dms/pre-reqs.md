@@ -2,7 +2,7 @@
 title: Descrição geral da pré-requisitos para utilizar o serviço de migração de base de dados do Azure | Documentos da Microsoft
 description: Saiba mais sobre uma visão geral dos pré-requisitos para utilizar o serviço de migração de base de dados do Azure para efetuar as migrações de base de dados.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: ''
@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: c90727db28bde0a1985104f1fbc9c7380bba8dee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: b3c974eaf4e44a80046efc4b1545f29797fcaf0c
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802938"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887671"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Descrição geral da pré-requisitos para utilizar o serviço de migração de base de dados do Azure
 Existem vários pré-requisitos necessários para garantir que o serviço de migração de base de dados do Azure é executado de sem problemas ao realizar migrações de base de dados. Alguns dos pré-requisitos aplicam-se em todos os cenários (pares origem-destino) suportados pelo serviço, enquanto outros pré-requisitos são exclusivos para um cenário específico.

@@ -5,16 +5,16 @@ description: Mostra como a conversão de voz com o SDK de voz para c#.
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32cbfada359fb39e71abdf1b9ab892a7cd407cc2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e69dabb3be0aada952fe3acba4d4c0b30f62945
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996677"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887620"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Traduzir a conversão de voz com o SDK de voz dos serviços cognitivos para c#
 
@@ -39,5 +39,5 @@ Procure o código que é utilizado neste artigo na pasta de exemplos/csharp/shar
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como reconhecer a conversão de voz](how-to-recognize-speech-csharp.md)
+- [How to recognize speech](how-to-recognize-speech-csharp.md) (Como reconhecer voz)
 - [Como reconhecer intenções de voz](how-to-recognize-intents-from-speech-csharp.md)

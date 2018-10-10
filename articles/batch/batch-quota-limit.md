@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423747"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887569"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -53,7 +53,9 @@ Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definid
 | [Aplicativos](batch-application-packages.md) por conta do Batch |20 |
 | Pacotes de aplicação por aplicação |40 |
 | Duração de tarefa máximo | 7 dias<sup>1</sup> |
-| Nós de computação no conjunto de comunicação entre nós ativada | 100 |
+| Nós de computação em [conjunto de comunicação entre nós ativada](batch-mpi.md) | 100 |
+| Dedicada de nós de computação [conjunto criado com a imagem de VM personalizada](batch-custom-images.md) | 2500 |
+| Nós de computação de baixa prioridade [conjunto criado com a imagem de VM personalizada](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> a duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 

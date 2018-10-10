@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816043"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887460"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -515,7 +515,7 @@ Para saber como integrar a solução de gestão com o System Center Configuratio
 
 ## <a name="inclusion-behavior"></a>Comportamento de inclusão
 
-Inclusão de atualização permite-lhe especificar as atualizações específicas a aplicar. Patches ou pacotes que estão definidas para ser incluídas são instaladas, independentemente das classificações selecionadas para a implementação.
+Inclusão de atualização permite-lhe especificar as atualizações específicas a aplicar. São instalados patches ou pacotes que estão definidas para ser incluída. Quando Patches ou pacotes estão definidas para ser incluído e uma classificação é selecionada também, são instalados os itens incluídos e os itens que atendam a classificação.
 
 Para máquinas Linux se um pacote está incluído, mas tem um pacote de dependentes que foi specifcally excluído, o pacote não está instalado.
 

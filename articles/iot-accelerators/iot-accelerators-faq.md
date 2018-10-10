@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716405"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884280"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre os Aceleradores de solução de IoT
 
@@ -41,6 +41,10 @@ Atualmente, apenas a solução de monitorização remota utiliza a arquitetura d
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>As vantagens que a nova aberto baseadas em microsserviços arquitetura fornece na atualização de novo?
 
 Nos últimos dois anos, arquitetura de nuvem bastante evoluiu. Microsserviços surgiram como um excelente padrão para alcançar dimensionamento e flexibilidade, sem sacrificar a rapidez do desenvolvimento. Este padrão de arquitetura é utilizado em vários serviços do Microsoft internamente com confiabilidade excelente e resultados de escalabilidade. Que estamos colocando estes de aprendizagem na prática, para que os nossos clientes beneficiam deles.
+
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Onde posso encontrar informações sobre a versão anterior da solução de monitorização remota?
+
+A versão anterior do solution accelerator monitorização remota era conhecida como a solução de IoT Suite monitorização remota pré-configurada. Pode encontrar a documentação arquivada em [ https://docs.microsoft.com/previous-versions/azure/iot-suite/ ](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>O novo acelerador de solução está disponível na mesma região geográfica que a solução existente?
 

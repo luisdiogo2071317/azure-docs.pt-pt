@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036495"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888293"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adicionar expressões de exemplo e a etiqueta com entidades
 
@@ -92,12 +92,12 @@ Adicione um sinónimos para a entidade de lista ao selecionar a palavra ou frase
 
 Na expressão, selecione a palavra sinônimos, tal como `aqua` de água, em seguida, selecione o nome da entidade de lista na lista pendente, tais como **beber**, em seguida, selecione **definir como sinónimos**, em seguida, selecione a lista item é sinônimo, tal como **água**.
 
-![Página de detalhes de captura de ecrã de objetivos, com criar um novo sinónimo realçado](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Página de detalhes de captura de ecrã de objetivos, com a criar uma nova vista normalizada realçada](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Criar novo item para a entidade de lista
-Crie um novo item de uma entidade de lista existentes ao selecionar a palavra ou frase na expressão. Se tiver uma bebida, listar e quiser adicionar `tea` como um novo item, siga os passos:
+Crie um novo item de uma entidade de lista existentes ao selecionar a palavra ou frase na expressão. Se tiver um funcionário, listar e quiser adicionar `Bob Smith` como um novo item, siga os passos:
 
-A expressão, selecione como o word para o novo item de lista, `tea`, em seguida, selecione o nome da entidade de lista na lista pendente, tais como **beber**, em seguida, selecione **criar um novo sinónimos**. 
+Na expressão, selecione a palavra ou expressão para o novo item de lista, tal como `Bob Smith`, em seguida, selecione o nome da entidade de lista na lista pendente, tais como **funcionário**, em seguida, selecione **criar uma nova vista normalizada**. 
 
 ![Captura de ecrã de adicionar novo item da lista](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

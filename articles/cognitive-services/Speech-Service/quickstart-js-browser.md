@@ -5,16 +5,16 @@ description: Aprender a reconhecer a voz em JavaScript num navegador com o SDK d
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018389"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883663"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK de voz dos serviços cognitivos
 
@@ -103,7 +103,7 @@ Para iniciar a aplicação, faça duplo clique no ficheiro Index. HTML ou abra I
 Inicie a sua aplicação, abra o browser favorito e apontá-lo para o URL público que alojam a pasta no, introduza o seu [região](regions.md)e acionar um reconhecimento de utilizar o microfone. Se configurado, ele irá adquirir um token da sua origem de token.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo no `quickstart/js-browser` pasta.
+Procure este exemplo na pasta `quickstart/js-browser`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

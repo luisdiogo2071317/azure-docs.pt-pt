@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 49667251cbce4a3f71d71a6508793a2d4c7aac38
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f6c877a182395d12ee46e9fd9b7892a4a3e5cdb8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300415"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887790"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração de Contoso: realojar a uma aplicação do Linux no local para VMs do Azure e MySQL do Azure
 
@@ -53,7 +53,7 @@ A equipe de liderança de TI tem trabalhado em estreita colaboração com parcei
 
 A equipe de cloud Contoso tiver afixado para baixo de objetivos para essa migração, para determinar o melhor método de migração:
 
-- Após a migração, a aplicação no Azure deve ter as mesmas capacidades de desempenho, como sucede no respetivo ambiente de VMWare no local.  A aplicação permanecerá como crítica na cloud, pois é no local. 
+- Após a migração, a aplicação no Azure deve ter as mesmas capacidades de desempenho, como sucede no respetivo ambiente de VMware no local.  A aplicação permanecerá como crítica na cloud, pois é no local. 
 - Contoso não quer investir nesta aplicação.  É importante para os negócios, mas em sua forma atual Contoso simplesmente quero movê-la em segurança para a cloud.
 - Tendo concluído duas migrações de aplicações do Windows, o Contoso quer aprender a utilizar uma infraestrutura baseada em Linux no Azure.
 - Contoso quer minimizar as tarefas de administração de base de dados depois do aplicativo é movido para a cloud.

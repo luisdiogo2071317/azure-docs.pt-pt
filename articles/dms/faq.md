@@ -2,7 +2,7 @@
 title: FAQ sobre como utilizar o serviço de migração de base de dados do Azure | Documentos da Microsoft
 description: Saiba as perguntas mais frequentes sobre como utilizar o serviço de migração de base de dados do Azure para efetuar migrações de base de dados.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: ''
@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 08158843d0dfb3e5eb0635b5f5b5d015938d895e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804417"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887109"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas frequentes sobre como utilizar o serviço de migração de base de dados do Azure em conjunto com respostas relacionadas.
@@ -28,7 +28,7 @@ O serviço de migração de base de dados do Azure é um serviço completamente 
 - Contínuo investimento em migrações sem obstáculos.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>P. Os pares de origem-destino o serviço de migração de base de dados do Azure suporta atualmente?
-Atualmente, o serviço suporta migrações do SQL Server para a base de dados do Azure SQL, e pode ir para o portal do Azure agora para começar a utilizar o serviço de migração de base de dados do Azure para este cenário. Outros pares origem-destino, como o Oracle para a base de dados do Azure SQL estão disponíveis por meio de uma pré-visualização privada limitada. Para uma oportunidade de participar na pré-visualização privada limitado um destes cenários, inscreva-se [aqui](https://aka.ms/dms-preview/).
+Atualmente, o serviço suporta migrações do SQL Server para a base de dados do Azure SQL, e pode ir para o portal do Azure agora para começar a utilizar o serviço de migração de base de dados do Azure para este cenário. Outros pares origem-destino, como o Oracle para a base de dados SQL do Azure, estão disponíveis por meio de uma pré-visualização privada limitada. Para uma oportunidade de participar na pré-visualização privada limitado um destes cenários, inscreva-se [aqui](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>P. Como o serviço de migração de base de dados do Azure se compara a outras ferramentas de migração de base de dados do Microsoft como o Assistente de migração de base de dados (DMA) ou o SQL Server Migration Assistant (SSMA)?
 O serviço de migração de base de dados do Azure é o método preferencial para a migração de base de dados para o Microsoft Azure em escala. Para obter mais detalhes sobre como o serviço de migração de base de dados do Azure se compara à outra Microsoft ferramentas de migração de base de dados e para obter recomendações sobre como utilizar o serviço para vários cenários, consulte a postagem de blog [base de dados da diferenciar Microsoft Ferramentas de migração e serviços](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -59,9 +59,9 @@ Os pré-requisitos de serviço de migração de base de dados do Azure que são 
 Para obter uma lista de todos os pré-requisitos necessários para competir cenários de migração específica com o serviço de migração de base de dados do Azure, veja os tutoriais relacionados no serviço de migração de base de dados do Azure [documentação](https://docs.microsoft.com/azure/dms/dms-overview) no Docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>P. Como faço para localizar o endereço IP para o serviço de migração de base de dados do Azure para que eu possa criar uma lista de permissões para as regras de firewall utilizadas para aceder a minha base de dados de origem para migração?
-Terá de adicionar regras de firewall que permite que o serviço de migração de base de dados do Azure aceder à sua base de dados de origem para migração. O endereço IP para o serviço é dinâmico, mas se estiver a utilizar o Express Route, este endereço em privado é atribuído pela sua rede empresarial. A forma mais fácil de identificar o endereço IP adequado é procurar no mesmo grupo de recursos como o recurso de serviço de migração de base de dados do Azure aprovisionado para encontrar a Interface de rede associado. Normalmente, o nome do recurso de Interface de rede começa com o prefixo NIC e seguido por um caractere exclusivo e uma seqüência numérica, exemplo NIC jj6tnztnmarpsskr82rbndyp. Ao selecionar este recurso de interface de rede, pode ver o endereço IP que precisa ser incluído na lista de permissões na descrição geral do recurso página do portal do Azure.
+Terá de adicionar regras de firewall que permite que o serviço de migração de base de dados do Azure aceder à sua base de dados de origem para migração. O endereço IP para o serviço é dinâmico, mas se estiver a utilizar o Express Route, este endereço em privado é atribuído pela sua rede empresarial. A forma mais fácil de identificar o endereço IP adequado é procurar no mesmo grupo de recursos como o recurso de serviço de migração de base de dados do Azure aprovisionado para encontrar a Interface de rede associado. Normalmente, o nome do recurso de Interface de rede começa com o prefixo NIC e seguido por um caractere exclusivo e uma seqüência numérica, por exemplo NIC-jj6tnztnmarpsskr82rbndyp. Ao selecionar este recurso de interface de rede, pode ver o endereço IP que precisa ser incluído na lista de permissões na descrição geral do recurso página do portal do Azure.
 
-Também poderá incluir a origem de porta do SQL Server escuta na lista de permissões. Por predefinição, é a porta 1433, mas a origem do SQL Server pode ser configurada para escutar também outras portas. Neste caso, precisa incluir essas portas na lista de permissões. É possível determinar a porta que o SQL Server está a escutar utilizando uma consulta de vista de gestão dinâmica:
+Também poderá incluir a origem de porta do SQL Server escuta na lista de permissões. Por padrão, ele 's a porta 1433, mas a origem que do SQL Server pode ser configurado para escutar também outras portas. Neste caso, precisa incluir essas portas na lista de permissões. É possível determinar a porta que o SQL Server está a escutar utilizando uma consulta de vista de gestão dinâmica:
 
 ```sql
     SELECT DISTINCT 

@@ -5,17 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858082"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904684"
 ---
 Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
+
+- O [DC série](#dc-series) é uma nova família de máquinas virtuais no Azure que pode ajudar a proteger a confidencialidade e integridade dos seus dados e código enquanto ele é processado na cloud pública. Estas máquinas são apoiadas pela última geração de 3,7 GHz Intel XEON I - 2176G processadores com tecnologia SGX. Estas máquinas podem chegar aos 4.7 GHz com o Intel Turbo Boost Technology. As instâncias de série do controlador de domínio permitem aos clientes criar aplicativos baseados no enclave seguros para proteger os seus dados e código enquanto está a ser utilizado.
 
 - As VMs da série Av2 podem ser implementadas numa variedade de tipos de hardware e de processadores. As VMs de série A têm as configurações de desempenho e memória da CPU mais adequadas a cargas de trabalho ao nível da entrada como, por exemplo, desenvolvimento e teste. O tamanho é limitado com base no hardware de forma a proporcionar um desempenho de processador consistente para a instância em execução, independentemente do hardware no qual está implementado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual.
 
@@ -27,7 +29,6 @@ Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ide
 
   Casos de utilização de série D de exemplo incluem aplicações de nível empresarial, bases de dados relacionais, colocação em cache na memória e análise. 
   
-- O [DC série](#dc-series) é uma nova família de máquinas virtuais no Azure que pode ajudar a proteger a confidencialidade e integridade dos seus dados e código enquanto ele é processado na cloud pública. Estas máquinas são apoiadas pela última geração de 3,7 GHz Intel XEON I - 2176G processadores com tecnologia SGX. Estas máquinas podem chegar aos 4.7 GHz com o Intel Turbo Boost Technology. Instâncias de série do controlador de domínio que os clientes possam criar aplicativos baseados no enclave seguros para proteger os seus dados e código enquanto está a ser utilizado
 
 ## <a name="b-series"></a>Série B
 

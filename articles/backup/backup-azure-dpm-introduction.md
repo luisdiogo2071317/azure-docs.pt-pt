@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: adigan
-ms.openlocfilehash: 873e7066bcf51b32c3a7a54e845ffd5a744f407f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 2da5b04f56a5746fb77de6bc954bb5971eb4664b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745440"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885175"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparar a criação de cópias de segurança de cargas de trabalho para o Azure com o DPM
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Depois de criar o Cofre de cópia de segurança do Azure, deve ser instalado um 
 14. Ao utilizar o Data Protection Manager, pode modificar as definições especificadas durante o fluxo de trabalho do registo ao clicar o **configurar** opção selecionando **Online** sob o **gestão**  Separador.
 
 ## <a name="requirements-and-limitations"></a>Requisitos (e limitações)
-* O DPM pode ser executado como um servidor físico ou uma máquina virtual de Hyper-V instalado no System Center 2012 SP1 ou System Center 2012 R2. Ele também pode ser executado como uma máquina virtual do Azure em execução no System Center 2012 R2 com, pelo menos, o DPM 2012 R2 Update Rollup 3 ou uma máquina virtual do Windows no VMWare, pelo menos, a executar no System Center 2012 R2 com Update Rollup 5.
+* O DPM pode ser executado como um servidor físico ou uma máquina virtual de Hyper-V instalado no System Center 2012 SP1 ou System Center 2012 R2. Ele também pode ser executado como uma máquina virtual do Azure em execução no System Center 2012 R2 com, pelo menos, o DPM 2012 R2 Update Rollup 3 ou uma máquina virtual do Windows no VMware, pelo menos, a executar no System Center 2012 R2 com Update Rollup 5.
 * Se estiver a executar o DPM com o System Center 2012 SP1 deve instalar Update Roll up 2 para o System Center Data Protection Manager SP1. Isto é necessário antes de poder instalar o agente de cópia de segurança do Azure.
 * O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalado.
 * O DPM pode criar cópias de segurança a maioria das cargas de trabalho para o Azure Backup. Para obter uma lista completa do que oferece suporte a ver a cópia de segurança do Azure suporta itens abaixo.

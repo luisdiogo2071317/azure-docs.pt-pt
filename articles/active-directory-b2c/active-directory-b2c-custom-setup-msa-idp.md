@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4f6901b9c44cb75e4cab1a89c521371ed14636f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d53bbd10cbe822a91f201b7ba702b27b5ac0a6f9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180997"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887245"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Microsoft com as políticas personalizadas no Azure Active Directory B2C
 
@@ -151,6 +151,18 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.
 
+## <a name="create-an-azure-ad-b2c-application"></a>Criar uma aplicação do Azure AD B2C
+
+Comunicação com o Azure AD B2c ocorre por meio de um aplicativo que criar no seu inquilino. Esta secção lista os passos opcionais que pode seguir para criar uma aplicação de teste, se ainda não o tiver feito.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
+4. Selecione **aplicativos**e, em seguida, selecione **Add**.
+5. Introduza um nome para o aplicativo, por exemplo *testapp1*.
+6. Para **aplicação Web / Web API**, selecione `Yes`e, em seguida, introduza `https://jwt.ms` para o **URL de resposta**.
+7. Clique em **Criar**.
+
 ## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o ficheiro da entidade confiadora de terceiros
 
 Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percurso do utilizador que criou.
@@ -159,4 +171,5 @@ Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percur
 2. Abra o ficheiro novo e atualize o valor do **PolicyId** atributo **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInMSA`.
 3. Atualize o valor de **PublicPolicyUri** com o URI para a política. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_msa`
 4. Atualize o valor do **ReferenceId** atributo **DefaultUserJourney** de acordo com o ID do percurso do utilizador novo que criou (SignUpSignInMSA).
-5. Guardar as alterações, carregue o ficheiro e testá-lo ao abri-lo e clicar em **executar agora**.
+5. Guardar as alterações, carregue o ficheiro e, em seguida, selecione a nova política na lista.
+6. Certifique-se de que a aplicação do Azure AD B2C que criou está selecionada na **selecione aplicativo** campo e, em seguida, testá-lo ao clicar em **executar agora**.

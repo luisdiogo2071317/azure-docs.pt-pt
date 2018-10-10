@@ -5,16 +5,17 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 40a74af4f71fe649e5e4c6e67d4fdcb9751cc06e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 53592cbac446f30d1f771be06850a2914270bc30
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800762"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883376"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning
 

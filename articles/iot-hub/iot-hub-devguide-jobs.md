@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 10/09/2018
 ms.author: dobett
-ms.openlocfilehash: cb6afd04dacf3ae5c3d88293e2b96e180e69c33d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585463"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884229"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
@@ -29,82 +29,82 @@ Considere a utilização de tarefas quando precisa para agendar e controlar o pr
 
 ## <a name="job-lifecycle"></a>Ciclo de vida de tarefa
 
-Tarefas são iniciadas pela solução de back-end e mantidas pelo IoT Hub. Pode iniciar uma tarefa através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e a consulta para o progresso numa tarefa de execução através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Para atualizar o estado de tarefas em execução depois de uma tarefa é iniciada, execute uma consulta da tarefa.
+Tarefas são iniciadas pela solução de back-end e mantidas pelo IoT Hub. Pode iniciar uma tarefa através de um URI de serviço com acesso à (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) e a consulta para o progresso numa tarefa de execução através de um URI de serviço com acesso à (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Para atualizar o estado de tarefas em execução depois de uma tarefa é iniciada, execute uma consulta da tarefa.
 
 > [!NOTE]
 > Quando seleciona uma tarefa, os nomes das propriedades e valores podem apenas conter US-ASCII imprimível alfanumérico, exceto as no conjunto de seguinte: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
-> 
 
 ## <a name="jobs-to-execute-direct-methods"></a>Tarefas para executar métodos diretos
 
 O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para a execução de um [método direto](iot-hub-devguide-direct-methods.md) num conjunto de dispositivos através de uma tarefa:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleDirectRequest', 
-        cloudToDeviceMethod: {
-            methodName: '<methodName>',
-            payload: <payload>,                 
-            responseTimeoutInSeconds: methodTimeoutInSeconds 
-        },
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
-    }
-    ```
+{
+    "jobId": "<jobId>",
+    "type": "scheduleDirectMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "<methodName>",
+        "payload": <payload>,
+        "responseTimeoutInSeconds": methodTimeoutInSeconds
+    },
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 A condição de consulta também pode ser um ID de dispositivo único ou numa lista de identificações, conforme mostrado nos exemplos seguintes de dispositivo:
 
 ```
-queryCondition = "deviceId = 'MyDevice1'"
-queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
-queryCondition = "deviceId IN ['MyDevice1']
+"queryCondition" = "deviceId = 'MyDevice1'"
+"queryCondition" = "deviceId IN ['MyDevice1','MyDevice2']"
+"queryCondition" = "deviceId IN ['MyDevice1']"
 ```
+
 [Linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) aborda a linguagem de consulta do IoT Hub em detalhes adicionais.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Tarefas para atualizar as propriedades dos dispositivos duplos
 
 O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para atualizar as propriedades dos dispositivos duplos usar um trabalho de:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
-    
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleTwinUpdate', 
-        updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
-    }
-    ```
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+
+{
+    "jobId": "<jobId>",
+    "type": "scheduleTwinUpdate",
+    "updateTwin": <patch>                 // Valid JSON object
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 ## <a name="querying-for-progress-on-jobs"></a>Consultar o progresso das tarefas de
 
 O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para consultar tarefas:
 
-    ```
-    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+```
+GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
-    ```
-    
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+```
+
 O continuationToken é fornecido da resposta.
 
 Pode consultar o estado de execução da tarefa em cada dispositivo a utilizar o [linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens](iot-hub-devguide-query-language.md).

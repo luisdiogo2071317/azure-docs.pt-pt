@@ -5,16 +5,16 @@ description: Aprender a reconhecer a conversão de voz no Objective-C no iOS com
 services: cognitive-services
 author: chlandsi
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226029"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883437"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Início rápido: Recognize speech no Objective-C no iOS com o SDK de voz dos serviços cognitivos
 
@@ -31,7 +31,7 @@ Neste artigo, saiba como criar uma aplicação iOS no Objective-C com o SDK de v
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de voz dos serviços cognitivos é `1.0.0`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.0.0`.
 
 O SDK de voz dos serviços cognitivos para Mac e iOS atualmente é distribuído como uma estrutura de Cocoa.
 Pode ser transferido a partir https://aka.ms/csspeech/iosbinary. Transfira o ficheiro para o diretório raiz.
@@ -83,8 +83,8 @@ Clique em **concluir** na caixa de diálogo seguinte sem alterar as definições
 
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
-1. Substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição.
-1. Substitua a cadeia de caracteres `YourServiceRegion` com o [região](regions.md) associados à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 
 ## <a name="building-and-running-the-sample"></a>Criar e executar o exemplo
@@ -96,7 +96,7 @@ Clique em **concluir** na caixa de diálogo seguinte sem alterar as definições
  ![Aplicação do iOS simulada](media/sdk/qs-objectivec-simulated-app.png)
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure este exemplo no `quickstart/objectivec-ios` pasta.
+Procure este exemplo na pasta `quickstart/objectivec-ios`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

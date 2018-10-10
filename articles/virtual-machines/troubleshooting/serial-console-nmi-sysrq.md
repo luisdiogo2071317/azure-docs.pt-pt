@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ba42c3cc50466f9b5bf46cd1eef8f0d4e48bf89a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856008"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884647"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilizar a consola de série para chamadas SysRq e NMI
 
@@ -30,11 +30,11 @@ Assim que a sequência de SysRq é enviada, a configuração de kernel irá cont
 
 Consola de série do Azure pode ser utilizada para enviar um SysRq para uma máquina virtual do Azure com o ícone de teclado na barra de comando mostrada abaixo.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Escolher "Enviar o comando SysRq" abrirá uma caixa de diálogo, que irá fornecer opções de SysRq comuns ou aceitar uma seqüência de comandos de SysRq introduzido na caixa de diálogo.  Desta forma, para efetuar uma operação de alto nível, como um reinício seguro usando série de SysRq: `REISUB`.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Não é possível utilizar o comando SysRq em máquinas virtuais que estão parados ou cujo kernel está num Estado não responsivo. (por exemplo um entre em pânico do kernel).
 
@@ -103,8 +103,9 @@ Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o
 
 A consola de série pode ser utilizada para enviar um NMI para uma máquina virtual do Azure com o ícone de teclado na barra de comando mostrada abaixo. Depois do NMI é enviado, a configuração de máquina virtual irá controlar como o sistema responde.  Linux podem ser configurados para falhas de sistemas operacionais e criar um despejo de memória do sistema operativo recebe um NMI.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
+### <a name="enable-nmi"></a>Ativar NMI
 Para sistemas Linux que suportam sysctl para configurar parâmetros de kernel, pode ativar um entre em pânico quando receber este NMI usando o seguinte:
 1. Adicionar esta linha para */etc/sysctl.conf* <br>
     `kernel.panic_on_unrecovered_nmi=1`

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: efe08eddaceb5a764dbd5393e79644eac1e2e106
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9168a67366664f50a49ae04ef8ddc2f7aa9d665b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406163"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886502"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a perguntas comuns sobre os componentes de cópia de segurança do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -43,10 +43,10 @@ Não. O Cofre é criado ao nível da subscrição e não pode ser reatribuído p
 Não. Não não possível mover dados de cópia de segurança armazenados num cofre num cofre diferente.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>Posso alterar de GRS para LRS depois de uma cópia de segurança? <br/>
-Não. Um cofre dos serviços de recuperação só pode alterar as opções de armazenamento antes de quaisquer cópias de segurança foram armazenadas. 
+Não. Um cofre dos serviços de recuperação só pode alterar as opções de armazenamento antes de quaisquer cópias de segurança foram armazenadas.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Os cofres dos Serviços de Recuperação baseiam-se no Resource Manager. Cofres de cópia de segurança ainda são suportados? <br/>
-Foram convertidos cofres de cópia de segurança para cofres dos serviços de recuperação. Se não tiver convertido o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para. 
+Foram convertidos cofres de cópia de segurança para cofres dos serviços de recuperação. Se não tiver convertido o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Posso migrar um cofre da Cópia de Segurança para um cofre dos Serviços de Recuperação? <br/>
 Todos os cofres de cópia de segurança foram convertidos para cofres dos serviços de recuperação. Se não tiver convertido o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para.
@@ -60,7 +60,6 @@ Está disponível uma lista detalhada de perguntas em [FAQ on Azure VM backup](b
 ## <a name="back-up-vmware-servers"></a>Fazer cópia de segurança dos servidores VMware
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Posso criar cópias de segurança dos servidores VMware vCenter para o Azure?
-
 Sim. Pode utilizar o Azure Backup Server para criar cópias de segurança VMware vCenter e ESXi para o Azure. Para obter informações sobre a versão suportada do VMware, consulte o artigo [matriz de proteção do Azure Backup Server](backup-mabs-protection-matrix.md). Para obter instruções passo a passo, consulte [utilizar Azure Backup Server para criar cópia de segurança de um servidor VMware](backup-azure-backup-server-vmware.md).
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>É necessário uma licença separada para recuperar um cluster de VMware/Hyper-V completa no local a partir do DPM ou servidor de cópia de segurança do Azure?<br/>
@@ -74,17 +73,14 @@ Sim.
 Não. Um servidor DPM ou MABS pode ser registado para apenas um cofre.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Que versão do System Center Data Protection Manager é suportada?
-
-Recomendamos que instale o agente do Azure Backup [mais recente](http://aka.ms/azurebackup_agent) no último update rollup (UR) do System Center Data Protection Manager (DPM). 
+Recomendamos que instale o agente do Azure Backup [mais recente](http://aka.ms/azurebackup_agent) no último update rollup (UR) do System Center Data Protection Manager (DPM).
 - Para o System Center DPM 2012 R2 [14 de Rollup de atualização](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) é a atualização mais recente.
 - Para o System Center DPM 2016, [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593) é a atualização mais recente.
 
 ### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Instalei o agente do Backup do Azure para proteger os meus ficheiros e pastas. Posso instalar o System Center DPM para proteger cargas de trabalho de VM/aplicações no local para o Azure?
-
 Sim. No entanto, para utilizar o Azure Backup com o System Center Data Protection Manager (DPM), instale o DPM primeiro e, em seguida, instale o agente de cópia de segurança do Azure. Instalar os componentes do Azure Backup por esta ordem garante que o agente do Azure Backup funciona com o DPM. Instalar o agente do Azure Backup antes do DPM não é aconselhável nem suportado.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode utilizar o DPM para efetuar cópias de segurança de aplicações no Azure Stack?
-
 Não. Apesar de poder utilizar o Azure Backup para proteger o Azure Stack, Microsoft Azure Backup não suporta atualmente com o DPM para efetuar cópias de segurança de aplicações no Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Como funciona o Azure Backup
@@ -115,7 +111,7 @@ O Azure Backup suporta a lista seguinte de sistemas operativos para criar cópia
 | Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 SPs mais recentes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 e SPs mais recentes |64 bits |Datacenter, Foundation, Standard |
-| Windows Storage Server 2016 e SPs mais recentes |64 bits |Standard, Workgroup | 
+| Windows Storage Server 2016 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 R2 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 SPs mais recentes |64 bits |Essencial |
@@ -192,7 +188,7 @@ Sim. Os dados são encriptados na máquina SCDPM/cliente/servidor no local utili
 Sim. Os dados enviados para o Azure permanecem encriptados (inativos). A Microsoft não desencripta os dados da cópia de segurança em momento algum. Ao criar uma cópia de segurança de uma VM do Azure, o Azure Backup depende da encriptação da máquina virtual. Por exemplo, se a VM for encriptada com o Azure Disk Encryption ou com outra tecnologia de encriptação, o Azure Backup utiliza essa encriptação para proteger os dados.
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Qual é o comprimento mínimo da chave de encriptação utilizado para encriptar os dados da cópia de segurança? <br/>
-A chave de encriptação deve ter, pelo menos, 16 caracteres se estiver a utilizar o agente do Azure Backup. Nas VMs do Azure, as chaves utilizadas pelo Azure Key Vault não têm limite de comprimento. 
+A chave de encriptação deve ter, pelo menos, 16 caracteres se estiver a utilizar o agente do Azure Backup. Nas VMs do Azure, as chaves utilizadas pelo Azure Key Vault não têm limite de comprimento.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>O que acontece se perder a chave de encriptação? Posso recuperar os dados (ou) pode a Microsoft recuperar os dados? <br/>
 A chave utilizada para encriptar os dados da cópia de segurança está presente apenas no local do cliente. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se o cliente perder a chave, a Microsoft não pode recuperar os dados da cópia de segurança.

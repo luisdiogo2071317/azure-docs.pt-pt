@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/4/2018
+ms.date: 10/8/2018
 ms.author: kumud
-ms.openlocfilehash: 57bb3fea9ad8128520b5d186bd7a27483308e606
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802802"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883963"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -47,7 +47,7 @@ Como todas as regras de Balanceador de carga, regras de saída, siga a sintaxe f
 
 Configura o NAT de saída para uma regra de saída _todas as máquinas de virtuais identificadas pelo pool de back-end_ ser traduzida para o _front-end_.  E _parâmetros_ fornecer controle de detalhadas adicional sobre o algoritmo NAT de saída.
 
-Versão "2018-08-01" de API permite uma definição de regra de saída estruturada da seguinte forma:
+Versão "2018-07-01" de API permite uma definição de regra de saída estruturada da seguinte forma:
 
 ```json
       "outboundRules": [

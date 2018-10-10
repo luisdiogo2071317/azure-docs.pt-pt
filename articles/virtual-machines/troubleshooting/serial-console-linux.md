@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856348"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885294"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -44,7 +44,7 @@ Para obter a documentação da consola de série para VMs do Windows, [clique aq
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Para configurações específicas de distribuições Linux, consulte [aceder à consola de série para Linux](#Serial-Console-Linux-distro-availability)
+* Para configurações específicas de distribuições Linux, consulte [disponibilidade de distribuição de Linux Serial de consola](#serial-console-linux-distro-availability)
 
 
 
@@ -206,7 +206,7 @@ R. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aced
 
 **P. Meu consola de série não está visível qualquer coisa, o que fazer?**
 
-R. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série de acesso para Linux](#Access-Serial-Console-for-Linux) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
+R. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [Serial consola Linux distro disponibilidade](#serial-console-linux-distro-availability) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
 
 **P. Consola de série está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 

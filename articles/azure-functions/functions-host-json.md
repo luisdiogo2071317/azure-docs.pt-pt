@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036206"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887041"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>referência de Host. JSON para as funções do Azure
 
@@ -49,7 +49,7 @@ O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis espe
         },
         "http": {
             "routePrefix": "api",
-            "maxConcurrentRequests": 5,
+            "maxConcurrentRequests": 100,
             "maxOutstandingRequests": 30
         },
         "queues": {
@@ -443,7 +443,7 @@ Definições de configuração para os registos que criar utilizando um `TraceWr
 |consoleLevel|informações|O nível de rastreio para o registo da consola. As opções são: `off`, `error`, `warning`, `info`, e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreio para o registo do ficheiro. As opções são `never`, `always`, `debugOnly`.| 
 
-## <a name="version"></a>versão
+## <a name="version"></a>version
 
 *Versão 2.x*
 

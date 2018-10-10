@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858014"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885124"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -222,7 +222,7 @@ R. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aced
 
 **P. Meu consola de série não está visível qualquer coisa, o que fazer?**
 
-R. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série ativar em imagens personalizadas ou mais antigas](#Enable-Serial-Console-in-custom-or-older-images) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
+R. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série ativar em imagens personalizadas ou mais antigas](#enable-serial-console-in-custom-or-older-images) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
 
 **P. Consola de série está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 

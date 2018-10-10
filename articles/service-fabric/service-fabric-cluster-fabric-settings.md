@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018983"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884498"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para clusters autónomos, personalizar definições ao atualizar o ficheiro de ClusterConfig.json e efetuar uma atualização de configuração no seu cluster. 
@@ -361,6 +361,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |DeploymentMaxFailureCount|Int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para tempos de DeploymentMaxFailureCount antes da falha a implementação desse aplicativo no nó.| 
 |DeploymentMaxRetryInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique o período de tempo em segundos. Intervalo de repetição máximo para a implementação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (DeploymentMaxRetryInterval; Número de falhas contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(10)|Dinâmica|Especifique o período de tempo em segundos. Intervalo de término da falha de implementação. Em cada caso de falha de implementação contínua, o sistema tentará novamente a implementação da até o MaxDeploymentFailureCount. O intervalo entre tentativas é um produto de falha de implementação contínua e o intervalo de término da implantação. |
+|DisableDockerRequestRetry|bool, a predefinição é falso |Dinâmica| Por predefinição SF comunica com DD (docker dameon) com um tempo limite de "DockerRequestTimeout" para cada solicitação de http enviado para o mesmo. Se DD não responde dentro deste período de tempo; SF reenvia o pedido se a operação de nível superior ainda tem remining tempo.  Com o contentor de Hyper-v; DD por vezes, demorar muito mais tempo para abrir o contentor ou desativar. No pedido DD tais casos expire da perspectiva de SF e SF repetem a operação. Por vezes, isso parece adiciona mais pressão no DD. Esta configuração permite desativar esta repetição e aguarde DD responder. |
 |EnableActivateNoWindow| bool, a predefinição é falso|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
 |EnableContainerServiceDebugMode|bool, a predefinição é TRUE|Estático|Ativar/desativar o registo para contentores do docker.  Windows.|
 |EnableDockerHealthCheckIntegration|bool, a predefinição é TRUE|Estático|Permite a integração de eventos HEALTHCHECK do docker com o relatório de estado de funcionamento do sistema de Service Fabric |
@@ -422,6 +423,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |SharedLogId |cadeia de caracteres, a predefinição é "" |Estático|Guid exclusivo para o contentor de registo partilhado. Utilize "" se utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogPath |cadeia de caracteres, a predefinição é "" |Estático|Nome de ficheiro e caminho para a localização para colocar o contentor de registo partilhado. Utilize "" para utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogSizeInMB |Int, a predefinição é 8192 |Estático|O número de MB para alocar no contentor de registo partilhado. |
+|SharedLogThrottleLimitInPercentUsed|int, a predefinição é 0 | Estático | A percentagem de utilização do registo partilhado que será induza limitação. Valor deve ser entre 0 e 100. Um valor de 0 indica que o valor de percentagem de predefinido a utilizar. Um valor de 100 implica sem limitação de todo. Um valor entre 1 e 99 Especifica a percentagem de utilização do log acima ocorre que qualquer limitação; para o exemplo, se o registo partilhado é 10GB e o valor é 90 throttleing irá ocorrer depois de 9GB está em utilização. É recomendado utilizar o valor predefinido.|
 |WriteBufferMemoryPoolMaximumInKB | int, a predefinição é 0 |Dinâmica|O número de KB para permitir que o conjunto de memória de memória intermédia de escrita para crescer até. Utilize 0 para indicar sem limite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, a predefinição é 8388608 |Dinâmica|O número de KB para alocar inicialmente para o conjunto de memória de memória intermédia de escrita. Utilize 0 para indicar sem limite predefinido deve ser consistente com SharedLogSizeInMB abaixo. |
 

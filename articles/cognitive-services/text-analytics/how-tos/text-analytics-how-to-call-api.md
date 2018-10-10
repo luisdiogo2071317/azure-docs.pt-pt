@@ -1,21 +1,21 @@
 ---
-title: Chamar a REST API de análise de texto
-titleSuffix: Azure Cognitive Services
+title: Chamar a API de Análise de Texto
+titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API de REST de análise de texto.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 5293aaf6083dc832f7fe96fd6656fc8d1c30060e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a70ef893019264ffc0eb3cb2982b05b15ebd0acf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603265"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884373"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de REST de análise de texto
 
@@ -40,7 +40,7 @@ Tem de ter o [chave de acesso e de ponto final](text-analytics-how-to-access-key
 
 Entrada tem de ser JSON em texto não estruturado bruto. XML não é suportado. O esquema é simples, que consiste dos elementos descritos na lista seguinte. 
 
-Atualmente pode submeter os documentos mesmo para todas as operações de análise de texto: sentimentos, expressões-chave, deteção de idioma e ligação de entidades. (O esquema é provavelmente irá variar dependendo de cada análise no futuro.)
+Atualmente pode submeter os documentos mesmo para todas as operações de análise de texto: sentimentos, expressões-chave, deteção de idioma e identificação de entidade. (O esquema é provavelmente irá variar dependendo de cada análise no futuro.)
 
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
@@ -65,7 +65,7 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 2. Defina os cabeçalhos de pedido de três:
 
@@ -86,7 +86,7 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
   + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
   + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
-  + [Entidade de ligação](text-analytics-how-to-entity-linking.md)  
+  + [Reconhecimento de entidades (pré-visualização)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Clique em **enviar** para submeter o pedido. Pode enviar até 100 pedidos por minuto. 

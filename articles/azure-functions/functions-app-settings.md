@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 4e40a731530e9423c7be6f2e2449aad970bb327c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b3b96bec7a56a0d1f8471f0290ae928ef80d7b3a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040249"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883742"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -114,7 +114,7 @@ Valores válidos são "readwrite" e "só de leitura".
 
 ## <a name="functionsextensionversion"></a>AS FUNÇÕES\_EXTENSÃO\_VERSÃO
 
-A versão do runtime das funções do Azure para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 2"). Quando as novas versões para a versão principal estão disponíveis, serão automaticamente instaladas na function app. Para afixar a aplicação para uma versão específica, utilize o número da versão completo (por exemplo, "2.0.12345"). A predefinição é "~ 2".
+A versão do runtime das funções para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 2"). Quando as novas versões para a versão principal estão disponíveis, serão automaticamente instaladas na function app. Para afixar a aplicação para uma versão específica, utilize o número da versão completo (por exemplo, "2.0.12345"). A predefinição é "~ 2". Um valor de `~1` fixa a sua aplicação para a versão 1.x do runtime.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -122,7 +122,7 @@ A versão do runtime das funções do Azure para utilizar esta aplicação de fu
 
 ## <a name="functionsworkerruntime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
 
-O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet`, `node`, e `java`.
+O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C# /F #), `node` (JavaScript), e `java` (Java).
 
 |Chave|Valor da amostra|
 |---|------------|
