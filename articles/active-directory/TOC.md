@@ -25,7 +25,7 @@
 # Procedimento
 ## Planear e conceber
 ### [Compreender a arquitetura do Azure AD](fundamentals/active-directory-architecture.md)
-### [Mapeamento de afirmações no Azure Active Directory](active-directory-claims-mapping.md)
+### [Mapeamento de afirmações no Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Implementar uma solução de identidade híbrida](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Determinar os requisitos
 ##### [Identidade](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [Restrições de inquilino](manage-apps/tenant-restrictions.md)
 #### [Utilizar utilizadores de aprovisionamento SCIM](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Compreender as experiências de consentimento da aplicação do Azure AD](application-consent-experience.md)
+### [Compreender as experiências de consentimento da aplicação do Azure AD](develop/application-consent-experience.md)
 
 ### Resolução de problemas
 
@@ -323,7 +323,7 @@
 
 ### [Integrar identidades no local com o Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [Configurar durações de token](active-directory-configurable-token-lifetimes.md)
+### [Configurar durações de token](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Proteger as suas identidades
 
