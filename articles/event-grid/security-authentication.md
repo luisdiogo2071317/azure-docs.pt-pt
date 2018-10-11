@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965460"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068200"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
 O Azure Event Grid tem três tipos de autenticação:
 
-* Subscrições de eventos
-* Publicação do evento
 * Entrega de eventos de WebHook
+* Subscrições de eventos
+* Publicação de um tópico personalizado
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos de WebHook
 
@@ -37,17 +37,17 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 
 1. **ValidationCode handshake**: no momento da criação de subscrição de eventos, EventGrid publica um "evento do validação de subscrição" para o ponto final. O esquema deste evento é semelhante a qualquer outro EventGridEvent e a parte de dados deste evento inclui um `validationCode` propriedade. Assim que a sua aplicação ter verificado que o pedido de validação é para uma subscrição de evento esperado, o código da aplicação tem de responder ao repetir o código de validação para EventGrid. Esse mecanismo de handshake é suportado em todas as versões de EventGrid.
 
-2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para poder implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir responder através de programação com o código de validação. Por conseguinte, a partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com o SDK/ferramentas que utilizam este novo EventGrid envia do API versão (2018-05-01-pré-visualização), um `validationUrl` propriedade (além do `validationCode` propriedade) como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de repita a tentativa de criação de subscrição de evento antes de tentar fazer a validação manual novamente.
+2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para poder implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir responder através de programação com o código de validação. A partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com o SDK/ferramentas que utilizam este novo EventGrid envia do API versão (2018-05-01-pré-visualização), um `validationUrl` propriedade como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de repetir a validação manual.
 
-Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, verifique se está a utilizar `api-version=2018-05-01-preview`.
+Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, certifique-se de que está a utilizar `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalhes da validação
 
 * No momento da criação/atualização de subscrição de evento, o Event Grid publica um evento de validação de subscrição para o ponto de extremidade de destino. 
 * O evento contém um valor de cabeçalho "tipo de evento aeg: SubscriptionValidation".
 * O corpo do evento tem o mesmo esquema que outros eventos do Event Grid.
-* A propriedade eventType do evento é "Microsoft.EventGrid.SubscriptionValidationEvent".
-* A propriedade de dados do evento inclui uma propriedade de "validationCode" com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
+* A propriedade eventType do evento é `Microsoft.EventGrid.SubscriptionValidationEvent`.
+* A propriedade de dados do evento inclui um `validationCode` propriedade com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
 * Se estiver usando a versão de 2018-05-01-a pré-visualização da API, os dados de evento também incluem um `validationUrl` propriedade com um URL para a subscrição a validação manual.
 * A matriz contém apenas o evento de validação. Outros eventos são enviados numa solicitação separada depois de recuperar o código de validação.
 * Os SDKs do plano de dados de EventGrid possuem classes correspondentes para os dados de eventos de validação de subscrição e a resposta de validação de subscrição.
@@ -84,24 +84,26 @@ Pode encontrar o exemplo de c# que mostra como lidar com o handshake de validaç
 
 ### <a name="checklist"></a>Lista de verificação
 
-Durante a criação de subscrição de evento, se vir uma mensagem de erro, como "a tentativa de validar o ponto final fornecido https://your-endpoint-here falhou. Para obter mais detalhes, visite https://aka.ms/esvalidation", ele indica que existe uma falha no handshake de validação. Para resolver este erro, verifique se os seguintes aspetos:
+Durante a criação de subscrição de evento, se estiver a ver uma mensagem de erro, como "a tentativa de validar o ponto final fornecido https://your-endpoint-here falhou. Para obter mais detalhes, visite https://aka.ms/esvalidation", ele indica que existe uma falha no handshake de validação. Para resolver este erro, verifique se os seguintes aspetos:
 
 * Tem controle de código da aplicação no ponto de extremidade de destino? Por exemplo, se estiver escrevendo um acionador HTTP com base em função do Azure, tem acesso ao código do aplicativo para fazer alterações ao mesmo?
-* Se tiver acesso ao código do aplicativo, implemente o mecanismo de handshake ValidationCode com base conforme mostrado no exemplo acima.
+* Se tiver acesso ao código do aplicativo, implemente o mecanismo de handshake ValidationCode com base, conforme mostrado no exemplo acima.
 
-* Se não tiver acesso ao código do aplicativo (por exemplo, se estiver a utilizar um serviço de terceiros que suporte webhooks), pode usar o mecanismo de manual handshake. Para fazer isso, certifique-se de que está a utilizar a versão de API de 2018-05-01-pré-visualização (por exemplo, com a extensão de EventGrid CLI descrita acima) para receber o validationUrl no evento de validação. Para concluir o handshake de validação manual, obter o valor da propriedade "validationUrl" e visite esse URL no seu browser. Se a validação for concluída com êxito, deverá ver uma mensagem no seu navegador da web que a validação é efetuada com êxito, e verá que provisioningState de subscrição de evento é "concluído com êxito". 
+* Se não tiver acesso ao código do aplicativo (por exemplo, se estiver a utilizar um serviço de terceiros que suporte webhooks), pode usar o mecanismo de manual handshake. Certifique-se de que está a utilizar a versão de API de 2018-05-01-pré-visualização ou posterior (instalar extensão da CLI do Azure do Event Grid) para receber o validationUrl no evento de validação. Para concluir o handshake de validação manual, obter o valor da `validationUrl` propriedade e visitar esse URL no seu browser. Se a validação for concluída com êxito, deverá ver uma mensagem no seu navegador da web que a validação é efetuada com êxito. Verá que provisioningState de subscrição de evento é "concluído com êxito". 
 
 ### <a name="event-delivery-security"></a>Segurança de entrega de eventos
 
 Pode proteger o seu ponto final do webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que o webhook pode usar para reconhecer o evento é proveniente de Event Grid com permissões válidas. Grelha de eventos irá incluir esses parâmetros de consulta em cada entrega de eventos para o webhook.
 
-Ao editar a subscrição de evento, os parâmetros de consulta não serão sejam apresentados ou retornados, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Ao editar a subscrição de evento, os parâmetros de consulta não são apresentados ou retornados, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Por fim, é importante observar que o Azure Event Grid suporta apenas pontos finais do webhook HTTPS.
 
 ## <a name="event-subscription"></a>Subscrição de evento
 
-Para subscrever um evento, tem de ter o **Microsoft.EventGrid/EventSubscriptions/Write** permissão no recurso necessário. Tem esta permissão porque estiver escrevendo uma nova subscrição no âmbito do recurso. O recurso necessário difere com base em se estiver subscrever um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
+Para subscrever um evento, tem de provar que tem acesso para a origem de evento e o manipulador. A provar que é proprietário de um WebHook foi coberta na secção anterior. Se estiver usando um manipulador de eventos que não seja um WebHook (por exemplo, um armazenamento de hub ou de fila de eventos), precisa de acesso de escrita a esse recurso. Esta verificação de permissões impede que um utilizador não autorizado o envio de eventos para o seu recurso.
+
+Tem de ter o **Microsoft.EventGrid/EventSubscriptions/Write** permissão no recurso que é a origem de evento. Tem esta permissão porque estiver escrevendo uma nova subscrição no âmbito do recurso. O recurso necessário difere com base em se estiver subscrever um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos de sistema (editores de serviço do Azure)
 
@@ -115,9 +117,9 @@ Para obter tópicos personalizados, necessita de permissão para escrever uma no
 
 Por exemplo subscrever um tópico personalizado com o nome **mytopic**, tem de ter a permissão de Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-## <a name="topic-publishing"></a>Publicação de tópico
+## <a name="custom-topic-publishing"></a>Publicação de um tópico personalizado
 
-Tópicos sobre utiliza a assinatura de acesso partilhado (SAS) ou autenticação de chave. Recomendamos a SAS, mas a autenticação de chave fornece a programação simple e é compatível com muitos publicadores existentes do webhook. 
+Tópicos personalizados utilizam a assinatura de acesso partilhado (SAS) ou autenticação de chave. Recomendamos a SAS, mas a autenticação de chave fornece a programação simple e é compatível com muitos publicadores existentes do webhook. 
 
 Incluir o valor de autenticação no cabeçalho de HTTP. SAs, utilize **token de sas de aeg** para o valor de cabeçalho. Para autenticação de chave, utilize **chave de sas de aeg** para o valor de cabeçalho.
 
@@ -185,7 +187,7 @@ Grelha de eventos do Azure suporta as seguintes ações:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas dos operações de leitura normais. É melhor prática para que possa restringir o acesso a essas operações. Funções personalizadas podem ser criadas usando [do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Interface de linha de comandos (CLI do Azure)](../role-based-access-control/role-assignments-cli.md)e o [REST API](../role-based-access-control/role-assignments-rest.md).
+As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas dos operações de leitura normais. Recomenda-se que restringir o acesso a essas operações. Funções personalizadas podem ser criadas usando [do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Interface de linha de comandos (CLI do Azure)](../role-based-access-control/role-assignments-cli.md)e o [REST API](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Imposição de função com a base de verificação de acesso (RBAC)
 
@@ -193,7 +195,7 @@ Utilize os seguintes passos para impor o RBAC a utilizadores diferentes:
 
 #### <a name="create-a-custom-role-definition-file-json"></a>Crie um ficheiro de definição de função personalizada (. JSON)
 
-Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores executar diferentes conjuntos de ações.
+Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores efetuar ações diferentes.
 
 **EventGridReadOnlyRole.json**: permitir apenas operações só de leitura.
 

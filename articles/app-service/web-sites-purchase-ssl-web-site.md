@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888298"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077731"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -198,14 +198,6 @@ Para renovar manualmente o certificado em vez disso, clique em **renovação Man
 
 > [!NOTE]
 > O certificado renovado não está vinculado automaticamente à sua aplicação, quer renovados manualmente ou ele renovado automaticamente. Associá-lo à sua aplicação, consulte [renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
-
-<a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>Por que motivo é meu certificado não renovado automaticamente?
-
-Se o certificado SSL está configurado para renovação automática, mas não é renovado automaticamente, pode ter uma verificação de domínio pendente. Tenha em atenção que: 
-
-- GoDaddy, que gera certificados de serviço de aplicações, necessita de uma vez a cada dois anos de verificação de domínio. O administrador de domínio recebe uma mensagem de e-mail uma vez a cada três anos para verificar o domínio. Falha ao verificar o e-mail ou verificar o seu domínio impede que o certificado de serviço de aplicações que está a ser renovado automaticamente. 
-- Devido a uma alteração na política da GoDaddy, todos os certificados de serviço de aplicações emitidos antes de 1 de Março de 2017 requerem reverification do domínio no momento da renovação seguinte (mesmo que a renovação automática está ativada para o certificado). Verificar o seu e-mail e concluir esta verificação de domínio único para continuar a renovação automática do certificado de serviço de aplicações. 
 
 ## <a name="more-resources"></a>Mais recursos
 

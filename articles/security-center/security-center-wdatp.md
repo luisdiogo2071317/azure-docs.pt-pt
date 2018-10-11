@@ -1,6 +1,6 @@
 ---
-title: O Windows Defender proteção avançada contra ameaças (ATP) com o Centro de segurança do Azure | Documentos da Microsoft
-description: Este documento apresenta a integração entre o Centro de segurança do Azure e o Windows Defender ATP.
+title: O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
+description: Este documento apresenta a integração entre o Centro de segurança do Azure e a proteção de ameaças avançada do Windows Defender.
 services: security-center
 documentationcenter: na
 author: barclayn
@@ -13,96 +13,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 5f604583aeb9a633d34bad633008e0c2ddeb3ef2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032041"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068337"
 ---
-# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças (ATP) com o Centro de segurança do Azure
+# <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
 
-Centro de segurança do Azure é expandir a sua oferta de plataformas de proteção de carga de trabalho de nuvem (CWPP) através da integração com o [do Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
-Esta alteração oferece capacidades abrangentes de ponto final de deteção e resposta (EDR). Permite-lhe detetar anomalias, detetar e responder a ataques avançados em pontos finais de servidor monitorizados pelo ASC.
+Centro de segurança do Azure é expandir a sua oferta de plataformas de proteção de carga de trabalho na Cloud através da integração com o [a proteção de ameaças avançada do Windows Defender](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
+Esta alteração oferece capacidades abrangentes de ponto final de deteção e resposta (EDR). Com a integração do Windows Defender ATP, detetar anomalias. Também pode detetar e responder a ataques avançados em pontos finais de servidor monitorizados pelo centro de segurança do Azure.
 
-Os clientes do Centro de segurança do Azure podem agora utilizar funcionalidades do Windows Defender ATP:
+Os clientes do Centro de segurança do Azure agora podem utilizar funcionalidades do Windows Defender ATP:
 
-- **Sensores de deteção de violação de publicação de próxima geração:** sensor do Windows Defender ATP para servidores do Windows que recolhe uma grande diversidade de sinais comportamentais para ativar a deteção de ataque avançada e investigação.
+- **Sensores de deteção de violação de publicação de próxima geração**: sensores do Windows Defender ATP para servidores de Windows recolher uma grande diversidade de sinais comportamentais.
 
-- **Deteção de violação de publicação com base na análise, com tecnologia de cloud:** do Windows Defender ATP adapta-se rapidamente aos ameaças em constante mudança. Emprega análises avançadas e de macrodados. Amplificado pelo poder do gráfico de segurança inteligente com sinais no Windows, o Azure e o Office, para detetar ameaças desconhecidas. Ele fornece alertas acionáveis e que lhe permite responder rapidamente.
+- **Deteção de violação de publicação com base na análise, com tecnologia de cloud**: Windows Defender ATP adapta-se rapidamente aos ameaças em constante mudança. Utiliza análise avançada e macrodados. Windows Defender ATP é Sim os amplificou pelo poder do gráfico de segurança inteligente com sinais no Windows, o Azure e o Office, para detetar ameaças desconhecidas. Ele fornece alertas acionáveis e que lhe permite responder rapidamente.
 
-- **Informações sobre ameaças**: identifica as ferramentas do invasor, técnicas e procedimentos do Windows Defender ATP e gera alertas quando estes estão a ser observados. Ele usa os dados gerados por hunters da Microsoft, as equipes de segurança e aumentaram as informações sobre ameaças fornecidas pelos parceiros.
+- **Informações sobre ameaças**: Windows Defender ATP identifica as ferramentas do invasor, técnicas e procedimentos. Quando Deteta estes, gera alertas. Utiliza dados gerados por hunters de ameaças da Microsoft e as equipes de segurança, acrescentadas pela inteligência oferecidas por parceiros.
 
 Estas capacidades estão agora disponíveis no Centro de segurança do Azure:
 
-- Inclusão automática - sensor do Windows Defender ATP automaticamente está ativado nos servidores de Windows que são carregadas ao ASC
+- **Automatizada integração**: sensor do Windows Defender ATP é ativada automaticamente para os servidores de Windows que são carregadas para o Centro de segurança do Azure.
 
-- Painel único de vidro no ASC - alertas do Windows Defender ATP estão disponíveis na consola do ASC
+- **Painel único de vidro**: consola o Centro de segurança do Azure apresenta os alertas do Windows Defender ATP.
 
-- Detalhadas de investigação da máquina - clientes ASC podem aceder a consola do Windows Defender ATP para efetuar uma investigação detalhada para descobrir o âmbito da violação
+- **Detalhadas de investigação da máquina**: os clientes do Centro de segurança do Azure podem aceder a consola do Windows Defender ATP para efetuar uma investigação detalhada para descobrir o âmbito de uma violação.
 
-![* Figura 1 a ver a imagem inteira ao investigar incluindo alertas gerados pelo ASC *](media/security-center-wdatp/image1.png)
+![Centro de segurança do Azure, exibindo uma lista de alertas e informações gerais sobre cada alerta](media/security-center-wdatp/image1.png)
 
-Pode [investigar](security-center-investigation.md) o alerta no Centro de segurança do Azure:
+Pode [investigar o alerta](security-center-investigation.md) no Centro de segurança do Azure:
 
-![Figura 2 investigação - Centro de segurança do Azure](media/security-center-wdatp/image2.png)
+![O dashboard de investigação de alertas no Centro de segurança do Azure](media/security-center-wdatp/image2.png)
 
-Pode continuar a investigar o alerta por dinamização para o Windows Defender ATP. Aqui pode ver informações adicionais, como a árvore de processos de alerta, de gráficos de incidentes e de uma linha do tempo detalhados de machine expondo todos os comportamentos durante um período de histórico de até seis meses.
+Pode continuar a investigar o alerta por dinamização para o Windows Defender ATP. Aqui pode ver informações adicionais, como a árvore de processos de alerta e o gráfico de incidente. Também pode ver uma linha cronológica de máquina detalhado que mostra cada comportamento durante um período de histórico de até seis meses.
 
-![Figura 3 investigação – o Windows Defender ATP](media/security-center-wdatp/image3.png)
+![Página do Windows Defender ATP com informações detalhadas sobre um alerta](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>Suporte da plataforma
 
 Esta funcionalidade suporta a deteção no Windows Server 2012 R2 e Windows Server 2016.
 
-Apenas os servidores em subscrições no escalão Standard
+Apenas os servidores em subscrições para o escalão de serviço standard são suportados.
 
 ## <a name="onboarding-instructions"></a>Instruções de inclusão
 
-Para ver se a integração do Windows Defender ATP estiver ativada, pode selecionar Centro de segurança > política de segurança > subscrição > Editar definições
+Para ver se a integração do Windows Defender ATP estiver ativada, selecione **Centro de segurança** > **política de segurança** > **subscrição**  >  **Editar definições**.
 
-  ![Ver a política](media/security-center-wdatp/policy-management.png)
+  ![Gestão de políticas do Centro de segurança do Azure](media/security-center-wdatp/policy-management.png)
 
-Aqui pode ver as integrações atualmente ativadas
+Aqui pode ver as integrações atualmente ativadas.
 
-  ![Integrações ativadas](media/security-center-wdatp/enable-integrations.png)
+  ![Página Definições de deteção de ameaças do Centro de segurança do Azure com a integração do Windows Defender ATP ativada](media/security-center-wdatp/enable-integrations.png)
 
-- Se já carregada os servidores para o escalão standard do ASC - nenhuma ação necessária, ASC irá carregar automaticamente os servidores WDATP. Isto pode demorar até 24 horas.
+- Se já carregada os servidores para o escalão standard do Centro de segurança do Azure, não precisa de tomar nenhuma ação adicional. Centro de segurança do Azure irá carregar automaticamente os servidores para o Windows Defender ATP. Isto poderá demorar até 24 horas.
 
-- Se nunca integrado a servidores do padrão de ASC camada – integrar ao ASC como de costume.
+- Se já nunca carregados os servidores para o escalão standard do Centro de segurança do Azure, integrá-los, ao centro de segurança do Azure, como é habitual.
 
-- Se efetuou os servidores por meio de WDATP:
+- Se tiver integrado os servidores por meio do Windows Defender ATP:
   - Consulte a documentação para obter orientações sobre [como máquinas de servidor de descarregar](https://go.microsoft.com/fwlink/p/?linkid=852906).
-  - Integrar ao ASC
+  - Carregar estes servidores para o Centro de segurança do Azure.
 
-## <a name="access-to-wdatp-portal"></a>Acesso ao portal WDATP
+## <a name="access-to-the-windows-defender-atp-portal"></a>Acesso ao portal do Windows Defender ATP
 
-Siga as instruções no [atribuir acesso de utilizador para o portal](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/assign-portal-access-windows-defender-advanced-threat-protection)
+Siga as instruções em [atribuir acesso de utilizador para o portal](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/assign-portal-access-windows-defender-advanced-threat-protection).
 
-## <a name="set-firewall-configuration"></a>Configuração de firewall de conjunto
+## <a name="set-the-firewall-configuration"></a>Definir a configuração de firewall
 
-Se tiver um proxy ou firewall que está a bloquear tráfego anônimo, tal como o sensor do Windows Defender ATP é ligar a partir do contexto do sistema, certificar-se de que o tráfego de anônimo é permitido; Siga as instruções [ativar o acesso aos URLs do serviço do Windows Defender ATP no servidor proxy](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server)
+Se tiver um proxy ou firewall que está a bloquear tráfego anônimo, tal como um sensor do Windows Defender ATP está se conectando do contexto do sistema, certifique-se de que o tráfego anônimo é permitido. Siga as instruções em [ativar o acesso aos URLs do serviço do Windows Defender ATP no servidor de proxy](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server).
 
-## <a name="how-can-i-test-the-feature"></a>Como posso testar a funcionalidade?
+## <a name="test-the-feature"></a>A funcionalidade de teste
 
- Os seguintes passos irão gerar um alerta de teste WDATP benigno.
+Para gerar um alerta de teste do Windows Defender ATP benigno:
 
-1. RDP para uma das VMs do Windows Server (2012R2 ou 2016) na subscrição e abra uma janela da linha de comandos
+1. Utilize o ambiente de trabalho remoto para aceder a uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016.  Abra uma janela de linha de comandos.
 
-2. Na linha de comandos, copie e execute o comando abaixo. A janela da linha de comando será fechado automaticamente.
+2. Na linha de comandos, copie e execute o seguinte comando. A janela da linha de comando será fechado automaticamente.
 
-    **PowerShell.exe - NoExit - ExecutionPolicy omissão - NONE oculta (novo objeto WebClient). DownloadFile ('http://127.0.0.1/1.exe', ' c:\\WDATP-teste-teste\\invoice.exe'); Iniciar o processo "c:\\WDATP-teste-teste\\invoice.exe' * *
+    ```
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    ```
 
-  ![imagem do comando acima numa janela de linha de comandos](media/security-center-wdatp/image4.jpeg)
+   ![Uma janela de linha de comandos com o comando acima](media/security-center-wdatp/image4.jpeg)
 
-3. Se tiver êxito, será apresentado um novo alerta dentro de alguns minutos no portal do ASC e WD ATP.
+3. Se o comando for bem-sucedida, verá um novo alerta no dashboard do Centro de segurança do Azure e no portal do Windows Defender ATP. Este alerta pode demorar alguns minutos a aparecer.
 
-4. Consulte o alerta no Centro de segurança do Azure, aceda a **alertas de segurança -\> suspeita linha de comandos do Powershell**
+4. Para rever o alerta no Centro de segurança, aceda a **alertas de segurança** >  **suspeita linha de comandos do Powershell**.
 
-5. Da investigação janela, clique na ligação para redirecionar para o portal WDATP
+5. Na janela de investigação, selecione a ligação para aceder ao portal do Windows Defender ATP.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-- [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
-- [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
+- [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+- [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md): Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
+- [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md): saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.

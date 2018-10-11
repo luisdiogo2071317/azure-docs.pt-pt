@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 9d09115d3d55d5ba44d35cb0b2009d800ab42a2b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 63c8ebe8eda049a770cecfd445757e4b5a2de1ea
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886656"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067046"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de idioma e região para a API de análise de texto
 
@@ -50,11 +50,13 @@ Suporte de idiomas é inicialmente lançado em pré-visualização, graduando pa
 | Português (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` também aceites|
 | Português (Brasil)   | `pt-BR`|          |  ✔   |         |     |
 | Russo     | `ru`          | ✔ \*     | ✔           |             |     |
-| Espanhol     | `es`          | ✔        | ✔           |     |     |
+| Espanhol     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
 | Sueco     | `sv`          | ✔ \*     | ✔           |             |     |
 | Turco     | `tr`          | ✔ \*     |             |             |  |
 
 \* indica o suporte de idioma na pré-visualização
+
+\*\* Extração de entidades para espanhol só está disponível no [(versão 2.1-pré-visualização)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
 
 ## <a name="see-also"></a>Consulte também
 

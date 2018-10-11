@@ -1,22 +1,25 @@
 ---
 title: Criar um volume estático para pods no Azure Kubernetes Service (AKS)
-description: Saiba como criar manualmente um volume com discos do Azure para utilização com pods no Azure Kubernetes Service (AKS)
+description: Saiba como criar manualmente um volume com discos do Azure para utilização com um pod no Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9c5879474568885d9a705e7bfd16e2a4e2304b96
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404624"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068189"
 ---
-# <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Crie manualmente e utilizar o volume do Kubernetes com os discos do Azure no Azure Kubernetes Service (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Crie manualmente e usar um volume com discos do Azure no Azure Kubernetes Service (AKS)
 
-Aplicações baseadas em contentores, muitas vezes, tem de aceder e manter os dados num volume de dados externa. Discos do Azure podem ser utilizados como este arquivo de dados externo. No AKS, volumes podem ser criados dinamicamente usando declarações de volume persistente ou pode criar e anexar um disco do Azure diretamente manualmente. Este artigo mostra-lhe como criar um disco do Azure e anexá-lo a um pod no AKS manualmente.
+Aplicações baseadas em contentores, muitas vezes, tem de aceder e manter os dados num volume de dados externa. Se precisar de um único pod acesso ao armazenamento, pode utilizar os discos do Azure para apresentar um volume nativo para utilização de aplicações. Este artigo mostra-lhe como criar um disco do Azure e anexá-lo a um pod no AKS manualmente.
+
+> [!NOTE]
+> Um disco do Azure só pode ser montado para um único pod ao mesmo tempo. Se precisar de partilhar um volume persistente entre vários pods, utilize [ficheiros do Azure][azure-files-volume].
 
 Para obter mais informações sobre volumes do Kubernetes, consulte [Kubernetes volumes][kubernetes-volumes].
 
@@ -65,15 +68,22 @@ Para montar o disco do Azure no seu pod, configure o volume na especificação d
 apiVersion: v1
 kind: Pod
 metadata:
- name: azure-disk-pod
+  name: mypod
 spec:
- containers:
-  - image: microsoft/sample-aks-helloworld
-    name: azure
+  containers:
+  - image: nginx:1.15.5
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
       - name: azure
         azureDisk:
           kind: Managed
@@ -87,7 +97,32 @@ Utilize o `kubectl` comando para criar o pod.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Tem agora um pod em execução com um disco do Azure montado em `/mnt/azure`. Pode usar `kubectl describe pod azure-disk-pod` para verificar o disco está montado com êxito.
+Tem agora um pod em execução com um disco do Azure montado em `/mnt/azure`. Pode usar `kubectl describe pod mypod` para verificar o disco está montado com êxito. O resultado de exemplo condensado seguinte mostra o volume montado no contentor:
+
+```
+[...]
+Volumes:
+  azure:
+    Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
+    DiskName:     myAKSDisk
+    DiskURI:      /subscriptions/<subscriptionID/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    Kind:         Managed
+    FSType:       ext4
+    CachingMode:  ReadWrite
+    ReadOnly:     false
+  default-token-z5sd7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-z5sd7
+    Optional:    false
+[...]
+Events:
+  Type    Reason                 Age   From                               Message
+  ----    ------                 ----  ----                               -------
+  Normal  Scheduled              1m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
+  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-z5sd7"
+  Normal  SuccessfulMountVolume  41s   kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "azure"
+[...]
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -107,3 +142,4 @@ Para obter mais informações sobre o AKS clusters interagir com os discos do Az
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azure-files-volume]: azure-files-volume.md

@@ -8,12 +8,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: dd43aff91568ba4bd93f27e88cc63a50b9d8e4bd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fea4f762a46963f923ba8f44644df37b29fc77a6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886441"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068745"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
@@ -21,7 +21,7 @@ As APIs REST do serviço de voz dos serviços cognitivos do Azure são semelhant
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição. Referência a **modos de reconhecimento** secção abaixo para substituir `conversation` com o `interactive` ou `dictation` para sua sceanrio desejado numa chamada de API especificada.
+Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,52 +29,6 @@ Os pontos finais para a conversão de voz em texto REST API são mostrados na ta
 > Se personalizou o modelo acústico ou modelo de idioma ou pronúncia, em vez disso, a utilizar o seu ponto final personalizado.
 
 Esta API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve resultados apenas finais, não resultados parciais ou provisórias. O serviço de voz também tem um [transcrição do batch](batch-transcription.md) API que pode transcrição de áudio mais tempo.
-
-### <a name="recognition-modes"></a>Modos de reconhecimento
-
-Quando utilizar o protocolo de REST API ou WebSocket diretamente, tem de especificar o modo de reconhecimento: `interactive`, `conversation`, ou `dictation`. O modo de reconhecimento ajusta o reconhecimento de voz com base na forma como os utilizadores têm probabilidades de falar. Escolha o modo de reconhecimento apropriado para a sua aplicação.
-
-> [!NOTE]
-> Modos de reconhecimento podem ter diferentes comportamentos no protocolo REST do que no protocolo WebSocket. Por exemplo, a API REST não suporta reconhecimento contínuo, até mesmo no modo de ditado ou da conversação.
-> [!NOTE]
-> Esses modos são aplicáveis quando utiliza o protocolo REST ou WebSocket diretamente. O [SDK de voz](speech-sdk.md) utiliza diferentes parâmetros para especificar a configuração de reconhecimento. Para obter mais informações, consulte a biblioteca de cliente da sua preferência.
-
-O serviço de voz de Microsoft devolve apenas um resultado de frase de reconhecimento para todos os modos de reconhecimento. Existe um limite de 15 segundos para qualquer expressão único, ao utilizar o protocolo de REST API ou WebSocket diretamente.
-
-#### <a name="interactive-mode"></a>Modo interativo
-
-No `interactive` modo, um usuário faz solicitações de curtas e espera que o aplicativo execute uma ação em resposta.
-
-As seguintes características são característicos de aplicativos do modo interativo:
-
-- Os utilizadores saibam que estão falando numa máquina e não por humanos de outro.
-- Utilizadores da aplicação sabem antecipadamente o que quer dizer, com base no que eles querem que o aplicativo para o fazer.
-- Expressões com normalmente da última sobre 2 a 3 segundos.
-
-#### <a name="conversation-mode"></a>Modo de conversação
-
-No `conversation` modo, os utilizadores fazem parte de uma conversa humanos.
-
-As seguintes características são típicas de aplicações do modo de conversa:
-
-- Os utilizadores saibam que estão a comunicar para outra pessoa.
-- Reconhecimento de fala melhora as conversas humanas, permitindo que um ou ambos os participantes ver o texto falado.
-- Os utilizadores não planear sempre o que quer dizer.
-- Os utilizadores usam com freqüência gíria e outro voz informal.
-
-#### <a name="dictation-mode"></a>Modo de ditado
-
-No `dictation` modo, os utilizadores recitar mais expressões com a aplicação para processamento adicional.
-
-As seguintes características são típicas de aplicações do modo de ditado:
-
-- Os utilizadores saibam que estão a comunicar a uma máquina.
-- Os utilizadores são mostrados os resultados de texto de reconhecimento de voz.
-- Os usuários muitas vezes, planeie o que quer dizer e utilizar uma linguagem mais formal.
-- Utilizadores empregam completa sentences que últimos 5 a 8 segundos.
-
-> [!NOTE]
-> Em modos de conversações e ditado, o serviço de voz de Microsoft não devolver resultados parciais. Em vez disso, o serviço devolve resultados de frase estável depois de limites de silêncio no fluxo de áudio. Microsoft pode melhorar o protocolo de voz para melhorar a experiência de utilizador nesses modos de reconhecimento contínuo.
 
 
 ### <a name="query-parameters"></a>Parâmetros de consulta

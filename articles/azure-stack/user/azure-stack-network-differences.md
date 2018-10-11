@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
 ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1863236a51d89dd311cd8aacfcd737faddf21ab0
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055568"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079196"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações sobre o funcionamento em rede do Azure Stack
 
@@ -40,7 +40,7 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 |  | Configurações de IP do conjunto de dimensionamento | Suportadas | Ainda não é suportado. |
 |  | Serviços de acesso privado (sub-rede) | Suportadas | Ainda não é suportado. |
 |  | Pontos Finais de Serviço | Suporte para interno (não-ligação à Internet) para serviços do Azure. | Ainda não é suportado. |
-| É apenas suportado o IPv4. | Políticas de ponto final de serviço | Suportadas | Ainda não é suportado. |
+| É apenas suportado o IPv4. | Políticas do Ponto Final de Serviço | Suportadas | Ainda não é suportado. |
 |  | Túneis de serviço | Suportadas | Ainda não é suportado.  |
 | Grupos de Segurança de Rede | Regras de segurança aumentadas | Suportadas | Ainda não é suportado. |
 |  | Regras de segurança efetivas | Suportadas | Ainda não é suportado. |

@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes sobre - compreensão de idiomas (LUIS)
+title: FAQ - perguntas mais frequentes - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0e604138c35e476d1635cb695923bb7d2b83de82
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831267"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067773"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -112,6 +112,10 @@ Consulte a [testes de Batch](luis-tutorial-batch-testing.md) tutorial.
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando uma aplicação é exportada, em seguida, novamente importada para uma nova aplicação (com um novo ID de aplicação), as pontuações de predição de LUIS são diferentes. Por que isso acontece?
 
 Ver [diferenças de predição entre cópias da mesma aplicação](luis-concept-prediction-score.md#differences-with-predictions).
+
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Algumas expressões com até a intenção de errado depois que fiz alterações para a minha aplicação. O problema parece sumir aleatoriamente. Como posso corrigi-lo? 
+
+Ver [Train com todos os dados](luis-how-to-train.md#train-with-all-data).
 
 ## <a name="app-publishing"></a>Publicação da aplicação
 

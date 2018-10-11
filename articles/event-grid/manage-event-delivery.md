@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5db53567b1df9e726fb0c507f0302536ea45b7f4
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: fcf3ecaff6e8ba1421496a96d01428946cf8ab8e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603775"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077787"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Entregues e as políticas de repetição
 
@@ -48,7 +48,7 @@ Para desativar as mensagens não entregues, execute novamente o comando para cri
 
 Ao criar uma subscrição do Event Grid, pode definir valores para o tempo que o Event Grid deve tentar entregar o evento. Por predefinição, o Event Grid tentativas durante 24 horas (1440 minutos) e tenta um máximo de 30 vezes. Pode definir qualquer um destes valores para a sua subscrição do event grid. O valor de tempo de vida de evento tem de ser um número inteiro entre 1 a 1440. O valor para tentativas de entrega máxima tem de ser um número inteiro de 1 para 30.
 
-Não é possível configurar o [intervalo de repetição](delivery-and-retry.md#retry-intervals-and-duration).
+Não é possível configurar o [Repita agenda](delivery-and-retry.md#retry-schedule-and-duration).
 
 Para definir o evento time-to-live com um valor diferente 1440 minutos, utilize:
 

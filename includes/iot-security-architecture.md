@@ -1,19 +1,19 @@
 ---
 title: incluir ficheiro
 description: incluir ficheiro
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39030030"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070190"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança de Internet das coisas
 
@@ -185,7 +185,7 @@ Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemp
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-Spoofing: Um invasor pode extrair material de chave criptográfica de um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de.
+**Spoofing**: um invasor pode extrair o material de chave criptográfica de um dispositivo, seja ao nível do software ou hardware, e, em seguida, o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de acesso tem foram tiradas de.
 
 **Negação de serviço**: um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
 

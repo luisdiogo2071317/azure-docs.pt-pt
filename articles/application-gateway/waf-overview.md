@@ -4,14 +4,14 @@ description: Este artigo fornece uma descrição geral da firewall de aplicaçõ
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.date: 10/6/2017
+ms.date: 10/11/2018
 ms.author: amsriva
-ms.openlocfilehash: a16f8d988c900d015810bfe72b04ff5e9eb0682a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815670"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068456"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicações Web (WAF)
 
@@ -47,21 +47,43 @@ Seguem-se as principais vantagens proporcionadas pelo Gateway de Aplicação e p
 
 ## <a name="features"></a>Funcionalidades
 
-A firewall de aplicação Web está pré-configurada com CRS 3.0, por predefinição, ou pode optar por utilizar a 2.2.9. A CRS 3.0 oferece menos falsos positivos do que a 2.2.9. É disponibilizada a capacidade de [personalizar a regras para se adequarem às suas necessidades](application-gateway-customize-waf-rules-portal.md). Algumas das vulnerabilidades Web comuns contra as quais a firewall de aplicações Web protege incluem:
+- Proteção contra injeção de SQL
+- Proteção contra scripting entre sites
+- Proteção contra Ataques Web comuns, como, por exemplo, injeção de comandos, contrabando de pedidos HTTP, divisão de respostas HTTP e ataques remotos de inclusão de ficheiros
+- Proteção contra violações de protocolo HTTP
+- Proteção contra anomalias de protocolo HTTP, como agente de utilizador de anfitrião e cabeçalhos de aceitação em falta
+- Prevenção de contra bots, crawlers e scanners
+- Deteção de aplicação incorretas comuns (ou seja, Apache, IIS, etc.)
 
-* Proteção contra injeção de SQL
-* Proteção contra scripting entre sites
-* Proteção contra Ataques Web comuns, como, por exemplo, injeção de comandos, contrabando de pedidos HTTP, divisão de respostas HTTP e ataques remotos de inclusão de ficheiros
-* Proteção contra violações de protocolo HTTP
-* Proteção contra anomalias de protocolo HTTP, como agente de utilizador de anfitrião e cabeçalhos de aceitação em falta
-* Prevenção de contra bots, crawlers e scanners
-* Deteção de aplicação incorretas comuns (ou seja, Apache, IIS, etc.)
+### <a name="public-preview-features"></a>Funcionalidades de pré-visualização pública
 
-Para obter uma lista mais detalhada das regras e das respetivas proteções, veja [Core rule sets](#core-rule-sets) (Conjuntos de regras principais).
+O público de WAF atual pré-visualização incudes SKU as seguintes funcionalidades:
+
+- **Limites de tamanho de pedido** -Firewall de aplicações Web permite aos usuários configurar limites de tamanho do pedido dentro inferiores e superiores.
+- **Listas de exclusão** -listas de exclusão de WAF permitir que os utilizadores omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe.
+
+Para obter mais informações sobre a pré-visualização pública do WAF, veja [Web limites de tamanho de pedido de firewall de aplicação e listas de exclusão (pré-visualização pública)](application-gateway-waf-configuration.md).
+
+
+
+
 
 ### <a name="core-rule-sets"></a>Conjuntos de regras principais
 
 O Gateway de Aplicação suporta dois conjuntos de regras: CRS 3.0 e CRS 2.2.9. Estes conjuntos de regras principais são coleções de regras que protegem as suas aplicações Web contra atividades maliciosas.
+
+A firewall de aplicação Web está pré-configurada com CRS 3.0, por predefinição, ou pode optar por utilizar a 2.2.9. A CRS 3.0 oferece menos falsos positivos do que a 2.2.9. É disponibilizada a capacidade de [personalizar a regras para se adequarem às suas necessidades](application-gateway-customize-waf-rules-portal.md). Algumas das vulnerabilidades Web comuns contra as quais a firewall de aplicações Web protege incluem:
+
+- Proteção contra injeção de SQL
+- Proteção contra scripting entre sites
+- Proteção contra Ataques Web comuns, como, por exemplo, injeção de comandos, contrabando de pedidos HTTP, divisão de respostas HTTP e ataques remotos de inclusão de ficheiros
+- Proteção contra violações de protocolo HTTP
+- Proteção contra anomalias de protocolo HTTP, como agente de utilizador de anfitrião e cabeçalhos de aceitação em falta
+- Prevenção de contra bots, crawlers e scanners
+- Deteção de configurações de aplicação incorretas comuns (ou seja, Apache, IIS, etc.)
+
+Para obter uma lista mais detalhada das regras e das respetivas proteções, veja [conjuntos de regras de núcleo](#core-rule-sets).
+
 
 #### <a name="owasp30"></a>OWASP_3.0
 

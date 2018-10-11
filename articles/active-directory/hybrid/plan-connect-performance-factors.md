@@ -1,5 +1,5 @@
 ---
-title: Fatores influenciar o desempenho do Azure AD Connect
+title: Fatores a influenciar o desempenho do Azure AD Connect
 description: Este documento explica os fatores como várias influenciam o Azure AD Connect mecanismo de provisionamento. Esses fatores ajudará as organizações a planejar a implantação do Azure AD Connect para se certificar de que cumpre os requisitos de sincronização.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 6ad8e04a3cd61061b44ca9b6a216f92d69a70f6b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902999"
+ms.locfileid: "49069018"
 ---
-# <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores influenciar o desempenho do Azure AD Connect
+# <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
 
 O Azure AD Connect sincroniza o seu Active Directory para o Azure AD. Esse servidor é um componente crítico de mover as identidades de utilizador para a cloud. São os principais fatores que afetam o desempenho de um Azure AD Connect:
 
@@ -41,7 +41,7 @@ O diagrama seguinte mostra uma arquitetura de alto nível do aprovisionamento de
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-O mecanismo de provisionamento liga-se para cada floresta do Active Directory e com o Azure AD. O processo de leitura de informações de cada diretório é chamado de importação. Exportação refere-se para atualizar os diretórios do mecanismo de provisionamento. Sincronização avalia as regras de como os objetos irão fluir dentro do mecanismo de provisionamento. Para se aprofundar pode consultar [do Azure AD Connect: compreender a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+O mecanismo de provisionamento liga-se para cada floresta do Active Directory e para o Azure AD. O processo de leitura de informações de cada diretório é chamado de importação. Exportação refere-se para atualizar os diretórios do mecanismo de provisionamento. Sincronização avalia as regras de como os objetos irão fluir dentro do mecanismo de provisionamento. Para se aprofundar pode consultar [do Azure AD Connect: compreender a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 O Azure AD Connect utiliza as seguintes áreas de preparo, regras e processos para permitir a sincronização do Active Directory para o Azure AD:
 
@@ -62,15 +62,13 @@ O perfil de sincronização inicial é o processo de leitura de diretórios cone
 
 ### <a name="delta-sync-profile"></a>Perfil de sincronização delta
 
-Para otimizar o processo de sincronização este perfil de execução apenas processar as alterações (cria, elimina e atualiza) de objetos nos seus diretórios conectados, desde o último processo de sincronização. Por predefinição, o perfil de sincronização de diferenças é executada a cada 30 minutos. As organizações devem se esforçar para manter o tempo que demora a abaixo de 30 minutos, para se certificar de que o Azure AD está atualizado. Para monitorizar o estado de funcionamento do Azure AD Connect, utilize o [estado de funcionamento do agente de monitorização](how-to-connect-health-sync.md) para ver todos os problemas do processo. O perfil de sincronização delta inclui os seguintes passos:
+Para otimizar o processo de sincronização este perfil de execução apenas processar as alterações (cria, elimina e atualiza) de objetos nos seus diretórios conectados, desde o último processo de sincronização. Por predefinição, o perfil de sincronização de diferenças é executada a cada 30 minutos. As organizações devem se esforçar para manter o tempo que demora a abaixo de 30 minutos, para se certificar de que o Azure AD está atualizado. Para monitorizar o estado de funcionamento do Azure AD Connect, utilize o [estado de funcionamento do agente de monitorização](how-to-connect-health-sync.md) para identificar quaisquer problemas com o processo. O perfil de sincronização delta inclui os seguintes passos:
 
 1. Importação delta em todos os conectores
 2. Sincronização delta em todos os conectores
 3. Exportação em todos os conectores
 
 Um cenário de sincronização de diferenças de organização empresarial típico é:
-
-
 
 - % de ~ 1 dos objetos são eliminados
 - % de ~ 1 dos objetos são criados
@@ -94,7 +92,7 @@ As seguintes operações estão incluídas num ciclo de sincronização completa
 3. Exportação em todos os conectores
 
 > [!NOTE]
-> É necessário um planejamento cuidadoso ao realizar atualizações em massa para muitos objetos no seu Active Directory ou o Azure AD. Atualizações em massa fará com que o processo de sincronização delta demore mais tempo ao importar, uma vez que muitos objetos foram alterados. Importações longo podem acontecer mesmo que a atualização em massa não influencia o processo de sincronização. Por exemplo, atribuir licenças a utilizadores no Azure AD fará com que um ciclo de longo importação do Azure AD, mas não resultará em alterações de atributo no Active Directory.
+> É necessário um planejamento cuidadoso ao realizar atualizações em massa para muitos objetos no seu Active Directory ou o Azure AD. Atualizações em massa fará com que o processo de sincronização delta demore mais tempo ao importar, uma vez que muitos objetos foram alterados. Importações longo podem acontecer mesmo que a atualização em massa não influenciam o processo de sincronização. Por exemplo, atribuir licenças a utilizadores no Azure AD fará com que um ciclo de longo importação do Azure AD, mas não resultará em alterações de atributo no Active Directory.
 
 ### <a name="synchronization"></a>Sincronização
 
@@ -103,7 +101,7 @@ O tempo de execução do processo de sincronização tem as seguintes caracterí
 * Sincronização é o única thread, que significa que o mecanismo de provisionamento não faz qualquer processamento paralelo dos perfis de execução de diretórios conectados, objetos ou atributos.
 * Tempo de importação aumenta linearmente com o número de objetos a ser sincronizado. Por exemplo, se 10 000 objetos demorar 10 minutos para importar, 20.000 objetos levará cerca de 20 minutos no mesmo servidor.
 * A exportação também é linear.
-* A sincronização irá aumentar exponencialmente com base no número de objetos com referências a outros objetos. Membros de grupo e de grupos aninhados têm o impacto no desempenho principal, porque os membros que fazem referência a objetos de utilizador ou outros grupos. Estas referências tem de ser encontradas e referenciadas para objetos reais na MV para concluir o ciclo de sincronização.
+* A sincronização irá aumentar exponencialmente com base no número de objetos com referências a outros objetos. Membros de grupo e de grupos aninhados têm o impacto no desempenho principal, porque seus membros fazem referência a objetos de utilizador ou outros grupos. Estas referências tem de ser encontradas e referenciadas para objetos reais na MV para concluir o ciclo de sincronização.
 
 ### <a name="filtering"></a>Filtragem
 
@@ -147,7 +145,7 @@ O desempenho do Azure AD Connect é depende do desempenho dos diretórios conect
 
 ### <a name="active-directory-factors"></a>Fatores de diretório Active Directory
 
-Como mencionado anteriormente, o número de objetos a serem importados influencia desempenho significativamente. O [hardware e pré-requisitos do Azure AD Connect](how-to-connect-install-prerequisites.md) descrevem as camadas de hardware específico com base no tamanho da sua implementação. O Azure AD Connect só suportam topologias específicas, conforme descrito na [topologias do Azure AD Connect](plan-connect-topologies.md). Não existem otimizações de desempenho e recomendações para topologias não suportadas.
+Como mencionado anteriormente, o número de objetos a serem importados influencia significativamente o desempenho. O [hardware e pré-requisitos do Azure AD Connect](how-to-connect-install-prerequisites.md) descrevem as camadas de hardware específico com base no tamanho da sua implementação. O Azure AD Connect só suportam topologias específicas, conforme descrito na [topologias do Azure AD Connect](plan-connect-topologies.md). Não existem otimizações de desempenho e recomendações para topologias não suportadas.
 
 Certifique-se de que o servidor do Azure AD Connect cumpre os requisitos de hardware com base no tamanho do seu Active Directory que pretende importar. Conectividade de rede lenta ou ruim entre o servidor do Azure AD Connect e os controladores de domínio do Active Directory pode abrandar a importação.
 
@@ -183,10 +181,10 @@ Para otimizar o desempenho da sua implementação do Azure AD Connect, considere
 - Utilize o [configuração de hardware recomendada](how-to-connect-install-prerequisites.md) com base no seu tamanho de implementação para o servidor do Azure AD Connect.
 - Ao atualizar o Azure AD Connect, nas implementações de grande escala, considere usar [girar o método de migração](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), para se certificar de que tem o menor tempo de inatividade e melhor fiabilidade. 
 - Utilize o SSD para a base de dados SQL para melhor desempenho de gravação.
-- Filtre o âmbito do Active Directory para apenas os objetos que tem de ser aprovisionada no Azure AD, com o domínio, a UO ou a filtragem de atributos.
+- Filtre o âmbito do Active Directory para incluir apenas os objetos que têm de ser aprovisionado no Azure AD, com o domínio, a UO ou a filtragem de atributos.
 - Se precisar de alterar as regras de fluxo de atributo predefinidas, primeiro copiar a regra, em seguida, altere a cópia e desativar a regra original. Não se esqueça de voltar a executar uma sincronização completa.
 - Planear o tempo suficiente para a sincronização completa inicial, perfil de execução.
-- A sincronização delta o nosso objetivo ciclo é concluída em 30 minutos. Se o perfil de sincronização delta não concluída em 30 minutos, modificar a frequência de sincronização padrão para incluir um ciclo de sincronização delta completa.
+- Se esforça concluir o ciclo de sincronização de diferenças em 30 minutos. Se o perfil de sincronização delta não concluída em 30 minutos, modificar a frequência de sincronização padrão para incluir um ciclo de sincronização delta completa.
 - Monitor de sua [estado de funcionamento do Azure AD Connect sync](how-to-connect-health-agent-install.md) no Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes

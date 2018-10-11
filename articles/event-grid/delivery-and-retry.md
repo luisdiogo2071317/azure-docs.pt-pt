@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15d68e4da6dd03751300f87ea5830c2db0470b60
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4d53c33daefaadb4c58ce500a5d564af7988b606
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604863"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077093"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens do Event Grid e tente novamente
 
@@ -22,7 +22,7 @@ Event Grid fornece entrega durável. Ele fornece a cada mensagem, pelo menos, um
 
 Atualmente, Event Grid envia individualmente cada evento para os subscritores. O subscritor recebe uma matriz com um único evento.
 
-## <a name="retry-intervals-and-duration"></a>Intervalos de repetição e a duração
+## <a name="retry-schedule-and-duration"></a>Agenda de repetição e a duração
 
 Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Se um ponto final não responder ou retorna um código de falha, o Event Grid repete a entrega na agenda seguinte:
 
@@ -34,7 +34,7 @@ Grelha de eventos utiliza uma política de repetição de término exponencial p
 6. 30 minutos
 7. 1 hora
 
-Grelha de eventos adiciona uma pequeno randomização para todos os intervalos de repetição. Depois de uma hora, a entrega de eventos será repetida uma vez por hora.
+Grelha de eventos adiciona uma pequeno randomização para todos os passos de repetição. Depois de uma hora, a entrega de eventos será repetida uma vez por hora.
 
 Por predefinição, o Event Grid expira todos os eventos que não são entregues no prazo de 24 horas. Pode [personalizar a política de repetição](manage-event-delivery.md) durante a criação de uma subscrição de evento. Fornecer o número máximo de tentativas de entrega (a predefinição é 30) e o evento time-to-live (a predefinição é 1440 minutos).
 

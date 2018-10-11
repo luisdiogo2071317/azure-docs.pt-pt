@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 64cd440947c95de92ea156c14e4c524ecdc8e76c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5f51fbff11412324ad167d49202f7215cefb5ac2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268821"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076923"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurar contas de início de sessão no Azure Active Directory uma política incorporada no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
 >`Contoso.com` é utilizado o organizacional para inquilino do Azure AD e `fabrikamb2c.onmicrosoft.com` é utilizado como o inquilino do Azure AD B2C nas instruções seguintes.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C (fabrikamb2c.onmicrosoft.com) ao clicar no filtro de diretório e subscrição no menu superior e escolher o diretório que contém o seu inquilino do Azure AD B2C.
+2. Certifique-se de que está a utilizar o diretório que contém o inquilino do Azure AD (contoso.com) ao clicar no filtro de diretório e subscrição no menu superior e escolher o diretório que contém o seu inquilino do Azure AD.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
 4. Selecione **Novo registo de aplicação**.
 5. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
@@ -40,8 +40,10 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
 7. Para o **URL de início de sessão**, introduza o seguinte URL em todas as letras minúsculas, onde `your-tenant` é substituído pelo nome do inquilino do Azure AD B2C (fabrikamb2c.onmicrosoft.com):
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
+
+    Todos os URLs devem agora estar a utilizar [b2clogin.com](b2clogin.md).
 
 8. Clique em **Criar**. Copiar o **ID da aplicação** a ser utilizado mais tarde.
 9. Selecione a aplicação e, em seguida, selecione **definições**.
@@ -49,21 +51,21 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
 
 ## <a name="configure-azure-ad-as-an-identity-provider-in-your-tenant"></a>Configurar o Azure AD como fornecedor de identidade no seu inquilino
 
-1. Certifique-se de que está a utilizar o diretório que contém o Azure organizacional inquilino do AD (contoso.com) ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+1. Certifique-se de que está a utilizar o diretório que contém o inquilino do Azure AD B2C (fabrikamb2c.onmicrosoft.com) ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu Azure AD B2C inquilino.
 2. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
 3. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.
 4. Introduza um **nome**. Por exemplo, introduza "Contoso do Azure AD".
-5. Selecione **tipo de fornecedor de identidade**, selecione **abrir ID Connect**e clique em **OK**.
+5. Selecione **tipo de fornecedor de identidade**, selecione **abrir ID Connect (pré-visualização)** e, em seguida, clique em **OK**.
 6. Clique em **configurar este fornecedor de identidade**
-7. Para **url de metadados**, introduza o URL seguinte substituindo `your-tenant` com o nome do inquilino do Azure AD. Por exemplo, contoso.com:
+7. Para **url de metadados**, introduza o URL seguinte substituindo `your-tenant` com o nome do inquilino do Azure AD:
 
     ```
     https://login.microsoftonline.com/your-tenant/.well-known/openid-configuration
     ```
-
-8. Opcionalmente, introduza um valor para **domínio** (por exemplo, `ContosoAD`). Este é o valor a utilizar quando nos Referimos a este fornecedor de identidade usando *domain_hint* no pedido. 
-9. Clique em **OK**.
-10. Selecione **mapear declarações do fornecedor de identidade** e defina as seguintes declarações:
+8. Para **id de cliente**, introduza o ID da aplicação que registou anteriormente e para **segredo do cliente**, introduza o valor da chave que registou anteriormente.
+9. Opcionalmente, introduza um valor para **Domain_hint** (por exemplo, `ContosoAD`). Este é o valor a utilizar quando nos Referimos a este fornecedor de identidade usando *domain_hint* no pedido. 
+10. Clique em **OK**.
+11. Selecione **mapear declarações do fornecedor de identidade** e defina as seguintes declarações:
     
     - Para **ID de utilizador**, introduza `oid`.
     - Para **nome a apresentar**, introduza `name`.
@@ -71,4 +73,4 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
     - Para **Apelido**, introduza `family_name`.
     - Para **E-Mail**, introduza `unique_name`.
 
-11. Clique em **OK**e, em seguida **criar** para guardar a configuração.
+12. Clique em **OK**e, em seguida, clique em **criar** para guardar a configuração.

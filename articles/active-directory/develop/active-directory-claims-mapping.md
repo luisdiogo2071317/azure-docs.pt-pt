@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin, jeedes
-ms.openlocfilehash: c188b800e2227a5c9f3a11d7d8d752af3efdf66a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 43b17c54014d2f1beedd02f9ec627dd087e65d5a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904326"
+ms.locfileid: "49069272"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-public-preview"></a>Como: Personalizar afirmações emitidas nos tokens de um aplicativo específico num inquilino (pré-visualização pública)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar afirmações emitidas nos tokens de um aplicativo específico num inquilino (pré-visualização)
 
 > [!NOTE]
 > Esta funcionalidade substitui e prevalece sobre o [personalização de afirmações](active-directory-saml-claims-customization.md) oferecidos através do portal hoje em dia. No mesmo aplicativo, se personalizar afirmações com o portal além do método de gráfico/PowerShell detalhado neste documento, tokens emitidos para que o aplicativo irá ignorar a configuração no portal do. As configurações feitas por meio de métodos detalhados neste documento não serão refletidas no portal.

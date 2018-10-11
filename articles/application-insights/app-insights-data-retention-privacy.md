@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: ef79ff7c8e238a0a90912d099b4b9dfe2a387c1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577229"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079077"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
-
 
 Quando instala [do Azure Application Insights] [ start] SDK na sua aplicação, que envia telemetria sobre a sua aplicação para a Cloud. Naturalmente, os desenvolvedores responsáveis querem saber exatamente quais dados são enviados, o que acontece com os dados e como eles podem manter o controle do mesmo. Em particular, foi possível enviar os dados confidenciais, onde é que está armazenado e quão segura é? 
 
@@ -90,6 +89,8 @@ Isso seria possível com a criação de um [Plug-in de processador de telemetria
 Pontos de dados não processados (ou seja, os itens que pode consultar no Analytics e inspecionar na pesquisa) são mantidos durante 90 dias. Se precisar de manter os dados de mais do que isso, pode usar [exportação contínua](app-insights-export-telemetry.md) copiá-lo para uma conta de armazenamento.
 
 Dados agregados (ou seja, contagens, médias e outros dados de estatísticos que vê no Explorador de métricas) são mantidos de acordo com um intervalo de agregação de 1 minuto durante 90 dias.
+
+[Instantâneos de depuração](app-insights-snapshot-debugger.md) são armazenados durante sete dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 Os dados são visíveis para si e, se tiver uma conta de organização, os membros da equipe. 
@@ -203,7 +204,7 @@ Não é recomendável definir o seu aplicativo para utilizar apenas o TLS 1.2, a
 | Serviços de Aplicações do Azure  | Suportado, pode ser necessária configuração. | Suporte foi anunciado em Abril de 2018. Leia o anúncio para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Aplicações de funções do Azure | Suportado, pode ser necessária configuração. | Suporte foi anunciado em Abril de 2018. Leia o anúncio para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Configuração suportada, varia por versão. | Para informações detalhadas de configuração para o .NET 4.7 e versões anteriores, consulte a [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de estado | Configuração suportada, necessária | Monitor de estado depende [configuração do SO](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) ao suporte de TLS 1.2.
+|Monitor de Estado | Configuração suportada, necessária | Monitor de estado depende [configuração do SO](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) ao suporte de TLS 1.2.
 |Node.js |  Suportado em v10.5.0, pode ser necessária configuração. | Utilize o [documentação oficial do node. js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
 |Java | Suportado, foi adicionado suporte JDK para TLS 1.2 no [JDK 6 atualização 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por predefinição](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Distribuições do Linux tendem a depender [OpenSSL](https://www.openssl.org) para suporte de TLS 1.2.  | Verifique os [registo de alterações de OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL que é suportado.|

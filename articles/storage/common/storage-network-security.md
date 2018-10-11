@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972560"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068541"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
 
 > [!IMPORTANT]
-> Ativar as regras de Firewall para a sua conta de armazenamento irá bloquear o acesso a pedidos recebidos para os dados, incluindo a partir de outros serviços do Azure.  Isto inclui a utilizar o Portal, escrever os registos, etc.  Para os serviços de participantes pode reativar o funcionalidade por meio da [exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) secção abaixo.  Para aceder ao Portal terá de fazê-lo a partir de uma máquina dentro do limite confiável (IP ou VNet) que configurou.
+> Ativar as regras de Firewall para a sua conta de armazenamento irá bloquear o acesso a pedidos recebidos para os dados, incluindo a partir de outros serviços do Azure.  Isto inclui a utilizar o Portal, escrever os registos, etc.  Serviços do Azure que operam de dentro de uma VNet podem ser concedidos acesso ao permitir que a sub-rede da instância do serviço.  Serviços do Azure que não funciona de dentro de uma VNet vão ser bloqueados pela firewall.  Um número limitado de cenários pode ser ativado através da [exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) mecanismo descrito abaixo.  Para aceder ao Portal terá de fazê-lo a partir de uma máquina dentro do limite confiável (IP ou VNet) que configurou.
 >
 
 ## <a name="scenarios"></a>Cenários

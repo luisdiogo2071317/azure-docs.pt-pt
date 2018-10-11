@@ -1,28 +1,27 @@
 ---
-title: Criar ou associar ramos paralelos - Azure Logic Apps | Microsoft Docs
+title: Criar ou adicionar ramos paralelos - Azure Logic Apps | Documentos da Microsoft
 description: Como criar ou associar ramos paralelos para fluxos de trabalho no Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/10/2018
+ms.openlocfilehash: 344768e08fbd70aaae4fdb250b00cc968ed8eae1
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298860"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067029"
 ---
-# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou associar ramos paralelos para ações de fluxo de trabalho no Azure Logic Apps
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou adicionar ramos paralelos para ações de fluxo de trabalho no Azure Logic Apps
 
-Por predefinição, as suas ações em fluxos de trabalho de aplicação de lógica executam sequencialmente. Para efetuar ações independentes ao mesmo tempo, pode criar [paralela ramos](#parallel-branches)e, em seguida, [associação dessas ramos](#join-branches) mais à frente do fluxo. 
+Por predefinição, suas ações em fluxos de trabalho de aplicação de lógica são executados sequencialmente. Para executar ações independentes ao mesmo tempo, pode criar [ramificações em paralelo](#parallel-branches)e, em seguida [associar esses ramos](#join-branches) posterior no seu fluxo. 
 
 > [!TIP] 
-> Se tiver um acionador que recebe uma matriz e pretende executar um fluxo de trabalho para cada item de matriz, pode *debatch* essa matriz com o [ **SplitOn** acionar propriedade](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> Se tiver um acionador que recebe uma matriz e quer executar um fluxo de trabalho para cada item da matriz, pode *debatch* essa matriz com o [ **SplitOn** acionar propriedade](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,54 +31,65 @@ Por predefinição, as suas ações em fluxos de trabalho de aplicação de lóg
 
 <a name="parallel-branches"></a>
 
-## <a name="add-a-parallel-branch"></a>Adicionar um ramo paralelo
+## <a name="add-parallel-branch"></a>Adicionar ramo paralelo
 
-Para executar passos independentes ao mesmo tempo, pode adicionar ramos paralelos junto de um passo existente. 
+Para executar etapas independentes ao mesmo tempo, pode adicionar ramos paralelos junto a um passo existente. 
 
 ![Execute os passos em paralelo](media/logic-apps-control-flow-branches/parallel.png)
 
-A aplicação lógica aguarda para todos os ramos concluir antes de continuar o fluxo de trabalho.
-Paralela ramos executados apenas quando os respetivos `runAfter` valores de propriedade corresponde ao estado do passo de principal foi terminada. Por exemplo, ambos `branchAction1` e `branchAction2` estiver configurado para ser executado apenas quando o `parentAction` for concluída com `Succeded` estado.
+A aplicação lógica aguarda todos os ramos concluir antes de continuar o fluxo de trabalho. Em paralelo ramos executados apenas quando seus `runAfter` valores de propriedade corresponde ao estado de um passo concluído principal. Por exemplo, ambos `branchAction1` e `branchAction2` estão definidas para ser executado apenas quando o `parentAction` é concluída com `Succeded` estado.
 
 > [!NOTE]
-> Antes de começar, a aplicação lógica já tem de ter um passo onde pode adicionar ramos paralelos.
+> Antes de começar, a aplicação lógica tem de ter um passo onde pode adicionar ramos paralelos.
 
-1. No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra a aplicação lógica no Designer de aplicação lógica.
+1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra a aplicação lógica no Estruturador da aplicação lógica.
 
-2. Mova o rato sobre a seta acima o passo em que pretende adicionar os ramos paralelos.
-
-3. Escolha o **plus** início de sessão (**+**), escolha **adicionar um ramo paralelo**e selecione o item que pretende adicionar.
+1. Mova o ponteiro do mouse sobre a seta para os passos acima onde pretende adicionar ramos paralelos. Escolha o **plus** início de sessão (**+**) que é apresentada e, em seguida, escolha **adicionar um ramo paralelo**. 
 
    ![Adicionar ramo paralelo](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   O item selecionado aparece um ramo paralelo.
+1. Na caixa de pesquisa, localize e selecione a ação que pretende.
 
-4. Para cada ramificação paralela, adicione os passos que pretender. Para adicionar uma ação sequencial para um ramo paralelo, mova o rato sob a ação onde pretende adicionar a ação sequencial. Escolha o **plus** (**+**) início de sessão e o passo de que pretende adicionar.
+   ![Localize e selecione a ação que pretende](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![Adicione o passo sequencial para a qual ramificar paralela](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   A ação selecionada agora aparece no ramo paralelo, por exemplo:
 
-5. A intercalação ramos novamente em conjunto, [associar os ramos paralelos](#join-branches). 
+   ![Localize e selecione a ação que pretende](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. Agora, em cada ramo paralelo, adicione os passos que pretender. Para adicionar outra ação para um ramo, mova o ponteiro sob a ação em que pretende adicionar uma ação seqüencial. Escolha o os **plus** (**+**) início de sessão que aparece e, em seguida, selecione **adicionar uma ação**.
+
+   ![Adicionar ação seqüencial ao ramo paralelo](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. Na caixa de pesquisa, localize e selecione a ação que pretende.
+
+   ![Localize e selecione a ação sequencial](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   Agora a ação selecionada é apresentada na filial atual, por exemplo:
+
+   ![Localize e selecione a ação sequencial](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+Para intercalar os ramos de volta em conjunto, [associar seus ramos paralelos](#join-branches). 
 
 <a name="parallel-json"></a>
 
-## <a name="parallel-branch-definition-json"></a>Definição de sucursal paralelo (JSON)
+## <a name="parallel-branch-definition-json"></a>Definição de ramo paralelo (JSON)
 
 Se estiver a trabalhar na vista de código, pode definir a estrutura paralela na definição de JSON da sua aplicação lógica em vez disso, por exemplo:
 
 ``` json
 {
   "triggers": {
-    "myTrigger": { }
+    "myTrigger": {}
   },
   "actions": {
     "parentAction": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {}
     },
     "branchAction1": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -88,7 +98,7 @@ Se estiver a trabalhar na vista de código, pode definir a estrutura paralela na
     },
     "branchAction2": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -102,23 +112,29 @@ Se estiver a trabalhar na vista de código, pode definir a estrutura paralela na
 
 <a name="join-branches"></a>
 
-## <a name="join-parallel-branches"></a>Associar ramos paralelos
+## <a name="join-parallel-branches"></a>Junte-se a ramos paralelos
 
-A intercalação ramos paralelos em conjunto, basta adicione um passo na parte inferior em todos os ramos. Este passo é executado após todos os concluir os ramos paralelos em execução.
+Para mesclar ramificações paralelas, basta adicione um passo na parte inferior em todos os ramos. Este passo é executado Afinal de contas a conclusão de ramos paralelos em execução.
 
-![Associar ramos paralelos](media/logic-apps-control-flow-branches/join.png)
+![Junte-se a ramos paralelos](media/logic-apps-control-flow-branches/join.png)
 
-1. No [portal do Azure](https://portal.azure.com), localize e abra a sua aplicação lógica no Designer de aplicação lógica. 
+1. Na [portal do Azure](https://portal.azure.com), encontrar e abrir a aplicação lógica no Estruturador da aplicação lógica. 
 
-2. Nos ramos paralelos que pretende associar, adicione o passo de que pretende efetuar.
+1. Sob os ramos paralelos que pretende participar, escolha **novo passo**. 
 
-   ![Adicione um passo que associa os ramos paralelos](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Adicionar passo para aderir](media/logic-apps-control-flow-branches/add-join-step.png)
+
+1. Na caixa de pesquisa, localize e selecione a ação que pretende que o passo que junta as ramificações.
+
+   ![Localize e selecione a ação que junta ramos paralelos](media/logic-apps-control-flow-branches/join-steps.png)
 
    Os ramos paralelos são Unidos.
 
+   ![Associado ao ramos](media/logic-apps-control-flow-branches/joined-branches.png)
+
 <a name="join-json"></a>
 
-## <a name="join-definition-json"></a>Associar definição (JSON)
+## <a name="join-definition-json"></a>Junte-se a definição (JSON)
 
 Se estiver a trabalhar na vista de código, pode definir a estrutura de associação na definição de JSON da sua aplicação lógica em vez disso, por exemplo:
 
@@ -171,11 +187,11 @@ Se estiver a trabalhar na vista de código, pode definir a estrutura de associa�
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em funcionalidades e sugestões, visite o [site de comentários do utilizador do Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Para submeter ou votar em recursos e sugestões, visite o [site de comentários de utilizadores do Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Executar passos com base numa condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Executar passos com base nos valores diferentes (comutador instruções)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Executar e repita os passos (ciclos)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Executar passos com base no estado da ação agrupada (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Execute os passos com base numa condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Execute os passos com base nos valores diferentes (declarações do comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar e repita os passos (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Execute os passos com base no estado da ação agrupados (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

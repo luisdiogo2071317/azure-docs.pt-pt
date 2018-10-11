@@ -3,18 +3,16 @@ title: Implementar contentores com Helm no Kubernetes no Azure
 description: Utilize a ferramenta de empacotamento do Helm para implementar contentores num cluster do Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d95f7ad337e52aed47656c2ea60e6b193a427946
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055139"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068582"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicações com Helm no Azure Kubernetes Service (AKS)
 
@@ -26,32 +24,11 @@ Este artigo mostra-lhe como configurar e utilizar o Helm num cluster do Kubernet
 
 Os passos detalhados neste documento partem do princípio de que já criou um cluster do AKS e estabeleceu uma `kubectl` ligação com o cluster. Se precisar destes itens ver, o [início rápido do AKS][aks-quickstart].
 
-## <a name="install-helm-cli"></a>Instale o Helm CLI
-
-O Helm é um cliente que é executado no sistema de desenvolvimento e permite-lhe iniciar, parar e gerir aplicações com Helm.
-
-Se utilizar o Azure Cloud Shell, o Helm CLI já está instalado. Para instalar a CLI do Helm num Mac, utilize `brew`. Para instalação adicionais, consulte as opções [instalar o Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Saída:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+Também tem a CLI do Helm instalado, o cliente que é executado no sistema de desenvolvimento e permite-lhe iniciar, parar e gerir aplicações com Helm. Se utilizar o Azure Cloud Shell, o Helm CLI já está instalado. Para obter instruções de instalação na sua plataforma de local, veja [instalar o Helm][helm-install].
 
 ## <a name="create-a-service-account"></a>Criar uma conta de serviço
 
-Antes de poder implementar Helm num cluster habilitados no RBAC, terá uma conta de serviço e o enlace de função para o serviço de Tiller. Para obter mais informações sobre como proteger o Helm / Tiller num RBAC ativado o cluster, consulte [Tiller, espaços de nomes e RBAC][tiller-rbac]. Se o cluster não for RBAC ativada, ignore este passo.
+Antes de poder implementar Helm num cluster do AKS habilitados no RBAC, terá uma conta de serviço e o enlace de função para o serviço de Tiller. Para obter mais informações sobre como proteger o Helm / Tiller num RBAC ativado o cluster, consulte [Tiller, espaços de nomes e RBAC][tiller-rbac]. Se o cluster do AKS não for RBAC ativada, ignore este passo.
 
 Crie um ficheiro denominado `helm-rbac.yaml` e copie o YAML seguinte:
 
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-Criar a conta de serviço e a associação de função com o `kubectl create` comando:
+Criar a conta de serviço e a associação de função com o `kubectl apply` comando:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>Proteger Tiller e Helm
@@ -96,7 +73,7 @@ Para implementar um Tiller básico para um cluster do AKS, utilize o [helm init]
 helm init --service-account tiller
 ```
 
-Se configurou o TLS/SSL entre o Helm e Tiller fornecem o `--tiller-tls-` parâmetros e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
+Se configurou o TLS/SSL entre o Helm e Tiller fornecem o `--tiller-tls-*` parâmetros e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
 
 ```console
 helm init \

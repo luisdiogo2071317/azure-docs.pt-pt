@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 ms.author: douglasl
-ms.openlocfilehash: eed589cd78211cfe3955f591ce1f165e989b1308
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: ff9bfce1f9262d78ba17abdd88c481d5057d5f38
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904299"
+ms.locfileid: "49076424"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Atividade de variável de conjunto de Azure Data Factory
 
-Utilize a atividade definir variável para definir o valor de uma variável existente definido no pipeline do Data Factory.
+Utilize a atividade definir variável para definir o valor de uma variável existente do tipo cadeia, booleano ou matriz definidos no pipeline do Data Factory.
 
 ## <a name="type-properties"></a>Propriedades do tipo
 

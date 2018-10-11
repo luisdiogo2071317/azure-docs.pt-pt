@@ -3,22 +3,22 @@ title: Utilizar a API do Azure Stack | Documentos da Microsoft
 description: Saiba como obter uma autenticação do Azure para efetuar pedidos da API para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346795"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078335"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -28,7 +28,7 @@ ms.locfileid: "37346795"
 
 Pode utilizar o Application Programming Interface (API) para automatizar as operações como adicionar uma VM para a cloud do Azure Stack.
 
-A API requer que seu cliente autenticar para o ponto de final de início de sessão do Microsoft Azure. O ponto final devolve um token para utilizar no cabeçalho de cada pedido enviado para a API do Azure Stack. Microsoft Azure utiliza o Oauth 2.0.
+A API requer que seu cliente autenticar para o Microsoft Azure início de sessão no ponto final. O ponto final devolve um token para utilizar no cabeçalho de cada pedido enviado para a API do Azure Stack. Microsoft Azure utiliza o Oauth 2.0.
 
 Este artigo fornece exemplos que utilizam o **cURL** utilitário para criar pedidos do Azure Stack. O aplicativo, o cURL, é uma ferramenta de linha de comando com uma biblioteca para a transferência de dados. Estes exemplos percorrer o processo de obtenção de um token para aceder à API do Azure Stack. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que têm tarefas robustas de gestão e o identificador de token esse tipo de atualização do token.
 
@@ -218,6 +218,6 @@ https://adminmanagement.local.azurestack.external/{subscription id}/resourcegrou
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre como utilizar os pontos de extremidade RESTful do Azure, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).

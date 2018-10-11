@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9159ade6e16c1d14149197e85cee8720dd98b09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b226aeac86084c56a49d00c2a2f8deddaf7b0f68
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381491"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068779"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders 
 
@@ -52,7 +52,7 @@ O **ClaimsProvider** elemento contém elementos subordinados:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | Uma cadeia de caracteres que contém o nome de domínio para o fornecedor de afirmações. Por exemplo, se o seu fornecedor de afirmações inclui o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de afirmações, a menos que substituído pelo perfil de técnico. |
+| Domain | 0:1 | Uma cadeia de caracteres que contém o nome de domínio para o fornecedor de afirmações. Por exemplo, se o seu fornecedor de afirmações inclui o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de afirmações, a menos que substituído pelo perfil de técnico. O nome de domínio também pode ser referenciado num **domain_hint**. Para obter mais informações, consulte a **redirecionar início de sessão para um fornecedor de redes sociais** secção [configurar direto início de sessão através do Azure Active Directory B2C](direct-signin.md). |
 | Nome a Apresentar | 0:1 | Uma cadeia que contém o nome do fornecedor de afirmações que pode ser apresentado aos utilizadores. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportado pelo fornecedor de afirmação |
 

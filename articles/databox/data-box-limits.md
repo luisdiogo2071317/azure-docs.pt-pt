@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: fe42380288c0f139a2bae80a12f0ebc428a4c286
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1aeabd2de529d2c6b3159d9cd65996fb5096d0a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993088"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069374"
 ---
 # <a name="azure-data-box-limits"></a>Limites do Azure Data Box
 
@@ -35,7 +35,7 @@ Considere estes limites, como implantar e operar o Microsoft Azure Data Box. A t
 
 ## <a name="data-box-limits"></a>Limites da caixa de dados
 
-- Caixa de dados pode armazenar um máximo de 5 milhões de ficheiros.
+- Caixa de dados pode armazenar um máximo de 500 milhões de ficheiros.
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 
@@ -44,7 +44,7 @@ Esta secção descreve os limites para o serviço de armazenamento do Azure e as
 Para obter as informações mais recentes sobre os limites de serviço de armazenamento do Azure e práticas recomendadas para a nomenclatura de partilhas, contentores e ficheiros de mensagens em fila, aceda a:
 
 - [Nomenclatura e referência para contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Nomenclatura e referência de partilhas](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Nomenclatura e referência a partilhas)
 - [Blobs de blocos e as convenções de blob de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]

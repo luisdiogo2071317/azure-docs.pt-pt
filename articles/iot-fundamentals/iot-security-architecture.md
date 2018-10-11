@@ -1,26 +1,22 @@
 ---
 title: Arquitetura de segurança de IoT
 description: Considerações e diretrizes de arquitetura de segurança de IoT
-author: dominicbetts
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.author: dobett
-ms.openlocfilehash: 7ff0ef9ef41891a22b516d922fd6b347545e37db
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: a356c068a54833d66bdc600ad3caeb21e49ea815
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056734"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067604"
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre como proteger uma solução criada por um acelerador de solução de IoT, veja [proteger a sua implementação de IoT][lnk-security-deployment].
+Para saber mais sobre como proteger uma solução criada por um acelerador de solução de IoT, veja [proteger a sua implementação de IoT](iot-security-deployment.md).
 
-Saiba mais sobre segurança de IoT Hub no [controlar o acesso ao IoT Hub] [ lnk-devguide-security] no Guia do programador do IoT Hub.
-
-[lnk-security-deployment]: iot-security-deployment.md
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security
+Saiba mais sobre segurança de IoT Hub no [controlar o acesso ao IoT Hub](../iot-hub/iot-hub-devguide-security.md) no Guia do programador do IoT Hub.

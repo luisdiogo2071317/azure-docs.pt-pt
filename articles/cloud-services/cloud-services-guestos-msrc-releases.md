@@ -11,17 +11,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/9/2018
 ms.author: raiye
-ms.openlocfilehash: c0eff5054b186ebc701e88d793992c8729408b7d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f0fe3d66430c17c417de7ecd808069ba76a57ef5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606002"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069544"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="september-guest-os"></a>SO de convidado de Setembro
+> [!NOTE]
+> O sistema operacional convidado de Setembro está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO de convidado de Setembro. Esta lista está sujeita a alterações.
+
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-09 | [4457131] | Segurança do Windows 10 | 5.23 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457145] | Segurança do Windows apenas | 2.78 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457140] | Segurança do Windows apenas | 3.65 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457143] | Segurança do Windows apenas | 4.58 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457055], [4457030] | .NET 3.5, segurança 4.5 | 2.78 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, segurança 4.x | 3.65 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, segurança 4.x | 4.58 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | 11 de Setembro de 2018 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | 11 de Setembro de 2018 |
+| N/A | [4343900] | Rollup de Agosto sem segurança | 2.78 | 14 de Agosto de 2018 |
+| N/A | [4344152] | Rollup de Agosto sem segurança .NET 3.5 | 2.78 | 14 de Agosto de 2018 |
+| N/A | [4344149] | X rollup Agosto sem segurança .NET 4 | 2.78 | 14 de Agosto de 2018 |
+| N/A | [4343901] | Rollup de Agosto sem segurança | 3.65 | 14 de Agosto de 2018 |
+| N/A | [4344150] | Rollup de Agosto sem segurança .NET 3.5 | 3.65 | 14 de Agosto de 2018 |
+| N/A | [4344148] | X rollup Agosto sem segurança .NET 4 | 3.65 | 14 de Agosto de 2018 |
+| N/A | [4343898] | Rollup de Agosto sem segurança | 4.58 | 14 de Agosto de 2018 |
+| N/A | [4344153] | Rollup de Agosto sem segurança .NET 3.5 | 4.58 | 14 de Agosto de 2018 |
+| N/A | [4344147] | X rollup Agosto sem segurança .NET 4 | 4.58 | 14 de Agosto de 2018 |
 
 ## <a name="august-guest-os"></a>SO de convidado de Agosto
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -45,7 +70,6 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4338815] |Rollup de Julho sem segurança |4.57 | 10 de Julho de 2018 |
 | N/A | [4338424] |Rollup de Julho sem segurança .NET 3.5 |3.64 | 10 de Julho de 2018 |
 | N/A | [4338415] |X rollup Julho sem segurança .NET 4 |3.64 | 10 de Julho de 2018 |
-
 
 ## <a name="july-guest-os"></a>SO de convidado de Julho
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -717,6 +741,27 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[2999802] |Sólido linhas em vez de linhas pontilhadas são impressas em Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2896881] |Hora de início de sessão há muito tempo quando utiliza o comando AddPrinterConnection VBScript para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4343887]: http://support.microsoft.com/kb/4343887
 [4343899]: http://support.microsoft.com/kb/4343899

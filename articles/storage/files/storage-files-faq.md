@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 7cab1d0594792437c03427177159b193765aa92e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b3aca33bea8f7847b7069bba3f2a6dcd143cf29c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871000"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079134"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -149,7 +149,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Por que os ficheiros em camadas existem fora do espaço de nomes de ponto final de servidor?**  
-    Antes da versão do agente do Azure File Sync 3, o Azure File Sync bloqueado a movimentação de ficheiros em camadas fora o ponto final do servidor, mas no mesmo volume que o ponto final do servidor. Operações de cópia, move de ficheiros em camadas não e se move de camadas para outros volumes foram afetados. O motivo para esse comportamento foi a pressuposição implícita Explorador de ficheiros e outras APIs do Windows com o que mover as operações no mesmo volume (quase) são instanenous mudar o nome de operações. Isso significa que move tornará o Explorador de ficheiros ou outros métodos de mudança (como linha de comandos ou PowerShell) pareça estar sem resposta enquanto o Azure File Sync solicitar os dados da cloud. A partir [versão do agente do Azure File Sync 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure File Sync permite-lhe mover um ficheiro em camadas fora o ponto final do servidor. Podemos evitar os efeitos negativos mencionados anteriormente, permitindo que o ficheiro em camadas para existir como um ficheiro em camadas fora o ponto final do servidor e, em seguida, recupera um arquivo em segundo plano. Isso significa que move no mesmo volume são instaneous, e podemos fazer todo o trabalho de recuperar o ficheiro no disco após a migração foi concluída. 
+    Antes da versão do agente do Azure File Sync 3, o Azure File Sync bloqueado a movimentação de ficheiros em camadas fora o ponto final do servidor, mas no mesmo volume que o ponto final do servidor. Operações de cópia, move de ficheiros em camadas não e se move de camadas para outros volumes foram afetados. O motivo para esse comportamento foi a pressuposição implícita Explorador de ficheiros e outras APIs do Windows com o que mover as operações no mesmo volume (quase) são instanenous mudar o nome de operações. Isso significa que move tornará o Explorador de ficheiros ou outros métodos de mudança (como linha de comandos ou PowerShell) pareça estar sem resposta enquanto o Azure File Sync solicitar os dados da cloud. A partir [versão do agente do Azure File Sync 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync permite-lhe mover um ficheiro em camadas fora o ponto final do servidor. Podemos evitar os efeitos negativos mencionados anteriormente, permitindo que o ficheiro em camadas para existir como um ficheiro em camadas fora o ponto final do servidor e, em seguida, recupera um arquivo em segundo plano. Isso significa que move no mesmo volume são instaneous, e podemos fazer todo o trabalho de recuperar o ficheiro no disco após a migração foi concluída. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Estou a ter um problema com o Azure File Sync em meu servidor (sincronização, na cloud a disposição em camadas, etc). Posso remover e recriar o ponto final do meu servidor?**  

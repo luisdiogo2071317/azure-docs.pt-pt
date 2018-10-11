@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395548"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069182"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -198,6 +198,20 @@ Também pode gerir as definições da aplicação de uma das seguintes outras fo
 * [No portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilizar o `--publish-local-settings` publicar opção nas ferramentas de núcleo de funções do Azure](functions-run-local.md#publish).
 * [Com a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Funções de monitorização
+
+É a forma recomendada para monitorizar a execução da sua função no Azure através da integração com o Azure Application Insights. Quando cria uma aplicação de funções no portal do Azure, esta integração é feita para, por predefinição. No entanto, quando criar a sua aplicação de função durante a publicação do Visual Studio, não é feita a integração na sua aplicação de função no Azure. Em vez disso, obtém incorporada Registro em log, que não é recomendado.
+
+Para ativar o Application Insights para a sua aplicação de função no Azure:
+
+1. Criar uma instância do Application Insights no [portal do Azure](https://portal.azure.com) e copie a chave de instrumentação. Para saber como, veja [manualmente ligar um recurso do App Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Adicionar uma aplicação definição denominada `APPINSIGHTS_INSTRUMENTATIONKEY` às definições da aplicação de função no Azure, conforme descrito na [definições da aplicação de função](#function-app-settings). Esta definição de aplicação contém a chave de instrumentação que criou no passo anterior.
+
+1. Remover o `AzureWebJobsDashboard` definição de aplicação a partir da aplicação de função no Azure, o que desativa o registo incorporado.  
+
+Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

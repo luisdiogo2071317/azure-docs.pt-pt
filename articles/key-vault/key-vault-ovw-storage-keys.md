@@ -9,16 +9,17 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 80601ed30785af37346f801b7e4f1c90e897b3cd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888130"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067742"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Azure Key Vault
 
-[!NOTE] [O armazenamento do Azure suporta agora a autorização do AAD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Recomendamos que utilize o Azure Active Directory para autenticação e autorização para o armazenamento de que os utilizadores não tenham de se preocupar sobre rotação das suas chaves de conta de armazenamento. 
+> [!NOTE]
+> [O armazenamento do Azure suporta agora a autorização do AAD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Recomendamos que utilize o Azure Active Directory para autenticação e autorização para o armazenamento de que os utilizadores não tenham de se preocupar sobre rotação das suas chaves de conta de armazenamento.
 
 - O Azure Key Vault gere chaves de uma conta de armazenamento do Azure (ASA).
     - Internamente, o Azure Key Vault pode listar as chaves de (sincronização) com uma conta de armazenamento do Azure.    

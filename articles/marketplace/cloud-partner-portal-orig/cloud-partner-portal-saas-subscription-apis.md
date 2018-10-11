@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0368d9822df193fbf00d8a2069108e23100a58cd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810594"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079321"
 ---
 <a name="saas-sell-through-azure---apis"></a>Venda de SaaS através do Azure - APIs
 ==============================
@@ -63,12 +63,14 @@ Para registar uma nova aplicação com o portal do Azure, execute os seguintes p
 
 4.  Na página de criar, introduza o seu aplicativo\'informações de registo de s:
     -   **Nome**: introduza um nome de aplicação com significado
-    -   **Tipo de aplicação**: selecione **aplicação Web / API** para [aplicativos de cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+    -   **Tipo de aplicação**: 
+        - Selecione **Nativa** para [aplicações cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
+        - Selecione **aplicação Web / API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         A mesma aplicação também pode expor um cliente e um recurso/API.
     -   **URL de início de sessão**: aplicativos de aplicação/API para a Web, indique o URL base da sua aplicação. Por exemplo, **http://localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
     -   **URI de redirecionamento**: aplicações para o nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp**.
 
-        Para obter exemplos específicos de aplicações web ou de aplicativos nativos, check-out de início rápido orientada instalações que estão disponíveis na secção começar a utilizar o [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![Registos de aplicações do AD de SaaS](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) para obter exemplos específicos de aplicações web ou aplicações nativas, veja o guia de introdução orientada instalações que estão disponíveis na secção introdução do [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
 5.  Quando terminar, clique em **Criar**. Azure AD atribui um ID de aplicação exclusivo para seu aplicativo e\'re direcionado para seu aplicativo\'página registo principal. Dependendo de se a sua aplicação é do tipo nativo ou Web, dispõe de várias opções para lhe adicionar mais capacidades.
 
@@ -112,7 +114,7 @@ Método HTTP
 |  Grant_type         | Verdadeiro         | Tipo de concessão. O valor predefinido é `client_credentials`.                    |
 |  Client_id          | Verdadeiro         |  Identificador de cliente/aplicação associado à aplicação do Azure AD.                  |
 |  client_secret      | Verdadeiro         |  Palavra-passe associado à aplicação do Azure AD.                               |
-|  Recurso           | Verdadeiro         |  Recurso de destino para a qual o token é solicitado. O valor predefinido é `b3cca048-ed2e-406c-aff2-40cf19fe7bf5`. |
+|  Recurso           | Verdadeiro         |  Recurso de destino para a qual o token é solicitado. O valor predefinido é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
@@ -120,7 +122,7 @@ Método HTTP
 
 |  **Nome**  | **Tipo**       |  **Descrição**    |
 | ---------- | -------------  | ------------------- |
-| 200 OK /    | TokenResponse  | Pedido efetuado com êxito   |
+| 200 OK    | TokenResponse  | Pedido efetuado com êxito   |
 |  |  |  |
 
 *TokenResponse*
@@ -170,6 +172,7 @@ Ação de publicação em resolver o ponto final permite aos utilizadores resolv
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Isso correlaciona todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | tipo de conteúdo       | Sim          | `application/json`                                        |
 | Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
+| x-ms-marketplace-token| Sim| O parâmetro de consulta token no URL quando o utilizador é redirecionado para o Web site de ISVS SaaS do Azure. **Nota:** URL descodificar o valor do token do navegador antes de o utilizar.|
 |  |  |  |
   
 
@@ -178,14 +181,16 @@ Ação de publicação em resolver o ponto final permite aos utilizadores resolv
  ``` json       
     { 
         “id”: “”, 
+        “subscriptionName”: “”,
         “offerId”:””, 
-         “planId”:””, 
+         “planId”:””
     }     
 ```
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
 | ID                 | Cadeia        | ID da subscrição SaaS.          |
+| subscriptionName| Cadeia| Nome da subscrição SaaS definida pelo utilizador no Azure ao subscrever o serviço SaaS.|
 | OfferId            | Cadeia        | ID de oferta que o utilizador inscrito. |
 | planId             | Cadeia        | ID do plano nos quais o utilizador inscrito.  |
 |  |  |  |
@@ -224,7 +229,7 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Subscrição de ID de SaaS.                              |
+| subscriptionId      | Id exclusivo da subscrição de saas, que é obtida depois de resolver o token através da API de resolver.                              |
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
@@ -237,19 +242,20 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 | If-Match/If-None-Match |   Não         |   Validador de valor de ETag forte.                                                          |
 | tipo de conteúdo           |   Sim        |    `application/json`                                                                   |
 |  Autorização         |   Sim        |    O JSON web token (JWT) token de portador.                                               |
+| x-ms-marketplace--modo de sessão| Não | Sinalizador para ativar o modo de execução ao subscrever uma oferta SaaS. Se definido, a subscrição não será cobrada. Isto é útil para cenários de teste de ISV. Defina-o como **'dryrun'**|
 |  |  |  |
 
 *Corpo*
 
 ``` json
   { 
-      “planId”:””, 
+      “planId”:””
    }      
 ```
 
 | **Nome do elemento** | **Tipo de dados** | **Descrição**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | Cadeia        | ID do plano nos quais o utilizador inscrito. |
+| planId           | (Obrigatório) Cadeia de caracteres        | Id do plano de utilizador de serviço SaaS está a subscrever.  |
 |  |  |  |
 
 *Códigos de resposta*
@@ -264,6 +270,8 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 | 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, tente novamente mais tarde.                  |
 | 503                  | `ServiceUnavailable` | Serviço para baixo temporariamente, tente novamente mais tarde.                          |
 |  |  |  |
+
+Para uma resposta 202, dar seguimento estado da operação de pedido no cabeçalho "Location de operação". A autenticação é o mesmo que outras APIs do Marketplace.
 
 *Cabeçalhos de resposta*
 
@@ -306,14 +314,14 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 
 ``` json
                 { 
-                    “planId”:””, 
+                    “planId”:””
                 } 
 ```
 
 
 |  **Nome do elemento** |  **Tipo de dados**  | **Descrição**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  Cadeia         | ID do plano nos quais o utilizador inscrito.         |
+|  planId           |  (Obrigatório) Cadeia de caracteres         | Id do plano de utilizador de serviço SaaS está a subscrever.          |
 |  |  |  |
 
 *Códigos de resposta*
@@ -377,6 +385,8 @@ A ação de eliminação no ponto de extremidade subscribe permite que um utiliz
 | 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, tente novamente mais tarde.                  |
 | 503                  | `ServiceUnavailable` | Serviço está temporariamente indisponível. Tente novamente mais tarde.                          |
 |  |  |  |
+
+Para uma resposta 202, dar seguimento estado da operação de pedido no cabeçalho "Location de operação". A autenticação é o mesmo que outras APIs do Marketplace.
 
 *Cabeçalhos de resposta*
 
@@ -457,7 +467,6 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 | x-ms-correlationid | Sim          | ID de correlação se transmitido pelo cliente, caso contrário, isso é o ID de correlação de servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Isto é utilizado para qualquer reconciliations. |
 | Retry-After        | Sim          | Intervalo com o cliente pode verificar o estado.                                                       |
-| Operação de localização | Sim          | Ligar a um recurso para obter o estado da operação.                                                        |
 |  |  |  |
 
 ### <a name="get-subscription"></a>Obter a subscrição
@@ -493,9 +502,9 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “” 
   }
 ```
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
@@ -541,7 +550,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/subscriptions?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -566,9 +575,9 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “”
   }
 ```
 

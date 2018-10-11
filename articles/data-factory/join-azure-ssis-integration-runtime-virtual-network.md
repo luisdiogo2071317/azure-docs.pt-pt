@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e6950c38db83efb57e5f3b1809aa6baa56532cd0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903050"
+ms.locfileid: "49068371"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -70,6 +70,8 @@ As secções seguintes fornecem mais detalhes.
 -   Certifique-se de que o grupo de recursos da rede virtual pode criar e eliminar determinados recursos de rede do Azure. Ver [os requisitos para o grupo de recursos](#resource-group). 
 
 ### <a name="perms"></a> Permissões necessárias
+
+O utilizador que cria o Runtime de integração Azure-SSIS tem de ter as seguintes permissões:
 
 - Se estiver a associar o IR de SSIS a uma rede virtual do Azure da versão atual, tem duas opções:
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 968651e2bd06d54c8b735bf2418e0d84b94f315d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886387"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078569"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Particionar e dimensionar no Azure Cosmos DB
 
@@ -185,7 +185,7 @@ Para obter mais informações, consulte [desenvolver com a API de tabela](tutori
 Com a API do Gremlin, pode utilizar o portal do Azure ou a CLI do Azure para criar um contentor que representa um gráfico. Em alternativa, como o Azure Cosmos DB é com múltiplos modelo, pode utilizar uma das outros APIs para criar e dimensionar o seu contentor de gráficos.
 
 > [!NOTE]
-> Não é possível utilizar `/id` como chave de partição para um contentor na API do Gremlin. 
+> `/id` e `/label` não são suportados como chaves de partição para um contentor na API do Gremlin.
 
 É possível ler qualquer vértice ou de extremidade usando a chave de partição e ID no Gremlin. Por exemplo, para um gráfico com a região ("USA") como a chave de partição e o "Seattle" como a chave de linha, pode encontrar um vértice, utilizando a seguinte sintaxe:
 
