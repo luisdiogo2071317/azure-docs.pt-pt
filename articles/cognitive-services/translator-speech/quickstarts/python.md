@@ -1,43 +1,45 @@
 ---
-title: Guia de introdução do Python para os serviços cognitivos do Azure, API de voz de Microsoft Translator | Documentos da Microsoft
-description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de voz do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Python da API de Voz do Microsoft Translator'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Voz do Microsoft Translator.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41987518"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979020"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Início rápido para a conversão de voz do Microsoft Translator API com Python 
+# <a name="quickstart-translator-speech-api-with-python"></a>Início Rápido: API de Voz do Microsoft Translator com Python
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como utilizar a API de voz do Microsoft Translator para traduzir palavras faladas num arquivo. wav.
+Este artigo mostra como utilizar a API de Voz do Microsoft Translator para traduzir linguagem falada num ficheiro .wav.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Python 3.x](https://www.python.org/downloads/) executar esse código.
+Vai precisar do [Python 3.x](https://www.python.org/downloads/) para executar este código.
 
-Terá de instalar o [pacote de cliente websocket](https://pypi.python.org/pypi/websocket-client) para Python.
+Terá de instalar o [pacote websocket-client](https://pypi.python.org/pypi/websocket-client) para Python.
 
-Precisará de um arquivo. wav com o nome "speak.wav" na mesma pasta que o executável que é compilar o código abaixo. Este arquivo. wav deve estar no PCM padrão, o formato de 16 bits, 16kHz, mono. 
+Vai necessitar de ter um ficheiro .wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro .wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz. 
 
-Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de voz do Microsoft Translator**. Precisará de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Tem de ter uma [conta de API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Voz do Microsoft Translator**. Necessita de uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Traduzir voz
 
 O código a seguir converte voz de um idioma para outro.
 
-1. Crie um novo projeto de Python no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto de Python com o seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```python
@@ -118,18 +120,18 @@ print ("Connecting...")
 client.run_forever()
 ```
 
-**Traduzir a resposta de voz**
+**Traduzir resposta de voz**
 
-Um resultado bem-sucedido é a criação de um arquivo chamado "speak2.wav". O ficheiro contém a tradução das palavras ditas "speak.wav".
+Um resultado com êxito é a criação de um ficheiro denominado "speak2.wav". O ficheiro contém a tradução da linguagem falada em "speak.wav".
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de fala do Microsoft Translator](../tutorial-translator-speech-csharp.md)
+> [Tutorial da Tradução de Voz](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de voz do Translator](../overview.md)
-[referência da API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
+[Descrição geral da Tradução de Voz](../overview.md)
+[Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

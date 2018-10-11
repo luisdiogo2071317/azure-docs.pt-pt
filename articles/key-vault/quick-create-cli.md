@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 958fbd507efeb161b169c01abf32012883017f18
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0214d6cf09795605bca60774604ecd1fec94fdc6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022768"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989435"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com a CLI do Azure
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 Para iniciar sessão no Azure através da CLI, pode escrever:
 
@@ -37,7 +37,7 @@ Para iniciar sessão no Azure através da CLI, pode escrever:
 az login
 ```
 
-Para obter mais informações sobre as opções de início de sessão através da CLI, veja [Iniciar sessão com a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Para obter mais informações sobre as opções de início de sessão através da CLI, veja [Iniciar sessão com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -100,4 +100,4 @@ az group delete --name ContosoResourceGroup
 Neste início rápido, criou um Key Vault e armazenou um segredo. Para saber mais sobre o Key Vault e como utilizá-lo com as suas aplicações, avance para o tutorial referente às aplicações Web que funcionam com o Key Vault.
 
 > [!div class="nextstepaction"]
-> Para saber como ler um segredo no Key Vault através de uma aplicação Web com identidades do serviço gerido, avance para o seguinte tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md) (Configurar uma aplicação Web do Azure para ler um segredo no Key Vault)
+> Para saber como ler um segredo a partir do Key Vault através de uma aplicação Web com identidades geridas para recursos do Azure, avance para o tutorial[Configurar uma aplicação Web do Azure para ler um segredo a partir do Key Vault](quick-create-net.md)

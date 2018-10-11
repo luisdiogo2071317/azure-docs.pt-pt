@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918517"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948888"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar uma aplicação Web do Azure para ler um segredo do Key Vault
 
-Neste tutorial, irá conhecer os passos necessários para que uma aplicação Web do Azure leia as informações do Cofre de chaves com identidades de serviço geridas. Saiba como:
+Neste tutorial, irá conhecer os passos necessários para que uma aplicação Web do Azure leia as informações do Cofre de Chaves através de identidades geridas para recursos do Azure. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um Key Vault.
 > * Armazene um segredo no Key Vault.
-> * Criar uma aplicação Web do Azure.
-> * Ativar as identidades de serviço geridas
+> * Criar uma Aplicação Web do Azure.
+> * Ative uma identidade gerida para a aplicação Web.
 > * Conceda as permissões necessárias para a aplicação ler dados do Cofre de chaves.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 Para iniciar sessão no Azure através da CLI, pode escrever:
 
@@ -218,9 +218,9 @@ Existem dois pacotes NuGet que a aplicação Web tem de ter instalados. Para ins
 >[!IMPORTANT]
 > É aberta uma janela do browser e verá uma mensagem de Falha de Processo - 502.5. Isto era esperado. Terá de conceder os direitos de identidade da aplicação para ler os segredos do Key Vault.
 
-## <a name="enable-managed-service-identity"></a>Ativar a Identidade de Serviço Gerida
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Ative uma identidade gerida para a aplicação Web
 
-O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
+O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. [A descrição geral das identidades geridas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) simplifica a resolução deste problema ao conferir aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
 1. Voltar à CLI do Azure
 2. Execute o comando assign-identity para criar a identidade para esta aplicação:
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->Este comando é o equivalente a ir para o portal e mudar a **Identidade do serviço gerido** para **Ativada** nas propriedades da aplicação Web.
+>Este comando é o equivalente a aceder ao portal e mudar a definição **Identidade/Sistema atribuído** para **Ativado** nas propriedades da aplicação Web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Conceder direitos para a identidade da aplicação
 

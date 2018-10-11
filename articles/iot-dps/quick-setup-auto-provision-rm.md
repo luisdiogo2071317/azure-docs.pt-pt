@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999052"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
-Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. Estes passos mostram como criar um hub IoT, um Serviço Aprovisionamento de Dispositivos no Hub IoT novo e associar ambos os serviços com um modelo do Azure Resource Manager. Este início rápido utiliza a [CLI 2.0 do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar programaticamente os passos necessários para criar um grupo de recursos e implementar o modelo, mas pode utilizar, de forma fácil, o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou outra linguagem de programação para realizá-los e implementar o modelo. 
+Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. Estes passos mostram como criar um hub IoT, um Serviço Aprovisionamento de Dispositivos no Hub IoT novo e associar ambos os serviços com um modelo do Azure Resource Manager. Este Início Rápido utiliza a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar programaticamente os passos necessários para criar um grupo de recursos e implementar o modelo, mas pode utilizar, de forma fácil, o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou outra linguagem de programação para realizá-los e implementar o modelo. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Este início rápido requer que execute a CLI do Azure localmente. Tem de ter instalada a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Este início rápido requer que execute a CLI do Azure localmente. Tem de ter instalada a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Iniciar sessão e criar um grupo de recursos

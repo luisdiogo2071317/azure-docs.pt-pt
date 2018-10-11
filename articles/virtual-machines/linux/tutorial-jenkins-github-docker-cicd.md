@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d1d760c2642e0c986e50570630d31dda11d17478
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41921051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964743"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 
@@ -37,7 +37,7 @@ Para automatizar a fase de criação e teste do desenvolvimento de aplicações,
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Criar instância do Jenkins
 Num tutorial anterior sobre [Como personalizar uma máquina virtual do Linux no primeiro arranque](tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VMs com inicialização da cloud. Este tutorial utiliza um ficheiro de inicialização da cloud para instalar o Jenkins e o Docker numa VM. O Jenkins é um servidor de automatização de código aberto popular, que se integra totalmente no Azure para permitir a integração contínua (CI) e a entrega contínua (CD). Para obter mais tutoriais sobre como utilizar o Jenkins, veja o [Jenkins no hub do Azure](https://docs.microsoft.com/azure/jenkins/).
@@ -241,7 +241,7 @@ Neste tutorial, configurou o GitHub para executar uma tarefa de compilação do 
 > * Criar uma imagem do Docker para a aplicação
 > * Verificar se as consolidações do GitHub criam uma nova imagem do Docker e atualizam a aplicação em execução
 
-Avance para o próximo tutorial para obter mais informações sobre como integrar o Jenkins no Visual Studio Team Services.
+Avance para o próximo tutorial para saber mais sobre como integrar o Jenkins no Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Implementar aplicações com o Jenkins e Team Services](tutorial-build-deploy-jenkins.md)
+> [Implementar aplicações com o Jenkins e o Azure DevOps Services](tutorial-build-deploy-jenkins.md)

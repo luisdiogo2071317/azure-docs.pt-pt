@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574186"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967630"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
@@ -52,6 +52,14 @@ Os domínios e registos podem ser geridos com o portal do Azure, cmdlets do Azur
 O DNS do Azure também suporta domínios DNS privados, que se encontram atualmente em pré-visualização pública. Isto permite-lhe utilizar os seus próprios nomes de domínio personalizados nas suas redes virtuais privadas, em vez dos nomes apresentados pelo Azure atualmente disponíveis.
 
 Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md).
+
+## <a name="alias-records"></a>Registos de alias
+
+O DNS do Azure suporta conjuntos de registos de alias. Pode utilizar um conjunto de registos de alias para fazer referência a um recurso do Azure, como um endereço IP público do Azure ou um perfil do Gestor de Tráfego. Se o endereço IP do recurso subjacente for alterado, o conjunto de registos de alias atualiza-se automaticamente durante a resolução de DNS. O conjunto de registo de alias aponta para a instância do serviço e esta está associada a um endereço IP. 
+
+Além disso, pode agora apontar o seu apex ou domínio sem "www" (por exemplo, contoso.com) para um perfil de Gestor de Tráfego através de um registo de alias.
+
+Para obter mais informações, consulte [Descrição geral do registo de alias do DNS do Azure](dns-alias.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes

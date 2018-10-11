@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Instalar aplicações num conjunto de dimensionamento com a CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como utilizar a CLI do Azure 2.0 para instalar aplicações nos conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
+title: Tutorial - Instalar aplicações num conjunto de dimensionamento com a CLI do Azure | Microsoft Docs
+description: Saiba como utilizar a CLI do Azure para instalar aplicações nos conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21b85a3afa8e955661b3acbe5c7e4cb463a6d23f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606530"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986188"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
@@ -35,13 +35,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>O que é a Extensão de Script Personalizado do Azure?
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão.
 
-A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager, podendo também ser utilizada com a CLI do Azure 2.0, o Azure PowerShell, o Portal do Azure ou a API REST. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
+A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager e pode também ser utilizada com a CLI do Azure, o Azure PowerShell, o portal do Azure ou a API REST. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
 
 Para utilizar a Extensão de Script Personalizado com a CLI do Azure, crie um ficheiro JSON que defina que ficheiros obter e comandos executar. Estas definições de JSON podem ser reutilizadas em implementações de conjuntos de dimensionamento para aplicar instalações de aplicações consistentes.
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, aprendeu como instalar e atualizar automaticamente aplicações no seu conjunto de dimensionamento com a CLI do Azure 2.0:
+Neste tutorial, aprendeu a instalar e atualizar automaticamente aplicações no seu conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]
 > * Instalar automaticamente aplicações no seu conjunto de dimensionamento

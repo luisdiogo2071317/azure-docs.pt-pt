@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure| Microsoft Docs
+title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure| Microsoft Docs
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais com o Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 9df1ce48f3851fb0d5576315ac63f9f923059ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 348074592da8465762b178b49af4713aadcc8c8d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630119"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970664"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
-Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI 2.0 do Azure.
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
+Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento

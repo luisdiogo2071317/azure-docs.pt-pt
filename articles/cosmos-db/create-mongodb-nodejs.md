@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 9fcc03721d410d4d7b8cfed0f8fa5b0ae8cf80ae
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 00824dc7a4fa7589fd01568b82351a68e1d44faa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698099"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983570"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: migrar uma aplicação Web MongoDB Node.js existente 
 
@@ -31,7 +31,7 @@ ms.locfileid: "43698099"
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este guia de introdução demonstra como utilizar uma aplicação MongoDB existente escrita em Node.js e como ligá-la à base de dados do Azure Cosmos DB, que suporta ligações de cliente do MongoDB com a [API MongoDB](mongodb-introduction.md). Por outras palavras, a aplicação Node.js sabe apenas que está a ligar a uma base de dados através das APIs MongoDB. É transparente para a aplicação onde os dados são armazenados no Azure Cosmos DB.
+Este início rápido demonstra como utilizar uma aplicação MongoDB existente escrita em Node.js e como ligá-la à base de dados do Azure Cosmos DB, que suporta ligações de cliente do MongoDB com a [API MongoDB](mongodb-introduction.md). Por outras palavras, a aplicação Node.js sabe apenas que está a ligar a uma base de dados através das APIs MongoDB. É transparente para a aplicação onde os dados são armazenados no Azure Cosmos DB.
 
 Quando terminar, terá uma aplicação MEAN (MongoDB, Express, Angular e Node.js) em execução no [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
@@ -40,7 +40,7 @@ Quando terminar, terá uma aplicação MEAN (MongoDB, Express, Angular e Node.js
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
@@ -95,7 +95,7 @@ az login
 
 Se estiver a utilizar uma CLI do Azure instalada, veja se o componente `cosmosdb` já está instalado ao executar o comando `az`. Se `cosmosdb` está na lista de comandos de base, siga para o próximo comando. Pode ignorar esta etapa se estiver a utilizar o Azure Cloud Shell.
 
-Se `cosmosdb` não está na lista de comandos de base, reinstale a [CLI do Azure 2.0]( /cli/azure/install-azure-cli).
+Se `cosmosdb` não estiver na lista de comandos de base, reinstale a [CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -124,7 +124,7 @@ O parâmetro `--kind MongoDB` permite ligações de cliente da MongoDB.
 Após criar a conta do DB Cosmos Azure, a CLI do Azure mostra informações semelhantes ao exemplo seguinte. 
 
 > [!NOTE]
-> Este exemplo utiliza o JSON como formato de saída da CLI do Azure, que é a predefinição. Para utilizar outro formato de saída, veja [Formatos de saída para os comandos da CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> Este exemplo utiliza o JSON como formato de saída da CLI do Azure, que é a predefinição. Para utilizar outro formato de saída, veja [Formatos de saída para os comandos da CLI do Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 
 ```json
 {

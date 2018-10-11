@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820296"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949531"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 O Microsoft Azure é uma coleção crescente de serviços na cloud pública, incluindo análises, máquinas virtuais, bases de dados e capacidades móveis, Web, de rede e de armazenamento,&mdash;ideal para alojar as suas soluções.  O Microsoft Azure fornece uma plataforma informática dimensionável que lhe permite pagar apenas aquilo que utiliza, quando quer utilizar, sem que precise de investir em hardware no local.  O Azure está sempre pronto quando precisa de aumentar as suas soluções vertical e horizontalmente até atingir a dimensão de que necessita para satisfazer as necessidades dos seus clientes.
@@ -37,7 +37,7 @@ O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9%
 
 ## <a name="managed-disks"></a>Managed Disks
 
-O Managed Disks processa a criação e a gestão da conta de Armazenamento do Azure em segundo plano por si e assegura que não tem de se preocupar com os limites de escalabilidade da conta de armazenamento. Especifique o tamanho do disco e o escalão de desempenho (Standard ou Premium), e o Azure cria e gere o disco. Conforme adiciona discos ou aumente e reduza verticalmente a VM, não terá de se preocupar se o armazenamento está a ser utilizado. Se estiver a criar VMs novas, [utilize a CLI 2.0 do Azure](quick-create-cli.md) ou o portal do Azure para criar as VMs com discos de dados e de SO geridos. Se tiver VMs com discos não geridos, pode [converter as VMs para a criação de cópias de segurança com o Managed Disk](convert-unmanaged-to-managed-disks.md).
+O Managed Disks processa a criação e a gestão da conta de Armazenamento do Azure em segundo plano por si e assegura que não tem de se preocupar com os limites de escalabilidade da conta de armazenamento. Especifique o tamanho do disco e o escalão de desempenho (Standard ou Premium), e o Azure cria e gere o disco. Conforme adiciona discos ou aumente e reduza verticalmente a VM, não terá de se preocupar se o armazenamento está a ser utilizado. Se estiver a criar VMs novas, [utilize a CLI do Azure](quick-create-cli.md) ou o portal do Azure para criar as VMs com discos de dados e de SO geridos. Se tiver VMs com discos não geridos, pode [converter as VMs para a criação de cópias de segurança com o Managed Disk](convert-unmanaged-to-managed-disks.md).
 
 Também pode gerir as imagens personalizadas numa conta de armazenamento por região do Azure e utilizá-las para criar centenas de VMs na mesma subscrição. Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../linux/managed-disks-overview.md).
 
@@ -91,7 +91,7 @@ Para começar a utilizar o Azure, precisa de uma conta do Azure, da CLI do Azure
 O primeiro passo para utilizar a Cloud do Azure é inscrever-se numa conta do Azure.  Para começar, aceda à página [Incsrição na Conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="install-the-cli"></a>Instalar a CLI
-Com a conta do Azure nova, pode começar a utilizar o portal do Azure imediatamente, que é um painel de administração baseado na Web.  Para gerir a Cloud do Azure através da linha de comandos, instale `azure-cli`.  Instale a [CLI 2.0 do Azure](/cli/azure/install-azure-cli) na sua área de trabalho Mac ou Linux.
+Com a conta do Azure nova, pode começar a utilizar o portal do Azure imediatamente, que é um painel de administração baseado na Web.  Para gerir a Cloud do Azure através da linha de comandos, instale `azure-cli`.  Instale a [CLI do Azure](/cli/azure/install-azure-cli) na sua área de trabalho Mac ou Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 Tem agora uma conta do Azure, o portal Web do Azure e a CLI do Azure.  O passo seguinte consiste em criar um par de chaves SSH que é utilizado para aceder através de SSH ao Linux sem utilizar uma palavra-passe.  [Crie chaves SSH em Linux e Mac](mac-create-ssh-keys.md) para permitir inícios de sessão sem palavra-passe e uma segurança melhor.

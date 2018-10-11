@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955814"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar uma partilha de ficheiros nos Ficheiros do Azure
 Pode criar partilhas de Ficheiros do Azure com o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Neste tutorial, irá aprender:
@@ -47,7 +47,7 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
 > [!Note]  
 > É recomendado que transfira e instale ou atualize para o módulo do Azure PowerShell mais recente.
 
-1. **Crie um contexto para a conta de armazenamento e a chave** O contexto contém o nome da conta de armazenamento e a chave da conta. Para obter instruções sobre a cópia da chave de conta a partir do [portal do Azure](https://portal.azure.com/), veja [View and copy storage access keys (Ver e copiar chaves de acesso de armazenamento)](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+1. **Crie um contexto para a conta de armazenamento e a chave** O contexto contém o nome da conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta a partir do [portal do Azure](https://portal.azure.com/), veja [Storage account access keys](../common/storage-account-manage.md#access-keys) (Chaves de acesso das contas de armazenamento).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -64,7 +64,7 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Criar a partilha de Ficheiros através da Interface de Linha de Comandos (CLI)
 1. **Para se preparar para utilizar uma Interface de Linha de Comandos (CLI), transfira e instale a CLI do Azure.**  
-    Veja [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+    Veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Crie uma cadeia de ligação para a conta de armazenamento na qual quer criar a partilha.**  
     Substitua ```<storage-account>``` e ```<resource_group>``` pelo nome da conta de armazenamento e pelo grupo de recursos do exemplo seguinte:

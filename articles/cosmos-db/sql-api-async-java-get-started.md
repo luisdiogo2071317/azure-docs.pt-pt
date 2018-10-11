@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: faa213caf415f98c230af741822e17a511b6fe43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696300"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962217"
 ---
 # <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Criar uma aplicação Java com o SDK de Async Java do Azure Cosmos DB 
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696300"
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js– v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 O Azure Cosmos DB é uma base de dados com múltiplos modelos distribuída globalmente. Este tutorial mostra como utilizar contas da API de SQL do Azure Cosmos DB para armazenar e aceder a dados com uma aplicação Async Java. 
@@ -80,7 +79,7 @@ O diretório contém um `pom.xml` para o projeto e uma pasta `src/main/java/com/
 ## <a id="Connect"></a>Passo 3: Ligar a uma conta do Azure Cosmos DB
 Em seguida, regresse ao [Portal do Azure](https://portal.azure.com) para obter o seu ponto final e a chave mestra primária. O ponto final e a chave primária do Azure Cosmos DB são necessários para que a sua aplicação saiba onde ligar e para que o Azure Cosmos DB confie na ligação da sua aplicação. O ficheiro `AccountSettings.java` contém a chave primária e os valores URI. 
 
-No Portal do Azure, navegue até à sua conta do Azure Cosmos DB e, em seguida, clique em **Chaves**. Copie o URI e a CHAVE PRIMÁRIA do portal e cole-os no ficheiro `AccountSettings.java`. 
+No Portal do Azure, navegue até à sua conta do Azure Cosmos DB e clique em **Chaves**. Copie o URI e a CHAVE PRIMÁRIA do portal e cole-os no ficheiro `AccountSettings.java`. 
 
 ```java
 public class AccountSettings 
@@ -101,7 +100,7 @@ public class AccountSettings
 ![Captura de ecrã do Portal do Azure utilizado pelo tutorial NoSQL para criar uma aplicação de consola Java. Mostra uma conta do Azure Cosmos DB, com o ACTIVE hub realçado, o botão CHAVES realçado no painel de conta do Azure Cosmos DB e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados no painel de Chaves][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>Passo 4: Inicializar o objeto de cliente
-Inicialize o objeto de cliente com o URI anfitrião e os valores de chave primária definidos no ficheiro "AccountSettings.java"
+Inicialize o objeto de cliente com o URI de anfitrião e os valores de chave primária definidos no ficheiro "AccountSettings.java"
 
 ```java
 client = new AsyncDocumentClient.Builder()

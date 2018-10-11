@@ -9,11 +9,12 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f12fc0baa055e62d4f15c0e42eb7add3661ea6fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973597"
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introdução ao Azure Container Service para Kubernetes
 
@@ -27,7 +28,7 @@ Ao utilizar o Azure Container Service, pode tirar partido das funcionalidades de
 O nosso objetivo para o Azure Container Service é fornecer um ambiente de alojamento de contentores, utilizando ferramentas e tecnologias open-source que são atualmente populares entre os nossos clientes. Para este fim, expomos os pontos finais da API do Kubernetes padrão. Ao utilizar estes pontos finais padrão, pode tirar partido de qualquer software que consiga comunicar com um cluster do Kubernetes. Por exemplo, pode escolher [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) ou [draft](https://github.com/Azure/draft).
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service"></a>Criar um cluster do Kubernetes com o Azure Container Service
-Para começar a utilizar o Azure Container Service, implemente um cluster deste serviço com a [CLI 2.0 do Azure](container-service-kubernetes-walkthrough.md) ou através do portal (procure **Azure Container Service** no Marketplace). Se for utilizador avançado e precisar de mais controlo sobre os modelos do Azure Resource Manager, pode utilizar o projeto [acs-engine](https://github.com/Azure/acs-engine) para criar o seu próprio cluster do Kubernetes personalizado e implementá-lo através da CLI `az`.
+Para começar a utilizar o Azure Container Service, implemente um cluster deste serviço com a [CLI do Azure](container-service-kubernetes-walkthrough.md) ou através do portal (procure **Azure Container Service** no Marketplace). Se for utilizador avançado e precisar de mais controlo sobre os modelos do Azure Resource Manager, pode utilizar o projeto [acs-engine](https://github.com/Azure/acs-engine) para criar o seu próprio cluster do Kubernetes personalizado e implementá-lo através da CLI `az`.
 
 ### <a name="using-kubernetes"></a>Utilizar Kubernetes
 O Kubernetes automatiza a implementação, o dimensionamento e a gestão de aplicações no contentor. Tem um conjunto avançado de funcionalidades, incluindo:

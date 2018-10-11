@@ -1,41 +1,41 @@
 ---
-title: Criar uma função no Azure que é implementada a partir do Visual Studio Team Services | Microsoft Docs
-description: Criar uma Aplicação de Funções e implementar código de função a partir do Visual Studio Team Services
+title: Criar uma função no Azure que é implementada a partir do Azure DevOps | Microsoft Docs
+description: Criar uma Function App e implementar código de função a partir do Azure DevOps
 services: functions
 keywords: ''
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fdc2f50be035c3fe4039c48c09436215d2f5bcc3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988957"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956613"
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Criar uma aplicação de funções e implementar código de função a partir do Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Criar uma Function App e implementar código de função a partir do Azure DevOps
 
-Este tópico mostra como utilizar as Funções do Azure para criar uma aplicação de funções [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) através do [plano de consumo](../functions-scale.md#consumption-plan). A aplicação de funções, que é um contentor para as suas funções, é continuamente implementada a partir de um repositório do Visual Studio Team Services (VSTS). 
+Este tópico mostra como utilizar as Funções do Azure para criar uma aplicação de funções [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) através do [plano de consumo](../functions-scale.md#consumption-plan). A aplicação de funções, que é um contentor para as suas funções, é continuamente implementada a partir de um repositório do Azure DevOps. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 Para concluir este tópico, tem de ter:
 
-* Um repositório do VSTS que contém o projeto da aplicação de funções e para o qual tem permissões administrativas.
-* Um [token de acesso pessoal (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) para aceder ao seu repositório do VSTS.
+* Um repositório do Azure DevOps que contém o projeto da aplicação de funções e para o qual tem permissões administrativas.
+* Um [token de acesso pessoal (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) para aceder ao seu repositório do Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se, em vez disso, utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se, em vez disso, utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este exemplo cria uma Aplicação de Funções e implementa código de função a partir do Visual Studio Team Services.
+Este exemplo cria uma Function App do Azure e implementa código de função a partir do Azure DevOps.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 

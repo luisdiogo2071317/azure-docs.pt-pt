@@ -10,14 +10,18 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918414"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967902"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: Classificar Íris com a interface de linha de comandos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
 
 Neste tutorial, vai aprender a utilizar as ferramentas da interface de linha de comandos (CLI) nas funcionalidades de pré-visualização do Azure Machine Learning para: 
@@ -34,7 +38,7 @@ Para concluir este tutorial, precisa de:
   
   Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Aplicação do Azure Machine Learning Workbench instalada, conforme descrito em [Início Rápido: Instalar e iniciar os serviços do Azure Machine Learning](../service/quickstart-installation.md). 
+- Aplicação do Azure Machine Learning Workbench instalada, conforme descrito em [Início Rápido: Instalar e iniciar o serviço do Azure Machine Learning](quickstart-installation.md). 
 
   >[!IMPORTANT]
   >Não crie as contas do serviço Azure Machine Learning, uma vez que vai fazê-lo com a CLI neste artigo.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Criar um projeto novo associado a um repositório Git na cloud
-Pode criar um projeto novo associado a um repositório Git do VSTS (Visual Studio Team Service). Sempre que for submetida uma experimentação, é consolidado um instantâneo de toda a pasta do projeto para o repositório Git remoto. Veja [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) (Utilizar o repositório Git com um projeto do Azure Machine Learning Workbench) para obter mais detalhes.
+Pode criar um projeto novo associado a um repositório Git do Azure DevOps. Sempre que for submetida uma experimentação, é consolidado um instantâneo de toda a pasta do projeto para o repositório Git remoto. Veja [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) (Utilizar o repositório Git com um projeto do Azure Machine Learning Workbench) para obter mais detalhes.
 
 > [!NOTE]
-> O Azure Machine Learning só suporta repositórios Git vazios criados no VSTS.
+> O Azure Machine Learning só suporta repositórios Git vazios criados no Azure DevOps.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Se estiver a receber o erro "Repository url might be invalid or user might not have access" (“O url do repositório pode ser inválido ou o utilizador pode não ter acesso”), pode criar um token de segurança no VSTS (no menu _Security_ [Segurança], _Add personal access tokens_ [Adicionar tokens de acesso pessoal]) e utilizar o argumento `--vststoken` quando criar o projeto. 
+> Se estiver a receber um erro "Repository url might be invalid or user might not have access" (“O url do repositório pode ser inválido ou o utilizador pode não ter acesso”), pode criar um token de segurança no Azure DevOps (no menu _Security_ [Segurança], _Add personal access tokens_ [Adicionar tokens de acesso pessoal]) e utilizar o argumento `--vststoken` quando criar o projeto. 
 
 ### <a name="sample_create"></a>Criar um projeto novo a partir de um exemplo
 Neste exemplo, vai criar um projeto novo mediante a utilização de um projeto de exemplo como modelo.

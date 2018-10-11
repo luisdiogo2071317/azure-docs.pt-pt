@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure 2.0 - Utilizar uma imagem de VM personalizada | Microsoft Docs
-description: Exemplos da CLI 2.0 do Azure
+title: Exemplos da CLI do Azure - Utilizar uma imagem de VM personalizada | Microsoft Docs
+description: Exemplos da CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c13b8275b69579e6645a5a0fa0c9d446c0246a48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a74e84b05269acc0d9f98a221b9e496dbe5fc75f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986086"
 ---
-# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>Criar um conjunto de dimensionamento de máquinas virtuais a partir de uma imagem de VM personalizada com a CLI do Azure 2.0
+# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais a partir de uma imagem de VM personalizada com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais que utiliza uma imagem de VM personalizada como origem para as instâncias de VMs.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -50,6 +50,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az group delete](/cli/azure/ad/group#delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre a CLI 2.0 do Azure, veja [documentação da CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Pode encontrar exemplos adicionais do script do conjunto de dimensionamento de máquinas virtuais da CLI 2.0 do Azure na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).
+Pode encontrar exemplos adicionais de scripts da CLI do Azure para conjuntos de dimensionamento de máquinas virtuais na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com a CLI 2.0 do Azure | Microsoft Docs
-description: Saiba como utilizar a CLI 2.0 do Azure para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais, à medida que a CPU exige aumentos e diminuições
+title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com a CLI do Azure | Microsoft Docs
+description: Saiba como utilizar a CLI do Azure para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais, à medida que a CPU exige aumentos e diminuições
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630157"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995388"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.32 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.32 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dimensionamento com a CLI 2.0 do Azure:
+Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]
 > * Utilizar o dimensionamento automático com um conjunto de dimensionamento
@@ -224,7 +224,7 @@ Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dim
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, veja os seguintes scripts de exemplo da CLI 2.0 do Azure:
+Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, veja os seguintes scripts de exemplo da CLI do Azure:
 
 > [!div class="nextstepaction"]
-> [Exemplos de scripts de conjuntos de dimensionamento da CLI 2.0 do Azure](cli-samples.md)
+> [Exemplos de scripts de conjuntos de dimensionamento da CLI do Azure](cli-samples.md)

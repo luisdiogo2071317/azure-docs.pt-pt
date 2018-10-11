@@ -2,16 +2,17 @@
 title: Hyper-V para a arquitetura da replicação do Azure no Azure Site Recovery | Documentos da Microsoft
 description: Este artigo apresenta uma descrição geral dos componentes e da arquitetura utilizada ao replicar VMs Hyper-V (sem o VMM) no local para o Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c5d31b6217d3afe8ddb3550c145820be5996c96a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920608"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078363"
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V para a arquitetura da replicação do Azure
 
@@ -69,7 +70,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
 1. Depois de ativar a proteção para uma VM Hyper-V, no portal do Azure ou no local, **Ativar a proteção** é iniciado.
 2. A tarefa verifica se a máquina está em conformidade com os pré-requisitos, antes de invocar o [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), para configurar a replicação com as definições que configurou.
 3. A tarefa inicia a replicação inicial ao invocar o método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar uma replicação de VM completa e enviar os discos virtuais da VM para o Azure.
-4. Pode monitorizar a tarefa no separador **Tarefas**.      ![Lista de tarefas](media/hyper-v-azure-architecture/image1.png)![Ativar a desagregação da proteção](media/hyper-v-azure-architecture/image2.png)
+4. Pode monitorizar a tarefa no separador **Tarefas**.      ![Lista de tarefas](media/hyper-v-azure-architecture/image1.png) ![Ativar a desagregação da proteção](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicação de dados inicial

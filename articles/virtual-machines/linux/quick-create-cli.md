@@ -1,6 +1,6 @@
 ---
-title: Início Rápido - Criar uma VM do Linux com a CLI 2.0 do Azure | Microsoft Docs
-description: Neste início rápido, vai aprender a utilizar a CLI 2.0 do Azure para criar uma máquina virtual do Linux
+title: Início Rápido - Criar uma VM do Linux com a CLI do Azure | Microsoft Docs
+description: Neste início rápido, vai aprender a utilizar a CLI do Azure para criar uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,22 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6536860bb75d068a96899f2d30ec7a6126a28436
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 87a36e027515319c4bdfeaa559f55fd6e5a1c75b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958531"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Início Rápido: criar uma máquina virtual do Linux com a CLI 2.0 do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: criar uma máquina virtual do Linux com a CLI do Azure
 
-A CLI 2.0 do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido mostra como utilizar a CLI 2.0 do Azure para implementar uma máquina virtual (VM) do Linux no Azure que executa o Ubuntu. Para ver a VM em ação, estabeleça o SSH para a VM e instale o servidor Web NGINX.
+A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido mostra como utilizar a CLI do Azure para implementar uma máquina virtual (VM) do Linux no Azure que executa o Ubuntu. Para ver a VM em ação, estabeleça o SSH para a VM e instale o servidor Web NGINX.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960248"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Azure Kubernetes Service e Terraform
 O [Azure Kubernetes Service (AKS)](/azure/aks/) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
@@ -32,16 +32,16 @@ Neste tutorial, irá aprender a efetuar as seguintes tarefas na criação de um 
 
 - **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para appId, displayName, password, e tenant.
+- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para appId, displayName, password, e tenant.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 O primeiro passo é criar o diretório que mantenha os seus ficheiros de configuração do Terraform para o exercício.
 
 1. Navegue para o [portal do Azure](http://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
 1. Altere os diretórios para o diretório `clouddrive`.
 
@@ -295,7 +295,14 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform init"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Execute o comando `terraform plan` para criar o plano do Terraform que define os elementos de infraestrutura. O comando vai pedir dois valores: **var.client_id** e **var.client_secret**. Na variável **var.client_id**, introduza o valor **appId** associado ao seu principal de serviço. Na variável **var.client_secret**, introduza o valor **password** associado ao seu principal de serviço.
+1. Exporte as credenciais do principal de serviço. Substitua os marcadores de posição &lt;your-client-id> e &lt;your-client-secret> pelos valores **appId** e **password** associados ao seu principal de serviço, respetivamente.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Execute o comando `terraform plan` para criar o plano do Terraform que define os elementos de infraestrutura. 
 
     ```bash
     terraform plan -out out.plan

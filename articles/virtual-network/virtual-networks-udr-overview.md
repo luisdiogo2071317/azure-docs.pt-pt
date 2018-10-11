@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811918"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978923"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -105,13 +105,13 @@ Não pode especificar **VNet peering** nem **VirtualNetworkServiceEndpoint** com
 
 O nome apresentado e referenciado para os tipos de próximo salto são diferentes no portal do Azure e nas ferramentas de linha de comandos e nos modelos de implementação do Azure Resource Manager e clássica. A tabela seguinte mostra os nomes utilizados para fazer referência a cada tipo de próximo salto com as diferentes ferramentas e [modelos de implementação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Tipo de salto seguinte                   |CLI 2.0 do Azure e PowerShell (Resource Manager) |CLI 1.0 do Azure e PowerShell (clássica)|
+|Tipo de salto seguinte                   |CLI do Azure e PowerShell (Resource Manager) |CLI clássica do Azure e PowerShell (clássico)|
 |-------------                   |---------                                       |-----|
 |Gateway de rede virtual         |VirtualNetworkGateway                           |VPNGateway|
-|Rede virtual                 |VNetLocal                                       |VNETLocal (não disponível na CLI 1.0 no modo asm)|
-|Internet                        |Internet                                        |Internet (não disponível na CLI 1.0 no modo asm)|
+|Rede virtual                 |VNetLocal                                       |VNETLocal (não disponível na CLI clássica no modo asm)|
+|Internet                        |Internet                                        |Internet (não disponível na CLI clássica no modo asm)|
 |Aplicação virtual               |VirtualAppliance                                |VirtualAppliance|
-|Nenhuma                            |Nenhuma                                            |Null (não disponível na CLI 1.0 no modo asm)|
+|Nenhuma                            |Nenhuma                                            |Null (não disponível na CLI clássica no modo asm)|
 |Peering de rede virtual         |VNet peering                                    |Não aplicável|
 |Ponto final do serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
 

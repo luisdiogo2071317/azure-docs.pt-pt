@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar uma aplicação Web com a implementação contínua do Visual Studio Team Services | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Criar uma aplicação Web com a implementação contínua do Visual Studio Team Services
+title: Exemplo de Script da CLI do Azure – Criar uma aplicação Web com implementação contínua de Azure DevOps Services | Microsoft Docs
+description: Exemplo de Script da CLI do Azure – Criar uma aplicação Web com implementação contínua de Azure DevOps Services
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,30 +16,30 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e3748654f85e32edeb6f0c7478418068aeb4ae5f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282883"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967048"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Criar uma aplicação Web com a implementação contínua do Visual Studio Team Services
+# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Criar uma aplicação Web com implementação contínua a partir de Azure DevOps
 
-Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, configura a implementação contínua a partir de um repositório do Visual Studio Team Services. Neste exemplo, precisa de:
+Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, configura a implementação contínua a partir de um repositório do Azure DevOps. Neste exemplo, precisa de:
 
-* Um repositório do Visual Studio Team Services com o código de aplicação que tem permissões administrativas.
-* Um [Token de Acesso Pessoal (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) para a sua conta do Visual Studio Team Services.
+* Um repositório do Azure DevOps com o código da aplicação, para o qual tem permissões administrativas.
+* Um [Token de Acesso Pessoal (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) para a sua organização do Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

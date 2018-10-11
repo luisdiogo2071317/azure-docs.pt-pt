@@ -3,7 +3,7 @@ title: Remediar problemas de certificado para o Azure Stack | Documentos da Micr
 description: Utilize o Verificador de preparação do Azure Stack para analisar e resolver problemas de certificado.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6bc7839e7db0022beaa9b31c390655f31d1d52c0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053470"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078641"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Corrigir problemas comuns para certificados PKI de pilha do Azure
 As informações neste artigo podem ajudá-lo a compreender e resolver problemas comuns para certificados PKI de pilha do Azure. Pode descobrir problemas quando utiliza a ferramenta de verificação de preparação de pilha do Azure para [validar certificados PKI de pilha do Azure](azure-stack-validate-pki-certs.md). A ferramenta verifica para garantir que os certificados de cumprir os requisitos de PKI de uma implementação do Azure Stack e a rotação de segredo do Azure Stack e regista os resultados numa [report.json ficheiro](azure-stack-validation-report.md).  

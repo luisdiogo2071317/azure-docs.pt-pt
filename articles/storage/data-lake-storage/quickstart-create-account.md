@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 034731ac2c965d6b9b682c62b9866870e558ff6d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42916475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964672"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Início Rápido: Criar uma conta de armazenamento de Pré-visualização do Armazenamento do Azure Data Lake Ger2
 
@@ -49,7 +49,7 @@ O botão inicia uma shell interativa que pode utilizar para executar os passos n
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.38 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
+Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.38 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Descrição geral da criação de uma conta de Armazenamento do Azure Data Lake Ger2
 
@@ -58,7 +58,7 @@ Antes de criar uma conta, primeiro tem de criar um grupo de recursos que age com
 > [!NOTE]
 > Tem de criar novas contas de armazenamento como o tipo **StorageV2 (V2 de fins gerais)**, para tirar partido das funcionalidades de Armazenamento do Data Lake Ger2.  
 
-Para obter mais informações sobre os tipos de contas de armazenamento, consulte [opções de contas de Armazenamento do Microsoft Azure](../common/storage-account-options.md).
+Para obter mais informações sobre as contas de armazenamento, veja [Azure Storage account overview](../common/storage-account-overview.md) (Descrição geral da Conta de Armazenamento).
 
 Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em mente:
 

@@ -1,6 +1,6 @@
 ---
-title: Preparar dados para classificar o tutorial Iris em serviços do Azure Machine Learning (pré-visualização) | Microsoft Docs
-description: Este tutorial completo mostra como utilizar os serviços do Azure Machine Learning (pré-visualização) ponto a ponto. Esta é a parte um e fala sobre a preparação dos dados.
+title: Preparar dados para classificar o tutorial Iris no serviço Azure Machine Learning (pré-visualização) | Microsoft Docs
+description: Este tutorial completo mostra como utilizar o serviço Azure Machine Learning (pré-visualização) ponto a ponto. Esta é a parte um e fala sobre a preparação dos dados.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990166"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Classificar Íris – Preparar os dados
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 O serviço Azure Machine Learning (pré-visualização) é uma solução de análise avançada e de ciência de dados ponto a ponto integrada orientada para cientistas de dados profissionais tendo em vista a preparação de dados, o desenvolvimento de experimentações e a implementação de modelos à escala da cloud.
 
@@ -32,6 +35,8 @@ Este tutorial é a **primeira parte de uma série composta por três partes**. N
 
 Este tutorial utiliza o [conjunto de dados flor de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporal. 
 
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -40,11 +45,11 @@ Para concluir este tutorial, tem de ter:
 - Uma conta de Experimentação do Azure Machine Learning
 - O Azure Machine Learning Workbench instalado
 
-Se ainda não tem estes pré-requisitos, siga os passos do artigo [Início Rápido: instalar e iniciar](../service/quickstart-installation.md) para configurar as suas contas e instalar a aplicação Azure Machine Learning Workbench. 
+Se ainda não tem estes pré-requisitos, siga os passos do artigo [Início Rápido: instalar e iniciar](quickstart-installation.md) para configurar as suas contas e instalar a aplicação Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Criar um projeto novo no Workbench
 
-Se seguiu os passos do artigo [Início Rápido: instalar e iniciar](../service/quickstart-installation.md), já deve ter este projeto e pode avançar para a secção seguinte.
+Se seguiu os passos do artigo [Início Rápido: instalar e iniciar](quickstart-installation.md), já deve ter este projeto e pode avançar para a secção seguinte.
 
 1. Abra a aplicação Azure Machine Learning Workbench e inicie sessão, se necessário. 
    
@@ -62,7 +67,7 @@ Se seguiu os passos do artigo [Início Rápido: instalar e iniciar](../service/q
    Nome do projeto | myIris |Introduza um nome exclusivo que identifique a sua conta. Pode utilizar o seu nome ou o nome de um departamento ou projeto, aquele que melhor identifique a experimentação. O nome deve ter entre 2 e 32 carateres. Deve incluir apenas carateres alfanuméricos e o caráter de travessão (–). 
    Diretório do projeto | c:\Temp\ | Especifique o diretório no qual é criado o projeto.
    Descrição do projeto | _deixar em branco_ | Campo opcional útil para descrever os projetos.
-   URL do Repositório GIT Visualstudio.com |_deixar em branco_ | Campo opcional. Pode associar um projeto a um repositório do Git no Visual Studio Team Services para fins de controlo de código fonte e colaboração. [Saiba como configurar essa opção](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   URL do Repositório GIT Visualstudio.com |_deixar em branco_ | Campo opcional. Pode associar um projeto a um repositório do Git no Azure DevOps para fins de controlo de código fonte e colaboração. [Saiba como configurar essa opção](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Área de trabalho selecionada | IrisGarden (se existir) | Escolha uma área de trabalho que tenha criado para a sua conta de Experimentação no portal do Azure. <br/>Se seguiu o Início Rápido, deve ter uma área de trabalho com o nome IrisGarden. Caso contrário, selecione a que criou quando criou a conta de Experimentação ou qualquer outra que queira utilizar.
    Modelo de projeto | Classifying Iris | Os modelos contêm scripts e dados que pode utilizar para explorar o produto. Este modelo contém os scripts e dados de que precisa para este início rápido e para outros tutoriais neste site de documentação. 
 

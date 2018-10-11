@@ -1,27 +1,24 @@
 ---
-title: Início Rápido do Azure – Criar uma conta de armazenamento | Microsoft Docs
-description: Aprenda a criar rapidamente uma nova conta de armazenamento com o portal do Azure, o Azure PowerShell ou a CLI do Azure.
+title: 'Início Rápido: criar uma conta de armazenamento - Armazenamento do Microsoft Azure'
+description: Neste início rápido, aprenderá a criar rapidamente uma nova conta de armazenamento com o portal do Azure, o Azure PowerShell ou a CLI do Azure. Uma conta de armazenamento do Azure oferece um espaço de nomes exclusivo no Microsoft Azure para armazenar e aceder aos objetos de dados que criar no Armazenamento do Azure.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524025"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990132"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Uma conta de armazenamento do Azure oferece um espaço de nomes exclusivo na cloud para armazenar e aceder aos seus objetos de dados no Armazenamento do Azure. Uma conta de armazenamento contém quaisquer blobs, ficheiros, filas, tabelas e discos que cria nessa conta. 
-
-Para começar a utilizar o Armazenamento do Azure, primeiro tem de criar uma nova conta de armazenamento. Pode criar uma conta de armazenamento do Azure com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Este guia de introdução mostra como utilizar cada uma destas opções para criar a sua nova conta de armazenamento. 
-
+Neste início rápido, aprenderá a criar rapidamente uma nova conta de armazenamento com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +51,7 @@ O botão inicia uma shell interativa que pode utilizar para executar os passos n
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
+Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 ---
 
@@ -84,26 +81,21 @@ az login
 
 ---
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Para obter mais informações sobre os grupos de recursos, veja [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Agora, está pronto para criar a sua conta de armazenamento.
+
+Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contentor lógico para agrupar os seus serviços do Azure. Quando cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou utilizar um grupo de recursos existente. Este início rápido mostra como criar um novo grupo de recursos. 
+
+Uma conta de armazenamento **v2 para fins gerais** concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. O início rápido cria uma conta de armazenamento v2 para fins gerais, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes.   
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Para criar um grupo de recursos no portal do Azure, siga estes passos:
-
-1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos**.
-2. Clique no botão **Adicionar** para adicionar um novo grupo de recursos.
-3. Introduza um nome para o novo grupo de recursos.
-4. Selecione a subscrição na que vai criar o novo grupo de recursos.
-5. Escolha a localização para o grupo de recursos.
-6. Clique no botão **Criar**.  
-
-![A captura de ecrã mostra a criação do grupo de recursos no portal do Azure](./media/storage-quickstart-create-account/create-resource-group.png)
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Para criar um novo grupo de recursos com o PowerShell, utilize o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
+Em primeiro lugar, crie um novo grupo de recursos com o PowerShell, através do comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -119,64 +111,7 @@ Get-AzureRmLocation | select Location
 $location = "westus"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group#az_group_create). 
-
-```azurecli-interactive
-az group create \
-    --name storage-quickstart-resource-group \
-    --location westus
-```
-
-Se não tiver a certeza de qual a região a especificar para o parâmetro `--location`, pode obter uma lista de regiões suportadas para a sua subscrição com o comando [az account list-locations](/cli/azure/account#az_account_list).
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
-
----
-
-## <a name="create-a-general-purpose-storage-account"></a>Criar uma conta de armazenamento para fins gerais
-
-Uma conta de armazenamento para fins gerais concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas e tabelas. Pode criar uma conta de armazenamento para fins gerais num escalão standard ou premium. Os exemplos neste artigo mostram como criar uma conta de armazenamento para fins gerais no escalão standard (predefinição).
-
-O Armazenamento do Microsoft Azure oferece dois tipos de contas de armazenamento para fins gerais:
-
-- Contas de armazenamento para fins gerais v2 
-- Contas de armazenamento para fins gerais v1. 
-
-> [!NOTE]
-> Recomenda-se a criação de novas contas de armazenamento como **contas de armazenamento para fins gerais v2**, de forma a tirar partido das funcionalidades mais recentes disponíveis para essas contas.  
-
-Para obter mais informações sobre os tipos de contas de armazenamento, consulte [opções de contas de Armazenamento do Microsoft Azure](storage-account-options.md).
-
-Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em mente:
-
-- Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
-- O nome da sua conta do Storage tem de ser exclusivo no Azure. Duas contas de armazenamento não podem ter o mesmo nome.
-
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
-
-Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
-
-1. No portal do Azure, expanda o menu do lado esquerdo para abrir o menu de serviços e escolha **Todos os Serviços**. Em seguida, desloque para baixo até **Armazenamento**e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
-2. Introduza um nome para a conta do Storage.
-3. Defina o **Tipo de conta** como **StorageV2 (armazenamento para fins gerais v2)**.
-4. Deixe o campo **Replicação** definido como **Armazenamento Localmente Redundante (LRS)**. Em alternativa, pode selecionar **Armazenamento com redundância de zona (ZRS)**, **Armazenamento georredundante (GRS)** ou **Armazenamento georredundante com acesso de leitura (RA-GRS)**.
-5. Deixe estes campos nas predefinições: **Modelo de implementação**, **Desempenho**, **Transferência segura necessária**.
-6. Escolha a subscrição na qual pretende criar a conta de armazenamento.
-7. Na secção **Grupo de recursos**, selecione **Utilizar existente** e, em seguida, escolha o grupo de recursos que criou na secção anterior.
-8. Escolha a localização para a nova conta de armazenamento.
-9. Clique em **Criar** para criar a conta do Storage.      
-
-![A captura de ecrã mostra a criação da conta de armazenamento no portal do Azure](./media/storage-quickstart-create-account/create-account-portal.png)
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-Para criar uma conta de armazenamento para fins gerais v2 do PowerShell, com armazenamento localmente redundante (LRS), utilize o comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Em seguida, crie uma conta de armazenamento v2 para fins gerais com armazenamento localmente redundante (LRS). Utilize o comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -197,7 +132,23 @@ Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com 
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar uma conta de armazenamento para fins gerais v2 a partir da CLI do Azure com armazenamento localmente redundante, utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Em primeiro lugar, crie um novo grupo de recursos com a CLI do Azure, através do comando [az group create](/cli/azure/group#az_group_create). 
+
+```azurecli-interactive
+az group create \
+    --name storage-quickstart-resource-group \
+    --location westus
+```
+
+Se não tiver a certeza de qual a região a especificar para o parâmetro `--location`, pode obter uma lista de regiões suportadas para a sua subscrição com o comando [az account list-locations](/cli/azure/account#az_account_list).
+
+```azurecli-interactive
+az account list-locations \
+    --query "[].{Region:name}" \
+    --out table
+```
+
+Em seguida, crie uma conta de armazenamento v2 para fins gerais com armazenamento localmente redundante. Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 ```azurecli-interactive
 az storage account create \
@@ -258,16 +209,16 @@ Neste início rápido, criou uma conta de armazenamento padrão para fins gerais
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [Transferir objetos de/para o armazenamento de Blobs do Azure com o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
+> [Trabalhar com blobs ao utilizar o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [Transferir objetos de/para o armazenamento de Blobs do Azure com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Trabalhar com blobs ao utilizar o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Transferir objetos de e para o armazenamento de Blobs do Azure com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
+> [Trabalhar com o armazenamento de blobs ao utilizar a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

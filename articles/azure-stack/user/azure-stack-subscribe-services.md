@@ -3,7 +3,7 @@ title: Neste tutorial, irá aprender a subscrever uma oferta do Azure Stack | Do
 description: Este tutorial mostra-lhe como criar uma nova subscrição para serviços do Azure Stack e testar a oferta através da criação de uma máquina virtual de teste.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0e2fa9b01d27d68c1eab9097a20b6e350ba47f99
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028819"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076105"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: criar e testar uma subscrição
 Este tutorial mostra-lhe como criar uma subscrição que contém uma oferta e, em seguida, testá-lo. Para o teste, irá iniciar sessão no portal de utilizador do Azure Stack como um administrador da nuvem, subscreva a oferta e, em seguida, criar uma máquina virtual.

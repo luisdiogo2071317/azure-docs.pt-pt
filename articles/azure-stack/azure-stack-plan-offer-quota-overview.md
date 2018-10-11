@@ -1,9 +1,9 @@
 ---
-title: Pilha plano, oferta, quota e subscrição descrição geral do Azure | Microsoft Docs
-description: Como um operador da nuvem, pretender compreender os planos de pilha do Azure, ofertas, quotas e subscrições.
+title: Pilha plano, oferta, quota e subscrição descrição geral do Azure | Documentos da Microsoft
+description: Como um operador de nuvem, quero compreender os planos, ofertas, quotas e subscrições do Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
@@ -13,75 +13,75 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: d8aef778807d3a8a61cf9eedaae24abce84a19ab
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248763"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077124"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plano, oferta, quota e descrição geral da subscrição
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-[Pilha do Azure](azure-stack-poc.md) permite fornecer uma ampla variedade de serviços, como máquinas virtuais, bases de dados, SharePoint, Exchange e até mesmo [itens do Azure Marketplace](azure-stack-marketplace-azure-items.md). Como um operador de pilha do Azure, configure e fornecer esses serviços na pilha do Azure através da utilização de esquemas, ofertas e quotas.
+[O Azure Stack](azure-stack-poc.md) permite que fornecer uma ampla variedade de serviços, como as máquinas virtuais, bancos de dados SQL, SharePoint, Exchange e até mesmo [itens de Azure Marketplace](azure-stack-marketplace-azure-items.md). Como um operador do Azure Stack, configurar e fornecem serviços no Azure Stack através de planos, ofertas e quotas.
 
-As ofertas de conter um ou mais planos e cada plano inclui um ou mais serviços. Ao criar planos e combiná-los em ofertas diferentes, pode gerir:
+Ofertas de contenham um ou mais planos e cada plano inclui um ou mais serviços. Ao criar planos e combiná-los num ofertas diferentes, pode gerir:
 
-- Os serviços e recursos que os utilizadores podem aceder.
+- Quais recursos e serviços, os utilizadores podem aceder.
 - A quantidade de recursos que os utilizadores podem consumir.
-- As regiões que têm acesso aos recursos.
+- Que regiões têm acesso aos recursos.
 
-Quando fornecer um serviço, siga estes passos de alto nível:
+Quando publicar um serviço, siga estes passos de alto nível:
 
-1. Adicione um serviço que pretende fornecer aos seus utilizadores.
-2. Crie um plano que tem um ou mais serviços. Ao criar um plano, selecione ou crie quotas que definem os limites de recursos de cada serviço no plano.
-3. Crie uma oferta que contém um ou mais planos. A oferta pode incluir planos base e planos de suplemento opcional.
+1. Adicione um serviço que deseja fornecer aos seus utilizadores.
+2. Crie um plano que tem um ou mais serviços. Ao criar um plano, selecione ou crie as quotas que definem os limites de recursos de cada serviço no plano.
+3. Crie uma oferta que contém um ou mais planos. A oferta pode incluir planos base e planos de suplementos opcionais.
 
-Depois de criar a oferta, podem subscrever os seus utilizadores para aceder a serviços e recursos que de oferta proporciona ao. Os utilizadores podem subscrever para ofertas tantos como pretendem. O diagrama seguinte mostra um exemplo simples de um utilizador que tiver subscrito dois oferece. Cada oferta tem um plano ou dois e cada plano lhes dá acesso aos serviços.
+Depois de criar a oferta, podem subscrever os seus utilizadores para aceder a serviços e recursos que a oferta fornece. Os utilizadores podem subscrever ofertas quantos desejar. O diagrama seguinte mostra um exemplo simples de um utilizador que subscreveu a duas ofertas. Cada oferta tem um plano ou dois, e cada plano lhes concede acesso a serviços.
 
 ![Subscrição com ofertas e planos de inquilino](media/azure-stack-key-features/image4.png)
 
 ## <a name="plans"></a>Planos
 
-Planos são agrupamentos de um ou mais serviços. Como um operador de pilha do Azure, [criar planos](azure-stack-create-plan.md) para oferecer aos seus utilizadores. Por sua vez, os utilizadores subscrevem as ofertas para utilizar os serviços incluem e planos. Ao criar planos, certifique-se definir as quotas, definir os esquemas de base e considerar, incluindo planos de suplemento opcional.
+Planos consistem em agrupamentos de um ou mais serviços. Como um operador do Azure Stack, [criar planos de](azure-stack-create-plan.md) para oferecer aos seus utilizadores. Por sua vez, os seus utilizadores subscrevem suas ofertas para utilizar os planos e serviços incluídos. Durante a criação de planos, certifique-se definir suas quotas, definir os planos de bases e considere incluir planos de suplementos opcionais.
 
 ### <a name="quotas"></a>Quotas
 
-Para ajudar a gerir a sua capacidade de nuvem, pode utilizar quotas pré-configuradas ou criar uma nova quota para cada serviço num plano. Quotas definem os limites de recursos superior que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um utilizador criar até cinco máquinas virtuais (VMs). Definir quotas adicionais nas máquinas virtuais, tais como núcleos de RAM e da CPU.
+Para ajudar a gerir a capacidade de nuvem, pode utilizar quotas pré-configuradas ou criar uma quota de novo para cada serviço num plano. Quotas definem os limites de recursos superior que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco máquinas virtuais (VMs). Definir quotas adicionais nas máquinas virtuais, por exemplo, os núcleos de RAM e da CPU.
 
-Pode configurar quotas por região. Por exemplo, um plano que fornece serviços de computação para a região A ter uma quota de duas VMs com 4 GB de RAM e 8 núcleos de CPU.
+É possível configurar quotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma quota de duas VMs com 4 GB de RAM e 8 núcleos de CPU.
 
 >[!NOTE]
->No Kit de desenvolvimento de pilha do Azure, apenas uma região (com o nome *local*) está disponível.
+>No Azure Stack Development Kit, apenas numa região (com o nome *local*) está disponível.
 
-Saiba mais sobre [tipos de quota na pilha de Azure](azure-stack-quota-types.md).
+Saiba mais sobre [os tipos de ficheiro no Azure Stack](azure-stack-quota-types.md).
 
 ### <a name="base-plan"></a>Plano base
 
-Ao criar uma oferta, o administrador de serviços pode incluir um plano de base. Estes esquemas de base são incluídas por predefinição, quando um utilizador subscreve que oferta. Quando um utilizador subscreve, têm acesso a todos os fornecedores de recursos especificado esses planos base (com as quotas correspondentes.)
+Ao criar uma oferta, o administrador de serviços pode incluir um plano base. Estes planos bases estão incluídos por predefinição, quando um utilizador subscrever essa oferta. Quando um utilizador subscrever, eles têm acesso a todos os fornecedores de recursos especificado nesses planos base (com as quotas correspondentes.)
 
 ### <a name="add-on-plans"></a>Planos de suplementos
 
-Planos de suplemento são opcionais planos de que adicionar a uma oferta. Planos de suplemento não estão incluídos por predefinição na subscrição. Planos de suplemento são planos adicionais (com as quotas) disponíveis numa oferta, que pode adicionar um subscritor para as suas subscrições. Por exemplo, pode oferecer um plano de base com recursos limitados para uma versão de avaliação e um plano de suplemento com recursos mais significativas para os clientes que optar por adotar o serviço.
+Planos de suplementos são opcionais planos de que adicionar a uma oferta. Planos de suplementos não estão incluídos por predefinição na subscrição. Planos de suplementos são planos adicionais (com cotas) disponíveis numa oferta que um subscritor pode adicionar a suas assinaturas. Por exemplo, pode oferecer um plano base com recursos limitados para uma versão de avaliação e um plano de suplemento com os recursos mais substanciais para os clientes que decidirem adotar o serviço.
 
 ## <a name="offers"></a>Ofertas
 
-Ofertas são grupos de um ou mais planos que criar para que os utilizadores podem subscrever aos mesmos. Por exemplo, oferecem Alpha pode conter um plano, que fornece um conjunto de serviços de computação e planear B, que fornece um conjunto de serviços de armazenamento e rede.
+As ofertas são grupos de um ou mais planos que criar para que os utilizadores podem subscrevê-los. Por exemplo, oferecem Alpha pode conter A de plano, que fornece um conjunto de serviços de computação e de plano B, que fornece um conjunto de serviços de armazenamento e rede.
 
-Quando lhe [criar uma oferta](azure-stack-create-offer.md), tem de incluir, pelo menos, um plano de base, mas também pode criar planos de suplemento que podem adicionar utilizadores à sua subscrição.
+Quando [criar uma oferta](azure-stack-create-offer.md), tem de incluir, pelo menos, um plano base, mas também pode criar planos de suplementos que os usuários podem adicionar a sua subscrição.
 
 ## <a name="subscriptions"></a>Subscrições
 
-É uma subscrição, como os utilizadores aceder às suas ofertas. Se tiver um operador de pilha do Azure para um fornecedor de serviços, os utilizadores (inquilinos) comprar os serviços de ao subscrever as ofertas. Se tiver um operador de pilha do Azure, uma organização, os utilizadores (empregados) podem subscrever os serviços que oferecem sem pagar.
+Uma subscrição é como os utilizadores aceder às suas ofertas. Se for um operador do Azure Stack para um fornecedor de serviços, os utilizadores (inquilinos) compram seus serviços através da subscrição de suas ofertas. Se for um operador do Azure Stack numa organização, os utilizadores (funcionários) podem subscrever os serviços que oferecem sem ter de adquirir.
 
-Cada combinação de um utilizador com uma oferta é uma subscrição exclusiva. Um utilizador pode ter oferece várias subscrições, mas cada subscrição aplica-se apenas a uma oferta. Planos, ofertas e quotas aplicam-se apenas a uma única subscrição – não pode ser partilhadas entre subscrições. Cada recurso que cria um utilizador está associado uma subscrição.
+Cada combinação de um utilizador com uma oferta é uma assinatura exclusiva. Um utilizador pode ter subscrições para várias ofertas, mas cada subscrição aplica-se apenas a uma oferta. Planos, ofertas e quotas só se aplicam a um único de subscrição – eles não podem ser compartilhados entre subscrições. Cada recurso que cria um utilizador está associado uma subscrição.
 
 ### <a name="default-provider-subscription"></a>Subscrição do fornecedor predefinido
 
-A subscrição do fornecedor predefinido é criada automaticamente quando implementa o Kit de desenvolvimento de pilha do Azure. Esta subscrição pode ser utilizada para gerir a pilha do Azure, implementar fornecedores de recursos adicionais e criar planos e as ofertas para os utilizadores. Para segurança e as razões de licenciamento, não deve ser utilizada para executar aplicações e cargas de trabalho do cliente.
+A subscrição do fornecedor predefinido é criada automaticamente ao implementar o Development Kit do Azure Stack. Esta subscrição pode ser utilizada para gerir o Azure Stack, implementar fornecedores de recursos adicionais e criar planos e ofertas para os utilizadores. Por motivos de licenciamento e de segurança, não deve ser usado para executar aplicações e cargas de trabalho do cliente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

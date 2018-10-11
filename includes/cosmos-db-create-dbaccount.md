@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e07de7ca55a5725fdaf32ee300e8068a1d3d8fce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38725902"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47021072"
 ---
 1. Numa nova janela do browser, inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso** > **Bases de dados** > **Azure Cosmos DB**.
@@ -25,7 +25,7 @@ ms.locfileid: "38725902"
     Definição|Valor|Descrição
     ---|---|---
     ID|*Introduzir um nome exclusivo*|Introduza um nome exclusivo para identificar esta conta do Azure Cosmos DB. Uma vez que *documents.azure.com* é anexado ao ID que indicar para criar o seu URI, utilize um ID exclusivo, mas identificável.<br><br>O ID pode conter apenas minúsculas, números, o caráter hífen (-) e tem de ter entre 3 e 50 carateres.
-    API|SQL|A API determina o tipo de conta a criar. O Azure do Cosmos DB oferece cinco APIs que se adequam às necessidades da sua aplicação: SQL Server (base de dados do documento), Gremlin (base de dados do gráfico), MongoDB (base de dados do documento), Tabela do Azure e Cassandra, cada qual necessita atualmente de uma conta separada. <br><br>Selecione **SQL** porque neste início rápido está a criar uma base de dados de documento que é consultável com a sintaxe do SQL e acessível com a API SQL.<br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
+    API|SQL|A API determina o tipo de conta a criar. O Azure Cosmos DB oferece cinco APIs: SQL (base de dados de documentos), Gremlin (base de dados de gráficos), MongoDB (base de dados de documentos), Tabela do Azure e Cassandra. Atualmente, cada uma das APIs exige que crie uma conta separada. <br><br>Selecione **SQL** porque neste início rápido está a criar uma base de dados de documento que é consultável com a sintaxe do SQL e acessível com a API SQL.<br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
     Subscrição|*A sua subscrição*|Selecione a subscrição do Azure que quer utilizar para esta conta do Azure Cosmos DB. 
     Grupo de Recursos|Criar novo<br><br>*Em seguida, introduza o mesmo nome exclusivo, conforme indicado no ID acima*|Selecione **Criar Novo** e, em seguida, introduza um novo nome de grupo de recursos para a sua conta. Para simplicidade, pode utilizar o mesmo nome do ID. 
     Localização|*Selecione a região mais próxima dos seus utilizadores*|Selecione a localização geográfica na qual vai alojar a sua conta do Azure Cosmos DB. Utilize a localização mais próxima dos seus utilizadores para lhes dar o acesso mais rápido aos dados.
