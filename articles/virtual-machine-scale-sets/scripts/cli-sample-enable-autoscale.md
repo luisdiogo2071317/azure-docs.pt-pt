@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure 2.0 - Ativar o dimensionamento automático baseado no anfitrião | Microsoft Docs
-description: Exemplos da CLI 2.0 do Azure
+title: Exemplos da CLI do Azure – Ativar o dimensionamento automático baseado no anfitrião | Microsoft Docs
+description: Exemplos da CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2f41ca6f85e28f57d6606d85c3a1d58ee390148c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f146f673127d4495c2a2a392e26c1f51cd82a188
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652144"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951275"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
+# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu e utiliza as métricas baseadas no anfitrião para dimensionar automaticamente à medida que a carga de CPU muda.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -51,6 +51,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az group delete](/cli/azure/ad/group#delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre a CLI 2.0 do Azure, veja [documentação da CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Pode encontrar exemplos adicionais do script do conjunto de dimensionamento de máquinas virtuais da CLI 2.0 do Azure na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).
+Pode encontrar exemplos adicionais de scripts da CLI do Azure para conjuntos de dimensionamento de máquinas virtuais na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).
