@@ -1,78 +1,78 @@
 ---
-title: Tutorial de fala do Microsoft Translator (c#) | Documentos da Microsoft
-titleSuffix: Cognitive Services
-description: Saiba como utilizar o serviço de voz do Translator para traduzir texto em tempo real.
+title: 'Tutorial: API de Voz do Microsoft Translator em C#'
+titleSuffix: Azure Cognitive Services
+description: Utilize a API de Voz do Microsoft Translator para traduzir textos em tempo real.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41988475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993872"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Tutorial: Aplicativo do WPF de Microsoft Translator em c#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicação Tradução de Voz em C#
 
-Este tutorial é uma apresentação de uma ferramenta de tradução de voz interativo que utiliza o serviço de tradução de voz do Microsoft Translator, uma parte dos serviços cognitivos da Microsoft no Azure. Saiba como:
+Este tutorial é uma apresentação de uma ferramenta de tradução de voz interativa que utiliza a API de Voz do Microsoft Translator, que faz parte dos Serviços Cognitivos do Azure. Vai aprender a:
 
 > [!div class="checklist"]
-> * Solicitar uma lista dos idiomas suportados pelo serviço
-> * Captura de áudio e transmiti-los para o serviço
-> * Receber e apresentar as traduções da voz como texto
-> * Opcionalmente, reproduzir uma versão falada (texto para discurso) da tradução
+> * Pedir uma lista dos idiomas que o serviço suporta
+> * Capturar áudio e transmiti-lo para o serviço
+> * Receber e apresentar traduções de voz em texto
+> * Opcionalmente, reproduzir uma versão falada (conversão de texto em voz) da tradução
 
-Um ficheiro de solução do Visual Studio para esta aplicação está [está disponível no GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
+Está [disponível no GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator) um ficheiro de solução do Visual Studio para esta aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este tutorial, terá de qualquer edição do Visual Studio 2017, incluindo a edição de Comunidade. 
+Para este tutorial, precisa de qualquer edição do Visual Studio 2017, incluindo a edição Visual Studio Community. 
 
-A solução do Visual Studio também cria um instalador da aplicação. Terá do [conjunto de ferramentas WiX](http://wixtoolset.org/) e o [WiX conjunto de ferramentas do Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) para suportar esta funcionalidade.
+A solução do Visual Studio também cria um instalador para a aplicação. Precisa do [WiX Toolset](http://wixtoolset.org/) e da [Extensão WiX Toolset Visual Studio](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) para suportar esta funcionalidade.
 
-Também precisa de uma chave de subscrição para o serviço de voz do Translator, que pode obter no dashboard do Microsoft Azure. Um escalão de preço gratuito está disponível que permite-lhe para efetuar a conversão de voz por mês sem encargos, até 10 horas. Esta camada é suficiente para este tutorial.
+Também precisa de uma chave de subscrição para o serviço Tradução de Voz, que pode obter no dashboard do Microsoft Azure. Está disponível um escalão de preço gratuito que lhe permite traduzir até dez horas de voz por mês sem custos. Este escalão é suficiente para o tutorial.
 
-De terceiros [JSON.Net biblioteca](https://www.newtonsoft.com/json) (a partir de Newtonsoft) também é necessário. Esse assembly é instalado automaticamente pelo NuGet se ambas as caixas de seleção de restauro do pacote estão ativadas nas opções do Visual Studio.
+Também é necessária a [biblioteca JSON.Net](https://www.newtonsoft.com/json) de terceiros (da Newtonsoft). Esta assemblagem é instalada automaticamente pelo NuGet se ambas as caixas de verificação de Restauro de Pacote estiverem selecionadas nas opções do Visual Studio.
 
 ## <a name="trying-the-translation-app"></a>Experimentar a aplicação de tradução
 
-Depois de abrir a solução de voz de Microsoft Translator (`SpeechTranslator.sln`) no Visual STudio, prima F5 para compilar e iniciar o aplicativo.  É apresentada a janela principal do programa.
+Depois de abrir a solução Tradutor de Voz (`SpeechTranslator.sln`) no Visual Studio, prima F5 para compilar e iniciar a aplicação.  É apresentada a janela principal do programa.
 
-![[Janela da principal de tradutor de voz]](media/speech-translator-main-window.png)
+![[Janela principal da Tradução de Voz]](media/speech-translator-main-window.png)
 
-Na primeira execução, escolha **definições de conta** partir a **definições** menu para abrir a janela mostrada aqui.
+Na primeira execução, escolha **Account Settings** (Definições da Conta), no menu **Settings** (Definições), para abrir a janela mostrada aqui.
 
-![[Janela da principal de tradutor de voz]](media/speech-translator-settings-window.png)
+![[Janela principal da Tradução de Voz]](media/speech-translator-settings-window.png)
 
-Cole a chave de subscrição de voz do Microsoft Translator nesta janela, em seguida, clique em **guardar.** A chave é guardada entre as execuções.
+Cole a sua chave de subscrição da Tradução de Voz nesta janela e clique em **Save** (Guardar). A chave é guardada entre as execuções.
 
-Na janela principal, selecione a entrada de áudio e quiser que a utilização e as From e linguagens de dispositivos de saída. Se desejar ouvir o som da tradução, certifique-se de que o **TTS** (texto para discurso) opção seja marcada. Se quiser ver especulativas parciais traduções à medida que fala, ative o **resultados parciais** opção.
+Novamente na janela principal, escolha os dispositivos de entrada e saída de áudio que pretende utilizar e os idiomas De e Para. Se quiser ouvir o áudio da tradução, confirme que a opção **TTS** (conversão de texto em voz) está assinalada. Se quiser ver traduções parciais especulativas enquanto fala, ative a opção **Partial Results** (Resultados Parciais).
 
-Por fim, clique em **iniciar** para começar a tradução. Digamos que algo que queira ter convertido e ver o texto reconhecido e a tradução são apresentados na janela. Se ativou a opção de TTS, também ouvir a tradução.
+Por fim, clique em **Start** (Iniciar) para começar a tradução. Diga qualquer coisa que pretenda traduzir e o texto reconhecido e a tradução são apresentados na janela. Se tiver ativado a opção TTS, também ouve a tradução.
 
-## <a name="obtaining-supported-languages"></a>Obter idiomas suportados
+## <a name="obtaining-supported-languages"></a>Obter os idiomas suportados
 
-No momento desta edição, o serviço Microsoft Translator suporta várias linguagens de mais de cinco dezenas de tradução de texto. Um número menor de idiomas é suportado para tradução de voz. Nesses idiomas necessitam de suporte para ambos os transcrição (reconhecimento de fala) e, para a saída de texto para voz, síntese.
+Nesta fase, o serviço Tradução de Voz suporta mais de cinco dezenas de idiomas para tradução de texto. Relativamente à tradução de voz, é suportado um número mais reduzido de idiomas. Esses idiomas precisam de suporte para transcrição (reconhecimento de voz) e, relativamente à saída de texto em voz, de síntese.
 
-Em outras palavras, para a tradução de voz, o idioma de origem tem de ser um suportados para transcrição. O idioma de saída pode ser qualquer uma das linguagens suportadas para a tradução de texto, partindo do princípio de que pretende que um resultado de texto. Se pretender que a saída de voz, só é possível converter num idioma suportado para voz.
+Por outras palavras, na tradução de voz, o idioma de partida tem de ser um idioma que suporte transcrição. O idioma de chegada pode ser um dos idiomas que suportem a tradução de texto, partindo do princípio de que pretende obter um resultado em texto. Se preferir receber uma saída de voz, pode traduzir apenas para um idioma que suporte a conversão de texto em voz.
 
-Microsoft pode adicionar suporte para novos idiomas de tempos em tempos. Por esse motivo, deve não embutir qualquer conhecimento dos idiomas com suporte em seu aplicativo. Em vez disso, a API de voz do Translator fornece um ponto de extremidade de linguagens que permite-lhe obter os idiomas com suporte em tempo de execução. Pode optar por receber uma ou mais listas de idiomas: 
+A Microsoft poderá adicionar suporte para idiomas novos periodicamente. Por esse motivo, não deve codificar o conhecimento dos idiomas suportados na sua aplicação. Em vez disso, a API de Voz do Microsoft Translator proporciona o ponto final Idiomas que lhe permite obter os idiomas suportados no runtime. Pode optar por receber uma ou mais listas de idiomas: 
 
 | | |
 |-|-|
-|`speech`|Os idiomas suportados para transcrição de voz. Pode ser idiomas de origem para tradução de voz.|
-|`text`|Os idiomas suportados para a tradução de texto em texto. Pode ser idiomas de destino para a tradução de voz quando é utilizada a saída de texto.|
-|`tts`|As vozes suportadas para síntese de fala, cada um associado com um idioma específico. Pode ser idiomas de destino para a tradução de voz quando é utilizada a voz. Um determinado idioma pode ser suportado por mais do que uma voz.|
+|`speech`|Os idiomas suportados para a transcrição de voz. Podem ser idiomas de partida para a tradução de voz.|
+|`text`|Os idiomas suportados para tradução de texto para texto. Podem ser idiomas de chegada para a tradução de voz quando é utilizada a saída de texto.|
+|`tts`|As vozes suportadas para síntese de voz, cada qual associada a um determinado idioma. Podem ser idiomas de chegada para a tradução de voz quando é utilizada a conversão de texto em voz. Um determinado idioma poderá ser suportado por mais de uma voz.|
 
-O ponto de extremidade de idiomas não requerem uma chave de subscrição e sua utilização não contam para a sua quota. O URI é `https://dev.microsofttranslator.com/languages` e retorna os resultados no formato JSON.
+O ponto final Idiomas não requer uma chave de subscrição e a utilização do mesmo não é contabilizada para a sua quota. O URI do ponto final é `https://dev.microsofttranslator.com/languages` e os resultados do mesmo são devolvidos em formato JSON.
 
-O método `UpdateLanguageSettingsAsync()` em `MainWindow.xaml.cs`, conforme apresentado aqui, chama o ponto de final de idiomas para obter a lista de idiomas suportados. 
+O método `UpdateLanguageSettingsAsync()` em `MainWindow.xaml.cs`, mostrado aqui, chama o ponto final Idiomas para obter a lista de idiomas suportados. 
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -188,54 +188,54 @@ private async Task UpdateLanguageSettingsAsync()
 }
 ```
 
-Esse método primeiro constrói um pedido HTTP para o ponto final de idiomas, solicitando todas as três listas de idiomas (`text`, `speech`, e `tts`).
+Este método começa por construir um pedido HTTP para o ponto final Idiomas, a pedir as três listas de idiomas (`text`, `speech` e `tts`).
 
-O ponto de extremidade de idiomas usa o pedido `Accept-Languages` cabeçalho para determinar o idioma em que os nomes dos idiomas são representados. Por exemplo, os idiomas conhecidos falantes de inglês como "Alemanha" se chama "Deutsch" em alemão e "Alemán" em espanhol e a lista de idiomas refletem essas diferenças. Idioma padrão do sistema é utilizado para este cabeçalho.
+O ponto final utiliza o cabeçalho `Accept-Languages` do pedido para determinar o idioma no qual os nomes dos idiomas são apresentados. Por exemplo, o idioma que os falantes de inglês conhecem como “alemão” chama-se “deutsch” em alemão e “alemán” em espanhol. A lista de idiomas reflete essas diferenças. É utilizado neste cabeçalho o idioma predefinido do sistema.
 
-Depois do pedido foi enviado e a resposta JSON recebida, a resposta é analisada em estruturas de dados internas. Estas estruturas, em seguida, são utilizadas para construir os menus de idioma e a linguagem. 
+Após o pedido ser enviado e a resposta JSON recebida, a resposta é separada em estruturas de dados internas. Essas estruturas são, depois, utilizadas para construir os menus Idioma de Partida e Idioma de Chegada. 
 
-Uma vez que as vozes disponíveis dependem do idioma para escolhido pelo utilizador, não é possível definir o menu de voz ainda. Em vez disso, as vozes disponíveis para cada idioma são armazenadas para uso posterior. O `ToLanguage_SelectionChanged` manipulador (no mesmo ficheiro de origem) mais tarde atualiza o menu de voz chamando `UpdateVoiceComboBox()` quando o usuário escolhe uma linguagem para. 
+Uma vez que as vozes disponíveis dependem do Idioma de Chegada que o utilizador escolhe, ainda não é possível configurar o menu Voz. Em vez disso, as vozes disponíveis para cada idioma são armazenadas, para utilização posterior. Mais tarde, o processador `ToLanguage_SelectionChanged` (no mesmo ficheiro de origem) atualiza o menu Voz ao chamar `UpdateVoiceComboBox()` quando o utilizador escolhe o Idioma de Chegada. 
 
-Só por diversão, uma linguagem para aleatoriamente está selecionada, se o utilizador não tiver executado o aplicativo antes. (As configurações de menu são armazenadas entre sessões.)
+Se o utilizador ainda não tiver executado a aplicação antes, é escolhido um Idioma de Chegada aleatoriamente, só por diversão. (As definições do menu são armazenadas entre sessões.)
 
 ## <a name="authenticating-requests"></a>Autenticar pedidos
 
-Para autenticar para o serviço de voz do Microsoft Translator tiver de enviar a chave de subscrição do Azure no cabeçalho, como o valor de `Ocp-Apim-Subscription-Key` no pedido de ligação.
+Para se autenticar no serviço Tradução de Voz da Microsoft, tem de enviar a sua chave de subscrição do Azure no cabeçalho como o valor de `Ocp-Apim-Subscription-Key` no pedido de ligação.
 
 ## <a name="translation-overview"></a>Descrição geral da tradução
 
-A API de tradução (ponto final de WebSockets `wss://dev.microsofttranslator.com/speech/translate`) aceita áudio para ser convertido em monophonic, kHz 16, 16 bits assinado formato WAVE. O serviço retorna um ou mais respostas JSON que contém tanto o texto reconhecido e traduzido. Se tiver sido solicitada a voz, um arquivo de áudio é enviado.
+A API de Voz do Microsoft Translate (ponto final WebSockets `wss://dev.microsofttranslator.com/speech/translate`) aceita a tradução de áudio no formato WAVE monofónico, de 16 kHz e 16 bits assinado. O serviço devolve uma ou mais respostas JSON que contêm o texto reconhecido e o texto traduzido. Se tiver sido pedida conversão de texto em voz, é enviado um ficheiro de áudio.
 
-O utilizador escolhe a origem de áudio utilizando o menu de entrada do microfone/ficheiro. O áudio pode vir de um dispositivo de áudio (por exemplo, um microfone) ou de um `.WAV` ficheiro.
+Para escolher a origem do áudio, o utilizador utiliza o menu Entrada de Microfone/Ficheiro. O áudio pode vir de um dispositivo de áudio (como um microfone) ou de um ficheiro `.WAV`.
 
-O método `StartListening_Click` é invocado quando o usuário clica no botão Iniciar. Esse manipulador de eventos, por sua vez, chama `Connect()` para iniciar o processo de envio de áudio para o ponto final de API de serviço. O `Connect()` método realiza as seguintes tarefas:
+Quando o utilizador clica no botão Iniciar, o método `StartListening_Click` é invocado. Por sua vez, este processador de eventos chama `Connect()` para dar início ao processo de envio do áudio para o ponto final da API do serviço. O método `Connect()` realiza as seguintes tarefas:
 
-
-> [!div class="checklist"]
-> * Obter as definições de utilizador da janela principal e validá-los
-> * A inicializar a entrada de áudio e fluxos de saída
-> * Chamar `ConnectAsync()` para lidar com o restante do trabalho
-
-`ConnectAsync()`, por sua vez, lida com as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Autenticação com a chave de subscrição do Azure no cabeçalho `Ocp-Apim-Subscription-Key`
-> * Criar uma `SpeechClient` instância (encontrada no `SpeechClient.cs`) para comunicar com o serviço
-> * A inicializar `TextMessageDecoder` e `BinaryMessageDecoder` instâncias (consulte `SpeechResponseDecoder.cs`) para processar as respostas
-> * Enviar o áudio através do `SpeechClient` instância para o serviço de voz do tradutor
+> * Obter as definições do utilizador a partir da janela principal e validá-las
+> * Inicializar os fluxos de entrada e saída de áudio
+> * Chamar `ConnectAsync()` para processar o resto do trabalho
+
+`ConnectAsync()`, por seu turno, processa as seguintes tarefas:
+
+> [!div class="checklist"]
+> * Autenticar com a Chave de Subscrição do Azure no cabeçalho `Ocp-Apim-Subscription-Key`
+> * Criar uma instância `SpeechClient` (encontrada em `SpeechClient.cs`) para comunicar com o serviço
+> * Inicializar as instâncias `TextMessageDecoder` e `BinaryMessageDecoder` (veja `SpeechResponseDecoder.cs`) para processar as respostas
+> * Enviar o áudio através da instância `SpeechClient` para o serviço Tradução de Voz
 > * Receber e processar os resultados da tradução
 
-As responsabilidades de `SpeechClient` são menos:
+`SpeechClient` tem menos responsabilidades:
 
 > [!div class="checklist"]
-> * Estabelecer uma conexão WebSocket para o serviço de voz do tradutor
-> * Enviar dados de áudio e receber respostas através de socket
+> * Estabelecer uma ligação WebSocket ao serviço Tradução de Voz
+> * Enviar os dados de áudio e receber respostas através do socket
 
-## <a name="a-closer-look"></a>Uma análise detalhada
+## <a name="a-closer-look"></a>Uma visão mais detalhada
 
-Deve ser mais claro agora como partes do aplicativo funcionam em conjunto para efetuar o pedido de tradução. Vamos dar uma olhada em alguns códigos, focalizando as partes relevantes.
+Nesta fase, deverá ser claro que partes da aplicação funcionam em conjunto para realizar o pedido de tradução. Vamos ver algum código, com especial atenção às partes relevantes.
 
-Aqui está uma versão parcial do `Connect()` definição que aparece as sequências de áudio em:
+Segue-se uma versão parcial de `Connect()` que mostra a configuração dos fluxos de áudio:
 
 ```csharp
 private void Connect()
@@ -357,11 +357,11 @@ private void Connect()
 }
 ```
 
-Uma parte substancial `Connect()` envolve a criação de um `SpeechClientOptions` instância (consulte `SpeechClientOptions.cs`) para conter as opções para a tradução. As opções incluem as informações necessárias para ligar ao serviço (por exemplo, a chave de autenticação e nome de anfitrião) e os recursos utilizados para a tradução. Aqui os campos do mapa para os campos de cabeçalho e os parâmetros HTTP expostos pela [a API de voz do Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
+Uma parte substancial de `Connect()` envolve a criação de uma instância `SpeechClientOptions` (veja `SpeechClientOptions.cs`), onde armazenar as opções da tradução. As opções incluem as informações necessárias para ligar ao serviço (como a chave de autenticação e o nome de anfitrião) e as funcionalidades utilizadas na tradução. Os campos aqui mapeiam para os campos do cabeçalho e os parâmetros HTTP que a [API de Voz do Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference) expõe.
 
-`Connect()` também cria e inicializa o dispositivo de entrada de áudio (variável `sampleProvider`) que serve como a fonte de voz para ser convertido. Este dispositivo é um dispositivo de entrada de hardware, como um microfone ou um ficheiro que contém dados de áudio WAVE.
+`Connect()` também cria e inicializa o dispositivo de entrada de áudio (variável `sampleProvider`) que funciona como a origem da voz que vai ser traduzida. Esse dispositivo é um dispositivo de entrada de hardware, como um microfone, ou um ficheiro que contém dados de áudio WAVE.
 
-Aqui está o `ConnectAsync()` método que instancie o `speechClient` classe e se conecta a funções anônimas para lidar com texto e binárias respostas do serviço.
+Segue-se o método `ConnectAsync()` que instancia a classe `speechClient` e prepara funções anónimas para processar o texto e as respostas binárias do serviço.
 
 ```csharp
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
@@ -422,13 +422,13 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 }
 ```
 
-Depois de autenticar, o método cria o `SpeechClient` instância. O `SpeechClient` classe (no `SpeechClient.cs`) invoca os manipuladores de eventos nos dados binários e de texto de receção. Manipuladores de adicionais são chamados quando a ligação falha ou se desliga.
+Após a autenticação, o método cria a instância `SpeechClient`. A classe `SpeechClient` (em `SpeechClient.cs`) invoca os processadores de eventos após a receção dos dados binários e de texto. Se a ligação falhar ou se desligar, são invocados mais cabeçalhos.
 
-Dados binários são áudio (saída de texto para discurso) enviado pelo serviço quando TTS está ativada. Dados de texto são um parcial ou de uma tradução inteira do texto falado. Portanto, depois de instanciar, o método conecta as funções para lidar com essas mensagens: áudio armazenando-os para reprodução posterior e o texto ao exibi-la na janela.
+Os dados binários são o áudio (saída de conversão de texto em voz) que o serviço envia quando o TTS está ativado. Os dados de texto são uma tradução parcial ou completa do texto falado. Assim, após a instanciação, o método prepara funções para processar essas mensagens - o áudio, ao armazená-lo para ser reproduzido mais tarde, e o texto, ao apresentá-lo na janela.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este exemplo de código é um aplicativo de rico em recursos a fim de demonstrar o uso da API de voz do Translator. Assim, há um bom número de partes móveis entender. Percorremos os bits mais importantes. Para o restante, ele pode ser instrutivo para definir alguns pontos de interrupção no Visual Studio e percorrer o processo de tradução. Quando compreender o aplicativo de exemplo, está equipado para utilizar o serviço de voz do Translator em seus próprios aplicativos.
+Este exemplo de código é uma aplicação com muita funcionalidades que demonstra a utilização da API de Voz do Microsoft Translator. Assim, é necessário compreender um número considerável de coisas. Percorreu as mais importantes. Quanto às restantes, pode ser instrutivo definir alguns pontos de interrupção no Visual Studio e seguir o processo de tradução. Quando compreender a aplicação de exemplo, estará preparado para utilizar o serviço Tradução de Voz nas suas aplicações.
 
 > [!div class="nextstepaction"]
-> [Referência da API de voz do Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
+> [Microsoft Translator Speech API reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference) (Referência da API de Voz do Microsoft Translator)
