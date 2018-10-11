@@ -1,21 +1,21 @@
 ---
 title: 'Guia de Início Rápido: API Go – criar uma base de dados de conhecimento – Criador de FAQ'
 titlesuffix: Azure Cognitive Services
-description: Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+description: Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b9c98596f14229e33e9286e8bda61def428b0afe
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034064"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887170"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Criar uma nova base de dados de conhecimento em Go
 
@@ -27,7 +27,7 @@ Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.co
 
 ## <a name="create-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-O seguinte código cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+O código seguinte cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.

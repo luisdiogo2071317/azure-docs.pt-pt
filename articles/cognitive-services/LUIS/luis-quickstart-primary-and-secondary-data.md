@@ -10,18 +10,18 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036067"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867549"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes com entidade simples e lista de expressões
 
 Neste tutorial, irá extrair dados de aprendizagem automática do nome do cargo a partir de uma expressão com a entidade **Simple** (Simples). Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
 
-Este tutorial adiciona uma nova entidade simples para extrair o nome do cargo. O objetivo da entidade simples nesta aplicação LUIS é ensinar ao LUIS o que é um nome de cargo e onde pode ser encontrado numa expressão. A parte da expressão que corresponde ao nome do cargo pode variar de expressão para expressão com base na escolha de palavras e no comprimento da expressão. O LUIS precisa de exemplos de nomes de cargos em todas as intenções que utilizam nomes de cargos.  
+Este tutorial adiciona uma nova entidade simples para extrair o nome do cargo. O objetivo da entidade simples nesta aplicação LUIS é ensinar ao LUIS o que é um nome de trabalho e onde pode ser encontrado numa expressão. A parte da expressão que corresponde ao nome do cargo pode variar de expressão para expressão com base na escolha de palavras e no comprimento da expressão. O LUIS precisa de exemplos de nomes de cargos em todas as intenções que utilizam nomes de cargos.  
 
 A entidade simples é uma boa opção para este tipo de dados quando:
 
@@ -36,8 +36,8 @@ A entidade simples é uma boa opção para este tipo de dados quando:
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Utilizar a aplicação de tutorial existente
-> * Adicionar uma entidade simples para extrair cargos da aplicação
-> * Adicionar a lista de expressões para melhorar o sinal das palavras do cargo
+> * Adicionar uma entidade simples para extrair tarefas da aplicação
+> * Adicionar a lista de expressões para melhorar o sinal das palavras da tarefa
 > * Preparar 
 > * Publicar 
 > * Obter as intenções e as entidades do ponto final
@@ -61,13 +61,13 @@ A entidade simples deteta um único conceito de dados contido em palavras ou exp
 
 Considere as seguintes expressões de um chatbot:
 
-|Expressão|Nome do cargo passível de extração|
+|Expressão|Nome da tarefa passível de extração|
 |:--|:--|
-|Quero candidatar-me ao novo cargo de contabilidade.|contabilidade|
+|Quero candidatar-me ao novo trabalho de contabilidade.|contabilidade|
 |Submeter o meu currículo para o novo cargo de engenharia.|engenharia|
-|Preencher a candidatura para o cargo 123456|123456|
+|Preencher a candidatura para o trabalho 123456|123456|
 
-O nome do cargo é difícil de determinar porque um nome pode ser um substantivo, verbo ou uma expressão de várias palavras. Por exemplo:
+O nome do trabalho é difícil de determinar porque um nome pode ser um substantivo, verbo ou uma expressão de várias palavras. Por exemplo:
 
 |Tarefas|
 |--|
@@ -82,7 +82,7 @@ O nome do cargo é difícil de determinar porque um nome pode ser um substantivo
 |operador de extrusora|
 |mecânico afinador de máquinas|
 
-Esta aplicação LUIS tem nomes de cargos em várias intenções. Ao identificar estas palavras nas expressões de todas as intenções, o LUIS aprende mais sobre o nome de um cargo e onde pode ser encontrado nas expressões.
+Esta aplicação LUIS tem nomes de trabalhos em várias intenções. Ao identificar estas palavras nas expressões de todas as intenções, o LUIS aprende mais sobre o nome de um cargo e onde pode ser encontrado nas expressões.
 
 Depois de as entidades serem marcadas nas expressões de exemplo, é importante adicionar uma lista de expressões para aumentar o sinal da entidade simples. Uma lista de expressões **não** é utilizada como uma correspondência exata e não precisa de ser todos os valores possíveis esperados. 
 
@@ -102,9 +102,9 @@ Depois de as entidades serem marcadas nas expressões de exemplo, é importante 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de ecrã do LUIS com a identificação da entidade Job realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    Todas as expressões estão identificadas, mas cinco expressões não são suficientes para ensinar ao LUIS sobre palavras e expressões relacionadas com cargos. Os cargos que utilizam o valor numérico não precisam de mais exemplos porque utilizam uma entidade de expressão regular. Os cargos que são palavras ou expressões precisam de pelo menos mais 15 exemplos. 
+    Todas as expressões estão identificadas, mas cinco expressões não são suficientes para ensinar ao LUIS sobre palavras e expressões relacionadas com trabalho. Os trabalhos que utilizam o valor numérico não precisam de mais exemplos porque utilizam uma entidade de expressão regular. Os trabalhos que são palavras ou expressões precisam de, pelo menos, mais 15 exemplos. 
 
-6. Adicione mais expressões e marque as palavras ou expressões de cargos, como entidade **Job** (Cargo). Os tipos de cargo são gerais em todos os empregos para um serviço de emprego. Se quisesse cargos relacionados com uma indústria específica, as palavras do cargo devem refletir essa indústria. 
+6. Adicione mais expressões e marque as palavras ou expressões de trabalho como entidade **Job** (Trabalho). Os tipos de trabalho são gerais em todos os empregos para um serviço de emprego. Se quisesse trabalhos relacionados com um setor específico, as palavras do trabalho devem refletir esse setor. 
 
     |Expressão|Entidade de trabalho|
     |:--|:--|
@@ -133,7 +133,7 @@ Etiquetar ou _marcar_ a entidade mostra ao LUIS onde está a entidade nas expres
 
 2. Selecione **GetJobInformation** na lista de intenções. 
 
-3. Identifique os cargos nas expressões de exemplo:
+3. Identifique os trabalhos nas expressões de exemplo:
 
     |Expressão|Entidade de trabalho|
     |:--|:--|
@@ -141,7 +141,7 @@ Etiquetar ou _marcar_ a entidade mostra ao LUIS onde está a entidade nas expres
     |Procuro um novo emprego com responsabilidades em contabilidade|contabilidade|
     |Que vagas estão disponíveis para engenheiros sénior?|engenheiros sénior|
 
-    Existem outras expressões de exemplo, mas não contêm palavras relacionadas com cargos.
+    Existem outras expressões de exemplo, mas não contêm palavras relacionadas com trabalhos.
 
 ## <a name="train"></a>Preparar
 
@@ -222,9 +222,9 @@ Etiquetar ou _marcar_ a entidade mostra ao LUIS onde está a entidade nas expres
 
 
 ## <a name="names-are-tricky"></a>Os nomes são complicados
-A aplicação LUIS encontrou a intenção correta com um índice elevado de confiança e extraiu o nome do cargo, mas os nomes são complicados. Experimente a expressão `This is the lead welder paperwork`.  
+A aplicação LUIS encontrou a intenção correta com um índice elevado de confiança e extraiu o nome do trabalho, mas os nomes são complicados. Experimente a expressão `This is the lead welder paperwork`.  
 
-No seguinte JSON, o LUIS responde com a intenção correta, `ApplyForJob`, mas não extraiu o nome do cargo `lead welder`. 
+No seguinte JSON, o LUIS responde com a intenção correta, `ApplyForJob`, mas não extraiu o nome do trabalho `lead welder`. 
 
 ```JSON
 {
@@ -283,7 +283,7 @@ Uma vez que um nome pode ser qualquer coisa, o LUIS prevê as entidades com maio
 
 ## <a name="to-boost-signal-add-phrase-list"></a>Para melhorar o sinal, adicione uma lista de expressões
 
-Abra o ficheiro [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) no repositório do Github LUIS-Samples. A lista contém mais de mil expressões e palavras relacionadas com cargos. Dê uma vista de olhos à lista para encontrar palavras relacionadas com cargos que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
+Abra o ficheiro [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) no repositório do Github LUIS-Samples. A lista contém mais de mil expressões e palavras relacionadas com trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
 
 1. Na secção **Build** (Criar) da aplicação LUIS, selecione **Phrase lists** (Listas de expressões), que se encontra no menu **Improve app performance** (Melhorar o desempenho da aplicação).
 
@@ -299,7 +299,7 @@ Abra o ficheiro [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de ecrã do pop-up da caixa de diálogo Criar nova lista de expressões com palavras na caixa de valores da lista de expressões")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Prepare](#train-the-luis-app) e [publique](#publish-the-app-to-get-the-endpoint-URL) a aplicação novamente para utilizar a lista de expressões.
+5. [Prepare](#train) e [publique](#publish) a aplicação novamente para utilizar a lista de expressões.
 
 6. Repita a consulta no ponto final com a mesma expressão: `This is the lead welder paperwork.`
 

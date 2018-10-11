@@ -2,19 +2,18 @@
 title: Tutorial do Azure Container Registry - Enviar uma imagem atualizada para implementações regionais
 description: Envie uma imagem de Docker modificada para o seu Azure Container Registry georreplicado e veja as alterações automaticamente implementadas nas aplicações Web executadas em múltiplas regiões. Parte três de uma série com três partes.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031208"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855515"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: enviar uma imagem atualizada para implementações regionais
 

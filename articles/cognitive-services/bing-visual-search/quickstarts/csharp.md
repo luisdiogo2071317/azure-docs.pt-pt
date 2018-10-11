@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6cec0e178c4ff5b27722cb8de258a1f78e6acc51
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218772"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883348"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Início Rápido: A sua primeira consulta de Pesquisa Visual do Bing em C#
 
@@ -41,7 +41,7 @@ O programa de exemplo utiliza apenas classes de .NET Core e é executado no Wind
 
 Precisa do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Neste início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
+Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
