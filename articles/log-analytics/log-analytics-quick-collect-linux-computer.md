@@ -15,13 +15,13 @@ ms.topic: quickstart
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
-ms.openlocfilehash: f1e363351cb214a80652aaef599a1306ad270e3f
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: ''
+ms.openlocfilehash: 901765174c2e68a00624c48c7ea85e060265ca5e
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480814"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042183"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Linux num ambiente híbrido
 O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente do seu computador Linux físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  

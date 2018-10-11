@@ -15,13 +15,13 @@ ms.topic: quickstart
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
-ms.openlocfilehash: 91a656b055dbe882bdd5e5c208cc5d8955c74041
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: ''
+ms.openlocfilehash: 39c30934ddf3b1d90b2dc604af0f0bb29bf79c04
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480444"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043734"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows num ambiente híbrido
 O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente do seu computador Windows físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para as VMs do Windows do Azure, veja o tópico seguinte [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) (Recolher dados sobre as Máquinas Virtuais do Azure).  

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f78e9bca7b1b4ce048826b887f99c6dc12f596b7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 215773d14b98db52c4de62bab70457c134c0b47d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040011"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854393"
 ---
 # <a name="update-a-knowledge-base-in-java"></a>Atualizar uma base de dados de conhecimento em Java
 
@@ -23,7 +23,7 @@ O código seguinte atualiza uma base de dados de conhecimento existente, atravé
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-java.md).
+Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-java.md).
 
 1. Criar um novo projeto de Java no seu IDE favorito.
 1. Adicione o código indicado abaixo.
@@ -32,7 +32,7 @@ Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-1. Irá precisar da biblioteca [apache.httpclient](http://hc.apache.org/downloads.cgi). Por exemplo, transfira o binário HttpClient 4.X.X.tar.gz para encontrar todos os ficheiros jar que precisa de importar para o seu projeto.
+1. Irá precisar da biblioteca [apache.httpclient](https://hc.apache.org/downloads.cgi). Por exemplo, transfira o binário HttpClient 4.X.X.tar.gz para encontrar todos os ficheiros jar que precisa de importar para o seu projeto.
 1. A biblioteca [GSON](https://github.com/google/gson) também é necessária. Pode utilizá-la ao [criar](https://stackoverflow.com/questions/5258159/how-to-make-an-executable-jar-file) e importar manualmente o ficheiro .jar ou ao adicionar uma dependência à sua ferramenta de gestão de projetos preferida, como o Maven.
 1. Execute o programa.
 
@@ -61,7 +61,7 @@ import com.google.gson.reflect.TypeToken;
 
 /**
  * Java does not natively support HTTP PATCH requests; Apache HttpClient is required.
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -215,14 +215,14 @@ public class UpdateKB {
         // HttpPatch implements HttpMessage, which includes addHeader.
         // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/
         // apache/http/client/methods/HttpPatch.html">HttpPatch</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpMessage.html">HttpMessage</a>
         patch.addHeader("Content-Type", "application/json");
         // Note: Adding the Content-Length header causes the exception:
         // "Content-Length header already present."
         patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
         // HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpEntityEnclosingRequest.html">HttpEntityEnclosingRequest</a>
         HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
@@ -234,9 +234,9 @@ public class UpdateKB {
         // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/
         // client/methods/CloseableHttpResponse.html">CloseableHttpResponse</a>
         // Header implements NameValuePair.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
         // Header</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // NameValuePair.html">NameValuePair</a>
         Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (Header header : response.getAllHeaders()) {
@@ -249,10 +249,10 @@ public class UpdateKB {
         }
 
         // CloseableHttpResponse implements HttpResponse, which includes getEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpResponse.html">HttpResponse</a>
         // HttpEntity implements getContent, which returns an InputStream.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpEntity.html">HttpEntity</a>
         StringBuilder output = new StringBuilder ();
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity()
@@ -377,7 +377,7 @@ public class UpdateKB {
 Press any key to continue.
 ```
 
-Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas bases de dados de conhecimento). Tenha em atenção que a sua base de dados de conhecimento foi alterada, segundo o seu pedido personalizado.
+Assim que a sua base de dados de conhecimento é atualizada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas base de dados de conhecimento). Tenha em atenção que a sua base de dados de conhecimento foi alterada, segundo o seu pedido personalizado.
 
 Para modificar outros elementos da sua base de dados de conhecimento, aceda ao [esquema JSON](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) no Criador de FAQ e modifique o objeto `req` no método `getRequest()`.
 

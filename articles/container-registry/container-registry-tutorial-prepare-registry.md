@@ -2,19 +2,18 @@
 title: Tutorial do Azure Container Registry - Preparar um registo de contentor do Azure georreplicado
 description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450033"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854308"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
