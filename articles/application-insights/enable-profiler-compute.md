@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424029"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091985"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Ativar o Application Insights Profiler para VMs do Azure, o Service Fabric e serviços Cloud do Azure
 
@@ -48,7 +48,7 @@ Para habilitar completamente o Profiler, tem de alterar a configuração em trê
 
    ![Localização da chave de instrumentação](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Para concluir a configuração da instância do Application Insights para Profiler, conclua o procedimento descrito [ative Profiler. Não precisa de associar as aplicações web, uma vez que as etapas são específicas para o recurso de serviços de aplicações. Certifique-se de que o Profiler está ativado no **Profiler configurar** painel.
+1. Para concluir a configuração da instância do Application Insights para Profiler, conclua o procedimento descrito [ative Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). Não precisa de associar as aplicações web, uma vez que as etapas são específicas para o recurso de serviços de aplicações. Certifique-se de que o Profiler está ativado no **Profiler configurar** painel.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurar o código de origem do aplicativo
@@ -163,7 +163,7 @@ Para configurar o ambiente, faça o seguinte:
 
 ### <a name="azure-cloud-services"></a>Cloud Services do Azure
 
-1. Para se certificar de que está a utilizar [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior, é suficiente confirmar que o *ServiceConfiguration.\*. cscfg* arquivos têm uma `osFamily` valor "5" ou posterior.
+1. Para se certificar de que está a utilizar [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior, é suficiente confirmar que o *ServiceConfiguration.\*.cscfg* arquivos têm uma `osFamily` valor "5" ou posterior.
 
 1. Localize a [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* de ficheiros para a sua função de aplicação, como mostrado aqui:  
 
@@ -191,7 +191,7 @@ Para configurar o ambiente, faça o seguinte:
 >  * A chave utilizada pelo `ApplicationInsights` sink.  
 >  * A chave utilizada pelo `ApplicationInsightsProfiler` sink.  
 >
-> Pode encontrar o valor de chave de instrumentação real é utilizado pelos `ApplicationInsights` serem digeridos a *ServiceConfiguration.\*. cscfg* ficheiros.  
+> Pode encontrar o valor de chave de instrumentação real é utilizado pelos `ApplicationInsights` serem digeridos a *ServiceConfiguration.\*.cscfg* ficheiros.  
 > Após o lançamento do SDK do Azure do Visual Studio 15,5, apenas as chaves de instrumentação que são utilizados pela aplicação e o `ApplicationInsightsProfiler` necessidade de sink para corresponderem entre si.
 
 

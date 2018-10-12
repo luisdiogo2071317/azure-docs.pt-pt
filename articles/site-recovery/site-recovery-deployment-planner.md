@@ -11,15 +11,15 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 66dda70e2f9b4c0235434fd91a061b43e2489bdf
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: a04a372e52c682af428938514eac5d5e0f4274f0
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915865"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093719"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -84,8 +84,8 @@ A ferramenta tem duas fases principais – a criação de perfis e a geração d
 
 | Requisito do servidor | Descrição|
 |---|---|
-|Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>As definições de nível de estatísticas do VMware vCenter devem ser definidas ao nível 2 ou superior</li><li>Permitir porta 443: o Planeador de Implementações do Site Recovery utiliza esta porta para ligar ao vCenter server/anfitrião ESXi</ul></ul>|
-| Geração de relatórios | Um PC Windows ou Windows Server com o Excel 2013 ou posterior |
+|Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>Definições de nível de estatísticas do VMware vCenter podem ser o nível 1 ou superior</li><li>Permitir que a porta do vCenter (o valor predefinido 443): Site Recovery Deployment Planner utiliza esta porta para ligar para o vCenter server/anfitrião ESXi</ul></ul>|
+| Geração de relatórios | Um Windows PC ou Windows Server com o Excel 2013 ou posterior.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) é necessário apenas quando passar - opção de utilizador no comando de geração de relatório para obter as últimas informações de configuração de VM das VMs. O planeador de Depolyment liga-se ao servidor do vCenter. Permitir vCenter porta da porta (predefinição 443) ligar ao vCenter server.</li>|
 | Permissões de utilizador | Permissão só de leitura para a conta de utilizador utilizada para aceder ao VMware vCenter Server/anfitrião ESXi do VMware vSphere durante a criação do perfil |
 
 > [!NOTE]
@@ -127,5 +127,5 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
 A versão mais recente da ferramenta Planeador de Implementações do Site Recovery é 2.2.
 Veja a página [Histórico de versões do Planeador de Implementações do Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Planeador de Implementações do Site Recovery](site-recovery-vmware-deployment-planner-run.md)

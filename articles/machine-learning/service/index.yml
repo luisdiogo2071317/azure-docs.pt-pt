@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5403be527e8591f0f0b658131b08632d6d1458ca
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: f7b1213b7c3a6074f85c74825ed30c0b7ba8b98b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452246"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116007"
 documentType: LandingData
 title: Documentação do serviço do Azure Machine Learning (pré-visualização)
 metadata:
@@ -44,13 +44,15 @@ sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: Saiba como configurar uma experimentação e operacionalizar os seus modelos.
+    text: '<b>Tutoriais</b>: aprenda a configurar uma experiência e a operacionalizar os seus modelos.'
   - type: list
     style: unordered
     items:
     - html: <a href="tutorial-train-models-with-aml">Prepare o seu próprio modelo de aprendizagem automática</a>
     - html: <a href="tutorial-auto-train-models">Deixe que façamos a geração e otimização automáticas de um modelo por si</a>
     - html: <a href="tutorial-deploy-models-with-aml">Implementar um modelo enquanto serviço web</a>
+  - type: paragraph
+    text: '<b>Blocos de notas de exemplo</b>: explore o Azure Machine Learning com <a href="http://aka.ms/aml-notebooks">estes blocos de notas do Jupyter</a>, disponíveis no GitHub.'
 - title: Referência
   items:
   - type: list
