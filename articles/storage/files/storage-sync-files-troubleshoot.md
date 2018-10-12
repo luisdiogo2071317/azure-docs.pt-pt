@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 8c6736d52ea0854a83bb213077c21946dc23141f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3565793347a8c9704e51e893e5aa916cf54cab8e
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857436"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115578"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -131,7 +131,7 @@ Este problema pode ocorrer se o processo de Monitor de sincronização de armaze
 
 Para resolver este problema, execute os seguintes passos:
 
-1. Abra o Gestor de tarefas no servidor e certifique-se de que o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo de mensagens em fila não está em execução, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, desinstale e reinstale o agente do Azure File Sync (Nota: as definições do servidor são mantidas quando desinstalar e reinstalar o agente).
+1. Abra o Gestor de tarefas no servidor e certifique-se de que o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo de mensagens em fila não está em execução, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, atualize o agente de sincronização de ficheiros do Azure para a versão [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) se não estão atualmente instalado.
 2. Certifique-se de que as definições de Firewall e Proxy estão configuradas corretamente:
     - Se o servidor estiver protegido por uma firewall, certifique-se de que a porta 443 de saída é permitida. Se a firewall restringe o tráfego a domínios específicos, certifique-se os domínios listados na Firewall [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) estão acessíveis.
     - Se o servidor estiver atrás de um proxy, configure as definições de proxy de aplicações específicas ou todo o computador ao seguir os passos no Proxy [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).

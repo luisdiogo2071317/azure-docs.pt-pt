@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 10/03/2018
+ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981945"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091560"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
-Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que lhe dar informações sobre o comportamento de recursos que suportam o servidor MySQL. 
+Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
 Todas as métricas do Azure têm uma frequência de um minuto e cada métrica oferece 30 dias do histórico. Pode configurar alertas sobre as métricas. Para obter orientações passo a passo, consulte [como posso configurar alertas](howto-alert-on-metric.md). Outras tarefas incluem definir ações automatizadas, a realização de análises avançadas e o arquivamento de histórico. Para obter mais informações, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
@@ -41,6 +41,9 @@ Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 |seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos que o servidor de réplica é lagging contra o servidor mestre.|
 |network_bytes_egress|Saída de Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
 |network_bytes_ingress|Entrada de Rede|Bytes|Rede no através de ligações de Active Directory.|
+
+## <a name="server-logs"></a>Registos do servidor
+Pode ativar o registo no seu servidor de consulta lenta. Estes registos também estão disponíveis através de registos de diagnóstico do Azure no Log Analytics do OMS, os Hubs de eventos e conta de armazenamento. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Ver [como posso configurar alertas](howto-alert-on-metric.md) para obter orientações sobre como criar um alerta na métrica.

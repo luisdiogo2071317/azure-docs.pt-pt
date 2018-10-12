@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f79b1d4c1afc4d5a516a46a9bf6cb1790034b279
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986302"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116716"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de hora para VMs do Linux no Azure
 
@@ -44,7 +44,7 @@ Interações de máquina virtual com o host também podem afetar o relógio. Dur
 
 Sem o trabalho de sincronização de hora, o relógio na VM seria acumular-se erros. Quando existe apenas uma VM, o efeito poderá não ser significativo, a menos que a carga de trabalho requer timekeeping altamente preciso. Mas, na maioria dos casos, podemos ter várias, interligados VMs que utilizam o tempo para controlar as transações e as necessidades de tempo para ser consistente em toda a implantação. Quando o tempo entre VMs é diferente, pode ver os seguintes efeitos:
 
-- Protocolos de segurança, como Kerberos ou tecnologia de dependente do certificado dependem de tempo a ser consistente em todos os sistemas. 
+- Autenticação irá falhar. Protocolos de segurança, como Kerberos ou tecnologia de dependente do certificado dependem de tempo a ser consistente em todos os sistemas.
 - É muito difícil descobrir o que ocorreram num sistema se registos (ou outros dados) não concordam no tempo. O mesmo evento teria o aspeto, como ocorreu em alturas diferentes, correlação tornando difícil.
 - Se o relógio estiver desativada, a faturação foi possível calcular o incorretamente.
 

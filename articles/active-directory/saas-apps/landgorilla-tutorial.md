@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6712ecbc81abdf4756cb72f4949f51d2ffca4142
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435850"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integração do Azure Active Directory com o cliente de Gorila terra
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o cliente de Gorila ' s Land, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um cliente de Gorila ' s Land início de sessão único na subscrição ativado
 
 

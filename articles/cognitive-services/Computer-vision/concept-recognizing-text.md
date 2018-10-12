@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a77306f408e87d5055a292d6f403cc041790eba
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985316"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093872"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconhecer impressos e texto manuscrito
 
@@ -29,7 +29,7 @@ Imagem digitalizada pode reconhecer texto impresso e manuscritos em imagens que 
 
 - A imagem deve ser apresentada no formato JPEG, PNG ou BMP
 - O tamanho do ficheiro da imagem tem de ser inferior a 4 megabytes (MB)
-- As dimensões da imagem tem de estar entre 40 x 40 e 3200 x 3200 pixels
+- As dimensões da imagem tem de estar entre 50 x 50 e 4200 x 4200 pixels
 
 > [!NOTE]
 > Esta tecnologia está atualmente em pré-visualização e só está disponível para texto em inglês.

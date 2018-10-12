@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2ca95f6fd94036e86aae2059c05a3fbb0380005e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446301"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory com Velpic SAML
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Velpic SAML, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Velpic SAML início de sessão único na subscrição ativado
 
 > [!NOTE]

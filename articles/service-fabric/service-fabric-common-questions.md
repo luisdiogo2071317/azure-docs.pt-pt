@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fe86e94e745ae9ba65636ab0d1ccfead83261515
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057381"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094263"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -96,6 +96,9 @@ Enquanto estamos a trabalhar numa experiência aprimorada, hoje em dia, é respo
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Pode encriptar discos de dados anexados num tipo de nó de cluster (conjunto de dimensionamento de máquina virtual)?
 Sim.  Para obter mais informações, consulte [criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [encriptar discos (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), e [encriptar discos (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Pode utilizar VMs de baixa prioridade num tipo de nó de cluster (conjunto de dimensionamento de máquina virtual)?
+Não. VMs de baixa prioridade não são suportadas. 
+
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e os processos que preciso serem excluídos ao executar um programa de software antivírus no meu cluster?
 
 | **Diretórios de excluído antivírus** |
@@ -122,7 +125,7 @@ Sim.  Para obter mais informações, consulte [criar um cluster com discos de da
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como o meu aplicativo pode autenticar para o Cofre de chaves para obter segredos?
 Seguem-se significa para a sua aplicação obter as credenciais para autenticar no Cofre de chaves:
 
-A. Durante a tarefa de compilação/remessa seus aplicativos, pode extrair um certificado para o pacote de dados da sua aplicação SF e utilizá-lo para autenticar para o Cofre de chaves.
+R. Durante a tarefa de compilação/remessa seus aplicativos, pode extrair um certificado para o pacote de dados da sua aplicação SF e utilizá-lo para autenticar para o Cofre de chaves.
 B. Para anfitriões MSI ativada do conjunto de dimensionamento de máquinas virtuais, pode desenvolver um SetupEntryPoint simples do PowerShell para a sua aplicação SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do Cofre de chaves](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
 
 ## <a name="application-design"></a>Design do aplicativo

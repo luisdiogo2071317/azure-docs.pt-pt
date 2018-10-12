@@ -3,8 +3,8 @@ title: Funcionalidades do motor de regras CDN do Azure | Documentos da Microsoft
 description: Funcionalidades do motor de regras de documentação de referência para a CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.author: magattus
+ms.openlocfilehash: c5f486498e357927880ae51c1fec13a00296b457
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056743"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093363"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas dos recursos disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -902,7 +902,7 @@ Informações da chave:
     - reencaminhado
     - anfitrião
     - através de
-    - Aviso
+    - aviso
     - x-forwarded-for
     - Todos os nomes de cabeçalho que começam com "x-ec" estão reservados.
 
@@ -942,14 +942,14 @@ Informações da chave:
     - content-encoding
     - content-length
     - content-range
-    - data
+    - date
     - servidor
     - informações finais
     - codificação de transferência
     - Atualizar
     - variar
     - através de
-    - Aviso
+    - aviso
     - Todos os nomes de cabeçalho que começam com "x-ec" estão reservados.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -1070,7 +1070,7 @@ Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum
     - anfitrião
     - variar
     - através de
-    - Aviso
+    - aviso
     - x-forwarded-for
     - Todos os nomes de cabeçalho que começam com "x-ec" estão reservados.
 

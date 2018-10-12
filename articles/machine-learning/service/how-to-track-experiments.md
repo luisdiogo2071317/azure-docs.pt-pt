@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984607"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115187"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
 
@@ -148,7 +148,7 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -213,7 +213,7 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
 ## <a name="view-run-details"></a>Vista de detalhes da execução
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitor de executar com widgets de bloco de notas do Jupyter
-Quando utiliza a **ScriptRunConfig** executa o método para submeter, pode ver o progresso da execução com um widget de bloco de notas do Jupyter. Como o envio de execução, o widget é assíncrono e fornece as atualizações dinâmicas todos os segundos de 10 a 15 até que a tarefa é concluída.
+Quando utiliza a **ScriptRunConfig** executa o método para submeter, pode ver o progresso da execução com um widget de bloco de notas do Jupyter. Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
 
 1. Ver o widget de Jupyter enquanto aguarda a execução concluir.
 
@@ -247,8 +247,8 @@ Também pode ver qualquer saídas ou registos para a execução, ou transferir o
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 Os seguintes blocos de notas demonstram os conceitos deste artigo:
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.Getting-Started/01.Train-within-Notebook/01.Train-within-Notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 
 Obtenha estes blocos de notas: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

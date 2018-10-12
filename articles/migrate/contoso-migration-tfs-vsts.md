@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a304cb08ec001587af5e6ea740853bd8435824e7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297932"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116968"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migração de Contoso: Refatorizar uma implantação do Team Foundation Server para serviços do Azure DevOps
 
@@ -35,6 +35,7 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 Artigo 11: Refatorizar uma implementação TFS nos serviços de DevOps do Azure | Migrar a aplicação de desenvolvimento TFS para serviços do Azure DevOps no Azure | Este artigo
 [Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados do Azure SQL](contoso-migration-rearchitect-container-sql.md) | Mostra como Contoso migra e rearchitects a respetiva aplicação SmartHotel para o Azure. Eles rearquitetar a camada de web de aplicação como um contentor do Windows e a base de dados de aplicação numa base de dados SQL do Azure. | Disponível
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Mostra como Contoso reconstruir a sua aplicação de SmartHotel com uma gama de capacidades do Azure e serviços, incluindo serviços de aplicações, Kubernetes do Azure, as funções do Azure, serviços cognitivos e Cosmos DB. | Disponível
+[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 ## <a name="business-drivers"></a>Fatores comerciais

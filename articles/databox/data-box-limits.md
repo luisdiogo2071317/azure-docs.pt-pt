@@ -2,25 +2,18 @@
 title: Limites do Azure Data Box | Documentos da Microsoft
 description: Descreve os limites de sistema e os tamanhos recomendados para os componentes do Microsoft Azure Data Box e ligações.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/10/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: d1aeabd2de529d2c6b3159d9cd65996fb5096d0a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069374"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091934"
 ---
 # <a name="azure-data-box-limits"></a>Limites do Azure Data Box
 

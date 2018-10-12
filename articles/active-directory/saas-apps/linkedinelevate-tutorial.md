@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f8f12263ca71b8e88033484bc03fc4cff9e25bc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435218"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn elevar
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com elevar o LinkedIn, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um LinkedIn elevar início de sessão único na subscrição ativado
 
 > [!NOTE]

@@ -3,8 +3,8 @@ title: Obter a lista atual de Verizon POP da CDN do Azure | Documentos da Micros
 description: Saiba como obter a lista de Verizon POP atual com a API de REST.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9605b352755933b37819527cecbc4e1ccc30e8aa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 8a11f6cb634ca8986b463d815bd75e03b79b5706
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579076"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093991"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Obter a lista atual de Verizon POP da CDN do Azure
 

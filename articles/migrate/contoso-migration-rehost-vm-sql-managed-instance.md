@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 12baa21c8661012cd7ef96217724150a3d8c56f3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303437"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116147"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração de Contoso: realojar a uma aplicação no local numa VM do Azure e a instância gerida do SQL da base de dados
 
@@ -40,6 +40,7 @@ Artigo 4: Realojar a uma aplicação numa VM do Azure e a instância gerida da b
 [Artigo 11: Refatorar o Team Foundation Server nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Contoso efetua a migração de sua implantação do Team Foundation Server no local ao migrar para serviços do Azure DevOps no Azure. | Disponível
 [Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados do Azure SQL](contoso-migration-rearchitect-container-sql.md) | Contoso migra sua SmartHotel de aplicação para o Azure e, em seguida, rearchitects a aplicação. Contoso rearchitects a camada de web de aplicação como um contentor do Windows e rearchitects a base de dados de aplicação ao utilizar a base de dados do Azure SQL. | Disponível
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Contoso recria o seu aplicativo de SmartHotel com uma variedade de capacidades do Azure e serviços, incluindo o serviço de aplicações do Azure, Azure Kubernetes Service, as funções do Azure, serviços cognitivos do Azure e Azure Cosmos DB. | Disponível
+[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 

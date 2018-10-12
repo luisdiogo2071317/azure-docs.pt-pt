@@ -1,6 +1,6 @@
 ---
-title: Anexar um disco de dados geridos para uma VM do Windows - Azure | Microsoft Docs
-description: Como ligar o novo disco de dados geridos para uma VM do Windows no portal do Azure utilizando o modelo de implementação Resource Manager.
+title: Anexar um disco de dados geridos para uma VM do Windows - Azure | Documentos da Microsoft
+description: Como anexar um disco de dados geridos para uma VM do Windows com o portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,73 +13,71 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913421"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093906"
 ---
-# <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Como anexar um disco de dados geridos para uma VM do Windows no portal do Azure
+# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados geridos para uma VM do Windows com o portal do Azure
 
-Este artigo mostra como anexar um novo disco de dados geridos para máquinas virtuais do Windows no portal do Azure. Antes de fazer isto, consulte estas sugestões:
-
-* O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos das virtual machines](sizes.md).
-* Para um novo disco, não precisa de criar primeiro, porque o Azure cria-lo quando a ligá-lo.
-
-Também pode [anexar um disco de dados com o Powershell](attach-disk-ps.md).
-
+Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máquina virtual de Windows (VM) com o portal do Azure. O tamanho da VM determina quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos de máquinas virtuais](sizes.md).
 
 
 ## <a name="add-a-data-disk"></a>Adicionar um disco de dados
-1. No menu à esquerda, clique em **máquinas virtuais**.
-2. Selecione a máquina virtual na lista.
-3. Na página da máquina virtual, clique em **discos**.
-4. No **discos** página, clique em **+ adicionar disco de dados**.
+
+1. Na [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **máquinas virtuais**.
+2. Selecione uma máquina virtual a partir da lista.
+3. Sobre o **Máquina Virtual** página, selecione **discos**.
+4. Sobre o **discos** página, selecione **adicionar disco de dados**.
 5. Na lista pendente para o novo disco, selecione **criar disco**.
-6. No **criar disco de gerido** página, escreva um nome para o disco e ajustar as outras definições conforme necessário. Quando tiver concluído, clique em **Criar**.
-7. No **discos** página, clique em **guardar** para guardar a nova configuração de disco para a VM.
-6. Depois do Azure cria o disco e anexa-lo para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**.
+6. Na **disco gerido de criar** página, escreva um nome para o disco e ajustar as outras definições conforme necessário. Quando terminar, selecione **Criar**.
+7. Na **discos** página, selecione **guardar** para guardar a nova configuração de disco para a VM.
+8. Depois do Azure cria o disco e anexa-o para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inicializar um novo disco de dados
 
-1. Ligar à VM.
-1. Clique no menu Iniciar no interior da VM e tipo **diskmgmt.msc** e acessos **Enter**. É aberto o snap-in Gestão de disco.
-2. Gestão de discos reconhece que tem um disco novo, não foi inicializado e o **Inicializar disco** aparece a janela.
-3. Certifique-se o novo disco está selecionado e clique em **OK** ao inicializá-lo.
-4. O novo disco aparece como **não alocado**. Clique com botão direito em qualquer local no disco e selecione **novo volume simples**. O **Assistente de novo Volume simples** abre.
-5. Avance no assistente, ao manter todas as predefinições, quando tiver terminado selecione **concluir**.
-6. Feche a gestão de discos.
-7. Obter um pop-up que precisa para formatar o disco novo antes de poder utilizar. Clique em **disco formato**.
-8. No **disco novo formato** caixa de diálogo, verifique as definições e, em seguida, clique em **iniciar**.
-9. Receber um aviso que os discos de formatação elimina todos os dados, clique em **OK**.
-10. Quando o formato estiver concluído, clique em **OK**.
+1. Ligue à VM.
+1. Selecione o Windows **começar** menu no interior da VM em execução e introduza **Diskmgmt. msc** na caixa de pesquisa. O **gestão de discos** consola é aberta.
+2. Gestão de discos reconhece que tem um disco novo, não inicializado e o **Inicializar disco** é apresentada a janela.
+3. Certifique-se de que o novo disco está selecionado e, em seguida, selecione **OK** para inicializá-la.
+4. O novo disco aparece como **não alocado**. Com o botão direito em qualquer lugar no disco e selecione **novo volume simples**. O **Assistente de novo Volume simples** é aberta a janela.
+5. Avance no assistente, manter todos os padrões, e quando terminar, selecione **concluir**.
+6. Fechar **gestão de discos**.
+7. É apresentada uma janela de pop-up a notificá-lo de que precisa de formatar o disco novo antes de poder utilizá-lo. Selecione **formatar disco**.
+8. Na **Formatar novo disco** janela, verifique as definições e, em seguida, selecione **iniciar**.
+9. É apresentado um aviso a informar de que os discos de formatação apague todos os dados. Selecione **OK**.
+10. Quando a formatação estiver concluída, selecione **OK**.
 
-## <a name="use-trim-with-standard-storage"></a>Utilizar operações de COMPACTAÇÃO com o armazenamento standard
+## <a name="use-trim-with-standard-storage"></a>Utilizar TRIM com o armazenamento standard
 
-Se utilizar o armazenamento standard (HDD), deverá ativar a limitação. Operações de COMPACTAÇÃO elimina os blocos no disco, é-lhe faturado apenas para o armazenamento que está a utilizar, na verdade, de modo. Isto permite poupar nos custos se criar ficheiros grandes e, em seguida, elimine-os. 
+Se utilizar o armazenamento standard (HDD), deve ativar os **TRIM** comando. O **TRIM** comando descarta blocos não utilizados no disco, de modo a que é cobrado apenas pelo armazenamento que está realmente usando. Usando **TRIM**, podem poupar nos custos, se cria arquivos grandes e, em seguida, eliminá-los mais tarde. 
 
-Pode executar este comando para verificar a definição de COMPACTAÇÃO. Abra uma linha de comandos na sua VM do Windows e o tipo:
+Para verificar a **TRIM** definir, abra um prompt de comando na sua VM do Windows e introduza o seguinte comando:
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Se o comando devolve 0, cortar está ativada corretamente. Se devolve 1, execute o seguinte comando para ativar a limitação:
+Se o comando devolve 0, **TRIM** está ativada corretamente. Caso contrário, se ela retornar 1, execute o seguinte comando para habilitar **TRIM**:
+
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-Depois de eliminar dados do seu disco, pode certificar-se das operações de corte libertação corretamente executando desfragmentação com operações de COMPACTAÇÃO:
+Depois de eliminar dados do seu disco, é possível garantir a **TRIM** alinhadas corretamente através da execução de operações de desfragmentação com **TRIM**:
 
 ```
 defrag.exe <volume:> -l
 ```
 
-Pode também Certifique-se de que todo o volume é cortado por formatação do volume.
+Também pode formatar o volume para garantir que todo o volume é ajustado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se a aplicação tem de utilizar o d: disco para armazenar dados, pode [alterar a letra de unidade de disco temporário Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+- Também pode [anexar um disco de dados com o PowerShell](attach-disk-ps.md).
+- Se a sua aplicação precisa de utilizar o *D:* unidade para armazenar dados, pode [alterar a letra de unidade do disco temporário Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423549"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093446"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -46,8 +46,8 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
-| EUA Central | X | X |
-| EUA Leste | X | X |
+| EUA Central |  | X |
+| EUA Leste |  | X |
 | EUA Leste 2 | X | X |
 | EUA Centro-Norte | X | X |
 | EUA Centro-Sul | X | X |
@@ -97,7 +97,7 @@ Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 
-O servidor está marcado como só de leitura quando a quantidade de armazenamento livre atingir inferior a 5 GB ou 5% do armazenamento de aprovisionamento, o que for menor. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 250 MB.  
+O servidor está marcado como sendo só de leitura quando a quantidade de armazenamento gratuito alcançar a menor das opções de 5 GB ou 5% do armazenamento aprovisionado. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Como alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento gratuito chegar a menos de 250 MB.  
 
 Quando o servidor está definido só de leitura, todas as sessões existentes estão ligado à Internet e as transações não confirmadas são revertidas. Quaisquer operações de escrita subsequentes e a transação consolida a ativação. Todas as consultas de leitura subsequentes irão funcionar sem interrupções.  
 

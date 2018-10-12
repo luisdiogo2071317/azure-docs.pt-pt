@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6127e300ee46dbd33f8537f0138963cd4e3b5cc8
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887460"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094144"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -517,7 +517,7 @@ Para saber como integrar a solução de gestão com o System Center Configuratio
 
 Inclusão de atualização permite-lhe especificar as atualizações específicas a aplicar. São instalados patches ou pacotes que estão definidas para ser incluída. Quando Patches ou pacotes estão definidas para ser incluído e uma classificação é selecionada também, são instalados os itens incluídos e os itens que atendam a classificação.
 
-Para máquinas Linux se um pacote está incluído, mas tem um pacote de dependentes que foi specifcally excluído, o pacote não está instalado.
+É importante saber que exclusões substituem as inclusões. Por exemplo, se definir uma regra de exclusão de `*`, em seguida, sem patches ou pacotes são instalados, como eles são todos excluídos. Para máquinas Linux se um pacote está incluído, mas tem um pacote de dependentes que foi specifcally excluído, o pacote não está instalado.
 
 ## <a name="patch-linux-machines"></a>Máquinas do Linux de patch
 

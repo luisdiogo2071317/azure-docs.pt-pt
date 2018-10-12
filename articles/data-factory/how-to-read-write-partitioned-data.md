@@ -1,5 +1,5 @@
 ---
-title: Como de leitura ou escrita particionada dados no Azure Data Factory | Microsoft Docs
+title: Como ler ou escrever particionados dados no Azure Data Factory | Documentos da Microsoft
 description: Saiba como ler ou escrever dados particionados no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053715"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091054"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Como de leitura ou escrita particionada dados no Azure Data Factory
-Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual do Data Factory, pode conseguir este comportamento, utilizando um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Como ler ou escrever particionados dados no Azure Data Factory
+
+No Azure Data Factory versão 1, foi possível ler ou escrever dados particionados com o **SliceStart**, **SliceEnd**, **WindowStart**, e **WindowEnd** variáveis do sistema. Na versão atual do Data Factory, pode conseguir este comportamento ao utilizar um parâmetro de pipeline e início de um acionador, hora ou a hora agendada como um valor do parâmetro. 
 
 ## <a name="use-a-pipeline-parameter"></a>Utilizar um parâmetro de pipeline 
-Na versão 1, pode utilizar a propriedade partitionedBy e a variável de sistema do SliceStart conforme mostrado no exemplo seguinte: 
+
+No Data Factory versão 1, poderia usar o **partitionedBy** propriedade e **SliceStart** variável do sistema, conforme mostrado no exemplo a seguir: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ Na versão 1, pode utilizar a propriedade partitionedBy e a variável de sistema
 ],
 ```
 
-Para obter mais informações sobre a propriedade partitonedBy, consulte [conector de Blob do Azure versão 1](v1/data-factory-azure-blob-connector.md#dataset-properties) artigo. 
+Para obter mais informações sobre o **partitonedBy** propriedade, veja [copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-Na versão atual do Data Factory, uma forma de alcançar este comportamento é para executar as seguintes ações: 
+Para atingir esse comportamento na versão atual do Data Factory: 
 
-1. Definir um **pipeline parâmetro** do tipo cadeia. No exemplo seguinte, o nome do parâmetro de pipeline está **windowStartTime**. 
-2. Definir **folderPath** na definição do conjunto de dados para referenciar o valor do parâmetro do pipeline. 
-3. Passar o valor real para o parâmetro ao invocar a pipeline a pedido ou transmita agendada/hora a hora de início um acionador dinamicamente durante a execução. 
+1. Definir um *parâmetro do pipeline* do tipo **cadeia de caracteres**. No exemplo a seguir, é o nome do parâmetro de pipeline **windowStartTime**. 
+2. Definir **folderPath** na definição do conjunto de dados para referenciar o valor do parâmetro de pipeline. 
+3. Passe o valor real para o parâmetro quando invoca o pipeline a pedido. Também é possível passar hora de início um acionador ou a hora agendada dinamicamente no tempo de execução. 
 
 ```json
 "folderPath": {
@@ -50,8 +52,9 @@ Na versão atual do Data Factory, uma forma de alcançar este comportamento é p
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>Passar no valor de um acionador
-Na definição do seguinte em cascata janela acionador, hora de início da janela do acionador é transmitida como um valor para o parâmetro de pipeline **windowStartTime**: 
+## <a name="pass-in-a-value-from-a-trigger"></a>Passar um valor a partir de um acionador
+
+Na definição do seguinte em cascata janela acionador, a hora de início do acionador de janela é passada como um valor para o parâmetro de pipeline **windowStartTime**: 
 
 ```json
 {
@@ -80,7 +83,7 @@ Na definição do seguinte em cascata janela acionador, hora de início da janel
 
 ## <a name="example"></a>Exemplo
 
-Segue-se uma definição de conjunto de dados de exemplo:
+Eis um exemplo de definição de conjunto de dados:
 
 ```json
 {
@@ -176,4 +179,6 @@ Definição de pipeline:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para instruções completas de criação de uma fábrica de dados com um pipeline, consulte [início rápido: criar uma fábrica de dados](quickstart-create-data-factory-powershell.md). 
+
+Para obter instruções completas de como criar uma fábrica de dados que tem um pipeline, veja [início rápido: criar uma fábrica de dados](quickstart-create-data-factory-powershell.md). 
+

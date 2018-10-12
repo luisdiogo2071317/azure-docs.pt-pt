@@ -8,192 +8,185 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 535f59b1b0dc56b183c8a019d101b4fd4f1bfad6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435765"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116130"
 ---
-# <a name="integrate-azure-active-directory-with-box"></a>Integrar o Azure Active Directory com caixa
+# <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integração do Azure Active Directory com caixa
 
-Neste tutorial, saiba como integrar o Azure Active Directory (Azure AD) com caixa.
+Neste tutorial, saiba como integrar a caixa de com o Azure Active Directory (Azure AD).
 
-Com a integração do Azure AD com caixa, obtenha os seguintes benefícios:
+Integração de caixa de com o Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso à caixa.
-- Pode permitir que os utilizadores é feita automaticamente a caixa (início de sessão único, ou SSO) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central, o portal do Azure.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada a caixa (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com caixa, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Uma subscrição caixa SSO ativado
+- Uma subscrição do Azure
+- Uma caixa de logon único habilitado subscrição
 
 > [!NOTE]
-> Quando testa os passos neste tutorial, é recomendável que faça *não* utilizar um ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
-Para testar os passos neste tutorial, siga as seguintes recomendações:
+Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. 
-
-O cenário que é descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando a caixa da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="add-box-from-the-gallery"></a>Caixa de adicionar a partir da Galeria
-Para configurar a integração do Azure AD com caixa, adicione caixa partir da Galeria à sua lista de aplicações geridas do SaaS, fazendo o seguinte:
+## <a name="adding-box-from-the-gallery"></a>Adicionando a caixa da Galeria
+Para configurar a integração da caixa de com o Azure AD, terá de adicionar caixa partir da galeria, à sua lista de aplicações de SaaS geridas.
 
-1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
+**Para adicionar a caixa da galeria, execute os seguintes passos:**
 
-    ![O botão do Azure Active Directory][1]
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
-1. Selecione **aplicações empresariais** > **todas as aplicações**.
+    ![image](./media/box-tutorial/selectazuread.png)
 
-    ![A janela de "Aplicações empresariais"][2]
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+
+    ![image](./media/box-tutorial/a_select_app.png)
     
-1. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior da janela.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O "novo aplicativo" botão][3]
+    ![image](./media/box-tutorial/a_new_app.png)
 
-1. Na caixa de pesquisa, escreva **caixa**, selecione **caixa** na lista de resultados e, em seguida, selecione **Add**.
+4. Na caixa de pesquisa, escreva **caixa**, selecione **caixa** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Caixa na lista de resultados](./media/box-tutorial/tutorial_box_search.png)
-### <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+     ![image](./media/box-tutorial/tutorial_Box_addfromgallery.png)
 
-Nesta secção, configurar e testar o Azure AD início de sessão único com caixa, com base num utilizador de teste chamado "Eduarda Almeida."
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Para o início de sessão único funcione, o Azure AD precisa identificar o utilizador de caixa e sua contraparte no Azure AD. Em outras palavras, é necessário estabelecer uma relação de ligação entre um utilizador do Azure AD e o mesmo utilizador na caixa.
+Nesta secção, configure e teste do Azure AD início de sessão único com caixa de com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para estabelecer a relação de ligação, atribuir como a caixa *nome de utilizador* o valor da *nome de utilizador* no Azure AD.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador equivalente na caixa para um utilizador no Azure AD. Em outras palavras, uma relação entre um utilizador do Azure AD e o utilizador relacionado na caixa de ligação tem de ser estabelecida.
 
-Para configurar e testar o Azure AD início de sessão único com caixa, conclua os blocos de construção nas seções a seguir cinco.
+Para configurar e testar o Azure AD início de sessão único com caixa, tem de concluir os seguintes blocos de construção:
+
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de caixa](#create-a-box-test-user)**  - para ter um equivalente da Eduarda Almeida na caixa que está ligada à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Ativar o Azure AD início de sessão único no portal do Azure e configurar o início de sessão único em seu aplicativo de caixa, fazendo o seguinte:
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de caixa.
 
-1. No portal do Azure, no **caixa** janela de integração de aplicativo, selecione **início de sessão único**.
+**Para configurar o Azure AD início de sessão único com caixa, execute os seguintes passos:**
 
-    ![A ligação de "Início de sessão único"][4]
+1. Na [portal do Azure](https://portal.azure.com/), na **caixa** página de integração de aplicações, selecione **início de sessão único**.
 
-1. Na **início de sessão único** janela, na **modo de início de sessão único** caixa, selecione **baseado em SAML logon**.
- 
-    ![A janela de "Início de sessão único"](./media/box-tutorial/tutorial_box_samlbase.png)
+    ![image](./media/box-tutorial/b1_b2_select_sso.png)
 
-1. Sob **caixa de domínio e URLs**, efetue o seguinte procedimento:
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
 
-    !["Caixa domínio e URLs" únicas início de sessão em informações](./media/box-tutorial/url3.png)
+    ![image](./media/box-tutorial/b1_b2_saml_sso.png)
 
-    a. Na **URL de início de sessão** caixa, escreva um URL no seguinte formato: *https://\<subdomínio >. box.com*.
+3. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **configuração básica de SAML** caixa de diálogo.
 
-    b. Na **identificador** caixa de texto, tipo **box.net**.
-     
+    ![image](./media/box-tutorial/b1-domains_and_urlsedit.png)
+
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.account.box.com`
+
+    b. Na **identificador** caixa de texto, escreva um URL:`box.net`
+
+    ![image](./media/box-tutorial/tutorial_box_url.png)
+
     > [!NOTE] 
-    > Os valores anteriores não são reais. Atualize-as com o URL de início de sessão real e o identificador. Para obter os valores, entre em contato com o [equipa de suporte de cliente de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
+    > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obter o valor.
+ 
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  e guarde-o no seu computador.
 
-1. Sob **certificado de assinatura SAML**, selecione **XML de metadados**e, em seguida, guarde o ficheiro de metadados no seu computador.
+    ![image](./media/box-tutorial/tutorial_Box_certificate.png)
 
-    ![O link de download de certificado](./media/box-tutorial/tutorial_box_certificate.png) 
+6. Para configurar o SSO para a sua aplicação, siga o procedimento [configurar o SSO no seu próprio](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown). 
 
-1. Selecione **Guardar**.
-
-    ![Configurar o botão único início de sessão em Guardar](./media/box-tutorial/tutorial_general_400.png)
-    
-1. Para configurar o SSO para a sua aplicação, siga o procedimento [configurar o SSO no seu próprio](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
-
-> [!NOTE] 
-> Se não é possível ativar as definições de SSO para a sua conta de caixa, poderá ter de contactar o [equipa de suporte de cliente de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e forneça o ficheiro transferido do XML.
-
-> [!TIP]
-> Como estamos configurando o aplicativo, pode ler uma versão concisa das instruções anteriores no [portal do Azure](https://portal.azure.com). Depois de adicionar a aplicação no **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e, em seguida, aceder a documentação em Embedded a **configuração** seção na parte inferior. Para obter mais informações sobre a funcionalidade de documentação do embedded, consulte [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
->
+>[!NOTE]
+>Se não for possível configurar as definições de SSO para a sua conta de caixa, terá de enviar o transferido **XML de metadados de Federação** ao [equipa de suporte de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta secção, vai criar o utilizador de teste Eduarda Almeida no portal do Azure, fazendo o seguinte:
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**.
+    ![image](./media/box-tutorial/d_users_and_groups.png)
 
-    ![A ligação do Azure Active Directory](./media/box-tutorial/create_aaduser_01.png)
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-1. Para apresentar uma lista de utilizadores atuais, selecione **utilizadores e grupos** > **todos os utilizadores**.
+    ![image](./media/box-tutorial/d_adduser.png)
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/box-tutorial/create_aaduser_02.png)
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Na parte superior a **todos os utilizadores** janela, selecione **Add**.
+    ![image](./media/box-tutorial/d_userproperties.png)
 
-    ![Botão Adicionar](./media/box-tutorial/create_aaduser_03.png)
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    O **utilizador** é aberta a janela.
-
-1. Na **utilizador** janela, efetue o seguinte procedimento:
-
-    ![A janela de utilizador](./media/box-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Selecione **Criar**.
  
 ### <a name="create-a-box-test-user"></a>Criar um utilizador de teste de caixa
 
-Nesta secção, vai criar o utilizador de teste Eduarda Almeida na caixa. Caixa suporta o aprovisionamento de just-in-time, que está ativado por predefinição. Se um utilizador já não existir, uma nova é criada quando tentar acessar a caixa. Não é necessária ação do utilizador para criar o utilizador.
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na caixa. Caixa suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante a tentativa de aceder à caixa se não existir ainda.
+>[!Note]
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar utilizador Eduarda Almeida para utilizar o Azure início de sessão único ao conceder acesso à caixa. Para tal, faça o seguinte:
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso à caixa.
 
-![Atribuir a função de utilizador][200]
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**.
 
-1. No portal do Azure, abra a **aplicativos** modo de exibição, vá para o **diretório** ver e, em seguida, selecione **aplicações empresariais** > **todos os aplicativos**.
+    ![image](./media/box-tutorial/d_all_applications.png)
 
-    ![A "Aplicações empresariais" e os links de "Todas as aplicações"][201] 
+2. Na lista de aplicações, selecione **caixa**.
 
-1. Na **aplicativos** lista, selecione **caixa**.
+    ![image](./media/box-tutorial/tutorial_Box_app.png)
 
-    ![A ligação de caixa](./media/box-tutorial/tutorial_box_app.png)  
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-1. No painel esquerdo, selecione **utilizadores e grupos**.
+    ![image](./media/box-tutorial/d_leftpaneusers.png)
 
-    ![A ligação "Utilizadores e grupos"][202]
+4. Selecione o **Add** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-1. Selecione **Add** e, em seguida, no **adicionar atribuição** painel, selecione **utilizadores e grupos**.
+    ![image](./media/box-tutorial/d_assign_user.png)
 
-    ![O painel Adicionar atribuição][203]
+4. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-1. Na **utilizadores e grupos** janela, na **utilizadores** lista, selecione **Eduarda Almeida**.
-
-1. Selecione o **selecione** botão.
-
-1. Na **adicionar atribuição** janela, selecione **atribuir**.
+5. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando seleciona a **caixa** mosaico no painel de acesso, é aberta a página de início de sessão para o início de sessão sua aplicação de caixa.
+Quando seleciona a **caixa** mosaico no painel de acesso, obtém a página de início de sessão para o início de sessão sua aplicação de caixa.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -201,19 +194,4 @@ Quando seleciona a **caixa** mosaico no painel de acesso, é aberta a página de
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o aprovisionamento do utilizador](box-userprovisioning-tutorial.md)
 
-
-
-<!--Image references-->
-
-[1]: ./media/box-tutorial/tutorial_general_01.png
-[2]: ./media/box-tutorial/tutorial_general_02.png
-[3]: ./media/box-tutorial/tutorial_general_03.png
-[4]: ./media/box-tutorial/tutorial_general_04.png
-
-[100]: ./media/box-tutorial/tutorial_general_100.png
-
-[200]: ./media/box-tutorial/tutorial_general_200.png
-[201]: ./media/box-tutorial/tutorial_general_201.png
-[202]: ./media/box-tutorial/tutorial_general_202.png
-[203]: ./media/box-tutorial/tutorial_general_203.png
 

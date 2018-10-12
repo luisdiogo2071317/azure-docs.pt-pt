@@ -2,16 +2,17 @@
 title: Realojar uma aplicação de suporte técnico de serviço do Linux da Contoso para o Azure e MySQL do Azure | Documentos da Microsoft
 description: Saiba como Contoso realojar uma aplicação do Linux no local através da migração para VMs do Azure e MySQL do Azure.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: f6c877a182395d12ee46e9fd9b7892a4a3e5cdb8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c89ba62ae104d378dc99809e2d96ac993cd2bc35
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887790"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115973"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração de Contoso: realojar a uma aplicação do Linux no local para VMs do Azure e MySQL do Azure
 
@@ -34,6 +35,7 @@ Artigo 8: Realojar uma aplicação do Linux em VMs do Azure e MySQL do Azure | C
 [Artigo 11: Refatorar TFS nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Contoso migra sua implantação do Team Foundation Server no local para serviços do Azure DevOps no Azure. | Disponível
 [Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados do Azure SQL](contoso-migration-rearchitect-container-sql.md) | Contoso migra sua SmartHotel de aplicação para o Azure. Em seguida, rearchitects a camada de web de aplicação como um contentor do Windows em execução no Azure Service Fabric e base de dados com a base de dados do Azure SQL. | Disponível
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Contoso recria o seu aplicativo de SmartHotel com uma variedade de capacidades do Azure e serviços, incluindo o serviço de aplicações do Azure, Azure Kubernetes Service (AKS), as funções do Azure, serviços cognitivos do Azure e Azure Cosmos DB. | Disponível
+[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 Neste artigo, a Contoso migra uma aplicação de suporte técnico de serviço de Linux Apache MySQL PHP (LAMP) de duas camadas (osTicket) para o Azure. Se gostaria de utilizar esta aplicação de código-fonte aberto, pode transferi-lo a partir [GitHub](https://github.com/osTicket/osTicket).

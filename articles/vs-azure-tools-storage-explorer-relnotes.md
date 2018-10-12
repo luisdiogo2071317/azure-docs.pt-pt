@@ -14,26 +14,168 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 70e4e131cd83c6e80bc9b61a91cfd98adee0c952
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190526"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116951"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão para versão de Explorador de armazenamento do Azure 1.4.1, bem como as notas de versão para versões anteriores.
+Este artigo contém as notas de versão para versão de Explorador de armazenamento do Azure 1.4.3, bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
+## <a name="version-143"></a>Versão 1.4.3
+10/11/2018
+
+### <a name="download-azure-storage-explorer-143"></a>Transfira o Explorador de armazenamento do Azure 1.4.3
+- [Explorador de armazenamento do Azure 1.4.3 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.4.3 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.4.3 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Correções
+* A versão de Api de gestão de recursos do Azure foi revertida para o desbloqueio de utilizadores do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* A carregar spinners estão agora a utilizar animações do CSS para reduzir a quantidade de GPU utilizado pelo Explorador de armazenamento. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Novo
+* Anexos de recurso externo, como para ligações SAS e emuladores, foi melhorada significativamente. Agora, pode:
+   * Personalize o nome a apresentar do recurso que associar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Anexe a vários emuladores locais utilizar portas diferentes. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Adicione recursos ligados para acesso rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Explorador de armazenamento agora suporta a eliminação de forma recuperável. Pode:
+   * Configure uma política de eliminação de forma recuperável, clicando com o botão direito no nó de contentores de BLOBs para a sua conta de armazenamento.
+   * Blobs de exibição de forma recuperável eliminada no Editor de Blob, selecionando "Active Directory e eliminar blobs" na lista pendente junto a barra de navegação.
+   * Anular a eliminação de blobs eliminados de forma recuperável.
+
+### <a name="fixes"></a>Correções
+* A ação de "Configurar definições de CORS" já não está disponível nas contas de armazenamento Premium como contas de armazenamento Premium não suportam o CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Agora é uma propriedade de assinatura de acesso partilhado para os serviços ligados de SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* A ação de "Definir predefinido o escalão de acesso" está agora disponíveis para BLOBs e GPV2 armazenamento as contas que foram afixadas para acesso rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Às vezes, o Explorador de armazenamento falharia mostrar as contas de armazenamento clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas Conhecidos
+* Quando utilizar emuladores, como o emulador de armazenamento do Azure ou Azurite, terá de tê-los a escutar ligações nas suas portas de predefinição. Caso contrário, o Explorador de armazenamento não será capaz de se ligar aos mesmos.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 1.4.2](#version-142)
+* [Versão 1.4.1](#version-141)
+* [Versão 1.3.0](#version-130)
+* [Versão 1.2.0](#version-120)
+* [Versão 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versão 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versão 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versão 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-142"></a>Versão 1.4.2
+24/09/2018
+
+### <a name="hotfixes"></a>Correções
+* Atualize a versão de Api de gestão de recursos Azure 2018-07-01, para adicionar suporte para novos tipos de conta de armazenamento do Azure. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>Novo
+* Anexos de recurso externo, como para ligações SAS e emuladores, foi melhorada significativamente. Agora, pode:
+   * Personalize o nome a apresentar do recurso que associar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Anexe a vários emuladores locais utilizar portas diferentes. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Adicione recursos ligados para acesso rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Explorador de armazenamento agora suporta a eliminação de forma recuperável. Pode:
+   * Configure uma política de eliminação de forma recuperável, clicando com o botão direito no nó de contentores de BLOBs para a sua conta de armazenamento.
+   * Blobs de exibição de forma recuperável eliminada no Editor de Blob, selecionando "Active Directory e eliminar blobs" na lista pendente junto a barra de navegação.
+   * Anular a eliminação de blobs eliminados de forma recuperável.
+
+### <a name="fixes"></a>Correções
+* A ação de "Configurar definições de CORS" já não está disponível nas contas de armazenamento Premium como contas de armazenamento Premium não suportam o CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Agora é uma propriedade de assinatura de acesso partilhado para os serviços ligados de SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* A ação de "Definir predefinido o escalão de acesso" está agora disponíveis para BLOBs e GPV2 armazenamento as contas que foram afixadas para acesso rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Às vezes, o Explorador de armazenamento falharia mostrar as contas de armazenamento clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas Conhecidos
+* Quando utilizar emuladores, como o emulador de armazenamento do Azure ou Azurite, terá de tê-los a escutar ligações nas suas portas de predefinição. Caso contrário, o Explorador de armazenamento não será capaz de se ligar aos mesmos.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* Embora o Azure Stack atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros ainda for exibido numa conta de armazenamento do Azure Stack anexada.
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-141"></a>Versão 1.4.1
 08/28/2018
-
-### <a name="download-azure-storage-explorer-141"></a>Transfira o Explorador de armazenamento do Azure 1.4.1
-- [Explorador de armazenamento do Azure 1.4.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.4.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.4.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Correções
 * Na primeira execução, o Explorador de armazenamento não foi possível gerar a chave utilizada para encriptar dados confidenciais. Isso causaria problemas ao utilizar o acesso rápido e anexar a recursos. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -91,35 +233,6 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.3.0](#version-130)
-* [Versão 1.2.0](#version-120)
-* [Versão 1.1.0](#version-110)
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versão 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versão 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versão 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-130"></a>Versão 1.3.0
 07/09/2018

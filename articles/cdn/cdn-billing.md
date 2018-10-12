@@ -1,10 +1,10 @@
 ---
-title: Noções sobre faturação do Azure CDN | Microsoft Docs
-description: Estas FAQ descreve como funciona a faturação da CDN do Azure.
+title: Compreender a faturação da CDN do Azure | Documentos da Microsoft
+description: Nestas perguntas frequentes descreve como funciona a faturação da CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: v-deasim
-ms.openlocfilehash: 218c493c772dc8fd212efaf60a0599fa2e896411
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163519"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091816"
 ---
-# <a name="understanding-azure-cdn-billing"></a>Noções sobre faturação da CDN do Azure
+# <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
 
-Estas FAQ descreve a estrutura de faturação para o conteúdo alojado pela rede de entrega de conteúdos do Azure (CDN).
+Nestas perguntas frequentes descreve a estrutura de faturação para o conteúdo alojado pela rede de entrega de conteúdos do Azure (CDN).
 
 ## <a name="what-is-a-billing-region"></a>O que é uma região de faturação?
-Uma região de faturação é uma área geográfica utilizada para determinar a velocidade a que é cobrada de fornecimento de objetos da CDN do Azure. As zonas de faturação atuais e os respetivos regiões são os seguintes:
+Uma região de faturação é uma área geográfica usada para determinar a que taxa é cobrada para a entrega de objetos da CDN do Azure. As zonas de faturas atuais e as respetivas regiões são os seguintes:
 
 - Zona 1: América do Norte, Europa, Médio Oriente e África
 
@@ -38,51 +38,51 @@ Uma região de faturação é uma área geográfica utilizada para determinar a 
 
 - Zona 5: Índia
 
-Para obter informações sobre regiões de ponto de presença (POP), consulte [localizações de POP do CDN do Azure por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado em México é a região da América do Norte e, por isso, está incluído na zona 1. 
+Para obter informações sobre as regiões de pontos de presença (POP), consulte [localizações POP do CDN do Azure por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado no México está na região da América do Norte e, portanto, está incluído na zona 1. 
 
 Para obter informações sobre os preços da CDN do Azure, consulte [preços de rede de entrega de conteúdos](https://azure.microsoft.com/is-is/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Como são calculados os custos de entrega por região?
-A região de faturação da CDN do Azure é com base na localização do servidor de origem, a entrega de conteúdo para o utilizador final. O destino (localização física) do cliente não é considerado a região de faturação.
+A região de faturação da CDN do Azure baseia-se na localização do servidor de origem entregar o conteúdo para o utilizador final. O destino (localização física) do cliente não é considerado a região de faturação.
 
-Por exemplo, se um utilizador localizado em México emite um pedido e este pedido é servido por um servidor localizado no POP dos Estados Unidos devido a condições de peering ou tráfego, a região de faturação serão dos Estados Unidos.
+Por exemplo, se um utilizador localizado no México emite um pedido e este pedido é servido por um servidor localizado num preenchimento dos Estados Unidos devido a condições de peering ou de tráfego, a região de faturação será dos Estados Unidos.
 
-## <a name="what-is-a-billable-azure-cdn-transaction"></a>O que é uma transação sujeito a faturação do CDN do Azure?
-Qualquer pedido de HTTP (S) que termina no CDN é um evento de sujeito a faturação, que inclui todos os tipos de resposta: com êxito, falha ou outro. No entanto, as respostas diferentes poderão gerar quantidades de tráfego diferentes. Por exemplo, *304 não modificado* e outras respostas só de cabeçalho geram tráfego reduzida, porque são uma pequena resposta de cabeçalho; do mesmo modo, as respostas de erro (por exemplo, *404 não encontrado*) são facturável mas cobrado um custo pequeno devido ao payload de resposta muito pequena.
+## <a name="what-is-a-billable-azure-cdn-transaction"></a>O que é uma transação de CDN do Azure faturável?
+Qualquer pedido de HTTP (S) que termina em CDN é um evento cobrado, o que inclui todos os tipos de resposta: êxito, falha ou outro. No entanto, as respostas diferentes podem gerar quantidades de tráfego diferentes. Por exemplo, *304 não modificado* e outras respostas somente de cabeçalho geram pouco tráfego, por estarem um pequeno resposta de cabeçalho; da mesma forma, as respostas de erro (por exemplo, *404 não encontrado*) são a cobrar mas implicar um custo de pequenas devido a payload de resposta muito pequeno.
 
-## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Que outros custos do Azure estão associados a utilização da CDN do Azure?
-Também utilizar a CDN do Azure implica alguns custos de utilização nos serviços de utilizado como origem para os objetos. Estes custos são, normalmente, uma pequena fração do custo de utilização geral do CDN.
+## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Quais outros custos do Azure estão associados a utilização da CDN do Azure?
+Também é a utilização de CDN do Azure implica alguns custos de utilização sobre os serviços utilizados como origem para seus objetos. Esses custos são, normalmente, uma pequena fração do custo de utilização geral do CDN.
 
-Se estiver a utilizar armazenamento de Blobs do Azure como origem para o conteúdo, também pode implicar os seguinte custos de armazenamento de cache preenche:
+Se estiver a utilizar o armazenamento de Blobs do Azure como a origem para o seu conteúdo, também de ter os seguintes custos de armazenamento para preenchimentos de cache:
 
-- Real GB utilizado: O armazenamento real dos seus objetos de origem.
+- GB real utilizados: O armazenamento real dos seus objetos de origem.
 
-- As transferências em GB: A quantidade de dados transferidos para preencher as caches da CDN.
+- As transferências em GB: A quantidade de dados transferidos para preencher os caches CDN.
 
 - Transações: conforme necessário para preencher a cache.
 
-Para mais informações sobre faturação de armazenamento do Azure, consulte [compreender Azure armazenamento faturação – largura de banda, as transações e a capacidade](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+Para obter mais informações sobre a faturação do armazenamento do Azure, consulte [Noções básicas sobre faturação do Azure Storage – largura de banda, transações e capacidade](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Se estiver a utilizar *alojado entrega do serviço*, será cobrado o custo da seguinte forma:
+Se estiver a utilizar *alojada prestação de serviços*, incorre em custos da seguinte forma:
 
 - Tempo de computação do Azure: as instâncias de computação que atuam como a origem.
 
-- Transferência de computação do Azure: os dados transferidos a partir de instâncias de computação para preencher as caches da CDN do Azure.
+- Transferência de computação do Azure: os dados são transferidos das instâncias de computação para preencher os caches de CDN do Azure.
 
-Se o cliente utiliza os pedidos de intervalo de bytes (independentemente do serviço de origem), aplicam as seguintes considerações:
+Se o cliente utiliza os pedidos de intervalo de bytes (independentemente do serviço de origem), aplicam-se as seguintes considerações:
 
-- A *pedido de intervalo de bytes* é uma transação facturável na CDN. Quando um cliente emite um pedido de intervalo de bytes, este pedido é para um subconjunto (intervalo) do objeto. A CDN responde com apenas uma parte parcial do conteúdo que é pedido. Esta resposta parcial é uma transação sujeito a faturação e a quantidade de transferência está limitada ao tamanho da resposta de intervalo (mais cabeçalhos).
+- R *solicitação de intervalo de bytes* é uma transação cobrar na CDN. Quando um cliente emite uma solicitação de intervalo de bytes, essa solicitação é para um subconjunto (intervalo) do objeto. A CDN responde com apenas uma parte parcial do conteúdo que é solicitada. Esta resposta parcial é uma transação cobrar e a quantidade de transferência é limitada para o tamanho da resposta de intervalo (mais cabeçalhos).
 
-- Quando um pedido chega para apenas uma parte de um objeto (especificando um cabeçalho de intervalo de bytes), a CDN poderá obter todo o objeto para a sua cache. Como resultado, apesar da transação sujeito a faturação da CDN destina-se uma resposta parcial, a transação sujeito a faturação da origem poderá envolver o respetivo tamanho total do objeto.
+- Quando chega uma solicitação para apenas uma parte de um objeto (ao especificar um cabeçalho de intervalo de bytes), a CDN pode obter todo o objeto para a sua cache. Como resultado, mesmo que a transação sujeito a faturação da CDN é uma resposta parcial, a transação cobrar da origem pode envolver o tamanho máximo do objeto.
 
-## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Ocorre quanto atividade de transferência para a cache de suportar?
-Sempre que precisar de um POP do CDN para preencher a cache, faz um pedido para a origem para o objeto que está a ser colocados em cache. Como resultado, a origem implica uma transação facturável em cada falha de acerto na cache. O número de pedidos sem êxito de cache depende de vários fatores:
+## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>A atividade de transferência ocorre para suportar o cache?
+Sempre que precisar de um POP da CDN para preencher a respetiva cache, ele faz um pedido para a origem para o objeto a ser colocados em cache. Como resultado, a origem incorre numa transação faturável em cada falha de acerto na cache. O número de falhas de acerto na cache depende de vários fatores:
 
-- O conteúdo como colocáveis é: se o conteúdo tem elevada TTL (time-to-live) / expiração, os valores e é acedidos com frequência, pelo que esta permanece populares na cache, em seguida, a vasta maioria da carga é processado pela CDN. Um rácio de boa-acertos na cache de típico é bem que mais de 90%, que significa que menos de 10% de pedidos de cliente tem de voltar a origem, para uma falha de acerto na cache ou o objeto de atualizar.
+- Como em cache o conteúdo é: se o conteúdo tem alta TTL (time-to-live) / valores de expiração e é acedidos com frequência para que fique populares no cache, em seguida, a grande maioria da carga é manipulada pela CDN. Uma taxa de acertos na cache boa típica é bem que mais de 90%, que significa que menos de 10% de pedidos de cliente tem de voltar à origem, para uma falha de acerto na cache ou o objeto a atualizar.
 
-- O número de nós tem de carregar o objeto: sempre que um nó carrega um objeto de origem, implica uma transação sujeito a faturação. Como resultado, o conteúdo mais global (acedido a partir de mais nós) resulta em mais facturável transações.
+- Quantos nós tem de carregar o objeto: sempre que um nó carrega um objeto de origem, ela gera uma transação faturável. Como resultado, o conteúdo mais global (acedido a partir de mais nós) resulta em transações mais faturáveis.
 
-- Influência TTL: um valor de TTL superior para um objeto significa tem de ser obtido com menos frequência da origem. Isto também significa que os clientes, tais como navegadores, podem colocar em cache o objeto superior, pode reduzir as transações para a CDN.
+- Influência TTL: um valor de TTL superior, para um objeto significa que ele precisa ser obtidos a partir da origem com menos frequência. Isso também significa que os clientes, tais como navegadores, podem colocar em cache o objeto mais tempo, o que pode reduzir as transações para a CDN.
 
-## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerir os meus os custos de forma mais eficaz?
-Defina o valor de TTL mais longo possíveis no seu conteúdo. 
+## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como posso gerir os meus custos com mais eficiência?
+Defina o valor de TTL mais longo possível no seu conteúdo. 

@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 66f3558a4314b1639d54d4e8ea6814eea9064073
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032534"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113891"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
-Quando inicia um runbook na automatização do Azure, é criada uma tarefa. Uma tarefa é uma instância de execução individual de um runbook. Um operador de automatização do Azure é atribuído para executar cada tarefa. Embora funções de trabalho são partilhadas por várias contas do Azure, as tarefas de diferentes contas de automatização são isoladas uns dos outros. Não precisa controlar sobre qual trabalho processa o pedido para a sua tarefa. Um runbook individual pode ter várias tarefas em execução em simultâneo. O ambiente de execução de trabalhos a partir da mesma conta de automatização pode ser reutilizado. Quando exibir a lista de runbooks no portal do Azure, ele indica o estado de todas as tarefas que foram iniciados para cada runbook. Pode ver a lista de tarefas para cada runbook para poder controlar o estado de cada. Para obter uma descrição dos Estados de tarefa diferente [Estados das tarefas](#job-statuses).
+Quando inicia um runbook na automatização do Azure, é criada uma tarefa. Uma tarefa é uma instância de execução individual de um runbook. Um operador de automatização do Azure é atribuído para executar cada tarefa. Embora funções de trabalho são partilhadas por muitas contas do Azure, as tarefas de diferentes contas de automatização são isoladas uns dos outros. Não tem controle sobre qual trabalho processa o pedido para a sua tarefa. Um runbook individual pode ter muitos trabalhos em execução em simultâneo. O ambiente de execução de trabalhos a partir da mesma conta de automatização pode ser reutilizado. Quando exibir a lista de runbooks no portal do Azure, ele indica o estado de todas as tarefas que foram iniciados para cada runbook. Pode ver a lista de tarefas para cada runbook controlar o estado de cada. Para obter uma descrição dos Estados de tarefa diferente [Estados das tarefas](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -34,46 +34,46 @@ As tarefas têm acesso aos recursos do Azure por estabelecer a conexão com a su
 
 ## <a name="job-statuses"></a>Estados das tarefas
 
-A tabela seguinte descreve os diferentes Estados possíveis para uma tarefa.
+A tabela seguinte descreve os diferentes Estados possíveis para uma tarefa. PowerShell tem dois tipos de erros, erros de terminação e de não terminação. Erros de terminação de definir o estado de runbook como **falhada** caso estas ocorram. Erros de não terminação permitem que o script continuar, mesmo depois que eles ocorrem. Um exemplo de um erro de não terminação está a utilizar o `Get-ChildItem` cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, emite um erro e continua para a pasta seguinte. Este erro não definir o estado de runbook como **falhada** e pode ser marcado como **concluído**. Para forçar um runbook para parar num erro de não terminação, pode usar `-ErrorAction Stop` sobre o cmdlet.
 
 | Estado | Descrição |
 |:--- |:--- |
 | Concluído |A tarefa foi concluída com êxito. |
-| Com Falhas |Para [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), não foi possível iniciar o runbook ou a tarefa encontrou uma exceção. |
+| Com Falhas |Para [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), não foi possível iniciar o runbook ou a tarefa ter uma exceção. |
 | Falha ao aguardar que recursos |A tarefa falhou porque atingiu o [justa](#fair-share) limitar três vezes e iniciado a partir do ponto de verificação mesmo ou desde o início do runbook cada vez. |
 | Em Fila |A tarefa está a aguardar para recursos num trabalho de automatização fique disponível para que ele pode ser iniciado. |
-| A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciá-la. |
+| A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
 | A retomar |O sistema está a retomar a tarefa depois de ter sido suspenso. |
 | A executar |A tarefa está em execução. |
 | Em execução, à espera de recursos |A tarefa foi descarregada porque atingiu o [justa](#fair-share) limite. Ele retoma em breve do último ponto de verificação. |
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
 | A parar |O sistema está a parar a tarefa. |
-| Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Uma tarefa suspensa pode ser iniciada novamente e retomar a partir do último ponto de verificação ou desde o início do runbook, caso não tenha pontos de verificação. O runbook só é suspensa pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, que significa que a tarefa em execução num erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende num erro. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
+| Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começa desde o início do runbook. Se tiver um ponto de verificação, pode começar novamente e retomar a partir do último ponto de verificação. O runbook só é suspensa pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, que significa que a tarefa em execução num erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende num erro. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 | A suspender |O sistema está a tentar suspender a tarefa a pedido do utilizador. O runbook tem de atingir o ponto de verificação seguinte antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, ele é concluída antes de poder ser suspenso. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visualizar o estado da tarefa no portal do Azure
 
-Pode ver o estado de todas as tarefas de runbook resumido ou pormenorizar os detalhes de uma tarefa de runbook específico no portal do Azure ou ao configurar a integração com sua área de trabalho do Log Analytics para reencaminhar fluxos de estado e a tarefa de trabalho de runbook. Para obter mais informações sobre a integração com o Log Analytics, consulte [reencaminhar o estado da tarefa e fluxos de trabalho de automatização para o Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Pode ver o estado de todas as tarefas de runbook resumido ou pormenorizar os detalhes de uma tarefa de runbook específico no portal do Azure. Pode também configurar integração com sua área de trabalho do Log Analytics para reencaminhar fluxos de estado e a tarefa de trabalho de runbook. Para obter mais informações sobre a integração com o Log Analytics, consulte [reencaminhar o estado da tarefa e fluxos de trabalho de automatização para o Log Analytics](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Tarefas de runbook de automatização resumidas
 
-No lado direito da sua conta de automatização selecionada, pode ver um resumo de todas as tarefas de runbook para uma conta de automatização sob **estatísticas de tarefas** mosaico.
+No lado direito da sua conta de automatização selecionada, pode ver um resumo de todas as tarefas de runbook sob **estatísticas de tarefas** mosaico.
 
 ![Mosaico de estatísticas de tarefas](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Este mosaico apresenta uma contagem e uma representação gráfica do Estado da tarefa para todas as tarefas executadas.
 
-Ao clicar no mosaico apresenta os **tarefas** painel, que inclui uma lista resumida de todas as tarefas executadas, com o estado, a execução da tarefa e horários de início e conclusão.
+Ao clicar no mosaico apresenta os **tarefas** página, que inclui uma lista resumida de todas as tarefas executadas. Esta página mostra o estado, as horas de início e tempos de conclusão.
 
-![Painel de tarefas de conta de automatização](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+![Página de tarefas de conta de automatização](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
-Pode filtrar a lista de tarefas, selecionando **filtrar tarefas** e filtro de um runbook específico, o estado da tarefa, ou na lista pendente, o intervalo de data/hora para procurar dentro de um.
+Pode filtrar a lista de tarefas, selecionando **filtrar tarefas** e filtro de um runbook específico, o estado da tarefa, ou da lista pendente e o intervalo de tempo para procurar dentro de um.
 
 ![Estado da tarefa de filtro](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-Em alternativa, pode ver os detalhes de resumo de tarefa para um runbook específico ao selecionar esse runbook a partir da **Runbooks** painel na sua conta de automatização e, em seguida, selecione a **tarefas** mosaico. Isto apresenta os **tarefas** painel, e a partir daí, pode clicar num registo de tarefa para ver os detalhes e a saída.
+Em alternativa, pode ver os detalhes de resumo de tarefa para um runbook específico ao selecionar esse runbook a partir da **Runbooks** página na conta de automatização e, em seguida, selecione a **tarefas** mosaico. Esta ação apresenta os **tarefas** página, e a partir daí, pode clicar num registo de tarefa para ver os detalhes e a saída.
 
-![Painel de tarefas de conta de automatização](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
+![Página de tarefas de conta de automatização](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### <a name="job-summary"></a>Resumo da Tarefa
 
@@ -82,9 +82,9 @@ Pode ver uma lista de todas as tarefas que foram criadas para um determinado run
 Pode utilizar os seguintes passos para ver as tarefas de um runbook.
 
 1. No portal do Azure, selecione **automatização** e, em seguida, selecione o nome de uma conta de automatização.
-2. A partir do hub, selecione **Runbooks** e, em seguida, no **Runbooks** painel selecione um runbook a partir da lista.
-3. No painel do runbook selecionado, clique nas **tarefas** mosaico.
-4. Clique das tarefas na lista e no painel de detalhes de tarefa do runbook pode ver os detalhes e o resultado.
+2. A partir do hub, selecione **Runbooks** e, em seguida, no **Runbooks** página selecione um runbook a partir da lista.
+3. Na página para o runbook selecionado, clique nas **tarefas** mosaico.
+4. Clique das tarefas na lista e, na página de detalhes da tarefa do runbook pode ver os detalhes e o resultado.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>A obter o estado da tarefa com o Windows PowerShell
 
@@ -101,7 +101,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 ```
 
-O exemplo seguinte obtém o resultado de uma tarefa específica e retorna cada registo. No caso que ocorreu uma exceção para um dos registos, a exceção é gravada em vez do valor. Isto é útil como exceções podem fornecer informações adicionais que não podem ser registadas normalmente durante a saída.
+O exemplo seguinte obtém o resultado de uma tarefa específica e retorna cada registo. No caso que ocorreu uma exceção para um dos registos, a exceção é gravada em vez do valor. Este comportamento é útil como exceções podem fornecer informações adicionais, que não podem ser registadas normalmente durante a saída.
 
 ```azurepowershell-interactive
 $output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
@@ -137,18 +137,17 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Para poder partilhar recursos entre todos os runbooks na cloud, automatização do Azure será temporariamente descarregado, todas as tarefas após a execução de três horas. Durante este período, tarefas de [runbooks baseados em PowerShell](automation-runbook-types.md#powershell-runbooks) são parados e não forem reiniciados. O estado da tarefa mostra **parado**. Este tipo de runbook é sempre reiniciado desde o início, uma vez que não suportam os pontos de verificação.
 
-[Runbooks de fluxo de trabalho-baseada no PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) são retomado a partir de seus últimos [ponto de verificação](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Depois de executar a três horas, a tarefa de runbook está suspenso pelo serviço e o estado mostra **em execução, aguardar por recursos**. Quando uma área de segurança se torna disponível, o runbook é automaticamente reiniciado pelo serviço de automatização e currículos do último ponto de verificação. Este é o comportamento normal de fluxo de trabalho de PowerShell para suspender/reinício. Se o runbook novamente exceder a três horas de tempo de execução, o processo se repete até três vezes. Após o reinício de terceiro, se o runbook ainda não concluiu em três horas, em seguida, a tarefa de runbook é falhou e mostra o estado da tarefa **falha, aguardar por recursos**. Neste caso, receberá a seguinte exceção com a falha.
+[Runbooks de fluxo de trabalho-baseada no PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) são retomado a partir de seus últimos [ponto de verificação](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Depois de executar a três horas, a tarefa de runbook está suspenso pelo serviço e o estado mostra **em execução, aguardar por recursos**. Quando uma área de segurança se torna disponível, o runbook é automaticamente reiniciado pelo serviço de automatização e currículos do último ponto de verificação. Este comportamento é o comportamento normal de fluxo de trabalho de PowerShell para suspender/reinício. Se o runbook novamente exceder a três horas de tempo de execução, o processo se repete até três vezes. Após o reinício de terceiro, se o runbook ainda não concluiu em três horas, em seguida, a tarefa de runbook é falhou e mostra o estado da tarefa **falha, aguardar por recursos**. Neste caso, receberá a seguinte exceção com a falha.
 
 *A tarefa não é possível continuar a ser executada uma vez que ele foi expulso repetidamente do mesmo ponto de verificação. Certifique-se de que o Runbook não realiza operações demoradas sem manter seu estado.*
 
-Isso serve para proteger o serviço de runbooks em execução indefinidamente sem concluir, dado que não fazem torná-lo para o ponto de verificação seguinte sem a ser descarregado novamente.
+Este comportamento é proteger o serviço de runbooks em execução indefinidamente sem concluir, dado que não fazem torná-lo para o ponto de verificação seguinte sem a ser descarregado novamente.
 
 Se o runbook tiver sem pontos de verificação ou a tarefa não tinha alcançado o primeiro ponto de verificação antes de a ser descarregado, em seguida, reinicia desde o início.
 
-Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). As Funções de Trabalho de Runbook Híbridas não estão limitadas pela fração justa e não têm limites quanto à duração de execução de um runbook. A outra tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos.
+Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados pelo justa e não tem uma limitação quanto um runbook pode executar. A outra tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos.
 
-
-Se estiver a utilizar um runbook de fluxo de trabalho do PowerShell no Azure, ao criar um runbook, deve garantir que o tempo para executar todas as atividades entre dois pontos de verificação não exceda três horas. Poderá ter de adicionar pontos de verificação ao runbook para se certificar de que não atingir este limite de três horas ou divida de longa execução de operações. Por exemplo, o runbook pode executar um reindex num banco de dados SQL. Se esta operação única não for concluída dentro do limite de cota razoável, a tarefa é descarregada e reiniciada desde o início. Neste caso, deve dividir a operação de reindex em várias etapas, como a reindexação uma tabela por vez e, em seguida, inserir um ponto de verificação após cada operação para que a tarefa foi retomada após a última operação seja concluída.
+Se estiver a utilizar um runbook de fluxo de trabalho do PowerShell no Azure, ao criar um runbook, deve verificar se o tempo para executar todas as atividades entre dois pontos de verificação não exceda três horas. Poderá ter de adicionar pontos de verificação ao runbook para se certificar-se de que não atingir este limite de três horas ou divida de longa execução de operações. Por exemplo, o runbook pode executar um reindex num banco de dados SQL. Se esta operação única não for concluída dentro do limite de cota razoável, a tarefa é descarregada e reiniciada desde o início. Neste caso, deve dividir a operação de reindex em várias etapas, como a reindexação uma tabela por vez e, em seguida, inserir um ponto de verificação após cada operação para que a tarefa foi retomada após a última operação seja concluída.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

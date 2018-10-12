@@ -2,16 +2,17 @@
 title: Refatorizar uma aplicação de suporte técnico de serviço do Linux da Contoso para o serviço de aplicações do Azure e o MySQL do Azure | Documentos da Microsoft
 description: Saiba como Contoso revisasse, encontrasse aplicação do Linux no local ao migrar para o serviço de aplicações do Azure com o GitHub para a camada Web e a base de dados do Azure SQL.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3f85d9d18aa49a378c63fa1f1692c7dc665489be
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296527"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093006"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migração de Contoso: Refatorizar uma aplicação de suporte técnico do serviço de Contoso Linux em várias regiões com o App Service do Azure, o Gestor de tráfego e o MySQL do Azure
 
@@ -34,6 +35,7 @@ Artigo 10: Refatorizar uma aplicação do Linux em aplicações Web do Azure e M
 [Artigo 11: Refatorar TFS nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Contoso migra sua implantação do Team Foundation Server no local para serviços do Azure DevOps no Azure. | Disponível
 [Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados do Azure SQL](contoso-migration-rearchitect-container-sql.md) | Contoso migra sua SmartHotel de aplicação para o Azure. Em seguida, rearchitects a camada de web de aplicação como um contentor do Windows em execução no Azure Service Fabric e base de dados com a base de dados do Azure SQL. | Disponível
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Contoso recria o seu aplicativo da SmartHotel360 com uma variedade de capacidades do Azure e serviços, incluindo o serviço de aplicações do Azure, Azure Kubernetes Service (AKS), as funções do Azure, serviços cognitivos do Azure e Azure Cosmos DB. | Disponível
+[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 Neste artigo, a Contoso migra uma aplicação de suporte técnico de serviço de Linux Apache MySQL PHP (LAMP) de duas camadas (osTicket) para o Azure. Se gostaria de utilizar esta aplicação de código-fonte aberto, pode transferi-lo a partir [GitHub](https://github.com/osTicket/osTicket).
 

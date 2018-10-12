@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ceff8f6134f04409a4df1045a764c06597d997fc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885124"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092835"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -83,12 +83,12 @@ Se precisar de ativar o carregador de inicialização do Windows pede-lhe para m
 1. Ligar à máquina virtual Windows através de ambiente de trabalho remoto
 2. A partir de uma linha de comandos administrativa, execute os seguintes comandos 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 30`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reinicie o sistema para o menu de arranque seja ativado
 
 > [!NOTE] 
-> O tempo limite que definiu para o menu de Gestor de arranque a aparecer irá afetar o tempo de arranque de sistema operacional no futuro. Embora possa ser aceitável para algumas para adicionar o limite de tempo segundo 30 para garantir que o Gerenciador de inicialização é visível através da consola de série, outras pessoas poderá limite de tempo mais curto. Defina o valor de tempo limite como um valor que se sente confortável.
+> O tempo limite que definiu para o menu de Gestor de arranque a aparecer irá afetar o tempo de arranque de sistema operacional no futuro. Embora possa ser aceitável para algumas para adicionar o limite de tempo segundo 10 para garantir que o Gerenciador de inicialização é visível através da consola de série, outras pessoas poderá limite de tempo mais curto ou longo. Defina o valor de tempo limite como um valor que se sente confortável.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Utilizar a consola de série para chamadas de NMI em VMs do Windows
 Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não será ignorada. Historicamente, NMIs foram utilizadas para monitorizar a existência de problemas de hardware em sistemas que exigem tempos de resposta específica.  Hoje, os programadores e administradores de sistema utilizam frequentemente NMI como um mecanismo para depurar ou resolver problemas de sistemas que estão a ser suspenso.

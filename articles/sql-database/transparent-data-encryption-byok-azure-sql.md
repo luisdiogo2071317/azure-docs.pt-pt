@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2308897737014befb831cbef9880065856c20c77
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868801"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114673"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente: Oferecer suporte de sua própria chave
 
@@ -66,7 +66,14 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
   > [!NOTE]
   > Se o Azure AD Identity **é acidentalmente eliminado ou permissões do servidor são revogadas** usando a política de acesso do Cofre de chaves, o servidor perde o acesso ao Cofre de chaves e bases de dados do TDE encriptado são removidas dentro de 24 horas.
 
-- Configure o Azure Key Vault sem uma firewall ou VNet.  Se perder o acesso ao Cofre de chaves, o SQL bases de dados do TDE encriptado são removidas dentro de 24 horas.
+- Ao utilizar firewalls e redes virtuais com o Azure Key Vault, tem de configurar o seguinte: 
+  - Permitir o acesso das "Redes selecionadas" 
+  - Adicionar redes virtuais existentes e selecione a rede de base de dados SQL, se aplicável (isto é opcional para bases de dados singleton e necessária para instâncias geridas) 
+  - Permitr serviços Microsoft fidedignos contornem esta firewall – escolher Sim 
+         
+    > [!NOTE] 
+    > Se o TDE encriptados bases de dados SQL perdem o acesso ao Cofre de chaves, porque eles não consigam ignorar a firewall, as bases de dados são removidas dentro de 24 horas.
+
 - Ativar auditoria e relatórios em todas as chaves de encriptação: Key Vault fornece registos que são fáceis de injetar em outras ferramentas de gestão (SIEM) de informações e eventos da segurança. Operations Management Suite (OMS) [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) é um exemplo de um serviço que já está integrado.
 - Para garantir a elevada disponibilidade de bases de dados encriptados, configure cada servidor lógico com dois cofres de chaves do Azure que residem em diferentes regiões.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9b521f48f5bed8ae44d8406eb692a3ce244cf221
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902268"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114197"
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -39,7 +39,7 @@ A tabela seguinte fornece uma rápida visão geral do escopo da durabilidade e d
 | Uma interrupção de toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
 | Acesso de leitura aos seus dados (numa região remota, georreplicado) em caso de indisponibilidade de toda a região | Não                              | Não                               | Não                                   | Sim                                  |
 | Concebido para fornecer _ durabilidade dos objetos ao longo de um ano                                          | pelo menos, 99,999999999% (11 9 s) | pelo menos, 99.9999999999% (12 9 s) | pelo menos 99,99999999999999% (16 9 s) | pelo menos 99,99999999999999% (16 9 s) |
-| Tipos de conta de armazenamento suportadas                                                                   | GPv1, GPv2, Blob                | GPv1 (através do PowerShell, CLI do Azure ou recurso de API do fornecedor), GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| Tipos de conta de armazenamento suportadas                                                                   | Blob de GPv2, GPv1,                | GPv2, GPv1 (através do PowerShell, CLI do Azure ou recurso de API do fornecedor)                             | Blob de GPv2, GPv1,                     | Blob de GPv2, GPv1,                     |
 | SLA de disponibilidade para solicitações de leitura | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,99% (99,9% para o escalão de acesso esporádico) |
 | SLA de disponibilidade para pedidos de escrita | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) |
 

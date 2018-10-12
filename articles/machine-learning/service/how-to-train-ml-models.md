@@ -9,12 +9,12 @@ ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8c2f4ad9acc789a23eb951265b0464aee6caaa6c
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: c47761c184d0e6c091ff49b3eca2fdf89574b49d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815040"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114864"
 ---
 # <a name="how-to-train-models-with-azure-machine-learning"></a>Como criar modelos com o Azure Machine Learning
 
@@ -118,10 +118,10 @@ run = experiment.submit(cntk_est)
 
 ## <a name="examples"></a>Exemplos
 Para um tutorial sobre como preparar um modelo de sklearn, consulte:
-* `tutorials/01.train-models.ipynb`
+* [Tutorials/01.Train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
 Para um tutorial sobre CNTK distribuído com o docker personalizado, consulte:
-* `training/06.distributed-cntk-with-custom-docker`
+* [treinamento/06.distributed-cntk-com-personalizada-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
 
 Obtenha estes blocos de notas:
 

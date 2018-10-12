@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 82674aec8d62388d0d0f26e730f66b8b078a5d75
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c1858fca1ca5f6bc48f5225ecf2d52dee055c91
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904353"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092752"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - dimensionamento uma migração para o Azure
 
@@ -37,7 +37,7 @@ Este artigo é um de uma série de artigos que documente como a empresa fictíci
 [Artigo 11: Refatorar o Team Foundation Server nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Contoso migra sua implantação do Team Foundation Server no local para serviços do Azure DevOps no Azure. | Disponível
 [Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados do Azure SQL](contoso-migration-rearchitect-container-sql.md) | Contoso migra sua SmartHotel de aplicação para o Azure. Em seguida, rearchitects a camada de web de aplicação como um contentor do Windows em execução no Azure Service Fabric e a base de dados de aplicação com a base de dados do Azure SQL. | Disponível    
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Contoso recria o seu aplicativo de SmartHotel com uma variedade de capacidades do Azure e serviços, incluindo o serviço de aplicações do Azure, Azure Kubernetes Service (AKS), as funções do Azure, serviços cognitivos do Azure e Azure Cosmos DB. | Disponível 
-Artigo 14: Dimensionar uma migração para o Azure | Depois de a experimentar combinações de migração, Contoso está agora a preparar para dimensionar para uma migração completa para o Azure. | Este artigo
+Artigo 14: Dimensionar uma migração para o Azure | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Este artigo
 
 ## <a name="business-drivers"></a>Fatores comerciais
 
@@ -65,7 +65,7 @@ A equipe de cloud de Contoso tiver afixado para baixo de objetivos para essa mig
 
 Depois de fixar-se para baixo de objetivos e requisitos, Contoso revê os requisitos de espaço IT e identifica o processo de migração.
 
-## <a name="current-app"></a>Aplicação atual
+## <a name="current-deployment"></a>Implementação atual
 
 Depois de planear e configurar uma [infraestrutura do Azure](contoso-migration-infrastructure.md) e experimentar combinações de migração do prova de conceito (POC) diferentes conforme detalhado na tabela acima, a Contoso está pronto para começar uma migração completa para o Azure em escala. Eis o que a Contoso pretende migrar.
 

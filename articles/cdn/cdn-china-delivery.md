@@ -3,8 +3,8 @@ title: Entrega de conteúdos da China CDN do Azure | Documentos da Microsoft
 description: Saiba como utilizar a rede de entrega de conteúdos (CDN) do Azure para fornecer conteúdo aos utilizadores da China.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 12a29e5af287c5cc68c3bd9d7069534ff16c496f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573234"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093551"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Entrega de conteúdos da China CDN do Azure
 

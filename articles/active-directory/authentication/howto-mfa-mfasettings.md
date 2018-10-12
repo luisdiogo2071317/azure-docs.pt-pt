@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817131"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114996"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -322,11 +322,11 @@ O _Lembre-se a multi-factor Authentication_ recurso para dispositivos e browsers
 
 ### <a name="how-the-feature-works"></a>Como funciona o recurso
 
-A funcionalidade de multi-factor Authentication lembrar define um cookie persistente no navegador, quando um utilizador seleciona o **não perguntar novamente durante X dias** opção no início de sessão. Não é pedido ao utilizador novamente para o multi-factor Authentication a partir desse mesmo browser até que o cookie expira. Se o usuário abre um browser diferente no mesmo dispositivo ou limpa os cookies, se for pedidos novamente para verificar. 
+A funcionalidade de multi-factor Authentication lembrar define um cookie persistente no navegador, quando um utilizador seleciona o **não perguntar novamente durante X dias** opção no início de sessão. Não é pedido ao utilizador novamente para o multi-factor Authentication a partir desse mesmo browser até que o cookie expira. Se o usuário abre um browser diferente no mesmo dispositivo ou limpa os cookies, se for pedidos novamente para verificar.
 
-O **não perguntar novamente durante X dias** opção não é apresentada em aplicações não baseadas no browser, independentemente da aplicação suportar autenticação moderna. Estas aplicações utilizam _tokens de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica que a última verificação de dois passos ocorreu num número especificado de dias. 
+O **não perguntar novamente durante X dias** opção não é apresentada em aplicações não baseadas no browser, independentemente da aplicação suportar autenticação moderna. Estas aplicações utilizam _tokens de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica que a última verificação de dois passos ocorreu num número especificado de dias.
 
-A funcionalidade reduz o número de autenticações nas aplicações web, que normalmente solicitar cada vez. A funcionalidade aumenta o número de autenticações para clientes de autenticação moderna que normalmente solicitar todos os 90 dias.
+A funcionalidade reduz o número de autenticações nas aplicações web, que normalmente solicitar cada vez. A funcionalidade aumenta o número de autenticações para clientes de autenticação moderna que normalmente solicitar todos os 90 dias. Também pode aumentar o número de autenticações quando combinado com políticas de acesso condicional.
 
 >[!IMPORTANT]
 >O **Lembre-se a multi-factor Authentication** funcionalidade não é compatível com o **manter sessão iniciada** funcionalidade do AD FS, quando os utilizadores efetuam a verificação de dois passos para o AD FS através do multi-factor do Azure Servidor de autenticação ou uma solução de terceiros multi-factor authentication.

@@ -2,25 +2,18 @@
 title: Limites de disco do Azure Data Box | Documentos da Microsoft
 description: Descreve os limites de sistema e os tamanhos recomendados para o disco do Microsoft Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbaf1f10284fb520cc3a52a6c04c4150de3b6546
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960622"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092019"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de disco de caixa de dados do Azure (pré-visualização)
 
@@ -47,7 +40,7 @@ Esta secção descreve os limites para o serviço de armazenamento do Azure e as
 Para obter as informações mais recentes sobre os limites de serviço de armazenamento do Azure e práticas recomendadas para a nomenclatura de partilhas, contentores e ficheiros de mensagens em fila, aceda a:
 
 - [Nomenclatura e referência para contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Nomenclatura e referência de partilhas](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Nomenclatura e referência a partilhas)
 - [Blobs de blocos e as convenções de blob de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]

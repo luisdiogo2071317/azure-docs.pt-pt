@@ -10,16 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2927521a76e74686592fbc4b3ccb931ece7981fd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: df86b8466291ee6b1cb5baf7f0a16bec9c719c6f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803312"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115132"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
-
-Pode efetuar uma de duas abordagens para exigir a verificação de dois passos. A primeira opção é permitir que cada utilizador para o Azure multi-factor Authentication (MFA). Quando os utilizadores estiverem ativados individualmente, eles executar a verificação de cada vez que iniciar sessão (com algumas exceções, por exemplo, quando iniciarem sessão de IP fidedigno endereços ou quando o _memorizadas dispositivos_ funcionalidade estiver ativada). A segunda opção é definir uma política de acesso condicional que exige a verificação de dois passos sob determinadas condições.
+Pode efetuar uma de duas abordagens para exigir a verificação de dois passos, que necessitam de utilizar uma conta de administrador global. A primeira opção é permitir que cada utilizador para o Azure multi-factor Authentication (MFA). Quando os utilizadores estiverem ativados individualmente, eles executar a verificação de cada vez que iniciar sessão (com algumas exceções, por exemplo, quando iniciarem sessão de IP fidedigno endereços ou quando o _memorizadas dispositivos_ funcionalidade estiver ativada). A segunda opção é definir uma política de acesso condicional que exige a verificação de dois passos sob determinadas condições.
 
 > [!TIP]
 > Escolha um dos seguintes métodos para exigir verificação de dois passos, não ambos. Ativar um utilizador para o Azure multi-factor Authentication substitui quaisquer políticas de acesso condicional.
@@ -36,7 +35,7 @@ Ativada pelo Azure AD Identity Protection – este método utiliza a política d
 > Podem encontrar mais informações sobre preços e licenças no [do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) e [multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) páginas de preços.
 
-## <a name="enable-azure-mfa-by-changing-user-status"></a>Ativar a MFA do Azure ao alterar o estado do utilizador
+## <a name="enable-azure-mfa-by-changing-user-state"></a>Ativar a MFA do Azure ao alterar o estado do utilizador
 
 Contas de utilizador no multi-factor Authentication do Azure tem os seguintes três Estados distintos:
 

@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e338e32e570ce98854e059ecdda21d99fda728
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018631"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49117257"
 ---
 1. [![Blocos de notas do Azure](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[Importar blocos de notas de exemplo para blocos de notas do Azure](https://aka.ms/aml-clone-azure-notebooks).
-1.  Criar uma área de trabalho e seu arquivo de configuração (**config**) com as instruções na [como configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-2. Selecione `+New` na barra de ferramentas para adicionar seu **config** ficheiro para a mesma pasta que o bloco de notas.
-3. Abra o bloco de notas.
+[Importar blocos de notas de exemplo para blocos de notas do Azure](https://aka.ms/aml-clone-azure-notebooks). (As que as organizações podem exigir [consentimento de administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes, pode iniciar sessão.)
+1. Consulte o ficheiro README na biblioteca do importados para obter mais instruções executar os blocos de notas.

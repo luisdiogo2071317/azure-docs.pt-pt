@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f54f13c6b7bb75644e95e62f13d6427e07c64037
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 755b94b71fdaefb261741f4d4e756b90d8148280
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884597"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116900"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -37,11 +37,15 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador da aplicação](#application-administrator)**: os utilizadores nesta função podem criar e gerir todos os aspetos de aplicações empresariais, registos de aplicação e as definições de proxy da aplicação. Esta função também concede a capacidade de dar consentimento a permissões delegadas e permissões de aplicação, excluindo o Microsoft Graph e o Azure AD Graph. Os membros desta função não são adicionados como proprietários durante a criação de novos registos de aplicação ou aplicações da empresa.
 
+  <b>Importante</b>: esta função concede a capacidade de gerir as credenciais do aplicativo. Utilizadores atribuídos esta função podem adicionar as credenciais para uma aplicação e usar as credencias para representar a identidade da aplicação. Se a identidade da aplicação tenha sido concedida acesso ao Azure Active Directory, como a capacidade de criar ou atualizar o utilizador ou outros objetos, um utilizador atribuído a esta função foi execute essas ações quando for representar o aplicativo. Esta capacidade para representar a identidade da aplicação pode ser uma elevação do privilégio ao longo do que o utilizador pode fazer por meio de suas atribuições de funções no Azure AD. É importante compreender que atribuir um utilizador à função de administrador da aplicação fornece a capacidade para representar a identidade de um aplicativo.
+
 * **[Desenvolvedor de aplicativos](#application-developer)**: os utilizadores nesta função podem criar registos de aplicações quando o "Os utilizadores podem registar aplicações" definição está definida como não. Esta função também permite que os membros dar consentimento em seu próprio benefício quando o "Os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles" definição está definida como não. Os membros desta função são adicionados como proprietários durante a criação de novos registos de aplicação ou aplicações da empresa.
 
 * **[Administrador de faturação](#billing-administrator)**: efetua compras, gere subscrições, gere pedidos de suporte e monitoriza o estado de funcionamento do serviço.
 
 * **[Administrador da aplicação cloud](#cloud-application-administrator)**: os utilizadores nesta função têm as mesmas permissões que a função de administrador da aplicação, excluindo a capacidade de gerir o proxy de aplicações. Esta função concede a capacidade de criar e gerir todos os aspetos de aplicações empresariais e registos de aplicação. Esta função também concede a capacidade de dar consentimento a permissões delegadas e permissões de aplicação, excluindo o Microsoft Graph e o Azure AD Graph. Os membros desta função não são adicionados como proprietários durante a criação de novos registos de aplicação ou aplicações da empresa.
+
+  <b>Importante</b>: esta função concede a capacidade de gerir as credenciais do aplicativo. Utilizadores atribuídos esta função podem adicionar as credenciais para uma aplicação e usar as credencias para representar a identidade da aplicação. Se a identidade da aplicação tenha sido concedida acesso ao Azure Active Directory, como a capacidade de criar ou atualizar o utilizador ou outros objetos, um utilizador atribuído a esta função foi execute essas ações quando for representar o aplicativo. Esta capacidade para representar a identidade da aplicação pode ser uma elevação do privilégio ao longo do que o utilizador pode fazer por meio de suas atribuições de funções no Azure AD. É importante compreender que atribuir um utilizador à função de administrador da aplicação Cloud fornece a capacidade para representar a identidade de um aplicativo.
 
 * **[Administrador de dispositivos na cloud](#cloud-device-administrator)**: os utilizadores nesta função podem ativar, desativar e eliminar dispositivos no Azure AD e ler as chaves do BitLocker do Windows 10 (caso exista) no portal do Azure. A função não concede permissões para gerir todas as propriedades no dispositivo.
 
@@ -98,6 +102,8 @@ As seguintes funções de administrador estão disponíveis:
 * **[Administrador de serviço do Power BI](#power-bi-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Com privilégios administrador de função](#privileged-role-administrator)**: os utilizadores com esta função podem gerir atribuições de funções no Azure Active Directory, assim como no Azure AD Privileged Identity Management. Além disso, esta função permite a gestão de todos os aspetos do Privileged Identity Management.
+
+  <b>Importante</b>: esta função concede a capacidade de gerir a associação em todas as funções do Azure AD, incluindo a função de Administrador Global. Esta função não inclui quaisquer outras capacidades com privilégios no Azure AD, como a criação ou atualização dos utilizadores. No entanto, os utilizadores atribuídos a esta função podem conceder próprios ou dos outros privilégios adicionais através da atribuição de funções adicionais.
 
 * **[Leitor de relatórios](#reports-reader)**: os utilizadores com esta função podem ver a utilização de relatórios do pacote de dados e o dashboard de relatórios no Centro de administração do Office 365 e o contexto de adoção no Power BI. Além disso, a função fornece acesso de início de sessão relatórios e a atividade no Azure AD e a API de relatórios de dados devolvidos pelo Microsoft Graph. Pode aceder a um utilizador atribuído à função do leitor de relatórios apenas utilização relevante e métricas de adoção. Eles não tem quaisquer permissões de administrador para configurar as definições ou o acesso que do Centro de administração da específicos de produtos como o Exchange. 
 

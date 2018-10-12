@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248590"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091628"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparar a implementação de modelos do IoT Edge
 
@@ -45,9 +45,6 @@ Para saber como instalar o runtime do IoT e registar o seu dispositivo, siga os 
 
 Módulos do IoT Edge do Azure são baseados em imagens de contentor. Para implementar o seu modelo para um dispositivo IoT Edge, utilize os seguintes passos para registar o seu modelo numa área de trabalho do serviço do Azure Machine Learning e criar uma imagem do Docker. 
 
-> [!IMPORTANT]
-> Se utilizou o Azure Machine Learning para preparar o seu modelo que pode já estar registado na sua área de trabalho, neste caso, ignore o passo 3.
-
 1. Inicializar a área de trabalho e carregar o ficheiro Config JSON:
 
     ```python
@@ -58,6 +55,9 @@ Módulos do IoT Edge do Azure são baseados em imagens de contentor. Para implem
     ```    
 
 1. Registe o modelo na área de trabalho. Substitua o texto predefinido com seu caminho de modelo, o nome, a etiquetas e a descrição:
+
+    > [!IMPORTANT]
+    > Se utilizou o Azure Machine Learning para preparar o modelo, já pode ser registado na área de trabalho. Se assim for, ignore este passo. Para ver uma lista de modelos registado com esta área de trabalho, utilize `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
@@ -81,9 +81,9 @@ Módulos do IoT Edge do Azure são baseados em imagens de contentor. Para implem
 
 1. Criar uma **script de classificação** com o nome `score.py`. Este ficheiro é utilizado para executar o modelo dentro da imagem. Tem de incluir as seguintes funções:
 
-    * O `init()` função, que normalmente carrega o modelo para um objeto global. Esta função é executada apenas uma vez quando o contentor do Docker é iniciado. 
+    * A função `init()`, que, geralmente, carrega o modelo para um objeto global. Esta função só é executada uma vez, quando o contentor do Docker é iniciado. 
 
-    * O `run(input_data)` função usa o modelo para prever um valor com base nos dados de entrada. Entradas e saídas para a execução normalmente utilizam JSON para a serialização e desserialização, mas outros formatos são suportados.
+    * A função `run(input_data)` utiliza o modelo para prever um valor com base nos dados de entrada. Regra geral, as entradas e as saídas da execução utilizam JSON para a serialização e a desserialização, mas são suportados outros formatos.
 
     Por exemplo, veja a [tutorial de classificação de imagem](tutorial-deploy-models-with-aml.md#make-script).
 

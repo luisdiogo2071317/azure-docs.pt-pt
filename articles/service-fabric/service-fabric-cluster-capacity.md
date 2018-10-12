@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348573"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094212"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, planeamento de capacidade é um passo importante. Aqui estão alguns dos itens que deve considerar como parte desse processo.
@@ -165,6 +165,7 @@ Para cargas de trabalho de produção:
 - 14 GB local SSD é um requisito mínimo. Nossa recomendação é um mínimo de 50 GB. Para cargas de trabalho, especialmente ao executar contentores do Windows, discos maiores são necessários. 
 - Principais parcial SKUs de VM, como Standard A0 não são suportadas para cargas de trabalho de produção.
 - O SKU Standard A1 não é suportado para cargas de trabalho de produção por motivos de desempenho.
+- VMs de baixa prioridade não são suportadas.
 
 > [!WARNING]
 > Alterar o tamanho de SKU de VM num cluster em execução, de nó principal é uma operação de dimensionamento e documentados em [conjunto de dimensionamento de Máquina Virtual de aumento horizontal](virtual-machine-scale-set-scale-node-type-scale-out.md) documentação.

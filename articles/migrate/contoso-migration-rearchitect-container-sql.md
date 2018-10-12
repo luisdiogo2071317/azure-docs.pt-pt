@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 80234610eda264976f3ec20da2a0ef12c73ccba6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9fd83124585e3a0eb19c43e278eeeacb6ec4409c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035713"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094110"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migração de Contoso: Rearquitetar uma aplicação no local para um contentor do Azure e a base de dados do Azure SQL
 
@@ -35,6 +35,7 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 [Artigo 11: Refatorar TFS nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Contoso migra sua implantação do Team Foundation Server no local para serviços do Azure DevOps no Azure. | Disponível
 Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados SQL do Azure | Contoso migra sua SmartHotel de aplicação para o Azure. Em seguida, rearchitects a camada de web de aplicação como um contentor do Windows em execução no Azure Service Fabric e base de dados com a base de dados do Azure SQL. | Este artigo
 [Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Contoso recria o seu aplicativo de SmartHotel com uma variedade de capacidades do Azure e serviços, incluindo o serviço de aplicações do Azure, Azure Kubernetes Service (AKS), as funções do Azure, serviços cognitivos do Azure e Azure Cosmos DB. | Disponível 
+[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 Neste artigo, a Contoso migra o WPF de Windows de duas camadas, XAML formulários da SmartHotel360 aplicação em execução em VMs de VMware para o Azure. Se gostaria de utilizar esta aplicação, são fornecidas como código-fonte aberto e pode baixá-lo partir [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -515,16 +516,16 @@ Como primeiro passo, os administradores da Contoso aprovisionar uma base de dado
 
 1. Se criaram um recurso do Azure Cosmos DB no Azure Marketplace.
 
-    ![Expansão](./media/contoso-migration-rearchitect-container-sql/extend1.png)
+    ![Extensão](./media/contoso-migration-rearchitect-container-sql/extend1.png)
 
 2. Eles fornecem um nome de base de dados (**contososmarthotel**), selecione a API de SQL e colocar o recurso no grupo de recursos de produção, na região E.U.A. Leste 2 primária.
 
-    ![Expansão](./media/contoso-migration-rearchitect-container-sql/extend2.png)
+    ![Extensão](./media/contoso-migration-rearchitect-container-sql/extend2.png)
 
 3. Na **introdução**, eles selecionam **Data Explorer**e adicione uma nova coleção.
 4. Na **adicionar coleção** fornecem IDs e definir a capacidade de armazenamento e débito.
 
-    ![Expansão](./media/contoso-migration-rearchitect-container-sql/extend3.png)
+    ![Extensão](./media/contoso-migration-rearchitect-container-sql/extend3.png)
 
 5. No portal, que abrem a nova base de dados > **recolha** > **documentos** e clique em **novo documento**.
 6. Eles cole o seguinte código JSON para a janela de documento. Estes são dados de exemplo na forma de um único tweet.
@@ -548,11 +549,11 @@ Como primeiro passo, os administradores da Contoso aprovisionar uma base de dado
     }
     ```
 
-    ![Expansão](./media/contoso-migration-rearchitect-container-sql/extend4.png)
+    ![Extensão](./media/contoso-migration-rearchitect-container-sql/extend4.png)
 
 7. Eles localizam o ponto de final do Cosmos DB e a chave de autenticação. Estes são utilizados na aplicação para ligar à coleção. Na base de dados, clique **chaves**e copiar o URI e a chave primária para o bloco de notas.
 
-    ![Expansão](./media/contoso-migration-rearchitect-container-sql/extend5.png)
+    ![Extensão](./media/contoso-migration-rearchitect-container-sql/extend5.png)
 
 ### <a name="update-the-sentiment-app"></a>Atualizar a aplicação de sentimentos
 

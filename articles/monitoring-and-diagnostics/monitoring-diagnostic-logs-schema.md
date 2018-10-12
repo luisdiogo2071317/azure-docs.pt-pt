@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818969"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116198"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -53,13 +53,14 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | Gateways de Aplicação |[Registo de diagnósticos para o Gateway de aplicação](../application-gateway/application-gateway-diagnostics.md) |
 | Automatização do Azure |[Análise de registos para a automatização do Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registo de diagnóstico do Azure Batch](../batch/batch-diagnostics.md) |
+| Base de Dados do Azure para MySQL | [Base de dados do Azure para MySQL registos de diagnóstico](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Base de Dados do Azure para PostgreSQL | [Base de dados do Azure para PostgreSQL registos de diagnóstico](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Serviços Cognitivos | Esquema não está disponível. |
 | Rede de Entrega de Conteúdos | [Registos de diagnóstico do Azure CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registo do Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Factory | [Monitorizar fábricas de dados através do Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Aceder a registos de diagnóstico para o Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| DB para o PostgreSQL |  Esquema não está disponível. |
 | Hubs de Eventos |[Registos de diagnóstico dos Hubs de eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema não está disponível. |
 | Azure Firewall | Esquema não está disponível. |
@@ -104,6 +105,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 |Microsoft.DataLakeAnalytics/accounts|Pedidos|Registos de pedidos|
 |Microsoft.DataLakeStore/accounts|Auditoria|Registos de Auditoria|
 |Microsoft.DataLakeStore/accounts|Pedidos|Registos de pedidos|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Registos de consulta lenta MySQL|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Registos do servidor PostgreSQL|
 |Microsoft.Devices/IotHubs|Ligações|Ligações|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria do dispositivo|

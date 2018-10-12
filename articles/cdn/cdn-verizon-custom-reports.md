@@ -3,8 +3,8 @@ title: Relatórios personalizados da Verizon | Documentos da Microsoft
 description: 'Pode ver padrões de utilização da sua CDN utilizando os seguintes relatórios: largura de banda, os dados transferidos, acertos, Estados de Cache, taxa de acessos de Cache, IPV4/IPV6 dados transferidos.'
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: ''
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-deasim
-ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.author: magattus
+ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159746"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092071"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 
@@ -75,7 +75,7 @@ Pode exportar os dados no formato Excel clicando no símbolo de Excel à direita
 | 4xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 4xx (por exemplo, 400 pedido inválido, 403 proibido ou 404 não encontrado). |
 | 5XX                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 5xx (por exemplo, 500 Erro de servidor interno ou 502 Gateway incorreto). |
 | % De acertos na cache               | Indica a percentagem de pedidos em cache que foram fornecidos diretamente a partir da cache para o autor do pedido. |
-| Acertos na cache                | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num acertos na cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um problema de cache ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
+| Acertos na Cache                | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num acertos na cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um problema de cache ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores de borda para clientes HTTP (navegadores da web) para o edge CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real. |
 | Descrição               | Identifica uma borda CNAME pelo respetivo nome de anfitrião |
 | Acertos                      | Indica o número total de pedidos na periferia CNAME |

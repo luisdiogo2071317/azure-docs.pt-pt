@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 9f693299d2466b560e0957a77e898e1b10433fb0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1df251522c6ca14c5eb8967771fd609c04ffe2ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857404"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114948"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monte um volume de gitRepo no Azure Container Instances
 
@@ -89,17 +89,17 @@ Por exemplo, a CLI do Azure `--gitrepo-url` parâmetro para um repositório priv
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Para um repositório de Git de DevOps do Azure, especifique qualquer nome de utilizador (pode utilizar "azuredevopsuser" como no exemplo a seguir) em combinação com um TAPINHA válido:
+Para um repositório de Git de repositórios do Azure, especifique qualquer nome de utilizador (pode utilizar "azurereposuser" como no exemplo a seguir) em combinação com um TAPINHA válido:
 
 ```azurecli
---gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-Para obter mais informações sobre os tokens de acesso pessoal GitHub e DevOps do Azure, consulte o seguinte:
+Para obter mais informações sobre os tokens de acesso pessoal GitHub e transparente de repositórios do Azure, consulte o seguinte:
 
 GitHub: [criar um token de acesso pessoal para a linha de comandos][pat-github]
 
-DevOps do Azure: [criar tokens de acesso pessoal para autenticar o acesso][pat-vsts]
+Repositórios do Azure: [criar tokens de acesso pessoal para autenticar o acesso][pat-repos]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -112,7 +112,7 @@ Saiba como montar outros tipos de volume no Azure Container Instances:
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: e8d85144b89d81e67d5ac225f0b6467230608ce0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3cd0a88747379edb15385014fcc93287d95295e0
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106909"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114044"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurar identidades geridas para recursos do Azure na VM do Azure com o PowerShell
 
@@ -175,6 +175,9 @@ Para atribuir uma identidade gerida atribuído ao utilizador a uma VM do Azure e
    ```
 3. Obter as propriedades da VM com o `Get-AzureRmVM` cmdlet. Em seguida, para atribuir uma identidade gerida utilizador atribuído à VM do Azure, utilize o `-IdentityType` e `-IdentityID` alternar o [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  O valor para o`-IdentityId` parâmetro é o `Id` que anotou no passo anterior.  Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores.
 
+   > [!WARNING]
+   > Para manter qualquer identidades geridas anteriormente atribuído ao utilizador atribuídas à VM, consulte a `Identity` propriedade do objeto VM (por exemplo, `$vm.Identity`).  Se a qualquer utilizador atribuído identidades geridas são devolvidas, incluí-los no comando seguinte, juntamente com o novo utilizador atribuído a identidade gerida que pretende atribuir à VM.
+
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
@@ -189,7 +192,7 @@ Para atribuir uma identidade gerida atribuído ao utilizador a uma VM do Azure e
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover uma identidade gerida atribuído ao utilizador a partir de uma VM do Azure
 
-Se a VM tiver várias identidades geridas atribuído ao utilizador, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é propriedade de nome do atribuído ao utilizador gerido da identidade, que deve permanecer na VM. Estas informações podem ser encontradas na secção da identidade da VM usando `az vm show`:
+Se a VM tiver várias identidades geridas atribuído ao utilizador, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é propriedade de nome do atribuído ao utilizador gerido da identidade, que deve permanecer na VM. Estas informações podem ser encontradas ao consultar o `Identity` propriedade do objeto VM.  Por exemplo, `$vm.Identity`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm

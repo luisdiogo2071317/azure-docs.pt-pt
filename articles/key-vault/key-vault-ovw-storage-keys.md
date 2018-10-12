@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067742"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114605"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Azure Key Vault
 
@@ -38,24 +38,19 @@ ms.locfileid: "49067742"
 -------------------------
 
 1. Obtenha o ID de recurso da conta do Storage do Azure que pretende gerir.
-    a. Uma vez criada uma conta de armazenamento 
+    a. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter o ID de recurso da conta de armazenamento que pretende gerir
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
-2. Obtenha o ID de recurso da conta do Storage do Azure que pretende gerir.
-    ```
-    az storage account show -n storageaccountname (Take ID out of this)
-    ```
-3. Obter serviço do Azure Key Vault do ID aplicação principal 
+2. Obter serviço do Azure Key Vault do ID aplicação principal 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
-4. Atribua a função de operador de chave de armazenamento para o Azure Key Vault Identity
+3. Atribua a função de operador de chave de armazenamento para o Azure Key Vault Identity
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
-5. Criar um cofre de chaves de conta de armazenamento gerida.     <br /><br />
-   Comando abaixo solicita o Key Vault para regenerar a chave de todos os 90 dias.
+4. Criar um cofre de chaves de conta de armazenamento gerida.     <br /><br />
    Comando abaixo solicita o Key Vault para voltar a gerar chaves de acesso do seu armazenamento periodicamente, com um ponto de nova geração. Abaixo, iremos estiver a definir um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves irá regenerar 'chave1' e trocar a chave ativa de 'chave2' para 'chave1'.
    ### <a name="key-regeneration"></a>Regeneração da chave
     ```

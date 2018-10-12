@@ -2,31 +2,25 @@
 title: Requisitos de sistema de disco do Microsoft Azure Data Box | Documentos da Microsoft
 description: Saiba mais sobre o software e os requisitos de rede para o seu disco do Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299853"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092257"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos de sistema de disco de caixa de dados do Azure (pré-visualização)
 
 Este artigo descreve os requisitos de sistema importante para a sua solução de disco do Microsoft Azure Data Box e para os clientes a ligar o disco do Data Box. Recomendamos que reveja as informações cuidadosamente antes de implementar o disco do Data Box e, em seguida, regressar mais tarde a ela conforme necessário durante a implantação e operação subseqüente.
 
 > [!IMPORTANT]
-> Disco data Box está em pré-visualização. Reveja os [termos de utilização para a pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
+> Disco data Box está em pré-visualização. Reveja os [termos de utilização da pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
 
 Os requisitos de sistema incluem as plataformas suportadas para clientes que se conectam a discos, as contas de armazenamento suportados e tipos de armazenamento.
 

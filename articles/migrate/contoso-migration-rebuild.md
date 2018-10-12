@@ -3,16 +3,17 @@ title: Recriar uma aplicação no local da Contoso para o Azure | Documentos da 
 description: Saiba como Contoso recria uma aplicação no Azure através dos serviços de aplicações do Azure, o Kubernetes service, cosmos DB, as funções do Azure e os serviços cognitivos.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042487"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092985"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração de Contoso: reconstrua uma aplicação no local para o Azure
 
@@ -35,7 +36,8 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 [Artigo 10: Refatorizar uma aplicação do Linux para aplicações Web do Azure e MySQL do Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Mostra como a Contoso migra a aplicação de osTicket do Linux para aplicações Web do Azure em vários sites, integrados com o GitHub para a entrega contínua. Estes migrar a base de dados de aplicação para uma instância do MySQL do Azure. | Disponível
 [Artigo 11: Refatorar TFS nos serviços de DevOps do Azure](contoso-migration-tfs-vsts.md) | Mostra como a Contoso migra a implantação do Team Foundation Server (TFS) no local ao migrar para serviços do Azure DevOps no Azure. | Disponível
 [Artigo 12: Rearquitetar uma aplicação para contentores do Azure e base de dados SQL](contoso-migration-rearchitect-container-sql.md) | Mostra como Contoso migra e rearchitects a respetiva aplicação SmartHotel para o Azure. Eles rearquitetar a camada de web de aplicação como um contentor do Windows e a base de dados de aplicação numa base de dados SQL do Azure. | Disponível
-Artigo 13: Recriar uma aplicação para o Azure | Mostra como Contoso reconstruir a sua aplicação de SmartHotel com uma gama de capacidades do Azure e serviços, incluindo serviços de aplicações, Kubernetes do Azure, as funções do Azure, serviços cognitivos e Cosmos DB. | Este artigo.
+Artigo 13: Recriar uma aplicação para o Azure | Mostra como Contoso reconstruir a sua aplicação de SmartHotel com uma gama de capacidades do Azure e serviços, incluindo serviços de aplicações, Kubernetes do Azure, as funções do Azure, serviços cognitivos e Cosmos DB. | Este artigo
+[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de a experimentar combinações de migração, o Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 Neste artigo, a Contoso migra o Windows de duas camadas. Aplicação de NET SmartHotel360 em execução em VMs de VMware para o Azure. Se gostaria de utilizar esta aplicação, são fornecidas como código-fonte aberto e pode baixá-lo partir [GitHub](https://github.com/Microsoft/SmartHotel360).
 

@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 837601a55bbe97e904f3dece9f4c87563d6dd4e9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054402"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092682"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Criar um modelo no portal do Azure
 
 A funcionalidade de designer (pré-visualização) de web do Azure Analysis Services no portal do Azure fornece uma forma rápida e fácil criar e editar modelos de tabela e consultar o direito de dados de modelo no seu browser. 
 
-Tenha em mente, é o web designer **pré-visualização**. A funcionalidade é limitada. Para mais avançados modelo desenvolvimento e teste, é melhor usar o Visual Studio (SSDT) e o SQL Server Management Studio (SSMS).
+> [!IMPORTANT]
+> Esta funcionalidade foi preterida. Pode ser removida ou alterada significativamente numa atualização futura. Recomenda-se a que descontinuar a utilizar esta funcionalidade em projetos novos e existentes para manter a compatibilidade com futuras atualizações. Para mais avançados modelo desenvolvimento e teste, é melhor usar o Visual Studio (SSDT) e o SQL Server Management Studio (SSMS).
+
 
 ## <a name="before-you-begin"></a>Antes de começar
 

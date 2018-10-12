@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 6feafba41cf65a752dd5bf0819b0b93bacff0aff
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055149"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Azure Active Directory com a Sandbox de Salesforce
 
@@ -107,30 +107,38 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+2. Clique em **modo de início de sessão único de alteração** na parte superior do ecrã para selecionar o **SAML** modo.
 
-    ![Caixa de diálogo de início de sessão único](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+      ![Configurar a ligação de início de sessão única](./media/salesforce-sandbox-tutorial/tutorial_general_300.png)
 
-3. Sobre o **Salesforce Sandbox domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+3. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
 
-   ![Domínio de Sandbox do Salesforce e URLs únicas início de sessão em informações](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url1.png)
+    ![Configurar a ligação de início de sessão única](./media/salesforce-sandbox-tutorial/tutorial_general_301.png)
 
-   Na **URL de resposta** caixa de texto, digite seu específicos da organização **URL de resposta**.
+4. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **configuração básica de SAML** caixa de diálogo.
+   
+    ![Configurar a ligação de início de sessão única](./media/salesforce-sandbox-tutorial/tutorial_general_302.png)
 
-   > [!NOTE]
-   > Atualize o valor de URL de resposta com o URL de resposta real que é explicado posteriormente neste tutorial.
+5. Sobre o **configuração básica de SAML** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(RAW)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    a. Clique em **carregamento de ficheiro de metadados**.
+
+    ![Carregar ficheiro de metadados](./media/salesforce-sandbox-tutorial/upload_metadata.png)
+
+    b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
+
+    ![Escolha o ficheiro de metadados](./media/salesforce-sandbox-tutorial/browse_upload_metadata.png)
+
+    > [!NOTE]
+    > Irá obter o fornecedor de serviços de ficheiro de metadados do portal de administração do Salesforce Sandbox, que é explicado mais tarde no tutorial.
+
+    c. Depois do ficheiro de metadados é carregado com êxito, o **URL de resposta** valor irá obter automaticamente preenchido **URL de resposta** caixa de texto.
+
+    ![Domínio de Sandbox do Salesforce e URLs únicas início de sessão em informações](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url1.png)
+
+6. Sobre o **certificado de assinatura SAML** secção, clique em **transferir** para transferir **XML de metadados de Federação** e, em seguida, guarde o ficheiro xml em seu computador.
 
     ![O link de download de certificado](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png)
-
-5. Clique em **guardar** botão.
-
-    ![Configurar o botão único início de sessão em Guardar](./media/salesforce-sandbox-tutorial/tutorial_general_400.png)
-
-6. Na **configuração do Salesforce Sandbox** secção, clique em **configurar Sandbox de Salesforce** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
-
-    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png)
 
 7. Abra um novo separador no seu browser e inicie sessão sua conta de administrador da área de segurança do Salesforce.
 
@@ -150,41 +158,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-12. Para configurar o seu únicas início de sessão em definições de SAML, clique em **New**.
+12. Para configurar o seu únicas início de sessão em definições de SAML, clique em **novo a partir do ficheiro de metadados**.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. Sobre o **definições de início de sessão único** secção, execute os seguintes passos:
+13. Clique em **Escolher ficheiro** para carregar o ficheiro XML de metadados que transferiu a partir do portal do Azure e clique em **criar**.
 
-    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-saml-config1.png)
+    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-    a. Selecione **SAML ativada** caixa de verificação.
+14. Sobre o **SAML único configurações de logon** página, campos preencher automaticamente em clique em Guardar.
 
-    b. Na **emissor** campo, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
+    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
-    c. Para carregar os **certificado do fornecedor de identidade**, clique em **procurar** para procurar e selecionar o ficheiro de certificado que transferiu a partir do portal do Azure.
-
-    d. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
-
-    e. Como **tipo de identidade de SAML**, escolha uma das seguintes opções:
-
-      * Selecione **asserção contém o nome do usuário Salesforce**, se o nome de utilizador do utilizador Salesforce está sendo passado na asserção de SAML
-
-      * Selecione **asserção contém o ID de Federação do objeto de utilizador**, se o ID de Federação do objeto de utilizador que está sendo passado na asserção de SAML
-  
-    f. Como **localização de identidade de SAML**, selecione **identidade é um elemento de atributo**.
-
-    g. SFDC não suporta a fim de sessão SAML.  Como solução, cole `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` para o **URL de fim de sessão personalizada** caixa de texto.
-
-    h. Clique em **Guardar**.
-
-14. Sobre o **definições de início de sessão único** página, clique no **transferir metadados** botão.
+15. Sobre o **definições de início de sessão único** página, clique no **transferir metadados** botão para transferir o ficheiro de metadados do fornecedor de serviço. Utilize este ficheiro na **configuração básica de SAML** secção no portal do Azure para configurar os URLs necessários, tal como explicado anteriormente.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/configure4.png)
-
-15. Abra os metadados baixado numa janela de browser diferente e copiar o **localização** valor e cole-o no **URL de resposta** caixa de texto a **Salesforce Sandbox domínio e URLs**secção no portal do Azure.  
-
-    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/configure5.png)
 
 16. Se desejar configurar a aplicação no **SP** modo iniciado, a seguir são os pré-requisitos para isso:
 
@@ -192,7 +180,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Terá de configurar e ativar o seu domínio na Sandbox do Salesforce, passos para isso são explicados posteriormente neste tutorial.
 
-    c. No portal do Azure, sobre o **Salesforce Sandbox domínio e URLs** secção, verificação **Mostrar definições de URL avançadas** e executar o passo seguinte:
+    c. No portal do Azure, sobre o **configuração básica de SAML** secção, clique em **definir URLs adicionais** e executar o passo seguinte:
   
     ![Domínio de Sandbox do Salesforce e URLs únicas início de sessão em informações](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
 
@@ -201,71 +189,41 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Este valor deve ser copiado a partir do portal do Salesforce Sandbox assim que tiver ativado o domínio.
 
-17. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(RAW)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+17. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados de Federação** e, em seguida, guarde o ficheiro xml em seu computador.
 
     ![O link de download de certificado](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png)
 
-18. Clique em **guardar** botão.
+18. Abra um novo separador no seu browser e inicie sessão sua conta de administrador da área de segurança do Salesforce.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/salesforce-sandbox-tutorial/tutorial_general_400.png)
-
-19. Na **configuração do Salesforce Sandbox** secção, clique em **configurar Sandbox de Salesforce** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
-
-    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png)
-
-20. Abra um novo separador no seu browser e inicie sessão sua conta de administrador da área de segurança do Salesforce.
-
-21. Clique nas **programa de configuração** sob **ícone de definições** no canto superior direito da página.
+19. Clique nas **programa de configuração** sob **ícone de definições** no canto superior direito da página.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/configure1.png)
 
-22. Desloque para baixo para o **configurações** no painel de navegação esquerdo, clique em **identidade** para expandir a secção relacionada. Em seguida, clique em **definições de início de sessão único**.
+20. Desloque para baixo para o **configurações** no painel de navegação esquerdo, clique em **identidade** para expandir a secção relacionada. Em seguida, clique em **definições de início de sessão único**.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-23. Sobre o **definições de início de sessão único** página, clique no **editar** botão.
+21. Sobre o **definições de início de sessão único** página, clique no **editar** botão.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/configure3.png)
 
-24. Selecione **ativada SAML**e, em seguida, clique em **guardar**.
+22. Selecione **ativada SAML**e, em seguida, clique em **guardar**.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-25. Para configurar o seu únicas início de sessão em definições de SAML, clique em **New**.
+23. Para configurar o seu únicas início de sessão em definições de SAML, clique em **novo a partir do ficheiro de metadados**.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-26. Se estiver a adicionar uma segunda instância, tem de ativar um domínio, como mencionado acima (SP iniciada caso). Na secção de SAML único configurações de logon, execute os seguintes passos:
+24. Clique em **Escolher ficheiro** para carregar o ficheiro XML de metadados e clique em **criar**.
+
+    ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+
+25. Na **único início de sessão em definições de SAML** página, campos preencher automaticamente, escreva o nome da configuração (por exemplo: *SPSSOWAAD_Test*) no **nome** caixa de texto e Clique em Guardar.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
-    a. Na **Name** caixa de texto, escreva o nome da configuração (por exemplo: *SPSSOWAAD_Test*).
-
-    b. Na **emissor** campo, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
-
-    c. Na **ID de entidade** caixa de texto, utilize `https://test.salesforce.com` valor para a primeira instância e da segunda instância da aplicação pode utilizar o valor de identificador específico de inquilino.
-
-    d. Para carregar os **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado que transferiu a partir do portal do Azure.
-
-    e. Como **tipo de identidade de SAML**, escolha uma das seguintes opções:
-
-      * Selecione **asserção contém o nome do usuário Salesforce**, se o nome de utilizador do utilizador Salesforce está sendo passado na asserção de SAML
-
-      * Selecione **asserção contém o ID de Federação do objeto de utilizador**, se o ID de Federação do objeto de utilizador que está sendo passado na asserção de SAML
-
-      * Selecione **asserção contém o ID de uso do objeto de utilizador**, se o ID de utilizador do objeto de utilizador que está sendo passado na asserção de SAML
-
-    f. Como **localização de identidade de SAML**, selecione **identidade é no elemento NameIdentifier da declaração de assunto**.
-
-    g. Como **fornecedor iniciada solicitar vínculo de serviço**, selecione **HTTP POST**.
-
-    h. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
-
-    i. SFDC não suporta a fim de sessão SAML.  Como solução, cole `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` -o para o **URL de fim de sessão personalizada** caixa de texto.
-
-    j. Clique em **Guardar**.
-
-27. Para ativar o seu domínio na Sandbox do Salesforce, execute os seguintes passos:
+26. Para ativar o seu domínio na Sandbox do Salesforce, execute os seguintes passos:
 
     > [!NOTE]
     > Antes de ativar o domínio tem de criar o mesmo na área de segurança do Salesforce. Para obter mais informações, consulte [definir seu nome de domínio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US). Depois de criar o domínio, certifique-se de que está configurado corretamente.
@@ -286,33 +244,26 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    ![Criar utilizador do Azure AD][100]
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/salesforce-sandbox-tutorial/create_aaduser_01.png)
+    ![Criar um utilizador de teste do Azure AD](./media/salesforce-sandbox-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/salesforce-sandbox-tutorial/create_aaduser_02.png)
+    ![Criar um utilizador de teste do Azure AD](./media/salesforce-sandbox-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/salesforce-sandbox-tutorial/create_aaduser_03.png)
+    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/salesforce-sandbox-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
-
-    d. Clique em **Criar**.
+    d. Selecione **Criar**.
 
 ### <a name="create-a-salesforce-sandbox-test-user"></a>Criar um utilizador de teste de Sandbox de Salesforce
 
@@ -338,7 +289,7 @@ Nesta secção, vai ativar Eduarda Almeida a utilizar do Azure-início de sessã
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar utilizador** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
@@ -360,7 +311,6 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o aprovisionamento do utilizador](salesforce-sandbox-provisioning-tutorial.md)
-
 
 <!--Image references-->
 

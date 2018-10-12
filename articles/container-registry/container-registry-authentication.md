@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c0c2323d1864be24edbf6005d634ae1d08bba8ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293733"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116611"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
 
@@ -48,7 +48,7 @@ Principais de serviço permitem a conectividade sem interface para um registo em
 
   * *Leitor*: implementações de contentores a partir de um registo a sistemas de orquestração, incluindo o Kubernetes, DC/OS e Docker Swarm. Pode também tirar de registos de contentores para serviços relacionados do Azure, tal como [AKS](../aks/index.yml), [serviço de aplicações](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), e outras pessoas.
 
-  * *Contribuinte*: soluções de integração e implementação contínua como DevOps do Azure ou do Jenkins que criar imagens de contentor e envie-os para um registo.
+  * *Contribuinte*: soluções de integração e implementação contínua como Pipelines do Azure ou do Jenkins que criar imagens de contentor e envie-os para um registo.
 
 > [!TIP]
 > Pode voltar a gerar a palavra-passe de um principal de serviço ao executar o [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) comando.

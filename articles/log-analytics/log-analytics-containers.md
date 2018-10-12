@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043265"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115374"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -36,7 +36,7 @@ A solução mostra os contentores estão em execução, que imagem de contentor 
 - Service Fabric
 - Red Hat OpenShift
 
-Se estiver interessado na monitorização do desempenho de cargas de trabalho implementadas para ambientes do Kubernetes alojado no AKS (Azure Container Service), consulte [Monitor do Azure Container Service](../monitoring/monitoring-container-health.md).  A solução de monitorização do contentor não inclui suporte para monitorizar essa plataforma.  
+Se tem interesse em monitorizar o desempenho das cargas de trabalho implementadas nos ambientes do Kubernetes alojado no Azure Kubernetes Service (AKS), consulte [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-health.md). A solução de monitorização do contentor não inclui suporte para monitorizar essa plataforma.  
 
 O diagrama seguinte mostra as relações entre vários anfitriões de contentor e agentes com o Log Analytics.
 

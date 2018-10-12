@@ -1,44 +1,44 @@
 ---
-title: Web limites de tamanho de pedido de firewall de aplicação e listas de exclusão no Gateway de aplicação do Azure - portal do Azure | Documentos da Microsoft
+title: Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão no Gateway de aplicação do Azure - portal do Azure
 description: Este artigo fornece informações sobre limites de tamanho de pedido de firewall de aplicação web e configuração no Gateway de aplicação com o portal do Azure apresenta uma lista de exclusão.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 995e003422d5a94fe57174dc9733c870e4e003aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9306280d00ec901633585aba2f23ed06b25b4e1e
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965510"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115459"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Limites de tamanho de pedido de firewall de aplicação Web e de exclusão contém uma lista (pré-visualização pública)
 
 A firewall de aplicações do Gateway de aplicação Azure web (WAF) fornece proteção para aplicativos web. Este artigo descreve os limites de tamanho do pedido de WAF e configuração de listas de exclusão.
 
 > [!IMPORTANT]
-> Configuração de limites de tamanho do pedido de WAF e listas de exclusão está atualmente em pré-visualização pública. Esta pré-visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou podem ter capacidades restringidas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+> Configuração de limites de tamanho do pedido de WAF e listas de exclusão está atualmente em pré-visualização pública. Esta pré-visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ## <a name="waf-request-size-limits"></a>Limites de tamanho do pedido de WAF
 Firewall de aplicações Web permite aos usuários configurar limites de tamanho do pedido dentro inferiores e superiores. As seguintes configurações de limites de dois tamanho estão disponíveis:
+
 - O campo de tamanho do corpo de pedido máximo é especificado em KBs e controles carrega de limite de tamanho pedido geral, excluindo todos os ficheiros. Este campo pode variar de 1 KB mínimo ao valor máximo de 128 KB. O valor predefinido para o tamanho do corpo de pedido é 128 KB.
 - O campo de limite de carregamento do ficheiro é especificado em MB e rege o tamanho de carregamento de ficheiro máximo permitido. Este campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB. O valor predefinido para o limite de carregamento de ficheiro é 100 MB.
 
-WAF também oferece um botão configurável para ativar ou desativar à inspeção de corpo de pedido. Por predefinição, a inspeção de corpo de pedido é ativada. Se a inspeção de corpo do pedido estiver desativada, o WAF não avalia o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua para impor as regras de WAF em cabeçalhos, cookies e URI. Se a inspeção de corpo do pedido estiver desativada, o campo de tamanho do corpo de pedido máximo não é aplicável e não pode ser definido. Se desativar a inspeção de corpo de pedido permite que as mensagens maior do que 128 KB sejam enviados para o WAF. No entanto, o corpo da mensagem não será inspecionado para vulnerabilidades.
+WAF também oferece um botão configurável para ativar ou desativar à inspeção de corpo de pedido. Por predefinição, a inspeção de corpo de pedido é ativada. Se a inspeção de corpo do pedido estiver desativada, o WAF não avalia o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua para impor as regras de WAF em cabeçalhos, cookies e URI. Se a inspeção de corpo do pedido estiver desativada, o campo de tamanho do corpo de pedido máximo não é aplicável e não é possível definir. Se desativar a inspeção de corpo de pedido permite que as mensagens maior do que 128 KB sejam enviados para o WAF. No entanto, o corpo da mensagem não é inspecionado relativamente a vulnerabilidades.
 
 ## <a name="waf-exclusion-lists"></a>Listas de exclusão de WAF
 
 Listas de exclusão de WAF permitem aos utilizadores omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe. Esses atributos são suscetíveis a conter os carateres especiais que podem disparar um falso positivo das regras WAF. Assim que um atributo é adicionado à lista de exclusão de WAF, não é levada em consideração por qualquer regra de WAF configurada e Active Directory. Listas de exclusão são globais em escopo.
-Pode adicionar cabeçalhos de pedido, pedido cookies ou argumentos de cadeia de consulta do pedido para listas de exclusão de WAF. Pode especificar uma ciência exata cabeçalhos, cookies ou correspondência de atributo de cadeia de consulta do pedido ou, opcionalmente, pode especificar correspondências parciais. Seguem-se os operadores de critérios de correspondência suportados: 
-- **É igual a**: Este operador é usado para uma correspondência exata. Por exemplo, para a seleção de cabeçalho chamado **bearerToken**"* * uso é igual a operador com Seletor definido como **bearerToken**. 
+Pode adicionar cabeçalhos de solicitação, o corpo do pedido, pedido cookies ou argumentos de cadeia de consulta do pedido para listas de exclusão de WAF. Se o corpo do apresenta dados de formulário ou XML/JSON (pares chave-valor), em seguida, o tipo de exclusão de atributo de pedido pode ser utilizado.
+
+Pode especificar um cabeçalho de pedido exata, body, cookie ou correspondência de atributo de cadeia de consulta, ou, opcionalmente, pode especificar correspondências parciais.
+
+Seguem-se os operadores de critérios de correspondência suportados:
+
+- **É igual a**: Este operador é usado para uma correspondência exata. Por exemplo, para a seleção de cabeçalho chamado **bearerToken** utilização é igual a operador com Seletor definido como **bearerToken**.
 - **Começa com**: Este operador corresponde a todos os campos que começam com o valor de Seletor especificado. 
 - **Termina com**: Este operador corresponde a todos os campos de solicitação que terminam com valor de Seletor especificado. 
 - **Contém**: Este operador corresponde a todos os campos de solicitação que contêm o valor de Seletor especificado.

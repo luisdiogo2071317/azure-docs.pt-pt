@@ -3,15 +3,15 @@ title: Instalar um servidor de destino principal do Linux para a ativação pós
 description: Antes de proteger novamente a máquina virtual do Linux, precisa de um servidor de destino principal do Linux. Saiba como instalar um.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921074"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094127"
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar um servidor de destino principal do Linux
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 

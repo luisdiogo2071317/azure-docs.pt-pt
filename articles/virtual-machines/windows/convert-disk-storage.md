@@ -13,31 +13,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 6cfbc458a4bd751b8b871501d19db641e3980767
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719329"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093821"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter os Azure managed armazenamento de discos de standard para premium e vice-versa
+# <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerido
 
-Discos geridos oferece três opções de armazenamento: [Premium SSD](../windows/premium-storage.md), SSD(Preview) padrão, e [Standard HDD](../windows/standard-storage.md). Permite-lhe alternar facilmente entre as opções com o tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Isto não é suportado para discos não geridos. Mas pode facilmente [converter para discos geridos](convert-unmanaged-to-managed-disks.md) alternar facilmente entre os tipos de disco.
+Managed Disks do Azure oferece três opções de tipo de armazenamento: [Premium SSD](../windows/premium-storage.md), [SSD padrão](../windows/disks-standard-ssd.md), e [Standard HDD](../windows/standard-storage.md). Pode optar por um disco gerido entre tipos de armazenamento com o tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Alternar entre tipos de armazenamento não é suportada para um disco não gerido; No entanto, pode facilmente [converter um disco não gerido para um disco gerido](convert-unmanaged-to-managed-disks.md).
 
-Este artigo mostra-lhe como converter discos geridos de standard para premium e vice-versa com o Azure PowerShell. Se precisar de instalar ou atualizá-lo, veja [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+Este artigo mostra como converter um disco gerido de standard para premium e vice-versa, com o Azure PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
-* A conversão necessita de um reinício da VM, por isso, agende a migração do armazenamento de discos durante uma janela de manutenção pré-existente. 
-* Se estiver a utilizar discos não geridos, primeiro [converter para discos geridos](convert-unmanaged-to-managed-disks.md) para utilizar este artigo para alternar entre as opções de armazenamento. 
-* Este artigo requer o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Também precisa de executar `Connect-AzureRmAccount` para criar uma ligação ao Azure.
+* Uma vez que a conversão necessita de um reinício da máquina virtual (VM), deve agendar a migração do armazenamento de discos durante uma janela de manutenção pré-existente. 
+* Se estiver a utilizar um disco não gerido, comece [convertê-lo para um disco gerido](convert-unmanaged-to-managed-disks.md) para que possa alterá-la entre os tipos de armazenamento. 
+* Os exemplos neste artigo requerem o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Execute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para criar uma ligação com o Azure.
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Converter todos os discos geridos de uma VM de standard para premium e vice-versa
+## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Converter todos os discos geridos de uma VM de standard para premium
 
-O exemplo seguinte mostra como mudar todos os discos de uma VM de standard para o armazenamento premium. Para utilizar discos geridos premium, a VM tem de utilizar um [tamanho da VM](sizes.md) que suporta o armazenamento premium. Este exemplo também muda para um tamanho que suporte o armazenamento premium.
+O exemplo seguinte mostra como mudar todos os discos de uma VM de standard para o armazenamento premium. Para utilizar discos geridos premium, a VM tem de utilizar um [tamanho da VM](sizes.md) que suporta o armazenamento premium. Este exemplo também muda para um tamanho que suporte o armazenamento premium:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -79,9 +79,10 @@ foreach ($disk in $vmDisks)
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Converter um disco gerido de standard para premium e vice-versa
 
-Para sua carga de trabalho de programador/teste, pode querer ter a mistura de discos standard e premium para reduzir o custo. Poderá fazê-lo com a atualização para o armazenamento premium, apenas os discos que exigem um melhor desempenho. O exemplo seguinte mostra como alternar de um único disco de uma VM do plano padrão para o armazenamento premium e vice-versa. Para utilizar discos geridos premium, a VM tem de utilizar um [tamanho da VM](sizes.md) que suporta o armazenamento premium. Este exemplo também muda para um tamanho que suporte o armazenamento premium.
+## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Converter um disco gerido de standard para premium
+
+Para sua carga de trabalho de programador/teste, poderá ter uma mistura de discos standard e premium para reduzir o custo. Dos, então, atualizar para o armazenamento premium apenas esses discos que necessitam de melhor desempenho. O exemplo seguinte mostra como alternar de um único disco de uma VM do plano padrão para o armazenamento premium e vice-versa. Para utilizar discos geridos premium, a VM tem de utilizar um [tamanho da VM](sizes.md) que suporta o armazenamento premium. Este exemplo também mostra como mudar para um tamanho que suporte o armazenamento premium:
 
 ```azurepowershell-interactive
 
@@ -116,9 +117,9 @@ Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Converter um disco gerido standard HDD para SSD standard e vice-versa
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Converter um disco gerido standard HDD para standard SSD
 
-O exemplo seguinte mostra como alternar de um único disco de uma VM do padrão HDD para SSD standard e vice-versa.
+O exemplo seguinte mostra como alternar de um único disco de uma VM do padrão HDD para SSD standard e vice-versa:
 
 ```azurepowershell-interactive
 
@@ -148,5 +149,5 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ter uma cópia só de leitura de uma VM ao utilizar [instantâneos](snapshot-copy-managed-disk.md).
+Faça uma cópia só de leitura de uma VM com um [instantâneo](snapshot-copy-managed-disk.md).
 

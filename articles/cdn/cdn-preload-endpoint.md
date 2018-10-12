@@ -1,10 +1,10 @@
 ---
-title: Pré-carregar recursos num ponto final do Azure CDN | Microsoft Docs
-description: Saiba como carregar previamente conteúdo em cache num ponto final de CDN do Azure.
+title: Pré-carregar recursos num ponto final da CDN do Azure | Documentos da Microsoft
+description: Aprenda a pré-carregar conteúdo em cache num ponto final da CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -13,47 +13,47 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: mazha
-ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150139"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091322"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar recursos num ponto final da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Por predefinição, ativos são colocadas em cache apenas quando se estiver a pedido. Porque os servidores edge tem não ainda em cache o conteúdo e precisam reencaminhar o pedido para o servidor de origem, o primeiro pedido de cada região pode demorar mais do que os pedidos subsequentes. Para evitar esta latência de acessos primeiro, pré-carregar os recursos. Além de proporcionarem uma melhor experiência de cliente, a pré-carregar os recursos em cache pode reduzir o tráfego de rede no servidor de origem.
+Por predefinição, ativos são colocadas em cache apenas quando são solicitadas. Uma vez que os servidores de borda tem não ainda armazenado em cache o conteúdo e tem de reencaminhar o pedido para o servidor de origem, a primeira solicitação de cada região pode demorar mais do que as solicitações subseqüentes. Para evitar esta latência da primeira visita, carregue previamente os recursos. Além de fornecer uma melhor experiência de cliente, a pré-carregar os seus ativos em cache pode reduzir o tráfego de rede no servidor de origem.
 
 > [!NOTE]
-> Pré-carregar recursos é útil para grandes eventos ou conteúdo que torna-se em simultâneo disponível para vários utilizadores, tal como uma nova versão de filmes ou uma atualização de software.
+> Pré-carregar ativos é útil para eventos tão grandes ou conteúdo que torna-se ao mesmo tempo disponível para vários usuários, como uma nova versão de filme ou uma atualização de software.
 > 
 > 
 
-Este tutorial orienta-o através da pré-carregamento de conteúdo em cache em todos os nós de limite da CDN do Azure.
+Este tutorial orienta-o através da pré-carregar o conteúdo em cache em todos os nós de extremidade da CDN do Azure.
 
-## <a name="to-pre-load-assets"></a>A pré-carregar recursos
-1. No [portal do Azure](https://portal.azure.com), navegue para o perfil CDN com o ponto final que pretende carregar previamente. É aberto o painel de perfil.
+## <a name="to-pre-load-assets"></a>A pré-carregar ativos
+1. Na [portal do Azure](https://portal.azure.com), navegue até ao perfil CDN que contém o ponto final a pré-carregar. É aberto o painel do perfil.
     
-2. Clique no ponto final na lista. É aberto o painel de ponto final.
-3. A partir do painel de ponto final de CDN, selecione **carga**.
+2. Clique no ponto de final na lista. É aberto o painel de ponto final.
+3. No painel de ponto final da CDN, selecione **carga**.
    
     ![Painel de ponto final CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
-    O **carga** abre o painel.
+    O **carga** painel abre-se.
    
     ![Painel de carga CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. Para **caminho de conteúdo**, introduza o caminho completo de cada recurso que pretende carregar (por exemplo, `/pictures/kitten.png`).
+4. Para **caminho de conteúdo**, introduza o caminho completo de cada ativo que quer carregar (por exemplo, `/pictures/kitten.png`).
    
    > [!TIP]
-   > Depois de iniciar a introdução de texto, mais **caminho de conteúdo** serão apresentada a caixas de texto para que possa criar uma lista de vários recursos. Para eliminar os recursos na lista, selecione o botão de reticências (…), em seguida, selecione **eliminar**.
+   > Depois de começar a inserir textos, mais **caminho de conteúdo** caixas de texto serão apresentado para permitir a criação de uma lista de vários recursos. Para eliminar ativos na lista, selecione o botão de reticências (...), em seguida, selecione **eliminar**.
    > 
-   > Cada caminho de conteúdo tem de ser um URL relativo, que se adeque às seguintes [expressões regulares](https://msdn.microsoft.com/library/az24scfc.aspx):  
-   > - Carregar um caminho de ficheiro único: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Carregar um único ficheiro com a cadeia de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > Cada caminho de conteúdo tem de ser um URL relativo que se adeque às seguintes [expressões regulares](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > - Carregar um único caminho de arquivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Carrega um único ficheiro com a cadeia de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
-   > Porque cada recurso tem de ter o suas próprias caminho, não há nenhuma funcionalidade de caráter universal para recursos de pré-ao carregar.
+   > Uma vez que cada recurso tem de ter seu próprio caminho, não há nenhuma funcionalidade de caráter universal para pré-carregar ativos.
    > 
    > 
    
@@ -62,12 +62,12 @@ Este tutorial orienta-o através da pré-carregamento de conteúdo em cache em t
    
 
 > [!NOTE]
-> Existe um limite de 10 pedidos de carga por minuto por perfil da CDN e 50 caminhos simultâneos podem ser processados em simultâneo. Cada caminho tem um limite de comprimento do caminho de 1024 carateres.
+> Existe um limite de 10 pedidos de carga por minuto para cada perfil de CDN e 50 caminhos simultâneos podem ser processados em simultâneo. Cada caminho tem um limite de comprimento de caminho de 1024 carateres.
 > 
 > 
 
 ## <a name="see-also"></a>Consulte também
-* [Remover um ponto final de CDN do Azure](cdn-purge-endpoint.md)
-* [Referência da API de REST de CDN do Azure: pré-carregar conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referência da API de REST de CDN do Azure: remover o conteúdo de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Remover um ponto de final de CDN do Azure](cdn-purge-endpoint.md)
+* [Referência da API de REST do CDN do Azure: pré-carregar o conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referência da API de REST do CDN do Azure: limpar o conteúdo a partir de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

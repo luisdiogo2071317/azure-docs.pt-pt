@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 99d85c769b876baa360628bfc20ad5b1563a0a3f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 84cba0cb156e1d847c92596a9f2f6017a429b9d2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237335"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113823"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
 
@@ -206,30 +206,30 @@ O exemplo seguinte procura de um cluster existente do Batch AI por nome. Se houv
 ```python
 from azureml.core.compute import BatchAiCompute
 from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = ws.name + "cpu"
+batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
+cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
+cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
+autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
 
-found = False
-# see if this compute target already exists in the workspace
-for ct in ws.compute_targets():
-    print(ct.name, ct.type)
-    if (ct.name == batchai_cluster_name and ct.type == 'BatchAI'):
-        found = True
-        print('found compute target. just use it.')
-        compute_target = ct
-        break
-        
-if not found:
+
+if batchai_cluster_name in ws.compute_targets():
+    compute_target = ws.compute_targets()[batchai_cluster_name]
+    if compute_target and type(compute_target) is BatchAiCompute:
+        print('found compute target. just use it. ' + batchai_cluster_name)
+else:
     print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # for GPU, use "STANDARD_NC6"
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
-                                                                cluster_max_nodes = 4)
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                vm_priority = 'lowpriority', # optional
+                                                                autoscale_enabled = autoscale_enabled,
+                                                                cluster_min_nodes = cluster_min_nodes, 
+                                                                cluster_max_nodes = cluster_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws,batchai_cluster_name, provisioning_config)
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
@@ -414,17 +414,17 @@ Siga os passos acima para ver a lista de destinos de computação e, em seguida,
 
 ## <a name="examples"></a>Exemplos
 Os seguintes blocos de notas demonstram os conceitos deste artigo:
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
-* `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
-* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
-* `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
-* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+* [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.Getting-Started/04.Train-on-remote-VM/04.Train-on-remote-VM.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
+* [01.Getting-Started/03.Train-on-aci/03.Train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
+* [01.Getting-Started/05.Train-in-spark/05.Train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
+* [Tutorials/01.Train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
 Obtenha estes blocos de notas: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Referência do SDK do Machine Learning do Azure](http://aka.ms/aml-sdk)
-* [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)
+* [Tutorial: preparar um modelo](tutorial-train-models-with-aml.md)
 * [Onde pretende implementar modelos](how-to-deploy-and-where.md)
 * [Criar machine learning pipelines com o serviço Azure Machine Learning](concept-ml-pipelines.md)

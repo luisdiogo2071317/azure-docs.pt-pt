@@ -1,10 +1,10 @@
 ---
-title: Controlar o comportamento com cadeias de consulta - escalão premium a colocação em cache a CDN do Azure | Microsoft Docs
-description: Cadeia de consulta do Azure CDN controla como os ficheiros são colocadas em cache quando um pedido web contém uma cadeia de consulta a colocação em cache. Este artigo descreve a colocação em cache na CDN do Azure Premium da Verizon produto de cadeia de consulta.
+title: Controlar o comportamento com cadeias de caracteres de consulta, o escalão premium de cache de CDN do Azure | Documentos da Microsoft
+description: Cadeia de consulta do Azure CDN controles como ficheiros são colocados em cache quando uma solicitação da web contém uma cadeia de consulta de colocação em cache. Este artigo descreve a colocação em cache na CDN do Azure Premium da Verizon produto de cadeia de consulta.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -13,56 +13,56 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260839"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091407"
 ---
-# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controlo do Azure CDN comportamento com cadeias de consulta - escalão premium a colocação em cache
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Comportamento com cadeias de caracteres de consulta, o escalão premium de cache de CDN do Azure de controlo
 > [!div class="op_single_selector"]
 > * [Escalão Standard](cdn-query-string.md)
 > * [Escalão Premium](cdn-query-string-premium.md)
 > 
 
 ## <a name="overview"></a>Descrição geral
-Com o Azure entrega rede conteúdos (CDN), pode controlar a forma como os ficheiros são colocadas em cache para um pedido web que contém uma cadeia de consulta. Um pedido web com uma cadeia de consulta, a cadeia de consulta é que parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor de chave, em que o nome do campo e o respetivo valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo, http:\//www.contoso.com/content.mov?field1=value1 & field2 = value2. Se existir mais do que um par chave-valor de uma cadeia de consulta de um pedido, não importa a sua ordem. 
+Com o Azure conteúdo rede de entrega (CDN), pode controlar a forma como os ficheiros são colocados em cache para um pedido web que contém uma cadeia de consulta. Numa solicitação da web com uma cadeia de consulta, a cadeia de consulta é essa parte do pedido que ocorre depois de um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de chave-valor, em que o nome do campo e o respetivo valor são separados por um sinal de igual (=). Cada par de chave-valor é separado por um e comercial (&). Por exemplo, http:\//www.contoso.com/content.mov?field1=value1 & My:field2 = value2. Se existir mais do que um par de chave-valor numa cadeia de consulta de um pedido, a ordem não importa. 
 
 > [!IMPORTANT]
-> Os produtos da CDN standard e premium fornecem a mesma cadeia de consulta funcionalidade a colocação em cache, mas a interface de utilizador é diferente. Este artigo descreve a interface para **CDN do Azure Premium da Verizon**. Para a cadeia de consulta de colocação em cache com produtos de padrão da CDN do Azure, consulte o artigo [CDN do Azure de controlo de colocação em cache comportamento com cadeias de consulta - escalão standard](cdn-query-string.md).
+> Os produtos CDN standard e premium fornecem a mesma cadeia de consulta, funcionalidade de colocação em cache, mas a interface do usuário é diferente. Este artigo descreve a interface para **CDN do Azure Premium da Verizon**. Para a cadeia de consulta de colocação em cache com produtos standard da CDN do Azure, consulte [comportamento com cadeias de caracteres de consulta, o escalão standard de cache de CDN do Azure de controle](cdn-query-string.md).
 >
 
 
-Estão disponíveis três modos de cadeia de consulta:
+Três modos de cadeia de caracteres de consulta estão disponíveis:
 
-- **cache de padrão**: modo predefinido. Neste modo, o nó do CDN ponto de presença (POP) transfere as cadeias de consulta do requerente para o servidor de origem no primeiro pedido e coloca em cache o elemento. Todos os pedidos subsequentes para o elemento que são servidos do servidor POP ignorar as cadeias de consulta até que o elemento em cache expira.
+- **Standard – cache**: modo padrão. Neste modo, o nó do CDN pontos de presença (POP) passa as cadeias de caracteres de consulta do requerente para o servidor de origem na primeira solicitação e as coloca em cache o recurso. Todas as solicitações subseqüentes para o elemento atendidos a partir do servidor POP ignoram as cadeias de caracteres de consulta até que o elemento em cache expire.
 
     >[!IMPORTANT] 
-    > Se autorização token está ativada para qualquer caminho esta conta, o modo de cache padrão é o único modo que pode ser utilizado. 
+    > Se a autorização de token está ativada para qualquer caminho nesta conta, o modo de cache padrão é o único modo que pode ser utilizado. 
 
-- **cache não**: neste modo, os pedidos com cadeias de consulta não estão em cache no nó POP do CDN. O nó POP obtém o elemento diretamente a partir do servidor de origem e passa-a para o requerente com cada pedido.
+- **não-cache**: neste modo, pedidos com cadeias de consulta não estão em cache no nó POP da CDN. O nó POP obtém o elemento diretamente a partir do servidor de origem e passa-o para o requerente com cada solicitação.
 
-- **cache exclusivo**: neste modo, a cada pedido com um URL único, incluindo a cadeia de consulta é tratado como um recurso com a sua própria cache exclusivo. Por exemplo, a resposta do servidor de origem para um pedido para example.ashx?q=test1 é colocado em cache no nó de POP e devolvida para caches subsequentes com a mesma cadeia de consulta. Um pedido para example.ashx?q=test2 é colocado em cache como um recurso com a sua própria definição time-to-live separado.
+- **cache exclusivo**: neste modo, cada solicitação com uma URL exclusiva, incluindo a cadeia de consulta é tratada como um recurso exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para um pedido para example.ashx?q=test1 é armazenado em cache no nó POP e devolvida para as caches subsequentes com a mesma cadeia de consulta. Um pedido para example.ashx?q=test2 é colocado em cache como um recurso separado com sua própria definição de tempo de vida.
    
     >[!IMPORTANT] 
-    > Não utilize este modo quando a cadeia de consulta contém parâmetros mudará com cada pedido, tal como um ID de sessão ou um nome de utilizador, porque irá resultar num rácio acertos na cache de baixo.
+    > Não utilize este modo quando a cadeia de consulta contém parâmetros que irão alterar com cada solicitação, como um ID de sessão ou um nome de utilizador, uma vez que irá resultar numa taxa de acertos na cache baixa.
 
-## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Alterar as definições de perfis da CDN premium a colocação em cache de cadeia de consulta
-1. Abrir um perfil CDN, em seguida, clique em **gerir**.
+## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Alterar as definições de perfis de CDN premium a colocação em cache de cadeia de consulta
+1. Abra um perfil da CDN, em seguida, clique em **gerir**.
    
-    ![Botão de gerir do perfil de CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
+    ![Botão de gerir do perfil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
    
-    É aberto o portal de gestão do CDN.
-2. Coloque o cursor sobre o **HTTP grande** separador, em seguida, coloque o cursor sobre o **definições da Cache** flyout menu. Clique em **colocação em cache de cadeia de consulta**.
+    É aberto o portal de gestão da CDN.
+2. Paire o rato sobre o **HTTP grandes** separador, em seguida, coloque o cursor sobre o **definições de Cache** menu flutuante. Clique em **colocação em cache de cadeia de consulta**.
    
-    Opções de colocação em cache de cadeias de consulta são apresentadas.
+    Opções de colocação em cache de cadeia de caracteres de consulta são apresentadas.
    
-    ![Cadeia de consulta CDN opções a colocação em cache](./media/cdn-query-string-premium/cdn-query-string.png)
-3. Selecione um modo de cadeia de consulta, em seguida, clique em **atualização**.
+    ![Opções de colocação em cache de cadeia de consulta de CDN](./media/cdn-query-string-premium/cdn-query-string.png)
+3. Selecione um modo de cadeia de caracteres de consulta, em seguida, clique em **atualização**.
 
 > [!IMPORTANT]
-> Uma vez demora algum tempo para que o registo propagar pela CDN, alterações de definições de cadeia de cache poderão não ser imediatamente visíveis. Propagação normalmente conclui em 10 minutos.
+> Dado que demora algum tempo para que o registo propagar pela CDN, alterações de definições de cadeia de caracteres de cache podem não ser imediatamente visíveis. Propagação normalmente fica concluída em 10 minutos.
  
 

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041579"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115115"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -43,7 +43,7 @@ Aplicações que se integram com o Azure Active Directory (Azure AD) tem de ser 
 | `appId` | Cadeia de caracteres de identificador | Especifica o identificador exclusivo da aplicação que está atribuído a uma aplicação pelo Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica a coleção de funções de que uma aplicação poderá declarar. Estas funções podem ser atribuídas a utilizadores, grupos ou principais de serviço. Para obter mais exemplos e informações, consulte [adicionar funções de aplicação na sua aplicação e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | cadeia | Uma máscara de bits que configura o `groups` afirmação emitida num utilizador ou o token de acesso de OAuth 2.0 que a aplicação espera. Os valores de máscara de bits são:<br>0: nenhuma<br>1: grupos de segurança e funções do Azure AD<br>2: reservado<br>4: reservado<br>Definição da bitmask para 7 irá obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. | `1` |
-| `optionalClaims` | cadeia | As afirmações opcionais devolvidas no token pelo serviço de token de segurança para esta aplicação específica. Para mais informações, veja [afirmações opcionais](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | cadeia | As afirmações opcionais devolvidas no token pelo serviço de token de segurança para esta aplicação específica.<br>Neste momento, as aplicações que suportam contas pessoais e do Azure AD (registado através do portal de registo de aplicação) não é possível utilizar afirmações opcionais. No entanto, as aplicações registadas para apenas Azure AD com o ponto final v2.0 podem obter as afirmações opcionais que solicitados no manifesto. Para mais informações, veja [afirmações opcionais](active-directory-optional-claims.md). | `null` |
 | `id` | Cadeia de caracteres de identificador | O identificador exclusivo para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. Ele é usado para fazer referência ao objeto em consultas de diretório. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | Matriz de cadeia de caracteres | URI(s) definidas pelo utilizador que identificam exclusivamente uma aplicação Web no seu inquilino do Azure AD, ou dentro de um domínio personalizado verificado se a aplicação multi-inquilino. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | cadeia | Especifica as ligações para os termos da aplicação de serviço e declaração de privacidade. Os termos de serviço e declaração de privacidade são apresentados aos utilizadores através da experiência de consentimento do utilizador. Para mais informações, veja [como: adicionar termos de serviço e declaração de privacidade para registar aplicações do Azure AD](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |

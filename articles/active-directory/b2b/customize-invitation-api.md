@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985818"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091778"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Colaboração do Azure Active Directory B2B API e personalização
 
@@ -79,7 +79,7 @@ Para obter mais informações, consulte: https://graph.microsoft.io/docs/authori
 
 
 ## <a name="powershell"></a>PowerShell
-Agora, é possível utilizar o PowerShell para adicionar e convidar utilizadores externos para uma organização facilmente. Crie um convite através do cmdlet:
+Pode utilizar o PowerShell para adicionar e convidar utilizadores externos para uma organização facilmente. Crie um convite através do cmdlet:
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ Pode utilizar as seguintes opções:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Também pode consultar a referência da API de convite [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+### <a name="invitation-status"></a>Estado de convite
+
+Depois de enviar um convite um utilizador externo, pode utilizar o **Get-AzureADUser** cmdlet para ver se eles foram aceites. As seguintes propriedades de Get-AzureADUser são preenchidas quando um utilizador externo é enviado um convite:
+
+* **O userstate não** indica se o convite está **PendingAcceptance** ou **aceites**.
+* **UserStateChangedOn** mostra o carimbo de hora para que a alteração mais recente para o **o userstate não** propriedade.
+
+Pode utilizar o **filtro** opção para filtrar os resultados por **o userstate não**. O exemplo abaixo mostra como filtrar os resultados para mostrar apenas os utilizadores que têm um convite pendente. O exemplo também mostra a **Format-List** opção, o que lhe permite especificar as propriedades para apresentar. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> Certifique-se de que tem a versão mais recente do módulo do AzureAD PowerShell ou do módulo do AzureADPreview PowerShell. 
+
+## <a name="see-also"></a>Consulte também
+
+Veja a referência de API de convite na [ https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation ](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB em massa executor descrição geral da biblioteca | Microsoft Docs
-description: Saiba mais sobre a base de dados do Azure Cosmos em massa executor biblioteca vantagens de utilizar a biblioteca e respetiva arquitetura.
+title: Descrição de geral do Azure Cosmos DB em massa executor biblioteca | Documentos da Microsoft
+description: Saiba mais sobre a biblioteca de executor do Azure Cosmos DB em massa, benefícios de usar a biblioteca e respetiva arquitetura.
 keywords: Executor do Java em massa
 services: cosmos-db
 author: tknandu
@@ -10,48 +10,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 823cb536a1cd0b8f5da7442906b14447c15ae044
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096181"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091358"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB em massa executor descrição geral da biblioteca
  
-BD do Cosmos do Azure é um serviço de base de dados rápido, flexível e globalmente distribuída que foi concebido para aprovisionadas de escalamento horizontal para suportar: 
+O Azure Cosmos DB é um serviço de base de dados rápida, flexível e distribuído globalmente que foi concebido para dimensionar horizontalmente para dar suporte a: 
 
-* Grande de leitura e escrita throughputs (milhões de operações por segundo).  
-* Armazenamento de volumes elevados de (centenas de terabytes ou até mesmo mais) transacionais e operacionais dados com uma latência de milissegundo previsível.  
+* Grande de leitura e escrita de débito (milhões de operações por segundo).  
+* Armazenar grandes volumes de (a centenas de terabytes ou até mesmo mais) dados transacionais e operacionais, com latência de milissegundo previsível.  
 
-A biblioteca de executor em massa ajuda-o a tirar partido do débito intenso e o armazenamento, a biblioteca de executor em massa permite-lhe efetuar em massa operações do BD Azure Cosmos através da importação em volume e em massa atualizar APIs. Pode ler mais sobre as funcionalidades da biblioteca de executor em massa nas secções seguintes. 
+A biblioteca de executor em massa ajuda-o a tirar partido deste armazenamento e débito em massa. A biblioteca de executor em massa permite-lhe efetuar em massa APIs de atualização de operações no Azure Cosmos DB através da importação em massa e em massa. Pode ler mais sobre os recursos da biblioteca de executor em massa nas seções a seguir. 
 
 > [!NOTE] 
-> Atualmente, a biblioteca de executor de volume suporta a importação e operações update e esta biblioteca é suportado pelo apenas contas do Azure da API do Cosmos BD SQL. Consulte [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md) notas de versão do quaisquer atualizações para a biblioteca.
+> Atualmente, a biblioteca de executor em massa suporta a importação e operações de atualização e esta biblioteca é suportada pelo apenas para contas de API de SQL do Azure Cosmos DB. Ver [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md) notas de versão do todas as atualizações para a biblioteca.
  
-## <a name="key-features-of-the-bulk-executor-library"></a>Principais funcionalidades da biblioteca de executor em massa  
+## <a name="key-features-of-the-bulk-executor-library"></a>Principais recursos da biblioteca de executor em massa  
  
-* Esta opção reduz significativamente os recursos de computação do lado do cliente necessários para sob saturar ao débito atribuído a um contentor. Uma única aplicação threading escreve dados utilizando que a API de importação em massa distribui 10 vezes o débito de escrita superior quando comparado com uma aplicação multi-thread que escreve dados em paralelo, ao saturating o cliente de CPU da máquina.  
+* Ela reduz consideravelmente os recursos de computação do lado do cliente necessários para saturar a taxa de transferência alocada a um contentor. Um único aplicativo com threads que escreve dados com que a API de importação em massa alcança 10 vezes maior débito de escrita em comparação com uma aplicação com múltiplos threads que grava dados em paralelo e saturar o cliente de CPU da máquina.  
 
-* Deduz, ausente, as tarefas tedious de escrever a lógica de aplicação para processar a limitação de taxa de pedidos, tempos limite de pedido e outras exceções transitórias pelo processamento-los de forma eficiente na biblioteca.  
+* Ele abstrai tarefas entediantes escrever lógica de aplicação para processar a limitação de taxa de pedidos, tempos limite de pedido e outras exceções transitórias por tratá-los de modo eficiente na biblioteca.  
 
-* Fornece um mecanismo simplificado para aplicações efetuar operações em massa aumentar horizontalmente. Uma instância de executor em massa única em execução numa VM do Azure pode consumir maior do que 500 mil RU/s e pode conseguir uma taxa de débito superior, adicionando instâncias adicionais no cliente individuais VMs.  
+* Ele fornece um mecanismo simplificado para aplicativos que executam operações em massa aumentar horizontalmente. Uma instância de executor de em massa única em execução numa VM do Azure pode consumir mais de 500 mil RU/s e pode obter uma taxa de débito mais elevada, adicionando instâncias adicionais em VMs de clientes individuais.  
  
-* -Pode efetuar em massa importar mais do que um terabyte de dados dentro de uma hora, utilizando uma arquitetura de escalamento horizontal.  
+* Ele pode efetuar em massa importar mais do que um terabyte de dados dentro de uma hora ao utilizar uma arquitetura de escalamento horizontal.  
 
-* -Pode efetuar em massa de atualização de dados existente na base de dados do Azure Cosmos contentores como patches. 
+* Ele pode efetuar em massa de atualização de dados existentes nos contentores do Azure Cosmos DB como patches. 
  
-## <a name="how-does-the-bulk-executor-operate"></a>Como operar o Executor em volume? 
+## <a name="how-does-the-bulk-executor-operate"></a>Como operar o Executor em massa? 
 
-Quando é acionada uma operação em massa para importar ou atualizar documentos com um lote de entidades, estas são inicialmente fora de posição para registos correspondente ao respetivo intervalo de chave de partição de BD do Cosmos do Azure. Dentro de cada registo corresponde a um intervalo de chave de partição, estes são divididos em lotes de mini e cada ato de mini-batch como um payload de é consolidado no lado do servidor. A biblioteca de executor em massa tem incorporada otimizações para execução em simultâneo lotes estes mini-dentro e entre os intervalos de chaves de partição. Imagem seguinte ilustra como o executor em massa lotes dados para as chaves de partição diferentes:  
+Quando uma operação em massa para importar ou atualizar documentos é acionada com um lote de entidades, eles são inicialmente combinadas de forma aleatória em buckets correspondente para o intervalo de chaves de partição do Azure Cosmos DB. Dentro de cada bucket que corresponde a um intervalo de chaves de partição, eles são divididos em lotes de mini e cada act de mini-batch como um payload confirmada no lado do servidor. A biblioteca de executor em massa desenvolveu-se em otimizações para a execução simultânea destes mini-lotes dentro e entre intervalos de chaves de partição. Imagem seguinte ilustra como executor de em massa lotes dados em chaves de partição diferentes:  
 
 ![Arquitetura de executor em massa](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-A biblioteca de Executor em massa certifica-se utilizar maximally o débito atribuído a uma coleção. Utiliza um [mecanismo de controlo de congestionamento do estilo AIMD](https://tools.ietf.org/html/rfc5681) para cada base de dados do Azure Cosmos intervalo de chaves para processar de forma eficiente limitação de taxa e tempos limite de partição. 
+A biblioteca de Executor em massa certifica-se de que maximally utilizam o débito alocado a uma coleção. Ele usa um [mecanismo de controlo de congestionamento de estilo AIMD](https://tools.ietf.org/html/rfc5681) para cada Azure Cosmos DB para manipular com eficiência a limitação de velocidade e tempos limite de intervalo da chave de partição. 
 
 ## <a name="next-steps"></a>Próximos Passos 
   
-* Saiba mais por experimentar as aplicações de exemplo consumir a biblioteca de Executor em massa do [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
-* Veja as em massa executor SDK informações e versão notas no [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md).
-* A biblioteca de Executor em massa está integrada o conector do Cosmos DB Spark, para obter mais informações, consulte [conector Azure Cosmos DB Spark](spark-connector.md) artigo.  
-* A biblioteca de executor em massa também está integrada de uma nova versão do [conector de base de dados do Azure Cosmos](https://aka.ms/bulkexecutor-adf-v2) para o Azure Data Factory para copiar dados.
+* Saiba mais experimentando os aplicativos de exemplo consumindo a biblioteca de Executor em massa na [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
+* Confira as massa executor SDK informações e notas de versão em [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md).
+* A biblioteca de Executor em massa está integrada ao conector do Spark do Cosmos DB, para obter mais informações, consulte [conector do Spark do Azure Cosmos DB](spark-connector.md) artigo.  
+* A biblioteca de executor em massa também está integrada numa nova versão do [conector do Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) do Azure Data Factory copiar dados.

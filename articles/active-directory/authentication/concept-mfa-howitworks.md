@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041701"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114163"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Azure multi-factor Authentication
 
@@ -42,15 +42,6 @@ Autenticação Multifator é fornecido como parte das ofertas seguintes:
 > [!NOTE]
 > Novos clientes já não podem comprar o multi-factor Authentication do Azure como uma autónoma oferta em vigor a partir 1 de Setembro de 2018. Multi-factor authentication irá continuar a ser uma funcionalidade disponível em licenças do Azure AD Premium.
 
-### <a name="auth-provider-or-mfa-license"></a>Licença de fornecedor de autenticação ou de MFA
-
-Se tiver o Azure AD Premium ou de outro pacote de licença que inclui o Azure AD Premium, já tem MFA do Azure. Sua organização não precise de nada adicional para expandir a capacidade de verificação de dois passos para todos os utilizadores. Só tem de atribuir uma licença a um utilizador e, em seguida, pode ativar o MFA.
-
-Se não tiver licenças que incluem o MFA do Azure ou não tiverem suficiente licenças para abranger todos os seus utilizadores, em seguida, pode criar uma [fornecedor de autenticação de MFA](concept-mfa-authprovider.md) para expandir as capacidades completas do MFA para os utilizadores que necessitam deles.
-
-> [!IMPORTANT]
-> Se não tiver licenças suficientes para todos os seus utilizadores, pode criar um fornecedor de autenticação do multi-factor de por utilizador para cobrir o resto da sua organização. Não crie um fornecedor do multi-factor Auth por autenticação. Se o fizer, poderia acabar por pagar para pedidos de verificação de utilizadores que já tem licenças.
-
 ## <a name="supportability"></a>Suportabilidade
 
 Uma vez que a maioria dos usuários estão acostumados a utilizar apenas as palavras-passe para autenticar, é importante que sua organização se comunica a todos os utilizadores em relação a esse processo. Reconhecimento pode reduzir a probabilidade de que os utilizadores, ligue o suporte técnico para problemas secundários relacionados com a MFA. No entanto, existem alguns cenários em que é necessário desativar temporariamente a MFA. Utilize as diretrizes seguintes para compreender como lidar com esses cenários:
@@ -65,8 +56,8 @@ Uma vez que a maioria dos usuários estão acostumados a utilizar apenas as pala
 
 - Obter um passo a passo MFA [plano de implantação](https://aka.ms/MFADeploymentPlan)
 
-- Encontrar detalhes sobre [licenciamento os seus utilizadores](concept-mfa-licensing.md)
+- Obter detalhes sobre o [licenciamento de utilizadores](concept-mfa-licensing.md)
 
-- Obter detalhes [a versão a implementar](concept-mfa-whichversion.md)
+- Obter detalhes sobre [a versão a implementar](concept-mfa-whichversion.md)
 
-- Encontre respostas para [perguntas mais frequentes](multi-factor-authentication-faq.md)
+- Obter respostas às [Perguntas mais frequentes](multi-factor-authentication-faq.md)

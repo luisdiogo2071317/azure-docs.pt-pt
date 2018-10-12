@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 843ff39f49141ff78219771a6d4af2e9e6e7644b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017487"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113925"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -22,12 +22,9 @@ Para criar o seu tipo de voz, fazer uma gravação de studio e carregar os scrip
 
 Pode começar a utilizar com uma pequena quantidade de dados para uma prova de conceito. Mas os dados mais fornecer, quanto mais natural e professional pode parecer a sua voz.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O **texto em voz** funcionalidade de personalização de voz está atualmente em pré-visualização privada. [Preencha o formulário de aplicação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para ser considerado para o acesso.
-
-Também precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar um](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligar a sua subscrição para o portal de voz personalizada da seguinte forma:
+Precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar um](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligue a sua subscrição para o portal de voz personalizada, conforme mostrado aqui.
 
 1. Inicie sessão para o [portal de voz personalizada](https://customvoice.ai) com a mesma conta Microsoft que utilizou para aplicar para acesso.
 
@@ -37,7 +34,6 @@ Também precisa de uma conta do Azure e uma subscrição para o serviço de voz.
 
 3. Na página de subscrições, escolha **ligar a subscrição existente**. Tenha em atenção que os serviços de voz oferece suporte a diferentes regiões. Verifique a região onde foi criada a chave de subscrição e certifique-se de que se ligar a chave para o portal de secundárias correto.  
 
-     
 4. Cole a chave de subscrição na tabela, conforme mostrado no exemplo a seguir. Cada subscrição tem duas chaves, e pode usar qualquer um deles.
 
      ![Adicionar subscrição](media/custom-voice/add-subscription.png)

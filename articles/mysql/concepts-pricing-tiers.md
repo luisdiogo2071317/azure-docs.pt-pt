@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422609"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091798"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -45,8 +45,8 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
-| EUA Central | X | X |
-| EUA Leste | X | X |
+| EUA Central |  | X |
+| EUA Leste |  | X |
 | EUA Leste 2 | X | X |
 | EUA Centro-Norte | X | X |
 | EUA Centro-Sul | X | X |
@@ -96,9 +96,9 @@ Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 
-O servidor está marcado como só de leitura quando a quantidade de armazenamento livre atingir inferior a 5 GB ou 5% do armazenamento de aprovisionamento, o que for menor. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 250 MB.  
+O servidor está marcado como sendo só de leitura quando a quantidade de armazenamento gratuito alcançar a menor das opções de 5 GB ou 5% do armazenamento aprovisionado. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Como alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento gratuito chegar a menos de 250 MB.  
 
-Embora o serviço tenta tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e transações ativas existentes continuarão a executar. Quando o servidor está definido como só de leitura, todas as operações de gravação subseqüentes de transação consolida a ativação. Consultas de leitura irão continuar a funcionar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor estará pronto para aceitar transações de escrita novamente.
+Apesar de o serviço tentar tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e as transações ativas existentes continuam a executar. Quando o servidor estiver definido como só de leitura, todas as subsequentes operações de escrita e de transação falham. As consultas de leitura continuam a trabalhar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor fica pronto para aceitar novamente as transações de escrita.
 
 Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
 

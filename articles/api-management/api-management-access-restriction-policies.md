@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269523"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092546"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -136,9 +136,6 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  O `rate-limit-by-key` política impede que os picos de utilização de API numa base por chave ao limitar a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados para o limite. Quando esta política é acionada o autor da chamada recebe um `429 Too Many Requests` código de estado de resposta.  
   
  Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
-  
-> [!IMPORTANT]
->  Esta política pode ser utilizada apenas uma vez por documento da política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -288,13 +285,10 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **Âmbitos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Definir quota de utilização por chave  
- O `quota-by-key` política impõe uma renovável ou tempo de vida volume e/ou de largura de banda de quota de chamadas, numa base por chave. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados em direção a quota. Quando esta política é acionada o autor da chamada recebe um `403 Forbidden` código de estado de resposta.
+ O `quota-by-key` política impõe uma renovável ou tempo de vida volume e/ou de largura de banda de quota de chamadas, numa base por chave. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados em direção a quota. Se várias políticas seriam incrementar o mesmo valor de chave, ele é incrementado apenas uma vez por pedido. Quando for atingido o limite de chamada, o autor da chamada recebe um `403 Forbidden` código de estado de resposta.
   
  Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
-> [!IMPORTANT]
->  Esta política pode ser utilizada apenas uma vez por documento da política.  
->   
 >  [As expressões de diretriz](api-management-policy-expressions.md) não pode ser utilizado em qualquer um dos atributos de política para esta política.  
   
 ### <a name="policy-statement"></a>Declaração de política  

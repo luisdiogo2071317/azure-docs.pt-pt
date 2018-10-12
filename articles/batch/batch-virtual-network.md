@@ -1,48 +1,43 @@
 ---
 title: Aprovisionar conjunto de Batch do Azure numa rede virtual | Documentos da Microsoft
-description: Pode criar um conjunto do Batch numa rede virtual para que nós de computação podem comunicar de forma segura com outras VMs na rede, tais como um servidor de ficheiros.
+description: Como criar um conjunto do Batch numa rede virtual do Azure, para que nós de computação podem comunicar de forma segura com outras VMs na rede, tais como um servidor de ficheiros.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9e8bd6819601cc4436e3432ee390f2ae82a0d94a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056307"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091965"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Batch do Azure numa rede virtual
 
-
 Quando cria um conjunto do Azure Batch, pode aprovisionar o conjunto numa sub-rede de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) (VNet) que especificou. Este artigo explica como configurar um conjunto do Batch numa VNet. 
-
-
 
 ## <a name="why-use-a-vnet"></a>Porquê utilizar uma VNet?
 
-
 Um conjunto do Azure Batch tem definições para permitir que nós de computação para comunicar entre si - por exemplo, para executar tarefas de várias instâncias. Estas definições não necessitam de uma VNet separada. No entanto, por predefinição, os nós não consegue comunicar com máquinas virtuais que não fazem parte do conjunto do Batch, como um servidor de licenças ou um servidor de ficheiros. Para permitir que nós de computação do conjunto comunicar de forma segura com outras máquinas virtuais, ou com uma rede no local, pode aprovisionar o conjunto numa sub-rede de uma VNet do Azure. 
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Autenticação**. Para utilizar uma VNet do Azure, a API do cliente do Batch tem de utilizar a autenticação do Azure Active Directory. O suporte do Azure Batch para o Azure AD está documentado em [Autenticar soluções de serviço do Batch com o Active Directory](batch-aad-auth.md). 
 
-* **Uma VNet do Azure**. Para preparar uma VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal do Azure, Azure PowerShell, a Interface de linha de comandos (CLI do Azure) ou outros métodos. Para criar uma VNet baseada no Azure Resource Manager, veja [criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para criar uma VNet clássica, veja [criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md).
+* **Uma VNet do Azure**. Consulte a secção seguinte para requisitos de VNet e a configuração. Para preparar uma VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal do Azure, Azure PowerShell, a Interface de linha de comandos (CLI do Azure) ou outros métodos.  
+  * Para criar uma VNet baseada no Azure Resource Manager, veja [criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Uma VNet baseada no Resource Manager é recomendada para novas implementações e só é suportada em conjuntos na configuração da Máquina Virtual.
+  * Para criar uma VNet clássica, veja [criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md). Uma rede virtual clássica só é suportada em conjuntos na configuração do serviços em nuvem.
 
-### <a name="vnet-requirements"></a>Requisitos de VNet
+## <a name="vnet-requirements"></a>Requisitos de VNet
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
-    
+
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Criar um conjunto com uma VNet no portal
 
 Depois de criar a VNet e atribuído uma sub-rede para o mesmo, pode criar um conjunto do Batch com essa VNet. Siga estes passos para criar um conjunto a partir do portal do Azure: 
-
-
 
 1. No portal do Azure, navegue para a sua conta do Batch. Esta conta tem de ser na mesma subscrição e região que o grupo de recursos que contém a VNet que pretende utilizar. 
 2. Na **definições** janela à esquerda, selecione a **conjuntos** item de menu.
@@ -64,7 +59,7 @@ Para garantir que os nós de computação do Azure Batch pool funcionam numa VNe
 
 * Certifique-se de que o tráfego de saída para o armazenamento do Azure (especificamente, os URLs do formulário `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, e `<account>.blob.core.windows.net`) não está bloqueado através de seu dispositivo de rede no local.
 
-Quando adiciona uma rota definida pelo utilizador, definir a rota para cada prefixo de endereço IP do Batch relacionado e defina **tipo de próximo salto** ao **Internet**. Veja o exemplo seguinte:
+Quando adiciona uma rota definida pelo utilizador, definir a rota para cada prefixo de endereço IP do Batch relacionado e defina **tipo de próximo salto** ao **Internet**. Veja o seguinte exemplo:
 
 ![Rota definida pelo utilizador](./media/batch-virtual-network/user-defined-route.png)
 

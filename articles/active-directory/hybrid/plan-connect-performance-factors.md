@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069018"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093974"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
 
@@ -30,7 +30,7 @@ O Azure AD Connect sincroniza o seu Active Directory para o Azure AD. Esse servi
 | Configuração| Como o Azure AD Connect processos os diretórios e informações. |
 | Carregar| Frequência de alterações de objetos. As cargas podem variar durante uma hora, dia ou semana. Dependendo do componente, poderá ter de criar para o pico de carga ou a carga média. |
 
-O objetivo deste documento é descrever as considerações de desempenho influenciar o desempenho do mecanismo de provisionamento do Azure AD Connect. Os outros componentes do Azure AD Connect, tal como [do Azure AD Connect health](how-to-connect-health-agent-install.md) e agentes não são abordados aqui.
+O objetivo deste documento é descrever os fatores influenciar o desempenho do Azure AD Connect mecanismo de provisionamento. As organizações de grandes ou complexas (organizações mais de 100 000 objetos de aprovisionamento) podem utilizar as recomendações para otimizar a sua implementação do Azure AD Connect, se se deparar com problemas de desempenho descritos aqui. Os outros componentes do Azure AD Connect, tal como [do Azure AD Connect health](how-to-connect-health-agent-install.md) e agentes não são abordados aqui.
 
 > [!IMPORTANT]
 > A Microsoft não suporta a modificação ou operação do Azure AD Connect fora das ações anteriormente documentadas. Qualquer destas ações pode resultar num estado inconsistente ou não suportado da sincronização do Azure AD Connect. Como resultado, a Microsoft não pode possível fornecer o suporte técnico para implementações deste tipo.
@@ -179,7 +179,7 @@ Para otimizar o desempenho da sua implementação do Azure AD Connect, considere
 
 
 - Utilize o [configuração de hardware recomendada](how-to-connect-install-prerequisites.md) com base no seu tamanho de implementação para o servidor do Azure AD Connect.
-- Ao atualizar o Azure AD Connect, nas implementações de grande escala, considere usar [girar o método de migração](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), para se certificar de que tem o menor tempo de inatividade e melhor fiabilidade. 
+- Ao atualizar o Azure AD Connect, nas implementações em larga escala, considere usar [girar o método de migração](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), para se certificar de que tem o menor tempo de inatividade e melhor fiabilidade. 
 - Utilize o SSD para a base de dados SQL para melhor desempenho de gravação.
 - Filtre o âmbito do Active Directory para incluir apenas os objetos que têm de ser aprovisionado no Azure AD, com o domínio, a UO ou a filtragem de atributos.
 - Se precisar de alterar as regras de fluxo de atributo predefinidas, primeiro copiar a regra, em seguida, altere a cópia e desativar a regra original. Não se esqueça de voltar a executar uma sincronização completa.

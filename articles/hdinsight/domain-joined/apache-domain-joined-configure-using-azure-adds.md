@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: c56158a5e8df2e8781ec8e4431c75beadd154297
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 93a6480cdab0153d0febad376c93b9321a87deda
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901656"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114898"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ Ativar AzureAD DS é um pré-requisito antes de poder criar um cluster do HDInsi
 
 Quando o Azure AD-DS está ativado, todos os utilizadores e objetos de iniciar a sincronização do Azure Active Directory para o Azure AD-DS, por predefinição. O comprimento da operação de sincronização depende do número de objetos no Azure AD. A sincronização pode demorar alguns dias para centenas de milhares de objetos. 
 
-Os clientes podem optar por sincronizar apenas os grupos que precisam de acesso para os clusters do HDInsight. Esta opção de apenas determinados grupos de sincronização é chamada *âmbito de sincronização*. Ver [configurar um âmbito sincronização do Azure AD ao seu domínio gerido](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) para obter instruções.
+Os clientes podem optar por sincronizar apenas os grupos que precisam de acesso para os clusters do HDInsight. Esta opção de apenas determinados grupos de sincronização é chamada *âmbito de sincronização*. Ver [configurar um âmbito sincronização do Azure AD ao seu domínio gerido](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) para obter instruções.
 
 Depois de ativar o Azure AD-DS, um servidor local do serviço de nomes de domínio (DNS) é executado em máquinas de virtuais AD (VMs). Configure o Azure AD DS rede Virtual (VNET) para utilizar estes servidores DNS personalizados. Para localizar os endereços IP corretos, selecione **propriedades** sob a **gerir** categoria e examinar os endereços IP listados abaixo **endereço IP na rede Virtual**.
 
@@ -47,31 +47,38 @@ Alterar a configuração dos servidores DNS na VNET do Azure AD DS para utilizar
 
 Quando ativar o LDAP seguro, coloque o nome de domínio no nome do requerente ou nome alternativo do requerente no certificado. Por exemplo, se o nome de domínio for *contoso.com*, certifique-se de que nome exato existe no seu nome de requerente do certificado ou nome alternativo do requerente. Para obter mais informações, consulte [configurar LDAP seguro para um Azure AD-DS o domínio gerido](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-## <a name="check-azure-ad-ds-health-status"></a>Verificar estado de funcionamento do Azure AD-DS
 
+## <a name="check-azure-ad-ds-health-status"></a>Verificar estado de funcionamento do Azure AD-DS
 Ver o estado de funcionamento do seu Azure Active Directory Domain Services, selecionando **estado de funcionamento** sob a **gerir** categoria. Certificar-se de que o estado do Azure AD-DS está verde (em execução) e a sincronização estiver concluída.
 
 ![Estado de funcionamento de serviços de domínio do Active Directory do Azure](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-## <a name="add-managed-identity"></a>Adicionar identidade gerida
+Deve certificar-se de que todos os [necessárias portas](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) está na lista de permissões na sub-rede de AAD-DS regras do NSG, se AAD-DS está protegida por um grupo de segurança de rede. 
 
-Crie uma identidade gerida atribuído ao utilizador se ainda não tiver um. Ver [Create, lista, delete ou o atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) para obter instruções. 
+## <a name="create-and-authorize-a-managed-identity"></a>Criar e autorizar uma identidade gerida
+> [!NOTE]
+> Apenas os administradores do AAD-DS têm privilégios para autorizar esta identidade gerida.
 
-A identidade gerida é usada para simplificar as operações de serviços de domínio. Esta identidade tem acesso para ler, criar, modificar e eliminar operações de serviços de domínio que são necessários para o HDInsight Enterprise Security Package como a criação de UOs e os princípios de serviço.
+R **atribuído ao utilizador a identidade gerida** é usado para simplificar as operações de serviços de domínio. Quando atribui a identidade gerida para a função de contribuinte de serviços de domínio do HDInsight, ele pode ler, criar, modificar e eliminar operações de serviços de domínio. Determinadas operações de serviços de domínio como a criação de UOs e os princípios de serviço são necessários para o Enterprise Security Package do HDInsight. Identidades geridas podem ser criadas em qualquer subscrição. Para obter mais informações, consulte [geridos identidades para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Depois de ativar o Azure AD-DS, criar uma identidade gerida atribuído ao utilizador e atribuí-lo para o **contribuinte de serviços de domínio do HDInsight** função no controlo de acesso do Azure AD DS.
+Para configurar uma identidade gerida para utilização com clusters do HDInsight ESP, crie uma identidade gerida atribuído ao utilizador se ainda não tiver um. Ver [Create, lista, delete ou o atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) para obter instruções. Em seguida, atribuir a identidade gerida para o **contribuinte de serviços de domínio do HDInsight** função no controle de acesso do Azure AD DS (privilégios de administrador do AAD-DS são necessários para fazer esta atribuição de função).
 
 ![Controlo de acesso de serviços de domínio do Active Directory do Azure](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Atribuir uma identidade gerida para o **contribuinte de serviços de domínio do HDInsight** função garante que a identidade tem acesso adequado para executar determinadas operações de serviços de domínio no domínio do Azure AD-DS. Para obter mais informações, consulte [o que há de identidades geridas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Atribuir uma identidade gerida para o **contribuinte de serviços de domínio do HDInsight** função garante que a identidade tem acesso adequado para executar determinadas operações de serviços de domínio no domínio do AAD-DS.
+
+Depois de a identidade gerida é criada e tendo em conta a função correta, o administrador do AAD-DS pode configurar que pode utilizar esta identidade gerida. Para configurar utilizadores para a identidade gerida, o administrador deve selecionar a identidade gerida no portal e clique em **controlo de acesso (IAM)** sob **descrição geral**. Em seguida, à direita, atribua a função "Operador de identidade gerido" para os utilizadores ou grupos que pretendem criar clusters do HDInsight ESP. Por exemplo, o administrador do AAD-DS pode atribuir esta função para o grupo de "MarketingTeam" para a identidade de "sjmsi" gerida, conforme mostrado na imagem abaixo.
+
+![Atribuição de função de operador de identidade de gerida do HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
+
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>Criar um cluster do HDInsight com ESP
 
 A próxima etapa é criar o cluster do HDInsight com ESP ativado com o Azure AD-DS.
 
-É mais fácil colocar a instância do Azure AD-DS e o cluster do HDInsight na mesma rede virtual do Azure. Se eles estão em redes virtuais diferentes, deve configurar o peering entre essas redes virtuais para que as VMs do HDInsight são visíveis para o controlador de domínio e podem ser adicionadas ao domínio. Para obter mais informações, consulte [peering de rede Virtual](../../virtual-network/virtual-network-peering-overview.md). Para testar se peering é feito corretamente, Junte-se a uma VM para o HDInsight VNET/subrede e enviar pings para o nome de domínio ou execute **ldp.exe** para aceder ao domínio do Azure AD-DS.
+É mais fácil colocar a instância do Azure AD-DS e o cluster do HDInsight na mesma rede virtual do Azure. Se eles estão em redes virtuais diferentes, deve configurar o peering entre essas redes virtuais para que as VMs do HDInsight são visíveis para o controlador de domínio e podem ser adicionadas ao domínio. Para obter mais informações, consulte [peering de rede Virtual](../../virtual-network/virtual-network-peering-overview.md). 
 
-Depois das VNETs em modo de peering, configure a VNET do HDInsight para utilizar um servidor DNS personalizado e de entrada de IPs privados do Azure AD-DS como os endereços de servidor DNS. Quando ambas as VNETs usa os mesmos servidores DNS, o seu nome de domínio personalizado será resolvido para o IP certo e estará acessível a partir do HDInsight. Por exemplo, se o nome de domínio for "contoso.com", em seguida, após este passo, "contoso.com" ping deve resolver para o direito de IP do Azure AD DS. Em seguida, pode associar uma VM para este domínio.
+Depois das VNETs em modo de peering, configure a VNET do HDInsight para utilizar um servidor DNS personalizado e de entrada de IPs privados do Azure AD-DS como os endereços de servidor DNS. Quando ambas as VNETs usa os mesmos servidores DNS, o seu nome de domínio personalizado será resolvido para o IP certo e estará acessível a partir do HDInsight. Por exemplo, se o nome de domínio for "contoso.com", em seguida, após este passo, "contoso.com" ping deve resolver para o direito de IP do Azure AD DS. Para testar se peering é feito corretamente, Junte-se a uma VM do windows para HDInsight VNET/subrede e enviar pings para o nome de domínio ou execute **ldp.exe** para aceder ao domínio do Azure AD-DS. Junte-se, em seguida, esta VM do windows para o domínio para confirmar que todas as chamadas RPC necessárias seja bem-sucedida entre o cliente e servidor.
 
 ![Configurar servidores DNS personalizados para o VNET Peering](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 

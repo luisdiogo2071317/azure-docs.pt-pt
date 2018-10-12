@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 61776c5122abb73dd34ef2ad11f6a44ab22f6a6b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 70c023fc8fe996060d3eff3d5a700b5f910097b4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238843"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113636"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
@@ -161,7 +161,7 @@ Pode parar a recolha de dados de qualquer altura. Utilize o código de Python ou
 
 ## <a name="example-notebook"></a>Bloco de notas de exemplo
 
-O `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` bloco de notas demonstra conceitos deste artigo.  
+O [00. obtendo Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) bloco de notas demonstra conceitos deste artigo.  
 
 Obter este bloco de notas:
  
