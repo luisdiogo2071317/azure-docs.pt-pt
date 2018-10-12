@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3cfff932834682471990236c9e96b499e20d33f1
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870847"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092563"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 
@@ -148,10 +148,9 @@ Quando utilizar pontos finais de serviço para a base de dados do Azure SQL, rev
 
 #### <a name="expressroute"></a>ExpressRoute
 
-Se a sua rede está ligada à rede do Azure através da utilização dos [ExpressRoute][expressroute-indexmd-744v], cada circuito está configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são utilizados para ligar ao Microsoft Services, como e o armazenamento do Azure, utilizando o Peering público do Azure.
-
-Para permitir a comunicação do seu circuito para a base de dados do Azure SQL, tem de criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, abra um pedido de suporte com o ExpressRoute com o portal do Azure.
-
+Se estiver a utilizar [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) no local, para peering público ou peering da Microsoft, terá de identificar os endereços NAT IP que são utilizados. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  
+Para permitir a comunicação do seu circuito para a base de dados do Azure SQL, tem de criar regras de rede IP para os endereços IP públicos de sua NAT.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.
