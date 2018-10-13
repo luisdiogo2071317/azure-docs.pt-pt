@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991475"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167057"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -48,12 +48,6 @@ Se não tiver um, crie-o:
 *Já tem dúvidas?* [Mais sobre a criação de um recurso](app-insights-create-new-resource.md).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Adicione o script SDK à sua aplicação ou páginas Web
-Em Início Rápido, obtenha o script para páginas Web:
-
-![No painel de descrição geral da aplicação, escolha Início Rápido, Obter código para monitorizar as minhas páginas Web. Copie o script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> A experiência de *Introdução* varia consoante o tipo de aplicação que seleciona ao criar o seu recurso do Application Insights. Se o script não estiver presente na sua aplicação conforme a captura de ecrã anterior, utilize o seguinte script.
 
 ```HTML
 <!-- 
@@ -127,7 +121,7 @@ Abra o painel Browser para mostrar dados de desempenho agregados dos browsers do
 
 ![Em portal.azure.com, abra o recurso da sua aplicação e clique em Definições, Browser](./media/app-insights-javascript/03.png)
 
-Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
+Ainda não existem dados? Clique em **Atualizar no início da página. Ainda nada? Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
 
 O painel Browser é um [painel do Explorador de Métricas](app-insights-metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
 

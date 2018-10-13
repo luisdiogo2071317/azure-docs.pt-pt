@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870932"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310903"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -40,7 +40,7 @@ Este artigo descreve o conteúdo do pacote de atualização de 1808. O pacote de
 Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 
 <!--  2682594   | IS  --> 
-- **Todos os ambientes do Azure Stack agora utilizam o formato de fuso horário da hora Universal Coordenada (UTC).**  Todos os registos de dados e informações relacionadas agora apresenta no formato UTC. Se atualizar de uma versão anterior que não foi instalada com o UTC, o seu ambiente é atualizado para utilizar UTC. 
+- **Todos os ambientes do Azure Stack agora utilizam o formato de fuso horário da hora Universal Coordenada (UTC).**  Todos os dados de registo e informações relacionadas agora apresentados no formato UTC. Se atualizar de uma versão anterior que não foi instalada com o UTC, o seu ambiente é atualizado para utilizar UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Discos geridos são suportados.** Agora, pode utilizar discos geridos em máquinas de virtuais do Azure Stack e conjuntos de dimensionamento de máquina virtual. Para obter mais informações, consulte [Managed Disks do Azure Stack: diferenças e considerações](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -52,7 +52,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - **Preparar para o anfitrião de extensão**. Pode utilizar o anfitrião de extensão para o ajudar a proteger do Azure Stack, reduzindo o número de portas de TCP/IP necessárias. Com a atualização de 1808, pode preparar, prepare-se do Azure Stack para o anfitrião de extensão. Para obter mais informações, consulte [preparar para o anfitrião de extensão para o Azure Stack](/azure/azure-stack/azure-stack-extension-host-prepare).
 
 <!-- IS --> 
-- **Itens de galeria para conjuntos de dimensionamento de máquinas virtuais estão agora incorporados**. O item de galeria o conjunto de dimensionamento de máquinas virtuais sejam agora disponibilizado nos portais do utilizador e administrador sem ter de transferi-lo.  Se atualizar para o 1808 está disponível após a conclusão da atualização.  
+- **Itens de galeria para conjuntos de dimensionamento de máquinas virtuais estão agora incorporados no**. O item de galeria o conjunto de dimensionamento de máquinas virtuais sejam agora disponibilizado nos portais do utilizador e administrador sem ter de transferi-lo.  Se atualizar para o 1808 está disponível após a conclusão da atualização.  
 
 <!-- IS, ASDK --> 
 - **O conjunto de dimensionamento de máquinas virtuais dimensionamento**. Pode utilizar o portal para [dimensionar um conjunto de dimensionamento de Máquina Virtual](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
@@ -61,10 +61,10 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - **Suporte para configurações de política de IPSec/IKE personalizadas** para [gateways de VPN no Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Item do marketplace Kubernetes**. Agora, pode implementar clusters Kubernetes com o [item do mercado de Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Os utilizadores podem selecionar o item de Kubernetes e preencher alguns parâmetros para implementar um cluster de Kubernetes no Azure Stack. O objetivo dos modelos é simplificar para os utilizadores para implementações de Kubernetes de programador/teste de configuração em poucos passos.
+- **Item do marketplace Kubernetes**. Agora, pode implementar clusters Kubernetes com o [item do mercado de Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Os utilizadores podem selecionar o item de Kubernetes e preencher alguns parâmetros para implementar um cluster de Kubernetes no Azure Stack. O objetivo dos modelos é simplificar para os utilizadores para configurar as implementações de Kubernetes de programador/teste em poucos passos.
 
 <!-- | IS ASDK--> 
-- **Modelos de Blockchain**. Agora, pode executar [implementações de consórcio Ethereum](azure-stack-ethereum.md) no Azure Stack. Encontrará três novos modelos no [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o utilizador implementar e configurar uma rede Ethereum de consórcio com vários membros com o mínimo de conhecimento do Azure e Ethereum. O objetivo dos modelos é simplificar para os utilizadores para implementações de Blockchain de programador/teste de configuração em poucos passos.
+- **Modelos de Blockchain**. Agora, pode executar [implementações de consórcio Ethereum](azure-stack-ethereum.md) no Azure Stack. Encontrará três novos modelos no [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o utilizador implementar e configurar uma rede Ethereum de consórcio com vários membros com o mínimo de conhecimento do Azure e Ethereum. O objetivo dos modelos é simplificar para os utilizadores para configurar as implementações de Blockchain de programador/teste em poucos passos.
 
 <!-- | IS ASDK--> 
 - **A API versão perfil 2017-03-09-profile foi atualizada para 2018-03-01-híbrido**. Perfis de API especificar o fornecedor de recursos do Azure e a versão de API para pontos finais REST do Azure. Para obter mais informações sobre os perfis, consulte [perfis de versão de API de gerir no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -144,6 +144,13 @@ Esta atualização também contém atenuação para a vulnerabilidade de canal d
   ```   
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
+
+<!-- TBD - IS -->
+- Poderá ver os seguintes alertas repetidamente aparecer e desaparecer, em seguida, no seu sistema do Azure Stack:
+   - *Instância de função de infraestrutura indisponível*
+   - *Nó de unidade de escala está offline*
+   
+  Volte a executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
 
 - Quando executa [AzureStack teste](azure-stack-diagnostic-test.md) após a atualização 1808, será apresentada uma mensagem de aviso do controlador de gestão de placas base (BMC). Pode ignorar este aviso.
 
@@ -226,7 +233,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 
 <!-- 2812138 | IS --> 
-- Poderá ver um alerta para **armazenamento** componente que tem os seguintes detalhes:
+- Poderá ver um alerta para **armazenamento** componente que contém os seguintes detalhes:
 
    - NOME: Erro de comunicação interno do serviço de armazenamento  
    - GRAVIDADE: crítico  

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542774"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167652"
 ---
 # <a name="date-claims-transformations"></a>Transformações de afirmações de data
 
@@ -33,7 +33,7 @@ Verifica que uma data e hora afirmações (tipo de dados de cadeia de caracteres
 | InputClaim | rightOperand | cadeia | Tipo de segundo afirmação, o que deve ser menor que a primeira declaração. |
 | InputParameter | AssertIfEqualTo | boolean | Especifica se esta asserção deve passar se o operando esquerdo for igual do operando direito. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica se esta asserção deve passar se o operando direito está em falta. |
-| InputParameter | TreatAsEqualIfWithinMillseconds | Int | Especifica o número de milissegundos para permitir entre os dois data horas a ter em consideração os tempos de igual (por exemplo, para a conta para distorção). |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre os dois data horas a ter em consideração os tempos de igual (por exemplo, para a conta para distorção). |
 
 O **AssertDateTimeIsGreaterThan** transformação de declarações é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [autodeclarativas perfil técnico](self-asserted-technical-profile.md). O **DateTimeGreaterThan** metadados de declaração própria perfil técnico controla a mensagem de erro que o perfil técnico apresenta ao usuário.
 
@@ -92,7 +92,7 @@ Converte um **data** ClaimType para um **DateTime** ClaimType. A transformação
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | data | ClaimType a converter. |
+| InputClaim | InputClaim | date | ClaimType a converter. |
 | outputClaim | outputClaim | DateTime | ClaimType produzido este ClaimsTransformation po vyvolání. |
 
 O exemplo seguinte demonstra a conversão da declaração `dateOfBirth` (tipo de dados de data) para uma outra declaração `dateOfBirthWithTime` (tipo de dados dateTime).
@@ -145,7 +145,7 @@ Determine se um dateTime é maior, menor ou igual a outro. O resultado é um val
 | InputClaim | firstDateTime | DateTime | A primeira dateTime para comparar. Valor nulo lançará uma exceção. |
 | InputClaim | secondDateTime | DateTime | O segundo dateTime para concluir. Valor nulo trata como datetTime atual. |
 | InputParameter | Operador | cadeia | Um dos seguintes valores: mesmo, posterior ou anterior. |
-| InputParameter | timeSpanInSeconds | Int | Adicione o período de tempo para a primeira datetime. |
+| InputParameter | timeSpanInSeconds | int | Adicione o período de tempo para a primeira datetime. |
 | outputClaim | Resultado | boolean | ClaimType produzido este ClaimsTransformation po vyvolání. |
 
 Utilize que este afirmações de transformação para determinar se dois ClaimTypes são igual, maior ou menor uns dos outros. Por exemplo, pode armazenar a última vez que um utilizador aceitou os termos de serviços (TOS). Depois de 3 meses, pode pedir ao utilizador aceder a TOS novamente.
@@ -158,7 +158,7 @@ Para executar a transformação de afirmação, tem primeiro de obter a data/hor
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -173,7 +173,7 @@ Para executar a transformação de afirmação, tem primeiro de obter a data/hor
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Parâmetros de entrada:
-    - **operador**: maior do que
+    - **operador**: posterior a
     - **timeSpanInSeconds**: 7776000 (90 dias)
 - Afirmações de saída: 
     - **resultado**: VERDADEIRO

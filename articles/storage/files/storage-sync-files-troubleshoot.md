@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 3565793347a8c9704e51e893e5aa916cf54cab8e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115578"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167669"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -135,6 +135,21 @@ Para resolver este problema, execute os seguintes passos:
 2. Certifique-se de que as definições de Firewall e Proxy estão configuradas corretamente:
     - Se o servidor estiver protegido por uma firewall, certifique-se de que a porta 443 de saída é permitida. Se a firewall restringe o tráfego a domínios específicos, certifique-se os domínios listados na Firewall [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) estão acessíveis.
     - Se o servidor estiver atrás de um proxy, configure as definições de proxy de aplicações específicas ou todo o computador ao seguir os passos no Proxy [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+
+<a id="endpoint-noactivity-sync"></a>**Ponto final do servidor tem um Estado de funcionamento das "Sem atividade" e o estado do servidor no painel servidores registados é "Online"**  
+
+Um Estado de funcionamento do ponto final de servidor de "Sem atividade" significa que o ponto final do servidor não está conectada a atividade de sincronização nas últimas duas horas.
+
+Um ponto final do servidor não poderá iniciar a atividade de sincronização pelos seguintes motivos:
+
+- O servidor atingiu o número máximo de sessões de sincronização em simultâneo. Atualmente, o Azure File Sync suporta 2 sessões de sincronização do Active Directory por processador ou um máximo de 8 sessões de sincronização do Active Directory por servidor.
+
+- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto final do servidor, os outros pontos de extremidade do servidor no servidor não é possível iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
+
+Para verificar a atividade de sincronização atual num servidor, consulte [como posso monitorizar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Se o estado do servidor no painel servidores registados é "Aparece Offline", execute os passos documentados no [ponto final do servidor tem um Estado de funcionamento de "Sem atividade" ou "Pendente" e o estado do servidor no painel servidores registados é "Aparece offline" ](#server-endpoint-noactivity) secção.
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Se tiver criado um ficheiro diretamente na minha partilha de ficheiros do Azure através de SMB ou através do portal, quanto tempo é necessário para o ficheiro para sincronizar com servidores no grupo de sincronização?**  

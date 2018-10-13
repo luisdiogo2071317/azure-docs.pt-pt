@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ac2cf4d688b1bdc54ed2d7341f0e195d3b2fe42d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4a9ae1d3d84f1396adad07d1cda73ee3747c9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236474"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312571"
 ---
-## <a name="what-happens-to-my-app-during-deployment"></a>O que acontece para a minha aplicação durante a implementação?
+## <a name="what-happens-to-my-app-during-deployment"></a>O que acontece ao meu aplicativo durante a implantação?
 
-Todos os métodos de implementação oficialmente suportado tem um aspeto em comum: efetuam as alterações aos ficheiros no `/site/home/wwwroot` pasta da sua aplicação. Estes são os mesmos ficheiros que são executados em produção. Por conseguinte, a implementação pode falhar devido a ficheiros bloqueados ou a aplicação na produção pode ter um comportamento imprevisível durante a implementação, porque nem todos os ficheiros são atualizados em simultâneo. Existem várias formas para evitar estes problemas:
+Todos os métodos de implementação suportadas oficialmente têm algo em comum: eles fazer alterações aos ficheiros no `/site/home/wwwroot` pasta da sua aplicação. Estes são os mesmos ficheiros que são executados na produção. Por conseguinte, a implementação pode falhar devido a arquivos bloqueados ou a aplicação na produção pode ter um comportamento imprevisível durante a implementação, porque nem todos os ficheiros são atualizados em simultâneo. Existem várias formas de evitar esses problemas:
 
-- Parar a sua aplicação ou ativar o modo offline para a sua aplicação durante a implementação. Para obter mais informações, consulte [lidar com ficheiros bloqueados durante a implementação](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
-- Implementar um [testes ranhura](../articles/app-service/web-sites-staged-publishing.md) com [troca automática](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) ativada. 
-- Utilize [ser executada a partir do Zip](https://github.com/Azure/app-service-announcements/issues/84) em vez disso.
+- Parar a sua aplicação ou ativar o modo offline para a sua aplicação durante a implementação. Para obter mais informações, consulte [Lidando com arquivos bloqueados durante a implementação](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
+- Implementar um [blocos de teste](../articles/app-service/web-sites-staged-publishing.md) com [troca automática](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) ativada. 
+- Uso [execução do pacote](https://github.com/Azure/app-service-announcements/issues/84) em vez disso.

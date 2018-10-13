@@ -3,18 +3,18 @@ title: Exemplos de voz de registo para a criação de uma voz personalizada
 titleSuffix: Microsoft Cognitive Services
 description: Torne uma voz personalizada de qualidade de produção ao preparar um script robusto, contratação de talento de voz boa e gravar profissionalmente.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: c30d531876ae7c69c164bc1d73103e493aaaa8fa
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.author: erhopf
+ms.openlocfilehash: 0051cc480a26ffc3668f922d1af9fc9cd7af1f49
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018317"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167176"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 

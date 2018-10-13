@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902285"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310458"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -45,7 +45,7 @@ As informações neste artigo descrevem o registo de integrado do Azure Stack de
 
 Antes de registar o Azure Stack com o Azure, tem de ter:
 
-- O ID de subscrição para uma subscrição do Azure. Apenas EA, CSP ou CSP partilhado subscrições são suportadas para o registo de serviços. CSPs tem de decidir se pretende [utilizar uma subscrição do CSP ou CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Para obter o ID, inicie sessão no Azure, clique em **todos os serviços**. Em seguida, no **gerais** categoria, selecione **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID de subscrição.
+- O ID de subscrição para uma subscrição do Azure. Apenas EA, CSP ou CSP partilhado subscrições são suportadas para o registo de serviços. CSPs tem de decidir se pretende [utilizar uma subscrição do CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Para obter o ID, inicie sessão no Azure, clique em **todos os serviços**. Em seguida, no **gerais** categoria, selecione **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID de subscrição.
 
   > [!Note]  
   > Subscrições de cloud da Alemanha não são atualmente suportadas.

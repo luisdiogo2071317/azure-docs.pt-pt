@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998751"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309540"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar a sua base de dados MariaDB à base de dados do Azure para MariaDB com a captura e restauro
 Este artigo explica as duas formas comuns de cópia de segurança e restaurar bases de dados na sua base de dados do Azure para MariaDB
@@ -30,7 +30,9 @@ Para seguir este guia de procedimentos, tem de ter:
 Utilize utilitários e ferramentas como o MySQL Workbench, mysqldump, Toad ou Navicat comuns para ligar e restaurar os dados na base de dados do Azure para MariaDB remotamente. Use tais ferramentas no seu computador cliente com uma ligação à internet para ligar à base de dados do Azure para MariaDB. Utilizar uma ligação encriptada por SSL para melhores práticas de segurança, consulte também [configurar a conectividade SSL na base de dados do Azure para MariaDB](concepts-ssl-connection-security.md). Não é necessário mover os arquivos de despejo para qualquer localização de cloud especiais ao migrar a base de dados do Azure para MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Utilizações comuns para a captura e restauro
-Pode utilizar utilitários de MySQL como mysqldump e mysqlpump dump e load bancos de dados num banco de dados do Azure para MariaDB servidor em vários cenários comuns. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+Pode utilizar utilitários de MySQL como mysqldump e mysqlpump dump e load bancos de dados num banco de dados do Azure para MariaDB servidor em vários cenários comuns. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Base de dados de utilização despeja quando estiver a migrar a base de dados. Esta recomendação contém ao mover uma grande quantidade de dados, ou quando deseja minimizar a interrupção do serviço de aplicações ou sites ao vivo. 
 -  Certifique-se que todas as tabelas na base de dados utilizam o mecanismo de armazenamento InnoDB ao carregar os dados na base de dados do Azure para MariaDB. Base de dados do Azure para MariaDB suporta apenas mecanismo de armazenamento InnoDB e, portanto, não suporta os mecanismos de armazenamento alternativo. Se as suas tabelas estão configuradas com outros mecanismos de armazenamento, convertê-los para o formato do motor InnoDB antes da migração para a base de dados do Azure para MariaDB.

@@ -3,18 +3,18 @@ title: Sobre tradução de voz
 description: Uma descrição geral das capacidades de tradução por voz
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432194"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165442"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de tradução de voz
 
@@ -32,7 +32,7 @@ A API de tradução de voz emprega as mesmas tecnologias que suportam vários pr
 
 Subjacentes mecanismo de tradução da Microsoft são as duas abordagens diferentes: estatísticos de tradução automática (SMT) e a tradução automática neuronal (NMT). A última opção, uma abordagem de inteligência artificial empregar as redes neurais, é a abordagem mais moderna para tradução automática. NMT fornece melhor traduções — não apenas mais precisos, mas também mais fluente e natural. O motivo principal desta fluidez deve-se à NMT utilizar o contexto completo de uma frase para traduzir palavras.
 
-Hoje em dia, Microsoft tiver migrado para NMT para as linguagens mais populares, empregando SMT apenas para linguagens utilizadas menos frequentemente. Todos os [idiomas disponíveis para a tradução de voz para voz](language-support.md#speech-translation) têm a tecnologia NMT. Tradução de voz em texto utilizar SMT ou NMT consoante o par de idioma. Se o idioma de destino é suportado pelo NMT, a tradução inteira é com a tecnologia de NMT. Se o idioma de destino não é suportado pelo NMT, a tradução é uma mistura de NMT e SMT, usando o inglês como uma tabela "dinâmica" entre as duas linguagens.
+Hoje em dia, Microsoft tiver migrado para NMT para as linguagens mais populares, empregando SMT apenas para linguagens utilizadas menos frequentemente. Todos os [idiomas disponíveis para a tradução de voz para voz](language-support.md#speech-translation) têm a tecnologia NMT. Tradução de voz em texto utilizar SMT ou NMT consoante o par de idioma. Se o idioma de destino for suportado por NMT, a tradução inteira terá a tecnologia NMT. Se o idioma de destino não é suportado pelo NMT, a tradução é uma mistura de NMT e SMT, usando o inglês como uma tabela "dinâmica" entre as duas linguagens.
 
 As diferenças entre os modelos são internas para o mecanismo de tradução. Os utilizadores finais observe apenas a qualidade das traduções de melhor, especialmente para chinês, japonês e árabe.
 

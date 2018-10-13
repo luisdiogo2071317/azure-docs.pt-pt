@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867057"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309365"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
@@ -80,7 +80,7 @@ A tabela seguinte fornece uma descrição geral dos elementos do esquema relacio
 Esta secção fornece exemplos de definições do acionador baseado em evento.
 
 -   **Caminho do blob começa com**("/ containername /") – recebe eventos para qualquer blob no contentor.
--   **Caminho do blob começa com**("/ containername/blobs/foldername") – recebe eventos para os blobs no contentor de containername e na pasta foldername.
+-   **Caminho do blob começa com**("/ containername/blobs/foldername") – recebe eventos para os blobs no contentor de containername e na pasta foldername. Também pode fazer referência a uma subpasta; Por exemplo, "/ containername/blobs/foldername/subfoldername /'.
 -   **Caminho do blob começa com**("/ containername/blobs/foldername/file.txt') – recebe eventos para um blob com o nome file.txt na pasta foldername no contentor containername.
 -   **Caminho do blob termina com**('file.txt') – Receives eventos para um blob com o nome file.txt em qualquer caminho.
 -   **Caminho do blob termina com**("/ containername/blobs/file.txt') – recebe eventos para um blob com o nome file.txt em containername de contentor.

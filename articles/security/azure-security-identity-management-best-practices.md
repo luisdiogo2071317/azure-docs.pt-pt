@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498254"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311342"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure
 
@@ -113,7 +113,7 @@ Existem várias opções para exigir a verificação de dois passos. A melhor op
 
 Seguem-se as opções e os benefícios para ativar a verificação de dois passos:
 
-**Opção 1**: [ativar a multi-factor Authentication, alterando o estado do utilizador](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**Opção 1**: [ativar a multi-factor Authentication, alterando o estado do utilizador](../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefício**: Este é o método tradicional para exigir a verificação de dois passos. Funciona com ambos [multi-factor Authentication na cloud e no servidor do Azure multi-factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md). Ao utilizar este método requer que os utilizadores efetuar a verificação de dois passos sempre que iniciam sessão e substitui as políticas de acesso condicional.
 
 **Opção 2**: [ativar a multi-factor Authentication com a política de acesso condicional](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ Seguem-se as opções e os benefícios para ativar a verificação de dois passo
 
 Essa é a maneira mais flexível para ativar a verificação de dois passos para os seus utilizadores. Ativar uma política de acesso condicional funciona apenas para o Azure multi-factor Authentication na cloud e é uma funcionalidade premium do Azure AD. Pode encontrar mais informações sobre este método na [implementar com base na cloud do Azure multi-factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Opção 3**: Ativar o multi-factor Authentication com políticas de acesso condicional através da avaliação de risco de utilizador e início de sessão de [do Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md).   
+**Opção 3**: Ativar o multi-factor Authentication com políticas de acesso condicional através da avaliação de risco de utilizador e início de sessão de [do Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Benefício**: esta opção permite-lhe:
 
 - Detete potenciais vulnerabilidades que afetam as identidades da sua organização.
@@ -131,7 +131,7 @@ Essa é a maneira mais flexível para ativar a verificação de dois passos para
 Este método utiliza a avaliação de risco do Azure AD Identity Protection para determinar se é necessária uma verificação de dois passos com base no utilizador e o risco de início de sessão para todas as aplicações na cloud. Este método requer licenciamento do Azure Active Directory P2. Pode encontrar mais informações sobre este método na [do Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Opção 1, ativar a multi-factor Authentication, alterando o estado do utilizador, substitui as políticas condicionais. Uma vez que as opções de 2 e 3 utilizam políticas de acesso condicional, não é possível utilizar a opção 1 com eles.
+> Opção 1, ativar a multi-factor Authentication, alterando o estado do utilizador, substitui as políticas de acesso condicional. Uma vez que as opções de 2 e 3 utilizam políticas de acesso condicional, não é possível utilizar a opção 1 com eles.
 
 As organizações que não adicionam camadas adicionais de proteção de identidade, por exemplo, a verificação de dois passos, são mais suscetíveis de ataque de roubo de credenciais. Um ataque de roubo de credenciais pode levar ao comprometimento de dados.
 

@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
-ms.reviewer: vanto, carlrab
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 8d3a14228d31c8f4507dbcac7b9bd47ae1c4de0a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/11/2018
+ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902165"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311206"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -37,7 +37,7 @@ A Base de Dados SQL protege os seus dados ao oferecer encriptação para dados e
 Para outras formas de encriptar os seus dados, considere:
 
 - A [encriptação ao nível da célula](https://msdn.microsoft.com/library/ms179331.aspx), para encriptar colunas específicas ou até mesmo células de dados com chaves de encriptação diferentes.
-- Se precisar de um Módulo de Segurança de Hardware ou de fazer a gestão centralizada da hierarquia de chaves de encriptação, considere utilizar o [Azure Key Vault com o SQL Server numa VM do Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
+-  Se precisar de uma tecnologia de módulo de Hardware de segurança ou de Bring Your Own Key (BYOK) para encriptação de dados transparente, considere utilizar [encriptação transparente de dados do Azure SQL: suporte de traga a sua própria chave](transparent-data-encryption-byok-azure-sql.md).
 
 ### <a name="data-discovery--classification"></a>Dados de deteção e classificação
 

@@ -1,25 +1,19 @@
 ---
 title: Requisitos de sistema do Gateway de caixa de dados do Microsoft Azure | Documentos da Microsoft
 description: Saiba mais sobre o software e os requisitos de rede para o Gateway de caixa de dados do Azure
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 16d9604100d3ec37cef7ad4ebbdc376967006e15
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991577"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166700"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -31,7 +25,7 @@ Os requisitos de sistema para o dispositivo virtual de Gateway de caixa de dados
 - **Requisitos de rede para o dispositivo** -fornece informações sobre quaisquer requisitos de rede para a operação do dispositivo virtual.
 
 > [!IMPORTANT]
-> Gateway de caixa de dados está em pré-visualização. Reveja os [termos de utilização para a pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
+> O Data Box Gateway está em Pré-visualização. Reveja os [termos de utilização da pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>SO suportado para os clientes ligados ao dispositivo
 
@@ -134,7 +128,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 Os seguintes requisitos aplicam-se para a Internet largura de banda mínima disponível para os seus dispositivos de Gateway de caixa de dados.
 
-- O Gateway de caixa de dados tem uma largura de banda Mbps Internet dedicado 20 (ou mais) disponível, o tempo todo. Esta largura de banda não deve ser partilhada com outras aplicações. 
+- O Data Box Gateway tem uma largura de banda de Internet de 20 Mbps (ou mais) disponível sempre. Esta largura de banda não deve ser partilhada com outras aplicações. 
 - O Gateway de caixa de dados tem uma largura de banda Mbps Internet dedicado 32 (ou mais) ao utilizar a limitação de rede.
 
 ## <a name="next-step"></a>Passo seguinte

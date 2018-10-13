@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449364"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166071"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano do serviço de aplicações no Azure
 
@@ -57,6 +57,12 @@ Pode criar um plano do serviço de aplicações vazio ou pode criar um plano com
 
 Pode mover uma aplicação para outro plano do serviço de aplicações, enquanto o plano de origem e o plano de destino estão na _mesmo grupo de recursos e região geográfica_.
 
+> [!NOTE]
+> Azure implementa a cada novo plano do serviço de aplicações numa unidade de implementação, chamada internamente um espaço Web. Cada região pode ter espaços Web muitos, mas a aplicação só pode mover entre planos criados com o mesmo espaço de Web. Um ambiente de serviço de aplicações é um espaço Web isolado, para que as aplicações podem ser movidas entre planos no mesmo ambiente de serviço de aplicações, mas não entre planos em diferentes ambientes de serviço de aplicações.
+>
+> Não é possível especificar o espaço Web que pretende quando criar um plano, mas é possível garantir que é criado um plano do espaço Web mesmo como um plano existente. Em resumo, todos os planos criados com o mesmo grupo de recursos e a combinação de região são implementadas para o mesmo espaço de Web. Por exemplo, se tiver criado um plano no grupo de recursos e região B, qualquer plano de que criar, em seguida, no grupo de recursos e região B é implementado para o mesmo espaço de Web. Tenha em atenção que os planos não é possível mover espaços Web depois de ocorrer, pelo que não é possível mover um plano em "o mesmo espaço Web" como plano de outro, movendo-os para outro grupo de recursos.
+> 
+
 1. Na [portal do Azure](https://portal.azure.com), navegar para a aplicação que pretende mover.
 
 1. No menu, procure o **plano do serviço de aplicações** secção.
@@ -67,16 +73,7 @@ Pode mover uma aplicação para outro plano do serviço de aplicações, enquant
 
 1. Na **plano do App Service** Seletor, selecione um existente planear mover esta aplicação em.   
 
-> [!IMPORTANT]
-> O **plano do serviço de aplicações selecione** página é filtrada pelos seguintes critérios: 
-> - Existe no mesmo grupo de recursos 
-> - Existe na mesma região geográfica 
-> - Existe o mesmo espaço de Web  
-> 
-> R _espaço Web_ é uma construção lógica no serviço de aplicações que define um agrupamento de recursos do servidor. Uma região geográfica (por exemplo, E.U.A. oeste) contém espaços Web muitas para alocar os clientes que utilizam o serviço de aplicações. Atualmente, não é possível mover recursos do serviço de aplicações entre espaços Web. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+O **plano do serviço de aplicações selecione** página mostra apenas os planos que estão no mesmo grupo de recursos e região geográfica como plano de serviço de aplicações da aplicação atual.
 
 Cada plano tem seu próprio para o escalão de preço. Por exemplo, mover um site a partir um **gratuito** escalão para um **padrão** escalão permite que todas as aplicações atribuídas ao mesmo a usar os recursos e recursos do **padrão** escalão. No entanto, a mover uma aplicação de um plano superior em camadas para um plano em camadas inferiores significa que já não tem acesso a determinados recursos. Se a sua aplicação utiliza uma funcionalidade que não está disponível no plano de destino, obterá um erro que mostra a qual o recurso está em utilização que não está disponível. 
 

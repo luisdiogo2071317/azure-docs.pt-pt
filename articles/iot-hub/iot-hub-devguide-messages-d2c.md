@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: a4ebb64d14b325680a65ffd52f6a07836c1e6ede
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585684"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311325"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilizar o encaminhamento de mensagens para enviar mensagens do dispositivo para a cloud para diferentes pontos de extremidade
 
@@ -21,7 +21,7 @@ ms.locfileid: "47585684"
 
 Roteamento de mensagens permite-lhe enviar mensagens a partir dos seus dispositivos para serviços cloud de forma automatizada, escalável e fiável. Roteamento de mensagens pode ser utilizado para: 
 
-* **Enviar messsages de telemetria do dispositivo, bem como eventos** ou seja, os eventos de ciclo de vida do dispositivo e os eventos de alteração para os pontos finais integrados em endpoint e personalizados do dispositivo duplo. Saiba mais sobre [pontos finais de encaminhamento](##routing-endpoints).
+* **Enviar messsages de telemetria do dispositivo, bem como eventos** ou seja, os eventos de ciclo de vida do dispositivo e os eventos de alteração para os pontos finais integrados em endpoint e personalizados do dispositivo duplo. Saiba mais sobre [pontos finais de encaminhamento](#routing-endpoints).
 
 * **Filtrar os dados antes de encaminhamento para vários pontos de extremidade** através da aplicação de consultas. Roteamento de mensagens permite-lhe consultar sobre as propriedades da mensagem e corpo da mensagem, bem como as etiquetas do dispositivo duplo e propriedades dos dispositivos duplos. Saiba mais sobre como utilizar [consultas de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md).
 

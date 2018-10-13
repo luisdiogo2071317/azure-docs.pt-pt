@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 656a2375b8b1033e9b698d5d8e1e2bbc32b32a79
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094586"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165883"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um painel personalizado para o dashboard de monitorização remota solution accelerator da IU da web
 
@@ -82,7 +82,7 @@ Adicione a seguinte definição de célula para a grade no conteúdo da página:
           </Cell>
 ```
 
-## <a name="test-the-fly-out"></a>Testar os submenus
+## <a name="test-the-flyout"></a>Testar a lista de opções
 
 Se o web interface do Usuário não está já em execução localmente, execute o seguinte comando na raiz da sua cópia local do repositório:
 

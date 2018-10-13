@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: b1330f2f912f3e5974a43e43f649576561fbcc11
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079230"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311359"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
 O Azure Key Vault permite aos utilizadores armazenar e utilizar vários tipos de dados de chave/segredo e de aplicações do Microsoft Azure:
 
 - As chaves criptográficas: suporta vários tipos de chave e algoritmos e permite a utilização de módulos de segurança de Hardware (HSM) para as chaves de valor elevado. 
-- Segredos: Permite que os usuários a armazenar com segurança segredos, como palavras-passe. Os segredos são objetos de octeto de tamanho limitado com nenhuma semântica específica. 
+- Segredos: Fornece armazenamento seguro de segredos, como palavras-passe e cadeias de ligação de base de dados.
 - Certificados: Suporta certificados que são criados sobre chaves e segredos e adicionar uma funcionalidade de renovação automática.
 - Armazenamento do Azure: Pode gerir as chaves de uma conta de armazenamento do Azure por si. Internamente, o Key Vault pode listar chaves (sincronização) com uma conta de armazenamento do Azure e voltar a gerar (girar) periodicamente as chaves. 
 
@@ -94,7 +94,7 @@ As chaves criptográficas no Cofre de chaves são representadas como objetos de 
 
      Para obter mais informações sobre dos limites geográficos, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Key Vault suporta chaves RSA e criptografia de curva elíptica. Versões futuras podem suportar outros tipos de chave, tais como simétrica.
+Key Vault suporta chaves RSA e criptografia de curva elíptica. 
 
 -   **EC**: chave de criptografia de curva elíptica "Soft".
 -   **EC HSM**: chave de criptografia de curva elíptica "Rígido".
@@ -105,7 +105,7 @@ Key Vault suporta chaves RSA de 2048, 3072 e 4096 de tamanhos. Key Vault oferece
 
 ### <a name="cryptographic-protection"></a>Proteção criptográfica
 
-Os módulos criptográficos que utiliza o Cofre de chaves, se o HSM ou software, são validados FIPS (Federal Information Processing Standards). Não precisa de fazer nada de especial para executar no modo FIPS. Se **crie** ou **importar** chaves como protegida por HSM, garante a ser processado dentro de um HSM validado para FIPS 140-2 nível 2 ou superior. Se **crie** ou **importar** chaves como protegida por software, eles são processados no interior de módulos criptográficos validados FIPS 140-2 de nível 1 ou superior. Para obter mais informações, consulte [chaves e os tipos de chave](#keys-and-key-types).
+Os módulos criptográficos que utiliza o Cofre de chaves, se o HSM ou software, são validados FIPS (Federal Information Processing Standards). Não precisa de fazer nada de especial para executar no modo FIPS. Chaves **criado** ou **importados** como estão protegidas por HSM processado dentro de um HSM, validado pela norma FIPS 140-2 nível 2 ou superior. Chaves **criado** ou **importados** como protegida por software, são processados no interior de módulos criptográficos validados FIPS 140-2 de nível 1 ou superior. Para obter mais informações, consulte [chaves e os tipos de chave](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>Algoritmos EC
  Os identificadores de algoritmo seguintes são suportados com chaves EC e EC HSM no Cofre de chaves. 
@@ -136,8 +136,8 @@ Os módulos criptográficos que utiliza o Cofre de chaves, se o HSM ou software,
 
 Key Vault suporta as seguintes operações nos objetos da chave:  
 
--   **Criar**: permite que um cliente criar uma chave no Cofre de chaves. O valor da chave é gerado pelo Cofre de chaves e armazenado e não é liberada para o cliente. Assimétrica (e no futuro, criptografia de curva elíptica e Symmetric) as chaves podem ser criadas no Cofre de chaves.  
--   **Importar**: permite que um cliente importar uma chave existente para o Cofre de chaves. As chaves assimétricas podem ser importadas para o Key Vault com uma série de métodos de empacotamento diferentes dentro de uma construção JWK. No futuro, criptografia de curva elíptica e Symmetric serão também ser empacotado com o mesmo.
+-   **Criar**: permite que um cliente criar uma chave no Cofre de chaves. O valor da chave é gerado pelo Cofre de chaves e armazenado e não é liberada para o cliente. As chaves assimétricas podem ser criadas no Cofre de chaves.  
+-   **Importar**: permite que um cliente importar uma chave existente para o Cofre de chaves. As chaves assimétricas podem ser importadas para o Key Vault com uma série de métodos de empacotamento diferentes dentro de uma construção JWK. 
 -   **Atualização**: permite que um cliente com permissões suficientes para modificar os metadados (atributos de chaves) associados uma chave anteriormente armazenada no Key Vault.  
 -   **Eliminar**: permite que um cliente com permissões suficientes para eliminar uma chave do Key Vault.  
 -   **Lista**: permite que um cliente listar todas as chaves num cofre fornecido.  
@@ -226,7 +226,7 @@ Para obter mais informações sobre como trabalhar com chaves, consulte [operaç
 
 ### <a name="working-with-secrets"></a>Trabalhar com segredos
 
-Os segredos no Cofre de chaves são seqüências de octeto com um tamanho máximo de 25 mil bytes, cada. O serviço de Key Vault não fornece a semântica para segredos. Ele simplesmente aceita os dados, encripta-, armazena-a e retorna um identificador secreto ("id"). O identificador pode ser usado para recuperar o segredo num momento posterior.  
+Da perspectiva do desenvolvedor, as APIs do Cofre de chave de aceitar e retornar valores secretos como cadeias de caracteres. Internamente, o Cofre de chaves armazena e gerencia segredos como seqüências de octetos (bytes de 8 bits), com um tamanho máximo de 25 mil bytes, cada. O serviço de Key Vault não fornece a semântica para segredos. Ele simplesmente aceita os dados, encripta-, armazena-a e retorna um identificador secreto ("id"). O identificador pode ser usado para recuperar o segredo num momento posterior.  
 
 Para dados altamente confidenciais, os clientes devem considerar camadas adicionais de proteção de dados. Encriptar os dados com uma chave de proteção separados antes de armazenamento no Key Vault é um exemplo.  
 
@@ -247,7 +247,7 @@ Existem atributos adicionais de só de leitura que estão incluídos em qualquer
 
 #### <a name="date-time-controlled-operations"></a>Operações de controlado de data e hora
 
-Um segredo **Obtenha** operação funcionará para segredos não ainda válido e expirados, fora a *nbf* / *exp* janela. Chamar um segredo **obter** operação, para um segredo não ainda válido, pode ser utilizada para fins de teste. A obter (**obter**ing) um segredo expirado, pode ser utilizado para operações de recuperação.
+Um segredo **Obtenha** operação funcionará para segredos não ainda válido e expirados, fora a *nbf* / *exp* janela. Chamar um segredo **obter** operação, para um segredo não ainda válido, pode ser utilizada para fins de teste. A obter (**obter**ting) um segredo expirado, pode ser utilizado para operações de recuperação.
 
 Para obter mais informações sobre os tipos de dados, consulte [tipos de dados](#data-types).  
 
@@ -263,7 +263,7 @@ As seguintes permissões podem ser utilizadas, numa base por principal, na entra
   - *definir*: criar um segredo  
   - *eliminar*: eliminar um segredo  
   - *recuperar*: recuperar um segredo eliminado
-  - *cópia de segurança*: cópia de segurança de um segredo no Cofre de chaves
+  - *cópia de segurança*: cópia de segurança um segredo no Cofre de chaves
   - *Restaurar*: restaurar uma cópia de segurança segredo para um cofre de chaves
 
 - Permissões para operações privilegiadas
@@ -281,7 +281,7 @@ Pode especificar os metadados de específicos de aplicativo adicionais na forma 
 
 Suporte de certificados do Key Vault fornece para gestão do seu x509 certificados e os comportamentos seguintes:  
 
--   Permite que um proprietário de certificado criar um certificado por meio de um processo de criação do Cofre de chaves ou a importação de um certificado existente. Isto inclui ambos autoassinados e certificados gerados de autoridade de certificação.
+-   Permite que um proprietário de certificado criar um certificado por meio de um processo de criação do Cofre de chaves ou a importação de um certificado existente. Inclui ambos autoassinados e certificados gerados de autoridade de certificação.
 -   Permite que um proprietário de certificado do Key Vault implementar o armazenamento seguro e gestão de X509 certificados, sem interação com o material de chave privada.  
 -   Permite que um proprietário de certificado criar uma política que direciona o Key Vault para gerir o ciclo de vida de um certificado.  
 -   Permite que os proprietários de certificado fornecer informações de contato para notificações sobre eventos de ciclo de vida de expiração e renovação de certificado.  
@@ -406,7 +406,7 @@ Se a política de um certificado estiver definida para renovação automática, 
 -   Antes de renovação de certificado
 -   Após a renovação de certificado, que indica se o certificado foi renovado com êxito ou se tiver ocorrido um erro, que requerem a renovação manual do certificado.  
 
- Se a política de um certificado é definida manualmente a ser renovado (apenas ao e-mail), em seguida, uma notificação é enviada quando está na altura de renovar o certificado.  
+ Quando uma política de certificado que está configurada para ser manualmente renovada (apenas para e-mail), é enviada uma notificação quando está na altura de renovar o certificado.  
 
 ### <a name="certificate-access-control"></a>Controlo de acesso de certificado
 

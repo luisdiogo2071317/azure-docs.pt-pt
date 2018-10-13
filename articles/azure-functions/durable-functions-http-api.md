@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19351d31331431e3b5137676061aadc681c496a7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575479"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166632"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -197,6 +197,9 @@ O **HTTP 202** resposta também inclui um **localização** cabeçalho de respos
 ### <a name="get-all-instances-status"></a>Obter o estado de todas as instâncias
 
 Também pode consultar todos os Estados de instâncias. Remover o `instanceId` no pedido "Obter estado da instância". Os parâmetros são os mesmos que o "Estado de instância Get". 
+
+É importante lembrar que é que `connection` e `code` são opcionais. Se tiver a autenticação anónima a função de código não é necessário.
+Se não pretender utilizar uma cadeia de ligação de armazenamento de blob diferente que definido na definição da aplicação de AzureWebJobsStorage, em seguida, pode ignorar o parâmetro de cadeia de caracteres de consulta de ligação.
 
 #### <a name="request"></a>Pedir
 

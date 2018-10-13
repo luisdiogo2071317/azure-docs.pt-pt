@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024660"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309660"
 ---
 # <a name="manage-credentials"></a>Gerir credenciais
 
@@ -66,11 +66,11 @@ Observe também o identificador de região para o ponto final de API. Por exempl
 
 ### <a name="resource-id"></a>ID do Recurso
 
-Abordamos Esta seção o [com a sua conta do Azure com a ferramenta de revisão e a API de](credentials.md#how-to-use-your-azure-account-with-the-review-tool) secção. Este campo é normalmente em branco, a menos que adicione o Id de recurso do Azure para este campo, conforme explicado na secção anterior.
+Este conjunto de campos é abordado na seção anterior, [utilizar a conta do Azure com a ferramenta de revisão e a API de](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Este campo é normalmente em branco, a menos que adicione o Id de recurso do Azure para este campo, conforme explicado na secção anterior.
 
 ### <a name="workflows"></a>Fluxos de trabalho
 
-Nós abordamos a este conjunto de campos na secção anterior [utilizando a sua chave do Azure para executar os fluxos de trabalho](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Por predefinição, a ferramenta de revisão utiliza a respetiva chave de avaliação gerado automaticamente para executar os fluxos de trabalho e que é o que aparece para começar. Os outros dois campos permitem com listas de prazo e a imagem nas operações de texto do ecrã e avaliar a imagem, respetivamente.
+Este conjunto de campos é abordado na seção anterior, [utilizar a conta do Azure com os fluxos de trabalho na ferramenta de revisão](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Por predefinição, a ferramenta de revisão utiliza a respetiva chave de avaliação gerado automaticamente para executar os fluxos de trabalho e que é o que aparece para começar. Os outros dois campos permitem com listas de prazo e a imagem nas operações de texto do ecrã e avaliar a imagem, respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

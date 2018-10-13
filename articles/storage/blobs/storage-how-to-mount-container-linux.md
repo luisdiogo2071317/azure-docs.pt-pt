@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400442"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165186"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o armazenamento de BLOBs como um sistema de ficheiros com blobfuse
 
@@ -27,7 +27,7 @@ Este guia mostra-lhe como utilizar blobfuse e montar um contentor de armazenamen
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Instalar blobfuse no Linux
-Binários de Blobfuse estão disponíveis na [os repositórios de software da Microsoft para Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). Para instalar o blobfuse, configure um destes repositórios.
+Binários de Blobfuse estão disponíveis na [os repositórios de software da Microsoft para Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) distribuições de Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Também pode criar os binários do código-fonte seguindo os passos de instalação [aqui](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) se não houver nenhum binários disponíveis para a sua distribuição.
 
 ### <a name="configure-the-microsoft-package-repository"></a>Configurar o repositório do pacote Microsoft
 Configurar o [repositório de pacotes do Linux para produtos Microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -89,7 +89,7 @@ Blobfuse requer as suas credenciais para ser armazenado num arquivo de texto no 
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ Depois de criar este ficheiro, certifique-se restringir o acesso para que nenhum
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Se tiver criado o ficheiro de configuração no Windows, certifique-se executar `dos2unix` para limpar e converter para o formato Unix. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Crie um diretório vazio para a montagem
 ```bash

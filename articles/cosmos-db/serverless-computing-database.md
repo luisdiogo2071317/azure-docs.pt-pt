@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064463"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309506"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Sem servidor da base de dados computação usando as funções do Azure
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor com o Azure Cosmos DB e as funções do Azure
 
-Computação sem servidor é tudo sobre a capacidade de se concentrar em partes individuais de lógica que sejam repetíveis e sem monitoração de estado. Essas partes não exigem nenhuma gestão de infraestrutura e que consomem recursos apenas para os segundos ou milissegundos, são executados para. No núcleo do movimento de computação sem servidor são funções, que estão disponíveis no ecossistema do Azure por [as funções do Azure](https://azure.microsoft.com/services/functions).
+Computação sem servidor é tudo sobre a capacidade de se concentrar em partes individuais de lógica que sejam repetíveis e sem monitoração de estado. Essas partes não exigem nenhuma gestão de infraestrutura e que consomem recursos apenas para os segundos ou milissegundos, são executados para. No núcleo do movimento de computação sem servidor são funções, que estão disponíveis no ecossistema do Azure por [as funções do Azure](https://azure.microsoft.com/services/functions). Para saber mais sobre outros ambientes de execução sem servidor no Azure ver [sem servidor no Azure](https://azure.microsoft.com/solutions/serverless/) página. 
 
 Com a integração nativa entre [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) e as funções do Azure, pode criar os acionadores de base de dados, enlaces de entrada e ligações de saída diretamente a partir da sua conta do Azure Cosmos DB. Utilizar as funções do Azure e o Azure Cosmos DB, pode criar e implementar aplicações sem servidor condicionadas por eventos com acesso de baixa latência para dados avançados para uma base de usuários global.
 

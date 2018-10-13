@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Netezza utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de Netezza aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados do Netezza com o Azure Data Factory | Documentos da Microsoft
+description: Saiba como copiar dados de Netezza para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059180"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167573"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Copiar dados de Netezza utilizando o Azure Data Factory 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza com o Azure Data Factory 
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Netezza. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Netezza. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de Netezza para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de Netezza para qualquer arquivo de dados de sink suportados. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
-O Azure Data Factory fornece um controlador incorporado para ativar a conetividade, pelo que não precisa de instalar manualmente o controlador de utilizar este conector.
+O Azure Data Factory fornece um driver incorporado para permitir a conectividade. Não precisa de instalar manualmente a qualquer driver para utilizar este conector.
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Pode criar um pipeline que utiliza uma atividade de cópia com o SDK de .NET, o SDK de Python, Azure PowerShell, a API REST ou um modelo Azure Resource Manager. Consulte a [tutorial da atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre como criar um pipeline com uma atividade de cópia.
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o conector Netezza entidades do Data Factory específicas.
+As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para o conector de Netezza.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço de Netezza ligada:
+As seguintes propriedades são suportadas para o serviço de Netezza ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **Netezza** | Sim |
-| connectionString | Uma cadeia de ligação de ODBC para ligar ao Netezza. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| tipo | O **tipo** propriedade tem de ser definida como **Netezza**. | Sim |
+| connectionString | Uma cadeia de ligação de ODBC para estabelecer ligação à Netezza. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode escolher um Runtime de integração autoalojado ou o Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
-Uma cadeia de ligação típico é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Propriedades que pode ser definidas por seu incidente:
+É uma cadeia de ligação típica `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. A tabela seguinte descreve mais propriedades que pode definir:
 
 | Propriedade | Descrição | Necessário |
-|:--- |:--- |:--- |:--- |
-| SecurityLevel | O nível de segurança (SSL/TLS) que utiliza o controlador para a ligação ao arquivo de dados. Por exemplo, `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>-Apenas protegida (**onlyUnSecured**): O controlador não utilizar SSL.<br/>- **Preferencial Unsecured (preferredUnSecured) (predefinição)**: se o servidor fornece uma escolha, o controlador não utilizar SSL. <br/>- **Preferencial segura (preferredSecured)**: se o servidor fornece uma escolha, o controlador utiliza o protocolo SSL. <br/>- **Apenas segura (onlySecured)**: O controlador não estabelecer ligação, a menos que esteja disponível uma ligação de SSL | Não |
-| CaCertFile | O caminho completo para o certificado SSL que é utilizado pelo servidor. Por exemplo, `CaCertFile=<cert path>;`| Sim, se o SSL esteja ativado |
+|:--- |:--- |:--- |
+| SecurityLevel | O nível de segurança (SSL/TLS), que o driver usa para a ligação ao arquivo de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas desprotegido** (**onlyUnSecured**): O controlador não utiliza SSL.<br/>- **Preferencial não segura (preferredUnSecured) (predefinição)**: se o servidor fornece uma opção, o driver não utiliza SSL. <br/>- **Preferencial segura (preferredSecured)**: se o servidor fornece uma opção, o driver utiliza SSL. <br/>- **Protegido (onlySecured) apenas**: O controlador não ligar, a menos que uma conexão SSL está disponível. | Não |
+| CaCertFile | O caminho completo para o certificado SSL que é utilizado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL esteja ativado |
 
-**Exemplo:**
+**Exemplo**
 
 ```json
 {
@@ -76,9 +76,11 @@ Uma cadeia de ligação típico é `Server=<server>;Port=<port>;Database=<databa
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista de propriedades suportadas por Netezza conjunto de dados.
+Esta seção fornece uma lista de propriedades que suporta o conjunto de dados Netezza.
 
-Para copiar dados de Netezza, defina a propriedade de tipo do conjunto de dados para **NetezzaTable**. Não há nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados](concepts-datasets-linked-services.md). 
+
+Para copiar dados de Netezza, defina o **tipo** propriedade do conjunto de dados para **NetezzaTable**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
 
 **Exemplo**
 
@@ -95,18 +97,20 @@ Para copiar dados de Netezza, defina a propriedade de tipo do conjunto de dados 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
+## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por Netezza origem.
+Esta seção fornece uma lista de propriedades que suporta a origem de Netezza.
+
+Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="netezza-as-source"></a>Netezza como origem
 
-Para copiar dados de Netezza, defina o tipo de origem na atividade de cópia para **NetezzaSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados de Netezza, defina o **origem** tipo de atividade de cópia para **NetezzaSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **NetezzaSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **NetezzaSource**. | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Sim |
 
 **Exemplo:**
 
@@ -141,4 +145,5 @@ Para copiar dados de Netezza, defina o tipo de origem na atividade de cópia par
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+
+Para obter uma lista dos arquivos de dados que a atividade de cópia suporta como origens e sinks no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).

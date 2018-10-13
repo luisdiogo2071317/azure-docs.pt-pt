@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71f2164c9c419604c513261df7e1264060a2c374
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e1c694847a1ec16d4d7a7b1118df71cb06396186
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094594"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165935"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web
 
@@ -38,7 +38,7 @@ Antes de continuar, deve de concluir os passos nos seguintes artigos:
 - [Adicionar uma página personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-page.md).
 - [Adicionar um serviço personalizado para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
 
-## <a name="add-a-grid"></a>Adicionar uma grade
+## <a name="add-a-grid"></a>Adicionar uma grelha
 
 Para adicionar uma grade para a IU da web, terá de adicionar os ficheiros de origem que definem a grade e modificar alguns ficheiros existentes para tornar a IU da web em consideração o novo componente.
 
@@ -188,11 +188,11 @@ O comando anterior é a interface do Usuário localmente em executado [ http://l
 
 Existem duas opções para habilitar um usuário para selecionar as linhas da grade:
 
-### <a name="hard-select-rows"></a>Disco rígidas selecionar linhas
+### <a name="hard-select-rows"></a>Linhas de disco rígido seleção
 
 Se um usuário precisa tomar decisões sobre várias linhas ao mesmo tempo, utilize as caixas de verificação nas linhas:
 
-1. Ativar a seleção de disco rígida de linhas, adicionando um **checkboxColumn** para o **columnDefs** fornecido à grade. **checkboxColumn** está definido no **/src/components/shared/pcsGrid/pcsGrid.js**:
+1. Ative o disco rígido-seleção de linhas ao adicionar um **checkboxColumn** para o **columnDefs** fornecido à grade. **checkboxColumn** está definido no **/src/components/shared/pcsGrid/pcsGrid.js**:
 
     ```js
     this.columnDefs = [
@@ -214,7 +214,7 @@ Se um usuário precisa tomar decisões sobre várias linhas ao mesmo tempo, util
     };
     ```
 
-1. Fornece botões de contexto para a página quando uma linha na grelha duro é selecionada:
+1. Fornece botões de contexto para a página, quando uma linha na grelha é difícil selecionado:
 
     ```js
     this.contextBtns = [
@@ -234,7 +234,7 @@ Se um usuário precisa tomar decisões sobre várias linhas ao mesmo tempo, util
     }
     ```
 
-1. Quando um botão de contexto é clicado, obter os itens selecionados duro para fazer seu trabalho em:
+1. Quando um botão de contexto é clicado, obtém os itens de disco rígido selecionado para fazer seu trabalho em:
 
     ```js
     doSomething = () => {
@@ -243,9 +243,9 @@ Se um usuário precisa tomar decisões sobre várias linhas ao mesmo tempo, util
     };
     ```
 
-### <a name="soft-select-rows"></a>Linhas de selecionadas de forma recuperável
+### <a name="soft-select-rows"></a>Linhas de seleção de forma recuperável
 
-Se o utilizador necessita apenas de agir numa única linha, configurar uma ligação soft selecione um ou mais colunas na **columnDefs**.
+Se o utilizador necessita apenas de agir numa única linha, configurar uma ligação de forma recuperável-selecione um ou mais colunas na **columnDefs**.
 
 1. Na **exampleGridConfig.js**, adicione **SoftSelectLinkRenderer** como o **cellRendererFramework** para um **columnDef**.
 
@@ -260,7 +260,7 @@ Se o utilizador necessita apenas de agir numa única linha, configurar uma liga�
     };
     ```
 
-1. Quando se clica numa ligação de selecione de forma recuperável, aciona o **onSoftSelectChange** eventos. Execute a ação que for o pretendido para essa linha, como abrir um submenus de detalhes. Este exemplo simplesmente escreve para a consola:
+1. Quando se clica numa ligação de seleção de forma recuperável, aciona o **onSoftSelectChange** eventos. Execute a ação que for o pretendido para essa linha, como abrir um submenu de detalhes. Este exemplo simplesmente escreve para a consola:
 
     ```js
     onSoftSelectChange = (rowId, rowEvent) => {
@@ -281,6 +281,6 @@ Se o utilizador necessita apenas de agir numa única linha, configurar uma liga�
 
 Neste artigo, aprendeu sobre os recursos disponíveis para o ajudar a adicionar ou personalizar páginas na IU da web no solution accelerator monitorização remota.
 
-Agora que definiu uma grade, a próxima etapa é [adicionar uma submenus personalizado para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-flyout.md) que apresenta a página de exemplo.
+Agora que definiu uma grade, a próxima etapa é [adicionar uma lista de opções personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-flyout.md) que apresenta a página de exemplo.
 
 Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

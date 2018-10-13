@@ -1,6 +1,6 @@
 ---
-title: Adicionar um submenus para a solução de monitorização remota da interface do Usuário - Azure | Documentos da Microsoft
-description: Este artigo mostra-lhe como adicionar um submenus novo numa página da web de acelerador de solução da interface do Usuário da monitorização remota.
+title: Adicionar um submenu para a solução de monitorização remota da interface do Usuário - Azure | Documentos da Microsoft
+description: Este artigo mostra-lhe como adicionar uma nova lista de opções numa página da web de acelerador de solução da interface do Usuário da monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,21 +8,21 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9ba58ca887332d2ea224320951b25031cacbef0d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094609"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167431"
 ---
-# <a name="add-a-custom-fly-out-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um submenus personalizado para monitorização remota solution accelerator da IU da web
+# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma lista de opções personalizada para monitorização remota solution accelerator da IU da web
 
-Este artigo mostra-lhe como adicionar um submenus novo numa página web de acelerador de solução da interface do Usuário da monitorização remota. O artigo descreve:
+Este artigo mostra-lhe como adicionar uma nova lista de opções numa página web de acelerador de solução da interface do Usuário da monitorização remota. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
-- Como adicionar um submenus novo a uma página na IU da web.
+- Como adicionar um submenu de novo a uma página na IU da web.
 
-O exemplo sem perder tempo-limite neste artigo apresenta a página e a grade que o [adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-grid.md) procedimento artigo mostra-lhe como adicionar.
+O submenu de exemplo neste artigo apresenta a página e a grade que o [adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-grid.md) procedimento artigo mostra-lhe como adicionar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,27 +39,27 @@ Antes de continuar, deve de concluir os passos nos seguintes artigos:
 - [Adicionar um serviço personalizado para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
 - [Adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-grid.md)
 
-## <a name="add-a-fly-out"></a>Adicionar um submenus
+## <a name="add-a-flyout"></a>Adicionar um submenu
 
-Para adicionar um submenus para a IU da web, terá de adicionar os ficheiros de origem que definem os submenus e modificar alguns ficheiros existentes para tornar a IU da web em consideração o novo componente.
+Para adicionar um submenu para a IU da web, terá de adicionar os ficheiros de origem que definem o submenu e modificar alguns ficheiros existentes para tornar a IU da web em consideração o novo componente.
 
-### <a name="add-the-new-files-that-define-the-fly-out"></a>Adicionar os novos ficheiros que definem os submenus
+### <a name="add-the-new-files-that-define-the-flyout"></a>Adicionar os novos ficheiros que definem o submenu
 
-Para começar, o **src/instruções/componentes/páginas/pageWithFlyout/flyouts/exampleFlyout** pasta contém os ficheiros que definem um submenus:
+Para começar, o **src/instruções/componentes/páginas/pageWithFlyout/flyouts/exampleFlyout** pasta contém os ficheiros que definem um submenu:
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example fly-out container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example fly-out container")]
+[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
 **exampleFlyout.js**
 
-[!code-javascript[Example fly-out](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example fly-out")]
+[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
 Copiar o **passo a passo/src/componentes/pageWithFlyout/páginas/flyouts** pasta para o **src/componentes/páginas/exemplo** pasta.
 
-### <a name="add-the-fly-out-to-the-page"></a>Adicionar os submenus à página
+### <a name="add-the-flyout-to-the-page"></a>Adicionar a lista de opções para a página
 
-Modificar a **src/components/pages/example/basicPage.js** para adicionar os submenus.
+Modificar a **src/components/pages/example/basicPage.js** para adicionar o submenu.
 
 Adicione **Btn** para as importações de **componentes/partilhados** e adicione importações para **svgs** e **ExampleFlyoutContainer**:
 
@@ -104,7 +104,7 @@ Adicione as seguintes **const** definições para o **renderizar** função:
     const isExampleFlyoutOpen = openFlyoutName === 'example';
 ```
 
-Adicione um botão para abrir o submenus ao menu de contexto:
+Adicione um botão para abrir a lista de opções ao menu de contexto:
 
 ```js
       <ContextMenu key="context-menu">
@@ -113,7 +113,7 @@ Adicione um botão para abrir o submenus ao menu de contexto:
       </ContextMenu>,
 ```
 
-Adicione algum texto e o contentor de submenus para o conteúdo da página:
+Adicione algum texto e o contentor de lista de opções para o conteúdo da página:
 
 ```js
       <PageContent className="basic-page-container" key="page-content">
@@ -125,7 +125,7 @@ Adicione algum texto e o contentor de submenus para o conteúdo da página:
       </PageContent>
 ```
 
-## <a name="test-the-fly-out"></a>Testar os submenus
+## <a name="test-the-flyout"></a>Testar a lista de opções
 
 Se o web interface do Usuário não está já em execução localmente, execute o seguinte comando na raiz da sua cópia local do repositório:
 
@@ -139,6 +139,6 @@ O comando anterior é a interface do Usuário localmente em executado [ http://l
 
 Neste artigo, aprendeu sobre os recursos disponíveis para o ajudar a adicionar ou personalizar páginas na IU da web no solution accelerator monitorização remota.
 
-Agora que definiu uma submenus numa página, a próxima etapa é [adicionar um painel para o dashboard de monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-panel.md).
+Agora que definiu um submenu numa página, a próxima etapa é [adicionar um painel para o dashboard de monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-panel.md).
 
 Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

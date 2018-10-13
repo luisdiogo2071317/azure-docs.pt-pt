@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452212"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311240"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade do IoT hub
 
@@ -29,7 +29,9 @@ Utilize o registo de identidade quando precisar de:
 * Controlar o acesso por-/ por-módulo dispositivo para dispositivo ou pontos finais de módulo destinado ao seu hub.
 
 > [!NOTE]
-> Registo de identidade não contém quaisquer metadados específicos do aplicativo.
+> * Registo de identidade não contém quaisquer metadados específicos do aplicativo.
+> * Módulo duplo de identidade e o módulo está em pré-visualização pública. Abaixo funcionalidade serão suportados na identidade do módulo quando ele é geral disponíveis.
+>
 
 ## <a name="identity-registry-operations"></a>Operações de registo de identidade
 
@@ -40,7 +42,6 @@ O registo de identidade do IoT Hub expõe as seguintes operações:
 * Obter a identidade de dispositivo ou módulo por ID
 * Eliminar a identidade de dispositivo ou um módulo
 * Lista de até 1000 identidades
-> Módulo duplo de identidade e o módulo está em pré-visualização pública. Abaixo funcionalidade serão suportados na identidade do módulo quando ele é geral disponíveis.
 * Identidades de dispositivos de exportação para o armazenamento de Blobs do Azure
 * Importar identidades de dispositivos de armazenamento de Blobs do Azure
 

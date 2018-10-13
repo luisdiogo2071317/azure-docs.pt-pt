@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 0c2f39ed1610598ab4f7f857da3df817089bcb38
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e29dcde80da75fa70fe6dcbf35d7f319a5ca3cb
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044744"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311156"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>O Azure IoT-device SDK para C
 
@@ -87,29 +87,29 @@ Se não estiver familiarizado com a ferramenta Explorador do dispositivo, o proc
 
 1. Para instalar a ferramenta Explorador do dispositivo, veja [como utilizar o Device Explorer para dispositivos do IoT Hub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-2. Quando executar o programa, verá essa interface:
+1. Quando executar o programa, verá essa interface:
 
   ![Captura de ecrã do Device Explorer duplo](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
-3. Introduza o seu **cadeia de ligação do Hub IoT** no primeiro campo e clique **atualização**. Este passo configura a ferramenta, para que este possa comunicar com IoT Hub. 
+1. Introduza o seu **cadeia de ligação do Hub IoT** no primeiro campo e clique **atualização**. Este passo configura a ferramenta, para que este possa comunicar com IoT Hub. 
 
 O **cadeia de ligação** pode ser encontrado na **serviço Hub IoT** > **definições** > **política de acesso partilhado**  >  **iothubowner**.
 
-4. Quando a cadeia de ligação do IoT Hub é configurada, clique nas **gestão** separador:
+1. Quando a cadeia de ligação do IoT Hub é configurada, clique nas **gestão** separador:
 
   ![Device Explorer duplo / captura de ecrã de gestão](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Este separador é onde gerir os dispositivos registados no IoT hub.
 
-5. Criar um dispositivo ao clicar o **criar** botão. Uma caixa de diálogo é apresentada com um conjunto de chaves preenchidas previamente (primários e secundários). Introduza um **ID do dispositivo** e, em seguida, clique em **criar**.
+1. Criar um dispositivo ao clicar o **criar** botão. Uma caixa de diálogo é apresentada com um conjunto de chaves preenchidas previamente (primários e secundários). Introduza um **ID do dispositivo** e, em seguida, clique em **criar**.
 
   ![Criar a captura de ecrã do dispositivo](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
-6. Quando o dispositivo é criado, os dispositivos listam atualizações com todos os dispositivos registados, incluindo o que acabou de criar. Se clique no seu dispositivo novo, vê esse menu:
+1. Quando o dispositivo é criado, os dispositivos listam atualizações com todos os dispositivos registados, incluindo o que acabou de criar. Se clique no seu dispositivo novo, vê esse menu:
 
   ![Resultado do Device Explorer duplo de contexto](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-7. Se escolher **copiar a cadeia de ligação para o dispositivo selecionado**, a cadeia de ligação do dispositivo é copiada para a área de transferência. Mantenha uma cópia da cadeia de ligação do dispositivo. Irá precisar dele quando executar os aplicativos de exemplo descritos nas seções a seguir.
+1. Se escolher **copiar a cadeia de ligação para o dispositivo selecionado**, a cadeia de ligação do dispositivo é copiada para a área de transferência. Mantenha uma cópia da cadeia de ligação do dispositivo. Irá precisar dele quando executar os aplicativos de exemplo descritos nas seções a seguir.
 
 Quando tiver concluído os passos acima, está pronto para iniciar a execução de código. A maioria dos exemplos possuem uma constante na parte superior do ficheiro de origem principal que permite-lhe introduzir uma cadeia de ligação. Por exemplo, a linha correspondente a partir do **iothub\_cliente\_exemplo\_mqtt** aplicação é apresentado da seguinte forma.
 
@@ -320,7 +320,7 @@ Utilize o **IoTHubMessage\_GetByteArray** função para obter a mensagem, que, n
 
 Quando tiver terminado eventos de envio e recebimento de mensagens, pode uninitialize a biblioteca de IoT. Para fazê-lo, emita a chamada de função seguinte:
 
-```
+```c
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 

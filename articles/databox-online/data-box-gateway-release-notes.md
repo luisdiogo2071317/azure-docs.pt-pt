@@ -1,25 +1,19 @@
 ---
 title: Notas de versão Preview de Gateway de caixa de dados do Azure | Documentos da Microsoft
 description: Descreve problemas em aberto críticos e resoluções para o Gateway de caixa de dados do Azure a executar a versão de pré-visualização.
-services: databox-edge-gateway
-documentationcenter: ''
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035356"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164574"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão de pré-visualização de Gateway de caixa de dados do Azure
 
@@ -49,7 +43,7 @@ A tabela seguinte fornece um resumo dos problemas conhecidos para o Gateway de c
 | **1.** |Atualizações |Os dispositivos de Gateway de caixa de dados criados na pré-visualização do anterior versões não podem ser atualizadas para esta versão. |Transferir as imagens de disco virtual a partir da nova versão e configure e implemente novos dispositivos. Para obter mais informações, aceda a [preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md). |
 | **2.** |Disco de dados aprovisionados |Uma vez aprovisionou um disco de dados de um determinado tamanho especificado e criado o Gateway de caixa de dados correspondente, tem não diminuir o disco de dados. A tentar reduzir os resultados de disco numa perda de todos os dados locais no dispositivo. | |
 | **3.** |Atualizar |Nesta versão, pode atualizar partilha de apenas um por vez. | |
-| **4.** |Mudar o nome |Não é suportada a mudança de nome de objetos. |Se esta funcionalidade é crucial para seu fluxo de trabalho, contacte o Support da Microsoft. |
+| **4.** |Mudar o Nome |Não é suportada a mudança de nome de objetos. |Se esta funcionalidade é crucial para seu fluxo de trabalho, contacte o Support da Microsoft. |
 | **5.** |Copiar| Se um ficheiro só de leitura é copiado para o dispositivo, a propriedade só de leitura não é preservada. | |
 | **6.** |Registos| Devido a um erro nesta versão, poderá ver instâncias do código de erro 110 na *error.xml* com nomes irreconhecível item. | |
 | **7.** |Carregar | Devido a um erro nesta versão, poderá ver instâncias do código de erro 2003 durante o carregamento de ficheiros específicos. | |

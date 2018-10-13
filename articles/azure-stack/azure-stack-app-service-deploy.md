@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268804"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166887"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -130,7 +130,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 11. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, selecione **seguinte**. O instalador valida as propriedades de ligação de SQL.
 
     > [!NOTE]
-    > O instalador tentará testar a conectividade ao SQL Server antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, este teste de conectividade pode de ficheiros. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
+    > O instalador tentará testar a conectividade ao SQL Server antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, o teste de ligação poderá falhar. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
     >
     > Do serviço de aplicações do Azure no Azure 1.3 de pilha e posteriores, o instalador irá verificar que o SQL Server tem de contenção da base de dados ativada ao nível do servidor SQL.  Se não for, será solicitado com a seguinte exceção:
     > ```sql

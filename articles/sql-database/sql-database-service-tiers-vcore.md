@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/09/2018
-ms.openlocfilehash: e93de9b3642e0b01bf65b6761d8832b0d4c2a431
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/12/2018
+ms.openlocfilehash: a0d8e225718361c096b914245d73064edb1715c4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901690"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166360"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>escalões de serviço de vCore, o Azure Hybrid Use Benefit e migração
 
@@ -66,9 +66,13 @@ No modelo de compra baseado em vCore, podem trocar suas licenças existentes par
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migração do modelo DTU para o modelo de vCore
 
-### <a name="migration-of-single-databases-with-geo-replication-links"></a>Migração de bases de dados individuais com ligações de georreplicação
+### <a name="migration-of-a-database"></a>Migração de uma base de dados
 
-Migrar para o modelo baseado em DTU modelo baseado em vCore é semelhante a atualizar ou fazer downgrade as relações de georreplicação entre bases de dados Standard e Premium. Não requer a terminar a georreplicação, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, tem de atualizar a base de dados secundária primeiro e, em seguida, atualizar o principal. Ao fazer downgrade, inverter a ordem: tem de mudar para a versão da base de dados principal primeiro e, em seguida, mudar o secundário. 
+Migrar uma base de dados do modelo de compra baseado em DTU para o modelo de compra baseado em vCore é semelhante a atualizar ou fazer downgrade entre o modelo de compra baseado em DTU de bases de dados de Standard e Premium.
+
+### <a name="migration-of-databases-with-geo-replication-links"></a>Migração de bases de dados com ligações de georreplicação
+
+Migrar para o modelo baseado em DTU modelo baseado em vCore é semelhante a atualizar ou fazer downgrade as relações de georreplicação entre bases de dados Standard e Premium. Não requer a terminar a georreplicação, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, tem de atualizar a base de dados secundária primeiro e, em seguida, atualizar o principal. Ao fazer downgrade, inverter a ordem: tem de mudar para a versão da base de dados principal primeiro e, em seguida, mudar o secundário.
 
 Ao utilizar a georreplicação entre dois conjuntos elásticos, recomenda-se que designar um conjunto como principal e o outro – como o secundário. Nesse caso, migração de dados elásticas devem utilizar a mesma diretriz.  No entanto, é tecnicamente é possível que um conjunto elástico contém as bases de dados primárias e secundárias. Neste caso migrar corretamente deve tratar o conjunto com a utilização mais alta como "principal" e seguir as regras de sequenciamento em conformidade.  
 
@@ -88,15 +92,15 @@ A tabela seguinte fornece orientações para os cenários de migração específ
 
 \* Cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore e cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore
 
-### <a name="migration-of-failover-groups"></a>Migração de grupos de ativação pós-falha 
+### <a name="migration-of-failover-groups"></a>Migração de grupos de ativação pós-falha
 
-Migração de grupos de ativação pós-falha com várias bases de dados requer individual migração de bases de dados primárias e secundárias. Durante esse processo, as mesmas considerações e regras de sequenciamento aplicam-se. Depois das bases de dados são convertidos para o modelo baseado em vCore, o grupo de ativação pós-falha permanecerão em vigor com as mesmas definições de política. 
+Migração de grupos de ativação pós-falha com várias bases de dados requer individual migração de bases de dados primárias e secundárias. Durante esse processo, as mesmas considerações e regras de sequenciamento aplicam-se. Depois das bases de dados são convertidos para o modelo baseado em vCore, o grupo de ativação pós-falha permanecerão em vigor com as mesmas definições de política.
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Criação de uma secundária de georreplicação
 
 Só pode criar usando o mesmo escalão de serviço como principal geo-secundária. Para a base de dados com a taxa de geração de log elevada, recomenda-se que o elemento secundário é criado com o mesmo tamanho de computação como principal. Se estiver a criar geo-secundária do conjunto elástico para um único banco de dados principal, recomenda-se que o conjunto tem o `maxVCore` definição que coincide com o tamanho de computação de base de dados primária. Se estiver a criar geo-secundária do conjunto elástico para um site primário em outro conjunto elástico, recomenda-se que os agrupamentos têm a mesma `maxVCore` definições
 
-### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilizando a cópia de base de dados para converter um banco de dados baseado em DTU para uma base de dados baseado em vCore.
+### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilizando a cópia da base de dados para converter um banco de dados baseado em DTU para uma base de dados baseado em vCore
 
 Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseada em vCore sem restrições ou sequenciamento especial, desde que o tamanho de computação de destino suporta o tamanho máximo da base de dados da base de dados de origem. A cópia da base de dados cria um instantâneo dos dados desde a hora de início da operação de cópia e não efetua a sincronização de dados entre a origem e de destino.
 

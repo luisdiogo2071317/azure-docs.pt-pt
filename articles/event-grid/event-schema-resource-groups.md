@@ -5,24 +5,24 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055810"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310577"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos do Azure Event Grid para grupos de recursos
 
 Este artigo fornece as propriedades e o esquema de eventos do grupo de recursos. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
-As subscrições do Azure e grupos de recursos emitem os mesmos tipos de evento. Os tipos de evento estão relacionados a alterações em recursos. A principal diferença é que grupos de recursos emitem eventos para os recursos no grupo de recursos e subscrições do Azure emitem eventos para recursos entre a subscrição.
+As subscrições do Azure e grupos de recursos emitem os mesmos tipos de evento. Os tipos de evento estão relacionadas com as alterações de recursos ou ações. A principal diferença é que grupos de recursos emitem eventos para os recursos no grupo de recursos e subscrições do Azure emitem eventos para recursos entre a subscrição.
 
-Eventos de recursos são criados para PUT, PATCH e eliminar operações que são enviadas para `management.azure.com`. POST e GET operações não criam eventos. Enviado para o plano de dados de operações (como `myaccount.blob.core.windows.net`) não criar eventos.
+Eventos de recursos são criados para o POST PUT, PATCH e eliminar operações que são enviadas para `management.azure.com`. OBTER operações não criam eventos. Enviado para o plano de dados de operações (como `myaccount.blob.core.windows.net`) não criar eventos. Os eventos de ação fornecem dados de eventos para operações como listar as chaves para um recurso.
 
-Quando subscreve eventos para um grupo de recursos, o ponto final recebe todos os eventos para o grupo de recursos. Os eventos podem incluir eventos que pretende ver, como a atualização de uma máquina virtual, mas também eventos que talvez não são importantes para si, como escrever uma nova entrada no histórico de implementação. Pode receber todos os eventos no seu ponto final e escrever código que processa os eventos que deseja manipular ou pode definir um filtro ao criar a subscrição de evento.
+Quando subscreve eventos para um grupo de recursos, o ponto final recebe todos os eventos para o grupo de recursos. Os eventos podem incluir eventos que pretende ver, como a atualização de uma máquina virtual, mas também eventos que talvez não são importantes para si, como escrever uma nova entrada no histórico de implementação. Pode receber todos os eventos no seu ponto final e escrever código que processa os eventos que deseja manipular. Em alternativa, pode definir um filtro ao criar a subscrição de evento.
 
 Por meio de programação manipular eventos, pode ordenar eventos ao observar o `operationName` valor. Por exemplo, o ponto de final do evento apenas pode processar eventos para operações que são iguais a `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
 
@@ -36,12 +36,15 @@ Grupos de recursos emitem eventos de gestão do Azure Resource Manager, como qua
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | Gerado quando um recurso de criar ou atualizar a operação for concluída com êxito. |
-| Microsoft.Resources.ResourceWriteFailure | Desencadeado quando criar um recurso ou falha de operação de atualização. |
-| Microsoft.Resources.ResourceWriteCancel | Gerado quando um recurso de criar ou atualizar a operação foi cancelada. |
-| Microsoft.Resources.ResourceDeleteSuccess | Gerado quando uma operação de eliminação do recurso é bem-sucedida. |
-| Microsoft.Resources.ResourceDeleteFailure | Desencadeado quando ocorre uma falha de uma operação de eliminação de recursos. |
-| Microsoft.Resources.ResourceDeleteCancel | Gerado quando uma operação de eliminação de recursos é cancelada. Este evento ocorre quando uma implementação do modelo é cancelada. |
+| Microsoft.Resources.ResourceActionCancel | Desencadeado quando a ação no recurso é cancelada. |
+| Microsoft.Resources.ResourceActionFailure | Desencadeado quando ocorre uma falha de ação no recurso. |
+| Microsoft.Resources.ResourceActionSuccess | Desencadeado quando a ação no recurso for concluída com êxito. |
+| Microsoft.Resources.ResourceDeleteCancel | Gerado quando eliminar a operação é cancelada. Este evento ocorre quando uma implementação do modelo é cancelada. |
+| Microsoft.Resources.ResourceDeleteFailure | Gerado quando eliminar a operação falhar. |
+| Microsoft.Resources.ResourceDeleteSuccess | Gerado quando eliminar a operação for concluída com êxito. |
+| Microsoft.Resources.ResourceWriteCancel | Gerado quando criar ou a operação de atualização é cancelada. |
+| Microsoft.Resources.ResourceWriteFailure | Gerado quando criar ou atualizar a operação falhar. |
+| Microsoft.Resources.ResourceWriteSuccess | Gerado quando criar ou a operação de atualização for concluída com êxito. |
 
 ## <a name="example-event"></a>Evento de exemplo
 
@@ -171,6 +174,62 @@ O exemplo seguinte mostra o esquema para uma **ResourceDeleteSuccess** eventos. 
 }]
 ```
 
+O exemplo seguinte mostra o esquema para uma **ResourceActionSuccess** eventos. O mesmo esquema é utilizado para **ResourceActionFailure** e **ResourceActionCancel** eventos com valores diferentes para `eventType`.
+
+```json
+[{   
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+  "eventType": "Microsoft.Resources.ResourceActionSuccess",
+  "eventTime": "2018-10-08T22:46:22.6022559Z",
+  "id": "{ID}",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+      "action": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/{subscription-id}",
+        "roleAssignmentId": "{ID}",
+        "roleDefinitionId": "{ID}",
+        "principalId": "{ID}",
+        "principalType": "ServicePrincipal"
+      }     
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "aio": "{token}",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/identity/claims/identityprovider": "{URL}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",       "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey/listKeys?api-version=2017-04-01"
+    },
+    "resourceProvider": "Microsoft.EventHub",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+    "operationName": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+}]
+```
+
 ## <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
@@ -194,9 +253,9 @@ O objeto de dados tem as seguintes propriedades:
 | afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | cadeia | Um ID de operação para resolução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Este objeto só é incluído ao atualizar um recurso existente ou eliminar um recurso. |
-| ResourceProvider | cadeia | O fornecedor de recursos, executar a operação. |
+| ResourceProvider | cadeia | O fornecedor de recursos para a operação. |
 | resourceUri | cadeia | O URI do recurso na operação. |
-| operationName | cadeia | A operação que foi executada. |
+| operationName | cadeia | A operação que foi tirada. |
 | status | cadeia | O estado da operação. |
 | subscriptionId | cadeia | O ID de subscrição do recurso. |
 | TenantId | cadeia | O ID de inquilino do recurso. |

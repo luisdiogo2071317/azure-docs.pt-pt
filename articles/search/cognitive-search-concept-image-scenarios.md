@@ -1,6 +1,6 @@
 ---
-title: Processar e extraia o texto a partir de imagens na Azure Search | Microsoft Docs
-description: Texto de processo e extrair e outras informações a partir de imagens na cognitivos pesquisa pipelines na Azure Search.
+title: Processar e extrair texto de imagens no Azure Search | Documentos da Microsoft
+description: Processar e extrair texto e outras informações a partir de imagens no cognitivos pesquisa pipelines na Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,42 +10,42 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e3658216f3eec545d4388ddf2d90cea60995c3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640205"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166955"
 ---
-#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações a partir de imagens em cenários de pesquisa cognitivos
+#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
 
-Pesquisa cognitivos tem várias capacidades para trabalhar com imagens e os ficheiros de imagem. Durante a cracking do documento, pode utilizar o *imageAction* parâmetro, a extrair texto de fotografias ou imagens que contém texto alfanumérico, tais como a palavra "Parar de" num sinal de paragem. Outros cenários incluem gerar uma representação de texto de uma imagem, tais como "dandelion" para uma fotografia de um dandelion ou a cor "amarela". Também pode extrair metadados sobre a imagem, tais como o respetivo tamanho.
+Pesquisa cognitiva tem várias capacidades para trabalhar com imagens e arquivos de imagem. Durante a decodificação de documento, pode utilizar o *imageAction* parâmetro para extrair texto de fotos ou imagens que contém o texto de alfanumérico, como a palavra "STOP" num sinal de paragem. Outros cenários incluem a gerar uma representação de texto de uma imagem, por exemplo, "dandelion" para uma fotografia de um dandelion ou a cor "amarela". Também é possível extrair metadados sobre a imagem, como o seu tamanho.
 
-Este artigo abrange a imagem de processamento mais detalhadamente e fornece orientações para trabalhar com imagens num pipeline pesquisa cognitivos.
+Este artigo aborda em mais detalhes de processamento de imagens e fornece orientações para trabalhar com imagens num pipeline de pesquisa cognitiva.
 
 <a name="get-normalized-images"></a>
 
 ## <a name="get-normalized-images"></a>Obter imagens normalizadas
 
-Como parte do cracking do documento, existem um novo conjunto de parâmetros de configuração de indexador para processamento de ficheiros de imagem ou nas imagens incorporadas ficheiros. Estes parâmetros são utilizados para normalizar imagens para obter mais processamento a jusante. Normalizing imagens, torna-os mais uniforme. Imagens grandes são redimensionadas para uma altura máxima e largura para torná-las consumíveis. Para fornecer os metadados no orientação de imagens, rotação de imagem é ajustada para carregamento vertical. Ajustes de metadados são capturados num tipo complexo criado para cada imagem. 
+Como parte de aberturas de documentos, há um novo conjunto de parâmetros de configuração do indexador para lidar com arquivos de imagem ou imagens incorporadas nos arquivos. Esses parâmetros são utilizados para normalizar as imagens para ainda mais processamento a jusante. Normalizar imagens torna mais uniforme. Imagens grandes são redimensionadas para uma altura e largura máximas para torná-los consumível. Para fornecer metadados na orientação de imagens, a rotação de imagem é ajustada para carregamento vertical. Ajustes de metadados são registrados num tipo complexo, criado para cada imagem. 
 
-Não é possível desativar a normalização de imagem. Competências iterar imagens esperam imagens normalizadas.
+Não é possível desativar a normalização de imagem. As competências que iterar sobre imagens esperam imagens normalizadas.
 
 | Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageAction   | Definido como "none" se deve ser efetuada nenhuma ação quando forem encontrados imagens incorporadas ou ficheiros de imagem. <br/>Definido como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte do documento cracking. Estas imagens ficará expostas no *normalized_images* campo. <br/>A predefinição é "none". Esta configuração apenas é relevante para as origens de dados do blob quando "dataToExtract" está definido como "contentAndMetadata." |
-|  normalizedImageMaxWidth | A largura máxima (em pixéis) para imagens normalizadas gerado. A predefinição é 2000.|
-|  normalizedImageMaxHeight | A altura máxima (em pixéis) para imagens normalizadas gerado. A predefinição é 2000.|
+| imageAction   | Definido como "none" se nenhuma ação deve ser realizada quando são encontrados imagens incorporadas ou arquivos de imagem. <br/>Definido como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da abertura do documento. Estas imagens vão ser expostas no *normalized_images* campo. <br/>A predefinição é "none". Esta configuração apenas é pertinente para o blob de origens de dados, quando "dataToExtract" está definida como "contentAndMetadata." |
+|  normalizedImageMaxWidth | A largura máxima (em pixéis) de normalizado imagens geradas. A predefinição é 2000.|
+|  normalizedImageMaxHeight | A altura máxima (em pixéis) para imagens normalizadas geradas. A predefinição é 2000.|
 
 > [!NOTE]
-> Se definir o *imageAction* propriedade para qualquer coisa que não seja "none", não será possível definir o *parsingMode* propriedade para qualquer coisa que não seja "default".  Só pode definir uma destas duas propriedades para um valor não predefinido na sua configuração de indexador.
+> Se definir o *imageAction* propriedade com algo diferente de "none", não será capaz de definir o *parsingMode* propriedade com algo diferente de "predefinição".  Apenas pode definir uma destas duas propriedades para um valor não predefinido na configuração do indexador.
 
-Definir o **parsingMode** parâmetro `json` (para indexar cada blob como um único documento) ou `jsonArray` (se os blobs contém matrizes JSON e tem de cada elemento de uma matriz deve ser tratado como um documento separado).
+Definir o **parsingMode** parâmetro para `json` (para cada blob como um único documento de índice) ou `jsonArray` (se os blobs contêm matrizes JSON, e terá de cada elemento de uma matriz deve ser tratada como um documento separado).
 
-A predefinição de 2000 pixels para a altura e largura máxima de imagens normalizado baseia-se nos tamanhos máximos suportados pelo [OCR skill](cognitive-search-skill-ocr.md) e [imagem analysis skill](cognitive-search-skill-image-analysis.md). Se aumentar os limites máximos, processamento poderá falhar nas imagens de maior.
+A predefinição de 2000 pixels para a largura máxima de imagens normalizado e a altura baseia-se os tamanhos máximos suportados pelos [habilidade de OCR](cognitive-search-skill-ocr.md) e o [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md). Se aumentar os limites máximos, processamento poderá falhar nas imagens de maior.
 
 
-Especificar o imageAction no seu [definição indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) da seguinte forma:
+Especificar o imageAction no seu [definição de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) da seguinte forma:
 
 ```json
 {
@@ -61,17 +61,17 @@ Especificar o imageAction no seu [definição indexador](https://docs.microsoft.
 }
 ```
 
-Quando o *imageAction* está definido como "generateNormalizedImages", a nova *normalized_images* campo irá conter uma matriz de imagens. Cada imagem é um tipo complexo que tem os seguintes membros:
+Quando o *imageAction* está definida como "generateNormalizedImages", a nova *normalized_images* campo irá conter uma matriz de imagens. As imagens são um tipo complexo que tem os seguintes membros:
 
 | Membro de imagem       | Descrição                             |
 |--------------------|-----------------------------------------|
-| dados               | Cadeia da imagem no formato JPEG normalizada de codificada em Base64.   |
+| dados               | Cadeia de caracteres da imagem em formato JPEG normalizada de codificado em Base64.   |
 | Largura              | Largura da imagem normalizada em pixéis. |
 | Altura             | Altura da imagem normalizada em pixéis. |
 | originalWidth      | A largura original da imagem antes de normalização. |
 | originalHeight      | A altura original da imagem antes de normalização. |
-| rotationFromOriginal |  Rotação Counter-no sentido horário em graus que ocorreram ao criar a imagem normalizada. Um valor entre 0 graus e 360 graus. Este passo lê os metadados da imagem que é gerada por uma câmara ou scanner. Normalmente, um múltiplo de 90 graus. |
-| contentOffset |O desvio de carácter dentro do campo conteúdo extraída onde a imagem da. Este campo só é aplicável para os ficheiros com imagens incorporadas. |
+| rotationFromOriginal |  No sentido rotação em graus que ocorreram criar a imagem normalizada. Um valor entre 0 graus e de 360 graus. Este passo lê os metadados a partir da imagem que é gerada por uma câmara ou o scanner. Normalmente, um múltiplo de 90 graus. |
+| contentOffset |O deslocamento de carateres dentro do campo conteúdo extraída onde a imagem da. Este campo só é aplicável para os ficheiros com imagens incorporadas. |
 
  Valor de exemplo *normalized_images*:
 ```json
@@ -88,33 +88,33 @@ Quando o *imageAction* está definido como "generateNormalizedImages", a nova *n
 ]
 ```
 
-## <a name="image-related-skills"></a>Competências relacionados com a imagem
+## <a name="image-related-skills"></a>Habilidades relacionadas à imagem
 
-Existem dois competências cognitivos incorporadas que tomar imagens como entrada: [OCR](cognitive-search-skill-ocr.md) e [imagem Analysis](cognitive-search-skill-image-analysis.md). 
+Existem duas capacidades cognitivas incorporadas que necessitam de imagens como uma entrada: [OCR](cognitive-search-skill-ocr.md) e [análise de imagem](cognitive-search-skill-image-analysis.md). 
 
-Atualmente, estes competências apenas a trabalhar com imagens geradas a partir do passo cracking do documento. Como tal, é a entrada suportada apenas `"/document/normalized_images"`.
+Atualmente, essas habilidades só funcionam com imagens geradas a partir do passo de quebra de código do documento. Como tal, é a única entrada suportada `"/document/normalized_images"`.
 
-### <a name="image-analysis-skill"></a>Imagem skill de análise
+### <a name="image-analysis-skill"></a>Habilidade de análise de imagem
 
-O [skill de análise de imagem](cognitive-search-skill-image-analysis.md) extrai um conjunto avançado de funcionalidades visual com base no conteúdo de imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar etiquetas ou identificar celebridades para e landmarks.
+O [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) extrai um conjunto avançado de recursos visuais com base no conteúdo de imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar etiquetas ou identificar celebridades e marcos.
 
-### <a name="ocr-skill"></a>OCR skill
+### <a name="ocr-skill"></a>Habilidade de OCR
 
-O [OCR skill](cognitive-search-skill-ocr.md) extrai o texto de ficheiros de imagem como JPGs, PNGs e mapas de bits. Pode extrair texto, bem como informações de esquema. As informações de esquema fornecem caixas delimitador para cada uma das cadeias identificadas.
+O [habilidade de OCR](cognitive-search-skill-ocr.md) extrai o texto de arquivos de imagem como JPGs, PNGs e bitmaps. Ele pode extrair texto, bem como informações de layout. As informações de esquema fornecem caixas delimitadora para cada uma das cadeias de caracteres identificadas.
 
-O skill OCR permite-lhe selecionar o algoritmo a utilizar para detetar o texto nas suas imagens. Atualmente suporta dois algoritmos, uma para texto impressos e outro para texto handwritten.
+A habilidade de OCR permite-lhe selecionar o algoritmo a utilizar para detectar o texto em suas imagens. Atualmente suporta dois algoritmos, uma para texto impresso e outro para texto manuscrito.
 
 ## <a name="embedded-image-scenario"></a>Cenário de imagem incorporada
 
-Um cenário comum implica a criação de uma cadeia único que contém todos os conteúdos do ficheiro, o texto e o texto de origem da imagem, efetuando os seguintes passos:  
+Um cenário comum envolve a criação de uma única cadeia de caracteres que contém todos os conteúdos do ficheiro, texto e o texto de origem da imagem, efetuando os seguintes passos:  
 
 1. [Extrair normalized_images](#get-normalized-images)
-1. Execute o através de skill OCR `"/document/normalized_images"` como entrada
-1. Intercale a representação de texto dessas imagens com o texto não processado extraído a partir do ficheiro. Pode utilizar o [texto intercalar](cognitive-search-skill-textmerger.md) skill para consolidar ambos os segmentos de texto numa cadeia de grandes dimensões única.
+1. Executar a habilidade de OCR utilizando `"/document/normalized_images"` como entrada
+1. Intercale a representação de texto dessas imagens com o texto não processado extraído a partir do ficheiro. Pode utilizar o [intercalar texto](cognitive-search-skill-textmerger.md) habilidades a consolidação de ambos os segmentos de texto numa única cadeia de caracteres de grandes dimensões.
 
-Skillset de exemplo seguinte cria um *merged_text* campo que contém o conteúdo textual do seu documento. Também inclui o texto de OCRed de cada uma das imagens incorporadas. 
+O conjunto de capacidades de exemplo seguinte cria um *merged_text* campo que contém o conteúdo textual do seu documento. Ele também inclui o texto de OCRed de cada uma das imagens incorporadas. 
 
-#### <a name="request-body-syntax"></a>Sintaxe de corpo do pedido
+#### <a name="request-body-syntax"></a>Sintaxe de corpo de pedido
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -158,7 +158,7 @@ Skillset de exemplo seguinte cria um *merged_text* campo que contém o conteúdo
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }
@@ -166,15 +166,15 @@ Skillset de exemplo seguinte cria um *merged_text* campo que contém o conteúdo
 }
 ```
 
-Agora que tem um campo merged_text, foi possível mapeá-lo como um campo pesquisável a definição do indexador. Todo o conteúdo dos ficheiros, incluindo o texto de imagens, será pesquisáveis.
+Agora que tem um campo de merged_text, pode mapeá-lo como um campo pesquisável na sua definição de indexador. Todo o conteúdo dos ficheiros, incluindo o texto das imagens, será pesquisável.
 
-## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualizar delimitadora caixas de texto extraído
+## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualizar delimitação de caixas de texto extraído
 
-Outro cenário comum é visualizar informações de esquema de resultados de pesquisa. Por exemplo, pode querer realce onde foi encontrado um fragmento de texto numa imagem como parte dos resultados da pesquisa.
+Outro cenário comum é visualizar informações de layout de resultados de pesquisa. Por exemplo, talvez queira destacar em que foi encontrado um pedaço de texto numa imagem como parte de seus resultados de pesquisa.
 
-Uma vez que o passo de OCR é efetuado nas imagens normalizadas, são as coordenadas de esquema no espaço de imagem normalizado. Quando se apresenta a imagem normalizada, a presença de coordenadas, geralmente, não é um problema, mas em algumas situações poderá apresentar a imagem original. Converta cada um dos pontos coordenados no esquema neste caso, o sistema de coordenadas de imagem original. 
+Uma vez que o passo de OCR é realizado nas imagens de normalizado, as coordenadas de layout são o espaço de imagem normalizado. Ao exibir a imagem normalizada, a presença de coordenadas em geral, não é um problema, mas em algumas situações pode querer exibir a imagem original. Converta cada um dos pontos de coordenadas no layout neste caso, o sistema de coordenadas de imagem original. 
 
-Como um programa auxiliar, se precisar de transformação normalizadas coordenadas para o espaço de coordenada original, pode utilizar o seguinte algoritmo:
+Como um auxiliar, se tiver de transformar as coordenadas normalizadas para o espaço coordenado original, poderia usar o seguinte algoritmo:
 
 ```csharp
         /// <summary>
@@ -219,8 +219,8 @@ Como um programa auxiliar, se precisar de transformação normalizadas coordenad
 
 ## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analisar skill de imagem](cognitive-search-skill-image-analysis.md)
-+ [OCR skill](cognitive-search-skill-ocr.md)
-+ [Skill de intercalação de texto](cognitive-search-skill-textmerger.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Como mapear os campos avançados](cognitive-search-output-field-mapping.md)
++ [Analisar a habilidade de imagem](cognitive-search-skill-image-analysis.md)
++ [Habilidade de OCR](cognitive-search-skill-ocr.md)
++ [Habilidade de intercalação de texto](cognitive-search-skill-textmerger.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Como mapear campos plena](cognitive-search-output-field-mapping.md)

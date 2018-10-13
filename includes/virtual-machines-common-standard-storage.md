@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060768"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312350"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard económico e discos de VM do Azure geridos e não
 
@@ -25,7 +25,7 @@ Este artigo se concentra no uso de discos standard de SSD e HDD. Para obter mais
 
 Existem duas formas de criar os discos standard para VMs do Azure:
 
-**Discos não geridos**: este tipo de disco é o método original onde pode gerir as contas de armazenamento utilizadas para armazenar os ficheiros VHD que correspondem aos discos das VMS. Ficheiros VHD são armazenados como blobs de páginas em contas de armazenamento. Discos não geridos podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que utilizam principalmente o armazenamento Premium, como a série DSv2 e GS. VMs do Azure suportam anexar vários discos padrão, permitindo que o PiB até 256 de armazenamento por VM. Se utilizar os tamanhos de disco de pré-visualização, pode ter até PiB cerca de 2 de armazenamento por VM. 
+**Discos não geridos**: este tipo de disco é o método original onde pode gerir as contas de armazenamento utilizadas para armazenar os ficheiros VHD que correspondem aos discos das VMS. Ficheiros VHD são armazenados como blobs de páginas em contas de armazenamento. Discos não geridos podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que utilizam principalmente o armazenamento Premium, como a série DSv2 e GS. VMs do Azure suportam anexar vários discos padrão, permitindo que o máximo de 256 TiB de armazenamento por VM. Se utilizar os tamanhos de disco de pré-visualização, pode ter até PiB cerca de 2 de armazenamento por VM.
 
 [**Os Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esta funcionalidade gerencia as contas de armazenamento utilizadas para os discos VM para. Especifique o tipo (Premium SSD, padrão de SSD ou HDD padrão) e o tamanho do disco é necessário, e o Azure cria e gere o disco por si. Não precisa se preocupar sobre os discos são colocados em várias contas de armazenamento para garantir que permaneça dentro dos limites de escalabilidade para as contas de armazenamento – Azure processa isto por si.
 

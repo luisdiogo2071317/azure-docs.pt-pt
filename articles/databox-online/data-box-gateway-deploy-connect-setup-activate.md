@@ -1,26 +1,19 @@
 ---
 title: Ligue-se para configurar e ativar o Gateway de caixa de dados do Azure no portal do Azure | Documentos da Microsoft
 description: Terceiro tutorial para implementar o Gateway de caixa de dados instrui a ligar, configurar e ativar o dispositivo virtual.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419485"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166751"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Ligar, configurar, ativar o Gateway de caixa de dados do Azure (pré-visualização) 
 
@@ -40,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 
 > [!IMPORTANT]
-> - Gateway de caixa de dados está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
+> - O Data Box Gateway está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -88,7 +81,7 @@ Está agora a **Dashboard** do seu dispositivo.
    
     Quando configurar as definições de rede, tenha em atenção o seguinte:
 
-    - Se o DHCP está ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Por conseguinte, um endereço IP, sub-rede, gateway e DNS são automaticamente atribuído.
+    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Por conseguinte, um endereço IP, sub-rede, gateway e DNS são automaticamente atribuído.
     - Se DHCP não estiver ativado, pode atribuir IPs estáticos, se necessário.
     - Pode configurar a sua interface de rede como IPv4.
    
@@ -127,7 +120,7 @@ Está agora a **Dashboard** do seu dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu sobre tópicos de Gateway de caixa de dados, tais como:
+Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 
 > [!div class="checklist"]
 > * Ligar ao dispositivo virtual
