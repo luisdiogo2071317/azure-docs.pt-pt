@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077124"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309200"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plano, oferta, quota e descrição geral da subscrição
 
@@ -40,7 +40,7 @@ Quando publicar um serviço, siga estes passos de alto nível:
 2. Crie um plano que tem um ou mais serviços. Ao criar um plano, selecione ou crie as quotas que definem os limites de recursos de cada serviço no plano.
 3. Crie uma oferta que contém um ou mais planos. A oferta pode incluir planos base e planos de suplementos opcionais.
 
-Depois de criar a oferta, podem subscrever os seus utilizadores para aceder a serviços e recursos que a oferta fornece. Os utilizadores podem subscrever ofertas quantos desejar. O diagrama seguinte mostra um exemplo simples de um utilizador que subscreveu a duas ofertas. Cada oferta tem um plano ou dois, e cada plano lhes concede acesso a serviços.
+Depois de criar a oferta, podem subscrever os seus utilizadores para aceder a serviços e recursos que a oferta fornece. Os utilizadores podem subscrever ofertas quantos desejar. A figura seguinte mostra um exemplo simples de um utilizador que subscreveu a duas ofertas. Cada oferta tem um plano ou dois, e cada plano lhes concede acesso a serviços.
 
 ![Subscrição com ofertas e planos de inquilino](media/azure-stack-key-features/image4.png)
 
@@ -50,7 +50,7 @@ Planos consistem em agrupamentos de um ou mais serviços. Como um operador do Az
 
 ### <a name="quotas"></a>Quotas
 
-Para ajudar a gerir a capacidade de nuvem, pode utilizar quotas pré-configuradas ou criar uma quota de novo para cada serviço num plano. Quotas definem os limites de recursos superior que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco máquinas virtuais (VMs). Definir quotas adicionais nas máquinas virtuais, por exemplo, os núcleos de RAM e da CPU.
+Para ajudar a gerir a sua capacidade de nuvem, pode usar pré-configurados *quotas*, ou criar uma quota de novo para cada serviço num plano. Quotas definem os limites de recursos superior que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco máquinas virtuais (VMs).
 
 É possível configurar quotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma quota de duas VMs com 4 GB de RAM e 8 núcleos de CPU.
 
@@ -61,7 +61,7 @@ Saiba mais sobre [os tipos de ficheiro no Azure Stack](azure-stack-quota-types.m
 
 ### <a name="base-plan"></a>Plano base
 
-Ao criar uma oferta, o administrador de serviços pode incluir um plano base. Estes planos bases estão incluídos por predefinição, quando um utilizador subscrever essa oferta. Quando um utilizador subscrever, eles têm acesso a todos os fornecedores de recursos especificado nesses planos base (com as quotas correspondentes.)
+Ao criar uma oferta, o administrador de serviços pode incluir um plano base. Estes planos bases estão incluídos por predefinição, quando um utilizador subscrever essa oferta. Quando um utilizador subscrever, eles têm acesso a todos os fornecedores de recursos especificado nesses planos base (com as quotas de correspondentes).
 
 ### <a name="add-on-plans"></a>Planos de suplementos
 
@@ -81,8 +81,8 @@ Cada combinação de um utilizador com uma oferta é uma assinatura exclusiva. U
 
 ### <a name="default-provider-subscription"></a>Subscrição do fornecedor predefinido
 
-A subscrição do fornecedor predefinido é criada automaticamente ao implementar o Development Kit do Azure Stack. Esta subscrição pode ser utilizada para gerir o Azure Stack, implementar fornecedores de recursos adicionais e criar planos e ofertas para os utilizadores. Por motivos de licenciamento e de segurança, não deve ser usado para executar aplicações e cargas de trabalho do cliente.
+A subscrição do fornecedor padrão é criada automaticamente ao implementar o Development Kit do Azure Stack. Esta subscrição pode ser utilizada para gerir o Azure Stack, implementar fornecedores de recursos adicionais e criar planos e ofertas para os utilizadores. Por motivos de licenciamento e de segurança, ele não deve ser usado para executar aplicações e cargas de trabalho do cliente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Criar um plano](azure-stack-create-plan.md)
+Para obter mais informações sobre os planos e ofertas, consulte [criar um plano](azure-stack-create-plan.md).
