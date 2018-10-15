@@ -1,6 +1,12 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: fbe7b703df033a3feacfa20e17868885e459c7e7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311139"
 documentType: LandingData
-title: Documentação da Pré-visualização do Azure Lab Services (anteriormente, DevTest Labs)
+title: Documentação do Azure Lab Services e Azure DevTest Labs
 metadata:
   title: Documentação do Azure Lab Services - Tutoriais, Referência da API | Microsoft Docs
   description: Saiba como utilizar o Azure Lab Services para configurar rapidamente um laboratório de desenvolvimento, teste, hackathon ou de sala de aula para a sua equipa ou estudantes que estejam na cloud. Tutoriais do Azure, exemplos e muito mais mostram-lhe como criar, gerir e proteger laboratórios.
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/06/2018
   ms.author: spelluru
-  ms.openlocfilehash: 1b37824b113fd9b1aaf225c5cb24b2dd27f1b47f
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34636703"
 abstract:
   description: Saiba como utilizar o Azure Lab Services para configurar rapidamente um laboratório de desenvolvimento, teste, hackathon ou de sala de aula para a sua equipa ou estudantes que estejam na cloud. Tutoriais do Azure, exemplos e muito mais mostram-lhe como criar, gerir e proteger laboratórios.
 sections:

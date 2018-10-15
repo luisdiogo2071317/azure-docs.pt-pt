@@ -77,6 +77,7 @@
 #### [HA no Windows com Disco Partilhado para a Instância (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [HA no Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [HA no SUSE Linux para a Instância (A)SCS](high-availability-guide-suse.md)
+#### [HA no Red Hat Enterprise Linux para Instância de (A)SCS](high-availability-guide-rhel.md)
 ### Preparação da Infraestrutura do Azure
 #### [Windows com Disco Partilhado para a Instância (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows com Partilha de Ficheiros SOFS para a Instância (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
