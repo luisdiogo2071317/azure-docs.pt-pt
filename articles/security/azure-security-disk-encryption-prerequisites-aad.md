@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 6d08dbe1976363be414597401d7a4efbae82c9b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 10/12/2018
+ms.openlocfilehash: 9fefe75d43630a68a2d22bdc3270f255587030d0
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498441"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311011"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>O Azure Disk Encryption pré-requisitos (versão anterior)
 
@@ -49,11 +49,22 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 
 ## <a name="bkmk_GPO"></a> Funcionamento em rede e a política de grupo
 
-**Para ativar o Azure Disk Encryption funcionalidade, as VMs de IaaS tem de cumprir os seguintes requisitos de configuração do ponto final de rede:**
+**Para ativar a funcionalidade de encriptação de disco do Azure com o AAD mais antigo sintaxe do parâmetro, as VMs de IaaS tem de cumprir os seguintes requisitos de configuração do ponto final de rede:** 
   - Para obter um token para ligar ao seu Cofre de chaves, a VM de IaaS tem de ser capaz de ligar a um ponto de extremidade do Azure Active Directory \[login.microsoftonline.com\].
   - Para escrever as chaves de encriptação para o seu Cofre de chaves, a VM de IaaS tem de conseguir ligar ao ponto final do Cofre de chaves.
   - A VM de IaaS tem de ser capaz de ligar a um ponto de extremidade de armazenamento do Azure que aloja o repositório de extensão do Azure e uma conta de armazenamento do Azure que aloja os ficheiros VHD.
-  -  Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [do Azure Key Vault protegido por uma firewall](../key-vault/key-vault-access-behind-firewall.md).    
+  -  Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [do Azure Key Vault protegido por uma firewall](../key-vault/key-vault-access-behind-firewall.md).
+  - No Windows, se TLS 1.0 tem sido explicitamente desabilitado e a versão do .NET não foi atualizada para o 4.6 ou superior, a alteração de registo seguinte irá permitir ADE selecionar a versão mais recente do TLS: "Editor de registo do Windows versão 5.00
+
+        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001
+
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001` 
+
+ 
 
 
 **Política de grupo:**
@@ -65,7 +76,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 ## <a name="bkmk_PSH"></a> O Azure PowerShell
 [O Azure PowerShell](/powershell/azure/overview) fornece um conjunto de cmdlets que utiliza o [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modelos para gerir os recursos do Azure. Pode usá-lo no seu browser com [Azure Cloud Shell](../cloud-shell/overview.md), ou pode instalá-lo no seu computador local com as instruções abaixo para utilizá-lo em qualquer sessão do PowerShell. Se já tiver instalado localmente, certifique-se de que utilizar a versão mais recente da versão do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a versão mais recente do [do Azure PowerShell versão](https://github.com/Azure/azure-powershell/releases).
 
-### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale o Azure PowerShell para utilização no seu computador local (opcional): 
+### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale o Azure PowerShell para utilização no seu computador local (opcional):  
 1. Siga as instruções nas ligações para o seu sistema operativo, em seguida, continuar entanto o resto dos passos abaixo.      
     - [Instalar e configurar o Azure PowerShell para Windows](/powershell/azure/install-azurerm-ps). 
         - Instalar o PowerShellGet, o Azure PowerShell e carregar o módulo AzureRM. 

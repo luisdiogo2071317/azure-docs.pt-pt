@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 637e926676c727c01c60fe0d3e4e758173bdbd18
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637563"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167415"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -643,8 +643,9 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Pode testar a configuração do agente do Azure de delimitação por barreiras, desativando a interface de rede no nó onde SAP HANA está em execução como modelo.
+Ver [artigo da base de conhecimento do Red Hat 79523](https://access.redhat.com/solutions/79523) para um descricption sobre como simular uma falha de rede. Neste exemplo utilizamos o script de net_breaker para bloquear todo o acesso à rede.
 
-<pre><code>[root@hn1-db-1 ~]# sudo ifdown eth0
+<pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 Agora, a máquina virtual deve reiniciar ou parar consoante a configuração de cluster.
