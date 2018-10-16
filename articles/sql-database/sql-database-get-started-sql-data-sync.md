@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 82390ae304fc4d6873efc4a5073725a02b915eaa
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870592"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318814"
 ---
 # <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Configurar a sincronização de dados SQL para sincronizar dados entre a base de dados do Azure SQL e SQL Server no local
 
@@ -61,7 +61,7 @@ Para exemplos do PowerShell completos que mostram como configurar a sincronizaç
    2. Na **base de dados de metadados de sincronização** secção, escolha se pretende criar uma nova base de dados (recomendado) ou utilizar uma base de dados existente.
 
         > [!NOTE]
-        > A Microsoft recomenda que crie um novo banco de dados vazio para utilizar como a base de dados de metadados de sincronização. Sincronização de dados cria as tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada automaticamente como a base de dados de metadados de sincronização para todos os grupos de sincronização na região selecionada. Não é possível alterar a base de dados de metadados de sincronização ou o respetivo nome sem derrubá-la.
+        > A Microsoft recomenda que crie um novo banco de dados vazio para utilizar como a base de dados de metadados de sincronização. Sincronização de dados cria as tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada automaticamente como a base de dados de metadados de sincronização para todos os grupos de sincronização na região selecionada. Não é possível alterar a base de dados de metadados de sincronização ou o respetivo nome sem remover todos os grupos de sincronização e agentes de sincronização na região.
 
         Se escolheu **nova base de dados**, selecione **criar nova base de dados.** O **base de dados SQL** é aberta a página. Sobre o **base de dados SQL** página, dê um nome e configurar a nova base de dados. Em seguida, selecione **OK**.
 

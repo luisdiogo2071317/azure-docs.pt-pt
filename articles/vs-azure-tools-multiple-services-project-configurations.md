@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060314"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318219"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configurar o seu projeto do Azure no Visual Studio para utilizar várias configurações de serviço
 
@@ -75,8 +75,9 @@ Para criar uma cadeia de ligação, selecione **Adicionar definição** e defina
 Para cadeias de ligação nova ou existente, selecione **...** * no lado direito do **valor** campo para abrir o **criar cadeia de ligação de armazenamento** caixa de diálogo:
 
 1. Sob **ligar através de**, escolha a **sua assinatura** opção de selecionar uma conta de armazenamento de uma subscrição. Visual Studio, em seguida, obtém as credenciais da conta de armazenamento automaticamente a partir do `.publishsettings` ficheiro.
-1. Selecionando **introduzido manualmente as credenciais** permite-lhe Especifica o nome da conta e chave diretamente usando as informações a partir do portal do Azure. Para copiar a chave de conta: uma. Navegue para a conta de armazenamento no portal do Azure e selecione **gerir chaves**.
-    2. Para copiar a chave da conta, navegue para a conta de armazenamento no portal do Azure, selecione **definições > chaves de acesso**, em seguida, utilize o botão de cópia para copiar a chave de acesso primária para a área de transferência.
+1. Selecionando **introduzido manualmente as credenciais** permite-lhe Especifica o nome da conta e chave diretamente usando as informações a partir do portal do Azure. Para copiar a chave de conta:
+    1. Navegue para a conta de armazenamento no portal do Azure e selecione **gerir chaves**.
+    1. Para copiar a chave da conta, navegue para a conta de armazenamento no portal do Azure, selecione **definições > chaves de acesso**, em seguida, utilize o botão de cópia para copiar a chave de acesso primária para a área de transferência.
 1. Selecione uma das opções de ligação. **Especifique os pontos finais personalizados** pede que especifique URLs específicos para blobs, tabelas e coloca em fila. Os pontos finais personalizados permitem-lhe utilizar [domínios personalizados](storage/blobs/storage-custom-domain-name.md) e para controlar o acesso mais exatamente. Ver [configurar cadeias de ligação de armazenamento do Azure](./storage/common/storage-configure-connection-string.md).
 1. Selecione **OK**, em seguida, **ficheiro > guardar** para atualizar a configuração com a nova cadeia de ligação.
 

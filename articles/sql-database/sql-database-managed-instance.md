@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 52726d9145d2065da70eea55a03b47ad1602f1f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: f1b2f9c7ee9d2fbeec51315a5e348b197fb4c06b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868559"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342505"
 ---
 # <a name="azure-sql-database-managed-instance-deployment-model-with-virtual-network-and-near-100-sql-server-compatibility"></a>Modelo de implementação do Azure SQL Database Managed Instance com a rede virtual e quase 100% de compatibilidade do SQL Server
 
@@ -105,7 +105,7 @@ Encontrar mais informações sobre a diferença entre os escalões de serviço n
 
 ### <a name="business-critical-service-tier-preview"></a>Camada de serviços críticos de negócios (pré-visualização)
 
-Camada de serviços críticos de negócios foi concebida para aplicações com requisitos de e/s elevados. Ele oferece maior resiliência a falhas com várias Always On réplicas isoladas.
+Camada de serviços críticos de negócios foi concebida para aplicações com requisitos de e/s elevados. Ele oferece maior resiliência a falhas com várias réplicas isoladas.
 
 A lista seguinte descreve as principais características da camada de serviços críticos de negócio:
 
@@ -209,7 +209,7 @@ O diagrama seguinte descreve a compatibilidade de área de superfície na instâ
 
 Gerido benefícios de instância de ser sempre up-até à data na nuvem, o que significa que algumas funcionalidades do SQL Server no local podem ser obsoletos, extinto ou tem alternativas. Existem casos específicos ao ferramentas precisam reconhecer que um determinado recurso funciona de forma ligeiramente diferente ou que o serviço não está em execução num ambiente, que não controlar totalmente:
 
-- Elevada disponibilidade é incorporada e pré-configuradas. Recursos de alta disponibilidade Always On não são expostos de forma mesmo que se encontre na implementações de IaaS do SQL
+- Elevada disponibilidade incorporada no e previamente configuradas usando tecnologia semelhante [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Cópias de segurança automáticas e o ponto no tempo. Pode iniciar o cliente `copy-only` cópias de segurança que não interferem com a cadeia de cópia de segurança automática.
 - Instância gerida não permite a especificação de caminhos físicos completa para todos os cenários correspondentes tenham de ser suportadas de forma diferente: Restaurar DB não suporta a WITH MOVE, criar DB não permite caminhos físicos, a inserção em massa funciona com Blobs do Azure, apenas, etc.
 - Suporta a instância de geridos [autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de cloud para a autenticação do Windows.

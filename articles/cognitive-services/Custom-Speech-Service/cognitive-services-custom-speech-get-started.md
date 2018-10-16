@@ -1,24 +1,24 @@
 ---
-title: Introdução ao serviço de voz personalizada
-titlesuffix: Azure Cognitive Services
+title: Introdução ao serviço de voz personalizada no Azure | Documentos da Microsoft
 description: Subscrever o serviço de voz personalizada e ligar as atividades de serviço a uma subscrição do Azure para preparar um modelo e efetuar uma implementação.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225247"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339938"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introdução ao serviço de voz personalizada
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Explore os principais recursos do serviço de voz personalizada e saiba como criar, implementar e utilizar modelos acústicos e de linguagem para as suas necessidades de aplicação. Documentação mais extensiva e instruções passo a passo podem ser encontradas após a inscrição no portal do serviços de voz personalizada.
 
@@ -34,7 +34,7 @@ Antes de brincando com o acima no exemplo, deve subscrever o serviço de voz per
 Pode baixar uma biblioteca de cliente e o exemplo via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). O ficheiro zip transferido precisa extraídos para uma pasta à sua escolha, número de utilizadores que escolha a pasta do Visual Studio 2015.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Criar um modelo acústico personalizado
-Para personalizar o modelo acústico para um determinado domínio, uma coleção de dados de voz é necessária. Esta coleção é composta por um conjunto de ficheiros de áudio de dados de voz e um ficheiro de texto de transcrições de cada ficheiro de áudio. Os dados de áudio devem ser representativo do cenário em que gostaria de usar o reconhecedor
+Para personalizar o modelo acústico para um determinado domínio, é precisa uma coleção de dados de voz. Esta coleção é composta por um conjunto de ficheiros de áudio de dados de voz e um ficheiro de texto de transcrições de cada ficheiro de áudio. Os dados de áudio devem ser representativo do cenário em que gostaria de usar o reconhecedor
 
 Por exemplo: se gostaria de reconhecer melhor fala num ambiente de ruído de fábrica, os arquivos de áudio devem consistir de pessoas que falem numa fábrica ruidosa.
 Se estiver interessado na otimização de desempenho para um único palestrante, por exemplo, gostaria de transcrição de toda a conversa de Fireside do FDR, em seguida, os arquivos de áudio devem consistir em muitos exemplos de apenas essa orador.
@@ -52,7 +52,7 @@ Quando tiver criado modelos acústicos personalizados e/ou modelos de linguagem,
 Pode encontrar uma descrição detalhada sobre como criar um ponto de final de voz personalizada-texto [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Com um ponto de final de voz personalizada
-Pedidos podem ser enviados para um ponto de final de voz em texto CRIS de forma muito semelhante como o ponto de final de voz de serviços cognitivos do Azure padrão. Tenha em atenção que estes pontos finais são funcionalmente idênticos para os pontos de extremidade padrão a API de voz. Portanto, a mesma funcionalidade, disponível através da biblioteca de cliente ou a API REST para a API de voz também está disponível para o ponto final personalizado.
+Pedidos podem ser enviados para um ponto de final de voz em texto CRIS de forma muito semelhante como o ponto de final de voz de serviços cognitivos da Microsoft predefinido. Tenha em atenção que estes pontos finais são funcionalmente idênticos para os pontos de extremidade padrão a API de voz. Portanto, a mesma funcionalidade, disponível através da biblioteca de cliente ou a API REST para a API de voz também está disponível para o ponto final personalizado.
 
 Pode encontrar uma descrição detalhada sobre como utilizar um ponto de final de voz em texto personalizado [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

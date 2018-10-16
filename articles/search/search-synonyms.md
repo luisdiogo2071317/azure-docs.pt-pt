@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9f887b065cf4fcc295873ee969030c67d17d9e2f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093219"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318474"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos no Azure Search
 
@@ -148,6 +148,8 @@ A funcionalidade de sinónimos reescreve a consulta original com sinónimos com 
 Funcionalidade de sinónimos aplica-se a consultas de pesquisa e não se aplica a filtros ou facetas. Da mesma forma, sugestões baseiam-se apenas o termo original; correspondências de sinónimos não aparecem na resposta.
 
 As expansões de sinónimos não são aplicáveis a termos de pesquisa de caráter universal; prefixo, difusa e os termos de regex não são expandidos.
+
+Se precisar de fazer uma única consulta, que se aplica a expansão de sinónimos e universais, regex ou pesquisas difusas, pode combinar as consultas usando a sintaxe de OR. Por exemplo, para combinar sinónimos com carateres universais para a sintaxe de consulta simples, o termo seria `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Sugestões para criar um mapa de sinónimos
 

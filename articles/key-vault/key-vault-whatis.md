@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497608"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342571"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -35,7 +35,7 @@ O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segura
 
 Fundamentalmente, há 3 formas de autenticar para o Key Vault
 
-1. **Usando [identidade do serviço gerido](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**recomendado e melhor Practise**): ao implementar uma aplicação numa máquina Virtual no Azure, pode atribuir uma identidade à máquina Virtual que tem acesso para o Cofre de chaves. Também pode atribuir identidades de outros recursos do azure que se encontram listados [aqui](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é a aplicação / serviço não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. 
+1. **Usando [geridos identidades para recursos do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**recomendado e nas práticas recomendadas**): ao implementar uma aplicação numa máquina Virtual no Azure, pode atribuir uma identidade para a Máquina Virtual que tenha acesso ao Key Vault. Também pode atribuir identidades de outros recursos do azure que se encontram listados [aqui](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é a aplicação / serviço não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. 
 2. **Principal de serviço e o certificado a utilizar:** a opção 2nd consiste em utilizar um Principal de serviço e um certificado associado que tem acesso ao Cofre de chaves. Onus de rotação do certificado é o proprietário da aplicação ou o desenvolvedor e, portanto, isto não é recomendado
 3. **Com o Principal de serviço e o segredo:** a opção 3 (opção não preferida) é utilizar um Principal de serviço e um segredo para autenticar para o Key Vault
 

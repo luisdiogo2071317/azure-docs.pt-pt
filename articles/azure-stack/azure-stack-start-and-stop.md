@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930295"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344018"
 ---
 # <a name="start-and-stop-azure-stack"></a>Iniciar e parar o Azure Stack
 Deve seguir os procedimentos neste artigo corretamente encerrar e reiniciar serviços do Azure Stack. Encerramento fisicamente irá desligar todo o ambiente do Azure Stack. Arranque alimenta em todas as funções de infraestrutura e retorna os recursos de inquilino para o estado de energia que eles estavam antes do desligamento.
@@ -90,4 +90,4 @@ Execute os seguintes passos, se os serviços de infraestrutura e de inquilino n�
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-Saiba mais sobre a ferramenta de diagnóstico do Azure Stack e emitir o Registro em log, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md).
+Saiba mais sobre [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md)

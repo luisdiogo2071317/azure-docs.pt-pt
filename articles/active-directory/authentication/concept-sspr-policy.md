@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 13b21c4f8fde2b11722d012c207ed75447a7f970
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114655"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321738"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -27,7 +27,7 @@ Este artigo descreve as políticas de palavra-passe e os requisitos de complexid
 
 Com uma política de porta de dois **os administradores não têm a capacidade de utilizar perguntas de segurança**.
 
- Uma política de porta de dois requer dois tipos de dados de autenticação, como um endereço de e-mail *e* um número de telefone. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
+Uma política de porta de dois requer dois tipos de dados de autenticação, como um endereço de e-mail *e* um número de telefone. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de suporte técnico
@@ -50,29 +50,17 @@ Com uma política de porta de dois **os administradores não têm a capacidade d
   * Administrador de serviço CRM
   * Administrador de serviço do Power BI
 
-* Se a 30 dias decorridos numa subscrição de avaliação
-
-  ou
-
-* Um domínio personalizado está presente, por exemplo, contoso.com
-
-  ou
-
+* Se a 30 dias decorridos numa subscrição de avaliação; ou
+* Um domínio personalizado está presente, por exemplo, contoso.com; ou
 * O Azure AD Connect está a sincronizar identidades do seu diretório no local
 
 ### <a name="exceptions"></a>Exceções
 
 Uma política de uma porta requer um conjunto de dados de autenticação, como um endereço de e-mail *ou* número de telefone. Uma porta de uma política aplica-se nas seguintes circunstâncias:
 
-* É nos primeiros 30 dias de uma subscrição de avaliação
-
-  ou
-
-* Um domínio personalizado não estiver presente (*. onmicrosoft.com)
-
-  e
-
-  O Azure AD Connect não está a sincronizar identidades
+* É nos primeiros 30 dias de uma subscrição de avaliação; ou
+* Um domínio personalizado não estiver presente (*. onmicrosoft.com); e
+* O Azure AD Connect não está a sincronizar identidades
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas de UserPrincipalName que se aplicam a todas as contas de utilizador
 
@@ -117,7 +105,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verifique a política de expiração para uma palavra-passe
 
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
-2. Execute um dos seguintes comandos:
+1. Execute um dos seguintes comandos:
 
    * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Para ver os **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 ### <a name="set-a-password-to-expire"></a>Definir uma palavra-passe a expirar
 
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
-2. Execute um dos seguintes comandos:
+1. Execute um dos seguintes comandos:
 
    * Para definir a palavra-passe de um utilizador para que a palavra-passe expirar, execute o seguinte cmdlet com o UPN ou o ID de utilizador do utilizador: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Para definir as palavras-passe de todos os utilizadores na organização, de modo a que esta expira, utilize o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
 ### <a name="set-a-password-to-never-expire"></a>Definir uma palavra-passe para nunca expirar
 
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
-2. Execute um dos seguintes comandos:
+1. Execute um dos seguintes comandos:
 
    * Para definir a palavra-passe de um utilizador para nunca expirar, execute o cmdlet seguinte ao utilizar o UPN ou o ID de utilizador do utilizador: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Para definir as palavras-passe de todos os usuários numa organização para nunca expirar, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

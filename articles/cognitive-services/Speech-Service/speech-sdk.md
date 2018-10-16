@@ -7,14 +7,14 @@ author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: erhopf
-ms.openlocfilehash: a8e23e971cc0186317a291ecbdd010fc2a3ae1e8
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.date: 10/12/2018
+ms.author: v-jerkin
+ms.openlocfilehash: 2ebdacc8cba5fcf8835da3e73c2c14dbca40fe8e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167601"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340713"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informações sobre o SDK de voz dos serviços cognitivos
 
@@ -49,7 +49,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 * C#: Pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz. Para referenciar o SDK, adicione a seguinte referência de pacote ao seu projeto:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.1" />
   ```
 
 * Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` como uma dependência. 
@@ -68,7 +68,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ### <a name="android"></a>Android
 
-O SDK de Java para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como permissões Android necessárias para o utilizar. Ele está hospedado num repositório Maven na `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`.
+O SDK de Java para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como permissões Android necessárias para o utilizar. Ele está hospedado num repositório Maven na `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`.
 
 Para consumir o pacote do seu projeto do Android Studio, efetue as seguintes alterações:
 
@@ -81,7 +81,7 @@ Para consumir o pacote do seu projeto do Android Studio, efetue as seguintes alt
 * No ficheiro de gradle de nível de módulo, adicione o seguinte para o `dependencies` secção:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.1'
   ```
 
 O SDK do Java também é parte dos [SDK de dispositivos de voz](speech-devices-sdk.md).

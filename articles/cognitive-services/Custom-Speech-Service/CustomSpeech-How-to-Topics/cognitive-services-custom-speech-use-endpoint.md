@@ -1,24 +1,25 @@
 ---
-title: Utilizar um ponto de final de voz personalizada - serviço de voz personalizada
-titlesuffix: Azure Cognitive Services
-description: Saiba como utilizar um ponto de final de voz em texto personalizado com o serviço de voz personalizada.
+title: Utilizar um ponto de final de voz personalizada com o serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Saiba como utilizar um ponto de final de voz em texto personalizado com o serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223377"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341808"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Utilizar um ponto final de conversão de voz em texto personalizado
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Pode enviar pedidos para um ponto de final de voz em texto do serviço de voz personalizada do Azure, de forma semelhante possível para o ponto de final de voz de serviços cognitivos predefinido. Estes pontos finais são funcionalmente idênticos para os pontos de extremidade padrão a API de voz. Portanto, a mesma funcionalidade que está disponível através da biblioteca de cliente ou a API REST para a API de voz também está disponível para o ponto final personalizado.
 
 Os pontos de extremidade que cria ao utilizar este serviço podem processar diferentes números de pedidos em simultâneo. O volume depende do escalão de preço associado à subscrição. Se forem recebidos demasiados pedidos, ocorrerá um erro. O escalão gratuito tem um limite mensal de pedidos.

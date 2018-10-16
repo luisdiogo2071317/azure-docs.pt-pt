@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8055faad3cd546e538def5e7292287b49ce96cb4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314511"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320327"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Utilizador inicie sessão com a autenticação de pass-through do Azure Active Directory
 
@@ -38,7 +38,7 @@ Pode combinar a autenticação pass-through com o [totalmente integrada Single S
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Principais vantagens de utilizar a autenticação pass-through do Azure AD
 
-- *Grande experiência de usuário*
+- *Experiência de utilizador excecional*
   - Os utilizadores utilizam as mesmas palavras-passe para iniciar sessão no local e aplicações baseadas na nuvem.
   - Os utilizadores gastar menos tempo conversando com os problemas relacionados com a palavra-passe com o IT suporte técnico resolução.
   - Os utilizadores podem concluir [gestão de palavras-passe self-service](../authentication/active-directory-passwords-overview.md) tarefas na cloud.
@@ -69,7 +69,7 @@ Pode combinar a autenticação pass-through com o [totalmente integrada Single S
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Início Rápido](how-to-connect-pta-quick-start.md) - colocar em funcionamento autenticação pass-through do Azure AD.
-- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
+- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md) -capacidade de configurar o bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md) -Saiba quais cenários são suportados e quais não são.
 - [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md) -compreender como funciona esse recurso.

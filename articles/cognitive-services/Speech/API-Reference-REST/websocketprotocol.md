@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962781"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341825"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Voz do Bing é uma plataforma com base na cloud que inclui os algoritmos mais avançados disponíveis para converter áudio falado em texto. O protocolo de voz do Bing define a [programa de configuração de ligação](#connection-establishment) entre aplicativos de cliente e o serviço e as mensagens de reconhecimento de voz trocadas entre contrapartes ([cliente originado pela mensagens](#client-originated-messages) e [originado de serviço de mensagens](#service-originated-messages)). Além disso, [mensagens de telemetria](#telemetry-schema) e [tratamento de erros](#error-handling) são descritos.
 

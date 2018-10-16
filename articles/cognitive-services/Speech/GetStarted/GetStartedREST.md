@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973954"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345361"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início rápido: Utilizar a API de REST de reconhecimento de voz do Bing
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Com o serviço de voz do Bing com base na cloud, pode desenvolver aplicativos com a API de REST para converter áudio falado em texto.
 
@@ -78,7 +79,7 @@ Os seguintes campos tem de ser definidos no cabeçalho do pedido:
 - `Ocp-Apim-Subscription-Key`: A cada vez que chamar o serviço, tem de passar a chave de subscrição a `Ocp-Apim-Subscription-Key` cabeçalho. Serviço de voz também suporta a autorização de passar tokens em vez de chaves de subscrição. Para obter mais informações, consulte [autenticação](../How-to/how-to-authentication.md).
 - `Content-type`: O `Content-type` campo descreve o formato e o codec do fluxo de áudio. Atualmente, apenas arquivo WAV e a codificação do PCM Mono 16000 é suportada. O valor de tipo de conteúdo para esse formato é `audio/wav; codec=audio/pcm; samplerate=16000`.
 
-O `Transfer-Encoding` campo é opcional. Se definir este campo para `chunked`, pode chop o áudio em pequenos segmentos. Para obter mais informações, consulte [segmentado transferência](../How-to/how-to-chunked-transfer.md).
+O campo `Transfer-Encoding` é opcional. Se definir este campo para `chunked`, pode chop o áudio em pequenos segmentos. Para obter mais informações, consulte [segmentado transferência](../How-to/how-to-chunked-transfer.md).
 
 Segue-se um cabeçalho de pedido de exemplo:
 

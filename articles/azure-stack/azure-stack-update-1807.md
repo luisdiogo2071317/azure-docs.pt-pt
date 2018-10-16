@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868824"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345276"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -232,6 +232,14 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 
 ### <a name="health-and-monitoring"></a>Estado de funcionamento e monitorização
+
+<!-- TBD - IS -->
+- Poderá ver os seguintes alertas repetidamente aparecer e desaparecer, em seguida, no seu sistema do Azure Stack:
+   - *Instância de função de infraestrutura indisponível*
+   - *Nó de unidade de escala está offline*
+   
+  Volte a executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
+
 <!-- 1264761 - IS ASDK -->  
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 31e81741d2a627888e478b3871bdbab4e6b6d6f5
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e00a4c5f5ee307a2d574702844e481894d28cb93
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37902644"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340312"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de elevado desempenho
 
@@ -50,12 +50,19 @@ ms.locfileid: "37902644"
   
   Para obter mais informações, consulte [extensões de Máquina Virtual e funcionalidades](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Também pode trabalhar com as extensões para as VMs implementadas no [modelo de implementação clássica](classic/manage-extensions.md).
 
+### <a name="cluster-configuration-options"></a>Opções de configuração de cluster
 
-## <a name="using-hpc-pack"></a>Com o HPC Pack
+O Azure fornece várias opções para criação de clusters de VMs do Windows HPC que possa comunicar com a rede RDMA, incluindo: 
 
-[Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), gratuita HPC cluster e a tarefa de solução de gestão da Microsoft, é uma opção de criar um cluster de computação no Azure para executar aplicações MPI baseados em Windows e outras cargas de trabalho HPC. HPC Pack 2012 R2 e versões posteriores incluem um ambiente de tempo de execução para MS-MPI, que utiliza a rede de RDMA do Azure quando implementadas em VMs com capacidade RDMA.
+* **Máquinas virtuais** -implementar as VMs de HPC com capacidade RDMA no mesmo conjunto (ao utilizar o modelo de implementação Azure Resource Manager) de disponibilidade. Se utilizar o modelo de implementação clássica, implemente as VMs no mesmo serviço cloud. 
 
+* **Conjuntos de dimensionamento de máquinas virtuais** - numa escala VM definir, certifique-se de que limite a implementação para um único grupo de colocação. Por exemplo, num modelo do Resource Manager, defina o `singlePlacementGroup` propriedade `true`. 
 
+* **Azure CycleCloud** -crie um cluster HPC no [Azure CycleCloud](/azure/cyclecloud/) para executar trabalhos de MPI em nós do Windows.
+
+* **O Azure Batch** -crie uma [do Azure Batch](/azure/batch/) nós de computação do conjunto para executar cargas de trabalho MPI no Windows Server. Para obter mais informações, consulte [utilização com capacidade RDMA ou ativadas para GPU instâncias em conjuntos do Batch](../../batch/batch-pool-compute-intensive-sizes.md). Consulte também os [Batch Shipyard](https://github.com/Azure/batch-shipyard) projeto, para executar cargas de trabalho baseadas em contentores no Batch.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) inclui um ambiente de tempo de execução para MS-MPI, que utiliza a rede de RDMA do Azure quando implementadas em VMs do Windows com capacidade RDMA. Por exemplo implementações, consulte [configurar um cluster Windows RDMA com HPC Pack para executar aplicações MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)

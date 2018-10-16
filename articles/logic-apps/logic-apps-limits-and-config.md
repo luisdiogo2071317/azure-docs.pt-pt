@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 8aa2627f46be1e375fb3c3e565848a930ba6726b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167448"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320443"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -111,9 +111,22 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 Para passar destes limites no processamento normal ou executar o teste de carga que pode passar destes limites, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>Limites FTP, SFTP e SFTP-SSH
+
+### <a name="file-size"></a>Tamanho dos ficheiros
+
+| Nome | Limite | Notas |
+|------|-------|-------|
+| FTP | 50 MB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| SFTP | 50 MB | Para contornar este limite, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| SFTP-SSH | 1 GB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>Limites de pedido de HTTP
+## <a name="http-limits"></a>Limites HTTP
 
 Aqui estão os limites para uma única solicitação HTTP ou uma chamada síncrona de conector:
 
@@ -143,18 +156,6 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam os pedido
 | Tentativas de repetição | 90 | A predefinição é 4. Para alterar a predefinição, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Intervalo máx. de repetição | 1 dia | Para alterar a predefinição, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Intervalo mínimo de repetição | 5 segundos | Para alterar a predefinição, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-|||| 
-
-<a name="sftp"></a>
-
-## <a name="sftp-and-sftp-ssh-limits"></a>Limites de SFTP e SFTP-SSH
-
-### <a name="file-size"></a>Tamanho dos ficheiros
-
-| Nome | Limite | Notas |
-|------|-------|-------|
-| SFTP | 50 MB | Para contornar este limite, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
-| SFTP-SSH | 1 GB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
 |||| 
 
 <a name="custom-connector-limits"></a>

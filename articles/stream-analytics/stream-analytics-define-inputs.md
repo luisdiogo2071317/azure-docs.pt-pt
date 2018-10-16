@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9b75db835b0bdcc18cb82f427250630fb936d817
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579297"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341224"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -39,7 +39,7 @@ Os Hubs de eventos do Azure fornece altamente dimensionável ingestors de evento
 `EventEnqueuedUtcTime` é o carimbo de hora da chegada de um evento num hub de eventos e o carimbo de hora padrão de eventos provenientes dos Hubs de eventos para o Stream Analytics. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave.
 
 ### <a name="consumer-groups"></a>Grupos de consumidores
-Deve configurar cada hub de eventos do Stream Analytics para ter seu próprio grupo de consumidores de entrada. Quando uma tarefa contém uma associação automática ou tem várias entradas, algumas entradas pode ser lidos por mais do que um leitor de downstream. Esta situação afeta o número de leitores num grupo de consumidor. Para evitar exceder o limite de Hubs de eventos de cinco de leitores por grupo de consumidor por partição, é recomendável designar um grupo de consumidores para cada tarefa do Stream Analytics. Também existe um limite de 20 grupos de consumidores do hub de eventos. Para obter mais informações, consulte [resolver problemas relacionados com o Azure Stream Analytics com recetores do Hub de eventos](stream-analytics-event-hub-consumer-groups.md).
+Deve configurar cada hub de eventos do Stream Analytics para ter seu próprio grupo de consumidores de entrada. Quando uma tarefa contém uma associação automática ou tem várias entradas, algumas entradas pode ser lidos por mais do que um leitor de downstream. Esta situação afeta o número de leitores num grupo de consumidor. Para evitar exceder o limite de Hubs de eventos de cinco de leitores por grupo de consumidor por partição, é recomendável designar um grupo de consumidores para cada tarefa do Stream Analytics. Também existe um limite de 20 grupos de consumidores do hub de eventos. Para obter mais informações, consulte [entradas de resolver problemas relacionados com o Azure Stream Analytics](stream-analytics-troubleshoot-input.md).
 
 ### <a name="stream-data-from-event-hubs"></a>Transmitir dados a partir dos Hubs de Eventos
 A tabela seguinte explica cada propriedade no **nova entrada** página no portal do Azure para entrada de dados de fluxo de um hub de eventos:

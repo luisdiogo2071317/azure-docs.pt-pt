@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1171ff64bea99d7bc736a5a4fe88d9c08324b9d9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116475"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344137"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Otimizar hiperparâmetros para o modelo
 
@@ -36,6 +36,8 @@ Em cenários de aprendizagem profunda de aprendizagem automática / máquinas, d
 
 O Azure Machine Learning permite-lhe automatizar hiper-parâmetros exploração de uma forma eficiente, economizando tempo significativo e recursos. Especifique o intervalo de valores de hiper-parâmetros e executa um número máximo de treinamento. O sistema, em seguida, inicia várias execuções simultâneas com configurações de parâmetros diferentes e automaticamente localiza a configuração que resulta em melhor desempenho, medido pela métrica que escolher. Execuções de preparação com mau desempenho são automaticamente antecipadas terminada, a redução de desperdício de recursos de computação. Estes recursos em vez disso, são utilizados para explorar outras configurações de hiper-parâmetros.
 
+>[!NOTE]
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.168 
 
 ## <a name="define-search-space"></a>Definir o espaço de pesquisa
 
@@ -164,7 +166,7 @@ Esta métrica de registo no seu script de treinamento com o seguinte fragmento d
 
 ```Python
 from azureml.core.run import Run
-run_logger = Run.get_submitted_run()
+run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059252"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319460"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerir preços e volumes de dados no Application Insights
 
@@ -74,7 +74,7 @@ O Application Insights torna mais fácil de compreender os planos de preços que
 
 ![Escolha preços](./media/app-insights-pricing/pricing-001.png)
 
-A. Reveja o volume dos seus dados para o mês. Isto inclui todos os dados que recebeu e mantidos (após qualquer [amostragem](app-insights-sampling.md)) de seu servidor e as aplicações de cliente e de testes de disponibilidade.  
+R. Reveja o volume dos seus dados para o mês. Isto inclui todos os dados que recebeu e mantidos (após qualquer [amostragem](app-insights-sampling.md)) de seu servidor e as aplicações de cliente e de testes de disponibilidade.  
 B. Cobrado separadamente é feito [testes web de vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (Isso não incluir testes de disponibilidade simples, que estão incluídos no custo de volume de dados.)  
 C. Ver as tendências de volume de dados do mês passado.  
 D. Ativar a ingestão de dados [amostragem](app-insights-sampling.md).   
@@ -159,6 +159,10 @@ Pode escrever um script para definir o plano de preços com a gestão de recurso
 ## <a name="limits-summary"></a>Resumo de limites
 
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## <a name="disable-daily-cap-e-mails"></a>Desativar o diário de limite de emails
+
+Para desativar os emails de limite de volume diário, no **configurar** secção de recurso do Application Insights, na **utilização e custos estimados** painel, selecione **limite diário** . Existem definições para enviar um e-mail quando for atingido o limite máximo, bem como quando um nível de aviso ajustável foi atingido. Se pretender desativar todas as diariamente cap relacionados com o volume e-mails desmarque as caixas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

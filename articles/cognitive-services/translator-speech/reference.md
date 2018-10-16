@@ -10,19 +10,20 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978714"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340448"
 ---
 # <a name="translator-speech-api"></a>API de Voz do Microsoft Translator
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Este serviço oferece uma API de transmissão em fluxo para transcrição de voz conversacional de um idioma em texto de outro idioma. A API também se integra capacidades de texto para discurso falar de volta o texto traduzido. A API de voz do Translator permite cenários como a tradução em tempo real de conversas, como visto no Skype Translator.
 
-Com a API de voz do Translator, aplicativos cliente transmitir áudio de voz para o serviço e volta recebem um fluxo de resultados com base em texto, que incluem o texto reconhecido no idioma de origem e a tradução exibida no idioma de destino. Resultados de texto são produzidos por meio da aplicação automática de voz reconhecimento (ASR) com tecnologia de redes neurais profundas para o fluxo de áudio de entrada. Saída brutos do ASR é ainda mais aprimorada por uma nova técnica denominada TrueText a fim de refletir mais de perto a intenção do utilizador. Por exemplo, TrueText remove disfluencies (hmms e coughs) e pontuação adequada de restauro e uso. A capacidade de máscara ou excluir profanities também está incluída. Os mecanismos de reconhecimento e a tradução estão treinados especificamente para lidar com voz conversacional. O serviço de tradução de voz utiliza deteção de silêncio, para determinar o final de uma expressão. Após uma pausa na atividade de voz, o serviço irá transmitir novamente um resultado final para a expressão foi concluída. O serviço também pode enviar os resultados de volta parciais, que proporcionam reconhecimentos intermediários e traduções para uma expressão em curso. Para obter resultados finais, o serviço fornece a capacidade de sintetizar voz (voz) a partir do texto falado nos idiomas de destino. Texto para discurso áudio é criado no formato especificado pelo cliente. Formatos de WAV e MP3 estão disponíveis.
+Com a API de voz do Translator, aplicativos cliente transmitir áudio de voz para o serviço e volta recebem um fluxo de resultados com base em texto, que incluem o texto reconhecido no idioma de origem e a tradução exibida no idioma de destino. Os resultados são produzidos ao aplicar o Reconhecimento de Voz Automático (ASR) com tecnologia de redes neurais avançadas para o fluxo de áudio de entrada. Saída brutos do ASR é ainda mais aprimorada por uma nova técnica denominada TrueText a fim de refletir mais de perto a intenção do utilizador. Por exemplo, TrueText remove disfluencies (hmms e coughs) e pontuação adequada de restauro e uso. A capacidade de mascarar ou excluir linguagem obscena também está incluída. Os mecanismos de reconhecimento e tradução foram preparados especificamente para processar vozes em conversa. O serviço de tradução de voz utiliza deteção de silêncio, para determinar o final de uma expressão. Após uma pausa na atividade de voz, o serviço irá transmitir o resultado final da expressão oral. O serviço também pode enviar resultados parciais, que proporcionam reconhecimentos e traduções intermediários para uma expressão em curso. Para obter resultados finais, o serviço fornece a capacidade de sintetizar voz (voz) a partir do texto falado nos idiomas de destino. O áudio de texto em voz é criado no formato especificado pelo cliente. Os formatos WAV e MP3 estão disponíveis.
 
 API de voz do Translator utiliza o protocolo WebSocket forneça um canal de comunicação de full duplex entre o cliente e o servidor. Um aplicativo exigirá estes passos para utilizar o serviço:
 

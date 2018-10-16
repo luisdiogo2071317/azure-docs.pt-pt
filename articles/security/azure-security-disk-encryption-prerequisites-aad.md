@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9fefe75d43630a68a2d22bdc3270f255587030d0
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311011"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341893"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>O Azure Disk Encryption pré-requisitos (versão anterior)
 
@@ -54,8 +54,8 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
   - Para escrever as chaves de encriptação para o seu Cofre de chaves, a VM de IaaS tem de conseguir ligar ao ponto final do Cofre de chaves.
   - A VM de IaaS tem de ser capaz de ligar a um ponto de extremidade de armazenamento do Azure que aloja o repositório de extensão do Azure e uma conta de armazenamento do Azure que aloja os ficheiros VHD.
   -  Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [do Azure Key Vault protegido por uma firewall](../key-vault/key-vault-access-behind-firewall.md).
-  - No Windows, se TLS 1.0 tem sido explicitamente desabilitado e a versão do .NET não foi atualizada para o 4.6 ou superior, a alteração de registo seguinte irá permitir ADE selecionar a versão mais recente do TLS: "Editor de registo do Windows versão 5.00
-
+  - No Windows, se TLS 1.0 tem sido explicitamente desabilitado e a versão do .NET não foi atualizada para 4.6 ou superior, a alteração de registo seguinte irá permitir ADE selecionar a versão mais recente do TLS:
+    
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
         "SchUseStrongCrypto"=dword:00000001
@@ -63,6 +63,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
         [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
         "SchUseStrongCrypto"=dword:00000001` 
+     
 
  
 

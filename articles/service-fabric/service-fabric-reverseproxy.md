@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 84869a93dfe2f979e207257ebac80773a172a776
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017929"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344630"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso no Azure Service Fabric
 Proxy inverso integrado do Azure Service Fabric ajuda a microsserviços em execução no cluster do Service Fabric detetar e comunicar com outros serviços que têm pontos finais de http.
@@ -155,6 +155,8 @@ Para serviços em execução no interior de contentores, pode utilizar a variáv
     var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
 ```
 Para o cluster local, `Fabric_NodeIPOrFQDN` está definido como "localhost" por predefinição. Inicie o cluster local com o `-UseMachineName` parâmetro para se certificar de que os contentores podem entrar em execução no nó de proxy inverso. Para obter mais informações, consulte [configurar o seu ambiente de desenvolvimento para depurar contentores](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+
+Serviços do Service Fabric que são executados dentro de contentores do Docker Compose requerem um especial docker-Compose *portas secção* http: ou https: configuração. Para obter mais informações, consulte [suporte de implementação do Docker Compose no Azure Service Fabric](service-fabric-docker-compose.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Definir e configurar o proxy inverso num cluster](service-fabric-reverseproxy-setup.md).

@@ -1,24 +1,25 @@
 ---
-title: Utilizar pronúncia personalizada - serviço de voz personalizada
-titlesuffix: Azure Cognitive Services
-description: Saiba como criar um modelo de idioma com o serviço de voz personalizada.
+title: Utilizar pronúncia personalizada com o serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Saiba como criar um modelo de idioma com o serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223479"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339819"
 ---
 # <a name="enable-custom-pronunciation"></a>Ativar pronúncia personalizada
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Pronúncia personalizada permite aos utilizadores definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa é um ficheiro de pronúncia (um ficheiro. txt simples).
 
 Eis como funciona. Num arquivo. txt único, pode inserir várias entradas de pronúncia personalizado. A estrutura é o seguinte:

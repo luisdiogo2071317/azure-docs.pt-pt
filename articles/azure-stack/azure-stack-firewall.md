@@ -1,6 +1,6 @@
 ---
-title: Firewall de pilha Azure planeamento de pilha do Azure integrado sistemas | Microsoft Docs
-description: Descreve as considerações de firewall de pilha do Azure implementações de vários nós ligado do Azure de pilha do Azure.
+title: Sistemas integrados do Azure firewall de pilha de planeamento para o Azure Stack | Documentos da Microsoft
+description: Descreve as considerações de firewall do Azure Stack para implementações de ligada ao Azure Stack Azure com vários nós.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,57 +12,57 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604221"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343658"
 ---
-# <a name="azure-stack-firewall-integration"></a>Integração de firewall de pilha do Azure
-É recomendado que utilize um dispositivo de firewall para o ajudar a proteger pilha do Azure. Embora as firewalls podem ajudar com coisas como distribuídas denial of service (DDoS distribuídos), deteção de intrusão e e ataques inspeção de conteúdo, pode também ficarem um estrangulamento do débito para serviços de armazenamento do Azure como blobs, tabelas e filas.
+# <a name="azure-stack-firewall-integration"></a>Integração da firewall do Azure Stack
+Recomenda-se que utilize um dispositivo de firewall para o ajudar a proteger do Azure Stack. Embora firewalls podem ajudar com coisas como distribuídos denial-of-service (DDOS) distribuídos, detecção de intrusão e inspeção de conteúdo, eles podem também se tornar um gargalo de serviços de armazenamento do Azure, como blobs, tabelas e filas.
 
-Com base no modelo de identidade do Azure Active Directory (Azure AD) ou Windows Server Active Directory os serviços de Federação (AD FS), poderá ser necessário para publicar o ponto final do AD FS. Se for utilizado um modo de implementação de desligado, tem de publicar o ponto final do AD FS. Para obter mais informações, consulte o [artigo de identidade de integração do Centro de dados](azure-stack-integrate-identity.md).
+Com base no modelo de identidade do Azure Active Directory (Azure AD) ou Windows Server Active Directory Federation Services (AD FS), poderá ser necessário para publicar o ponto de extremidade do AD FS. Se for utilizado um modo de implementação desligado, tem de publicar o ponto de extremidade do AD FS. Para obter mais informações, consulte a [artigo de identidade de integração do Centro de dados](azure-stack-integrate-identity.md).
 
-O Azure Resource Manager (administrador), o portal de administrador e a pontos finais do Cofre de chaves (administrador) não exige necessariamente de publicação externa. Por exemplo, como um fornecedor de serviços, pode querer limitar a superfície de ataque e administrar apenas a pilha de Azure a partir de dentro da sua rede e não a partir da internet.
+O Azure Resource Manager (administrador), o portal de administrador e pontos de extremidade do Key Vault (administrador) não requerem necessariamente publicação externa. Por exemplo, como um fornecedor de serviços, pode querer limitar a superfície de ataque e administrar o Azure Stack de apenas no interior da rede e não a partir da internet.
 
-Para organizações de empresa, a rede externa pode ser a rede empresarial existente. Neste cenário, é necessário publicar os pontos finais para operar pilha do Azure a partir da rede empresarial.
+Para organizações empresariais, a rede externa pode ser a rede empresarial existente. Neste cenário, tem de publicar os pontos finais para operar o Azure Stack da rede empresarial.
 
 ### <a name="network-address-translation"></a>Tradução de Endereços de Rede
-Tradução de endereços de rede (NAT) é o método recomendado para permitir que a máquina virtual de implementação (DVM) para aceder os recursos externos e a internet durante a implementação, bem como as VMs de consola de recuperação de emergência (ERCS) ou com privilégios ponto final (PEP) durante a registo e a resolução de problemas.
+Tradução de endereços de rede (NAT) é o método recomendado para permitir que a máquina de virtual de implementação (DVM) para aceder os recursos externos e a internet durante a implementação, bem como as VMs da consola de recuperação de emergência (ERCS) ou com privilégios ponto final (PEP) durante o registo e resolução de problemas.
 
-NAT também pode ser uma alternativa para endereços IP públicos no VIPs públicas ou de rede externa. No entanto, não é recomendada para fazê-lo porque limita a experiência de utilizador de inquilino e aumenta a complexidade. As duas opções seria um NAT 1:1, que ainda necessita de um IP público por IP de utilizador no conjunto ou muitos: 1 NAT que necessita de uma regra NAT por utilizador VIP que contém as associações de todas as portas de que um utilizador pode utilizar.
+NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicas. No entanto, não é recomendado fazê-lo porque limita a experiência de utilizador do inquilino e aumenta a complexidade. As duas opções seria um NAT de 1:1 ainda requer um IP público por IP de utilizador no conjunto ou muitos: 1 NAT que necessita de um NAT regra por utilizador VIP que contém as associações para todas as portas de um utilizador poderá utilizar.
 
-Algumas das downsides da utilização de NAT para o VIP público são:
-- NAT sobrecarga adiciona ao gerir regras de firewall porque dos utilizadores para controlar os seus próprios pontos finais e as suas próprias regras de publicação na pilha de rede (SDN) definidas por software. Os utilizadores tem de contactar o operador de pilha do Azure para obter os VIPs publicadas e para atualizar a lista de portas.
-- Embora a utilização NAT limita a experiência de utilizador, fornece controlo total para o operador através de pedidos de publicação.
+Algumas das desvantagens da utilização de NAT para o VIP público são:
+- NAT sobrecarga adiciona ao gerir regras de firewall, uma vez que os utilizadores controlar seus próprios pontos finais e suas próprias regras de publicação na pilha de rede (SDN) definidas por software. Os utilizadores têm de contactar o operador do Azure Stack para obter seus VIPs publicadas e para atualizar a lista de porta.
+- Embora a utilização NAT limita a experiência do usuário, dá-controlo total para o operador ao longo de pedidos de publicação.
 - Para cenários de nuvem híbrida com o Azure, considere que o Azure não suporta a configuração de um túnel VPN para um ponto final com NAT.
 
 ### <a name="ssl-decryption"></a>Desencriptação de SSL
-Recomenda-se atualmente para desativar a desencriptação de SSL em todo o tráfego de pilha do Azure. Caso seja suportado nas atualizações futuras, será fornecida orientação sobre como ativar a desencriptação de SSL para a pilha do Azure.
+Recomenda-se atualmente para desativar a desencriptação de SSL em todo o tráfego do Azure Stack. Caso seja suportado em atualizações futuras, será fornecida orientação sobre como ativar a desencriptação de SSL para o Azure Stack.
 
-## <a name="edge-firewall-scenario"></a>Cenário de firewall de limite
-Uma implementação de limite, pilha do Azure é implementada diretamente atrás da firewall ou o router de limite. Nestes cenários, é suportada para a firewall para estar acima do limite (cenário 1) em que suporta configurações de firewall de ativo-ativo e ativa-passiva ou agir como o dispositivo de limite (cenário 2), onde apenas suporta firewall ativo-ativo configuração de entidade confiadora no igual custo várias caminho (ECMP) com o BGP ou encaminhamento estático para a ativação pós-falha.
+## <a name="edge-firewall-scenario"></a>Cenário de firewall de borda
+Uma implementação do edge, do Azure Stack é implementado diretamente por trás do firewall ou o router de limite. Nestes cenários, é suportada para a firewall para estar acima do limite (cenário 1) em que ele oferece suporte a configurações de firewall de ativo-ativo e ativa-passiva ou agir como o dispositivo de limite (cenário com 2) em que ela oferece suporte apenas a firewall de ativo-ativo configuração da entidade confiadora no igual custo múltiplas caminho (ECMP) com o BGP ou o encaminhamento estático para a ativação pós-falha.
 
-Normalmente, os endereços IP encaminháveis públicos especificados para o conjunto VIP público da rede externa no momento da implementação. Num cenário de limite, não se recomenda utilizar IPs encaminháveis públicos em qualquer outra rede por motivos de segurança. Este cenário permite que um utilizador experimentar a experiência de nuvem automática controlada completa como uma nuvem pública, como o Azure.  
+Normalmente, os endereços IP encaminháveis públicos são especificados para o conjunto de VIP público da rede externa no momento da implementação. Num cenário de borda, não é recomendado para utilizar os IPs encaminháveis público em qualquer outra rede por motivos de segurança. Este cenário permite que um utilizador experimentar a experiência de cloud Self-controlado completa como numa nuvem pública, como o Azure.  
 
-![Exemplo de firewall de limite de pilha do Azure](.\media\azure-stack-firewall\firewallScenarios.png)
+![Exemplo de firewall de borda do Azure Stack](.\media\azure-stack-firewall\firewallScenarios.png)
 
-## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet ou perímetro rede firewall cenário empresarial
-Implementação empresarial da intranet ou de perímetro, pilha do Azure é implementada uma firewall a zona várias ou entre firewall de limite e a firewall da rede empresarial interna. Em seguida, o respetivo tráfego é distribuído entre a rede de perímetro segura, (ou DMZ) e zonas não seguros, como descrito abaixo:
+## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Perímetro de intranet ou rede firewall cenário empresarial
+Numa implementação empresarial da intranet ou de perímetro, o Azure Stack é implementado numa firewall a zona de múltiplas ou entre o firewall de borda e a firewall da rede interna, corporativos. Em seguida, o seu tráfego é distribuído entre a rede de perímetro seguro, (ou rede de Perímetro), e zonas não seguros, como descrito abaixo:
 
-- **Zona segura**: Esta é a rede interna que utiliza endereços IP encaminháveis internos ou da empresariais. A rede segura pode ser dividida, tem acesso de saída à internet através de NAT na Firewall e normalmente acessível a partir em qualquer lugar no seu centro de dados através da rede interna. Todas as redes de pilha do Azure devem residir na zona segura, exceto para o conjunto de VIP público da rede externa.
-- **Zona de perímetro**. Rede de perímetro é onde externo ou internet com aplicações, como servidores Web, normalmente, são implementados. Normalmente, é monitorizado por uma firewall para evitar ataques como DDoS e intrusões (pirataria), permitindo ainda que o tráfego de entrada especificado através da internet. Apenas o rede externa público conjunto VIP da pilha do Azure deve residir na zona de rede de Perímetro.
-- **Zona não segura**. Esta é a rede externa, a internet. - **Não é** recomendado para implementar a pilha do Azure na zona não segura.
+- **Zona segura**: Esta é a rede interna, que utiliza endereços IP encaminháveis internos ou empresariais. A rede segura pode ser dividida, ter acesso de saída de internet através de NAT na Firewall e é, normalmente, acessível a partir de qualquer lugar dentro do seu datacenter através da rede interna. Todas as redes do Azure Stack devem residir na zona de segurança, exceto para o conjunto de VIP público da rede externa.
+- **Zona de perímetro**. A rede de perímetro é onde externos ou aplicativos, como servidores Web são normalmente implementados de com acesso à internet. Normalmente, é monitorizado por uma firewall para evitar ataques, como DDoS e intrusões (hacking), mas permite que o tráfego de entrada especificado da internet. Apenas o rede externa conjunto de VIP públicos do Azure Stack deve residir na zona de rede de Perímetro.
+- **Zona não segura**. Esta é a rede externa, a internet. Ele **není** recomendado para implementar o Azure Stack na zona sem segurança.
 
-![Exemplo de rede de perímetro de pilha do Azure](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Exemplo de rede de perímetro do Azure Stack](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Saiba mais
-Saiba mais sobre [portas e protocolos utilizados pelos pontos finais de pilha do Azure](azure-stack-integrate-endpoints.md).
+Saiba mais sobre [portas e protocolos utilizados pelos pontos de extremidade do Azure Stack](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Requisitos de PKI de pilha do Azure](azure-stack-pki-certs.md)
+[Requisitos de PKI da pilha do Azure](azure-stack-pki-certs.md)
 

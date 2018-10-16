@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 84cba0cb156e1d847c92596a9f2f6017a429b9d2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 18188b8c0572057fb9277294c381de12df196439
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113823"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343933"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
 
@@ -24,6 +24,9 @@ Com o serviço Azure Machine Learning, pode preparar o seu modelo em vários amb
 Um destino de computação é o recurso que executa o script de treinamento ou anfitriões seu modelo quando for implementada como um serviço web. Eles podem ser criados e geridos com o SDK do Azure Machine Learning ou a CLI. Se tiver de destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
 
 Pode começar com execuções locais no seu computador e, em seguida, aumentar verticalmente e horizontalmente para outros ambientes, tais como máquinas de virtuais de ciência de dados remotas com GPU ou do Azure Batch AI. 
+
+>[!NOTE]
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.168 
 
 ## <a name="supported-compute-targets"></a>Destinos de computação suportados
 
@@ -106,7 +109,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124156"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320344"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
@@ -111,6 +111,33 @@ Sob **configuração do acesso JIT da VM**, também pode adicionar e configurar 
 > [!NOTE]
 >Quando o acesso JIT da VM está ativado para uma VM, o Centro de segurança do Azure cria negar todas as regras de tráfego de entrada para as portas selecionadas nos grupos de segurança de rede associados a ele. As regras será a prioridade dos seus grupos de segurança de rede ou a prioridade mais baixa do que as regras existentes que já existem. Isso depende de uma análise realizada pelo centro de segurança do Azure que determina se uma regra é segura ou não.
 >
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Conjunto just-in-time dentro de uma VM
+
+Para que seja fácil de implementar o acesso just-in-time nas suas VMs, pode definir uma VM para permitir que apenas just-in-time acedam diretamente a partir de dentro da VM.
+
+1. No portal do Azure, selecione **máquinas virtuais**.
+2. Clique na máquina virtual que pretende limitar o acesso just-in-time.
+3. No menu, clique em **configuração**.
+4. Sob **apenas no tempo de acesso** clique em **ativar política just-in-time**. 
+
+Isto permite o acesso just-in-time para a VM com as seguintes definições:
+
+- Servidores do Windows:
+    - Porta RDP 3389
+    - 3 horas de acesso
+    - Endereços IP de origem permitidos está definido como, por pedido
+- Servidores Linux:
+    - Porta SSH 22
+    - 3 horas de acesso
+    - Endereços IP de origem permitidos está definido como, por pedido
+     
+Se uma VM já tiver just-in-time ativada, quando vai para a página de configuração será capaz de ver que just-in-time estiver ativado e que pode utilizar a ligação para abrir a política no Centro de segurança do Azure para ver e alterar as definições.
+
+![configuração de JIT em vm](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Pedir acesso a uma VM
 
 Para pedir acesso a uma VM:

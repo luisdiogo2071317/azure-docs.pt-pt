@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950187"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344562"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas suportados pela API de voz do Translator
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Os seguintes idiomas são suportados para tradução de voz. Se ambos os idiomas são suportados para tradução de voz, conversão de voz para a conversão de voz ou de voz em texto estão disponíveis. Se o idioma de destino não é suportado para a tradução de voz, apenas a voz para tradução de texto está disponível. 
 
 | Idiomas de voz    |
@@ -36,7 +38,7 @@ Os seguintes idiomas são suportados para tradução de voz. Se ambos os idiomas
 
 A API de voz do Translator suporta os seguintes idiomas como um idioma de destino para a conversão de voz em tradução de texto. 
 
-| Idioma de texto    | Código de idioma |
+| Idioma de texto    | Código do idioma |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |

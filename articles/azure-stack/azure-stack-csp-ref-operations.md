@@ -11,33 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729591"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343848"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerir o registo do inquilino no Azure Stack
 
 *Aplica-se a: sistemas integrados do Azure Stack*
 
-Este artigo contém detalhes sobre as operações que pode utilizar para gerir os registos de inquilino e como a utilização do inquilino é rastreada. Pode encontrar detalhes sobre como adicionar, lista, ou remova os mapeamentos de inquilino. Pode utilizar o PowerShell ou os pontos finais de API de faturação para gerir a utilização de controlo.
+Este artigo contém detalhes sobre operações de registo. Pode usar essas operações para:
+- Gerir registos de inquilino
+- Gerir o controlo de utilização do inquilino
+
+Pode encontrar detalhes sobre como adicionar, lista, ou remova os mapeamentos de inquilino. Pode utilizar o PowerShell ou os pontos finais de API de faturação para gerir a utilização de controlo. Pode encontrar detalhes sobre como adicionar, lista, ou remova os mapeamentos de inquilino. Pode utilizar o PowerShell ou os pontos finais de API de faturação para gerir a utilização de controlo.
 
 ## <a name="add-tenant-to-registration"></a>Adicionar o inquilino para registo
 
-Esta operação é utilizada quando pretende adicionar um novo inquilino para o registo, para que seu uso é reportado numa subscrição do Azure ligado ao seu inquilino do Azure Active Directory (Azure AD).
+Usar a operação quando deseja adicionar um novo inquilino para o registo. Utilização do inquilino é reportada numa subscrição do Azure ligado ao seu inquilino do Azure Active Directory (Azure AD).
 
-Também pode usar essa operação se pretender alterar a subscrição associada um inquilino, pode chamar PUT/New-AzureRMResource novamente. O mapeamento antigo é substituído.
+Também pode utilizar a operação se pretender alterar a subscrição associada um inquilino. Chame PUT/New-AzureRMResource para substituir o mapeamento anterior.
 
-Tenha em atenção que apenas uma subscrição do Azure pode ser associada a um inquilino. Se tentar adicionar uma segunda assinatura a um inquilino existente, a primeira assinatura é escrita excessiva. 
+Pode associar uma única subscrição do Azure com um inquilino. Se tentar adicionar uma segunda assinatura a um inquilino existente, a primeira assinatura é escrita excessiva.
 
 ### <a name="use-api-profiles"></a>Utilizar perfis de API
 
-Os cmdlets neste artigo exigem que especifique um perfil de API quando a executar o PowerShell. Perfis de API representam um conjunto de fornecedores de recursos do Azure e suas versões de API. Eles ajudam a utilizar a versão correta da API ao interagir com múltiplas clouds do Azure, por exemplo ao trabalhar com global do Azure e o Azure Stack. Os perfis são especificados por um nome que corresponde à respetiva data de lançamento. Neste artigo, terá de utilizar o **2017-09-03** perfil.
+Os cmdlets de registo exigem que especifique um perfil de API quando a executar o PowerShell. Perfis de API representam um conjunto de fornecedores de recursos do Azure e suas versões de API. Eles ajudá-lo a utilizar a versão correta da API ao interagir com várias clouds do Azure. Por exemplo, trabalha com várias clouds ao trabalhar com global do Azure e o Azure Stack. Perfis de especificar um nome que corresponde à respetiva data de lançamento. Terá de utilizar o **2017-09-03** perfil.
 
 Para obter mais informações sobre o Azure Stack e perfis de API, consulte [perfis de versão de API de gerir no Azure Stack](user/azure-stack-version-profiles.md). Para obter instruções sobre como colocar em funcionamento com o perfil de API com o PowerShell, consulte [perfis de versão de API de utilização para o PowerShell no Azure Stack](user/azure-stack-version-profiles-powershell.md).
 
@@ -46,7 +50,7 @@ Para obter mais informações sobre o Azure Stack e perfis de API, consulte [per
 | Parâmetro                  | Descrição |
 |---                         | --- |
 | registrationSubscriptionID | A subscrição do Azure que foi utilizada para o registo inicial. |
-| customerSubscriptionID     | A subscrição do Azure (não o Azure Stack) pertencentes ao cliente sejam registrados. Tem de ser criada na oferta do fornecedor de serviços Cloud (CSP). Na prática, isso significa através do Centro de parceiros. Se um cliente tiver mais do que um inquilino, esta subscrição tem de ser criada no inquilino que será utilizado para iniciar sessão no Azure Stack. |
+| customerSubscriptionID     | A subscrição do Azure (não o Azure Stack) pertencentes ao cliente sejam registrados. Tem de ser criada na oferta do fornecedor de serviços Cloud (CSP) através do Centro de parceiros. Se um cliente tiver mais do que um inquilino, criar uma subscrição para o inquilino iniciar sessão no Azure Stack. |
 | resourceGroup              | O grupo de recursos no Azure em que o registo é armazenado. |
 | registrationName           | O nome do registo do seu Azure Stack. É um objeto armazenado no Azure. O nome, normalmente, está a ser azurestack ponto o formulário-CloudID, onde CloudID é o ID de Cloud da sua implementação do Azure Stack. |
 

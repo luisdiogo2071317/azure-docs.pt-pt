@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 78ae04d3c51cf8039dcdd067594afafae606f5e3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310560"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341128"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -105,17 +105,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Rastreamento de aberto e Application Insights
 
-[Abra o rastreio](http://opentracing.io/) e o Application Insights procura de modelos de dados 
+O [especificação do modelo de dados de rastreio aberto](http://opentracing.io/) e modelos de dados do Application Insights do mapa da seguinte forma:
 
-- `request`, `pageView` mapeado para **Span** com `span.kind = server`
-- `dependency` é mapeado para **Span** com `span.kind = client`
-- `id` de um `request` e `dependency` mapeia para **Span.Id**
-- `operation_Id` mapeia para **TraceId**
-- `operation_ParentId` é mapeado para **referência** do tipo `ChildOf`
+| Application Insights                  | Abra o rastreio                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span` com o `span.kind = server`                  |
+| `Dependency`                          | `Span` com o `span.kind = client`                  |
+| `Id` de `Request` e `Dependency`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `Reference` do tipo `ChildOf` (o intervalo de principal)   |
 
-Ver [modelo de dados](application-insights-data-model.md) para o modelo de tipos e dados do Application Insights.
+Para obter mais informações sobre o modelo de dados do Application Insights, veja [modelo de dados](application-insights-data-model.md). 
 
-Ver [especificação](https://github.com/opentracing/specification/blob/master/specification.md) e [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) para obter definições de rastreio aberto conceitos.
+Consulte o rastreio Open [especificação](https://github.com/opentracing/specification/blob/master/specification.md) e [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) para obter definições de rastreio aberto conceitos.
 
 
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria no .NET

@@ -1,24 +1,25 @@
 ---
-title: Obter chaves de subscrição - serviço de voz personalizada
-titlesuffix: Azure Cognitive Services
-description: Saiba como obter chaves de subscrição para chamadas para o serviço de voz personalizada.
+title: Obter chaves de subscrição para o serviço de voz personalizada no Azure | Documentos da Microsoft
+description: Saiba como obter chaves de subscrição para chamadas para o serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: e4694928baf98bdb0d6aacead8dffec6bb73d6f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224777"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338374"
 ---
 # <a name="obtain-subscription-keys"></a>Obter chaves de subscrição
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Para começar a utilizar o serviço de voz personalizada do Azure, primeiro tem de ligar a sua conta de utilizador para uma subscrição do Azure. As assinaturas para os escalões gratuito e pagos estão disponíveis. Para obter informações sobre os escalões de mensagens em fila, consulte a [página de preços](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 ## <a name="get-a-subscription-key"></a>Obter uma chave de subscrição

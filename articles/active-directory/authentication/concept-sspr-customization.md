@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222793"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318967"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -55,7 +55,9 @@ Administradores do Active Directory Federation Services (AD FS), podem adicionar
 
 Para adicionar uma ligação para a página de início de sessão do AD FS, utilize o seguinte comando no seu servidor AD FS. Os utilizadores podem utilizar esta página para introduzir o fluxo de trabalho do SSPR.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personalizar o início de sessão na página e acesso painel aspeto e funcionalidade
 
@@ -65,8 +67,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois de um utilizador introduz o respetivo nome de utilizador
 * Se o usuário acessa o URL personalizado:
-    * Passando o *whr* parâmetro para a palavra-passe de reposição de página, como "https://login.microsoftonline.com/?whr=contoso.com"
-    * Passando o *nome de utilizador* parâmetro para a palavra-passe de reposição de página, como "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Passando o `whr` parâmetro para a palavra-passe de reposição de página, como "https://login.microsoftonline.com/?whr=contoso.com"
+    * Passando o `username` parâmetro para a palavra-passe de reposição de página, como "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 Obter detalhes sobre como configurar a imagem corporativa no artigo [adicionar imagem corporativa à sua página de início de sessão no Azure AD](../fundamentals/customize-branding.md).
 

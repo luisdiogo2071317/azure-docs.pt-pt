@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 5dcd588d525fe296348bd01252846bc498261018
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f2af216dc199de7a49546a903b929a17cbddfe9f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394748"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341196"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Introdução ao IoT Hub do Azure tutoriais de dispositivos físicos
 
@@ -22,14 +22,8 @@ Estes tutoriais apresentá-lo para o IoT Hub do Azure e os SDKs do dispositivo. 
 
 | Dispositivo IoT                       | Linguagem de programação |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [NODE. js][Pi_Nd], [C][Pi_C]  |
-| IoT DevKit                      | [Arduino no VSCode][DevKit]     |
-| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
+| Raspberry Pi                    | [NODE. js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
+| IoT DevKit                      | [Arduino no VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)              |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
-
-
-[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
-[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
-[DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
-[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md

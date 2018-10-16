@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2a52735a7f573534c6d643e778a898a888dfc81f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114588"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344851"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -81,7 +81,7 @@ Utilize o seguinte modelo JSON para o **opções de criar contentor** campo. Con
    }
    ```   
    
-As opções de criar, JSON, atualizar `\<your storage account name\>` com qualquer nome. Atualização `\<your storage account key\>` com uma chave de base64 de 64 bytes. Pode gerar uma chave com ferramentas como o [GeneratePlus](https://generate.plus/en/base64) que permite-lhe selecionar o comprimento de byte. Irá utilizar estas credenciais para aceder ao armazenamento de BLOBs a partir de outros módulos.
+As opções de criar, JSON, atualizar `\<your storage account name\>` com qualquer nome. Atualização `\<your storage account key\>` com uma chave de base64 de 64 bytes. Pode gerar uma chave com ferramentas como o [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) que permite-lhe selecionar o comprimento de byte. Irá utilizar estas credenciais para aceder ao armazenamento de BLOBs a partir de outros módulos.
 
 As opções de criar, JSON, atualizar `<storage directory bind>` consoante o sistema operativo do contentor. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no seu dispositivo IoT Edge onde pretende que o módulo de BLOBs para armazenar os dados.  
 
@@ -150,7 +150,7 @@ O modelo de solução cria um modelo de manifesto de implantação que inclua a 
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Forneça qualquer nome para o nome da conta de armazenamento e forneça uma chave de 64 bytes base64 para a chave de conta de armazenamento. Pode gerar uma chave com ferramentas como o [GeneratePlus](https://generate.plus/en/base64). Irá utilizar estas credenciais para aceder ao armazenamento de BLOBs a partir de outros módulos. 
+8. Forneça qualquer nome para o nome da conta de armazenamento e forneça uma chave de 64 bytes base64 para a chave de conta de armazenamento. Pode gerar uma chave com ferramentas como o [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Irá utilizar estas credenciais para aceder ao armazenamento de BLOBs a partir de outros módulos. 
 
 9. Guarde **. env**. 
 

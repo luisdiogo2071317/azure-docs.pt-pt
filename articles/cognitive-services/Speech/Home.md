@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: ca1045bcec889e1de47b44a44322579f8b60598f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586194"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340363"
 ---
 # <a name="what-is-bing-speech"></a>O que é de voz do Bing?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 API de voz o Bing de Microsoft baseado na nuvem fornece aos desenvolvedores uma forma fácil de criar funcionalidades poderosas com funcionalidade de voz em seus aplicativos, como controle de comandos de voz, caixa de diálogo de utilizador com conversa natural de voz e transcrição de voz e ditado. A API de voz de Microsoft oferece suporte a ambos *conversão de voz em texto* e *texto em voz* conversão.
 
 - **Conversão de voz em texto** API converte voz humana em texto que pode ser utilizado como entrada ou de comandos para controlar a sua aplicação.
 - **Texto em voz** API converte texto em fluxos de áudio que podem ser reproduzidos para o utilizador da sua aplicação.
-
-> [!NOTE] 
-> Desde Setembro de 2018, o novo [serviço de voz](../speech-service/index.yml) tornou-se em disponibilidade geral. É recomendável que [experimentar gratuitamente](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Conversão de voz em texto (reconhecimento de voz)
 

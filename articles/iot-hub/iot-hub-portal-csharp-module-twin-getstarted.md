@@ -9,24 +9,27 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 3de08d9e4a45b842fc921436f855831afb6b9ce0
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055399"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321178"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
 
 > [!NOTE]
 > As [identidades de módulo e os módulos duplos](iot-hub-devguide-module-twins.md) assemelham-se à identidade do dispositivo e ao dispositivo duplo do Hub IoT do Azure, exceto no facto de oferecerem melhor granularidade. Enquanto a identidade do dispositivo e o dispositivo duplo do Hub IoT do Azure permitem que a aplicação de back-end configure um dispositivo e conferem visibilidade às condições do dispositivo, uma identidade de módulo e o módulo duplo fornecem estas capacidades para componentes individuais de um dispositivo. Em dispositivos compatíveis com vários componentes, tais como dispositivos baseados no sistema operativo ou dispositivos de firmware, permitem a configuração e condições isoladas para cada componente.
+>
 
-Neste tutorial, irá aprender o seguinte 
+Neste tutorial, irá aprender:
+
 1. como criar uma identidade de módulo no portal. 
-2. como utilizar o SDK de dispositivo .NET para atualizar o módulo duplo a partir do dispositivo.
+1. como utilizar o SDK de dispositivo .NET para atualizar o módulo duplo a partir do dispositivo.
 
 > [!NOTE]
 > Para informações sobre os SDKs do Azure IoT que pode utilizar para criar quer as aplicações a executar em dispositivos, quer a sua solução de back-end, veja [Azure IoT SDKs][lnk-hub-sdks].
+>
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -39,115 +42,123 @@ Para concluir este tutorial, precisa do seguinte:
 
 Agora, já tem o seu Hub IoT. Abra o [portal](https://portal.azure.com) e navegue para o seu Hub IoT. Clique em Dispositivos IoT e, em seguida, clique em Adicionar para criar uma identidade do dispositivo. Atribua-lhe o nome **MyFirstDevice**. 
 
-![Criar a identidade de dispositivo][8]
+  ![Criar a identidade de dispositivo][8]
 
 Depois de guardar, na lista de identidades do dispositivo, pode constatar que a identidade MyFirstDevice foi criada com êxito.
 
-![Id de dispositivo criado][11]
+  ![Id de dispositivo criado][11]
 
 Agora, clique na linha. Irá ver os detalhes do dispositivo.
 
-![Detalhes do dispositivo][10]
+  ![Detalhes do dispositivo][10]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Criar uma identidade de módulo no portal
 
 Numa identidade do dispositivo, pode criar até 20 identidades de módulo. Clique no botão **Adicionar Identidade de Módulo** na parte superior para criar a sua primeira identidade de módulo denominada **myFirstModule**. 
 
-![Detalhes do dispositivo][9]
+  ![Detalhes do dispositivo][9]
 
 Guarde e clique na identidade de módulo acabada de criar. Pode ver os detalhes da identidade de módulo. Guarde a Cadeia de ligação - chave primária. Será utilizada na secção seguinte onde configura o módulo no dispositivo.
 
-![Detalhes do dispositivo][12]
+  ![Detalhes do dispositivo][12]
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Atualizar o módulo duplo com o SDK de dispositivo .NET
 
 Criou a identidade de módulo com êxito no seu Hub IoT. Vamos tentar comunicar com a cloud a partir do seu dispositivo simulado. Quando uma identidade de módulo é criada, é criado implicitamente um módulo duplo no Hub IoT. Nesta secção, irá criar uma aplicação de consola .NET no seu dispositivo simulado que atualiza as propriedades reportadas do módulo duplo.
 
-1. **Crie um projeto do Visual Studio** - No Visual Studio, adicione um projeto Visual C# - Windows Classic Desktop à solução existente ao utilizar o modelo de projeto **Console App (.NET Framework)**. Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework. Atribua o nome **UpdateModuleTwinReportedProperties** ao projeto.
+## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-    ![Criar um projeto do Visual Studio][13]
+No Visual Studio, adicione um projeto do Visual c# Windows ambiente de trabalho clássico à solução existente, utilizando o **aplicação de consola (.NET Framework)** modelo de projeto. Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework. Atribua o nome **UpdateModuleTwinReportedProperties** ao projeto.
 
-2. **Instalar o dispositivo de Hub de IoT do Azure .NET SDK mais recente** -módulo duplo de identidade e o módulo está em pré-visualização pública. Esta só está disponível nos SDKs de dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra tools > Nuget package manager > manage Nuget packages for solution. Procure Microsoft.Azure.Devices.Client. Certifique-se de que selecionou a caixa de verificação Include prerelease. Selecione a versão mais recente e instale. Agora, tem acesso a todas as funcionalidades de módulo. 
+  ![Criar um projeto do Visual Studio][13]
 
-    ![Instalar o SDK de serviço .NET do Hub IoT do Azure V1.16.0-preview-005][14]
+## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Instalar o dispositivo de Hub de IoT do Azure .NET SDK mais recente
 
-3. **Obtenha a sua cadeia de ligação do módulo** – agora, se iniciar sessão no [portal do Azure][lnk-portal]. Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e veja se myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
+Módulo duplo de identidade e o módulo está em pré-visualização pública. Esta só está disponível nos SDKs de dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra tools > Nuget package manager > manage Nuget packages for solution. Procure Microsoft.Azure.Devices.Client. Certifique-se de que selecionou a caixa de verificação Include prerelease. Selecione a versão mais recente e instale. Agora, tem acesso a todas as funcionalidades de módulo. 
 
-    ![Detalhe do módulo no portal do Azure][15]
+  ![Instalar o SDK de serviço .NET do Hub IoT do Azure V1.16.0-preview-005][14]
 
-4. **Crie a aplicação de consola UpdateModuleTwinReportedProperties** - Adicione as seguintes instruções `using` na parte superior do ficheiro **Program.cs**:
+## <a name="get-your-module-connection-string"></a>Obter a cadeia de ligação do módulo
 
-    ```csharp
-    using Microsoft.Azure.Devices.Client;
-    using Microsoft.Azure.Devices.Shared;
-    ```
+Inicie sessão no [portal do Azure][lnk-portal]. Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e veja se myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
 
-    Adicione os seguintes campos à classe **Programa**. Substitua o valor do marcador de posição pela cadeia de ligação do módulo.
+  ![Detalhe do módulo no portal do Azure][15]
 
-    ```csharp
-    private const string ModuleConnectionString = "<Your module connection string>";
-    private static ModuleClient Client = null;
-    ```
+## <a name="create-updatemoduletwinreportedproperties-console-app"></a>Criar aplicação de consola UpdateModuleTwinReportedProperties
 
-    Adicione o seguinte método **OnDesiredPropertyChanged** à classe **Program**:
+Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
 
-    ```csharp
-    private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
-        {
-            Console.WriteLine("desired property change:");
-            Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-            Console.WriteLine("Sending current time as reported property");
-            TwinCollection reportedProperties = new TwinCollection
-            {
-                ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
-            };
+```csharp
+using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Shared;
+```
 
-            await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
-        }
-    ```
+Adicione os seguintes campos à classe **Programa**. Substitua o valor do marcador de posição pela cadeia de ligação do módulo.
 
-    Por fim, adicione as seguintes linhas ao método **Main**:
+```csharp
+private const string ModuleConnectionString = "<Your module connection string>";
+private static ModuleClient Client = null;
+```
 
-    ```csharp
-    static void Main(string[] args)
+Adicione o seguinte método **OnDesiredPropertyChanged** à classe **Program**:
+
+```csharp
+private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
     {
-        Microsoft.Azure.Devices.Client.TransportType transport = Microsoft.Azure.Devices.Client.TransportType.Amqp;
-
-        try
+        Console.WriteLine("desired property change:");
+        Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+        Console.WriteLine("Sending current time as reported property");
+        TwinCollection reportedProperties = new TwinCollection
         {
-            Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
-            Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
-            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+            ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
+        };
 
-            Console.WriteLine("Retrieving twin");
-            var twinTask = Client.GetTwinAsync();
-            twinTask.Wait();
-            var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
-
-            Console.WriteLine("Sending app start time as reported property");
-            TwinCollection reportedProperties = new TwinCollection();
-            reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
-
-            Client.UpdateReportedPropertiesAsync(reportedProperties);
-        }
-        catch (AggregateException ex)
-        {
-            Console.WriteLine("Error in sample: {0}", ex);
-        }
-
-        Console.WriteLine("Waiting for Events.  Press enter to exit...");
-        Console.ReadKey();
-        Client.CloseAsync().Wait();
+        await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
     }
-    
-    private static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+```
+
+Por fim, adicione as seguintes linhas ao método **Main**:
+
+```csharp
+static void Main(string[] args)
+{
+    Microsoft.Azure.Devices.Client.TransportType transport = Microsoft.Azure.Devices.Client.TransportType.Amqp;
+
+    try
     {
-        Console.WriteLine($"Status {status} changed: {reason}");
-    }
-    ```
+        Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
+        Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
+        Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
 
-    Este código de exemplo mostra como obter o módulo duplo e atualizar as propriedades reportadas com o protocolo AMQP. Na pré-visualização pública, o protocolo AMQP só é suportado para operações de módulo duplo.
+        Console.WriteLine("Retrieving twin");
+        var twinTask = Client.GetTwinAsync();
+        twinTask.Wait();
+        var twin = twinTask.Result;
+        Console.WriteLine(JsonConvert.SerializeObject(twin));
+
+        Console.WriteLine("Sending app start time as reported property");
+        TwinCollection reportedProperties = new TwinCollection();
+        reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
+
+        Client.UpdateReportedPropertiesAsync(reportedProperties);
+    }
+    catch (AggregateException ex)
+    {
+        Console.WriteLine("Error in sample: {0}", ex);
+    }
+
+    Console.WriteLine("Waiting for Events.  Press enter to exit...");
+    Console.ReadKey();
+    Client.CloseAsync().Wait();
+}
+
+private static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+{
+    Console.WriteLine($"Status {status} changed: {reason}");
+}
+```
+
+Este código de exemplo mostra como obter o módulo duplo e atualizar as propriedades reportadas com o protocolo AMQP. Na pré-visualização pública, o protocolo AMQP só é suportado para operações de módulo duplo.
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 

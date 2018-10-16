@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 297ba626d8b80d9362476ca4578e34140df5f91a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248658"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319715"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Log Analytics.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -101,7 +101,7 @@ Os exemplos nas próximas seções tem código de exemplo para ajudar a criar um
 ## <a name="request-body"></a>Corpo do pedido
 O corpo da mensagem deve estar no JSON. Tem de incluir um ou mais registos com os pares de nome e valor de propriedade no seguinte formato:
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -114,7 +114,7 @@ O corpo da mensagem deve estar no JSON. Tem de incluir um ou mais registos com o
 
 Pode do batch vários registos num único pedido utilizando o formato seguinte. Todos os registros tem de ser o mesmo tipo de registo.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -218,7 +218,7 @@ Para cada exemplo, efetue estes passos para definir as variáveis para o cabeça
 Em alternativa, pode alterar as variáveis para o tipo de registo e dados JSON.
 
 ### <a name="powershell-sample"></a>Exemplo do PowerShell
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -301,7 +301,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### <a name="c-sample"></a>Exemplo C#
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -387,7 +387,7 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-2-sample"></a>Exemplo de Python 2
-```
+```python
 import json
 import requests
 import datetime

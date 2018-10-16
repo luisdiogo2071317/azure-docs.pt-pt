@@ -10,16 +10,17 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 75166fcf42943e6c411acb2092272982e2dd1033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 778a9e1e2767d5bae8d661dcd70a42d0d7d0caae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963153"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339411"
 ---
 # <a name="bing-speech-client-samples"></a>Exemplos de cliente de voz do Bing
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+ 
 Voz do Bing fornece exemplos de ponto-a-ponto para demonstrar diferentes casos de utilização, por exemplo, reconhecimento de comando, reconhecimento contínuo e deteção de intenção. Todos os exemplos estão disponíveis no GitHub e pode ser baixados pelas seguintes ligações: O README.md em cada repositório, bem como a [bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) página fornecem detalhes sobre como criar e executar os exemplos.
 
 - [Exemplos de REST API](https://github.com/Azure-Samples/SpeechToText-REST)
@@ -34,4 +35,4 @@ Voz do Bing fornece exemplos de ponto-a-ponto para demonstrar diferentes casos d
 
 - [ObjectiveC em exemplos para iOS](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-Todos os exemplos e SDKs serviços cognitivos da Microsoft são licenciados com a licença do MIT. Para obter mais informações, consulte [licença](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE).
+Todos os exemplos e SDKs dos Serviços Cognitivos da Microsoft estão licenciados com a Licença do MIT. Para obter mais informações, consulte [licença](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE).

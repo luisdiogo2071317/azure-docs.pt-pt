@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921431"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318695"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Proteger uma implementação de aplicação SAP NetWeaver com várias camada com o Site Recovery
 
@@ -71,10 +71,10 @@ Para a recuperação após desastre (DR), tem de ser capaz de fazer a ativação
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>VMs que executam o conjunto de SAP Web Dispatcher 
 O componente Web Dispatcher é utilizado como um balanceador de carga para tráfego SAP entre os servidores de aplicações SAP. Para alcançar a elevada disponibilidade para o componente Web Dispatcher, o Balanceador de carga do Azure é utilizado para implementar a configuração do Web Dispatcher paralela numa configuração de round robin para distribuição de tráfego HTTP (S) entre os Dispatchers de Web disponíveis no conjunto de Balanceador. Isso será replicado através do Azure Recovery (ASR) de Site e scripts de automatização serão utilizados para configurar o Balanceador de carga na região de recuperação após desastre. 
 
-####<a name="vms-running-application-servers-pool"></a>VMs que executam o agrupamento de servidores de aplicações
+#### <a name="vms-running-application-servers-pool"></a>VMs que executam o agrupamento de servidores de aplicações
 Para gerir grupos de logon para servidores de aplicações ABAP, a transação de SMLG é usada. Ele usa a função dentro do servidor de mensagens dos serviços de Central de balanceamento de carga para distribuir a carga de trabalho entre o agrupamento de servidores de aplicações SAP para SAPGUIs e RFC tráfego. Isso será replicado com o Azure Site Recovery 
 
-####<a name="vms-running-sap-central-services-cluster"></a>VMs que executam o cluster de SAP Central Services
+#### <a name="vms-running-sap-central-services-cluster"></a>VMs que executam o cluster de SAP Central Services
 Esta arquitetura de referência é executada Central de serviços em VMs na camada de aplicativos. Os serviços Central é um potencial ponto único de falha (SPOF) quando implantado numa única VM — uma implementação típica quando a elevada disponibilidade não é um requisito.<br>
 
 Para implementar uma solução de elevada disponibilidade, pode ser utilizado um cluster de disco partilhado ou um cluster de partilha de ficheiros. Para configurar as VMs para um cluster de disco partilhado, utilize o Cluster de ativação pós-falha do Windows Server. Testemunho de nuvem é recomendado como um testemunho de quórum. 
@@ -110,7 +110,7 @@ Segue-se a recomendação para recuperação após desastre de cada escalão uti
 **Máquinas de virtuais do Active Directory** |  Replicação do Active Directory 
 **Servidores de base de dados SQL** |  SQL sempre em replicação
 
-##<a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
+## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
 Para começar a replicar todas as SAP aplicação máquinas virtuais para o Centro de dados de recuperação após desastre do Azure, siga as orientações no [replicar uma máquina virtual para o Azure](azure-to-azure-walkthrough-enable-replication.md).
 

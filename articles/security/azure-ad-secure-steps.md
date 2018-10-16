@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505614"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341584"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -32,7 +32,7 @@ Esta lista de verificação lhe ajudarão a implantar rapidamente críticas aç�
 * Ative mais previsível e completa pelos usuários finais segurança com a ajuda autónoma.
 
 > [!NOTE]
-> Muitas das recomendações neste documento aplicam-se apenas a aplicações que estão configuradas para utilizar o Azure Active Directory como respetivo fornecedor de identidade. Configurar aplicações para início de sessão único assegura os benefícios das políticas de credencial, deteção de ameaças, auditorias, registos e outras funcionalidades a adicionar a esses aplicativos. [Início de sessão único através do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) é a base - de que todos os baseiam-se estas recomendações.
+> Muitas das recomendações neste documento aplicam-se apenas às aplicações que estão configuradas para utilizar o Azure Active Directory como respetivo fornecedor de identidade. Configurar aplicações para início de sessão único assegura os benefícios das políticas de credencial, deteção de ameaças, auditorias, registos e outras funcionalidades a adicionar a esses aplicativos. [Início de sessão único através do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) é a base - de que todos os baseiam-se estas recomendações.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: proteger contas com privilégios com a MFA
 
@@ -44,7 +44,7 @@ Tudo pronto? Vamos começar a lista de verificação.
 
 ## <a name="step-1---strengthen-your-credentials"></a>Passo 1 – reforçar as suas credenciais 
 
-A maioria das falhas de segurança empresarial têm origem com uma conta comprometida com um dos vários métodos como spray de palavra-passe, a repetição de violação ou phishing. Saiba mais sobre estes ataques neste vídeo:
+A maioria das falhas de segurança empresarial têm origem com uma conta comprometida com um dos vários métodos como spray de palavra-passe, a repetição de violação ou phishing. Saiba mais sobre estes ataques neste vídeo (15m de 1 hora):
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 Se os utilizadores no seu sistema de identidade estão usando senhas fracas e não fortalecendo-los com a autenticação multifator, não é uma questão de se ou quando são a comprometidas – apenas "quantas vezes."

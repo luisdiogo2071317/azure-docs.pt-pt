@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804536"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319377"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
@@ -43,6 +43,7 @@ Fornece a repetição de escrita de palavra-passe:
 
 > [!Note]
 > Não não possível utilizar contas de utilizador que existem em grupos protegidos no Active Directory no local com repetição de escrita de palavra-passe. Para obter mais informações sobre grupos protegidos, consulte [protegidos a contas e grupos no Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavra-passe
 
@@ -69,28 +70,30 @@ Quando um hash de palavra-passe ou federado sincronizados utilizador tenta repor
 1. É efetuada uma verificação para ver que tipo de palavra-passe tem do utilizador. Se a palavra-passe é geridos no local:
    * É efetuada uma verificação para ver se o serviço de repetição de escrita está em execução. Se estiver, o utilizador pode continuar.
    * Se o serviço de repetição de escrita estiver desativado, o usuário será informado de que a palavra-passe não pode ser reposta neste momento.
-2. Em seguida, o utilizador passa as portas de autenticação adequado e alcance o **Repor palavra-passe** página.
-3. O usuário seleciona uma nova palavra-passe e confirma isso.
-4. Quando o utilizador seleciona **submeter**, a palavra-passe de texto sem formatação é encriptada com uma chave simétrica criada durante o processo de configuração da repetição de escrita.
-5. A palavra-passe encriptada está incluído numa carga que é enviada por um canal HTTPS para o reencaminhamento de barramento de serviço específico de inquilino (que é criado para durante o processo de configuração da repetição de escrita). Este reencaminhamento está protegido por uma palavra-passe gerada aleatoriamente que sabe apenas sua instalação no local.
-6. Depois que a mensagem de atinge o service bus, o ponto final de reposição de palavra-passe reativado automaticamente e vê que ele tem um pedido de reposição pendente.
-7. O serviço de procura, em seguida, o utilizador, utilizando o atributo de âncora de cloud. Para esta pesquisa com êxito:
+1. Em seguida, o utilizador passa as portas de autenticação adequado e alcance o **Repor palavra-passe** página.
+1. O usuário seleciona uma nova palavra-passe e confirma isso.
+1. Quando o utilizador seleciona **submeter**, a palavra-passe de texto sem formatação é encriptada com uma chave simétrica criada durante o processo de configuração da repetição de escrita.
+1. A palavra-passe encriptada está incluído numa carga que é enviada por um canal HTTPS para o reencaminhamento de barramento de serviço específico de inquilino (que é criado para durante o processo de configuração da repetição de escrita). Este reencaminhamento está protegido por uma palavra-passe gerada aleatoriamente que sabe apenas sua instalação no local.
+1. Depois que a mensagem de atinge o service bus, o ponto final de reposição de palavra-passe reativado automaticamente e vê que ele tem um pedido de reposição pendente.
+1. O serviço de procura, em seguida, o utilizador, utilizando o atributo de âncora de cloud. Para esta pesquisa com êxito:
 
    * O objeto de utilizador tem de existir no espaço conector do Active Directory.
    * O objeto de utilizador têm de estar associado ao objeto de metaverso (MV) correspondente.
    * O objeto de utilizador têm de estar associado ao objeto de conector correspondente do Azure Active Directory.
-   * A ligação de objeto de conector do Active Directory para a MV tem de ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` na ligação. <br> <br>
+   * A ligação de objeto de conector do Active Directory para a MV tem de ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` na ligação.
+   
    Quando chega a chamada da cloud, o motor de sincronização utiliza a **cloudAnchor** atributo para procurar o objeto de espaço conector do Azure Active Directory. Em seguida, segue-se a ligação para o objeto de MV e, em seguida, segue-se a ligação para o objeto do Active Directory. Como pode haver vários objetos do Active Directory (multifloresta) para o mesmo utilizador, o motor de sincronização depende o `Microsoft.InfromADUserAccountEnabled.xxx` ligação para a escolha correta.
 
    > [!Note]
    > Como resultado, essa lógica de palavra-passe de repetição de escrita para trabalhar do Azure AD Connect tem de ser capaz de comunicar com o emulador do controlador (PDC) de domínio primário. Se precisar de ativar esta opção manualmente, pode ligar o Azure AD Connect para o emulador PDC. Com o botão direito a **propriedades** do conector de sincronização do Active Directory e, em seguida, selecione **configurar partições de diretório**. A partir daí, procure o **definições de ligação do controlador de domínio** secção e selecione a caixa intitulada **utilizar apenas controladores de domínio preferencial**. Mesmo que o controlador de domínio preferencial não for um emulador PDC, o Azure AD Connect tenta se conectar com o PDC para repetição de escrita de palavra-passe.
 
-8. Depois que o usuário é encontrada a conta, é feita uma tentativa para repor a palavra-passe diretamente na floresta do Active Directory adequada.
-9. Se a operação de definição de palavra-passe for bem-sucedida, o utilizador é informado da que palavra-passe foi alterada.
+1. Depois que o usuário é encontrada a conta, é feita uma tentativa para repor a palavra-passe diretamente na floresta do Active Directory adequada.
+1. Se a operação de definição de palavra-passe for bem-sucedida, o utilizador é informado da que palavra-passe foi alterada.
    > [!NOTE]
    > Se o hash de palavra-passe do utilizador está sincronizado com o Azure AD utilizando a sincronização de hash de palavra-passe, é provável que a política de palavra-passe no local é mais fraca do que a política de palavra-passe na cloud. Neste caso, é aplicada a política no local. Esta política assegura que seus locais é imposta na cloud, quer se utilizar a sincronização de hash de palavra-passe ou Federação para fornecer início de sessão único.
+   >
 
-10. Se a palavra-passe definida a operação falhar, um erro pede ao utilizador para tentar novamente. A operação pode falhar porque:
+1. Se a palavra-passe definida a operação falhar, um erro pede ao utilizador para tentar novamente. A operação pode falhar porque:
    * O serviço estava.
    * A palavra-passe que selecionou não cumpria as políticas da organização.
    * Não é possível encontrar o utilizador no local Active Directory.
@@ -107,10 +110,10 @@ Repetição de escrita de palavra-passe é um serviço altamente seguro. Para ga
    * Depois de criar reencaminhamento do service bus, é criada uma chave simétrica forte que é utilizada para encriptar a palavra-passe, pois isso vem durante a transmissão. Esta chave só reside no arquivo de segredos da sua empresa na cloud, que é bastante bloqueado e auditada, assim como qualquer outra palavra-passe no diretório.
 * **Setor padrão Transport Layer Security (TLS)**
    1. Quando uma palavra-passe, repor ou alterar operação ocorre na cloud, a palavra-passe de texto sem formatação é encriptada com a chave pública.
-   2. A palavra-passe encriptada é colocado numa mensagem HTTPS, que é enviada por um canal criptografado, através de certificados da Microsoft SSL para o reencaminhamento do service bus.
-   3. Depois da mensagem chega no barramento de serviço, o agente no local é reativado e autentica para o service bus, utilizando a palavra-passe forte que foi gerada anteriormente.
-   4. O agente no local seleciona a mensagem encriptada e desencripta a mesma, utilizando a chave privada.
-   5. O agente no local tenta definir a palavra-passe através da API de SetPassword do AD DS. Este passo é o que permite a imposição da sua política de palavra-passe do Active Directory no local (por exemplo, a complexidade, idade, histórico e filtros) na cloud.
+   1. A palavra-passe encriptada é colocado numa mensagem HTTPS, que é enviada por um canal criptografado, através de certificados da Microsoft SSL para o reencaminhamento do service bus.
+   1. Depois da mensagem chega no barramento de serviço, o agente no local é reativado e autentica para o service bus, utilizando a palavra-passe forte que foi gerada anteriormente.
+   1. O agente no local seleciona a mensagem encriptada e desencripta a mesma, utilizando a chave privada.
+   1. O agente no local tenta definir a palavra-passe através da API de SetPassword do AD DS. Este passo é o que permite a imposição da sua política de palavra-passe do Active Directory no local (por exemplo, a complexidade, idade, histórico e filtros) na cloud.
 * **Políticas de expiração de mensagem**
    * Se a mensagem encontra-se no barramento de serviço porque o serviço no local está indisponível, exceder o tempo limite e é removido após alguns minutos. O limite de tempo e a remoção da mensagem aumenta ainda mais a segurança.
 

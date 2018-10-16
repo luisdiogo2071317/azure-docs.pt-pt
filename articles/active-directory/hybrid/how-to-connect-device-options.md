@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311977"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320565"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opções de dispositivos
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opções de dispositivos
 
 A seguinte documentação fornece informações sobre as várias opções de dispositivo disponíveis no Azure AD Connect. Pode utilizar o Azure AD Connect para configurar as seguintes duas operações: 
 * **Associação ao Azure AD híbrido**: se o ambiente tiver no local requisitos de espaço do AD e deseja os benefícios do Azure AD, pode implementar a dispositivos de associados ao Azure AD híbrido. Estes dispositivos estão associados ao Active Directory no local e o Azure Active Directory.

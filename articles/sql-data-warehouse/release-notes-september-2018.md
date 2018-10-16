@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 3206895b455238033dbb93347e0c06fd71027b0a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f2fe1bc06f4122a1d27b22288784b3db167c300c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904298"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321704"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>O que há de novo no Azure SQL Data Warehouse? Setembro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Setembro de 2018.
@@ -59,7 +59,7 @@ WHERE
     RTRIM(value) <> '';
 ```
 
-###<a name="compressdecompress-functions"></a>Funções COMPRESS/execução
+### <a name="compressdecompress-functions"></a>Funções COMPRESS/execução
 O [COMPRIMIR](https://docs.microsoft.com/sql/t-sql/functions/compress-transact-sql) / [sob](https://docs.microsoft.com/sql/t-sql/functions/decompress-transact-sql) funções permitem-lhe comprimir ou descomprimir uma cadeia de caracteres de entrada com o algoritmo GZIP.
 
 #### <a name="example"></a>Exemplo

@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033690"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340176"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinado (pré-visualização)
 
@@ -126,11 +126,11 @@ Pode configurar as variáveis de ambiente e as opções de criar para o módulo 
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -138,6 +138,8 @@ Pode configurar as variáveis de ambiente e as opções de criar para o módulo 
 }
 ```
 
+Substitua `<HostStoragePath>` e `<ModuleStoragePath>` com o armazenamento de anfitrião e o módulo de caminho de armazenamento do caminho; anfitrião e módulo tem de ser um caminho absoluto.  Por exemplo, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` meio caminho do anfitrião `/etc/iotedge/storage` é mapeado para o caminho do contentor `/iotedge/storage/`.  Também pode encontrar mais detalhes sobre createOptions partir [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ativar as operações offline expandidas nos seus cenários de gateway transparente para [Linux](how-to-create-transparent-gateway-linux.md) ou [Windows](how-to-create-transparent-gateway-windows.md) dispositivos. 
+Ativar as operações offline expandidas nos seus cenários de gateway transparente para [Linux](how-to-create-transparent-gateway-linux.md) ou [Windows](how-to-create-transparent-gateway-windows.md) dispositivos.

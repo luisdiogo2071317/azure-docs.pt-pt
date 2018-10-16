@@ -1,24 +1,24 @@
 ---
-title: Perguntas mais frequentes sobre - serviço de voz personalizada
-titlesuffix: Azure Cognitive Services
+title: Perguntas mais frequentes sobre o serviço de voz personalizada no Azure | Documentos da Microsoft
 description: Seguem-se as respostas às perguntas mais populares sobre o serviço de voz personalizada.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: faq
+ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2de2efe3287cbb0b915434c2c9ad982fe162d741
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8e3d5e0e2b70d8f97099103ed369e48dd74d56e2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223731"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341366"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Perguntas mais frequentes sobre o serviço de voz personalizada
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)] 
 
 Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de serviço de voz personalizada no [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
 

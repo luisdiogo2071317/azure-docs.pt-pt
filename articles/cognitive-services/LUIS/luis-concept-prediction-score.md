@@ -1,26 +1,26 @@
 ---
-title: Compreender a pontuação de predição devolvida pelo LUIS
+title: Entidades de pontuação - intenções, de predição - LUIS
 titleSuffix: Azure Cognitive Services
-description: Saiba o que significa a pontuação de predição em LUIS
+description: Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56bec5ef4730e47b5c79263af5d1942df5a73f04
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032242"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341349"
 ---
 # <a name="prediction-score"></a>Classificação da predição
 Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 
 
-Uma pontuação de predição é normalmente entre zero (0) e um (1). Um exemplo de uma pontuação de LUIS elevada confiança será 0,99. Um exemplo de uma pontuação de confiança baixa é a 0,01. 
+Uma pontuação de predição é entre zero (0) e um (1). Um exemplo de uma pontuação de LUIS elevada confiança será 0,99. Um exemplo de uma pontuação de confiança baixa é a 0,01. 
 
 |Valor de pontuação|Confiança|
 |--|--|

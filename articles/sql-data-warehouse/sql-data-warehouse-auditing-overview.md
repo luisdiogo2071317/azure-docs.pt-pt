@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288259"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318542"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -112,7 +112,7 @@ Antes de configurar a auditoria, auditoria de verificação se estiver a utiliza
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
 
-###<a name="server-level-policy-audit-logs"></a>Registos de auditoria de política ao nível do servidor
+### <a name="server-level-policy-audit-logs"></a>Registos de auditoria de política ao nível do servidor
 Registos de auditoria ao nível do servidor são escritos **Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure. Eles são salvos como uma coleção de ficheiros de blob num contentor com o nome **sqldbauditlogs**.
 
 Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e formato de registo, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Registos de auditoria de política ao nível da base de dados
+### <a name="database-level-policy-audit-logs"></a>Registos de auditoria de política ao nível da base de dados
 Registos de auditoria ao nível da base de dados são agregados numa coleção de tabelas do Store com um **SQLDBAuditLogs** prefixo na conta de armazenamento do Azure que escolheu durante a configuração. Pode ver ficheiros de registo utilizando uma ferramenta como [Explorador de armazenamento do Azure](http://azurestorageexplorer.codeplex.com).
 
 Um modelo de relatório de dashboard pré-configurada está disponível como um [planilha do Excel que pode ser baixada](http://go.microsoft.com/fwlink/?LinkId=403540) para o ajudar a analisar rapidamente os dados de registo. Para utilizar o modelo nos seus registos de auditoria, terá de Excel 2013 ou posterior e o Power Query, que pode [baixe aqui](http://www.microsoft.com/download/details.aspx?id=39379).

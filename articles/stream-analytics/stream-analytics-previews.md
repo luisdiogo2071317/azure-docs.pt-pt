@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.openlocfilehash: 124e936b619e3078c71094156bf91a437a28492b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862793"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343679"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -67,9 +67,9 @@ Os desenvolvedores agora podem implementar desserializadores personalizadas em c
 
 Agora, é possível particionar a saída do Azure Stream Analytics para o armazenamento de Blobs com base em qualquer coluna na sua consulta.
 
-### <a name="managed-service-identity-msi-authentication-to-azure-data-lake-storage"></a>Autenticação gerida do Service Identity (MSI) para o armazenamento do Azure Data Lake
+### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Identidades geridas para a autenticação de recursos do Azure para armazenamento do Azure Data Lake
 
-Agora, pode operacionalizar os pipelines em tempo real com a autenticação baseada em MSI ao escrever no Gen1 de armazenamento do Azure Data Lake, permitindo-lhe criar tarefas programaticamente. Para obter mais informações, visite [identidades geridas por utilização para autenticar o Azure Stream Analytics Jobs a saída de geração 1 do armazenamento do Azure Data Lake](stream-analytics-managed-identities-adls.md).
+Agora, pode operacionalizar os pipelines em tempo real com identidades geridas para autenticação de recursos do Azure com base ao escrever no Gen1 de armazenamento do Azure Data Lake, permitindo-lhe criar tarefas programaticamente. Para obter mais informações, visite [identidades geridas por um uso dos recursos do Azure para autenticar o Azure Stream Analytics Jobs a saída de geração 1 do armazenamento do Azure Data Lake](stream-analytics-managed-identities-adls.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

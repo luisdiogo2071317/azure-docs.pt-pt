@@ -1,28 +1,29 @@
 ---
-title: Suporte de idiomas - API de voz
-titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas que são suportados pela API de voz.
+title: Idiomas com suporte de voz do Bing | Documentos da Microsoft
+titlesuffix: Azure Cognitive Services
+description: Uma lista de idiomas que são suportadas por voz do Bing.
 services: cognitive-services
 author: zhouwangzw
-manager: cgronlun
+manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433145"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340040"
 ---
-# <a name="language-and-region-support-for-speech-api"></a>Suporte de idioma e região para a API de voz
+# <a name="supported-languages"></a>Linguagens suportadas
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="interactive-and-dictation-mode"></a>Modo interativo e ditado
 
-A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas na `interactive` e `dictation` modos.
+A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas na `interactive` e `dictation` modos. 
 
 |Código | Idioma | Código | Idioma |
 |-----|-----|-----|-----|
@@ -40,12 +41,11 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas na `int
 | es-MX | Espanhol (México) |zh-CN | Chinês (simplificado Mandarim)  |
 | fi-FI | Finlandês (Finlândia) |zh-HK | Chinês (RAE de Hong Kong) |
 | fr-CA | Francês (Canadá) | zh-TW | Chinês (Mandarim, Taiwanês)|
-| FR-FR | Francês (França) | Gu-IN | Guzarate (Índia) |
-| es-IN |Tamil (Índia) | te-IN | Telugu (Índia) |
+| FR-FR | Francês (França) | ||
 
 ## <a name="conversation-mode"></a>Modo de conversação
 
-A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas em `conversation` modos.
+A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas em `conversation` modos. 
 
 | Código | Idioma | Código | Idioma |
 |-----|-----|-----|-----|

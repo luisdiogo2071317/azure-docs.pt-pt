@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29517f057599c7bf108d1c4d525b6c67c1b6b46a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311452"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320463"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure Active Directory autenticação pass-through: Início rápido
 
@@ -48,7 +48,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
 2. Instalar o [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado no passo anterior. Se já tiver executado o Azure AD Connect, certifique-se de que a versão é 1.1.750.0 ou posterior.
 
     >[!NOTE]
-    >O Azure AD Connect as versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização de hash de palavra-passe. Se _não_ tenciona utilizar a sincronização de hash de palavra-passe em conjunto com a autenticação pass-through, leia o [notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
+    >O Azure AD Connect as versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização de hash de palavra-passe. Se _não_ tenciona utilizar a sincronização de hash de palavra-passe em conjunto com a autenticação pass-through, leia o [notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
 3. Identificar um ou mais servidores adicionais (com o Windows Server 2012 R2 ou posterior) onde é possível executar agentes de autenticação autónomo. Estes servidores adicionais são necessários para garantir a disponibilidade elevada de pedidos para iniciar sessão. Adicione os servidores à mesma floresta do Active Directory que os utilizadores cujas palavras-passe tem de validar.
 
@@ -57,13 +57,13 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
 
 4. Se existir uma firewall entre os servidores e do Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes de autenticação podem efetuar *saída* pedidos para o Azure AD sobre as seguintes portas:
-   
+
     | Número da porta | Como são utilizadas |
     | --- | --- |
     | **80** | Transfere as listas de revogação de certificados (CRL) ao validar o certificado SSL |
     | **443** | Processa todas as comunicações de saída com o serviço |
     | **8080** (opcional) | Agentes de autenticação reportam o estado de cada dez minutos através da porta 8080, se a porta 443 não está disponível. Este estado é apresentado no portal do Azure AD. A porta 8080 está _não_ utilizado para inícios de sessão do utilizador. |
-   
+
     Se a firewall impuser regras de acordo com os utilizadores de origem, abra estas portas para o tráfego dos serviços do Windows que são executados como um serviço de rede.
    - Se sua firewall ou proxy permite que listas de permissões de DNS, ligações de lista de permissões para  **\*. msappproxy.net** e  **\*. servicebus.windows.net**. Se não, permitir o acesso para o [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizado semanalmente.
    - Os agentes de autenticação precisam acessar **login.windows.net** e **login.microsoftonline.com** para o registo inicial. Abra a firewall para essas URLs também.
@@ -132,13 +132,13 @@ Em segundo lugar, pode criar e executar um script de implementação automática
 
 1. Execute o seguinte comando para instalar um agente de autenticação: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
 2. Pode registrar o agente de autenticação com o serviço com o Windows PowerShell. Criar um objeto de credenciais de PowerShell `$cred` que contém um nome de utilizador de administrador global e a palavra-passe para o seu inquilino. Execute o seguinte comando, substituindo *\<nome de utilizador\>* e  *\<palavra-passe\>*:
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 3. Aceda a **ligar o agente de autenticação C:\Program Files\Microsoft Azure AD** e execute o script seguinte com o `$cred` objeto que criou:
-   
+
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -151,4 +151,3 @@ Em segundo lugar, pode criar e executar um script de implementação automática
 - [Detalhada da segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas sobre a funcionalidade de autenticação pass-through.
 - [O Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum do Azure Active Directory para pedidos de novas funcionalidades de ficheiros.
-

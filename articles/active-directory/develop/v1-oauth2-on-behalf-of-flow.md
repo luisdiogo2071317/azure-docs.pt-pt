@@ -17,18 +17,18 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ce29c6a9df49721ca23f84da3f1c97bcc83ab4a7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581731"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318833"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas serviço a serviço com o delegado no fluxo em-nome-de identidade do utilizador
 O OAuth 2.0 On-Behalf-Of (OBO) fluxo serve o caso de utilização em que um aplicativo invoca um serviço/API web, que por sua vez precisa chamar outro serviço/API web. A idéia é propagar a identidade de utilizador delegado e permissões através da cadeia de pedido. Para o serviço de camada intermediária fazer pedidos autenticados para o serviço downstream, ele precisa de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.
 
 > [!IMPORTANT]
-> Os clientes públicos que utilizam o [concessão implícita OAuth 2.0](v1-oauth2-implicit-grant-flow.md) não é possível utilizar o fluxo OBO. Estes clientes tem de passar seu token de acesso a um cliente confidencial da camada intermediária para executar fluxos OBO. Para mais informações sobre os quais os clientes possam executar chamadas OBO, veja [limitações de cliente](#client-limitations).
+> A partir de Maio de 2018, um `id_token` não pode ser utilizado para o fluxo em-nome-de - SPAs tem de passar um **acesso** fluxos de um cliente confidencial para efetuar OBO token para uma camada intermediária. Ver [limitações](#client-limitations) para obter mais detalhes no qual os clientes podem executar em-nome-de chamadas.
 
 ## <a name="on-behalf-of-flow-diagram"></a>Diagrama de fluxo em-nome-de
 Partem do princípio de que o utilizador foi autenticado numa aplicação com o [fluxo de concessão de código de autorização de OAuth 2.0](v1-protocols-oauth-code.md). Neste momento, o aplicativo tem um token de acesso (token A) com afirmações do utilizador e o consentimento para acessar a API (API A) de web de camada intermediária. Agora, API A tem de fazer um pedido autenticado para o web API (API B) a jusante.
@@ -202,7 +202,7 @@ Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 ## <a name="client-limitations"></a>Limitações de cliente
-Os clientes públicos com URLs de resposta de caráter universal não podem utilizar um `id_token` para OBO fluxos. No entanto, um cliente confidencial ainda pode resgatar os tokens de acesso adquiridos por meio do fluxo de concessão implícita, mesmo que o cliente público tem um registado do URI de redirecionamento de caráter universal.
+Os clientes públicos com URLs de resposta de caráter universal não podem utilizar um `id_token` para OBO fluxos. No entanto, um cliente confidencial ainda pode resgatar **acesso** registado de URI de redirecionamento de tokens adquiridos por meio do fluxo de concessão implícita, mesmo que o cliente público tem um caráter universal.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o protocolo de OAuth 2.0 e a outra forma de efetuar a autenticação de serviço para serviço com as credenciais de cliente.

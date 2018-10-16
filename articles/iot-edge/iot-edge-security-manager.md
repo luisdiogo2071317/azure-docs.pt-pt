@@ -2,19 +2,19 @@
 title: O Gestor de segurança de IoT Edge do Azure | Documentos da Microsoft
 description: Gerencia a postura de segurança de dispositivo do IoT Edge e a integridade dos serviços de segurança.
 services: iot-edge
-keywords: segurança, o elemento, o enclave, IoT Edge
+keywords: segurança, o elemento seguro, o enclave, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126348"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321191"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança de IoT Edge do Azure
 
@@ -113,7 +113,7 @@ A PAL HSM abstrai todos os raiz de hardware de confiança para isolar o desenvol
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Raiz de silicon segura de hardware de confiança
 
-Silicon segura é necessário âncora de confiança dentro do hardware do dispositivo IoT Edge.  Silicon seguro são fornecidos em várias para incluir o Trusted Platform Module (TPM), elemento seguro incorporado (eSM), ARM Trustzone, Intel SGX e tecnologias de silicon seguro personalizado.  A utilização de raiz de silicon segura de confiança nos dispositivos é altamente recomendável tendo em conta as ameaças associadas fisicamente a acessibilidade de dispositivos IoT.
+Silicon segura é necessário âncora de confiança dentro do hardware do dispositivo IoT Edge.  Silicon seguro são fornecidos em várias para incluir o Trusted Platform Module (TPM), elemento seguro incorporado (eSE), ARM TrustZone, Intel SGX e tecnologias de silicon seguro personalizado.  A utilização de raiz de silicon segura de confiança nos dispositivos é altamente recomendável tendo em conta as ameaças associadas fisicamente a acessibilidade de dispositivos IoT.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Integração de Gestor de segurança de IoT Edge e manutenção
 

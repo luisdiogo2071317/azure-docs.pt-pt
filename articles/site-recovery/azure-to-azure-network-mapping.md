@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 0e73abf0fc170079d4b2bc093df45c998e68d184
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054334"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320531"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mapear as redes virtuais em diferentes regiões do Azure
 
@@ -106,7 +106,7 @@ Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereços d
 A VM com ativação pós-falha seria atribuída com - próximo IP disponível do fim do intervalo de endereços de sub-rede é: 10.0.0.254 </br>
 
 **Nota:** a terminologia **vNet de produção** é chamado de rede especiais de destino mapeada durante a configuração da recuperação após desastre.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se a rede de destino selecionada não é a vNet de produção, mas tem o mesmo intervalo de sub-rede de rede de produção 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se a rede de destino selecionada não é a vNet de produção, mas tem o mesmo intervalo de sub-rede de rede de produção 
 
 - O IP de recuperação (IP de destino) será um IP estático com o **mesmo endereço IP** (ou seja, configurado endereço IP estático) como reservado para a ativação pós-falha. Desde que o mesmo endereço IP está disponível.
 - Se o IP estático configurado já está atribuído a algum outro VM/dispositivo, em seguida, o IP de recuperação será o próximo IP disponível do fim do intervalo de endereços de sub-rede.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f4729ce996ca918f43df1777a1962d4cd225a38e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc182c46486d81196056953d20de74bbedc1e152
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060526"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345871"
 ---
 ## <a name="extended-iot-scenarios"></a>Cenários de IoT alargados
 
@@ -21,27 +21,15 @@ Utilize outros serviços e ferramentas do Azure. Depois de ligar o seu dispositi
 
 | Cenário                                                   | Serviço ou ferramenta do Azure              |
 |----------------------------------------------------------- |------------------------------------|
-| [Gerir mensagens do Hub IoT][Mg_IoT_Toolkit]                  | Extensão do VS o Kit de ferramentas do código do Azure IoT|
-| [Gerir o seu dispositivo IoT][Mg_IoT_Dv]                        | CLI do Azure e a extensão de IoT    |
-| [Gerir o seu dispositivo IoT][Mg_IoT_Dv_Toolkit]                | Extensão do VS o Kit de ferramentas do código do Azure IoT|
-| [Guardar mensagens do Hub IoT no armazenamento do Azure][Sv_IoT_Msg_Stor]  | Armazenamento de tabelas do Azure                |
-| [Visualizar dados de sensores][Vis_Data_PBI]                      | Microsoft Power BI                 |
-| [Visualizar dados de sensores][Vis_Data_Web]                      | Aplicações Web do Azure                     |
-| [Prever a Meteorologia com dados de sensores][Weather_Forecast]      | Azure Machine Learning             |
-| [Deteção de anomalias e reação automáticas][Anomaly_Detect] | Azure Logic Apps                   |
+| [Gerir mensagens do IoT Hub](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | Extensão do VS o Kit de ferramentas do código do Azure IoT|
+| [Gerir o seu dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | CLI do Azure e a extensão de IoT    |
+| [Gerir o seu dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Extensão do VS o Kit de ferramentas do código do Azure IoT|
+| [Guardar mensagens do IoT Hub para o armazenamento do Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Armazenamento de tabelas do Azure                |
+| [Visualizar dados de sensores](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
+| [Visualizar dados de sensores](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Aplicações Web do Azure                     |
+| [Prever a meteorologia com dados de sensores](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
+| [Deteção de anomalias automática e a reação](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | Azure Logic Apps                   |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de concluir estes tutoriais, pode explorar ainda mais as capacidades do Hub IoT no [Manual para programadores][lnk-dev-guide]. Pode encontrar tutoriais adicionais na secção [Procedimentos][lnk-how-to].
-
-
-[Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
-[Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md
-[Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
-[Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
-[Vis_Data_PBI]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md
-[Weather_Forecast]: ../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md
-[Anomaly_Detect]: ../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-dev-guide]: ../articles/iot-hub/iot-hub-devguide.md
-[lnk-how-to]: ../articles/iot-hub/iot-hub-how-to.md
+Quando concluir estes tutoriais, pode explorar ainda mais os recursos do IoT Hub na [Guia do programador](../articles/iot-hub/iot-hub-devguide.md). 

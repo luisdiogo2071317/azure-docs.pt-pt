@@ -7,16 +7,30 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963088"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340006"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="cognitive-services-speech-sdk-101"></a>Voz dos serviços cognitivos SDK 1.0.1
+
+Melhorias de confiabilidade e correções de erros:
+
+* Corrija o erro fatal potencial devido a condição de corrida no reconhecedor descarte
+* Corrija o erro fatal potencial em caso de propriedades não definidas.
+* Erro adicional e uma verificação de parâmetros.
+* Objective-c: corrigir possíveis erro fatal causado por nome de substituição no NSString.
+* Visibilidade da API de ajustar Objectice-c:
+* JavaScript: correções sobre eventos e respetivos payloads.
+* Melhorias de documentação.
+
+No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicionada uma nova amostra para JavaScript.
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK de voz dos serviços cognitivos 1.0.0: versão de Setembro de 2018
 

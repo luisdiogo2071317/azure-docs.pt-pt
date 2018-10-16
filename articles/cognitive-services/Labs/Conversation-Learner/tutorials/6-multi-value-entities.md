@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173106"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321432"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Como utilizar entidades com múltiplos valores com um modelo de aprendiz de conversação
 Este tutorial mostra a propriedade "value multi" de entidades.
@@ -24,7 +24,7 @@ Este tutorial mostra a propriedade "value multi" de entidades.
 
 [![Pré-visualização do tutorial 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requisitos
 Este tutorial requer que o bot tutorial geral está em execução
 
     npm run tutorial-general

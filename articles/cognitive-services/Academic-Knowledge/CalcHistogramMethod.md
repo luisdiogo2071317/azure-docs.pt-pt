@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: da5e03e5fd3259157ee33744b614e2be3e284eb8
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901938"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321297"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -35,10 +35,12 @@ Nome  |Valor | Necessário?  |Descrição
 **expr**    |Cadeia de texto | Sim  |Uma expressão de consulta que especifica as entidades sobre o qual calcular histogramas.
 **Modelo** |Cadeia de texto | Não |Selecione o nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.
 **Atributos** | Cadeia de texto | Não<br>predefinição: | Uma lista delimitada por vírgulas que especifica os valores de atributos que estão incluídos na resposta. Nomes de atributo diferenciam maiúsculas de minúsculas.
-**Contagem** |Number | Não<br>Predefinição: 10 |Número de resultados a devolver.
+**count** |Number | Não<br>Predefinição: 10 |Número de resultados a devolver.
 **deslocamento**  |Number | Não<br>Predefinição: 0 |Índice do primeiro resultado a devolver.
-<br>
+**Tempo limite**  |Number | Não<br>Predefinição: 1000 |Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
+
 ## <a name="response-json"></a>Resposta (JSON)
+
 Nome | Descrição
 --------|---------
 **expr**  |O parâmetro expr no pedido.
@@ -53,7 +55,7 @@ Nome | Descrição
 **histogramas [.count .histogram [y] x]**  |Número de entidades correspondentes com este valor de atributo.
 **abortada** | VERDADEIRO se o pedido excedeu o limite de tempo.
 
- <br>
+
 #### <a name="example"></a>Exemplo:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

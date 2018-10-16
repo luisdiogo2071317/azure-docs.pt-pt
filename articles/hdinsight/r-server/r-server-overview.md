@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: af143ef1ec79868294af7d7511548dc54f8ceb8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049275"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343746"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos serviços de ML e capacidades de R de código-fonte aberto no HDInsight
 
@@ -148,6 +148,6 @@ Os preços que estão associados um cluster do HDInsight de serviços do ML est�
 
 Para saber mais sobre como utilizar os serviços de ML em clusters do HDInsight, consulte os seguintes tópicos:
 
-* [Introdução ao cluster de ML Serices no HDInsight](r-server-get-started.md)
+* [Introdução ao cluster de serviços de ML no HDInsight](r-server-get-started.md)
 * [Opções do contexto de cálculo para o cluster dos Serviços ML no HDInsight](r-server-compute-contexts.md)
 * [Opções de armazenamento para os serviços de ML de cluster no HDInsight](r-server-storage.md)

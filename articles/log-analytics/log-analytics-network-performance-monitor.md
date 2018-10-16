@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044098"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321908"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -271,7 +271,7 @@ Se for um utilizador NPM, criação de um alerta através do Portal do Azure:
 3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação criado anteriormente. Pode saber como criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Depois do alerta for criado com êxito, pode utilizar o link de gerir alertas para gerir os alertas. 
 
-##<a name="pricing"></a>Preços
+## <a name="pricing"></a>Preços
 
 Informações sobre os preços estão disponíveis [online](log-analytics-network-performance-monitor-pricing-faq.md).
 

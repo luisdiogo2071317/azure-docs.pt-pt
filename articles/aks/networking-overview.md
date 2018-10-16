@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: d278e47979e696183b703f7e67e39757d854fdb2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 258eb744cf86fcd14250be8f2e8ec18b5a0fada3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857742"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319426"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuração de rede no Azure Kubernetes Service (AKS)
 
@@ -73,23 +73,19 @@ O plano de endereço IP para um cluster do AKS consiste num virtual de rede, pel
 
 O número máximo de padrão de pods por nó num cluster do AKS varia entre redes de básico e avançado e o método de implementação de cluster.
 
-### <a name="default-maximum"></a>Predefinição máxima
-
-Estes são os *predefinição* valores máximos quando implementa um AKS do cluster sem especificar o número máximo de pods no momento da implementação:
-
 | Método de implementação | Básica | Avançado | Configurável nas implementação |
 | -- | :--: | :--: | -- |
-| CLI do Azure | 110 | 30 | Sim |
-| Modelo do Resource Manager | 110 | 30 | Sim |
+| CLI do Azure | 110 | 30 | Sim (até 110) |
+| Modelo do Resource Manager | 110 | 30 | Sim (até 110) |
 | Portal | 110 | 30 | Não |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
-Para especificar um número máximo de pods por nó diferente quando implementar um cluster do AKS:
+Pode configurar o número máximo de pods por nó *apenas no momento da implementação de cluster*. Se implementar com a CLI do Azure ou com um modelo do Resource Manager, pode definir os pods máximos por valor do nó tão elevada como 110.
 
-* **CLI do Azure**: Especifique o `--max-pods` argumento ao implementar um cluster com o [criar az aks] [ az-aks-create] comando.
-* **Modelo do Resource Manager**: Especifique o `maxPods` propriedade na [ManagedClusterAgentPoolProfile] objeto quando implementar um cluster com um modelo do Resource Manager.
-* **Portal do Azure**: não é possível modificar o número máximo de pods por nó, ao implementar um cluster com o portal do Azure. Clusters de rede avançadas estão limitados a 30 pods por nó quando implementado no portal do Azure.
+* **CLI do Azure**: Especifique o `--max-pods` argumento ao implementar um cluster com o [criar az aks] [ az-aks-create] comando. O valor máximo é de 110.
+* **Modelo do Resource Manager**: Especifique o `maxPods` propriedade na [ManagedClusterAgentPoolProfile] objeto quando implementar um cluster com um modelo do Resource Manager. O valor máximo é de 110.
+* **Portal do Azure**: não é possível alterar o número máximo de pods por nó, ao implementar um cluster com o portal do Azure. Clusters de rede avançadas estão limitados a 30 pods por nó, ao implementar no portal do Azure.
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar máximo - clusters existentes
 

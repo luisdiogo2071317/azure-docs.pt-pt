@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 3caae8ecae66178bc538d0b9d1240293028f33ad
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867362"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318321"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
 
@@ -55,7 +55,7 @@ Para copiar dados do Office 365 no Azure, tem de concluir os passos de pré-requ
 
 Se esta for a primeira vez que está a solicitar dados para este contexto (uma combinação de quais dados tabela está a ser acesso, o destino conta é os dados a ser carregados para, e que identidade de utilizador está a tornar os dados de pedido de acesso), verá que a atividade de cópia Estado como "Em curso", e somente quando clicar em [link "Detalhes" em ações](copy-activity-overview.md#monitoring) irá ver o estado como "RequestingConsent".  Um membro do grupo de aprovador de acesso de dados tem de aprovar o pedido de Privileged Access Management antes de pode continuar a extração de dados.
 
-Consultar [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) sobre como o aprovador pode aprovar os dados de pedido de acesso e consulte [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) para obter uma explicação sobre a integração geral com o Privileged Access Management, incluindo como configurar os dados grupo de aprovador de acesso.
+Consultar [aqui](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Approving-data-access-requests) sobre como o aprovador pode aprovar os dados de pedido de acesso e consulte [aqui](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#integration-with-privileged-access-management) para obter uma explicação sobre a integração geral com o Privileged Access Management, incluindo como configurar os dados grupo de aprovador de acesso.
 
 ## <a name="policy-validation"></a>Validação de diretivas
 
@@ -124,7 +124,7 @@ Para copiar dados do Office 365, são suportadas as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **Office365Table** | Sim |
-| tableName | Nome do conjunto de dados para extrair a partir do Office 365. Consulte aqui para obter a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
+| tableName | Nome do conjunto de dados para extrair a partir do Office 365. Consultar [aqui](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) para obter a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
 | Predicado | Uma expressão de predicado que pode ser utilizada para filtrar as linhas específicas para extrair a partir do Office 365.  Consulte aqui para obter informações sobre as colunas que podem ser utilizadas para a filtragem de predicados para cada tabela e o formato de expressão de filtro. | Não<br>(Não se for fornecido nenhum predicado, a predefinição é extrair dados dos últimos 30 dias) |
 
 **Exemplo**

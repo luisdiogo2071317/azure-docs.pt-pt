@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ba15ecdb59eb98094367d8cd4760323d863332c4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f02da6f21d0c11724b4192d5af0d5cc75d2c770c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222715"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321568"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ligar o Operations Manager ao Log Analytics
 Para manter o seu investimento existente no System Center Operations Manager e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a área de trabalho do Log Analytics. Desta forma, pode tirar partido das oportunidades do Log Analytics e continuar a utilizar o Operations Manager para:
@@ -227,7 +227,7 @@ Para eliminar os dois conectores – Microsoft.SystemCenter.Advisor.DataConnecto
 
 ```
     .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SystemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 > [!NOTE]

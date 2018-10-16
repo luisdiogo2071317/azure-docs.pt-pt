@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310903"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321823"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -145,13 +145,6 @@ Esta atualização também contém atenuação para a vulnerabilidade de canal d
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
 
-<!-- TBD - IS -->
-- Poderá ver os seguintes alertas repetidamente aparecer e desaparecer, em seguida, no seu sistema do Azure Stack:
-   - *Instância de função de infraestrutura indisponível*
-   - *Nó de unidade de escala está offline*
-   
-  Volte a executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
-
 - Quando executa [AzureStack teste](azure-stack-diagnostic-test.md) após a atualização 1808, será apresentada uma mensagem de aviso do controlador de gestão de placas base (BMC). Pode ignorar este aviso.
 
 <!-- 2468613 - IS --> 
@@ -174,7 +167,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 ### <a name="portal"></a>Portal
 
-- A documentação técnica do Azure Stack enfoca a versão mais recente. Devido a alterações de portais entre versões, o que vê quando utilizar os portais do Azure Stack pode variar do que vê na documentação. 
+- A documentação técnica do Azure Stack enfoca a versão mais recente do Azure Stack. Devido a alterações de portais entre versões, o que vê quando utilizar os portais do Azure Stack pode variar do que vê na documentação. 
 
 <!-- TBD - IS ASDK --> 
 - Poderá ver um dashboard em branco no portal. Para recuperar o dashboard, clique em **editar Dashboard**, em seguida, clique com botão direito e selecione **repor para o estado predefinido**.
@@ -214,6 +207,14 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 
 ### <a name="health-and-monitoring"></a>Estado de funcionamento e monitorização
+
+<!-- TBD - IS -->
+- Poderá ver os seguintes alertas repetidamente aparecer e desaparecer, em seguida, no seu sistema do Azure Stack:
+   - *Instância de função de infraestrutura indisponível*
+   - *Nó de unidade de escala está offline*
+   
+  Volte a executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
+
 <!-- 1264761 - IS ASDK --> 
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1f2c8233e0385c58df66703f3611c51072f7118a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225264"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341795"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -310,7 +310,7 @@ prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02
 ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
 macAddress | Endereço mac VM | 2017-04-02 
 scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
-identidade | (Pré-visualização) Identidade do serviço gerido. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
+identidade | (Pré-visualização) Identidades geridas para recursos do Azure. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 
@@ -429,7 +429,7 @@ Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>FAQ
-1. Estou recebendo o erro `400 Bad Request, Required metadata header not specified`. O que significa isto?
+1. Estou recebendo o erro `400 Bad Request, Required metadata header not specified`. O que é que isto quer dizer?
    * O serviço de metadados de instância requer o cabeçalho `Metadata: true` a serem passados no pedido. Passando esse cabeçalho a chamada REST permite o acesso ao serviço de metadados de instância. 
 2. Por que eu não estou obtendo informações de computação para a minha VM?
    * Atualmente, o serviço de metadados de instância só suporta instâncias criadas com o Azure Resource Manager. No futuro, o suporte para as VMs do serviço em nuvem podem ser adicionadas.

@@ -1,24 +1,25 @@
 ---
-title: Regiões suportadas e idiomas - serviço de voz personalizada
-titlesuffix: Azure Cognitive Services
+title: Suporte a localidades e idiomas no serviço de voz personalizada no Azure | Documentos da Microsoft
 description: Descrição geral dos idiomas suportados do serviço de voz personalizada nos serviços cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 34af6673689244364ab3a1fe3f2a6ab056ea8598
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8493aeb3c1c2436900ae626ad0f34cbe8b060163
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223960"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342173"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Regiões suportadas no serviço de voz personalizada
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 O serviço de voz personalizada atualmente suporta a personalização dos modelos nas seguintes regiões:
 
 | Tipo de modelo | Suporte de idiomas |

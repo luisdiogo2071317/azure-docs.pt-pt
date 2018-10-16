@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954505"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338708"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Início rápido: Utilizar a API de reconhecimento de voz do Bing no Objective-C no iOS
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Com a API de reconhecimento de fala, pode desenvolver aplicações de iOS que utilizam o serviço de voz com base na cloud para converter áudio falado em texto. A API suporta a transmissão em fluxo em tempo real, para que seu aplicativo possa em simultâneo e assincronamente receber resultados de reconhecimento parcial, ao mesmo tempo que seja o envio de áudio para o serviço.
 

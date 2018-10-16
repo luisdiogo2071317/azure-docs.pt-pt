@@ -1,9 +1,9 @@
 ---
-title: Plataformas suportadas no Centro de segurança do Azure | Documentos da Microsoft
-description: Este documento fornece uma lista dos sistemas de operatings Windows e Linux suportados no Centro de segurança do Azure.
+title: Recursos e plataformas suportadas pelo centro de segurança do Azure | Documentos da Microsoft
+description: Este documento fornece uma lista de recursos e plataformas suportadas pelo centro de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 54d173caa0e3eb4bbd8bda7c924e56d546a99662
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/10/2018
+ms.author: rkarlin
+ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297507"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319987"
 ---
-# <a name="supported-platforms-in-azure-security-center"></a>Plataformas suportadas no Centro de segurança do Azure
+# <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e funcionalidades suportadas pelo centro de segurança do Azure
+
 Monitorização de estado de segurança e recomendações, estão disponíveis para máquinas virtuais (VMs), criadas usando o clássicas e modelos de implementação do Resource Manager e computadores.
 
 > [!NOTE]
@@ -29,7 +30,11 @@ Monitorização de estado de segurança e recomendações, estão disponíveis p
 >
 >
 
-## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas suportadas para VMs e computadores do Windows
+## <a name="supported-platforms"></a>Plataformas suportadas 
+
+Esta secção lista as plataformas em que pode executar o agente do Centro de segurança do Azure e de que esta possa recolher dados.
+
+### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas suportadas para VMs e computadores do Windows
 Sistemas de operativos Windows suportados:
 
 * Windows Server 2008
@@ -39,7 +44,7 @@ Sistemas de operativos Windows suportados:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas suportadas para VMs e computadores Linux
+### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas suportadas para VMs e computadores Linux
 Sistemas operativos Linux suportados:
 
 * Versões do Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS
@@ -58,6 +63,62 @@ Sistemas operativos Linux suportados:
 
 ## <a name="vms-and-cloud-services"></a>VMs e serviços Cloud
 As VMs em execução num serviço cloud também são suportadas. Funções web e de trabalho em execução na produção são monitorizadas ranhuras de serviços de cloud única. Para saber mais sobre o serviço em nuvem, veja [descrição geral dos serviços de Cloud](../cloud-services/cloud-services-choose-me.md).
+
+
+## <a name="supported-iaas-features"></a>Recursos de IaaS suportados
+
+> [!div class="mx-tableFixed"]
+> 
+
+|Servidor|Windows||Linux||
+|----|----|----|----|----|
+|Ambiente|Azure|Não Pertencente ao Azure|Azure|Não Pertencente ao Azure|
+|Alertas de deteção de ameaças VMBA|✔|✔|✔ (em versões suportadas)|✔|
+|Alertas de deteção de ameaças de rede com base em|✔|X|✔|X|
+|Integração do Windows Defender ATP *|✔ (em versões suportadas)|✔|X|X|
+|Patches em falta|✔|✔|✔|✔|
+|Configurações de segurança|✔|✔|✔|✔|
+|Antimalware|✔|✔|X|X|
+|Acesso JIT da VM|✔|X|✔|X|
+|Controlos de aplicações adaptáveis|✔ (apenas Azure)|X|X|X|
+|FIM|✔|✔|✔|✔|
+|Encriptação de disco|✔|X|✔|X|
+|Implantação de terceiros|✔|X|✔|X|
+|NSGs|✔|X|✔|X|
+|Filess V1|✔|✔|X|X|
+|Mapa de rede|✔|X|✔|X|
+|Sistema de proteção de rede adaptável|✔|X|✔|X|
+
+* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
+
+
+## <a name="supported-paas-features"></a>Recursos de PaaS suportados
+
+
+|Serviço|Recomendações|Deteção de ameaças|
+|----|----|----|
+|SQL|✔| ✔|
+|PostGreSQL *|✔| ✔|
+|MySQL *|✔| ✔|
+|Blob storage contas *|✔| ✔|
+|Serviços aplicacionais|✔| ✔|
+|Serviços em nuvem|✔| X|
+|Cache de Redis|✔| X|
+|O Service fabric|✔| X|
+|Automatização do Azure|✔| X|
+|Data Lake |✔| X|
+|Key Vault|✔| X|
+|Do Service bus|✔| X|
+|Análise do Stream|✔| X|
+|Batch|✔| X|
+|Aplicações lógicas|✔| X|
+|Vnets|✔| ND|
+|Sub-redes|✔| ND|
+|NICs|✔| ✔|
+|NSGs|✔| ND|
+|Subscrição|✔| ✔|
+
+* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: fd3ff0087ee51c392d9cebb32c8bcc969f9a4601
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243152"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341944"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
  As aplicações do Azure Blockchain Workbench são fluxos de trabalho de múltiplos intervenientes definidos por metadados de configuração e o código de contrato inteligente. Metadados de configuração definem os fluxos de trabalho de alto nível e o modelo de interação da aplicação de blockchain. Contratos inteligentes definem a lógica de negócio da aplicação de blockchain. O Workbench utiliza a configuração e o código de contrato inteligente para gerar as experiências de utilizador de aplicação de blockchain.
 
-Metadados de configuração especifica as seguintes informações para cada aplicação de blockchain: 
+Metadados de configuração especifica as seguintes informações para cada aplicação de blockchain:
 
 * Nome e descrição da aplicação de blockchain
 * Funções exclusivas para os utilizadores que podem agir ou tem participação na aplicação de blockchain
@@ -42,7 +42,7 @@ Uma aplicação de blockchain contém funções de metadados, fluxos de trabalho
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | ApplicationName | Nome de aplicação único. O contrato inteligente correspondente tem de utilizar o mesmo **ApplicationName** para a classe de contrato aplicável.  | Sim |
-| Nome a Apresentar | Nome a apresentar amigável do aplicativo. | Sim |
+| displayName | Nome a apresentar amigável do aplicativo. | Sim |
 | Descrição | Descrição da aplicação. | Não |
 | ApplicationRoles | Coleção de [ApplicationRoles](#application-roles). Funções de utilizador que podem agir ou tem participação na aplicação.  | Sim |
 | Fluxos de trabalho | Coleção de [fluxos de trabalho](#workflows). Cada fluxo de trabalho funciona como uma máquina de estado para controlar o fluxo de lógica de negócios. | Sim |
@@ -56,7 +56,7 @@ Lógica de negócios de uma aplicação pode ser modelada como uma máquina de E
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a classe de contrato aplicável. | Sim |
-| Nome a Apresentar | Nome a apresentar amigável do fluxo de trabalho. | Sim |
+| displayName | Nome a apresentar amigável do fluxo de trabalho. | Sim |
 | Descrição | Descrição do fluxo de trabalho. | Não |
 | Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que estão atribuídas a utilizadores que estão autorizados a criar contratos no fluxo de trabalho. | Sim |
 | StartState | Nome do Estado inicial do fluxo de trabalho. | Sim |
@@ -73,17 +73,44 @@ Tipos de dados suportados.
 
 | Tipo | Descrição |
 |-------|-------------|
-| Endereço  | Blockchain como tipo, de endereço *contratos* ou *utilizadores* |
-| Bool     | Tipo de dados booleano |
-| contrato | Endereço do contrato de tipo |
-| Enum     | Enumerados conjunto de valores nomeados. Ao usar o tipo de enumeração, também especificar uma lista de EnumValues. Cada valor é limitado a 255 carateres. Carateres de valor válido incluem superior e letras minúsculas (A-Z, a-z) as letras e números (0-9). |
-| Int      | Tipo de dados de número inteiro |
-| dinheiro    | Tipo de dados de dinheiro |
-| state    | Estado do fluxo de trabalho |
-| cadeia   | Tipo de dados de cadeia de caracteres |
-| Utilizador     | Endereço do tipo de utilizador |
-| hora     | Tipo de dados de tempo |
+| Endereço  | Blockchain como tipo, de endereço *contratos* ou *utilizadores*. |
+| array    | Matriz de nível único do tipo número inteiro, booleano, dinheiro ou tempo. As matrizes podem ser estáticos ou dinâmicos. Uso **ElementType** para especificar o tipo de dados de elementos dentro da matriz. Ver [exemplo de configuração](#example-configuration-of-type-array). |
+| Bool     | Tipo de dados booleano. |
+| contrato | Endereço do contrato de tipo. |
+| Enum     | Enumerados conjunto de valores nomeados. Ao usar o tipo de enumeração, também especificar uma lista de EnumValues. Cada valor é limitado a 255 carateres. Carateres de valor válido incluem superior e letras minúsculas (A-Z, a-z) as letras e números (0-9). Ver [exemplo de configuração e utilização na solidez](#example-configuration-of-type-enum). |
+| int      | Tipo de dados de número inteiro. |
+| dinheiro    | Tipo de dados de dinheiro. |
+| state    | Estado do fluxo de trabalho. |
+| cadeia  | Tipo de dados de cadeia de caracteres. máximo de caracteres de 4000. Ver [exemplo de configuração](#example-configuration-of-type-string). |
+| Utilizador     | Endereço do tipo de utilizador. |
+| hora     | Tipo de dados de tempo. |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicação. Limita os utilizadores sejam desse tipo de função. |
+
+### <a name="example-configuration-of-type-array"></a>Exemplo de configuração do tipo matriz
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### <a name="using-a-property-of-type-array"></a>Usando uma propriedade de tipo matriz
+
+Se definir uma propriedade como tipo de matriz na configuração, precisa incluir uma função de get explícita para devolver a propriedade pública do tipo de matriz no solidez. Por exemplo:
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### <a name="example-configuration-of-type-string"></a>Exemplo de configuração do tipo string
 
@@ -183,7 +210,7 @@ Define as funções que podem ser executadas no fluxo de trabalho.
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | O nome exclusivo da função. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a função aplicável. | Sim |
-| Nome a Apresentar | Nome a apresentar amigável da função. | Sim |
+| displayName | Nome a apresentar amigável da função. | Sim |
 | Descrição | Descrição da função | Não |
 | Parâmetros | Coleção de [identificadores](#identifiers) correspondente para os parâmetros da função. | Sim |
 
@@ -231,7 +258,7 @@ Uma coleção de Estados exclusivos dentro de um fluxo de trabalho. Cada Estado 
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | Nome exclusivo do Estado. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para o estado de aplicável. | Sim |
-| Nome a Apresentar | Nome a apresentar amigável do Estado. | Sim |
+| displayName | Nome a apresentar amigável do Estado. | Sim |
 | Descrição | Descrição do Estado. | Não |
 | PercentComplete | Um valor inteiro exibido na interface de utilizador do Blockchain Workbench para mostrar o progresso do fluxo de controle de lógica comercial. | Sim |
 | Estilo | Sugestão visual, que indica se o estado representa um Estado de êxito ou falha. Existem dois valores válidos: `Success` ou `Failure`. | Sim |
@@ -301,7 +328,7 @@ Ações disponíveis para o próximo estado. Uma ou mais funções de utilizador
 |-------|-------------|:--------:|
 | AllowedRoles | Lista de aplicações de funções de permissão para iniciar a transição. Todos os utilizadores da função especificada podem ser capazes de executar a ação. | Não |
 | AllowedInstanceRoles | Lista de funções de utilizador a participar ou ser especificada no contrato de inteligente autorizado a iniciar a transição. Funções de instância são definidas no **propriedades** dentro de fluxos de trabalho. AllowedInstanceRoles representar um utilizador de participar de uma instância de um contrato de inteligente. AllowedInstanceRoles dão-lhe a capacidade para restringir a realização de uma ação para uma função de utilizador numa instância de contrato.  Por exemplo, apenas poderá permitir que o utilizador que criou o contrato (InstanceOwner) para conseguir terminar em vez de todos os utilizadores no tipo de função (proprietário), se especificou a função no AllowedRoles. | Não |
-| Nome a Apresentar | Nome a apresentar amigável da transição. | Sim |
+| displayName | Nome a apresentar amigável da transição. | Sim |
 | Descrição | Descrição da transição. | Não |
 | Função | O nome da função para iniciar a transição. | Sim |
 | NextStates | Uma coleção de Estados seguintes potenciais após uma transição com êxito. | Sim |
@@ -368,7 +395,7 @@ Identificadores representam uma coleção de informações utilizadas para descr
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a propriedade aplicável ou o parâmetro. | Sim |
-| Nome a Apresentar | Nome a apresentar amigável para a propriedade ou um parâmetro. | Sim |
+| displayName | Nome a apresentar amigável para a propriedade ou um parâmetro. | Sim |
 | Descrição | Descrição da propriedade ou parâmetro. | Não |
 
 ### <a name="identifiers-example"></a>Exemplo de identificadores

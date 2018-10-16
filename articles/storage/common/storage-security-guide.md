@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730954"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341876"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -22,7 +22,7 @@ Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança 
 - Todos os dados escritos no armazenamento do Azure são automaticamente encriptados usando [Storage Service Encryption (SSE)](storage-service-encryption.md). Para obter mais informações, consulte [anunciando encriptação predefinido para os Blobs do Azure, ficheiros, tabelas e armazenamento de filas](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) e o controlo de acesso baseado em funções (RBAC) são suportadas para o armazenamento do Azure para operações de gestão de recursos e operações de dados, da seguinte forma:   
     - Pode atribuir funções RBAC de âmbito para a conta de armazenamento para entidades de segurança e utilize o Azure AD para autorizar as operações de gestão de recursos, tais como a gestão de chaves.
-    - Integração do Azure AD é suportada em pré-visualização para operações de dados nos serviços de BLOBs e filas. Pode atribuir funções RBAC no âmbito de uma subscrição, grupo de recursos, conta de armazenamento, ou um contentor individual ou fila para um principal de segurança ou uma identidade de serviço gerida. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).   
+    - Integração do Azure AD é suportada em pré-visualização para operações de dados nos serviços de BLOBs e filas. Pode atribuir funções RBAC no âmbito de uma subscrição, grupo de recursos, conta de armazenamento, ou um contentor individual ou fila para um principal de segurança ou uma identidade gerida para recursos do Azure. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).   
 - Dados podem ser protegidos em trânsito entre um aplicativo e o Azure, utilizando [encriptação do lado do cliente](../storage-client-side-encryption.md), HTTPS ou SMB 3.0.  
 - Os discos de SO e os dados utilizados por máquinas virtuais do Azure podem ser encriptados utilizando [do Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Acesso delegado para os objetos de dados no armazenamento do Azure pode ser concedido usando [assinaturas de acesso partilhado](../storage-dotnet-shared-access-signature-part-1.md).

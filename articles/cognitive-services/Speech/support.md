@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cbeaa8f1c0a950bf3941de775a2d62584e5f5dfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 710ba6596303bbbd46d95301bf10b0e6e434a4c1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986409"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343627"
 ---
 # <a name="support"></a>Suporte
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Se tiver dúvidas, comentários ou sugestões sobre a voz do Bing, pode contactar-nos através do GitHub. 
  - [Perguntas relacionadas com a API do REST](https://github.com/Azure-Samples/SpeechToText-REST/issues)

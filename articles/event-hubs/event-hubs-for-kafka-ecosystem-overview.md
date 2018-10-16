@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: f6da33792e1634fb33a298e34b8945c32ef36c39
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056057"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343219"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Hubs de eventos do Azure para o Apache Kafka (pré-visualização)
 
-Os Hubs de eventos fornece um ponto de extremidade do Kafka que pode ser utilizado por já existentes Kafka com base em aplicações como uma alternativa à execução de seu próprio cluster do Kafka. Os Hubs de eventos suportam [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e mais recentes versões de cliente e funciona com seus aplicativos existentes do Kafka, incluindo o MirrorMaker. 
+Os Hubs de eventos fornece um ponto de extremidade do Kafka que pode ser utilizado por já existentes Kafka com base em aplicações como uma alternativa à execução de seu próprio cluster do Kafka. Os Hubs de eventos suportam [protocolo do Apache Kafka 1.0 ou posterior](https://kafka.apache.org/documentation/)e funciona com seus aplicativos existentes do Kafka, incluindo o MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>O que o Hubs de eventos para o Kafka fornece?
 
@@ -70,6 +70,7 @@ Este artigo fornecido uma introdução aos Hubs de eventos para o Kafka. Para ob
 
 * [Como criar Kafka ativado os Hubs de eventos](event-hubs-create-kafka-enabled.md)
 * [Stream nos Hubs de eventos a partir das suas aplicações de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Explorar exemplos mais no nosso GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Introdução a um [Tutorial dos Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 

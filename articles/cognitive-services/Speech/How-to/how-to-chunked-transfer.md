@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979231"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343168"
 ---
 # <a name="chunked-transfer-encoding"></a>A codificação da transferência
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 A transcrição de voz em texto, API de reconhecimento de voz de Microsoft permite-lhe para enviar o áudio como um segmento inteiro ou chop o áudio em pequenos segmentos. Para uma transmissão de áudio eficaz e reduzindo a latência de transcrição, recomenda-se que utilize [codificação de transferência segmentada](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) transmitir áudio para o serviço. Outras implementações podem resultar numa maior latência percebido pelo usuário. Para obter mais informações, consulte a [fluxos de áudio](../concepts.md#audio-streams) página.
 

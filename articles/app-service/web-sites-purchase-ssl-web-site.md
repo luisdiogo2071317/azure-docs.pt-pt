@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 38f7f82d293409a49c41381cedaa1f7600068cd3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077731"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319409"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -78,7 +78,7 @@ Da mesma **configuração do certificado** página que utilizou no passo 3, cliq
 
 Escolha o método de verificação de domínio preferencial. 
 
-Há quatro tipos de verificação de domínio suportados pelo certificados do serviço de aplicações: serviço de aplicações, domínio e verificação Manual. Esses tipos de verificação são explicados em mais detalhes no [Advanced secção](#advanced).
+Existem três tipos de verificação de domínio suportados pelo certificados do serviço de aplicações: serviço de aplicações, domínio e verificação Manual. Esses tipos de verificação são explicados em mais detalhes no [Advanced secção](#advanced).
 
 > [!NOTE]
 > **Verificação do serviço de aplicações** é a opção mais conveniente, quando o domínio que pretende verificar já está mapeado para uma aplicação de serviço de aplicações na mesma subscrição. Tira partido do fato de que a aplicação de serviço de aplicações já verificou a propriedade do domínio.

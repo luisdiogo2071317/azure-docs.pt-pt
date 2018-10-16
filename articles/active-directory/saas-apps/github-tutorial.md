@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: b2a90a4599e5d07baba721d5649b72422dc5cb4d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: dbd4634c575fd4f1886d3e7714ef9ddabbde0f8a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818750"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory com o GitHub
 
@@ -50,33 +49,31 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar GitHub a partir da Galeria
 2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-github-from-the-gallery"></a>Adicionar GitHub a partir da Galeria
-
 Para configurar a integração do GitHub para o Azure AD, terá de adicionar GitHub a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar GitHub a partir da galeria, execute os seguintes passos:**
 
 1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
-    ![O botão do Azure Active Directory][1]
+    ![image](./media/github-tutorial/selectazuread.png)
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais][2]
-
+    ![image](./media/github-tutorial/a_select_app.png)
+    
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicativo][3]
+    ![image](./media/github-tutorial/a_new_app.png)
 
 4. Na caixa de pesquisa, escreva **GitHub**, selecione **GitHub** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![GitHub na lista de resultados](./media/github-tutorial/tutorial_github_addfromgallery.png)
+     ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -98,17 +95,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 **Para configurar o Azure AD início de sessão único com o GitHub, execute os seguintes passos:**
 
-1. No portal do Azure, sobre o **GitHub** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **GitHub** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![image](./media/github-tutorial/b1_b2_select_sso.png)
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
 
-    ![Caixa de diálogo de início de sessão único](./media/github-tutorial/tutorial_github_samlbase.png)
+    ![image](./media/github-tutorial/b1_b2_saml_sso.png)
 
-3. Sobre o **GitHub domínio e URLs** secção, execute os seguintes passos:
+3. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **configuração básica de SAML** caixa de diálogo.
 
-    ![URLs de domínio do GitHub e únicas início de sessão em informações](./media/github-tutorial/tutorial_github_url.png)
+    ![image](./media/github-tutorial/b1-domains_and_urlsedit.png)
+
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+
+    ![image](./media/github-tutorial/tutorial_github_url.png) 
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://github.com/orgs/<entity-id>/sso`
 
@@ -117,47 +118,65 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Tenha em atenção que estes não são os valores reais. Terá de atualizar estes valores com o início de sessão real URL e o identificador. Aqui iremos sugerir-lhe utilizar o valor único de cadeia de caracteres no identificador de. Aceda à secção de administrador do GitHub para obter estes valores.
 
-4. Sobre o **atributos de utilizador** secção, selecione **identificador de utilizador** como user.mail.
+5. Aplicações GitHub espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Clique em **edite** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![Configurar o início de sessão único](./media/github-tutorial/tutorial_github_attribute_new01.png)
+    ![image](./media/github-tutorial/i3-attribute.png)
 
-5. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+    
+    a. Clique em **edite** botão para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![O link de download de certificado](./media/github-tutorial/tutorial_github_certificate.png) 
+    ![image](./media/github-tutorial/i2-attribute.png)
 
-6. Clique em **guardar** botão.
+    ![image](./media/github-tutorial/i4-attribute.png)
 
-    ![Configurar o botão único início de sessão em Guardar](./media/github-tutorial/tutorial_general_400.png)
+    b. Partir do **atributo de origem** , selecione o valor do atributo.
 
-7. Sobre o **configuração do GitHub** secção, clique em **configurar o GitHub** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    c. Clique em **Guardar**.
+ 
+7. Na **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** e guarde-o no seu computador.
 
-    ![Configuração do GitHub](./media/github-tutorial/tutorial_github_configure.png) 
+    ![image](./media/github-tutorial/tutorial_github_certficate.png)
 
-8. Numa janela do browser web diferente, inicie sessão no seu site de organização do GitHub como um administrador.
+8. Sobre o **configurar o GitHub** secção, copie o URL adequado, de acordo com seus requisitos.
 
-9. Navegue para **configurações** e clique em **segurança**
+    a. URL de início de sessão
+
+    b. Identificador do Azure AD
+
+    c. URL de fim de sessão
+
+    ![image](./media/github-tutorial/d1_samlsonfigure.png) 
+
+9. Numa janela do browser web diferente, inicie sessão no seu site de organização do GitHub como um administrador.
+
+10. Navegue para **configurações** e clique em **segurança**
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-10. Verifique os **autenticação SAML ativar** caixa, revelando os campos de configuração início de sessão único. Em seguida, utilize o início de sessão no URL valor único para atualizar o URL único início de sessão na configuração do Azure AD.
+11. Verifique os **autenticação SAML ativar** caixa, revelando os campos de configuração início de sessão único. Em seguida, utilize o início de sessão no URL valor único para atualizar o URL único início de sessão na configuração do Azure AD.
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_13.png)
 
-11. Configure os seguintes campos:
-
-    a. Na **iniciar sessão no URL** caixa de texto, colar **SAML único URL de início de sessão no serviço** valor que copiou do portal do Azure.
-
-    b. Na **emissor** caixa de texto, colar **ID de entidade de SAML** valor que copiou do portal do Azure.
-
-    c. Abra o certificado transferido a partir do portal do Azure no bloco de notas, cole o conteúdo do **certificado público** caixa de texto.
+12. Configure os seguintes campos:
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_051.png)
 
-12. Clique em **configuração SAML do teste** para confirmar que não existem falhas de validação ou erros durante a SSO.
+    a. Na **iniciar sessão no URL** caixa de texto, colar **URL de início de sessão** valor que copiou do portal do Azure.
+
+    b. Na **emissor** caixa de texto, colar **do Azure AD identificador** valor que copiou do portal do Azure.
+
+    c. Abra o certificado transferido a partir do portal do Azure no bloco de notas, cole o conteúdo do **certificado público** caixa de texto.
+
+    d. Clique em **editar** ícone para editar o **método de assinatura** e **Digest método** de **RSA SHA1** e **SHA1**para **RSA-SHA256** e **SHA256** conforme mostrado abaixo.
+
+    ![image](./media/github-tutorial/tutorial_github_sha.png) 
+    
+13. Clique em **configuração SAML do teste** para confirmar que não existem falhas de validação ou erros durante a SSO.
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-13. Clicar em **Guardar**
+14. Clicar em **Guardar**
 
 > [!NOTE]
 > Início de sessão único no GitHub efetua a autenticação para uma organização específica no GitHub e não substitui a autenticação do GitHub em si. Por conseguinte, se a sessão do utilizador GitHub.com tiver expirado, poderá ser-lhe pedido para autenticar com o ID de/palavra-passe do GitHub durante o processo de início de sessão único.
@@ -166,34 +185,27 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    ![image](./media/github-tutorial/d_users_and_groups.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/github-tutorial/create_aaduser_01.png)
+    ![image](./media/github-tutorial/d_adduser.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/github-tutorial/create_aaduser_02.png)
+    ![image](./media/github-tutorial/d_userproperties.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/github-tutorial/create_aaduser_03.png)
+    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/github-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
-
-    d. Clique em **Criar**.
-
+    d. Selecione **Criar**.
+ 
 ### <a name="create-a-github-test-user"></a>Criar um utilizador de teste do GitHub
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no GitHub. O GitHub suporta o aprovisionamento automático de utilizadores, que está por predefinição, ativada. Pode encontrar mais detalhes [aqui](github-provisioning-tutorial.md) sobre como configurar o aprovisionamento automático de utilizadores.
@@ -227,54 +239,36 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no GitHub
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao GitHub.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**.
 
-**Para atribuir a Eduarda Almeida para o GitHub, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201]
+    ![image](./media/github-tutorial/d_all_applications.png)
 
 2. Na lista de aplicações, selecione **GitHub**.
 
-    ![A ligação do GitHub na lista de aplicações](./media/github-tutorial/tutorial_github_app.png)  
+    ![image](./media/github-tutorial/tutorial_github_app.png)
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![image](./media/github-tutorial/d_leftpaneusers.png)
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+4. Selecione o **Add** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar atribuição][203]
+    ![image](./media/github-tutorial/d_assign_user.png)
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+4. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-
+5. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
+    
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico do GitHub no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do GitHub.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-<!--Image references-->
 
-[1]: ./media/github-tutorial/tutorial_general_01.png
-[2]: ./media/github-tutorial/tutorial_general_02.png
-[3]: ./media/github-tutorial/tutorial_general_03.png
-[4]: ./media/github-tutorial/tutorial_general_04.png
-
-[100]: ./media/github-tutorial/tutorial_general_100.png
-
-[200]: ./media/github-tutorial/tutorial_general_200.png
-[201]: ./media/github-tutorial/tutorial_general_201.png
-[202]: ./media/github-tutorial/tutorial_general_202.png
-[203]: ./media/github-tutorial/tutorial_general_203.png

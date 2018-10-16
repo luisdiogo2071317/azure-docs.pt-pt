@@ -1,24 +1,24 @@
 ---
-title: O que é o Serviço de Voz Personalizada?
-titlesuffix: Azure Cognitive Services
+title: Descrição geral do serviço de voz personalizada no Azure | Documentos da Microsoft
 description: O Serviço de Voz Personalizada é um serviço com base na cloud que permite aos utilizadores personalizar modelos de voz para conversão de voz em texto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222748"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342301"
 ---
 # <a name="what-is-custom-speech-service"></a>O que é o Serviço de Voz Personalizada?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 O Serviço de Voz Personalizada é um serviço com base na cloud que oferece aos utilizadores a capacidade de personalizar modelos de voz para conversão de Voz em Texto.
 Para utilizar o Serviço de Voz Personalizada, consulte o [Portal do Serviço de Voz Personalizada](https://cris.ai).
@@ -42,9 +42,9 @@ Embora o motor de conversão de Voz para Texto da Microsoft seja de classe mundi
 
 Por exemplo, se estava a criar uma aplicação para pesquisar o MSDN por voz, é provável que termos como “orientado por objetos” ou “espaço de nomes” ou “ponto net” apareçam com mais frequência do que em aplicações de discurso habitual. A personalização do modelo de idioma irá permitir que o sistema aprenda isto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre como utilizar o Serviço de Voz Personalizada, veja o [Portal do Serviço de Voz Personalizada] (https://cris.ai)).
+Para obter mais informações sobre como utilizar o serviço de voz personalizada, consulte a [Portal de serviço de voz personalizada](https://cris.ai).
 
 * [Introdução](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)

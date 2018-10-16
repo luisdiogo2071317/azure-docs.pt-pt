@@ -1,24 +1,24 @@
 ---
-title: Medidores de serviço e quotas - voz personalizada
-titlesuffix: Azure Cognitive Services
+title: Medidores do serviço de voz personalizada e de quotas no Azure | Documentos da Microsoft
 description: Informações sobre medidores e quotas de serviço de voz personalizada no Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 68fba1d6038a044336ba6aecd3ff163d29131b1d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bd39976691aab0c2333afe9fafc9c5a8cc518b67
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224703"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339564"
 ---
 # <a name="custom-speech-service-meters-and-quotas"></a>Quotas e medidores do serviço de voz personalizada
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Com o serviço de voz de personalizada com base na cloud, pode personalizar modelos de voz para transcrição de voz em texto.
 

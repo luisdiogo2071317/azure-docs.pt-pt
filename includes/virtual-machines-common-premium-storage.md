@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 097fc837807d28e02732cf8820afac74c33e16d9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240210"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49347050"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -51,7 +51,7 @@ Aqui estão alguns dos recursos do armazenamento Premium:
 
 * **Discos de armazenamento Premium**
 
-    O armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. O armazenamento Premium suporta uma grande variedade de VMs do Azure. Tem uma opção de oito tamanhos de disco de disponibilidade geral: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256gib), P20 (512 GiB), P30 (1.024 GiB), P40 (2048 GiB), P50 (4095 GiB). Bem como três tamanhos de disco de pré-visualização: P60 8.192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Tamanhos de disco P4, P6, P60, P70 e P80 estão atualmente apenas suportado para discos geridos. Cada tamanho de disco tem seus próprio especificações de desempenho. Dependendo dos requisitos de aplicação, pode anexar um ou mais discos à sua VM. Descrevemos as especificações de forma mais detalhada [metas de escalabilidade e desempenho do armazenamento Premium](#scalability-and-performance-targets).
+    O armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. O armazenamento Premium suporta uma grande variedade de VMs do Azure. Tem uma opção de oito tamanhos de disco de disponibilidade geral: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256gib), P20 (512 GiB), P30 (1.024 GiB), P40 (2048 GiB), P50 (4095 GiB). Bem como três tamanhos de disco de pré-visualização: P60 8.192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Tamanhos de disco P4, P6, P15, P60, P70 e P80 estão atualmente apenas suportado para discos geridos. Cada tamanho de disco tem seus próprio especificações de desempenho. Dependendo dos requisitos de aplicação, pode anexar um ou mais discos à sua VM. Descrevemos as especificações de forma mais detalhada [metas de escalabilidade e desempenho do armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de páginas Premium**
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte [metas de escalabilidade e desempenho do
 Se estiver a utilizar contas de armazenamento premium para discos não geridos e seu aplicativo excede os destinos de escalabilidade de uma única conta de armazenamento, pode querer migrar para discos geridos. Se não quiser migrar para discos geridos, crie a sua aplicação para utilizar várias contas de armazenamento. Em seguida, particione os dados entre essas contas de armazenamento. Por exemplo, se quiser anexar discos de 51-TB em várias VMs, espalhá-los entre duas contas de armazenamento. 35 TB é o limite para uma conta de armazenamento premium única. Certifique-se de que uma conta de armazenamento premium única nunca tem mais de 35 TB de discos aprovisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Limites de disco de armazenamento Premium
-Quando aprovisiona um disco de armazenamento premium, o tamanho do disco determina o máximo IOPS e débito (largura de banda). O Azure oferece oito tipos de discos de armazenamento premium: P4 (discos geridos apenas), P6 (discos geridos apenas), P10, P15, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e débito. Limites para os tipos de disco são descritas na tabela a seguir:
+Quando aprovisiona um disco de armazenamento premium, o tamanho do disco determina o máximo IOPS e débito (largura de banda). O Azure oferece oito GA tipos de discos de armazenamento premium: P4 (discos geridos apenas), P6 (discos geridos apenas), P10, P15 (discos geridos apenas), P20, P30, P40 e P50. Bem como três tamanhos de disco de pré-visualização: P60 P70 e P80. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e débito. Limites para os tipos de disco são descritas na tabela a seguir:
 
 | Tipo de discos Premium | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---| | -------|| -------|| -------| | Tamanho do disco | 32 giB | 64 giB | 128 giB | 256gib | 512 giB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 8192 giB (8 TiB) | 16,384 giB (16 TiB) | 32.767 giB (32 TiB) | | IOPS por disco | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12,500 | 15.000 | 20.000 | | Débito por disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 

@@ -1,6 +1,6 @@
 ---
-title: Utilizar MSI na Shell de nuvem do Azure | Microsoft Docs
-description: Autenticar código com MSI na Shell de nuvem do Azure
+title: Utilizar identidades de gerido para recursos do Azure no Azure Cloud Shell | Documentos da Microsoft
+description: Autenticar o código com o MSI no Azure Cloud Shell
 services: azure
 documentationcenter: ''
 author: jluk
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: juluk
-ms.openlocfilehash: 99577faf7328dc773a9da5f7c1227aa63600aa0a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 09f54efaf3ff89711c34b7960a271438f38cf224
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517444"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345089"
 ---
-# <a name="use-msi-in-azure-cloud-shell"></a>Utilizar MSI na Shell de nuvem do Azure
+# <a name="use-msi-in-azure-cloud-shell"></a>Utilizar MSI no Azure Cloud Shell
 
-Shell de nuvem do Azure suporta autorização com identidades de serviço geridas (MSI). Utilize esta opção para obter os tokens de acesso para comunicar de forma segura com os serviços do Azure.
+O Azure Cloud Shell oferece suporte a autorização com identidades de serviço gerida (MSI). Utilize esta opção para obtenção de tokens de acesso para comunicar de forma segura com os serviços do Azure.
 
-## <a name="about-managed-service-identity-msi"></a>Sobre a identidade de serviço geridas (MSI)
-Um desafio comum quando a criação de aplicações em nuvem como gerir em segurança as credenciais que têm de ser no seu código para autenticar a serviços em nuvem. Na Shell de nuvem poderá ter de obtenção do Cofre de chaves para uma credencial de um script poderá ter de autenticar.
+## <a name="about-managed-service-identity-msi"></a>Sobre a identidade de serviço gerida (MSI)
+Um desafio comum quando criar aplicações na cloud é a forma de gerir de forma segura as credenciais que precisam de estar no seu código para autenticar a serviços em nuvem. No Cloud Shell pode tem de autenticar a obtenção do Key Vault para uma credencial que poderão necessitar de um script.
 
-Identidade de serviço geridas (MSI) permite a resolver este problema mais simples, conferindo aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, incluindo o Cofre de chaves, sem ter as credenciais no seu código.
+A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
-## <a name="acquire-access-token-in-cloud-shell"></a>Adquirir token de acesso na Shell de nuvem
+## <a name="acquire-access-token-in-cloud-shell"></a>Adquirir token de acesso no Cloud Shell
 
-Execute os seguintes comandos para definir o seu token de acesso do MSI como uma variável de ambiente, `access_token`.
+Execute os seguintes comandos para definir o token de acesso MSI como uma variável de ambiente, `access_token`.
 ```
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```
 
-## <a name="handling-token-expiration"></a>Processamento de expiração do token
+## <a name="handling-token-expiration"></a>Manipulação de expiração do token
 
-O subsistema MSI local coloca em cache tokens. Por conseguinte, pode chamar-as vezes que é que gosta e resulta de uma chamada no-durante a transmissão para o Azure AD apenas se:
-- ocorre uma falha de acerto na cache devido a nenhum token na cache
+O subsistema MSI local armazena em cache tokens. Portanto, pode chamá-lo sempre que quiser, e resulta de uma chamada de on-the-wire para o Azure AD apenas se a:
+- uma falha de acerto na cache ocorre devido a nenhum token em cache
 - o token expirou
 
-Se a cache o token no seu código, estará preparado para processar cenários em que o recurso indica que o token expirou.
+Se colocar em cache o token no seu código, deve estar preparado para lidar com cenários em que o recurso indica que o token expirou.
 
-Para processar erros token, visite o [página MSI sobre curling tokens de acesso do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+Para lidar com erros de token, visite o [página MSI sobre curling tokens de acesso MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Adquirir tokens de acesso de VMs de MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Saiba mais sobre o MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
+[Aquisição de tokens de acesso de VMs de MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)

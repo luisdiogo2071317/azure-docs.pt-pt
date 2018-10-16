@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298324"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321803"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 
@@ -173,16 +173,14 @@ Para mais granularidade, veja a lista atualizada de [intervalos de IP do Microso
 
 Para obter mais informações, reveja os pré-requisitos conectividade a [pré-requisitos para o Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md) artigo.
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reinicie o serviço do Azure AD Connect Sync
 
 Para resolver problemas de conectividade ou outros problemas temporários com o serviço, reinicie o serviço do Azure AD Connect Sync:
 
    1. Como administrador, selecione **iniciar** no servidor a executar o Azure AD Connect.
-   2. ENTER **Services. msc** no campo de pesquisa e selecione **Enter**.
-   3. Procure o **Microsoft Azure AD Sync** entrada.
-   4. A entrada de serviço com o botão direito, selecione **reiniciar**e, em seguida, aguarde a conclusão da operação.
+   1. ENTER **Services. msc** no campo de pesquisa e selecione **Enter**.
+   1. Procure o **Microsoft Azure AD Sync** entrada.
+   1. A entrada de serviço com o botão direito, selecione **reiniciar**e, em seguida, aguarde a conclusão da operação.
 
    ![Reinicie o serviço do Azure AD Sync][Service restart]
 
@@ -193,15 +191,15 @@ Estes passos restabelecer a ligação com o serviço cloud e resolva quaisquer i
 Para resolver problemas de conectividade, desativar e, em seguida, volte a ativar a funcionalidade de repetição de escrita de palavra-passe:
 
    1. Como administrador, abra o Assistente de configuração de ligar do Azure AD.
-   2. Na **ligar para o Azure AD**, insira as suas credenciais de administrador global do Azure AD.
-   3. Na **ligar ao AD DS**, introduza as credenciais de administrador de serviços de domínio do AD.
-   4. Na **identificar os utilizadores de forma exclusiva**, selecione a **próxima** botão.
-   5. Na **funcionalidades opcionais**, desmarque a **repetição de escrita de palavra-passe** caixa de verificação.
-   6. Selecione **próxima** por meio das restantes páginas de diálogo sem alterar nada até chegar à **pronto para configurar** página.
-   7. Certifique-se de que o **pronto para configurar a página** mostra o **repetição de escrita de palavra-passe** opção como **desativada** e, em seguida, selecione o verde **configurar** botão para consolidar as alterações.
-   8. Na **concluído**, desmarque a **sincronizar agora** opção e, em seguida, selecione **concluir** para fechar o assistente.
-   9. Volte a abrir o Assistente de configuração de ligar do Azure AD.
-   10. Repita os passos 2-8, mas certifique-se de que seleciona os **repetição de escrita de palavra-passe** opção a **funcionalidades opcionais** página para voltar a ativar o serviço.
+   1. Na **ligar para o Azure AD**, insira as suas credenciais de administrador global do Azure AD.
+   1. Na **ligar ao AD DS**, introduza as credenciais de administrador de serviços de domínio do AD.
+   1. Na **identificar os utilizadores de forma exclusiva**, selecione a **próxima** botão.
+   1. Na **funcionalidades opcionais**, desmarque a **repetição de escrita de palavra-passe** caixa de verificação.
+   1. Selecione **próxima** por meio das restantes páginas de diálogo sem alterar nada até chegar à **pronto para configurar** página.
+   1. Certifique-se de que o **pronto para configurar a página** mostra o **repetição de escrita de palavra-passe** opção como **desativada** e, em seguida, selecione o verde **configurar** botão para consolidar as alterações.
+   1. Na **concluído**, desmarque a **sincronizar agora** opção e, em seguida, selecione **concluir** para fechar o assistente.
+   1. Volte a abrir o Assistente de configuração de ligar do Azure AD.
+   1. Repita os passos 2-8, mas certifique-se de que seleciona os **repetição de escrita de palavra-passe** opção a **funcionalidades opcionais** página para voltar a ativar o serviço.
 
 Estes passos restabelecer a ligação com o serviço cloud e resolva quaisquer interrupções que possam estar a ter.
 
@@ -215,10 +213,11 @@ Recomendamos que efetue este passo apenas depois de tentar as duas primeiras eta
 
 > [!WARNING]
 > Se tiver personalizado as regras de sincronização de out-of-the-box, *o backup deles antes de continuar com a atualização e, em seguida, voltá-los manualmente depois de terminar.*
+>
 
-   1. Baixe a versão mais recente do Azure AD Connect do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Uma vez que já tenha instalado o Azure AD Connect, terá de efetuar uma atualização in-loco para atualizar a instalação do Azure AD Connect para a versão mais recente.
-   3. Executar o pacote transferido e siga na tela instruções para atualizar a sua máquina do Azure AD Connect.
+1. Baixe a versão mais recente do Azure AD Connect do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Uma vez que já tenha instalado o Azure AD Connect, terá de efetuar uma atualização in-loco para atualizar a instalação do Azure AD Connect para a versão mais recente.
+1. Executar o pacote transferido e siga na tela instruções para atualizar a sua máquina do Azure AD Connect.
 
 Os passos anteriores devem voltar a estabelecer a ligação com o serviço cloud e resolva quaisquer interrupções que possam estar a ter.
 
@@ -228,34 +227,33 @@ Se instalar a versão mais recente do servidor do Azure AD Connect não resolver
 
 O Azure AD Connect requer o Active Directory **Repor palavra-passe** permissão para efetuar a repetição de escrita de palavra-passe. Para saber se o Azure AD Connect tem a permissão necessária para uma conta de utilizador do Active Directory de determinado no local, pode utilizar a funcionalidade de permissão efetiva do Windows:
 
-   1. Inicie sessão no servidor do Azure AD Connect e iniciar o **Synchronization Service Manager** ao selecionar **iniciar** > **serviço de sincronização**.
-   2. Sob o **conectores** separador, selecione no local **serviços de domínio do Active Directory** conector e, em seguida, selecione **propriedades**.  
-
+1. Inicie sessão no servidor do Azure AD Connect e iniciar o **Synchronization Service Manager** ao selecionar **iniciar** > **serviço de sincronização**.
+1. Sob o **conectores** separador, selecione no local **serviços de domínio do Active Directory** conector e, em seguida, selecione **propriedades**.  
    ![Permissão efetiva - passo 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. Na janela de pop-up, selecione **ligar à floresta do Active Directory** e anote o **nome de utilizador** propriedade. Esta propriedade é a conta de AD DS utilizada pelo Azure AD Connect para efetuar a sincronização de diretórios. Para o Azure AD Connect efetuar a repetição de escrita de palavra-passe, a conta do AD DS tem de ter a repor a permissão de palavra-passe.  
+1. Na janela de pop-up, selecione **ligar à floresta do Active Directory** e anote o **nome de utilizador** propriedade. Esta propriedade é a conta de AD DS utilizada pelo Azure AD Connect para efetuar a sincronização de diretórios. Para o Azure AD Connect efetuar a repetição de escrita de palavra-passe, a conta do AD DS tem de ter a repor a permissão de palavra-passe.  
    
    ![Permissão efetiva - passo 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Inicie sessão para um controlador de domínio no local e inicie o **Active Directory Users and Computers** aplicação.
-   5. Selecione **View** e certifique-se a **funcionalidades avançadas** opção está ativada.  
+1. Inicie sessão para um controlador de domínio no local e inicie o **Active Directory Users and Computers** aplicação.
+1. Selecione **View** e certifique-se a **funcionalidades avançadas** opção está ativada.  
    
    ![Permissão efetiva - passo 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Procure a conta de utilizador do Active Directory que pretende verificar. O nome da conta com o botão direito e selecione **propriedades**.  
+1. Procure a conta de utilizador do Active Directory que pretende verificar. O nome da conta com o botão direito e selecione **propriedades**.  
    
    ![Permissão efetiva - passo 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. Na janela de pop-up, vá para o **Security** separador e selecione **avançadas**.  
+1. Na janela de pop-up, vá para o **Security** separador e selecione **avançadas**.  
    
    ![Permissão efetiva - passo 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. Na **definições avançadas de segurança de administrador** janela de pop-up, vá para o **acesso Efetivo** separador.
-   9. Selecione **selecionar um utilizador**, selecione a conta do AD DS utilizada pelo Azure AD Connect (ver passo 3) e, em seguida, selecione **ver acesso Efetivo**.  
-   
+1. Na **definições avançadas de segurança de administrador** janela de pop-up, vá para o **acesso Efetivo** separador.
+1. Selecione **selecionar um utilizador**, selecione a conta do AD DS utilizada pelo Azure AD Connect (ver passo 3) e, em seguida, selecione **ver acesso Efetivo**.
+
    ![Permissão efetiva - passo 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Desloque para baixo e procure **Repor palavra-passe**. Se a entrada tem uma marca de verificação, a conta do AD DS tem permissão para repor a palavra-passe da conta de utilizador do Active Directory selecionada.  
+1. Desloque para baixo e procure **Repor palavra-passe**. Se a entrada tem uma marca de verificação, a conta do AD DS tem permissão para repor a palavra-passe da conta de utilizador do Active Directory selecionada.  
    
    ![Permissão efetiva - passo 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Para o ajudar corretamente, pedimos que forneçam tantos detalhes quanto possív
     * Este é um utilizador apenas na cloud?
 * **Licenciamento**: o utilizador tem uma licença do Azure AD Premium ou do Azure AD básico atribuída?
 * **Registo de eventos do aplicativo**: Se estiver a utilizar a repetição de escrita de palavra-passe e o erro é na sua infraestrutura no local, inclua uma cópia zipada do seu registo de eventos de aplicativo do servidor do Azure AD Connect.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reinicie o serviço do Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "O código de suporte está localizado no inferior direito da janela"

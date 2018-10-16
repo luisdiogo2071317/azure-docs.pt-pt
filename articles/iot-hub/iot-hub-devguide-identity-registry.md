@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311240"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319137"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade do IoT hub
 
@@ -198,6 +198,9 @@ Identidades do dispositivo são representadas como documentos JSON com as seguin
 > [!NOTE]
 > Estado da ligação só pode representar a vista do IoT Hub do Estado da ligação. Atualizações para este estado podem sofrer um atraso, dependendo das condições de rede e configurações.
 
+> [!NOTE]
+> O dispositivo SDKs não suportam atualmente utilizar o `+` e `#` carateres no **deviceId**.
+
 ## <a name="module-identity-properties"></a>Propriedades de identidade do módulo
 
 Identidades do módulo são representadas como documentos JSON com as seguintes propriedades:
@@ -216,6 +219,9 @@ Identidades do módulo são representadas como documentos JSON com as seguintes 
 | connectionState |só de leitura |Um campo que indica o estado da ligação: ambos **ligado** ou **desligado**. Este campo representa a visão do IoT Hub do Estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se no nível de protocolo pings (MQTT pings ou pings AMQP) e pode ter um atraso máximo de apenas 5 minutos. Por esses motivos, pode haver falsos positivos, como dispositivos comunicados como ligado mas que está ligado à Internet. |
 | connectionStateUpdatedTime |só de leitura |Um indicador temporal, que mostra a data e hora da última o estado de ligação foi atualizado. |
 | lastActivityTime |só de leitura |Um indicador temporal, que mostra a data e hora da última o dispositivo ligado, recebida ou enviada uma mensagem. |
+
+> [!NOTE]
+> O dispositivo SDKs não suportam atualmente utilizar o `+` e `#` carateres no **deviceId** e **moduleId**.
 
 ## <a name="additional-reference-material"></a>Material de referência adicionais
 

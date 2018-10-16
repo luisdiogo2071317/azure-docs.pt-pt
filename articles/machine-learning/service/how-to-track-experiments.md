@@ -9,30 +9,33 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b3e1fd5331b97fc2120819b17f7fbba57dadf7b1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115187"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345055"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
 
 No serviço do Azure Machine Learning, pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Neste artigo, irá aprender sobre as diferentes formas de adicionar registos ao seu script de treinamento, como submeter a experimentação com **start_logging** e **ScriptRunConfig**, como verificar o progresso de um tarefa de execução e como visualizar os resultados de uma execução. 
 
+>[!NOTE]
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.168 
+
 ## <a name="list-of-training-metrics"></a>Lista de métricas de treinamento 
 
 As métricas seguintes podem ser adicionadas a uma execução enquanto uma experimentação de preparação. Para ver uma lista mais detalhada das quais podem ser acompanhadas numa execução, consulte a [documentação de referência do SDK](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
-|Tipo| Função de Python | Notas|
-|----|:----:|:----:|
-|Valores escalares | `run.log(name, value, description='')`| Inicie a sessão de um valor de métrica para a execução com o nome fornecido. Registo de uma métrica para uma execução faz com que essa métrica sejam armazenadas no registo de execução na experimentação.  Pode se conectar a mesma métrica várias vezes dentro de uma execução, o resultado a ser considerado um vetor dessa métrica.|
-|Listas| `run.log_list(name, value, description='')`|Inicie a sessão de um valor de métrica de lista para a execução com o nome fornecido.|
-|Linha| `run.log_row(name, description=None, **kwargs)`|Usando *log_row* cria uma métrica de tabela com colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para iniciar sessão uma tupla arbitrária, ou várias vezes num loop para gerar uma tabela completa.|
-|Tabela| `run.log_table(name, value, description='')`| Inicie a sessão de uma métrica de tabela para a execução com o nome fornecido. |
-|Imagens| `run.log_image(name, path=None, plot=None)`|Inicie a sessão de uma métrica de imagem para o registo de execução. Utilizar log_image para registar um ficheiro de imagem ou um matplotlib gráfico para a execução.  Estas imagens serão visíveis e comparável no registo de execução.|
-|Marcar uma execução| `run.tag(key, value=None)`|Marca a execução com uma chave de cadeia de caracteres e o valor de cadeia de caracteres opcional.|
-|Carregar o ficheiro ou diretório|`run.upload_file(name, path_or_stream)`|Carregar um ficheiro para o registo de execução. Execuções de recolher automaticamente o ficheiro no diretório de saída especificado, o que está predefinida para ". / saídas" para a mais tipos de execução.  Utilize upload_file apenas quando os ficheiros adicionais devem ser carregados ou não for especificado um diretório de saída. Sugerimos que adicionar `outputs` para o nome, de modo que ele é carregado para o diretório de saídas. Pode listar todos os ficheiros que estão associados com esta opção executar o registo por chamada `run.get_file_names()`|
+|Tipo| Função de Python | Exemplo | Notas|
+|----|:----|:----|:----|
+|Valores escalares | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Iniciar um numéricos ou de cadeia de valor para a execução com o nome fornecido. Registo de uma métrica para uma execução faz com que essa métrica sejam armazenadas no registo de execução na experimentação.  Pode se conectar a mesma métrica várias vezes dentro de uma execução, o resultado a ser considerado um vetor dessa métrica.|
+|Listas| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Inicie a sessão de uma lista de valores para a execução com o nome fornecido.|
+|Linha| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Usando *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para iniciar sessão uma tupla arbitrária, ou várias vezes num loop para gerar uma tabela completa.|
+|Tabela| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Inicie a sessão de um objeto de dicionário para a execução com o nome fornecido. |
+|Imagens| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Inicie a sessão de uma imagem para o registo de execução. Utilizar log_image para registar um ficheiro de imagem ou um matplotlib gráfico para a execução.  Estas imagens serão visíveis e comparável no registo de execução.|
+|Marcar uma execução| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Marca a execução com uma chave de cadeia de caracteres e o valor de cadeia de caracteres opcional.|
+|Carregar o ficheiro ou diretório|`run.upload_file(name, path_or_stream)`| Run.upload_file ("best_model.pkl", ". / pkl") | Carregar um ficheiro para o registo de execução. Execuções de recolher automaticamente o ficheiro no diretório de saída especificado, o que está predefinida para ". / saídas" para a mais tipos de execução.  Utilize upload_file apenas quando os ficheiros adicionais devem ser carregados ou não for especificado um diretório de saída. Sugerimos que adicionar `outputs` para o nome, de modo que ele é carregado para o diretório de saídas. Pode listar todos os ficheiros que estão associados com esta opção executar o registo por chamada `run.get_file_names()`|
 
 > [!NOTE]
 > As métricas de escalares, listas, linhas e tabelas podem ter o tipo: número de vírgula flutuante, número inteiro ou uma cadeia.
@@ -141,7 +144,7 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},
