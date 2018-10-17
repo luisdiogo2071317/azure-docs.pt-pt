@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637878"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092974"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Comparar laboratórios geridos no Azure Lab Services e DevTest Labs
 Pode criar dois tipos de laboratórios, **laboratórios geridos** com o Azure Lab Services, e **laboratórios personalizados** com o Azure DevTest Labs. Se apenas quiser introduzir o que precisa num laboratório e permitir que o serviço configure e faça a gestão da infraestrutura necessária para o laboratório, escolha um dos **laboratórios geridos**. Atualmente, o **laboratório de sala de aula** é o único tipo de laboratório gerido que pode criar com o Azure Lab Services. Se quiser gerir a sua própria infraestrutura, crie um laboratório com o Azure DevTest Labs.
 
 As seguintes secções fornecem mais detalhes sobre estes laboratórios. 
 
-## <a name="managed-labs"></a>Laboratórios geridos
-Os laboratórios geridos oferecem diferentes tipos de laboratórios que se adequam às suas necessidades específicas. Atualmente, o Azure Lab Services só suporta o **laboratório de sala de aula** como um laboratório gerido. Os laboratórios geridos permitem-lhe começar imediatamente, com configuração mínima. O próprio serviço processa toda a gestão da infraestrutura do laboratório, desde gerar as VMs até processar os erros e dimensionar a infraestrutura. Para criar um laboratório gerido, tem de criar uma conta de laboratório para a sua organização. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
+## <a name="managed-lab-types"></a>Tipos de laboratório geridos
+O Azure Lab Services permite-lhe criar laboratórios cuja infraestrutura é gerida pelo Azure. Este artigo refere-se a eles como laboratórios geridos. Os laboratórios geridos oferecem diferentes tipos de laboratórios que se adequam às suas necessidades específicas. Atualmente, o único tipo de laboratório gerido suportado é o **laboratório de sala de aula**. 
+
+Os laboratórios geridos permitem-lhe começar imediatamente, com configuração mínima. O próprio serviço processa toda a gestão da infraestrutura do laboratório, desde gerar as VMs até processar os erros e dimensionar a infraestrutura. Para criar um laboratório gerido, por exemplo, um laboratório de sala de aula, tem de criar uma conta de laboratório para a sua organização. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
 
 Quando cria e utiliza recursos do Azure nestes laboratórios geridos, o serviço cria e gere recursos nas subscrições internas da Microsoft. Não são criados na sua própria subscrição do Azure. O serviço mantém um registo da utilização destes recursos nas subscrições internas da Microsoft. A utilização é faturada na sua subscrição do Azure que contém a conta de laboratório.   
 
@@ -51,11 +53,11 @@ Veja a seguir alguns **casos de utilização do DevTest Labs**:
 - Ofereça sessões de formação para os seus clientes através de um laboratório configurado com a versão mais recente do seu produto. Dê a cada cliente um número limitado de horas para utilizar o laboratório. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Laboratórios geridos vs. DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>Tipos de laboratório geridos vs. DevTest Labs
 A seguinte tabela compara dois tipos de laboratórios suportados pelo Azure Lab Services: 
 
 | Funcionalidades | Laboratórios geridos | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Gestão da infraestrutura do Azure no laboratório. |  Gerido automaticamente pelo serviço | Gerido por conta própria  |
 | Resiliência incorporada para problemas de infraestrutura | Processado automaticamente pelo serviço | Gerido por conta própria  |
 | Gestão de subscrições | O serviço processa a alocação de recursos nas subscrições da Microsoft que suportam o serviço. O dimensionamento é processado automaticamente pelo serviço. | Pode gerir por conta própria na sua subscrição do Azure. Sem dimensionamento automático de subscrições. |

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1cbe63184578f7d1e72992577a11c58b9b83a002
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937322"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092698"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
 
@@ -44,7 +44,7 @@ Neste tutorial, ficará a saber como:
 
 ![Menu de contexto da API - adicionar versão](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. Selecione **Conference API** na lista de APIs.
+1. Selecione **Demo Conference API** na lista de APIs.
 2. Selecione o menu de contexto (**...**) junto à mesma.
 3. Selecione **+ Adicionar Versão**.
 
@@ -58,37 +58,39 @@ A Gestão de API do Azure permite-lhe escolher a forma como permite aos autores 
 ![Adicionar ecrã de versão](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Mantenha **caminho** selecionado como **esquema de versões**.
-2. Adicione **v1** como **identificador da versão**.
+2. Adicione **v1** como **Nome** e **Identificador da versão**.
 
     > [!TIP]
     > Se selecionar **cabeçalho** ou **cadeia de consulta** como esquema de versões, tem de fornecer um valor adicional, o nome do cabeçalho ou o parâmetro da cadeia de consulta.
 
-3. Forneça uma descrição, se desejar.
-4. Selecione **Criar** para configurar a nova versão.
-5. Abaixo de **Big Conference API** na lista de APIs, pode ver agora duas APIs distintas: **Original** e **v1**.
+3. Selecione **Criar** para configurar a nova versão.
+4. Abaixo da **API da Conferência de Demonstração**, na Lista de APIs, pode ver agora duas APIs distintas: **Original** e **v1**.
 
     ![Versões listadas numa API no portal do Azure](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Se adicionar uma versão a uma API sem versões, será criada automaticamente uma **Original**, que responde no URL predefinido. Isto garante que todos os autores de chamadas existentes não são divididos pelo processo de adição de uma versão. Se criar uma nova API com versões ativadas no início, não é criada uma Original.
 
-6. Agora, pode editar e configurar **v1** como uma API separada da **Original**. As alterações a uma versão não afetam a outra.
+5. Agora, pode editar e configurar **v1** como uma API separada da **Original**. As alterações a uma versão não afetam a outra.
 
 ## <a name="add-the-version-to-a-product"></a>Adicionar a versão a um produto
 
 Para os autores de chamadas verem a nova versão, esta tem de ser adicionada a um **produto**.
 
 1. Selecione **Produtos** na página do modelo de implementação clássica.
+
+    ![Produtos da Gestão de API](media/api-management-getstarted-publish-versions/Products.png)
+
 2. Selecione **Ilimitados**.
 3. Selecione **APIs**.
 4. Selecione **Adicionar**.
-5. Selecione **Conference API, Versão v1**.
+5. Selecione **API da Conferência de Demonstração, Versão v1**.
 6. Navegue até à página de gestão de serviço e selecione **APIs**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Navegar até ao portal do programador para ver a versão
 
 1. Selecione **Portal do Programador** no menu superior.
-2. Selecione **APIs**, repare que **Conference API** mostra as versões **Original** e **v1**.
+2. Selecione **APIs**, repare que **API da Conferência de Demonstração** mostra as versões **Original** e **v1**.
 3. Selecione **v1**.
 4. Repare no **URL do pedido** da primeira operação na lista. Indica que o caminho do URL da API inclui **v1**.
 
@@ -107,4 +109,4 @@ Neste tutorial, ficará a saber como:
 Avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
-> [Atualizar e dimensionar](upgrade-and-scale.md)
+> [Personalizar o estilo das páginas de portal do Programador](api-management-customize-styles.md)

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: fbe9b79cd407f74686d572aa1e5c7ac1d837cd25
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023764"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223419"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introdução ao Azure Event Grid
 
@@ -27,7 +27,7 @@ Este artigo mostra uma descrição geral do Azure Event Grid. Se quiser começar
 
 ![Modelo funcional do Event Grid](./media/overview/functional-model.png)
 
-Atenção: esta imagem mostra como de que forma é que o Event Grid liga origens e processadores, e não é uma lista abrangente das opções suportadas.
+Atenção: esta imagem mostra como o Event Grid liga origens e processadores, e não é uma lista abrangente das opções suportadas.
 
 ## <a name="event-sources"></a>Origens de eventos
 
@@ -61,11 +61,11 @@ Para obter detalhes completos sobre as capacidades de cada processador, bem como
 
 Existem cinco conceitos no Azure Event Grid que lhe permitem começar:
 
-* **Eventos** - o que aconteceu.
+* **Eventos** – o que aconteceu.
 * **Origens dos eventos** – onde o evento aconteceu.
-* **Tópicos** - o ponto final no qual os publicadores enviam eventos.
+* **Tópicos** – o ponto final no qual os publicadores enviam eventos.
 * **Subscrições de eventos** - o ponto final ou o mecanismo incorporado para encaminhar eventos, por vezes, para vários processadores. As subscrições também são utilizadas pelos processadores para filtrar inteligentemente os eventos recebidos.
-* **Processadores de eventos** - a aplicação ou o serviço que reage ao evento.
+* **Processadores de eventos** – a aplicação ou o serviço que reage ao evento.
 
 Para obter mais informações sobre estes conceitos, veja [Concepts in Azure Event Grid](concepts.md) (Conceitos no Azure Event Grid).
 
@@ -73,16 +73,16 @@ Para obter mais informações sobre estes conceitos, veja [Concepts in Azure Eve
 
 Seguem-se algumas das principais funcionalidades do Azure Event Grid:
 
-* **Simplicidade** - aponte e clique para direcionar eventos do seu recurso do Azure para qualquer processador ou ponto final de eventos.
-* **Filtragem avançada** - filtre por tipo de evento ou por caminho de publicador do evento para garantir que os processadores de eventos só recebem eventos relevantes.
-* **Fan-out** - subscreva vários pontos finais para o mesmo evento, para enviar cópias do mesmo para tantos locais quanto necessário.
-* **Fiabilidade** - utilize a repetição de 24 horas com término exponencial para garantir que os eventos são entregues.
-* **Pagar por evento** - pague apenas pela quantidade utilizada no Event Grid.
-* **Débito elevado** - crie cargas de trabalho de elevado volume no Event Grid com suporte para milhões de eventos por segundo.
-* **Eventos incorporados** - comece a executar rapidamente com os eventos incorporados definidos por recursos.
-* **Eventos personalizados** - utilize as rotas e o filtro do Event Grid para entregar, com confiança, eventos personalizados à sua aplicação.
+* **Simplicidade** – aponte e clique para direcionar eventos do seu recurso do Azure para qualquer processador ou ponto final de eventos.
+* **Filtragem avançada** – filtre por tipo de evento ou por caminho de publicador do evento para garantir que os processadores de eventos só recebem eventos relevantes.
+* **Fan-out** – subscreva vários pontos finais para o mesmo evento, para enviar cópias do mesmo para tantos locais quanto necessário.
+* **Fiabilidade** – utilize a repetição de 24 horas com término exponencial para garantir que os eventos são entregues.
+* **Pagar por evento** – pague apenas pela quantidade utilizada no Event Grid.
+* **Débito elevado** – crie cargas de trabalho de elevado volume no Event Grid com suporte para milhões de eventos por segundo.
+* **Eventos incorporados** – comece a executar rapidamente com os eventos incorporados definidos por recursos.
+* **Eventos Personalizados** – utilize a rota e o filtro do Event Grid para entregar, com confiança, eventos personalizados na aplicação.
 
-Para ver uma comparação entre o Event Grid, os Hubs de Eventos e o Service Bus, veja [Choose between Azure services that deliver messages](compare-messaging-services.md) (Escolher entre serviços do Azure que entregam mensagens).
+Para ver uma comparação entre o Event Grid, os Hubs de Eventos e o Service Bus, veja [Escolher entre serviços do Azure que entregam mensagens](compare-messaging-services.md).
 
 ## <a name="what-can-i-do-with-event-grid"></a>O que posso fazer com o Event Grid?
 

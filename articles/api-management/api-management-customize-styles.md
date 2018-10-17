@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00e6f2ed866afd13343df37de625e2913f613dfa
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33933713"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092408"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas de portal do Programador
 
@@ -82,5 +82,4 @@ Neste tutorial, ficou a saber como:
 > * Personalizar o estilo dos elementos em páginas do portal do **Programador**
 > * Ver a sua alteração
 
-> [!div class="nextstepaction"]
-> [Personalizar o portal do programador da Gestão de API do Azure através de modelos](api-management-developer-portal-templates.md)
+Poderá também estar interessado em aprender [como personalizar o portal do programador de Gestão de API do Azure através de modelos](api-management-developer-portal-templates.md).

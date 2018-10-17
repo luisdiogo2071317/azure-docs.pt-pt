@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 08/08/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8371a160d129586f63b2f14946ed34a8d0637f6c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714245"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162043"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -33,9 +33,12 @@ O Azure Migrate ajuda-o a:
 - Se quiser avaliar Hyper-VMs e servidores físicos, utilize o [Planeador de Implementações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para Hyper-V e as nossas [ferramentas para parceiros](https://azure.microsoft.com/migration/partners/) para máquinas físicas.
 - Pode detetar até 1500 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 1500 VMs numa única avaliação.
 - Se pretender encontrar um ambiente maior, pode dividir a deteção e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). O Azure Migrate suporta até 20 projetos por subscrição.
-- Só pode criar um projeto do Azure Migrate na região E.U.A. Centro-Oeste ou Leste. Isso não afeta a possibilidade de planear a migração para qualquer localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados no ambiente no local.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
+- Só pode criar projetos do Azure Migrate na geografia Estados Unidos. Isso não afeta a possibilidade de planear a migração para qualquer localização de destino do Azure. A geografia do projeto de migração serve apenas para armazenar os metadados detetados no ambiente no local. [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) sobre os metadados recolhidos pelo Azure Migrate. Os metadados recolhidos são armazenados numa das regiões na [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) selecionada:
 
+**Geografia** | **Regiões**
+--- | ---
+Estados Unidos | EUA Centro-Oeste, EUA Leste
 
 ## <a name="what-do-i-need-to-pay-for"></a>O que vou pagar?
 
@@ -49,14 +52,14 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 **Propriedade** | **Detalhes**
 --- | ---
 **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>Atualmente, o Azure Migrate suporta 30 regiões. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida como E.U.A. Oeste 2.
-**Tipo de armazenamento** | O tipo de discos que quer alocar no Azure. Esta propriedade é aplicável quando o critério de dimensionamento é **como no local**. Pode especificar o tipo de disco de destino como discos geridos premium (a predefinição) ou discos geridos standard. Para o dimensionamento com base no desempenho, a recomendação de tamanho do disco é feita automaticamente com base nos dados de desempenho das VMs. 
-**Critérios de dimensionamento** | O dimensionamento pode ter por base o **histórico de desempenho** das VMs no local ou **como no local** (a predefinição), sem ter em conta o histórico de desempenho. 
+**Tipo de armazenamento** | O tipo de discos que quer alocar no Azure. Esta propriedade é aplicável quando o critério de dimensionamento é **como no local**. Pode especificar o tipo de disco de destino como discos geridos premium (a predefinição) ou discos geridos standard. Para o dimensionamento com base no desempenho, a recomendação de tamanho do disco é feita automaticamente com base nos dados de desempenho das VMs.
+**Critérios de dimensionamento** | O dimensionamento pode ter por base o **histórico de desempenho** das VMs no local ou **como no local** (a predefinição), sem ter em conta o histórico de desempenho.
 **Oferta do Azure** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que está escrito. O Azure Migrate calcula o custo em conformidade.
 **Benefício Híbrido do Azure** | Se tiver o software assurance e for elegível para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) com custos reduzidos.
 **Instâncias Reservadas** |  Se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. O Azure Migrate calcula o custo em conformidade.
 **Tempo de atividade de VM** | O período de tempo durante o qual as VMs vão ser executadas no Azure. Os cálculos de custo são feitos em conformidade.
 **Escalão de preço** | O [escalão de preço (básico/standard)](../virtual-machines/windows/sizes-general.md) para as VMs de destino do Azure. Por exemplo, se estiver a planear a migração de um ambiente de produção, pode considerar o escalão standard, que oferece baixa latência às VMs, mas pode ser mais caro. Por outro lado, num ambiente de teste, pode utilizar o escalão básico, que tem latência mais alta e custos mais baixos. Por predefinição, é utilizado o escalão [standard](../virtual-machines/windows/sizes-general.md).
-**Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%. 
+**Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%.
 **Série das VMs** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
 **Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. A definição de conforto predefinida é 1,3x.
 
@@ -80,10 +83,10 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 A tabela resume as portas necessárias para as comunicações do Azure Migrate.
 
 Componente | Comunica com |  Detalhes
---- | --- |--- 
+--- | --- |---
 Recoletor  | Serviço do Azure Migrate | O recoletor liga-se ao serviço através da porta SSL 443.
-Recoletor | vCenter Server | Por predefinição, o recoletor liga-se ao vCenter Server na porta 443. Se o servidor escutar noutra porta, configure-a como porta de saída na VM do recoletor. 
-VM no local | Área de trabalho do Log Analytics | [TCP 443] | [O Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utiliza a porta TCP 443 para se ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a visualização de dependências, a qual precisa do agente MMA. 
+Recoletor | vCenter Server | Por predefinição, o recoletor liga-se ao vCenter Server na porta 443. Se o servidor escutar noutra porta, configure-a como porta de saída na VM do recoletor.
+VM no local | Área de trabalho do Log Analytics | [TCP 443] | [O Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utiliza a porta TCP 443 para se ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a visualização de dependências, a qual precisa do agente MMA.
 
 
 ## <a name="what-happens-after-assessment"></a>O que acontece após a avaliação?
@@ -91,7 +94,7 @@ VM no local | Área de trabalho do Log Analytics | [TCP 443] | [O Microsoft Moni
 Depois de avaliar as máquinas no local, pode utilizar algumas ferramentas para realizar a migração:
 
 - **Azure Site Recovery**: pode utilizar o Azure Site Recovery para migrar para o Azure. Para tal, tem de [preparar os componentes do Azure](../site-recovery/tutorial-prepare-azure.md) de que precisa, incluindo uma conta de armazenamento e uma rede virtual. No local, [prepare o ambiente do VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Quando estiver tudo preparado, configure e ative a replicação para o Azure e migre as VMs. [Saiba mais](../site-recovery/vmware-azure-tutorial.md).
-- **Azure Database Migration**: se as máquinas no local estiverem a executar uma base de dados, como SQL Server, MySQL ou Oracle, pode utilizar o [Azure Database Migration Service](../dms/dms-overview.md) para migrá-las para o Azure. 
+- **Azure Database Migration**: se as máquinas no local estiverem a executar uma base de dados, como SQL Server, MySQL ou Oracle, pode utilizar o [Azure Database Migration Service](../dms/dms-overview.md) para migrá-las para o Azure.
 
 
 ## <a name="next-steps"></a>Passos seguintes

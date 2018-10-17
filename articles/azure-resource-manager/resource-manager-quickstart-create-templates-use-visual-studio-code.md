@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/24/2018
+ms.date: 09/07/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 540aabc9164e43776d2166926430f4512dd23f49
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106054"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419122"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Início Rápido: como criar modelos do Azure Resource Manager com o Visual Studio Code
+# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code
 
 Saiba como criar modelos do Azure Resource Manager ao utilizar o Visual Studio Code e a extensão de Ferramentas do Azure Resource. Pode criar modelos do Resource Manager no Visual Studio Code sem a extensão, mas esta proporciona opções de conclusão automática que simplificam o desenvolvimento dos modelos. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](resource-group-overview.md).
 
@@ -96,22 +96,38 @@ Existem muitos métodos para implementar modelos.  Neste início rápido, vai ut
 
     ![Cloud Shell do portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-    O Cloud Shell é aberto na parte inferior do ecrã.
+    O Cloud Shell é aberto na parte inferior da janela.
 
-3. No canto superior esquerdo do Cloud Shell, aparece o **PowerShell** ou o **Bash**. Para utilizar a CLI, terá de abrir uma sessão do Bash. Para executar o PowerShell, terá de abrir uma sessão do PowerShell. Para alterar, selecione a seta para baixo e, em seguida, selecione o interpretador. A imagem seguinte mostra a mudança do PowerShell para o Bash.
+3. No canto superior esquerdo do Cloud Shell, aparece o **PowerShell** ou o **Bash**. Para utilizar a CLI, terá de abrir uma sessão do Bash. Para executar o PowerShell, terá de abrir uma sessão do PowerShell. Selecione a seta para baixo para alternar entre o Bash e o PowerShell. A imagem seguinte mostra a mudança do PowerShell para o Bash.
 
     ![CLI Cloud Shell do portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 
     É necessário reiniciar o Shell quando mudar.
 4. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Carregar ficheiro Cloud Shell do Portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ![Carregar ficheiro Cloud Shell do Portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
+    
+    ---
 
     Tem de carregar o ficheiro de modelo antes de poder implementá-lo a partir do Shell.
 5. Selecione o ficheiro que guardou anteriormente no início rápido. O nome predefinido é **azuredeploy.json**.
 6. A partir do Cloud Shell, execute o comando **ls** para se certificar de que o ficheiro foi carregado com êxito. Pode também utilizar o comando **cat** para verificar o conteúdo do modelo. A imagem seguinte mostra como executar o comando a partir do Bash.  Utilize os mesmos comandos a partir de uma sessão do PowerShell.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Ficheiro de lista de Cloud Shell do portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ![Ficheiro de lista de Cloud Shell do portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
+    
+    ---
 7. No Cloud Shell, execute os seguintes comandos. Selecione o separador para mostrar o código do PowerShell ou o código da CLI.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -131,9 +147,17 @@ Existem muitos métodos para implementar modelos.  Neste início rápido, vai ut
     
     ---
 
-    A captura de ecrã seguinte mostra uma implementação de CLI de exemplo:
+    A captura de ecrã seguinte mostra uma implementação de exemplo:
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
     ![Modelo de implementação de Cloud Shell no portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ![Modelo de implementação de Cloud Shell no portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
+    
+    ---
 
     Na captura de ecrã, utilizam-se estes valores:
 
@@ -170,7 +194,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O foco principal deste tutorial é usar o Visual Studio Code para editar um modelo existente a partir de modelos de Início Rápido do Azure. Também aprendeu como implementar o modelo com a CLI ou o PowerShell a partir do Azure Cloud Shell. Os modelos de Início Rápido do Azure poderão não fornecer-lhe tudo o que precisa. O próximo tutorial mostra-lhe como localizar as informações de referência de modelo para que possa criar uma conta de Armazenamento do Azure encriptada.
+O foco principal deste início rápido é usar o Visual Studio Code para editar um modelo existente a partir de modelos de Início Rápido do Azure. Também aprendeu como implementar o modelo com a CLI ou o PowerShell a partir do Azure Cloud Shell. Os modelos de Início Rápido do Azure poderão não fornecer-lhe tudo o que precisa. O próximo tutorial mostra-lhe como localizar as informações de referência de modelo para que possa criar uma conta de Armazenamento do Azure encriptada.
 
 > [!div class="nextstepaction"]
 > [Criar conta de armazenamento encriptada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

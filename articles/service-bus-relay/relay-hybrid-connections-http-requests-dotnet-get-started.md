@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919569"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451227"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,14 @@ No Visual Studio, crie uma aplicação de consola C# para enviar mensagens para 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Executar as aplicações
-1. Execute a aplicação de servidor.
-2. Execute a aplicação cliente e introduza algum texto.
-3. Certifique-se de que a consola da aplicação de servidor mostra o texto que foi introduzido na aplicação cliente.
+1. Execute a aplicação de servidor. Verá o seguinte texto na janela da consola:
+
+    ```
+    Online
+    Server listening
+    ```
+1. Execute a aplicação cliente. Verá `hello!` na janela do cliente. O cliente enviou um pedido HTTP para o servidor e o servidor respondeu com um `hello!`. 
+3. Agora, para fechar as janelas da consola, prima **ENTER** em ambas as janelas da consola. 
 
 Parabéns, criou uma aplicação de Ligações Híbridas ponto a ponto.
 

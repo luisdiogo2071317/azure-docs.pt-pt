@@ -4,28 +4,29 @@ description: Siga os passos deste início rápido para criar uma nova conta dos 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: serviços de multimédia do azure, transmitir
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023998"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223547"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmitir ficheiros de vídeo – .NET
 
 > [!NOTE]
 > A versão mais recente dos Serviços de Multimédia do Azure está em Pré-visualização e poderá ser referida como v3. Para começar a utilizar as APIs da v3, deve criar uma nova conta dos Serviços de Multimédia, conforme descrito neste início rápido. 
 
-Este início rápido mostra como é fácil começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. O exemplo neste tópico codifica o conteúdo que pode tornar acessível através de um URL HTTPS. 
+Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
+O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
 
 No final do início rápido, será capaz de transmitir um vídeo.  
 

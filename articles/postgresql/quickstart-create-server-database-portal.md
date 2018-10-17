@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050232"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408917"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Início Rápido: Criar um servidor da Base de Dados do Azure para PostgreSQL no portal do Azure
 
@@ -50,7 +50,7 @@ Para criar uma Base de Dados do Azure para o servidor PostgreSQL, siga os passos
     Início de sessão de administrador do servidor |*myadmin*| A sua própria conta de início de sessão quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Não pode começar por **pg_**.
     Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A sua palavra-passe tem de conter carateres de três das categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 a 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Localização|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.
-    Versão|A versão mais recente| A versão mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
+    Versão|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
     Escalão de preço | **Fins Gerais**, **Geração 4**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
     > [!IMPORTANT]
@@ -78,17 +78,10 @@ A Base de Dados do Azure para o PostgreSQL cria uma firewall ao nível do servid
 
 3. Em **Regras da firewall**, na coluna **Nome da Regra**, selecione a caixa de texto em branco para começar a criar a regra da firewall. 
 
-    Neste Início Rápido, vamos permitir todos os endereços IP no servidor. Preencha a caixa de texto em cada coluna com os valores seguintes:
+   Preencha as caixas de texto com um nome e o intervalo IP inicial e final dos clientes que irão aceder ao seu servidor. Se for um IP único, utilize o mesmo valor para o IP inicial e o IP final.
 
-    Nome da regra | IP de início | IP de fim 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Definir Regras da Firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Definir Regras da Firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > Para as instâncias de produção apenas deve definir as regras de firewall para aceitar pedidos recebidos de endereços IP conhecidos.  Estas definições são apenas para fins de exemplo.
-      >
 
 4. Na barra de ferramentas superior da página **Segurança da ligação**, selecione **Guardar**. Antes de continuar, aguarde até que a notificação apareça e indique que a atualização da segurança da ligação foi concluída com êxito.
 

@@ -97,6 +97,8 @@ items:
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hiperescala
         href: sql-database-service-tier-hyperscale.md
+      - name: Perguntas Frequentes de Hiperescala
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: Escalões de serviço de DTU
       href: sql-database-service-tiers-dtu.md
     - name: Fazer pré-pagamento para a capacidade de reserva
@@ -161,6 +163,8 @@ items:
       href: sql-database-business-continuity.md
     - name: Elevada disponibilidade
       href: sql-database-high-availability.md
+    - name: Recuperação de base de dados acelerada
+      href: sql-database-accelerated-database-recovery.md
     - name: Cópias de segurança de bases de dados
       href: sql-database-automated-backups.md
     - name: Retenção de cópia de segurança de longa duração
@@ -179,13 +183,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: Configurar a segurança para réplicas
         href: sql-database-geo-replication-security-config.md
-    - name: Recuperação da base de dados
+    - name: Opções de recuperação de base de dados
       items:
-      - name: Recuperação da base de dados
+      - name: Recuperação com cópias de segurança
         href: sql-database-recovery-using-backups.md
-      - name: Recuperar de uma interrupção
+      - name: Orientação de recuperação de falhas
         href: sql-database-disaster-recovery.md
-      - name: Realizar teste de recuperação
+      - name: Testes de recuperação
         href: sql-database-disaster-recovery-drills.md
     - name: Estrutura da aplicação
       items:
@@ -319,7 +323,7 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Comparação de funcionalidades do SQL
     href: sql-database-features.md
-  - name: Desempenho e otimização
+  - name: Desempenho e monitorização
     items:
     - name: Desempenho inteligente
       items:
@@ -630,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Histórias dos clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869249"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353515"

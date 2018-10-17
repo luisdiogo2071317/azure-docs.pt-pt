@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 181e31530960f031dd2785b852c0ae15c21af782
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186313"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406387"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para PostgreSQL com o portal do Azure
 
@@ -85,7 +85,7 @@ O serviço Base de Dados do Azure para PostgreSQL utiliza uma firewall ao nível
 
 2.  Na página do servidor, selecione **Segurança da ligação**. 
 
-3.  Clique na caixa de texto em **Nome da Regra** e adicione uma nova regra de firewall para colocar na lista de permissões o intervalo IP para conectividade. Neste tutorial, vamos permitir todos os IPs. Para tal, escreva **Nome da Regra = AllowAllIps**, **IP Inicial = 0.0.0.0** e **IP Final = 255.255.255.255** e, em seguida, clique em **Guardar**. Pode definir uma regra de firewall específica que abrange um intervalo IP mais reduzido, para conseguir ligar a partir da sua rede.
+3.  Clique na caixa de texto em **Nome da Regra** e adicione uma nova regra de firewall para colocar na lista de permissões o intervalo IP para conectividade. Introduza o seu intervalo de IP. Clique em **Guardar**.
 
    ![Base de Dados do Azure para o PostgreSQL – Criar a Regra de Firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

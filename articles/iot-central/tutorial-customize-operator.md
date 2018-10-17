@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038294"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista de operador do Azure IoT Central
 
@@ -50,9 +50,9 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Selecionar o dispositivo de ar condicionado ligado](media/tutorial-customize-operator/selectdevice.png)
 
-    Quando fizer uma alteração a um dispositivo, como **Ar Condicionado Ligado-1**, faça uma alteração ao modelo subjacente. Para obter mais informações, veja [Criar uma nova versão do modelo de dispositivo](howto-version-devicetemplate.md).
+    Quando estiver num dispositivo, como **Ar Condicionado Ligado-1**, pode selecionar **Editar Modelo** para fazer uma alteração no modelo subjacente. Para obter mais informações, veja [Criar uma nova versão do modelo de dispositivo](howto-version-devicetemplate.md).
 
-3. Para editar o dashboard, escolha **Dashboard**:
+3. Para editar o dashboard, escolha **Dashboard** e selecione **Editar Modelo**:
 
     ![Página do dashboard do modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Editar esquema do dashboard](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Clique em **Concluído** quando terminar de fazer as alterações.
+
 ## <a name="configure-your-settings-layout"></a>Configurar o seu esquema de definições
 
 Também pode configurar a vista do operador das definições do dispositivo como construtor. Um operador utiliza a página de definições do dispositivo para configurar um dispositivo. Por exemplo, um operador utiliza a página de definições para definir a temperatura de destino para o refrigerador.
 
-1. Para editar o esquema de definições para o seu ar condicionado ligado, escolha **Definições**:
+1. Para editar o esquema de definições do ar condicionado ligado, escolha **Definições** e selecione **Editar Modelo**:
 
     ![Página de definições](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ Também pode configurar a vista do operador das definições do dispositivo como
 
     ![Editar o esquema de definições](media/tutorial-customize-operator/settingslayout.png)
 
+3. Clique em **Concluído** quando terminar de fazer as alterações.
+
 > [!NOTE]
-> No **Modo de Estrutura**, não pode editar os valores das definições.
+> No modo **Editar Modelo**, não pode editar os valores das definições.
 
 ## <a name="configure-your-properties-layout"></a>Configurar o seu esquema de propriedades
 
 Para além do dashboard e das definições, também pode configurar a vista do operador das propriedades do dispositivo. Um operador utiliza a página de propriedades do dispositivo para gerir os metadados do dispositivo. Por exemplo, um operador utiliza a página de propriedades para ver um número de série do dispositivo ou atualizar os detalhes de contacto do fabricante.
 
-1. Para editar o esquema de propriedades para o seu ar condicionado ligado, escolha **Propriedades**:
+1. Para editar o esquema de propriedades do ar condicionado ligado, escolha **Propriedades** e selecione **Editar Modelo**:
 
     ![Página Propriedades](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Para além do dashboard e das definições, também pode configurar a vista do o
 
     ![Editar o esquema de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Clique em **Concluído** quando terminar de fazer as alterações.
+
 > [!NOTE]
-> No **Modo de Design**, não pode editar os valores das propriedades.
+> No modo **Editar Modelo**, não pode editar os valores das propriedades.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Pré-visualizar o dispositivo de ar condicionado ligado como um operador
 
-No **Modo de Estrutura**, pode personalizar o dashboard, as definições e as páginas de propriedades de um operador. Se desativar o **Modo de Estrutura**, pode ver a aplicação como um operador.
+No modo **Editar Modelo**, pode personalizar as páginas do dashboard, das definições e da propriedades de um operador. Se não estiver no modo **Editar Modelo**, poderá ver a aplicação como um operador.
 
-1. Para ver o seu dispositivo de ar condicionado ligado como um operador, tem de desativar o **Modo de Estrutura**. Para desativar o **Modo de Estrutura**, desative o **Modo de Estrutura** no canto superior direito da página.
+1. Para ver o dispositivo de ar condicionado ligado como um operador, tem de clicar em **Concluído** para parar a edição do modelo. Esta operação irá fazê-lo regressar à vista de operador do dispositivo.
 
-2. Para atualizar o número de série deste dispositivo, edite o valor no mosaico do número de série e escolha **Guardar**:
+2. Para atualizar a Localização deste dispositivo, edite o valor no mosaico Localização e escolha **Guardar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ No **Modo de Estrutura**, pode personalizar o dashboard, as definições e as p�
 
 Quando um construtor ou operador inicia sessão numa aplicação do Azure IoT Central, verão uma home page. Enquanto construtor, pode configurar o conteúdo desta home page para incluir o conteúdo mais útil e relevante para um operador.
 
-1. Para personalizar a home page predefinida, navegue para a **Home page** e ative o **Modo de Estrutura**, no canto superior direito da página. Ao ativar o **Modo de Estrutura**, um painel deslizará da direita com uma lista de objetos que pode adicionar à sua Home page.
+1. Para personalizar a home page predefinida, navegue para a **Home page** e selecione **Editar**, no canto superior direito da página. Após selecionar **Editar**, um painel deslizará da direita com uma lista de objetos que pode adicionar à sua Home page.
 
     ![Página Application Builder](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ Quando um construtor ou operador inicia sessão numa aplicação do Azure IoT Ce
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Pré-visualizar a home page predefinida como operador
 
-Para pré-visualizar a home page como operador, desative o **Modo de Estrutura** no canto superior direito da página:
+Para pré-visualizar a home page como um operador e deixar de editar, selecione **Concluído** no canto superior direito da página
 
 ![Alternar Modo de Estrutura](media/tutorial-customize-operator/operatorviewhome.png)
 

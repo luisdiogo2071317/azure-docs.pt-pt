@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969296"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220892"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Não vê estes componentes como entidades separadas. Em vez disso, vê-os como partes relacionadas e interdependentes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utiliza um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, como de teste e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação. 
@@ -155,6 +155,12 @@ Após definir o seu modelo, está pronto para implementar os recursos para o Azu
 * [Implementar recursos com modelos do Resource Manager e o Portal do Azure](resource-group-template-deploy-portal.md)
 * [Implementar recursos com modelos do Resource Manager e a API REST do Resource Manager](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Práticas de implementação segura
+
+Ao implementar um serviço complexo no Azure, poderá ter de implementar o serviço em várias regiões e verificar o seu estado de funcionamento antes de prosseguir para o passo seguinte. Utilize o [Gestor de Implementação do Azure](deployment-manager-overview.md) para coordenar uma implementação faseada do serviço. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar destas precauções, as operações de implementação na secção anterior serão a melhor opção.
+
+O Gestor de Implementação está atualmente em pré-visualização pública.
+
 ## <a name="tags"></a>Etiquetas
 O Resource Manager fornece uma funcionalidade de etiquetagem que permite categorizar os recursos de acordo com os seus requisitos de gestão ou faturação. Utilize etiquetas quando tem uma coleção complexa de grupos de recursos e recursos e precisa de visualizar esses elementos da forma mais adequada para si. Por exemplo, pode etiquetar recursos que desempenham uma função semelhante na sua organização ou pertencem ao mesmo departamento. Sem etiquetas, os utilizadores da organização podem criar vários recursos que poderá ser difícil identificar e gerir mais tarde. Por exemplo, poderá pretender eliminar todos os recursos de um projeto específico. Se esses recursos não estão marcados para o projeto, terá de encontrá-los manualmente. A etiquetagem pode ser um meio importante para reduzir os custos desnecessários associados à sua subscrição. 
 
@@ -176,20 +182,6 @@ O exemplo seguinte mostra uma etiqueta aplicada a uma máquina virtual.
   }
 ]
 ```
-
-Para obter todos os recursos com um valor de etiqueta, utilize o seguinte cmdlet do PowerShell:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-Ou, o seguinte comando CLI do Azure:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-Também pode ver recursos com etiquetas através do Portal do Azure.
 
 O [relatório de utilização](../billing/billing-understand-your-bill.md) para a sua subscrição inclui nomes de etiquetas e valores, o que lhe permite dividir os custos por etiquetas. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](resource-group-using-tags.md).
 
@@ -228,29 +220,8 @@ Em alguns casos, deve executar o código ou script que acede aos recursos, mas n
 
 Pode também bloquear explicitamente recursos críticos para impedir que os utilizadores os eliminem ou modifiquem. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Registos de atividade
-O Resource Manager regista todas as operações que criam, modificam ou eliminam um recurso. Pode utilizar os registos de atividade para encontrar um erro ao resolver um problema ou para monitorizar a forma como um utilizador na sua organização alterou um recurso. Pode filtrar os registos com muitos valores diferentes, incluindo o utilizador que iniciou a operação. Para obter informações sobre como trabalhar com os registos de atividade, veja [View activity logs to manage Azure resources (Ver registos de atividade para gerir recursos do Azure)](resource-group-audit.md).
-
 ## <a name="customized-policies"></a>Políticas personalizadas
 O Resource Manager permite criar políticas personalizadas para gerir os seus recursos. Os tipos de políticas que cria podem incluir diversos cenários. Pode impor uma convenção de nomenclatura nos recursos, limitar que tipos e que instâncias de recursos pode ser implementados ou limitar as regiões que podem alojar um tipo de recurso. É possível requerer um valor de etiqueta para os recursos de modo a organizar a faturação por departamentos. Cria políticas para ajudar a reduzir os custos e manter a consistência na sua subscrição. 
-
-O utilizador define políticas com JSON e, em seguida, aplica essas políticas em toda a sua subscrição ou dentro de um grupo de recursos. As políticas são diferentes do controlo de acesso baseado em funções, uma vez que estas são aplicadas a tipos de recursos.
-
-O exemplo seguinte mostra uma política que garante a consistência da etiqueta, especificando que todos os recursos incluem uma etiqueta de costCenter.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 Existem muitos mais tipos de políticas que pode criar. Para obter mais informações, veja [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) (O que é o Azure Policy?).
 

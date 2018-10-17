@@ -1,24 +1,24 @@
 ---
-title: Equipa de desenvolvimento com Azure Dev Spaces com VS Code | Microsoft Docs
+title: Desenvolvimento em equipa com o Azure Dev Spaces com Java e VSCode | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
-ms.date: 07/09/2018
+author: stepro
+ms.author: stephpr
+ms.date: 08/01/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-manager: douge
-ms.openlocfilehash: 215807798e6ae15f11302fa647e21238bdfb7751
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+manager: mmontwil
+ms.openlocfilehash: b1f05c176c6005a2fda8025b4645813013a30cb3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434273"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407183"
 ---
-# <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
+# <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em Equipa com o Azure Dev Spaces
 
 Neste tutorial, irá aprender a utilizar vários espaços de desenvolvimento para trabalhar simultaneamente em ambientes de desenvolvimento diferentes, mantendo o trabalho separado em espaços de desenvolvimento separados no mesmo cluster.
 
@@ -26,52 +26,51 @@ Neste tutorial, irá aprender a utilizar vários espaços de desenvolvimento par
 
 Nesta secção, vai criar um segundo serviço, `mywebapi` a ser chamado por `webfrontend`. Cada serviço vai ser executado em contentores separados. Em seguida, vai realizar a depuração em ambos os contentores.
 
-![](media/common/multi-container.png)
+![Vários contentores](media/common/multi-container.png)
 
-### <a name="open-sample-code-for-mywebapi"></a>Abra o código de exemplo para *mywebapi*
-Já deverá ter o código de exemplo para `mywebapi` deste guia sob uma pasta denominada `samples` (caso contrário, aceda a https://github.com/Azure/dev-spaces e selecione **Clonar ou Transferir** para transferir o repositório do GitHub.) O código para esta secção está em `samples/nodejs/getting-started/mywebapi`.
+### <a name="download-sample-code-for-mywebapi"></a>Transfira o código de exemplo para *mywebapi*
+Para ser mais rápido, vamos transferir código de exemplo de um repositório do GitHub. Aceda a https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub. O código para esta secção está em `samples/java/getting-started/mywebapi`.
 
 ### <a name="run-mywebapi"></a>Execute *mywebapi*
 1. Abra a pasta `mywebapi` numa *janela separada do VS Code*.
-1. Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Este comando não deve ser confundido com o comando `azds prep`, que configura o projeto para implementação.
+1. Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 1. Prima F5 e aguarde que o serviço seja criado e implementado. Saberá que está pronto quando for apresentada a barra de depuração do VS Code.
-1. Tome nota do URL do ponto final, algo semelhante a http://localhost:\<portnumber\>. **Sugestão: a barra de estado do VS Code apresentará um URL clicável.** Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no nosso ambiente de desenvolvimento no Azure. O motivo para o endereço localhost é porque `mywebapi` não definiu quaisquer pontos finais públicos e apenas pode ser acedido a partir da instância do Kubernetes. Para sua comodidade e para facilitar a interação com o serviço privado da sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contentor em execução no Azure.
-1. Quando `mywebapi` estiver pronto, abra o browser no endereço localhost. Deverá ver uma resposta a partir do serviço `mywebapi` ("Hello from mywebapi").
-
+1. O URL de ponto final será algo parecido com http://localhost:\<portnumber\>. **Sugestão: a barra de estado do VS Code apresentará um URL clicável.** Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no nosso espaço de programador no Azure. O motivo para o endereço localhost é porque `mywebapi` não definiu quaisquer pontos finais públicos e apenas pode ser acedido a partir da instância do Kubernetes. Para sua comodidade e para facilitar a interação com o serviço privado da sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contentor em execução no Azure.
+1. Quando `mywebapi` estiver pronto, abra o browser no endereço localhost.
+1. Se todos os passos forem concluídos com êxito, deve conseguir ver uma resposta a partir do serviço `mywebapi`.
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Efetue um pedido de *webfrontend* para *mywebapi*
 Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`.
 1. Mude para a janela do VS Code para `webfrontend`.
-1. Adicione estas linhas de código no topo de `server.js`:
-    ```javascript
-    var request = require('request');
-    ```
+1. *Adicione* as seguintes instruções `import` sob a instrução `package`:
 
-3. *Substitua* o código para o processador GET `/api`. Ao processar um pedido, ele faz uma chamada para `mywebapi` e, em seguida, devolve os resultados de ambos os serviços.
+   ```java
+   import java.io.*;
+   import java.net.*;
+   ```
+1. *Substitua* pelo código para o método de saudação:
 
-    ```javascript
-    app.get('/api', function (req, res) {
-       request({
-          uri: 'http://mywebapi',
-          headers: {
-             /* propagate the dev space routing header */
-             'azds-route-as': req.headers['azds-route-as']
-          }
-       }, function (error, response, body) {
-           res.send('Hello from webfrontend and ' + body);
-       });
-    });
+    ```java
+    @RequestMapping(value = "/greeting", produces = "text/plain")
+    public String greeting(@RequestHeader(value = "azds-route-as", required = false) String azdsRouteAs) throws Exception {
+        URLConnection conn = new URL("http://mywebapi/").openConnection();
+        conn.setRequestProperty("azds-route-as", azdsRouteAs); // propagate dev space routing header
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream())))
+        {
+            return "Hello from webfrontend and " + reader.lines().reduce("\n", String::concat);
+        }
+    }
     ```
- 4. *Remova* a linha `server.close()` no final de `server.js`
 
 O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido a receber para o pedido a enviar. Verá posteriormente como isto ajuda as equipas de desenvolvimento de colaboração.
 
 ### <a name="debug-across-multiple-services"></a>Depurar em vários serviços
 1. Neste momento, `mywebapi` ainda deve estar em execução com o depurador anexado. Se não for esse o caso, prima F5 no projeto `mywebapi`.
-1. Defina um ponto de interrupção no processador GET `/` predefinido.
-1. No projeto `webfrontend`, defina um ponto de interrupção antes de ser enviado um pedido GET para `http://mywebapi`.
-1. Prima F5 no projeto `webfrontend`.
-1. Abra a aplicação Web e siga o código em ambos os serviços. A aplicação Web deve apresentar uma mensagem concatenada pelos dois serviços: "Hello from webfrontend and Hello from mywebapi."
+1. Defina um ponto de interrupção no método `index()` do projeto `webapi`.
+1. No projeto `webfrontend`, defina um ponto de interrupção antes de ser enviado um pedido GET para `mywebapi`, na linha que começa por `try`.
+1. Prima F5 no projeto `webfrontend` (ou reinicie o depurador se estiver atualmente em execução).
+1. Invoque a aplicação Web e siga o código em ambos os serviços.
+1. Na aplicação Web, a página About (Sobre) apresentará uma mensagem concatenada pelos dois serviços: "Hello from webfrontend and Hello from mywebapi".
 
 Já está! Tem agora uma aplicação com vários contentores, na qual cada contentor pode ser desenvolvido e implementado separadamente.
 
@@ -79,14 +78,14 @@ Já está! Tem agora uma aplicação com vários contentores, na qual cada conte
 
 [!INCLUDE [](../../includes/team-development-1.md)]
 
-Agora veja-o em ação:
-1. Vá para a janela do VS Code para `mywebapi` e faça uma edição de código no processador GET `/` predefinido, por exemplo:
+Vamos vê-lo em ação. Vá para a janela do VS Code para `mywebapi` e faça uma edição de código no método `String index()`, por exemplo:
 
-    ```javascript
-    app.get('/', function (req, res) {
-        res.send('mywebapi now says something new');
-    });
-    ```
+```java
+@RequestMapping(value = "/", produces = "text/plain")
+public String index() {
+    return "Hello from mywebapi says something new";
+}
+```
 
 [!INCLUDE [](../../includes/team-development-2.md)]
 
@@ -110,7 +109,3 @@ O exemplo a seguir lista os controladores dos Espaços de Programador do Azure n
     azds controller list
     az aks remove-dev-spaces --name myaks --resource-group myaks-rg
 ```
-
-
-
-

@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral de alto nível dos Servi�
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: serviços de multimédia do azure, transmissão, difusão, em direto, offline
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 07/14/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325936"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221939"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -55,7 +55,7 @@ A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade i
 Esta versão fornece as capacidades seguintes:  
 
 * **Transformações** para ajudar a definir fluxos de trabalho de tarefas de análise ou de processamento de multimédia simples. A Transformação é uma receita para processar os ficheiros de áudio e de vídeo. Em seguida, pode aplicá-la repetidamente para processar todos os ficheiros na biblioteca de conteúdos, ao submeter as tarefas para Transformação.
-* **Tarefas** para processar (codificar ou analisar) os vídeos. Um conteúdo de entrada pode ser especificado numa tarefa com URLs HTTP(s), URLs SAS ou caminhos de ficheiros localizados no armazenamento de Blobs do Azure. 
+* **Tarefas** para processar (codificar ou analisar) os vídeos. Um conteúdo de entrada pode ser especificado numa tarefa com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
 * **Notificações** que monitorizam o progresso ou os estados da tarefa ou eventos de erro ou de início/paragem do Canal em Direto. As notificações estão integradas no sistema de notificação do Azure Event Grid. Pode facilmente subscrever eventos em vários recursos nos Serviços de Multimédia do Azure. 
 * Os modelos da **Gestão de Recursos do Azure** podem ser utilizados para criar e implementar as Transformações, os Pontos Finais de Transmissão em Fluxo, os Canais e muito mais.
 * O **Controlo de acesso baseado em funções** pode ser definido ao nível do recurso e permite-lhe bloquear o acesso a recursos específicos como Transformações, Canais e muito mais.

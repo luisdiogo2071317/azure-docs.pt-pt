@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097890"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419530"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: criar um modelo do Azure Resource Manager para implementar uma conta de armazenamento encriptada
+# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: Criar um modelo do Azure Resource Manager para implementar uma conta de armazenamento encriptada
 
 Saiba como localizar informações para concluir um modelo do Azure Resource Manager.
 
@@ -112,9 +112,14 @@ Para utilizar a variável definida no modelo:
 O objetivo deste tutorial é definir um modelo para criar uma conta de armazenamento encriptada.  O modelo de exemplo apenas cria uma conta de armazenamento não encriptada básica. Para localizar a configuração relacionada com a encriptação, pode utilizar a referência do modelo da conta de Armazenamento do Azure.
 
 1. Navegue até [Modelos do Azure](https://docs.microsoft.com/azure/templates/).
-2. No índice à esquerda, selecione **Referência**->**Armazenamento**->**Contas de Armazenamento**. Também pode introduzir **Armazenamento** no campo **Filtrar por título**.  A página contém o esquema para definir as informações de uma Conta de Armazenamento.
-3. Explore as informações relacionadas com a encriptação.  
-4. Dentro do elemento de propriedades da definição de recurso de conta de armazenamento, adicione o seguinte json:
+2. Em **Filtrar por título**, introduza **contas de armazenamento**.
+3. Selecione **Referência/Referência de modelo/Armazenamento/Contas de Armazenamento** conforme mostrado na captura de ecrã seguinte:
+
+    ![Conta de armazenamento de referência do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explore as informações relacionadas com a encriptação.  
+1. Dentro do elemento de propriedades da definição de recurso de conta de armazenamento, adicione o seguinte json:
 
     ```json
     "encryption": {
@@ -151,7 +156,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a utilizar a referência de modelo para personalizar um modelo existente. O modelo utilizado neste tutorial contém apenas um recurso do Azure.  No próximo tutorial, irá desenvolver um modelo com múltiplos recursos. Alguns dos recursos têm recursos dependentes.
+Neste tutorial, aprendeu a utilizar a referência de modelo para personalizar um modelo existente. Para saber mais sobre como criar várias instâncias de contas de armazenamento, veja:
 
 > [!div class="nextstepaction"]
-> [Criar vários recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Criar múltiplas instâncias](./resource-manager-tutorial-create-multiple-instances.md)
