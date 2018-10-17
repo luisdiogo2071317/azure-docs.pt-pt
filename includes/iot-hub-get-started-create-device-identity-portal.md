@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 935e2b9e861a889bef48c1d7ba119ab694cddfb3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094008"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367071"
 ---
 ## <a name="create-a-device-identity"></a>Criar uma identidade de dispositivo
 
@@ -31,11 +31,11 @@ Nesta secção, vai utilizar o [portal do Azure](https://portal.azure.com) para 
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-   ![Adicionar um novo dispositivo](./media/iot-hub-get-started-create-device-identity-portal/add-device.png)
+   ![Adicionar um novo dispositivo](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
 1. Na lista de dispositivos, clique no dispositivo recém-criado e copie os **cadeia de ligação---chave primária** para utilizar mais tarde.
 
-    ![Cadeia de ligação do dispositivo](./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png)
+    ![Cadeia de ligação do dispositivo](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 
 > [!NOTE]
 > O registo de identidade do Hub IoT apenas armazena identidades de dispositivos para permitir um acesso seguro ao Hub IoT. Armazena os IDs do dispositivo e as chaves a utilizar como credenciais de segurança e um sinalizador ativado/desativado que pode utilizar para desativar o acesso de um dispositivo individual. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação.  Para obter mais informações, consulte [Guia do programador do IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

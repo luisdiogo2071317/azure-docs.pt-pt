@@ -8,37 +8,45 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: 1d5b1869428cec6bf80b8518485f685e38ad5997
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324204"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351307"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ligar e autenticar para APIs
 
-Duplos Digital do Azure utiliza o Azure Active Directory (Azure AD) para autenticar os utilizadores e proteger as aplicações.
+Duplos Digital do Azure utiliza o Azure Active Directory (Azure AD) para autenticar os utilizadores e proteger as aplicações. O Azure AD suporta a autenticação para uma variedade de modernas arquiteturas, todos eles com base em protocolos de norma da indústria OAuth 2.0 ou OpenID Connect. Além disso, o Azure AD permite que os desenvolvedores que criam tanto inquilino único, linha de negócio (LOB) aplicativos, bem como os desenvolvedores que desejam para desenvolver aplicações multi-inquilino.
 
-Se não estiver familiarizado com o Azure AD, estão disponíveis em mais informações a [Guia do programador](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). A biblioteca de autenticação do Windows Azure oferece várias formas de adquirir os tokens de Active Directory. Para obter uma análise detalhada para a biblioteca, dê uma olhada [aqui](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+Para obter uma descrição geral de visita do Azure AD a [página de conceitos básicos](https://docs.microsoft.com/azure/active-directory/fundamentals/index) para guias passo a passo, conceitos e guias de introdução.
 
-Este artigo fornece uma visão geral dos dois cenários: um cenário de produção com uma API de camada intermediária e a autenticação no aplicativo cliente do Postman para inicialização rápida e teste.
+Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programador deve registar a aplicação no Azure AD. Para obter instruções detalhadas e capturas de tela ver as instruções [aqui](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
-## <a name="authentication-in-production"></a>Autenticação na produção
+Estes são os [cinco cenários de aplicação principal](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) suportado pelo Azure AD:
 
-Os desenvolvedores de soluções têm duas formas de ligar-se para Digital Twins.  Os desenvolvedores de soluções podem ligar-se para Twins Digital do Azure das seguintes formas:
+* Aplicação de página única (SPA): o utilizador precisa de iniciar sessão a uma aplicação de página única que está protegida pelo Azure AD.
+* Navegador da Web para a aplicação web: o utilizador precisa de iniciar sessão a uma aplicação web que está protegida pelo Azure AD.
+* Aplicação nativa a web API: um aplicativo nativo que é executado num telefone, tablet ou PC tem de autenticar um usuário para obter recursos de uma API web que está protegida pelo Azure AD.
+* Aplicação Web API Web: uma aplicação web tem de obter recursos de uma API web protegida pelo Azure AD.
+* O daemon ou servidor de aplicativo web API: precisa de um aplicativo de daemon ou um aplicativo de servidor sem interface do usuário de web obter recursos de uma API web protegida pelo Azure AD.
 
-* É possível criar uma aplicação cliente ou uma API de camada intermediária. Aplicações de cliente exigirem que os utilizadores autenticar e, em seguida, utilizar o [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) fluxo de segurança para chamar uma API de downstream.
-* Criar ou utilizar uma aplicação do AD do Azure existente. Ver a documentação [aqui](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
-    1. Especifique a **início de sessão e URIs de redirecionamento** (se necessário).
-    1. No aplicativo manifesto conjunto `oauth2AllowImplicitFlow` como true.
-    1. Na **permissões obrigatórias**, adicionar duplos Digital ao pesquisar "Duplos Digital do Azure." Selecione **acesso de leitura/gravação de permissões delegada** e clique nas **conceder permissões** botão.
+A biblioteca de autenticação do Windows Azure oferece várias formas de adquirir os tokens de Active Directory. Para um aprofundamento sobre a biblioteca, bem como código, exemplos de dar uma olhada [aqui](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
-Para obter instruções detalhadas sobre como orquestrar o fluxo em-nome-de visite [esta página](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Também pode ver exemplos de código [aqui](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+## <a name="calling-digital-twins-from-a-middle-tier-web-api"></a>Chamar duplos digitais de uma API da web de camada intermediária
+
+Ao desenvolver a arquitetura os desenvolvedores de soluções digitais Twins comumente optar por criar uma aplicação de camada intermediária ou a API que, em seguida, chama a API de duplos Digital de downstream. Os utilizadores seriam primeiro autenticar para o aplicativo de camada média e, em seguida, um fluxo de token em-nome-de seria usado ao chamar a jusante. Para obter instruções detalhadas sobre como orquestrar o fluxo em-nome-de visite [esta página](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Também pode ver exemplos de código [aqui](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+
 
 ## <a name="test-with-the-postman-client"></a>Testar com o cliente do Postman
 
-1. Siga as etapas iniciais acima para criar (ou modificar) uma aplicação do Azure Active Directory. Em seguida, defina `oauth2AllowImplicitFlow` como true no manifesto do aplicativo e conceder permissões para "Duplos Digital do Azure."
-1. Definir um url de resposta [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
+Para começar a trabalhar com as APIs de duplos Digital, pode utilizar o cliente, como o Postman como ambiente de API. Postman ajuda-o a criar pedidos HTTP complexos rapidamente. As instruções abaixo irão focar-se sobre como obter um token do Azure AD necessário para chamar duplos digitais dentro da interface do Usuário do Postman.
+
+
+1. Navegue para https://www.getpostman.com/ para transferir a aplicação
+1. Siga os passos [aqui](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure Active Directory (ou pode optar por utilizar um registo existente novamente). 
+1. Em permissões necessárias, adicione "Duplos Digital do Azure" e selecione permissões delegadas. Não se esqueça de clicar em conceder permissões para finalizar.
+1. Configurar um url de resposta para [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Selecione o **separador de autorização**, clique em **OAuth 2.0**e selecione **obter novo Token de acesso**.
 
     |**Campo**  |**Valor** |
@@ -53,11 +61,10 @@ Para obter instruções detalhadas sobre como orquestrar o fluxo em-nome-de visi
 
 1. Clique em **pedir o Token**.
 
-    >[!TIP]
-    >Se receber a mensagem de erro "Não foi possível concluir o OAuth 2", experimente um dos seguintes:
+    >[!NOTE]
+    >Se receber a mensagem de erro "Não foi possível concluir o OAuth 2", experimente o seguinte:
     > * Feche o Postman e abri-lo novamente e tente novamente.
-    > * Eliminar a chave secreta na sua aplicação, recriar uma nova e volte a introduzir o valor no formulário acima.
-
+   
 1. Desloque para baixo e clique em **utilização Token**.
 
 ## <a name="next-steps"></a>Passos Seguintes

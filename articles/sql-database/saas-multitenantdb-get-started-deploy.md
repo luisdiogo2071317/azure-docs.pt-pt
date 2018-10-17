@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056663"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352216"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação em partição horizontal do multi-inquilino que utiliza a base de dados do Azure SQL
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação em partição horizontal do multi-inquilino
 
 Neste tutorial, implementar e explorar uma aplicação SaaS multi-inquilino de exemplo com o nome Wingtip Tickets. A aplicação Wingtip Tickets foi concebida para demonstrar as funcionalidades da base de dados do Azure SQL que simplificam a implementação de cenários SaaS.
 
@@ -27,7 +27,7 @@ Esta implementação da aplicação Wingtip Tickets utiliza um padrão de base d
 
 Este padrão de base de dados permite-lhe armazenar um ou mais inquilinos em cada partição horizontal ou a base de dados. Pode otimizar o custo mais baixo fazendo com que cada base de dados a ser partilhado por vários inquilinos. Ou pode otimizar o isolamento fazendo com que cada base de dados armazenar apenas a um inquilino. À sua escolha de otimização pode ser feita de forma independente para cada inquilino específico. Pode ser feita à sua escolha quando o inquilino é armazenado em primeiro lugar, ou pode mudar de ideias mais tarde. O aplicativo foi projetado para funcionar bem de qualquer forma.
 
-#### <a name="app-deploys-quickly"></a>Aplicação implementa rapidamente
+## <a name="app-deploys-quickly"></a>Aplicação implementa rapidamente
 
 A aplicação é executada na cloud do Azure e utiliza a base de dados do Azure SQL. A secção de implementação que se segue fornece a azul **implementar no Azure** botão. Quando é premido o botão, a aplicação é totalmente implementada a sua subscrição do Azure dentro de cinco minutos. Tem acesso total ao trabalhar com os componentes de aplicativos individuais.
 
@@ -35,7 +35,7 @@ A aplicação é implementada com os dados para três inquilinos de exemplo. Os 
 
 Qualquer pessoa pode transferir o código-fonte c# e o PowerShell para a Wingtip Tickets de [seu repositório do GitHub][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Saiba mais neste tutorial
+## <a name="learn-in-this-tutorial"></a>Saiba mais neste tutorial
 
 > [!div class="checklist"]
 > - Como implementar a aplicação Wingtip Tickets SaaS.
@@ -55,15 +55,15 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Implemente a Wingtip Tickets de aplicação
 
-#### <a name="plan-the-names"></a>Planear os nomes
+### <a name="plan-the-names"></a>Planear os nomes
 
 Os passos desta secção, fornecer uma *usuário* valor que é utilizado para garantir que os nomes de recursos são globalmente exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa com o nome *Ann Finley*, sugerimos:
-- *Utilizador:* **af1***(seus iniciais, além de um dígito.   Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
+- *Utilizador:* **af1***(seus iniciais, além de um dígito. Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
 - *Grupo de recursos:* **wingtip-mt-af1** *(wingtip mt indica esta é a aplicação multi-inquilino em partição horizontal. Acrescentar o af1 de nome de utilizador relacionada com o nome do grupo de recursos com os nomes de recursos que contém.)*
 
 Escolha os nomes de agora e anotá-las. 
 
-#### <a name="steps"></a>Passos
+### <a name="steps"></a>Passos
 
 1. Clique a seguinte azul **implementar no Azure** botão.
     - Ele é aberto o portal do Azure com o modelo de implementação de Wingtip Tickets SaaS.
@@ -133,7 +133,7 @@ Uma central **Hub de eventos** página da Web fornece uma lista de links para os
 
    ![Eventos](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
+### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
 
 Para controlar a distribuição de pedidos recebidos, utiliza a aplicação Wingtip [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino no URL correspondente. Cada URL também inclui o valor de utilizador específico. Cada URL obedeça o formato mostrado ao utilizar os seguintes passos:
 
@@ -144,7 +144,7 @@ Para controlar a distribuição de pedidos recebidos, utiliza a aplicação Wing
 3. A aplicação localiza a chave no catálogo e obtém a localização correspondente da base de dados do inquilino.
 4. A aplicação utiliza as informações de localização para localizar e aceder a uma base de dados que contém todos os dados para o inquilino.
 
-#### <a name="events-hub"></a>Hub de eventos
+### <a name="events-hub"></a>Hub de eventos
 
 1. O **Hub de eventos** apresenta uma lista de todos os inquilinos que estão registados no catálogo e seus locais.
 2. O **Hub de eventos** utiliza metadados expandidos no catálogo para obter o nome do inquilino associado a cada mapeamento para construir os URLs.
@@ -185,6 +185,7 @@ Atualizar o **Hub de eventos**, e o novo inquilino é apresentado na lista.
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Aprovisionar um inquilino novo na sua própria base de dados
 
 O modelo de multi-inquilino em partição horizontal permite-lhe escolher se pretende aprovisionar um inquilino novo numa base de dados que contém outros inquilinos ou numa base de dados por conta própria. Um inquilino na sua própria base de dados em ambiente isolado usufrui dos benefícios seguintes:
+
 - O desempenho da base de dados do inquilino pode ser gerido sem a necessidade de se comprometer com as necessidades de outros inquilinos.
 - Se necessário, a base de dados pode ser restaurada para um ponto anterior no tempo, porque não existem outros inquilinos seriam afetados.
 
@@ -221,7 +222,6 @@ Agora vamos examinar alguns dos recursos que foram implementados:
 
    ![servidor de inquilinos](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>Monitorizar o desempenho da base de dados
 
 Se o gerador de carga tem de estar em execução há vários minutos, telemetria suficiente está disponível para examinar a base de dados incorporadas no portal do Azure de capacidades de monitorização.
@@ -238,7 +238,7 @@ Se o gerador de carga tem de estar em execução há vários minutos, telemetria
 
 O gerador de carga está a aplicar a cada inquilino, independentemente de qual banco de dados, cada inquilino está numa carga semelhante. Com apenas um inquilino no **salixsalsa** base de dados, pode ver que a base de dados poderia sustentar um muito maior de carga da base de dados com vários inquilinos. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Alocações de recursos variam consoante a carga de trabalho
+### <a name="resource-allocations-vary-by-workload"></a>Alocações de recursos variam consoante a carga de trabalho
 
 Às vezes, uma base de dados do multi-inquilino requer mais recursos para o bom desempenho do que uma base de dados de inquilino único, mas nem sempre. A alocação ideal de recursos depende as características da carga de trabalho específica para os inquilinos no seu sistema.
 
@@ -249,8 +249,9 @@ As cargas de trabalho geradas pelo script de gerador de carga são apenas para f
 - Para saber mais sobre aplicações SaaS multi-inquilino, veja [padrões de Design para aplicações SaaS multi-inquilino](saas-tenancy-app-design-patterns.md).
 
 - Para saber mais sobre conjuntos elásticos, veja:
-    - [O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos](sql-database-elastic-pool.md)
-    - [Aumentar horizontalmente com a Base de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+
+  - [O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos](sql-database-elastic-pool.md)
+  - [Aumentar horizontalmente com a Base de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

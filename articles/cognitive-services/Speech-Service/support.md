@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: cac82fb7378a16663346666ad6576589bcaa5664
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093959"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364162"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -28,7 +28,7 @@ Está apenas começar a explorar a funcionalidade do serviço de voz? Estiver im
 
 ## <a name="stay-informed"></a>Mantenha-se informado
 
-Notícias sobre os serviços cognitivos são recolhidas no [blogue de serviços cognitivos](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de voz, controlar os [blogue do serviço de voz](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
+Notícias sobre os serviços cognitivos são recolhidas no [blogue de serviços cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de voz, controlar os [blogue do serviço de voz](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Pesquisa
 

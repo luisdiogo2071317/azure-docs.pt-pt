@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226896"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353363"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -76,6 +76,23 @@ No Visual Studio:
 
     ![Caixa de diálogo Opções de captura de ecrã de ferramentas](media/common/VerbositySetting.PNG)
     
+Poderá ver este erro quando tentar utilizar um Dockerfile vários estágio. A saída detalhada terá o seguinte aspeto:
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+Isso é porque nós do AKS executados uma versão mais antiga do Docker não suporta vários estágios baseia-se. Terá de reescrever seu Dockerfile para evitar compilações de vários estágios.
+
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nomes DNS falha por um URL público associado a um serviço de espaços de desenvolvimento
 
 Quando a resolução de nome DNS falha, poderá ver um erro "não é possível aceder este site" em seu navegador da web quando tentar ligar-se para o URL público associado a um serviço de espaços de desenvolvimento ou de "Não é possível apresentar a página".
@@ -206,6 +223,14 @@ Qualquer pessoa com acesso de proprietário ou contribuinte à subscrição do A
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>"Erro: não foi possível encontrar um pod tiller pronto" ao iniciar o desenvolvimento espaços
+
+### <a name="reason"></a>Razão
+Este erro ocorre se o cliente do Helm já não pode comunicar com o pod Tiller em execução no cluster.
+
+### <a name="try"></a>Experimente:
+Reiniciar os nós de agente no seu cluster normalmente resolve este problema.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Espaços de desenvolvimento do Azure parece que não usar meu Dockerfile existente para criar um contentor 
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410311"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354398"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -3346,8 +3346,6 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/loadBalancers/backendAddressPools/join/action | É associado um conjunto de endereços de back-end de Balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/backendAddressPools/read | Obtém uma definição de conjunto de endereços de back-end de Balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/delete | Elimina um balanceador de carga |
-> | Ação | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Associa uma configuração de IP de front-end de Balanceador de carga. |
-> | Ação | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Obtém uma definição de configuração de IP de front-end de Balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/inboundNatPools/join/action | É associado um balanceador de carga conjunto nat de entrada |
 > | Ação | Microsoft.Network/loadBalancers/inboundNatPools/read | Obtém um balanceador de carga a definição do conjunto nat de entrada |
 > | Ação | Microsoft.Network/loadBalancers/inboundNatRules/delete | Elimina uma regra de nat de entrada do Balanceador de carga |
@@ -3477,10 +3475,6 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/publicIPAddresses/dnsAliases/read | Obtém um recurso de Alias de Dns de endereços Ip públicos |
 > | Ação | Microsoft.Network/publicIPAddresses/dnsAliases/write | Cria um recurso de Alias de Dns de endereços Ip públicos |
 > | Ação | Microsoft.Network/publicIPAddresses/join/action | Associa um endereço ip público |
-> | Ação | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Elimina um conjunto de back-end do Balanceador de carga de endereço IP público |
-> | Ação | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | É associado um conjunto de back-end do Balanceador de carga de endereço IP público |
-> | Ação | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Obtém uma pública endereço IP de carga balanceador back-end a definição do conjunto |
-> | Ação | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Cria um conjunto de back-end do Balanceador de carga de endereço IP público ou atualiza um existente público endereço IP conjunto Balanceador de carga back-end |
 > | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Obter as definições de diagnóstico de endereço IP público |
 > | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as definições de diagnóstico de endereço IP público |
 > | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Obter as definições de registo de endereço IP público |

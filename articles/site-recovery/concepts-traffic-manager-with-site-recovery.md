@@ -3,24 +3,24 @@ title: O Gestor de tráfego do Azure com o Azure Site Recovery | Documentos da M
 description: Descreve como utilizar o Gestor de tráfego do Azure com o Azure Site Recovery para recuperação após desastre e migração
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919041"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353259"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestor de Tráfego do Azure com o Azure Site Recovery
 
-O Gestor de tráfego do Azure permite-lhe controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Um ponto de extremidade é qualquer serviço de acesso à Internet hospedado dentro ou fora do Azure.
+O Gestor de tráfego do Azure permite-lhe controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
 
-O Gestor de tráfego utiliza o sistema de nomes de domínio (DNS) para direcionar os pedidos de cliente para o ponto de final mais adequado, com base num método de encaminhamento de tráfego e o estado de funcionamento dos pontos finais. O Gestor de tráfego oferece uma gama de [métodos de encaminhamento de tráfego](../traffic-manager/traffic-manager-routing-methods.md) e [opções de monitorização do ponto de extremidade](../traffic-manager/traffic-manager-monitoring.md) para se adequar às necessidades de aplicação diferente e modelos de ativação pós-falha automática. Os clientes ligam diretamente para o ponto de extremidade selecionado. O Gestor de tráfego não é um proxy ou de um gateway, e não vê o tráfego que passa entre o cliente e o serviço.
+O Gestor de tráfego utiliza o sistema de nomes de domínio (DNS) para direcionar os pedidos de cliente para o ponto de final mais adequado, com base num método de encaminhamento de tráfego e o estado de funcionamento dos pontos finais. O Gestor de Tráfego proporciona vários [métodos de encaminhamento de tráfego](../traffic-manager/traffic-manager-routing-methods.md) e [opções de monitorização de pontos finais](../traffic-manager/traffic-manager-monitoring.md) para satisfazer diferentes necessidades das aplicações e modelos de ativação pós-falha automática. Os clientes ligam diretamente para o ponto de extremidade selecionado. O Gestor de tráfego não é um proxy ou de um gateway, e não vê o tráfego que passa entre o cliente e o serviço.
 
 Este artigo descreve como pode combinar do Monitor de tráfego do Azure encaminhamento inteligentes com capacidades de migração e de recuperação de desastres poderosa do Azure Site Recovery.
 

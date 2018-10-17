@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159946"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352434"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
 
 ## <a name="overview"></a>Descrição geral
 
-Na base de dados SQL do Azure, a maioria das métricas de espaço de armazenamento apresentado no portal do Azure e as seguintes APIs medir o número de páginas de dados utilizados para conjuntos elásticos e bases de dados:
+Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Isto pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados. Isto acontece porque o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
+
+Monitorizar a utilização do espaço de ficheiro e reduzindo ficheiros de dados podem ser necessários nos seguintes cenários:
+- Permita o crescimento de dados num conjunto elástico quando o espaço de ficheiro alocado para seus bancos de dados atinge o tamanho máximo do conjunto.
+- Permita a diminuir o tamanho máximo de um único banco de dados ou conjunto elástico.
+- Permita a alteração de um único banco de dados ou conjunto elástico para um escalão de serviço diferentes ou o escalão de desempenho com um tamanho máximo inferior.
+
+### <a name="monitoring-file-space-usage"></a>Monitorizar a utilização do espaço de ficheiro
+A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas meça a quantidade de páginas de dados utilizados:
 - O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+No entanto, as seguintes APIs também medem a quantidade de espaço alocado para bases de dados e elastic pools:
 - T-SQL: [resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados.  Isto pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados.  Isto acontece porque o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.  Em tais cenários, o espaço alocado para um banco de dados ou um conjunto pode exceder os limites suportados e evitar o crescimento dos dados ou impedir que a camada de serviços e as alterações do tamanho de computação e exigir reduzindo ficheiros de dados para atenuar.
+### <a name="shrinking-data-files"></a>Reduzindo ficheiros de dados
 
 O serviço de BD SQL não reduzir automaticamente os ficheiros de dados para recuperar espaço alocado não utilizado devido ao impacto potencial para desempenho da base de dados.  No entanto, os clientes podem reduzir os ficheiros de dados por meio de Self-Service num momento à sua escolha, seguindo os passos descritos em [recuperar não utilizada de espaço em atribuído](#reclaim-unused-allocated-space). 
 

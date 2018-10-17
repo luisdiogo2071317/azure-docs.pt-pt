@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055206"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362879"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -61,14 +61,15 @@ Para criar uma conta de automatização do Azure no portal do Azure, conclua os 
    ![Procure e selecione automatização & controlo no Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. No ecrã seguinte, selecione **criar**.
+
   ![Adicionar conta de automatização](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > Se vir a mensagem seguinte no **adicionar conta de automatização** painel, a sua conta não é um membro da função de administradores da subscrição e um coadministrador da subscrição.
   >
   > ![Adicionar aviso de conta de automatização](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. Na **adicionar conta de automatização** painel, na **nome** , introduza um nome para a sua nova conta de automatização. Este nome não pode ser alterado depois de este será escolhido.
+
+1. Na **adicionar conta de automatização** painel, na **nome** , introduza um nome para a sua nova conta de automatização. Este nome não pode ser alterado depois de este será escolhido. *Nomes de conta de automatização são exclusivos por grupo de recursos e região.*
 1. Se tiver mais de uma assinatura, além da **subscrição** caixa, especifique a subscrição que pretende utilizar para a nova conta.
 1. Para **grupo de recursos**, introduza ou selecione um grupo de recursos novo ou existente.
 1. Para **localização**, selecione uma localização do datacenter do Azure.

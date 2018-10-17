@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: 7362fc634f27227d037b08cd93f0f406fd250e22
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 10/15/2018
+ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115612"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352843"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -30,7 +30,6 @@ Auditoria de base de dados SQL do Azure controla os eventos de base de dados e e
 ## <a id="subheading-1"></a>Base de dados do SQL do Azure a auditoria de descrição geral
 
 Pode utilizar a auditoria de base de dados SQL para:
-
 
 - **Reter** uma trilha de auditoria de eventos selecionados. Pode definir categorias de ações de base de dados para serem auditados.
 - **Relatório** na atividade de base de dados. Pode utilizar um dashboard e relatórios pré-configurados para começar rapidamente com a atividade e relatórios de eventos.
@@ -98,7 +97,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
 9. Clique em **Guardar**.
 10. Se pretender personalizar os eventos auditados, pode fazê-lo via [cmdlets do PowerShell](#subheading-7) ou o [REST API](#subheading-9).
-11. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar os e-mails para receber alertas de segurança. Ao utilizar a deteção de ameaças, recebe alertas pró-ativos relativamente a atividades anómalas da base de dados que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [introdução à deteção de ameaças](sql-database-threat-detection-get-started.md). 
+11. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar os e-mails para receber alertas de segurança. Ao utilizar a deteção de ameaças, recebe alertas pró-ativos relativamente a atividades anómalas da base de dados que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [introdução à deteção de ameaças](sql-database-threat-detection-get-started.md).
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
 
@@ -223,16 +222,17 @@ Para obter um exemplo de script, consulte [configurar a deteção de ameaças e 
 
 **REST API - a auditoria de BLOBs**:
 
-- [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate)
+- [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
+- [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get)
+- [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
 
 Obter política expandida com em que suporta a cláusula para filtragem adicionais:
-- [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-- [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
+
+- [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
+- [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
+- [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
+- [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

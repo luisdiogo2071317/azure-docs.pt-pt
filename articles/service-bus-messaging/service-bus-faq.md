@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 87a6ccf61e10a6a8c7feeccad3690cdcb9b63641
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857861"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362026"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
-Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [FAQs do suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para gerais informações de preços e de suporte do Azure.
+Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [FAQs do suporte do Azure](https://azure.microsoft.com/support/faq/) para gerais informações de preços e de suporte do Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
@@ -56,7 +56,7 @@ Esta secção responde a algumas perguntas mais frequentes sobre a estrutura de 
 
 O [do Service Bus preços e faturação](service-bus-pricing-billing.md) artigo explica os medidores de faturação no Service Bus. Para obter informações específicas sobre as opções de preços do Service Bus, consulte [os detalhes dos preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Também pode visitar o [FAQ do suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para o Azure geral informações sobre preços. 
+Também pode visitar o [FAQ do suporte do Azure](https://azure.microsoft.com/support/faq/) para o Azure geral informações sobre preços. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado do Service Bus?
 Para obter informações completas sobre os preços do Service Bus, consulte [os detalhes dos preços do Service Bus][Pricing overview]. Além dos preços indicados, é cobrado associados às transferências de dados de saída fora do Centro de dados na qual seu aplicativo é aprovisionado.

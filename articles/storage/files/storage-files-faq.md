@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b3aca33bea8f7847b7069bba3f2a6dcd143cf29c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079134"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364563"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -182,7 +182,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="ad-support-regions"></a>
 **É a pré-visualização do Azure AD através de SMB para ficheiros do Azure disponível em todas as regiões do Azure?**
 
-    A pré-visualização está disponível em todas as regiões públicas, exceto para: oeste dos E.U.A., Centro-Sul, E.U.A. Central, Europa Ocidental, Europa do Norte.
+    A pré-visualização está disponível em todas as regiões públicas, exceto para: Europa do Norte.
 
 * <a id="ad-support-on-premises"></a>
 **Autenticação do Azure AD através de SMB para ficheiros do Azure (pré-visualização) suporta a autenticação com o Azure AD a partir de máquinas no local?**

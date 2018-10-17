@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 47333a7b5ad7d76ee8bbac19884ba8246eadc05e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855787"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362658"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Numa gestão para o marketplace da cloud
 
@@ -214,7 +214,7 @@ O líder de apenas é gravado quando selecionar o armazenamento de BLOBS do Azur
 
  **Configurei o BLOB de tabela/Azure do Azure como destino meu oportunidade potencial, como posso exibir as oportunidades potenciais?** 
 
-Pode aceder a BLOBs ou tabelas a partir do Portal do Azure, ou pode transferir e instalar [Explorador de armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer/) gratuitamente para ver tabelas/blobs da sua conta de armazenamento do Azure. 
+Pode aceder a BLOBs ou tabelas a partir do Portal do Azure, ou pode transferir e instalar [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para ver tabelas/blobs da sua conta de armazenamento do Azure. 
 
 
 **Configurei tabelas do Azure como destino meu chefe, eu posso obter notificado sempre que uma nova oportunidade potencial é enviada pelo Marketplace?** 

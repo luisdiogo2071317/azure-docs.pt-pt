@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 5bfc11fdf6cbde9c9eed131bbcc7f7ab1dfbc442
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830698"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353871"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -61,7 +61,7 @@ A secção seguinte descreve os padrões de desempenho detetável mais detalhada
 
 Este padrão de desempenho detetável combina os problemas de desempenho relacionados com a atingir os limites de recursos disponíveis, limites de trabalho e limites de sessão. Depois deste problema de desempenho é detectado, um campo de descrição do registo de diagnóstico indica se o problema de desempenho está relacionado com recursos, trabalho ou os limites de sessão.
 
-Recursos na base de dados SQL, normalmente, são referidos [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) recursos. O padrão de atingir os limites de recursos é reconhecido quando detectado degradação do desempenho de consulta é causada por atingir qualquer um dos limites de recursos de medida.
+Recursos na base de dados SQL, normalmente, são referidos [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) recursos. O padrão de atingir os limites de recursos é reconhecido quando detectado degradação do desempenho de consulta é causada por atingir qualquer um dos limites de recursos de medida.
 
 O recurso de limites de sessão indica o número de inícios de sessão simultâneos disponíveis para a base de dados SQL. Este padrão de desempenho é reconhecido quando aplicativos que estão ligados às bases de dados SQL atingiu o número de inícios de sessão simultâneos disponíveis para a base de dados. Se as aplicações tentam utilizar mais sessões que estão disponíveis numa base de dados, o desempenho de consulta é afetado.
 

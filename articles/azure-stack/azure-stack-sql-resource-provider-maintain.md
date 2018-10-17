@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36300915"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364100"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operações de manutenção do fornecedor de recursos do SQL
 
-O fornecedor de recursos do SQL é executado numa máquina virtual bloqueada. Para ativar as operações de manutenção, terá de atualizar a segurança da máquina virtual. Para tal, utilize o princípio de privilégio mínimo, pode usar [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/en-us/powershell/jea/overview) ponto final *DBAdapterMaintenance*. O pacote de instalação do fornecedor de recursos inclui um script para esta operação.
+O fornecedor de recursos do SQL é executado numa máquina virtual bloqueada. Para ativar as operações de manutenção, terá de atualizar a segurança da máquina virtual. Para tal, utilize o princípio de privilégio mínimo, pode usar [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) ponto final *DBAdapterMaintenance*. O pacote de instalação do fornecedor de recursos inclui um script para esta operação.
 
 ## <a name="patching-and-updating"></a>Correções e atualizações
 
@@ -53,9 +53,9 @@ Para modificar as definições, selecione **navegue** &gt; **recursos administra
 
 ## <a name="secrets-rotation"></a>Rotação de segredos
 
-*Estas instruções aplicam-se apenas a 1804 de versão de sistemas integrados do Azure Stack e mais tarde. Não tente girar segredos em versões do pre-1804 do Azure Stack.*
+*Estas instruções só se aplicam a sistemas integrados do Azure Stack.*
 
-Quando utilizar os fornecedores de recursos do SQL e MySQL com o Azure Stack, sistemas integrados, pode girar os seguintes segredos de infraestrutura (implementação):
+Quando utilizar os fornecedores de recursos do SQL e MySQL com o Azure Stack, sistemas integrados, o operador do Azure Stack é responsável por girando os segredos de infraestrutura de fornecedor de recursos seguintes para se certificar de que não expirar:
 
 - Certificado de SSL externo [fornecido durante a implementação](azure-stack-pki-certs.md).
 - A recurso fornecedor VM conta senha de administrador local fornecida durante a implementação.

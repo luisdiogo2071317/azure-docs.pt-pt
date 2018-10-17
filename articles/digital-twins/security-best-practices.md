@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: adgera
-ms.openlocfilehash: 412e0d42744c9defa3fef6b3ae9643166e6c3b5c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324229"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364347"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -54,7 +54,7 @@ Monitorizar os recursos de IoT para deteção de valores atípicos, ameaças ou 
 Duplos Digital do Azure utiliza o Azure Active Directory para autenticar os utilizadores e proteger as aplicações. O Azure Active Directory suporta a autenticação para uma variedade de modernas arquiteturas, todos eles com base em protocolos de norma da indústria, como o OAuth 2.0 ou OpenID Connect. Alguns principais práticas para proteger o seu espaço de IoT do Azure Active Directory incluem:
 
 > [!div class="checklist"]
-> * Store, tais como chaves e segredos de aplicações do Azure Active Directory num local seguro [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> * Store, tais como chaves e segredos de aplicações do Azure Active Directory num local seguro [Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Utilizar um certificado emitido por uma confiança [autoridades de certificação](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) em vez de segredos de aplicação para autenticar.
 > * Limitar o âmbito de OAuth 2.0 de acesso de um token.
 > * Verifique se o período de tempo, que um token é válido e se um token permanece válido.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321908"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353296"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -257,7 +257,7 @@ Todos os dados que é páginas graficamente expostas através do dashboard de Mo
 
 Monitor de desempenho de rede utiliza as capacidades de alertas do [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Isso significa que todos os alertas é gerenciado usando [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Isso significa que todas as notificações são geridas através do [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 Se for um utilizador NPM, criação de um alerta por meio do OMS: 
 1. Verá um link que irá redirecioná-lo para o Portal do Azure. Clique nele para aceder ao portal.
@@ -270,6 +270,10 @@ Se for um utilizador NPM, criação de um alerta através do Portal do Azure:
 2. Se optar por introduzir o seu e-mail diretamente, uma ação de grupo com o nome **NPM Email ActionGroup** é criado e o id de e-mail é adicionado a esse grupo de ação.
 3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação criado anteriormente. Pode saber como criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Depois do alerta for criado com êxito, pode utilizar o link de gerir alertas para gerir os alertas. 
+
+Sempre que cria um alerta, o NPM cria uma regra de alerta de registo de consulta com base no Azure Monitor. Esta consulta é triggerred cada 5 minutos por predefinição. Monitor do Azure não cobra para a 250 primeira registar regras de alerta criadas e quaisquer regras de alerta acima limitam de 250 regras de alerta de registo serão cobradas como [preço na página de preços do Azure Monitor de alertas](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Notificações são cobradas em separado, de acordo [notificações de preço na página do Azure Monitor pricig](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
 
 ## <a name="pricing"></a>Preços
 

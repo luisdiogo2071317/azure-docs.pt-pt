@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585735"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353176"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -96,7 +96,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
     - Selecione **importar para o Azure**.
     - Introduza um nome descritivo para a tarefa de importação. Utilize o nome para controlar o progresso das suas tarefas.
-        - O nome pode conter apenas letras minúsculas, números, hífenes e carateres de sublinhado.
+        - O nome pode conter apenas letras minúsculas, números e hífenes.
         - O nome tem de começar com uma letra e não pode conter espaços.
     - Selecione uma subscrição.
     - Introduza ou selecione um grupo de recursos.  

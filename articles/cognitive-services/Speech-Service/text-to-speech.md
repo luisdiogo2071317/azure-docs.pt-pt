@@ -1,20 +1,20 @@
 ---
-title: Sobre o texto em voz
-description: Uma descrição geral das funcionalidades do texto em voz.
-titleSuffix: Microsoft Cognitive Services
+title: Sobre o texto em fala - serviço de voz
+titleSuffix: Azure Cognitive Services
+description: O serviço Microsoft Text-to-Speech oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar tipos de voz padrão, só tem de especificar o nome de voz com alguns outros parâmetros ao chamar o serviço de voz.
 services: cognitive-services
 author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 10/16/2018
 ms.author: erhopf
-ms.openlocfilehash: bc60eed63fb40c42fc4331edb01e15f850bf6ecb
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2f79ecbb42ba6453c7fb615114c0b7e56402ada3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166088"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363068"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre o texto em voz, API
 
@@ -26,7 +26,7 @@ Os cenários em que fala síntese está a ser adotada incluem:
 
 * *Melhorar a acessibilidade:* **texto em voz** tecnologia permite que os proprietários de conteúdo e os editores a responder para as pessoas de diferentes formas interagirem com os seus conteúdos. As pessoas com dificuldades de leitura ou o visual impairment apreciam a capacidade de consumir conteúdos aurally. Voz de saída também torna mais fácil para as pessoas usufruir conteúdo textual, como jornais ou posta em blog, em dispositivos móveis ao exercitar transporte ou viagens.
 
-* *A responder em cenários de multitarefa:* **texto em voz** permite que as pessoas que visam absorver informações importantes rapidamente e confortavelmente ao dirigir ou caso contrário, um conveniente fora ler ambiente. A navegação é um aplicativo comum nessa área. 
+* *A responder em cenários de multitarefa:* **texto em voz** permite que as pessoas que visam absorver informações importantes rapidamente e confortavelmente ao dirigir ou caso contrário, um conveniente fora ler ambiente. A navegação é um aplicativo comum nessa área.
 
 * *Aprimoramento de aprendizagem com vários modos:* pessoas diferentes saiba a melhor de formas diferentes. Especialistas de aprendizagem online têm mostrado que fornecer o texto e voz em conjunto pode ajudar a facilitar as informações saber mais e manter.
 
@@ -34,13 +34,13 @@ Os cenários em que fala síntese está a ser adotada incluem:
 
 ## <a name="voice-support"></a>Suporte de voz
 
-A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](language-support.md#text-to-speech). 
+A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](language-support.md#text-to-speech).
 
 Se desejar uma voz única para a sua aplicação, pode criar [tipos de voz personalizada](how-to-customize-voice-font.md) de seus próprios exemplos de voz.
 
 ## <a name="api-capabilities"></a>Capacidades de API
 
-Muitas das funcionalidades do **texto em voz** API — especialmente em torno da personalização — estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para obter uma lista completa de capacidades e detalhes de API, consulte [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/),
+Muitas das funcionalidades dos **texto em voz** API, sobretudo em torno da personalização, estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para obter uma lista completa de capacidades e detalhes de API, consulte [Swagger referência](https://westus.cris.ai/swagger/ui/index).
 
 | Caso de utilização | REST | SDKs |
 |-----|-----|-----|----|
@@ -51,7 +51,7 @@ Muitas das funcionalidades do **texto em voz** API — especialmente em torno da
 | Gerir Subscrições | Sim | Não |
 
 > [!NOTE]
-> A API implementa limitação que limita os pedidos de API para 25 por 5 segundos. Mensagem hearders informará os limites.
+> A API implementa limitação que limita os pedidos de API para 25 por 5 segundos. Cabeçalhos de mensagens informará os limites.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,23 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6418694097c472afd6a2c706e55a9026ab03dcff
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162723"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351867"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
-Com um conjunto elástico, determine a quantidade de recursos que o conjunto elástico necessita para processar a carga de trabalho de seus bancos de dados e a quantidade de recursos para cada base de dados em pool. 
+Com um conjunto elástico, determine a quantidade de recursos que o conjunto elástico necessita para processar a carga de trabalho de seus bancos de dados e a quantidade de recursos para cada base de dados em pool.
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Portal do Azure: Gerir conjuntos elásticos e bases de dados agrupadas
 
 Todas as definições de agrupamento podem ser encontradas num único lugar: os **configurar conjunto** painel. Para obter aqui, encontrar um conjunto elástico no portal e clique em **configurar conjunto** da parte superior do painel ou no menu de recursos no lado esquerdo.
 
 Aqui pode fazer qualquer combinação das seguintes alterações e guardá-los todos num lote:
+
 1. Alterar o escalão de serviço do conjunto
 2. Aumentar o desempenho (DTUS ou vCores) e o armazenamento ou reduzir verticalmente
 3. Adicionar ou remover bases de dados de/para o conjunto
@@ -36,7 +37,7 @@ Aqui pode fazer qualquer combinação das seguintes alterações e guardá-los t
 
 ![Painel de configuração do conjunto elástico](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerir conjuntos elásticos e bases de dados agrupadas 
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerir conjuntos elásticos e bases de dados agrupadas
 
 Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps). Para criar e gerir os servidores lógicos de um conjunto elástico, consulte [servidores lógicos, criar e gerida](sql-database-logical-servers.md). Para criar e gerir regras de firewall, consulte [criar e gerir regras de firewall com o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
@@ -56,10 +57,8 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define as propriedades para uma base de dados ou move uma base de dados existente para, de ou entre conjuntos elásticos.|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Remove uma base de dados.|
 
-
 > [!TIP]
 > Criação de muitas bases de dados num conjunto elástico pode demorar tempo quando terminado a utilizar o portal ou cmdlets do PowerShell que criam apenas uma base de dados cada vez. Para automatizar a criação de um conjunto elástico, veja [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
 
 ## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>CLI do Azure: Gerir conjuntos elásticos e bases de dados agrupadas
 
@@ -100,18 +99,18 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 
 | Comando | Descrição |
 | --- | --- |
-|[Conjuntos elásticos - criar ou atualizar](/rest/api/sql/elasticpools/createorupdate)|Cria um novo conjunto elástico ou atualiza um conjunto elástico existente.|
-|[Conjuntos elásticos - Delete](/rest/api/sql/elasticpools/delete)|Elimina o conjunto elástico.|
-|[Conjuntos elásticos - Get](/rest/api/sql/elasticpools/get)|Obtém um conjunto elástico.|
-|[Conjuntos elásticos - lista por servidor](/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
-|[Conjuntos elásticos - atualização](/rest/api/sql/elasticpools/update)|Atualiza um conjunto elástico existente.|
-|[Atividades de conjunto elástico](/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
-|[Conjunto elástico da base de dados de atividades](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
-|[Bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
-|[Bases de dados - Get](/rest/api/sql/databases/get)|Obtém uma base de dados.|
-|[Bases de dados - lista por conjunto elástico](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|
-|[Bases de dados - lista por servidor](/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
-|[Bases de dados - atualização](/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
+|[Conjuntos elásticos - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Cria um novo conjunto elástico ou atualiza um conjunto elástico existente.|
+|[Conjuntos elásticos - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Elimina o conjunto elástico.|
+|[Conjuntos elásticos - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Obtém um conjunto elástico.|
+|[Conjuntos elásticos - lista por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
+|[Conjuntos elásticos - atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Atualiza um conjunto elástico existente.|
+|[Atividades de conjunto elástico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
+|[Conjunto elástico da base de dados de atividades](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
+|[Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
+|[Bases de dados - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Obtém uma base de dados.|
+|[Bases de dados - lista por conjunto elástico](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|
+|[Bases de dados - lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Devolve uma lista de bases de dados num servidor.|
+|[Bases de dados - atualização](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Atualiza a base de dados existente.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

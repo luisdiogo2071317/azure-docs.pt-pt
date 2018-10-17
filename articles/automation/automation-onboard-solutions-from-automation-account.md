@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033826"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352451"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -93,11 +93,11 @@ Selecione **gerir máquinas**. Esta ação abre o **gerir máquinas** página. E
 
 ### <a name="all-available-machines"></a>Todas as máquinas disponíveis
 
-Para ativar a solução para todas as máquinas disponíveis, selecione **ativar em todas as máquinas disponíveis**. Esta ação desativa o controle para adicionar máquinas individualmente. Esta tarefa adiciona todos os nomes dos computadores a relatar à área de trabalho para o grupo de computadores guardado consulta de pesquisa.
+Para ativar a solução para todas as máquinas disponíveis, selecione **ativar em todas as máquinas disponíveis**. Esta ação desativa o controle para adicionar máquinas individualmente. Esta tarefa adiciona todos os nomes dos computadores a relatar à área de trabalho para o grupo de computadores guardado consulta de pesquisa. Quando selecionado, esta ação desativa a **gerir máquinas** botão.
 
 ### <a name="all-available-and-future-machines"></a>Todas as máquinas disponíveis e futuras
 
-Para ativar a solução para todas as máquinas disponíveis e todas as máquinas futuras, selecione **ativar em todas as máquinas disponíveis e futuras**. Esta opção elimina as pesquisas guardadas e configurações de âmbito da área de trabalho. Esta ação abre a solução para todos os do Azure e máquinas não Azure que estão a enviar relatórios para a área de trabalho.
+Para ativar a solução para todas as máquinas disponíveis e todas as máquinas futuras, selecione **ativar em todas as máquinas disponíveis e futuras**. Esta opção elimina as pesquisas guardadas e configurações de âmbito da área de trabalho. Esta ação abre a solução para todos os do Azure e máquinas não Azure que estão a enviar relatórios para a área de trabalho. Quando selecionado, esta ação desativa a **gerir máquinas** botão.
 
 ### <a name="selected-machines"></a>Máquinas selecionadas
 
@@ -120,13 +120,13 @@ Depois de remover estas soluções, pode executar os seguintes passos para desas
 
 1. A partir do portal do Azure, abra sua conta de automatização e na Automação de conta de página select **ligado área de trabalho** na secção **recursos relacionados** à esquerda.
 
-1. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
+2. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
 
    ![Desassociar a página de área de trabalho](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Irá receber um pedido de confirmação de que pretende continuar.
 
-1. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
+3. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
 
 Se utilizou a solução de gestão de atualizações, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
 

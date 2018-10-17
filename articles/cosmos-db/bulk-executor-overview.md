@@ -1,21 +1,20 @@
 ---
-title: Descrição de geral do Azure Cosmos DB em massa executor biblioteca | Documentos da Microsoft
-description: Saiba mais sobre a biblioteca de executor do Azure Cosmos DB em massa, benefícios de usar a biblioteca e respetiva arquitetura.
-keywords: Executor do Java em massa
+title: Em massa importar e atualizar dados no Azure Cosmos DB com a biblioteca de executor em volume | Documentos da Microsoft
+description: Realizar operações em massa no Azure Cosmos DB através da importação em massa e APIs disponibilizadas pela biblioteca de executor em massa de atualização em massa.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 823cb536a1cd0b8f5da7442906b14447c15ae044
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091358"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363549"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB em massa executor descrição geral da biblioteca
  
@@ -27,7 +26,7 @@ O Azure Cosmos DB é um serviço de base de dados rápida, flexível e distribu�
 A biblioteca de executor em massa ajuda-o a tirar partido deste armazenamento e débito em massa. A biblioteca de executor em massa permite-lhe efetuar em massa APIs de atualização de operações no Azure Cosmos DB através da importação em massa e em massa. Pode ler mais sobre os recursos da biblioteca de executor em massa nas seções a seguir. 
 
 > [!NOTE] 
-> Atualmente, a biblioteca de executor em massa suporta a importação e operações de atualização e esta biblioteca é suportada pelo apenas para contas de API de SQL do Azure Cosmos DB. Ver [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md) notas de versão do todas as atualizações para a biblioteca.
+> Atualmente, a biblioteca de executor em massa suporta a importação e operações de atualização e esta biblioteca é suportada pelo apenas para contas de API de SQL do Azure Cosmos DB e a API do Gremlin.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Principais recursos da biblioteca de executor em massa  
  

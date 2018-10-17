@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525125"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364392"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Resolução de problemas de ficheiros do Azure no Linux
 
@@ -82,7 +82,7 @@ Algumas distribuições de Linux ainda não suporta recursos de criptografia no 
 
 ### <a name="solution"></a>Solução
 
-Funcionalidade de encriptação no SMB 3.0 para Linux foi introduzida no 4.11 kernel. Esta funcionalidade permite a montagem de partilha de ficheiros do Azure a partir de uma região diferente do Azure ou no local. No momento da publicação, essa funcionalidade foi backported Ubuntu 17.04 e Ubuntu 16.10. Se o cliente Linux SMB não suporta a encriptação, ficheiros do Azure de montagem utilizando o SMB 2.1 a partir de uma VM do Linux do Azure que está no mesmo datacenter como a conta de armazenamento de ficheiros.
+Funcionalidade de encriptação no SMB 3.0 para Linux foi introduzida no 4.11 kernel. Esta funcionalidade permite a montagem de partilha de ficheiros do Azure a partir de uma região diferente do Azure ou no local. No momento da publicação, essa funcionalidade foi backported Ubuntu 17.04 e Ubuntu 16.10. Se o cliente Linux SMB não suporta a encriptação, Azure montar ficheiros utilizando o SMB 2.1 a partir de uma VM do Linux do Azure que está no mesmo datacenter como o ficheiro de partilhar e verifique se o [transferência segura necessária]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) definição estiver desativada no armazenamento conta. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento numa partilha de ficheiros do Azure montada numa VM do Linux
@@ -149,7 +149,8 @@ Causas comuns para este problema são:
 - O SMB/CIFS mínimo a versão 2.1 não está instalado no cliente.
 - Encriptação do SMB 3.0 não é suportada no cliente. Encriptação do SMB 3.0 está disponível no Ubuntu 16.4 e versão posterior, SUSE 12.3 e versão posterior. Outras distribuições requerem kernel 4.11 e versão posterior.
 - Está a tentar ligar a uma conta de armazenamento através da porta TCP 445 que não é suportada.
-- Está a tentar a tentar ligar à partilha de ficheiros do Azure a partir de uma VM do Azure e a VM não está localizada na mesma região que a conta de armazenamento.
+- Está a tentar ligar à partilha de ficheiros do Azure a partir de uma VM do Azure e a VM não está localizada na mesma região que a conta de armazenamento.
+- Se [transferência segura necessária]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento, ficheiros do Azure irá permitir apenas ligações através de SMB 3.0 com a encriptação.
 
 ### <a name="solution"></a>Solução
 

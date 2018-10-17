@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 3d03cd6a5cceb805ed8ee34548bd1a3973e9d78b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167091"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361441"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 
@@ -38,7 +38,7 @@ O **conversão de voz em texto** API oferece as seguintes funcionalidades:
 
 ## <a name="api-capabilities"></a>Capacidades de API
 
-Algumas das capacidades do **conversão de voz em texto** API - sobretudo em torno da personalização - estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. 
+Algumas das capacidades do **conversão de voz em texto** API, sobretudo em torno da personalização, estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para obter uma lista completa de capacidades e detalhes de API, consulte [Swagger referência](https://westus.cris.ai/swagger/ui/index).
 
 | Caso de utilização | REST | SDKs |
 |-----|-----|-----|----|
@@ -55,7 +55,7 @@ Algumas das capacidades do **conversão de voz em texto** API - sobretudo em tor
 | Criar e gerir implementações de modelos | Sim | Não |
 
 > [!NOTE]
-> A API REST implementa limitação que limita os pedidos de API para 25 por 5 segundos. Mensagem hearders informará os limites
+> A API REST implementa limitação que limita os pedidos de API para 25 por 5 segundos. Cabeçalhos de mensagens informará os limites
 
 \* *LUIS intenções e entidades podem ser obtidas através de uma subscrição separada do LUIS. Com esta subscrição, o SDK pode chamar o LUIS para e fornecer resultados de entidade e propósito, bem como as transcrições de voz. Com a API REST, pode chamar o LUIS para derivar intenções e entidades com a sua subscrição do LUIS.*
 

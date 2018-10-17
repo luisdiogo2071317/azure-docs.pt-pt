@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238738"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362063"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
@@ -173,23 +173,24 @@ Utilize estes comandos para definir a opção de servidor de autenticação de b
    > Não é possível misturar servidores autónomos com instâncias Always On no SKU do mesmo. A tentar misturar tipos depois de adicionar os resultados do servidor de alojamento primeiro num erro.
 
 ## <a name="sku-notes"></a>Notas SKU
-
-Pode utilizar o SKU para diferenciar as ofertas de serviço. Por exemplo, pode ter uma instância de SQL Enterprise com as seguintes características:
+Utilize um nome SKU que descreve as capacidades dos servidores no SKU, como a capacidade e desempenho. O nome serve como um auxílio para ajudar os utilizadores a implementar as bases de dados para o SKU adequado. Por exemplo, pode utilizar nomes SKU para diferenciar as ofertas de serviço, as seguintes características:
   
 * alta capacidade
 * elevado desempenho
 * elevada disponibilidade
 
-SKUs não podem ser atribuídos a utilizadores específicos ou grupos nesta versão.
-
- SKUs podem demorar até uma hora para ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU estiver totalmente criado.
-
->[!TIP]
->Utilize um nome SKU que reflete descreve as capacidades dos servidores no SKU, como a capacidade e desempenho. O nome serve como um auxílio para ajudar os utilizadores a implementar as bases de dados para o SKU adequado.
-
 Como melhor prática, todos os servidores de hospedagem num SKU devem ter as mesmas características de desempenho e de recursos.
 
-## <a name="make-the-sql-databases-available-to-users"></a>Disponibilizar as bases de dados do SQL aos utilizadores
+SKUs não podem ser atribuídos a utilizadores ou grupos específicos.
+
+SKUs podem demorar até uma hora para ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU estiver totalmente criado.
+
+Para editar um SKU, aceda a **todos os serviços** > **adaptador de SQL** > **SKUs**. Selecione o SKU para modificar, faça as alterações necessárias e clique em **guardar** para guardar as alterações. Para eliminar um SKU que não é mais necessária, aceda a **todos os serviços** > **adaptador de SQL** > **SKUs**. O nome SKU com o botão direito e selecione **eliminar** eliminá-lo.
+
+> [!TIP]
+> Pode editar ou eliminar as quotas de fornecedor de recursos SQL na mesma localização.
+
+## <a name="make-sql-databases-available-to-users"></a>Tornar as bases de dados SQL disponíveis para os utilizadores
 
 Crie planos e ofertas para tornar as bases de dados SQL disponíveis para os utilizadores. Adicionar a **Microsoft.SqlAdapter** para o plano de serviço e criar uma quota de novo.
 

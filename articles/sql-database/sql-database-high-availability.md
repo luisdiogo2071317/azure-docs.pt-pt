@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 004a097a50129c444ad3facf8133295c5de49585
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345004"
+ms.locfileid: "49353480"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -42,7 +42,7 @@ A figura seguinte mostra os quatro nós no modelo de arquitetura de padrão com 
 
 No modelo padrão de disponibilidade, existem duas camadas:
 
-- Uma camada de computação sem monitoração de estado que está a executar o processo de sqlserver.exe e contém apenas transitórios e em cache dados (por exemplo – cache de planos, conjunto de memória intermédia, agrupamento de armazenamento de coluna). Este nó do SQL Server sem monitoração de estado é operada por recursos de infraestrutura do serviço do Azure que inicializa o processo, controla o estado de funcionamento do nó e efetua a ativação pós-falha para outro lugar, se necessário.
+- Uma camada de computação sem monitoração de estado que está a executar o `sqlserver.exe` processar e contém apenas transitórios e em cache os dados (por exemplo – cache de planos, conjunto de memória intermédia, agrupamento de armazenamento de coluna). Este nó do SQL Server sem monitoração de estado é operada por recursos de infraestrutura do serviço do Azure que inicializa o processo, controla o estado de funcionamento do nó e efetua a ativação pós-falha para outro lugar, se necessário.
 - Uma camada de dados com monitoração de estado com ficheiros de base de dados (.mdf/.ldf) que estão armazenados no armazenamento Premium do Azure. O armazenamento do Azure garante que haverá sem perda de dados de qualquer registo que é colocado em qualquer arquivo de banco de dados. O armazenamento do Azure tem disponibilidade/redundância de dados incorporada que garante que todos os registos no ficheiro de registo ou a página no arquivo de dados será preservada mesmo no caso de falha de processo do SQL Server.
 
 Sempre que a atualização do motor de base de dados ou o sistema operativo, alguma parte da infraestrutura subjacente falha ou se detetar algum problema crítico no processo do Sql Server, o Azure Service Fabric moverá o processo do SQL Server sem monitoração de estado para outro nó de computação sem monitoração de estado. Existe um conjunto de nós de reserva que está à espera de executar o novo serviço de computação em caso de ativação pós-falha para minimizar o tempo de ativação pós-falha. Dados na camada de armazenamento do Azure não são afetados e arquivos de dados/do registo são anexados ao processo do SQL Server recentemente inicializado. Este processo garante 99,99% de disponibilidade, mas ele pode ter alguns impactos no desempenho na carga de trabalho pesada, que está a executar devido ao tempo de transição e o fato do novo nó do SQL Server é iniciado com a cache de frio.
@@ -72,6 +72,10 @@ A versão com redundância de zona da arquitetura de elevada disponibilidade é 
 
 ![redundância de zona de arquitetura elevada disponibilidade](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
+## <a name="accelerated-database-recovery-adr"></a>Recuperação de base de dados acelerada (ADR)
+
+[Acelerado de recuperação de base de dados (ADR)](sql-database-accelerated-database-recovery.md) é uma funcionalidade de motor da base de dados nova SQL melhora significativamente a disponibilidade de base de dados, especialmente na presença de longa execução transações, ao ter de redesenhar o processo de recuperação do motor de base de dados SQL. Regras de implementação automática estão atualmente disponível para o Azure SQL Data Warehouse, conjuntos elásticos e bases de dados individuais.
+
 ## <a name="conclusion"></a>Conclusão
 
 Base de dados SQL do Azure está profundamente integrado com a plataforma Azure e é altamente dependente no Service Fabric para deteção de falhas e recuperação, em Blobs de armazenamento do Azure para proteção de dados e as zonas de disponibilidade para maior tolerância de falhas. Ao mesmo tempo, a base de dados SQL do Azure aproveita totalmente a tecnologia do grupo de Disponibilidade AlwaysOn do produto de caixa de SQL Server para a replicação e ativação pós-falha. A combinação dessas tecnologias permite que os aplicativos a serem totalmente perceber os benefícios de um modelo de armazenamento misto e suporta os SLAs mais exigentes.
@@ -81,3 +85,4 @@ Base de dados SQL do Azure está profundamente integrado com a plataforma Azure 
 - Saiba mais sobre [zonas de disponibilidade do Azure](../availability-zones/az-overview.md)
 - Saiba mais sobre [do Service Fabric](../service-fabric/service-fabric-overview.md)
 - Saiba mais sobre [o Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
+- Para obter mais opções para alta disponibilidade e recuperação após desastre, consulte [continuidade do negócio](sql-database-business-continuity.md)

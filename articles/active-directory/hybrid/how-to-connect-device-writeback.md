@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b98b9e0a10f142cb0177e7e5ea831b61f79a4b7a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311095"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361074"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>O Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]
@@ -32,7 +32,7 @@ A seguinte documentação fornece informações sobre como ativar a funcionalida
 
 * Ativar o acesso condicional com base em dispositivos para ADFS (2012 R2 ou superior) a aplicações (confianças de entidades confiadoras) protegidas.
 
-Esta opção fornece segurança adicional e o controle de acesso a aplicações é concedido apenas aos dispositivos fidedignos. Para obter mais informações sobre o acesso condicional, consulte [gestão de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Esta opção fornece segurança adicional e o controle de acesso a aplicações é concedido apenas aos dispositivos fidedignos. Para obter mais informações sobre o acesso condicional, consulte [gestão de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Dispositivos têm de estar localizados na mesma floresta que os utilizadores. Uma vez que os dispositivos têm de ser escritos novamente para uma única floresta, esta funcionalidade não suporta atualmente uma implementação com várias florestas de utilizador.</li>
@@ -81,7 +81,7 @@ Repetição de escrita do dispositivo deve agora estar a funcionar corretamente.
    ![Centro de administração do Active Directory registado a lista de dispositivos](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Ativar o acesso condicional
-Instruções detalhadas para ativar este cenário estão disponíveis nos [configuração do acesso condicional no local com o registo de dispositivos do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Instruções detalhadas para ativar este cenário estão disponíveis nos [configuração do acesso condicional no local com o registo de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>A caixa de verificação de repetição de escrita ainda está desativada
@@ -125,7 +125,7 @@ Verificar a configuração no Active Directory:
 
 ## <a name="additional-information"></a>Informações Adicionais
 * [Gestão de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
-* [Configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
+* [Configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

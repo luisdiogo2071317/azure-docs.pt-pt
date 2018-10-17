@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 980a183261c394bd83292170ab133fe17229013d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055185"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364511"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gerir a Cache de Redis do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -783,7 +783,7 @@ Para saber mais sobre como utilizar o Windows PowerShell com o Azure, consulte o
 * [Documentação de cmdlets do Cache de Redis do Azure no MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Cmdlets do Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765): Saiba como utilizar os cmdlets no módulo do Azure Resource Manager.
 * [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): Saiba como criar e gerir grupos de recursos no portal do Azure.
-* [Blogue do Azure](https://azure.microsoft.com/en-us/blog/): Saiba mais sobre os novos recursos do Azure.
+* [Blogue do Azure](https://azure.microsoft.com/blog/): Saiba mais sobre os novos recursos do Azure.
 * [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): Saiba mais sobre os novos recursos do Windows PowerShell.
 * ["EI, equipe de scripts!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obter reais dicas e truques da Comunidade do Windows PowerShell.
 

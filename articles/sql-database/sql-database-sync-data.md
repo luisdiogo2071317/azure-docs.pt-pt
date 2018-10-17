@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 602bbdcd21e56bb64515a19623e08ae617c99a59
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870917"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362242"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -152,7 +152,7 @@ Sincronização de dados não é possível sincronizar as colunas de só de leit
 | **Dimensões**                                                      | **Limite**              | **Solução**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Número máximo de grupos de sincronização a qualquer base de dados pode pertencer a.       | 5                      |                             |
-| Número máximo de pontos de extremidade num grupo de sincronização único              | 30                     | Criar vários grupos de sincronização |
+| Número máximo de pontos de extremidade num grupo de sincronização único              | 30                     |                             |
 | Número máximo de pontos de extremidade no local num grupo de sincronização único. | 5                      | Criar vários grupos de sincronização |
 | Nomes de base de dados, de tabela, de esquema e de coluna                       | 50 carateres por nome |                             |
 | Tabelas num grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
@@ -160,6 +160,8 @@ Sincronização de dados não é possível sincronizar as colunas de só de leit
 | Tamanho de linha de dados numa tabela                                        | 24 Mb                  |                             |
 | Intervalo de sincronização mínimo                                           | 5 Minutos              |                             |
 |||
+> [!NOTE]
+> Pode haver até 30 pontos de extremidade num grupo de sincronização único se houver apenas um grupo de sincronização. Se existir mais do que um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se uma base de dados pertencer a vários grupos de sincronização, é contabilizado como vários pontos de extremidade, não um.
 
 ## <a name="faq-about-sql-data-sync"></a>FAQ sobre a sincronização de dados SQL
 

@@ -1,7 +1,7 @@
 
 ## <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Basta selecionar o botão **Copiar** para copiar o código, colá-lo no Cloud Shell e, em seguida, premir Enter para executá-lo. Há algumas formas de abrir o Cloud Shell, pode escolher qualquer uma para abri-lo:
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Basta selecionar o botão **Copiar** para copiar o código, colá-lo no Cloud Shell e, em seguida, premir Enter para executá-lo. Existem algumas formas de abrir o Cloud Shell:
 
 |  |   |
 |-----------------------------------------------|---|

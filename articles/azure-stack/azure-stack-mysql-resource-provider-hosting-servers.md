@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237269"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364671"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do MySQL
 
@@ -75,6 +75,24 @@ As seguintes informações aplicam-se para a RP e o MySQL alojar servidores:
 ## <a name="increase-backend-database-capacity"></a>Aumentar a capacidade de base de dados de back-end
 
 Pode aumentar a capacidade de base de dados de back-end ao implementar mais servidores MySQL no portal do Azure Stack. Adicione estes servidores para um SKU de novo ou existente. Se adicionar um servidor para um SKU existente, certifique-se de que as características de servidor são os mesmos que os outros servidores no SKU.
+
+## <a name="sku-notes"></a>Notas SKU
+Utilize um nome SKU que descreve as capacidades dos servidores no SKU, como a capacidade e desempenho. O nome serve como um auxílio para ajudar os utilizadores a implementar as bases de dados para o SKU adequado. Por exemplo, pode utilizar nomes SKU para diferenciar as ofertas de serviço, as seguintes características:
+  
+* alta capacidade
+* elevado desempenho
+* elevada disponibilidade
+
+Como melhor prática, todos os servidores de hospedagem num SKU devem ter as mesmas características de desempenho e de recursos.
+
+SKUs não podem ser atribuídos a utilizadores ou grupos específicos.
+
+SKUs podem demorar até uma hora para ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU estiver totalmente criado.
+
+Para editar um SKU, aceda a **todos os serviços** > **MySQL adaptador** > **SKUs**. Selecione o SKU para modificar, faça as alterações necessárias e clique em **guardar** para guardar as alterações. Para eliminar um SKU que não é mais necessária, aceda a **todos os serviços** > **MySQL adaptador** > **SKUs**. O nome SKU com o botão direito e selecione **eliminar** eliminá-lo.
+
+> [!TIP]
+> Pode editar ou eliminar as quotas de fornecedor de recursos MySQL na mesma localização.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Tornar os servidores de base de dados MySQL disponíveis para os seus utilizadores
 

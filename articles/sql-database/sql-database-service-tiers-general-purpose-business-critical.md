@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 053bcd46f5b0f7e06997bb0bcd57f448617b9911
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/15/2018
+ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832329"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351747"
 ---
 # <a name="general-purpose-and-business-critical-service-tiers"></a>Escalões de serviço crítico para a empresa e de finalidade gerais
 
-Este artigo aborda considerações de armazenamento e cópia de segurança para os escalões de serviço para fins gerais e crítico para a empresa no modelo de compra baseado em vCore. 
+Este artigo aborda considerações de armazenamento e cópia de segurança para os escalões de serviço para fins gerais e crítico para a empresa no modelo de compra baseado em vCore.
 
 > [!NOTE]
 > Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-service-tiers.md).
@@ -57,5 +57,5 @@ Armazenamento para cópias de segurança da base de dados é alocado para suport
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para a base de dados individual nos escalões fins gerais e de negócios críticos de serviço, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para conjuntos elásticos nas camadas de fins gerais e de negócios críticos de serviço, consulte [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para a base de dados individual nos escalões fins gerais e de negócios críticos de serviço, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para conjuntos elásticos nas camadas de fins gerais e de negócios críticos de serviço, consulte [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

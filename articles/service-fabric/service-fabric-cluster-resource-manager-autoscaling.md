@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053300"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362607"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 Dimensionamento automático é uma capacidade adicional do Service Fabric para dimensionar dinamicamente os seus serviços com base na carga que serviços estão a enviar relatórios ou com base na respetiva utilização de recursos. Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento de instâncias adicionais ou partições do seu serviço a pedido. O processo de dimensionamento de automático todo é automatizada e transparente e, depois de configurar as políticas num serviço não é necessário para operações de dimensionamento manuais no nível de serviço. Dimensionamento automático pode ser ativado no momento da criação de serviço ou em qualquer altura ao atualizar o serviço.
@@ -120,7 +120,7 @@ O acionador segundo baseia-se a carga de todas as partições de um serviço. M�
 * _Limiar de carregamento superior_ é um valor que determina quando o serviço será **aumentados horizontalmente**. Se a carga média de todas as partições do serviço for superior a este valor, em seguida, o serviço irá ser dimensionado.
 * _Intervalo de dimensionamento_ determina a frequência com que o acionador será verificado. Assim que o acionador for selecionado, se o dimensionamento é necessário o mecanismo será aplicado. Se não for necessário dimensionamento, irá ser efetuada nenhuma ação. Em ambos os casos, acionador não estará marcado novamente antes de intervalo de dimensionamento novamente.
 
-Este acionador pode ser utilizado com serviços com e sem estado. O mecanismo único que pode ser utilizado com este acionador é AddRemoveIncrementalNamedParitionScalingMechanism. Quando o serviço é aumentado horizontalmente, em seguida, é adicionada uma nova partição, e quando o serviço é dimensionado de uma das partições existentes são removidos. Existem restrições que serão verificadas quando o serviço é criado ou atualizado e o serviço de criação/atualização falhará se estas condições não forem cumpridas:
+Este acionador pode ser utilizado com serviços com e sem estado. O mecanismo único que pode ser utilizado com este acionador é AddRemoveIncrementalNamedPartitionScalingMechanism. Quando o serviço é aumentado horizontalmente, em seguida, é adicionada uma nova partição, e quando o serviço é dimensionado de uma das partições existentes são removidos. Existem restrições que serão verificadas quando o serviço é criado ou atualizado e o serviço de criação/atualização falhará se estas condições não forem cumpridas:
 * Esquema de partição com o nome tem de ser utilizada para o serviço.
 * Nomes de partição tem de ser números integer consecutivos, como "0", "1",...
 * Nome da primeira partição tem de ser "0".
@@ -137,7 +137,7 @@ Mesmo assim como acontece com o mecanismo que utiliza o dimensionamento adiciona
 * _Contagem de instâncias mínima_ define o limite inferior para dimensionamento. Se o número de partições do serviço de atingir este limite, em seguida, serviço será não ser reduzido horizontalmente, independentemente da carga.
 
 > [!WARNING] 
-> Quando AddRemoveIncrementalNamedParitionScalingMechanism é utilizado com serviços com estado, o Service Fabric irá adicionar ou remover partições **sem notificação ou aviso**. Repartição de dados não será executada quando o mecanismo de dimensionamento é acionado. No caso de operação de aumento vertical, novas partições estará vazias e, em caso de operação de dimensionamento **partição será eliminada juntamente com todos os dados que contém**.
+> Quando AddRemoveIncrementalNamedPartitionScalingMechanism é utilizado com serviços com estado, o Service Fabric irá adicionar ou remover partições **sem notificação ou aviso**. Repartição de dados não será executada quando o mecanismo de dimensionamento é acionado. No caso de operação de aumento vertical, novas partições estará vazias e, em caso de operação de dimensionamento **partição será eliminada juntamente com todos os dados que contém**.
 
 ## <a name="setting-auto-scaling-policy"></a>A definição de política de dimensionamento automático
 
@@ -146,7 +146,7 @@ Mesmo assim como acontece com o mecanismo que utiliza o dimensionamento adiciona
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Mesmo assim como acontece com o mecanismo que utiliza o dimensionamento adiciona
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Com o Powershell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

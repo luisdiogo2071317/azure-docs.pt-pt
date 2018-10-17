@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 9ad43ecf2aa5649e582f1aa4159352edf9c8fa5b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042602"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353585"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -28,14 +28,12 @@ Para baseado em DTU compra modelo limites para bases de dados individuais num se
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
+Pode definir o escalão de serviço, o tamanho de computação e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), o [ CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [API de REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de dados: tamanhos de armazenamento e tamanhos de computação
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Escalão de serviço de fins geral: tamanhos de armazenamento e tamanhos de computação
 
-Para bases de dados individuais, as tabelas seguintes mostram os recursos disponíveis para uma base de dados em cada escalão de serviço e tamanho de computação. Pode definir o escalão de serviço, o tamanho de computação e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), o [ CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [API de REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
 
-### <a name="general-purpose-service-tier"></a>Escalão de serviço de fins geral
-
-#### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
 |Tamanho de computação|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
+### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
+
 |Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
@@ -79,9 +78,10 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 |||
 
-### <a name="business-critical-service-tier"></a>Camada de serviços críticos de negócio
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviços críticos de negócio: tamanhos de armazenamento e tamanhos de computação
 
-#### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
+### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
+
 |Tamanho de computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
+### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
+
 |Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|5|
@@ -125,9 +126,10 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Camada de serviços de Hiperescala (pré-visualização)
+## <a name="hyperscale-service-tier-preview"></a>Camada de serviços de Hiperescala (pré-visualização)
 
-#### <a name="generation-4-compute-platform"></a>Plataforma de computação de geração 4
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de computação de geração 4: tamanhos de armazenamento e tamanhos de computação
+
 |Nível de desempenho|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>Plataforma de computação de geração 5
+
 |Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|5|

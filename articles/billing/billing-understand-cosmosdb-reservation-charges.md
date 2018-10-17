@@ -9,26 +9,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: adcd91a8f1b3368d03f4b634e7aef40104d953e3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393643"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353443"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Compreender como o desconto de reserva é aplicado ao Azure Cosmos DB
 
-Depois de comprar uma capacidade de reservada do Azure Cosmos DB, o desconto de reserva é automaticamente aplicado aos recursos do Azure Cosmos DB que correspondem a atributos e a quantidade da reserva. Uma reserva abrange o débito aprovisionado para recursos do Azure Cosmos DB e não cobre o software, rede, armazenamento, ou definidas previamente os custos de contentor.
+Depois de comprar uma capacidade de reservada do Azure Cosmos DB, o desconto de reserva é automaticamente aplicado aos recursos do Azure Cosmos DB que correspondem a atributos e a quantidade da reserva. Uma reserva abrange o débito aprovisionado para recursos do Azure Cosmos DB. Ela não cobre o software, rede, armazenamento ou predefinidas cobranças de contentor.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Desconto de reserva aplicado a contas do Azure Cosmos DB
 
-É aplicado um desconto de reserva para [débito aprovisionado](../cosmos-db/request-units.md) em termos de unidades de pedido por second(RU/s) com base numa hora em hora. Para obter recursos do Azure Cosmos DB que não são executados a hora completa, o desconto de reserva é aplicado automaticamente a outros recursos do Cosmos DB que correspondem os atributos de reserva. O desconto pode aplicar aos recursos do Azure Cosmos DB que estão em execução em simultâneo. Se não tiver recursos do Cosmos DB que executam durante a hora completa e que correspondam aos atributos de reserva, não obtém todos os benefícios do desconto de reserva para essa hora.
+É aplicado um desconto de reserva para [débito aprovisionado](../cosmos-db/request-units.md) em termos de unidades de pedido por segundo (RU/s) com base numa hora em hora. Para obter recursos do Azure Cosmos DB que não são executados a hora completa, o desconto de reserva é aplicado automaticamente a outros recursos do Cosmos DB que correspondem os atributos de reserva. O desconto pode aplicar aos recursos do Azure Cosmos DB que estão em execução em simultâneo. Se não tiver recursos do Cosmos DB que executam durante a hora completa e que correspondam aos atributos de reserva, não obtém todos os benefícios do desconto de reserva para essa hora.
 
-* Os descontos são dispostos em camadas que significa que as reservas com unidades de pedido superior oferecem descontos superiores.  
-* A compra de reserva aplicará descontos para todas as regiões na proporção equivalente para os preços regionais de sob demanda. Para a reserva Consulte taxas de desconto em cada região [desconto de reserva por região](#reservation-discount-per-region) seção deste artigo.
+Os descontos são dispostos em camadas. As reservas com unidades de pedido superior oferecem descontos superiores. 
+
+A compra de reserva aplicará descontos para todas as regiões na proporção equivalente para os preços regionais de sob demanda. Para taxas de desconto de reserva em cada região, consulte a [desconto de reserva por região](#reservation-discount-per-region) seção deste artigo.
 
 ## <a name="reservation-discount-per-region"></a>Desconto de reserva por região
-Desconto de reserva é aplicado aos custos de débito do Azure Cosmos DB com base numa hora em hora no subscrição individual ou âmbito inscritos/conta. O desconto de reserva aplica-se para medir a utilização em diferentes regiões na proporção seguinte:
+O desconto de reserva é aplicado aos custos de débito do Azure Cosmos DB com base numa hora em hora. Esta é aplicada no âmbito da conta/inscritos ou única subscrição. O desconto de reserva aplica-se para medir a utilização em diferentes regiões nas taxas seguintes:
 
 |Descrição de medidor  |Região |Proporção  |
 |---------|---------|---------|
@@ -70,15 +71,15 @@ Desconto de reserva é aplicado aos custos de débito do Azure Cosmos DB com bas
 Considere os seguintes requisitos para uma reserva:
 
 * Taxa de transferência necessária: 50 000 RU/s  
-* Regiões utilizados: 2. 
+* Regiões utilizados: 2 
 
-Neste caso, o total das cobranças de sob demanda destinam-se 500 quantidade de 100 RU/s dos medidores nestas duas regiões, para um consumo total de RU/s de 100 000 por hora. 
+Neste caso, o total das cobranças de sob demanda destinam-se 500 quantidade de medidor de 100 RU/s nestas duas regiões. O consumo de RU/s total é 100.000 a cada hora. 
 
 **Cenário 1**
 
-Por exemplo, se precisar de implementações do Azure Cosmos DB nas regiões "E.u.a. Centro-Norte" e "E.u.a. Oeste", e se cada região tem um consumo de débito de 50 000 RU/s. Uma compra de reserva de 100 000 RU/s seria completamente equilibrar os custos com a pedido.
+Por exemplo, suponha que precisa de implementações do Azure Cosmos DB nas regiões e.u.a. Centro-Norte e E.u.a. oeste. Cada região tem um consumo de débito de 50 000 RU/s. Uma compra de reserva de 100 000 RU/s seria completamente equilibrar os custos com a pedido.
 
-O desconto abrangido por uma reserva é computado como (consumo de débito * reservation_discount_ratio_for_that_region). Para regiões "E.u.a. Centro-Norte" e "E.u.a. Oeste", a taxa de desconto de reserva é "1". Sendo assim, o total RU/s com desconto são 100 000 RU/s (este valor é computado como: 50 000 * 1 + 50 000 * 1 = 100 000 RU/s), e não precisa de pagar quaisquer custos adicionais às tarifas pay as you go normais. 
+O desconto que abrange uma reserva é computado como: o consumo de débito * reservation_discount_ratio_for_that_region. Para as regiões e.u.a. Centro-Norte e E.u.a. oeste, a taxa de desconto de reserva é 1. Sendo assim, o total RU/s com desconto são 100.000. Este valor é computado como: 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Não tem de pagar quaisquer custos adicionais às tarifas pay as you go normais. 
 
 |Descrição de medidor | Região |Consumo de débito (RU/s) |Desconto de reserva aplicado para RU/s |
 |---------|---------|---------|---------|
@@ -87,18 +88,18 @@ O desconto abrangido por uma reserva é computado como (consumo de débito * res
 
 **Cenário 2**
 
-Por exemplo, se precisar de implementações do Azure Cosmos DB no "Austrália Central 2" e regiões de "Sul de França", e se cada região tem um consumo de débito de 50 000 RU/s. Uma compra de reserva de 100 000 RU/s seria aplicável da seguinte forma (supondo que a utilização de AU Central 2 foi com desconto em primeiro lugar):
+Por exemplo, suponha que precisa de implementações do Azure Cosmos DB nas regiões AU Central 2 e sul de França. Cada região tem um consumo de débito de 50 000 RU/s. Uma compra de reserva de 100 000 RU/s seria aplicável da seguinte forma (supondo que a utilização de AU Central 2 foi com desconto em primeiro lugar):
 
 |Descrição de medidor | Região |Consumo de débito (RU/s) |Desconto de reserva aplicado para RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 RU/s/hora - Austrália Central 2  |  Austrália Central 2   |  50,000  |  50,000   |
 |Sul de França - 100 RU/s/hora - Azure Cosmos DB  |  Sul da França   |  50,000 |  15,384  |
 
-50 000 unidades de utilização na região "Austrália Central 2" corresponde a 75.000 RU/s de utilização faturável (ou utilização normalizada). Este valor é computado como (consumo de débito * reservation_discount_ratio_for_that_region) que é igual a 75.000 RU/s (este valor é computado como: 50 000 * 1.5 = 75,000 RU/s) de utilização cobrar ou normalizada. 
+Uma utilização de 50 000 unidades na região Central 2 de AU corresponde a 75.000 RU/s de utilização faturável (ou utilização normalizada). Este valor é computado como: o consumo de débito * reservation_discount_ratio_for_that_region. A computação é igual a 75.000 RU/s de utilização cobrar ou normalizada. Este valor é computado como: 50 000 * 1.5 = 75,000 RU/s.
 
-100 000 RU/s de compra de reserva seria deslocamento 75.000 RU/s em "Austrália Central 2" e deixa 25 000 RU/s para a região "Sul de França". De que os restantes 25 000 RU/s, um desconto de reserva de 15,384 RU/s (este valor é computado como: 25.000 / 1.625 = 15,384 RU/s) é aplicada a região "Sul de França". O restante 34,616 RU/s na região "Sul de França" são cobradas às tarifas pay as you go normais. 
+100 000 RU/s de compra de reserva seria de deslocamento 75.000 RU/s em 2 de Central de AU. Ele deixa 25 000 RU/s para a região Sul de França. De que os restantes 25 000 RU/s, é aplicado um desconto de reserva de 15,384 RU/s para a região Sul de França. O valor do desconto é computado como: 25.000 / 1.625 = 15,384 RU/s. O restante 34,616 RU/s na região Sul de França são cobradas às tarifas pay as you go normais. 
 
-O sistema de faturação do Azure atribuirá a principal benefício para a primeira instância que é processada que corresponde à configuração de reserva (por exemplo, AU Central 2 neste caso) de faturação de reserva.
+O sistema de faturação do Azure atribuirá a principal benefício para a primeira instância que está a ser processado e que corresponde à configuração de reserva de faturação de reserva. Por exemplo, é AU Central 2 em vez disso.
 
 Para compreender e ver a aplicação das reservas do Azure no relatórios de utilização de faturação, veja [utilização de reserva de compreender o Azure](../billing/billing-understand-reserved-instance-usage-ea.md).
 
@@ -108,8 +109,8 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 * [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)  
 * [Efetue o pré-pagamento do recursos do Azure Cosmos DB com capacidade de reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)  
-* [Gerir o Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)  
+* [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)  
+* [Gerir reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)  
 * [Compreender a utilização de reserva para a sua subscrição pay as you go](../billing/billing-understand-reserved-instance-usage.md)  
 * [Compreender a utilização de reserva para inscrição da sua empresa](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Compreender a utilização de reserva para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)

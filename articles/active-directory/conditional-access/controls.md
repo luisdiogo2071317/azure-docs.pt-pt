@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 050ccff8501a22526e9382a620258b0f846efe5c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128726"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352749"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory? 
 
@@ -118,13 +118,10 @@ Esses controles permitem a utilização de determinados serviços externos ou pe
 Fornecedores atualmente fornecem um serviço de compatível incluem:
 
 - [Segurança de Duo](https://duo.com/docs/azure-ca)
-
 - [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
-
+- [A ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
-
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
-
 
 Para obter mais informações sobre esses serviços, contacte diretamente os fornecedores.
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314035"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352924"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>O Azure AD Connect: Contas e permissões
 
@@ -113,6 +113,12 @@ Segue-se um resumo das páginas de assistente installlation personalizado, as cr
 | Página de conta de serviço FS AD, "Utilizar uma opção de conta de utilizador de domínio" |Credenciais de conta de utilizador do AD |Utilizador de domínio |A conta de utilizador do AD cujas credenciais são fornecidas é utilizada como a conta de início de sessão do serviço do AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Criar a conta do conector do AD DS
+
+>[!IMPORTANT]
+>Um novo módulo do PowerShell ADSyncConfig.psm1 nomeado foi introduzida com compilação **1.1.880.0** (lançado em Agosto de 2018) que inclui uma coleção de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para o Azure AD DS Conta de conector.
+>
+>Para obter mais informações consulte [do Azure AD Connect: configurar as permissões de conta de conector para o AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+
 A conta que especificar no **ligar os seus diretórios** página tem de estar presente no Active Directory antes da instalação.  O Azure AD Connect na versão 1.1.524.0 e posterior, tem a opção para permitir que o Assistente do Azure AD Connect crie a **conta de conector do AD DS** utilizado para ligar ao Active Directory.  
 
 Também tem de ter as permissões necessárias concedidas. O Assistente de instalação não verifica que as permissões e quaisquer problemas, apenas são encontrados durante a sincronização.

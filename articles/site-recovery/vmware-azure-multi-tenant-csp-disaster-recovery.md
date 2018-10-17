@@ -2,18 +2,18 @@
 title: Configurar a replicação de VMware para o Azure num ambiente de vários inquilinos através de recuperação de Site e o programa de fornecedor de soluções Cloud (CSP) | Documentos da Microsoft
 description: Descreve como criar e gerir subscrições de inquilino através do CSP e implementar o Azure Site Recovery numa configuração de multi-inquilino
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916807"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354126"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a replicação de VMware num ambiente de vários inquilinos com o programa de fornecedor de soluções Cloud (CSP)
 

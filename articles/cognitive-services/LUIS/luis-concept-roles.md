@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035203"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352990"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Funções de entidade em padrões são subtipos contextuais
 As funções são subtipos contextuais, com o nome de uma entidade utilizada apenas num [padrões](luis-concept-patterns.md).
@@ -28,6 +28,8 @@ As funções oferecem um nome para essas diferenças:
 |--|--|--|
 |Localização|origem|onde o plano de deixa de|
 |Localização|Destino|onde o plano que chegam|
+|DatetimeV2 pré-criados|para|data de fim|
+|DatetimeV2 pré-criados|de|data de início|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Como o funções são usadas em padrões?
 Na expressão de modelo de um padrão, as funções são usadas dentro da expressão: 
@@ -47,6 +49,14 @@ Entidades hierárquicas fornecem as mesmas informações contextuais, como funç
 |--|--|
 |entidades hierárquicas|Objetivos|
 |funções|Padrões de|
+
+## <a name="roles-with-prebuilt-entities"></a>Funções com entidades previamente concebidas
+
+Utilize as funções com entidades previamente concebidas para dar o significado diferentes instâncias da entidade pré-criados dentro de uma expressão. 
+
+### <a name="roles-with-datetimev2"></a>Funções com datetimeV2
+
+A entidade pré-criados, datetimeV2, realiza um excelente trabalho de compreender uma vasta gama de variedade em datas e horas em expressões. Pode pretender especificar datas e intervalos de datas diferente das noções básicas sobre padrão da entidade pré-criados. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -2,25 +2,25 @@
 title: Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Descreve como configurar a recuperação após desastre para VMs do Azure com o Azure Site Recovery e o Azure ExpressRoute
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/02/2018
-ms.author: manayar
-ms.openlocfilehash: c3fc8edf1601b3bb6f670df64d444edc9dcfbd6d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 03fac23ea17a6baa1b43e748a4390cf142661a19
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114881"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353546"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 
 
 Este artigo descreve como integrar o Azure ExpressRoute com [do Azure Site Recovery](site-recovery-overview.md), quando configurar a recuperação após desastre para VMs do Azure para uma região secundária do Azure.
 
-Recuperação de sites permite a recuperação após desastre de VMs do Azure através da replicação de dados de VM do Azure para o Azure. 
+Recuperação de sites permite a recuperação após desastre de VMs do Azure através da replicação de dados de VM do Azure para o Azure.
 
 - Se utilizar VMs do Azure [discos geridos do Azure](../virtual-machines/windows/managed-disks-overview.md), dados da VM são replicados para um disco gerido replicado na região secundária.
 - Se as VMs do Azure não utilizam discos geridos, os dados da VM são replicados para uma conta de armazenamento do Azure.
@@ -76,7 +76,7 @@ Se pretende configurar a replicação das VMs do Azure num site primário e esti
     - Rota de sistema padrão do Azure para a replicação de VM do Azure é 0.0.0.0/0.
     - Normalmente, as implementações da NVA também definem uma rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída a fluir através da NVA. A rota padrão é utilizada quando nenhuma outra configuração de rota específica pode ser encontrada.
     - Se for este o caso, a NVA poderá estar sobrecarregada se todo o tráfego de replicação passa através da NVA.
-    - A limitação mesmo também se aplica ao usar as rotas predefinidas para encaminhar todo o tráfego de VM do Azure para implementações no local. 
+    - A limitação mesmo também se aplica ao usar as rotas predefinidas para encaminhar todo o tráfego de VM do Azure para implementações no local.
     - Neste cenário, recomendamos que [criar um ponto de final de serviço de rede](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) na sua rede virtual para o serviço da Microsoft. Storage, para que o tráfego de replicação não deixe de limites do Azure.
 
 ## <a name="replication-example"></a>Exemplo de replicação
@@ -87,8 +87,8 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 
 - **Região**. As aplicações são implementadas na região do Azure Ásia Oriental.
 - **Spoke vNets**. Aplicações são implementadas em duas vNets spoke:
-    - **Origem vNet1**: 10.1.0.0/24. 
-    - **Origem vNet2**: 10.2.0.0/24. 
+    - **Origem vNet1**: 10.1.0.0/24.
+    - **Origem vNet2**: 10.2.0.0/24.
     - Cada rede virtual do spoke está ligado à **vNet do Hub**.
 - **VNet do hub**. Existe uma vNet do hub **vNet do Hub de origem**: 10.10.10.0/24.
     - Esta vNet do hub atua como o controlador de chamadas.
@@ -124,14 +124,14 @@ Hub para spoke | Utilizar gateways de remover | Desativado
 
  ![Hub para falava configuração de peering](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="example-steps"></a>Passos de exemplo 
+### <a name="example-steps"></a>Passos de exemplo
 
 No nosso exemplo, o seguinte deve acontecer quando ativar a replicação das VMs do Azure na rede de origem:
 
 1. [Ativar a replicação](azure-to-azure-tutorial-enable-replication.md) para uma VM.
 2. Recuperação de sites irá criar a réplica vNets, sub-redes e sub-redes do gateway na região de destino.
 3. Site Recovery cria mapeamentos entre as redes de origem e as redes de destino da réplica que é criado.
-4. Criar manualmente gateways de rede virtual, ligações de gateway de rede virtual, peering de rede virtual, ou qualquer outro sistema de rede recursos ou ligações. 
+4. Criar manualmente gateways de rede virtual, ligações de gateway de rede virtual, peering de rede virtual, ou qualquer outro sistema de rede recursos ou ligações.
 
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Efetuar a ativação pós-falha de VMs do Azure quando utilizam o ExpressRoute
@@ -148,7 +148,7 @@ Depois de failover VMs do Azure para a região do Azure com o Site Recovery de d
 
 Esta configuração ajuda protege os circuitos do ExpressRoute contra que desastre regional. Se sua loation peering primário ficar inativo, ligações podem continuar a partir da localização de outra.
 
-- O circuito ligado ao ambiente de produção, normalmente, é o principal. O circuito secundário normalmente tem a menor largura de banda, que pode ser aumentada se ocorrer um desastre. 
+- O circuito ligado ao ambiente de produção, normalmente, é o principal. O circuito secundário normalmente tem a menor largura de banda, que pode ser aumentada se ocorrer um desastre.
 - Após a ativação pós-falha, pode estabelecer ligações de circuito do ExpressRoute secundário para a vNet de destino. Em alternativa, pode ter ligações configuradas e pronto em caso de desastre, para reduzir o tempo de recuperação total.
 - Com ligações simultâneas a ambos os principal e vNets de destino, certifique-se de que no local apenas encaminhamento usa o circuito secundário e a ligação após a ativação pós-falha.
 - As vNets de origem e destino podem receber novos endereços IP ou manter os mesmos que, após a ativação pós-falha. Em ambos os casos, as ligações secundárias podem ser estabelecidas antes da ativação pós-falha.
@@ -156,7 +156,7 @@ Esta configuração ajuda protege os circuitos do ExpressRoute contra que desast
 
 #### <a name="two-circuits-with-single-peering-location"></a>Dois circuitos com uma única localização de peering
 
-Esta configuração ajuda a proteger contra falhas do circuito de ExpressRoute primário, mas não se a localização de peering do ExpressRoute única ficar inativo, afetar ambos os circuitos. 
+Esta configuração ajuda a proteger contra falhas do circuito de ExpressRoute primário, mas não se a localização de peering do ExpressRoute única ficar inativo, afetar ambos os circuitos.
 
 - Pode ter ligações simultâneas a partir do datacenter no local para vNEt de origem com o circuito primário e para a vNet de destino com o circuito secundário.
 - Com ligações simultâneas a primária e de destino, certifique-se de que no local apenas encaminhamento utiliza o circuito secundário e a ligação após a ativação pós-falha.

@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 181a37504569088e44dbe39da9113257bfb35c4e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9a096588c5a8fda64343e001fdbd895d02153f58
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068948"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362709"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
 A solução de encaminhamento de aplicações de HTTP torna mais fácil de aceder a aplicações que são implementadas ao seu cluster do Azure Kubernetes Service (AKS). Quando a solução ativada, configura um controlador de entradas no seu cluster do AKS. Como os aplicativos são implantados, a solução também cria acessíveis publicamente nomes DNS para pontos finais da aplicação.
 
 Quando o suplemento estiver ativado, cria uma zona DNS na sua subscrição. Para obter mais informações sobre o custo DNS, consulte [preços de DNS][dns-pricing].
+
+> [!CAUTION]
+> O suplemento de encaminhamento de aplicação de HTTP é concebido para lhe permitir criar rapidamente um controlador de entrada e aceder às suas aplicações. Este suplemento não é recomendado para utilização em produção. Para oferecer suporte a implementações de entrada de prontos para produção, que incluem várias réplicas e TLS, consulte [criar um controlador de entrada HTTPS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>Descrição geral de solução encaminhamento HTTP
 
