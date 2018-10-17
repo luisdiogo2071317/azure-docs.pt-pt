@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3d9e00a97355c03da5360846d4cd9f27a8540ed6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985584"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017436"
 ---
 # <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Exemplo: incorporar widgets do Video Indexer nas suas aplicações
 
@@ -40,22 +40,23 @@ Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de trans
 |t|Segundos a partir do início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: t=60|
 |captions|Código do idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: captions=pt-PT|
 |showCaptions|Um valor booleano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: showCaptions=true|
-|type||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
+|tipo||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
 |autoplay|Um valor booleano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: autoplay=false|
 |language|Código do idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: language=pt-PT|
 
 ## <a name="embedding-public-content"></a>Incorporar conteúdos públicos
 
 1. Aceda ao site do [Video Indexer](https://www.videoindexer.ai/) e inicie sessão.
-2. Clique no botão Embed (Incorporar) abaixo do vídeo.
+2. Clique no vídeo com o qual pretende trabalhar.
+3. Clique no botão Embed (Incorporar) abaixo do vídeo.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Após clicar no botão, será apresentada uma caixa de diálogo de incorporação no ecrã, onde poderá selecionar o widget que pretende incorporar na sua aplicação.
     Selecionar um widget (**Player** ou **Cognitive Insights**) gera o código de incorporação para colar na sua aplicação.
  
-3. Selecione o tipo de widget que pretende (**Cognitive Insights** ou **Player**).
-4. Copie o código de incorporação e adicione-o à sua aplicação. 
+4. Selecione o tipo de widget que pretende (**Cognitive Insights** ou **Player**).
+5. Copie o código de incorporação e adicione-o à sua aplicação. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

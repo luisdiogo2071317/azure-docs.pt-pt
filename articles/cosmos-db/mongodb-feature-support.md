@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928697"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050345"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte de API do MongoDB para a sintaxe e funcionalidades do MongoDB
 
@@ -310,7 +310,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Os documentos sem chave
 
 ## <a name="unique-indexes"></a>Índices exclusivos
 
-O Azure Cosmos DB indexa cada campo nos documentos que são escritos na base de dados por predefinição. Os índices exclusivos garantem que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante ao modo de preservação da exclusividade na chave "_id" predefinida. Agora pode criar índices personalizados no Azure Cosmos DB utilizando o comando createIndex, incluindo a restrição "unique".
+O Azure Cosmos DB indexa cada campo nos documentos que são escritos na base de dados por predefinição. Os índices exclusivos garantem que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante ao modo de preservação da exclusividade na chave "_id" predefinida. Agora, pode criar índices personalizados no Azure Cosmos DB com o comando createIndex, incluindo a restrição "unique".
 
 Estão disponíveis índices exclusivos para todas as contas de API do MongoDB.
 

@@ -3,7 +3,7 @@ title: Início Rápido do Centro de Segurança do Azure - Incluir os computadore
 description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702662"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023005"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
@@ -39,14 +39,14 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
  ![Descrição geral do Centro de Segurança][2]
 
-3. No menu principal do Centro de Segurança, selecione **Inclusão de segurança avançada**.
-4. Selecione **Quer adicionar computadores que não pertencem ao Azure**.
+3. No menu principal do Centro de Segurança, selecione **Introdução**.
+4. Selecione o separador **Introdução**.
 
-   ![Incluir na segurança avançada][3]
+   ![Introdução][3]
 
-5. Em **Adicionar novos computadores não Azure**, é apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que pretenda utilizar.
+5. Clique em **Configurar** em **Adicionar novos computadores não Azure**. É apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
-    ![Adicionar computador não pertencente ao Azure][4]
+    ![Adicionar computador não pertencente ao Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
   O painel **Agente Direto** abre-se, com uma ligação para transferir o agente do Windows e as chaves para o seu ID da área de trabalho a utilizar na configuração do agente.
 
@@ -104,7 +104,7 @@ Neste início rápido, aprovisionou o MMA num computador Windows. Para saber mai
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

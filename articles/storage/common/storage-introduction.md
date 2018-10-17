@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920752"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027049"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -93,7 +93,7 @@ Esta tabela mostra os vários tipos de contas de armazenamento e quais os objeto
 
 |**Tipo de conta de armazenamento**|**Standard para fins gerais**|**Premium para fins gerais**|**Armazenamento de blobs, camadas de acesso frequente e esporádico**|
 |-----|-----|-----|-----|
-|**Serviços suportados**| Serviços de Blob, Ficheiro e Fila | Serviço Blob | Serviço Blob|
+|**Serviços suportados**| Serviços de Blob, Ficheiro, Fila e Tabela | Serviço Blob | Serviço Blob|
 |**Tipos de blobs suportados**|Blobs de blocos, blobs de páginas e blobs de acréscimo | Blobs de páginas | Blobs de blocos e blobs de acréscimo|
 
 ### <a name="general-purpose-storage-accounts"></a>Contas de armazenamento para fins gerais
