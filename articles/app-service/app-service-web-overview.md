@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 68c3306656ade6ce95a3f18fec19de32bd9cf319
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: c8d72e473831da13e05598256bcb24660003368a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170842"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300788"
 ---
 # <a name="web-apps-overview"></a>Descrição geral das Web Apps
 
 *Aplicações Web do Serviço de Aplicações* (ou apenas Aplicações Web) é um serviço para o alojamento de aplicações Web, APIs REST e back-ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. As aplicações são executadas e dimensionadas com facilidade em ambientes baseados em Windows. Para ambientes baseados em Linux, veja [Serviço de Aplicações no Linux](containers/app-service-linux-intro.md). 
 
-As Aplicações Web não só adicionam a capacidade do Microsoft Azure à sua aplicação, como também acrescentam segurança, balanceamento de carga, dimensionamento automático e gestão automatizada. Também pode tirar partido das respetivas capacidades do DevOps, como a implementação contínua do VSTS, do GitHub, do Docker Hub e de outras origens, gestão de pacotes, ambientes de teste, domínio personalizado e certificados SSL. 
+As Aplicações Web não só adicionam a capacidade do Microsoft Azure à sua aplicação, como também acrescentam segurança, balanceamento de carga, dimensionamento automático e gestão automatizada. Também pode tirar partido das respetivas capacidades do DevOps, como a implementação contínua do Azure DevOps, do GitHub, do Docker Hub e de outras origens, gestão de pacotes, ambientes de teste, domínio personalizado e certificados SSL. 
 
 Com o Serviço de Aplicações, paga pelos recursos de computação do Azure que utilizar. Os recursos de computação que utiliza são determinados pelo _plano do Serviço de Aplicações_ em que executa as suas Aplicações Web. Para obter mais informações, veja [App Service plans in Azure Web Apps (Planos do Serviço de Aplicações nas Aplicações Web do Azure)](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -35,7 +35,7 @@ Com o Serviço de Aplicações, paga pelos recursos de computação do Azure que
 Apresentamos a seguir algumas das principais funcionalidades das Aplicações Web do Serviço de Aplicações:
 
 * **Várias linguagens e arquiteturas** - As Aplicações Web dispõem de suporte de primeira classe para ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP ou Python. Também pode executar o [PowerShell e outros scripts ou executáveis](web-sites-create-web-jobs.md) como serviços em segundo plano.
-* **Otimização de DevOps** – configure [a integração e a implementação contínuas](app-service-continuous-deployment.md) com os Visual Studio Team Services, GitHub, BitBucket, Docker Hub ou Azure Container Registry. Promova atualizações através de [ambientes de teste](web-sites-staged-publishing.md). Faça a gestão das suas aplicações nas Aplicações Web com o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [interface de linha de comandos (CLI) de várias plataformas](/cli/azure/install-azure-cli).
+* **Otimização de DevOps** – Configure a [integração e implementação contínuas](app-service-continuous-deployment.md) com o Azure DevOps, GitHub, BitBucket, Docker Hub ou Azure Container Registry. Promova atualizações através de [ambientes de teste](web-sites-staged-publishing.md). Faça a gestão das suas aplicações nas Aplicações Web com o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [interface de linha de comandos (CLI) de várias plataformas](/cli/azure/install-azure-cli).
 * **Dimensionamento global com elevada disponibilidade** – aumente [verticalmente](web-sites-scale.md) ou [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual ou automática. Aloje as aplicações em qualquer lugar da infraestrutura do datacenter global da Microsoft e o App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promete elevada disponibilidade.
 * **Ligações a plataformas SaaS e dados no local** – escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas empresariais (como SAP), serviços SaaS (como o Salesforce) e serviços Internet (como o Facebook). Aceda a dados no local ao utilizar [Ligações Híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Segurança e conformidade** – o App Service está [em conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autentique os utilizadores com o [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) ou com início de sessão social ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) e [ Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Crie [restrições de endereço IP](app-service-ip-restrictions.md) e [faça a gestão de identidades de serviço](app-service-managed-service-identity.md).

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436697"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378283"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -56,7 +56,7 @@ Existem algumas coisas que não é possível fazer quando utiliza um ASE de ILB:
 
 Para criar um ASE de ILB:
 
-1. No portal do Azure, selecione **Criar um recurso** > **Web + Móvel** > **Ambiente de Serviço de Aplicações**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web** > **Ambiente de Serviço de Aplicações**.
 
 1. Selecione a sua subscrição.
 
@@ -209,7 +209,7 @@ O nome do site SCM leva-o para a consola Kudu, denominada **Portal avançado**, 
 
 No Serviço de Aplicações multi-inquilino e num ASE Externo, existe início de sessão único entre o portal do Azure e a consola Kudu. No entanto, para o ASE de ILB, terá de utilizar as suas credenciais de publicação para iniciar sessão na consola Kudu.
 
-Os sistemas CI baseados na Internet, como o GitHub e o Visual Studio Team Services, continuarão a funcionar com um ASE de ILB se o agente de compilação for acessível pela Internet e estiver na mesma rede que o ASE de ILB. Por isso, no caso do Visual Studio Team Services, se o agente de compilação for criado na mesma VNET que o ASE de ILB (pode ser outra sub-rede), conseguirá obter o código do VSTS git e implementar no ASE de ILB. Se não quiser criar o seu próprio agente de compilação, terá de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
+Os sistemas CI baseados na Internet, como o GitHub e o Azure DevOps, continuarão a funcionar com um ASE de ILB se o agente de compilação for acessível pela Internet e estiver na mesma rede que o ASE de ILB. Por isso, no caso do Azure DevOps, se o agente de compilação for criado na mesma VNET que o ASE de ILB (pode ser outra sub-rede), conseguirá obter o código do git do Azure DevOps e implementar no ASE de ILB. Se não quiser criar o seu próprio agente de compilação, terá de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
 Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e no painel do portal da aplicação (**Descrição geral** > **Informações Básicas** e também **Propriedades**). Se tiver um ASE de ILB com o subdomínio *contoso.net* e uma aplicação com o nome *mytest*, utilize *mytest.contoso.net* para FTP e *mytest.scm.contoso.net* para implementação na Web.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: a1e8c53263093554bb616ec130cd17a0d6d4339c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302920"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380136"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -225,7 +225,7 @@ Siga o progresso da implementação na janela de saída.  Quando a aplicação f
 ![Exemplo de Fabrikam Web][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurar a Integração e a Implementação Contínua (CI/CD) com um cluster do Service Fabric
-Para saber como utilizar o VSTS para configurar a implementação de aplicação de CI/CD num cluster do Service Fabric, veja o [Tutorial: Implementar uma aplicação com a CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
+Para saber como utilizar o Azure DevOps para configurar a implementação de aplicação de CI/CD num cluster do Service Fabric, veja o [Tutorial: Implementar uma aplicação com a CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar, lembre-se de remover todos os recursos que criou.  A forma mais simples de fazê-lo consiste em remover os grupos de recursos que contêm o cluster do Service Fabric, a BD SQL do Azure e o Azure Container Registry.
@@ -254,8 +254,7 @@ Neste tutorial, ficou a saber como:
 > * Criar um registo de contentor do Azure
 > * Implementar uma aplicação do Service Fabric no Azure
 
-Na parte seguinte do tutorial, aprenda a configurar a [monitorização para o contentor](service-fabric-tutorial-monitoring-wincontainers.md).
-
+Na parte seguinte do tutorial, saiba como [Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

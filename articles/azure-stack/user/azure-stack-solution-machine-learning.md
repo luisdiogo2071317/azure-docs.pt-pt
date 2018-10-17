@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410209"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353721"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma edge solução de machine learning com o Azure e o Azure Stack
 
@@ -210,7 +210,7 @@ Coloque a DSVM nova no mesmo grupo de recursos como a conta de armazenamento rec
 
     d.  Para o **conta de armazenamento de diagnóstico**, selecione a conta de armazenamento que criou anteriormente.
 
-    e.  Nota: Com o AAD ativada e configurada para a subscrição do Azure, a identidade do serviço gerido pode ser ativada também.
+    e.  Nota: Com o AAD ativada e configurada para a subscrição do Azure, identidades geridas para recursos do Azure podem ser ativadas também.
 
 2.  Selecione **OK**.
 

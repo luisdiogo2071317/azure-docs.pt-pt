@@ -1,6 +1,6 @@
 ---
-title: Utilizar identidades de serviço geridas para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações | Microsoft Docs
-description: Saiba como tornar a conectividade da base de dados mais segura com uma identidade de serviço gerido e como aplicá-la a outros serviços do Azure.
+title: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações | Microsoft Docs
+description: Saiba como tornar a conectividade da base de dados mais segura com uma identidade gerida e como aplicá-la a outros serviços do Azure.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445566"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379932"
 ---
-# <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Tutorial: Proteger a ligação da Base de Dados SQL com a identidade de serviço gerida
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
-O [Serviço de Aplicações](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade de serviço gerida](app-service-managed-service-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades de serviço geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, vai adicionar a identidade de serviço gerida à aplicação Web ASP.NET de exemplo que criou em [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
+O [Serviço de Aplicações](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](app-service-managed-service-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, vai adicionar a identidade gerida à aplicação Web ASP.NET de exemplo que criou em [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
 
 O que aprende com o saiba como:
 
 > [!div class="checklist"]
-> * Ativar a identidade de serviço gerida
-> * Conceder acesso à Base de Dados SQL à identidade de serviço
+> * Ativar identidades geridas
+> * Conceder acesso à Base de Dados SQL à identidade gerida
 > * Configurar o código da aplicação para autenticar com a Base de Dados SQL através da autenticação do Azure Active Directory
-> * Conceder privilégios mínimos à identidade de serviço na Base de Dados SQL
+> * Conceder privilégios mínimos à identidade gerida na Base de Dados SQL
 
 > [!NOTE]
 > A autenticação do Azure Active Directory é _diferente_ da [Autenticação integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory (AD DS) no local. O AD DS e o Azure Active Directory utilizam protocolos de autenticação completamente diferentes. Para obter mais informações, veja [A diferença entre o Windows Server AD DS e o Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
@@ -46,9 +46,9 @@ Este artigo retoma onde o artigo [Tutorial: Criar uma aplicação ASP.NET no Azu
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="enable-managed-service-identity"></a>Ativar a identidade de serviço gerida
+## <a name="enable-managed-identities"></a>Ativar identidades geridas
 
-Para ativar uma identidade de serviço na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, substitua *\<nome da aplicação>*.
+Para ativar uma identidade gerida na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, substitua *\<nome da aplicação>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,13 +73,13 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Conceder acesso à base de dados à identidade
 
-Em seguida, vai conceder acesso à base de dados à identidade de serviço da sua aplicação com o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) no Cloud Shell. No comando seguinte, substitua *\<server_name>* e <principalid_from_last_step>. Escreva um nome de administrador em *\<admin_user>*.
+Em seguida, vai conceder acesso à base de dados à identidade gerida da sua aplicação com o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) no Cloud Shell. No comando seguinte, substitua *\<server_name>* e <principalid_from_last_step>. Escreva um nome de administrador em *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-A identidade de serviço gerida tem agora acesso ao servidor da Base de Dados SQL do Azure.
+A identidade gerida tem agora acesso ao servidor da Base de Dados SQL do Azure.
 
 ## <a name="modify-connection-string"></a>Modificar a cadeia de ligação
 
@@ -119,7 +119,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Este construtor configura um objeto SqlConnection personalizado para utilizar um token de acesso para a Base de Dados SQL do Azure a partir do Serviço de Aplicações. Com o token de acesso, a aplicação do Serviço de Aplicações autentica-se com a Base de Dados SQL do Azure com a respetiva identidade de serviço gerida. Para obter mais informações, veja [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources) (Obter tokens para recursos do Azure). A instrução `if` permite-lhe continuar a testar a aplicação localmente com LocalDB.
+Este construtor configura um objeto SqlConnection personalizado para utilizar um token de acesso para a Base de Dados SQL do Azure a partir do Serviço de Aplicações. Com o token de acesso, a aplicação do Serviço de Aplicações autentica-se com a Base de Dados SQL do Azure com a respetiva identidade gerida. Para obter mais informações, veja [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources) (Obter tokens para recursos do Azure). A instrução `if` permite-lhe continuar a testar a aplicação localmente com LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` só é suportado atualmente em .NET Framework 4.6 e superior, não em [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
@@ -141,7 +141,7 @@ No **Explorador de Soluções**, clique com o botão direito do rato no projeto 
 
 ![Publicar a partir do Explorador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Na página de publicação, clique em **Publicar**. Quando a página Web nova mostrar a lista de tarefas, significa que a aplicação se está a ligar à base de dados com a identidade de serviço gerida.
+Na página de publicação, clique em **Publicar**. Quando a página Web nova mostrar a lista de tarefas, significa que a aplicação se está a ligar à base de dados com a identidade gerida.
 
 ![Aplicação Web do Azure após a Primeira Migração de Código](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -151,11 +151,11 @@ Agora, deverá conseguir editar a lista de tarefas como antes.
 
 ## <a name="grant-minimal-privileges-to-identity"></a>Conceder privilégios mínimos à identidade
 
-Durante os passos anteriores, reparou provavelmente que a identidade de serviço gerida está ligada ao SQL Server como a administradora do Azure AD. Para conceder privilégios mínimos à sua identidade de serviço gerida, tem de iniciar sessão no servidor da Base de Dados SQL do Azure como o administrador do Azure AD e, em seguida, adicionar um grupo do Azure Active Directory que contenha a identidade de serviço. 
+Durante os passos anteriores, reparou provavelmente que a identidade gerida está ligada ao SQL Server como a administradora do Azure AD. Para conceder privilégios mínimos à sua identidade gerida, tem de iniciar sessão no servidor da Base de Dados SQL do Azure como o administrador do Azure AD e, em seguida, adicionar um grupo do Azure Active Directory que contenha a identidade gerida. 
 
-### <a name="add-managed-service-identity-to-an-azure-active-directory-group"></a>Adicionar a identidade de serviço gerida a um grupo do Azure Active Directory
+### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>Adicionar a identidade gerida a um grupo do Azure Active Directory
 
-No Cloud Shell, adicione a identidade de serviço gerida da aplicação num grupo do Azure Active Directory novo, chamado _myAzureSQLDBAccessGroup_, mostrado no seguinte script:
+No Cloud Shell, adicione a identidade gerida da aplicação num grupo do Azure Active Directory novo, chamado _myAzureSQLDBAccessGroup_, mostrado no seguinte script:
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -168,7 +168,7 @@ Se quiser ver a saída JSON completa de cada comando, remova os parâmetros `--q
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Reconfigurar o administrador do Azure AD
 
-Anteriormente, atribuiu a identidade de serviço gerida como o administrador do Azure AD da sua Base de Dados SQL. Não pode utilizar esta identidade para início de sessão interativo (para adicionar utilizadores da base de dados), pelo que tem de utilizar o seu utilizador do Azure AD real. Para adicionar o utilizador do Azure AD, siga os passos em [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) (Aprovisionar um administrador do Azure Active Directory para o servidor da Base de Dados SQL do Azure). 
+Anteriormente, atribuiu a identidade gerida como o administrador do Azure AD da sua Base de Dados SQL. Não pode utilizar esta identidade para início de sessão interativo (para adicionar utilizadores da base de dados), pelo que tem de utilizar o seu utilizador do Azure AD real. Para adicionar o utilizador do Azure AD, siga os passos em [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) (Aprovisionar um administrador do Azure Active Directory para o servidor da Base de Dados SQL do Azure). 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Conceder permissões ao grupo do Azure Active Directory
 
@@ -204,10 +204,10 @@ GO
 O que aprendeu:
 
 > [!div class="checklist"]
-> * Ativar a identidade de serviço gerida
-> * Conceder acesso à Base de Dados SQL à identidade de serviço
+> * Ativar identidades geridas
+> * Conceder acesso à Base de Dados SQL à identidade gerida
 > * Configurar o código da aplicação para autenticar com a Base de Dados SQL através da autenticação do Azure Active Directory
-> * Conceder privilégios mínimos à identidade de serviço na Base de Dados SQL
+> * Conceder privilégios mínimos à identidade gerida na Base de Dados SQL
 
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
 

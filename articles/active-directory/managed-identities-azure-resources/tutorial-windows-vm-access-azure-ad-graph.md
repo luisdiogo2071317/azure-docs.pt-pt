@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: a6e5e96757caeda267aa068db0868b1aa8ddb0fd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e208c8b52c14b99129bf3fce9ae54ba11f1c0a28
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220675"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584307"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
 
@@ -67,7 +67,7 @@ Add-AzureADGroupMember -ObjectId $AzureADGroup.ObjectID -RefObjectId $ManagedIde
 ```
 ## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Conceder acesso à VM ao Graph API do Azure AD
 
-Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD. A API do Microsoft Azure Active Directory Graph suporta a autenticação do Azure AD. Neste passo, vai conceder acesso ao principal de serviço da identidade da VM ao Azure AD Graph, para que possa consultar as associações a grupos. É concedido acesso aos principais de serviços à Microsoft ou ao Azure AD Graph através das **Permissões de Aplicação**. O tipo de permissão de aplicação que tem de conceder depende da entidade à qual pretende aceder na MS ou no Azure AD Graph.
+Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD. A API Graph do Microsoft Azure Active Directory suporta a autenticação do Azure AD. Neste passo, vai conceder acesso ao principal de serviço da identidade da VM ao Azure AD Graph, para que possa consultar as associações a grupos. É concedido acesso aos principais de serviços à Microsoft ou ao Azure AD Graph através das **Permissões de Aplicação**. O tipo de permissão de aplicação que tem de conceder depende da entidade à qual pretende aceder na MS ou no Azure AD Graph.
 
 Neste tutorial, vai conceder à identidade da VM a capacidade de consultar associações a grupos com a permissão de aplicação ```Directory.Read.All```. Para conceder esta permissão, irá precisar de uma conta de utilizador que tenha atribuída a função de Administrador Global do Azure AD. Normalmente, concederia uma permissão de aplicação ao visitar o registo da sua aplicação no portal do Azure e adicionaria aí a permissão. No entanto, as identidades geridas de recursos do Azure não registam os objetos da aplicação no Azure AD, só são registados os principais de serviço. Para registar a permissão de aplicação vai utilizar a ferramenta de linha de comandos do Azure AD PowerShell. 
 
@@ -136,7 +136,7 @@ Vai precisar do Azure AD PowerShell para utilizar esta opção. Se não o tiver 
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-ad-graph"></a>Obter um token de acesso com a identidade da VM e utilizá-la para chamar o Azure AD Graph 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obter um token de acesso com a identidade da VM para chamar o Azure AD Graph 
 
 Para utilizar a identidade gerida atribuída pelo sistema da VM para a autenticação no Azure AD Graph, terá de fazer pedidos a partir da VM.
 

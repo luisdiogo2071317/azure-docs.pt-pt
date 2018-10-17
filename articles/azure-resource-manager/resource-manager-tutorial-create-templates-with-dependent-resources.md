@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: fe6313c059a1dd1050240ead5f7ca8e3e1512aa6
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160515"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584518"
 ---
-# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: criar modelos do Azure Resource Manager com recursos dependentes
+# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
 Saiba como criar um modelo do Azure Resource Manager para implementar vários recursos.  Depois de criar o modelo, implemente o modelo com o Cloud Shell do portal do Azure.
 
-Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, veja [Definir a ordem para implementar recursos nos Modelos do Azure Resource Manager](./resource-group-define-dependencies.md).
+Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, veja [Definir a ordem para implementar recursos nos Modelos do Azure Resource Manager](./resource-group-define-dependencies.md).
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -33,7 +33,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Explorar o modelo
 > * Implementar o modelo
 
-As instruções deste tutorial criam uma máquina virtual, uma rede virtual e outros recursos dependentes. 
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -176,4 +176,9 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, vai desenvolver e implementar um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber mais sobre modelos,veja [Compreender a estrutura e a sintaxe de Modelos do Azure Resource Manager](./resource-group-authoring-templates.md).
+Neste tutorial, vai desenvolver e implementar um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como implementar recursos do Azure com base em condições, veja:
+
+
+> [!div class="nextstepaction"]
+> [Condições de utilização](./resource-manager-tutorial-use-conditions.md)
+

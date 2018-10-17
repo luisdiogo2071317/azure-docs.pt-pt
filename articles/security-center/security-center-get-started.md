@@ -3,7 +3,7 @@ title: Início Rápido do Centro de Segurança do Azure - Carregar uma subscriç
 description: Este início rápido mostra como fazer a atualização para o escalão de preço Standard do Centro de Segurança para obter segurança adicional.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: dc4c07b54085dfea6d97f2ca43a8cdddfcb9e57c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059859"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025469"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Carregar uma subscrição do Azure para o Centro de Segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode experimentar o Centro de Segurança Standard sem custos durante os primeiros 60 dias.
@@ -53,20 +53,18 @@ Para tirar total partido do Centro de Segurança, tem de executar os passos abai
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para o escalão Standard
 Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de atualizar para o escalão Standard. Os primeiro 60 dias são gratuitos e pode regressar ao escalão Gratuito em qualquer altura.
 
-1. No menu principal do Centro de Segurança, selecione **Inclusão de segurança avançada**.
+1. No menu principal do Centro de Segurança, selecione **Introdução**.
+ 
+  ![Introdução][4]
 
-2. Em **Inclusão de segurança avançada**, o Centro de Segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. Selecione uma subscrição da lista.
+2. Em **Atualização**, o Centro de Segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. 
+   - Pode clicar em **Aplicar a sua versão de avaliação** para ver uma lista de todas as subscrições e áreas de trabalho com o respetivo estado de elegibilidade de avaliação.
+   -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
+   -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
+3.  Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
 
-  ![Selecionar uma subscrição][4]
 
-3. **Política de segurança** fornece informações sobre os grupos de recursos contidos na subscrição. A área **Preços** também abre.
-4. Em **Preços**, selecione **Standard** para atualizar do escalão Gratuito para Standard e clique em **Guardar**.
-
-  ![Selecionar Standard][5]
-
-Agora que atualizou para o escalão Standard, tem acesso a funcionalidades adicionais do Centro de Segurança, incluindo **controlos de aplicação adaptativos**, **acesso à VM just-in-time**, **alertas de segurança**, **informações sobre ameaças**, **playbooks de automatização** e muito mais. Tenha em atenção que os alertas de segurança só serão apresentado quando o Centro de Segurança detetar atividade maliciosa.
-
-  ![Alertas de segurança][7]
+  ![Alertas de segurança][9]
 
 ## <a name="automate-data-collection"></a>Automatizar a recolha de dados
 O Centro de Segurança recolhe dados de VMs do Azure e de computadores que não pertencem ao Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Por predefinição, o Centro de Segurança irá criar uma nova área de trabalho para si.
@@ -76,11 +74,10 @@ Quando o aprovisionamento automático está ativado, o Centro de Segurança inst
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
 
 1. No menu principal do Centro de Segurança, selecione **Política de Segurança**.
-2. Selecione uma subscrição.
-3. Em **Política de segurança**, selecione **Recolha de Dados**.
-4. Em **Recolha de Dados**, selecione **Ativado** para ativar o aprovisionamento automático.
-5. Selecione **Guardar**.
-
+2. Na linha da subscrição, selecione **Editar definições >**.
+3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Ativar**.
+4. Selecione **Guardar**.
+****
   ![Ativar o aprovisionamento automático][6]
 
 Com estas novas informações sobre as VMs do Azure, o Centro de Segurança pode fornecer Recomendações adicionais relacionadas com o estado de atualização do sistema de estado, configurações de segurança do SO, proteção de ponto final, bem como gerar Alertas de segurança adicionais.
@@ -91,16 +88,15 @@ Com estas novas informações sobre as VMs do Azure, o Centro de Segurança pode
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
-2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
-3. Em **COMPONENTES DA POLÍTICA**, selecione **Escalão de preço**.
-4. Selecione **Gratuito** para alterar a subscrição, do Escalão standard para o Escalão gratuito.
+2. Na linha da subscrição para a qual quer voltar como gratuita, selecione **Editar definições >**.
+3. Selecione **Escalão de preço** e **Gratuito** para alterar a subscrição do escalão Standard para o escalão Gratuito.
 5. Selecione **Guardar**.
 
 Se pretender desativar aprovisionamento automático:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
-2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
-3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
+2. Na linha da subscrição para a qual quer desativar o aprovisionamento automático, selecione **Editar definições >**.
+3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Desativar**.
 4. Selecione **Guardar**.
 
 >[!NOTE]
@@ -115,8 +111,9 @@ Neste início rápido, fez a atualização para o escalão Standard e aprovision
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
-[4]: ./media/security-center-get-started/onboarding.png
+[4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

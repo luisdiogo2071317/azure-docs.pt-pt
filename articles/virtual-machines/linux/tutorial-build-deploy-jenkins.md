@@ -1,5 +1,5 @@
 ---
-title: Tutorial – CI/CD de Jenkins para VMs do Azure com Team Services | Microsoft Docs
+title: Tutorial – CI/CD de Jenkins para VMs do Azure com os Serviços de DevOps do Azure | Microsoft Docs
 description: Neste tutorial, vai aprender a configurar a integração contínua (CI) e a implementação contínua (CD) de uma aplicação Node.js com o Jenkins para VMs do Azure da Gestão de Versões no Visual Studio Team Services ou no Microsoft Team Foundation Server
 author: tomarcher
 manager: jpconnock
@@ -13,38 +13,40 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: cfe67fbed61b4af9b4a4f5b490397ca1a6e1d752
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390600"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299496"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Tutorial: Implementar a aplicação em máquinas virtuais do Linux no Azure com o Jenkins e o Visual Studio Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a aplicação em máquinas virtuais do Linux no Azure com o Jenkins e os Serviços de DevOps do Azure
 
-A integração contínua (CI) e a implementação contínua (CD) formam um pipeline através do qual pode criar, lançar e implementar o seu código. O Visual Studio Team Services fornece um conjunto completo com todas a funcionalidades das ferramentas de automatização de CI/CD para implementação no Azure. Jenkins é uma ferramenta popular de terceiros baseada no servidor de CI/CD que também fornece a automatização de CI/CD. Pode utilizar o Team Services e o Jenkins em conjunto para personalizar a forma como fornece o serviço ou a aplicação na cloud.
+A integração contínua (CI) e a implementação contínua (CD) formam um pipeline através do qual pode criar, lançar e implementar o seu código. Os Serviços de DevOps do Azure fornecem um conjunto completo com todas a funcionalidades das ferramentas de automatização de CI/CD para implementação no Azure. Jenkins é uma ferramenta popular de terceiros baseada no servidor de CI/CD que também fornece a automatização de CI/CD. Pode utilizar os Serviços de DevOps do Azure e o Jenkins em conjunto para personalizar a forma como fornece o serviço ou a aplicação na cloud.
 
-Neste tutorial, vai utilizar o Jenkins para criar uma aplicação Web Node.js. Em seguida, vai utilizar o Team Services ou o Team Foundation Server para o implementar num [grupo de implementação](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) com máquinas virtuais do Linux (VMs). Saiba como:
+Neste tutorial, vai utilizar o Jenkins para criar uma aplicação Web Node.js. Em seguida, utilize o Azure DevOps para implementá-la
+
+num [grupo de implementação](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts) que contém máquinas virtuais do Linux (VMs). Saiba como:
 
 > [!div class="checklist"]
 > * Obter a aplicação de exemplo.
 > * Configurar os plug-ins Jenkins.
 > * Configurar um projeto Jenkins Freestyle para Node.js.
-> * Configurar o Jenkins para a integração do Team Services.
+> * Configurar o Jenkins para integração nos Serviços de DevOps do Azure.
 > * Criar um ponto final de serviço Jenkins.
 > * Criar um grupo de implementação para as máquinas virtuais do Azure.
-> * Criar uma definição de versão do Team Services.
+> * Criar um pipeline de versão do Azure Pipelines.
 > * Executar implementações manuais e acionadas por CI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Precisa de acesso a um servidor Jenkins. Se ainda não criou um servidor Jenkins, veja [Criar um Jenkins mestre numa máquina virtual do Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
-* Inicie sessão na sua conta Team Services (**https://{asuaconta}.visualstudio.com**). 
-  Pode obter uma [conta gratuita Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+* Inicie sessão na sua organização de Serviços de DevOps do Azure (**https://{yourorganization}.visualstudio.com**). 
+  Pode obter uma [organização de Serviços de DevOps do Azure gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Para obter mais informações, veja [Connect to Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) (Ligar ao Team Services).
+  > Para obter mais informações, veja [Ligar aos Serviços de DevOps do Azure](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
 *  Precisa de uma máquina virtual do Linux para um destino de implementação.  Para obter mais informações, veja [Criar e gerir VMs do Linux com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
@@ -89,22 +91,22 @@ Primeiro, tem de configurar dois plug-ins Jenkins: **NodeJS** e **Implementaçã
 6. No separador **Compilação**, selecione **Executar shell** e introduza o comando `npm install` para confirmar que todas as dependências são atualizadas.
 
 
-## <a name="configure-jenkins-for-team-services-integration"></a>Configurar o Jenkins para a integração do Team Services
+## <a name="configure-jenkins-for-azure-devops-services-integration"></a>Configurar o Jenkins para integração nos Serviços de DevOps do Azure
 
 > [!NOTE]
-> Verifique se o token de acesso pessoal (PAT) que utiliza para os seguintes passos contém a permissão *Versão* (ler, escrever, executar e gerir) no Team Services.
+> Verifique se o token de acesso pessoal (PAT) que utiliza para os seguintes passos contém a permissão *Versão* (ler, escrever, executar e gerir) nos Serviços de DevOps do Azure.
  
-1.  Crie um PAT na sua conta do Team Services, se ainda não tiver uma. O Jenkins precisa destas informações para aceder à sua conta do Team Services. Confirme que armazena as informações do token para os próximos passos nesta secção.
+1.  Crie um PAT na sua organização de Serviços de DevOps do Azure, se ainda não tiver um. O Jenkins precisa destas informações para aceder à sua organização de Serviços de DevOps do Azure. Confirme que armazena as informações do token para os próximos passos nesta secção.
   
-    Para saber como gerar um token, consulte [How do I create a personal access token for VSTS and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) (Como criar um token de acesso pessoal para VSTS e TFS?).
+    Para saber como gerar um token, leia [How do I create a personal access token for Azure DevOps Services?](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) (Como criar um token de acesso pessoal para os Azure DevOps Services?).
 2. No separador **Ações Pós-compilação**, selecione **Adicionar ação pós-compilação**. Selecione **Arquivar os artefactos**.
 3. Em **Ficheiros a arquivar**, introduza `**/*` para incluir todos os ficheiros.
 4. Para criar outra ação, selecione **Adicionar ação pós-compilação**.
-5. Selecione **Acionar versão no TFS/Team Services**. Introduza o URI da sua conta do Team Services, tal como **https://{nome_da_sua_conta}.visualstudio.com**.
-6. Introduza o nome **Projeto de Equipa**.
-7. Escolha um nome para a definição da versão. (pode criar a definição desta versão posteriormente no Team Services).
-8. Escolha as credenciais para se ligar ao seu ambiente Team Services ou Team Foundation Server:
-   - Deixe o **Nome de utilizador** em branco se estiver com o Team Services. 
+5. Selecione **Acionar versão no TFS/Team Services**. Introduza o URI para a sua organização de Serviços de DevOps do Azure, tal como **https://{your-organization-name}.visualstudio.com**.
+6. Introduza o nome do **Projeto**.
+7. Escolha um nome para o pipeline de versão. (Vai criar este pipeline de versão mais tarde nos Serviços de DevOps do Azure.)
+8. Escolha as credenciais para ligar ao seu ambiente dos Serviços de DevOps do Azure ou do Team Foundation Server:
+   - Deixe o **Nome de utilizador** em branco se estiver a utilizar os Serviços de DevOps do Azure. 
    - Introduza um nome de utilizador e uma palavra-passe, se estiver com uma versão no local do Team Foundation Server.    
    ![Configurar ações pós-compilação do Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Guarde o projeto Jenkins.
@@ -112,9 +114,9 @@ Primeiro, tem de configurar dois plug-ins Jenkins: **NodeJS** e **Implementaçã
 
 ## <a name="create-a-jenkins-service-endpoint"></a>Criar um ponto final de serviço Jenkins
 
-Um ponto final de serviço permite que o Team Services se ligue ao Jenkins.
+Um ponto final de serviço permite aos Serviços de DevOps do Azure ligar ao Jenkins.
 
-1. Abra a página **Serviços** no Team Services, abra a lista **Novo Ponto Final de Serviço** e selecione **Jenkins**.
+1. Abra a página **Serviços** nos Serviços de DevOps do Azure, abra a lista **Novo Ponto Final de Serviço** e selecione **Jenkins**.
    ![Adicionar um ponto final Jenkins](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. Introduza um nome para a ligação.
 3. Introduza o URL do servidor Jenkins e selecione a opção **Aceitar certificados SSL não fidedignos**. Um exemplo de URL é **http://{OseuURLJenkins}.westcentralus.cloudapp.azure.com**.
@@ -124,7 +126,7 @@ Um ponto final de serviço permite que o Team Services se ligue ao Jenkins.
 
 ## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Criar um grupo de implementação para as máquinas virtuais do Azure
 
-Precisa de um [grupo de implementação](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) para registar o agente do Team Services para que a definição da versão possa ser implementada na máquina virtual. Os grupos de implementação facilitam a definição de grupos de computadores de destino lógicos para a implementação e para instalar o agente necessário em cada computador.
+Precisa de um [grupo de implementação](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) para registar o agente dos Serviços de DevOps do Azure para que o pipeline de versão possa ser implementado na máquina virtual. Os grupos de implementação facilitam a definição de grupos de computadores de destino lógicos para a implementação e para instalar o agente necessário em cada computador.
 
    > [!NOTE]
    > No procedimento seguinte, instale os pré-requisitos e *não execute o script com privilégios sudo*.
@@ -137,15 +139,15 @@ Precisa de um [grupo de implementação](https://www.visualstudio.com/docs/build
 6. Selecione **Copiar script para área de transferência** para copiar o script.
 7. Inicie sessão na máquina virtual de destino da implementação e execute o script. Não execute o script com privilégios sudo.
 8. Após a instalação, são-lhe solicitadas etiquetas do grupo de implementação. Aceite as predefinições.
-9. No Team Service, procure a máquina virtual recém-registada em **Destinos**, em **Grupos de Implementação**.
+9. Nos Serviços de DevOps do Azure, procure a máquina virtual recém-registada em **Destinos**, em **Grupos de Implementação**.
 
-## <a name="create-a-team-services-release-definition"></a>Criar uma definição de versão do Team Services
+## <a name="create-a-azure-pipelines-release-pipeline"></a>Criar um pipeline de versão do Azure Pipelines
 
-Uma definição de versão especifica o processo que o Team Services utiliza para implementar a aplicação. Neste exemplo, executa um script de shell.
+Um pipeline de versão especifica o processo que os Azure Pipelines utilizam para implementar a aplicação. Neste exemplo, executa um script de shell.
 
-Para criar a definição de versão no Team Services:
+Para criar o pipeline de versão no Azure Pipelines:
 
-1. Abra o separador **Versões** do hub **Compilação &amp; Versão** e selecione **Criar definição da versão**. 
+1. Abra o separador **Versões** do hub **Compilação &amp; Versão** e selecione **Criar pipeline de versão**. 
 2. Selecione o modelo **Vazio** ao optar por começar com um **Processo vazio**.
 3. Na secção **Artefactos**, selecione **+ Adicionar Artefactos** e escolha **Jenkins** como **Tipo de origem**. Selecione a ligação de ponto final de serviço Jenkins. Em seguida, selecione a tarefa de origem Jenkins e selecione **Adicionar**.
 4. Selecione as reticências junto a **Ambiente 1**. Selecione **Adicionar fase do grupo de implementação**.
@@ -155,8 +157,8 @@ Para criar a definição de versão no Team Services:
 8. Em **Caminho do Script**, introduza **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
 9. Selecione **Avançado** e, em seguida, ative **Especificar Diretório de Trabalho**.
 10. Em **Diretório de Trabalho**, introduza **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
-11. Edite o nome da definição da versão para o nome que especificou no separador **Ações Pós-compilação** da compilação no Jenkins. O Jenkins precisa que este nome tenha a capacidade de acionar uma nova versão quando os artefactos de origem são adaptados.
-12. Selecione **Guardar** e **OK** para guardar a definição da versão.
+11. Edite o nome do pipeline de versão para o nome que especificou no separador **Ações Pós-compilação** da compilação no Jenkins. O Jenkins precisa que este nome tenha a capacidade de acionar uma nova versão quando os artefactos de origem são adaptados.
+12. Selecione **Guardar** e **OK** para guardar o pipeline de versão.
 
 ## <a name="execute-manual-and-ci-triggered-deployments"></a>Executar implementações manuais e acionadas por CI
 
@@ -167,7 +169,7 @@ Para criar a definição de versão no Team Services:
 5. No browser, abra o URL de um dos servidores que adicionou ao grupo de implementação. Por exemplo, introduza **http://{o-seu-endereço-ip-do-servidor}**.
 6. Aceda ao repositório de origem do Git e modifique os conteúdos do cabeçalho **h1** no ficheiro app/views/index.jade com algum texto alterado.
 7. Consolide as alterações.
-8. Após alguns minutos, verá uma nova versão criada na página **Versões** do Team Services ou do Team Foundation Server. Abra a versão para ver a implementação a decorrer. Parabéns!
+8. Após alguns minutos, verá uma nova versão criada na página **Versões** do Azure DevOps. Abra a versão para ver a implementação a decorrer. Parabéns!
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Resolver problemas nos plug-ins do Jenkins
 
@@ -175,13 +177,13 @@ Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, automatizou a implementação de uma aplicação no Azure com o Jenkins para a compilação e com o Team Services para a versão. Aprendeu a:
+Neste tutorial, automatizou a implementação de uma aplicação no Azure com o Jenkins para a compilação e com os Serviços de DevOps do Azure para a versão. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar a aplicação no Jenkins.
-> * Configurar o Jenkins para a integração do Team Services.
+> * Configurar o Jenkins para integração nos Serviços de DevOps do Azure.
 > * Criar um grupo de implementação para as máquinas virtuais do Azure.
-> * Criar uma definição de versão para configurar as VMs e implementar a aplicação.
+> * Criar um pipeline de versão para configurar as VMs e implementar a aplicação.
 
 Para saber mais sobre como implementar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.
 

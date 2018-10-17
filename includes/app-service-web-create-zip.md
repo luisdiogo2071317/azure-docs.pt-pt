@@ -1,6 +1,6 @@
 ## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
 
-Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
+Certifique-se de que ainda está no diretório de raiz do projeto de exemplo. Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
 
 ```
 # Bash

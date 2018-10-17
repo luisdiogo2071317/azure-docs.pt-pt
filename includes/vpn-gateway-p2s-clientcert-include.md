@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 8a49653b4083cbfd17656d701225dcb14f91f637
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01a62fe7abb8a79f9afc08c0ff707cdfbb97ddac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197106"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44343188"
 ---
 Cada computador cliente que se ligue uma VNet por Ponto a Site tem de ter um certificado de cliente instalado. O certificado de cliente é gerado a partir do certificado de raiz e instalado em cada computador cliente. Se não estiver instalado um certificado de cliente válido e o cliente tentar estabelecer ligação com a VNet, a autenticação falhará.
 
@@ -30,5 +29,6 @@ Pode gerar certificados de cliente através dos seguintes métodos:
 
   * [Instruções do Windows 10 PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): estas instruções requerem o Windows 10 e o PowerShell para gerar certificados. Os certificados gerados podem ser instalados em qualquer cliente P2S suportado.
   * [Instruções do MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): utilize o MakeCert se não tiver acesso a um computador com o Windows 10 para gerar certificados. O MakeCert foi preterido, mas ainda o pode utilizar para gerar certificados. Os certificados gerados podem ser instalados em qualquer cliente P2S suportado.
+  * [Instruções para Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
   Se gerar um certificado de cliente a partir de um certificado de raiz autoassinado com as instruções do anteriores, este é instalado automaticamente no computador que utilizou para gerá-lo. Se quiser instalar um certificado de cliente noutro computador cliente, tem de exportá-lo como .pfx, juntamente com toda a cadeia de certificados. Esta ação cria um ficheiro .pfx que contém as informações do certificado de raiz necessárias para o cliente ser autenticado com êxito. Para obter os passos para exportar um certificado, veja [Certificados - exportar um certificado de cliente](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

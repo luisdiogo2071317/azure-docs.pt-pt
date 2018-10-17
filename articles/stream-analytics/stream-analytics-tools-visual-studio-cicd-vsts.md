@@ -1,6 +1,6 @@
 ---
-title: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do tutorial do VSTS
-description: Este artigo descreve como implementar uma tarefa do Stream Analytics com CI/CD através do VSTS.
+title: Tutorial para implementar uma tarefa do Azure Stream Analytics com CI/CD através dos Serviços de DevOps do Azure
+description: Este artigo descreve como implementar uma tarefa do Stream Analytics com CI/CD através dos Serviços de DevOps do Azure.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,22 +9,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: adacbaf718c5ef293b4ee3fa833083704aa41f5c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919556"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297947"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Tutorial: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do VSTS
-Este tutorial descreve como configurar a integração e implementação contínuas para uma tarefa do Azure Stream Analytics com o Visual Studio Team Services. 
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines
+Este tutorial descreve como configurar a integração e implementação contínuas para uma tarefa do Azure Stream Analytics com o Azure Pipelines. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar controlo de origem ao seu projeto
-> * Criar uma definição de compilação no Team Services
-> * Criar uma definição de versão no Team Services
+> * Criar um pipeline de compilação no Azure Pipelines
+> * Criar um pipeline de versão no Azure Pipelines
 > * Implementar e atualizar uma aplicação automaticamente
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Antes de começar, certifique-se de que tem o seguinte:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho **Desenvolvimento do Azure** ou **Armazenamento de Dados e Processamento**.
 * Crie um [projeto do Stream Analytics no Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Crie uma conta do [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/).
+* Crie uma organização do [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurar a dependência do pacote NuGet
 Para efetuar uma compilação e implementação automáticas numa máquina arbitrária, tem de utilizar o pacote NuGet `Microsoft.Azure.StreamAnalytics.CICD`. Fornece o MSBuild, execução local e ferramentas de implementação que suportam o processo de integração e implementação contínuas de projetos do Stream Analytics para Visual Studio. Para obter mais informações, veja [Ferramentas de CI/CD do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -47,34 +47,35 @@ Adicione **packages.config** ao diretório do projeto.
 </packages>
 ```
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Partilhar a sua solução Visual Studio num novo repositório Git do Team Services
-Partilhe os ficheiros de origem da aplicação para um projeto de equipa no Team Services, para que possa gerar compilações.  
+## <a name="share-your-visual-studio-solution-to-a-new-azure-repos-git-repo"></a>Partilhar a sua solução Visual Studio num novo repositório Git do Azure
+
+Partilhe os ficheiros de origem da aplicação para um projeto no Azure DevOps, para que possa gerar compilações.  
 
 1. Crie um novo repositório Git local para o seu projeto ao selecionar **Adicionar ao Controlo de Origem** e **Git** na barra de estado no canto inferior direito do Visual Studio. 
 
-2. Na vista **Sincronização** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para o Visual Studio Team Services**.
+2. Na vista **Sincronização** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para os Serviços de DevOps do Azure**.
 
    ![Repositório Git de push](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Verifique o seu e-mail e selecione a sua conta na lista pendente **Domínio do Team Services**. Introduza o nome do seu repositório e selecione **Publicar repositório**.
+3. Verifique o seu e-mail e selecione a sua organização na lista pendente **Domínio dos Serviços de DevOps do Azure**. Introduza o nome do seu repositório e selecione **Publicar repositório**.
 
    ![Repositório Git de push](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    A publicação do repositório cria um novo projeto de equipa na sua conta com o mesmo nome que o repositório local. Para criar o repositório num projeto de equipa existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto de equipa. Pode ver o código no browser ao selecionar **Ver na Web**.
+    A publicação do repositório cria um novo projeto na sua organização com o mesmo nome que o repositório local. Para criar o repositório num projeto existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto. Pode ver o código no browser ao selecionar **Ver na Web**.
  
-## <a name="configure-continuous-delivery-with-vsts"></a>Configurar a entrega contínua com o VSTS
-Uma definição de compilação do Team Services descreve um fluxo de trabalho composto por passos de compilação que são executados sequencialmente. Saiba mais sobre [Definições de compilação do Team Services](https://www.visualstudio.com/docs/build/define/create). 
+## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar a entrega contínua com o Azure DevOps
+Um pipeline de compilação do Azure Pipelines descreve um fluxo de trabalho composto por passos de compilação que são executados sequencialmente. Saiba mais sobre [Pipelines de compilação do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
 
-Uma definição de versão do Team Services descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) do Team Services.
+Um pipeline de versão do Azure Pipelines descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizados em conjunto, o pipeline de compilação e o pipeline de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre [pipelines de versão](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) do Azure Pipelines.
 
-### <a name="create-a-build-definition"></a>Criar uma definição de compilação
-Abra um browser e navegue para o projeto de equipa que acabou de criar no [Visual Studio Team Services](https://app.vsaex.visualstudio.com/). 
+### <a name="create-a-build-pipeline"></a>Criar um pipeline de compilação
+Abra um browser e navegue para o projeto que acabou de criar no [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. No separador **Compilação e Versão**, selecione **Compilações** e, em seguida **+Novo**.  Selecione **Git do VSTS** e **Continuar**.
+1. No separador **Compilação e Versão**, selecione **Compilações** e, em seguida **+Novo**.  Selecione **Git dos Serviços de DevOps do Azure** e **Continuar**.
     
     ![Selecionar origem](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. Em **Selecionar um modelo**, clique em **Processo Vazio** para começar com uma definição vazia.
+2. Em **Selecionar um modelo**, clique em **Processo Vazio** para começar com um pipeline vazio.
     
     ![Escolher o modelo de compilação](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -82,7 +83,7 @@ Abra um browser e navegue para o projeto de equipa que acabou de criar no [Visua
     
     ![Estado do acionador](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da compilação, mude para o separador **Compilações**.  Depois de verificar se a compilação é executada com êxito, tem de definir uma definição de versão que implemente a aplicação num cluster. Clique com o botão direito do rato nas reticências junto à definição de compilação e selecione **Editar**.
+4. As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da compilação, mude para o separador **Compilações**.  Depois de verificar se a compilação é executada com êxito, tem de definir um pipeline de versão que implemente a aplicação num cluster. Clique com o botão direito do rato nas reticências junto ao pipeline de compilação e selecione **Editar**.
 
 5.  Em **Tarefas**, introduza "Hosted" como **Fila de agentes**.
     
@@ -125,17 +126,17 @@ Abra um browser e navegue para o projeto de equipa que acabou de criar no [Visua
     
     ![Definir as propriedades](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. Clique em **Guardar e Colocar em Fila** para testar a definição de compilação.
+12. Clique em **Guardar e Colocar em Fila** para testar o pipeline de compilação.
     
     ![Definir os parâmetros de substituição](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### <a name="failed-build-process"></a>Processo de compilação falhado
-Poderá receber erros para parâmetros de implementação nulos se não substituir os parâmetros do modelo na tarefa **Implementação do Grupo de Recursos do Azure** da definição de compilação. Regresse à definição de compilação e substitua os parâmetros nulos para resolver o erro.
+Poderá receber erros para parâmetros de implementação nulos se não substituir os parâmetros do modelo na tarefa **Implementação do Grupo de Recursos do Azure** do pipeline de compilação. Regresse ao pipeline de compilação e substitua os parâmetros nulos para resolver o erro.
 
    ![Processo de compilação falhado](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Consolidar e emitir alterações para acionar uma versão
-Verifique se o pipeline de integração contínua está a funcionar ao dar entrada de algumas alterações de código no Team Services.    
+Verifique se o pipeline de integração contínua está a funcionar ao dar entrada de algumas alterações de código no Azure DevOps.    
 
 À medida que escreve o código, as alterações são automaticamente controladas pelo Visual Studio. Para consolidar as alterações ao repositório Git local, selecione o ícone de alterações pendentes na barra de estado, na parte inferior direita.
 
@@ -143,11 +144,11 @@ Verifique se o pipeline de integração contínua está a funcionar ao dar entra
 
     ![Consolidar e emitir alterações](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
 
-2. Selecione o ícone da barra de estado de alterações não publicadas ou a vista de Sincronização no Team Explorer. Selecione **Push** para atualizar o código no Team Services/TFS.
+2. Selecione o ícone da barra de estado de alterações não publicadas ou a vista de Sincronização no Team Explorer. Selecione **Push** para atualizar o código no Azure DevOps.
 
     ![Consolidar e emitir alterações](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-A emissão das alterações ao Team Services aciona automaticamente uma compilação.  Quando a definição de compilação for concluída com êxito, é criada automaticamente uma versão e começa a atualizar a tarefa no cluster.
+A emissão das alterações aos Serviços de DevOps do Azure aciona automaticamente uma compilação.  Quando o pipeline de compilação for concluído com êxito, é criada automaticamente uma versão e começa a atualizar a tarefa no cluster.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

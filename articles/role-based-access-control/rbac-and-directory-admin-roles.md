@@ -1,5 +1,5 @@
 ---
-title: Funções de administrador de subscrição clássica vs. Funções RBAC do Azure vs. Funções de administrador do Azure AD | Microsoft Docs
+title: Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD | Microsoft Docs
 description: 'Descreve as diferentes funções no Azure: funções de administrador de subscrição clássica, funções de controlo de acesso baseado em funções (RBAC) do Azure e funções de administrador do Azure Active Directory (Azure AD)'
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714099"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304085"
 ---
-# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica vs. Funções RBAC do Azure vs. Funções de administrador do Azure AD
+# <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
 Se não estiver familiarizado com o Azure, pode ser um pouco difícil compreender todas as diferentes funções. Este artigo ajuda a explicar as funções seguintes e quando utilizar cada uma:
 - Funções de administrador de subscrição clássica
@@ -44,15 +44,15 @@ Administrador de Conta, Administrador de Serviços e Coadministrador são as tr�
 
 | Administrador de subscrição clássica | Limite | Permissões | Notas |
 | --- | --- | --- | --- |
-| Administrador de Conta | 1 por conta do Azure | <ul><li>Aceda ao [Centro de Contas do Azure](https://account.azure.com/Subscriptions)</li><li>Gerir todas as subscrições numa conta</li><li>Criar novas subscrições</li><li>Cancelar subscrições</li><li>Alterar a faturação de uma subscrição</li><li>Alterar o Administrador de Serviços</li></ul> | Conceitualmente, o proprietário de faturação da subscrição.|
-| Administrador de Serviços | 1 por subscrição do Azure | <ul><li>Gerir os serviços no [portal do Azure](https://portal.azure.com)</li><li>Atribuir utilizadores à função Coadministrador</li></ul> | Por predefinição, para uma nova subscrição, o Administrador de Conta também é o Administrador de Serviços.<br>O Administrador de Serviços tem o acesso equivalente de um utilizador com a função Proprietário atribuída no âmbito da subscrição. |
+| Administrador de Conta | 1 por conta do Azure | <ul><li>Aceda ao [Centro de Contas do Azure](https://account.azure.com/Subscriptions)</li><li>Gerir todas as subscrições numa conta</li><li>Criar novas subscrições</li><li>Cancelar subscrições</li><li>Alterar a faturação de uma subscrição</li><li>Alterar o Administrador de Serviços</li></ul> | Conceitualmente, o proprietário de faturação da subscrição.<br>O Administrador de Conta não tem acesso ao portal do Azure. |
+| Administrador de Serviços | 1 por subscrição do Azure | <ul><li>Gerir os serviços no [portal do Azure](https://portal.azure.com)</li><li>Atribuir utilizadores à função Coadministrador</li></ul> | Por predefinição, para uma nova subscrição, o Administrador de Conta também é o Administrador de Serviços.<br>O Administrador de Serviços tem o acesso equivalente de um utilizador com a função Proprietário atribuída no âmbito da subscrição.<br>O Administrador de Serviços tem acesso total ao portal do Azure. |
 | Coadministrador | 200 por subscrição | <ul><li>Tem os mesmos privilégios de acesso do Administrador de Serviços, mas não pode alterar a associação de subscrições a diretórios do Azure</li><li>Atribuir utilizadores à função Coadministrador, mas não pode alterar o Administrador de Serviços</li></ul> | O Coadministrador tem o acesso equivalente de um utilizador com a função Proprietário atribuída no âmbito da subscrição. |
 
 No portal do Azure, pode ver quem está atribuído às funções Administrador de Conta e Administrador de Serviços ao visualizar as propriedades da sua subscrição.
 
 ![Administrador de Conta e Administrador de Serviços no portal do Azure](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-Para obter informações sobre como adicionar ou alterar administradores de subscrição, veja [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md) na documentação de Faturação do Azure.
+Para obter informações sobre como adicionar ou alterar administradores de subscrição clássica, veja [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md) na documentação de Faturação do Azure.
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Conta e subscrições do Azure
 

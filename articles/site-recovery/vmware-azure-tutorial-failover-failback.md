@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917052"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391373"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure
 
@@ -67,7 +67,7 @@ Verifique as propriedades da VM e certifique-se de que a VM está em conformidad
 1. Em **Definições** > **Itens replicados** clique na VM > **Ativação Pós-falha**.
 
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual irá realizar a ativação pós-falha. Pode utilizar uma das opções seguintes:
-   - **Mais recente** (predefinição): esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
+   - **Mais recente**: esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
    - **Processado mais recentemente**: esta opção faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
    - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha da VM para o último ponto de recuperação consistente com a aplicação processado pelo Site Recovery.
    - **Personalizado**: especifique um ponto de recuperação.
@@ -82,11 +82,14 @@ Em alguns cenários, a ativação pós-falha requer processamento adicional, que
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Ligar a máquina virtual com ativação pós-falha no Azure
 
-1. Após a ativação pós-falha, vá para a máquina virtual e valide ao [ligar](../virtual-machines/windows/connect-logon.md) à mesma.
-2. Após a validação, clique em **Consolidar** para finalizar o ponto de recuperação da máquina virtual após a ativação pós-falha. Após a consolidação, todos os outros pontos de recuperação disponíveis são eliminados. Este passo conclui a atividade de ativação pós-falha.
+1. Se quiser ligar a VMs do Azure através de RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. Após a ativação pós-falha, vá para a máquina virtual e valide ao [ligar](../virtual-machines/windows/connect-logon.md) à mesma.
+3. Após a validação, clique em **Consolidar** para finalizar o ponto de recuperação da máquina virtual após a ativação pós-falha. Após a consolidação, todos os outros pontos de recuperação disponíveis são eliminados. Este passo conclui a atividade de ativação pós-falha.
 
 >[!TIP]
 > **Alterar o ponto de recuperação** ajuda-o a escolher um ponto de recuperação diferente após a ativação pós-falha, se não estiver satisfeito com a máquina virtual com ativação pós-falha. Após a **consolidação**, esta opção já não estará disponível.
+
+Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparação para a nova proteção da VM do Azure
 

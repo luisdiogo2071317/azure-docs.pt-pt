@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304883"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378436"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guia de Início Rápido: Criar um balanceador de carga Básico público com o portal do Azure
 
@@ -36,7 +36,7 @@ Para todas as tarefas neste guia de início rápido, inicie sessão no [portal d
 
 ## <a name="create-a-basic-load-balancer"></a>Criar um balanceador de carga Básico
 
-Nesta secção, irá utilizar o portal para criar um balanceador de carga Básico público. O endereço IP público é automaticamente configurado como front-end do balanceador de carga, ao criar o IP público e o recurso do balanceador de carga através do portal. O nome do front-end é **LoadBalancerFrontend**.
+Nesta secção, irá utilizar o portal para criar um balanceador de carga Básico público. O endereço IP público é automaticamente configurado como front-end do balanceador de carga, ao criar o IP público e o recurso do balanceador de carga através do portal. O nome do front-end é **myLoadBalancer**.
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
 2. No painel **Criar balanceador de carga**, introduza estes valores:

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: be80c637a250e8a86727ce34f86832fef10426b7
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616400"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380051"
 ---
 # <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Criar e gerir um Balanceador de Carga Standard com o portal do Azure
 
@@ -204,7 +204,7 @@ Para adicionar *myVM1* novamente ao conjunto de back-end, siga o procedimento na
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
+Quando já não forem necessários, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

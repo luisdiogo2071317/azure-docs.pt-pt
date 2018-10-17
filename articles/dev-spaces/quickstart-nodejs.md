@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 07/09/2018
+ms.date: 09/26/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 3067146b45e0b6b83cc49137a84282cf2ed4bf86
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b6e4d08e239f036e8580b701c96d2a945df5f3ca
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721573"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584443"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (Node.js)
 
@@ -32,11 +32,14 @@ Neste guia, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
-- Um [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) a executar o Kubernetes 1.9.6 ou posterior, na região EUA Leste, E.U.A. Central, E.U.A. Central 2, 	Europa Ocidental, Canadá Central ou Leste do Canadá, com o **Encaminhamento de Aplicações de Http** ativado.
+- [Visual Studio Code](https://code.visualstudio.com/download).
+- Versão 2.0.43 ou superior da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Um cluster Kubernetes a executar o Kubernetes 1.9.6 ou posterior, na região EUA Leste, EUA Central, EUA Oeste 2, Europa Ocidental, Canadá Central ou Leste do Canadá, com o **Encaminhamento de Aplicações de HTTP** ativado.
 
-  ![É necessário ativar o Encaminhamento de Aplicações de Http.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-- Visual Studio Code, que pode transferir [aqui](https://code.visualstudio.com/download).
+    ```cmd
+    az group create --name MyResourceGroup --region <region>
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurar os Espaços de Programador do Azure
 
@@ -44,7 +47,6 @@ A CLI do Azure e a extensão Azure Dev Spaces podem ser instaladas e executadas 
 
 Siga estes passos para configurar o Azure Dev Spaces:
 
-1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.43 ou superior).
 1. Configure Espaços de Programador no cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Transfira a [extensão dos Espaços de Programador do Azure](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) para o VS Code. Clique em Instalar uma vez na página do Marketplace da extensão e, novamente, no VS Code.
 

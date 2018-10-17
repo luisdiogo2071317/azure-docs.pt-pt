@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143428"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378351"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implementar o Azure Data Box Disk através do portal do Azure (Pré-visualização)
 
@@ -68,12 +68,12 @@ O Data Box Disk é enviado por correio numa Caixa Expresso da UPS. Abra a caixa 
 
 Este passo demora cerca de 5 minutos.
 
-1. Utilize o cabo incluído para ligar o disco a um computador Windows com uma versão suportada. Para obter mais informações sobre as versões de SO suportadas, aceda a [Requisitos de sistema do Azure Data Box Disk](data-box-disk-system-requirements.md). 
+1. Utilize o cabo incluído para ligar o disco a um computador Windows/Linux com uma versão suportada. Para obter mais informações sobre as versões de SO suportadas, aceda a [Requisitos de sistema do Azure Data Box Disk](data-box-disk-system-requirements.md). 
 2. Para desbloquear o disco:
 
     1. No portal do Azure, aceda a **Geral > Detalhes do Dispositivo** e obtenha a chave de acesso.
-    2. Transfira e extraia a ferramenta de desbloqueio do Data Box Disk no computador utilizado para copiar os dados para discos. 
-    3. Execute *DataBoxDiskUnlock.exe* e forneça a chave de acesso. Para qualquer reinserção de discos, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não utilize a caixa de diálogo do BitLocker ou a chave do BitLocker para desbloquear o disco.** 
+    2. Transfira e extraia a ferramenta de desbloqueio do Data Box Disk específica do sistema no computador utilizado para copiar os dados para discos. 
+    3. Execute a ferramenta de desbloqueio do Data Box Disk e indique a chave de acesso. Para qualquer reinserção de discos, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não utilize a caixa de diálogo do BitLocker ou a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, aceda a [Desbloquear discos num cliente Windows]() ou [Desbloquear discos num cliente Linux]().
     4. A letra de unidade atribuída ao disco é apresentada pela ferramenta. Anote a letra de unidade do disco. Esta será utilizada nos passos subsequentes.
 
 ## <a name="copy-data-and-verify"></a>Copiar dados e verificar
@@ -86,9 +86,9 @@ O tempo de conclusão desta operação depende do tamanho dos dados.
 
     > [!NOTE] 
     > - Todos os contentores e blobs devem cumprir as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se estas regras não forem seguidas, o carregamento de dados para o Azure falhará.
-    > - Certifique-se de que os ficheiros não excedem ~4,7 TiB para blobs de blocos e ~ 8 TiB para blobs de páginas.
+    > - Certifique-se de que os ficheiros não excedem ~4,75 TiB para blobs de blocos e ~ 8 TiB para blobs de páginas.
 
-2. (Opcional) Após a conclusão da cópia, recomendamos que execute o ficheiro `AzureExpressDiskService.cmd` fornecido na pasta *AzureImportExport* para gerar somas de verificação para validação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. 
+2. (Opcional) Após a conclusão da cópia, recomendamos que execute o ficheiro `DataBoxDiskValidation.cmd` fornecido na pasta *AzureImportExport* para gerar somas de verificação para validação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. 
 3. Desligue a unidade. 
 
 

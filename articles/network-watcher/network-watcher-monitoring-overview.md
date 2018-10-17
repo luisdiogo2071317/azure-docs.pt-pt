@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023910"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390950"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -36,6 +36,8 @@ Os pontos finais podem ser outra máquina virtual (VM), um nome de domínio comp
 Se um ponto final ficar inacessível, a resolução de problemas de ligações informa-o do motivo. Alguns possíveis motivos são um problema na resolução de nomes DNS, a CPU, a memória ou a firewall dentro do sistema operativo de uma VM, ou o tipo de salto de uma rota personalizada ou regra de segurança para a VM ou sub-rede da ligação de saída. Saiba mais sobre as [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e os [tipos de salto de rotas](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) no Azure.
 
 A monitorização da ligação também disponibiliza a latência mínima, média e máxima registada ao longo do tempo. Depois de determinar a latência de uma ligação, pode constatar que pode diminuí-la ao mover os seus recursos do Azure para outras regiões do Azure. Saiba mais sobre como determinar as [latências relativas entre regiões do Azure e fornecedores de serviços de Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e como monitorizar a comunicação entre uma VM e um ponto final com o [monitor da ligação](connection-monitor.md). Se preferir testar uma ligação num ponto no tempo, em vez de ao longo do tempo, tal como faz com a monitorização da ligação, utilize a capacidade de [resolução de problemas de ligação](#connection-troubleshoot).
+
+O monitor de desempenho de rede é uma solução de monitorização da rede híbrida baseada na cloud que ajuda a monitorizar o desempenho da rede entre vários pontos na sua infraestrutura de rede. Ajuda também a monitorizar a conectividade da rede ao serviço e pontos finais da aplicação, bem como o desempenho do Azure ExpressRoute. O monitor de desempenho de rede deteta problemas de rede como bloqueio de tráfego, erros de encaminhamento e problemas que os métodos de monitorização de rede convencionais não têm capacidade de detetar. A solução gera alertas e notifica-o quando existir uma falha do limiar de uma ligação de rede. Também garante a deteção atempada de problemas de desempenho de rede e localiza a origem do problema num dispositivo ou segmento de rede específico. Saiba mais sobre o [monitor de desempenho de rede](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Ver recursos numa rede virtual e respetivas relações
 

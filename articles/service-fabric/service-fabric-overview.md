@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: fdb710868a75f64c3fe9f3742482c70ff86f4365
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207840"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299819"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Descrição Geral do Azure Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis. O Service Fabric também faz face aos desafios significativos no desenvolvimento e na gestão de aplicações nativas da cloud. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e geríveis. O Service Fabric representa a plataforma de próxima geração para criar e gerir estas aplicações empresariais à escala da cloud executadas em contentores.
@@ -66,7 +66,7 @@ As capacidades de gestão do ciclo de vida das aplicações do Service Fabric pe
 
 A maioria das aplicações é constituída por uma combinação de microsserviços com e sem estado, contentores e outros executáveis que são implementados em conjunto. Ao ter tipos seguros nas aplicações, o Service Fabric possibilita a implementação de múltiplas instâncias das aplicações. Cada instância é gerida e atualizada independentemente. Mais importante, pode implementar contentores ou executáveis e torná-los fiáveis. Por exemplo, o Service Fabric pode implementar .NET, ASP.NET Core, node.js, contentores do Windows, contentores do Linux, máquinas virtuais Java, scripts, Angular ou literalmente tudo o que constitui a sua aplicação.
 
-O Service Fabric está integrado com ferramentas de CI/CD como [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), e [Octopus Deploy](https://octopus.com/) e pode ser utilizado com qualquer outra ferramenta de CI/CD popular.
+O Service Fabric está integrado com ferramentas de CI/CD como o [Azure Pipelines](https://www.visualstudio.com/team-services/), o [Jenkins](https://jenkins.io/index.html) e o [Octopus Deploy](https://octopus.com/) e pode ser utilizado com qualquer outra ferramenta de CI/CD popular.
 
 Para obter mais informações sobre a gestão do ciclo de vida das aplicações, leia [Application lifecycle](service-fabric-application-lifecycle.md) (Ciclo de vida das aplicações). Para obter mais informações sobre como implementar qualquer código, veja [Deploy a guest executable](service-fabric-deploy-existing-app.md) (Implementar um executável convidado).
 

@@ -8,22 +8,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095772"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391170"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 
 Para implementar uma aplicação Web Java no Azure, pode utilizar a CLI do Azure no [Pipeline do Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) ou o [plug-in Jenkins do Serviço de Aplicações do Azure](https://plugins.jenkins.io/azure-app-service). A versão 1.0 do plug-in Jenkins suporta a implementação contínua mediante a utilização da funcionalidade Aplicações Web do Serviço de Aplicações do Azure através de:
-* Git ou FTP.
+* Carregamento de ficheiros.
 * Docker para Aplicações Web em Linux.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Configurar o Jenkins para implementar Aplicações Web através de Git ou FTP.
+> * Configurar o Jenkins para implementar Aplicações Web através do carregamento de ficheiros.
 > * Configurar o Jenkins para implementar Aplicações Web para Contentores.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Criar e configurar uma instância do Jenkins
@@ -37,7 +37,7 @@ Se ainda não tiver uma instância Mestre do Jenkins, comece com o [modelo de so
 
 Pode utilizar o plug-in Jenkins para implementar uma aplicação Web em qualquer linguagem que as Aplicações Web suportem, como C#, PHP, Java e Node.js. Neste tutorial, utilizamos uma [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Para criar um fork do repositório para a sua própria conta do GitHub, selecione o botão **Fork**, no canto superior direito da interface do GitHub.  
 > [!NOTE]
-> Para compilar o projeto Java, precisa do Java JDK e do Maven. Instale estes componentes na instância Mestre do Jenkins ou no agente de VM, se utilizar o agente para a integração contínua. 
+> Para compilar o projeto Java, precisa do Java JDK e do Maven. Instale estes componentes na instância Mestre do Jenkins ou no agente de VM, se utilizar o agente para a integração contínua. Se estiver a implementar uma aplicação Java SE, o ZIP também é necessário no servidor de compilação.
 
 Para instalar os componentes, inicie sessão na instância do Jenkins com SSH e execute os seguintes comandos:
 
@@ -60,7 +60,11 @@ Para implementar no Azure, precisa de um principal de serviço do Azure.
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Configurar o Jenkins para implementar Aplicações Web mediante o carregamento de ficheiros
 
-Para implementar o seu projeto nas Aplicações Web, pode utilizar o Git ou o FTP para carregar os artefactos de compilação (por exemplo, um ficheiro WAR em Java).
+Para implementar o seu projeto nas Aplicações Web, pode carregar os artefactos de compilação através do carregamento de ficheiros. O Serviço de Aplicações do Azure suporta várias opções de implementação. O plug-in Jenkins do Serviço de Aplicações do Azure facilita e deriva a opção de implementação com base no tipo de ficheiro. 
+
+* Para aplicações Java EE, é utilizada a [implementação WAR](/azure/app-service/app-service-deploy-zip#deploy-war-file).
+* Para aplicações Java SE, é utilizada a [implementação ZIP](/azure/app-service/app-service-deploy-zip#deploy-zip-file).
+* Para outras linguagens, é utilizada a [implementação Git](/azure/app-service/app-service-deploy-local-git).
 
 Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Aplicações e de uma aplicação Web para executar a aplicação Web.
 
@@ -127,7 +131,7 @@ O plug-in Jenkins do Serviço de Aplicações do Azure está pronto para pipelin
 
 As Aplicações Web no Linux suportam a implementação com a utilização do Docker. Para utilizar o Docker para implementar a sua aplicação Web, tem de fornecer um Dockerfile que a empacote com um runtime de serviço numa imagem do Docker. Depois, o plug-in Jenkins compila a imagem, envia-a para um registo do Docker e implementa-a na aplicação Web.
 
-As Aplicações Web no Linux também suportam métodos de implementação tradicionais, como Git e FTP, mas apenas para linguagens incorporadas (.NET Core, Node.js, PHP e Ruby). Relativamente a outras linguagens, tem de empacotar o código da aplicação e o runtime de serviço em conjunto numa imagem do Docker e utilizar este último para a implementação.
+As Aplicações Web no Linux também suportam métodos de implementação tradicionais, como Git e carregamento de ficheiros, mas apenas para linguagens incorporadas (.NET Core, Node.js, PHP e Ruby). Relativamente a outras linguagens, tem de empacotar o código da aplicação e o runtime de serviço em conjunto numa imagem do Docker e utilizar este último para a implementação.
 
 Antes de configurar o trabalho no Jenkins, precisa de uma aplicação Web no Linux. Também precisa de um registo de contentor para armazenar e gerir as suas imagens privadas do contentor do Docker. Pode utilizar o DockerHub para criar o registo de contentor. Neste exemplo, utilizamos o Azure Container Registry.
 
@@ -232,5 +236,5 @@ Neste tutorial, utilizou o plug-in Jenkins do Serviço de Aplicações do Azure 
 Aprendeu a:
 
 > [!div class="checklist"]
-> * Configurar o Jenkins para implementar no Serviço de Aplicações do Azure através do FTP 
+> * Configurar o Jenkins para implementar no Serviço de Aplicações do Azure através do carregamento de ficheiros 
 > * Configurar o Jenkins para implementar na Aplicação Web para Contentores 

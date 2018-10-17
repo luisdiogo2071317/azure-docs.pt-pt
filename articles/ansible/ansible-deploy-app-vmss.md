@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918091"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391475"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para implementar as suas aplicações no Azure. Este artigo mostra-lhe como implementar uma aplicação do Java num conjunto de dimensionamento de máquinas virtuais do Azure (VMSS).  
@@ -31,7 +31,7 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 
 ## <a name="get-host-information"></a>Obter informações dos anfitriões
 
-Esta secção ilustra como utilizar o Ansible para obter informações do anfitrião para um grupo de máquinas virtuais do Azure. Abaixo encontra-se um manual de procedimentos do Ansible de exemplo. O código obtém os endereços IP públicos e o balanceador de carga no grupo de recursos especificado, e cria um grupo de anfitriões designado **saclesethosts** no inventário. 
+Esta secção ilustra como utilizar o Ansible para obter informações do anfitrião para um grupo de máquinas virtuais do Azure. Abaixo encontra-se um manual de procedimentos do Ansible de exemplo. O código obtém os endereços IP públicos e o balanceador de carga no grupo de recursos especificado, e cria um grupo de anfitriões designado **scalesethosts** no inventário. 
 
 Guarde o manual de procedimentos de exemplo seguinte como `get-hosts-tasks.yml`: 
 
