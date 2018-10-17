@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: a06a04ba992c8d7e9691e4838d38faaafd48de7a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853917"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365565"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
 A ferramenta QnA Maker anunciámos a disponibilidade geral de 7 de Maio de 2018 no \\\build\ conferência. Disponibilidade geral do QnA Maker tem uma nova arquitetura baseada no Azure. Criado com a pré-visualização gratuita do QnA Maker de bases de dados de conhecimento, terá de ser migrados para GA. do QnA Maker Pré-visualização do QnA Maker vão ser preterido em Novembro de 2018. Para obter mais informações sobre as alterações em disponibilidade geral do QnA Maker, veja o anúncio de disponibilidade geral do QnA Maker [mensagem de blogue](https://aka.ms/qnamakerga-blog).
 
-A ferramenta QnA Maker tem agora uma [modelo de preços](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+A ferramenta QnA Maker tem agora uma [modelo de preços](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Pré-requisitos
 > [!div class="checklist"]

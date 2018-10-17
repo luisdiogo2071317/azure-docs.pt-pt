@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 76ad9d21f7b328e7f201d227cdd9ace51c62a3fd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357712"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365599"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada para uma rede virtual interna no Azure Kubernetes Service (AKS)
 
@@ -47,13 +47,16 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-Implementar o *nginx entrada* gráfico com Helm. Para utilizar o ficheiro de manifesto criado no passo anterior, adicione o `-f internal-ingress.yaml` parâmetro:
+Implementar o *nginx entrada* gráfico com Helm. Para utilizar o ficheiro de manifesto criado no passo anterior, adicione o `-f internal-ingress.yaml` parâmetro. Para maior redundância, as duas réplicas dos controladores de entrada de NGINX são implementadas com o `--set controller.replicaCount` parâmetro. Para beneficiar totalmente a execução de réplicas do controlador de entrada, certificar-se de que há mais de um nó no cluster do AKS.
 
 > [!TIP]
 > O exemplo seguinte instala o controlador de entrada no `kube-system` espaço de nomes. Pode especificar um espaço de nomes diferente para o seu próprio ambiente, se assim o desejar. Se o cluster do AKS não RBAC ativado, adicione `--set rbac.create=false` para os comandos.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    -f internal-ingress.yaml \
+    --set controller.replicaCount=2
 ```
 
 Quando o serviço de Balanceador de carga do Kubernetes é criado para o controlador de entrada do NGINX, o endereço IP é atribuído, conforme mostrado no seguinte exemplo:
@@ -173,6 +176,41 @@ $ curl -L -k http://10.240.0.42/hello-world-two
     <link rel="stylesheet" type="text/css" href="/static/default.css">
     <title>AKS Ingress Demo</title>
 [...]
+```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este artigo usou o Helm para instalar os componentes de entrada e aplicações de exemplo. Quando implementa um gráfico Helm, um número de recursos do Kubernetes é criado. Estes recursos incluem pods, implementações e serviços. Para limpar estes recursos, lista as versões do Helm com a `helm list` comando. Procure gráficos chamados *entrada de nginx* e *aks-helloworld*, conforme mostrado no seguinte exemplo:
+
+```
+$ helm list
+
+NAME                REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+kissing-ferret      1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+intended-lemur      1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
+pioneering-wombat   1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Eliminar as versões com a `helm delete` comando. O exemplo seguinte elimina a implementação de entrada do NGINX e as dois exemplos AKS Olá mundo de aplicações.
+
+```
+$ helm delete kissing-ferret intended-lemur pioneering-wombat
+
+release "kissing-ferret" deleted
+release "intended-lemur" deleted
+release "pioneering-wombat" deleted
+```
+
+Em seguida, remova o repositório Helm para a aplicação hello world do AKS:
+
+```console
+helm repo remove azure-samples
+```
+
+Por fim, remova a rota de entrada que eram direcionadas para o tráfego para as aplicações de exemplo:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

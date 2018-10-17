@@ -1,6 +1,6 @@
 ---
-title: Avançadas tarefas de avaliação de pilha do Azure | Microsoft Docs
-description: Este artigo descreve as tarefas de avaliação de Azure pilha avançadas.
+title: Advanced tarefas de avaliação do Azure Stack | Documentos da Microsoft
+description: Este artigo descreve as tarefas de avaliação do Azure Stack avançadas.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,36 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c4bf76aa07ec5025d9e53b5518929199ace27e18
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0b65f37310b911184c05fd8fb8554eeb824814b8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29975826"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364817"
 ---
-# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Tarefas de avaliação do avançados Development Kit pilha do Azure
-Depois de ter adquirido familiaridade com as funcionalidades de serviço básico do Kit de desenvolvimento de pilha do Azure (ASDK) e capacidades, pode deepen a compreensão da pilha do Azure ainda mais ao testar os cenários mais avançados. Estas tarefas de avaliação mais avançadas estão totalmente documentadas na documentação do operador de pilha do Azure.
+# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Tarefas de avaliação avançadas do Kit de desenvolvimento do Azure Stack
+Depois de ter de obteve familiaridade com as capacidades e funcionalidades básicas do serviço do Azure Stack Development Kit (ASDK), podem aprofundar sua compreensão do Azure Stack ainda mais ao testar os cenários mais avançados. Estas tarefas de avaliação mais avançadas estão documentadas totalmente na documentação do operador do Azure Stack.
 
 > [!NOTE]
-> Embora muitas tarefas de operador são suportadas para ASDK e produção, implementações de pilha do Azure com vários nós, nem todos os cenários de utilização são suportados para implementações de ASDK. Consulte [ASDK e diferenças de pilha do Azure com vários nós](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) para obter mais informações.
+> Enquanto muitas tarefas de operador são suportadas para ASDK e produção, implementações do Azure Stack com vários nós, nem todos os cenários de utilização são suportados para implementações de ASDK. Ver [ASDK e com vários nós do Azure Stack diferenças](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) para obter mais informações.
 
 ## <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
-Como operador de pilha do Azure, muitas vezes, pretende colocar outras pessoas responsável pela criação de ofertas e inscrever-se os utilizadores. Por exemplo, se tiver um fornecedor de serviços, poderá revendedores inscrever-se os clientes e geri-los em seu nome. Ou, se a parte de um grupo central de TI de uma empresa, é aconselhável subsidiárias inscrever-se os utilizadores sem a intervenção do utilizador.
+Como o operador de pilha do Azure, que, muitas vezes, pretende colocar outras pessoas responsável pela criação de ofertas e inscrever-se os utilizadores. Por exemplo, se for um fornecedor de serviços, poderá revendedores Inscreva-se os clientes e geri-los em seu nome. Ou, se é membro de um grupo de TI central numa empresa, pode desejar subsidiárias para se inscrever utilizadores sem a intervenção do utilizador.
 
-[Delegar ofertas na pilha de Azure](.\.\azure-stack-delegated-provider.md) ajuda-o a estas tarefas, tornando a possível aceder e gerir mais utilizadores pode diretamente. 
+[Delegar ofertas no Azure Stack](.\.\azure-stack-delegated-provider.md) ajuda-o com estas tarefas, tornando possível aceder e gerir os utilizadores de mais do que diretamente. 
 
-## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure
-Como um operador de pilha do Azure, pode criar ofertas informar os utilizadores (inquilinos) criar bases de dados do SQL Server que podem utilizar com as respetivas aplicações de nuvem nativo, Web sites e cargas de trabalho. Ao fornecer estas bases de dados personalizados a pedido, baseado na nuvem aos seus utilizadores, pode guardá-los tempo e recursos. 
+## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar bases de dados SQL para os utilizadores do Azure Stack
+Como um operador de pilha do Azure, pode criar ofertas que permita que os utilizadores (inquilinos) criar bases de dados do SQL que eles podem usar com as suas cargas de trabalho, Web sites e aplicações nativas da cloud. Ao fornecer esses bancos de dados personalizados, sob demanda, com base na cloud aos seus utilizadores, pode guardá-los tempo e recursos. 
 
-Utilizar a placa de fornecedor de recursos do SQL Server para [disponibilizar bases de dados SQL para os utilizadores do Azure pilha](.\.\azure-stack-tutorial-sql-server.md) como um serviço da pilha do Azure. Depois de instalar o fornecedor de recursos, ligar a um ou mais instâncias do SQL Server.
+Utilizar o adaptador do fornecedor de recursos do SQL Server para [disponibilizar bases de dados SQL para os utilizadores do Azure Stack](.\.\azure-stack-tutorial-sql-server.md) como um serviço do Azure Stack. Depois de instalar o fornecedor de recursos ligá-la para uma ou mais instâncias do SQL Server.
 
-## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Certifique-web e API apps disponíveis para os utilizadores de pilha do Azure
-Como um operador de pilha do Azure, pode criar ofertas informar os utilizadores (inquilinos) criam aplicações das funções do Azure e web e API. Ao fornecer acesso a estas aplicações a pedido, baseado na nuvem aos seus utilizadores, pode guardá-los tempo e recursos.
+## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Disponibilizar aplicações de API web e aos seus utilizadores do Azure Stack
+Como um operador de pilha do Azure, pode criar ofertas que permita que os utilizadores (inquilinos) criem aplicações de funções do Azure e da web e de API. Ao fornecer acesso a estas aplicações a pedido, com base na cloud aos seus utilizadores, pode guardá-los tempo e recursos.
 
-Implementar o fornecedor de recursos do serviço de aplicações para [disponibilizar web e API apps aos seus utilizadores de pilha do Azure](.\.\azure-stack-tutorial-app-service.md)
+Implementar o fornecedor de recursos do serviço de aplicações para [disponibilizar aplicações de API web e aos seus utilizadores do Azure Stack](.\.\azure-stack-tutorial-app-service.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre a oferta de serviços com os sistemas de pilha do Azure integrada](.\.\azure-stack-offer-services-overview.md)
+[Saiba mais sobre a oferta de serviços com os sistemas integrados do Azure Stack](.\.\azure-stack-offer-services-overview.md)

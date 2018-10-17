@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048046"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364868"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Zeppelin com o cluster do Apache Spark no Azure HDInsight
 
 Os clusters do Spark do HDInsight incluem blocos de notas do Zeppelin que pode utilizar para executar tarefas do Spark. Neste artigo, irá aprender a utilizar o bloco de notas do Zeppelin num cluster do HDInsight.
-
-> [!NOTE]
-> Blocos de notas do Zeppelin estão disponíveis apenas para Spark 1.6.3 no HDInsight 3.5 e 2.1.0 de Spark no HDInsight 3.6.
->
 
 **Pré-requisitos:**
 
@@ -50,7 +46,7 @@ Os clusters do Spark do HDInsight incluem blocos de notas do Zeppelin que pode u
    
     No parágrafo vazio que é criado por predefinição no novo bloco de notas, cole o fragmento seguinte.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ Os clusters do Spark do HDInsight incluem blocos de notas do Zeppelin que pode u
     ![Criar uma tabela temporária de dados não processados](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "criar uma tabela temporária de dados não processados")
    
     Também pode fornecer um título para cada parágrafo. No canto direito, clique nas **definições** ícone e clique em **Mostrar título**.
+
+> [!NOTE]
+> % spark2 interpretador não é suportado em blocos de notas do Zeppelin em todas as versões do HDInsight e % sh interpretador não será suportado do HDInsight 4.0 e superior.
+>
+
 1. Agora, pode executar declarações do Spark SQL **hvac** tabela. Cole a seguinte consulta um novo parágrafo. A consulta obtém o ID de construção e a diferença entre o destino e as temperaturas reais para cada criar numa determinada data. Prima **SHIFT + ENTER**.
    
         %sql

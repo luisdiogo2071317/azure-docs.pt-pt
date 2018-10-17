@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: be4964e36766a27e9115311448529c279e3ae74a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713436"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365548"
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Pré-requisitos técnicos para a criação de um modelo de solução para o Azure Marketplace
 Leia o processo cuidadosamente antes de começar e compreender onde e por que cada passo é realizado. Tanto quanto possível, deve preparar informações da sua empresa e outros dados, transferir as ferramentas necessárias, e/ou criar componentes técnicos antes de iniciar o processo de criação da oferta.  
@@ -29,7 +29,7 @@ Deve decidir sobre os blocos modulares da sua solução antes de continuar com o
 
 1. [Criar modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 2. Modelos de início rápido do Azure:
-   * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
+   * [https://azure.microsoft.com/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## <a name="next-steps"></a>Passos Seguintes

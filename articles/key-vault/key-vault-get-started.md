@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: af4ab892ab84ba2f1a19e72710f23ce5ba1232f9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b5e235221d34434b908d605c9077ae2fede2fe94
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163112"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365624"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução Cofre de Chaves do Azure
 Este artigo ajuda-o a começar a utilizar o Azure Key Vault com o PowerShell e orienta-o ao longo das atividades seguintes:
@@ -32,9 +32,9 @@ O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. 
 Para obter instruções sobre a Interface de Linha de Comandos de Várias Plataformas, veja [este tutorial equivalente](key-vault-manage-with-cli2.md).
 
 ## <a name="requirements"></a>Requisitos
-Antes de avançar no artigo, confirme que tem:
+Antes de continuar, confirme que tem:
 
-- **Uma subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/en-us/free/).
+- **Uma subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/).
 - **Azure PowerShell**, **com a versão mínima 1.1.0**. Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se já tiver instalado o Azure PowerShell e não souber a versão, a partir da consola do Azure PowerShell, introduza `(Get-Module azure -ListAvailable).Version`. Quando tiver instalado as versões 0.9.1 a 0.9.8 do Azure PowerShell, pode continuar a utilizar neste tutorial com algumas pequenas alterações. Por exemplo, tem de utilizar o comando `Switch-AzureMode AzureResourceManager` e alguns dos comandos do Cofre de Chaves do Azure foram alterados. Para obter uma lista dos cmdlets do Cofre de Chaves para versões 0.9.1 a 0.9.8, consulte o artigo [Cmdlets do Cofre de Chaves do Azure](/powershell/module/azurerm.keyvault/#key_vault).
 - **Uma aplicação que pode ser configurada para utilizar o Key Vault**. Uma aplicação de exemplo está disponível a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, veja o ficheiro **Readme**.
 
@@ -105,14 +105,14 @@ Por exemplo, se utilizar:
 terá de escrever:
 
 ```powershell
-New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzureRmKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 ![Resultado após a conclusão do comando creation do Key Vault](./media/key-vault-get-started/output-after-creating-keyvault.png)
 
 O resultado deste cmdlet mostra as propriedades do cofre de chaves que criou. As duas propriedades mais importantes são:
 
-* **Nome do Cofre**: No exemplo, o nome é **ContosoKeyVault**. Irá utilizar este nome para outros cmdlets do Cofre de Chaves.
-* **URI do Cofre**: no exemplo, isto é https://contosokeyvault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **Nome do cofre**: **ContosoKeyVault** no exemplo. Irá utilizar este nome para outros cmdlets do Cofre de Chaves.
+* **URI do cofre**: https://contosokeyvault.vault.azure.net/ no exemplo. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 A sua conta do Azure pode agora realizar quaisquer operações neste cofre de chaves. Por enquanto, não foi autorizado mais ninguém.
 
@@ -136,11 +136,11 @@ para ver o URI desta chave, escreva:
 $key.id
 ```
 
-Pode referenciar uma chave que criou ou carregou para o Azure Key Vault com o URI da mesma. Para obter a versão atual que pode utilizar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** e utilizar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.  
+Pode referenciar uma chave que criou ou carregou para o Azure Key Vault com o URI da mesma. Para obter a versão atual, pode usar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** e utilize **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importar um ficheiro PFX existente para o Azure Key Vault
 
-No caso de chaves existentes armazenadas num ficheiro pfx que queira carregar para o Azure Key Vault, os passos são diferentes. Por exemplo:
+Se as chaves existentes estão armazenadas num ficheiro pfx que pretende carregar para o Azure Key Vault, os passos são diferentes. Por exemplo:
 - Se tiver uma chave protegida por software já existente num ficheiro PFX
 - O ficheiro pfx tem o nome softkey.pfx 
 - O ficheiro é armazenado na unidade C.
@@ -167,9 +167,10 @@ Para ver a sua chave, escreva:
 ```powershell
 Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'
 ```
-Se quiser ver as propriedades do ficheiro PFX no portal, verá qualquer coisa semelhante à imagem abaixo.
+Se quiser ver as propriedades do ficheiro PFX no portal, verá algo semelhante à imagem abaixo.
 
 ![Aspeto de um certificado no portal](./media/key-vault-get-started/imported-pfx.png)
+
 ### <a name="to-add-a-secret-to-azure-key-vault"></a>Para adicionar um segredo ao Azure Key Vault
 
 Para adicionar um segredo ao cofre, que é uma palavra-passe designada SQLPassword e tem o valor Pa$$w0rd, ao Azure Key Vault, comece por converter o valor Pa$$w0rd numa cadeia segura ao escrever:
@@ -200,27 +201,27 @@ Para ver o valor contido no segredo como texto simples:
 ```powershell
 (get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
 ```
-Agora, o seu cofre de chaves e chave ou segredo estão prontos a ser utilizados em aplicações. Deve autorizar as aplicações a utilizá-los.  
+Agora, o Cofre de chaves e chave ou segredo estão prontos para aplicações para utilizar. Agora autoriza as aplicações a utilizá-los.  
 
 ## <a id="register"></a>Registar uma aplicação com o Azure Active Directory
-Geralmente, este passo deve ser realizado por um programador, num computador à parte. Não é específico do Azure Key Vault. Para obter passos detalhados relativamente ao registo de aplicações no Azure Active Directory, deve rever os artigos com os títulos [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) (Integrar aplicações no Azure Active Directory) ou [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Utilizar o portal para criar uma aplicação do Azure Active Directory e um principal de serviço que possa aceder a recursos)
+Geralmente, este passo deve ser realizado por um programador, num computador à parte. Não é específico do Azure Key Vault. Para obter passos detalhados sobre o registo de aplicações no Azure Active Directory, consulte o artigo intitulado [integrar aplicações com o Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [utilize o portal para criar um Azure Active Directory principal de serviço que pode aceder aos recursos e aplicações](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > Para concluir o tutorial, a sua conta, o cofre e a aplicação que irá registar neste passo devem todos estar no mesmo diretório do Azure.
 
 
-As aplicações que utilizam um cofre de chaves devem ser autenticadas através de um token do Azure Active Directory. Para tal, o proprietário da aplicação deve primeiro registar a aplicação no seu Azure Active Directory. No final do registo, o proprietário da aplicação obtém os seguintes valores:
+As aplicações que utilizam um cofre de chaves devem ser autenticadas através de um token do Azure Active Directory. O proprietário do aplicativo em primeiro lugar tem de registar a aplicação no seu Azure Active Directory. No final do registo, o proprietário da aplicação obtém os seguintes valores:
 
 - **ID da Aplicação** 
 - **Chave de autenticação** (também conhecida como segredo partilhado). 
 
-Para obter um token, a aplicação deve apresentar ambos os valores ao Azure Active Directory. A maneira como a aplicação é configurada para o fazer depende da aplicação. Na [aplicação de exemplo do Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), o proprietário da aplicação define estes valores no ficheiro app.config.
+Para obter um token, a aplicação deve apresentar ambos os valores ao Azure Active Directory. A configuração de aplicativo depende do aplicativo. Na [aplicação de exemplo do Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), o proprietário da aplicação define estes valores no ficheiro app.config.
 
 
 Registar uma aplicação no Azure Active Directory:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, clique em **Registos de aplicações**. Se não vir registos de aplicações, clique em **mais serviços** e encontre-as aí.  
+2. No lado esquerdo, clique em **Registos de aplicações**. Se não vir registos de aplicações, clique em **mais serviços**.  
 >[!NOTE]
 Tem de selecionar o mesmo diretório que contém a subscrição do Azure com a qual criou o seu cofre de chaves. 
 3. Clique em **Novo registo de aplicação**.
@@ -231,7 +232,7 @@ Tem de selecionar o mesmo diretório que contém a subscrição do Azure com a q
     Confirme que escolhe **APLICAÇÃO WEB E/OU API WEB**; se não o tiver feito, não verá a opção **chaves** nas definições.
 
 5. Clique no botão **Criar**.
-6. Quando o registo da aplicação for concluído, pode ver a lista de aplicações registadas. Encontre a aplicação que acabou de registar e clique na mesma.
+6. Quando o registo de aplicação estiver concluído, verá a lista de aplicações registadas. Localize a aplicação que registou e clique no mesmo.
 7. Clique no painel **Aplicação registada** e copie o **ID de Aplicação**
 8. Clique em **Todas as definições**
 9. No painel **Definições**, clique em **Chaves**
@@ -244,7 +245,7 @@ Existem duas formas de autorizar a aplicação a aceder à chave ou segredo no c
 ### <a name="using-powershell"></a>Com o PowerShell
 Para utilizar o PowerShell, utilize o cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
-Por exemplo, se o nome do seu cofre for **ContosoKeyVault** e a aplicação que pretender autorizar tiver como ID de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e se pretender autorizar a aplicação a desencriptar e assinar com chaves no seu cofre, execute o seguinte procedimento:
+Por exemplo, se o nome do cofre for **ContosoKeyVault** e a aplicação que pretende autorizar tem um ID de cliente de 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e que pretende autorizar a aplicação a desencriptar e assinar com chaves no seu cofre, execute o seguinte cmdlet:
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
@@ -271,7 +272,7 @@ Para criar estas chaves protegidas por HSM, tem de utilizar a [camada de serviç
 Quando cria o cofre de chaves, adicione o parâmetro **-SKU**:
 
 ```powershell
-New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
+New-AzureRmKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
 ```
 
 

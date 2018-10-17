@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c40229eaa589d696c557d5ac126515576593443c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47185765"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367085"
 ---
 Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de CPU que são ótimos para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
@@ -26,7 +26,7 @@ Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de 
 
 * O série Ev3 funcionalidades E5-2673 v4 (Broadwell) de 2.3 GHz processador numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de fins mais gerais e colocar a Ev3 em alinhamento com as VMs para fins gerais da maioria das outras clouds.  Memória foi expandida (de 7 GiB/vCPU de 8 GiB/Vcpus) enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hyperthreading.  A Ev3 é a siga até os tamanhos VM de elevada da memória das famílias D/Dv2.
 
-* A Computação do Azure oferece tamanhos de máquinas virtuais que são Isolados para um tipo de hardware específico e dedicados a um único cliente.  Estes tamanhos de máquinas virtuais são mais adequados para cargas de trabalho que exigem um elevado grau de isolamento de outros clientes para cargas de trabalho que envolvem elementos como os requisitos de conformidade e regulamentares.  Os clientes também podem optar por subdividir os recursos dessas máquinas de virtuais isoladas usando [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Consulte as tabelas de famílias de máquinas virtuais, abaixo, para as opções de VM isoladas.
+* A Computação do Azure oferece tamanhos de máquinas virtuais que são Isolados para um tipo de hardware específico e dedicados a um único cliente.  Estes tamanhos de máquinas virtuais são mais adequados para cargas de trabalho que exigem um elevado grau de isolamento de outros clientes para cargas de trabalho que envolvem elementos como os requisitos de conformidade e regulamentares.  Os clientes também podem optar por subdividir os recursos dessas máquinas de virtuais isoladas usando [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Consulte as tabelas de famílias de máquinas virtuais, abaixo, para as opções de VM isoladas.
 
 ## <a name="esv3-series"></a>Série Esv3 
 

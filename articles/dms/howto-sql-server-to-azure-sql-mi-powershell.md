@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6760d2832b6c39759f9287797363fcd5a116ccfb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883672"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365002"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrar o SQL Server no local para a BD SQL do Azure com o Azure PowerShell
 Neste artigo, migra os **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2005 ou superior para uma base de dados do SQL do Azure com o Microsoft Azure PowerShell. Pode migrar bases de dados de uma instância do SQL Server no local para a base de dados do Azure SQL usando o `AzureRM.DataMigration` módulo no Microsoft Azure PowerShell.
@@ -195,7 +195,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### <a name="create-and-start-a-migration-task"></a>Criar e iniciar uma tarefa de migração
 
 Utilize o `New-AzureRmDataMigrationTask` cmdlet para criar e iniciar uma tarefa de migração. Este cmdlet espera os seguintes parâmetros:
-- *TaskType*. Tipo de tarefa de migração para criar para o SQL Server para o tipo de migração de instância de Managaged de base de dados de SQL do Azure *MigrateSqlServerSqlDbMi* é esperado. 
+- *TaskType*. Tipo de tarefa de migração para criar para o SQL Server para o tipo de migração de instância gerida da base de dados SQL do Azure *MigrateSqlServerSqlDbMi* é esperado. 
 - *Nome do grupo de recursos*. Nome do grupo de recursos do Azure na qual pretende criar a tarefa.
 - *ServiceName*. Instância de serviço de migração de base de dados do Azure na qual pretende criar a tarefa.
 - *ProjectName*. Nome do projeto de serviço de migração de base de dados do Azure no qual pretende criar a tarefa. 

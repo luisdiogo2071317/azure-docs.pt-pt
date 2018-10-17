@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c4175a22cc503113f3b3ef64f03f0ae0913bd20e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032551"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364902"
 ---
 # <a name="create-a-qna-maker-service"></a>Criar um serviço QnA Maker
 
@@ -41,7 +41,7 @@ Esta configuração implementa alguns recursos do Azure. Juntos, esses recursos 
     * Escolha o **subscrição** em que o recurso do QnA Maker será implementado.
     * Selecione o **escalão de preço de gestão** para os serviços de gestão do QnA Maker (portal e APIs de gestão). Ver [aqui](https://aka.ms/qnamaker-pricing) para obter detalhes sobre os preços dos SKUs.
     * Criar uma nova **grupo de recursos** (recomendado) ou utilize um já existente na qual implementar este recurso do QnA Maker.
-    * Escolha o **pesquisa escalão de preço** do serviço Azure Search. Se vir a opção de escalão gratuito a cinzento, significa que já tem um escalão gratuito do Azure Search implementado na sua subscrição. Nesse caso, terá de começar com o escalão básico do Azure Search. Ver detalhes dos preços do Azure search [aqui](https://azure.microsoft.com/en-us/pricing/details/search/).
+    * Escolha o **pesquisa escalão de preço** do serviço Azure Search. Se vir a opção de escalão gratuito a cinzento, significa que já tem um escalão gratuito do Azure Search implementado na sua subscrição. Nesse caso, terá de começar com o escalão básico do Azure Search. Ver detalhes dos preços do Azure search [aqui](https://azure.microsoft.com/pricing/details/search/).
     * Escolha o **localização de pesquisa** onde pretende que os dados do Azure Search a serem implantados. Restrições na qual os dados do cliente devem ser armazenados informará o local escolhido para o Azure Search.
     * Dê um nome ao seu serviço de aplicações **nome da aplicação**.
     * Por predefinição, o serviço de aplicações por predefinição para o escalão (S1) standard. Pode alterar o plano após a criação. Ver mais detalhes de preços do App service [aqui](https://azure.microsoft.com/en-in/pricing/details/app-service/).

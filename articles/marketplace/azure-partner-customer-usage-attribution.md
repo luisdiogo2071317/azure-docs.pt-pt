@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855005"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365630"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -44,7 +44,7 @@ Muitas soluções de parceiros são implementadas na subscrição de um cliente,
 
 Para adicionar um identificador exclusivo global (GUID), certifique-se um única modificações no arquivo de modelo principal:
 
-1. Criar um GUID (por exemplo, eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Criar um GUID](#create-guids) (por exemplo, eb7927c8-dd66-43e1-b0cf-c346a422063) e [registar o GUID](#register-guids-and-offers).
 
 1. Abra o modelo do Resource Manager.
 
@@ -55,6 +55,8 @@ Para adicionar um identificador exclusivo global (GUID), certifique-se um única
 1. Verifique o modelo para quaisquer erros.
 
 1. Voltar a publicar o modelo nos repositórios apropriados.
+
+1. [Verificar o êxito do GUID da implementação de modelo](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Código de modelo de exemplo
 
@@ -99,6 +101,24 @@ Ao utilizar a CLI do Azure para o GUID de acréscimo, defina o **AZURE_HTTP_USER
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>Criar GUIDs
+
+Um GUID é um número de referência exclusivo que tem 32 dígitos hexadecimais. Para criar os GUIDs para acompanhamento, deve utilizar um gerador GUID. É recomendável que aproveitar [formulário de gerador GUID do armazenamento do Azure](https://aka.ms/StoragePartners). No entanto, se preferir não usar o gerador GUID do armazenamento do Azure, existem várias [geradores GUID online](https://www.bing.com/search?q=guid%20generator) que pode utilizar.
+
+> [!Note]
+> É altamente recomendável que use [formulário de gerador GUID do armazenamento do Azure](https://aka.ms/StoragePartners) para criar o GUID. Para obter mais informações, consulte nosso [FAQ](#faq).
+
+Crie um GUID exclusivo para cada oferta e a distribuição de canal. Se implementar duas soluções utilizando um modelo e cada um deles está disponível no Azure Marketplace e no GitHub, terá de criar quatro GUIDS:
+
+*   Oferecer A no Azure Marketplace 
+*   Oferecer A no GitHub
+*   Oferta B no Azure Marketplace 
+*   Oferta B no GitHub
+
+A comunicação é efetuada pelo valor de parceiro (ID de parceiro da Microsoft) e o GUID. 
+
+Também pode controlar GUIDs num nível mais granular, como o SKU, onde os SKUs são variantes de uma oferta.
 
 ## <a name="register-guids-and-offers"></a>Registe-se de GUIDs e ofertas
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>Criar GUIDs
-
-Um GUID é um número de referência exclusivo que tem 32 dígitos hexadecimais. Para criar os GUIDs para acompanhamento, deve utilizar um gerador GUID. Existem várias [geradores GUID online](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) que pode utilizar.
-
-Crie um GUID exclusivo para cada oferta e a distribuição de canal. Se implementar duas soluções utilizando um modelo e cada um deles está disponível no Azure Marketplace e no GitHub, terá de criar quatro GUIDS:
-
-*   Oferecer A no Azure Marketplace 
-*   Oferecer A no GitHub
-*   Oferta B no Azure Marketplace 
-*   Oferta B no GitHub
-
-A comunicação é efetuada pelo valor de parceiro (ID de parceiro da Microsoft) e o GUID. 
-
-Também pode controlar GUIDs num nível mais granular, como o SKU, onde os SKUs são variantes de uma oferta.
-
 ## <a name="notify-your-customers"></a>Notificar os seus clientes
 
 Parceiros devem informar aos clientes sobre as implementações que utilizam o GUID do Gestor de recursos de controle. Microsoft comunica a utilização do Azure associado a estas implementações para o parceiro. Os exemplos seguintes incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, substitua \<parceiro > com o nome da sua empresa. Parceiros devem certificar-se de que a notificação se alinha com os seus dados políticas de privacidade e a coleção, incluindo opções para os clientes a excluir de controlo. 
@@ -275,3 +280,7 @@ Os clientes podem controlar a utilização de recursos individuais ou grupos de 
 **É essa metodologia de controle semelhante para o parceiro de registo Digital (DPOR)?**
 
 Este novo método de conexão a implementação e utilização a solução de um parceiro fornece um mecanismo para ligar uma solução de parceiro a utilização do Azure. DPOR destina-se para associar uma consultoria (integrador de sistemas) ou o parceiro de gestão (fornecedor de serviços geridos) com a subscrição do Azure de um cliente.   
+
+**O que é o benefício de usar o formulário de gerador de GUID do armazenamento do Azure?**
+
+Formulário de gerador de GUID do armazenamento do Azure é garantido para gerar um GUID no formato necessário. Além disso, se estiver a utilizar qualquer um plano de dados do armazenamento do Azure métodos de controle, pode aproveitar o mesmo GUID para o plano de controlo do mercado de controlo. Isto permite-lhe tirar partido de um GUID um unificada para atribuição de parceiro sem a necessidade de manter GUIDS separados.

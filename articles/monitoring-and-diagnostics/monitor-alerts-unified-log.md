@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 1490e60f3c6537a661fc1e76907b502a586547c9
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248885"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365067"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
@@ -110,7 +110,7 @@ Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue deter
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e faturação de alertas de registo
-Preços aplicáveis para alertas de registo é mencionado no [preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) página. No faturas do Azure, os alertas de registo são representadas como tipo `microsoft.insights/scheduledqueryrules` com:
+Preços aplicáveis para alertas de registo é mencionado no [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) página. No faturas do Azure, os alertas de registo são representadas como tipo `microsoft.insights/scheduledqueryrules` com:
 - Alertas de registo no Application Insights apresentado com o nome exato do alerta, juntamente com o grupo de recursos e as propriedades do alerta
 - Alertas no Log Analytics mostrado com o nome do alerta de registo `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com o grupo de recursos e as propriedades do alerta
 
