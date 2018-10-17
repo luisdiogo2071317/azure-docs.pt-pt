@@ -38,12 +38,12 @@
 ### [Endereço IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [Zonas de disponibilidade com base de dados SQL](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [Zonas de disponibilidade com base de dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Armazenamento
 #### [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
 
-### Event Hubs
+### Hubs de Eventos
 #### [Recuperação após desastre geográfica dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 
 ### Service Bus
