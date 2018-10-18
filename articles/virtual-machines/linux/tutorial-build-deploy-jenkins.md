@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: cfe67fbed61b4af9b4a4f5b490397ca1a6e1d752
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299496"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388497"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a aplicação em máquinas virtuais do Linux no Azure com o Jenkins e os Serviços de DevOps do Azure
 
@@ -26,7 +26,7 @@ A integração contínua (CI) e a implementação contínua (CD) formam um pipel
 
 Neste tutorial, vai utilizar o Jenkins para criar uma aplicação Web Node.js. Em seguida, utilize o Azure DevOps para implementá-la
 
-num [grupo de implementação](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts) que contém máquinas virtuais do Linux (VMs). Saiba como:
+num [grupo de implementação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups/index?view=vsts) que contém máquinas virtuais do Linux (VMs). Saiba como:
 
 > [!div class="checklist"]
 > * Obter a aplicação de exemplo.

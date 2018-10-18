@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017556"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364120"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -98,8 +98,6 @@ Tem de selecionar a região apropriada antes de realizar qualquer ação. A regi
 Na página Criar Modelo de Linguagem, introduza um **Nome** e uma **Descrição** para ajudá-lo a manter-se a par de informações pertinentes sobre este modelo, tal como o conjunto de dados utilizado. Em seguida, selecione **Modelo de Linguagem Base** no menu pendente. Este modelo é o ponto de partida para a sua personalização. 
 
 Pode escolher entre dois modelos de linguagem base. O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões. 
-
-Na página "Criar Modelo de Linguagem", introduza um **Nome** e uma **Descrição** para ajudá-lo a manter-se a par de informações pertinentes sobre este modelo, tal como o conjunto de dados que utilizou. Em seguida, selecione **Modelo de Linguagem Base** no menu pendente. Este modelo é o ponto de partida para a sua personalização. Pode escolher entre dois modelos de linguagem base. 
 
 O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões. Um novo modelo chamado "Universal" também está publicamente disponível. O Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e da Conversação.
 
