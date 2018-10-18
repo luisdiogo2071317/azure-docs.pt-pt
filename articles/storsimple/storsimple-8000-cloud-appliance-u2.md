@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665010"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387689"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 
@@ -265,7 +265,7 @@ Para parar todos os encargos, tem de eliminar a aplicação da cloud. Para elimi
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Resolver problemas relacionados com falhas de conectividade Internet
 Durante a criação de uma aplicação da cloud, se não existir conectividade à Internet, o passo de criação falha. Para resolver falhas de conectividade da Internet, execute os seguintes passos no portal do Azure:
 
-1. [Criar uma máquina virtual do Windows no portal do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Esta máquina virtual deve utilizar a mesma conta de armazenamento, a mesma VNet e a mesma sub-rede que a aplicação da cloud utiliza. Se já tiver um anfitrião do Windows Server existente no Azure que utilize a mesma conta de armazenamento, VNet e sub-rede, também pode utilizá-lo para resolver problemas relacionados com a conectividade Internet.
+1. [Criar uma máquina virtual do Windows no portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Esta máquina virtual deve utilizar a mesma conta de armazenamento, a mesma VNet e a mesma sub-rede que a aplicação da cloud utiliza. Se já tiver um anfitrião do Windows Server existente no Azure que utilize a mesma conta de armazenamento, VNet e sub-rede, também pode utilizá-lo para resolver problemas relacionados com a conectividade Internet.
 2. Registe remotamente na máquina virtual criada no passo anterior.
 3. Abra uma janela de comando dentro da máquina virtual (Win + R e em seguida, escreva `cmd`).
 4. Na linha de comandos, escreva o comando seguinte.

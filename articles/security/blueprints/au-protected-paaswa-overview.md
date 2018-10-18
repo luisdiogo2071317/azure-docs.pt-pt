@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: d16bb218526a6768ed9f8a6babf5feb186a2b225
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: bd6ac05da5f60fdbe86897ce03ccd6646e6bf191
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321602"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390267"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para a Austrália protegida
 
@@ -201,7 +201,7 @@ A seguinte do Log Analytics [soluções de gestão](https://docs.microsoft.com/a
 
 **O Azure Monitor**: [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo o controlo de chamadas à API no seu Azure recursos.
 
-Observador de rede do Azure: [Observador de rede do Azure] 9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) fornece ferramentas para monitorizar, diagnosticar, veja as métricas e ativar ou desativar os registos de recursos numa rede virtual do Azure.  Entidades de Comunidade devem implementar os registos de fluxo do observador de rede para NSGs e máquinas virtuais. Estes registos devem ser armazenados numa conta de armazenamento dedicado que apenas os registos de segurança são armazenados no e acesso à conta de armazenamento deve ser protegido por controlos de acesso com base em função.
+Observador de rede do Azure: [Observador de rede do Azure] 9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece ferramentas para monitorizar, diagnosticar, veja as métricas e ativar ou desativar os registos de recursos numa rede virtual do Azure.  Entidades de Comunidade devem implementar os registos de fluxo do observador de rede para NSGs e máquinas virtuais. Estes registos devem ser armazenados numa conta de armazenamento dedicado que apenas os registos de segurança são armazenados no e acesso à conta de armazenamento deve ser protegido por controlos de acesso com base em função.
 
 ## <a name="threat-model"></a>Modelo de risco
 

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452161"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394419"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -110,7 +110,7 @@ Contacte [suportar](https://portal.azure.com/#blade/Microsoft_Azure_Support/Help
 
 ## <a name="validate-move"></a>Validar a movimentação
 
-O [validar a operação de movimentação](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimentação sem, na verdade, mover os recursos. Esta operação é utilizada para determinar se a mudança será bem sucedida. Para executar esta operação, precisa de:
+O [validar a operação de movimentação](/rest/api/resources/resources/resources_validatemoveresources) permite testar o seu cenário de movimentação sem, na verdade, mover os recursos. Esta operação é utilizada para determinar se a mudança será bem sucedida. Para executar esta operação, precisa de:
 
 * nome do grupo de recursos de origem
 * ID de recurso do grupo de recursos de destino
@@ -219,7 +219,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Pesquisa
 * Service Bus
 * Service Fabric
-* Malha de recursos de infraestrutura do serviço
+* Service Fabric Mesh
 * Serviço SignalR
 * Não é possível mover o armazenamento - contas de armazenamento em regiões diferentes na mesma operação. Em vez disso, a utilizar operações separadas para cada região.
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)

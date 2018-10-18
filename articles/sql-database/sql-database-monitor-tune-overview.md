@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: dca23940053fa6bf1f716ffa1a6fa0bcd7b41c91
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5ef15b7a757b87c14bf0bd764bdd6ca6e6da64e0
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362624"
+ms.locfileid: "49379054"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitorização e otimização de desempenho
 
@@ -37,7 +37,7 @@ Para uma carga de trabalho com problemas de desempenho, o problema de desempenho
 
   - Demasiadas consultas em execução
   - Demasiadas consultas compiling
-  - Um ou mais consultas em execução está a utilizar um plano de consulta abaixo do ideal
+  - Um ou mais consultas em execução estiver a utilizar um plano de consulta abaixo do ideal
 
   Se for este o caso de sua carga de trabalho, o seu objetivo é identificar e ajustar as consultas associadas ou para atualizar o tamanho de computação ou camada para aumentar a capacidade da base de dados SQL do Azure que visam absorver os requisitos de CPU de serviço. Para obter mais informações no dimensionar os recursos de bases de dados individuais, consulte [Dimensionar recursos de base de dados individual no Azure SQL Database](sql-database-single-database-scale.md) e, para dimensionar os recursos para conjuntos elásticos, veja [Dimensionar recursos de conjunto elástico de SQL do Azure Base de dados](sql-database-elastic-pool-scale.md).
 
@@ -62,7 +62,7 @@ Pode identificar problemas de desempenho relacionados com a execução através 
 
 Em primeiro lugar, ter a certeza de que não se trata de um problema de desempenho de CPU alta, relacionados com a execução. Se não for, a próxima etapa é identificar as esperas superior associadas à sua carga de trabalho de aplicação.  Categorias de tipo de espera de métodos comuns para mostrar parte superior:
 
-- O [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornece estatísticas de espera por consulta ao longo do tempo. No Query Store, os tipos de espera são combinados em categorias de espera. O mapeamento das categorias de espera de espera tipos está disponível no [sys.query_store_wait_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- O [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornece estatísticas de espera por consulta ao longo do tempo. No Query Store, os tipos de espera são combinados em categorias de espera. O mapeamento das categorias de espera de espera tipos está disponível no [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) devolve informações sobre todas as esperas encontrados por threads que executados durante a operação. Pode utilizar esta vista agregada para diagnosticar problemas de desempenho com a base de dados do Azure SQL e também com consultas específicas e lotes.
 - [os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retorna informações sobre a fila de espera de tarefas que estão a aguardar em algum recurso.
 

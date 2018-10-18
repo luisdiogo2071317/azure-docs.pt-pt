@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f045000791ff2e760cdd69aa524d5222fd76d06
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967854"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389484"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -60,7 +60,7 @@ Seguem-se algumas considerações sobre a utilização da conta do Azure Storage
 * **Contentores públicos ou blobs públicos em contas do Storage NÃO ligadas a um cluster:** tem permissão só de leitura para os blobs dos contentores.
   
   > [!NOTE]
-  > Os contentores públicos permitem obter uma lista de todos os blobs disponíveis nesse contentor, bem como os metadados do mesmo. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, consulte <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">gerir o acesso a contentores e blobs</a>.
+  > Os contentores públicos permitem obter uma lista de todos os blobs disponíveis nesse contentor, bem como os metadados do mesmo. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">gerir o acesso a contentores e blobs</a>.
   > 
   > 
 * **Contentores privados em contas do Storage NÃO ligadas a um cluster:** apenas pode aceder aos blobs dos contentores se definir a conta do Storage ao submeter as tarefas de WebHCat. Isto é explicado posteriormente neste artigo.

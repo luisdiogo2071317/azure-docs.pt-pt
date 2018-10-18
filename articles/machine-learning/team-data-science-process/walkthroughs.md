@@ -1,10 +1,10 @@
 ---
-title: Instruções ao executar o processo de ciência de dados de equipa no Azure | Microsoft Docs
-description: Como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou pipeline para criar uma aplicação inteligente.
+title: Orientações passo a passo do processo de ciência de dados de equipa em execução no Azure | Documentos da Microsoft
+description: Como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: deguhath
-ms.openlocfilehash: ce5d99e7fbae761a01dbbac218ce96ac9fabd442
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ac07d9d56862f315f7ef1f68fdecad1af700dbf
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838998"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395025"
 ---
-# <a name="walkthroughs-executing-the-team-data-science-process"></a>Instruções ao executar o processo de ciência de dados de equipa
+# <a name="walkthroughs-executing-the-team-data-science-process"></a>Orientações passo a passo do processo de ciência de dados de equipa em execução
 
-Estes **instruções ponto a ponto** demonstrar os passos no processo de ciência de dados de agrupamento para cenários específicos. Estes mostram como combinar em nuvem, ferramentas no local e serviços num fluxo de trabalho ou pipeline para criar um **aplicação inteligente**. As instruções estão agrupadas por **plataforma** que utilizam.
-
-
-## <a name="walkthrough-descriptions"></a>Descrições de instruções
-
-Seguem-se breves descrições do que fornecem estes exemplos de instruções no seus respetivas plataformas:
+Estes **instruções passo a passo do ponto-a-ponto** demonstrar os passos no Team Data Science Process para cenários específicos. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma **aplicativos inteligente**. A instruções passo a passo está agrupada por **plataforma** que utilizam.
 
 
-- [Azure Workbench de aprendizagem máquina](walkthroughs-aml-with-tdsp.md) estes tutoriais de instruções e exemplos mostram como criar projetos de equipa ciência de dados estruturados com o Azure Machine Learning Workbench para fazer a classificação e processamento de linguagem natural.
-- [Instruções de Spark do HDInsight utilizando PySpark e Scala](walkthroughs-spark.md) estas instruções utilizam PySpark e Scala num cluster do Spark do Azure para realizar a Análise Preditiva.
-- [Instruções de Hadoop do HDInsight utilizando o Hive](walkthroughs-hdinsight-hadoop.md) estas instruções utilizam o Hive com um cluster do HDInsight Hadoop para Análise Preditiva.
-- [Instruções do Azure Data Lake, utilizando U-SQL](walkthroughs-azure-data-lake.md) estas instruções utilizam U-SQL com o Azure Data Lake para realizar a Análise Preditiva.
-- [SQL Server](walkthroughs-sql-server.md) estas instruções utilizam o SQL Server, SQL Server R Services e do SQL Server Python Services para realizar a Análise Preditiva.
-- [O SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) estas instruções utilizam o SQL Data Warehouse para realizar a Análise Preditiva. 
+## <a name="walkthrough-descriptions"></a>Descrições de passo a passo
+
+Aqui estão algumas breves descrições do que fornecem estes exemplos passo a passo sobre as respetivas plataformas:
+
+
+- [O Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) estes exemplos e tutoriais passo a passo mostram como criar projetos de equipe de ciência de dados estruturados com o Azure Machine Learning Workbench para fazer o processamento de linguagem natural e classificação.
+- [Orientações passo a passo HDInsight Spark com PySpark e Scala](walkthroughs-spark.md) esta instruções passo a passo utiliza PySpark e Scala num cluster do Spark do Azure para realizar a Análise Preditiva.
+- [Orientações passo a passo Hadoop do HDInsight com o Hive](walkthroughs-hdinsight-hadoop.md) esta instruções passo a passo utiliza o Hive com um cluster de Hadoop do HDInsight para realizar a Análise Preditiva.
+- [Orientações passo a passo do Azure Data Lake com o U-SQL](walkthroughs-azure-data-lake.md) esta instruções passo a passo utilize U-SQL com o Azure Data Lake para realizar a Análise Preditiva.
+- [SQL Server](walkthroughs-sql-server.md) utiliza esta instruções passo a passo do SQL Server, SQL Server R Services e dos serviços de Python do SQL Server para realizar a Análise Preditiva.
+- [O SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) esta instruções passo a passo utiliza o SQL Data Warehouse para realizar a Análise Preditiva. 
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para ver um debate os componentes chave que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
+Para uma discussão sobre os principais componentes que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 
-Para um debate sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos siga, normalmente, quando estes são executados. 
+Para uma discussão sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. 
 
-Para obter uma descrição geral de tópicos que descrevem as tarefas que compõem o processo de ciência de dados no Azure, consulte [o processo de ciência de dados](http://aka.ms/datascienceprocess). 
+Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [processo de ciência de dados](http://aka.ms/datascienceprocess). 
 

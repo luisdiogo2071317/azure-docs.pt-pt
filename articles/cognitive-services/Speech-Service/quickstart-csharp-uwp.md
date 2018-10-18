@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d9a90869e060d2f8f1a1c522a4528e74841caada
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432992"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339619"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz numa aplicação UWP com o SDK de Voz
 
@@ -27,7 +27,7 @@ Neste artigo, vai criar uma aplicação de Plataforma Universal do Windows (UWP)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição do serviço de Voz para concluir este Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
+Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia de Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -69,7 +69,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Iníc
 1. A seguinte linha de saída aparece na consola do Gestor de Pacotes.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
    ```
 
 1. Uma vez que a aplicação utiliza o microfone para entrada de voz, adicione a capacidade **Microfone** ao projeto. No Explorador de Soluções, faça duplo clique em **Package.appxmanifest** para editar o manifesto de aplicação. Em seguida, mude para o separador **Capacidades**, selecione a caixa para a capacidade **Microfone** e guarde as alterações.

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 372f1a0b7e2ad07612caaac478aea14693e002fa
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352307"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377987"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviços de Hiperescala (pré-visualização) para até 100 TB
 
@@ -148,8 +148,8 @@ Camada de serviços de Hiperescala está atualmente em pré-visualização públ
 
 | Problema | Descrição |
 | :---- | :--------- |
-| Painel ManageBackups para um servidor lógico não mostra os bancos de dados de grande dimensão serão filtrados do SQL server ->  | Hiperescala tem um método separado para a gestão de cópias de segurança, e assim a retenção de longo prazo e o ponto em definições de retenção de cópia de segurança de tempo não se aplicam / são também invalidados. Da mesma forma, bases de dados de Hiperescala não aparecem no painel de gerir a cópia de segurança. |
-| Restauro para um ponto anterior no tempo | Depois de uma base de dados é migrado para a camada de serviços de Hiperescala, restauro para um ponto anterior no tempo não é suportado.|
+| O painel de gerir cópias de segurança para um servidor lógico não mostra os bancos de dados de grande dimensão serão filtrados do SQL server ->  | Hiperescala tem um método separado para a gestão de cópias de segurança, e assim a retenção de longo prazo e o ponto em definições de retenção de cópia de segurança de tempo não se aplicam / são também invalidados. Da mesma forma, bases de dados de Hiperescala não aparecem no painel de gerir a cópia de segurança. |
+| Restauro para um ponto anterior no tempo | Depois de uma base de dados é migrado para a camada de serviços de Hiperescala, restauro para um ponto anterior no tempo antes da migração não é suportado.|
 | Se um ficheiro de base de dados aumenta durante a migração devido a uma carga de trabalho do Active Directory e ultrapassar 1 TB por limite de ficheiro, a migração falhará | Atenuações: <br> -Se possível, migre a base de dados quando não existe nenhuma carga de trabalho de atualização em execução.<br> -Tente novamente a migração, será bem sucedida, desde que o limite de 1 TB não é cruzado durante a migração.|
 | Instância gerida não é atualmente suportada | Não são atualmente suportados |
 | A migração para Hiperescala atualmente é uma operação unidirecional | Depois de uma base de dados é migrada a Hiperescala, não é possível migrar diretamente para um escalão de serviço não Hiperescala. No momento, a única forma de migrar uma base de dados de Hiperescala para não Hiperescala é exportação/importação através de um ficheiro BACPAC.|

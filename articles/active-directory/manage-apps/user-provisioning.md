@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 9170f6f90b9e9b0a310f3b078c82dcab3f179fb3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321313"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387282"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -267,9 +267,9 @@ No entanto, a utilização de grupos dinâmicos pode afetar o desempenho geral d
 
 Não. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD não é possível ler ou aprovisionar utilizadores que estão em grupos aninhados. Só é capaz de ler e disponibilize para os usuários que são membros imediatos do grupo atribuído explicitamente.
 
-Esta é uma limitação "baseado no grupo de atribuições de aplicações", que também afeta o início de sessão único e está descrito [com um grupo para gerir o acesso a aplicações SaaS](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Esta é uma limitação "baseado no grupo de atribuições de aplicações", que também afeta o início de sessão único e está descrito [com um grupo para gerir o acesso a aplicações SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
-Como solução, deve explicitamente atribuir (ou, caso contrário [definir o âmbito no](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) os grupos que contêm os utilizadores que precisam de ser aprovisionado.
+Como solução, deve explicitamente atribuir (ou, caso contrário [definir o âmbito no](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) os grupos que contêm os utilizadores que precisam de ser aprovisionado.
 
 ## <a name="related-articles"></a>Artigos relacionados
 

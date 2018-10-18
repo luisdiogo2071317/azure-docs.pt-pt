@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393496"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379166"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
 **Aplica-se a:** base de dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> A funcionalidade de consulta Store está em pré-visualização pública num número limitado de regiões.
+> A funcionalidade de consulta Store está em pré-visualização pública.
 
 
 A funcionalidade de Store de consulta no banco de dados do Azure para PostgreSQL fornece uma maneira de controlar o desempenho das consultas ao longo do tempo. Consulta Store simplifica o desempenho de resolução de problemas, ajudando-o rapidamente encontrar as consultas de maior duração e muitos mais recursos. Consulta Store automaticamente captura um histórico das consultas e estatísticas de tempo de execução e mantém-los para revisão. Ela separa dados por intervalos de tempo para que possa ver padrões de utilização de bases de dados. Os dados para todos os utilizadores, as bases de dados e consultas são armazenados numa base de dados com o nome **azure_sys** na base de dados do Azure para PostgreSQL a instância.

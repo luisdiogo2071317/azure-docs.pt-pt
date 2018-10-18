@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e03016b80b0a7043a72e55b6c8b68b67b55283b1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669944"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388131"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
 Este artigo aborda considerações de design para conjuntos de dimensionamento de Máquina Virtual. Para obter informações sobre quais são os conjuntos de dimensionamento de máquinas virtuais, consulte [descrição geral dos conjuntos de dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ Em geral, os conjuntos de dimensionamento são úteis para a implementação de 
 
 - Depois de especificar o conjunto de dimensionamento configuração, pode atualizar o *capacidade* propriedade para implementar mais VMs em paralelo. Este processo é melhor do que escrever um script para orquestrar a implementação de muitas VMs individuais em paralelo.
 - Pode [utilizar o dimensionamento automático do Azure para dimensionar automaticamente um conjunto de dimensionamento](./virtual-machine-scale-sets-autoscale-overview.md) mas VMs não individuais.
-- Pode [VMs de conjunto de dimensionamento de recriação de imagem](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) mas [VMs individuais não](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Pode [sobreaprovisionamento](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) VMs de conjunto de dimensionamento para maior confiabilidade e tempos de implantação mais rápidos. Não é possível sobreaprovisionar VMs individuais, a menos que escrever código personalizado para efetuar esta ação.
+- Pode [VMs de conjunto de dimensionamento de recriação de imagem](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) mas [VMs individuais não](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- Pode [sobreaprovisionamento](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) VMs de conjunto de dimensionamento para maior confiabilidade e tempos de implantação mais rápidos. Não é possível sobreaprovisionar VMs individuais, a menos que escrever código personalizado para efetuar esta ação.
 - Pode especificar uma [política de atualização](./virtual-machine-scale-sets-upgrade-scale-set.md) torna mais fácil de implementar as atualizações entre VMs no conjunto de dimensionamento. Com as VMs individuais, deve orquestrar atualizações por conta própria.
 
 ### <a name="vm-specific-features"></a>Recursos específicos da VM

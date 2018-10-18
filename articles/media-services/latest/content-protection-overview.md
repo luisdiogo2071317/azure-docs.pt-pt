@@ -4,21 +4,21 @@ description: Este artigo lhe dar uma visão geral da proteção de conteúdo com
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521759"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394281"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -149,9 +149,7 @@ O exemplo mostra como:
 
 2. Crie um StreamingLocator que está configurado para transmitir um recurso de encriptados. 
 
-  No caso deste exemplo, definimos **StreamingPolicyName** para **PredefinedStreamingPolicy.SecureStreaming** que suporta a encriptação de envelope e cenc e define duas chaves de conteúdo sobre o StreamingLocator. 
-
-  Se também pretender encriptar com FairPlay, defina o **StreamingPolicyName** ao **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  Por exemplo, pode definir StreamingLocator.StreamingPolicyName para a política de "Predefined_MultiDrmCencStreaming". Esta política indica que pretende que sejam geradas e definidas no localizador duas chaves de conteúdo (envelope e CENC). Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se desejar encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
 
 3. Crie um token de teste.
 

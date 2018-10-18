@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: fe8cf752337bdb3fcd61ce6aa9f3e5cb834fb0aa
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310968"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389688"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleções com o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Agora que está a agregar eventos no armazenamento do Azure, [configurar o Log A
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implementar a extensão de diagnóstico através do Gestor de recursos do Azure
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Criar um cluster com a extensão de diagnóstico
-Para criar um cluster com o Resource Manager, terá de adicionar a configuração de diagnósticos JSON para o modelo do Resource Manager completo antes de criar o cluster. Fornecemos um modelo de Gestor de recursos de cluster de cinco-VM de exemplo com a configuração de diagnóstico, adicionada a ele como parte dos nossos exemplos de modelo do Resource Manager. Pode vê-lo nesta localização na Galeria de exemplos do Azure: [cluster de cinco nós com o exemplo de modelo do Gestor de recursos de diagnóstico](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Para criar um cluster com o Resource Manager, terá de adicionar a configuração de diagnósticos JSON para o modelo do Resource Manager completo antes de criar o cluster. Fornecemos um modelo de Gestor de recursos de cluster de cinco-VM de exemplo com a configuração de diagnóstico, adicionada a ele como parte dos nossos exemplos de modelo do Resource Manager. Pode vê-lo nesta localização na Galeria de exemplos do Azure: [cluster de cinco nós com o exemplo de modelo do Gestor de recursos de diagnóstico](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Para ver a definição de diagnóstico no modelo do Resource Manager, abra o ficheiro azuredeploy JSON e procure **IaaSDiagnostics**. Para criar um cluster ao utilizar este modelo, selecione o **implementar no Azure** botão disponível na ligação anterior.
 

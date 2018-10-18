@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960656"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385520"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar a utilização de recursos em relação a limites
 
@@ -49,7 +49,7 @@ Neste artigo, irá aprender a ver o número de cada tipo de recurso de rede que 
 
 Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, terá do *AzureRM* módulo do PowerShell, versão 6.0.1 ou posterior. Executar `Get-Module -ListAvailable AzureRM` no seu computador, para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver executando o PowerShell localmente, terá também de executar `Login-AzureRmAccount` para iniciar sessão no Azure.
 
-Ver a utilização de limites com [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). O exemplo seguinte obtém a utilização de recursos em que pelo menos um recurso é implementado na localização E.U.A. Leste:
+Ver a utilização de limites com [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). O exemplo seguinte obtém a utilização de recursos em que pelo menos um recurso é implementado na localização E.U.A. Leste:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

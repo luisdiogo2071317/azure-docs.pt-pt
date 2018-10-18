@@ -4,7 +4,7 @@ description: Criar tabelas do Hive e carregar dados no blob para tabelas do hive
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: ccfa3f8681b220d01f8347abd58140e2621f4282
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 7ed861a58b82435f9f50a5798ff821fcd6020096
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122290"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394138"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure
 Este tópico apresenta genéricas consultas do Hive que criam tabelas do Hive e carregar dados do armazenamento de Blobs do Azure. Também são disponibilizadas algumas orientações sobre a criação de partições de tabelas do Hive e sobre como utilizar o otimizada linhas em colunas (ORC) formatação para melhorar o desempenho de consulta.

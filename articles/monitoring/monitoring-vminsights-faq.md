@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063460"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388364"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Monitor do Azure para VMs perguntas mais frequentes
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Azure Monitor para as VMs no Microsoft Azure. Se tiver perguntas adicionais sobre a solução, vá para o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -76,7 +76,7 @@ O Azure Monitor para a funcionalidade de mapa de VMs é baseado em mapa de servi
 Isto pode ocorrer por diversos motivos.  Em casos onde há uma lacuna na recolha de dados Vamos descrever as linhas como pontilhada.  Se modificar a frequência de amostragem de dados para os contadores de desempenho ativado (a predefinição é recolher dados de 60 em 60 segundos), pode ver linhas pontilhadas no gráfico, se optar por um intervalo de tempo de estreito para o gráfico e a frequência de amostragem é inferior a o tamanho de registo utilizado no gráfico (por exemplo, a frequência de amostragem é de 10 minutos e cada bucket no gráfico é de 5 minutos).  Escolher um intervalo de tempo maior para ver deve fazer com que as linhas do gráfico para aparecem como linhas sólidas em vez de pontos neste caso.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>São os grupos suportados com o Azure Monitor para VMs?
-O recurso de desempenho oferece suporte a grupos com base nos recursos realçados dentro de uma área de trabalho específico, bem como agrupamento com base num conjunto de dimensionamento de máquina virtual do Azure específica e o serviço em nuvem.
+Sim, depois de instalar o agente de dependência informações que recolhemos as VMs para apresentar grupos com base na subscrição, grupo de recursos, máquina virtual conjuntos de dimensionamento e serviços cloud.  Se tem estado a utilizar o mapa de serviço e criar grupos de máquinas, estas serão apresentadas também.  Grupos de computadores também serão apresentada no filtro de grupos, se tiver criado para a área de trabalho que está a visualizar. 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Como posso ver os detalhes para o que está orientando o é o percentil 95 gráficos de linhas no agregado desempenho?
 Por predefinição, a lista é ordenada para mostrar a as VMs que tenham o valor mais alto para o percentil 95 para a métrica selecionada, exceto para o gráfico de memória disponível, que mostra as máquinas com o menor valor de percentil de 5.  Ao clicar no gráfico abrirá o **lista de N principais** vista com a métrica apropriada selecionada.

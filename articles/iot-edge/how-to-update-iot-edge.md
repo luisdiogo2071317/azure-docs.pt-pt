@@ -9,12 +9,12 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 88ea4b2eab57684bc5455c0d8eb23a5d62f9dd77
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b04f909d58e1555cad9f34b682f9062bbd96cd0e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817507"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394736"
 ---
 # <a name="update-the-iot-edge-runtime"></a>Atualizar o runtime do IoT Edge
 
@@ -24,10 +24,11 @@ Dois componentes de um dispositivo IoT Edge precisam ser atualizados, se pretend
 
 Para obter a versão mais recente do Azure IoT Edge, veja [versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-
 ## <a name="update-the-security-daemon"></a>Atualizar o daemon de segurança
 
 O daemon de segurança de IoT Edge é um componente nativo que tem de ser atualizado utilizando o Gestor de pacotes do dispositivo IoT Edge. 
+
+Verifique a versão do daemon de segurança está em execução no seu dispositivo, através do comando `iotedge version`. 
 
 ### <a name="linux-devices"></a>Dispositivos do Linux
 
@@ -59,6 +60,10 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 ## <a name="update-the-runtime-containers"></a>Atualizar os contentores de tempo de execução
 
 A maneira que Atualize o agente do Edge e os contentores de hub do Edge depende se utilizar etiquetas sem interrupção (como 1.0) ou etiquetas específicas (como 1.0.2) na sua implementação. 
+
+Verifique a versão do agente do IoT Edge e os módulos de hub do Edge atualmente no seu dispositivo com os comandos `iotedge logs edgeAgent` ou `iotedge logs edgeHub`. 
+
+  ![Versão do contentor de vista](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Compreenda as marcas de IoT Edge
 
@@ -117,5 +122,4 @@ Num manifesto de implantação de JSON, Atualize as imagens de módulo no **syst
 
 Veja os mais recentes [versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-Fique atualizado com as atualizações mais recentes e anúncio no [blog de Internet das coisas](https://azure.microsoft.com/blog/topics/internet-of-things/
-) 
+Fique atualizado com as atualizações mais recentes e anúncio no [blog de Internet das coisas](https://azure.microsoft.com/blog/topics/internet-of-things/) 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ae3a2d8dc42944bdea2b3e6ebac0a40029c0540
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817182"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376708"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -297,6 +297,9 @@ A partir daqui, pode efetuar a análise dos registos de tarefa ao clicar no mosa
 ## <a name="configure-email-notifications"></a>Configurar notificações por e-mail
 
 Para alterar as notificações por e-mail depois da solução é implementada, modifique o grupo de ação que foi criado durante a implementação.  
+
+> [!NOTE]
+> As subscrições na Cloud do Azure Government não suportam a funcionalidade de e-mail desta solução.
 
 No portal do Azure, navegue para o Monitor -> grupos de ação. Selecione o grupo de ação intitulado **StartStop_VM_Notication**.
 

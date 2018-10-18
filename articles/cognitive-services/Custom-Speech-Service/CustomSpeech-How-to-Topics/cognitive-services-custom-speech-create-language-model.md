@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: criar um modelo de idioma - Serviço de Voz Personalizada'
-titlesuffix: Azure Cognitive Services
-description: Neste tutorial, vai aprender a criar um modelo de linguagem com o Serviço de Voz Personalizada.
+title: Tutorial para criar um modelo de linguagem com o Serviço de Voz Personalizada - Serviços Cognitivos da Microsoft | Microsoft Docs
+description: Neste tutorial, vai aprender a criar um modelo de linguagem com o Serviço de Voz Personalizada nos Serviços Cognitivos da Microsoft.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: b7216688efb6a2124748cd08111d57b122085143
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219322"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339101"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Neste tutorial, vai criar um modelo de linguagem personalizado para consultas de texto ou expressões que espera que os utilizadores digam ou escrevam numa aplicação. Em seguida, pode utilizar este modelo de linguagem personalizado em conjunto com os modelos de voz de última geração existentes da Microsoft para adicionar interação de voz à sua aplicação.
 

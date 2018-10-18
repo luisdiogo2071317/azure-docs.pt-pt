@@ -1,0 +1,145 @@
+---
+title: Conceitos - sistema de rede nos serviços de Kubernetes do Azure (AKS)
+description: Saiba mais sobre o funcionamento em rede no Azure Kubernetes Service (AKS), incluindo redes básicas e avançadas, controladores de entrada, balanceadores de carga e endereços IP estáticos.
+services: container-service
+author: iainfoulds
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: iainfou
+ms.openlocfilehash: 62ba98f221041d5bbf9bb095a02d052218eb0fd0
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49381165"
+---
+# <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Azure Kubernetes Service (AKS)
+
+Numa abordagem de microsserviços baseada em contentor ao desenvolvimento de aplicativos, os componentes da aplicação devem trabalhar em conjunto para processar as suas tarefas. O Kubernetes dispõe de vários recursos que permitem a comunicação do aplicativo. Pode ligar a e expor os aplicativos internamente ou externamente. Para criar aplicações de elevada disponibilidade, pode carregar equilibrar seus aplicativos. Aplicações mais complexas podem exigir configuração de tráfego de entrada para a terminação de SSL/TLS ou roteamento de vários componentes. Por motivos de segurança, também poderá restringir o fluxo de tráfego de rede para dentro ou entre nós e os pods.
+
+Este artigo apresenta os conceitos principais que fornecem o funcionamento em rede para seus aplicativos no AKS:
+
+- [Serviços](#services)
+- [Redes virtuais do Azure](#azure-virtual-networks)
+- [Controladores de entrada](#ingress-controllers)
+- [Políticas de rede](#network-policies)
+
+## <a name="kubernetes-basics"></a>Noções básicas do Kubernetes
+
+Para permitir o acesso às suas aplicações ou de componentes da aplicação comunicar entre si, o Kubernetes fornece uma camada de abstração para redes virtuais. Nós do Kubernetes estão ligados a uma rede virtual e podem fornecer conectividade de entrada e saída para pods. O *kube proxy* componente é executado em cada nó para fornecer esses recursos de rede.
+
+No Kubernetes, *serviços* agrupem os pods para permitir o acesso direto por meio de um endereço IP ou nome DNS e uma porta específica. Também pode distribuir o tráfego utilizando um *Balanceador de carga*. Mais complexa de encaminhamento de tráfego de aplicativo também pode ser obtida com *controladores de entrada*. É possível com o Kubernetes, segurança e a filtragem do tráfego de rede para pods *as políticas de rede*.
+
+A plataforma do Azure também ajuda a simplificar a rede virtual para os clusters do AKS. Quando cria um balanceador de carga do Kubernetes, o recurso do Balanceador de carga do Azure subjacente é criado e configurado. Como abrir portas de rede para pods, são configuradas as regras de grupo de segurança de rede do Azure correspondente. Para o encaminhamento de aplicações de HTTP, o Azure também pode configurar *DNS externo* como entrada nova rotas estão configuradas.
+
+## <a name="services"></a>Serviços
+
+Para simplificar a configuração de rede para cargas de trabalho de aplicação, utiliza o Kubernetes *serviços* logicamente agrupar um conjunto de pods e fornecer conectividade de rede. Estão disponíveis os seguintes tipos de serviço:
+
+- **IP do cluster** -cria um endereço IP interno para uso dentro do cluster do AKS. Ideal para aplicativos apenas internos que oferecem suporte a outras cargas de trabalho dentro do cluster.
+
+    ![Diagrama que mostra o fluxo de tráfego de IP do Cluster num cluster do AKS][aks-clusterip]
+
+- **NodePort** -cria um mapeamento de portas no nó subjacente que permite que o aplicativo seja acessado diretamente com o endereço IP do nó e a porta.
+
+    ![Diagrama que mostra o fluxo de tráfego NodePort num cluster do AKS][aks-nodeport]
+
+- **LoadBalancer** - cria um recurso de Balanceador de carga do Azure, configura um endereço IP externo e liga-se os pods pedidos para o conjunto de back-end de Balanceador de carga. Para permitir tráfego de clientes para alcance o aplicativo, as regras de balanceamento de carga são criados nas portas desejadas. 
+
+    ![Diagrama que mostra o fluxo de tráfego do Balanceador de carga num cluster do AKS][aks-loadbalancer]
+
+    Para controle adicional e encaminhamento de tráfego de entrada, em vez disso, pode utilizar um [controlador de entradas](#ingress-controllers).
+
+- **ExternalName** -cria uma entrada DNS específica para facilitar o acesso de aplicação.
+
+O endereço IP para balanceadores de carga e serviços pode ser atribuído dinamicamente ou pode especificar um endereço IP estático existente para utilizar. É possível atribuir endereços IP estáticos internos e externos. Este endereço IP estático existente, muitas vezes, está associado a uma entrada DNS.
+
+Ambos *interno* e *externo* balanceadores de carga podem ser criados. Balanceadores de carga internos apenas têm atribuídas um endereço IP privado, pelo que não podem ser acedidos a partir da Internet.
+
+## <a name="azure-virtual-networks"></a>Redes virtuais do Azure
+
+No AKS, pode implementar um cluster que utiliza um dos seguintes modelos de duas redes:
+
+- *Básico* networking - rede de recursos são criados e configurados, conforme o cluster do AKS é implementado.
+- *Advanced* redes - cluster do AKS a está ligado a recursos de rede virtual existente e configurações.
+
+### <a name="basic-networking"></a>Rede básica
+
+O *básica* opção de rede é a configuração predefinida para a criação de cluster do AKS. A plataforma do Azure gere a configuração de rede do cluster e pods. Rede básica é adequado para implementações que não necessitam de configuração de rede virtual personalizada. Com a rede básica, não é possível definir a configuração de rede, tais como nomes de sub-rede ou os intervalos de endereços IP atribuídos ao cluster do AKS.
+
+Nós num cluster do AKS configurada para utilização de rede básica a [kubenet] [ kubenet] Plug-in do Kubernetes.
+
+Rede básica fornece as seguintes funcionalidades:
+
+- Expor um serviço de Kubernetes externa ou internamente através do Balanceador de carga do Azure.
+- Pods podem aceder a recursos na Internet pública.
+
+### <a name="advanced-networking"></a>Sistema de rede avançado
+
+*Advanced* redes coloca os seus pods numa rede virtual do Azure que configurar. Esta rede virtual fornece conectividade automática a outros recursos do Azure e a integração com um conjunto variado de funções. Sistema de rede avançado é adequado para Implantações que exigem configurações de rede virtual específico, por exemplo, para utilizar uma sub-rede existente e a conectividade. Com o sistema de rede avançado, pode definir estes nomes de sub-rede e intervalos de endereços IP.
+
+Nós num cluster do AKS configurada para utilização de rede avançada a [Interface de rede contentor do Azure (CNI)] [ cni-networking] Plug-in do Kubernetes.
+
+![Diagrama que mostra dois nós com pontes ligar cada uma a uma VNet do Azure única][advanced-networking-diagram]
+
+Sistema de rede avançado fornece as seguintes funcionalidades ao longo de rede básica:
+
+- Implementar o seu cluster do AKS numa rede virtual do Azure existente ou criar uma nova rede virtual e uma sub-rede para o seu cluster.
+- Cada pod do cluster é atribuído um endereço IP na rede virtual. Os pods podem comunicar diretamente com outros pods no cluster e a outros nós na rede virtual.
+- Um pod pode ligar a outros serviços numa rede virtual em modo de peering, incluindo redes no local através do ExpressRoute e de site a site (S2S) ligações VPN. Pods também se encontram acessíveis no local.
+- Pods numa sub-rede que têm pontos finais de serviço ativados podem ligar com segurança a serviços do Azure, como o armazenamento do Azure e SQL DB.
+- Pode criar rotas definidas pelo utilizador (UDR) para encaminhar o tráfego de pods para uma aplicação Virtual de rede.
+
+Para obter mais informações, consulte [configurar avançadas de rede para um cluster do AKS][aks-configure-advanced-networking].
+
+## <a name="ingress-controllers"></a>Controladores de entrada
+
+Quando cria um tipo de LoadBalancer serviço, é criado um recurso do Balanceador de carga do Azure subjacente. O Balanceador de carga está configurado para distribuir o tráfego para os pods no seu serviço numa determinada porta. A LoadBalancer só funciona na camada 4 - o serviço não está ciente de que os aplicativos propriamente ditos e não pode fazer qualquer considerações adicionais de encaminhamento.
+
+*Controladores de entrada* funciona na camada 7 e pode utilizar regras mais inteligentes para distribuir o tráfego de aplicativo. Um uso comum de um controlador de entrada é encaminhar o tráfego HTTP para diferentes aplicações com base no URL de entrada.
+
+![Diagrama que mostra o fluxo de tráfego de entrada num cluster do AKS][aks-ingress]
+
+No AKS, pode criar um recurso de entrada através de algo como NGINX ou utilizar a funcionalidade de encaminhamento de aplicação de HTTP do AKS. Quando ativar o encaminhamento de aplicações de HTTP para um cluster do AKS, a plataforma do Azure cria o controlador de entrada e um *DNS externo* controlador. À medida que novos recursos de entrada são criados no Kubernetes, são criados os necessários registos DNS numa zona DNS específicos do cluster. Para obter mais informações, consulte [implementar o encaminhamento de aplicações de HTTP][aks-http-routing].
+
+Outra funcionalidade comum de entrada é a terminação de SSL/TLS. Em aplicativos da web de grandes acedidos através de HTTPS, a terminação de TLS pode ser tratada pelo recurso de entrada, em vez de dentro da própria aplicação. Para fornecer a geração automática a certificação TLS e a configuração, pode configurar o recurso de entrada a utilizar fornecedores, como vamos encriptar. Para obter mais informações sobre como configurar um controlador de entrada do NGINX com vamos encriptar, consulte [entrada e TLS][aks-ingress-tls].
+
+## <a name="network-security-groups"></a>Grupos de segurança de rede
+
+Um rede segurança grupo filtrar o tráfego para as VMs, por exemplo, os nós do AKS. Criar serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente quaisquer regras de grupo de segurança de rede que são necessários. Não configure manualmente as regras de grupo de segurança de rede para filtrar o tráfego para pods num cluster do AKS. Definir todas as portas necessárias e o encaminhamento como parte de seus manifestos de serviço do Kubernetes e deixe a plataforma do Azure para criar ou atualizar as regras adequadas.
+
+Grupo de segurança de rede existem regras de tráfego, como SSH por predefinição. Estas regras predefinidas destinam-se a resolução de problemas de acesso e gestão de clusters. A eliminar estas regras predefinidas pode causar problemas com a gestão de AKS e divide o objetivo de nível de serviço (SLO).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para começar a trabalhar com o AKS, funcionamento em rede, consulte [criar e configurar redes avançada para um cluster do AKS][aks-configure-advanced-networking].
+
+Para obter mais informações sobre principais Kubernetes e conceitos do AKS, consulte os artigos seguintes:
+
+- [Kubernetes / clusters do AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS acesso e identidade][aks-concepts-identity]
+- [Kubernetes / segurança AKS][aks-concepts-security]
+- [Kubernetes / armazenamento AKS][aks-concepts-storage]
+- [Kubernetes / aumentar do AKS][aks-concepts-scale]
+
+<!-- IMAGES -->
+[aks-clusterip]: ./media/concepts-network/aks-clusterip.png
+[aks-nodeport]: ./media/concepts-network/aks-nodeport.png
+[aks-loadbalancer]: ./media/concepts-network/aks-loadbalancer.png
+[advanced-networking-diagram]: ./media/concepts-network/advanced-networking-diagram.png
+[aks-ingress]: ./media/concepts-network/aks-ingress.png
+
+<!-- LINKS - External -->
+[cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+
+<!-- LINKS - Internal -->
+[aks-http-routing]: http-application-routing.md
+[aks-ingress-tls]: ingress.md
+[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-security]: concepts-security.md
+[aks-concepts-scale]: concepts-scale.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-identity]: concepts-identity.md

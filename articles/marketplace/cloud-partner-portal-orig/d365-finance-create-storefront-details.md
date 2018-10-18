@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0c7db9b6439bf7dbf7422d1278370c67c9c6aa51
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810256"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389382"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Como preencha os detalhes de loja
 ===========================================
@@ -57,7 +57,7 @@ Tem de existir uma ligação de ajuda do Active Directory que orienta os cliente
 
 ### <a name="supported-countriesregions"></a>Países/regiões suportados
 
-Este campo determina os países/regiões em que a oferta estará disponível para avaliação. Só é possível escolher países onde Microsoft Dynamics 365 Business Central já está disponível ou em pré-visualização. Para obter a lista atual, consulte [países e traduções suportadas](https://docs.microsoft.com/en-gb/dynamics-nav/compliance/apptest-countries-and-translations).
+Este campo determina os países/regiões em que a oferta estará disponível para avaliação. Só é possível escolher países onde Microsoft Dynamics 365 Business Central já está disponível ou em pré-visualização. Para obter a lista atual, consulte [países e traduções suportadas](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
 ![Selecionar países e traduções suportadas](./media/d365-financials/image008.png)
 

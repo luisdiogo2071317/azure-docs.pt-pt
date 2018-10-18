@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364563"
+ms.locfileid: "49387508"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -242,7 +242,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="data-compliance-policies"></a>
 **Que políticas de conformidade de dados suporta ficheiros do Azure?**  
 
-   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acesso no local
 * <a id="expressroute-not-required"></a>
@@ -258,7 +258,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 ## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>
 **Como posso fazer cópia de segurança meu arquivo do Azure partilhar?**  
-    Pode usar periódica [instantâneos de partilha](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar o AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer backup de uma partilha de ficheiros instalado. Cópia de segurança do Azure oferece a cópia de segurança de ficheiros do Azure. Saiba mais sobre [cópia de segurança do Azure partilhas pelo Azure Backup de ficheiros](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Pode usar periódica [instantâneos de partilha](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar o AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer backup de uma partilha de ficheiros instalado. Cópia de segurança do Azure oferece a cópia de segurança de ficheiros do Azure. Saiba mais sobre [cópia de segurança do Azure partilhas pelo Azure Backup de ficheiros](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantâneos de partilha
 

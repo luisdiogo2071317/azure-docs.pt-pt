@@ -4,21 +4,21 @@ description: Este tópico apresenta uma descrição geral dos cenários e da dis
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809286"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352819"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -158,7 +158,7 @@ Os clientes do AMS podem dimensionar pontos finais de transmissões, o processam
     Para obter mais informações, veja [Scale media processing](media-services-portal-scale-media-processing.md) (Dimensionar o processamento de multimédia).
 * Também pode escalar a sua conta dos Media Services adicionando-lhe contas deo Storage. Cada conta do Storage está limitada a 500 TB. Para expandir o limite predefinido do seu armazenamento, pode optar por ligar várias contas do Storage numa única conta de Media Services. Para obter mais informações, veja [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md) (Gerir contas de armazenamento).
 
-##<a id="availability"></a> Disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
+## <a id="availability"></a> Disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
 Esta secção mostra detalhes sobre a disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters.
 
@@ -183,7 +183,7 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os dataenters, exceto Alemanha, Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. 
+Disponível em todos os dataenters, exceto Alemanha, Sul BR, Oeste da Índia, Sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Processadores de multimédia de codificação
 
@@ -249,8 +249,8 @@ Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 |Nome do tipo do RU|Estado|Datacenters
 |---|---|---|
 |S1|GA|Todos|
-|S2|GA|Todos, exceto Sul do Brasil e Índia Ocidental|
-|S3|GA|Todos, exceto Índia Ocidental|
+|S2|GA|Todos, exceto Sul BR e Oeste da Índia|
+|S3|GA|Todos, exceto Oeste da Índia|
 
 ## <a name="next-steps"></a>Passos seguintes
 

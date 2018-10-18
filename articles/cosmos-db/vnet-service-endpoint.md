@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037145"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378090"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta do Azure Cosmos DB utilizando o ponto final de serviço de rede Virtual do Azure
 
@@ -226,7 +226,7 @@ Sim, as redes virtuais criadas em regiões diferentes podem aceder a nova capaci
 
 Sim, ponto final de serviço de rede Virtual e uma firewall podem coexistir. Em geral, deve garantir que o acesso ao portal está sempre ativado antes de configurar um ponto de extremidade do serviço de rede virtual para que possa ver as métricas associadas ao contentor.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Pode, "permitir o acesso a outros serviços do Azure a partir de uma determinada região do Azure" quando o acesso ao ponto final de serviço está ativado para o Azure Cosmos DB?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Pode me "Aceitar ligações dos datacenters do Azure público" quando o acesso ao ponto final de serviço está ativado para o Azure Cosmos DB?  
 
 Isto é necessário apenas se pretender que a sua conta do Azure Cosmos DB para ser acedida por outra parte do Azure de primeira dos serviços, como a fábrica de dados do Azure, Azure Search ou qualquer serviço que é implementado numa determinada região do Azure.
 

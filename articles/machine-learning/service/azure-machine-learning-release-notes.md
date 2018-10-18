@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 03/28/2018
-ms.openlocfilehash: c45ce91735dc47ecb5a2741395ed79d4fa7b6f3f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321795"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389926"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -46,7 +46,7 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
 
 #### <a name="breaking-changes"></a>Alterações interruptivas
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, dicionário de retorno Workspace.web_services, anteriormente devolvido lista. Ver [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) documentação da API.
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, dicionário de retorno Workspace.web_services, anteriormente devolvido lista. Ver [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) documentação da API.
 
  * Aprendizagem automática removido normalizado média quadrática erro as métricas principais.
 

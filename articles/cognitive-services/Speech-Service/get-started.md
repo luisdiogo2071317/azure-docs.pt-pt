@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4530ecca973054ee73a02ca4e047dfe52ea90d04
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 7ca423a4953dbe05af119d6b6eb12976c722e374
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166190"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393274"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -67,7 +67,7 @@ Depois de criar a sua conta do Azure, siga os passos na secção seguinte para i
 
 Para adicionar um recurso de serviço de voz (escalão gratuito ou pago) à sua conta do Azure:
 
-1. Inicie sessão para o [portal do Azure](https://ms.portal.azure.com/) com a sua conta Microsoft.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com a sua conta Microsoft.
 
 1. Selecione **criar um recurso** na parte superior esquerda do portal.
 

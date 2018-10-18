@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: fef04a853800237c6eb2443165d2b528a9e9b3db
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0ea9fbf8042c4d6ab3f9462c77ec5cf5106d1021
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342539"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389552"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -299,8 +299,8 @@ subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de dimensionamento de máquinas virtuais definido | 2017-08-01
-plano | [Plano] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante | 2017-04-02
-publicKeys | Coleção de chaves públicas [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] atribuído à VM e caminhos | 2017-04-02
+plano | [Plano] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante | 2017-04-02
+publicKeys | Coleção de chaves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] atribuído à VM e caminhos | 2017-04-02
 vmScaleSetName | [Nome do conjunto de dimensionamento de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de dimensionamento de máquinas virtuais definido | 2017-12-01
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02

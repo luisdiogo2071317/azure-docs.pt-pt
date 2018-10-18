@@ -12,19 +12,19 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352434"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377946"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
 
 ## <a name="overview"></a>Descrição geral
 
-Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Isto pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados. Isto acontece porque o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
+Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer quando o espaço utilizado aumenta e os dados são eliminados. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
 
 Monitorizar a utilização do espaço de ficheiro e reduzindo ficheiros de dados podem ser necessários nos seguintes cenários:
 - Permita o crescimento de dados num conjunto elástico quando o espaço de ficheiro alocado para seus bancos de dados atinge o tamanho máximo do conjunto.
@@ -32,11 +32,11 @@ Monitorizar a utilização do espaço de ficheiro e reduzindo ficheiros de dados
 - Permita a alteração de um único banco de dados ou conjunto elástico para um escalão de serviço diferentes ou o escalão de desempenho com um tamanho máximo inferior.
 
 ### <a name="monitoring-file-space-usage"></a>Monitorizar a utilização do espaço de ficheiro
-A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas meça a quantidade de páginas de dados utilizados:
+A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas medem o tamanho das páginas de dados utilizados:
 - O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-No entanto, as seguintes APIs também medem a quantidade de espaço alocado para bases de dados e elastic pools:
+No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bases de dados e elastic pools:
 - T-SQL: [resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -110,7 +110,7 @@ Noções básicas sobre as seguintes quantidades de espaço de armazenamento sã
 |**Espaço de dados utilizado**|A soma do espaço de dados utilizada por todas as bases de dados do conjunto elástico.||
 |**Espaço de dados alocado**|A soma do espaço de dados alocado por todas as bases de dados do conjunto elástico.||
 |**Espaço de dados alocado, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados utilizado por todas as bases de dados do conjunto elástico.|Esta quantidade representa a quantidade máxima de espaço alocado para o conjunto elástico que pode ser recuperado pelo reduzindo ficheiros de dados de base de dados.|
-|**Tamanho máximo de dados**|A quantidade máxima de espaço de dados que pode ser utilizado pelo conjunto elástico para todas as suas bases de dados.|O espaço alocado para o conjunto elástico não deve exceder o tamanho máximo do conjunto elástico.  Se isto ocorrer, o espaço alocado, que é utilizado pode ser recuperado reduzindo ficheiros de dados de base de dados.|
+|**Tamanho máximo de dados**|A quantidade máxima de espaço de dados que pode ser utilizado pelo conjunto elástico para todas as suas bases de dados.|O espaço alocado para o conjunto elástico não deve exceder o tamanho máximo do conjunto elástico.  Se esta condição ocorre, o espaço alocado, que é utilizado pode ser recuperado reduzindo ficheiros de dados de base de dados.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar um conjunto elástico para obter informações de espaço de armazenamento
@@ -131,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados do conjunto elástico atribuído e o espaço alocado não utilizado
 
-Modifique o seguinte script do PowerShell para devolver uma tabela que lista o espaço alocado e não utilizado de espaço alocado para cada base de dados num conjunto elástico. A tabela orders bases de dados de aqueles com a maior quantidade não utilizada do alocado espaço para a menor quantidade não utilizada de espaço em atribuído.  As unidades do resultado da consulta são em MB.  
+Modifique o seguinte script do PowerShell para devolver uma tabela que lista o espaço alocado e não utilizado de espaço alocado para cada base de dados num conjunto elástico. A tabela orders bases de dados dessas bases de dados com a maior quantidade não utilizada do alocado espaço para a menor quantidade não utilizada de espaço em atribuído.  As unidades do resultado da consulta são em MB.  
 
 Os resultados da consulta para determinar o espaço alocado para cada base de dados no agrupamento pode ser adicionado em conjunto para determinar o total de espaço alocado para o conjunto elástico. O espaço do conjunto elástico alocado não deve exceder o tamanho máximo do conjunto elástico.  
 
@@ -201,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperar espaço alocado não utilizado
 
-Depois de bases de dados tenham sido identificados para reclamação de espaço alocado não utilizado, modifique o seguinte comando para reduzir os ficheiros de dados para cada base de dados.
+### <a name="dbcc-shrink"></a>Redução DBCC
+
+Depois de bases de dados tenham sido identificados para reclamação de espaço alocado não utilizado, modifique o nome da base de dados no comando seguinte para reduzir os ficheiros de dados para cada base de dados.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Este comando pode afetar o desempenho de base de dados enquanto está em execução e, se possível, deve ser executado durante períodos de baixa utilização.  
+
 Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Considere a reconstrução índices de base de dados depois de arquivos de dados do banco de dados são Encolher, índices podem se tornar fragmentados e perdem a eficácia de otimização de desempenho. Se isto ocorrer, os índices devem ser reconstruídos. Para obter mais informações sobre a fragmentação e reconstruir índices, consulte [Reorganize e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Redução automática
+
+Em alternativa, a redução automática pode ser ativada para uma base de dados.  Redução automática reduz a complexidade da gestão de ficheiros e menos causa um impacto no desempenho da base de dados que SHRINKDATABASE ou SHRINKFILE.  Redução automática pode ser particularmente útil para gerir conjuntos elásticos com muitas bases de dados.  No entanto, a redução automática é menos eficiente no reclamação de espaço de ficheiro que SHRINKDATABASE e SHRINKFILE.
+Para ativar a redução automática, modifique o nome da base de dados no comando seguinte.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Para obter mais informações sobre este comando, consulte [base de dados definida](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opções. 
+
+### <a name="rebuild-indexes"></a>Reconstruir índices
+
+Depois de arquivos de dados do banco de dados são Encolher, os índices podem se tornar fragmentados e perdem a eficácia de otimização de desempenho. Se ocorrer uma degradação do desempenho, em seguida, considere reconstruir índices de base de dados. Para obter mais informações sobre a fragmentação e reconstruir índices, consulte [Reorganize e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

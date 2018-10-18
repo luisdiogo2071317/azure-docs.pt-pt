@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: b4dc1517c909439c499749eaf18dca11983eecee
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069153"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386727"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -167,7 +167,7 @@ Também pode utilizar [deployment()](resource-group-template-functions-deploymen
 }
 ```
 
-## <a name="get-values-from-linked-template"></a>Obter valores de modelo ligado
+## <a name="get-values-from-linked-template"></a>Obter valores do modelo ligado
 
 Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com a sintaxe, como: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 
@@ -401,7 +401,7 @@ As seguintes ligações de modelo para o modelo anterior. Ele cria três endere�
 
 Após a implementação, pode recuperar os valores de saída com o seguinte script do PowerShell:
 
-```powershell
+```azurepowershell-interactive
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -411,9 +411,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Em alternativa, o script de CLI do Azure:
+Em alternativa, script da CLI do Azure numa Bash shell:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -459,16 +461,18 @@ O exemplo seguinte mostra como passar um token SAS quando ligar a um modelo:
 
 No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro é definido no modelo. Não é um parâmetro no **New-AzureRmResourceGroupDeployment** comando.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Na CLI do Azure, obter um token para o contentor e implementar modelos com o código a seguir:
+Para a CLI do Azure numa Bash shell, obter um token para o contentor e implementar modelos com o código a seguir:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \

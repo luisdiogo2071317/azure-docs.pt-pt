@@ -1,10 +1,10 @@
 ---
-title: Instruções de ciência de dados de Hadoop do HDInsight utilizando o Hive no Azure | Microsoft Docs
-description: Exemplos do processo de ciência de dados de equipa percurso através da utilização de ramo de registo no Azure HDInsight Hadoop para Análise Preditiva.
+title: Instruções de ciência de dados de Hadoop do HDInsight com o Hive no Azure | Documentos da Microsoft
+description: Exemplos do processo de ciência de dados de equipa que o orientam por meio do uso do Hive no Azure HDInsight Hadoop para realizar a Análise Preditiva.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 8b7eead12b6546ad86f6ff0aa48f4754c00a4734
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2aa64d6dc144e85e1a0f03b8548fa47dba91a2eb
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838760"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393164"
 ---
-# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Instruções de ciência de dados de Hadoop do HDInsight utilizando o Hive no Azure 
+# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Instruções de ciência de dados de Hadoop do HDInsight com o Hive no Azure 
 
-Estas instruções utilizam o Hive com um cluster do HDInsight Hadoop para Análise Preditiva. Siga os passos descritos no processo de ciência de dados de equipa. Para obter uma descrição geral do processo de ciência de dados de equipa, consulte [o processo de ciência de dados](overview.md). Para uma introdução ao Azure HDInsight, consulte [introdução ao Azure HDInsight, a pilha de tecnologia de Hadoop e clusters do Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
+Esta instruções passo a passo utiliza o Hive com um cluster de Hadoop do HDInsight para realizar a Análise Preditiva. Eles seguem as etapas descritas no processo de ciência de dados de equipa. Para uma descrição geral do processo de ciência de dados de equipa, consulte [processo de ciência de dados](overview.md). Para uma introdução ao Azure HDInsight, consulte [introdução ao Azure HDInsight, a pilha de tecnologia do Hadoop e os clusters do Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
-Instruções de ciência de dados adicionais que executar o processo de ciência de dados do agrupamento estão agrupadas pelo **plataforma** que utilizam. Consulte [instruções ao executar o processo de ciência de dados de equipa](walkthroughs.md) para um itemization destes exemplos.
+Instruções de ciência de dados adicionais que executar o processo de ciência de dados de equipa estão agrupadas pela **plataforma** que utilizam. Ver [instruções passo a passo, executar o processo de ciência de dados de equipa](walkthroughs.md) para também uma itemização destes exemplos.
 
 
-## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Prever sugestões taxi utilizando o Hive com o Hadoop do HDInsight
+## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Prever gorjetas para utilizar o Hive com o HDInsight Hadoop
 
-O [clusters do Hadoop do HDInsight de utilização](hive-walkthrough.md) instruções utilizam dados da Nova Iorque taxis para prever: 
+O [clusters do Hadoop de HDInsight utilização](hive-walkthrough.md) estas instruções utilizam dados a partir de Nova Iorque capotados para prever: 
 
-- Indica se uma sugestão é paga 
+- Se uma dica é pago 
 - A distribuição de quantidades de sugestão
 
-O cenário é implementado utilizando o Hive com uma [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/). Saiba como armazenar, explore e dados da funcionalidade engenheiro de um NYC publicamente disponível taxi viagem e fare conjunto de dados. Também é utilizar o Azure Machine Learning para criar e implementar os modelos.
+O cenário é implementado utilizando o Hive com uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/). Irá aprender a armazenar, explorar e dados de engenheiro de funcionalidade de um NYC disponível publicamente táxis conjunto de dados de viagens e Europeia. Também utilizar o Azure Machine Learning para criar e implementar os modelos.
 
-## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prever cliques de anúncios utilizando o Hive com o Hadoop do HDInsight
+## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prever cliques de anúncio, utilizando o Hive com o HDInsight Hadoop
 
-O [utilização do Azure HDInsight Hadoop Clusters um conjunto de dados de 1 TB](hive-criteo-walkthrough.md) instruções utilizam um publicamente disponíveis [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) clique em conjunto de dados para prever se uma sugestão é pagas e o intervalo de quantidades esperado. O cenário é implementado utilizando o Hive com uma [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explore, engenheiro de funcionalidade e pendente dados de exemplo. Utiliza o Azure Machine Learning para criar, dar formação e Pontuar um modelo de classificação binária prever se um utilizador clica num anúncio. Conclui as instruções que mostra como publicar um destes modelos como um serviço Web.
+O [Clusters do Hadoop de HDInsight do uso do Azure num conjunto de dados de 1 TB](hive-criteo-walkthrough.md) estas instruções utilizam um publicamente disponíveis [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) clique em conjunto de dados para prever se uma dica é pago e o intervalo de quantidades esperado. O cenário é implementado utilizando o Hive com uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, engenheiro de recursos e reduzir os dados de exemplo. Ele usa o Azure Machine Learning para criar, preparar e classificar um modelo de classificação binária prever se um usuário clica num anúncio. Conclusão do passo a passo que mostra como publicar um desses modelos como um serviço Web.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para ver um debate os componentes chave que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
+Para uma discussão sobre os principais componentes que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 
-Para um debate sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos siga, normalmente, quando estes são executados. 
+Para uma discussão sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. 
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 3f571a8d8a138656fc8bae5d6f45d183a8819bc3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/17/2018
+ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803210"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394872"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -140,6 +140,7 @@ Se precisar de mais instâncias geridas em suas regiões atuais, pode enviar o p
      > - Região na qual assinatura limite tem de ser aumentado
      > - Aumentar o número necessário de instâncias, por camada de serviços em sub-redes existentes após a quota (se nenhuma das sub-redes existentes tem de ser expandido
      > - Necessário número de novas sub-redes e o número total de instâncias por escalão de serviço dentro as novas sub-redes (se precisar de implementar instâncias geridas nas novas sub-redes).
+     
 5. Clique em **Seguinte**.
 6. No separador de informações de contacto para o novo pedido de suporte, introduza o método preferencial de contacto (e-mail ou telefone) e os detalhes de contactos.
 7. Clique em **Criar**.

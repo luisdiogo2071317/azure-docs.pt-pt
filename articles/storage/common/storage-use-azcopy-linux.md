@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 3863c2eeb73997361a6a903f0b382a8c50ad6d4f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870762"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386693"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com AzCopy no Linux
 
@@ -713,7 +713,7 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, veja os
 * [Como utilizar o Armazenamento de blobs do Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
-* [Apresentamos o AzCopy no Linux pré-visualização](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [Apresentamos o AzCopy no Linux pré-visualização](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Introdução ao pré-visualização de biblioteca do movimento de dados de armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introdução cópia síncrona e o tipo de conteúdo personalizado](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Anunciamos a disponibilidade geral de 3.0 AzCopy e a versão de pré-visualização do AzCopy 4.0 com suporte de tabela e ficheiro](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)

@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: d9d9e9cdb791504c864cae20d1248ba78a180a4c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320276"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386557"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolução de problemas de erros de limitação de API 
 
@@ -26,7 +26,7 @@ Pedidos de computação do Azure podem ser otimizados numa subscrição e numa b
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitação de fornecedores de recursos do Azure Resource Manager vs  
 
-Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e a primeira e a limitação de entrada de todos os pedidos de API. Limites de velocidade de chamada do Azure Resource Manager e cabeçalhos de resposta de diagnóstico relacionadas HTTP são descritos [aqui](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e a primeira e a limitação de entrada de todos os pedidos de API. Limites de velocidade de chamada do Azure Resource Manager e cabeçalhos de resposta de diagnóstico relacionadas HTTP são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 Quando um cliente de API do Azure obtém um erro de limitação, o estado HTTP é 429 demasiados pedidos. Para compreender se a limitação de pedidos é feito com o Azure Resource Manager ou um fornecedor de recursos subjacentes como o CRP, Inspecione o `x-ms-ratelimit-remaining-subscription-reads` solicitações GET e `x-ms-ratelimit-remaining-subscription-writes` cabeçalhos de resposta para pedidos de non-GET. Se a contagem de chamadas restantes que está a aproximar-se o 0, foi atingido o limite de chamada geral da subscrição definido pelo Azure Resource Manager. Atividades de todos os clientes de subscrição são contabilizadas em conjunto. Caso contrário, a limitação é proveniente do fornecedor de recursos de destino (a que é abordado o `/providers/<RP>` segmento de URL do pedido). 
 
@@ -88,4 +88,4 @@ Conforme ilustrado acima, todos os erros de limitação incluem o `Retry-After` 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre orientações de repetição para outros serviços do Azure, consulte [repita a orientação para serviços específicos](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+Para obter mais informações sobre orientações de repetição para outros serviços do Azure, consulte [repita a orientação para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

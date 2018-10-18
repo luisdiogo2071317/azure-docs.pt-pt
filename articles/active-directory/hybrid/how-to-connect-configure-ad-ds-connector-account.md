@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a14462ec5311a9b82293ba7f6e9ae76dc1972b36
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355502"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389960"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -42,7 +42,7 @@ A tabela seguinte fornece um resumo das permissões necessárias em objetos do A
 | Repetição de escrita do grupo |Ler, criar, atualizar e eliminar grupo objetos para sincronizados **grupos do Office 365**.  Para obter mais informações, consulte [repetição de escrita do grupo](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Com o módulo ADSyncConfig PowerShell 
-O módulo de ADSyncConfig requer o [remoto administração ferramentas servidor (FARS) para o AD DS](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) , uma vez que ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o FARS para AD DS, abra uma janela do Windows PowerShell com "Executar como administrador" e execute: 
+O módulo de ADSyncConfig requer o [remoto administração ferramentas servidor (FARS) para o AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) , uma vez que ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o FARS para AD DS, abra uma janela do Windows PowerShell com "Executar como administrador" e execute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 

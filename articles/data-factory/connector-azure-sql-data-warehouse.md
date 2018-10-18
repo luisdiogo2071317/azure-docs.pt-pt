@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 03f02d9d36ffc6a14334cdcccf2d1455db34e2bc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d7a7b87f0d7915692b5a4a8c2233f543bb4c9e1d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815811"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389331"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -210,7 +210,7 @@ Para utilizar a autenticação de token de aplicação baseada em MSI do Azure A
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Azure SQL Data Warehouse.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Azure SQL Data Warehouse.
 
 Para copiar dados de ou para o Azure SQL Data Warehouse, defina o **tipo** propriedade do conjunto de dados para **AzureSqlDWTable**. São suportadas as seguintes propriedades:
 
@@ -383,7 +383,7 @@ Saiba mais sobre como utilizar o PolyBase para carregar com eficiência o SQL Da
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utilize o PolyBase para carregar dados para o Azure SQL Data Warehouse
 
-Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) é uma maneira eficiente para carregar uma grande quantidade de dados para o Azure SQL Data Warehouse com um débito elevado. Verá um ganho de grandes dimensões no débito ao utilizar o PolyBase, em vez do mecanismo BULKINSERT predefinido. Ver [referência de desempenho](copy-activity-performance.md#performance-reference) para uma comparação detalhada. Para obter instruções com um caso de utilização, consulte [carregar 1 TB para o Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
+Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) é uma maneira eficiente para carregar uma grande quantidade de dados para o Azure SQL Data Warehouse com um débito elevado. Verá um ganho de grandes dimensões no débito ao utilizar o PolyBase, em vez do mecanismo BULKINSERT predefinido. Ver [referência de desempenho](copy-activity-performance.md#performance-reference) para uma comparação detalhada. Para obter instruções com um caso de utilização, consulte [carregar 1 TB para o Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
 * Se a sua origem de dados está no armazenamento de Blobs do Azure ou do Azure Data Lake Store e o formato é compatível com o PolyBase, direto de cópia para o Azure SQL Data Warehouse com o PolyBase. Para obter detalhes, consulte  **[direcionar cópia com o PolyBase](#direct-copy-by-using-polybase)**.
 * Se seu arquivo de dados de origem e o formato originalmente não é suportada pelo PolyBase, utilize o **[cópia faseada através do PolyBase](#staged-copy-by-using-polybase)** em vez disso, a funcionalidade. A funcionalidade de cópia faseada também oferece melhor débito. Converte automaticamente os dados em formato compatível com o PolyBase. E ele armazena os dados no armazenamento de Blobs do Azure. Em seguida, carrega os dados para o SQL Data Warehouse.
@@ -556,15 +556,15 @@ Quando copia dados de ou para o Azure SQL Data Warehouse, os seguintes mapeament
 | binário | Byte[] |
 | bit | Booleano |
 | char | Cadeia de caracteres, Char [] |
-| data | DateTime |
+| date | DateTime |
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | decimal | decimal |
 | Atributo FILESTREAM (varbinary(max)) | Byte[] |
-| Flutuante | Valor de duplo |
+| número de vírgula flutuante | Valor de duplo |
 | image | Byte[] |
-| Int | Int32 |
+| int | Int32 |
 | dinheiro | decimal |
 | nchar | Cadeia de caracteres, Char [] |
 | ntext | Cadeia de caracteres, Char [] |

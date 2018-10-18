@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047994"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379200"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões suportadas do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -32,6 +32,29 @@ Por exemplo, se apresenta o AKS *1.11.x* hoje em dia, também é fornecido supor
 Quando uma nova versão secundária é introduzida, as mais antigas pequenas versão e patch em versões suportadas são descontinuadas. 15 dias antes do lançamento da nova versão secundária e extinção de versão futura, um anúncio é feito por meio dos canais de atualização do Azure. No exemplo acima onde *1.11.x* é lançado, as versões retiradas são *1.7.g* + *1.7.h*.
 
 Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster está sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9* , *1.8.e* + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
+
+## <a name="list-currently-supported-versions"></a>Lista de versões suportadas atualmente
+
+Para saber quais as versões estão atualmente disponíveis para a sua subscrição e região, utilize o [az aks get-versões] [ az-aks-get-versions] comando. O exemplo seguinte lista as versões Kubernetes disponíveis para o *EastUS* região:
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+O resultado é semelhante ao exemplo seguinte, que mostra que a versão Kubernetes *1.11.3* é a versão mais recente disponível:
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## <a name="faq"></a>FAQ
 
@@ -65,3 +88,4 @@ Para obter informações sobre como atualizar o seu cluster, consulte [atualizar
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

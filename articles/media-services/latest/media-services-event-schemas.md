@@ -4,19 +4,19 @@ description: Descreve as propriedades que são fornecidas para eventos de servi�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a6a6c459e170627d26aa1445f4f4dd193965fe70
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055426"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376793"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>O Azure Event Grid esquemas para eventos de serviços de multimédia
 
@@ -26,14 +26,56 @@ Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de even
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Serviços de multimédia emite os seguintes tipos de evento:
+### <a name="job-related-event-types"></a>Tipos de eventos relacionados com a tarefa
+
+Serviços de multimédia emite a **tarefa** relacionados com os tipos de eventos descritos abaixo. Existem duas categorias para o **tarefa** eventos relacionados com: "Monitorização de tarefa de estado alterações" e "Monitorização tarefa saída alterações de estado". 
+
+Pode registar para todos os eventos inscrevendo-se ao evento JobStateChange. Em alternativa, pode subscrever eventos específicos apenas (por exemplo, Estados finais como JobErrored, JobFinished e JobCanceled). 
+
+#### <a name="monitoring-job-state-changes"></a>Monitorização de tarefa de estado é alterado
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateChange| Altera o estado da tarefa. |
+| Microsoft.Media.JobStateChange| Obtém um evento para todas as alterações de estado da tarefa. |
+| Microsoft.Media.JobScheduled| Obtenha um evento quando a tarefa faz a transição para o estado de agendada. |
+| Microsoft.Media.JobProcessing| Obtenha um evento quando a tarefa faz a transição para o estado de processamento. |
+| Microsoft.Media.JobCanceling| Obtenha um evento quando a tarefa faz a transição para o cancelamento de estado. |
+| Microsoft.Media.JobFinished| Obtenha um evento quando a tarefa faz a transição para o estado concluído. Este é um estado final que inclui as saídas de tarefas.|
+| Microsoft.Media.JobCanceled| Obtenha um evento quando a tarefa faz a transição para o estado cancelado. Este é um estado final que inclui as saídas de tarefas.|
+| Microsoft.Media.JobErrored| Obtenha um evento quando a tarefa faz a transição para o estado de erro. Este é um estado final que inclui as saídas de tarefas.|
+
+#### <a name="monitoring-job-output-state-changes"></a>Alterações de estado de saída de tarefa de monitorização
+
+| Tipo de evento | Descrição |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputStateChange| Obter um evento de saída da tarefa todas as que alterações de estado. |
+| Microsoft.Media.JobOutputScheduled| Obtenha um evento quando as transições de estado agendada da saída da tarefa. |
+| Microsoft.Media.JobOutputProcessing| Obtenha um evento quando as transições de estado de processamento da saída da tarefa. |
+| Microsoft.Media.JobOutputCanceling| Obtenha um evento quando transições para cancelar o estado da saída da tarefa.|
+| Microsoft.Media.JobOutputFinished| Obtém um evento quando terminar de transições de saída da tarefa de estado.|
+| Microsoft.Media.JobOutputCanceled| Obtém um evento quando cancelada de transições de saída da tarefa de estado.|
+| Microsoft.Media.JobOutputErrored| Obtenha um evento quando as transições de estado de erro da saída da tarefa.|
+
+### <a name="live-event-types"></a>Tipos de evento em direto
+
+Serviços de multimédia também emite a **Live** tipos de eventos descritos abaixo. Existem duas categorias para o **Live** eventos: ao nível do fluxo de eventos e eventos em nível de controle. 
+
+#### <a name="stream-level-events"></a>Eventos ao nível do Stream
+
+Eventos em nível de Stream são emitidos por fluxo ou ligação. Cada evento tem um `StreamId` parâmetro identifica o ligação ou fluxo. Cada fluxo ou a ligação tem um ou mais roteiros de diferentes tipos. Por exemplo, uma ligação a partir de um codificador pode ter uma faixa de áudio e as faixas de vídeo de quatro. Os tipos de eventos de fluxo são:
+
+| Tipo de evento | Descrição |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Tentativa de ligação do codificador é rejeitada. |
 | Microsoft.Media.LiveEventEncoderConnected | Codificador estabelece ligação com o evento em direto. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Codificador desliga. |
+
+#### <a name="track-level-events"></a>Eventos ao nível do Roteiro
+
+Eventos de nível de controle são gerados por faixa. Os tipos de eventos de controle são:
+
+| Tipo de evento | Descrição |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Servidor de mídia ignora os segmentos de dados porque este seja muito tarde ou um timestamp sobreposto (timestamp de novos segmentos de dados é inferior à hora de fim do segmento de dados anterior). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Servidor de suporte de dados recebe o primeiro segmento de dados para cada faixa no stream ou ligação. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Servidor de suporte de dados Deteta áudio e fluxos de vídeo não estão sincronizados. Utilizar como um aviso porque a experiência do usuário não poderá ser afetada. |
@@ -41,24 +83,9 @@ Serviços de multimédia emite os seguintes tipos de evento:
 | Microsoft.Media.LiveEventIngestHeartbeat | Publicado a cada 20 segundos para cada faixa quando está a executar o evento em direto. Fornece ingestão de resumo de estado de funcionamento. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Servidor de suporte de dados Deteta descontinuidade na faixa de entrada. |
 
-Existem duas categorias para o **Live** eventos: ao nível do fluxo de eventos e eventos em nível de controle. 
+## <a name="event-schemas-and-properties"></a>Esquemas de eventos e propriedades
 
-Eventos em nível de Stream são emitidos por fluxo ou ligação. Cada evento tem um `StreamId` parâmetro identifica o ligação ou fluxo. Cada fluxo ou a ligação tem um ou mais roteiros de diferentes tipos. Por exemplo, uma ligação a partir de um codificador pode ter uma faixa de áudio e as faixas de vídeo de quatro. Os tipos de eventos de fluxo são:
-
-* LiveEventConnectionRejected
-* LiveEventEncoderConnected
-* LiveEventEncoderDisconnected
-
-Eventos de nível de controle são gerados por faixa. Os tipos de eventos de controle são:
-
-* LiveEventIncomingDataChunkDropped
-* LiveEventIncomingStreamReceived
-* LiveEventIncomingStreamsOutOfSync
-* LiveEventIncomingVideoStreamsOutOfSync
-* LiveEventIngestHeartbeat
-* LiveEventTrackDiscontinuityDetected
-
-## <a name="jobstatechange"></a>JobStateChange
+### <a name="jobstatechange"></a>JobStateChange
 
 O exemplo seguinte mostra o esquema do **JobStateChange** eventos: 
 
@@ -89,7 +116,142 @@ O objeto de dados tem as seguintes propriedades:
 
 Em que o estado da tarefa pode ser um dos valores: *em fila*, *agendada*, *processamento*, *concluído*, *erro*, *Cancelada*, *Cancelar*
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+### <a name="jobscheduled"></a>JobScheduled
+### <a name="jobprocessing"></a>JobProcessing
+### <a name="jobcanceling"></a>JobCanceling
+
+Para cada não final tarefa alteração de estado (por exemplo, JobCanceling JobScheduled, JobProcessing,), o esquema de exemplo terá um aspeto semelhante ao seguinte:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobProcessing",
+  "eventTime": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="jobfinished"></a>JobFinished
+### <a name="jobcanceled"></a>JobCanceled
+### <a name="joberrored"></a>JobErrored
+
+Para cada alteração de estado final da tarefa (por exemplo, JobErrored JobFinished, JobCanceled,), o esquema de exemplo terá um aspeto semelhante ao seguinte:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobFinished",
+  "eventTime": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+O objeto de dados tem as seguintes propriedades:
+
+| Propriedade | Tipo | Descrição |
+| -------- | ---- | ----------- |
+| Saídas | Array | Obtém a tarefa de saídas.|
+
+### <a name="joboutputstatechange"></a>JobOutputStateChange
+
+O exemplo seguinte mostra o esquema do **JobOutputStateChange** eventos:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputStateChange",
+  "eventTime": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="joboutputscheduled"></a>JobOutputScheduled
+### <a name="joboutputprocessing"></a>JobOutputProcessing
+### <a name="joboutputfinished"></a>JobOutputFinished
+### <a name="joboutputcanceling"></a>JobOutputCanceling
+### <a name="joboutputcanceled"></a>JobOutputCanceled
+### <a name="joboutputerrored"></a>JobOutputErrored
+
+Para cada alteração de estado de JobOutput, o esquema de exemplo terá um aspeto semelhante ao seguinte:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputProcessing",
+  "eventTime": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
 O exemplo seguinte mostra o esquema do **LiveEventConnectionRejected** eventos: 
 
@@ -136,7 +298,7 @@ Os códigos de resultado são:
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Velocidade de transmissão agregada excede o limite permitido máximo. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | O carimbo de hora para FLVTag de vídeo ou áudio é inválido de codificador RTMP. |
 
-## <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
+### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
 O exemplo seguinte mostra o esquema do **LiveEventEncoderConnected** eventos: 
 
@@ -169,7 +331,7 @@ O objeto de dados tem as seguintes propriedades:
 | EncoderIp | cadeia | IP do codificador. |
 | EncoderPort | cadeia | Porta do codificador de onde vem esse fluxo. |
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
 O exemplo seguinte mostra o esquema do **LiveEventEncoderDisconnected** eventos: 
 
@@ -225,7 +387,7 @@ Os códigos de resultado de anulações normais de desligamento são:
 | MPI_REST_API_CHANNEL_STOP | Canal em manutenção. |
 | MPI_STREAM_HIT_EOF | Fluxo EOF é enviado pelo codificador. |
 
-## <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
+### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
 
 O exemplo seguinte mostra o esquema do **LiveEventIncomingDataChunkDropped** eventos: 
 
@@ -261,7 +423,7 @@ O objeto de dados tem as seguintes propriedades:
 | escala temporal | cadeia | Escala temporal do período de tempo. |
 | ResultCode | cadeia | Motivo da lista de segmentos de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
-## <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
+### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
 O exemplo seguinte mostra o esquema do **LiveEventIncomingStreamReceived** eventos: 
 
@@ -303,7 +465,7 @@ O objeto de dados tem as seguintes propriedades:
 | Carimbo de data/hora | cadeia | Primeira timestamp do segmento de dados recebido. |
 | escala temporal | cadeia | Escala temporal em que é representado timestamp. |
 
-## <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
+### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
 O exemplo seguinte mostra o esquema do **LiveEventIncomingStreamsOutOfSync** eventos: 
 
@@ -319,7 +481,9 @@ O exemplo seguinte mostra o esquema do **LiveEventIncomingStreamsOutOfSync** eve
       "minLastTimestamp": "319996",
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
-      "typeOfStreamWithMaxLastTimestamp": "Video"
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -335,8 +499,10 @@ O objeto de dados tem as seguintes propriedades:
 | TypeOfTrackWithMinLastTimestamp | cadeia | Tipo de controle (vídeo ou áudio) com o mínimo timestamp último. |
 | MaxLastTimestamp | cadeia | Máximo de todos os carimbos entre todas as faixas (vídeos ou áudio). |
 | TypeOfTrackWithMaxLastTimestamp | cadeia | Tipo de controlar (vídeo ou áudio) com o máximo timestamp último. |
+| TimescaleOfMinLastTimestamp| cadeia | Obtém a escala temporal em que é representado "MinLastTimestamp".|
+| TimescaleOfMaxLastTimestamp| cadeia | Obtém a escala temporal em que é representado "MaxLastTimestamp".|
 
-## <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
+### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
 O exemplo seguinte mostra o esquema do **LiveEventIncomingVideoStreamsOutOfSync** eventos: 
 
@@ -352,7 +518,8 @@ O exemplo seguinte mostra o esquema do **LiveEventIncomingVideoStreamsOutOfSync*
       "FirstTimestamp": "2162058216",
       "FirstDuration": "2000",
       "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000"
+      "SecondDuration": "2000",
+      "timescale": "10000000"      
     },
     "dataVersion": "1.0"
   }
@@ -367,8 +534,9 @@ O objeto de dados tem as seguintes propriedades:
 | FirstDuration | cadeia | Duração do segmento de dados com timestamp primeiro. |
 | SecondTimestamp | cadeia  | Timestamp recebido para algum outro nível de controle/qualidade do tipo vídeo. |
 | SecondDuration | cadeia | Duração do segmento de dados com o segundo timestamp. |
+| escala temporal | cadeia | Escala temporal de carimbos e duração.|
 
-## <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
+### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
 O exemplo seguinte mostra o esquema do **LiveEventIngestHeartbeat** eventos: 
 
@@ -417,7 +585,7 @@ O objeto de dados tem as seguintes propriedades:
 | Estado | cadeia | Estado do evento em direto. |
 | Bom estado de funcionamento | Bool | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
 
-## <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
+### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
 O exemplo seguinte mostra o esquema do **LiveEventTrackDiscontinuityDetected** eventos: 
 
@@ -456,7 +624,7 @@ O objeto de dados tem as seguintes propriedades:
 | DiscontinuityGap | cadeia | Lacuna entre acima dois carimbos. |
 | escala temporal | cadeia | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
 
-## <a name="common-event-properties"></a>Propriedades de evento comum
+### <a name="common-event-properties"></a>Propriedades de evento comum
 
 Um evento tem os seguintes dados de nível superior:
 

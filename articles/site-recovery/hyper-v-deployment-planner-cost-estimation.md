@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: dba323b8cd57dd33c1477027f853cba3c95c8a07
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092512"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387247"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
 
@@ -143,7 +143,7 @@ Para adicionar VMs manualmente:
 
 **Número de Explorações de DR num ano**: o número de vezes que executa explorações de DR num ano. Por predefinição, é quatro vezes por ano. Pode modificar o período para VMs específicas ou aplicar o novo valor a todas as VMs. Introduza o novo valor na linha superior e selecione **Aplicar a todos**. Com base no número de explorações de DR num ano e no período de duração de cada exploração de DR, é calculado o custo total de exploração de DR. 
 
-**Duração de cada Exploração de DR (Dias)**: a duração de cada exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou aplicar um novo valor a todas as VMs. Introduza um novo valor na linha superior e selecione **Aplicar a todos**. O custo total de exploração de DR é calculado com base no número de explorações de DR num ano e no período de duração de cada exploração de DR.
+**Duração de cada Exploração de DR (Dias)**: a duração de cada exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou aplicar um novo valor a todas as VMs. Introduza um novo valor na linha superior e selecione **Aplicar a todos**. O custo total de exploração de DR é calculado com base no número de explorações de DR num ano e no período de duração de cada exploração de DR.
  
 **Tipo de SO**: o tipo de sistema operativo (SO) da VM. É Windows ou Linux. Se o tipo de SO for Windows, o Benefício Híbrido do Azure pode ser aplicado a essa VM. 
 

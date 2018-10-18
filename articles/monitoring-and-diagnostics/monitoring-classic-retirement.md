@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363951"
+ms.locfileid: "49386524"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Unificada alertas e monitorização no Azure Monitor substitui clássico alertas e monitorização
 
@@ -49,8 +49,8 @@ As métricas de mais recente de recursos do Azure estão disponíveis como:
 Como já declarado, clássica de monitorização e alertas atualmente utilizável de plataforma a [alertas (clássica) secção](monitoring-overview-alerts-classic.md) do Azure portal vai ser descontinuado em trazer meses tendo em conta foram substituídas por sistema mais recente.
 Clássico mais antigo, monitorização e alertas vai ser descontinuado a 30 de Junho de 2019; incluindo o fechamento de APIs relacionadas, interface do portal do Azure e serviços no mesmo. Especificamente, estas funcionalidades serão preteridas:
 
-- Métricas (clássicas) mais antigas e alertas para recursos do Azure como atualmente disponíveis através do [alertas (clássica) secção](monitoring-overview-alerts-classic.md) do Azure portal; acessível como [microsoft.insights/alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) recursos
-- Plataforma (clássica) mais antiga e métricas personalizadas para o Application Insights, bem como alertas nos mesmos como atualmente disponíveis através do [alertas (clássica) secção](monitoring-overview-alerts-classic.md) do Azure, portal e acessível como [microsoft.insights/ alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) recursos
+- Métricas (clássicas) mais antigas e alertas para recursos do Azure como atualmente disponíveis através do [alertas (clássica) secção](monitoring-overview-alerts-classic.md) do Azure portal; acessível como [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) recursos
+- Plataforma (clássica) mais antiga e métricas personalizadas para o Application Insights, bem como alertas nos mesmos como atualmente disponíveis através do [alertas (clássica) secção](monitoring-overview-alerts-classic.md) do Azure, portal e acessível como [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) recursos
 - Alerta de anomalias de falha (clássica) mais antiga atualmente disponível na [deteção inteligente no Application Insights](../application-insights/app-insights-proactive-diagnostics.md) no portal do Azure; com alertas configurados mostrado na [alertas (clássica) secção](monitoring-overview-alerts-classic.md) do Azure Portal
 
 Todos os clássico monitorização e alertas de sistemas, incluindo correspondente [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [página do portal do Azure, e [modelo do Resource](monitoring-enable-alerts-using-template.md) permanecerão utilizável até Junho de 2019. Após esta data, a monitorização clássico e o serviço de alertas será extinto e já não está disponível para utilização; enquanto as regras de qualquer alerta que continuam a pertencer nos alertas (clássicas) para além de Junho de 2019 irão continuar a executar, mas não está disponível para modificação.

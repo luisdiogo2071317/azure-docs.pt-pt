@@ -1,10 +1,10 @@
 ---
-title: Migrar a partir do Azure v2 v3 de serviços de multimédia | Microsoft Docs
-description: Este artigo descreve as alterações que foram introduzidas no v3 de Media Services do Azure e mostra as diferenças entre duas versões.
+title: Migrar a partir do Azure v2 para a v3 dos serviços de multimédia | Documentos da Microsoft
+description: Este artigo descreve as alterações que foram introduzidas no Serviços de multimédia do Azure v3 e mostra as diferenças entre duas versões.
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: serviços de multimédia do azure, transmissão, difusão, em direto, offline
@@ -13,58 +13,55 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a17bad5beb651aaa085c626296c200a00c30647e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295688"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376367"
 ---
-# <a name="migrate-from-media-services-v2-to-v3"></a>Migrar a partir de serviços de multimédia v2 v3
+# <a name="migrate-from-media-services-v2-to-v3"></a>Migrar a partir de serviços de multimédia v2 para a v3
 
-> [!NOTE]
-> A versão mais recente dos Serviços de Multimédia do Azure está em Pré-visualização e poderá ser referida como v3.
+Este artigo descreve as alterações que foram introduzidas no Azure Media Services (AMS) v3 e mostra as diferenças entre duas versões.
 
-Este artigo descreve as alterações que foram introduzidas no Serviços de suporte de dados do Azure (AMS) v3 e mostra as diferenças entre duas versões.
+## <a name="why-should-you-move-to-v3"></a>Por que motivo deve mover a v3?
 
-## <a name="why-should-you-move-to-v3"></a>Por que motivo deve mover v3?
+### <a name="api-is-more-approachable"></a>A API é mais acessível
 
-### <a name="api-is-more-approachable"></a>API é mais acessível
+*  v3 baseia-se numa superfície de API unificada que expõe a funcionalidade de gerenciamento e operações incorporada no Gestor de recursos do Azure. Modelos Azure Resource Manager podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, LiveEvents e muito mais.
+* Abra a API (também conhecido como Swagger) um documento de especificação.
+* SDKs disponíveis para .net, .net Core, node. js, Python, Java, Ruby.
+* Integração de CLI do Azure.
 
-*  v3 baseiam-se uma superfície de API unificada que expõe funcionalidades de gestão e operações incorporadas no Azure Resource Manager. Modelos Azure Resource Manager podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, LiveEvents e muito mais.
-* Abrir API (aka Swagger) documento de especificação.
-* SDKs disponíveis para .net, .net Core, Node.js, Python, Java, Ruby.
-* Integração do CLI do Azure.
+### <a name="new-features"></a>Novos recursos
 
-### <a name="new-features"></a>Novas funcionalidades
+* Codificação agora suporta HTTPS ingerir (baseado em Url de entrada).
+* As transformações são novas na v3. Uma transformação é usada para compartilhar configurações, criar modelos do Azure Resource Manager e isolar as definições de codificação de um cliente específico ou inquilino. 
+* Um elemento pode ter vários StreamingLocators com diferentes configurações de empacotamento dinâmico e a encriptação dinâmica.
+* Proteção de conteúdo oferece suporte a recursos com múltiplos principais. 
+* Pré-visualização do LiveEvent suporta o empacotamento dinâmico e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
+* LiveOuput é mais simples de usar do que a entidade de programa mais antiga. 
+* Foi adicionado suporte RBAC em entidades.
 
-* Codificação agora suporta HTTPS inserção (baseado no Url de entrada).
-* Transformações são uma novidade no v3. Uma transformação é utilizada para partilhar as configurações, criar modelos do Azure Resource Manager e isolar as definições de codificação de um inquilino ou cliente específico. 
-* Um recurso pode ter vários StreamingLocators com diferentes definições de empacotamento dinâmico e a encriptação dinâmica.
-* Proteção de conteúdos suporta funcionalidades várias chaves. 
-* Pré-visualização do LiveEvent suporta empacotamento dinâmico e a encriptação dinâmica. Isto permite que a proteção de conteúdos no empacotamento de pré-visualização, bem como DASH e HLS.
-* LiveOuput é mais simples utilizar que a entidade mais antiga do programa. 
-* Foi adicionado suporte RBAC entidades.
+## <a name="changes-from-v2"></a>Alterações do v2
 
-## <a name="changes-from-v2"></a>Alterações de v2
+* Em serviços de multimédia v3, encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
 
-* Nos Media Services v3, encriptação de armazenamento (encriptação AES 256) só é suportada para em efeitos de compatibilidade quando os elementos criados com os Media Services v2. Significado v3 funciona com o armazenamento existente encriptados ativos, mas não permitirá a criação de novos.
-
-    Para elementos criados com v3, os Media Services suportam a [Storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) encriptação de armazenamento do lado do servidor.
+    Para os recursos criados com v3, serviços de multimédia suportam o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) encriptação de armazenamento do lado do servidor.
     
-* SDKs de serviços de suporte de dados desassociada do SDK de armazenamento que lhe dá mais controlo sobre o SDK de armazenamento utilizado e evita a problemas de controlo de versões. 
-* V3, todas as taxas de bits codificação estão no bits por segundo. Isto é diferente de v2 as restantes predefinições codificador de multimédia Standard. Por exemplo, velocidade de transmissão na v2 teria de ser especificada como 128, mas v3 seria possível 128000. 
+* SDKs de serviços de multimédia dissociado do SDK de armazenamento que fornece mais controle sobre o SDK de armazenamento utilizado e evita problemas de controle de versão. 
+* Na v3, todas as taxas de bits de codificação são em bits por segundo. Isto é diferente da v2 REST que predefine Media Encoder Standard. Por exemplo, a velocidade de transmissão no v2 teria de ser especificada como 128, mas em v3 seria 128000. 
 * IngestManifests AssetFiles, AccessPolicies, não existem na v3.
-* ContentKeys deixam de uma entidade, propriedade o StreamingLocator.
-* Suporte de grelha de evento substitui NotificationEndpoints.
-* Algumas entidades foram mudar o nome
+* ContentKeys já não são uma entidade, propriedade do StreamingLocator.
+* Suporte a eventos Grid substitui NotificationEndpoints.
+* Algumas entidades foram renomeadas
 
-  * JobOutput substitui tarefas, agora apenas parte da tarefa.
+  * JobOutput substitui a tarefa, agora é apenas parte da tarefa.
   * LiveEvent substitui o canal.
   * LiveOutput substitui o programa.
-  * StreamingLocator substitui localizador.
+  * StreamingLocator substitui o localizador.
 
 ## <a name="code-changes"></a>Alterações do código
 
@@ -126,7 +123,7 @@ accountName, transformName, jobName,
 new Job {Input = jobInput, Outputs = jobOutputs});
 ```
 
-### <a name="publish-an-asset-with-aes-encryption"></a>Publicar um elemento com a encriptação AES 
+### <a name="publish-an-asset-with-aes-encryption"></a>Publicar um elemento com encriptação AES 
 
 #### <a name="v2"></a>v2
 
@@ -134,11 +131,11 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 2. Criar ContentKeyAuthorizationPolicy
 3. Criar AssetDeliveryPolicy
 4. Criar elemento e carregar conteúdo ou submeter tarefa e utilizar recursos de saída
-5. Associar AssetDeliveryPolicy ativo
+5. Associe AssetDeliveryPolicy com elemento
 6. Criar ContentKey
 7. Anexar ContentKey ativo
 8. Criar AccessPolicy
-9. Criar localizador
+9. Criar o localizador
 
 #### <a name="v3"></a>v3
 

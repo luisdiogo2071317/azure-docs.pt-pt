@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058217"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386302"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Azure Resource Manager
 
@@ -264,7 +264,7 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
 Se o cluster já está ativo e obtém alguns aplicativos que gostaria de gerir recursos do Gestor de recursos já estão implementados na mesma, em vez de remover as aplicações e reimplementá-los, pode usar uma chamada PUT usando as mesmas APIs para que as aplicações confirmou como recursos do Resource Manager. 
 
 > [!NOTE]
-> Para permitir uma atualização de cluster para ignorar as aplicações de mau estado de funcionamento do cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as definições estão na [documentação de recursos de infraestrutura REST API Cluster atualizar política do serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir uma atualização de cluster para ignorar as aplicações de mau estado de funcionamento do cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as definições estão na [documentação de recursos de infraestrutura REST API Cluster atualizar política do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

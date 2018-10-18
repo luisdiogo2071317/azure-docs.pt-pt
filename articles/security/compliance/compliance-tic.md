@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505116"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388325"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Documentação de orientação de ligações de Internet fidedigna
 
@@ -223,7 +223,7 @@ As políticas de exemplo seguintes podem ser utilizadas para cenários de confor
 
 ### <a name="network-watcher-traffic-analytics"></a>Análise de tráfego do observador de rede
 
-Observador de rede [análise de tráfego](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) consumir dados de registo de fluxo e outros registos para fornecer uma visão geral de tráfego de rede. Os dados são útil para auditoria de conformidade de classificação TIC e para identificar pontos problemáticos. Pode utilizar o dashboard de alto nível para o ecrã rapidamente as máquinas virtuais que estão a comunicar com a internet e obter uma lista de foco para o encaminhamento do PEDI.
+Observador de rede [análise de tráfego](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) consumir dados de registo de fluxo e outros registos para fornecer uma visão geral de tráfego de rede. Os dados são útil para auditoria de conformidade de classificação TIC e para identificar pontos problemáticos. Pode utilizar o dashboard de alto nível para o ecrã rapidamente as máquinas virtuais que estão a comunicar com a internet e obter uma lista de foco para o encaminhamento do PEDI.
 
 ![Análise de tráfego](media/tic-traffic-analytics-1.png)
 

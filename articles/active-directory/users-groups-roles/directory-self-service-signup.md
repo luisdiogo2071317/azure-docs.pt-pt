@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2018
+ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 99c5e99fa3bd33ef42e8df6ceba5be4be2cd1249
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872272"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394685"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
 Este artigo explica a inscrição self-service e como para suportá-la no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir de um Azure AD não gerido de inquilinos, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
@@ -38,38 +38,45 @@ Este artigo explica a inscrição self-service e como para suportá-la no Azure 
 ## <a name="how-do-i-control-self-service-settings"></a>Como posso controlar definições de gestão personalizada?
 Os administradores têm dois controles de Self-serviços hoje mesmo. Poderá controlar se:
 
-* Os utilizadores podem associar o diretório através de e-mail.
-* Os utilizadores podem licenciar os próprios para aplicativos e serviços.
+* Os utilizadores podem associar o diretório através de e-mail
+* Os utilizadores podem licenciar os próprios para aplicativos e serviços
 
 ### <a name="how-can-i-control-these-capabilities"></a>Como posso controlar esses recursos?
 Um administrador pode configurar estas capacidades utilizando os seguintes parâmetros de cmdlet Set-MsolCompanySettings do Azure AD:
 
-* **AllowEmailVerifiedUsers** controla se um utilizador pode criar ou associar um diretório não gerido. Se definir esse parâmetro como $false, nenhum utilizador verificado por e-mail pode associar o diretório.
-* **AllowAdHocSubscriptions** controla a capacidade dos utilizadores efetuar a inscrição self-service. Se definir esse parâmetro como $false, os utilizadores não podem efetuar a inscrição self-service. 
+* **AllowEmailVerifiedUsers** controla se um utilizador pode criar ou associar um diretório. Se definir esse parâmetro como $false, nenhum utilizador verificado por e-mail pode associar o diretório.
+* **AllowAdHocSubscriptions** controla a capacidade dos utilizadores efetuar a inscrição self-service. Se definir esse parâmetro como $false, nenhum utilizador pode efetuar a inscrição self-service.
   
-  > [!NOTE]
-  > Flow e PowerApps inscrições de avaliação não são controladas mediante a **AllowAdHocSubscriptions** definição. Para obter mais informações, veja os artigos seguintes:
-  > * [Como posso impedir os utilizadores existentes comecem a utilizar o Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-  > * [Flow na sua organização, as perguntas e respostas](https://docs.microsoft.com/flow/organization-q-and-a)
+AllowEmailVerifiedUsers e AllowAdHocSubscriptions são as definições de todo o diretório que podem ser aplicadas a um gerido ou um diretório não gerido. Eis um exemplo em que:
+
+* Administra um diretório com um domínio verificado, tal como contoso.com
+* Utilizar a colaboração B2B de outro diretório para convidar um utilizador que já não existe (userdoesnotexist@contoso.com) no diretório principal do constoso.com
+* O diretório de raiz tem AllowEmailVerifiedUsers ativada
+
+Se condições anteriores forem verdadeiras, em seguida, um utilizador de membro é criado no diretório principal e um utilizador de convidado de B2B é criado no diretório de convite.
+
+Flow e PowerApps inscrições de avaliação não são controladas mediante a **AllowAdHocSubscriptions** definição. Para obter mais informações, veja os artigos seguintes:
+
+* [Como posso impedir os utilizadores existentes comecem a utilizar o Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [Flow na sua organização, as perguntas e respostas](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Como os controles funcionam em conjunto?
 Esses dois parâmetros podem ser utilizados em conjunto para definir um controlo mais preciso sobre a inscrição self-service. Por exemplo, o seguinte comando irá permitir aos utilizadores efetuarem a inscrição self-service, mas apenas se os utilizadores que já tem uma conta no Azure AD (em outras palavras, os utilizadores que seriam necessário uma conta verificado por e-mail a ser criado pela primeira vez não é possível efetuar inscrição self-service):
 
-````
+````powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
+
 O fluxograma a seguir explica as diferentes combinações para estes parâmetros e as condições resultantes para o diretório e a inscrição self-service.
 
-![][1]
+![controles de inscrição self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Para obter mais informações e exemplos de como utilizar estes parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referência de Cmdlet do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-
-<!--Image references-->
-[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png

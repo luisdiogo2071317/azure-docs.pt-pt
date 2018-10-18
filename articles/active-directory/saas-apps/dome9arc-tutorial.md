@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746496"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integração do Azure Active Directory com Dome9 arco
 
@@ -150,7 +150,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     d. Clique em **OK**.
     
     > [!NOTE]
-    > Consulte este [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) sobre como configurar e configurar as funções para a aplicação.
+    > Consulte este [link](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) sobre como configurar e configurar as funções para a aplicação.
 
 7. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

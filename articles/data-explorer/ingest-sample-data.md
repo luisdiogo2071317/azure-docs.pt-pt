@@ -2,18 +2,18 @@
 title: Ingerir dados de exemplo no Explorador de dados do Azure
 description: Saiba mais sobre como ingerir dados de exemplo relacionados com Meteorologia (carga) no Explorador de dados do Azure.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7eb0e48a5b66775ac97ed0cab751db0ef367f667
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964620"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394583"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingerir dados de exemplo no Explorador de dados do Azure
 
@@ -24,15 +24,15 @@ Este artigo mostra-lhe como ingerir dados de exemplo (carga) para uma base de da
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Um cluster de teste e a base de dados](create-cluster-database-portal.md)
+[Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Ingerir dados
 
-O **StormEvents** conjunto de dados de exemplo contém dados relacionados com Meteorologia a partir do [National centros de informações ambientais](https://www.ncdc.noaa.gov/stormevents/).
+O conjunto de dados de exemplo **StormEvents** contém dados relacionados com Meteorologia dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
 
-1. Inicie sessão no [ https://dataexplorer.azure.com ](https://dataexplorer.azure.com).
+1. Inicie sessão em [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-1. No canto superior esquerdo da aplicação, selecione **cluster de adicionar**.
+1. Na parte superior esquerda da aplicação, selecione **Adicionar cluster**.
 
 1. Na **adicionar cluster** caixa de diálogo, introduza o URL do seu cluster no formulário `https://<ClusterName>.<Region>.kusto.windows.net/`, em seguida, selecione **Add**.
 

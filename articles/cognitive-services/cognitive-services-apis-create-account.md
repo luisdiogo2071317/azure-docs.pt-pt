@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: 9c4aea2493ffed12b90f82113baf81c6c77a0ea2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 37f53303a3b0c224c1286fb488a796fd5cdee0e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801408"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386421"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -49,7 +49,7 @@ Utilize este guia de introdução para começar a utilizar os serviços cognitiv
 ## <a name="access-your-resource"></a>Aceder ao seu recurso 
 
 > [!NOTE]
-> Proprietários de subscrições podem desativar a criação de contas de serviços cognitivos para subscrições e grupos de recursos através da aplicação [o Azure policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview#policy-definition), atribuir uma definição de política de "tipos de recurso não permitidos" e especificando **Microsoft.CognitiveServices/accounts** como o tipo de recurso de destino.
+> Proprietários de subscrições podem desativar a criação de contas de serviços cognitivos para subscrições e grupos de recursos através da aplicação [o Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), atribuir uma definição de política de "tipos de recurso não permitidos" e especificando **Microsoft.CognitiveServices/accounts** como o tipo de recurso de destino.
 
 Depois de criar o seu recurso, pode acessá-lo a partir do dashboard do Azure se o tiver afixado. Caso contrário, pode encontrá-lo na **grupos de recursos**.
 

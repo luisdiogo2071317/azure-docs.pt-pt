@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 293b6af1d591c0c9763c2914713fe892392ae7ea
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578145"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387434"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço com o serviço de pesquisa do Azure Maps
 
@@ -59,7 +59,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
 4. Clique em **enviar** e rever o corpo da resposta.
 
-    A cadeia de consulta ambígua de "pizza" devolvido 10 [ponto do resultado de interesse](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) resultados (POI) com as categorias cair no "pizza" e "restaurante". Cada resultado retorna um endereço de rua, latitude / ver os valores de longitude, portas e pontos de entrada para a localização.
+    A cadeia de consulta ambígua de "pizza" devolvido 10 [ponto do resultado de interesse](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) resultados (POI) com as categorias cair no "pizza" e "restaurante". Cada resultado retorna um endereço de rua, latitude / ver os valores de longitude, portas e pontos de entrada para a localização.
   
     Os resultados são diversificados para essa consulta, não ligada a qualquer localização de referência específica. Pode utilizar o **countrySet** parâmetro para especificar apenas os países para os quais seu aplicativo precisa cobertura, como o comportamento padrão é pesquisar todo o mundo, potencialmente, retornando resultados desnecessários.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: cd0af3bc9489452dfc98efaa3ded768a8ca775ab
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 71d96d7e88404c1f8b617370ef5cc841aad882f8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079485"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390045"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo contém perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -70,7 +70,7 @@ Para proteger as VMs VMware precisará de um hipervisor vSphere e de máquinas v
 Sim. Quando utiliza o Site Recovery para orquestrar a replicação e ativação pós-falha das sucursais, obterá uma orquestração unificada e exibição de todas as suas branch office cargas de trabalho num local central. Pode facilmente executar as ativações pós-falha e administrar a recuperação após desastre de todas as sucursais a partir da sede, sem visitar as sucursais.
 
 ## <a name="pricing"></a>Preços
-Para perguntas relacionadas com os preços, consulte as FAQ em [preços do Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+Para perguntas relacionadas com os preços, consulte as FAQ em [preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Segurança
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Os dados de replicação são enviados para o serviço de Recuperação de Sites?

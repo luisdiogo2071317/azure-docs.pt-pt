@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722216"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395144"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Azure do Cosmos DB
@@ -100,7 +100,7 @@ As seguintes condições aplicam-se a subscrições do Azure do Cosmos DB:
 O Azure Cosmos DB está disponível no portal do Azure. Em primeiro lugar, inscreva-se uma subscrição do Azure. Depois que tiver se inscrito, pode adicionar uma API de SQL, Gremlin API, API de tabela, API de MongoDB ou conta da API de Cassandra para a sua subscrição do Azure.
 
 ### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
-Uma chave mestra é um token de segurança para aceder a todos os recursos de uma conta. Indivíduos com a chave tem de leitura e escrita a todos os recursos na conta de base de dados. Tenha cuidado ao distribuir chaves mestras. A chave mestra principal e a chave mestra secundária estão disponíveis no **chaves** painel da [portal do Azure][azure-portal]. Para obter mais informações sobre chaves, consulte [ver, copiar e chaves de acesso de voltar a gerar](manage-account.md#keys).
+Uma chave mestra é um token de segurança para aceder a todos os recursos de uma conta. Indivíduos com a chave tem de leitura e escrita a todos os recursos na conta de base de dados. Tenha cuidado ao distribuir chaves mestras. A chave mestra principal e a chave mestra secundária estão disponíveis no **chaves** painel da [portal do Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-account.md#keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões que PreferredLocations pode ser definido como? 
 O valor de PreferredLocations pode ser definido como qualquer uma das regiões do Azure em que o Cosmos DB está disponível. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/).
@@ -127,7 +127,7 @@ Sim Azure cosmos DB suporta análise de série de tempo, aqui está um exemplo p
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como iniciar a programação com a API de SQL?
 Primeiro, deve inscrever para uma subscrição do Azure. Depois de se inscrever para uma subscrição do Azure, pode adicionar um contentor de API de SQL para a sua subscrição do Azure. Para obter instruções sobre como adicionar uma conta do Azure Cosmos DB, veja [criar uma conta de base de dados do Azure Cosmos DB](create-sql-api-dotnet.md#create-account). 
 
-[SDKs](sql-api-sdk-dotnet.md) estão disponíveis para .NET, Python, node. js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/cosmos-db/) para interagir com recursos do Azure Cosmos DB a partir de várias plataformas e linguagens.
+Existem [SDKs](sql-api-sdk-dotnet.md) disponíveis para .NET, Python, Node.js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/cosmos-db/) para interagir com recursos do Azure Cosmos DB a partir de várias plataformas e linguagens.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Posso aceder a alguns exemplos prontas a utilizar para obter um ponto de partida?
 Exemplos para a API de SQL [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [node. js](sql-api-nodejs-samples.md), e [Python](sql-api-python-samples.md) os SDKs estão disponíveis no GitHub.
@@ -466,7 +466,7 @@ O Azure Cosmos DB faz uso de [criação de partições horizontais](partition-da
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como posso proteger contra ataques de injeção usando drivers de Gremlin? 
 
-Controladores de Tinkerpop Gremlin mais nativos que a opção fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazê-lo na [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) e, na [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Controladores de Tinkerpop Gremlin mais nativos que a opção fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazê-lo na [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e, na [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Por que eu ganho o "erro de compilação de consulta do Gremlin: não é possível localizar qualquer método" erro?
 

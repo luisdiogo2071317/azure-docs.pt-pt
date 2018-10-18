@@ -2,7 +2,7 @@
 title: Serviços de multimédia do Azure com o modelo de licença PlayReady
 description: Este tópico apresenta uma visão geral de um modelo de licença de PlayReady que é utilizado para configurar as licenças do PlayReady.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: d5315c6cc4ade94bc829aa77f795d9688f78b0ec
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f0fd4d8a9d6e9382ab02b0bd924e2a43b31f6684
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115165"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377621"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Descrição geral do modelo de licença PlayReady de serviços de multimédia 
 

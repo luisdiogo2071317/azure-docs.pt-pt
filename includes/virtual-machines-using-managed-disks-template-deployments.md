@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: c7db8eaf57bf29e17b4543e99a44655030aa6172
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0c21ba3df6805c053f3d318d1ca3734a89c2ab60
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979288"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400308"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilizar Managed Disks no modelos Azure Resource Manager
 
@@ -256,4 +256,4 @@ Para obter informações completas sobre as especificações de REST API, consul
 * Visite o [descrição geral de discos geridos do Azure](../articles/virtual-machines/windows/managed-disks-overview.md) documento para obter mais informações sobre os discos geridos.
 * Reveja a documentação de referência de modelo para os recursos de máquina virtual ao visitar a [referência de modelo Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) documento.
 * Reveja a documentação de referência de modelo para os recursos de disco, visitando a [referência de modelo Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks) documento.
-* Para obter informações sobre como utilizar discos geridos em conjuntos de dimensionamento de máquina virtual do Azure, visite o [utilizar discos de dados com conjuntos de dimensionamento](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) documento.
+* Para obter informações sobre como utilizar discos geridos em conjuntos de dimensionamento de máquina virtual do Azure, visite o [utilizar discos de dados com conjuntos de dimensionamento](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) documento.

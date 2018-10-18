@@ -1,10 +1,10 @@
 ---
-title: Instruções de Spark do HDInsight utilizando PySpark e Scala no Azure | Microsoft Docs
-description: Exemplos do processo de ciência de dados de equipa percurso através da utilização de PySpark e Scala num Azure HDInsight Spark para realizar a Análise Preditiva.
+title: Orientações passo a passo HDInsight Spark com PySpark e Scala no Azure | Documentos da Microsoft
+description: Exemplos do processo de ciência de dados de equipa que orientam através da utilização de PySpark e Scala do Azure HDInsight Spark para realizar a Análise Preditiva.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,30 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 55b1fbf3aa7dab9c732dab65661f199c60413b4a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 278fb386e757b64b35b4d1baaf04dcc54c20ee67
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838454"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392577"
 ---
-# <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Há projetos de equipa ciência de dados estruturados no Azure Machine Learning Workbench
+# <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Projetos de ciência de dados estruturados de equipa no Azure Machine Learning Workbench
 
-Estes tutoriais e exemplos mostram como criar projetos de equipa ciência de dados estruturados com o Azure Machine Learning Workbench. Para obter uma descrição geral do processo de ciência de dados de equipa, consulte [o processo de ciência de dados](overview.md). Para obter uma descrição geral do Spark no HDInsight, consulte [introdução para o Spark no HDInsight](../../hdinsight/spark/apache-spark-overview.md).
+Estes tutoriais e exemplos mostram como criar projetos de equipe de ciência de dados estruturados com o Azure Machine Learning Workbench. Para uma descrição geral do processo de ciência de dados de equipa, consulte [processo de ciência de dados](overview.md). Para uma descrição geral do Spark no HDInsight, consulte [introdução ao Spark no HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
-Instruções de ciência de dados adicionais que executar o processo de ciência de dados do agrupamento estão agrupadas pelo **plataforma** que utilizam. Consulte [instruções ao executar o processo de ciência de dados de equipa](walkthroughs.md) para um itemization destes exemplos.
+Instruções de ciência de dados adicionais que executar o processo de ciência de dados de equipa estão agrupadas pela **plataforma** que utilizam. Ver [instruções passo a passo, executar o processo de ciência de dados de equipa](walkthroughs.md) para também uma itemização destes exemplos.
 
 ## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>Classificar incomes UCI no Azure Machine Learning Workbench
 
-Para obter um tutorial mostrar como criar um projeto TDSP no Azure Machine Learning Workbench, consulte [Tutorial de processo de ciência de dados de equipa: incomes UCI classificar no Azure Machine Learning Workbench](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) 
+Para um tutorial que de mostra como criar um projeto TDSP no Azure Machine Learning Workbench, consulte [Tutorial de processo de ciência de dados de equipa: incomes classificar UCI no Azure Machine Learning Workbench](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) 
 
 
-## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Reconhecimento de entidade biomedical com linguagem Natural processamento Learning profunda
+## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Reconhecimento de entidades biomédicas usando o processamento de linguagem Natural com aprendizagem profunda
 
-Para um exemplo que utiliza um projeto com instâncias criadas TDSP no Azure Machine Learning Workbench, consulte [reconhecimento de entidade Biomedical com linguagem Natural processamento Learning profunda](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
+Para obter um exemplo que utiliza um projeto de TDSP-instanciado no Azure Machine Learning Workbench, veja [reconhecimento de entidades biomédicas usando o processamento de linguagem Natural com aprendizagem profunda](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para ver um debate os componentes chave que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
+Para uma discussão sobre os principais componentes que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 
-Para um debate sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos siga, normalmente, quando estes são executados. 
+Para uma discussão sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. 

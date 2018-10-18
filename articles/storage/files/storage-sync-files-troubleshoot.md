@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167669"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389280"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -133,8 +133,8 @@ Para resolver este problema, execute os seguintes passos:
 
 1. Abra o Gestor de tarefas no servidor e certifique-se de que o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo de mensagens em fila não está em execução, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, atualize o agente de sincronização de ficheiros do Azure para a versão [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) se não estão atualmente instalado.
 2. Certifique-se de que as definições de Firewall e Proxy estão configuradas corretamente:
-    - Se o servidor estiver protegido por uma firewall, certifique-se de que a porta 443 de saída é permitida. Se a firewall restringe o tráfego a domínios específicos, certifique-se os domínios listados na Firewall [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) estão acessíveis.
-    - Se o servidor estiver atrás de um proxy, configure as definições de proxy de aplicações específicas ou todo o computador ao seguir os passos no Proxy [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+    - Se o servidor estiver protegido por uma firewall, certifique-se de que a porta 443 de saída é permitida. Se a firewall restringe o tráfego a domínios específicos, certifique-se os domínios listados na Firewall [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) estão acessíveis.
+    - Se o servidor estiver atrás de um proxy, configure as definições de proxy de aplicações específicas ou todo o computador ao seguir os passos no Proxy [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Ponto final do servidor tem um Estado de funcionamento das "Sem atividade" e o estado do servidor no painel servidores registados é "Online"**  
 
@@ -343,7 +343,7 @@ Este erro ocorre quando existe um problema com a base de dados interno utilizado
 | **Cadeia de erro** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Remediação necessária** | Sim |
 
-Este erro ocorre se a versão do agente de sincronização de ficheiros do Azure instalada no servidor não é suportada. Para resolver este problema, [atualizar]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) para um [suportada a versão do agente]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
+Este erro ocorre se a versão do agente de sincronização de ficheiros do Azure instalada no servidor não é suportada. Para resolver este problema, [atualizar]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) para um [suportada a versão do agente]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Atingiu o limite de armazenamento da partilha de ficheiros do Azure.**  
 | | |

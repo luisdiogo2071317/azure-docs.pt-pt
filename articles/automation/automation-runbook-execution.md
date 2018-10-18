@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66f3558a4314b1639d54d4e8ea6814eea9064073
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113891"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393768"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -135,19 +135,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>Justa
 
-Para poder partilhar recursos entre todos os runbooks na cloud, automatização do Azure será temporariamente descarregado, todas as tarefas após a execução de três horas. Durante este período, tarefas de [runbooks baseados em PowerShell](automation-runbook-types.md#powershell-runbooks) são parados e não forem reiniciados. O estado da tarefa mostra **parado**. Este tipo de runbook é sempre reiniciado desde o início, uma vez que não suportam os pontos de verificação.
+Para poder partilhar recursos entre todos os runbooks na cloud, automatização do Azure será temporariamente descarregar ou parar qualquer tarefa de execução durante mais de três horas. Tarefas de [baseada no PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) e [runbooks de Python](automation-runbook-types.md#python-runbooks) são paradas e não é reiniciado, e o estado da tarefa mostra parado.
 
-[Runbooks de fluxo de trabalho-baseada no PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) são retomado a partir de seus últimos [ponto de verificação](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Depois de executar a três horas, a tarefa de runbook está suspenso pelo serviço e o estado mostra **em execução, aguardar por recursos**. Quando uma área de segurança se torna disponível, o runbook é automaticamente reiniciado pelo serviço de automatização e currículos do último ponto de verificação. Este comportamento é o comportamento normal de fluxo de trabalho de PowerShell para suspender/reinício. Se o runbook novamente exceder a três horas de tempo de execução, o processo se repete até três vezes. Após o reinício de terceiro, se o runbook ainda não concluiu em três horas, em seguida, a tarefa de runbook é falhou e mostra o estado da tarefa **falha, aguardar por recursos**. Neste caso, receberá a seguinte exceção com a falha.
+Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados pelo justa e não tem uma limitação quanto um runbook pode executar. A outra tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos. Embora os Runbook Workers híbridos não estão limitados pelo limite de cota razoável de duração de 3 horas, runbooks foi executada nos mesmos ainda deve ser desenvolvido para oferecer suporte a comportamentos de reinício de problemas de infraestrutura local inesperado.
 
-*A tarefa não é possível continuar a ser executada uma vez que ele foi expulso repetidamente do mesmo ponto de verificação. Certifique-se de que o Runbook não realiza operações demoradas sem manter seu estado.*
-
-Este comportamento é proteger o serviço de runbooks em execução indefinidamente sem concluir, dado que não fazem torná-lo para o ponto de verificação seguinte sem a ser descarregado novamente.
-
-Se o runbook tiver sem pontos de verificação ou a tarefa não tinha alcançado o primeiro ponto de verificação antes de a ser descarregado, em seguida, reinicia desde o início.
-
-Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados pelo justa e não tem uma limitação quanto um runbook pode executar. A outra tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos.
-
-Se estiver a utilizar um runbook de fluxo de trabalho do PowerShell no Azure, ao criar um runbook, deve verificar se o tempo para executar todas as atividades entre dois pontos de verificação não exceda três horas. Poderá ter de adicionar pontos de verificação ao runbook para se certificar-se de que não atingir este limite de três horas ou divida de longa execução de operações. Por exemplo, o runbook pode executar um reindex num banco de dados SQL. Se esta operação única não for concluída dentro do limite de cota razoável, a tarefa é descarregada e reiniciada desde o início. Neste caso, deve dividir a operação de reindex em várias etapas, como a reindexação uma tabela por vez e, em seguida, inserir um ponto de verificação após cada operação para que a tarefa foi retomada após a última operação seja concluída.
+Outra opção é otimizar o runbook utilizando runbooks subordinados. Se o seu runbook percorre a mesma função num número de recursos, como uma operação de base de dados em várias bases de dados, pode mover essa função para um [runbook subordinado](automation-child-runbooks.md) e chamá-lo com o [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Cada um destes runbooks subordinados é executado em paralelo, em processos separados, diminuindo a quantidade total de tempo do runbook principal para conclusão. Pode utilizar o [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet no runbook para verificar o estado da tarefa para cada filho, se existem operações que precisam ser executadas após a conclusão do runbook subordinado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

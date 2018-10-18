@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395700"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377655"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como tópicos do barramento de serviço de utilização e as subscrições com node. js
 
@@ -61,7 +61,7 @@ Para utilizar o Service Bus, transfira o pacote do Azure node. js. Este pacote i
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. Pode executar manualmente a **ls** comando para verificar se um **nó\_módulos** pasta foi criada. Dentro dessa pasta encontrar os **azure** pacote, que contém as bibliotecas necessárias para aceder a tópicos do Service Bus.
+3. Pode executar manualmente a **ls** comando para verificar se um **nó\_módulos** pasta foi criada. Dentro dessa pasta, localize a **azure** pacote, que contém as bibliotecas necessárias para aceder a tópicos do Service Bus.
 
 ### <a name="import-the-module"></a>Importe o módulo
 Usando o bloco de notas ou outro editor de texto, adicione o seguinte na parte superior dos **Server. js** arquivo do aplicativo:
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configurar uma ligação do Service Bus
 O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de ligação que obteve no passo anterior, "obter as credenciais". Se esta variável de ambiente não está definido, tem de especificar as informações da conta, ao chamar `createServiceBusService`.
 
-Para obter um exemplo de definir as variáveis de ambiente para um serviço Cloud do Azure, veja [serviço de nuvem de node. js com o armazenamento][Node.js Cloud Service with Storage].
+Para obter um exemplo de definir as variáveis de ambiente para um serviço Cloud do Azure, veja [definir variáveis de ambiente](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -127,7 +127,7 @@ function (returnObject, finalCallback, next)
 
 Esse retorno de chamada e após o processamento da `returnObject` (a resposta do pedido para o servidor), o retorno de chamada tem o invocar em seguida (se existir) para continuar a processar outros filtros ou invocar `finalCallback` para terminar a invocação de serviço.
 
-O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte cria um **ServiceBusService** objeto que usa o **ExponentialRetryPolicyFilter**:
+O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O código seguinte cria um **ServiceBusService** objeto que usa o **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -242,7 +242,7 @@ Para enviar uma mensagem para um tópico do Service Bus, a aplicação tem de ut
 As mensagens enviadas para tópicos do Service Bus são **BrokeredMessage** objetos.
 **BrokeredMessage** objetos têm um conjunto de propriedades padrão (tais como `Label` e `TimeToLive`), um dicionário utilizado para reter propriedades personalizadas de específicas da aplicação e um corpo de dados de cadeia de caracteres. Uma aplicação pode definir o corpo da mensagem, passando um valor de cadeia de caracteres para o `sendTopicMessage` e todas as necessárias propriedades padrão são preenchidas por valores predefinidos.
 
-O exemplo seguinte demonstra como enviar cinco mensagens de teste para `MyTopic`. O `messagenumber` valor da propriedade de cada mensagem varia com a iteração do ciclo (Isto determina quais as subscrições que recebem a mesma):
+O exemplo seguinte demonstra como enviar cinco mensagens de teste para `MyTopic`. O `messagenumber` valor da propriedade de cada mensagem varia com a iteração do loop (esta propriedade determina quais as subscrições que recebem a mesma):
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
 As mensagens são recebidas a partir de uma subscrição com o `receiveSubscriptionMessage` método no **ServiceBusService** objeto. Por predefinição, as mensagens são eliminadas da subscrição como eles são de leitura. No entanto, pode definir o parâmetro opcional `isPeekLock` para **true** ler (pré-visualização) e a mensagem de bloqueio sem eliminá-lo a partir da subscrição.
 
-O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Porque o Service Bus marcou a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, ele tem estado em falta a mensagem consumida antes da falha de sistema.
+O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem quando houver uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Porque o Service Bus marcou a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, ele tem estado em falta a mensagem consumida antes da falha de sistema.
 
 Se o `isPeekLock` parâmetro estiver definido como **true**, a receção torna-se uma operação de duas etapas, o que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte para consumir, bloqueia-a para impedir a receção por outros consumidores e devolve a mesma à aplicação.
 Depois da aplicação processa a mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar **deleteMessage** método e passa a mensagem a eliminar como um parâmetro. O **deleteMessage** método marca a mensagem como consumida e remove-o da subscrição.

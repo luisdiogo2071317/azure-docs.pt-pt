@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: bbaf1f10284fb520cc3a52a6c04c4150de3b6546
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092019"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389467"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de disco de caixa de dados do Azure (pré-visualização)
 
@@ -57,7 +57,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho de conta de armazenamento do Azure
 
-Aqui estão os limites no tamanho dos dados que são copiados para a conta de armazenamento. Certifique-se de que os dados carregados estão de acordo com estes limites. Para obter as informações mais atualizadas sobre estes limites, aceda a [metas de dimensionamento de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [alvos de dimensionamento de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Aqui estão os limites no tamanho dos dados que são copiados para a conta de armazenamento. Certifique-se de que os dados carregados estão de acordo com estes limites. Para obter as informações mais atualizadas sobre estes limites, aceda a [metas de dimensionamento de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [alvos de dimensionamento de ficheiros do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite predefinido          |
 |---------------------------------------------------------------------|------------------------|

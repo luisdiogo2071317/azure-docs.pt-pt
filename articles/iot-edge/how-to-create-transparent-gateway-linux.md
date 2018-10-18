@@ -8,16 +8,16 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 079a22ebaa7abfec7e8db142bc8f277ff12ab77e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950017"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394974"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge do Linux que atua como um gateway transparente
 
-Este artigo fornece instruções detalhadas para a utilização de um dispositivo IoT Edge como gateway transparente. Para o restante deste artigo, o termo *gateway do IoT Edge* refere-se a um dispositivo IoT Edge utilizado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo do IoT Edge pode ser utilizado como um gateway][lnk-edge-as-gateway], que fornece uma descrição geral conceptual.
+Este artigo fornece instruções detalhadas para a utilização de um dispositivo IoT Edge como gateway transparente. Para o restante deste artigo, o termo *gateway do IoT Edge* refere-se a um dispositivo IoT Edge utilizado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo do IoT Edge pode ser utilizado como um gateway](./iot-edge-as-gateway.md), que fornece uma descrição geral conceptual.
 
 >[!NOTE]
 >Atualmente:
@@ -27,9 +27,9 @@ Este artigo fornece instruções detalhadas para a utilização de um dispositiv
 
 A parte difícil sobre a criação de um gateway transparente é ligar com segurança o gateway a jusante dispositivos. O Azure IoT Edge permite-lhe utilizar a infraestrutura PKI para configurar ligações seguras de TLS entre estes dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente.  Para manter a segurança razoável, o dispositivo de downstream deve confirmar a identidade do dispositivo de limite, uma vez que apenas pretende que os dispositivos se liguem ao seus gateways e não um gateway potencialmente malicioso.
 
-Pode criar qualquer infraestrutura de certificado que permite a confiança necessária para a sua topologia de gateway de dispositivo. Neste artigo, partimos do princípio a mesma configuração de certificado que pretende utilizar para ativar [segurança de AC X.509] [ lnk-iothub-x509] no IoT Hub, que envolve um certificado X.509 de AC associado a um hub de IoT específico (o IoT hub proprietário da AC ) e uma série de certificados, assinados com esta AC e uma autoridade de certificação para o dispositivo de limite.
+Pode criar qualquer infraestrutura de certificado que permite a confiança necessária para a sua topologia de gateway de dispositivo. Neste artigo, partimos do princípio a mesma configuração de certificado que pretende utilizar para ativar [segurança de AC X.509](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado X.509 de AC associado a um hub de IoT específico (o IoT hub proprietário AC) e uma série de certificados, sessão iniciada com esta AC e uma autoridade de certificação para o dispositivo de limite.
 
-![Configuração do gateway][1]
+![Configuração do gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 O gateway apresenta o respetivo certificado de AC de dispositivo do Edge no dispositivo jusante durante a inicialização da ligação. O dispositivo de downstream verifica para se certificar de que o certificado de AC de dispositivo do Edge está assinado pelo certificado de AC de proprietário. Este processo permite ao dispositivo downstream confirmar se que o gateway é proveniente de uma origem fidedigna.
 
@@ -37,8 +37,8 @@ Os seguintes passos guiá-lo pelo processo de criação dos certificados e insta
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1.  Instale o runtime do Azure IoT Edge num dispositivo Linux que pretende utilizar como o gateway transparente.
-   * [Linux x64][lnk-install-linux-x64]
-   * [ARM32 do Linux][lnk-install-linux-arm]
+   * [Linux x64](./how-to-install-iot-edge-linux.md)
+   * [ARM32 do Linux](./how-to-install-iot-edge-linux-arm.md)
 
 2.  Obter os scripts para gerar os certificados necessários de não produção com o seguinte comando. Estes scripts ajudar a criar os certificados necessários para configurar um gateway transparente. 
 
@@ -61,7 +61,7 @@ Os seguintes passos guiá-lo pelo processo de criação dos certificados e insta
       ```
 
 ## <a name="certificate-creation"></a>Criação do certificado
-1.  Crie o certificado de AC de proprietário e um certificado intermédio. Eles são todos colocados no `$WRKDIR`.
+1.  Crie o certificado de AC de proprietário e um certificado intermédio. Estes certificados são colocados em `$WRKDIR`.
 
    ```cmd
    ./certGen.sh create_root_and_intermediate
@@ -134,7 +134,7 @@ Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar m�
 6. O passo de modelo de revisão, selecione **submeter**.
 
 ## <a name="installation-on-the-downstream-device"></a>Instalação do dispositivo a jusante
-Um dispositivo de downstream pode ser de qualquer aplicação com o [do Azure IoT device SDK][lnk-devicesdk], como aquele simple descrito na [ligar o dispositivo ao seu hub IoT com .NET] [ lnk-iothub-getstarted]. Um aplicativo de dispositivo downstream deve confiar a **proprietário AC** certificado para validar as ligações de TLS para os dispositivos de gateway. Normalmente, é possível executar este passo de duas formas: ao nível do SO ou (para certos idiomas) ao nível da aplicação.
+Um dispositivo de downstream pode ser de qualquer aplicação com o [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md), como aquele simple descritas [ligar o dispositivo ao seu hub IoT com .NET](../iot-hub/quickstart-send-telemetry-dotnet.md). Um aplicativo de dispositivo downstream deve confiar a **proprietário AC** certificado para validar as ligações de TLS para os dispositivos de gateway. Normalmente, é possível executar este passo de duas formas: ao nível do SO ou (para certos idiomas) ao nível da aplicação.
 
 ### <a name="os-level"></a>Nível do SO
 Instalar este certificado no arquivo de certificados de sistema operacional irá permitir que todas as aplicações para utilizar o proprietário do certificado de AC como um certificado fidedigno.
@@ -148,11 +148,11 @@ Instalar este certificado no arquivo de certificados de sistema operacional irá
  
     Deverá ver uma mensagem a indicar "certificados de atualização no /etc/ssl/certs... 1 adicionou, removeu a 0; concluído."
 
-* Windows - aqui está um exemplo de como instalar um certificado de AC num host do Windows.
-  * No menu Iniciar, escreva em "Gerir certificados de computador". Isso deve abrir um utilitário chamado `certlm`.
-  * Navegue para certificados de computador Local--> certificados de raiz fidedigna--> certificados--> direito clique--> todas as tarefas--> importar para iniciar o Assistente de importação de certificado.
-  * Siga os passos conforme indicado e importe o certificado ficheiro $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
-  * Quando concluída, deverá ver uma mensagem "Importada com êxito".
+* Windows - este é um exemplo de como instalar um certificado de AC num host do Windows.
+  1. No menu Iniciar, escreva em "Gerir certificados de computador". Isso deve abrir um utilitário chamado `certlm`.
+  2. Navegue para **certificados de computador Local** > **certificados de raiz fidedigna** > **certificados** > com o botão direito > **Todas as tarefas** > **importar** para iniciar o Assistente de importação de certificado.
+  3. Siga os passos conforme indicado e importe o certificado ficheiro $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  4. Quando concluída, deverá ver uma mensagem "Importada com êxito".
 
 ### <a name="application-level"></a>Nível de aplicativo
 Para aplicativos .NET, é possível adicionar o fragmento seguinte para confiar num certificado no formato PEM. Inicializar a variável `certPath` com `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -169,7 +169,7 @@ Para aplicativos .NET, é possível adicionar o fragmento seguinte para confiar 
    ```
 
 ## <a name="connect-the-downstream-device-to-the-gateway"></a>Se conectar a jusante para o gateway
-É preciso inicializar o sdk de dispositivo do IoT Hub com uma cadeia de ligação de referência para o nome de anfitrião do dispositivo de gateway. Isso é feito ao acrescentar o `GatewayHostName` propriedade para a cadeia de ligação do dispositivo. Por exemplo, aqui está uma cadeia de ligação do dispositivo de exemplo para um dispositivo, ao qual podemos acrescentado o `GatewayHostName` propriedade:
+Inicialize o SDK de dispositivo do IoT Hub com uma cadeia de ligação de referência para o nome de anfitrião do dispositivo de gateway. Isso é feito ao acrescentar o `GatewayHostName` propriedade para a cadeia de ligação do dispositivo. Por exemplo, aqui está uma cadeia de ligação do dispositivo de exemplo para um dispositivo, ao qual podemos acrescentado o `GatewayHostName` propriedade:
 
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
@@ -187,31 +187,9 @@ O runtime do IoT Edge pode encaminhar mensagens enviadas a partir de dispositivo
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Consulte a [artigo de composição do módulo] [ lnk-module-composition] para obter mais detalhes sobre o roteamento de mensagens.
+Consulte a [artigo de composição do módulo](./module-composition.md) para obter mais detalhes sobre o roteamento de mensagens.
 
-[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
+[!INCLUDE [iot-edge-offline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge][lnk-module-dev].
-
-<!-- Images -->
-[1]: ./media/how-to-create-transparent-gateway/gateway-setup.png
-
-<!-- Links -->
-[lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
-[lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
-[lnk-module-composition]: ./module-composition.md
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-[lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
-[lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
-[lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
-[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
-[lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
-[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
+[Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge](module-development.md).

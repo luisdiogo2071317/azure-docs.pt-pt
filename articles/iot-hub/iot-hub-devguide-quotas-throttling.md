@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 377f28f4798a1ffb6423c1f4d9f4e34b4fc60234
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018847"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395161"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
@@ -75,9 +75,9 @@ IoT Hub impõe outros limites operacionais:
 | Mensagens do dispositivo para a cloud | 256 KB de tamanho máximo de mensagens |
 | Mensagens cloud-para-dispositivo<sup>1</sup> | 64 KB de tamanho da mensagem máxima. Máximo de mensagens para entrega pendentes é 50. |
 | Método direto<sup>1</sup> | Tamanho de payload do método direto máximo é 128 KB. |
-| Configurações | configurações de 20 por hub. |
-| Implementações do Edge | 20 implementações por hub. 20 módulos por implementação. |
-| Duplos | Tamanho máximo por secção duplo (etiquetas, as propriedades pretendidas, as propriedades comunicadas) é de 8 KB |
+| Configurações de dispositivos automático<sup>1</sup> | configurações de 100 por hub SKU paga. configurações de 20 por hub SKU gratuito. |
+| Implementações de borda automática<sup>1</sup> | 20 módulos por implementação. 100 implementações por hub SKU paga. 20 implementações por hub SKU gratuito. |
+| Os gémeos<sup>1</sup> | Tamanho máximo por secção duplo (etiquetas, as propriedades pretendidas, as propriedades comunicadas) é de 8 KB |
 
 <sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md).
 

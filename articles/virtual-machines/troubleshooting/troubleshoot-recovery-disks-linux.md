@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-Título: utilizar uma Linux resolver problemas de VMS com a CLI do Azure | Descrição do Microsoft Docs: Saiba como resolver problemas de VM do Linux ao ligar o disco do SO a uma VM de recuperação com os serviços de CLI do Azure: virtual máquinas linux documentationCenter: ' autores: genlin manager: jeconnoc editor: '
-
-MS. Service: MS. devlang do linux de máquinas virtuais: MS. topic do azurecli: Resolução de problemas de MS. tgt_pltfrm: workload linux de vm: MS de infraestrutura: 02/16/2017 MS. Author: genli
-
+title: Utilizar uma Linux resolver problemas de VMS com a CLI do Azure | Documentos da Microsoft
+description: Saiba como resolver problemas de VM do Linux ao ligar o disco do SO a uma VM de recuperação com a CLI do Azure
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392407"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Resolver problemas de uma VM do Linux ao anexar o disco do SO a uma VM com a CLI do Azure de recuperação
 Se a sua máquina virtual (VM) do Linux encontra um erro de arranque ou disco, se pretender executar passos de resolução de problemas no disco rígido virtual em si. Um exemplo comum seria uma entrada inválida no `/etc/fstab` que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar a CLI do Azure para ligar o seu disco rígido virtual a outra VM do Linux para corrigir quaisquer erros, em seguida, voltar a criar a VM original. 
 

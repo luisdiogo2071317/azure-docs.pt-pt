@@ -4,21 +4,21 @@ description: Saiba mais sobre como licenciar o Microsoft Smooth Streaming client
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2018
-ms.author: willzhan;juliako
-ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/15/2018
+ms.author: willzhan
+ms.openlocfilehash: d7026c9f41043ea03c870c2c81edc11d122d6d0b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379082"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso 
 
@@ -190,7 +190,7 @@ Implementação inclui os seguintes passos:
 
 6. Crie algumas contas de utilizador e grupos no seu inquilino do Azure AD. Crie, pelo menos, um grupo de "Usuário intitulado" e adicionar um utilizador a este grupo. Os utilizadores neste grupo passaram a verificação de elegibilidade de aquisição de licença. Utilizadores neste grupo não passaram a verificação de autenticação e não é possível adquirir uma licença. A associação neste grupo de "Usuário intitulado" é uma afirmação de grupos necessários no JWT emitido pelo Azure AD. Especifique este requisito de afirmação no passo quando configurar serviços de entrega de licença de multi-DRM.
 
-7. Crie uma aplicação ASP.NET MVC para alojar o seu leitor de vídeo. Esta aplicação ASP.NET está protegida com autenticação de utilizador no inquilino do Azure AD. Afirmações adequadas estão incluídas nos tokens de acesso, obtidos após a autenticação de utilizador. Recomendamos que a API de ligação OpenID para este passo. Instale os seguintes pacotes de NuGet:
+7. Crie uma aplicação ASP.NET MVC para alojar o seu leitor de vídeo. Esta aplicação ASP.NET está protegida com autenticação de utilizador no inquilino do Azure AD. Afirmações adequadas estão incluídas nos tokens de acesso, obtidos após a autenticação de utilizador. Recomendamos que a API de ligação OpenID para este passo. Instale os seguintes pacotes NuGet:
 
    * Microsoft.Azure.ActiveDirectory.GraphClient Install-Package
    * Microsoft.Owin.Security.OpenIdConnect Install-Package

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607928"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393988"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -128,7 +128,7 @@ Os utilizadores só têm de aceitar os termos de utilização de uma vez e não 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Como os utilizadores podem rever os Termos de utilização
 Os utilizadores podem rever e ver os termos de utilização que aceitaram, utilizando o procedimento seguinte.
 
-1. Inicie sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 1. No canto superior direito, clique no seu nome e selecione **Perfil** no menu pendente.
 
@@ -242,4 +242,4 @@ R: pode [revisão ainda aceitado os termos de utilização](#how-users-can-revie
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Melhores práticas para acesso condicional no Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Melhores práticas para acesso condicional no Azure Active Directory](../../active-directory/conditional-access/best-practices.md)

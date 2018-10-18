@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d8f2dbe4885f1cb85ab5eb78ae4f06b2ad702d53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094212"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389586"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, planeamento de capacidade é um passo importante. Aqui estão alguns dos itens que deve considerar como parte desse processo.
@@ -83,7 +83,7 @@ O escalão de durabilidade é utilizado para indicar ao sistema os privilégios 
 > [!WARNING]
 > Obter tipos de nós em execução com durabilidade de Bronze _sem privilégios_. Isso significa que as tarefas de infraestrutura que afetam as cargas de trabalho sem monitorização de estado serão não ser paradas ou atrasadas, que podem afetar as suas cargas de trabalho. Utilize apenas Bronze para tipos de nós que executam apenas as cargas de trabalho sem monitorização de estado. Para cargas de trabalho de produção, em execução Silver ou superior é recomendado. 
 
-> Independentemente de qualquer nível de durabilidade [Desalocação](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) operação no conjunto de dimensionamento de VM irá destruir o cluster
+> Independentemente de qualquer nível de durabilidade [Desalocação](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operação no conjunto de dimensionamento de VM irá destruir o cluster
 
 **Vantagens da utilização de níveis de durabilidade de Gold ou Silver**
  

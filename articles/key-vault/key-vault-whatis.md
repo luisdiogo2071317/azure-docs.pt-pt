@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342571"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385863"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
 O Azure Key Vault ajuda a resolver os seguintes problemas
-- **Gestão de segredos** -Azure Key Vault pode ser utilizado para armazenar de forma segura e totalmente controlar o acesso aos tokens, palavras-passe, certificados, chaves de API e outros segredos
-- **A gestão de chaves** -Azure Key Vault também pode ser utilizado como uma solução de gestão de chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
-- **Gestão de certificados** - Azure Key Vault também é um serviço que lhe permite facilmente aprovisionar, gerir e implementar certificados de Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para utilização com o Azure e ligadas interno recursos. 
-- **Store apoiados por módulos de Hardware de segurança de segredos** -os segredos e as chaves podem ser protegidas por software ou FIPS 140-2 nível 2 valida HSMs
+- **Gestão de Segredos** – O Azure Key Vault pode ser utilizado para armazenar de forma segura e controlar totalmente o acesso aos tokens, palavras-passe, certificados, chaves de API e outros segredos
+- **Gestão de Chaves** – O Azure Key Vault também pode ser utilizado como uma solução de Gestão de Chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
+- **Gestão de Certificados** – O Azure Key Vault também é um serviço que lhe permite aprovisionar, gerir e implementar facilmente certificados de Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para utilização com o Azure e os seus recursos ligados internos. 
+- **Armazenar segredos protegidos por Módulos de Segurança de Hardware** – Os segredos e as chaves podem ser protegidos por software ou HSMs validados por FIPS 140-2 Nível 2
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 
@@ -35,7 +35,7 @@ O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segura
 
 Fundamentalmente, há 3 formas de autenticar para o Key Vault
 
-1. **Usando [geridos identidades para recursos do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**recomendado e nas práticas recomendadas**): ao implementar uma aplicação numa máquina Virtual no Azure, pode atribuir uma identidade para a Máquina Virtual que tenha acesso ao Key Vault. Também pode atribuir identidades de outros recursos do azure que se encontram listados [aqui](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é a aplicação / serviço não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. 
+1. **Usando [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**recomendado e nas práticas recomendadas**): ao implementar uma aplicação numa máquina Virtual no Azure, pode atribuir uma identidade para a Máquina Virtual que tenha acesso ao Key Vault. Também pode atribuir identidades de outros recursos do azure que se encontram listados [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é a aplicação / serviço não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. 
 2. **Principal de serviço e o certificado a utilizar:** a opção 2nd consiste em utilizar um Principal de serviço e um certificado associado que tem acesso ao Cofre de chaves. Onus de rotação do certificado é o proprietário da aplicação ou o desenvolvedor e, portanto, isto não é recomendado
 3. **Com o Principal de serviço e o segredo:** a opção 3 (opção não preferida) é utilizar um Principal de serviço e um segredo para autenticar para o Key Vault
 

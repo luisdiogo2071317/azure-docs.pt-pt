@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051798"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395096"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluções de armazenamento do Azure para serviços de ML no Azure HDInsight
 
@@ -159,7 +159,7 @@ Os comandos seguintes são utilizados para configurar a conta do Data Lake Store
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Utilizar o armazenamento de ficheiros do Azure com serviços de ML no HDInsight
 
-Há também uma opção de armazenamento de dados conveniente para utilização no nó de extremidade chamado [ficheiros do Azure] ((https://azure.microsoft.com/services/storage/files/). Permite-lhe montar uma partilha de ficheiros de armazenamento do Azure para o sistema de ficheiros do Linux. Esta opção pode ser útil para armazenar ficheiros de dados, os R scripts e objetos de resultado que poderão ser necessário posteriormente, especialmente quando faz sentido usar o sistema de arquivos nativo no nó de extremidade em vez de HDFS. 
+Há também uma opção de armazenamento de dados conveniente para utilização no nó de extremidade chamado [ficheiros do Azure](https://azure.microsoft.com/services/storage/files/). Permite-lhe montar uma partilha de ficheiros de armazenamento do Azure para o sistema de ficheiros do Linux. Esta opção pode ser útil para armazenar ficheiros de dados, os R scripts e objetos de resultado que poderão ser necessário posteriormente, especialmente quando faz sentido usar o sistema de arquivos nativo no nó de extremidade em vez de HDFS. 
 
 Uma vantagem principal do serviço ficheiros do Azure é que as partilhas de ficheiros podem ser montadas e utilizadas por qualquer sistema que tenha um SO suportado, como o Windows ou Linux. Por exemplo, pode ser utilizado por outro cluster do HDInsight que ou alguém de sua equipe tem, por uma VM do Azure ou até mesmo por um sistema no local. Para obter mais informações, consulte:
 

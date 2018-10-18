@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 43000993c6a26ef8d44e941f5235ebad7aeee66f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248068"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385096"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problemas conhecidos com o Azure Monitor para VMs
 
 Os seguintes são problemas conhecidos com a funcionalidade de estado de funcionamento do Monitor do Azure para VMs:
 
+- A funcionalidade de estado de funcionamento está onbaorded todas as VMS ligadas à área de trabalho do Log Analytics, mesmo quando a integração é iniciada e concluída a partir de uma VM única.
 - Se uma VM do Azure não existe mais porque foi removido ou eliminado, irá aparecer na vista de lista de VM para três a sete dias. Além disso, ao clicar no estado de uma VM removida ou eliminada iniciaria o **diagnóstico de estado de funcionamento** exibição para ela, que, em seguida, entra num loop de carregamento. Selecionar o nome de uma VM eliminada inicia um painel com uma mensagem a indicar que a VM tiver sido eliminada.
 - Com esta versão, não não possível modificar o período de tempo e a frequência dos critérios de estado de funcionamento. 
 - Critérios de estado de funcionamento não podem ser desativados. 

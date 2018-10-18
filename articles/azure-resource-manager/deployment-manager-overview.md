@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585803"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395133"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização pública)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização privada)
 
 Para implementar o seu serviço entre várias regiões e certificar-se de que está a ser executado conforme esperado em cada região, pode utilizar o Gestor de implementação do Azure para coordenar uma implementação faseada do serviço. Tal como faria para qualquer implementação do Azure, definir os recursos para o seu serviço no [modelos do Resource Manager](resource-group-authoring-templates.md). Depois de criar os modelos, utilize o Gestor de implementação para descrever a topologia para o seu serviço e como ele deve ser implementado.
 
-Gestor de implementação é uma funcionalidade do Gestor de recursos. Se expandir as capacidades de durante a implementação. Utilize o Gestor de implementação quando tiver um serviço complexo que precisa para ser implementado em várias regiões. Preparar a distribuição do seu serviço, pode encontrar problemas potenciais antes de este ter sido implementado para todas as regiões. Se não precisar das precauções adicionais de uma implementação faseada, utilize a norma [opções de implementação](resource-group-template-deploy-portal.md) para o Resource Manager. Gestor de implementação integram-se perfeitamente com todas as ferramentas de terceiros existentes que oferecem suporte a implementações do Resource Manager, como a integração contínua e ofertas de entrega contínua (CI/CD). 
+Gestor de implementação é uma funcionalidade do Gestor de recursos. Se expandir as capacidades de durante a implementação. Utilize o Gestor de implementação quando tiver um serviço complexo que precisa para ser implementado em várias regiões. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar das precauções adicionais de uma implementação faseada, utilize a norma [opções de implementação](resource-group-template-deploy-portal.md) para o Resource Manager. Gestor de implementação integram-se perfeitamente com todas as ferramentas de terceiros existentes que oferecem suporte a implementações do Resource Manager, como a integração contínua e ofertas de entrega contínua (CI/CD). 
 
-O Gestor de implementação do Azure está em pré-visualização pública. Para utilizar o Gestor de implementação do Azure, execute o [formulário de inscrição](https://aka.ms/admsignup). Ajuda a melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
+O Gestor de implementação do Azure está em pré-visualização privada. Para utilizar o Gestor de implementação do Azure, execute o [formulário de inscrição](https://aka.ms/admsignup). Ajuda a melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
 
 Para utilizar o Gestor de implementação, terá de criar quatro arquivos:
 
@@ -37,7 +37,7 @@ Implementar o modelo de topologia antes de implementar o modelo de implementaç�
 
 ## <a name="supported-locations"></a>Localizações suportadas
 
-Para a pré-visualização pública, a implementação do Gestor de recursos é suportado nos EUA Central e E.U.A. Leste 2. Ao definir recursos nos seus modelos de topologia e a implementação, como as unidades de serviço, origens de artefactos e implementações descritas neste artigo, tem de especificar uma dessas regiões para a localização. No entanto, os recursos que implementa para criar o seu serviço, como as máquinas virtuais, contas de armazenamento e aplicações web, são suportados em todas as suas [locais padrão](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+Para a pré-visualização, a implementação do Gestor de recursos é suportado nos EUA Central e E.U.A. Leste 2. Ao definir recursos nos seus modelos de topologia e a implementação, como as unidades de serviço, origens de artefactos e implementações descritas neste artigo, tem de especificar uma dessas regiões para a localização. No entanto, os recursos que implementa para criar o seu serviço, como as máquinas virtuais, contas de armazenamento e aplicações web, são suportados em todas as suas [locais padrão](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 

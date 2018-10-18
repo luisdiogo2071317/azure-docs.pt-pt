@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978527"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394753"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Utilizar o Visual Studio 2017 para desenvolver e depurar c# módulos do Azure IoT Edge (pré-visualização)
 
@@ -90,6 +90,21 @@ O **IoTEdgeModule1** projeto é um .net Core 2,1 aplicação de consola. Ele con
 O padrão módulo código c# que vem com a solução está localizado em **IoTEdgeModule1** > **Program.cs**. O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
 
 Quando estiver pronto para personalizar o modelo do c# com o seu próprio código, utilize o [SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos esse endereço tem da chave para soluções de IoT, como segurança, gestão de dispositivos e confiabilidade. 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>Inicializar **iotegehubdev** pela cadeia de ligação do dispositivo IoT Edge
+
+1. Tem de obter a cadeia de ligação de qualquer dispositivo IoT Edge, pode copiar o valor de "Cadeia de ligação primária" do Cloud Explorer no Visual Studio 2017, como a seguir. Não copie a cadeia de ligação do dispositivo não Edge, o ícone do dispositivo IoT Edge é diferente do dispositivo não Edge.
+
+   ![Copie a cadeia de ligação de dispositivo do Edge](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. Terá de clique com o botão direito do rato em **AzureIoTEdgeApp1** projeto para abrir o menu de contexto, clique em **definir cadeia de ligação de dispositivo do Edge**, será apresentada a janela de configuração do Azure IoT Edge.
+
+   ![Abra a janela de cadeia de ligação do conjunto de borda](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. Na janela de configuração a cadeia de ligação que obteve no primeiro passo de entrada e clique em **OK** botão.
+
+>[!NOTE]
+>Este é o trabalho de uma única vez, apenas tem de executar este passo uma vez num computador, todos os subsequentes do Azure IoT Edge soluções irão obter se gratuitamente. É claro que pode voltar a executar este passo se a cadeia de ligação é inválida ou tem de alterar para outra cadeia de ligação.
 
 ## <a name="build-and-debug-single-c-module"></a>Criar e depurar o módulo de c# único
 
@@ -190,7 +205,10 @@ No artigo de início rápido que utilizou para configurar o seu dispositivo IoT 
 
 2. Na **Cloud Explorer**, expanda a sua subscrição, encontrar o seu IoT Hub do Azure e o dispositivo Azure IoT Edge que pretende implementar.
 
-3. Com o botão direito no dispositivo IoT Edge para criar a implementação para o mesmo, tem de escolher o ficheiro de manifesto de implantação sob o `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. Com o botão direito no dispositivo IoT Edge para criar a implementação para o mesmo, tem de escolher o ficheiro de manifesto de implantação sob o `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+
+>>[!NOTE]
+>>Não tem de selecionar `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
 4. Clique no botão Atualizar. Deverá ver os novos módulos em execução juntamente com o **TempSensor** módulo e o **$edgeAgent** e **$edgeHub**.
 

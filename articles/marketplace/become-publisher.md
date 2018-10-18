@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 745b26661d34357e44b6a7c2ed6e40f3195781f1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237998"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394838"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -97,7 +97,7 @@ A registar individuais num [Dev Center](https://developer.microsoft.com/store/re
 Depois de concluir o [Centro de desenvolvimento](https://developer.microsoft.com/store/register) registo, vincular seu perfil de parceiro de Cloud com o seu [Dev Center](https://developer.microsoft.com/store/register) conta (veja passos detalhados aqui). Este passo deve ser concluído antes de publicar a sua oferta transact. 
 
 >[!Note]
->Para rejeita todos os direitos a taxa de registo do Centro de programadores de US $99, preencha o formulário de Registro do marketplace e receberá um email contendo seu código promocional. 
+>Para a taxa de registo do Centro de programadores de US $99 rejeita todos os direitos, execute o [formulário de Registro do marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) e receberá um email contendo seu código promocional. 
 
 >[!Important]
 >Antes de criar uma conta Microsoft Dev Center, verifique se que sua organização não tiver uma conta do Dev Center para evitar contas duplicadas. Para obter mais informações, visite o [registar no Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) secção.

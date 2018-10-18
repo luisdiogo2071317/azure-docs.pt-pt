@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058805"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378759"
 ---
 # <a name="plan-virtual-networks"></a>Planear as redes virtuais
 
@@ -93,7 +93,7 @@ Pode ligar uma rede virtual a outras redes virtuais com o peering de rede virtua
 
 ### <a name="peering"></a>Peering
 
-Ao usar [peering de rede virtual](virtual-network-peering-overview.md), as redes virtuais podem estar no mesmo, ou diferente, suportado regiões do Azure. As redes virtuais podem ser nas mesmas ou em diferentes subscrições do Azure, desde que ambas as subscrições são atribuídas ao mesmo inquilino do Azure Active Directory. Antes de criar um peering, é recomendável que se familiarizar com todas as do peering [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Largura de banda entre os recursos em redes virtuais em modo de peering na mesma região é igual à medida que os recursos estivessem na mesma rede virtual.
+Ao usar [peering de rede virtual](virtual-network-peering-overview.md), as redes virtuais podem estar no mesmo, ou diferente, suportado regiões do Azure. As redes virtuais podem estar nas mesmas ou em diferentes subscrições do Azure (até mesmo subscrições que pertencem a diferentes inquilinos do Azure Active Directory). Antes de criar um peering, é recomendável que se familiarizar com todas as do peering [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Largura de banda entre os recursos em redes virtuais em modo de peering na mesma região é igual à medida que os recursos estivessem na mesma rede virtual.
 
 ### <a name="vpn-gateway"></a>Gateway de VPN
 

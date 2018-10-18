@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: c449aaff9741250cfcfaaa4ee490aafc857c4369
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 54a86a7ea1852efba0776451291820f4174a1f1f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395309"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377591"
 ---
 # <a name="best-practices-for-query-store"></a>Melhores práticas para Store de consulta
 
 **Aplica-se a:** base de dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> A funcionalidade de consulta Store está em pré-visualização pública num número limitado de regiões.
+> A funcionalidade de consulta Store está em pré-visualização pública.
 
 
 Este artigo descreve as melhores práticas para utilizar Store de consulta na base de dados do Azure para PostgreSQL.

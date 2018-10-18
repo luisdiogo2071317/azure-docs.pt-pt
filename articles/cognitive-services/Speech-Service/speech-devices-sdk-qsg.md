@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: erhopf
-ms.openlocfilehash: 53e159c7fc357d0c3776102294f4871863cbf4a5
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 300e2d593dfe00b2d7348c7eaf15b0f26ec7e0dd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167380"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389892"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Começar com o SDK de dispositivos de voz
 
@@ -39,9 +39,9 @@ Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as inf
 
 * Obter um [chave de subscrição do serviço de voz](get-started.md). Pode obter uma avaliação gratuita de 30 dias ou obter uma chave do seu dashboard do Azure.
 
-* Se pretender utilizar o reconhecimento da intenção do serviço de voz, subscrever o [serviço de compreensão de idiomas](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [obter uma chave de subscrição](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
+* Se pretender utilizar o reconhecimento da intenção do serviço de voz, subscrever o [serviço de compreensão de idiomas](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [obter uma chave de subscrição](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
 
-    Pode [criar um modelo do LUIS simples](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) ou utilize o exemplo de modelo do LUIS, LUIS example.json. O exemplo de modelo do LUIS está disponível a partir da [site de download do SDK de dispositivos de voz](https://shares.datatransfer.microsoft.com/). Para carregar o ficheiro JSON de seu modelo para o [portal de LUIS](https://www.luis.ai/home), selecione **importar a nova aplicação**e, em seguida, selecione o ficheiro JSON.
+    Pode [criar um modelo do LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilize o exemplo de modelo do LUIS, LUIS example.json. O exemplo de modelo do LUIS está disponível a partir da [site de download do SDK de dispositivos de voz](https://shares.datatransfer.microsoft.com/). Para carregar o ficheiro JSON de seu modelo para o [portal de LUIS](https://www.luis.ai/home), selecione **importar a nova aplicação**e, em seguida, selecione o ficheiro JSON.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 

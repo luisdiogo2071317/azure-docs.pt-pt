@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060901"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387230"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a sua configuração do serviço de gestão de API com o Git
 
@@ -219,14 +219,14 @@ A definição final, `$ref-policy`, mapeia para o ficheiro de instruções de po
 ### <a name="apis-folder"></a>pasta de APIs
 O `apis` pasta contém uma pasta para cada API numa instância de serviço, que contém os seguintes itens.
 
-* `apis\<api name>\configuration.json` -Esta é a configuração para a API e contém informações sobre o URL do serviço de back-end e as operações. Isso é que as mesmas informações que seriam devolvidas se chamar [obter uma API específica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) com `export=true` no `application/json` formato.
-* `apis\<api name>\api.description.html` -Esta é a descrição da API e corresponde à `description` propriedade o [entidade de API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Esta pasta contém `<operation name>.description.html` arquivos que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que mapeia para o `description` propriedade o [entidade de operação](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) na REST API.
+* `apis\<api name>\configuration.json` -Esta é a configuração para a API e contém informações sobre o URL do serviço de back-end e as operações. Isso é que as mesmas informações que seriam devolvidas se chamar [obter uma API específica](https://docs.microsoft.com/rest/api/apimanagement/api/get) com `export=true` no `application/json` formato.
+* `apis\<api name>\api.description.html` -Esta é a descrição da API e corresponde à `description` propriedade o [entidade de API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Esta pasta contém `<operation name>.description.html` arquivos que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que mapeia para o `description` propriedade o [entidade de operação](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na REST API.
 
 ### <a name="groups-folder"></a>pasta de grupos
 O `groups` pasta contém uma pasta para cada grupo definido na instância do serviço.
 
-* `groups\<group name>\configuration.json` -Esta é a configuração para o grupo. Isso é que as mesmas informações que seriam devolvidas se chamar o [obter um grupo específico](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) operação.
+* `groups\<group name>\configuration.json` -Esta é a configuração para o grupo. Isso é que as mesmas informações que seriam devolvidas se chamar o [obter um grupo específico](https://docs.microsoft.com/rest/api/apimanagement/group/get) operação.
 * `groups\<group name>\description.html` -Esta é a descrição do grupo e corresponde à `description` propriedade o [entidade de grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>pasta de políticas
@@ -246,7 +246,7 @@ O `portalStyles` pasta contém folhas de estilo e de configuração para persona
 ### <a name="products-folder"></a>pasta de produtos
 O `products` pasta contém uma pasta para cada produto definido na instância do serviço.
 
-* `products\<product name>\configuration.json` -Esta é a configuração para o produto. Isso é que as mesmas informações que seriam devolvidas se chamar o [obter um produto específico](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) operação.
+* `products\<product name>\configuration.json` -Esta é a configuração para o produto. Isso é que as mesmas informações que seriam devolvidas se chamar o [obter um produto específico](https://docs.microsoft.com/rest/api/apimanagement/product/get) operação.
 * `products\<product name>\product.description.html` -Esta é a descrição do produto e que corresponde à `description` propriedade do [entidade product](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na REST API.
 
 ### <a name="templates"></a>modelos

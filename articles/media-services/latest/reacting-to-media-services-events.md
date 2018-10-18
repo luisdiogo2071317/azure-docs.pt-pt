@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465542"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377553"
 ---
-# <a name="reacting-to-media-services-events"></a>Reagir a eventos de serviços de multimédia
+# <a name="handling-event-grid-events"></a>Processamento de eventos do Event Grid
 
 Os eventos de serviços de multimédia permitem que os aplicativos reagir a eventos diferentes (por exemplo, o tarefa evento de alteração Estado), usando as modernas arquiteturas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente. Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a manipuladores de eventos, tal como [as funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio Webhook e pagar apenas o que usa. Para obter informações sobre preços, consulte [preços do Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
 

@@ -2,19 +2,18 @@
 title: Carregar ficheiros a partir de dispositivos no Hub de IoT do Azure com Java | Documentos da Microsoft
 description: Como carregar ficheiros a partir de um dispositivo para a cloud com o Azure IoT device SDK para Java. Os ficheiros carregados são armazenados num contentor de BLOBs de armazenamento do Azure.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 57faff3a95e5b4ccdbc44cb7adb77d34694042c9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 74761448b88daa93e11fe45256c4d2fc75833b0f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220382"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376452"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
@@ -22,10 +21,11 @@ ms.locfileid: "47220382"
 
 Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutorial para mostrar a como usar o [ficheiro capacidades de carregamento do IoT Hub](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [BLOBs do Azure armazenamento](../storage/index.yml). Este tutorial mostra-lhe como:
 
-- Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
-- Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
+* Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
 
-O [introdução ao IoT Hub](quickstart-send-telemetry-java.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens de processo dispositivo-para-Cloud](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
+* Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
+
+O [enviar telemetria para o IoT Hub (Java)](quickstart-send-telemetry-java.md) e [enviar mensagens da Cloud para dispositivo hub IoT (Java)](iot-hub-java-java-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [configurar o encaminhamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contêm imagens
 * Vídeos
@@ -37,15 +37,18 @@ Estes ficheiros são normalmente processada na cloud com ferramentas, como de lo
 No final deste tutorial executa duas aplicações de consola Java:
 
 * **simulated-device**, uma versão modificada da aplicação criada no tutorial [mensagens Send Cloud-para-dispositivo com o IoT Hub]. Esta aplicação carrega um ficheiro para o armazenamento com um URI de SAS fornecido pelo IoT hub.
+
 * **carregar-notificação de leitura-ficheiro**, que recebe notificações de carregamento de ficheiros do seu hub IoT.
 
 > [!NOTE]
-> IoT Hub suporta muitas plataformas de dispositivos e linguagens (incluindo C, .NET e Javascript) através de SDKs de dispositivo do IoT do Azure. Consulte a [Centro de Programadores do Azure IoT] para obter instruções passo a passo sobre como ligar o dispositivo ao IoT Hub do Azure.
+> IoT Hub suporta muitas plataformas de dispositivos e linguagens (incluindo C, .NET e Javascript) através de SDKs de dispositivo do IoT do Azure. Consulte a [Centro de programadores de IoT do Azure](http://azure.microsoft.com/develop/iot) para obter instruções passo a passo sobre como ligar o dispositivo ao IoT Hub do Azure.
 
 Para concluir este tutorial, precisa do seguinte:
 
 * A versão mais recente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
 * [Maven 3](https://maven.apache.org/install.html)
+
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
@@ -56,15 +59,15 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mens
 
 1. Copiar um ficheiro de imagem para o `simulated-device` pasta e mude o nome `myimage.png`.
 
-1. Com um editor de texto, abra o `simulated-device\src\main\java\com\mycompany\app\App.java` ficheiro.
+2. Com um editor de texto, abra o `simulated-device\src\main\java\com\mycompany\app\App.java` ficheiro.
 
-1. Adicione a declaração de variável para o **aplicação** classe:
+3. Adicione a declaração de variável para o **aplicação** classe:
 
     ```java
     private static String fileName = "myimage.png";
     ```
 
-1. Para processar mensagens de retorno de chamada de estado de carregamento de ficheiro, adicione a seguinte classe aninhada para o **aplicação** classe:
+4. Para processar mensagens de retorno de chamada de estado de carregamento de ficheiro, adicione a seguinte classe aninhada para o **aplicação** classe:
 
     ```java
     // Define a callback method to print status codes from IoT Hub.
@@ -76,7 +79,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mens
     }
     ```
 
-1. Para carregar imagens para o IoT Hub, adicione o seguinte método para o **aplicação** classe para carregar imagens para o IoT Hub:
+5. Para carregar imagens para o IoT Hub, adicione o seguinte método para o **aplicação** classe para carregar imagens para o IoT Hub:
 
     ```java
     // Use IoT Hub to upload a file asynchronously to Azure blob storage.
@@ -90,7 +93,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mens
     }
     ```
 
-1. Modificar a **principal** método para chamar os **uploadFile** método conforme mostrado no seguinte fragmento:
+6. Modificar a **principal** método para chamar os **uploadFile** método conforme mostrado no seguinte fragmento:
 
     ```java
     client.open();
@@ -110,7 +113,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mens
     MessageSender sender = new MessageSender();
     ```
 
-1. Utilize o seguinte comando para criar o **simulated-device** aplicação e verificação de erros:
+7. Utilize o seguinte comando para criar o **simulated-device** aplicação e verificação de erros:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -128,9 +131,9 @@ Terá do **iothubowner** cadeia de ligação do hub IoT concluir esta secção. 
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-1. Na sua linha de comandos, navegue para o novo `read-file-upload-notification` pasta.
+2. Na sua linha de comandos, navegue para o novo `read-file-upload-notification` pasta.
 
-1. Com um editor de texto, abra a `pom.xml` de ficheiros a `read-file-upload-notification` pasta e adicione a seguinte dependência à **dependências** nó. Adicionar a dependência permite-lhe utilizar o **iothub-java-service-client** pacote na sua aplicação para comunicar com o seu serviço do hub IoT:
+3. Com um editor de texto, abra a `pom.xml` de ficheiros a `read-file-upload-notification` pasta e adicione a seguinte dependência à **dependências** nó. Adicionar a dependência permite-lhe utilizar o **iothub-java-service-client** pacote na sua aplicação para comunicar com o seu serviço do hub IoT:
 
     ```xml
     <dependency>
@@ -143,11 +146,11 @@ Terá do **iothubowner** cadeia de ligação do hub IoT concluir esta secção. 
     > [!NOTE]
     > Pode verificar a versão mais recente do **cliente do serviço iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Guarde e feche o `pom.xml` ficheiro.
+4. Guarde e feche o `pom.xml` ficheiro.
 
-1. Com um editor de texto, abra o `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` ficheiro.
+5. Com um editor de texto, abra o `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` ficheiro.
 
-1. Adicione as seguintes declarações de **importação** ao ficheiro:
+6. Adicione as seguintes declarações de **importação** ao ficheiro:
 
     ```java
     import com.microsoft.azure.sdk.iot.service.*;
@@ -157,7 +160,7 @@ Terá do **iothubowner** cadeia de ligação do hub IoT concluir esta secção. 
     import java.util.concurrent.Executors;
     ```
 
-1. Adicione as seguintes variáveis de nível de classe para o **aplicação** classe:
+7. Adicione as seguintes variáveis de nível de classe para o **aplicação** classe:
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -165,7 +168,7 @@ Terá do **iothubowner** cadeia de ligação do hub IoT concluir esta secção. 
     private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
     ```
 
-1. Para obter informações sobre o carregamento de ficheiros para o console de impressão, adicione a seguinte classe aninhada para o **aplicação** classe:
+8. Para obter informações sobre o carregamento de ficheiros para o console de impressão, adicione a seguinte classe aninhada para o **aplicação** classe:
 
     ```java
     // Create a thread to receive file upload notifications.
@@ -192,7 +195,7 @@ Terá do **iothubowner** cadeia de ligação do hub IoT concluir esta secção. 
     }
     ```
 
-1. Para iniciar o thread que escuta notificações de carregamento de ficheiro, adicione o seguinte código para o **principal** método:
+9. Para iniciar o thread que escuta notificações de carregamento de ficheiro, adicione o seguinte código para o **principal** método:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException, Exception {
@@ -220,9 +223,9 @@ Terá do **iothubowner** cadeia de ligação do hub IoT concluir esta secção. 
     }
     ```
 
-1. Guarde e feche o `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` ficheiro.
+10. Guarde e feche o `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` ficheiro.
 
-1. Utilize o seguinte comando para criar o **carregamento-notificação de leitura-ficheiro** aplicação e verificação de erros:
+11. Utilize o seguinte comando para criar o **carregamento-notificação de leitura-ficheiro** aplicação e verificação de erros:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -260,36 +263,10 @@ Pode utilizar o portal para ver o ficheiro carregado no contentor de armazenamen
 
 Neste tutorial, aprendeu a utilizar as capacidades de carregamento de arquivo do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do hub IoT e cenários com os seguintes artigos:
 
-* [Criar um hub IoT através de programação][lnk-create-hub]
-* [Introdução ao C SDK][lnk-c-sdk]
-* [SDKs do Azure IoT][lnk-sdks]
+* [Criar um hub IoT através de programação](iot-hub-rm-template-powershell.md)
+* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
+* [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Simular um dispositivo com o IoT Edge][lnk-iotedge]
-
-<!-- Images. -->
-
-[50]: ./media/iot-hub-csharp-csharp-file-upload/run-apps1.png
-[1]: ./media/iot-hub-csharp-csharp-file-upload/image-properties.png
-[2]: ./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png
-[3]: ./media/iot-hub-csharp-csharp-file-upload/enable-file-notifications.png
-
-<!-- Links -->
-
-
-
-[Centro de Programadores do Azure IoT]: http://azure.microsoft.com/develop/iot
-
-[Azure Storage]:../storage/common/storage-quickstart-create-account.md
-[lnk-configure-upload]: iot-hub-configure-file-upload.md
-[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[lnk-create-hub]: iot-hub-rm-template-powershell.md
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-
-
+* [Simular um dispositivo com o IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

@@ -4,36 +4,36 @@ description: Siga os passos deste início rápido para criar uma conta dos Servi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: ca01f32709ce7c9fc49629415cd8697a9d9ba43a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 988b56569c2537f9f0c74b1bcc2bf5e2a9400a80
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091954"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378810"
 ---
 # <a name="create-an-azure-media-services-account"></a>Criar uma conta dos Azure Media Services
 
-Para começar a encriptar, codificação, analisar, gerir e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services. No momento em que cria uma conta de Media Services, também cria uma conta do Storage associada (ou utilize uma já existente) na mesma região geográfica da conta de Media Services.
+Para começar a encriptar, codificação, analisar, gerir e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services. No momento, criar uma conta de Media Services, também é criar um armazenamento associado da conta (ou utilize um já existente) na mesma região geográfica que a conta de Media Services.
 
-Este tópico descreve os passos para criar uma nova conta de Media Services do Azure com a CLI do Azure.  
+Este artigo descreve os passos para criar uma nova conta de Media Services do Azure com a CLI do Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](http://portal.azure.com) e inicie o **CloudShell** para executar os comandos da CLI, conforme mostrado nos passos seguintes.
+Inicie sessão para o [portal do Azure](http://portal.azure.com) e inicie **CloudShell** para executar comandos da CLI, conforme mostrado nos passos seguintes.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Definir a subscrição do Azure
 

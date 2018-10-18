@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321823"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395178"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -261,6 +261,10 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
       1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4467062/).
       2. Siga os passos em [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
+      
+<!-- 3179561 - IS --> 
+- Utilização de discos gerida é comunicada nas horas, conforme descrito no [FAQ de utilização do Azure Stack](azure-stack-usage-related-faq.md#managed-disks). No entanto, a faturação do Azure Stack utiliza o preço mensal em vez disso, para que pode obter incorretamente cobrada a utilização de Managed Disks em ou antes de 27 de Setembro. Podemos ter temporariamente suspensa custos para os Managed Disks após 27 de Setembro até que o problema de faturação é resolvido. Se ter sido cobrados incorretamente para a utilização de Managed Disks, contacte o suporte de faturação da Microsoft.
+Relatórios de utilização produzidos a partir de APIs de utilização do Azure Stack mostram quantidades corretas e podem ser utilizados.
 
 <!-- 2869209 – IS, ASDK --> 
 - Ao utilizar o [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), tem de utilizar o **- OsUri** parâmetro como a conta de armazenamento URI onde o disco é carregado. Se utilizar o caminho local do disco, o cmdlet falhar com o seguinte erro: *operação de longa execução falhou com o estado 'Com falhas'*. 

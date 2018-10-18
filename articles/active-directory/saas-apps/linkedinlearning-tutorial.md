@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440913"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn Learning
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o LinkedIn Learning, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um LinkedIn Learning início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do LinkedIn Learning no Azure AD, terá de adicio
 
 **Para adicionar o LinkedIn Learning a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Clique em **ou clique aqui para carregar e copiar campos individuais do formulário** e copie **Id de entidade** e **Url de acesso de consumidor de asserção (ACS)**
+1. Clique em **ou clique aqui para carregar e copiar campos individuais do formulário** e copie **Id de entidade** e **Url do serviço de consumidor de asserção (ACS)**
 
     ![Configurar o início de sessão único](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -120,9 +120,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **identificador** caixa de texto, introduza o **ID de entidade** copiados a partir do Portal do LinkedIn 
 
-    b. Na **URL de resposta** caixa de texto, introduza o **Url de acesso de consumidor de asserção (ACS)** copiados a partir do Portal do LinkedIn
+    b. Na **URL de resposta** caixa de texto, introduza o **Url de serviço de consumidor de asserção (ACS)** copiados a partir do Portal do LinkedIn
 
-1. Se quiser configurar o SSO no **SP iniciada**, em seguida, clique na opção de definição de mostrar URL avançado na secção de configuração e configurar o URL de início de sessão com o seguinte padrão:
+1. Se quiser configurar o SSO no **SP iniciada**, em seguida, clique na opção de definição de mostrar URL avançado na secção de configuração aqui que irá especificar o URL de início de sessão.  Para criar a cópia de Url de início de sessão do **Url de serviço de consumidor de asserção (ACS)** e substitua /saml//início de sessão /.   Depois que tiver sido feita, o URL de início de sessão deve ter o seguinte padrão:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 

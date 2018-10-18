@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/30/2018
-ms.openlocfilehash: 92321929c7929cc62321317c7e94e74ef77034ad
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f9216800f0e91d71f1da3f2bac16ecfcbf8b4850
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970088"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376555"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões do PostgreSQL na base de dados do Azure para PostgreSQL
 PostgreSQL fornece a capacidade de estender a funcionalidade da sua base de dados a utilizar extensões. As extensões permitem para agrupar vários objetos relacionados do SQL em conjunto num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Após a ser carregado no banco de dados, as extensões podem funcionar tal como as funcionalidades incorporadas. Para obter mais informações sobre as extensões do PostgreSQL, consulte [empacotamento objetos relacionados numa extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -88,6 +88,7 @@ As tabelas seguintes listam as extensões de PostgreSQL padrão que são atualme
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Fornece um meio para que mostra estatísticas de nível de cadeias de identificação. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de dados externo utilizado para aceder aos dados armazenados em servidores de PostgreSQL externos. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fornece um meio de criação de índices hipotéticos que não de custos da CPU ou disco. |
+| [plv8](https://plv8.github.io/) | Uma extensão de linguagem do Javascript para o PostgreSQL que pode ser utilizada para procedimentos armazenados, acionadores, etc. |
 
 ### <a name="postgis-extensions"></a>Extensões de PostGIS
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160626"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387826"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure com o Azure Monitor para VMs
 Azure inclui vários serviços que executar individualmente uma tarefa ou função específica no espaço de monitorização, mas o fornecimento de uma perspectiva detalhada do Estado de funcionamento do sistema operativo alojada em máquinas virtuais do Azure não estava disponível.  Enquanto poderia monitorar para condições diferentes usando o Log Analytics ou no Azure Monitor, que não foram projetados para modelar e representam o estado de funcionamento dos componentes principais ou de estado de funcionamento geral da máquina virtual.  Com o Azure Monitor para a funcionalidade de estado de funcionamento de VMs, proativamente monitoriza a disponibilidade e desempenho do Windows ou Linux SO convidado com um modelo que representam os principais componentes e suas relações, os critérios que especifica como medir o estado de funcionamento desses componentes, e o alerte quando é detetada uma condição de mau estado de funcionamento.  
@@ -31,7 +31,7 @@ Este artigo ajuda-o a compreender como avaliar rapidamente, investigar e resolve
 Para obter informações sobre como configurar o Azure Monitor para VMs, veja [ativar o Azure Monitor para VMs](monitoring-vminsights-onboard.md).
 
 ## <a name="monitoring-configuration-details"></a>Detalhes de configuração de monitorização
-Esta seção descreve os critérios de estado de funcionamento do padrão definidos para monitorizar o Windows Azure e máquinas virtuais do Linux.
+Esta seção descreve os critérios de estado de funcionamento do padrão definidos para monitorizar o Windows Azure e máquinas virtuais do Linux. Todos os critérios de estado de funcionamento são previamente configurados para o alerta quando for cumprida a condição de mau estado de funcionamento. 
 
 ### <a name="windows-vms"></a>VMs do Windows
 
@@ -110,7 +110,7 @@ Para ver a recolha de estado de funcionamento para todas as suas máquinas virtu
 
 ![Vista do Azure Monitor de monitorização de informações de VM](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-Do **subscrição** e **grupo de recursos** pendente selecione a apropriado listas, que inclui a integração de VMs de destino para ver o respetivo estado de funcionamento. 
+Partir do **subscrição** e **grupo de recursos** listas pendentes, selecione o grupo de recursos adequados que inclui as VMs relacionados ao grupo, para ver o respetivo estado de funcionamento comunicadas.  A seleção de apenas aplica-se para a funcionalidade de estado de funcionamento e não vão ser transferidos para o desempenho ou de mapa.
 
 Sobre o **estado de funcionamento** separador, é possível saber o seguinte:
 
@@ -253,21 +253,29 @@ Número total de alertas de estado de funcionamento da VM categorizados por grav
 
 ![Exemplo de todos os alertas de nível de gravidade 1](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+Sobre o **alertas** página, ele apenas não tem como escopo para mostrar alertas correspondentes a sua seleção, mas também são filtradas pela **tipo de recurso** para mostrar apenas os alertas de estado de funcionamento gerados pelo recurso de máquina virtual.  Isto é refletido na lista de alertas, abaixo da coluna **recurso de destino**, onde ele mostra que a VM do Azure, o alerta foi gerado para quando a condição de mau estado de funcionamento dos critérios de estado de funcionamento específico foi cumprida.  
+
+Alertas a partir de outros tipos de recursos ou serviços não se destinam a serem incluídos nesta vista, como alertas de registo com base no Log Analytics consultas ou alerta de métrica que normalmente seria ver do padrão do Azure Monitor [todos os alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) página. 
+
 Pode filtrar esta vista ao selecionar os valores nos menus de lista pendente na parte superior da página.
 
 |Coluna |Descrição | 
 |-------|------------| 
 |Subscrição |Selecione uma subscrição do Azure. Apenas os alertas na subscrição selecionada são incluídos na vista. | 
 |Grupo de Recursos |Selecione um grupo de recursos. Apenas os alertas com destinos no grupo de recursos selecionado estão incluídos na vista. | 
-|Tipo de recurso |Selecione um ou mais tipos de recursos. Apenas os alertas com destinos do tipo selecionado estão incluídos na vista. Esta coluna só está disponível depois de um grupo de recursos foi especificado. | 
+|Tipo de recurso |Selecione um ou mais tipos de recursos. Por predefinição, apenas os alertas de destino **máquinas virtuais** é selecionado e incluído nesta vista. Esta coluna só está disponível depois de um grupo de recursos foi especificado. | 
 |Recurso |Selecione um recurso. Apenas alertas com esse recurso como um destino estão incluídas na vista. Esta coluna apenas está disponível após foi especificado um tipo de recurso. | 
 |Gravidade |Opte por uma gravidade de alerta ou selecione *todos os* para incluir alertas de todas as gravidades. | 
 |Condição do Monitor |Selecione uma condição do monitor para filtrar alertas se eles tiverem sido *Fired* pelo sistema ou *resolvido* pelo sistema se a condição já não estiver ativa. Ou selecione *todos os* para incluir alertas de todas as condições. | 
 |Estado de alerta |Selecione um Estado de alerta *New*, *confirmação*, *fechado*, ou selecione *todos os* para incluir alertas de todos os Estados. | 
-|Monitorizar serviço |Selecione um serviço ou selecione *todos os* para incluir todos os serviços. Apenas alertas a partir de informações de infraestrutura são suportados para esta funcionalidade. | 
+|Monitorizar serviço |Selecione um serviço ou selecione *todos os* para incluir todos os serviços. Apenas alertas a partir da *VM Insights* são suportados para esta funcionalidade.| 
 |Intervalo de tempo| Apenas os alertas acionados dentro da janela de tempo selecionado estão incluídos na vista. Os valores suportados são a última hora, últimas 24 horas, últimos 7 dias e os últimos 30 dias. | 
 
-O **detalhes do alerta** página é apresentada quando seleciona um alerta, fornecendo detalhes do alerta e permitindo que altere seu estado. Para saber mais sobre como trabalhar com regras de alerta e gerir alertas, consulte [criar, ver e gerir alertas ao utilizar o Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+O **detalhes do alerta** página é apresentada quando seleciona um alerta, fornecendo detalhes do alerta e permitindo que altere seu estado. Para saber mais sobre como gerir alertas, veja [criar, ver e gerir alertas ao utilizar o Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+
+>[!NOTE]
+>Neste momento, não é suportada para criar novos alertas com base nos critérios de estado de funcionamento ou modificar o estado de funcionamento regras de alerta existentes no Azure Monitor no portal.  
+>
 
 ![Painel de detalhes do alerta para um alerta selecionado](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

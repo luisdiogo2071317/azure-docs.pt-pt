@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 2f35f54c7ec5ad169673aebe08602294270f470a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364460"
+ms.locfileid: "49389637"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
 
@@ -243,7 +243,7 @@ Quando o fluxo de entrada não é uniforme, o passo de agregação pode ajudar a
 ## <a name="references"></a>Referências
 
 * [Deteção de anomalias – usando de machine learning para detetar anomalias nos dados de séries de tempo](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [API de deteção de anomalias de aprendizagem automática](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [API de deteção de anomalias de aprendizagem automática](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Deteção de anomalias de série de tempo](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes

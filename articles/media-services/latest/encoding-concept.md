@@ -4,19 +4,19 @@ description: Este tópico descreve o processo de codificação ao utilizar os se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 452502d5d6a0a35f642de7e14b2a7ee7fc573bfa
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091554"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378674"
 ---
 # <a name="encoding-with-azure-media-services"></a>Encoding com os serviços de multimédia do Azure
 
@@ -26,9 +26,7 @@ Para codificar com serviços de multimédia v3, terá de criar uma transformaç�
 
 Ao codificar com os serviços de multimédia do Azure, vai utilizar configurações predefinidas para informar ao codificador, como os ficheiros de suporte de dados de entrada devem ser processados. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que pretende no conteúdo codificado. 
 
-Pode começar a utilizar rapidamente com um dos pré-visualizando incorporada recomendado com base nas práticas recomendadas do setor ou pode optar por criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino. 
-
-Encontre informações sobre o codificador na [especificação de OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
+Pode começar a utilizar rapidamente com um dos pré-visualizando incorporada recomendado com base nas práticas recomendadas do setor ou pode optar por criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino. Para obter mais informações, consulte [Encoding com Media Services do Azure](encoding-concept.md). 
 
 ## <a name="built-in-presets"></a>Configurações predefinidas incorporadas
 

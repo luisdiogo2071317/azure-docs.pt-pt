@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414634"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387397"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho para máquinas virtuais do Azure
 
@@ -103,7 +103,7 @@ Após o carregamento, um novo relatório de diagnóstico está listado no portal
 Utilize o **definições** botão da barra de ferramentas para alterar a conta de armazenamento onde podem ser armazenadas as informações de diagnóstico e a saída. Pode utilizar a mesma conta de armazenamento de várias VMs que utilizam o diagnóstico de desempenho. Quando alterar a conta de armazenamento, os relatórios antigos e as informações não são eliminadas. No entanto, eles já não serão apresentados na lista de relatórios de diagnóstico. 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Reveja as informações e relatório de diagnóstico de desempenho
-Cada execução de diagnóstico contém uma lista de informações e recomendações, recursos afetados, ficheiros de registo e outras informações de diagnóstico avançado que são recolhidas, além de um relatório para exibição offline. Para obter uma lista completa de todos os dados de diagnóstico recolhidos, consulte [que tipo de informações é recolhido pelo PerfInsights?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Cada execução de diagnóstico contém uma lista de informações e recomendações, recursos afetados, ficheiros de registo e outras informações de diagnóstico avançado que são recolhidas, além de um relatório para exibição offline. Para obter uma lista completa de todos os dados de diagnóstico recolhidos, consulte [que tipo de informações é recolhido pelo PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
 
 ### <a name="select-a-performance-diagnostics-report"></a>Selecione um relatório de diagnóstico de desempenho
 Pode utilizar a lista de relatórios de diagnóstico para localizar todos os relatórios de diagnóstico que foram executados. A lista inclui detalhes sobre a análise que foi utilizado, informações que foram encontradas e seus níveis de impacto. Selecione uma linha para ver mais detalhes.
@@ -123,7 +123,7 @@ Pode selecionar uma informação para ver mais detalhes sobre os recursos afetad
 ![Captura de ecrã de um detalhe de informações de diagnóstico de desempenho](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Transfira e reveja o relatório de diagnóstico de desempenho total
-Pode utilizar o **transferir relatório** botão para transferir um relatório em HTML que contém informações de diagnóstico avançadas adicionais, tais como o armazenamento e configuração de rede, contadores de desempenho, rastreios, lista de processos e os registos. O conteúdo depende da análise selecionada. Para resolução de problemas avançada, o relatório pode conter informações adicionais e gráficos interativos que estão relacionados com a utilização, utilização elevada do disco e processos que consomem memória excessiva da CPU elevada. Para obter mais informações sobre o relatório de diagnóstico de desempenho, consulte [reveja o relatório de diagnóstico](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+Pode utilizar o **transferir relatório** botão para transferir um relatório em HTML que contém informações de diagnóstico avançadas adicionais, tais como o armazenamento e configuração de rede, contadores de desempenho, rastreios, lista de processos e os registos. O conteúdo depende da análise selecionada. Para resolução de problemas avançada, o relatório pode conter informações adicionais e gráficos interativos que estão relacionados com a utilização, utilização elevada do disco e processos que consomem memória excessiva da CPU elevada. Para obter mais informações sobre o relatório de diagnóstico de desempenho, consulte [reveja o relatório de diagnóstico](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## <a name="manage-performance-diagnostics-reports"></a>Gerir relatórios de diagnóstico de desempenho
 Pode eliminar um ou mais relatórios de diagnóstico de desempenho com o **eliminar relatório** botão.

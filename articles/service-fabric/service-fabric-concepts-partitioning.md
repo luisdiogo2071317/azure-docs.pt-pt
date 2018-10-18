@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056781"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388114"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo fornece uma introdução para os conceitos básicos da criação de partições do reliable services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -365,7 +365,7 @@ Como queremos, literalmente, ter uma partição por letra, podemos usar 0 como a
 O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Serviços fiáveis e de Ator bifurcação subprocessos por
-Não suporta o Service Fabric reliable services e, em seguida, reliable actors bifurcação subprocessos por. É um exemplo de por que motivo não suportado [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocess não suportado e tokens de cancelamento apenas são enviadas para processos de registred resultando em todos os tipos de problemas, tais como Atualize a falhas, quando subprocessos por não feche o após o processo pai recebeu um token de cancelamento. 
+Não suporta o Service Fabric reliable services e, em seguida, reliable actors bifurcação subprocessos por. É um exemplo de por que motivo não suportado [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocess não suportado e tokens de cancelamento apenas são enviadas para processos de registred resultando em todos os tipos de problemas, tais como Atualize a falhas, quando subprocessos por não feche o após o processo pai recebeu um token de cancelamento. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre conceitos do Service Fabric, consulte o seguinte:

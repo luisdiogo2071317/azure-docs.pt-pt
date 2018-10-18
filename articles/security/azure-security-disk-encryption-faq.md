@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 9d1414959ef8eae2277e530e6eca57ec06aaec37
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 10/16/2018
+ms.openlocfilehash: 8da966154f1da8cb1be090f70d80e4484e9bce0d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345512"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377296"
 ---
 # <a name="azure-disk-encryption-faq"></a>FAQ de encriptação de disco do Azure
 
@@ -132,6 +132,11 @@ Se este fluxo de trabalho não for possível, contando [Storage Service Encrypti
 "Bek volume" para o Windows ou "/ mnt/azure_bek_disk" para Linux é um volume de dados local que armazena em segurança as chaves de encriptação para as VMs de IaaS do Azure encriptadas.
 > [!NOTE]
 > Não elimine ou edite qualquer conteúdo neste disco. Não desmonte o disco, uma vez que a presença de chaves de encriptação é necessária para quaisquer operações de encriptação na IaaS VM.
+
+
+## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Que método de encriptação utilizar o Azure Disk Encryption?
+
+No Windows, ADE utiliza o método de encriptação Bitlocker AES256 (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, ADE utiliza a predefinição de dmcrypt de xts-aes-plain64 com uma chave mestra de volume de 256 bits.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu utilizar EncryptFormatAll e especifique todos os tipos de volume, irá apagar os dados em unidades de dados que nós já de ser encriptados?
 Não, os dados não ser apagados da unidades de dados que já são encriptadas com o Azure Disk Encryption. Semelhante a como EncryptFormatAll não voltar a encriptar a unidade do SO, ele não criptografa novamente a unidade de dados já encriptados. Para obter mais informações, consulte a [EncryptFormatAll critérios](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

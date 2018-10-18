@@ -4,29 +4,29 @@ description: Isso permite o tópico em direto de uma descrição geral da transm
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972184"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378141"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
 Os seguintes componentes estão normalmente relacionados ao entregar eventos de transmissão em fluxo em direto com Media Services do Azure:
 
 * Uma câmara, que é utilizada para difundir um evento.
-* Um codificador vídeo em direto que converte sinais da câmara (ou outro dispositivo, como o laptop) para fluxos que são enviados para os serviços de multimédia em direto de serviço de transmissão em fluxo. Os sinais podem também incluir SCTE 35 e Ad-indicações de publicidade. 
-* O serviço de transmissão em fluxo em direto dos serviços de multimédia permite-lhe ingerir, pré-visualizar, empacotamento, gravar, encriptar e transmitir o conteúdo para seus clientes ou para uma CDN para uma maior distribuição.
+* Um codificador vídeo em direto que converte sinais da câmara (ou outro dispositivo, como o laptop) para fluxos que são enviados para o serviço Lve de transmissão em fluxo. Os sinais podem também incluir SCTE 35 e Ad-indicações de publicidade. 
+* O serviço de suporte de dados dos Serviços Live Streaming permite-lhe ingerir, pré-visualizar, empacotamento, gravar, encriptar e transmitir o conteúdo para seus clientes ou para uma CDN para uma maior distribuição.
 
 Este artigo fornece uma visão geral detalhada e inclui diagramas de componentes principais envolvidos na transmissão em fluxo em direto com os serviços de multimédia.
 
@@ -40,6 +40,17 @@ Serviços de multimédia permite-lhe forneça o conteúdo encriptado dinamicamen
 
 Se assim o desejar, também pode aplicar **filtragem dinâmica**, que podem ser utilizadas para controlar o número de faixas, formatos, velocidades de transmissão, o que são enviadas para os jogadores. Serviços de multimédia também suporta a inserção de publicidade.
 
+### <a name="new-live-encoding-improvements"></a>Novas melhorias de codificação em direto
+
+Os seguintes aprimoramentos novos foram feitos na versão mais recente.
+
+- Novo modo de baixa latência para live (10 segundos ponto-a-ponto).
+- Suporte RTMP aprimorado (maior estabilidade e mais suporte do codificador de origem).
+- Ingerir RTMPS seguro.
+
+    Quando cria um LiveEvent agora obter 4 URLs de inserção. O 4 ingerir URLs são quase idênticos, ter o mesmo token de transmissão em fluxo (AppId), apenas a parte do número de porta é diferente. Dois dos URLs são principais e cópia de segurança para RTMPS.   
+- suporte de transcodificação de 24 horas. 
+- Suporte aprimorado a sinalização do ad no RTMP via SCTE35.
 
 ## <a name="liveevent-types"></a>Tipos de LiveEvent
 

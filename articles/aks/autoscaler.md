@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 6ec39116596c7abb7b1d26f864cdb57d839c88be
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365140"
+ms.locfileid: "49375856"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Dimensionamento automático de cluster no Azure Kubernetes Service (AKS) - pré-visualização
 
@@ -26,11 +26,22 @@ Este artigo descreve como implementar o dimensionamento automático de cluster e
 > Integração de dimensionamento automático de cluster do Azure Kubernetes Service (AKS) está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites-and-considerations"></a>Pré-requisitos e considerações
 
 Este documento parte do princípio de que tem um cluster do AKS habilitados no RBAC. Se precisar de um cluster do AKS, consulte a [início rápido do Azure Kubernetes Service (AKS)][aks-quick-start].
 
  Para utilizar o dimensionamento automático de cluster, o cluster tem de ser a utilizar o Kubernetes v1.10.X ou superior e têm de ter ativado o RBAC. Para atualizar o cluster, consulte o artigo sobre [atualizar um cluster do AKS][aks-upgrade].
+
+Defina pedidos de recursos para os seus pods. O aspeto de dimensionamento automático de cluster em pedidos de quais recursos é feito com pods, não os recursos realmente em utilização, como o dimensionamento automático horizontal de pods. Dentro do `spec: containers` secção de sua definição de implementação, definir os requisitos de CPU e memória. O fragmento de exemplo seguinte solicita 0,5 vCPU e 64Mb de memória no nó:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+Quando é utilizado o dimensionamento automático de cluster, evite Dimensionar manualmente o número de nós. O dimensionamento automático de cluster poderá não conseguir determinar a quantidade correta de recursos de computação necessários e entram em conflito com o número de nós que definir manualmente.
 
 ## <a name="gather-information"></a>Recolher informações
 

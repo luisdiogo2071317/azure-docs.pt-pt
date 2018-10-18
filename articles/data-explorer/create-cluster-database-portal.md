@@ -2,18 +2,18 @@
 title: 'Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer'
 description: Neste início rápido, aprenderá a criar um cluster e uma base de dados do Azure Data Explorer, e dados para ingerir (carregar).
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974719"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394226"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer
 
@@ -128,6 +128,6 @@ Se tenciona seguir os nossos inícios rápidos e tutoriais, mantenha os recursos
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
+> [Início Rápido: ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
 
 

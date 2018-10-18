@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315309"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390317"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -112,7 +112,7 @@ Novos recursos e aperfeiçoamentos
 
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Esta versão atualiza a instalação do SQL Server Express para SQL Server 2012 SP4, que, entre outros, fornece correções para várias vulnerabilidades de segurança.  Veja [aqui](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) para obter mais informações sobre o SQL Server 2012 SP4.
+- Esta versão atualiza a instalação do SQL Server Express para SQL Server 2012 SP4, que, entre outros, fornece correções para várias vulnerabilidades de segurança.  Veja [aqui](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) para obter mais informações sobre o SQL Server 2012 SP4.
 - Processamento da regra de sincronização: regras de sincronização de associação de saída sem condição de associação devem ser aplicadas anular se a regra de sincronização principal já não é aplicável
 - Várias correções de acessibilidade foram aplicadas para a interface do Usuário do Synchronization Service Manager e o Editor de regras de sincronização
 - Assistente do Azure AD Connect: Erro ao criar a conta de conector AD quando do Azure AD Connect está num grupo de trabalho

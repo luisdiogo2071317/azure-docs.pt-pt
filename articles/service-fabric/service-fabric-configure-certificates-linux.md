@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 97f33a1c0c42b534dafd1e4ed378b655b339395a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057095"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386642"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters do Linux
 
@@ -35,7 +35,7 @@ Se instalar o certificado do Azure Key Vault, utilizando um uma [modelo do Resou
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados referenciado no manifesto do aplicativo
 
-Certificados especificados no aplicativo do manifesto, por exemplo, através da [ **SecretsCertificate** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) ou [ **EndpointCertificate** ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element)elementos, tem de estar presente no */var/lib/sfcerts* diretório. Os elementos que são utilizados para especificar os certificados no manifesto do aplicativo não têm um atributo de caminho, para que os certificados devem estar presentes no diretório padrão. Estes elementos tirar opcional **X509StoreName** atributo. A predefinição é "Meu", que aponta para o */var/lib/sfcerts* diretório em nós do Linux. Qualquer outro valor é indefinido num cluster do Linux. Recomendamos que omitir o **X509StoreName** atributo para aplicações que são executadas em clusters do Linux. 
+Certificados especificados no aplicativo do manifesto, por exemplo, através da [ **SecretsCertificate** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) ou [ **EndpointCertificate** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element)elementos, tem de estar presente no */var/lib/sfcerts* diretório. Os elementos que são utilizados para especificar os certificados no manifesto do aplicativo não têm um atributo de caminho, para que os certificados devem estar presentes no diretório padrão. Estes elementos tirar opcional **X509StoreName** atributo. A predefinição é "Meu", que aponta para o */var/lib/sfcerts* diretório em nós do Linux. Qualquer outro valor é indefinido num cluster do Linux. Recomendamos que omitir o **X509StoreName** atributo para aplicações que são executadas em clusters do Linux. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certificados referenciado no pacote de configuração (Settings)
 

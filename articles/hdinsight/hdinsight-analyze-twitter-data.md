@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093303"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387586"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter com o Hive no HDInsight
 Web sites sociais são uma das principais forças que para a adoção de grandes volumes de dados. APIs públicas, fornecidas por sites como o Twitter são uma fonte útil dos dados para analisar e compreender as tendências populares.
@@ -72,7 +72,7 @@ Twitter utiliza o OAuth para fornecer acesso autorizado para sua API. OAuth é u
 
 **Para criar uma aplicação no Twitter**
 
-1. Inicie sessão no [ https://apps.twitter.com/ ](https://apps.twitter.com/). Clique nas **Inscreva-se agora** ligar se não tiver uma conta do Twitter.
+1. Inicie sessão em [https://apps.twitter.com/](https://apps.twitter.com/). Clique nas **Inscreva-se agora** ligar se não tiver uma conta do Twitter.
 2. Clique em **criar nova aplicação**.
 3. Introduza **Name**, **Descrição**, **site**. Pode compor um URL para o **Web site** campo. A tabela seguinte mostra alguns valores de exemplo para utilizar:
 
@@ -95,7 +95,7 @@ Neste tutorial, utilize o Windows PowerShell para fazer o chamada do serviço we
 
 **Para obter tweets**
 
-1. Abra o Windows PowerShell Integrated Scripting Environment (ISE). (Na tela Iniciar do Windows 8, digite **PowerShell_ISE** e, em seguida, clique em **ISE do Windows PowerShell**. Consulte [iniciar o Windows PowerShell no Windows 8 e Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
+1. Abra o Windows PowerShell Integrated Scripting Environment (ISE). (Na tela Iniciar do Windows 8, digite **PowerShell_ISE** e, em seguida, clique em **ISE do Windows PowerShell**. Consulte [iniciar o Windows PowerShell no Windows 8 e Windows](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Copie o seguinte script para o painel de scripts:
 
     ```powershell

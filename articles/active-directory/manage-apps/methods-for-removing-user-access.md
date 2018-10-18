@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 732a305da377670b45f8b2f95bed741d82b4dae0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6acc9a8b9cd7b6ef1218b1e8cae2e6a9af92f9d8
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356949"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393699"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
@@ -29,7 +29,7 @@ Este artigo ajuda-o a compreender como remover o acesso de um utilizador a uma a
 
 Para remover um utilizador ou a atribuição de grupo a uma aplicação, siga os passos apresentados no [remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artigo.
 
-. # # quero desativar todos os acessos a uma aplicação para cada utilizador
+## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Quero desativar todos os acessos a uma aplicação para cada utilizador
 
 Para desativar todos os utilizadores inícios de sessão a uma aplicação, siga os passos apresentados no [desativar utilizador-inícios de sessão de uma aplicação empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artigo.
 
@@ -55,21 +55,19 @@ Para **eliminar uma aplicação**, siga estas instruções:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento de utilizador futuras para qualquer aplicação
 
-Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em behalves do utilizador. Para saber mais sobre o consentimento da aplicação e, por isso que pode ou não querer fazer isso, leia [consentimento de administrador e de utilizador de compreensão](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em behalves do utilizador. Para obter mais informações sobre a aplicação de consentimento e, por isso que pode ou não querer fazer isso, leia [consentimento de administrador e de utilizador de compreensão](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Consulte também [permissões e consentimento](../develop/v2-permissions-and-consent.md).
 
 Para **desativar todas as operações de consentimento de utilizador futuras no seu diretório inteiro**, siga estas instruções:
 
 1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2.  Abra o **extensão do Azure Active Directory** 
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
-
-4.  Clique em **utilizadores e grupos** no menu de navegação.
+3.  Clique em **aplicações empresariais** no menu de navegação.
 
 5.  Clique em **definições de utilizador**.
 
-6.  Desativar todas as operações de consentimento do utilizador futuras ao definir o **os utilizadores podem permitir que as aplicações acedam aos seus dados** alternar para **não** e clique nas **guardar** botão.
+6.  Definir o **os utilizadores podem permitir que as aplicações aos dados da empresa em nome deles** alternar para **não** e clique no botão guardar.
 
 
 # <a name="next-steps"></a>Passos Seguintes

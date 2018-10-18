@@ -1,83 +1,92 @@
 ---
-title: Ativos nos serviços de multimédia do Azure | Microsoft Docs
-description: Este artigo fornece uma explicação de quais são os recursos e como são utilizados pelos serviços de suporte de dados do Azure.
+title: Ativos nos serviços de multimédia do Azure | Documentos da Microsoft
+description: Este artigo fornece uma explicação sobre o que estão ativos, e como elas são usadas pelos serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fcb4500a1e4503d90b00528544ae98fa93e16191
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284843"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379225"
 ---
 # <a name="assets"></a>Elementos
 
-Um **Asset** contém ficheiros digitais (incluindo as vídeo, áudio, imagens, coleções de miniaturas, controla de texto e legendas ficheiros) e os metadados sobre estes ficheiros. Depois dos ficheiros digitais são carregados para um elemento, pode ser utilizados nos serviços de suporte de dados de codificação e fluxos de trabalho de transmissão em fluxo.
+Uma **Asset** contém ficheiros digitais (incluindo o vídeo, áudio, imagens, coleções de miniaturas, pistas de texto e ficheiros de legendas) e os metadados relativos a esses ficheiros. Depois dos ficheiros digitais são carregados para um elemento, poderia ser usados nos serviços de multimédia, codificar e transmitir fluxos de trabalho.
 
-Um recurso está mapeado para um contentor do blob no [conta de armazenamento do Azure](storage-account-concept.md) e os ficheiros no elemento são armazenados como blobs de blocos num contentor. Pode interagir com os ficheiros de recurso dos contentores utilizando os clientes do SDK de armazenamento.
+Um elemento é mapeado para um contentor de BLOBs no [conta de armazenamento do Azure](storage-account-concept.md) e os ficheiros no elemento são armazenados como blobs de blocos nesse contentor. Pode interagir com os ficheiros de recursos dos contentores com os clientes do SDK de armazenamento.
 
-Media Services do Azure suporta camadas de Blob quando a conta utiliza para fins gerais v2 (GPv2) de armazenamento. Com GPv2, pode mover o armazenamento de frio ou ficheiros para esporádico. Armazenamento de frio é adequado para arquivar os ficheiros de origem quando já não é necessário (por exemplo, depois de se tem sido codificados.)
+Serviços de multimédia do Azure suporta escalões de Blob, quando a conta utiliza para fins gerais v2 (GPv2) de armazenamento. Com a GPv2, pode mover arquivos para esporádica ou de armazenamento amovível. Armazenamento esporádico é adequado para arquivamento de arquivos de origem quando já não for necessário (por exemplo, depois que eles tenham sido codificados.)
 
-Nos Media Services v3, a entrada da tarefa pode ser criada de recursos ou a partir do URL de HTTP (s). Para criar um recurso que pode ser utilizado como entrada para a sua tarefa, consulte [criar uma entrada de tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
+Em serviços de multimédia v3, na entrada da tarefa pode ser criada dos recursos ou a partir de URLs de HTTP (s). Para criar um elemento que pode ser utilizado como entrada para a sua tarefa, consulte [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
 
-Além disso, leia sobre [contas de armazenamento nos serviços de suporte de dados](storage-account-concept.md) e [transformações e tarefas](transform-concept.md).
+Além disso, leia sobre [contas de armazenamento nos serviços de multimédia](storage-account-concept.md) e [transformações e tarefas](transform-concept.md).
 
-## <a name="asset-definition"></a>Definição de recurso
+## <a name="asset-definition"></a>Definição do recurso
 
-A tabela seguinte apresenta as propriedades do elemento e fornece as respetivas definições.
+A tabela seguinte mostra as propriedades do recurso e fornece as respetivas definições.
 
 |Nome|Tipo|Descrição|
 |---|---|---|
-|Id|cadeia|ID de recurso completamente qualificado para o recurso.|
+|ID|cadeia|ID de recurso completamente qualificado para o recurso.|
 |nome|cadeia|O nome do recurso.|
-|properties.alternateId |cadeia|O ID alternativo do elemento.|
+|properties.alternateId |cadeia|O ID alternativo do ativo.|
 |properties.assetId |cadeia|O ID de recurso.|
-|Properties.Container |cadeia|O nome do contentor do blob de recurso.|
-|Properties.created |cadeia|A data de criação do elemento.|
+|Properties.Container |cadeia|O nome do contentor de BLOBs de recurso.|
+|Properties.created |cadeia|A data de criação do recurso.|
 |Properties.Description |cadeia|A descrição do recurso.|
-|properties.lastModified |cadeia|A data última modificação do elemento.|
+|properties.lastModified |cadeia|A data última modificação do recurso.|
 |properties.storageAccountName |cadeia|O nome da conta de armazenamento.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |O formato de encriptação do recurso. Um dos None ou MediaStorageEncryption.|
+|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |O formato de encriptação ativo. Um dos None ou MediaStorageEncryption.|
 |tipo|cadeia|O tipo de recurso.|
 
-Para a definição completa, consulte [ativos](https://docs.microsoft.com/rest/api/media/assets).
+A definição completa, consulte [ativos](https://docs.microsoft.com/rest/api/media/assets).
 
 ## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
 
-Os Media Services suportam as seguintes opções de consulta de OData para ativos: 
+Serviços de multimédia suportam as seguintes opções de consulta de OData para ativos: 
 
 * $filter 
 * $orderby 
 * $top 
 * $skiptoken 
 
-### <a name="filteringordering"></a>Ordenação/filtragem
+Descrição do operador:
 
-A tabela seguinte mostra como estas opções podem ser aplicadas para as propriedades de recurso: 
+* EQ = igual a
+* Ne = não igual a
+* A ge = maior que ou igual a
+* Le = menor ou igual a
+* Gt = maior que
+* Lt = menor que
 
-|Nome|Filtro|Ordem|
+### <a name="filteringordering"></a>Filtragem/ordenação
+
+A tabela seguinte mostra como essas opções podem ser aplicadas às propriedades de recurso: 
+
+|Nome|Filtro|Encomenda|
 |---|---|---|
-|Id|Suporta:<br/>Igual a<br/>Mais do que<br/>Inferior a|Suporta:<br/>Ascendente<br/>Descendente|
-|nome|||
-|properties.alternateId |Suporta:<br/>Igual a||
-|properties.assetId |Suporta:<br/>Igual a||
+|ID|||
+|nome|Suporta: Eq, Gt, Lt|Suporta: ascendente e descendente|
+|properties.alternateId |Suporta: Eq||
+|properties.assetId |Suporta: Eq||
 |Properties.Container |||
-|Properties.created|Suporta:<br/>Igual a<br/>Mais do que<br/>Inferior a|Suporta:<br/>Ascendente<br/>Descendente|
+|Properties.created|Suporta: Eq, Gt, Lt| Suporta: Ascendente e descendente|
 |Properties.Description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
 |properties.storageEncryptionFormat | ||
 |tipo|||
 
-Os seguintes c# exemplo filtros na data de criação:
+O exemplo seguinte c# filtra na data de criação:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
@@ -86,13 +95,16 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Paginação
 
-É suportada paginação para cada uma das ordens de ordenação ativado quatro. 
+Paginação é suportada para cada uma das quatro ordens de classificação ativado. Atualmente, o tamanho da página é 1000.
 
-Se uma resposta de consulta contém muitas (atualmente através de 1000) itens, o serviço devolve um "\@odata.nextLink" propriedade para obter a seguinte página de resultados. Isto pode ser utilizado para a página através do conjunto de resultados de todo. O tamanho de página não é configurável pelo utilizador. 
+> [!TIP]
+> Deve sempre utilizar a ligação seguinte enumere a coleção e não dependem de um tamanho de página em particular.
 
-Se os recursos são criados ou eliminados durante a paginação através da coleção, as alterações serão refletidas nos resultados devolvidos (se essas alterações na parte da coleção que não tenha sido transferida.) 
+Se uma resposta de consulta contém o número de itens, o serviço retornará um "\@OData. NextLink" propriedade para obter a próxima página de resultados. Isto pode ser utilizado para a página usando o conjunto de resultados inteiro. Não é possível configurar o tamanho da página. 
 
-O exemplo do c# seguinte mostra como enumerar através de todos os recursos da conta.
+Se os recursos são criados ou eliminados enquanto a paginação por meio da coleção, as alterações são refletidas no resultados retornados (se essas alterações na parte da coleção que não foi transferida.) 
+
+O exemplo do c# seguinte mostra como a enumeração por meio de todos os recursos na conta.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -104,24 +116,23 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Para obter exemplos REST, consulte [ativos - lista](https://docs.microsoft.com/rest/api/media/assets/list)
+Para obter exemplos REST, consulte [ativos - lista](https://docs.microsoft.com/rest/api/media/assets/assets_list)
 
 
 ## <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
-Para proteger os seus recursos inativos, os ativos devem ser encriptados pela encriptação do lado do armazenamento. A tabela seguinte mostra como a encriptação do lado do armazenamento funciona nos Media Services:
+Para proteger os seus ativos inativos, os recursos devem ser encriptados pela encriptação do lado do armazenamento. A tabela seguinte mostra como a encriptação do lado do armazenamento funciona nos serviços de multimédia:
 
-|opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
+|Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
-|Encriptação de armazenamento de serviços de multimédia|AES 256 encriptação, chave gerida pelos Media Services|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
+|Encriptação de armazenamento dos serviços de multimédia|Encriptação AES-256, chave gerida pelos serviços de multimédia|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
 |[Encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chave de encriptação do lado do servidor oferecidas pelo armazenamento do Azure, gerida pelo Azure ou pelo cliente|Suportadas|Suportadas|
-|[Encriptação do lado do cliente do Storage](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Oferecidas pelo armazenamento do Azure, chave gerido pelo cliente no Cofre de chaves de encriptação do lado do cliente|Não suportado|Não suportado|
+|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Oferecidas pelo armazenamento do Azure, chave gerida pelo cliente no Cofre de chaves de encriptação do lado do cliente|Não suportado|Não suportado|
 
-<sup>1</sup> enquanto os Media Services suporta o processamento do conteúdo na limpar/sem qualquer forma de encriptação, fazê-lo, por isso, não é recomendado.
+<sup>1</sup> enquanto os serviços de multimédia oferece suporte à manipulação de conteúdo de forma/sem qualquer outra forma de encriptação, ao fazê-lo por isso, não é recomendado.
 
-<sup>2</sup> v3 de Media Services, a encriptação de armazenamento (encriptação AES 256) só é suportada para em efeitos de compatibilidade quando os elementos criados com os Media Services v2. Significado v3 funciona com o armazenamento existente encriptados ativos, mas não permitirá a criação de novos.
+<sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
+[Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)

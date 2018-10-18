@@ -11,19 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/25/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 92321b5e919f6703cb481d88f312a20fc7c62826
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223547"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49375467"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmitir ficheiros de vídeo – .NET
-
-> [!NOTE]
-> A versão mais recente dos Serviços de Multimédia do Azure está em Pré-visualização e poderá ser referida como v3. Para começar a utilizar as APIs da v3, deve criar uma nova conta dos Serviços de Multimédia, conforme descrito neste início rápido. 
 
 Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
