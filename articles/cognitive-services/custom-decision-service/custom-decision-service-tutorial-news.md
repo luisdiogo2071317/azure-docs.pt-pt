@@ -1,36 +1,38 @@
 ---
-title: Artigo personalização - serviços cognitivos do Azure | Microsoft Docs
-description: Um tutorial para personalização do artigo com o serviço de decisão de personalizada no Azure, uma API baseada na nuvem para contextual decision-making.
+title: 'Tutorial: Personalização de artigos – Serviço de Decisão Personalizada'
+titlesuffix: Azure Cognitive Services
+description: Um tutorial para a personalização de artigos para a tomada de decisões contextuais.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354589"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366340"
 ---
-# <a name="article-personalization"></a>Personalização de artigo
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutorial: Personalização de artigos para a tomada de decisões contextuais
 
-Este tutorial centra-se em Personalizar a seleção dos artigos na página de front-de um Web site. O serviço de decisão personalizada afeta *vários* apresenta uma lista dos artigos no início de página, para a instância. Talvez a página é um site de notícias que abrange apenas a política e o desporto. Esta operação iria mostrar três classificada apresenta uma lista dos artigos: política, desporto e recente.
+Este tutorial centra-se na personalização da seleção de artigos na página inicial de um site. O Serviço de Decisão Personalizada afeta, por exemplo, *múltiplas* listas de artigos na página inicial. A página pode ser um site de notícias que aborda apenas política e desporto. Mostraria três listas classificadas de artigos: política, desporto e recentes.
 
-## <a name="applications-and-action-sets"></a>Aplicações e os conjuntos de ação
+## <a name="applications-and-action-sets"></a>Aplicações e conjuntos de ações
 
-Eis como ajustar o seu cenário para a estrutura. Vamos imaginar três aplicações, um para cada lista que está a ser otimizada: política de aplicação, desporto de aplicação e aplicação recentes. Para especificar os artigos do candidato para cada aplicação, existem dois conjuntos de ação: um para a política e outro para desporto. A ação definida para aplicação recente inclui automaticamente como uma União de dois outros conjuntos.
+Eis como ajustar o seu cenário à estrutura. Imaginemos três aplicações, uma para cada lista que está a ser otimizada: app-politics, app-sports e app-recent. Para especificar os artigos candidatos para cada aplicação, existem dois conjuntos de ações: um para política e outro para desporto. O conjunto de ações para a app-recent é fornecido automaticamente como uma junção dos outros dois conjuntos.
 
 > [!TIP]
-> Conjuntos de ação podem ser partilhados em todas as aplicações no serviço de decisão personalizada.
+> Os conjuntos de ações podem ser partilhados entre aplicações no Serviço de Decisão Personalizada.
 
-## <a name="prepare-action-set-feeds"></a>Preparar os feeds de conjunto de ação
+## <a name="prepare-action-set-feeds"></a>Preparar os feeds dos conjuntos de ações
 
-Serviço de decisão personalizado consome conjuntos de ação através de feeds RSS ou Atom fornecidos pelo cliente. Fornecer duas feeds: um para a política e outro para desporto. Suponha que são servidos de `http://www.domain.com/feeds/<feed-name>`.
+O Serviço de Decisão Personalizada consome conjuntos de ações através dos feeds RSS ou Atom fornecidos pelo cliente. Dois feeds são fornecidos por si: um para política e outro para desporto. Suponha que são fornecidos a partir de `http://www.domain.com/feeds/<feed-name>`.
 
-Cada feed fornece uma lista dos artigos. No RSS, cada um deles é especificado por uma `<item>` elemento, da seguinte forma:
+Cada feed fornece uma lista de artigos. No RSS, cada artigo é especificado pelo elemento `<item>` da seguinte forma:
 
 ```xml
 <rss version="2.0"><channel>
@@ -42,41 +44,41 @@ Cada feed fornece uma lista dos artigos. No RSS, cada um deles é especificado p
 </channel></rss>
 ```
 
-A ordem é importante de artigos. Especifica a classificação predefinida, que é o melhor estimado para a forma como os artigos devem ser ordenados. Classificação predefinida, em seguida, é utilizada para a comparação do desempenho no [dashboard](#performance-dashboard).
+A ordem dos artigos é importante, uma vez que especifica a classificação predefinida que é a sua melhor indicação da forma como os artigos devem ser ordenados. Em seguida, a classificação predefinida é utilizada para a comparação de desempenho no [dashboard](#performance-dashboard).
 
-Para obter mais informações sobre o formato de feed, consulte o [referência da API](custom-decision-service-api-reference.md#action-set-api-customer-provided).
+Para obter mais informações sobre o formato do feed, veja a [Referência à API](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 
 ## <a name="register-a-new-app"></a>Registar uma nova aplicação
 
-1. Inicie sessão com a [conta Microsoft](https://account.microsoft.com/account). No Friso, clique em **My Portal**.
+1. Inicie sessão com a sua [conta Microsoft](https://account.microsoft.com/account). No friso, clique em **O Meu Portal**.
 
-2. Para registar uma nova aplicação, clique em de **nova aplicação** botão.
+2. Para registar uma nova aplicação, clique no botão **Nova Aplicação**.
 
     ![Portal do Serviço de Decisão Personalizada](./media/custom-decision-service-tutorial/portal.png)
 
-3. Introduza um nome exclusivo para a sua aplicação no **ID da aplicação** caixa de texto. Se este nome já está a ser utilizado por outro cliente, o sistema pede-lhe para escolher um ID de aplicação diferente. Selecione o **avançadas** caixa de verificação e introduza o [cadeia de ligação](../../storage/common/storage-configure-connection-string.md) para a sua conta de armazenamento do Azure. Normalmente, utilizar a mesma conta de armazenamento para as suas aplicações.
+3. Introduza um nome exclusivo para a sua aplicação na caixa de texto **ID da Aplicação**. Se este nome já estiver a ser utilizado por outro cliente, o sistema irá pedir-lhe para escolher um ID de aplicação diferente. Selecione a caixa de verificação **Avançadas** e introduza a [cadeia de ligação](../../storage/common/storage-configure-connection-string.md) da sua conta de armazenamento do Azure. Normalmente, a mesma conta de armazenamento é utilizada para todas as suas aplicações.
 
-    ![Caixa de diálogo nova aplicação](./media/custom-decision-service-tutorial/new-app-dialog.png)
+    ![Caixa de diálogo Nova Aplicação](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
-    Depois de registar todas as aplicações de três no cenário acima, são listados:
+    Depois de registar as três aplicações no cenário acima, as mesmas são apresentadas:
 
     ![Lista de aplicações](./media/custom-decision-service-tutorial/apps.png)
 
-    Pode voltar a esta lista, clicando a **aplicações** botão.
+    Pode regressar a esta lista ao clicar no botão **Aplicações**.
 
-4. No **nova aplicação** diálogo caixa, especifique um feed de ação. Ação feeds também podem ser especificados ao clicar no **Feeds** botão e, em seguida, ao clicar no **Feed novo** botão. Introduza um **nome** do feed nova, introduza o **URL** do que é servido e introduza o **atualizar tempo**. A hora de atualização Especifica a frequência personalizada decisão serviço deve atualizar o feed.
+4. Na caixa de diálogo **Nova Aplicação**, especifique um feed de ações. Os feeds de ações também podem ser especificados ao clicar no botão **Feeds** e, em seguida, ao clicar no botão **Novo Feed**. Introduza um **Nome** para o novo feed, o **URL** a partir do qual é fornecido e a **Hora de Atualização**. A hora de atualização especifica a frequência com que o Serviço de Decisão Personalizada deve atualizar o feed.
 
-    ![Caixa de diálogo feed novo](./media/custom-decision-service-tutorial/new-feed-dialog.png)
+    ![Caixa de diálogo Novo Feed](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
-    Os feeds de ação podem ser utilizados por qualquer aplicação, independentemente de onde estão especificadas. Depois de especificar ambos os feeds de ação num cenário, são listados:
+    Os feeds de ações podem ser utilizados por qualquer aplicação, independentemente do local onde estejam especificados. Depois de especificar ambos os feeds de ações num cenário, os mesmos são apresentados:
 
     ![Lista de feeds](./media/custom-decision-service-tutorial/feeds.png)
 
-    Pode voltar a esta lista, clicando a **Feeds** botão.
+    Pode regressar a esta lista ao clicar no botão **Feeds**.
 
 ## <a name="use-the-apis"></a>Utilizar as APIs
 
-O serviço de decisão personalizada ranks artigos através da API de classificação. Para utilizar esta API, inserir o seguinte código no cabeçalho HTML da página de front:
+O Serviço de Decisão Personalizada classifica os artigos através da API de Classificação. Para utilizar esta API, insira o seguinte código no cabeçalho HTML da página inicial:
 
 ```html
 <!-- Define the "callback function" to render UI -->
@@ -89,7 +91,7 @@ O serviço de decisão personalizada ranks artigos através da API de classifica
 <!-- NB: action feeds for 'app-recent' are listed one after another. -->
 ```
 
-A resposta HTTP a partir da API de classificação é uma cadeia formatada de JSONP. Para a política de aplicação, por exemplo, a cadeia de aspeto:
+A resposta HTTP da API de Classificação é uma cadeia formatada em JSONP. Para a app-politics, por exemplo, a cadeia é semelhante à seguinte:
 
 ```json
 callback({
@@ -99,14 +101,14 @@ callback({
    "actionSets":[{"id":"feed-politics","lastRefresh":"date"}] });
 ```
 
-O browser, em seguida, executa esta cadeia como uma chamada para o `callback()` função. O `data` argumento no `callback()` função contém o ID da aplicação e a classificação de URLs a compor. Em particular, `callback()` deve utilizar `data.appId` para distinguir entre as três aplicações. `eventId` é utilizada internamente pelo serviço de decisão personalizada para corresponder a classificação fornecido com clique correspondente, se aplicável.
+Em seguida, o browser executa essa cadeia como uma chamada para a função `callback()`. O argumento `data` na função `callback()` contém o ID da aplicação e a classificação de URLs a compor. Em particular, a função `callback()` deve utilizar o valor `data.appId` para distinguir as três aplicações. O valor `eventId` é utilizado internamente pelo Serviço de Decisão Personalizada para fazer coincidir a classificação fornecida com o clique correspondente, se existir.
 
 > [!TIP]
-> `callback()` Pode verificar cada ação feed para actualização utilizando o `lastRefresh` campo. Se um feed fornecido não é suficientemente raiz, `callback()` poderá ignorar a classificação fornecida, chame este feed diretamente e utilizar servida do feed de classificação predefinida.
+> A função `callback()` pode verificar cada feed de ações relativamente à atualização ao utilizar o campo `lastRefresh`. Se um determinado feed não estiver suficientemente atualizado, a função `callback()` poderá ignorar a classificação fornecida, chamar esse feed diretamente e utilizar a classificação predefinida fornecida pelo feed.
 
-Para obter mais informações sobre as especificações e opções adicionais fornecidas pela API classificação, consulte o [referência da API](custom-decision-service-api-reference.md).
+Para obter mais informações sobre as especificações e opções adicionais fornecidas pela API de Classificação, veja a [Referência à API](custom-decision-service-api-reference.md).
 
-As opções de artigo principal do utilizador são devolvidas ao chamar a API de Reward. Quando é recebida uma escolha de artigo principal, o seguinte código deve ser invocado na página de front:
+As opções de artigos principais do utilizador são devolvidas ao chamar a API de Recompensa. Quando uma opção de artigo principal é recebida, o seguinte código deve ser invocado na página inicial:
 
 ```javascript
 $.ajax({
@@ -115,7 +117,7 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Utilizar `appId` e `eventId` com o código de processamento de clique requer alguns cuidado. Por exemplo, pode implementar o `callback()` funciona da seguinte forma:
+Utilizar os valores `appId` e `eventId` no código de processamento de cliques requer algum cuidado. Por exemplo, pode implementar a função `callback()` da seguinte forma:
 
 ```javascript
 function callback(data) {
@@ -133,8 +135,8 @@ function callback(data) {
 }}
 ```
 
-Neste exemplo, implementar o `render()` função compor um artigo especificado para uma determinada aplicação. Esta função entradas o ID da aplicação e o artigo (no formato partir da API de classificação). O `onClick` parâmetro é a função que deve ser chamada a partir `render()` para lidar com um clique. Verifica se a, clique em é na ranhura de superior. Em seguida, chama a API de Reward com o ID de aplicação adequado e o ID de evento.
+Neste exemplo, a função `render()` é implementada para processar um determinado artigo para uma determinada aplicação. Esta função introduz o ID da aplicação e o artigo (no formato da API de Classificação). O parâmetro `onClick` é a função que deve ser chamada a partir da função `render()` para processar um clique. Este parâmetro verifica se o clique está no bloco principal. Em seguida, chama a API de Recompensa com o ID de aplicação e o ID de evento adequados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte o [referência da API](custom-decision-service-api-reference.md) para saber mais sobre a funcionalidade fornecida.
+* Veja a [Referência à API](custom-decision-service-api-reference.md) para saber mais sobre a funcionalidade fornecida.

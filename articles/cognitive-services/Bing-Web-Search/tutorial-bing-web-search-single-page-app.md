@@ -1,165 +1,179 @@
 ---
-title: Aplicação de Web de página única de pesquisa na Web Bing | Microsoft Docs
-description: Mostra como utilizar a API de pesquisa do Bing Web numa aplicação Web de página única.
+title: 'Tutorial: Criar uma aplicação Web de página única – API de Pesquisa na Web do Bing'
+titleSuffix: Azure Cognitive Services
+description: Esta aplicação de página única demonstra como a API de Pesquisa na Web do Bing pode ser utilizada para obter, analisar e apresentar resultados de pesquisa relevantes numa aplicação de página única.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: f22e38a1d6ee4042684b9822b58669bed6fe29a0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 09/12/2018
+ms.author: erhopf
+ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354602"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126484"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação de Web de página única
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
 
-A API de pesquisa do Bing Web permite-lhe procurar Web e obter resultados dos tipos variando relevantes para uma consulta de pesquisa. Neste tutorial, iremos criar uma aplicação de Web de página única que utiliza a API de pesquisa do Bing Web para apresentar os resultados da pesquisa à direita na página. A aplicação inclui os componentes HTML, CSS e JavaScript.
+Esta aplicação de página única demonstra como obter, analisar e apresentar resultados de pesquisa a partir da API de Pesquisa na Web do Bing. O tutorial utiliza CSS e HTML automático e centra-se no código JavaScript. Os ficheiros HTML, CSS e JS estão disponíveis no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) com instruções de início rápido.
 
-<!-- Remove until this can be replaced with a sanitized version.
-![[Single-page Bing Web Search app]](media/cognitive-services-bing-web-api/web-search-spa-demo.png)
--->
-
-> [!NOTE]
-> Os cabeçalhos de JSON e HTTP na parte inferior da página revelar a resposta JSON e informações de pedidos de HTTP quando clicado. Estes detalhes são úteis quando explorar o serviço.
-
-A aplicação tutorial ilustra como:
+Esta aplicação de exemplo pode:
 
 > [!div class="checklist"]
-> * Efetuar uma chamada de API de pesquisa do Bing Web JavaScript
-> * Opções de pesquisa de passar para a API de pesquisa do Bing Web
-> * Apresentar Web, notícias de última hora, a imagem e os resultados da pesquisa de vídeo
-> * Página percorrer os resultados de pesquisa
-> * Identificador do Bing cliente ID e a API chave de subscrição
-> * Processar erros que possam ocorrer
+> * Chamar a API de Pesquisa na Web do Bing com opções de pesquisa
+> * Apresentar resultados da Web, de imagens, de notícias e de vídeo
+> * Paginar resultados
+> * Gerir chaves de subscrição
+> * Processar erros
 
-A página tutorial é inteiramente autónomo; Não utilize qualquer estruturas externas, folhas de estilo ou até mesmo os ficheiros de imagem. Utiliza apenas funcionalidades de linguagem JavaScript amplamente suportadas e funciona com versões atuais dos todos os principais browsers.
+Para utilizar esta aplicação, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) para obter uma chave de subscrição.
 
-Neste tutorial, vamos discutir apenas selecionadas partes do código fonte. O código de origem completo está disponível [numa página separada](tutorial-bing-web-search-single-page-app-source.md). Copie e cole este código para um editor de texto e guarde-o como `bing.html`.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="app-components"></a>Componentes de aplicação
+Eis o que precisa para executar a aplicação:
 
-Como qualquer aplicação Web de página única, o tutorial da aplicação inclui três partes:
+* Node.js 8 ou posterior
+* Uma chave de subscrição
 
-> [!div class="checklist"]
-> * HTML - define a estrutura e conteúdo da página
-> * CSS - define o aspecto da página
-> * JavaScript - define o comportamento da página
+## <a name="get-the-source-code-and-install-dependencies"></a>Obter o código fonte e instalar dependências
 
-Este tutorial não abrange a maioria dos HTML ou CSS detalhadamente, conforme forem simples.
+O primeiro passo é clonar o repositório com o código fonte da aplicação de exemplo.
 
-No código HTML contém o formulário de pesquisa na qual o utilizador introduz uma consulta e escolhe opções de pesquisa. O formulário está ligado à JavaScript que executa efetivamente a pesquisa pelo `<form>` da tag `onsubmit` atributo:
-
-```html
-<form name="bing" onsubmit="return newBingWebSearch(this)">
+```console
+git clone https://github.com/Azure-Samples/cognitive-services-REST-api-samples.git
 ```
 
-O `onsubmit` processador devolve `false`, que mantém o formulário sejam submetidas ao servidor. O código JavaScript, na verdade, efetua o trabalho de recolher as informações necessárias do formulário e efetuar a pesquisa.
+Em seguida, execute o `npm install`. Para este tutorial, Express.js é a única dependência.
 
-No código HTML também contém de divisões (HTML `<div>` etiquetas) onde os resultados de pesquisa são apresentados.
-
-## <a name="managing-subscription-key"></a>Gestão da chave de subscrição
-
-Para evitar ter de incluir a chave de subscrição de API de pesquisa do Bing no código, iremos utilizar o armazenamento persistente do browser para armazenar a chave. Se nenhuma chave é armazenada, iremos linha de comandos para a chave do utilizador e armazene-a para utilização posterior. Se a chave mais tarde é rejeitada pela API, iremos invalidar a chave armazenada para que o utilizador será avisado novamente.
-
-Iremos definir `storeValue` e `retrieveValue` funções que utilizam o `localStorage` objeto (se o browser suportar) ou um cookie. A nossa `getSubscriptionKey()` função utiliza estas funções para armazenar e obter a chave do utilizador.
-
-```javascript
-// cookie names for data we store
-API_KEY_COOKIE   = "bing-search-api-key";
-CLIENT_ID_COOKIE = "bing-search-client-id";
-
-BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
-
-// ... omitted definitions of storeValue() and retrieveValue()
-
-// get stored API subscription key, or prompt if it's not found
-function getSubscriptionKey() {
-    var key = retrieveValue(API_KEY_COOKIE);
-    while (key.length !== 32) {
-        key = prompt("Enter Bing Search API subscription key:", "").trim();
-    }
-    // always set the cookie in order to update the expiration date
-    storeValue(API_KEY_COOKIE, key);
-    return key;
-}
+```console
+cd <path-to-repo>/cognitive-services-REST-api-samples/Tutorials/Bing-Web-Search
+npm install
 ```
 
-No código HTML `form` tag `onsubmit` chamadas a `bingWebSearch` função devolver resultados da pesquisa. `bingWebSearch` utiliza `getSubscriptionKey` para autenticar cada consulta. Conforme mostrado na definição do anterior, `getSubscriptionKey` pede ao utilizador para a chave, se a chave ainda não foi introduzida. A chave é armazenada, em seguida, para continuar a utilizar a aplicação.
+## <a name="app-components"></a>Componentes da aplicação
+
+A aplicação de exemplo que estamos a criar é composta por quatro partes:
+
+* `bing-web-search.js` – a nossa aplicação Express.js. Processa o encaminhamento e a lógica de pedidos/respostas.
+* `public/index.html` – a estrutura da nossa aplicação. Define como os dados são apresentados aos utilizadores.
+* `public/css/styles.css` – define os estilos de página, como tipos de letra, cores e tamanho do texto.
+* `public/js/scripts.js` – contém a lógica para fazer pedidos à API de Pesquisa na Web do Bing, gerir chaves de subscrição, processar e analisar respostas e apresentar resultados.
+
+Este tutorial centra-se no `scripts.js` e na lógica necessária para chamar a API de Pesquisa na Web do Bing e processar a resposta.
+
+## <a name="html-form"></a>Formulário HTML
+
+O `index.html` inclui um formulário que permite aos utilizadores procurar e selecionar opções de pesquisa. O atributo `onsubmit` é acionado quando o formulário é submetido, ao chamar o método `bingWebSearch()` definido no `scripts.js`. Exige três argumentos:
+
+* Consulta de pesquisa
+* Opções selecionadas
+* Chave de subscrição
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+<form name="bing" onsubmit="return bingWebSearch(this.query.value,
     bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-## <a name="selecting-search-options"></a>Selecionar opções de pesquisa
+## <a name="query-options"></a>Opções de consulta
 
-![[Formulário de pesquisa na Web Bing]](media/cognitive-services-bing-web-api/web-search-spa-form.png)
+O formulário HTML inclui opções que mapeiam aos parâmetros da consulta na [API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Esta tabela fornece detalhes sobre como os utilizadores podem filtrar os resultados de pesquisa através da aplicação de exemplo:
 
-O formulário HTML inclui elementos com os nomes seguintes:
-
-| | |
-|-|-|
-| `where` | Um menu pendente para selecionar o mercado (localização e de idioma) utilizado para a pesquisa. |
-| `query` | O campo de texto em que a introduza os termos de pesquisa. |
-| `what` | Caixas de verificação para promover a tipos específicos de resultados. Por exemplo, imagens, a promoção aumenta a classificação de imagens. |
-| `when` | Menu pendente para, opcionalmente, limitar a pesquisa para o dia, semana ou mês mais recente. |
-| `safe` | Uma caixa de verificação que indica se deve utilizar a funcionalidade de SafeSearch de Bing para filtrar os resultados "para adultos". |
-| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere para apresentar resultados mais ou menos por página. |
-| `offset` | Campo oculto. O deslocamento do resultado da pesquisa primeiro no pedido; utilizado para paginação. Este é reposto a `0` num pedido de novo. |
+| Parâmetro | Descrição |
+|-----------|-------------|
+| `query` | Um campo de texto para introduzir uma cadeia de consulta. |
+| `where` | Um menu pendente para selecionar o mercado (localização e idioma). |
+| `what` | Caixas de verificação para promover tipos de resultados específicos. Por exemplo, a promoção de imagens aumenta a classificação das imagens nos resultados da pesquisa. |
+| `when` | Um menu pendente que permite ao utilizador restringir os resultados da pesquisa para hoje, esta semana ou este mês. |
+| `safe` | Uma caixa de verificação para ativar a Pesquisa Segura do Bing, que filtra conteúdos para adultos. |
+| `count` | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere este valor para mostrar menos ou mais resultados por página. |
+| `offset` | Campo oculto. O desfasamento do primeiro resultado de pesquisa no pedido, que é utilizado para paginação. O valor é reposto para `0` em todos os novos pedidos. |
 
 > [!NOTE]
-> Pesquisa na Web Bing oferece muitas mais parâmetros de consulta. Estamos a utilizar apenas alguns dos-las aqui.
+> A API de Pesquisa na Web do Bing oferece parâmetros de consulta adicionais para ajudar a refinar os resultados da pesquisa. No entanto, este exemplo só utiliza alguns. Para ver uma lista completa dos parâmetros disponíveis, veja [Bing Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters) (Referência da API de Pesquisa na Web do Bing v7).
 
-A função de JavaScript `bingSearchOptions()` converte estes campos para o formato necessário para a API de pesquisa do Bing.
+A função `bingSearchOptions()` converte estas opções para corresponderem ao formato exigido pela API de Pesquisa do Bing.
 
 ```javascript
-// build query options from the HTML form
+// Build query options from selections in the HTML form.
 function bingSearchOptions(form) {
 
     var options = [];
+    // Where option.
     options.push("mkt=" + form.where.value);
+    // SafeSearch option.
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
-    for (var i = 0; i < form.what.length; i++) 
+    for (var i = 0; i < form.what.length; i++)
         if (form.what[i].checked) what.push(form.what[i].value);
+    // Promote option.
     if (what.length) {
         options.push("promote=" + what.join(","));
         options.push("answerCount=9");
     }
+    // Count option.
     options.push("count=" + form.count.value);
+    // Offset option.
     options.push("offset=" + form.offset.value);
+    // Hardcoded text decoration option.
     options.push("textDecorations=true");
+    // Hardcoded text format option.
     options.push("textFormat=HTML");
     return options.join("&");
 }
 ```
 
-Por exemplo, o `SafeSearch` parâmetro uma chamada à API real pode ser `strict`, `moderate`, ou `off`, com `moderate` a ser a predefinição. No entanto, o nosso formulário, utiliza uma caixa de verificação, que tem apenas dois Estados. O código JavaScript converte esta definição para o `strict` ou `off` (`moderate` não for utilizado).
+O parâmetro `SafeSearch` pode ser definido para `strict`, `moderate` ou `off`. A predefinição da Pesquisa na Web do Bing é `moderate`. Este formulário utiliza uma caixa de verificação, que tem dois estados. Neste fragmento, SafeSearch (Pesquisa Segura) está definida para `strict` ou `off`. O parâmetro `moderate` não é utilizado.
 
-Se qualquer uma do **promover** caixas de verificação estão marcadas, iremos também adicionar um `answerCount` parâmetro da consulta. `answerCount` é necessário quando utilizar o `promote` parâmetro. Iremos simplesmente defina-o como `9` (o número de tipos de resultado suportado pela API de pesquisa do Bing Web) para se certificar de que é obter o número máximo possível dos tipos de resultado.
-
+Se alguma das caixas de verificação **Promote** (Promover) estiver selecionada, o parâmetro `answerCount` será adicionado à consulta. Ao utilizar o parâmetro `promote`, é necessário o parâmetro `answerCount`. Neste fragmento, o valor está definido para `9` para devolver todos os tipos de resultados disponíveis.
 > [!NOTE]
-> Promover um tipo de resultado não *garantir* que os resultados da pesquisa incluírem esse tipo de resultado. Em vez disso, a promoção aumenta a classificação desses tipos de resultados relativamente à respetiva classificação habitual. Para limitar a procura a tipos específicos de resultados, utilize o `responseFilter` parâmetro de consulta ou chamar um ponto final mais específico, tais como a pesquisa do Bing imagem ou de pesquisa do Bing notícias de última hora.
+> Promover um tipo de resultado não *garante* que o mesmo será incluído nos resultados da pesquisa. Pelo contrário, a promoção aumenta a classificação dos tipos de resultados em relação à classificação normal. Para restringir as pesquisas a tipos de resultados específicos, utilize o parâmetro de consulta `responseFilter` ou chame um ponto final mais específico, como a Pesquisa de Imagens do Bing ou a Pesquisa de Notícias do Bing.
 
-Também podemos enviar `textDecoration` e `textFormat` parâmetros para fazer com que o termo de pesquisa para boldfaced nos resultados da pesquisa de consulta. Estes valores são codificado no script.
+Os parâmetros de consulta `textDecoration` e `textFormat` são codificados em script e fazem com que o termo de pesquisa seja colocado a negrito nos resultados da pesquisa. Estes parâmetros não são necessários.
 
-## <a name="performing-the-request"></a>Executar o pedido
+## <a name="manage-subscription-keys"></a>Gerir chaves de subscrição
 
-A consulta, a cadeia de opções e a chave de API, o `BingWebSearch` funcionar utiliza um `XMLHttpRequest` objeto para efetuar o pedido para o ponto final de pesquisa na Web Bing.
+Para evitar que a chave de subscrição da API de Pesquisa do Bing seja codificada, esta aplicação de exemplo utiliza o armazenamento persistente de um browser para armazenar a chave de subscrição. Se não existir nenhuma chave de subscrição armazenada, será pedido ao utilizador para introduzir uma. Se a chave de subscrição for rejeitada pela API, será pedido ao utilizado para voltar a introduzir uma chave de subscrição.
+
+A função `getSubscriptionKey()` utiliza as funções `storeValue` e `retrieveValue` para armazenar e obter a chave de subscrição de um utilizador. Estas funções utilizam o objeto `localStorage` (se for suportado) ou cookies.
 
 ```javascript
-// perform a search given query, options string, and API key
-function bingWebSearch(query, options, key) {
+// Cookie names for stored data.
+API_KEY_COOKIE   = "bing-search-api-key";
+CLIENT_ID_COOKIE = "bing-search-client-id";
 
-    // scroll to top of window
+BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
+
+// See source code for storeValue and retrieveValue definitions.
+
+// Get stored subscription key, or prompt if it isn't found.
+function getSubscriptionKey() {
+    var key = retrieveValue(API_KEY_COOKIE);
+    while (key.length !== 32) {
+        key = prompt("Enter Bing Search API subscription key:", "").trim();
+    }
+    // Always set the cookie in order to update the expiration date.
+    storeValue(API_KEY_COOKIE, key);
+    return key;
+}
+```
+
+Como vimos anteriormente, quando o formulário é submetido, o atributo `onsubmit` é acionado e chama o método `bingWebSearch`. Esta função inicializa e envia o pedido. A função `getSubscriptionKey` é chamada em cada submissão para autenticar o pedido.
+
+## <a name="call-bing-web-search"></a>Chamar a Pesquisa na Web do Bing
+
+Com a consulta, a cadeia de opções e a chave de subscrição, a função `BingWebSearch` criará um objeto `XMLHttpRequest` para chamar o ponto final da Pesquisa na Web do Bing.
+
+```javascript
+// Perform a search constructed from the query, options, and subscription key.
+function bingWebSearch(query, options, key) {
     window.scrollTo(0, 0);
-    if (!query.trim().length) return false;     // empty query, do nothing
+    if (!query.trim().length) return false;
 
     showDiv("noresults", "Working. Please wait.");
     hideDivs("pole", "mainline", "sidebar", "_json", "_http", "paging1", "paging2", "error");
@@ -167,51 +181,50 @@ function bingWebSearch(query, options, key) {
     var request = new XMLHttpRequest();
     var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
 
-    // open the request
+    // Initialize the request.
     try {
         request.open("GET", queryurl);
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request (invalid URL)\n" + queryurl);
         return false;
     }
 
-    // add request headers
+    // Add request headers.
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
     request.setRequestHeader("Accept", "application/json");
     var clientid = retrieveValue(CLIENT_ID_COOKIE);
     if (clientid) request.setRequestHeader("X-MSEdge-ClientID", clientid);
-    
-    // event handler for successful response
+
+    // Event handler for successful response.
     request.addEventListener("load", handleBingResponse);
-    
-    // event handler for erorrs
+
+    // Event handler for errors.
     request.addEventListener("error", function() {
         renderErrorMessage("Error completing request");
     });
 
-    // event handler for aborted request
+    // Event handler for an aborted request.
     request.addEventListener("abort", function() {
         renderErrorMessage("Request aborted");
     });
 
-    // send the request
+    // Send the request.
     request.send();
     return false;
 }
 ```
 
-Após a conclusão com êxito do pedido HTTP, chamadas JavaScript a nossa `load` processador de eventos, o `handleBingResponse()` função, para processar um pedido de HTTP GET com êxito para a API. 
+Após um pedido com êxito, o processador de eventos `load` será acionado e chamará a função `handleBingResponse`. A função `handleBingResponse` analisa o objeto do resultado, apresenta os resultados e contém a lógica de erros dos pedidos com falhas.
 
 ```javascript
-// handle Bing search request results
 function handleBingResponse() {
     hideDivs("noresults");
 
     var json = this.responseText.trim();
     var jsobj = {};
 
-    // try to parse JSON results
+    // Try to parse results object.
     try {
         if (json.length) jsobj = JSON.parse(json);
     } catch(e) {
@@ -219,12 +232,12 @@ function handleBingResponse() {
         return;
     }
 
-    // show raw JSON and HTTP request
+    // Show raw JSON and the HTTP request.
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + 
+    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
-    // if HTTP response is 200 OK, try to render search results
+    // If the HTTP response is 200 OK, try to render the results.
     if (this.status === 200) {
         var clientid = this.getResponseHeader("X-MSEdge-ClientID");
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
@@ -239,87 +252,79 @@ function handleBingResponse() {
         }
     }
 
-    // Any other HTTP response is an error
+    // Any other HTTP response is considered an error.
     else {
-        // 401 is unauthorized; force re-prompt for API key for next request
+        // 401 is unauthorized; force a re-prompt for the user's subscription
+        // key on the next request.
         if (this.status === 401) invalidateSubscriptionKey();
 
-        // some error responses don't have a top-level errors object, so gin one up
+        // Some error responses don't have a top-level errors object, if absent
+        // create one.
         var errors = jsobj.errors || [jsobj];
         var errmsg = [];
 
-        // display HTTP status code
+        // Display the HTTP status code.
         errmsg.push("HTTP Status " + this.status + " " + this.statusText + "\n");
 
-        // add all fields from all error responses
+        // Add all fields from all error responses.
         for (var i = 0; i < errors.length; i++) {
             if (i) errmsg.push("\n");
             for (var k in errors[i]) errmsg.push(k + ": " + errors[i][k]);
         }
 
-        // also display Bing Trace ID if it isn't blocked by CORS
+        // Display Bing Trace ID if it isn't blocked by CORS.
         var traceid = this.getResponseHeader("BingAPIs-TraceId");
         if (traceid) errmsg.push("\nTrace ID " + traceid);
 
-        // and display the error message
+        // Display the error message.
         renderErrorMessage(errmsg.join("\n"));
     }
 }
 ```
 
 > [!IMPORTANT]
-> Um pedido HTTP com êxito *não* significam necessariamente que que a pesquisa próprio foi concluída com êxito. Se ocorrer um erro na operação de pesquisa, a API de pesquisa do Bing Web devolve um código de estado de HTTP não 200 e inclui informações de erro na resposta JSON. Além disso, se o pedido foi taxa limitado, a API devolve uma resposta vazia.
+> Um pedido HTTP com êxito *não* significa que a pesquisa teve êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa na Web do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Se o pedido tiver limites de velocidade, a API devolverá uma resposta vazia.
 
-Muito do código em ambas as funções anteriores se encontra dedicada para processamento de erros. Poderão ocorrer erros nas seguintes fases:
+A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
 
-|Fase|Potenciais erros|Processado pelo|
-|-|-|-|
-|Objeto de pedido de JavaScript de criação|URL inválido|`try`/`catch` Bloco|
-|Efetuar o pedido|Erros de rede, ligações abortadas|`error` e `abort` processadores de eventos|
-|Efetuar a pesquisa|Inválido limites de velocidade do pedido, JSON inválido,|os testes no `load` processador de eventos|
+| Fase | Potenciais erros | Resolvido por |
+|-------|--------------------|------------|
+| Criar o objeto do pedido | URL inválido | bloco `try` / `catch` |
+| Fazer o pedido | Erros de rede, ligações abortadas | Processadores de eventos `error` e `abort` |
+| Fazer a pesquisa | Pedido inválido, JSON inválido, limites de velocidade | Testes no processador de eventos `load` |
 
-São processados os erros ao chamar `renderErrorMessage()` com os detalhes sobre o erro. Se a resposta passar o gauntlet completo de testes de erro, chamamos `renderSearchResults()` para apresentar os resultados da procura na página.
+Os erros são processados ao chamar a função `renderErrorMessage()`. Se a resposta passar em todos os testes de erros, será chamada a função `renderSearchResults()` para apresentar os resultados da pesquisa.
 
-## <a name="displaying-search-results"></a>Apresentar os resultados da pesquisa
+## <a name="display-search-results"></a>Apresentar os resultados da pesquisa
 
-A API de pesquisa do Bing Web [requer a apresentar os resultados por uma ordem especificada](useanddisplayrequirements.md). Uma vez que a API pode devolver os diferentes tipos de respostas, não é suficiente iterar através de nível superior `WebPages` coleção na resposta JSON e apresenta esses resultados. (Se pretender que apenas um tipo de resultados, utilize o `responseFilter` parâmetro de consulta ou de outro ponto final de pesquisa do Bing.)
-
-Em vez disso, utilizamos o `rankingResponse` nos resultados da pesquisa para ordenar os resultados para apresentação. Este objeto faz referência a itens de `WebPages` `News`, `Images`, e/ou `Videos` coleções, ou em outras coleções de nível superior de resposta na resposta JSON.
-
-`rankingResponse` pode conter até três coleções dos resultados da pesquisa, designados `pole`, `mainline`, e `sidebar`. 
-
-`pole`, se estiver presente, é o resultado de pesquisa mais relevante e devem ser apresentados de forma destacada. `mainline` refere-se o volume dos resultados da pesquisa. Resultados mainline devem ser apresentados imediatamente após `pole` (ou se primeiro, `pole` não estiver presente). 
-
-Por fim. `sidebar` refere-se os resultados da pesquisa auxiliar. Muitas vezes, estes resultados estão relacionadas pesquisas ou nas imagens. Se for possível, estes resultados devem ser apresentados numa barra lateral real. Se os limites de ecrã se uma barra lateral impractical (por exemplo, num dispositivo móvel), deve aparecer após o `mainline` resultados.
-
-Cada item num `rankingResponse` coleção refere-se aos itens do resultado da pesquisa real de duas formas diferentes, mas equivalentes.
-
-| | |
-|-|-|
-|`id`|O `id` aparente ser um URL, mas não deve ser utilizado para ligações. O `id` corresponde ao tipo de um resultado de classificação de `id` de qualquer um item de resultado da pesquisa numa coleção de resposta, *ou* uma coleção de resposta completo (tais como `Images`).
-|`answerType`, `resultIndex`|O `answerType` refere-se para a coleção de nível superior de resposta que contém o resultado (por exemplo, `WebPages`). O `resultIndex` refere-se ao índice do resultado nessa coleção. Se `resultIndex` for omitido, o resultado de classificação refere-se para a coleção completa.
+Existem [requisitos de utilização e apresentação](useanddisplayrequirements.md) dos resultados devolvidos pela API de Pesquisa na Web do Bing. Dado que uma resposta pode incluir vários tipos de resultados, não será suficiente efetuar uma iteração através da coleção `WebPages` de nível superior. Em alternativa, a aplicação de exemplo utilizará o objeto `RankingResponse` para ordenar os resultados a especificar.
 
 > [!NOTE]
-> Para obter mais informações sobre esta parte da resposta de pesquisa, consulte [resultados de classificação](rank-results.md).
+> Se quiser apenas um tipo de resultado, utilize o parâmetro de consulta `responseFilter` ou pondere utilizar um dos outros pontos finais de Pesquisa do Bing, como a Pesquisa de Imagens do Bing.
 
-Pode utilizar qualquer método de localizar o item de resultado da pesquisa referenciado é mais conveniente para a sua aplicação. No nosso código do tutorial, utilizamos o `answerType` e `resultIndex` localizar cada resultado da pesquisa.
+Cada resposta tem um objeto `RankingResponse`, que pode incluir até três coleções: `pole`, `mainline` e `sidebar`. Caso esteja presente, o objeto `pole` é o resultado de pesquisa mais relevante e tem de ser apresentado de forma destacada. O objeto `mainline` contém a maioria dos resultados de pesquisa e é apresentado imediatamente após o objeto `pole`. O objeto `sidebar` inclui resultados de pesquisa auxiliares. Se for possível, estes resultados deverão ser apresentados na barra lateral. Se os limites de ecrã tornarem a barra lateral pouco prática, estes resultados devem ser apresentados após os resultados do objeto `mainline`.
 
-Por fim, está na altura para ver a nossa função `renderSearchResults()`. Esta função itera três `rankingResponse` coleções que representam as três secções dos resultados da pesquisa. Para cada secção, vamos chamar `renderResultsItems()` para compor os resultados para essa secção.
+Cada objeto `RankingResponse` inclui uma matriz `RankingItem` que especifica como os resultados têm de ser ordenados. A nossa aplicação de exemplo utiliza os parâmetros `answerType` e `resultIndex` para identificar o resultado.
+
+> [!NOTE]
+> Existem outras formas de identificar e classificar os resultados. Para obter mais informações, veja [Using ranking to display results](rank-results.md) (Utilizar a classificação para apresentar resultados).
+
+Vamos analisar o código:
 
 ```javascript
-// render the search results given the parsed JSON response
+// Render the search results from the JSON response.
 function renderSearchResults(results) {
 
-    // if spelling was corrected, update search field
-    if (results.queryContext.alteredQuery) 
+    // If spelling was corrected, update the search field.
+    if (results.queryContext.alteredQuery)
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // add Prev / Next links with result count
+    // Add Prev / Next links with result count.
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
-    
-    // for each possible section, render the resuts from that section
+
+    // Render the results for each section.
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));
@@ -327,30 +332,26 @@ function renderSearchResults(results) {
 }
 ```
 
-`renderResultsItems()` por sua vez iterar repetidamente os itens em cada `rankingResponse` secção, cada resultado de classificação é mapeado para um resultado de pesquisa utilizando o `answerType` e `resultIndex` campos e chama a função de composição adequado para gerar HTML o resultado. 
-
-Se `resultIndex` não está especificado para um item fornecido classificação, `renderResultsItems()` iterar todos os resultados desse tipo e chama a função de composição para cada item. 
-
-Qualquer forma, o HTML resultante é inserido apropriados `<div>` elemento na página.
+A função `renderResultsItems()` itera através dos itens em cada coleção `RankingResponse`, mapeia cada resultado de classificação a um resultado da pesquisa com os valores `answerType` e `resultIndex` e chama a função de composição adequada para gerar o HTML. Se o valor `resultIndex` não for especificado para um item, a função `renderResultsItems()` irá iterar através de todos os resultados desse tipo e chamar a função de composição para cada item. O HTML resultante será inserido no elemento `<div>` adequado no `index.html`.
 
 ```javascript
-// render search results from rankingResponse object in specified order
+// Render search results from the RankingResponse object per rank response and
+// use and display requirements.
 function renderResultsItems(section, results) {
 
     var items = results.rankingResponse[section].items;
     var html = [];
     for (var i = 0; i < items.length; i++) {
         var item = items[i];
-        // collection name has lowercase first letter while answerType has uppercase
-        // e.g. `WebPages` rankingResult type is in the `webPages` top-level collection
+        // Collection name has lowercase first letter while answerType has uppercase
+        // e.g. `WebPages` RankingResult type is in the `webPages` top-level collection.
         var type = item.answerType[0].toLowerCase() + item.answerType.slice(1);
-        // must have results of the given type AND a renderer for it
         if (type in results && type in searchItemRenderers) {
             var render = searchItemRenderers[type];
-            // this ranking item refers to ONE result of the specified type
+            // This ranking item refers to ONE result of the specified type.
             if ("resultIndex" in item) {
                 html.push(render(results[type].value[item.resultIndex], section));
-            // this ranking item refers to ALL results of the specified type
+            // This ranking item refers to ALL results of the specified type.
             } else {
                 var len = results[type].value.length;
                 for (var j = 0; j < len; j++) {
@@ -363,13 +364,13 @@ function renderResultsItems(section, results) {
 }
 ```
 
-## <a name="rendering-result-items"></a>Itens do resultado composição
+## <a name="review-renderer-functions"></a>Rever funções de compositor
 
-No nosso JavaScript código é um objeto, `searchItemRenderers`, que contém *compositores:* funções que geram HTML para cada tipos de resultados de pesquisa.
+Na nossa aplicação de exemplo, o objeto `searchItemRenderers` inclui funções que geram HTMLs para todos os tipos de resultados de pesquisa.
 
 ```javascript
-// render functions for various types of search results
-searchItemRenderers = { 
+// Render functions for each result type.
+searchItemRenderers = {
     webPages: function(item) { ... },
     news: function(item) { ... },
     images: function(item, section, index, count) { ... },
@@ -378,23 +379,23 @@ searchItemRenderers = {
 }
 ```
 
-> [!NOTE]
-> A nossa aplicação tutorial tem compositores para páginas Web, itens de notícias, imagens, vídeos e pesquisas relacionadas. As suas próprias aplicações necessita compositores para quaisquer tipos de resultados pode receber, que pode incluir computações, sugestões de ortografia, entidades, fusos horários e definições.
+> [!IMPORTANT]
+> A aplicação de exemplo tem compositores para páginas Web, notícias, imagens, vídeos e pesquisas relacionadas. A sua aplicação precisará de compositores para todos os tipos de resultados que possa receber, que podem incluir cálculos, sugestões ortográficas, entidades, fusos horários e definições.
 
-Alguns dos nossas funções de composição só aceitam o `item` parâmetro: um objeto de JavaScript que representa um resultado de procura única. Outras pessoas aceitam parâmetros adicionais, que podem ser utilizados para compor itens de forma diferente nos diferentes contextos. (Um compositor que não utiliza estas informações não são necessários aceitar estes parâmetros.)
+Algumas funções de composição só aceitam o parâmetro `item`. Outras funções aceitam parâmetros adicionais, que podem ser utilizados para compor os itens de forma diferente com base no contexto. Um compositor que não utilize estas informações não precisará de aceitar estes parâmetros.
 
-Os argumentos do contexto são:
+Os argumentos de contexto são:
 
-| | |
-|-|-|
-|`section`|A secção de resultados (`pole`, `mainline`, ou `sidebar`) no qual o item é apresentado.
-|`index`<br>`count`|Disponível quando o `rankingResponse` item Especifica que todos os resultados de uma determinada coleção estão a ser apresentada; `undefined` caso contrário. Estes parâmetros recebem o índice do item dentro da respetiva coleção e o número total de itens nessa coleção. Pode estas informações para o número de resultados, para gerar o resultado do primeiro ou último código HTML diferentes e assim sucessivamente.|
+| Parâmetro  | Descrição |
+|------------|-------------|
+| `section` | A secção de resultados (`pole`, `mainline` ou `sidebar`) na qual o item é apresentado. |
+| `index`<br>`count` | Disponível quando o item `RankingResponse` especifica que todos os resultados numa determinada coleção serão apresentados; `undefined` em todos os outros casos. O índice do item na respetiva coleção e o número total de itens nessa coleção. Pode utilizar estas informações para numerar os resultados, gerar um HTML diferente para o primeiro ou o último resultado, etc. |
 
-Na nossa aplicação tutorial, tanto o `images` e `relatedSearches` compositores utilizam os argumentos do contexto para personalizar o HTML que geram. Vamos observá o `images` compositor:
+Na aplicação de exemplo, os compositores `images` e `relatedSearches` utilizam os argumentos de contexto para personalizar o HTML gerado. Vamos analisar melhor o compositor `images`:
 
 ```javascript
-searchItemRenderers = { 
-    // render image result using thumbnail
+searchItemRenderers = {
+    // Render image result with thumbnail.
     images: function(item, section, index, count) {
         var height = 60;
         var width = Math.round(height * item.thumbnail.width / item.thumbnail.height);
@@ -406,65 +407,64 @@ searchItemRenderers = {
         }
         html.push("<a href='" + item.hostPageUrl + "'>");
         var title = escape(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
-        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width + 
+        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + " title='" + title + "' alt='" + title + "'>");
         html.push("</a>");
         return html.join("");
-    }, // other renderers omitted
+    },
+    // Other renderers are omitted from this sample...
 }
 ```
 
-A nossa função compositor de imagem:
+O compositor de imagens:
 
-> [!div class="checklist"]
-> * Calcula o tamanho da imagem em miniatura (largura varia, enquanto altura é fixo em 60 pixéis).
-> * Insere HTML que precede o resultado de imagem, dependendo de contexto.
-> * Baseia-se no código HTML `<a>` tag que as ligações para a página que contém a imagem.
-> * Baseia-se no código HTML `<img>` etiquetas para apresentar a miniatura de imagem. 
+* Calcula o tamanho da miniatura da imagem (a largura varia e a altura é fixa, com 60 píxeis).
+* Insere o HTML que precede o resultado da imagem com base no contexto.
+* Cria a etiqueta HTML `<a>` que liga à página que contém a imagem.
+* Cria a etiqueta HTML `<img>` para apresentar a miniatura da imagem.
 
-A compositor de imagem utiliza o `section` e `index` variáveis para apresentar resultados de forma diferente, dependendo de onde aparecem. Uma quebra de linha (`<br>` tag) é inserido entre os resultados da imagem na barra lateral, para que a barra lateral apresenta uma coluna de imagens. Noutras secções, a primeira imagem resultar `(index === 0)` é precedido por um `<p>` etiquetas. Miniaturas, caso contrário butt com entre si e moldagem conforme necessário na janela do browser.
+O compositor de imagens utiliza as variáveis `section` e `index` para apresentar resultados de forma diferente conforme os respetivos locais de origem. É inserida uma quebra de linha (etiqueta `<br>`) entre os resultados de imagens na barra lateral, para que a mesma apresente uma coluna de imagens. Nas outras secções, o primeiro resultado de imagem `(index === 0)` será precedido por uma etiqueta `<p>`.
 
-O tamanho das miniaturas é utilizado em ambos os `<img>` etiqueta e o `h` e `w` campos no URL a miniatura. O [serviço em miniatura do Bing](resize-and-crop-thumbnails.md) , em seguida, fornece uma miniatura do exatamente esse tamanho. O `title` e `alt` atributos (uma descrição da imagem textual) são construídos a partir de nome da imagem e o nome de anfitrião no URL.
+O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. Os atributos `title` e `alt` (uma descrição textual da imagem) são criados a partir do nome de anfitrião e do nome da imagem no URL.
 
-Imagens aparecem conforme mostrado aqui nos resultados da pesquisa mainline.
+Eis um exemplo da forma como as imagens são apresentadas na aplicação de exemplo:
 
-![[Resultados de imagem do Bing]](media/cognitive-services-bing-web-api/web-search-spa-images.png)
+![(Resultados de imagens do Bing)](media/cognitive-services-bing-web-api/web-search-spa-images.png)
 
-## <a name="persisting-client-id"></a>ID de cliente persistentes
+## <a name="persist-the-client-id"></a>Manter o ID de cliente
 
-As respostas a partir de APIs de pesquisa do Bing podem incluir um `X-MSEdge-ClientID` cabeçalho que deve ser enviado para a API com os pedidos sucessivos. Se estão a ser utilizadas várias APIs de pesquisa do Bing, o mesmo ID de cliente deve utilizado com todos eles, se possível.
+As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se a sua aplicação utilizar mais do que uma das APIs de Pesquisa do Bing, certifique-se de que é enviado o mesmo ID de cliente nos pedidos em todos os serviços.
 
-Fornecer o `X-MSEdge-ClientID` cabeçalho permite que as APIs do Bing para associar todas as pesquisas de um utilizador, que tem duas vantagens importantes.
+Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem as pesquisas de um utilizador. Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela. Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem novas funcionalidades antes de serem disponibilizadas para o público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-Em primeiro lugar, permite que o Bing motor de busca aplicar passado contexto a procura para localizar os resultados que melhor satisfazem o utilizador. Se um utilizador tem procurado anteriormente para os termos relacionados com sailing, por exemplo, uma pesquisa posterior para "knots" poderá preferentially devolver informações sobre knots utilizado no sailing.
-
-Segundo, o Bing aleatoriamente pode selecionar os utilizadores a experiência de novas funcionalidades antes de serem efetuadas amplamente disponíveis. Fornecer o mesmo ID de cliente com cada pedido garante que os utilizadores que escolheu para ver uma funcionalidade sempre veem-lo. Sem o ID de cliente, o utilizador poderá ver uma funcionalidade são apresentados e desaparecer, seemingly aleatória, os resultados da procura.
-
-Políticas de segurança do browser (CORS) poderão impedir o `X-MSEdge-ClientID` cabeçalho estejam disponíveis para JavaScript. Esta limitação ocorre quando a resposta de pesquisa tem uma origem diferente da página de pedido-lo. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faz a chamada de API no mesmo domínio que a página Web. Uma vez que o script tem a mesma origem como a página Web, o `X-MSEdge-ClientID` cabeçalho, em seguida, está disponível para JavaScript.
+As políticas de segurança do browser, como a Partilha de Recursos Transversais à Origem (CORS), poderão impedir que a aplicação de exemplo aceda ao cabeçalho `X-MSEdge-ClientID`. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
 
 > [!NOTE]
-> Uma aplicação Web de produção, deve efetuar o pedido lado do servidor mesmo assim. Caso contrário, a chave de API de pesquisa do Bing têm de ser incluída na página Web, onde se encontram disponíveis para qualquer pessoa que vistas de origem. É-lhe faturado para utilização de todas as sob a chave de subscrição de API, mesmo pedidos efetuados por entidades confiadoras não autorizadas, pelo que é importante não para expor a sua chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a sua chave de subscrição da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de desenvolvimento, pode efetuar o pedido de API de pesquisa do Bing Web através de um proxy CORS. A resposta de um proxy essa tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta whitelists e disponibiliza-los JavaScript.
+Para fins de programação, pode fazer um pedido através de um proxy da CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que a nossa aplicação tutorial para o cliente de acesso cabeçalho de ID. Primeiro, se ainda não tiver, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando numa janela de comandos:
+É fácil instalar um proxy da CORS para permitir que a nossa aplicação de exemplo aceda ao cabeçalho do ID de cliente. Execute este comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Em seguida, altere o ponto final de pesquisa na Web Bing no ficheiro HTML para:
+Em seguida, altere o ponto final da Pesquisa na Web do Bing em `script.js` para:
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+```javascript
+http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+```
 
-Por fim, inicie o proxy CORS com o seguinte comando:
+Inicie o proxy da CORS com este comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
-Deixe a janela de comandos aberta e, ao utilizar a aplicação tutorial; fechar a janela interrompe o proxy. Na secção de cabeçalhos de HTTP expansível abaixo os resultados da pesquisa, agora, pode ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada pedido.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de exemplo. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP abaixo dos resultados da pesquisa, o cabeçalho `X-MSEdge-ClientID` deverá estar visível. Verifique que é o mesmo para todos os pedidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação móvel de pesquisa Visual](computer-vision-web-search-tutorial.md)
-
-> [!div class="nextstepaction"]
-> [Referência da API de pesquisa do Bing Web](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+> [Referência da API de Pesquisa na Web do Bing v7](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

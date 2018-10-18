@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086831"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718094"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -72,13 +72,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Permita o acesso dos serviços do Azure ao SQL Server. Verifique se a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor que tem o SQL Server em execução. Esta definição permite que o Data Factory grave dados na sua instância de SQL Server. Para verificar e ativar esta definição, execute estes passos:
-
-    a. No lado esquerdo, selecione **Mais serviços** e, em seguida, selecione **Servidores SQL**.
-
-    b. Selecione o seu servidor e, em seguida, selecione **DEFINIÇÕES** > **Firewall**.
-
-    c. Na página **Definições de firewall**, defina a opção **Permitir acesso aos serviços do Azure** como **ATIVADO**.
+2. Permita o acesso dos serviços do Azure ao SQL Server. Verifique se a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor que tem a Base de Dados SQL em execução. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ativar esta definição, aceda ao seu servidor SQL do Azure > **Segurança** > **Firewalls e redes virtuais** > defina a opção **Permitir acesso aos serviços do Azure** para **ATIVADO**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 

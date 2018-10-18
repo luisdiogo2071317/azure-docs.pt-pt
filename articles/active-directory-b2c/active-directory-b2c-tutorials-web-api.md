@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609094"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604346"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial - Conceder acesso a uma API Web ASP.NET a partir de uma aplicação Web com o Azure Active Directory B2C
 
@@ -40,19 +40,13 @@ Neste tutorial, ficará a saber como:
 
 Os recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a [pedidos de recursos protegidos](../active-directory/develop/developer-glossary.md#resource-server) por parte de [aplicações cliente](../active-directory/develop/developer-glossary.md#client-application) que apresentem [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) a partir do Azure Active Directory. O registo estabelece o [objeto da aplicação e do principal de serviço](../active-directory/develop/developer-glossary.md#application-object) no seu inquilino. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, ao trocá-lo no canto superior direito do portal do Azure. Selecione as suas informações de subscrição e, em seguida, selecione **Trocar Diretório**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![Trocar diretórios](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Já deve estar a utilizar o inquilino que criou no tutorial anterior.
 
-3. Escolha o diretório que contém o seu inquilino.
-
-    ![Selecionar o diretório](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Já deve estar a utilizar o inquilino que criou no tutorial anterior.
-
-5. Selecione **Aplicações** e **Adicionar**.
+2. Selecione **Aplicações** e **Adicionar**.
 
     Para registar a aplicação Web de exemplo no inquilino, utilize as seguintes definições.
     
@@ -67,7 +61,7 @@ Os recursos da API Web têm de ser registados no seu inquilino antes de poderem 
     | **URI do ID da Aplicação** | myAPISample | O URI identifica exclusivamente a API no inquilino. Isto permite-lhe registar várias APIs por inquilino. Os [âmbitos](../active-directory/develop/developer-glossary.md#scopes) regem o acesso ao recurso protegido da API e são definidos por URI de ID de Aplicação. |
     | **Cliente nativo** | Não | Uma vez que se trata de uma API Web e não de um cliente nativo, selecione Não. |
     
-6. Clique em **Criar** para registar a API.
+3. Clique em **Criar** para registar a API.
 
 As APIs registadas são apresentadas na lista de aplicações do inquilino do Azure AD B2C. Selecione a API Web na lista. É apresentado o painel de propriedades da API Web.
 
@@ -192,7 +186,7 @@ Tem de executar os dois projetos, **TaskWebApp** e **TaskService**.
 5. Prima **F5** para executar as duas aplicações. Cada aplicação é aberta no respetivo separador do browser. `https://localhost:44316/` é a aplicação Web.
     `https://localhost:44332/` é a API Web.
 
-6. Na aplicação Web, clique na liação de inscrição / início de sessão, na faixa de menu, para se inscrever na aplicação Web. Utilize a conta que criou no [tutorial da aplicação Web](active-directory-b2c-tutorials-web-app.md). 
+6. Na aplicação Web, clique na ligação de inscrição/início de sessão na faixa do menu para se inscrever na aplicação Web. Utilize a conta que criou no [tutorial da aplicação Web](active-directory-b2c-tutorials-web-app.md). 
 7. Depois de iniciar sessão, clique na ligação **Lista de tarefas** e crie um item de lista de tarefas.
 
 Quando cria um item de lista de tarefas, a aplicação Web envia um pedido para a API Web para gerar esse item. A sua aplicação Web protegida está a chamar a API Web protegida no seu inquilino do Azure AD B2C.

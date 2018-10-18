@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7e73f676f47de8256928224aae55ea30eb414ddf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344763"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388304"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -72,7 +72,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -160,7 +160,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -215,7 +215,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -275,7 +275,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -332,7 +332,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -389,7 +389,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -410,7 +410,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 ### <a name="new"></a>Novo
 * Explorador de armazenamento agora suporta a utilização de Azurite. Nota: a ligação ao Azurite é codificado para os pontos finais de desenvolvimento de predefinição.
-* Agora, o Explorador de armazenamento suporta os escalões de acesso para apenas de BLOBs e contas de armazenamento GPV2. Saiba mais sobre escalões de acesso [aqui](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Agora, o Explorador de armazenamento suporta os escalões de acesso para apenas de BLOBs e contas de armazenamento GPV2. Saiba mais sobre escalões de acesso [aqui](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * Uma hora de início já não é necessária ao gerar uma SAS.
 
 ### <a name="fixes"></a>Correções
@@ -443,7 +443,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```
@@ -470,7 +470,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 * Comentários do Explorador de armazenamento agora residem no GitHub. Pode entrar nossa página de problemas ao clicar no botão de comentários na parte inferior esquerda ou ao aceder a [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). Não hesite em fazer sugestões, reportar problemas, fazer perguntas ou deixe qualquer outra forma de comentários.
 * Se se deparar com problemas de certificado SSL e não é possível localizar o certificado incorreto, agora, pode iniciar o Explorador de armazenamento da linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, o Explorador de armazenamento irão ignorar erros de certificado SSL.
 * Agora é uma opção de "Transferir" no menu de contexto para itens de BLOBs e ficheiros.
-* Acessibilidade melhorada e suporte de leitor de ecrã. Se contar com funcionalidades de acessibilidade, consulte nosso [documentação de acessibilidade](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
+* Acessibilidade melhorada e suporte de leitor de ecrã. Se contar com funcionalidades de acessibilidade, consulte nosso [documentação de acessibilidade](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
 * Agora, o Explorador de armazenamento utiliza Bombardeador 1.8.3
 
 ### <a name="breaking-changes"></a>Alterações Interruptivas
@@ -509,7 +509,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
 
     ```

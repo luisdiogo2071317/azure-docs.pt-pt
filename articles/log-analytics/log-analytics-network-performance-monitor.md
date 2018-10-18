@@ -27,9 +27,9 @@ ms.locfileid: "49353296"
 ![Símbolo de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 
-Monitor de desempenho de rede é uma solução que ajuda a monitorizar o desempenho de rede entre vários pontos na sua infraestrutura de rede de monitorização de rede de com base na cloud híbrida. Ele também ajuda a monitorizar a conectividade de rede ao serviço e pontos finais da aplicação e monitorizar o desempenho do Azure ExpressRoute. 
+Monitor de desempenho de rede é uma solução que ajuda a monitorizar o desempenho de rede entre vários pontos na sua infraestrutura de rede de monitorização de rede de com base na cloud híbrida. Ajuda também a monitorizar a conectividade da rede ao serviço e pontos finais da aplicação, bem como o desempenho do Azure ExpressRoute. 
 
-Monitor de desempenho de rede Deteta problemas de rede, como blackholing de tráfego, erros de encaminhamento e problemas que os métodos de monitorização de rede convencionais não conseguem detetar. A solução gera alertas e notifica-o quando um limiar é quebrado para uma ligação de rede. Também garante que a detecção oportuna de problemas de desempenho de rede e localizes a origem do problema para um segmento de rede específico ou dispositivo. 
+Monitor de desempenho de rede Deteta problemas de rede, como blackholing de tráfego, erros de encaminhamento e problemas que os métodos de monitorização de rede convencionais não conseguem detetar. A solução gera alertas e notifica-o quando existir uma falha do limiar de uma ligação de rede. Também garante a deteção atempada de problemas de desempenho de rede e localiza a origem do problema num dispositivo ou segmento de rede específico. 
 
 Monitor de desempenho de rede oferece três recursos abrangentes: 
 

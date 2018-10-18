@@ -1,45 +1,45 @@
 ---
-title: Código de colaboração do Azure Active Directory B2B e exemplos do PowerShell | Documentos da Microsoft
-description: Exemplos de código e o PowerShell para a colaboração do Azure Active Directory B2B
+title: Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B | Microsoft Docs
+description: Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f9740aba27b7a593fdf2b465f539d305d24333de
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: MT
+ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649258"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985450"
 ---
-# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Código de colaboração do Azure Active Directory B2B e exemplos do PowerShell
+# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 
 ## <a name="powershell-example"></a>Exemplo do PowerShell
-Pode em massa-convite utilizadores externos para uma organização a partir de endereços de e-mail que tem armazenados num. Ficheiro CSV.
+Pode convidar utilizadores externos em massa para uma organização a partir dos endereços de e-mail armazenados num ficheiro .CSV.
 
-1. Preparar o. Criar um novo ficheiro CSV de ficheiros CSV e o nomeio invitations.csv. Neste exemplo, o ficheiro é guardado na C:\data e contém as seguintes informações:
+1. Preparar o ficheiro .CSV – crie um novo ficheiro CSV e dê-lhe o nome convites.csv. Neste exemplo, o ficheiro é guardado em C:\data e contém as seguintes informações:
   
   Nome                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
-  Convidado Gmail B2B     | b2binvitee@gmail.com
-  Convidado do Outlook B2B   | b2binvitee@outlook.com
+  Gmail B2B Invitee     | b2binvitee@gmail.com
+  Outlook B2B invitee   | b2binvitee@outlook.com
 
 
-2. Obtenha a mais recente do Azure AD PowerShell para utilizar os novos cmdlets, tem de instalar o módulo Azure AD PowerShell atualizado, que pode baixar em [página de versão do módulo do Powershell](https://www.powershellgallery.com/packages/AzureADPreview)
+2. Obter o Azure AD PowerShell mais recente – para utilizar os novos cmdlets, tem de instalar o módulo do Azure AD PowerShell atualizado, que pode transferir a partir da [página de lançamento do módulo do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview)
 
-3. Inicie sessão no seus inquilinos
+3. Iniciar sessão no seu inquilino
 
     ```
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
-4. Execute o cmdlet do PowerShell
+4. Executar o cmdlet do PowerShell
 
   ```
   $invitations = import-csv C:\data\invitations.csv
@@ -48,13 +48,13 @@ Pode em massa-convite utilizadores externos para uma organização a partir de e
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
-Este cmdlet envia um convite para os endereços de e-mail no invitations.csv. Funcionalidades adicionais deste cmdlet incluem:
+Este cmdlet envia um convite para os endereços de e-mail em convites.csv. As funcionalidades adicionais deste cmdlet incluem:
 - Texto personalizado na mensagem de e-mail
-- Incluindo o nome a apresentar para o utilizador convidado
-- Enviar mensagens a CCs ou completamente a supressão de mensagens de e-mail
+- Incluindo um nome a apresentar para o utilizador convidado
+- Envio de mensagens para os utilizadores no campo CC ou supressão de mensagens de e-mail
 
 ## <a name="code-sample"></a>Exemplo de código
-Aqui ilustraremos como chamar o convite de API, no modo "só de aplicação", para obter o URL de resgate para o recurso ao qual são convidar o utilizador B2B. O objetivo é enviar um e-mail de convite personalizadas. A mensagem de e-mail pode ser composta com um cliente HTTP, para que possa personalizar o aspeto que e enviá-lo através da Graph API.
+Aqui mostramos como chamar a API de convite, no modo "só de aplicação", para obter o URL de resgate do recurso para o qual está a convidar o utilizador B2B. O objetivo é enviar um e-mail de convite personalizado. O e-mail pode ser composto com um cliente HTTP, para que possa personalizar o aspeto e enviar através da Graph API.
 
 ```
 namespace SampleInviteApp
@@ -227,7 +227,7 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 

@@ -1,64 +1,65 @@
 ---
-title: Detetar faces nas imagens com a API de rostos em | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Utilize a API de rostos em serviços cognitivos para detetar faces nas imagens.
+title: 'Exemplo: Detetar rostos em imagens – API Face'
+titleSuffix: Azure Cognitive Services
+description: Utilize a API Face para detetar rostos em imagens.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 57cd0915450428399fd680638aa4fae2cdbe17c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351728"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124053"
 ---
-# <a name="how-to-detect-faces-in-image"></a>Como detetar enfrenta na imagem
+# <a name="example-how-to-detect-faces-in-image"></a>Exemplo: Como Detetar Rostos na Imagem
 
-Este guia demonstrar como detetar faces a partir de uma imagem, com atributos de letra, como género, idade ou apresentam extraído. Os exemplos são escritos em c# utilizando a biblioteca de cliente de API de letra. 
+Este guia demonstrará como detetar rostos numa imagem, com atributos faciais, como género, idade ou postura extraídos. Os exemplos são escritos em C# com a biblioteca de cliente da API Face. 
 
-## <a name="concepts"></a> Conceitos
+## <a name="concepts"></a>Conceitos
 
-Se não estiver familiarizado com qualquer um dos seguintes conceitos neste guia, consulte as definições no nosso [glossário](../Glossary.md) em qualquer altura: 
+Se não estiver familiarizado com algum dos seguintes conceitos neste guia, veja as definições no nosso [Glossário](../Glossary.md) a qualquer momento: 
 
 - Deteção de rostos
-- Enfrentam landmarks
-- HEAD implicar
-- Atributos de rostos em
+- Pontos de referência do rosto
+- Postura da cabeça
+- Atributos do rosto
 
-## <a name="preparation"></a> Preparação
+## <a name="preparation"></a>Preparação
 
 Neste exemplo, vamos demonstrar as seguintes funcionalidades: 
 
-- Detetar faces a partir de uma imagem e marcar utilizando pacotes retangular
-- Analisar as localizações do pupils, nose ou boca e, em seguida, marcar a imagem
-- Analisar implicar head, sexo e duração do tipo de letra
+- Detetar rostos numa imagem e marcá-los através de moldura retangular
+- Analisar as localizações de pupilas, do nariz ou da boca e, em seguida, marcá-los na imagem
+- Analisar a postura da cabeça, género e idade do rosto
 
-Para executar estas funcionalidades, terá de preparar uma imagem com pelo menos uma letra limpar. 
+Para executar estas funcionalidades, terá de preparar uma imagem com, pelo menos, um rosto claro. 
 
-## <a name="step1"></a> Passo 1: Autorizar a chamada de API
+## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada da API
 
-Cada chamada à API do enfrentam requer uma chave de subscrição. Esta chave tem de ser transmitidos através de um parâmetro de cadeia de consulta, ou especificado no cabeçalho do pedido. Para passar a chave de subscrição através da cadeia de consulta, consulte o URL do pedido para o [enfrentam - detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como exemplo:
+Todas as chamadas para a API Face requerem uma chave de subscrição. Esta chave precisa de passar por um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido. Para passar a chave de subscrição através da cadeia de consulta, veja o URL do pedido para [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como exemplo:
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription Key>
 ```
 
-Como alternativa, a chave de subscrição pode ser também especificada no cabeçalho do pedido HTTP: **ocp apim-subscrição-chave: &lt;chave de subscrição&gt;**  quando utilizar uma biblioteca de cliente, a chave de subscrição é transmitida no através do construtor de classe FaceServiceClient. Por exemplo:
+Como alternativa, a chave de subscrição também pode ser especificada no cabeçalho do pedido HTTP: **ocp-apim-subscription-key: &lt;Chave de Subscrição&gt;**  Quando utilizar uma biblioteca de cliente, a chave de subscrição é passada através do construtor da classe FaceServiceClient. Por exemplo:
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-## <a name="step2"></a> Passo 2: Carregar uma imagem para o serviço e executar a deteção de rostos em
+## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>Passo 2: Carregar uma imagem para o serviço e executar a deteção de rostos
 
-A forma mais básica para efetuar a deteção de rostos em é através do carregamento de uma imagem diretamente. Isto é feito ao enviar um pedido de "POST" com o tipo de conteúdo application/octet-stream, com os dados lidos a partir de uma imagem JPEG. O tamanho máximo da imagem é 4 MB.
+A forma mais básica de executar a deteção de rostos é carregar uma imagem diretamente. Isso é feito ao enviar um pedido de "POST" com o tipo de conteúdo application/octet-stream, com os dados lidos a partir de uma imagem JPEG. O tamanho máximo da imagem são 4 MB.
 
-Deteção de rostos em através do carregar utilizando a biblioteca de cliente, é feita ao transmitir um objeto de sequência. Consulte o exemplo abaixo:
+Com a biblioteca de cliente, a deteção de rostos por meio de carregamento é feita ao transmitir um objeto de Transmissão em fluxo. Veja o exemplo abaixo:
+
 ```CSharp
 using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 {
@@ -72,9 +73,10 @@ using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 }
 ```
 
-Tenha em atenção que o método DetectAsync FaceServiceClient async. O método de chamada deverá ser marcado como assíncrono bem, para poder utilizar a cláusula await.
-Se a imagem já se encontra na web e tem um URL, a deteção de rostos em pode ser executada por também fornecer o URL. Neste exemplo, o corpo do pedido será cadeia JSON, que contém o URL.
-Utilizar a biblioteca de cliente, deteção de rostos em através de um URL pode ser executada facilmente utilizar outra sobrecarga do método DetectAsync.
+Observe que o método DetectAsync do FaceServiceClient é assíncrono. O método de chamada deve ser marcado como async (assíncrono), para poder utilizar a cláusula wait (aguardar).
+Se a imagem já se encontra na Web e tem um URL, a deteção de rostos pode ser executada ao indicar também o URL. Neste exemplo, o corpo do pedido será uma cadeia JSON, que contém o URL.
+Com a biblioteca de cliente, a deteção de rostos por meio de um URL pode ser executada facilmente ao utilizar outra sobrecarga do método DetectAsync.
+
 ```CSharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
@@ -86,17 +88,18 @@ foreach (var face in faces)
 }
 ``` 
 
-A propriedade de FaceRectangle que é devolvida com faces detetados é essencialmente zações de rostos em pixéis. Normalmente, neste retângulo contém continuará a ser, eyebrows, o nose e da boca – parte superior do cabeçalho, ears e o chin não estão incluídos. Se recortar uma head concluída ou média dimensão que captura vertical (uma imagem de tipo fotografia do ID), pode querer expanda a área da moldura enfrentam retangular porque a área do tipo de letra pode ser demasiado pequena para algumas aplicações. Para localizar um rosto mais precisamente, utilizando landmarks de rostos (localizar funcionalidades enfrentam ou enfrentam os mecanismos de direção) descrito na seguinte secção irá provar para ser útil.
+A propriedade de FaceRectangle que é devolvida com rostos detetados é, essencialmente, localizações no rosto em pixéis. Geralmente, este retângulo contém os olhos, as sobrancelhas, o nariz e a boca – a parte superior da cabeça, as orelhas e o queixo não estão incluídos. Se recortar um retrato de cabeça completa ou um plano médio (uma imagem de tipo fotografia do ID), poderá querer expandir a área da moldura de rosto retangular porque a área do rosto pode ser demasiado pequena para algumas aplicações. Para localizar um rosto com maior precisão, utilizar pontos de referência do rosto (funcionalidades de localização no rosto ou mecanismos de direção de rosto) descritos na seguinte seção vai-se revelar útil.
 
-## <a name="step3"></a> Passo 3: Compreensão e utilização de rostos em landmarks
+## <a name="step-3-understanding-and-using-face-landmarks"></a>Passo 3: Compreender e utilizar pontos de referência do rosto
 
-Enfrentam landmarks são uma série de detalhado pontos de um rosto; Normalmente, pontos dos componentes de letra, como o pupils, canthus ou nose. Enfrentam landmarks são atributos opcionais que podem ser analisados durante a deteção de rostos em. Pode a passagem 'true' como um valor booleano para o parâmetro de consulta returnFaceLandmarks ao chamar o [enfrentam - detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), ou utilize o parâmetro opcional returnFaceLandmarks para a classe de FaceServiceClient DetectAsync método ordem para incluir os landmarks enfrentam nos resultados da deteção.
+Os pontos de referência do rosto são uma série de pontos detalhados de um rosto; normalmente, os pontos dos componentes de rostos, como as pupilas, o canthus ou o nariz. Os pontos de referência do rosto são atributos opcionais que podem ser analisados durante a deteção de rostos. Pode passar 'true' como um valor booleano para o parâmetro de consulta returnFaceLandmarks ao chamar [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) ou utilizar o parâmetro opcional returnFaceLandmarks para o método DetectAsync classe FaceServiceClient de modo a incluir os pontos de referência do rosto nos resultados da deteção.
 
-Por predefinição, existem 27 pontos de landmark predefinidas. A seguinte figura mostra como todos os pontos de 27 são definidos:
+Por predefinição, existem 27 pontos de referência predefinidos. A figura a seguir mostra como todos os 27 pontos são definidos:
 
 ![HowToDetectFace](../Images/landmarks.1.jpg)
 
-Os pontos de devolvido estão em unidades de pixels, tal como moldura enfrentam retangular. Por conseguinte, tornando mais fácil marcar específicos pontos de interesse na imagem. O código seguinte demonstra a obter as localizações do nose e pupils:
+Os pontos retornados são em unidades de pixéis, tal como a moldura retangular do rosto. Portanto, facilitam a marcação de pontos específicos de interesse na imagem. O código a seguir demonstra a obtenção das localizações do nariz e das pupilas:
+
 ```CSharp
 var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
  
@@ -116,7 +119,7 @@ foreach (var face in faces)
 }
 ``` 
 
-Para além de marcação de rostos em funcionalidades numa imagem, enfrentam landmarks também podem ser utilizados para calcular com exatidão a direção do tipo de letra. Por exemplo, vamos pode definir a direção de rosto como um vetor de centro da boca para o Centro de continuará a ser. O código abaixo explica isto detalhadamente:
+Além de marcar características de rostos numa imagem, os pontos de referência do rosto também podem ser utilizados para calcular com precisão a direção do rosto. Por exemplo, podemos definir a direção do rosto como um vetor do centro da boca ao centro dos olhos. O código abaixo explica-o em detalhe:
 
 ```CSharp
 var landmarks = face.FaceLandmarks;
@@ -140,21 +143,22 @@ Vector faceDirection = new Vector(
     centerOfTwoEyes.Y - centerOfMouth.Y);
 ``` 
 
-Por saber a direção que a letra está a ser, em seguida, pode rodar moldura enfrentam retangular alinhá-lo com o tipo de letra. É claro que utilizar enfrentam landmarks pode fornecer mais detalhes e o utilitário.
+Ao saber a direção em que está o rosto, então pode girar a moldura retangular do rosto e alinhá-lo com o mesmo. É evidente que a utilização de pontos de referência do rosto pode oferecer mais detalhes e ser mais útil.
 
-## <a name="step4"></a> Passo 4: Utilizar outros atributos de rostos em
+## <a name="step-4-using-other-face-attributes"></a>Passo 4: Utilizar outros atributos faciais
 
-Para além de landmarks enfrentam, enfrentam – detetar API também pode analisar vários outros atributos num tipo de letra. Estes atributos incluem:
+Além dos pontos de referência do rosto, a API Face – Detetar também pode analisar vários outros atributos num rosto. Estes atributos incluem:
 
 - Idade
 - Género
-- Intensidade de Smile
-- Facial hair
-- Um implicar head 3D
+- Intensidade do sorriso
+- Pelo facial
+- Postura da cabeça a 3D
 
-Estes atributos são prever através da utilização de algoritmos de análises e sempre não podem ser preciso de 100%. No entanto, são ainda útil quando pretende classificar faces por estes atributos. Para obter mais informações sobre cada um dos atributos, consulte o [glossário](../Glossary.md).
+Estes atributos são previstos com algoritmos estatísticos e podem nem sempre ser 100% exatos. No entanto, eles são ainda úteis quando pretende classificar rostos por estes atributos. Para obter mais informações sobre cada um dos atributos, veja o [Glossário](../Glossary.md).
 
-Segue-se um exemplo simples para extrair os atributos de rostos em durante a deteção de rostos em:
+Segue-se um exemplo simples de extração de atributos faciais durante a deteção de rostos:
+
 ```CSharp
 var requiredFaceAttributes = new FaceAttributeType[] {
                 FaceAttributeType.Age,
@@ -180,12 +184,13 @@ foreach (var face in faces)
     var glasses = attributes.Glasses;
 }
 ``` 
-## <a name="summary"></a> Resumo
 
-Neste guia aprendeu as funcionalidades de [enfrentam - detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API, o que pode detetar faces para local carregado imagens ou URL da imagem na web; como pode detetar faces devolvendo frames Jumbo enfrentam retangular; e como pode também analisar enfrentam landmarks, utilizadores constitui head 3D e outros atributos de rostos em bem.
+## <a name="summary"></a>Resumo
 
-Para obter mais informações sobre os detalhes de API, consulte o guia de referência da API para [enfrentam - detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Neste guia aprendeu as funcionalidades da API [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), como pode detetar rostos para imagens carregadas localmente ou em URLs de imagens na Web; como pode detetar rostos ao devolver molduras de rosto retangulares; e como também pode analisar pontos de referência do rosto, posturas da cabeça a 3D e outros atributos faciais.
 
-## <a name="related"></a> Tópicos relacionados
+Para obter mais informações sobre os detalhes da API, veja o guia de referência da API para [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-[Como identificar enfrenta na imagem](HowtoIdentifyFacesinImage.md)
+## <a name="related-topics"></a>Tópicos relacionados
+
+[Como Identificar Rostos na Imagem](HowtoIdentifyFacesinImage.md)

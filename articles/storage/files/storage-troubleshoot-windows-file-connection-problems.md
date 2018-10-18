@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: MT
+ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386346"
+ms.locfileid: "49365410"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -32,13 +32,13 @@ Ao tentar montar uma partilha de ficheiros no local ou a partir de um centro de 
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação sem encriptação
 
-Por motivos de segurança, as ligações a partilhas de ficheiros do Azure são bloqueadas se o canal de comunicação não é encriptado e se a tentativa de ligação não é feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. Conexões não criptografadas no mesmo datacenter podem também ser bloqueados se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento. Encriptação de canal de comunicação é fornecida apenas se o SO de cliente do usuário oferece suporte a encriptação SMB.
+Por motivos de segurança, as ligações a partilhas de ficheiros do Azure são bloqueadas se o canal de comunicação não é encriptado e se a tentativa de ligação não é feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. Conexões não criptografadas no mesmo datacenter podem também ser bloqueados se o [transferência segura necessária](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento. Encriptação de canal de comunicação é fornecida apenas se o SO de cliente do usuário oferece suporte a encriptação SMB.
 
 Windows 8, Windows Server 2012 e versões posteriores de cada sistema negociam pedidos que incluem o SMB 3.0, que suporta a encriptação.
 
 ### <a name="solution-for-cause-1"></a>Solução para causa 1
 
-1. Verifique se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento.
+1. Verifique se o [transferência segura necessária](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento.
 2. Ligar a partir de um cliente que faz o seguinte:
 
     - Cumpre os requisitos do Windows 8 e Windows Server 2012 ou versões posteriores

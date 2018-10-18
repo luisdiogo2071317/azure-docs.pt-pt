@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626999"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366051"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
@@ -27,6 +27,12 @@ Neste tutorial, ficará a saber mais sobre:
 > * O exemplo de aplicação do TSI.
 > * A biblioteca de cliente JavaScript do TSI.
 > * De que forma é que aplicação de exemplo utiliza a biblioteca para visualizar dados do TSI.
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-introduce-the-open-source-time-series-insights-javascript-sdkbr"></a>Neste vídeo, apresentamos o SDK em JavaScript open source do Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

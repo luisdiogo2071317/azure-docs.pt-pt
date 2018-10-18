@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41919915"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578376"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Utilizadores sinalizados no relatório de segurança de risco no portal do Azure Active Directory
 
@@ -29,9 +29,9 @@ O Azure Active Directory deteta as ações suspeitas relacionadas com as suas co
 
 Os eventos de risco detetados são utilizados para calcular:
 
-- **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. Para obter mais informações, veja [Inícios de sessão arriscados](../identity-protection/overview.md#risky-sign-ins). 
+- **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. Para obter mais informações, veja [Como configurar a política de risco de início de sessão](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Utilizadores sinalizados para risco** – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. Para obter mais informações, veja [Utilizadores sinalizados para risco](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Utilizadores sinalizados para risco** – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. Para obter mais informações, veja [Como configurar a política de risco de utilizador](../identity-protection/howto-user-risk-policy.md).  
 
 No portal do Azure, pode encontrar os relatórios de segurança no painel do **Azure Active Directory**, na secção **Segurança**.  
 
@@ -78,13 +78,13 @@ Esta caixa de diálogo disponibiliza uma opção para:
 
 Os utilizadores sinalizados no relatório de risco nas edições premium do Azure Active Directory fornecem-lhe:
 
-- Uma [lista de contas de utilizador](../identity-protection/overview.md#users-flagged-for-risk) que poderão ter sido comprometidas 
+- Uma lista de contas de utilizador que poderão ter sido comprometidas 
 
 - Informações adicionais sobre os [tipos de eventos de risco](concept-risk-events.md) que foram detetados
 
 - Uma opção para transferir o relatório
 
-- Uma opção para configurar uma [política de remediação de risco do utilizador](../identity-protection/overview.md#user-risk-security-policy)  
+- Uma opção para configurar uma [política de remediação de risco do utilizador](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Inícios de Sessão de Risco](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Ao selecionar um utilizador, obtém uma vista de relatório detalhado para este 
 ![Inícios de Sessão de Risco](./media/concept-user-at-risk/324.png)
 
 
-Para investigar um evento de risco, selecione um na lista para abrir o painel **Detalhes** para este evento de risco. No painel **Detalhes**, tem a opção de [fechar manualmente um evento de risco](../identity-protection/overview.md#closing-risk-events-manually) ou reativar um evento de risco fechado manualmente. 
+Para investigar um evento de risco, selecione um na lista para abrir o painel **Detalhes** para este evento de risco. No painel **Detalhes**, tem a opção de fechar manualmente um evento de risco ou reativar um evento de risco fechado manualmente. 
 
 
 ![Inícios de Sessão de Risco](./media/concept-user-at-risk/325.png)

@@ -1,56 +1,57 @@
 ---
-title: Objeto de deteção com o Python e a API de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
-description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada personalizado nos serviços cognitivos da Microsoft. Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e fazer uma predição ao utilizar o ponto final predefinido.
+title: 'Tutorial: criar um projeto de deteção de objetos – API de Visão Personalizada, Python'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com o ponto final predefinido.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213586"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363705"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Utilize a API de visão personalizada para criar um projeto de deteção de objeto com Python
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutorial: criar um projeto de deteção de objetos com Python
 
-Explore um script de Python básico que utiliza a API de imagem digitalizada para criar um projeto de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição de padrão do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação com a API de visão personalizada.
+Explore um script Python básico que utilize a API de Imagem Digitalizada para criar um projeto de deteção de objetos. Depois de criado, poderá adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar o tutorial, terá de fazer o seguinte:
+Para utilizar este tutorial, tem de fazer o seguinte:
 
-- Instale o Python 2.7 + ou Python 3.5 +.
+- Instale o Python 2.7+ ou Python 3.5+.
 - Instale o pip.
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
-Este exemplo foi desenvolvido para Python.
+Este exemplo foi concebido para Python.
 
-### <a name="get-the-custom-vision-sdk"></a>Obtenha a SDK de visão personalizada
+### <a name="get-the-custom-vision-sdk"></a>Obter o SDK de Visão Personalizada
 
-Para criar este exemplo, precisa instalar o SDK de Python para a API de visão personalizada:
+Para criar este exemplo, tem de instalar o Python SDK para a API de Visão Personalizada:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-Pode baixar as imagens com o [amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+Pode transferir as imagens com os [Exemplos de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>Passo 1: Obter as chaves de formação e predição
+## <a name="step-1-get-the-training-and-prediction-keys"></a>Passo 1: obter as chaves de formação e de predição
 
-Para obter as chaves utilizadas neste exemplo, visite o [site de visão personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na __contas__ secção, copie os valores da __chave de treinamento__ e __predição chave__ campos.
+Para obter as chaves utilizadas neste exemplo, visite o [site da Visão Personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na secção __Accounts__ (Contas), copie os valores dos campos __Training Key__ (Chave de Formação) e __Prediction Key__ (Chave de Predição).
 
-![Imagem das chaves da interface do Usuário](./media/python-tutorial/training-prediction-keys.png)
+![Imagem da IU de chaves](./media/python-tutorial/training-prediction-keys.png)
 
-Este exemplo utiliza as imagens a partir [nesta localização](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
+Este exemplo utiliza as imagens [desta localização](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>Passo 2: Criar um projeto de serviço de visão personalizada
+## <a name="step-2-create-a-custom-vision-service-project"></a>Passo 2: criar um projeto do Serviço de Visão Personalizada
 
-Para criar um novo projeto de serviço de visão personalizada, crie um ficheiro de script sample.py e adicione o seguinte conteúdo. Tenha em atenção a diferença entre a criação de uma deteção de objetos e projeto de classificação de imagem é o domínio especificado para a chamada de create_project.
+Para criar um novo projeto do Serviço de Visão Personalizada, crie um ficheiro de script exemplo.py e adicione os seguintes conteúdos. Tenha em atenção que a diferença entre criar um projeto de classificação de imagens e um projeto de deteção de objetos é o domínio especificado para a chamada create_project.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -70,7 +71,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>Passo 3: Adicionar etiquetas ao seu projeto
+## <a name="step-3-add-tags-to-your-project"></a>Passo 3: adicionar etiquetas ao seu projeto
 
 Para adicionar etiquetas ao seu projeto, insira o seguinte código para criar duas etiquetas:
 
@@ -80,11 +81,11 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>Passo 4: Carregar imagens para o projeto
+## <a name="step-4-upload-images-to-the-project"></a>Passo 4: carregar imagens para o projeto
 
-Para o projeto de deteção de objeto tem de carregar a imagem, regiões e marcas. A região está normalizado coordiantes e especifica a localização do objeto marcado.
+Para o projeto de deteção de objetos, tem de carregar uma imagem, regiões e etiquetas. A região encontra-se em coordenadas normalizadas e especifica a localização do objeto etiquetado.
 
-Para adicionar as imagens, região e etiquetas ao projeto, insira o seguinte código após a criação de marca. Observe que, para este tutorial, as regiões são inseridos no código inline com o código. As regiões de especificar a caixa delimitadora em coordenadas normalizadas.
+Para adicionar as imagens, região e etiquetas ao projeto, insira o seguinte código após a criação da etiqueta. Tenha em atenção que, para este tutorial, as regiões estão codificadas inline. As regiões especificam a caixa delimitadora em coordenadas normalizadas.
 
 ```Python
 
@@ -156,12 +157,12 @@ for file_name in scissors_image_regions.keys():
 trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 ```
 
-## <a name="step-5-train-the-project"></a>Passo 5: Preparar o projeto
+## <a name="step-5-train-the-project"></a>Passo 5: preparar o projeto
 
-Agora que adicionar etiquetas e imagens para o projeto, pode treiná-lo: 
+Agora que adicionou etiquetas e imagens ao projeto, pode prepará-lo: 
 
 1. Insira o seguinte código. Esta ação cria a primeira iteração no projeto. 
-2. Marca esta iteração como a iteração de predefinição.
+2. Marque esta iteração como a iteração predefinida.
 
 ```Python
 import time
@@ -178,12 +179,12 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Passo 6: Obter e utilizar o ponto final de predição de predefinido
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Passo 6: obter e utilizar o ponto final de predição predefinido
 
-Agora, está pronto para usar o modelo de predição: 
+Está pronto para utilizar o modelo de predição: 
 
-1. Obter o ponto final associado com a iteração de predefinição. 
-2. Envie uma imagem de teste para o projeto usando o ponto de extremidade.
+1. Obtenha o ponto final associado à iteração predefinida. 
+2. Envie uma imagem de teste para o projeto através desse ponto final.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -202,9 +203,9 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>Passo 7: Executar o exemplo
+## <a name="step-7-run-the-example"></a>Passo 7: executar o exemplo
 
-Execute a solução. Os resultados de predição são apresentados na consola.
+Execute a solução. Os resultados da predição aparecem na consola.
 
 ```
 python sample.py

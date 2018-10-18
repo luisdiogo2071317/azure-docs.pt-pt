@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: MT
+ms.openlocfilehash: 4dfc4d250cae80e7837db5cfbcc3af15390b2bb4
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393955"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352341"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemplo: Criar uma habilidade personalizada com a API de tradução de texto
 
@@ -245,6 +245,14 @@ Quando estiver satisfeito com o comportamento da função, pode publicá-lo.
 1. Depois de concluída a implementação, tenha em atenção o URL do Site. É o endereço da sua aplicação de função no Azure. 
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para o grupo de recursos e procurar a função de traduzir que publicou. Sob o **gerir** secção, deverá ver chaves de anfitrião. Selecione o **cópia** ícone para o *padrão* a chave de anfitrião.  
+
+## <a name="update-ssl-settings"></a>Atualizar as definições de SSL
+
+Todas as funções do Azure criadas após 30 de Junho de 2018 ter desativado o TLS 1.0, que não é atualmente compatível com competências personalizadas.
+
+1. Na [portal do Azure](https://portal.azure.com), navegue para o grupo de recursos e procurar a função de traduzir que publicou. Sob o **funcionalidades de plataforma** seção, verá que o SSL.
+
+1. Depois de selecionar o SSL, deve alterar a **versão do TLS mínimo** 1,0. Funções de TLS 1.2 ainda não são suportadas como competências personalizadas.
 
 ## <a name="test-the-function-in-azure"></a>Testar a função no Azure
 

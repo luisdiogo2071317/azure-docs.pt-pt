@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45738472"
+---
 ## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
 
@@ -41,10 +58,10 @@ Tem duas opções de ambiente para executar os exemplos neste guia:
 * Pode executar o código numa conta de armazenamento do Azure na nuvem. 
 * Pode executar o código no emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar o seu código enquanto a aplicação está em desenvolvimento. O emulador utiliza uma conta e chave bem conhecidas. Para obter mais informações, veja [Utilizar o emulador de armazenamento do Azure para programação e teste](../articles/storage/common/storage-use-emulator.md).
 
-Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, veja [Ver e copiar chaves de acesso do armazenamento](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, veja [Chaves de acesso](../articles/storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
-> Pode filtrar o emulador de armazenamento para evitar incorrer em custos associados ao Storage do Azure. No entanto, se optar por filtrar uma conta de armazenamento do Azure na nuvem, os custos para efetuar este tutorial serão negligenciável.
+> Pode filtrar o emulador de armazenamento para evitar incorrer em custos associados ao Storage do Azure. No entanto, se optar por filtrar uma conta de armazenamento do Azure na nuvem, os custos para efetuar este tutorial serão negligenciáveis.
 > 
 > 
 

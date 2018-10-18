@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: c30e70802d125744432f428f903f6ac6789f631e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078703"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389230"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ligar o Azure Stack ao Azure através do ExpressRoute do Azure
 
@@ -313,7 +313,7 @@ Os recursos a que implementar no Azure são semelhantes para os recursos impleme
 
 A infraestrutura de rede do Azure de exemplo está configurada da seguinte forma:
 
-* Um modelo de VNet spoke (10.100.0.0./16) e standard de hub (192.168.2.0/24). Para obter mais informações sobre uma topologia de rede hub-and-spoke, veja [implementar uma topologia de rede hub-and-spoke no Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* Um modelo de VNet spoke (10.100.0.0./16) e standard de hub (192.168.2.0/24). Para obter mais informações sobre uma topologia de rede hub-and-spoke, veja [implementar uma topologia de rede hub-and-spoke no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * As cargas de trabalho são implementadas numa spoke VNet e o circuito do ExpressRoute está ligado à VNet do hub.
 * As duas VNets estão ligadas a utilização de VNet peering.
 

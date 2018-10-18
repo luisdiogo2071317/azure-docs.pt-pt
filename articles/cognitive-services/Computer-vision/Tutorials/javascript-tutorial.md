@@ -1,64 +1,65 @@
 ---
-title: Tutorial de visão API JavaScript do computador | Microsoft Docs
-description: Explore uma aplicação JavaScript básica que utiliza a API de visão de computador nos serviços cognitivos da Microsoft. Efetuar OCR, criar miniaturas e trabalhar com funcionalidades visual numa imagem.
+title: 'Tutorial: JavaScript de API de Imagem Digitalizada'
+titlesuffix: Azure Cognitive Services
+description: Explore uma aplicação JavaScript básica que utiliza a API de Imagem Digitalizada nos Serviços Cognitivos do Azure. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351913"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984929"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Tutorial de visão API JavaScript do computador
+# <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript de API de Imagem Digitalizada
 
-Este tutorial mostra as funcionalidades da Microsoft cognitivos serviços computador visão API REST.
+Este tutorial mostra as funcionalidades da API REST de Imagem Digitalizada dos Serviços Cognitivos do Azure.
 
-Explore uma aplicação do JavaScript que utiliza a API de REST de visão do computador para executar optical caráter reconhecimento (OCR), criar miniaturas smart-recortada, plus detetar, categorizar etiqueta e descrevem visual funcionalidades, incluindo faces, numa imagem. Este exemplo permite-lhe um URL de imagem para análise ou processamento de envio. Pode utilizar este exemplo de código aberto como um modelo para criar uma aplicação em JavaScript para utilizar a API de REST de visão do computador.
+Explore uma aplicação JavaScript que utilize a API REST de Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas com recorte inteligente, além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Este exemplo permite enviar um URL de imagem para análise ou processamento. Pode utilizar este exemplo de open source aberto como um modelo para criar a sua própria aplicação em JavaScript para utilizar a API REST de Imagem Digitalizada.
 
-A aplicação de forma JavaScript já foi escrita, mas não tem nenhuma funcionalidade visão do computador. Neste tutorial, adicione o código específico para a API de REST de visão de computador para concluir a funcionalidade da aplicação.
+A aplicação de formulário JavaScript já foi escrita, mas não tem a funcionalidade de Imagem Digitalizada. Neste tutorial, vai adicionar o código específico para a API REST de Imagem Digitalizada para concluir a funcionalidade da aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-Este tutorial tem foram desenvolvido utilizando um editor de texto simples.
+Este tutorial foi elaborado com um editor de texto simples.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Subscrever a API de visão do computador e obter uma chave de subscrição 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Subscrever a API de Imagem Digitalizada e obter uma chave de subscrição 
 
-Antes de criar o exemplo, tem de subscrever API de visão do computador que faz parte dos serviços cognitivos da Microsoft. Para detalhes de gestão de chaves e da subscrição, consulte [subscrições](https://azure.microsoft.com/try/cognitive-services/). As chaves primárias e secundárias são válidas para utilizar neste tutorial. 
+Antes de criar o exemplo, tem de subscrever a API de Imagem Digitalizada que faz parte dos Serviços Cognitivos do Azure. Para obter os detalhes da subscrição e da gestão de chaves, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Ambas as chaves primárias e secundárias são válidas para utilizar neste tutorial. 
 
-## <a name="download-the-tutorial-project"></a>Transferir o projeto tutorial
+## <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
 
-Clone o [cognitivos serviços JavaScript computador visão Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), ou transfira o ficheiro. zip e extraia-o para um diretório vazio.
+Clone o [Cognitive Services JavaScript Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) (Tutorial de Imagem Digitalizada de JavaScript dos Serviços Cognitivos) ou transfira o ficheiro. zip e extraia-o para um diretório vazio.
 
-Se preferir utilizar o tutorial foi terminado com o código do tutorial todos os adicionado, pode utilizar os ficheiros no **concluído** pasta.
+Se preferir utilizar o tutorial concluído com todos os códigos do tutorial adicionados, pode utilizar os ficheiros na pasta **Completed**.
 
-## <a name="add-the-tutorial-code"></a>Adicione o código do tutorial
+## <a name="add-the-tutorial-code"></a>Adicionar o código do tutorial
 
-A aplicação do JavaScript é configurada com seis .HTML os ficheiros, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente da visão de computador (analisar OCR, etc.). As secções tutorial seis não dispõe de interdependencies, pelo que pode adicionar o código do tutorial para um ficheiro, todos os ficheiros de seis ou apenas alguns dos ficheiros. E pode adicionar o código do tutorial para os ficheiros em qualquer ordem.
+A aplicação JavaScript está configurada com seis ficheiros .html, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente de Imagem Digitalizada (analisar, OCR, etc.). As seis secções do tutorial não têm interdependências, pelo que pode adicionar o código do tutorial a um ficheiro, a todos os ficheiros ou apenas a alguns dos ficheiros. Também pode adicionar o código do tutorial aos ficheiros em qualquer ordem.
 
 Vamos começar.
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
-A funcionalidade de análise do computador visão analisa uma imagem para mais de 2.000 objetos reconhecível, beings de maior duração, scenery e ações. Assim que a análise estiver concluída, analisar devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cor, legendas e muito mais.
+A funcionalidade Analyze (Analisar) da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a função Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e muito mais.
 
-Para concluir a funcionalidade de análise do tutorial da aplicação, execute os seguintes passos:
+Para concluir a funcionalidade Analyze (Analisar) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analisar o passo 1: Adicione o código de processador de eventos para o botão de formulário
+### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analyze (Analisar) – passo 1: adicionar o código do processador de eventos para o botão de formulário
 
-Abra o **analyze.html** ficheiro num editor de texto e localize o **analyzeButtonClick** função perto do fim do ficheiro.
+Abra o ficheiro **analyze.html** num editor de texto e localize a função **analyzeButtonClick** junto à parte inferior do ficheiro.
 
-O **analyzeButtonClick** função de processador de eventos limpa o formulário, apresenta a imagem especificada no URL, em seguida, chama o **AnalyzeImage** função para analisar a imagem.
+A função do processador de eventos **analyzeButtonClick** limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama a função **AnalyzeImage** para analisar a imagem.
 
-Copie e cole o seguinte código para o **analyzeButtonClick** função.
+Copie e cole o seguinte código na função **analyzeButtonClick**.
 
 ```javascript
 function analyzeButtonClick() {
@@ -76,11 +77,11 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analisar o passo 2: adicionar o wrapper para a chamada de REST API
+### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analyze (Analisar) – passo 2: adicionar o wrapper para a chamada à API REST
 
-O **AnalyzeImage** função encapsula num wrapper a chamada de REST API para analisar uma imagem. Após um retorno com êxito, a análise JSON formatada será apresentada no textarea especificado e a legenda será apresentada no intervalo especificado.
+A função **AnalyzeImage** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, a análise JSON formatada será apresentada na área de texto especificada e a legenda será apresentada no intervalo especificado.
 
-Copie e cole o **AnalyzeImage** funcionar código para apenas por baixo do **analyzeButtonClick** função.
+Copie e cole o código da função **AnalyzeImage** por baixo da função **analyzeButtonClick**.
 
 ```javascript
 /* Analyze the image at the specified URL by using Microsoft Cognitive Services Analyze Image API.
@@ -150,23 +151,23 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>Analisar o passo 3: executar a aplicação
+### <a name="analyze-step-3-run-the-application"></a>Analyze (Analisar) – passo 3: executar a aplicação
 
-Guardar o **analyze.html** de ficheiros e abra-o num browser. Colocar a sua chave de subscrição para o **chave de subscrição** campo e certifique-se de que está a utilizar a região correta no **subscrição região**. Introduza um URL numa imagem para analisar, em seguida, clique em de **analisar imagem** botão para analisar uma imagem e ver o resultado.
+Guarde o ficheiro **analyze.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="recognize-a-landmark"></a>Reconhecer um landmark
+## <a name="recognize-a-landmark"></a>Reconhecer um marco
 
-A funcionalidade de Landmark do computador visão analisa uma imagem para landmarks naturais e artificial, tais como mountains ou edifícios famosa. Assim que a análise estiver concluída, Landmark devolve um objeto JSON que identifica os landmarks encontrados na imagem.
+A funcionalidade Landmark (Marco) da Imagem Digitalizada analisa uma imagem relativamente a marcos naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, o Marco devolve um objeto JSON que identifica os marcos encontrados na imagem.
 
-Para concluir a funcionalidade de Landmark do tutorial da aplicação, execute os seguintes passos:
+Para concluir a funcionalidade Landmark (Marco) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Passo 1 da landmark: Adicione o código de processador de eventos para o botão de formulário
+### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Landmark (Marco) – passo 1: adicionar o código do processador de eventos para o botão de formulário
 
-Abra o **landmark.html** ficheiro num editor de texto e localize o **landmarkButtonClick** função perto do fim do ficheiro.
+Abra o ficheiro **landmark.html** num editor de texto e localize a função **landmarkButtonClick** junto à parte inferior do ficheiro.
 
-O **landmarkButtonClick** função de processador de eventos limpa o formulário, apresenta a imagem especificada no URL, em seguida, chama o **IdentifyLandmarks** função para analisar a imagem.
+A função do processador de eventos **landmarkButtonClick** limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama a função **IdentifyLandmarks** para analisar a imagem.
 
-Copie e cole o seguinte código para o **landmarkButtonClick** função.
+Copie e cole o seguinte código na função **landmarkButtonClick**.
 
 ```javascript
 function landmarkButtonClick() {
@@ -184,11 +185,11 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Passo landmark 2: adicionar o wrapper para a chamada de REST API
+### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Landmark (Marco) – passo 2: adicionar o wrapper para a chamada à API REST
 
-O **IdentifyLandmarks** função encapsula num wrapper a chamada de REST API para analisar uma imagem. Após um retorno com êxito, a análise JSON formatada será apresentada no textarea especificado e a legenda será apresentada no intervalo especificado.
+A função **IdentifyLandmarks** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, a análise JSON formatada será apresentada na área de texto especificada e a legenda será apresentada no intervalo especificado.
 
-Copie e cole o **IdentifyLandmarks** funcionar código para apenas por baixo do **landmarkButtonClick** função.
+Copie e cole o código da função **IdentifyLandmarks** por baixo da função **landmarkButtonClick**.
 
 ```javascript
 /* Identify landmarks in the image at the specified URL by using Microsoft Cognitive Services 
@@ -257,23 +258,23 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Passo landmark 3: executar a aplicação
+### <a name="landmark-step-3-run-the-application"></a>Landmark (Marco) – passo 3: executar a aplicação
 
-Guardar o **landmark.html** de ficheiros e abra-o num browser. Colocar a sua chave de subscrição para o **chave de subscrição** campo e certifique-se de que está a utilizar a região correta no **subscrição região**. Introduza um URL numa imagem para analisar, em seguida, clique em de **analisar imagem** botão para analisar uma imagem e ver o resultado.
+Guarde o ficheiro **landmark.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
 ## <a name="recognize-celebrities"></a>Reconhecer celebridades
 
-A funcionalidade de celebridades para do computador visão analisa uma imagem para famosa pessoas. Assim que a análise estiver concluída, celebridades para devolve um objeto JSON que identifica as celebridades para encontrar na imagem.
+A funcionalidade Celebrities (Celebridades) da Imagem Digitalizada analisa uma imagem para pessoas famosas. Quando a análise estiver concluída, a função Celebrities (Celebridades) devolve um objeto JSON que identifica as celebridades encontradas na imagem.
 
-Para concluir a funcionalidade de celebridades para do tutorial da aplicação, execute os seguintes passos:
+Para concluir a funcionalidade Celebrities (Celebridades) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Celebridades para passo 1: Adicione o código de processador de eventos para o botão de formulário
+### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Celebrities (Celebridades) – passo 1: adicionar o código do processador de eventos para o botão de formulário
 
-Abra o **celebrities.html** ficheiro num editor de texto e localize o **celebritiesButtonClick** função perto do fim do ficheiro.
+Abra o ficheiro **celebrities.html** num editor de texto e localize a função **celebritiesButtonClick** junto à parte inferior do ficheiro.
 
-O **celebritiesButtonClick** função de processador de eventos limpa o formulário, apresenta a imagem especificada no URL, em seguida, chama o **IdentifyCelebrities** função para analisar a imagem.
+A função do processador de eventos **celebritiesButtonClick** limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama a função **IdentifyCelebrities** para analisar a imagem.
 
-Copie e cole o seguinte código para o **celebritiesButtonClick** função.
+Copie e cole o seguinte código na função **celebritiesButtonClick**.
 
 ```javascript
 function celebritiesButtonClick() {
@@ -291,7 +292,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Celebridades para passo 2: adicionar o wrapper para a chamada de REST API
+### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Celebrities (Celebridades) – passo 2: adicionar o wrapper para a chamada à API REST
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -360,23 +361,23 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Celebridades para passo 3: executar a aplicação
+### <a name="celebrities-step-3-run-the-application"></a>Celebrities (Celebridades) – passo 3: executar a aplicação
 
-Guardar o **celebrities.html** de ficheiros e abra-o num browser. Colocar a sua chave de subscrição para o **chave de subscrição** campo e certifique-se de que está a utilizar a região correta no **subscrição região**. Introduza um URL numa imagem para analisar, em seguida, clique em de **analisar imagem** botão para analisar uma imagem e ver o resultado.
+Guarde o ficheiro **celebrities.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Inteligentemente gerar uma miniatura
+## <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de forma inteligente
 
-A funcionalidade de miniatura da visão de computador de gera uma miniatura a partir de uma imagem. Utilizando o **cortar inteligente** funcionalidade, a funcionalidade de miniatura identificará a área de interesse numa imagem e o Centro de miniatura nesta área, para gerar mais aesthetically pleasing imagens em miniatura.
+A funcionalidade Thumbnail (Miniatura) da Imagem Digitalizada gera uma miniatura a partir de uma imagem. Ao utilizar a funcionalidade **Smart Crop** (Recorte Inteligente), a funcionalidade Thumbnail (Miniatura) identificará a área de interesse numa imagem e centrará a miniatura nessa área, para gerar imagens em miniatura mais agradáveis esteticamente.
 
-Para concluir a funcionalidade de miniatura do tutorial da aplicação, execute os seguintes passos:
+Para concluir a funcionalidade Thumbnail (Miniatura) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Em miniatura passo 1: Adicione o código de processador de eventos para o botão de formulário
+### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Thumbnail (Miniatura) – passo 1: adicionar o código do processador de eventos para o botão de formulário
 
-Abra o **thumbnail.html** ficheiro num editor de texto e localize o **thumbnailButtonClick** função perto do fim do ficheiro.
+Abra o ficheiro **thumbnail.html** num editor de texto e localize a função **thumbnailButtonClick** junto à parte inferior do ficheiro.
 
-O **thumbnailButtonClick** função de processador de eventos limpa o formulário, apresenta a imagem especificada no URL, em seguida, chama o **getThumbnail** função duas vezes para criar dois miniaturas, um smart recortada e um sem cortar inteligente.
+A função do processador de eventos **thumbnailButtonClick** limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama a função **getThumbnail** duas vezes para criar duas miniaturas, uma com recorte inteligente e outra sem.
 
-Copie e cole o seguinte código para o **thumbnailButtonClick** função.
+Copie e cole o seguinte código na função **thumbnailButtonClick**.
 
 ```javascript
 function thumbnailButtonClick() {
@@ -402,11 +403,11 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Em miniatura passo 2: adicionar o wrapper para a chamada de REST API
+### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Thumbnail (Miniatura) – passo 2: adicionar o wrapper para a chamada à API REST
 
-O **getThumbnail** função encapsula num wrapper a chamada de REST API para analisar uma imagem. Após um retorno com êxito, será apresentada a miniatura no elemento img especificado.
+A função **getThumbnail** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, a miniatura será apresentada no elemento da imagem especificado.
 
-Copie e cole o seguinte **getThumbnail** função para apenas por baixo do **thumbnailButtonClick** função.
+Copie e cole a seguinte função **getThumbnail** por baixo da função **thumbnailButtonClick**.
 
 ```javascript
 /* Get a thumbnail of the image at the specified URL by using Microsoft Cognitive Services
@@ -481,23 +482,23 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Em miniatura passo 3: executar a aplicação
+### <a name="thumbnail-step-3-run-the-application"></a>Thumbnail (Miniatura) – passo 3: executar a aplicação
 
-Guardar o **thumbnail.html** de ficheiros e abra-o num browser. Colocar a sua chave de subscrição para o **chave de subscrição** campo e certifique-se de que está a utilizar a região correta no **subscrição região**. Introduza um URL numa imagem para analisar, em seguida, clique em de **gerar miniaturas** botão para analisar uma imagem e ver o resultado.
+Guarde o ficheiro **thumbnail.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Generate Thumbnails** (Gerar Miniaturas) para analisar uma imagem e ver o resultado.
 
-## <a name="read-printed-text-ocr"></a>Leia o texto impressos (OCR)
+## <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
 
-A funcionalidade de reconhecimento de caráter Optical (OCR) do computador visão analisa uma imagem de texto impressos. Depois da análise estiver concluída, OCR devolve um objeto JSON que contém o texto e a localização do texto na imagem.
+A funcionalidade Optical Character Recognition (Reconhecimento Ótico de Carateres – OCR) da Imagem Digitalizada analisa uma imagem de texto impresso. Quando a análise estiver concluída, a funcionalidade OCR devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir a funcionalidade de OCR do tutorial da aplicação, execute os seguintes passos:
+Para concluir a funcionalidade OCR da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Passo 1 da OCR: Adicione o código de processador de eventos para o botão de formulário
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR – passo 1: adicionar o código do processador de eventos para o botão de formulário
 
-Abra o **ocr.html** ficheiro num editor de texto e localize o **ocrButtonClick** função perto do fim do ficheiro.
+Abra o ficheiro **ocr.html** num editor de texto e localize a função **ocrButtonClick** junto à parte inferior do ficheiro.
 
-O **ocrButtonClick** função de processador de eventos limpa o formulário, apresenta a imagem especificada no URL, em seguida, chama o **ReadOcrImage** função para analisar a imagem.
+A função do processador de eventos **ocrButtonClick** limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama a função **ReadOcrImage** para analisar a imagem.
 
-Copie e cole o seguinte código para o **ocrButtonClick** função.
+Copie e cole o seguinte código na função **ocrButtonClick**.
 
 ```javascript
 function ocrButtonClick() {
@@ -515,11 +516,11 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>Passo OCR 2: adicionar o wrapper para a chamada de REST API
+### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR – passo 2: adicionar o wrapper para a chamada à API REST
 
-O **ReadOcrImage** função encapsula num wrapper a chamada de REST API para analisar uma imagem. Após um bem-sucedida voltar, o formato JSON que descrevem o texto e o textarea especificado será apresentada a localização do texto.
+A função **ReadOcrImage** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, o JSON formatado que descreve o texto e a localização do texto serão apresentados na área de texto especificada.
 
-Copie e cole o seguinte **ReadOcrImage** função para apenas por baixo do **ocrButtonClick** função.
+Copie e cole a seguinte função **ReadOcrImage** por baixo da função **ocrButtonClick**.
 
 ```javascript
 /* Recognize and read printed text in an image at the specified URL by using Microsoft Cognitive 
@@ -576,23 +577,23 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>Passo OCR 3: executar a aplicação
+### <a name="ocr-step-3-run-the-application"></a>OCR – passo 3: executar a aplicação
 
-Guardar o **ocr.html** de ficheiros e abra-o num browser. Colocar a sua chave de subscrição para o **chave de subscrição** campo e certifique-se de que está a utilizar a região correta no **subscrição região**. Introduza um URL numa imagem do texto para ler, em seguida, clique em de **leitura imagem** botão para analisar uma imagem e ver o resultado.
+Guarde o ficheiro **ocr.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Leia o texto handwritten (reconhecimento de escrita manual)
+## <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito – Handwriting Recognition (Reconhecimento de Escrita Manual)
 
-A funcionalidade de reconhecimento de escrita manual do computador visão analisa uma imagem de texto handwritten. Depois da análise estiver concluída, o reconhecimento de escrita manual devolve um objeto JSON que contém o texto e a localização do texto na imagem.
+A funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da Imagem Digitalizada analisa uma imagem de texto manuscrito. Quando a análise estiver concluída, a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir a funcionalidade de reconhecimento de escrita manual do tutorial da aplicação, execute os seguintes passos:
+Para concluir a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>O passo de reconhecimento de escrita 1: Adicione o código de processador de eventos para o botão de formulário
+### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 1: adicionar o código do processador de eventos para o botão de formulário
 
-Abra o **handwriting.html** ficheiro num editor de texto e localize o **handwritingButtonClick** função perto do fim do ficheiro.
+Abra o ficheiro **handwriting.html** num editor de texto e localize a função **handwritingButtonClick** junto à parte inferior do ficheiro.
 
-O **handwritingButtonClick** função de processador de eventos limpa o formulário, apresenta a imagem especificada no URL, em seguida, chama o **HandwritingImage** função para analisar a imagem.
+A função do processador de eventos **handwritingButtonClick** limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama a função **HandwritingImage** para analisar a imagem.
 
-Copie e cole o seguinte código para o **handwritingButtonClick** função.
+Copie e cole o seguinte código na função **handwritingButtonClick**.
 
 ```javascript
 function handwritingButtonClick() {
@@ -609,13 +610,13 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>O passo de reconhecimento de escrita 2: adicionar o wrapper para a chamada de REST API
+### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 2: adicionar o wrapper para a chamada à API REST
 
-O **ReadHandwrittenImage** função encapsula num wrapper as dois chamadas da REST API necessárias para analisar uma imagem. Porque o reconhecimento de escrita manual é um processo moroso, é utilizado um processo de dois passos. A primeira chamada submete a imagem para o processamento; a segunda chamada obtém o texto detetado quando o processamento é concluído.
+A função **ReadHandwrittenImage** encapsula as duas chamadas à API REST necessárias num wrapper para analisar uma imagem. Como o Handwriting Recognition (Reconhecimento de Escrita Manual) é um processo demorado, é utilizado um processo em duas etapas. A primeira chamada submete a imagem para processamento; a segunda chamada obtém o texto detetado quando o processamento está concluído.
 
-Depois do texto é obtido, o formato JSON que descrevem o texto e a localização do texto será apresentado no textarea especificado.
+Após o texto ser devolvido, o JSON formatado que descreve o texto e a localização do texto serão apresentados na área de texto especificada.
 
-Copie e cole o seguinte **ReadHandwrittenImage** função para apenas por baixo do **handwritingButtonClick** função.
+Copie e cole a seguinte função **ReadHandwrittenImage** por baixo da função **handwritingButtonClick**.
 
 ```javascript
 /* Recognize and read text from an image of handwriting at the specified URL by using Microsoft 
@@ -735,11 +736,11 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>O passo de reconhecimento de escrita 3: executar a aplicação
+### <a name="handwriting-recognition-step-3-run-the-application"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 3: executar a aplicação
 
-Guardar o **handwriting.html** de ficheiros e abra-o num browser. Colocar a sua chave de subscrição para o **chave de subscrição** campo e certifique-se de que está a utilizar a região correta no **subscrição região**. Introduza um URL numa imagem do texto para ler, em seguida, clique em de **leitura imagem** botão para analisar uma imagem e ver o resultado.
+Guarde o ficheiro **handwriting.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Computador visão API C&#35; Tutorial](CSharpTutorial.md)
-- [Tutorial de Python de API de visão do computador](PythonTutorial.md)
+- [API de Imagem Digitalizada com C&#35; Tutorial](CSharpTutorial.md)
+- [Tutorial do Python de API de Imagem Digitalizada](PythonTutorial.md)

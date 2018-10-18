@@ -1,29 +1,31 @@
 ---
-title: 'Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing'
-description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do PHP e receber uma resposta JSON.
+title: 'Guia de Início Rápido: Executar uma pesquisa com o PHP – API de Pesquisa na Web do Bing'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do PHP e receber uma resposta JSON.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: ef5263ce65efccdab0fb461165e66156dd4fce52
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 821d6a1b7df43c3eaddff503f6666e72251deec0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888434"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127907"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guia de Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
 
-Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
+Utilize este guia de início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este guia de início rápido:
 
 * [PHP 5.6.x](http://php.net/downloads.php) ou posterior
 * Uma chave de subscrição  

@@ -1,30 +1,31 @@
 ---
-title: Começar com o serviço de exploração de dados de conhecimento | Microsoft Docs
-description: Utilize o serviço de exploração de dados de conhecimento (KES) para criar um motor para uma experiência de pesquisa interativo em publicações académicas nos serviços cognitivos da Microsoft.
+title: 'Exemplo: Introdução – API de Serviço de Exploração de Conhecimento'
+titlesuffix: Azure Cognitive Services
+description: Utilize a API de Serviço de Exploração de Conhecimento (KES) para criar um motor para uma experiência de pesquisa interativa em publicações académicas.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 02dc9368eef02d6fa507335ef3171e923412acca
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352513"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124020"
 ---
-<a name="getting-started"></a>
-# <a name="get-started-with-the-knowledge-exploration-service"></a>Começar com o serviço de exploração de dados de conhecimento
-Esta explicação passo a passo, utiliza o serviço de exploração de dados de conhecimento (KES) para criar o motor de uma experiência de pesquisa interativa para publicações académicas. Pode instalar a ferramenta de linha de comandos, [ `kes.exe` ](CommandLine.md)e todos os ficheiros de exemplo do [SDK do serviço de exploração de dados de conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
+# <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
-O exemplo de publicações académico contém uma amostra de papers académico 1000 publicados pelos investigadores da Microsoft.  Cada documento está associado um título, ano de publicação, autores e palavras-chave. Cada autor é representada por um ID, o nome e a afiliação no momento da publicação. Cada palavra-chave pode ser associado um conjunto de sinónimos (por exemplo, a palavra-chave "suporte máquina de vetor" pode ser associada com o sinónimo "svm").
+Nestas instruções, irá utilizar o Serviço de Exploração de Conhecimento (KES) para criar um motor para uma experiência de pesquisa interativa em publicações académicas. Pode instalar a ferramenta da linha de comandos [`kes.exe`](CommandLine.md) e todos os ficheiros de exemplo do [SDK do Serviço de Exploração de Conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
-<a name="defining-schema"></a>
+O exemplo de publicações académicas contém uma amostra de 1000 artigos académicos, publicados por investigadores da Microsoft.  A cada documento está associado um título, um ano de publicação, autores e palavras-chave. Cada autor é representado por um ID, nome e afiliação no momento da publicação. A cada palavra-chave pode ser associado um conjunto de sinónimos (por exemplo, a palavra-chave "máquina de vetor do suporte" pode ser associada ao sinónimo "svm").
+
 ## <a name="define-the-schema"></a>Definir o esquema
-O esquema descreve a estrutura de atributo dos objetos no domínio. Especifica o nome e tipo de dados para cada atributo num formato de ficheiro JSON. O exemplo a seguir está o conteúdo do ficheiro *Academic.schema*.
+
+O esquema descreve a estrutura de atributos dos objetos no domínio. Especifica o nome e o tipo de dados para cada atributo num formato de ficheiro JSON. O exemplo seguinte é o conteúdo do ficheiro *Academic.schema*.
 
 ```json
 {
@@ -40,11 +41,11 @@ O esquema descreve a estrutura de atributo dos objetos no domínio. Especifica o
 }
 ```
 
-Aqui, definir *título*, *ano*, e *palavra-chave* como uma cadeia, número inteiro e uma cadeia de atributo, respetivamente. Porque os autores são representados por ID, o nome e afiliação, definir *autor* como um atributo composto com três atributos secundárias: *Author.Id*, *Author.Name*, e *Author.Affiliation*.
+Aqui, irá definir *Título*, *Ano*, e *Palavra-chave* como uma cadeia de caracteres, um inteiro e um atributo de cadeia, respetivamente. Uma vez que os autores são representados por ID, nome e afiliação, vai definir *Autor* como um atributo composto por três atributos secundários: *Author.Id*, *Author.Name* e *Author.Affiliation*.
 
-Por predefinição, os atributos suportam todas as operações disponíveis para o respetivo tipo de dados, incluindo *é igual a*, *starts_with*, e *is_between*. Porque o ID do autor só é utilizada internamente como um identificador, substituir a predefinição e especifique *é igual a* como o único indexada operação.
+Por predefinição, os atributos suportam todas as operações disponíveis para o seu tipo de dados, incluindo *equals*, *starts_with* e *is_between*. Dado que o ID do autor apenas é utilizado internamente como identificador, substitua a predefinição e especifique *equals* como a única operação indexada.
 
-Para o *palavra-chave* atributo, permita automaticamente sinónimos à correspondem aos valores canónicos palavra-chave, especificando o ficheiro sinónimo *Keyword.syn* na definição do atributo. Este ficheiro contém uma lista de canónico e pares de valor sinónimo:
+Para o atributo *Palavra-chave*, permita sinónimos para corresponder a valores canónicos da palavra-chave, ao especificar o ficheiro de sinónimos *Keyword.syn* na definição do atributo. Este ficheiro contém uma lista de pares de valores canónicos e sinónimos:
 
 ```json
 ...
@@ -59,11 +60,11 @@ Para o *palavra-chave* atributo, permita automaticamente sinónimos à correspon
 ...
 ```
 
-Para obter informações adicionais sobre a definição de esquema, consulte [esquema formato](SchemaFormat.md).
+Para obter mais informações sobre a definição de esquema, veja [Formato de Esquema](SchemaFormat.md).
 
-<a name="generating-data"></a>
 ## <a name="generate-data"></a>Gerar dados
-O ficheiro de dados descreve a lista de publicações para indexar, com cada linha a especificar os valores de atributo de um documento no [formato JSON](http://json.org/).  O exemplo seguinte é uma única linha do ficheiro de dados *Academic.data*, formatado para legibilidade:
+
+O ficheiro de dados descreve a lista de publicações a indexar, com cada linha a especificar os valores dos atributos de um documento no [formato JSON](http://json.org/).  O exemplo seguinte é uma única linha do ficheiro de dados *Academic.data*, formatado para legibilidade:
 
 ```
 ...
@@ -87,23 +88,23 @@ O ficheiro de dados descreve a lista de publicações para indexar, com cada lin
 ...
 ```
 
-Este fragmento, pode especificar o *título* e *ano* atributo o documento como uma cadeia JSON e o número, respetivamente. Vários valores são representados por utilizar matrizes JSON. Porque *autor* é um atributo composto, cada valor é representado utilizando um objeto JSON constituídas pelos respetivos atributos secundárias. Atributos com valores em falta, tais como *palavra-chave* neste caso, podem ser excluídos da representação JSON.
+Neste fragmento, especifique o atributo *Título* e *Ano* do documento como uma cadeia JSON e um número, respetivamente. Vários valores são representados com matrizes JSON. Uma vez que o *Autor* é um atributo composto, cada valor é representado através de um objeto JSON que consiste nos seus atributos secundários. Os atributos com valores em falta, tal como a *Palavra-chave* neste caso, podem ser excluídos da representação JSON.
 
-Para diferenciar a probabilidade de papers diferentes, especifique a probabilidade de registo relativo utilizando incorporada *logprob* atributo. Dada uma probabilidade *p* entre 0 e 1, é a probabilidade de registo como registo de computação (*p*), onde log() é a função de registo natural.
+Para diferenciar a probabilidade de diferentes documentos, especifique a probabilidade relativa do logaritmo ao utilizar o atributo incorporado *logprob*. Dada uma probabilidade *p* entre 0 e 1, vai calcular a probabilidade de logaritmo como log (*p*), em que log() é a função de logaritmo natural.
 
-Para obter mais informações, consulte [formato de dados](DataFormat.md).
+Para obter mais informações, veja [Formato de Dados](DataFormat.md).
 
-<a name="building-index"></a>
-## <a name="build-a-compressed-binary-index"></a>Criar um índice de binário comprimido
-Depois de ter um ficheiro de esquema e um ficheiro de dados, pode criar um índice de binário comprimido dos objetos de dados utilizando [ `kes.exe build_index` ](CommandLine.md#build_index-command). Neste exemplo, criar o ficheiro de índice *Academic.index* do ficheiro de esquema da entrada *Academic.schema* e ficheiro de dados *Academic.data*. Utilize o seguinte comando:
+## <a name="build-a-compressed-binary-index"></a>Criar um índice binário comprimido
+
+Depois de ter um ficheiro de esquema e um ficheiro de dados, pode criar um índice binário comprimido dos objetos de dados com [`kes.exe build_index`](CommandLine.md#build_index-command). Neste exemplo, vai criar o ficheiro de índice *Academic.index* do ficheiro de esquema de entrada *Academic.schema* e do ficheiro de dados *Academic.data*. Utilize o seguinte comando:
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Para fazer o protótipo rápido fora do Azure, [ `kes.exe build_index` ](CommandLine.md#build_index-command) podem criar índices pequenas localmente, dos ficheiros de dados que contêm objetos de até 10 000. Para ficheiros de dados maiores, pode executar o comando a partir de um [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), ou executar uma compilação remota no Azure. Para obter mais informações, consulte [como aumentar verticalmente](#scaling-up).
+Para criar um protótipo rápido fora do Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) pode criar pequenos índices localmente, a partir dos ficheiros de dados que contêm até 10 000 objetos. Para ficheiros de dados maiores, pode optar por executar o comando a partir de dentro de uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou por executar uma criação remota no Azure. Para obter detalhes, veja [Aumentar verticalmente](#scaling-up).
 
-<a name="authoring-grammar"></a>
-## <a name="use-an-xml-grammar-specification"></a>Utilize uma especificação de gramática XML
-A gramática Especifica o conjunto de consultas de linguagem natural a que o serviço pode interpretar, bem como a forma como estas consultas de linguagem natural são convertidas em expressões de consulta de semântica. Neste exemplo, utilizar a gramática especificada no *academic.xml*:
+## <a name="use-an-xml-grammar-specification"></a>Utilizar uma especificação de gramática XML
+
+A gramática especifica o conjunto de consultas de linguagem natural que o serviço pode interpretar, bem como a forma como estas consultas de linguagem natural são traduzidas em expressões de consulta semântica. Neste exemplo, vai utilizar a gramática especificada em *academic.xml*:
 
 ```xml
 <grammar root="GetPapers">
@@ -196,73 +197,73 @@ A gramática Especifica o conjunto de consultas de linguagem natural a que o ser
 </grammar>
 ```
 
-Para obter mais informações sobre a sintaxe de especificação de gramática, consulte [formato de gramática](GrammarFormat.md).
+Para obter mais informações sobre a sintaxe de especificação de gramática, veja [Formato de Gramática](GrammarFormat.md).
 
-<a name="compiling-grammar"></a>
-## <a name="compile-the-grammar"></a>A gramática de compilação
-Depois de ter uma especificação de gramática XML, pode compilá-la para uma gramática de binária utilizando [ `kes.exe build_grammar` ](CommandLine.md#build_grammar-command). Tenha em atenção que se a gramática importa um esquema, o ficheiro de esquema tem de estar localizado no mesmo caminho como a gramática XML. Neste exemplo, criar o ficheiro de gramática de binários *Academic.grammar* do ficheiro de gramática XML de entrada *Academic.xml*. Utilize o seguinte comando:
+## <a name="compile-the-grammar"></a>Compilar a gramática
+
+Depois de ter uma especificação de gramática XML, pode compilá-la numa gramática binária com [`kes.exe build_grammar`](CommandLine.md#build_grammar-command). Note que, se a gramática importar um esquema, o ficheiro de esquema terá de estar localizado no mesmo caminho que o XML da gramática. Neste exemplo, vai criar o ficheiro binário de gramática *Academic.grammar* a partir do ficheiro de gramática XML de entrada *Academic.xml*. Utilize o seguinte comando:
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
-<a name="hosting-index"></a>
-## <a name="host-the-grammar-and-index-in-a-web-service"></a>A gramática e o índice de um serviço web do anfitrião
-Para fazer o protótipo rápido, pode alojar a gramática e índice num serviço web no computador local, utilizando [ `kes.exe host_service` ](CommandLine.md#host_service-command). Em seguida, pode aceder ao serviço através de [web APIs](WebAPI.md) para validar a estrutura de dados estão corretas e de gramática. Neste exemplo, alojar o ficheiro de gramática *Academic.grammar* e ficheiros de índice *Academic.index* em http://localhost:8000/. Utilize o seguinte comando:
+## <a name="host-the-grammar-and-index-in-a-web-service"></a>Alojar a gramática e o índice num serviço Web
+
+Para criar um protótipo rápido, pode alojar a gramática e o índice num serviço Web no computador local com [`kes.exe host_service`](CommandLine.md#host_service-command). É possível aceder ao serviço através de [APIs Web](WebAPI.md) para validar a correção dos dados e a conceção da gramática. Neste exemplo, aloja o ficheiro de gramática *Academic.grammar* e o ficheiro de índice *Academic.index* em http://localhost:8000/. Utilize o seguinte comando:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Esta ação inicia uma instância local do serviço web. Pode testar o serviço de forma interativa, visitando `http::localhost:<port>` num browser. Para obter mais informações, consulte [testar serviço](#testing-service).
+Esta ação inicia uma instância local do serviço Web. Pode testar interativamente o serviço, ao visitar `http::localhost:<port>` a partir de um browser. Para obter mais informações, veja [Testar serviço](#testing-service).
 
-Pode também diretamente chamar vários [web APIs](WebAPI.md) para testar a interpretação de linguagem natural, conclusão de consulta, avaliação de consulta estruturada e cálculo de histograma. Para parar o serviço, introduza "Sair" para o `kes.exe host_service` linha de comandos ou prima Ctrl + C. Eis alguns exemplos:
+Também pode chamar diretamente várias [APIs Web](WebAPI.md) para testar a interpretação de linguagem natural, a conclusão de consulta, a avaliação de consultas estruturadas e a computação de histograma. Para parar o serviço, introduza "quit" na linha de comandos `kes.exe host_service` ou prima Ctrl + C. Eis alguns exemplos:
 
-* [http://localhost:8000/interpret?query=papers por susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
-* [http://localhost:8000/interpret?query=papers por susan t d & concluída = 1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
-* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais') & attributes=Title,Year,Author.Name,Author.Id & contagem = 2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
-* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'), ano > = 2013) & atributos = ano, a palavra-chave e a contagem = 4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
+* [http://localhost:8000/interpret?query=papers by susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
+* [http://localhost:8000/interpret?query=papers by susan t d&complete=1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
+* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
+* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Fora do Azure, [ `kes.exe host_service` ](CommandLine.md#host_service-command) está limitado a índices de até 10 000 objetos. Outros limites incluem uma taxa de API de 10 pedidos por segundo e um total de pedidos de 1000 antes do processo termina automaticamente. Para ignorar estes restrições, execute o comando a partir de um [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), ou implementar um serviço em nuvem do Azure utilizando o [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) comando. Para obter mais informações, consulte [implementar serviço](#deploying-service).
+Fora do Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) está limitado a índices de um máximo de 10 000 objetos. Outros limites incluem uma taxa de API de 10 pedidos por segundo e um total de 1000 pedidos antes do processo de execução concluir. Para ignorar essas restrições, execute o comando a partir de uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou implemente-o num serviço cloud do Azure com o comando [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Para obter detalhes, veja [Implementar serviço](#deploying-service).
 
-<a name="scaling-up"></a>
-## <a name="scale-up-to-host-larger-indices"></a>Aumentar verticalmente para índices maiores de anfitrião
-Quando estiver a executar o `kes.exe` fora do Azure, o índice está limitado a 10 000 objetos. Pode criar e alojar índices maiores através da utilização do Azure. Inscrever-se um [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Em alternativa, se subscrever Visual Studio ou o MSDN, pode [ativar os benefícios de subscritor](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Estes oferecem algumas créditos do Azure por mês.
+## <a name="scale-up-to-host-larger-indices"></a>Aumentar verticalmente para alojar índices maiores
 
-Para permitir `kes.exe` acesso a uma conta do Azure, [transfira o ficheiro de definições de publicação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) do portal do Azure. Se lhe for solicitado, inicie sessão para a conta do Azure pretendida. Guarde o ficheiro como *AzurePublishSettings.xml* no diretório de trabalho a partir de onde `kes.exe` é executado.
+Quando estiver a executar `kes.exe` fora do Azure, o índice está limitado a 10 000 objetos. Pode criar e alojar índices maiores ao utilizar o Azure. Inscreva-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Em alternativa, se se inscrever para o Visual Studio ou MSDN, poderá [ativar os benefícios de subscritor](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Estes oferecem alguns créditos do Azure por mês.
 
-Existem duas formas para criar e alojar índices grandes. É o primeiro para preparar os ficheiros de esquema e dados de uma VM do Windows no Azure. Em seguida, execute [ `kes.exe build_index` ](#building-index) para criar o índice localmente na VM, sem quaisquer restrições de tamanho. O índice resultante pode ser alojado localmente na VM utilizando [ `kes.exe host_service` ](#hosting-service) para fazer o protótipo rápido, novamente sem restrições. Para obter passos detalhados, consulte o [tutorial da VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Para permitir o acesso de `kes.exe` a uma conta do Azure, [transfira o ficheiro Definições de Publicação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) a partir do portal do Azure. Se lhe for pedido, inicie sessão na conta do Azure desejada. Guarde o ficheiro como *AzurePublishSettings.xml* no diretório de trabalho donde `kes.exe` é executado.
 
-O segundo método consiste em efetuar uma compilação do Azure remota, utilizando [ `kes.exe build_index` ](CommandLine.md#build_index-command) com o `--remote` parâmetro. Esta ação Especifica um tamanho de VM do Azure. Quando o `--remote` parâmetro for especificado, o comando cria uma VM do Azure temporário desse tamanho. Em seguida, criar o índice na VM, carrega o índice para o armazenamento de BLOBs de destino e elimina a VM após a conclusão. A subscrição do Azure é cobrada o custo da VM, enquanto o índice está a ser criado.
+Existem duas formas de criar e alojar índices grandes. A primeira é preparar os ficheiros de esquema e de dados numa VM do Windows no Azure. Em seguida, execute [`kes.exe build_index`](#building-index) para criar o índice localmente na VM, sem quaisquer restrições de tamanho. O índice resultante pode ser alojado localmente na VM com [`kes.exe host_service`](#hosting-service) para prototipagem rápida, também sem quaisquer restrições. Para obter passos detalhados, veja o [tutorial de VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
-Esta capacidade de compilação do Azure remoto permite [ `kes.exe build_index` ](CommandLine.md#build_index-command) para ser executado em qualquer ambiente. Quando estiver a efetuar uma compilação remota, os argumentos de esquema e os dados de entrada podem ser caminhos de ficheiros locais ou [blob storage do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) URLs. O argumento de índice de saída tem de ser um URL de armazenamento de Blobs. Para criar uma conta de armazenamento do Azure, consulte [contas do storage do Azure sobre](../../storage/common/storage-create-storage-account.md). Para copiar ficheiros de forma eficiente para e do armazenamento de BLOBs, utilize o [AzCopy](../../storage/common/storage-use-azcopy.md) utilitário.
+O segundo método é executar uma compilação do Azure remota, ao utilizar [`kes.exe build_index`](CommandLine.md#build_index-command) com o parâmetro `--remote`. Esta ação especifica um tamanho de VM do Azure. Quando o parâmetro `--remote` for especificado, o comando cria uma VM do Azure temporária desse tamanho. Em seguida, cria o índice na VM, carrega o índice para o armazenamento de blobs de destino e elimina a VM após a conclusão. A subscrição do Azure é cobrada pelo custo da VM enquanto o índice está a ser criado.
 
-Neste exemplo, pode assumir que já foi criado o contentor de blob storage seguintes: http://&lt;*conta*&gt;.blob.core.windows.net/&lt;*contentor* &gt;/. Contém o esquema *Academic.schema*, o ficheiro sinónimo referenciado *Keywords.syn*e o ficheiro de dados aproximar *Academic.full.data*. Pode criar o índice completo remotamente utilizando o seguinte comando:
+Esta capacidade de compilação do Azure remoto permite [`kes.exe build_index`](CommandLine.md#build_index-command) seja executado em qualquer ambiente. Quando estiver a efetuar uma compilação remota, os argumentos de esquema e de dados de entrada podem ser caminhos de ficheiro locais ou URLs de [armazenamento de blobs do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). O argumento de índice de saída tem de ser um URL de armazenamento de blobs. Para criar uma conta de armazenamento do Azure, veja [Acerca de contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md). Para copiar ficheiros de forma eficiente de e para armazenamento de blobs, utilize o utilitário [AzCopy](../../storage/common/storage-use-azcopy.md).
+
+Neste exemplo, pode assumir que o seguinte contentor de armazenamento de blobs já foi criado: http://&lt;*account*&gt;.blob.core.windows.net/&lt;*container*&gt;/. Contém o esquema *Academic.schema*, o ficheiro de sinónimos referenciado *Keywords.syn* e o ficheiro de dados de grande escala *Academic.full.data*. Pode criar o índice completo remotamente com o seguinte comando:
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Tenha em atenção que poderá demorar 5-10 minutos para aprovisionar um temporay VM para criar o índice. Para fazer o protótipo rápido, pode:
-- Desenvolva com um conjunto de dados mais pequeno localmente em qualquer máquina.
-- Manualmente [criar uma VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), [ligar ao mesmo](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) através do ambiente de trabalho remoto, instale o [SDK do serviço de exploração de dados de conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488)e execute [ `kes.exe` ](CommandLine.md) de dentro da VM.
+Repare que poderá demorar 5 a 10 minutos para aprovisionar uma VM temporária para criar o índice. Para criar um protótipo rápido, pode:
+- Desenvolver com um conjunto de dados mais pequeno localmente em qualquer máquina.
+- [Crie uma VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) manualmente, [ligue-a](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) por meio do Ambiente de Trabalho Remoto, instale o [SDK do Serviço de Exploração de Conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488) e execute [`kes.exe`](CommandLine.md) a partir de dentro da VM.
 
-A paginação atrasar o processo de compilação. Para evitar a paginação, utilize uma VM com três vezes a quantidade de RAM como o tamanho do ficheiro de dados de entrada para a criação do índice. Utilize uma VM com mais RAM superior ao tamanho de índice para o alojamento de 1 GB. Para obter uma lista de tamanhos VM disponíveis, consulte [tamanhos das virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+A paginação pode atrasar o processo de criação. Para evitar a paginação, utilize uma VM com três vezes a quantidade de RAM como o tamanho do ficheiro de dados de entrada para a criação do índice. Utilize uma VM com mais 1 GB de RAM que o tamanho do índice para o alojamento. Para obter uma lista de tamanhos de VM disponíveis, veja [Tamanhos de máquinas virtuais](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-<a name="deploying-service"></a>
 ## <a name="deploy-the-service"></a>Implementar o serviço
-Depois de ter uma gramática e um índice, está pronto para implementar o serviço para um serviço em nuvem do Azure. Para criar um novo serviço em nuvem do Azure, consulte [como criar e implementar um serviço em nuvem](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Não especifique um pacote de implementação neste momento.  
 
-Quando criou o serviço em nuvem, pode utilizar [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) para implementar o serviço. Um serviço em nuvem do Azure tem dois ranhuras de implementação: produção e teste. Para um serviço que recebe o tráfego do utilizador em direto, inicialmente deve implementar para o bloco de transição. Aguarde que o serviço para arrancar e inicializar a próprio. Em seguida, pode enviar alguns pedidos para validar a implementação e certifique-se de que tenha sido enviado testes básicos.
+Depois de ter uma gramática e um índice, está pronto para implementar o serviço num serviço cloud do Azure. Para criar um novo serviço cloud do Azure, veja [Como criar e implementar um serviço cloud](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Não especifique um pacote de implementação neste momento.  
 
-[Comutação](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) o conteúdo da transição espaço com a ranhura de produção, para que o tráfego em direto agora é direcionado para o serviço recentemente implementado. Pode repetir este processo quando implementar uma versão atualizada do serviço com novos dados. Como com todos os outros serviços em nuvem do Azure, opcionalmente, pode utilizar o portal do Azure para configurar [dimensionamento automático](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
+Quando tiver criado o serviço cloud, pode utilizar [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) para implementar o serviço. Um serviço cloud do Azure tem dois blocos de implementação: produção e teste. Para um serviço que recebe tráfego de utilizadores em direto, deve implementar inicialmente no bloco de teste. Aguarde que o serviço arranque e se inicialize a si mesmo. Em seguida, pode enviar alguns pedidos para validar a implementação e verificar se ele passa testes básicos.
 
-Neste exemplo, implementar o *académico* índice para o bloco de transição de um serviço em nuvem existente com *< vm_size >* VMs. Utilize o seguinte comando:
+[Trocar](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) o conteúdo do bloco de teste com o bloco de produção para que o tráfego em direto seja agora direcionado para o serviço recentemente implementado. Pode repetir este processo ao implementar uma versão atualizada do serviço com novos dados. Assim como em todos os outros serviços cloud do Azure, pode utilizar, em alternativa, o portal do Azure para configurar o [dimensionamento automático](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
+
+Neste exemplo, vai implementar o índice *Académico* no bloco de teste de um serviço cloud existente com as VMs de *< vm_size >*. Utilize o seguinte comando:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 
-Para obter uma lista de tamanhos VM disponíveis, consulte [tamanhos das virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Para obter uma lista de tamanhos de VM disponíveis, veja [Tamanhos de máquinas virtuais](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-Depois de implementar o serviço, pode chamar a vários [web APIs](WebAPI.md) para testar a interpretação de linguagem natural, conclusão de consulta, avaliação de consulta estruturada e cálculo de histograma.  
+Após implementar o serviço, pode chamar várias [APIs Web](WebAPI.md) para testar a interpretação de linguagem natural, conclusão de consulta, avaliação de consultas estruturadas e computação de histograma.  
 
-<a name="testing-service"></a>
-## <a name="test-the-service"></a>O serviço de teste
-Para depurar um serviço em direto, navegue para a máquina do anfitrião de um browser. Para implementar um serviço local através de [host_service](#hosting-service), visite `http://localhost:<port>/`.  Para do Azure implementado através do serviço em nuvem [deploy_service](#deploying-service), visite `http://<serviceName>.cloudapp.net/`.
+## <a name="test-the-service"></a>Testar o serviço
 
-Esta página contém ligações para informações sobre estatísticas básicas de chamada API, bem como a gramática e índice alojadas neste serviço. Esta página também contém uma interface de pesquisa interativas que demonstra a utilização de APIs da web. Introduza as consultas na caixa de pesquisa para ver os resultados do [interpretar](interpretMethod.md), [avaliar](evaluateMethod.md), e [calchistogram](calchistogramMethod.md) chamadas da API. A origem de HTML subjacente desta página também serve como um exemplo de como integrar a APIs web numa aplicação, para criar uma experiência de pesquisa avançada, interativa.
+Para depurar um serviço em direto, navegue para a máquina de anfitrião a partir de um browser. Para um serviço local implementado através de [host_service](#hosting-service), visite `http://localhost:<port>/`.  Para um serviço cloud implementado através de [deploy_service](#deploying-service), visite `http://<serviceName>.cloudapp.net/`.
+
+Esta página contém uma ligação para informações sobre estatísticas de chamada de API básicas, bem como a gramática e o índice alojados neste serviço. Esta página também contém uma interface de pesquisa interativa que demonstra a utilização das APIs Web. Introduza as consultas na caixa de pesquisa para ver os resultados das chamadas de API [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) e [calchistogram](calchistogramMethod.md). O código-fonte HTML subjacente desta página também serve como um exemplo de como integrar APIs Web numa aplicação, para criar uma experiência de pesquisa sofisticada e interativa.
 
 

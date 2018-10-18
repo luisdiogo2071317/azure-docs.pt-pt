@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246820"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129765"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -37,7 +37,7 @@ Vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Concluir o início rápido [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
+* Concluir o guia de início rápido [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 * Certifique-se de que tem uma aplicação de Funções do Azure na sua subscrição. Para obter mais informações, veja [Criar uma Function App do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ela deve conter Funções com o acionador HTTP e a definição de nível de autorização definida como *Anónimo* ou *Função*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -71,9 +71,11 @@ Siga os passos abaixo para criar uma nova API a partir de uma Function App do Az
     > [!NOTE]
     > Pode importar apenas as Funções que são baseadas no acionador HTTP e ter a definição do nível de autorização definido como *Anónimo* ou *Função*.
 
-7. Edite os campos pré-preenchidos se for preciso. Clique em **Criar**.
+7. Mude para a vista **Completa** e atribua o **Produto** à sua nova API. Se for necessário, edite outros campos pré-preenchidos.
 
     ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-06.png)
+
+8. Clique em **Criar**.
 
 ## <a name="append-azure-function-app-to-api"></a> Anexar uma Function App do Azure como uma API existente
 
