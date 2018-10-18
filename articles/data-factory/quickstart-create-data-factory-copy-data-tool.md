@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107593"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017812"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Utilizar a ferramenta Copiar Dados para copiar dados 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 1. Em **Versão**, selecione **V2**.
 1. Em **Localização**, selecione a localização para a fábrica de dados. 
 
-   A lista mostra apenas localizações suportadas. Os arquivos de dados (como o Armazenamento do Microsoft Azure e a Base de Dados SQL do Azure) e as computações (como o Azure HDInsight) utilizados pelo Data Factory podem estar noutras localizações/regiões.
+   A lista mostra apenas as localizações suportadas pelo Data Factory e onde serão armazenados os seus metadados do Azure Data Factory. Tenha em atenção que os arquivos de dados associados (como o Armazenamento do Microsoft Azure e a Base de Dados SQL do Azure) e as computações (como o Azure HDInsight) utilizados pelo Data Factory podem ser executados noutras regiões.
 
-1. Selecione **Afixar ao dashboard**.     
 1. Selecione **Criar**.
-1. No dashboard, é apresentado o mosaico seguinte, com o estado **A Implementar o Data Factory**: 
-
-    ![Mosaico "A Implementar o Data Factory"](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. Após concluir a criação, verá a página **Data Factory**. Selecione o mosaico **Criar e Monitorizar** para iniciar a aplicação de interface de utilizador (IU) do Azure Data Factory num separador à parte.
    
    ![Home page da fábrica de dados, com o mosaico "Criar e Monitorizar"](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

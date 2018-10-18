@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2018
+ms.date: 10/01/2018
 ms.author: pareshmu
-ms.openlocfilehash: 72cb9871b1e0f08d8c368116eae13a8402af9f60
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 22288165876972888428450f16aa2460a211c9a6
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815225"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042927"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -44,8 +44,8 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | --- | --- | --- |
 | **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Washington D.C., Montreal, Cidade do Quebeque, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
-| **Europa** |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Dublin, Londres, Newport (País de Gales), Paris |
-| **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Singapura, Singapura2 |
+| **Europa** |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Amesterdão2, Dublin, Londres, Marselha, Newport (Gales), Paris |
+| **Ásia** |Ásia Oriental, Sudeste Asiático |RAE de Hong Kong, Kuala Lumpur, Singapura, Singapura2 |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Governo da Austrália** | Austrália Central, Austrália Central 2 |Camberra, Camberra2 | 
@@ -100,7 +100,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **Internet2** |Suportado |Suportado |Washington DC |
 | **[Internet Initiative Japan Inc. – IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo, Londres |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportado |Amesterdão, Dublin, Londres, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Dublin, Marselha, Londres, Paris |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Suportado |Suportado | Silicon Valley, Toronto |
 | **Jisc** |Suportado |Suportado |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Suportado |Suportado |Seoul |
@@ -119,7 +119,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Suportado |Suportado |Melbourne+, Sydney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amesterdão, Hong Kong, Londres, Paris, Silicon Valley, Singapura, Sydney, Washington D.C. |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
-| **PCCW Global Limited** |Suportado |Suportado |RAE de Hong Kong |
+| **PCCW Global Limited** |Suportado |Suportado |Chicago, RAE de Hong Kong, Londres |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportado |Suportado |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportado |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Suportado |Suportado |Singapura, Singapura2 |
@@ -134,7 +134,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Suportado |Suportado |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Suportado |Suportado |Montreal, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo |
-| **HORA** | Brevemente | Brevemente | Kuala Lumpur |
+| **HORA** | Suportado | Suportado | Kuala Lumpur |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Suportado |Suportado |São Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong, Londres, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportado |Não suportado |Londres |

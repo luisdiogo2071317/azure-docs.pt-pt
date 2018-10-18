@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122874"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044421"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gerir pedidos de listas de correio com uma aplicação lógica
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerir pedidos de listas de correio com o Azure Logic Apps
 
 O Azure Logic Apps ajuda-o a automatizar fluxos de trabalho e a integrar dados nos serviços do Azure, nos serviços Microsoft, noutras aplicações de software como serviço (Saas) e em sistemas no local. Este tutorial mostra como pode criar uma [aplicação lógica](../logic-apps/logic-apps-overview.md) que processa pedidos de subscrição para uma lista de correio gerida pelo serviço [MailChimp](https://mailchimp.com/).
 Esta aplicação lógica monitoriza uma conta de e-mail quanto a esses pedidos, envia-os para aprovação e adiciona os membros aprovados à mesma.

@@ -1,35 +1,37 @@
 ---
-title: Início rápido do cURL emoções API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de emoções com cURL nos serviços cognitivos.
+title: 'Início Rápido: Reconhecer emoções nos rostos numa imagem – API de Emoções, cURL'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Emoções com cURL.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: a7ca2cac718797462bb4dc889b3f1361b252435e
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021103"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237080"
 ---
-# <a name="emotion-api-curl-quick-start"></a>CURL emoções API início rápido
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar uma aplicação para reconhecer emoções nos rostos numa imagem.
 
 > [!IMPORTANT]
-> Vídeo de API de pré-visualização vai terminar em 30th de Outubro de 2017. Experimentar o novo [pré-visualização do vídeo indexador API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) para extrair facilmente insights de vídeos e a melhorar as experiências de deteção de conteúdos, tais como resultados de pesquisa, através da deteção palavras ditas, faces, carateres e emotions. [Saiba mais](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar o [emoções API reconhece o método](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com cURL para reconhecer os emotions expressados por um ou mais pessoas numa imagem. 
+Este artigo disponibiliza informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente o [método de Reconhecimento da API de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com cURL para reconhecer emoções expressas por uma ou mais pessoas numa imagem.
 
 ## <a name="prerequisite"></a>Pré-requisito
-* Obter a chave de subscrição gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
+* Obtenha a sua Chave de Subscrição gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-curl-example-request"></a>Reconhecer que emotions cURL exemplo de pedido
+## <a name="recognize-emotions-curl-example-request"></a>Pedido de Exemplo em cURL de Reconhecimento de Emoções
 
 > [!NOTE]
-> Tem de utilizar a mesma localização a chamada REST como é utilizado para obter as chaves de subscrição. Por exemplo, se tiver adquirido as chaves de subscrição de westcentralus, substitua "westus" no URL abaixo "westcentralus".
+> Tem de utilizar na sua chamada REST a mesma localização que utilizou para obter as chaves de subscrição. Por exemplo, se tiver obtido as chaves de subscrição na região westcentralus, substitua “westus” no URL abaixo por “westcentralus”.
 
 ```json
 @ECHO OFF
@@ -38,16 +40,16 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recogni
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
---data-ascii "{body}" 
+--data-ascii "{body}"
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Reconhecer a resposta de amostra de Emotions
-Uma chamada com êxito devolve uma matriz de entradas de letra e os respetivos pontuações de emoções associados, ordenadas pelo tamanho do retângulo de rostos em ordem descendente. Uma resposta vazia indica que não existem faces foram detetados. Uma entrada de emoções contém os seguintes campos:
-* faceRectangle - localização do retângulo de rosto na imagem.
-* pontuações - pontuações de emoções para cada enfrentam reside na imagem. 
+## <a name="recognize-emotions-sample-response"></a>Resposta de Exemplo para Reconhecimento de Emoções
+Uma chamada bem-sucedida devolve uma matriz de entradas de rostos e as pontuações das emoções associadas, ordenadas pelo tamanho dos retângulos de rostos por ordem descendente. Uma resposta vazia indica que não foram detetados rostos. Uma entrada de emoção contém os seguintes campos:
+* faceRectangle – Localização do retângulo de rosto na imagem.
+* pontuações – Pontuações das emoções de cada rosto na imagem.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -68,4 +70,3 @@ application/json
     }
   }
 ]
-

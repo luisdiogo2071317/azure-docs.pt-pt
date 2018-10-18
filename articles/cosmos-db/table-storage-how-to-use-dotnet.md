@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de Tabelas do Azure e à API de Tabelas do Azure Cosmos DB com .NET | Microsoft Docs
+title: Introdução ao Armazenamento de tabelas do Azure e à API de Tabela do Azure Cosmos DB com .NET
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41921065"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042585"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabelas do Azure Cosmos DB com .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -105,7 +105,7 @@ Tem três opções de ambiente para executar os exemplos neste guia:
 * Pode executar o código numa conta do Azure Cosmos DB na cloud.
 * Pode executar o código no emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar o seu código enquanto a aplicação está em desenvolvimento. O emulador utiliza uma conta e chave bem conhecidas. Para obter mais informações, veja [Utilizar o emulador de armazenamento do Azure para programação e teste](../storage/common/storage-use-emulator.md).
 
-Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, veja [Ver e copiar chaves de acesso do armazenamento](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, veja [Chaves de acesso da conta de armazenamento](../storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Pode filtrar o emulador de armazenamento para evitar incorrer em custos associados ao Storage do Azure. No entanto, se optar por filtrar uma conta de armazenamento do Azure na cloud, os custos para realizar este exemplo serão negligenciáveis.
@@ -121,7 +121,6 @@ Para obter mais informações sobre as cadeias de ligação, veja [Configurar um
 
 > [!NOTE]
 > A chave da conta é semelhante à palavra-passe de raiz da sua conta de armazenamento. Tenha sempre o cuidado de proteger a chave da conta de armazenamento. Evite distribui-la a outros utilizadores, pré-programá-la ou guardá-la num ficheiro de texto simples que seja acessível a outras pessoas. Regenere a sua chave através do portal do Azure se considerar que poderá ter sido comprometida.
-> 
 > 
 
 Para configurar a cadeia de ligação, abra o ficheiro `app.config` a partir do Explorador de Soluções no Visual Studio. Adicione o conteúdo do elemento `<appSettings>` mostrado abaixo. Substitua `account-name` pelo nome da sua conta e `account-key` pela chave de acesso da conta:
