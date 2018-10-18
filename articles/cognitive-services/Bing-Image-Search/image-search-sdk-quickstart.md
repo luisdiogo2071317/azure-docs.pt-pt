@@ -1,41 +1,41 @@
 ---
-title: 'Início rápido: Procure imagens usando o SDK de pesquisa de imagens do Bing e do c#'
-description: Utilize este guia de introdução para procurar e localizar imagens na web com o SDK de pesquisa de imagens do Bing e c#.
+title: 'Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing para C#'
+description: Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação C# simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 9e0decb29224b5ad684e1242b8f93e091e08e6b6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: edebd1361e39a338672b4249dd159e5c1d4078ce
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579255"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294157"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Início rápido: Pesquisa de imagens com o SDK de pesquisa de imagens do Bing e do c#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing e C#
 
-Utilize este guia de introdução para tornar a sua primeira pesquisa de imagens com o SDK de pesquisa de imagens do Bing, que é um wrapper para a API e contém os mesmos recursos. Esta aplicação de c# simple envia uma consulta de pesquisa de imagem, analisa a resposta JSON e apresenta o URL da imagem do primeiro devolvido.
+Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação C# simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 
-O código-fonte para este exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) com tratamento de erros adicionais e anotações.
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição dos [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
-* O [pacote NuGet de pesquisa de imagem cognitivos](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
+* Qualquer edição do [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
+* O [pacote Cognitive Image Search NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Para instalar o SDK de pesquisa de imagens do Bing no visual studio, utilize o `Manage NuGet Packages` opção a partir do Explorador de soluções no Visual Studio.
+Para instalar o SDK de Pesquisa de Imagens do Bing no Visual Studio, utilize a opção `Manage NuGet Packages` do Explorador de Soluções no Visual Studio.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 
-## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-Primeiro, crie um novo aplicativo de console do c# no Visual Studio. Em seguida, adicione os seguintes pacotes ao seu projeto.
+Primeiro, crie uma nova aplicação de consola C# no Visual Studio. Em seguida, adicione os seguintes pacotes ao seu projeto.
 
 ```csharp
 using System;
@@ -44,7 +44,7 @@ using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
 ```
 
-O método principal de seu projeto, crie variáveis para a sua chave de subscrição válido, os resultados de imagem a ser devolvida pelo Bing e um termo de pesquisa. Em seguida, instancio o cliente de pesquisa de imagem a utilizar a chave.
+No método principal do projeto, crie variáveis para a sua chave de subscrição válida, os resultados de imagens a devolver pelo Bing e um termo de pesquisa. Em seguida, inicie o cliente de pesquisa de imagens com a chave.
 
 ```csharp
 //IMPORTANT: replace this variable with your Cognitive Services subscription key
@@ -59,17 +59,17 @@ var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionK
 
 ## <a name="send-a-search-query-using-the-client"></a>Enviar uma consulta de pesquisa com o cliente
 
-Utilize o cliente para pesquisar com um texto de consulta:
+Utilize o cliente para procurar com um texto de consulta:
 
 ```csharp
 // make the search request to the Bing Image API, and get the results"
 imageResults = client.Images.SearchAsync(query: searchTerm).Result; //search query
 ```
 
-## <a name="parse-and-view-the-first-image-result"></a>Analisar e visualizar o primeiro resultado de imagem
+## <a name="parse-and-view-the-first-image-result"></a>Analisar e ver o primeiro resultado da imagem
 
-Analisar os resultados de imagem devolvidos na resposta.
-Se a resposta contém os resultados da pesquisa, armazenar o primeiro resultado e imprimir os detalhes, como uma miniatura devolveu o URL, o URL original, juntamente com o número total de imagens.  
+Analise os resultados da imagem devolvidos na resposta.
+Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como um URL de miniatura, o URL original, juntamente com o número total de imagens devolvidas.  
 
 ```csharp
 if (imageResults != null)
@@ -84,16 +84,16 @@ if (imageResults != null)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa de imagens Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
-* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Amostras do .NET para o SDK dos serviços cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Amostras de .NET para o SDK dos Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

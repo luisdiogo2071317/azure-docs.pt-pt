@@ -1,38 +1,38 @@
 ---
-title: 'Início rápido: Consultas de pesquisa de envio com a API REST para a API de pesquisa de imagens do Bing e Ruby'
-description: Neste início rápido, envia consultas de pesquisa para a API de pesquisa do Bing para obter uma lista de imagens relevantes com Ruby.
+title: 'Guia de Início Rápido: Executar uma pesquisa de imagens com o Ruby – API de Pesquisa de Imagens do Bing'
+description: Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação Ruby simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: fdc22971a369effbca31e23305ee57739852a50b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 4c2c91b42af46ba42bdda84d7b8b77987c7ea818
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578806"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297337"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Início rápido: Consultas de pesquisa de envio utilizar a REST API e Ruby
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Guia de Início Rápido: Enviar consultas de pesquisa com a API REST e o Ruby
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de imagens do Bing e receber uma resposta JSON. Esta aplicação Ruby simple envia uma consulta de pesquisa para a API e exibe os resultados brutos.
+Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação Ruby simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 
-Embora este aplicativo é escrito em Ruby, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código-fonte para este exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
+O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [A versão mais recente do Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Importe os seguintes pacotes para o ficheiro de código.
+1. Importe os seguintes pacotes para o seu ficheiro de código.
 
     ```ruby
     require 'net/https'
@@ -40,7 +40,7 @@ O código-fonte para este exemplo está disponível no [GitHub](https://github.c
     require 'json'
     ```
 
-2. Criar variáveis para o ponto final de API, caminho de pesquisa da API de imagem, a chave de subscrição e o termo de pesquisa.
+2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de imagens, a sua chave de subscrição e o termo de pesquisa.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -50,7 +50,7 @@ O código-fonte para este exemplo está disponível no [GitHub](https://github.c
 
 ## <a name="format-and-make-an-api-request"></a>Formatar e fazer um pedido de API
 
-Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido de API. Em seguida, envie o pedido.
+Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido da API. Em seguida, envie o pedido.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,9 +64,9 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json"></a>Processar e imprimir o JSON 
+## <a name="process-and-print-the-json"></a>Processar e imprimir o JSON
 
-Depois da resposta é recebida, pode analisar o JSON e obter valores do mesmo. Por exemplo, a miniatura URL para o primeiro resultado e o número total de devolvido imagens.
+Após a resposta ser recebida, pode analisar o JSON e obter valores do mesmo. Por exemplo, o URL da miniatura do primeiro resultado e o número total de imagens devolvidas.
 
 ```ruby
 response.each_header do |key, value|
@@ -86,7 +86,7 @@ puts "Url to the thumbnail of the first returned search result: #{first_result}"
 
 ## <a name="sample-json-response"></a>Resposta JSON de exemplo
 
-Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
+As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
 ```json
 {
@@ -133,15 +133,15 @@ Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JS
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa de imagens Bing](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
-* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

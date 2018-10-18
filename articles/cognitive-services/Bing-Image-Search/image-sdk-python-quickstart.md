@@ -1,70 +1,70 @@
 ---
-title: 'Início rápido: Procure imagens usando o SDK de pesquisa de imagens do Bing e Python'
+title: 'Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing para Python'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para procurar e localizar imagens na web com o SDK de pesquisa de imagens do Bing e Python.
+description: Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação Python simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 4a24f1e4e051b627034f1d4664e94e0f47c43014
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578298"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296622"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Início rápido: Pesquisa de imagens com o SDK de pesquisa de imagens do Bing e Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing e Python
 
-Utilize este guia de introdução para tornar a sua primeira pesquisa de imagens com o SDK de pesquisa de imagens do Bing, que é um wrapper para a API e contém os mesmos recursos. Esta aplicação de Python simple envia uma consulta de pesquisa de imagem, analisa a resposta JSON e apresenta o URL da imagem do primeiro devolvido.
+Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação Python simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 
-O código-fonte para este exemplo está disponível [no Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) com tratamento de erros adicionais e anotações.
+O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) com processamento de erros e anotações de código adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 2.7 ou 3.4](https://www.python.org/) e superior.
 
-* O [pesquisa de imagens do Azure SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) para Python
-    * Instalar utilizando `pip install azure-cognitiveservices-search-imagesearch`
+* O [SDK de Pesquisa de Imagens do Azure](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) para Python
+    * Instalar com `pip install azure-cognitiveservices-search-imagesearch`
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo script de Python no seu IDE favorito ou editor e as seguintes importações:
+1. Crie um novo script Python no seu IDE ou editor favorito e as seguintes importações:
 
     ```python
     from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Crie variáveis para o termo de pesquisa e a chave de subscrição.
+2. Crie variáveis para a sua chave de subscrição e termo de pesquisa.
 
     ```python
     subscription_key = "Enter your key here"
     search_term = "canadian rockies"
     ```
 
-## <a name="create-the-image-search-client"></a>Criar o cliente de pesquisa de imagem
+## <a name="create-the-image-search-client"></a>Criar o cliente de pesquisa de imagens
 
-3. Criar uma instância do `CognitiveServicesCredentials`e utilizá-lo para criar uma instância do cliente:
+3. Crie uma instância do `CognitiveServicesCredentials` e utilize-a para instanciar o cliente:
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. Envie uma consulta de pesquisa para a API de pesquisa de imagens do Bing:
+4. Envie uma consulta de pesquisa para a API de Pesquisa de Imagens do Bing:
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## <a name="process-and-view-the-results"></a>Processar e exibir os resultados
+## <a name="process-and-view-the-results"></a>Processar e ver os resultados
 
-Analisar os resultados de imagem devolvidos na resposta.
+Analise os resultados da imagem devolvidos na resposta.
 
 
-Se a resposta contém os resultados da pesquisa, armazenar o primeiro resultado e imprimir os detalhes, como uma miniatura devolveu o URL, o URL original, juntamente com o número total de imagens.  
+Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como um URL de miniatura, o URL original, juntamente com o número total de imagens devolvidas.  
 
 ```python
 if image_results.value:
@@ -76,16 +76,16 @@ else:
     print("No image results returned!")
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa de imagens Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
-* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
-* [Amostras de Python para o SDK dos serviços cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
-* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Exemplos de Python para o SDK dos Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

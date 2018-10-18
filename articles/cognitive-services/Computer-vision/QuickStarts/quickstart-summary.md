@@ -1,21 +1,21 @@
 ---
-title: Resumo do início rápido da Imagem Digitalizada | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Nestes inícios rápidos, irá analisar uma imagem, criar uma miniatura e extrair texto manuscrito e impresso através da Imagem Digitalizada nos Serviços Cognitivos.
+title: Resumo do Guia de Início Rápido da Imagem Digitalizada
+titleSuffix: Azure Cognitive Services
+description: Nestes guias de início rápido, irá analisar uma imagem, criar uma miniatura e extrair texto manuscrito e impresso através da API de Imagem Digitalizada.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 94424de3f175e82cf8490bad98f4a775761979e4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772285"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576889"
 ---
 # <a name="quickstart-summary"></a>Início rápido: Resumo
 
@@ -30,7 +30,7 @@ Pode utilizar o serviço de Imagem Digitalizada para realizar as seguintes taref
 * Analisar uma imagem remota
 * Analisar uma imagem local
 * Detetar celebridades e marcos (modelos de domínio)
-* Gerir uma miniatura de forma inteligente
+* Gerar uma miniatura de forma inteligente
 * Detetar e extrair texto impresso (OCR) a partir de uma imagem
 * Detetar e extrair texto manuscrito a partir de uma imagem
 
@@ -53,7 +53,7 @@ O código em cada exemplo é semelhante. No entanto, eles realçam diferentes fu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as APIs de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto manuscrito e impresso.
+Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito.
 
 > [!div class="nextstepaction"]
-> [Explorar APIs de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

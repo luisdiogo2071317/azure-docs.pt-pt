@@ -1,42 +1,41 @@
 ---
-title: 'Início rápido: Consultas de pesquisa de envio com a API de pesquisa de imagens do Bing e'
+title: 'Guia de Início Rápido: Executar uma pesquisa de imagens com o C# – API de Pesquisa de Imagens do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para procurar e localizar imagens na web usando a API de pesquisa Web Bing.
+description: Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e ver um resultado de pesquisa a partir de uma resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa de imagens HTTP para a API e apresenta o URL da primeira imagem devolvida.
 services: cognitive-services
-documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 22eb54f6adec0335dd89a5ae906117542bb11717
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580417"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296653"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Início rápido: Consultas de pesquisa de envio usando a API de pesquisa de imagens do Bing e c#
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Guia de Início Rápido: Enviar consultas de imagens com a API de Pesquisa de Imagens do Bing e o C#
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de imagens do Bing e exibe um resultado de pesquisa da resposta JSON. Esta aplicação c# simple envia uma consulta de pesquisa de imagem HTTP para a API e apresenta o URL da imagem do primeiro devolvido.
+Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e ver um resultado de pesquisa a partir de uma resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa de imagens HTTP para a API e apresenta o URL da primeira imagem devolvida.
 
-Embora esse aplicativo é escrito em c#, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código-fonte para este exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) com manipulação de erros adicionais e anotações de código.
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição dos [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* O [Json.NET](https://www.newtonsoft.com/json) framework, disponível como um pacote de NuGet. 
-* Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](http://www.mono-project.com/).
+* Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. criar uma nova solução de consola com o nome `BingSearchApisQuickStart` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes para o ficheiro de código principal.
+1. Crie uma nova solução de consola com o nome `BingSearchApisQuickStart` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
 
     ```csharp
     using System;
@@ -46,7 +45,7 @@ O código-fonte para este exemplo está disponível [no GitHub](https://github.c
     using Newtonsoft.Json.Linq;
     ```
 
-2. Criar variáveis para o ponto de final de API, a chave de subscrição e o termo de pesquisa.
+2. Crie variáveis para o ponto final de API, a sua chave de subscrição e o termo de pesquisa.
 
     ```csharp
     //...
@@ -61,10 +60,10 @@ O código-fonte para este exemplo está disponível [no GitHub](https://github.c
     //...
     ```
 
-## <a name="create-a-struct-to-format-the-bing-image-search-response"></a>Criar uma estrutura para formatar a resposta de pesquisa de imagens Bing
+## <a name="create-a-struct-to-format-the-bing-image-search-response"></a>Criar uma estrutura para formatar a resposta da Pesquisa de Imagens do Bing
 
-Definir um `SearchResult` struct para conter os resultados da pesquisa de imagem e as informações de cabeçalho JSON.
-    
+Defina uma estrutura `SearchResult` para conter os resultados da pesquisa de imagens e as informações do cabeçalho JSON.
+
 ```csharp
     namespace BingSearchApisQuickstart
     {
@@ -81,7 +80,7 @@ Definir um `SearchResult` struct para conter os resultados da pesquisa de imagem
 
 ## <a name="create-a-method-to-send-search-requests"></a>Criar um método para enviar pedidos de pesquisa
 
-Crie um método chamado `BingImageSearch` para executar a chamada à API e definir o tipo de retorno o `SearchResult` struct que criou anteriormente.
+Crie um método com o nome `BingImageSearch` para efetuar a chamada à API e defina o tipo de retorno para a estrutura `SearchResult` criada anteriormente.
 
 ```csharp
 //...
@@ -97,11 +96,11 @@ namespace BingSearchApisQuickstart
 //...
 ```
 
-## <a name="create-and-handle-an-image-search-request"></a>Criar e processar um pedido de pesquisa de imagem
- 
-Na `BingImageSearch` método, execute os seguintes passos.
+## <a name="create-and-handle-an-image-search-request"></a>Criar e processar um pedido de pesquisa de imagens
 
-1. Construa o URI para a solicitação de pesquisa. Tenha em atenção que o termo de pesquisa `toSearch` tem de ser formatado antes de a ser acrescentado à cadeia de caracteres. 
+No método `BingImageSearch`, siga os seguintes passos.
+
+1. Construa o URI do pedido de pesquisa. Tenha em atenção que o termo de pesquisa `toSearch` tem de ser formatado antes de ser anexado à cadeia.
 
     ```csharp
     static SearchResult BingImageSearch(string toSearch){
@@ -110,7 +109,7 @@ Na `BingImageSearch` método, execute os seguintes passos.
     //...
     ```
 
-2. Executar a solicitação da web e obtenha a resposta como uma cadeia de caracteres do JSON.
+2. Execute o pedido Web e obtenha a resposta como uma cadeia JSON.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -119,7 +118,7 @@ Na `BingImageSearch` método, execute os seguintes passos.
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
     ```
 
-3. Criar o objeto de resultado de pesquisa e extrair os cabeçalhos HTTP do Bing. Em seguida, retornar `searchResult`.
+3. Crie o objeto do resultado de pesquisa e extraia os cabeçalhos HTTP do Bing. Em seguida, devolva `searchResult`.
 
     ```csharp
     // Create the result object for return
@@ -138,9 +137,9 @@ Na `BingImageSearch` método, execute os seguintes passos.
     return searchResult;
     ```
 
-## <a name="process-and-view-the-response"></a>Processo e ver a resposta
+## <a name="process-and-view-the-response"></a>Processar e ver a resposta
 
-1. No método principal, chamar `BingImageSearch()` e armazenar a resposta retornada. Em seguida, anular a serialização JSON num objeto.
+1. No método principal, chame `BingImageSearch()` e armazene a resposta devolvida. Em seguida, anule a serialização do JSON para um objeto.
 
     ```csharp
     SearchResult result = BingImageSearch(searchTerm);
@@ -148,19 +147,19 @@ Na `BingImageSearch` método, execute os seguintes passos.
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
     ```
 
-2. Obter a primeira imagem retornada de `jsonObj`e imprimir o título e um URL para a imagem. 
+2. Obtenha a primeira imagem devolvida de `jsonObj` e imprima o título e um URL para a imagem.
     ```csharp
     var firstJsonObj = jsonObj["value"][0];
     Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
-    //After running the application, copy the output URL into a browser to see the image. 
+    //After running the application, copy the output URL into a browser to see the image.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
-       
-3. Certifique-se remover a sua chave de assinatura de código do aplicativo.
+
+3. Certifique-se de que remove a sua chave de subscrição do código da aplicação.
 
 ## <a name="json-response"></a>Resposta JSON
 
-Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
+As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
 ```json
 {
@@ -206,15 +205,15 @@ Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JS
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa de imagens Bing](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
-* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Impor a autenticação multifator aos utilizadores convidados do Azure AD B2B'
-description: Saiba como exigir a autenticação multifator (MFA) ao utilizar o Azure AD B2B para colaborar com organizações parceiras e utilizadores externos.
+title: 'Tutorial: Impor a autenticação multifator aos utilizadores convidados B2B do Azure AD'
+description: Saiba como exigir a autenticação multifator (MFA) ao utilizar o Azure AD para colaboração B2B com organizações parceiras e utilizadores externos.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -17,9 +17,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 09/18/2018
 ms.locfileid: "45986822"
 ---
-# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor a autenticação multifator aos utilizadores convidados do B2B
+# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor a autenticação multifator aos utilizadores convidados B2B
 
-Ao colaborar com utilizadores convidados do B2B externos, é recomendado proteger as suas aplicações com políticas de autenticação multifator (MFA). Deste modo, os utilizadores externos precisarão de mais do que apenas um nome de utilizador e palavra-passe para aceder aos seus recursos. No Azure Active Directory (Azure AD), pode fazê-lo com uma política de acesso condicional que necessita da MFA para aceder. As políticas de MFA podem ser impostas ao nível do inquilino, da aplicação ou do utilizador convidado da mesma forma que são ativadas para os membros da sua organização.
+Ao colaborar com utilizadores convidados B2B externos, é recomendado proteger as suas aplicações com políticas de autenticação multifator (MFA). Deste modo, os utilizadores externos precisarão de mais do que apenas um nome de utilizador e palavra-passe para aceder aos seus recursos. No Azure Active Directory (Azure AD), pode fazê-lo com uma política de acesso condicional que necessita da MFA para aceder. As políticas de MFA podem ser impostas ao nível do inquilino, da aplicação ou do utilizador convidado da mesma forma que são ativadas para os membros da sua organização.
 
 Exemplo:
 
@@ -46,7 +46,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para concluir o cenário deste tutorial, precisa de:
 
  - **Acesso à edição do Azure AD Premium**, que inclui funcionalidades de política de acesso condicional. Para impor a MFA, tem de criar uma política de acesso condicional do Azure AD. Tenha em atenção que as políticas de MFA serão sempre impostas na sua organização, independentemente de o parceiro possuir funcionalidades de MFA. Se tiver configurado a MFA para a sua organização, terá de certificar-se de que possui licenças suficientes do Azure AD Premium para os seus utilizadores convidados. 
- - **Uma conta de e-mail externa válida** que pode adicionar ao diretório do seu inquilino como um utilizador convidado e utilizar para iniciar sessão. Se não souber como criar uma conta de convidado, veja [Adicionar um utilizador convidado do B2B no portal do Azure](add-users-administrator.md).
+ - **Uma conta de e-mail externa válida** que pode adicionar ao diretório do seu inquilino como um utilizador convidado e utilizar para iniciar sessão. Se não souber como criar uma conta de convidado, veja [Adicionar um utilizador convidado B2B no portal do Azure](add-users-administrator.md).
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Criar um utilizador convidado de teste no Azure AD
 
@@ -139,4 +139,4 @@ Remova o utilizador de teste e a política de acesso condicional de teste quando
 6.  Em **Segurança**, selecione **Acesso Condicional**.
 7.  Na lista **Nome da política**, selecione o menu de contexto (…) da sua política de teste e selecione **Eliminar**. Selecione **Sim** para confirmar.
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, criou uma política de acesso condicional que exige que os utilizadores convidados utilizem a MFA ao iniciar sessão numa das suas aplicações na cloud. Para saber mais sobre como adicionar utilizadores para colaboração, veja [Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure](add-users-administrator.md).
+Neste tutorial, criou uma política de acesso condicional que exige que os utilizadores convidados utilizem a MFA ao iniciar sessão numa das suas aplicações na cloud. Para saber mais sobre como adicionar utilizadores para colaboração, veja [Adicionar utilizadores de colaboração B2B do Azure Active Directory no portal do Azure](add-users-administrator.md).

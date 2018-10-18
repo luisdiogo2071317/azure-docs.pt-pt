@@ -1,30 +1,32 @@
 ---
-title: 'Início rápido: Utilizar o Go para chamar a API de Pesquisa na Web do Bing'
+title: 'Guia de Início Rápido: Efetuar uma pesquisa com o Go – API de Pesquisa na Web do Bing'
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Go e receber uma resposta JSON.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 3f5fc8461103b2f4ee04750ceba35e05eaa5515c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a741224508fb023a1587f318c2bd53d4446fef55
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886627"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128966"
 ---
 # <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Go para chamar a API de Pesquisa na Web do Bing  
 
-Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
+Utilize este guia de início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão algumas coisas de que precisará antes de executar este início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este guia de início rápido:
 
 * [Binários do Go](https://golang.org/dl/)
 * Uma chave de subscrição

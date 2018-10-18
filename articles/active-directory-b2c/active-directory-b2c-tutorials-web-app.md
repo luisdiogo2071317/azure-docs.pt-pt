@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ed34dcfb2aa488f4e7e34294b46de68624811afd
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e215577fdb39b3dc1a9c5ce641c44e3cdef8fb45
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609043"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604098"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar uma aplicação Web para autenticar com as contas utilizando o Azure Active Directory B2C
 
@@ -151,7 +151,7 @@ Existem dois projetos na solução de exemplo:
 
 **Aplicação de exemplo da aplicação Web (TaskWebApp):** aplicação Web para criar e editar uma lista de tarefas. A aplicação Web utiliza a política de **inscrição ou início de sessão** para inscrição ou início de sessão de utilizadores.
 
-**Exemplo de aplicação da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
+**Aplicação de exemplo da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
 Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu inquilino, o que inclui o ID da aplicação e a chave que registou anteriormente. Também tem de configurar as políticas que criou. A aplicação Web de exemplo define os valores de configuração como definições da aplicação no ficheiro Web.config. Para alterar as definições da aplicação:
 

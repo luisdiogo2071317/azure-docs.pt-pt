@@ -1,30 +1,30 @@
 ---
-title: 'Início rápido: Enviar consultas de pesquisa com a API de pesquisa de imagens do Bing e o PHP'
+title: 'Guia de Início Rápido: Executar uma pesquisa de imagens com o PHP – API de Pesquisa de Imagens do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para procurar e localizar imagens na web usando a API de pesquisa Web Bing.
+description: Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. A aplicação simples neste artigo envia uma consulta de pesquisa e mostra os resultados não processados.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ebf8c0269e070c9047d730e58b8e2d3824124e1a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574203"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295534"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Início rápido: Consultas de pesquisa de envio utilizar a API de REST de pesquisa de imagens do Bing e o PHP
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Guia de Início Rápido: Enviar consultas de pesquisa com a API REST de Pesquisa de Imagens do Bing e o PHP
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de imagens do Bing e receber uma resposta JSON. O aplicativo simple neste artigo envia uma consulta de pesquisa e exibe os resultados brutos.
+Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. A aplicação simples neste artigo envia uma consulta de pesquisa e mostra os resultados não processados.
 
-Embora esse aplicativo é escrito em PHP, a API é um serviço RESTful Web compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON.
+Embora esta aplicação seja escrita em PHP, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON.
 
-O código-fonte para este exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,13 +32,13 @@ O código-fonte para este exemplo está disponível [no GitHub](https://github.c
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-Para executar esta aplicação, siga estes passos.
+Para executar esta aplicação, siga os seguintes passos.
 
-1. Certifique-se de que o suporte para HTTP seguro está ativado no seus `php.ini` ficheiro. No Windows, este ficheiro está localizado no `C:\windows`.
+1. Certifique-se de que o suporte HTTP seguro está ativado no seu ficheiro `php.ini`. No Windows, este ficheiro está localizado em `C:\windows`.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
-3. definir o ponto de final de API, a chave de subscrição e o termo de pesquisa.
+3. Defina o ponto final de API, a sua chave de subscrição e o termo de pesquisa.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -46,9 +46,9 @@ Para executar esta aplicação, siga estes passos.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Criar e executar um pedido HTTP
+## <a name="construct-and-perform-a-http-request"></a>Criar e executar um pedido de HTTP
 
-1. Utilize as variáveis do último passo para preparar um pedido HTTP para a API de pesquisa de imagens.
+1. Utilize as variáveis do último passo para preparar um pedido de HTTP para a API de Pesquisa de Imagens.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -56,7 +56,7 @@ Para executar esta aplicação, siga estes passos.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Executar a solicitação da web e obtenha a resposta JSON.
+2. Execute o pedido Web e obtenha a resposta JSON.
 
     ```php
     $context = stream_context_create($options);
@@ -65,7 +65,7 @@ Para executar esta aplicação, siga estes passos.
 
 ## <a name="process-and-print-the-json"></a>Processar e imprimir o JSON
 
-Processar e a resposta JSON devolvida de impressão.
+Processe e imprima a resposta JSON devolvida.
 
     ```php
     $headers = array();
@@ -80,7 +80,7 @@ Processar e a resposta JSON devolvida de impressão.
 
 ## <a name="sample-json-response"></a>Resposta JSON de exemplo
 
-Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
+As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
 ```json
 {
@@ -126,15 +126,15 @@ Respostas a partir da API de pesquisa de imagens do Bing são retornadas como JS
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa de imagens Bing](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
-* [O que é a pesquisa de imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Tente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Obter uma chave de acesso de serviços cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentação dos serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)
