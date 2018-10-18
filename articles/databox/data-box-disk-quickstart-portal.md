@@ -2,25 +2,19 @@
 title: Início Rápido do Microsoft Azure Data Box Disk| Microsoft Docs
 description: Utilize este início rápido para implementar rapidamente o seu Azure Data Box Disk no portal do Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378351"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365239"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implementar o Azure Data Box Disk através do portal do Azure (Pré-visualização)
 
@@ -28,10 +22,10 @@ Este início rápido descreve como implementar o Azure Data Box Disk através do
 
 Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Encomendar o Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
-> O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
+> O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

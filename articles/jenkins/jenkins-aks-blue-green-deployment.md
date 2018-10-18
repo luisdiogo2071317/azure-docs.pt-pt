@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 07/23/2018
-ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 10/11/2018
+ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093559"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387393"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
 
@@ -32,7 +32,7 @@ Neste tutorial, vai aprender a realizar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Conta do GitHub](https://github.com): precisa de uma conta do GitHub para clonar o repositório de exemplo.
-- [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest): vai utilizar a CLI 2.0 do Azure para criar o cluster do Kubernetes.
+- [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): vai utilizar a CLI 2.0 do Azure para criar o cluster do Kubernetes.
 - [Chocolatey](https://chocolatey.org): um gestor de pacotes que é utilizado para instalar o kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): uma interface de linha de comandos que é utilizada para executar comandos nos clusters do Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): um processador JSON de linha de comandos leve.
@@ -82,9 +82,6 @@ Neste tutorial, vai executar os seguintes passos:
 - Utilize a CLI 2.0 do Azure para criar um cluster do Kubernetes gerido.
 - Saiba como configurar um cluster, seja com o script de configuração ou manualmente.
 - Crie uma instância do serviço Azure Container Registry.
-
-> [!NOTE]   
-> O AKS está atualmente em pré-visualização. Para obter informações sobre como ativar a pré-visualização na sua subscrição do Azure, veja [Início Rápido: Implementar um cluster do Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription)
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Utilizar a CLI 2.0 do Azure para criar um cluster do Kubernetes gerido
 Para criar um cluster do Kubernetes gerido com a [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), confirme que está a utilizar a versão 2.0.25 ou posterior da CLI do Azure.
@@ -260,7 +257,7 @@ Nesta secção, vai aprender a preparar o servidor Jenkins para executar uma com
 
 1. Introduza o caminho do script como `deploy/aks/Jenkinsfile`.
 
-## <a name="run-the-job"></a>Executar o trabalho
+## <a name="run-the-job"></a>Executar a tarefa
 
 1. Confirme que consegue executar o projeto no seu ambiente local. Para ta, veja [Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it) (Executar o projeto no computador local).
 

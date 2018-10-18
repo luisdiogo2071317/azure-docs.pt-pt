@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058187"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386592"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os Hubs de notificação do Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -261,7 +261,7 @@ Agora com essa classe, escrever o envio métodos de notificação dentro dos **N
 Esses métodos enviam um pedido HTTP POST para o ponto de extremidade /messages do seu hub de notificação, com o corpo correto e cabeçalhos para enviar a notificação.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Usando a propriedade de depuração para ativar o registo detalhado
-A permissão de depuração de propriedade ao inicializar o Notification Hub escreve as informações de Registro em log detalhado sobre o pedido HTTP e despejo de resposta, bem como a mensagem de notificação detalhada enviar o resultado. O [TestSend de Hubs de notificação de propriedade](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) devolve informações detalhadas sobre o resultado de envio de notificação. Para usá-lo - inicializar com o seguinte código:
+A permissão de depuração de propriedade ao inicializar o Notification Hub escreve as informações de Registro em log detalhado sobre o pedido HTTP e despejo de resposta, bem como a mensagem de notificação detalhada enviar o resultado. O [TestSend de Hubs de notificação de propriedade](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) devolve informações detalhadas sobre o resultado de envio de notificação. Para usá-lo - inicializar com o seguinte código:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

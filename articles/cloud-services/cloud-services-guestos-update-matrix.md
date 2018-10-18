@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 437fc63641ed6a28f34b4b7cb96dbdc0888c50f5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321874"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376674"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -61,28 +61,6 @@ O SO de convidado podem já lançada.
 ###### <a name="may-4-2018"></a>**4 de Maio de 2018**
 Lançou o SO de convidado de Abril.
 
-###### <a name="april-6-2018"></a>**6 de Abril de 2018**
-Lançou o SO de convidado de Março.
-
-###### <a name="march-19-2018"></a>**19 de Março de 2018**
-O sistema operacional convidado de Fevereiro já lançada.
-
-###### <a name="january-29-2018"></a>**29 de Janeiro de 2018**
-Foi lançado o SO de convidado de Janeiro de 2 de famílias de SO (WA-convidado-SO-2.70_201801-01) e 3 (WA-convidado-SO-3.57_201801-01)
-
-###### <a name="january-4-2018"></a>**4 de Janeiro de 2018**
-O sistema operacional convidado de Janeiro foi lançado para 4 de famílias de SO (WA-convidado-SO-4.50_201801-01) e 5 (WA-convidado-so-5.15_201801-01) e contém os patches de segurança importantes.  
-
-###### <a name="january-4-2018"></a>**4 de Janeiro de 2018**
-SO de convidado de Dezembro já lançada.
-
-###### <a name="december-14-2017"></a>**14 de Dezembro de 2017**
-Lançou o SO de convidado de Novembro.
-
-###### <a name="november-8-2017"></a>**8 de Novembro de 2017**
-SO de convidado de Outubro já lançada.
-
-
 
 ## <a name="releases"></a>Versões
 ## <a name="family-5-releases"></a>Versões de família 5
@@ -91,7 +69,7 @@ SO de convidado de Outubro já lançada.
 .NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> A palavra-passe de RDP para 5 da família de SO tem de ser um mínimo de 10 caracteres.
+> A palavra-passe RDP para a família de SO 5 tem de ser um mínimo de 10 caracteres.
 >
 
 | Cadeia de configuração | Data da versão | Desativar data |
@@ -102,18 +80,11 @@ SO de convidado de Outubro já lançada.
 |~~WA-CONVIDADO-SO-5.20_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-5.19_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
 |~~WA-CONVIDADO-SO-5.18_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
-|~~WA-CONVIDADO-SO-5.17_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018|
-|~~WA-CONVIDADO-SO-5.16_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |
-|~~WA-GUEST-OS-5.15_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |
-|~~WA-GUEST-OS-5.14_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018|
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
-
 
 ## <a name="family-4-releases"></a>Versões de família 4
 **Windows Server 2012 R2**
 
-.NET framework instalado: 4.0 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
@@ -123,18 +94,11 @@ SO de convidado de Outubro já lançada.
 |~~WA-CONVIDADO-SO-4.55_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-4.54_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
 |~~WA-CONVIDADO-SO-4.53_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
-|~~WA-CONVIDADO-SO-4.52_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |
-|~~WA-CONVIDADO-SO-4.51_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |
-|~~WA-GUEST-OS-4.50_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |
-|~~WA-GUEST-OS-4.49_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018 |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
-
 
 ## <a name="family-3-releases"></a>Versões da família 3
 **Windows Server 2012**
 
-.NET framework instalado: 4.0 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
@@ -144,13 +108,6 @@ SO de convidado de Outubro já lançada.
 |~~WA-CONVIDADO-SO-3.62_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-3.61_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
 |~~WA-CONVIDADO-SO-3.60_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
-|~~WA-CONVIDADO-SO-3.59_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |
-|~~WA-CONVIDADO-SO-3.58_201802-01~~ |19 de Março de 2018 |4 de Maio de 2018 |
-|~~WA-GUEST-OS-3.57_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |
-|~~WA-GUEST-OS-3.56_201712-01~~ |4 de Janeiro de 2018 |19 de Março de 2018 |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
-
 
 ## <a name="family-2-releases"></a>Versões de família 2
 **Windows Server 2008 R2 SP1**
@@ -165,15 +122,6 @@ SO de convidado de Outubro já lançada.
 |~~WA-CONVIDADO-SO-2.75_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-2.74_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018|
 |~~WA-CONVIDADO-SO-2.73_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
-|~~WA-CONVIDADO-SO-2.72_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |
-|~~WA-CONVIDADO-SO-2.71_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |
-|~~WA-GUEST-OS-2.70_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |
-|~~WA-GUEST-OS-2.69_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |
-
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
 A lista de patches que estão incluídos em cada versão de SO convidado mensal está disponível [aqui][patches].
@@ -181,7 +129,7 @@ A lista de patches que estão incluídos em cada versão de SO convidado mensal 
 ## <a name="sdk-support"></a>Suporte do SDK
 Apesar do [política de reforma para o Azure SDK] [ retire policy sdk] indica que apenas as versões acima 2.2 são suportados e específico famílias de SO convidado permitem-lhe utilizar versões anteriores. Deve sempre usar o SDK mais recente suportado.
 
-| Família de SO convidado | Versões do SDK compatível |
+| Família de SO convidado | Versões compatíveis do SDK |
 | --- | --- |
 | 5 |Versão 2.9.5.1+ |
 | 4 |Versão 2.1 + |
@@ -196,7 +144,7 @@ A janela entre o **desativada** data e a **expiração** data fornece uma memór
 
 Quando o **expiração** data passa, qualquer serviço de nuvem ainda usando nesse SO convidado será parado, eliminado ou forçado a atualizar. Pode ler mais sobre a política de extinção [aqui][retirepolicy].
 
-## <a name="guest-os-family-version-explanation"></a>Explicação da versão da família do SO convidado
+## <a name="guest-os-family-version-explanation"></a>Explicação da versão da família de SO convidado
 As famílias de SO convidado baseiam-se a versões atuais do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente que serviços Cloud do Azure é executado. Cada SO convidado tem uma família, a versão e a versão número.
 
 * **Família de SO convidado**  
@@ -227,7 +175,7 @@ Para uma grande quantidade de informações importantes sobre reinicializações
 
 Caso atualize manualmente o SO convidado, consulte a [política de extinção de SO convidado] [ retirepolicy] para obter informações adicionais.
 
-## <a name="guest-os-supportability-and-retirement-policy"></a>Suporte de SO convidado e a política de extinção
+## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e extinção de SO convidado
 A política de suporte e extinção de SO convidado é explicada [aqui][retirepolicy].
 
 [cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service

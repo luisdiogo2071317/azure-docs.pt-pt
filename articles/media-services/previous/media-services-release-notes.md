@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353787"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378946"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
 Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
@@ -44,6 +44,16 @@ Estas notas de versão para serviços de multimédia do Azure resumir as altera�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versões de REST API
 Para obter informações sobre o histórico de versões de API de REST dos serviços de suporte de dados, consulte a [Referência da API de REST dos serviços de multimédia do Azure].
+
+## <a name="october-2018"></a>Outubro de 2018
+
+### <a name="cmaf-support"></a>Suporte CMAF
+
+Suporte de encriptação CMAF e 'cbcs' para (iOS 11 +) do Apple HLS e MPEG-DASH jogadores que suportam CMAF.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Sprites em miniatura do Web VTT
+
+Agora, pode utilizar os serviços de multimédia para gerar os sprites de miniatura Web VTT com as nossas APIs de v2. Para obter mais informações, consulte [gerar um miniatura sprite](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Julho de 2018
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972113"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389073"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Tutorial: Escrever uma função definida pelo utilizador de C# para uma tarefa do Azure Stream Analytics Edge no Visual Studio (Pré-visualização)
 
@@ -37,7 +37,7 @@ Antes de começar, confirme que concluiu os seguintes pré-requisitos:
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Criar um contentor na Conta de Armazenamento do Azure
 
-O contentor que criar servirá para armazenar o pacote de C# compilado e implementar o pacote no seu dispositivo IoT Edge. Utilize um contentor dedicado para cada tarefa do Stream Analytics. Não é suportada a reutilização do mesmo contentor para várias tarefas do Stream Analytics Edge. Se já tiver uma conta de armazenamento com contentores existentes, poderá utilizá-los. Caso contrário, precisará de [criar um novo contentor](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+O contentor que criar servirá para armazenar o pacote de C# compilado e implementar o pacote no seu dispositivo IoT Edge. Utilize um contentor dedicado para cada tarefa do Stream Analytics. Não é suportada a reutilização do mesmo contentor para várias tarefas do Stream Analytics Edge. Se já tiver uma conta de armazenamento com contentores existentes, poderá utilizá-los. Caso contrário, precisará de [criar um novo contentor](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Criar um projeto do Stream Analytics Edge no Visual Studio
 
@@ -146,7 +146,7 @@ Após ter testado a sua consulta localmente, selecione **Submeter para o Azure**
 ![Submeter a tarefa do Stream Analytics Edge para o Azure a partir do Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Implementar em dispositivos IoT Edge
-A tarefa do Stream Analytics está agora pronta para ser implementada como um módulo do IoT Edge. Siga o [início rápido do IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) para criar um Hub IoT, registar um dispositivo IoT Edge e instalar e iniciar o runtime do IoT Edge no dispositivo. Em seguida, siga o tutorial [implementar a tarefa](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) para implementar a sua tarefa do Stream Analytics como um módulo do IoT Edge. 
+A tarefa do Stream Analytics está agora pronta para ser implementada como um módulo do IoT Edge. Siga o [início rápido do IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) para criar um Hub IoT, registar um dispositivo IoT Edge e instalar e iniciar o runtime do IoT Edge no dispositivo. Em seguida, siga o tutorial [implementar a tarefa](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) para implementar a sua tarefa do Stream Analytics como um módulo do IoT Edge. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

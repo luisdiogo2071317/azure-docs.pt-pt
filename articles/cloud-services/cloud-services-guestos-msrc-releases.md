@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: b37600fe8d0616454264b67553149223746318d8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322027"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377519"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
 
-## <a name="september-guest-os"></a>SO de convidado de Setembro
+## <a name="september-2018-guest-os"></a>SO de convidado de Setembro de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Segurança do Windows 10 | 5.23 | 11 de Setembro de 2018 |
@@ -45,7 +45,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4344153] | Rollup de Agosto sem segurança .NET 3.5 | 4.58 | 14 de Agosto de 2018 |
 | N/A | [4344147] | X rollup Agosto sem segurança .NET 4 | 4.58 | 14 de Agosto de 2018 |
 
-## <a name="august-guest-os"></a>SO de convidado de Agosto
+## <a name="august-2018-guest-os"></a>SO de convidado de Agosto de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Segurança do Windows 10 | 5.22 | 14 de Agosto de 2018 |
@@ -68,7 +68,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4338424] |Rollup de Julho sem segurança .NET 3.5 |3.64 | 10 de Julho de 2018 |
 | N/A | [4338415] |X rollup Julho sem segurança .NET 4 |3.64 | 10 de Julho de 2018 |
 
-## <a name="july-guest-os"></a>SO de convidado de Julho
+## <a name="july-2018-guest-os"></a>SO de convidado de Julho de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 07 de 18 | [4338814] |Segurança do Windows 10 |5.21 |10 de Julho de 2018 |
@@ -88,7 +88,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4284855] |Agregação de não-segurança de Junho |3.63 |12 de junho de 2018 |
 | N/A | [4284815] |Agregação de não-segurança de Junho |4,56 |12 de junho de 2018 |
 
-## <a name="june-guest-os"></a>SO de convidado de Junho
+## <a name="june-2018-guest-os"></a>SO de convidado de Junho de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 06 de 18 | [4284880] |Segurança do Windows 10 |5.20 |12 de junho de 2018 |
@@ -113,7 +113,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4096417] |Pode libertar .NET 4.5 x não relacionados a segurança |4.55 |8 de Maio de 2018 |
 | N/A | [4132216] |Maio SSU |5.20 |8 de Maio de 2018 |
 
-## <a name="may-guest-os"></a>Talvez o SO convidado
+## <a name="may-2018-guest-os"></a>SO de convidado de Maio de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 05 de 18 | [4103721], [4103727], [4103723] |Segurança do Windows 10 |5.19 |8 de Maio de 2018 |
@@ -133,7 +133,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4093753] |Atualização de fuso horário |2.74, 3.61, 4.74 |10 de abril de 2018 |
 
 
-## <a name="april-guest-os"></a>SO de convidado de Abril
+## <a name="april-2018-guest-os"></a>SO de convidado de Abril de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Segurança do Windows 10 |5.18 |10 de abril de 2018 |
@@ -147,7 +147,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4088877] |Agregação de não-segurança de Março |3.60 |13 de março de 2018 |
 | N/A | [4088876] |Agregação de não-segurança de Março |4.53 |13 de março de 2018 |
 
-## <a name="march-guest-os"></a>Março de SO convidado
+## <a name="march-2018-guest-os"></a>SO de convidado de Março de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Segurança do Windows 10 |5,17 |13 de março de 2018 |
@@ -160,7 +160,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4074837] |Atualização de fuso horário |2.72, 3.59, 4.52 |13 de fevereiro de 2018 |
 
 
-## <a name="february-guest-os"></a>SO de convidado de Fevereiro
+## <a name="february-2018-guest-os"></a>SO de convidado de Fevereiro de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Segurança do Windows 10 |5.16 |13 de fevereiro de 2018 |
@@ -174,7 +174,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4054175], [4054171] |Rollup de .NET de Janeiro |3.58 |4 de Janeiro de 2018 |
 | N/A | [4054177], [4054170] |Rollup de .NET de Janeiro |4.51 |4 de Janeiro de 2018 |
 
-## <a name="january-guest-os"></a>SO de convidado de Janeiro
+## <a name="january-2018-guest-os"></a>SO de convidado de Janeiro de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Segurança do Windows apenas |à 2.70, 3.57, 4,50 |3 de Janeiro de 2018 |
@@ -186,7 +186,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 
-## <a name="december-guest-os"></a>SO de convidado de Dezembro
+## <a name="december-2017-guest-os"></a>SO de convidado de Dezembro de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Atualizações de segurança do Windows 10 |4.49, 5.14 |12 de Dezembro de 2017 |
@@ -198,7 +198,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4048958] |Agregação de não-segurança de Novembro |4.49 |14 de novembro de 2017 |
 | N/A | [4049068] |Atualização de fuso horário de Dezembro |2.69, 3.56, 4.49 |12 de Dezembro de 2017 |
 
-## <a name="november-guest-os"></a>SO de convidado de Novembro
+## <a name="november-2017-guest-os"></a>SO de convidado de Novembro de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Atualizações do Windows 10 |5.13 |14 de novembro de 2017 |
@@ -212,7 +212,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [3191565] |Atualização para o Windows Management Framework 5.1  |3.55 |14 de novembro de 2017 |
 | N/A | [3191564] |Atualização para o Windows Management Framework 5.1  |4.48 |14 de novembro de 2017 |
 
-## <a name="october-guest-os"></a>SO de convidado de Outubro
+## <a name="october-2017-guest-os"></a>SO de convidado de Outubro de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17 a 10 | [4041691] |Atualizações do Windows 10 |5.12 |10 de Outubro de 2017 |
@@ -226,7 +226,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4040979] |Agregação de que não são de segurança do .NET de Setembro |3.54 |12 de Setembro de 2017 |
 | N/A | [4040981] |Agregação de que não são de segurança do .NET de Setembro |4.47 |12 de Setembro de 2017 |
 
-## <a name="september-guest-os"></a>SO de convidado de Setembro
+## <a name="september-2017-guest-os"></a>SO de convidado de Setembro de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Atualizações do Windows 10 |5.11 |12 de Setembro de 2017 |
@@ -238,7 +238,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4034665] |Agregação de não-segurança de Agosto |5.11 |8 de Agosto de 2017 |
 | N/A | [4034681] |Agregação de não-segurança de Agosto |4.46 |8 de Agosto de 2017 |
 
-## <a name="august-guest-os"></a>SO de convidado de Agosto
+## <a name="august-2017-guest-os"></a>SO de convidado de Agosto de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 07 de 17 | [4034658] |Atualizações do Windows 10 |5.10 |8 de Agosto de 2017 |
@@ -252,7 +252,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 07 de 17 | [4025331] |Agregação de não-segurança de Julho |3.52 |11 de Julho de 2017 |
 | Rel 07 de 17 | [4025336] |Agregação de não-segurança de Julho |4.45 |11 de Julho de 2017 |
 
-## <a name="july-guest-os"></a>SO de convidado de Julho
+## <a name="july-2017-guest-os"></a>SO de convidado de Julho de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 07 de 17 | [4025339] |Atualizações do Windows 10 |5.9 |11 de Julho de 2017 |
@@ -266,7 +266,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4022724] |Agregação de não-segurança de Junho |3.51 |13 de Junho de 2017 |
 | N/A | [4022726] |Agregação de não-segurança de Junho |4.44 |13 de Junho de 2017 |
 
-## <a name="june-guest-os"></a>SO de convidado de Junho
+## <a name="june-2017-guest-os"></a>SO de convidado de Junho de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 06 de 17 | [4019472] |Aprimoramentos de qualidade de SO do WS 2016 |5.8 |9 de Maio de 2017 |
@@ -294,7 +294,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4014510] |Pode rollup não relacionados a segurança de .NET |4.43 |9 de Maio de 2017 |
 | N/A | [4014512] |Pode rollup não relacionados a segurança de .NET |4.43 |9 de Maio de 2017 |
 
-## <a name="may-guest-os"></a>Talvez o SO convidado
+## <a name="may-2017-guest-os"></a>SO de convidado de Maio de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 05 de 17 | [4019472] |Aprimoramentos de qualidade de SO do WS 2016 |5.7 | 9 de Maio de 2017 |
@@ -322,7 +322,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4015550] |Agregação de não-segurança de Abril |4.42 | 11 de Abril de 2017 |
 | N/A | [4013418] |Atualização de pilha de manutenção |5.7 | 14 de março de 2017 |
 
-## <a name="april-guest-os"></a>SO de convidado de Abril
+## <a name="april-2017-guest-os"></a>SO de convidado de Abril de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 04 de 17 |  [4015217]  |Aprimoramentos de qualidade de SO do WS 2016 | 5.6 | 11 de Abril de 2017 |
@@ -342,7 +342,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 04 de 17 |  [4012217]  |Agregação de qualidade de mensais de segurança do Março de 2017 do Windows Server 2012 |3.48 | 11 de Abril de 2017 |
 | Rel 04 de 17 |  [4012216]  |Agregação de qualidade de mensais de segurança do Março de 2017 para Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 de Abril de 2017 |
 
-## <a name="march-guest-os"></a>Março de SO convidado
+## <a name="march-2017-guest-os"></a>SO de convidado de Março de 2017
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Melhorias e correções | 5.5 | 14 de março de 2017 |
@@ -356,12 +356,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |  [3205401] |Agregação de qualidade de mensais de segurança do Dezembro de 2016 para o Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
 | N/A |  [3211320] |Manutenção de pilha atualização para o Windows 10 versão 1607 e Windows Server 2016: 24 de Janeiro de 2017 |5.5 |14 de março de 2017 |
 
-## <a name="january-guest-os"></a>SO de convidado de Janeiro
+## <a name="january-2017-guest-os"></a>SO de convidado de Janeiro de 2017
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Atualização de segurança do serviço de subsistema de autoridade de segurança Local |2.59 |10 de Janeiro de 2017 |
 
-## <a name="december-guest-os"></a>SO de convidado de Dezembro
+## <a name="december-2016-guest-os"></a>SO de convidado de Dezembro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Atualização de segurança cumulativa para o Internet Explorer |2.58, 3.46, 4.39 |13 de Dezembro de 2016 |
@@ -378,7 +378,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3197877] |Agregação de qualidade de mensais de segurança do Novembro de 2016 para o Windows Server 2012 |3.46 |13 de Dezembro de 2016 |
 | N/A |[3197874] |Agregação de qualidade de mensais de segurança do Novembro de 2016 para o Windows 8.1 e Windows Server 2012 R2 |4.39 |13 de Dezembro de 2016 |
 
-## <a name="november-guest-os"></a>SO de convidado de Novembro
+## <a name="november-2016-guest-os"></a>SO de convidado de Novembro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Atualização de segurança cumulativa para o Microsoft Edge |5.3 |8 de Novembro de 2016 |
@@ -403,7 +403,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3199986] |Manutenção de pilha atualização para o Windows 10 versão 1607: 27 de Outubro de 2016 |5.3 |8 de Novembro de 2016 |
 | N/A |[3197954] |A atualização cumulativa para o Windows 10 versão 1607 e no Windows Server 2016: 27 de Outubro de 2016 |5.3 |8 de Novembro de 2016 |
 
-## <a name="october-guest-os"></a>SO de convidado de Outubro
+## <a name="october-2016-guest-os"></a>SO de convidado de Outubro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Atualização de segurança cumulativa para o Internet Explorer |4.37, 3.44, 2.56 |11 de Outubro de 2016 |
@@ -418,7 +418,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3185279] |Setembro de 2016 update rollup para o Windows 8.1 e Windows Server 2012 R2 |4.37 |11 de Outubro de 2016 |
 | N/A |[3194798] |Atualização cumulativa para o Windows 10 versão 1607 e Windows Server 2016 |5.2 |11 de Outubro de 2016 |
 
-## <a name="september-guest-os"></a>SO de convidado de Setembro
+## <a name="september-2016-guest-os"></a>SO de convidado de Setembro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Atualização de segurança cumulativa para o Internet Explorer |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
@@ -435,7 +435,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3179575] |Agosto de 2016 update rollup para o Windows Server 2012 |3.43 |13 de Setembro de 2016 |
 | N/A |[3179574] |Agosto de 2016 update rollup para o Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.36 |13 de Setembro de 2016 |
 
-## <a name="august-guest-os"></a>SO de convidado de Agosto
+## <a name="august-2016-guest-os"></a>SO de convidado de Agosto de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Atualização de segurança cumulativa para o Internet Explorer |4.35, 3.42, 2.54 |9 de Agosto de 2016 |
@@ -449,7 +449,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3172615] |Pacote cumulativo de atualizações de Julho de 2016 para o Windows Server 2012 |3.42 |9 de Agosto de 2016 |
 | N/A |[3172614] |Julho de 2016 update rollup para o Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.35 |9 de Agosto de 2016 |
 
-## <a name="july-guest-os"></a>SO de convidado de Julho
+## <a name="july-2016-guest-os"></a>SO de convidado de Julho de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Atualização de segurança cumulativa para o Internet Explorer |4.34, 3.41, 2.53 |12 de Julho de 2016 |
@@ -465,7 +465,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3161606] |Junho de 2016 update rollup para o Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.34 |12 de Julho de 2016 |
 | N/A |[3139923] |Reparação do Windows installer (MSI) não funciona quando o pacote MSI é instalado num HTTP partilhar no Windows |4.34 |12 de Julho de 2016 |
 
-## <a name="june-guest-os"></a>SO de convidado de Junho
+## <a name="june-2016-guest-os"></a>SO de convidado de Junho de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Atualização de segurança do .NET Framework para abordar a desativação da funcionalidade de segurança |4.33, 3.40, 2.52 |14 de Junho de 2016 |
@@ -492,7 +492,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3156418] |Maio de 2016 update rollup para o Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.33 |14 de Junho de 2016 |
 | N/A |[3153731] |Atualização de Maio de 2016 horário de Verão do Azerbaijão, Chile, Haiti e Marrocos no Windows |4.33, 3.40, 2.52 |14 de Junho de 2016 |
 
-## <a name="may-guest-os"></a>Talvez o SO convidado
+## <a name="may-2016-guest-os"></a>SO de convidado de Maio de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Atualização de segurança cumulativa para o Internet Explorer |4.32, 3.39, 2.51 |10 de Maio de 2016 |
@@ -510,7 +510,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3123245] |Atualização melhora a identificação de esgotamento de porta no Windows Server 2012 R2  |4.32 |10 de Maio de 2016 |
 | N/A |[Desativar RC4] | Consultoria de segurança da Microsoft: atualizar para desativar o RC4  |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 
-## <a name="april-guest-os"></a>SO de convidado de Abril
+## <a name="april-2016-guest-os"></a>SO de convidado de Abril de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Atualização de segurança cumulativa para o Internet Explorer |4.31, 3.38, 2.50 |12 de Abril de 2016 |
@@ -521,7 +521,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-047 |[3148527] |Atualização de segurança do protocolo de remoto do Gestor de conta de segurança |4.31, 3.38, 2.50 |12 de Abril de 2016 |
 | MS16-048 |[3148528] |Atualização de segurança para CSRSS |4.31, 3.38 |12 de Abril de 2016 |
 
-## <a name="march-guest-os"></a>Março de SO convidado
+## <a name="march-2016-guest-os"></a>SO de convidado de Março de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Atualização de segurança cumulativa para o Internet Explorer |4.30, 3.37, 2.49 |8 de Março de 2016 |
@@ -534,7 +534,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-033 |[3143142] |Atualização de segurança para o controlador de classe de armazenamento em massa de USB para abordar a elevação de privilégios |4.30, 3.37, 2.49 |8 de Março de 2016 |
 | MS16-034 |[3143145] |Atualizações de segurança para o Driver de modo Kernel para o endereço de elevação de privilégios |4.30, 3.37, 2.49 |8 de Março de 2016 |
 
-## <a name="february-guest-os"></a>SO de convidado de Fevereiro
+## <a name="february-2016-guest-os"></a>SO de convidado de Fevereiro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Atualização de segurança cumulativa para o Internet Explorer |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
@@ -549,7 +549,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Relançamento-MS15 118 |[3104507] |Atualizações de segurança para .NET Framework abordar a elevação de privilégios |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
 | Relançamento-MS15-128 |[3104503] |Atualizações de segurança para o componente de gráficos da Microsoft abordar a execução remota de código |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
 
-## <a name="january-guest-os"></a>SO de convidado de Janeiro
+## <a name="january-2016-guest-os"></a>SO de convidado de Janeiro de 2016
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Atualização de segurança cumulativa para o Internet Explorer |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
@@ -562,7 +562,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Consultoria de segurança da Microsoft |[3123479] |Descontinuação de algoritmo hash SHA-1 para Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
 | Consultoria de segurança da Microsoft |[2736233] |Atualizações de ActiveX elimina Bits |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
 
-## <a name="december-guest-os"></a>SO de convidado de Dezembro
+## <a name="december-2015-guest-os"></a>SO de convidado de Dezembro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Atualização de segurança cumulativa para o Internet Explorer |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
@@ -574,7 +574,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-134 |[3108669] |Atualização de segurança do Windows Media Center para abordar a execução remota de código |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
 | MS15-135 |[3119075] |Atualização de segurança do Windows Drivers em modo Kernel abordar a elevação de privilégios |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
 
-## <a name="november-guest-os"></a>SO de convidado de Novembro
+## <a name="november-2015-guest-os"></a>SO de convidado de Novembro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Atualização de segurança cumulativa para o Internet Explorer |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
@@ -588,7 +588,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-122 |[3105256] |Atualização de segurança do Kerberos abordar a desativação da funcionalidade de segurança |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
 | Consultoria de segurança da Microsoft |[3097966] |Inadvertidamente divulgada poderia certificados digitais permitir spoofing |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
 
-## <a name="october-guest-os"></a>SO de convidado de Outubro
+## <a name="october-2015-guest-os"></a>SO de convidado de Outubro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Atualização de segurança cumulativa para o Internet Explorer |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
@@ -597,7 +597,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-111 |[3096447] |Atualização de segurança para o Kernel do Windows resolver a elevação de privilégios |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
 | Consultoria de segurança da Microsoft |[3092627] |Atualização de Setembro de 2015 para corrigir o Windows ou aplicativo congela depois de instalar a atualização de segurança 3076895 |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
 
-## <a name="september-guest-os"></a>SO de convidado de Setembro
+## <a name="september-2015-guest-os"></a>SO de convidado de Setembro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Atualização de segurança para o Internet Explorer |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
@@ -609,7 +609,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-102 |[3089657] |Vulnerabilidades no gerenciamento de tarefas do Windows poderiam permitir elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
 | MS15-105 |[3091287] |Vulnerabilidade no Windows Hyper-V poderia permitir a desativação da funcionalidade de segurança |4.24 |8 de Setembro de 2015 |
 
-## <a name="august-guest-os"></a>SO de convidado de Agosto
+## <a name="august-2015-guest-os"></a>SO de convidado de Agosto de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Atualização de segurança cumulativa para o Internet Explorer |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
@@ -621,7 +621,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-089 |[3060716] |Vulnerabilidades no Microsoft Windows poderiam permitir elevação de privilégios |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
 | MS15-090 |[3076949] |Vulnerabilidade no WebDAV poderia permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
 
-## <a name="july-guest-os"></a>SO de convidado de Julho
+## <a name="july-2015-guest-os"></a>SO de convidado de Julho de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Atualização de segurança cumulativa para o Internet Explorer |4.22, 3.29, 2.41 |14 de Julho de 2015 |
@@ -638,7 +638,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-077 |[3077657] |Vulnerabilidade no Driver de tipo de letra de ATM poderia permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | ND |[3057154] |Atualizar para restringir a utilização da encriptação DES |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 
-## <a name="june-guest-os"></a>SO de convidado de Junho
+## <a name="june-2015-guest-os"></a>SO de convidado de Junho de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Atualização de segurança cumulativa para o Internet Explorer |4.21, 3.28, 2.40 |9 de Junho de 2015 |
@@ -648,7 +648,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-062 |[3062577] |Vulnerabilidade nos serviços de Federação do Active Directory poderia permitir elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
 | MS15-063 |[3063858] |Vulnerabilidade no Windows Kernel poderia permitir elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
 
-## <a name="may-guest-os"></a>Talvez o SO convidado
+## <a name="may-2015-guest-os"></a>SO de convidado de Maio de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Atualização de segurança cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |12 de Maio de 2015 |
@@ -671,12 +671,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-042 |[3047234] |Vulnerabilidade no Windows Hyper-V poderia permitir Negação de serviço |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 | ND |[3045755] |Atualização para melhorar de autenticação PKU2U |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 
-## <a name="april-guest-os"></a>SO de convidado de Abril
+## <a name="april-2015-guest-os"></a>SO de convidado de Abril de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Vulnerabilidade no HTTP. sys poderia permitir a execução remota de código |4.19, 3.26, 2.38 |17 de Abril de 2015 |
 
-## <a name="march-guest-os"></a>Março de SO convidado
+## <a name="march-2015-guest-os"></a>SO de convidado de Março de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Atualização de segurança cumulativa para o Internet Explorer |4.18, 3.25, 2.37 |N/A |
@@ -696,7 +696,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 >
 >
 
-## <a name="february-guest-os"></a>SO de convidado de Fevereiro
+## <a name="february-2015-guest-os"></a>SO de convidado de Fevereiro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Atualização de segurança para o Internet Explorer |4.17, 3.24, 2.36 |N/A |
@@ -707,7 +707,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-016 |[3029944] |Vulnerabilidade no componente Microsoft gráficos poderia permitir a divulgação de informações |4.17, 3.24, 2.36 |N/A |
 | N/A |[3004375] |Auditoria da linha de comando de atualização para melhorar o Windows<p/>**Tenha em atenção**: Isto foi instalado, mas a chave de registo para ativá-la está desativada |4.17, 3.24, 2.36 |N/A |
 
-## <a name="january-guest-os"></a>SO de convidado de Janeiro
+## <a name="january-2015-guest-os"></a>SO de convidado de Janeiro de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Vulnerabilidade no Windows AppCompatCache poderia permitir elevação de privilégios |4.16, 3.23, 2.35 |19 de Janeiro de 2015 |
@@ -723,7 +723,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-002 |[3020393] |Vulnerabilidade no serviço do Windows Telnet poderia fazer com que a execução remota de código |4.16, 3.23, 2.35 |19 de Janeiro de 2015 |
 
 
-## <a name="december-guest-os"></a>SO de convidado de Dezembro
+## <a name="december-2014-guest-os"></a>SO de convidado de Dezembro de 2014
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | N/A |[3013776] |Sistema congela ao utilizar uma conta de domínio para iniciar um aplicativo |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |

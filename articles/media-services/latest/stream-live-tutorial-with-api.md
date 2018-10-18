@@ -4,7 +4,7 @@ description: Este tutorial explica os passos da transmissão em fluxo em direto 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 82ef04993b597778c808d649032603a0f3672e4c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110335"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392340"
 ---
 # <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Transmissão em fluxo em direto com os Serviços de Multimédia v3 com .NET Core
 
@@ -80,19 +80,9 @@ O exemplo cria um sufixo exclusivo para cada recurso para não ocorrerem colisõ
  
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
 
-Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com base nas credenciais fornecidas no ficheiro de configuração local.  
+Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com base nas credenciais fornecidas no ficheiro de configuração local. 
 
-```csharp
-private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
-{
-    var credentials = await GetCredentialsAsync(config);
-
-    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
-    {
-        SubscriptionId = config.SubscriptionId,
-    };
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-a-live-event"></a>Criar um evento em direto
 
@@ -110,63 +100,13 @@ Algumas outras coisas que pode querer especificar ao criar o evento em direto s�
 
 Ao criar o evento, poderá especificar o início automático do mesmo. 
 
-```csharp
-Console.WriteLine($"Creating a live event named {liveEventName}");
-Console.WriteLine();
-
-LiveEventPreview liveEventPreview = new LiveEventPreview
-{
-    AccessControl = new LiveEventPreviewAccessControl(
-        ip: new IPAccessControl(
-            allow: new IPRange[]
-            {
-                new IPRange (
-                    name: "AllowAll",
-                    address: "0.0.0.0",
-                    subnetPrefixLength: 0
-                )
-            }
-        )
-    )
-};
-
-// This can sometimes take awhile. Be patient.
-LiveEvent liveEvent = new LiveEvent(
-    location: mediaService.Location, 
-    description:"Sample LiveEvent for testing",
-    vanityUrl:false,
-    encoding: new LiveEventEncoding(
-                // Set this to Basic to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
-                encodingType:LiveEventEncodingType.None, 
-                presetName:null
-            ),
-    input: new LiveEventInput(LiveEventInputProtocol.RTMP), 
-    preview: liveEventPreview,
-    streamOptions: new List<StreamOptionsFlag?>()
-    {
-        // Set this to Default or Low Latency.
-        // Low latency reduces the amount of buffering Media Services does.
-        // Low latency can also reduce the stability of the live stream. 
-        StreamOptionsFlag.Default
-    }
-);
-
-Console.WriteLine($"Creating the LiveEvent, be patient this can take time...");
-liveEvent = client.LiveEvents.Create(config.ResourceGroup, config.AccountName, liveEventName, liveEvent, autoStart:true);
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>Obter URLs de inserção
 
 Assim que o canal seja criado, pode obter os URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
 
-
-```csharp
-// Get the input endpoint to configure the on-premises encoder with
-string ingestUrl = liveEvent.Input.Endpoints.First().Url;
-Console.WriteLine($"The ingest url to configure the on-premises encoder with is:");
-Console.WriteLine($"\t{ingestUrl}");
-Console.WriteLine();
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
 ### <a name="get-the-preview-url"></a>Obter o URL de pré-visualização
 
@@ -175,16 +115,7 @@ Utilize o previewEndpoint para pré-visualizar e certifique-se de que a entrada 
 > [!IMPORTANT]
 > Certifique-se de que o vídeo está a fluir para o URL de pré-visualização antes de continuar!
 
-```sharp
-string previewEndpoint = liveEvent.Preview.Endpoints.First().Url;
-Console.WriteLine($"The preview url is:");
-Console.WriteLine($"\t{previewEndpoint}");
-Console.WriteLine();
-
-Console.WriteLine($"Open the live preview in your browser and use the Azure Media Player to monitor the preview playback:");
-Console.WriteLine($"\thttps://ampdemo.azureedge.net/?url={previewEndpoint}");
-Console.WriteLine();
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
 ### <a name="create-and-manage-liveevents-and-liveoutputs"></a>Criar e gerir LiveEvents e LiveOutputs
 
@@ -192,46 +123,22 @@ Assim que a transmissão em fluxo estiver a ser enviada para o LiveEvent, pode i
 
 #### <a name="create-an-asset"></a>Criar um Elemento
 
-Crie um Elemento para LiveOutput a utilizar.
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
 
-```csharp
-string assetName = "archiveAsset" + uniqueness;
-Console.WriteLine($"Creating an asset named {assetName}");
-Console.WriteLine();
-Asset asset = client.Assets.CreateOrUpdate(config.ResourceGroup, config.AccountName, assetName, new Asset());
-```
+Crie um Elemento para LiveOutput a utilizar.
 
 #### <a name="create-a-liveoutput"></a>Criar um LiveOutput
 
-```csharp
-string manifestName = "output";
-string liveOutputName = "liveOutput" + uniqueness;
-Console.WriteLine($"Creating a live output named {liveOutputName}");
-Console.WriteLine();
-
-LiveOutput liveOutput = new LiveOutput(assetName: asset.Name, manifestName: manifestName, archiveWindowLength: TimeSpan.FromMinutes(10));
-liveOutput = client.LiveOutputs.Create(config.ResourceGroup, config.AccountName, liveEventName, liveOutputName, liveOutput);
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
 #### <a name="create-a-streaminglocator"></a>Criar um StreamingLocator
 
 > [!NOTE]
 > Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
 
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateStreamingLocator)]
 
 ```csharp
-StreamingLocator locator = new StreamingLocator(assetName: assetName, streamingPolicyName: PredefinedStreamingPolicy.ClearStreamingOnly);
-locator = client.StreamingLocators.Create(config.ResourceGroup, config.AccountName, streamingLocatorName, locator);
-
-// Get the default Streaming Endpoint on the account
-StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(config.ResourceGroup, config.AccountName, "default");
-
-// If it's not running, Start it. 
-if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
-{
-    Console.WriteLine("Streaming Endpoint was Stopped, restarting now..");
-    client.StreamingEndpoints.Start(config.ResourceGroup, config.AccountName, "default");
-}
 
 // Get the url to stream the output
 ListPathsResponse paths = await client.StreamingLocators.ListPathsAsync(resourceGroupName, accountName, locatorName);
@@ -255,65 +162,11 @@ Se terminar a transmissão em fluxo de eventos e pretende limpar os recursos apr
 * Pare o LiveEvent. Assim que o LiveEvent estiver parado, não será cobrado qualquer custo. Quando quiser reiniciar a transmissão, esta terá o mesmo URL de inserção, desta forma, não terá de reconfigurar o codificador.
 * Pode parar o seu StreamingEndpoint, a menos que pretenda continuar a fornecer o arquivo do seu evento em direto como uma transmissão em fluxo a pedido. Se o LiveEvent estiver num estado parado, não será cobrado qualquer custo.
 
-```csharp
-private static void CleanupLiveEventAndOutput(IAzureMediaServicesClient client, string resourceGroup, string accountName, string liveEventName, string liveOutputName)
-{
-    // Delete the LiveOutput
-    client.LiveOutputs.Delete(resourceGroup, accountName, liveEventName, liveOutputName);
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
-    // Stop and delete the LiveEvent
-    client.LiveEvents.Stop(resourceGroup, accountName, liveEventName);
-    client.LiveEvents.Delete(resourceGroup, accountName, liveEventName);
-}
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
-private static void CleanupLocatorAssetAndStreamingEndpoint(IAzureMediaServicesClient client, string resourceGroup, string accountName, string streamingLocatorName, string assetName)
-{
-    // Delete the Streaming Locator
-    client.StreamingLocators.Delete(resourceGroup, accountName, streamingLocatorName);
-
-    // Delete the Archive Asset
-    client.Assets.Delete(resourceGroup, accountName, assetName);
-}
-
-private static void CleanupAccount(IAzureMediaServicesClient client, string resourceGroup, string accountName)
-{
-    try{
-        Console.WriteLine("Cleaning up the resources used, stopping the LiveEvent. This can take a few minutes to complete.");
-        Console.WriteLine();
-
-        var events = client.LiveEvents.List(resourceGroup, accountName);
-        
-        foreach (LiveEvent l in events)
-        {
-            if (l.Name == liveEventName){
-                var outputs = client.LiveOutputs.List(resourceGroup, accountName, l.Name);
-
-                foreach (LiveOutput o in outputs)
-                {
-                    client.LiveOutputs.Delete(resourceGroup, accountName, l.Name, o.Name);
-                    Console.WriteLine($"LiveOutput: {o.Name} deleted from LiveEvent {l.Name}. The archived Asset and Streaming URLs are still retained for on-demand viewing.");
-                }
-
-                if (l.ResourceState == LiveEventResourceState.Running){
-                    client.LiveEvents.Stop(resourceGroup, accountName, l.Name);
-                    Console.WriteLine($"LiveEvent: {l.Name} Stopped.");
-                    client.LiveEvents.Delete(resourceGroup, accountName, l.Name);
-                    Console.WriteLine($"LiveEvent: {l.Name} Deleted.");
-                    Console.WriteLine();
-                }
-            }
-        }
-    } 
-    catch(ApiErrorException e)
-    {
-        Console.WriteLine("Hit ApiErrorException");
-        Console.WriteLine($"\tCode: {e.Body.Error.Code}");
-        Console.WriteLine($"\tCode: {e.Body.Error.Message}");
-        Console.WriteLine();
-
-    }
-}
-```        
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## <a name="watch-the-event"></a>Ver o evento
 

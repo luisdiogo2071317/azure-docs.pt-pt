@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9eea0cabebb67095d4c6c813e7d13c885a447db4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 24b4cbe0eb13a41ccd6ae98db90d4bf0cf7d22a7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378895"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311223"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Monitorizar contentores do Windows no Service Fabric com o Log Analytics
 
@@ -42,7 +42,7 @@ Antes de começar este tutorial, tem de:
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Configurar o Log Analytics com o seu cluster no modelo do Resource Manager
 
-Caso tenha utilizado o [modelo disponibilizado](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) na primeira parte deste tutorial, o mesmo deveria incluir as adições seguintes aos modelos do Azure Resource Manager genéricos do Service Fabric. Se quiser configurar o seu próprio cluster para monitorizar contentores com o Log Analytics:
+Caso tenha utilizado o [modelo disponibilizado](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) na primeira parte deste tutorial, o mesmo deveria incluir as adições seguintes aos modelos do Azure Resource Manager genéricos do Service Fabric. Se quiser configurar o seu próprio cluster para monitorizar contentores com o Log Analytics:
 
 * Faça as alterações seguintes ao modelo do Resource Manager.
 * Implemente-o com o PowerShell para atualizar o cluster mediante a [implementação do modelo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). O Azure Resource Manager apercebe-se de que o recurso existe, pelo que o implementa como uma atualização.

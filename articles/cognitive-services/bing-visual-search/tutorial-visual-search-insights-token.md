@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222578"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386439"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutorial: ImageInsightsToken e resultados do SDK de Pesquisa Visual do Bing
 O SDK de Pesquisa Visual inclui uma opção para localizar imagens online a partir de uma pesquisa anterior, que devolve um `ImageInsightsToken`.  Neste exemplo obtém um `ImageInsightsToken` e utiliza o token numa pesquisa subsequente.  O código envia o `ImageInsightsToken` para o Bing e devolve resultados que incluem os URLs de Pesquisa do Bing e os URLs de imagens semelhantes encontradas online.
@@ -25,7 +25,7 @@ O Visual Studio 2017. Se necessário, pode transferir a versão gratuita da comu
 É necessária uma chave de API de serviços cognitivos para autenticar as chamadas SDK. Inscreva-se numa chave de avaliação gratuita. A chave de avaliação é válida durante sete dias, com uma chamada por segundo. Para cenários de produção, compre uma chave de acesso. Veja também as informações sobre preços.
 A capacidade de executar o SDK do .NET, aplicações do .net core 1.1. Pode obter o CORE, o Framework e o Runtime aqui: https://www.microsoft.com/net/download/.
 
-##<a name="application-dependencies"></a>Dependências da aplicação
+## <a name="application-dependencies"></a>Dependências da aplicação
 Para configurar a aplicação de consola através do SDK de Pesquisa na Web do Bing, aceda à opção Gerir Pacotes NuGet a partir do Explorador de Soluções no Visual Studio. Adicionar:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
 * Pacotes de Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage.
@@ -37,7 +37,8 @@ A instalação do pacote do SDK de Pesquisa na Web do NuGet também instala as d
 * Newtonsoft.Json
 
 ## <a name="get-the-imageinsightstoken-from-image-search"></a>Obter o ImageInsightsToken da Pesquisa de Imagens
-Este exemplo utiliza um `ImageInsightsToken` obtido pelo método seguinte.  Para obter mais informações sobre esta chamada, veja [Início rápido de C# no SDK de Pesquisa de Imagens](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
+
+Este exemplo utiliza um `ImageInsightsToken` obtido pelo método seguinte.  Para obter mais informações sobre esta chamada, veja [Início rápido de C# no SDK de Pesquisa de Imagens](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
 O código procura os resultados de uma consulta para "Canadian Rockies" e obtém um ImageInsightsToken. Imprime o token de informações, o url da miniatura e um url de conteúdo de imagem da primeira imagem.  O método devolve o `ImageInsightsToken` para utilização num pedido de Pesquisa Visual subsequente.
 
@@ -86,12 +87,15 @@ O código procura os resultados de uma consulta para "Canadian Rockies" e obtém
 ```
 
 ## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>Especificar o ImageInsightsToken para pedido de Pesquisa Visual
+
 Este exemplo utiliza o token de informações devolvido pelo método anterior. O código seguinte cria um objeto `ImageInfo` a partir do `ImageInsightsToken` e carrega o objeto ImageInfo para um `VisualSearchRequest`. Especificar `ImageInsightsToken` num `ImageInfo` para o `VisualSearchRequest`
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
+
 ## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>Utilize a Pesquisa Visual para localizar imagens de um ImageInsightsToken
+
 O `VisualSearchRequest` contém informações sobre a imagem a procurar no objeto `ImageInfo`.  O método `VisualSearchMethodAsync` obtém os resultados.
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
@@ -135,7 +139,8 @@ Obter os URLs da imagem atual requer uma conversão que lê um `ActionType` como
         }
     }
 ```
-Para obter mais informações sobre estes tipos de dados, veja [Imagens - Pesquisa Visual](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+Para obter mais informações sobre estes tipos de dados, veja [Imagens - Pesquisa Visual](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+
 ## <a name="complete-code"></a>Código completo
 
 O código seguinte executa os exemplos anteriores. Envia o `ImageInsightsToken` num pedido post. Em seguida, imprime os URLs de pesquisa do Bing para cada ActionType. Se o ActionType for `PagesIncluding`, o código obtém os itens `ImageObject` no `Data`.  Os `Data` contêm uma lista de valores, que são os URLs de imagens em páginas Web.  Copie e cole os URLs resultantes da Pesquisa Visual no browser, para que os resultados sejam apresentados. Copie e cole os itens de ContentUrl no browser, para que as imagens sejam apresentadas.
@@ -283,5 +288,6 @@ namespace VisualSearchFeatures
 }
 
 ```
+
 ## <a name="next-steps"></a>Passos seguintes
 [Resposta da Pesquisa Visual](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

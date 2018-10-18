@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 04cdfd487036e79eccbb4fb879902a12e077d104
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434777"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341655"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em C# no .NET Core no Windows com o SDK de Voz
 
@@ -61,7 +61,7 @@ Depois de o pacote ser instalado, é apresentada uma mensagem de confirmação n
 
 1. Abra `Program.cs` e substitua todo o código no mesmo pelo seguinte.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
@@ -81,7 +81,7 @@ Depois de o pacote ser instalado, é apresentada uma mensagem de confirmação n
 
 1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. A sua voz é transmitida ao serviço de Voz e convertida para texto que é apresentado na mesma janela.
 
-    ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Saída da consola após o reconhecimento bem-sucedido")
+    ![Captura de ecrã a mostrar o resultado da consola após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Resultado da consola após o reconhecimento bem-sucedido")
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/csharp-dotnetcore-windows`.

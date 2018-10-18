@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920605"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362896"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -92,7 +92,7 @@ Para saber mais sobre as permissões necessárias para criar um peering de rede 
 
 Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize uma ligação de peering de rede virtual. Para obter mais informações sobre o VNet Peering e os preços do Global VNet Peering, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 
-O trânsito do gateway é uma propriedade de peering que permite a uma rede virtual utilizar um gateway de VPN na rede virtual no modo de peering e, assim, permitir a conetividade entre vários locais ou VNet a VNet. O tráfego que passa através de um gateway remoto neste cenário está sujeito a [custos de gateway de VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) e não incorre em [custos de VNet peering](https://azure.microsoft.com/pricing/details/virtual-network). Por exemplo, se a VNetA tiver um gateway de VPN para conectividade no local e a VNetB estiver ligada à VNetA com as propriedades adequadas configuradas, o tráfego da VNetB no local apenas é cobrado por gateway VPN. Não se aplicam custos de VNet peering. Saiba como [configurar o trânsito do gateway de VPN para peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+O trânsito do gateway é uma propriedade de peering que permite a uma rede virtual utilizar um gateway de VPN na rede virtual no modo de peering e, assim, permitir a conetividade entre vários locais ou VNet a VNet. O tráfego que passa através de um gateway remoto neste cenário está sujeito a [custos de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e não incorre em [custos de VNet peering](https://azure.microsoft.com/pricing/details/virtual-network). Por exemplo, se a VNetA tiver um gateway de VPN para conectividade no local e a VNetB estiver ligada à VNetA com as propriedades adequadas configuradas, o tráfego da VNetB no local apenas é cobrado por gateway VPN. Não se aplicam custos de VNet peering. Saiba como [configurar o trânsito do gateway de VPN para peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 

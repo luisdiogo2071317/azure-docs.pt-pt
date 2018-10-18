@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168183"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385911"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Tutorial: bot de LUIS em Node.js
 Com Node.js, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este bot utiliza a aplicação HomeAutomation para implementar uma solução de bot. O bot é criado com o [bot de aplicação Web](https://docs.microsoft.com/azure/bot-service/) do Azure com a versão v4 do [Bot Framework](https://github.com/Microsoft/botbuilder-js).
@@ -38,7 +38,7 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 
-## <a name="create-web-app-bot"></a>Criar o bot de aplicação Web
+## <a name="create-web-app-bot"></a>Criar bot de aplicação Web
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Criar novo recurso**.
 
@@ -49,7 +49,7 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     |Definição|Objetivo|Definição sugerida|
     |--|--|--|
     |Nome do bot|Nome do recurso|`luis-nodejs-bot-` + `<your-name>`, por exemplo, `luis-nodejs-bot-johnsmith`|
-    |Subscrição|Subscrição na qual vai criar bot.|A sua subscrição principal.
+    |Subscrição|Subscrição na qual vai criar o bot.|A sua subscrição principal.
     |Grupo de recursos|Grupo lógico de recursos do Azure|Crie um grupo novo para armazenar todos os recursos utilizados com este bot e dê ao grupo o nome `luis-nodejs-bot-resource-group`.|
     |Localização|Região do Azure - não tem de ser a mesma da região de criação ou publicação do LUIS.|`westus`|
     |Escalão de preço|Utilizado para limites de pedidos de serviço e faturação.|`F0` é o escalão gratuito.
@@ -57,7 +57,7 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     |Modelo de bot|Definições do Bot Framework - veja a tabela seguinte|
     |Localização da Aplicação LUIS|Tem de ser a mesma da região de recursos do LUIS|`westus`|
 
-4. Em **Bot template settings** (Definições de modelos de bot), selecione o seguinte e escolha o botão **Select** (Selecionar) nestas definições:
+4. Em **Definições de modelos de bot**, selecione o seguinte e, em seguida, escolha o botão **Selecionar** nestas definições:
 
     |Definição|Objetivo|Seleção|
     |--|--|--|
@@ -67,12 +67,12 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     
 5. Selecione **Criar**. Esta ação cria e implementa o serviço de bot no Azure. Parte deste processo cria uma aplicação LUIS com o nome `luis-nodejs-bot-XXXX`. Este nome baseia-se no nome do bot e da aplicação na secção anterior.
 
-    [ ![Criar o bot de aplicação Web](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [ ![Criar bot de aplicação Web](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. Deixe este separador do browser aberto. Em qualquer passo no portal do LUIS, abra um novo separador do browser. Avance para a secção seguinte quando o novo serviço de bot for implementado.
 
 ## <a name="add-prebuilt-domain-to-model"></a>Adicionar um domínio pré-criado ao modelo
-Parte da implementação do serviço de bot cria uma aplicação LUIS nova com intenções e expressões de exemplo. O bot fornece o mapeamento de intenções à aplicação LUIS nova relativamente às intenções seguintes: 
+Parte da implementação do serviço de bot cria uma aplicação LUIS nova com intenções e expressões de exemplo. O bot fornece o mapeamento das intenções à nova aplicação LUIS para as intenções seguintes: 
 
 |Intenções do LUIS de bot básico|expressão de exemplo|
 |--|--|
@@ -84,9 +84,9 @@ Parte da implementação do serviço de bot cria uma aplicação LUIS nova com i
 Adicione a aplicação HomeAutomation pré-criada ao modelo para lidar com expressões como: `Turn off the living room lights`
 
 1. Aceda ao portal do [LUIS](https://www.luis.ai) e inicie sessão.
-2. Na página **My Apps** (As Minhas Aplicações), selecione a coluna **Created date** (Data de criação) para ordenar pela data de criação da aplicação. O Azure Bot Service criou uma aplicação nova na secção anterior. O nome é `luis-nodejs-bot-` + `<your-name>` + quatro carateres aleatórios.
+2. Na página **As Minhas Aplicações**, selecione a coluna **Data de criação** para ordenar pela data de criação da aplicação. O Azure Bot Service criou uma aplicação nova na secção anterior. O nome é `luis-nodejs-bot-` + `<your-name>` + quatro carateres aleatórios.
 3. Abra a aplicação e selecione a secção **Build** (Compilar), no painel de navegação superior.
-4. No painel de navegação do lado esquerdo, selecione **Prebuilt Domains** (Domínios Pré-criados).
+4. No painel de navegação esquerdo, selecione **Domínios Pré-criados**.
 5. Selecione **Add domain** (Adicionar domínio) no cartão do domínio **HomeAutomation** para o selecionar.
 6. Selecione **Train** (Preparar), no menu do canto superior direito.
 7. Selecione **Publish** (Publicar), no menu do canto superior direito. 
@@ -101,11 +101,11 @@ Adicione a aplicação HomeAutomation pré-criada ao modelo para lidar com expre
 ## <a name="download-the-web-app-bot"></a>Transferir o bot de aplicação Web 
 Para poder desenvolver o código de bot de aplicação Web, transfira o código e utilize-o no seu computador local. 
 
-1. No portal do Azure, ainda no recurso de bot de aplicação Web, selecione as **Definições da Aplicação** e copie os valores de **botFilePath** e **botFileSecret**. Tem de as adicionar a um ficheiro de ambiente mais tarde. 
+1. No portal do Azure, ainda no recurso de bot de aplicação Web, selecione as **Definições da Aplicação** e copie os valores de **botFilePath** e **botFileSecret**. Tem de adicioná-los a um ficheiro de ambiente mais tarde. 
 
 2. No portal do Azure, selecione **Compilar**, na secção **Gestão de bot**. 
 
-3. Selecione **Transferir o código de origem do Bot**. 
+3. Selecione **Transferir o código-fonte de Bot**. 
 
     [ ![Transferir o código de origem do bot de aplicação Web para um bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
@@ -183,7 +183,7 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
     }
     ```
 
-    O bot envia a expressão do utilizador para o LUIS e obtém os resultados. A intenção principal determina o fluxo de conversação. 
+    O bot envia a expressão do utilizador ao LUIS e obtém os resultados. A intenção principal determina o fluxo de conversação. 
 
 
 ## <a name="start-the-bot"></a>Iniciar o bot
@@ -350,9 +350,9 @@ No ficheiro `bot.js`, adicione o código para processar as novas intenções.
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 O serviço Azure Bot utiliza o Bot Framework SDK. Saiba mais sobre o SDK e o Bot Framework:
 
-* Documentação do [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* Documentação do [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
 * [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples) (Exemplos do Bot Builder)
-* [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools) (Ferramentas do Bot Builder):
 
 ## <a name="next-steps"></a>Passos seguintes

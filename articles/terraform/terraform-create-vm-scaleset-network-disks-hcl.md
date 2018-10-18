@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666200"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389620"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -38,15 +38,15 @@ Neste tutorial, irá aprender a utilizar o [Azure Cloud Shell](/azure/cloud-shel
 
 - **Instalar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Criar um par de chaves SSH**: Se ainda não tiver um par de chaves SSH, siga as instruções no artigo [Como criar e utilizar um par de chaves público e privado SSH para VMs do Linux no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Criar um par de chaves SSH**: Se ainda não tiver um par de chaves SSH, siga as instruções no artigo [Como criar e utilizar um par de chaves público e privado SSH para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
 1. Navegue para o [portal do Azure](http://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
 1. Altere os diretórios para o diretório `clouddrive`.
 
